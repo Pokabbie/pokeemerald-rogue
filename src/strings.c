@@ -338,6 +338,8 @@ const u8 gText_NumberItem_TMBerry[] = _("{NO}{STR_VAR_1}{CLEAR 0x07}{STR_VAR_2}"
 const u8 gText_NumberItem_HM[] = _("{CLEAR_TO 0x11}{STR_VAR_1}{CLEAR 0x05}{STR_VAR_2}");
 const u8 gText_SizeSlash[] = _("SIZE /");
 const u8 gText_FirmSlash[] = _("FIRM /");
+const u8 gText_Produces[] = _("PRODUCES /");
+const u8 gText_Nothing[] = _("Nothing");
 const u8 gText_Var1DotVar2[] = _("{STR_VAR_1}.{STR_VAR_2}”");
 
 // Berry firmness strings
@@ -1394,6 +1396,8 @@ ALIGNED(4) const u8 gText_Facility[] = _("{STR_VAR_1}");
 const u8 gText_Give[] = _("Give");
 const u8 gText_NoNeed[] = _("No need");
 const u8 gText_ColorLightShadowDarkGray[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}");
+const u8 gText_ColorRed[] = _("{COLOR RED}");
+const u8 gText_ColorGreen[] = _("{COLOR GREEN}");
 const u8 gText_ColorBlue[] = _("{COLOR BLUE}");
 const u8 gText_ColorTransparent[] = _("{HIGHLIGHT TRANSPARENT}{COLOR TRANSPARENT}");
 const u8 gText_CDot[] = _("C.");

@@ -382,6 +382,19 @@ script Rogue_Shop_Charms
     release
 }
 
+script Rogue_Shop_Berries
+{    
+    lock
+    faceplayer
+    message("Welcome!\nWould you like to buy some berries?")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_BERRIES)
+
+    msgbox("Come again soon!")
+    release
+}
+
 script RogueSafari_Sign_South
 {
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))

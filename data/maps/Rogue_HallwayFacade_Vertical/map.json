@@ -13,51 +13,6 @@
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
-    {
-      "direction": "up",
-      "offset": -6,
-      "map": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE"
-    },
-    {
-      "direction": "up",
-      "offset": -6,
-      "map": "MAP_ROGUE_AREA_FARMING_FIELD"
-    },
-    {
-      "direction": "down",
-      "offset": -6,
-      "map": "MAP_ROGUE_AREA_FARMING_FIELD"
-    },
-    {
-      "direction": "up",
-      "offset": -6,
-      "map": "MAP_ROGUE_AREA_HOME"
-    },
-    {
-      "direction": "up",
-      "offset": -16,
-      "map": "MAP_ROGUE_AREA_TOWN_SQUARE"
-    },
-    {
-      "direction": "down",
-      "offset": -16,
-      "map": "MAP_ROGUE_AREA_TOWN_SQUARE"
-    },
-    {
-      "direction": "up",
-      "offset": -18,
-      "map": "MAP_ROGUE_AREA_RIDE_TRAINING"
-    },
-    {
-      "direction": "down",
-      "offset": -18,
-      "map": "MAP_ROGUE_AREA_RIDE_TRAINING"
-    },
-    {
-      "direction": "up",
-      "offset": -14,
-      "map": "MAP_ROGUE_AREA_SAFARI_ZONE_TUTORIAL"
-    }
   ],
   "object_events": [
 

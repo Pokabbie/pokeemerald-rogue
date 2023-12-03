@@ -1285,18 +1285,18 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         case ITEM_FLUFFY_TAIL:
         case ITEM_SOOTHE_BELL:
 
-        case ITEM_DURIN_BERRY:
-        case ITEM_PAMTRE_BERRY:
-        case ITEM_NOMEL_BERRY:
+        //case ITEM_DURIN_BERRY:
+        //case ITEM_PAMTRE_BERRY:
+        //case ITEM_NOMEL_BERRY:
         case ITEM_PINAP_BERRY:
         case ITEM_NANAB_BERRY:
         case ITEM_RAZZ_BERRY:
         case ITEM_ENIGMA_BERRY:
-        case ITEM_BELUE_BERRY:
-        case ITEM_WATMEL_BERRY:
-        case ITEM_SPELON_BERRY:
-        case ITEM_RABUTA_BERRY:
-        case ITEM_CORNN_BERRY:
+        //case ITEM_BELUE_BERRY:
+        //case ITEM_WATMEL_BERRY:
+        //case ITEM_SPELON_BERRY:
+        //case ITEM_RABUTA_BERRY:
+        //case ITEM_CORNN_BERRY:
         case ITEM_WEPEAR_BERRY:
         case ITEM_BLUK_BERRY:
 
@@ -1307,8 +1307,9 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         case ITEM_IAPAPA_BERRY:
         case ITEM_MAGO_BERRY:
         case ITEM_FIGY_BERRY:
-        case ITEM_MAGOST_BERRY:
+        //case ITEM_MAGOST_BERRY:
 #ifdef ROGUE_EXPANSION
+        case ITEM_ENIGMA_BERRY_E_READER:
 
         // Not implemented/needed
         case ITEM_MAX_HONEY:

@@ -1,0 +1,153 @@
+const FLAG_HIDE_BIRCH = FLAG_TEMP_1
+
+const VAR_RETURN_STATE = VAR_TEMP_0
+
+const OBJ_EVENT_BIRCH = 5
+
+mapscripts Rogue_Area_Labs_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_Labs_OnMapLoad
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_RETURN_STATE, 0: Rogue_Area_Labs_WarpState0
+    ]
+}
+
+script Rogue_Area_Labs_OnMapLoad
+{
+    if(flag(FLAG_ROGUE_DEBUG_DISABLED))
+    {
+        fillmetatile(10, 17, 11, 17, METATILE_GeneralHub_Grass, FALSE)
+    }
+
+    if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_SPAWN)
+    {
+        clearflag(FLAG_HIDE_BIRCH)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_BIRCH)
+    }
+}
+
+script Rogue_Area_Labs_WarpState0
+{
+    if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_SPAWN)
+    {
+        call(Rogue_Area_Labs_StartGame)
+    }
+    setvar(VAR_RETURN_STATE, 1)
+}
+
+script Rogue_Area_Labs_StartGame
+{
+    lock
+
+    applymovement(OBJ_EVENT_BIRCH, BirchStartGame0)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerStartGame0)
+    waitmovement(0)
+
+    msgbox(format("BIRCH: There you are!\nBack up on your feet now!\pYou seem fine, but perhaps it would be a good idea for you to have a wander around {POKEMON_HUB} to refresh your memory.\pOnce you're ready, come and find me in my lab."))
+    closemessage
+
+    applymovement(OBJ_EVENT_BIRCH, BirchStartGame1)
+    waitmovement(0)
+
+    opendoor(8, 8)
+    waitdooranim
+
+    applymovement(OBJ_EVENT_BIRCH, BirchStartGame2)
+    waitmovement(0)
+    hideobjectat(OBJ_EVENT_BIRCH, MAP_ROGUE_AREA_LABS)
+
+    closedoor(8, 8)
+    waitdooranim
+
+    addvar(VAR_ROGUE_INTRO_STATE, 1)
+    release
+}
+
+movement BirchStartGame0 
+{
+    walk_in_place_right
+}
+
+movement PlayerStartGame0 
+{
+    face_left
+}
+
+movement BirchStartGame1
+{
+    walk_left
+    walk_up * 3
+}
+
+movement BirchStartGame2
+{
+    walk_up
+}
+
+script Rogue_Area_Labs_LabSign
+{
+    msgbox(format("Prof. Birch's Lab"), MSGBOX_SIGN)
+}
+
+script Rogue_Area_Labs_ConfigSign
+{
+    msgbox(format("Config Lab"), MSGBOX_SIGN)
+}
+
+script Rogue_Area_Labs_TalkBackpacker
+{
+    lock
+    faceplayer
+
+    msgbox(format("Hi there {PLAYER}!"))
+
+    specialvar(VAR_0x8004, Rogue_GetBagCapacityUpgradeLevel)
+
+    if(var(VAR_0x8004) == ITEM_BAG_MAX_CAPACITY_UPGRADE)
+    {
+        msgbox(format("I hope that bag's working out well for you!"))
+    }
+    else
+    {
+        special(Rogue_BufferBagUpgradeCost)
+
+        showmoneybox(0, 0)
+        msgbox(format("I can upgrade your bag for ¥{STR_VAR_2}, if you'd like?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            special(Rogue_CheckBagUpgradeCost)
+
+            if(var(VAR_RESULT) == YES)
+            {
+                special(Rogue_RemoveBagUpgradeCost)
+                updatemoneybox
+
+                playse(SE_SHOP)
+                waitse
+            
+                special(Rogue_IncreaseBagCapacityUpgradeLevel)
+                message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}Upgraded bag size!"))
+                waitmessage
+                playfanfare(MUS_LEVEL_UP)
+                waitfanfare
+            }
+            else
+            {
+                msgbox(format("It doesn't look like you have enough money there bud."))
+            }
+        }
+        else
+        {
+            msgbox(format("Sure! You're busy!\pI get that!"))
+        }
+
+        hidemoneybox
+    }
+
+    release
+}

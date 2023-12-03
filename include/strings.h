@@ -472,6 +472,8 @@ extern const u8 gText_SizeSlash[];
 extern const u8 gText_Var1DotVar2[];
 extern const u8 gText_ThreeMarks[];
 extern const u8 gText_FirmSlash[];
+extern const u8 gText_Produces[];
+extern const u8 gText_Nothing[];
 
 // item menu screen text
 extern const u8 gText_CloseBag[];
@@ -662,6 +664,8 @@ extern const u8 gText_SortedByValue[];
 extern const u8 gText_SortedByAmount[];
 
 extern const u8 gText_ColorLightShadowDarkGray[];
+extern const u8 gText_ColorRed[];
+extern const u8 gText_ColorGreen[];
 extern const u8 gText_ColorBlue[];
 extern const u8 gText_Friend[];
 extern const u8 gText_Tristan[];

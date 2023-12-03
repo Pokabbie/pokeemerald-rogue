@@ -31,7 +31,9 @@ static void MetatileFill_TreeCaps(u16 xStart, u16 yStart, u16 xEnd);
 static void MetatileFill_CommonWarpExitVertical(u16 xStart, u16 yStart);
 static void MetatileFill_CommonWarpExitHorizontal(u16 xStart, u16 yStart);
 
-static void RogueHub_UpdateTownSquareAreaMetatiles();
+static void RogueHub_UpdateGlobalMetatiles();
+
+static void RogueHub_UpdateLabsAreaMetatiles();
 static void RogueHub_UpdateAdventureEntranceAreaMetatiles();
 static void RogueHub_UpdateHomeAreaMetatiles();
 static void RogueHub_UpdateHomeInteriorMetatiles();
@@ -39,6 +41,7 @@ static void RogueHub_UpdateFarmingAreaMetatiles();
 static void RogueHub_UpdateSafariAreaMetatiles();
 static void RogueHub_UpdateRideTrainingAreaMetatiles();
 static void RogueHub_UpdateMartsAreaMetatiles();
+static void RogueHub_UpdateTownSquareAreaMetatiles();
 
 static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea);
 
@@ -71,10 +74,10 @@ void RogueHub_ClearProgress()
     memset(&gRogueSaveBlock->hubMap, 0, sizeof(gRogueSaveBlock->hubMap));
 
     // Build default area at 0,0
-    RogueHub_BuildArea(HUB_AREA_TOWN_SQUARE, 0, 0);
+    RogueHub_BuildArea(HUB_AREA_LABS, 0, 0);
 
     // Place adventure entrance & safari randomly
-    BuildAtRandomConnectionFrom(HUB_AREA_TOWN_SQUARE, HUB_AREA_ADVENTURE_ENTRANCE);
+    BuildAtRandomConnectionFrom(HUB_AREA_LABS, HUB_AREA_ADVENTURE_ENTRANCE);
     BuildAtRandomConnectionFrom(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_SAFARI_ZONE);
 }
 
@@ -387,8 +390,8 @@ void RogueHub_ApplyMapMetatiles()
 {
     switch (gMapHeader.mapLayoutId)
     {
-    case LAYOUT_ROGUE_AREA_TOWN_SQUARE:
-        RogueHub_UpdateTownSquareAreaMetatiles();
+    case LAYOUT_ROGUE_AREA_LABS:
+        RogueHub_UpdateLabsAreaMetatiles();
         break;
     case LAYOUT_ROGUE_AREA_ADVENTURE_ENTRANCE:
         RogueHub_UpdateAdventureEntranceAreaMetatiles();
@@ -417,34 +420,44 @@ void RogueHub_ApplyMapMetatiles()
     case LAYOUT_ROGUE_AREA_MARTS:
         RogueHub_UpdateMartsAreaMetatiles();
         break;
+
+    case LAYOUT_ROGUE_AREA_TOWN_SQUARE:
+        RogueHub_UpdateTownSquareAreaMetatiles();
+        break;
     
     default:
         break;
     }
 
+    RogueHub_UpdateGlobalMetatiles();
 }
 
-static void RogueHub_UpdateTownSquareAreaMetatiles()
+static void RogueHub_UpdateGlobalMetatiles()
+{
+    // TODO - Path options?
+}
+
+static void RogueHub_UpdateLabsAreaMetatiles()
 {
     // Remove connectionss
-    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
         MetatileFill_TreesOverlapping(17, 0, 22, 0, TREE_TYPE_DENSE);
         MetatileFill_TreeStumps(17, 1, 22, TREE_TYPE_DENSE);
     }
 
-    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(28, 11);
     }
 
-    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitVertical(18, 22);
         MetatileFill_TreeCaps(18, 23, 21);
     }
 
-    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(0, 17);
     }
@@ -674,6 +687,32 @@ static void RogueHub_UpdateMartsAreaMetatiles()
     if(RogueHub_GetAreaAtConnection(HUB_AREA_MARTS, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(0, 13);
+    }
+}
+
+static void RogueHub_UpdateTownSquareAreaMetatiles()
+{
+    // Remove connectionss
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_TreesOverlapping(19, 0, 24, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(19, 1, 24, TREE_TYPE_DENSE);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(38, 13);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitVertical(20, 28);
+        MetatileFill_TreeCaps(20, 29, 23);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(0, 7);
     }
 }
 

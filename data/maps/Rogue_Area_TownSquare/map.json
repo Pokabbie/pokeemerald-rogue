@@ -15,44 +15,31 @@
   "connections": [
     {
       "direction": "down",
-      "offset": 16,
+      "offset": 18,
       "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
     },
     {
       "direction": "left",
-      "offset": 16,
+      "offset": 6,
       "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
     },
     {
       "direction": "right",
-      "offset": 10,
+      "offset": 12,
       "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
     },
     {
       "direction": "up",
-      "offset": 16,
+      "offset": 18,
       "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
     }
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_QUEST_BOARD",
-      "x": 24,
-      "y": 10,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
-      "x": 4,
-      "y": 15,
-      "elevation": 3,
+      "x": 27,
+      "y": 12,
+      "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
@@ -62,35 +49,61 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MISC_KALOS_WORKER",
-      "x": 7,
-      "y": 15,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_MISC_BACKPACKER_F",
-      "x": 22,
-      "y": 6,
+      "x": 24,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Area_TownSquare_TalkBackpacker",
+      "script": "Rogue_Area_Labs_TalkBackpacker",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
+      "graphics_id": "OBJ_EVENT_GFX_LINK_RECEPTIONIST",
+      "x": 12,
+      "y": 3,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Shop_Berries",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
+      "x": 10,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_TownSquare_BlendPokeblockMaster",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
+      "x": 14,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_TownSquare_BlendPokeblockNovice",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
       "x": 9,
-      "y": 12,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -98,106 +111,77 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_TEMP_1"
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
+      "x": 15,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 19,
+      "x": 21,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": 0
     },
     {
-      "x": 20,
+      "x": 22,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": 0
     },
     {
-      "x": 29,
-      "y": 13,
+      "x": 39,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": 0
     },
     {
-      "x": 29,
-      "y": 14,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 19,
-      "y": 23,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 20,
-      "y": 23,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 0,
-      "y": 19,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 0,
-      "y": 20,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 10,
-      "y": 17,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_HUB",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 8,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_INTERIOR_PROF_LAB",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 15,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_INTERIOR_CONFIG_LAB",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 10,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 11,
-      "y": 17,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_HUB_DEBUG",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 14,
+      "x": 39,
       "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 21,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 22,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": 0
     }
   ],
@@ -205,21 +189,6 @@
 
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 10,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Rogue_Area_TownSquare_LabSign"
-    },
-    {
-      "type": "sign",
-      "x": 16,
-      "y": 7,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Rogue_Area_TownSquare_ConfigSign"
-    }
+
   ]
 }

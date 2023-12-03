@@ -1572,14 +1572,14 @@
       "blockdata_filepath": "data/layouts/Rogue_Area_FarmingField/map.bin"
     },
     {
-      "id": "LAYOUT_ROGUE_AREA_TOWN_SQUARE",
-      "name": "Rogue_Area_TownSquare_Layout",
+      "id": "LAYOUT_ROGUE_AREA_LABS",
+      "name": "Rogue_Area_Labs_Layout",
       "width": 30,
       "height": 24,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/Rogue_Area_TownSquare/border.bin",
-      "blockdata_filepath": "data/layouts/Rogue_Area_TownSquare/map.bin"
+      "border_filepath": "data/layouts/Rogue_Area_Labs/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_Labs/map.bin"
     },
     {
       "id": "LAYOUT_ROGUE_INTERIOR_PROF_LAB",
@@ -1680,6 +1680,16 @@
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/Rogue_Area_SafariZone_Tutorial/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_SafariZone_Tutorial/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_AREA_TOWN_SQUARE",
+      "name": "Rogue_Area_TownSquare_Layout",
+      "width": 40,
+      "height": 30,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/Rogue_Area_TownSquare/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_TownSquare/map.bin"
     }
   ]
 }

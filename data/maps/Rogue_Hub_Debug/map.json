@@ -358,7 +358,7 @@
       "x": 1,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": 12
     }
   ],

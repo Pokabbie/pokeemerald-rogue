@@ -45,4 +45,6 @@ u32 Rogue_GetTypeFlagsFromArray(const u8* types, u8 count);
 u32 Rogue_GetMonFlags(u16 species);
 bool8 Rogue_CheckMonFlags(u16 species, u32 flag);
 
+u16 Rogue_BerryToPokeblock(u16 berryItem);
+
 #endif

@@ -960,6 +960,9 @@ $(OBJEVENTGFXDIR)/rogue/pc.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/rogue/pc_stand.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
+	
+$(OBJEVENTGFXDIR)/rogue/pokeblock_mixer.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/rogue/devil_man.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
