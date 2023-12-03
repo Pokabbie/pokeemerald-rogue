@@ -5340,6 +5340,30 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_BIG_MALASADA);
 #endif
 
+    // Remove quests unlocks
+    if(!Rogue_IsRunActive())
+    {
+        u16 questId, i, rewardCount;
+        struct RogueQuestRewardNEW const* reward;
+
+        for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
+        {
+            if(!RogueQuest_IsQuestUnlocked(questId) || RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
+            {
+                rewardCount = RogueQuest_GetRewardCount(questId);
+
+                for(i = 0; i < rewardCount; ++i)
+                {
+                    reward = RogueQuest_GetReward(questId, i);
+                    if(reward->type == QUEST_REWARD_SHOP_ITEM)
+                    {
+                        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, reward->perType.shopItem.item);
+                    }
+                }
+            }
+        }
+    }
+
     // Remove EV items
     if(!Rogue_IsRunActive() || !Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
     {
