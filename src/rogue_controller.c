@@ -5270,14 +5270,6 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         else
             *minSalePrice = 2000;
         applyRandomChance = TRUE;
-
-#ifdef ROGUE_EXPANSION
-        // Don't display plates in here? (Maybe we just use a different mechanism and hide any quest rewards?)
-        if(!Rogue_IsRunActive())
-        {
-            RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_FLAME_PLATE, ITEM_PIXIE_PLATE);
-        }
-#endif
         break;
 
     case ROGUE_SHOP_RARE_HELD_ITEMS:

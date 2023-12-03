@@ -1,1 +1,21 @@
-mapscripts Rogue_Area_Marts_MapScripts {}
+const FLAG_SP_HELD_ITEMS_DISABLED = FLAG_TEMP_1
+
+mapscripts Rogue_Area_Marts_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_Marts_OnTransition
+}
+
+script Rogue_Area_Marts_OnTransition
+{
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            setflag(FLAG_SP_HELD_ITEMS_DISABLED)
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            clearflag(FLAG_SP_HELD_ITEMS_DISABLED)
+        }
+    }
+}
