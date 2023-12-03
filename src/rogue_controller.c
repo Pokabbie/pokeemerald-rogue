@@ -5348,8 +5348,9 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 
         for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
         {
-            if(!RogueQuest_IsQuestUnlocked(questId) || RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
+            if(!RogueQuest_HasCollectedRewards(questId))
             {
+                // TODO - If this is slow probably want to break this out to only check items or quests which definately have shop items as rewards
                 rewardCount = RogueQuest_GetRewardCount(questId);
 
                 for(i = 0; i < rewardCount; ++i)
