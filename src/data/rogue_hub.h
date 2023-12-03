@@ -104,6 +104,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_RIDE_TRAINING),
         .areaName = _("Circus"),
+        .buildCost = 1,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {
@@ -119,6 +120,23 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_MARTS),
         .areaName = _("Poké Marts"),
+        .buildCost = 1,
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .connectionWarps = 
+        {
+            [HUB_AREA_CONN_NORTH] = { 0, 1 },
+            [HUB_AREA_CONN_EAST] = { 2, 3 },
+            [HUB_AREA_CONN_SOUTH] = { 4, 5 },
+            [HUB_AREA_CONN_WEST] = { 6, 7 },
+        },
+        .iconImage = gItemIcon_Potion,
+        .iconPalette = gItemIconPalette_Potion,
+    },
+    [HUB_AREA_TOWN_SQUARE] = 
+    {
+        SET_AREA_PRIMARY_MAP(ROGUE_AREA_TOWN_SQUARE),
+        .areaName = _("Town Square"),
+        .buildCost = 1,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {

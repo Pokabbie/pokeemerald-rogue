@@ -44,7 +44,8 @@
     "Rogue_Area_SafariZone",
     "Rogue_Area_SafariZone_Tutorial",
     "Rogue_Area_RideTraining",
-    "Rogue_Area_Marts"
+    "Rogue_Area_Marts",
+    "Rogue_Area_TownSquare"
   ],
   "gMapGroup_RogueHubInteriors": [
     "Rogue_Interior_Home",

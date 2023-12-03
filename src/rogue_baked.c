@@ -1613,3 +1613,169 @@ bool8 Rogue_CheckMonFlags(u16 species, u32 flags)
 {
     return (Rogue_GetMonFlags(species) & flags) == flags;
 }
+
+u16 Rogue_BerryToPokeblock(u16 berryItem)
+{
+    switch (berryItem)
+    {
+    case ITEM_APICOT_BERRY:
+    case ITEM_GREPA_BERRY:
+        return ITEM_POKEBLOCK_SPDEF;
+
+    case ITEM_GANLON_BERRY:
+    case ITEM_QUALOT_BERRY:
+        return ITEM_POKEBLOCK_DEF;
+
+    case ITEM_HONDEW_BERRY:
+    case ITEM_PETAYA_BERRY:
+        return ITEM_POKEBLOCK_SPATK;
+
+    case ITEM_KELPSY_BERRY:
+    case ITEM_LIECHI_BERRY:
+        return ITEM_POKEBLOCK_ATK;
+
+    case ITEM_ORAN_BERRY:
+    case ITEM_SITRUS_BERRY:
+    case ITEM_POMEG_BERRY:
+        return ITEM_POKEBLOCK_HP;
+
+    case ITEM_SALAC_BERRY:
+    case ITEM_TAMATO_BERRY:
+        return ITEM_POKEBLOCK_SPEED;
+
+
+    case ITEM_STARF_BERRY:
+        return ITEM_POKEBLOCK_SHINY;
+
+
+    case ITEM_LUM_BERRY:
+        return ITEM_POKEBLOCK_NORMAL;
+
+    case ITEM_RABUTA_BERRY:
+        return ITEM_POKEBLOCK_FIGHTING;
+
+    case ITEM_LEPPA_BERRY:
+        return ITEM_POKEBLOCK_FLYING;
+
+    case ITEM_PECHA_BERRY:
+        return ITEM_POKEBLOCK_POISON;
+
+    case ITEM_LANSAT_BERRY:
+        return ITEM_POKEBLOCK_GROUND;
+
+    case ITEM_SPELON_BERRY:
+        return ITEM_POKEBLOCK_ROCK;
+
+    case ITEM_WATMEL_BERRY:
+        return ITEM_POKEBLOCK_BUG;
+
+    case ITEM_NOMEL_BERRY:
+        return ITEM_POKEBLOCK_GHOST;
+
+    case ITEM_MAGOST_BERRY:
+        return ITEM_POKEBLOCK_STEEL;
+
+    case ITEM_RAWST_BERRY:
+        return ITEM_POKEBLOCK_FIRE;
+
+    case ITEM_BELUE_BERRY:
+        return ITEM_POKEBLOCK_WATER;
+
+    case ITEM_DURIN_BERRY:
+        return ITEM_POKEBLOCK_GRASS;
+
+    case ITEM_CHERI_BERRY:
+        return ITEM_POKEBLOCK_ELECTRIC;
+
+    case ITEM_CHESTO_BERRY:
+        return ITEM_POKEBLOCK_PSYCHIC;
+
+    case ITEM_ASPEAR_BERRY:
+        return ITEM_POKEBLOCK_ICE;
+
+    case ITEM_PAMTRE_BERRY:
+        return ITEM_POKEBLOCK_DRAGON;
+
+    case ITEM_CORNN_BERRY:
+        return ITEM_POKEBLOCK_DARK;
+
+
+#ifdef ROGUE_EXPANSION
+    case ITEM_KEE_BERRY:
+        return ITEM_POKEBLOCK_FAIRY;
+
+    case ITEM_MICLE_BERRY:
+        return ITEM_POKEBLOCK_HP;
+
+    case ITEM_CUSTAP_BERRY:
+        return ITEM_POKEBLOCK_SPEED;
+
+    case ITEM_JABOCA_BERRY:
+        return ITEM_POKEBLOCK_ATK;
+
+    case ITEM_ROWAP_BERRY:
+        return ITEM_POKEBLOCK_SPATK;
+
+    case ITEM_MARANGA_BERRY:
+        return ITEM_POKEBLOCK_SPDEF;
+
+
+    case ITEM_CHILAN_BERRY:
+        return ITEM_POKEBLOCK_NORMAL;
+
+    case ITEM_CHOPLE_BERRY:
+        return ITEM_POKEBLOCK_FIGHTING;
+
+    case ITEM_COBA_BERRY:
+        return ITEM_POKEBLOCK_FLYING;
+
+    case ITEM_KEBIA_BERRY:
+        return ITEM_POKEBLOCK_POISON;
+
+    case ITEM_SHUCA_BERRY:
+        return ITEM_POKEBLOCK_GROUND;
+
+    case ITEM_CHARTI_BERRY:
+        return ITEM_POKEBLOCK_ROCK;
+
+    case ITEM_TANGA_BERRY:
+        return ITEM_POKEBLOCK_BUG;
+
+    case ITEM_KASIB_BERRY:
+        return ITEM_POKEBLOCK_GHOST;
+
+    case ITEM_BABIRI_BERRY:
+        return ITEM_POKEBLOCK_STEEL;
+
+    case ITEM_OCCA_BERRY:
+        return ITEM_POKEBLOCK_FIRE;
+
+    case ITEM_PASSHO_BERRY:
+        return ITEM_POKEBLOCK_WATER;
+
+    case ITEM_RINDO_BERRY:
+        return ITEM_POKEBLOCK_GRASS;
+
+    case ITEM_WACAN_BERRY:
+        return ITEM_POKEBLOCK_ELECTRIC;
+
+    case ITEM_PAYAPA_BERRY:
+        return ITEM_POKEBLOCK_PSYCHIC;
+
+    case ITEM_YACHE_BERRY:
+        return ITEM_POKEBLOCK_ICE;
+
+    case ITEM_HABAN_BERRY:
+        return ITEM_POKEBLOCK_DRAGON;
+
+    case ITEM_COLBUR_BERRY:
+        return ITEM_POKEBLOCK_DARK;
+
+    case ITEM_ROSELI_BERRY:
+        return ITEM_POKEBLOCK_FAIRY;
+#endif
+
+    default:
+        return ITEM_NONE;
+    }
+}

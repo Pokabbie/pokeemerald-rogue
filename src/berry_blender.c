@@ -39,6 +39,9 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_baked.h"
+#include "rogue_popup.h"
+
 enum {
     SCORE_BEST,
     SCORE_GOOD,
@@ -258,10 +261,10 @@ static const u8 sUnusedText_LinkPartnerNotFound[] = _("Link partner(s) not found
 static const u8 sText_BerryBlenderStart[] = _("Starting up the BERRY BLENDER.\pPlease select a BERRY from your BAG\nto put in the BERRY BLENDER.\p");
 static const u8 sText_NewParagraph[] = _("\p");
 static const u8 sText_WasMade[] = _(" was made!");
-static const u8 sText_Mister[] = _("MISTER");
+static const u8 sText_Mister[] = _("Novice");
 static const u8 sText_Laddie[] = _("LADDIE");
 static const u8 sText_Lassie[] = _("LASSIE");
-static const u8 sText_Master[] = _("MASTER");
+static const u8 sText_Master[] = _("Master");
 static const u8 sText_Dude[] = _("DUDE");
 static const u8 sText_Miss[] = _("MISS");
 
@@ -3464,33 +3467,16 @@ static bool8 PrintBlendingResults(void)
         RemoveBagItem(sBerryBlender->chosenItemId, sBerryBlender->chosenItemCount);
         // Add Pokeblock Item
 
-        AddBagItem(ITEM_POKEBLOCK_NORMAL, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_FIGHTING, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_FLYING, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_POISON, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_GROUND, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_ROCK, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_BUG, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_GHOST, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_STEEL, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_FIRE, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_WATER, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_GRASS, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_ELECTRIC, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_PSYCHIC, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_ICE, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_DRAGON, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_DARK, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_SHINY, sBerryBlender->chosenItemCount);
-        
-        AddBagItem(ITEM_POKEBLOCK_HP, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_ATK, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_DEF, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_SPEED, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_SPATK, sBerryBlender->chosenItemCount);
-        AddBagItem(ITEM_POKEBLOCK_SPDEF, sBerryBlender->chosenItemCount);
+        {
+            u16 pokeblockItemId = Rogue_BerryToPokeblock(sBerryBlender->chosenItemId);
 
-        // TODO - Add pokeblock
+            if(pokeblockItemId != ITEM_NONE)
+            {
+                AddBagItem(pokeblockItemId, sBerryBlender->chosenItemCount);
+                Rogue_PushPopup_AddItem(pokeblockItemId, sBerryBlender->chosenItemCount);
+            }
+        }
+
         //AddPokeblock(&pokeblock);
 
         sBerryBlender->textState = 0;
