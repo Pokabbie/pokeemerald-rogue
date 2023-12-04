@@ -166,6 +166,7 @@ static void UpdateLinkBattleRecord(struct LinkBattleRecord *record, s32 battleOu
             record->wins = 9999;
         break;
     case B_OUTCOME_LOST:
+    case B_OUTCOME_FORFEITED:
         record->losses++;
         if (record->losses > 9999)
             record->losses = 9999;
@@ -250,6 +251,7 @@ static void UpdateTrainerCardWinsLosses(s32 battlerId)
         IncTrainerCardLosses(battlerId);
         break;
     case B_OUTCOME_LOST:
+    case B_OUTCOME_FORFEITED:
         IncTrainerCardLosses(BATTLE_OPPOSITE(battlerId));
         IncTrainerCardWins(battlerId);
         break;

@@ -1030,6 +1030,7 @@ static bool32 IsPlayerDefeated(u32 battleOutcome)
     switch (battleOutcome)
     {
     case B_OUTCOME_LOST:
+    case B_OUTCOME_FORFEITED:
     case B_OUTCOME_DREW:
         return TRUE;
     case B_OUTCOME_WON:

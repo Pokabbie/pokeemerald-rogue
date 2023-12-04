@@ -1286,6 +1286,7 @@ const u8 gText_WhatWillPkmnDo2[] = _("What will\n{B_PLAYER_NAME} do?");
 const u8 gText_WhatWillWallyDo[] = _("What will\nWALLY do?");
 const u8 gText_LinkStandby[] = _("{PAUSE 16}Link standby…");
 const u8 gText_BattleMenu[] = _("FIGHT{CLEAR_TO 56}BAG\nPOKéMON{CLEAR_TO 56}RUN");
+const u8 gText_TrainerBattleMenu[] = _("FIGHT{CLEAR_TO 56}BAG\nPOKéMON{CLEAR_TO 56}{FONT_NARROW}FORFEIT");
 const u8 gText_SafariZoneMenu[] = _("CATCH{CLEAR_TO 56}{FONT_SMALL_NARROW}SWAPBALL\n{CLEAR_TO 56}{FONT_NORMAL}RUN");
 const u8 gText_MoveInterfacePP[] = _("PP ");
 const u8 gText_MoveInterfaceType[] = _("TYPE/");
@@ -1431,8 +1432,8 @@ const u8 * const gRefereeStringsTable[] =
     [B_MSG_REF_COMMENCE_BATTLE]    = sText_RefCommenceBattle,
 };
 
-static const u8 sText_QuestionForfeitMatch[] = _("Would you like to forfeit the match\nand quit now?");
-static const u8 sText_ForfeitedMatch[] = _("{B_PLAYER_NAME} forfeited the match!");
+static const u8 sText_QuestionForfeitMatch[] = _("Would you like to forfeit the battle\nand abandon the Adventure?");
+static const u8 sText_ForfeitedMatch[] = _("{B_PLAYER_NAME} forfeited the battle!");
 static const u8 sText_Trainer1WinText[] = _("{B_TRAINER1_WIN_TEXT}");
 static const u8 sText_Trainer2WinText[] = _("{B_TRAINER2_WIN_TEXT}");
 static const u8 sText_Trainer1Fled[] = _( "{PLAY_SE SE_FLEE}{B_TRAINER1_CLASS} {B_TRAINER1_NAME} fled!");
@@ -2304,6 +2305,7 @@ void BufferStringBattle(u16 stringID)
                         stringPtr = sText_TwoLinkTrainersDefeated;
                     break;
                 case B_OUTCOME_LOST:
+                case B_OUTCOME_FORFEITED:
                     stringPtr = sText_PlayerLostToTwo;
                     break;
                 case B_OUTCOME_DREW:
@@ -2334,6 +2336,7 @@ void BufferStringBattle(u16 stringID)
                     stringPtr = sText_PlayerDefeatedLinkTrainer;
                     break;
                 case B_OUTCOME_LOST:
+                case B_OUTCOME_FORFEITED:
                     stringPtr = sText_PlayerLostAgainstLinkTrainer;
                     break;
                 case B_OUTCOME_DREW:
