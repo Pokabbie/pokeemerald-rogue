@@ -183,6 +183,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_RESTAURANT",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

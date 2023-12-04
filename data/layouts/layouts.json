@@ -1690,6 +1690,16 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Area_TownSquare/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_TownSquare/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_RESTAURANT",
+      "name": "Rogue_Interior_Restaurant_Layout",
+      "width": 12,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MossdeepGameCorner",
+      "border_filepath": "data/layouts/Rogue_Interior_Restaurant/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_Restaurant/map.bin"
     }
   ]
 }

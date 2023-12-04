@@ -53,7 +53,8 @@
     "Rogue_Interior_ProfLab",
     "Rogue_Interior_ConfigLab",
     "Rogue_Interior_PokeConnect",
-    "Rogue_Interior_SafariCave"
+    "Rogue_Interior_SafariCave",
+    "Rogue_Interior_Restaurant"
   ],
   "gMapGroup_RogueHubTesting": [
     "Rogue_Tile_Test1",
