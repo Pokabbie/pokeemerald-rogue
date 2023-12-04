@@ -651,6 +651,86 @@ static bool8 SortItemSlotPlaceBefore(struct ItemSlot slotA, struct ItemSlot slot
     return SortItemPlaceBefore(gSaveBlock1Ptr->bagSortMode, slotA.itemId, slotB.itemId, quantityA, quantityB);
 }
 
+static void SortInsertItemSlot(struct ItemSlot itemSlot, struct ItemSlot* buffer, u16 currBufferCount, bool8 flipSort)
+{
+    if(currBufferCount == 0)
+    {
+        // Insert remaining item at the end
+        buffer[currBufferCount] = itemSlot;
+    }
+    else if(currBufferCount == 1)
+    {
+        if(SortItemSlotPlaceBefore(itemSlot, buffer[0]) != flipSort)
+        {
+            buffer[currBufferCount] = buffer[0];
+            buffer[0] = itemSlot;
+        }
+        else
+        {
+            buffer[currBufferCount] = itemSlot;
+        }
+    }
+    else
+    {
+        u16 index = 0;
+        u16 minIndex = 0;
+        u16 maxIndex = currBufferCount - 1;
+
+        // Insert sort, find the index to insert at
+        while(minIndex != maxIndex)
+        {
+            AGB_ASSERT(minIndex < maxIndex);
+
+            index = (maxIndex + minIndex) / 2;
+
+            if(SortItemSlotPlaceBefore(itemSlot, buffer[index]) != flipSort)
+            {
+                if(maxIndex == index)
+                    --maxIndex;
+                else
+                    maxIndex = index;
+            }
+            else
+            {
+                if(minIndex == index)
+                    ++minIndex;
+                else
+                    minIndex = index;
+            }
+        }
+
+        AGB_ASSERT(minIndex == maxIndex);
+
+        // Special case to sort the end of the list
+        if(minIndex == currBufferCount - 1)
+        {
+            if(SortItemSlotPlaceBefore(itemSlot, buffer[currBufferCount - 1]) != flipSort)
+            {
+                buffer[currBufferCount] = buffer[currBufferCount - 1];
+                buffer[currBufferCount - 1] = itemSlot;
+            }
+            else
+            {
+                buffer[currBufferCount] = itemSlot;
+            }
+        }
+        else
+        {
+
+            // Shift everything up
+            for(index = currBufferCount; TRUE; --index)
+            {
+                buffer[index] = buffer[index - 1];
+
+                if(index == minIndex + 1)
+                    break;
+            }
+
+            buffer[minIndex] = itemSlot;
+        }
+    }
+}
+
 bool8 AddBagItem(u16 itemId, u16 count)
 {
     u16 i;
@@ -1039,28 +1119,19 @@ void SortItemsInBag()
 {
     u16 i, j;
     bool8 anySorts;
+    struct ItemSlot currItem;
+    
 
     ShrinkBagItems();
 
-    for(j = 0; j < BAG_ITEM_CAPACITY; ++j)
+    for(i = 0; j < BAG_ITEM_CAPACITY; ++i)
     {
-        anySorts = FALSE;
+        currItem = gSaveBlock1Ptr->bagPockets[i];
 
-        for(i = 1; i < BAG_ITEM_CAPACITY - j; ++i)
-        {
-            // Reached the end
-            if(gSaveBlock1Ptr->bagPockets[i].itemId == ITEM_NONE)
-                break;
-
-            if(!SortItemSlotPlaceBefore(gSaveBlock1Ptr->bagPockets[i - 1], gSaveBlock1Ptr->bagPockets[i]))
-            {
-                SwapItemSlots(&gSaveBlock1Ptr->bagPockets[i - 1], &gSaveBlock1Ptr->bagPockets[i]);
-                anySorts = TRUE;
-            }
-        }
-
-        if(!anySorts)
+        if(currItem.itemId == ITEM_NONE)
             break;
+
+        SortInsertItemSlot(currItem, gSaveBlock1Ptr->bagPockets, i, FALSE);
     }
 }
 
