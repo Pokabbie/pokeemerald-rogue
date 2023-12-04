@@ -49,6 +49,9 @@
 #define MAP_ROGUE_INTERIOR_CONFIG_LAB   (3 | (3 << 8))
 #define MAP_ROGUE_INTERIOR_POKE_CONNECT (4 | (3 << 8))
 #define MAP_ROGUE_INTERIOR_SAFARI_CAVE  (5 | (3 << 8))
+#define MAP_ROGUE_INTERIOR_RESTAURANT   (6 | (3 << 8))
+#define MAP_ROGUE_INTERIOR_CAFE         (7 | (3 << 8))
+#define MAP_ROGUE_INTERIOR_SCHOOL       (8 | (3 << 8))
 
 // gMapGroup_RogueHubTesting
 #define MAP_ROGUE_TILE_TEST1              (0 | (4 << 8))

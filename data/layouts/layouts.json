@@ -1690,6 +1690,36 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Area_TownSquare/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_TownSquare/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_RESTAURANT",
+      "name": "Rogue_Interior_Restaurant_Layout",
+      "width": 12,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MossdeepGameCorner",
+      "border_filepath": "data/layouts/Rogue_Interior_Restaurant/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_Restaurant/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_CAFE",
+      "name": "Rogue_Interior_Cafe_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Rogue_Interior_Cafe/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_Cafe/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_SCHOOL",
+      "name": "Rogue_Interior_School_Layout",
+      "width": 12,
+      "height": 11,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonSchool",
+      "border_filepath": "data/layouts/Rogue_Interior_School/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_School/map.bin"
     }
   ]
 }

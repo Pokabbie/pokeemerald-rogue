@@ -1573,26 +1573,84 @@ void RogueListQuery_End()
 
 bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, u16 quantityB);
 
-static void SortInsertItem(u16 itemId, u16* buffer, u16 insertIndex, u8 sortMode, bool8 flipSort)
+static void SortInsertItem(u16 itemId, u16* buffer, u16 currBufferCount, u8 sortMode, bool8 flipSort)
 {
-    if(insertIndex != 0)
+    if(currBufferCount == 0)
     {
-        // Insert sort
-        if(sortMode < ITEM_SORT_MODE_COUNT)
+        // Insert remaining item at the end
+        buffer[currBufferCount] = itemId;
+    }
+    else if(currBufferCount == 1)
+    {
+        if(SortItemPlaceBefore(sortMode, itemId, buffer[0], 1, 1) != flipSort)
         {
-            u16 i, temp;
-            for(i = 0; i < insertIndex; ++i)
-            {
-                if(SortItemPlaceBefore(sortMode, itemId, buffer[i], 1, 1) != flipSort)
-                {
-                    SWAP(itemId, buffer[i], temp);
-                }
-            }
+            buffer[currBufferCount] = buffer[0];
+            buffer[0] = itemId;
+        }
+        else
+        {
+            buffer[currBufferCount] = itemId;
         }
     }
+    else
+    {
+        u16 index = 0;
+        u16 minIndex = 0;
+        u16 maxIndex = currBufferCount - 1;
 
-    // Insert remaining item at the end
-    buffer[insertIndex] = itemId;
+        // Insert sort, find the index to insert at
+        while(minIndex != maxIndex)
+        {
+            AGB_ASSERT(minIndex < maxIndex);
+
+            index = (maxIndex + minIndex) / 2;
+
+            if(SortItemPlaceBefore(sortMode, itemId, buffer[index], 1, 1) != flipSort)
+            {
+                if(maxIndex == index)
+                    --maxIndex;
+                else
+                    maxIndex = index;
+            }
+            else
+            {
+                if(minIndex == index)
+                    ++minIndex;
+                else
+                    minIndex = index;
+            }
+        }
+
+        AGB_ASSERT(minIndex == maxIndex);
+
+        // Special case to sort the end of the list
+        if(minIndex == currBufferCount - 1)
+        {
+            if(SortItemPlaceBefore(sortMode, itemId, buffer[currBufferCount - 1], 1, 1) != flipSort)
+            {
+                buffer[currBufferCount] = buffer[currBufferCount - 1];
+                buffer[currBufferCount - 1] = itemId;
+            }
+            else
+            {
+                buffer[currBufferCount] = itemId;
+            }
+        }
+        else
+        {
+
+            // Shift everything up
+            for(index = currBufferCount; TRUE; --index)
+            {
+                buffer[index] = buffer[index - 1];
+
+                if(index == minIndex + 1)
+                    break;
+            }
+
+            buffer[minIndex] = itemId;
+        }
+    }
 }
 
 u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)

@@ -83,6 +83,7 @@ u16 RogueQuest_GetRewardCount(u16 questId);
 bool8 RogueQuest_IsQuestUnlocked(u16 questId);
 bool8 RogueQuest_TryUnlockQuest(u16 questId);
 void RogueQuest_ClearNewUnlockQuests();
+bool8 RogueQuest_HasCollectedRewards(u16 questId);
 
 void RogueQuest_ActivateQuestsFor(u32 flags);
 

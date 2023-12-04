@@ -138,6 +138,17 @@ void RogueQuest_ClearNewUnlockQuests()
     }
 }
 
+bool8 RogueQuest_HasCollectedRewards(u16 questId)
+{
+    if(RogueQuest_IsQuestUnlocked(questId))
+    {
+        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_ANY_COMPLETE) && !RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void RogueQuest_ActivateQuestsFor(u32 flags)
 {
     u16 i;
