@@ -1,0 +1,9 @@
+mapscripts Rogue_Interior_Cafe_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Interior_Cafe_OnTransition
+}
+
+script Rogue_Interior_Cafe_OnTransition
+{
+    setvar(VAR_FOLLOW_MON_0, SPECIES_SMEARGLE)
+}

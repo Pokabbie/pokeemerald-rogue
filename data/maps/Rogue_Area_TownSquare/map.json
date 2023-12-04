@@ -190,6 +190,20 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_RESTAURANT",
       "dest_warp_id": 0
+    },
+    {
+      "x": 36,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_CAFE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 7,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_SCHOOL",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

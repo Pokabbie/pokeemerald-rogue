@@ -810,3 +810,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Area_TownSquare/scripts.inc"
 
 	.include "data/maps/Rogue_Interior_Restaurant/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_Cafe/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_School/scripts.inc"
