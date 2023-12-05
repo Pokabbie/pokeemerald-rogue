@@ -1010,6 +1010,10 @@ u16 Rogue_GetPrice(u16 itemId)
         case ITEM_STAR_PIECE:
             price = 4000;
             break;
+
+        case ITEM_SACRED_ASH:
+            price = 0;
+            break;
     
         case ITEM_SOUL_DEW:
             price = 5000;
@@ -1257,6 +1261,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     // Individual items
     switch(itemId)
     {
+        case ITEM_SACRED_ASH:
+            outItem->pocket = POCKET_CHARMS;
+            break;
+
         case ITEM_NUGGET:
         case ITEM_PEARL:
         case ITEM_BIG_PEARL:

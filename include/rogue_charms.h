@@ -14,6 +14,9 @@ enum RogueCharmEffects
     EFFECT_MOVE_PRIORITY_CHANCE,
     EFFECT_ENDURE_CHANCE,
 
+    // Charm only
+    EFFECT_EXTRA_LIFE,
+
     // Curse only
     EFFECT_PARTY_SIZE,
     EFFECT_EVERSTONE_EVOS,
@@ -39,5 +42,7 @@ u16 Rogue_GetMaxPartySize(void);
 
 u16 Rogue_NextCharmItem(u16* historyBuffer, u16 historyBufferCount);
 u16 Rogue_NextCurseItem(u16* historyBuffer, u16 historyBufferCount);
+
+void Rogue_ExecuteExtraLife();
 
 #endif

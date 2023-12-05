@@ -1025,7 +1025,7 @@ u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
         warp->mapNum = MAP_NUM(ROGUE_ADVENTURE_PATHS);
         warp->warpId = WARP_ID_NONE;
 
-        if(freshPath)
+        if(freshPath || gRogueRun.adventureRoomId == ADVPATH_INVALID_ROOM_ID)
         {
             // Warp to initial start line
             // find start/end coords

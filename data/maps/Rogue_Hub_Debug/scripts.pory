@@ -134,6 +134,25 @@ script Rogue_Debug_AddMoney
     release
 }
 
+script Rogue_Debug_GiveSacredAsh
+{
+    lock
+
+    checkitem(ITEM_SACRED_ASH)
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("REMOVED"))
+        removeitem(ITEM_SACRED_ASH, 1)
+    }
+    else
+    {
+        msgbox(format("GIVEN"))
+        giveitem(ITEM_SACRED_ASH, 1)
+    }
+
+    release
+}
+
 script Rogue_Debug_TrainerSingle
 {
     lock

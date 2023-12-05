@@ -2,11 +2,14 @@
 #include "constants/items.h"
 
 #include "item.h"
+#include "overworld.h"
 #include "random.h"
 
 #include "rogue.h"
+#include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_charms.h"
+#include "rogue_popup.h"
 
 EWRAM_DATA u16 gCharmValues[EFFECT_COUNT];
 EWRAM_DATA u16 gCurseValues[EFFECT_COUNT];
@@ -44,6 +47,9 @@ static u16 EffectToCharmItem(u8 effectType)
 
         case EFFECT_ENDURE_CHANCE:
             return ITEM_ENDURE_CHARM;
+
+        case EFFECT_EXTRA_LIFE:
+            return ITEM_SACRED_ASH;
 
         // Unused
         // EFFECT_PARTY_SIZE
@@ -288,4 +294,22 @@ u16 Rogue_NextCurseItem(u16* historyBuffer, u16 historyBufferCount)
     historyBuffer[historyBufferCount] = effectType;
 
     return itemId;
+}
+
+
+void Rogue_ExecuteExtraLife()
+{
+    u16 charmItemId = EffectToCharmItem(EFFECT_EXTRA_LIFE);
+    AGB_ASSERT(charmItemId != ITEM_NONE);
+
+    RemoveBagItem(charmItemId, 1);
+    Rogue_PushPopup_TriggerExtraLife();
+
+    gRogueAdvPath.isOverviewActive = FALSE;
+    gRogueRun.adventureRoomId = ADVPATH_INVALID_ROOM_ID;
+    SetWarpDestination(
+        MAP_GROUP(ROGUE_ADVENTURE_PATHS), MAP_NUM(ROGUE_ADVENTURE_PATHS), 
+        WARP_ID_NONE,
+        0, 0
+    );
 }

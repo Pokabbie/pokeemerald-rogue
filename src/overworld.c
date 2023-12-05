@@ -74,6 +74,7 @@
 #include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_campaign.h"
+#include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 #include "rogue_quest.h"
@@ -377,7 +378,16 @@ void DoWhiteOut(void)
     SetMoney(&gSaveBlock1Ptr->money, GetMoney(&gSaveBlock1Ptr->money) / 2);
     HealPlayerParty();
     Overworld_ResetStateAfterWhiteOut();
-    SetWarpDestinationToLastHealLocation();
+
+    if(Rogue_IsRunActive() && IsCharmActive(EFFECT_EXTRA_LIFE))
+    {
+        Rogue_ExecuteExtraLife();
+    }
+    else
+    {
+        SetWarpDestinationToLastHealLocation();
+    }
+    
     WarpIntoMap();
 }
 
