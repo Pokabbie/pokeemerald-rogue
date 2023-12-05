@@ -328,7 +328,6 @@ const u8 *const gPocketNamesStringsTable[] =
     [TMHM_POCKET]  = gText_TMHMPocket,
     [BERRIES_POCKET] = gText_BerriesPocket,
     [POKEBLOCK_POCKET] = gText_PokeblockPocket,
-    [CHARMS_POCKET] = gText_CharmsPocket,
     [KEYITEMS_POCKET] = gText_KeyItemsPocket,
     [HELD_ITEMS_POCKET] = gText_HeldItemsPocket,
 #ifdef ROGUE_EXPANDED_POCKETS

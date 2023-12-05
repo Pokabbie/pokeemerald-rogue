@@ -47,7 +47,6 @@ static const u8 sPocketVisualIndex[POCKETS_COUNT] =
     [TMHM_POCKET]  = 2,
     [BERRIES_POCKET] = 3,
     [POKEBLOCK_POCKET] = 4,
-    [CHARMS_POCKET] = 1,
     [KEYITEMS_POCKET] = 4,
 #ifdef ROGUE_EXPANDED_POCKETS
     [STONES_POCKET] = 3,

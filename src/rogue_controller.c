@@ -2584,7 +2584,7 @@ static bool8 CanEnterWithItem(u16 itemId, bool8 isBasicBagEnabled)
         return TRUE;
 
     pocket = GetPocketByItemId(itemId);
-    if(pocket == POCKET_KEY_ITEMS || pocket == POCKET_CHARMS)
+    if(pocket == POCKET_KEY_ITEMS)
         return TRUE;
 
     return FALSE;
@@ -5290,7 +5290,12 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         break;
 
     case ROGUE_SHOP_CHARMS:
-        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_CHARMS);
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_KEY_ITEMS);
+
+            RogueMiscQuery_EditRange(QUERY_FUNC_INCLUDE, 
+                min(FIRST_ITEM_CHARM, FIRST_ITEM_CURSE), 
+                max(LAST_ITEM_CHARM, LAST_ITEM_CURSE)
+            );
 
         if(!RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_SHOPS))
         {
@@ -5982,8 +5987,8 @@ static void RandomiseItemContent(u8 difficultyLevel)
         RogueItemQuery_IsItemActive();
 
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_KEY_ITEMS);
-        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_CHARMS);
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKE_BALLS);
 
         RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
         
