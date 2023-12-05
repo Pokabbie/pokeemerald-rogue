@@ -264,6 +264,9 @@ const u8 gText_Popup_Disconnected[] = _("{COLOR RED}{SHADOW LIGHT_RED}Disconnect
 const u8 gText_Popup_OutfitUnlocked[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Outfit Unlocked!");
 const u8 gText_Popup_ItsASecret[] = _("Shh… its a secret");
 
+const u8 gText_Popup_ExtraLifeTitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Extra Life!");
+const u8 gText_Popup_ExtraLifeSubtitle[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Sacred Ash used");
+
 // Debug
 //
 #ifdef ROGUE_DEBUG

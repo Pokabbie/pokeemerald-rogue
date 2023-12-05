@@ -16,8 +16,7 @@
 #define POCKET_TM_HM       6
 #define POCKET_BERRIES     7
 #define POCKET_POKEBLOCK   8
-#define POCKET_CHARMS      9
-#define POCKET_KEY_ITEMS   10
+#define POCKET_KEY_ITEMS   9
 
 
 #define ITEMS_POCKET       0
@@ -28,9 +27,8 @@
 #define TMHM_POCKET        5
 #define BERRIES_POCKET     6
 #define POKEBLOCK_POCKET   7
-#define CHARMS_POCKET      8
-#define KEYITEMS_POCKET    9
-#define POCKETS_COUNT      10
+#define KEYITEMS_POCKET    8
+#define POCKETS_COUNT      9
 
 #else
 // Vanilla
@@ -44,8 +42,7 @@
 #define POCKET_TM_HM       5
 #define POCKET_BERRIES     6
 #define POCKET_POKEBLOCK   7
-#define POCKET_CHARMS      8
-#define POCKET_KEY_ITEMS   9
+#define POCKET_KEY_ITEMS   8
 
 // These pockets aren't actually in used, but need to be defined, to avoid compilation error
 #define POCKET_STONES      24
@@ -57,9 +54,8 @@
 #define TMHM_POCKET        4
 #define BERRIES_POCKET     5
 #define POKEBLOCK_POCKET   6
-#define CHARMS_POCKET      7
-#define KEYITEMS_POCKET    8
-#define POCKETS_COUNT      9
+#define KEYITEMS_POCKET    7
+#define POCKETS_COUNT      8
 
 // These pockets aren't actually in used, but need to be defined, to avoid compilation error
 #define STONES_POCKET     23

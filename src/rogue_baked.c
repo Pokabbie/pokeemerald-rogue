@@ -1010,6 +1010,10 @@ u16 Rogue_GetPrice(u16 itemId)
         case ITEM_STAR_PIECE:
             price = 4000;
             break;
+
+        case ITEM_SACRED_ASH:
+            price = 0;
+            break;
     
         case ITEM_SOUL_DEW:
             price = 5000;
@@ -1114,6 +1118,11 @@ u16 Rogue_GetPrice(u16 itemId)
     return price;
 }
 
+static bool8 IsCharmItem(u16 itemId)
+{
+    return (itemId >= FIRST_ITEM_CHARM && itemId <= LAST_ITEM_CHARM) || (itemId >= FIRST_ITEM_CURSE && itemId <= LAST_ITEM_CURSE);
+}
+
 void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
     itemId = SanitizeItemId(itemId);
@@ -1150,7 +1159,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->battleUsage = rogueItem->battleUsage;
             outItem->secondaryId = rogueItem->secondaryId;
 
-            if(outItem->pocket == POCKET_CHARMS)
+            if(IsCharmItem(itemId))
             {
                 // Early out here for charms (We can end up in an infinite loop below)
                 outItem->importance = 1;
@@ -1257,6 +1266,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     // Individual items
     switch(itemId)
     {
+        case ITEM_SACRED_ASH:
+            outItem->pocket = POCKET_KEY_ITEMS;
+            break;
+
         case ITEM_NUGGET:
         case ITEM_PEARL:
         case ITEM_BIG_PEARL:

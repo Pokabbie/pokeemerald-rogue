@@ -124,7 +124,6 @@ static bool8 BagPocketUsesReservedSlots(u8 pocket)
 {
     switch (pocket)
     {
-    case CHARMS_POCKET:
     case KEYITEMS_POCKET:
         return TRUE;
     }
@@ -775,7 +774,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
 
                         QuestNotify_OnAddBagItem(itemId, count);
 
-                        if(itemPocket == POCKET_CHARMS)
+                        if(itemPocket == POCKET_KEY_ITEMS)
                             RecalcCharmCurseValues();
 
                         return TRUE;
@@ -788,7 +787,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
 
                         QuestNotify_OnAddBagItem(itemId, slotCapacity - itemCount);
 
-                        if(itemPocket == POCKET_CHARMS)
+                        if(itemPocket == POCKET_KEY_ITEMS)
                             RecalcCharmCurseValues();
                     }
                 }
@@ -814,7 +813,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
 
                 QuestNotify_OnAddBagItem(itemId, count);
 
-                if(ItemId_GetPocket(itemId) == POCKET_CHARMS)
+                if(ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS)
                     RecalcCharmCurseValues();
 
                 return TRUE;
@@ -891,7 +890,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
                 QuestNotify_OnRemoveBagItem(itemId, count);
 
-                if(ItemId_GetPocket(itemId) == POCKET_CHARMS)
+                if(ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS)
                     RecalcCharmCurseValues();
 
                 return TRUE;
@@ -923,7 +922,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
                     QuestNotify_OnRemoveBagItem(itemId, count);
 
-                    if(ItemId_GetPocket(itemId) == POCKET_CHARMS)
+                    if(ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS)
                         RecalcCharmCurseValues();
 
                     return TRUE;
@@ -935,7 +934,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
         QuestNotify_OnRemoveBagItem(itemId, count);
         
-        if(ItemId_GetPocket(itemId) == POCKET_CHARMS)
+        if(ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS)
             RecalcCharmCurseValues();
 
         return TRUE;

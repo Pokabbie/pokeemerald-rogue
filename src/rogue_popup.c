@@ -166,6 +166,10 @@ extern const u8 gText_Popup_Disconnected[];
 extern const u8 gText_Popup_OutfitUnlocked[];
 extern const u8 gText_Popup_ItsASecret[];
 
+extern const u8 gText_Popup_ExtraLifeTitle[];
+extern const u8 gText_Popup_ExtraLifeSubtitle[];
+
+
 enum
 {
     POPUP_COMMON_CLASSIC,
@@ -1084,6 +1088,18 @@ void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount)
 
     popup->expandTextData[1] = amount;
     popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_TriggerExtraLife()
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = ITEM_SACRED_ASH;
+    popup->fanfare = FANFARE_HEAL;
+    
+    popup->titleText = gText_Popup_ExtraLifeTitle;
+    popup->subtitleText = gText_Popup_ExtraLifeSubtitle;
 }
 
 void Rogue_PushPopup_UnlockPokedex()
