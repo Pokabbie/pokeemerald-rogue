@@ -1720,6 +1720,16 @@
       "secondary_tileset": "gTileset_PokemonSchool",
       "border_filepath": "data/layouts/Rogue_Interior_School/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Interior_School/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_SINNOH_205",
+      "name": "Rogue_Route_Sinnoh_205_Layout",
+      "width": 60,
+      "height": 100,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Rogue_Route_Sinnoh_205/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_205/map.bin"
     }
   ]
 }

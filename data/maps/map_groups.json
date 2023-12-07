@@ -96,7 +96,8 @@
     "Rogue_Route_Johto_WaterFront0",
     "Rogue_Route_Johto_Urban0",
     "Rogue_Route_Johto_Mountain0",
-    "Rogue_Route_Chaos0"
+    "Rogue_Route_Chaos0",
+    "Rogue_Route_Sinnoh_205"
   ],
   "gMapGroup_RogueAdventureEncounters": [
     "Rogue_Encounter_RestStop",
