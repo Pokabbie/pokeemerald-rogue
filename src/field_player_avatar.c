@@ -1015,9 +1015,13 @@ static void PlayerWalkSlow(u8 direction)
 {
     PlayerSetAnimId(GetWalkSlowMovementAction(direction), 2);
 }
+
 static void PlayerRunSlow(u8 direction)
 {
-    PlayerSetAnimId(GetPlayerRunSlowMovementAction(direction), 2);
+    if(RoguePlayer_HasSpritingAnim())
+        PlayerSetAnimId(GetPlayerRunSlowMovementAction(direction), 2);
+    else
+        PlayerSetAnimId(GetWalkSlowMovementAction(direction), 2);
 }
 
 // normal speed (1 speed)

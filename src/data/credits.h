@@ -35,26 +35,34 @@
     method(156, "", CREDITS_FLAG_BREAK) \
     \
     method(16, "Emerald Expansion", CREDITS_FLAG_TITLE) \
-    method(17, "DizzyEggg", 0) \
+    method(17, "UltimaSoul", 0) \
     method(18, "ghoulslash", 0) \
-    method(19, "UltimaSoul", 0) \
-    method(20, "Lunos", 0) \
-    method(21, "mvit", 0) \
-    method(22, "Doesnt", 0) \
-    method(23, "Cancer Fairy", 0) \
-    method(24, "MrDollSteak", 0) \
-    method(25, "Avara", 0) \
-    method(26, "Kurausukun", 0) \
-    method(27, "TheLaw", 0) \
-    method(28, "BreadCrumbs", 0) \
-    method(29, "Syreldar", 0) \
-    method(30, "Pyredrid", 0) \
-    method(31, "MandL27", 0) \
-    method(32, "", CREDITS_FLAG_BREAK) \
+    method(19, "DizzyEggg", 0) \
+    method(20, "AsparagusEduardo", 0) \
+    method(21, "ExpoSeed", 0) \
+    method(22, "Pyredrid", 0) \
+    method(23, "MandL127", 0) \
+    method(24, "Lunos", 0) \
+    method(25, "ShantyTown", 0) \
+    method(26, "mvit", 0) \
+    method(27, "Doesnt", 0) \
+    method(28, "Cancer Fairy", 0) \
+    method(29, "MrDollSteak", 0) \
+    method(30, "Avara", 0) \
+    method(31, "Kurausukun", 0) \
+    method(3100, "TheLaw", 0) \
+    method(3101, "BreadCrumbs", 0) \
+    method(3102, "Syreldar", 0) \
+    method(3103, "Pyredrid", 0) \
+    method(3104, "", CREDITS_FLAG_BREAK) \
     \
-    method(3201, "Key Items Menu", CREDITS_FLAG_TITLE) \
-    method(3202, "Merrp", 0) \
-    method(3203, "", CREDITS_FLAG_BREAK) \
+    method(3110, "Key Items Menu", CREDITS_FLAG_TITLE) \
+    method(3111, "Merrp", 0) \
+    method(3112, "", CREDITS_FLAG_BREAK) \
+    \
+    method(3211, "Follow Me + Sideways Stairs", CREDITS_FLAG_TITLE) \
+    method(3212, "ghoulslash", 0) \
+    method(3213, "", CREDITS_FLAG_BREAK) \
     \
     method(61, "DS Songs", CREDITS_FLAG_TITLE) \
     method(62, "CyanSMP64", 0) \
