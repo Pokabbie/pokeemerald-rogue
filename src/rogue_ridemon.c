@@ -716,13 +716,27 @@ static void UpdateRideSpriteInternal(struct RideObjectEvent* rideObject, const s
 {
     s8 xFlip;
     const struct RideMonSpriteInfo* rideSpriteInfo;
-
-    u8 facingDirection = gObjectEvents[rideObject->riderObjectEventId].facingDirection;
     struct Sprite* mountSprite = &gSprites[rideObject->monSpriteId];
     struct Sprite* riderSprite = &gSprites[rideObject->riderSpriteId];
+    u8 facingDirection = gObjectEvents[rideObject->riderObjectEventId].facingDirection;
+
 
     AGB_ASSERT(rideObject->monSpriteId != SPRITE_NONE);
     AGB_ASSERT(rideObject->riderSpriteId != SPRITE_NONE);
+
+    // Fix stairs directions
+    switch (facingDirection)
+    {
+    case DIR_SOUTHWEST:
+    case DIR_NORTHWEST:
+        facingDirection = DIR_WEST;
+        break;
+
+    case DIR_SOUTHEAST:
+    case DIR_NORTHEAST:
+        facingDirection = DIR_EAST;
+        break;
+    }
 
     switch (facingDirection)
     {
