@@ -17,6 +17,7 @@ extern const struct BaseStats gBaseStats[];
 #else
 #include "global.h"
 #include "data.h"
+#include "event_data.h"
 #include "graphics.h"
 #include "item.h"
 #include "item_use.h"
@@ -542,7 +543,7 @@ static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass)
     }
     else if(trainerClass == TRAINER_CLASS_RIVAL)
     {
-        if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY || Rogue_AssumeFinalQuestFakeChamp())
         {
             trainerClass = TRAINER_CLASS_CHAMPION;
         }

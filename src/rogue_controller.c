@@ -278,6 +278,17 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
     return !(Rogue_UseKeyBattleAnims() ? gSaveBlock2Ptr->optionsBossBattleSceneOff : gSaveBlock2Ptr->optionsDefaultBattleSceneOff);
 }
 
+bool8 Rogue_UseFinalQuestEffects(void)
+{
+    return FALSE;
+}
+
+bool8 Rogue_AssumeFinalQuestFakeChamp(void)
+{
+    // Present in a way that seems like this is the final champ only for us to reveal after that it wasn't
+    return Rogue_UseFinalQuestEffects() && (Rogue_GetCurrentDifficulty() == ROGUE_CHAMP_START_DIFFICULTY && FlagGet(FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP));
+}
+
 extern const struct Song gSongTable[];
 
 u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 soundType)
@@ -2697,6 +2708,7 @@ static void BeginRogueRun(void)
 
     FlagClear(FLAG_ROGUE_FREE_HEAL_USED);
     FlagClear(FLAG_ROGUE_RUN_COMPLETED);
+    FlagClear(FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP);
 
     // Enable randoman trader at start
     if(IsQuestCollected(QUEST_MrRandoman))
@@ -4071,7 +4083,13 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
     {
         bool8 isBossTrainer = Rogue_IsBossTrainer(trainerNum);
 
-        if(isBossTrainer)
+        if(Rogue_IsRivalTrainer(trainerNum) && Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
+        {
+            // If we fight rival in champ phase, it must've been a champ fight
+            isBossTrainer = TRUE;
+        }
+
+        if (IsPlayerDefeated(gBattleOutcome) != TRUE && isBossTrainer)
         {
             u8 nextLevel;
             u8 prevLevel = Rogue_CalculateBossMonLvl();

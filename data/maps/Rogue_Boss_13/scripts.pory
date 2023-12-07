@@ -31,11 +31,27 @@ script Rogue_Battle_Boss13
 }
 
 script Rogue_BattleDefeated_Boss13
-{    
-    fadescreen(FADE_TO_BLACK)
-    special(GameClear)
-    waitstate
-    releaseall
+{
+
+    special(Rogue_IsFinalQuestActive)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        // Fake out the game clear
+        fadescreen(FADE_TO_BLACK)
+
+        // TODO
+        special(RemoveCameraObject)
+        warp(MAP_ROGUE_HUB_TRANSITION, 0)
+        waitstate
+    }
+    else
+    {
+        // Normal game clear
+        fadescreen(FADE_TO_BLACK)
+        special(GameClear)
+        waitstate
+        releaseall
+    }
 }
 
 movement CameraToBattleFieldBoss13 {

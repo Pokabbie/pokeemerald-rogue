@@ -141,7 +141,7 @@ const u8* Rogue_GetTrainerString(u16 trainerNum, u8 textId)
         u8 i;
         u8 offset = 0;
 
-        if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY || Rogue_AssumeFinalQuestFakeChamp())
             offset = 3;
         else if(Rogue_GetCurrentDifficulty() <= gRogueRun.rivalEncounterDifficulties[0])
             offset = 0;
@@ -573,7 +573,20 @@ void Rogue_ChooseBossTrainersForNewAdventure()
 
     for(difficulty = 0; difficulty < ROGUE_MAX_BOSS_COUNT; ++difficulty)
     {
-        if(difficulty == ROGUE_FINAL_CHAMP_DIFFICULTY)
+        if(Rogue_UseFinalQuestEffects() && difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+        {
+            if(difficulty == ROGUE_FINAL_CHAMP_DIFFICULTY)
+            {
+                // The actual final boss
+                trainerNum = gRogueRun.rivalTrainerNum; // TODO
+            }
+            else
+            {
+                AGB_ASSERT(gRogueRun.rivalTrainerNum != TRAINER_NONE);
+                trainerNum = gRogueRun.rivalTrainerNum; // Rival is the fake final boss
+            }
+        }
+        else if(difficulty == ROGUE_FINAL_CHAMP_DIFFICULTY)
         {
             AGB_ASSERT(gRogueRun.rivalTrainerNum != TRAINER_NONE);
             trainerNum = gRogueRun.rivalTrainerNum; // Rival is always final boss

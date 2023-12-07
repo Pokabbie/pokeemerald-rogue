@@ -2,11 +2,34 @@ const BOSS_NPC = 1
 
 mapscripts Rogue_Boss_12_MapScripts
 {
+    MAP_SCRIPT_ON_LOAD: Rogue_Boss_12_MapLoad
+}
+
+script Rogue_Boss_12_MapLoad
+{
+    special(Rogue_IsFinalQuestActive)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        setobjectxyperm(BOSS_NPC, 20, 4)
+    }
+}
+
+script Rogue_EnterBattle
+{
+    special(Rogue_IsFinalQuestActive)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        goto(Rogue_FinalQuest_FakeBoss12)
+    }
+    else
+    {
+        goto(Rogue_Battle_Boss12)
+    }
 }
 
 script Rogue_Battle_Boss12
 {
-    lockall()
+    lockall
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerToBattleFieldBoss12)
     waitmovement(0)
 
@@ -65,4 +88,33 @@ movement PlayerToFightBoss12 {
 
 movement BossToFightBoss12 {
     walk_down
+}
+
+script Rogue_FinalQuest_FakeBoss12
+{
+    lockall
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToBattleFieldBoss12)
+    waitmovement(0)
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss12)
+    waitmovement(0)
+
+    playbgm(MUS_NONE, TRUE)
+
+    applymovement(OBJ_EVENT_ID_PLAYER, FinalQuest_FakeBoss12)
+    waitmovement(0)
+
+    setflag(FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP)
+
+    call(Rogue_EventScript_AttemptPostGymHeal)
+    special(RemoveCameraObject)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)
+    waitstate
+}
+
+movement FinalQuest_FakeBoss12 
+{
+    emote_question_mark
+    delay_16 * 3
 }

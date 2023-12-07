@@ -666,7 +666,7 @@
 #define FLAG_ROGUE_MET_FENNEL                0x266
 #define FLAG_ROGUE_EASY_ITEMS                0x267
 #define FLAG_ROGUE_HARD_ITEMS                0x268
-#define FLAG_UNUSED_0x269                    0x269
+#define FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP 0x269
 #define FLAG_ROGUE_PENDING_PATCH_MSG         0x26A
 #define FLAG_UNUSED_0x26B                    0x26B
 #define FLAG_ROGUE_MET_POKABBIE              0x26C
