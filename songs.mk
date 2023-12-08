@@ -876,6 +876,45 @@ $(MID_SUBDIR)/mus_hg_encounter_boy_2.s: %.s: %.mid
 $(MID_SUBDIR)/mus_hg_encounter_suspicious_2.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V086
 
+$(MID_SUBDIR)/mus_dp_route201_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V127
+
+$(MID_SUBDIR)/mus_dp_route203_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V100
+
+$(MID_SUBDIR)/mus_dp_route205_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V086
+
+$(MID_SUBDIR)/mus_dp_route206_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V108
+
+$(MID_SUBDIR)/mus_dp_route209_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V086
+
+$(MID_SUBDIR)/mus_dp_route210_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V080
+
+$(MID_SUBDIR)/mus_dp_route216_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V100
+
+$(MID_SUBDIR)/mus_dp_route228_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
+
+$(MID_SUBDIR)/mus_dp_eterna_forest.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V088
+
+$(MID_SUBDIR)/mus_dp_mt_coronet.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V112
+
+$(MID_SUBDIR)/mus_dp_spear_pillar.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V110
+
+$(MID_SUBDIR)/mus_dp_lake_caverns.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
+
+$(MID_SUBDIR)/mus_dp_title.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V127
+
 $(MID_SUBDIR)/mus_dp_vs_wild.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V088
 

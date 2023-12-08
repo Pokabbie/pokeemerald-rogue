@@ -641,6 +641,19 @@ gSongTable::
 	song mus_hg_encounter_girl_2, 0, 0
 	song mus_hg_encounter_boy_2, 0, 0
 	song mus_hg_encounter_suspicious_2, 0, 0
+	song mus_dp_route201_day, 0, 0
+	song mus_dp_route203_day, 0, 0
+	song mus_dp_route205_day, 0, 0
+	song mus_dp_route206_day, 0, 0
+	song mus_dp_route209_day, 0, 0
+	song mus_dp_route210_day, 0, 0
+	song mus_dp_route216_day, 0, 0
+	song mus_dp_route228_day, 0, 0
+	song mus_dp_eterna_forest, 0, 0
+	song mus_dp_mt_coronet, 0, 0
+	song mus_dp_spear_pillar, 0, 0
+	song mus_dp_lake_caverns, 0, 0
+	song mus_dp_title, 0, 0
 	song mus_dp_vs_wild, 0, 0
 	song mus_dp_vs_gym_leader, 0, 0
 	song mus_dp_vs_uxie_mesprit_azelf, 0, 0

@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_ROUTE_SINNOH_205",
   "name": "Rogue_Route_Sinnoh_205",
   "layout": "LAYOUT_ROGUE_ROUTE_SINNOH_205",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_DP_ROUTE205_DAY",
   "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
