@@ -21,7 +21,7 @@
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
 
-#define TRAINER_SHINY_PERC 20
+#define TRAINER_SHINY_PERC 25
 
 struct TrainerHeldItemScratch
 {
@@ -1806,6 +1806,18 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         else
         {
             RogueMonQuery_IsSpeciesActive();
+        }
+
+        // Rival won't have the same legends as us (Maybe this should extend to the entire run?)
+        if(Rogue_IsRivalTrainer(scratch->trainerNum))
+        {
+            u8 i;
+
+            for(i = 0; i < ARRAY_COUNT(gRogueRun.legendarySpecies); ++i)
+            {
+                if(gRogueRun.legendarySpecies[i] != SPECIES_NONE)
+                    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRogueRun.legendarySpecies[i]);
+            }
         }
 
         if(currentSubset != NULL)

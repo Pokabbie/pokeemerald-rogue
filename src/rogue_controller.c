@@ -2744,12 +2744,13 @@ static void BeginRogueRun(void)
 
     GiveMonPartnerRibbon();
 
+    // Choose legendaries before trainers so rival can avoid these legends
+    ChooseLegendarysForNewAdventure();
+
     // Choose bosses last
     Rogue_ChooseRivalTrainerForNewAdventure();
     Rogue_ChooseBossTrainersForNewAdventure();
     EnableRivalEncounterIfRequired();
-
-    ChooseLegendarysForNewAdventure();
 
     QuestNotify_BeginAdventure();
 
