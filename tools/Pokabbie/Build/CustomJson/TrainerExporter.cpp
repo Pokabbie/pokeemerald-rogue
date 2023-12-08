@@ -218,6 +218,12 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 		else
 			exporter.trainerStructsBlock << c_TabSpacing << ".preferredWeather = WEATHER_DEFAULT,\n";
 
+		// Optional Shiny species
+		if(trainer.contains("shiny_species"))
+			exporter.trainerStructsBlock << c_TabSpacing << ".potentialShinySpecies = " << strutil::to_upper(trainer["shiny_species"].get<std::string>()) << ",\n";
+		else
+			exporter.trainerStructsBlock << c_TabSpacing << ".potentialShinySpecies = SPECIES_NONE,\n";
+
 		// Flags
 		exporter.trainerStructsBlock << c_TabSpacing << ".trainerFlags = TRAINER_FLAG_NONE";
 		for (auto flag : trainer["trainer_flags"])

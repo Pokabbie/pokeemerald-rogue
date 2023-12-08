@@ -21,6 +21,8 @@
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
 
+#define TRAINER_SHINY_PERC 25
+
 struct TrainerHeldItemScratch
 {
     bool8 hasLeftovers : 1;
@@ -408,6 +410,18 @@ u16 Rogue_GetTrainerTypeGroupId(u16 trainerNum)
     return NUMBER_OF_MON_TYPES + trainerNum;
 }
 
+bool8 Rogue_IsValidTrainerShinySpecies(u16 trainerNum, u16 species)
+{
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+
+#ifdef ROGUE_EXPANSION
+    species = GET_BASE_SPECIES_ID(species);
+#endif
+    species = Rogue_GetEggSpecies(species);
+
+    return trainer->potentialShinySpecies == species;
+}
+
 bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum)
 {
     return TRUE;
@@ -662,6 +676,7 @@ void Rogue_ChooseRivalTrainerForNewAdventure()
     DebugPrintf("Picking rival = %d", trainerNum);
 
     gRogueRun.rivalTrainerNum = trainerNum;
+    gRogueRun.rivalHasShiny = RogueRandomChance(TRAINER_SHINY_PERC, 0);
     memset(gRogueRun.rivalSpecies, SPECIES_NONE, sizeof(gRogueRun.rivalSpecies));
 
     // We can encounter the rival up to the first E4 encounter (Technically not entered the E4 so I'll allow it)
@@ -1285,6 +1300,15 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
             else
                 CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
+            if(Rogue_IsValidTrainerShinySpecies(trainerNum, species))
+            {
+                if(RogueRandomChance(TRAINER_SHINY_PERC, 0))
+                {
+                    u32 flag = TRUE;
+                    SetMonData(&party[i], MON_DATA_IS_SHINY, &flag);
+                }
+            }
+
             if(UseCompetitiveMoveset(&scratch, i, monCount) && SelectNextPreset(&scratch, species, i, &preset))
             {
                 memset(&presetRules, 0, sizeof(presetRules));
@@ -1433,6 +1457,15 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
                 CreateMon(&party[i], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
             else
                 CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+
+            if(Rogue_IsValidTrainerShinySpecies(trainerNum, species))
+            {
+                if(gRogueRun.rivalHasShiny)
+                {
+                    u32 flag = TRUE;
+                    SetMonData(&party[i], MON_DATA_IS_SHINY, &flag);
+                }
+            }
 
             if(UseCompetitiveMoveset(&scratch, i, monCount) && SelectNextPreset(&scratch, species, i, &preset))
             {
@@ -1773,6 +1806,18 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         else
         {
             RogueMonQuery_IsSpeciesActive();
+        }
+
+        // Rival won't have the same legends as us (Maybe this should extend to the entire run?)
+        if(Rogue_IsRivalTrainer(scratch->trainerNum))
+        {
+            u8 i;
+
+            for(i = 0; i < ARRAY_COUNT(gRogueRun.legendarySpecies); ++i)
+            {
+                if(gRogueRun.legendarySpecies[i] != SPECIES_NONE)
+                    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRogueRun.legendarySpecies[i]);
+            }
         }
 
         if(currentSubset != NULL)
