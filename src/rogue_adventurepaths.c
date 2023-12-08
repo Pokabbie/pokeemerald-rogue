@@ -132,6 +132,14 @@ static bool8 DoesRoomExists(s8 x, s8 y);
 static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room);
 static u8 SelectObjectMovementTypeForRoom(struct RogueAdvPathRoom* room);
 
+static u8 GetPathGenerationDifficulty()
+{
+    // Skip ahead for the fake out
+    if(Rogue_AssumeFinalQuestFakeChamp())
+        return Rogue_GetCurrentDifficulty() + 1;
+    else
+        return Rogue_GetCurrentDifficulty();
+}
 
 static void GeneratePath(struct AdvPathSettings* pathSettings)
 {
@@ -418,7 +426,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
 
         for(i = 0; i < ADVPATH_LEGEND_COUNT; ++i)
         {
-            if(gRogueRun.legendarySpecies[i] != SPECIES_NONE && gRogueRun.legendaryDifficulties[i] == Rogue_GetCurrentDifficulty())
+            if(gRogueRun.legendarySpecies[i] != SPECIES_NONE && gRogueRun.legendaryDifficulties[i] == GetPathGenerationDifficulty())
             {
                 ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_LEGENDARY, amount);
                 break;
@@ -433,7 +441,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
 
     // Lab
     amount = 0;
-    if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1 && RogueRandomChance(10, 0))
+    if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1 && RogueRandomChance(10, 0))
         amount = 1;
     ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_LAB, amount);
 
@@ -447,12 +455,12 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         bool8 allowDarkDeal = FALSE;
         bool8 allowGameShow = FALSE;
 
-        if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 2)
+        if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 2)
         {
             // Only dark deals
             allowDarkDeal = TRUE;
         }
-        else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 2)
+        else if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 2)
         {
             // Mix of both
             allowDarkDeal = TRUE;
@@ -469,7 +477,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
             u8 chance = 5;
 
             // Every 3rd difficulty have a chance
-            if((Rogue_GetCurrentDifficulty() % 3) == 0)
+            if((GetPathGenerationDifficulty() % 3) == 0)
                 chance = 50;
 
             if(RogueRandomChance(chance, 0))
@@ -484,7 +492,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
             u8 chance = 50;
 
             // Inverted chance of dark deal
-            if((Rogue_GetCurrentDifficulty() % 3) == 0)
+            if((GetPathGenerationDifficulty() % 3) == 0)
                 chance = 10;
 
             if(RogueRandomChance(chance, 0))
@@ -500,15 +508,15 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         u8 chance = 5;
 
         // If players get encounters they basically have to get lucky with wild den
-        if(Rogue_GetCurrentDifficulty() >=  ROGUE_CHAMP_START_DIFFICULTY)
+        if(GetPathGenerationDifficulty() >=  ROGUE_CHAMP_START_DIFFICULTY)
         {
             chance = 90;
         }
-        else if(Rogue_GetCurrentDifficulty() >=  ROGUE_ELITE_START_DIFFICULTY)
+        else if(GetPathGenerationDifficulty() >=  ROGUE_ELITE_START_DIFFICULTY)
         {
             chance = 60;
         }
-        else if(Rogue_GetCurrentDifficulty() >=  1)
+        else if(GetPathGenerationDifficulty() >=  1)
         {
             chance = 10;
         }
@@ -537,6 +545,7 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
     switch(roomType)
     {
         case ADVPATH_ROOM_BOSS:
+            // Specifically use the correct difficulty here regardless of if we are faking or not
             AGB_ASSERT(Rogue_GetCurrentDifficulty() < ARRAY_COUNT(gRogueRun.bossTrainerNums));
             gRogueAdvPath.rooms[roomId].roomParams.perType.boss.trainerNum = gRogueRun.bossTrainerNums[Rogue_GetCurrentDifficulty()];
             break;
@@ -573,7 +582,7 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
         {
             gRogueAdvPath.rooms[roomId].roomParams.roomIdx = Rogue_SelectRouteRoom();
 
-            if(Rogue_GetCurrentDifficulty() > ROGUE_ELITE_START_DIFFICULTY)
+            if(GetPathGenerationDifficulty() > ROGUE_ELITE_START_DIFFICULTY)
             {
                 weights[ADVPATH_SUBROOM_ROUTE_CALM] = 0;
                 weights[ADVPATH_SUBROOM_ROUTE_AVERAGE] = 1;
@@ -681,7 +690,7 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
             SeedRogueRng(gRogueRun.baseSeed * 235 + 31897);
 
             seed = RogueRandom();
-            for(i = 0; i < Rogue_GetCurrentDifficulty(); ++i)
+            for(i = 0; i < GetPathGenerationDifficulty(); ++i)
             {
                 seed = RogueRandom();
             }
@@ -938,24 +947,24 @@ void RogueAdv_ApplyAdventureMetatiles()
 
 static void SetBossRoomWarp(u16 trainerNum, struct WarpData* warp)
 {
-    if(Rogue_GetCurrentDifficulty() < 8)
+    if(GetPathGenerationDifficulty() == ROGUE_FINAL_CHAMP_DIFFICULTY)
     {
-        warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
-        warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
+        warp->mapGroup = MAP_GROUP(ROGUE_BOSS_13);
+        warp->mapNum = MAP_NUM(ROGUE_BOSS_13);
     }
-    else if(Rogue_GetCurrentDifficulty() < 12)
-    {
-        Rogue_GetPreferredElite4Map(trainerNum, &warp->mapGroup, &warp->mapNum);
-    }
-    else if(Rogue_GetCurrentDifficulty() < 13)
+    else if(GetPathGenerationDifficulty() == ROGUE_CHAMP_START_DIFFICULTY)
     {
         warp->mapGroup = MAP_GROUP(ROGUE_BOSS_12);
         warp->mapNum = MAP_NUM(ROGUE_BOSS_12);
     }
-    else if(Rogue_GetCurrentDifficulty() < 14)
+    else if(GetPathGenerationDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
     {
-        warp->mapGroup = MAP_GROUP(ROGUE_BOSS_13);
-        warp->mapNum = MAP_NUM(ROGUE_BOSS_13);
+        Rogue_GetPreferredElite4Map(trainerNum, &warp->mapGroup, &warp->mapNum);
+    }
+    else
+    {
+        warp->mapGroup = MAP_GROUP(ROGUE_BOSS_0);
+        warp->mapNum = MAP_NUM(ROGUE_BOSS_0);
     }
 }
 

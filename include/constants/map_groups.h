@@ -92,6 +92,7 @@
 #define MAP_ROGUE_ROUTE_JOHTO_URBAN0       (24 | (5 << 8))
 #define MAP_ROGUE_ROUTE_JOHTO_MOUNTAIN0    (25 | (5 << 8))
 #define MAP_ROGUE_ROUTE_CHAOS0             (26 | (5 << 8))
+#define MAP_ROGUE_ROUTE_SINNOH_205         (27 | (5 << 8))
 
 // gMapGroup_RogueAdventureEncounters
 #define MAP_ROGUE_ENCOUNTER_REST_STOP (0 | (6 << 8))

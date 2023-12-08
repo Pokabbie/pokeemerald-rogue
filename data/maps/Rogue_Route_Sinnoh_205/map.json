@@ -1,0 +1,41 @@
+{
+  "id": "MAP_ROGUE_ROUTE_SINNOH_205",
+  "name": "Rogue_Route_Sinnoh_205",
+  "layout": "LAYOUT_ROGUE_ROUTE_SINNOH_205",
+  "music": "MUS_DP_ROUTE205_DAY",
+  "region_map_section": "MAPSEC_ADVENTURE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 25,
+      "y": 90,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_SINNOH_205",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 48,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ROUTE_SINNOH_205",
+      "dest_warp_id": 0
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

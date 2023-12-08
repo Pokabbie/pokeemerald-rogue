@@ -31,6 +31,8 @@ bool8 Rogue_ForceExpAll(void);
 bool8 Rogue_FastBattleAnims(void);
 bool8 Rogue_UseKeyBattleAnims(void);
 bool8 Rogue_GetBattleAnimsEnabled(void);
+bool8 Rogue_UseFinalQuestEffects(void);
+bool8 Rogue_AssumeFinalQuestFakeChamp(void);
 
 u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 soundType);
 u16 Rogue_ModifyPlayBGM(u16 songNum);

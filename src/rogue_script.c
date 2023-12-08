@@ -1082,3 +1082,8 @@ void Rogue_AssignDefaultRegion()
 
     RoguePokedex_SetDexVariant(POKEDEX_VARIANT_DEFAULT);
 }
+
+void Rogue_IsFinalQuestActive()
+{
+    gSpecialVar_Result = Rogue_UseFinalQuestEffects() != 0;
+}
