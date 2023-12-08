@@ -19,6 +19,7 @@ u16 Rogue_GetTrainerNumFromLastInteracted();
 u8 Rogue_GetTrainerWeather(u16 trainerNum);
 u8 Rogue_GetTrainerTypeAssignment(u16 trainerNum);
 u16 Rogue_GetTrainerTypeGroupId(u16 trainerNum);
+bool8 Rogue_IsValidTrainerShinySpecies(u16 trainerNum, u16 species);
 
 u8 Rogue_CalculatePlayerMonLvl();
 u8 Rogue_CalculateTrainerMonLvl();

@@ -256,6 +256,7 @@ struct RogueRunData
 #endif
     bool8 isQuickSaveValid : 1;
     bool8 hasPendingRivalBattle : 1;
+    bool8 rivalHasShiny : 1;
 };
 
 struct RogueHubArea
@@ -359,6 +360,7 @@ struct RogueTrainer
     u16 objectEventGfx;
     u16 typeAssignment;
     u16 typeAssignmentGroup;
+    u16 potentialShinySpecies;
     u8 levelOverride;
     u8 trainerClass;
     u8 trainerPic;

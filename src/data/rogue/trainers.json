@@ -32,26 +32,27 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_EEVEE",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: What?\\pWho are you?\\pSo it's {PLAYER}?\\nAnd you're out Adventuring?\\pI bet you have some strong POKéMON!\\pCome on, I'll take you on!",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: What?\\pWho are you?\\pSo it's {PLAYER}?\\nAnd you're out Adventuring?\\pI bet you have some strong Pokémon!\\pCome on, I'll take you on!",
                         "POST_BATTLE_TAUNT": "Awww!\\nYou just lucked out!",
-                        "POST_BATTLE_CLOSER": "Okay! I'll make my POKéMON battle to toughen them up!\\pSmell ya later, {PLAYER}!"
+                        "POST_BATTLE_CLOSER": "Okay! I'll make my Pokémon battle to toughen them up!\\pSmell ya later, {PLAYER}!"
                     },
                     {
-                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Yo! {PLAYER}!\\pWhat are you doing here?\\pYou should quit following me!\\pI bet you can't even beat my POKéMON.",
-                        "POST_BATTLE_TAUNT": "Humph!\\pAt least you're raising your POKéMON!",
-                        "POST_BATTLE_CLOSER": "I heard a rumor about some pretty strong POKéMON.\\pYou better quit following me.\\pThere's no way you'd be able to deal with them anyway!\\nSmell ya later, {PLAYER}!"
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Yo! {PLAYER}!\\pWhat are you doing here?\\pYou should quit following me!\\pI bet you can't even beat my Pokémon.",
+                        "POST_BATTLE_TAUNT": "Humph!\\pAt least you're raising your Pokémon!",
+                        "POST_BATTLE_CLOSER": "I heard a rumor about some pretty strong Pokémon.\\pYou better quit following me.\\pThere's no way you'd be able to deal with them anyway!\\nSmell ya later, {PLAYER}!"
                     },
                     {
-                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: What kept you, {PLAYER}?\\pLast to the party as always!\\nHahaha!\\pHere, let me see what POKéMON you caught, {PLAYER}!",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: What kept you, {PLAYER}?\\pLast to the party as always!\\nHahaha!\\pHere, let me see what Pokémon you caught, {PLAYER}!",
                         "POST_BATTLE_TAUNT": "Oh, man!\\nYou just caught me off guard.",
                         "POST_BATTLE_CLOSER": "I've got a lot to accomplish, unlike you.\\pSmell ya later!"
                     },
                     {
                         "PRE_BATTLE_OPENNING": "… … …\\pI was looking forward to seeing you, {PLAYER}.",
-                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Whilst travelling, I assembled teams that would beat any POKéMON type.\\pDo you know what that means, {PLAYER}?\\pI am the most powerful TRAINER in the world!",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Whilst travelling, I assembled teams that would beat any Pokémon type.\\pDo you know what that means, {PLAYER}?\\pI am the most powerful TRAINER in the world!",
                         "POST_BATTLE_TAUNT": "NO!\\nThat can't be!",
                         "POST_BATTLE_CLOSER": "…"
                     }
@@ -81,6 +82,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_ZUBAT",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -107,6 +109,7 @@
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
                 "weather": "PSYCHIC_FOG",
+                "shiny_species": "SPECIES_RALTS",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -132,6 +135,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_MUDKIP",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -158,6 +162,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_TORCHIC",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -187,6 +192,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_MUNCHLAX",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -213,6 +219,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_LILLIPUP",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -237,6 +244,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_MUNNA",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -261,6 +269,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_ZORUA",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -285,6 +294,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_BOUFFALANT",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -310,6 +320,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_GOOMY",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -334,6 +345,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_CORPHISH",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -358,6 +370,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_FLABEBE",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -383,6 +396,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_PICHU",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -407,6 +421,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_TYPE_NULL",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -432,6 +447,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_WOOLOO",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -456,6 +472,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_HATENNA",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -492,6 +509,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "shiny_species": "SPECIES_MORPEKO",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -525,10 +543,11 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_GEODUDE",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Let's see if you can break past the rock-hard willpower of my POKéMON!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Let's see if you can break past the rock-hard willpower of my Pokémon!",
                         "PRE_BATTLE_TAUNT": "Show me your best!",
                         "POST_BATTLE_TAUNT": "I took you for granted, and so I lost.",
                         "POST_BATTLE_CLOSER": "Let's see how far you can go.\\pGood luck."
@@ -564,11 +583,12 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_STARYU",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Only those TRAINERS who have a policy about POKéMON can turn pro.",
-                        "PRE_BATTLE_TAUNT": "Can you handle my all-out offensive of WATER-type POKéMON?",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Only those TRAINERS who have a policy about Pokémon can turn pro.",
+                        "PRE_BATTLE_TAUNT": "Can you handle my all-out offensive of WATER-type Pokémon?",
                         "POST_BATTLE_TAUNT": "Wow!\\nYou're too much!",
                         "POST_BATTLE_CLOSER": "There's plenty strong of TRAINERS still ahead of you.\\pStay strong!"
                     }
@@ -599,13 +619,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_VOLTORB",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You won't live long in combat!",
                         "PRE_BATTLE_TAUNT": "Not with your puny power!",
                         "POST_BATTLE_TAUNT": "You're lightning-quick, kid!",
-                        "POST_BATTLE_CLOSER": "I tell you, kid, my electric POKéMON and me trust each other to the end!\\pTrust your POKéMON, and they'll always have your back!"
+                        "POST_BATTLE_CLOSER": "I tell you, kid, my electric Pokémon and me trust each other to the end!\\pTrust your Pokémon, and they'll always have your back!"
                     }
                 ],
                 "team_generator":
@@ -637,6 +658,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_ODDISH",
                 "encounter_text":
                 [
                     {
@@ -675,11 +697,12 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_GRIMER",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Fwahahaha!\\pA mere child like you dares to challenge me?",
-                        "PRE_BATTLE_TAUNT": "Despair to the creeping horror of POISON-type POKéMON!",
+                        "PRE_BATTLE_TAUNT": "Despair to the creeping horror of POISON-type Pokémon!",
                         "POST_BATTLE_TAUNT": "Humph!",
                         "POST_BATTLE_CLOSER": "You have proven your worth!\\pLet's just see how long you can last…"
                     }
@@ -713,6 +736,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_ABRA",
                 "encounter_text":
                 [
                     {
@@ -755,10 +779,11 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_GROWLITHE",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My fiery POKéMON are all rough and ready with intense heat!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My fiery Pokémon are all rough and ready with intense heat!",
                         "PRE_BATTLE_TAUNT": "You better have a BURN HEAL!",
                         "POST_BATTLE_TAUNT": "I have burned down to nothing!",
                         "POST_BATTLE_CLOSER": "Not even ashes remain!\\pI like your style, kid!"
@@ -793,6 +818,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_RHYHORN",
                 "encounter_text":
                 [
                     {
@@ -843,10 +869,11 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_LAPRAS",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Your POKéMON will be at my mercy when they are frozen solid.\\pHahaha!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Your Pokémon will be at my mercy when they are frozen solid.\\pHahaha!",
                         "PRE_BATTLE_TAUNT": "Are you ready?",
                         "POST_BATTLE_TAUNT": "…Things shouldn't be this way!",
                         "POST_BATTLE_CLOSER": "You're better than I though.\\pGo on ahead."
@@ -882,11 +909,12 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_MACHOP",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Through rigorous training, people and POKéMON can become stronger without limit.",
-                        "PRE_BATTLE_TAUNT": "My POKéMON will grind you down with our superior power!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Through rigorous training, people and Pokémon can become stronger without limit.",
+                        "PRE_BATTLE_TAUNT": "My Pokémon will grind you down with our superior power!",
                         "POST_BATTLE_TAUNT": "How could I lose?",
                         "POST_BATTLE_CLOSER": "My job is done.\\pGo face your next challenge."
                     }
@@ -925,10 +953,11 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_GASTLY",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: POKéMON are for battling!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Pokémon are for battling!",
                         "PRE_BATTLE_TAUNT": "I'll show you how a real TRAINER battles!",
                         "POST_BATTLE_TAUNT": "Oh, my!\\nYou're something special, child",
                         "POST_BATTLE_CLOSER": "I have nothing else to say.\\pRun along now, child!"
@@ -969,6 +998,7 @@
                 "music_player": "kanto_boss",
                 "weather": "NONE",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_DRATINI",
                 "encounter_text":
                 [
                     {
@@ -1018,13 +1048,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_CHAMP" ],
+                "shiny_species": "SPECIES_MEW",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I am usually a man of research.\\pBut at this moment in time…",
                         "PRE_BATTLE_TAUNT": "I shall battle, with no mercy!",
                         "POST_BATTLE_TAUNT": "That was marvelous, {PLAYER}!",
-                        "POST_BATTLE_CLOSER": "You were truely astounding, battling alongside your POKéMON.\\pI wish you the best of luck moving forward!"
+                        "POST_BATTLE_CLOSER": "You were truely astounding, battling alongside your Pokémon.\\pI wish you the best of luck moving forward!"
                     }
                 ],
                 "team_generator":
@@ -1057,12 +1088,13 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_PIDGEY",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: People say you can clip Flying-type POKéMON's wings with a jolt of electricity…\\pI won't allow such insults to bird POKéMON!",
-                        "PRE_BATTLE_TAUNT": "I'll show you the real power of the magnificent bird POKéMON!",
-                        "POST_BATTLE_TAUNT": "My dad's cherished bird POKéMON…",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: People say you can clip Flying-type Pokémon's wings with a jolt of electricity…\\pI won't allow such insults to bird Pokémon!",
+                        "PRE_BATTLE_TAUNT": "I'll show you the real power of the magnificent bird Pokémon!",
+                        "POST_BATTLE_TAUNT": "My dad's cherished bird Pokémon…",
                         "POST_BATTLE_CLOSER": "A defeat is a defeat.\\pI hope you go far, {PLAYER}."
                     }
                 ],
@@ -1091,13 +1123,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_SCYTHER",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My research is going to make me the authority on BUG-type POKéMON!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My research is going to make me the authority on BUG-type Pokémon!",
                         "PRE_BATTLE_TAUNT": "Let me demonstrate what I've learned!",
                         "POST_BATTLE_TAUNT": "Whoa, amazing!",
-                        "POST_BATTLE_CLOSER": "You're an expert on POKéMON!\\pI hope you're next battles are just as fun!"
+                        "POST_BATTLE_CLOSER": "You're an expert on Pokémon!\\pI hope you're next battles are just as fun!"
                     }
                 ],
                 "team_generator":
@@ -1125,10 +1158,11 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_MILTANK",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: POKéMON are super cute!\\pYou want to battle?",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Pokémon are super cute!\\pYou want to battle?",
                         "PRE_BATTLE_TAUNT": "I'm warning you--I'm good!",
                         "POST_BATTLE_TAUNT": "…Waaaaaaah",
                         "POST_BATTLE_CLOSER": "You shouldn't be so serious!\\pYou're mean!"
@@ -1160,10 +1194,11 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_MISDREAVUS",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I will become a truly powerful TRAINER, in order to make the Rainbow-hued POKéMON appear!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I will become a truly powerful TRAINER, in order to make the Rainbow-hued Pokémon appear!",
                         "PRE_BATTLE_TAUNT": "You're going to help me reach that level!",
                         "POST_BATTLE_TAUNT": "I didn't think our potentials would be so different.",
                         "POST_BATTLE_CLOSER": "You seem to have something more than I have…\\pSo be it."
@@ -1199,6 +1234,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_POLIWAG",
                 "encounter_text":
                 [
                     {
@@ -1234,6 +1270,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_ONIX",
                 "encounter_text":
                 [
                     {
@@ -1268,6 +1305,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_SWINUB",
                 "encounter_text":
                 [
                     {
@@ -1308,6 +1346,7 @@
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM" ],
                 "weather": "RAIN",
+                "shiny_species": "SPECIES_HORSEA",
                 "encounter_text":
                 [
                     {
@@ -1351,10 +1390,11 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_NATU",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I have trained all around the world, making my Psychic-type POKéMON powerful.",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I have trained all around the world, making my Psychic-type Pokémon powerful.",
                         "PRE_BATTLE_TAUNT": "Losing is not an option!",
                         "POST_BATTLE_TAUNT": "I… I… can't believe it.",
                         "POST_BATTLE_CLOSER": "Even though I was defeated, I won't change my course.\\pI advise you to remain cautious for your upcoming fights."
@@ -1389,11 +1429,12 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_ZUBAT",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Fwahahaha!\\pA mere child like you dares to challenge me?",
-                        "PRE_BATTLE_TAUNT": "Despair to the creeping horror of POISON-type POKéMON!",
+                        "PRE_BATTLE_TAUNT": "Despair to the creeping horror of POISON-type Pokémon!",
                         "POST_BATTLE_TAUNT": "Humph!",
                         "POST_BATTLE_CLOSER": "You have proven your worth!\\pLet's just see how long you can last…"
                     }
@@ -1427,11 +1468,12 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_ONIX",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Through rigorous training, people and POKéMON can become stronger without limit.",
-                        "PRE_BATTLE_TAUNT": "My POKéMON will grind you down with our superior power!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Through rigorous training, people and Pokémon can become stronger without limit.",
+                        "PRE_BATTLE_TAUNT": "My Pokémon will grind you down with our superior power!",
                         "POST_BATTLE_TAUNT": "How could I lose?",
                         "POST_BATTLE_CLOSER": "My job is done.\\pGo face your next challenge."
                     }
@@ -1474,13 +1516,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_EEVEE",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You're {PLAYER}? How amusing.\\pI love Dark-type POKéMON.\\pThink you can take them?",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You're {PLAYER}? How amusing.\\pI love Dark-type Pokémon.\\pThink you can take them?",
                         "PRE_BATTLE_TAUNT": "Just try to entertain me.",
                         "POST_BATTLE_TAUNT": "Well, aren't you good.\\nI like that in a TRAINER.",
-                        "POST_BATTLE_CLOSER": "Strong POKéMON.\\pWeak POKéMON.\\pThat is only the selfish perception of people.\\pYou understand there's more to POKéMON than that.\\pDon't lose your way as you climb to the top."
+                        "POST_BATTLE_CLOSER": "Strong Pokémon.\\pWeak Pokémon.\\pThat is only the selfish perception of people.\\pYou understand there's more to Pokémon than that.\\pDon't lose your way as you climb to the top."
                     }
                 ],
                 "team_generator":
@@ -1516,6 +1559,7 @@
                 "music_player": "johto_boss",
                 "weather": "NONE",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_CHAMP" ],
+                "shiny_species": "SPECIES_MAGIKARP",
                 "encounter_text":
                 [
                     {
@@ -1571,6 +1615,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_NOSEPASS",
                 "encounter_text":
                 [
                     {
@@ -1607,6 +1652,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_MEDITITE",
                 "encounter_text":
                 [
                     {
@@ -1643,6 +1689,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_ELECTRIKE",
                 "encounter_text":
                 [
                     {
@@ -1678,6 +1725,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_NUMEL",
                 "encounter_text":
                 [
                     {
@@ -1718,6 +1766,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_SLAKOTH",
                 "encounter_text":
                 [
                     {
@@ -1757,12 +1806,13 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_SWABLU",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I have become one with BIRD POKéMON and have soared the skies…",
-                        "PRE_BATTLE_TAUNT": "Witness the elegant choreography of BIRD POKéMON and I!",
-                        "POST_BATTLE_TAUNT": "Never before have I seen a TRAINER command POKéMON with more grace.",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I have become one with BIRD Pokémon and have soared the skies…",
+                        "PRE_BATTLE_TAUNT": "Witness the elegant choreography of BIRD Pokémon and I!",
+                        "POST_BATTLE_TAUNT": "Never before have I seen a TRAINER command Pokémon with more grace.",
                         "POST_BATTLE_CLOSER": "I recognise your prowess.\\pGood luck with your Adventure."
                     }
                 ],
@@ -1797,13 +1847,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_LUNATONE",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My mind is in sync with my POKéMON!",
-                        "PRE_BATTLE_TAUNT": "Can you and your POKéMON beat us?",
-                        "POST_BATTLE_TAUNT": "What?!\\nMy POKéMON…",
-                        "POST_BATTLE_CLOSER": "You were more in sync with your POKéMON than I was.\\pKeep that up, as your Adventure will be harder from here on out!"
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My mind is in sync with my Pokémon!",
+                        "PRE_BATTLE_TAUNT": "Can you and your Pokémon beat us?",
+                        "POST_BATTLE_TAUNT": "What?!\\nMy Pokémon…",
+                        "POST_BATTLE_CLOSER": "You were more in sync with your Pokémon than I was.\\pKeep that up, as your Adventure will be harder from here on out!"
                     }
                 ],
                 "team_generator":
@@ -1837,11 +1888,12 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_CORPHISH",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Please, you shall bear witness to our artistry.",
-                        "PRE_BATTLE_TAUNT": "A grand illusion of water sculpted by POKéMON and myself!",
+                        "PRE_BATTLE_TAUNT": "A grand illusion of water sculpted by Pokémon and myself!",
                         "POST_BATTLE_TAUNT": "Ahahaha, excellent!",
                         "POST_BATTLE_CLOSER": "From you, I sense the brilliant shine of skill that will overcome all.\\pGood luck with your journey!"
                     }
@@ -1876,6 +1928,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_ABSOL",
                 "encounter_text":
                 [
                     {
@@ -1916,13 +1969,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_DUSKULL",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: While I trained, I gained the ability to commune with GHOST-type POKéMON.",
-                        "PRE_BATTLE_TAUNT": "So, come on, just try and see if you can even inflict damage on my POKéMON!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: While I trained, I gained the ability to commune with GHOST-type Pokémon.",
+                        "PRE_BATTLE_TAUNT": "So, come on, just try and see if you can even inflict damage on my Pokémon!",
                         "POST_BATTLE_TAUNT": "Oh, darn.\\nI've gone and lost.",
-                        "POST_BATTLE_CLOSER": "There's a definite bond between you and your POKéMON, too.\\pCarry that bond forward, {PLAYER}."
+                        "POST_BATTLE_CLOSER": "There's a definite bond between you and your Pokémon, too.\\pCarry that bond forward, {PLAYER}."
                     }
                 ],
                 "team_generator":
@@ -1960,13 +2014,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_SNORUNT",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: All I have seen are challenges by weak TRAINERS and their POKéMON.",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: All I have seen are challenges by weak TRAINERS and their Pokémon.",
                         "PRE_BATTLE_TAUNT": "I wonder.\\nHow will you do?",
-                        "POST_BATTLE_TAUNT": "You and your POKéMON…\\nHow hot your spirits burn!",
-                        "POST_BATTLE_CLOSER": "Finally!\\pYou have posed a good challenge for my POKéMON and I.\\pCarry that strength onward!"
+                        "POST_BATTLE_TAUNT": "You and your Pokémon…\\nHow hot your spirits burn!",
+                        "POST_BATTLE_CLOSER": "Finally!\\pYou have posed a good challenge for my Pokémon and I.\\pCarry that strength onward!"
                     }
                 ],
                 "team_generator":
@@ -2001,13 +2056,14 @@
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE" ],
                 "weather": "DROUGHT",
+                "shiny_species": "SPECIES_BAGON",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: For us to battle with POKéMON as partners, do you know what it takes?\\pIf you don't…",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: For us to battle with Pokémon as partners, do you know what it takes?\\pIf you don't…",
                         "PRE_BATTLE_TAUNT": "Then you will never prevail over me!",
                         "POST_BATTLE_TAUNT": "Superb, it should be said.",
-                        "POST_BATTLE_CLOSER": "You deserve every credit for coming this far as a TRAINER of POKéMON.\\pI look forward to seeing how your bond with your POKéMON blossoms, going forward."
+                        "POST_BATTLE_CLOSER": "You deserve every credit for coming this far as a TRAINER of Pokémon.\\pI look forward to seeing how your bond with your Pokémon blossoms, going forward."
                     }
                 ],
                 "team_generator":
@@ -2058,13 +2114,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_CHAMP" ],
+                "shiny_species": "SPECIES_FEEBAS",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Who can most elegantly dance with their POKéMON?\\pYou?\\nOr I?",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Who can most elegantly dance with their Pokémon?\\pYou?\\nOr I?",
                         "PRE_BATTLE_TAUNT": "Show me right here and now!",
                         "POST_BATTLE_TAUNT": "You were elegant, infuriatingly so.\\nAnd yet it was utterly glorious!",
-                        "POST_BATTLE_CLOSER": "Kudos to you, {PLAYER}!\\pYou share a bond with your POKéMON that will surely only assist you in your future battles!"
+                        "POST_BATTLE_CLOSER": "Kudos to you, {PLAYER}!\\pYou share a bond with your Pokémon that will surely only assist you in your future battles!"
                     }
                 ],
                 "team_generator":
@@ -2092,13 +2149,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_CHAMP" ],
+                "shiny_species": "SPECIES_BELDUM",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Tell me…\\pWhat have you seen on your journey with your POKéMON?",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Tell me…\\pWhat have you seen on your journey with your Pokémon?",
                         "PRE_BATTLE_TAUNT": "Come at me with all that you've learned!",
                         "POST_BATTLE_TAUNT": "So I…\\nFall in defeat.",
-                        "POST_BATTLE_CLOSER": "{PLAYER}, you are truly an excellent TRAINER\\pYou share a bond with your POKéMON that will surely only assist you in your future battles!"
+                        "POST_BATTLE_CLOSER": "{PLAYER}, you are truly an excellent TRAINER\\pYou share a bond with your Pokémon that will surely only assist you in your future battles!"
                     }
                 ],
                 "team_generator":
@@ -2143,12 +2201,13 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_CRANIDOS",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I'm but one Trainer who decided to walk proudly with Rock-type POKéMON!\\pI need to see your potential as a Trainer.",
-                        "PRE_BATTLE_TAUNT": "And I'll need to see the toughness of the POKéMON that battle with you!",
-                        "POST_BATTLE_TAUNT": "Wh-what? That can't be!\\nMy buffed-up POKéMON!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I'm but one Trainer who decided to walk proudly with Rock-type Pokémon!\\pI need to see your potential as a Trainer.",
+                        "PRE_BATTLE_TAUNT": "And I'll need to see the toughness of the Pokémon that battle with you!",
+                        "POST_BATTLE_TAUNT": "Wh-what? That can't be!\\nMy buffed-up Pokémon!",
                         "POST_BATTLE_CLOSER": "This is embarrassing…\\pBut that's the story. You were strong, and I was weak. That's all there is.\\pI hope you go far, {PLAYER}!"
                     }
                 ],
@@ -2186,13 +2245,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_BUDEW",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You have a winning aura about you!\\pSo, anyway, this will be fun.",
                         "PRE_BATTLE_TAUNT": "Let's have a great battle!",
                         "POST_BATTLE_TAUNT": "Amazing! You're very good, aren't you?",
-                        "POST_BATTLE_CLOSER": "You're really tough!\\pWasn't it hard for you to raise your POKéMON to be so good?\\pAnyway, I won't keep you any longer.\\pGood luck, {PLAYER}!"
+                        "POST_BATTLE_CLOSER": "You're really tough!\\pWasn't it hard for you to raise your Pokémon to be so good?\\pAnyway, I won't keep you any longer.\\pGood luck, {PLAYER}!"
                     }
                 ],
                 "team_generator":
@@ -2225,6 +2285,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_RIOLU",
                 "encounter_text":
                 [
                     {
@@ -2264,6 +2325,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_BUIZEL",
                 "encounter_text":
                 [
                     {
@@ -2299,13 +2361,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_DRIFLOON",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Ohohoho!\\pSince I came to this region, I always try to learn new things.\\pAnd, uh, so it shall be that you challenge me.",
                         "PRE_BATTLE_TAUNT": "But I shall win. That is what a Leader does, non?",
                         "POST_BATTLE_TAUNT": "You are so fantastically strong. I know now why I have lost.",
-                        "POST_BATTLE_CLOSER": "I am dumbfounded!\\pSo very, very strong! You, your POKéMON, so strong!\\pI'm sure you shall go far!"
+                        "POST_BATTLE_CLOSER": "I am dumbfounded!\\pSo very, very strong! You, your Pokémon, so strong!\\pI'm sure you shall go far!"
                     }
                 ],
                 "team_generator":
@@ -2345,13 +2408,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_SHIELDON",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I {STR_VAR_1}, will accept your challenge.",
                         "PRE_BATTLE_TAUNT": "I expect you to go all out!",
-                        "POST_BATTLE_TAUNT": "Hmm! My sturdy POKéMON, defeated!",
-                        "POST_BATTLE_CLOSER": "You were strong enough to take down my prized team of POKéMON.\\pHold your head up, as you go onward!"
+                        "POST_BATTLE_TAUNT": "Hmm! My sturdy Pokémon, defeated!",
+                        "POST_BATTLE_CLOSER": "You were strong enough to take down my prized team of Pokémon.\\pHold your head up, as you go onward!"
                     }
                 ],
                 "team_generator":
@@ -2388,6 +2452,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_SNOVER",
                 "encounter_text":
                 [
                     {
@@ -2430,12 +2495,13 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_SHINX",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: It's not often a Trainer manages to challenge me.\\pAnd when they do, they've all been boring battles. I didn't even break a sweat beating them.",
                         "PRE_BATTLE_TAUNT": "I hope you're the Trainer who'll make me remember how fun it is to battle!",
-                        "POST_BATTLE_TAUNT": "You've got me beat. Your desire and the noble way you POKéMON battled for you…",
+                        "POST_BATTLE_TAUNT": "You've got me beat. Your desire and the noble way you Pokémon battled for you…",
                         "POST_BATTLE_CLOSER": "I even felt thrilled during our match.\\pThat was a very good battle.\\pI'm sure you're gonna go far!"
                     }
                 ],
@@ -2486,13 +2552,14 @@
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE" ],
                 "weather": "RAIN",
+                "shiny_species": "SPECIES_SKORUPI",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Welcome! It's good to meet you.\\pOh, I should explain-I'm a huge fan of Bug POKéMON.",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Welcome! It's good to meet you.\\pOh, I should explain-I'm a huge fan of Bug Pokémon.",
                         "PRE_BATTLE_TAUNT": "OK! Let me take you on!",
                         "POST_BATTLE_TAUNT": "I will now concede defeat.",
-                        "POST_BATTLE_CLOSER": "I hope you came to see how great Bug-type POKéMON can be.\\pAlthough, battling is a deep and complex affair…\\pMake sure to battle carefully, as you move forward."
+                        "POST_BATTLE_CLOSER": "I hope you came to see how great Bug-type Pokémon can be.\\pAlthough, battling is a deep and complex affair…\\pMake sure to battle carefully, as you move forward."
                     }
                 ],
                 "team_generator":
@@ -2525,13 +2592,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_HIPPOPOTAS",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Well, well.\\pYou're quite the adorable Trainer, but you've also got a spine.",
                         "PRE_BATTLE_TAUNT": "Well, would you show this old lady how much you've learned?",
                         "POST_BATTLE_TAUNT": "Well! Dear child, I must say, that was most impressive.",
-                        "POST_BATTLE_CLOSER": "Your POKéMON believed in you and did their best to earn you the win.\\pEven though I've lost, I find myself with this silly grin!\\pI wish you the best of luck, child."
+                        "POST_BATTLE_CLOSER": "Your Pokémon believed in you and did their best to earn you the win.\\pEven though I've lost, I find myself with this silly grin!\\pI wish you the best of luck, child."
                     }
                 ],
                 "team_generator":
@@ -2563,13 +2631,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_CHIMCHAR",
                 "encounter_text":
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Yo, Trainer!\\pYou had me counting the days on my fingers waiting for you to come.\\pI heard you've managed to light fires in Trainer's hearts!",
                         "PRE_BATTLE_TAUNT": "How could you not expect me to look forward to seeing you in battle?",
                         "POST_BATTLE_TAUNT": "Whoa!\\nI wasn't expecting this!",
-                        "POST_BATTLE_CLOSER": "I wasn't looking down on you, but I didn't think for a second that I'd lose!\\pThis is fantastic! You and your POKéMON are inspiring!\\pKeep up that energy in your upcoming battles!"
+                        "POST_BATTLE_CLOSER": "I wasn't looking down on you, but I didn't think for a second that I'd lose!\\pThis is fantastic! You and your Pokémon are inspiring!\\pKeep up that energy in your upcoming battles!"
                     }
                 ],
                 "team_generator":
@@ -2609,6 +2678,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_BRONZOR",
                 "encounter_text":
                 [
                     {
@@ -2655,13 +2725,14 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_CHAMP" ],
+                "shiny_species": "SPECIES_GIBLE",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Together, you and your POKéMON overcame all the challenges you faced, however difficult.\\pIt means you've triumphed over any personal weaknesses, too.\\pBut that's enough talk. Let's get on with why you're here.",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Together, you and your Pokémon overcame all the challenges you faced, however difficult.\\pIt means you've triumphed over any personal weaknesses, too.\\pBut that's enough talk. Let's get on with why you're here.",
                         "PRE_BATTLE_TAUNT": "I, {STR_VAR_1}, accept your challenge!",
                         "POST_BATTLE_TAUNT": "Just a few minutes ago, you were the most powerful challenger.\\pNow you have proven yourself as a much more powerful trainer than I.",
-                        "POST_BATTLE_CLOSER": "That was excellent. Truly, an outstanding battle.\\pYou gave the support your POKéMON needed to maximize their power, and you guided them with certainty to secure victory.\\pI'm certain that your battle prowess will take you far in your Adventure!"
+                        "POST_BATTLE_CLOSER": "That was excellent. Truly, an outstanding battle.\\pYou gave the support your Pokémon needed to maximize their power, and you guided them with certainty to secure victory.\\pI'm certain that your battle prowess will take you far in your Adventure!"
                     }
                 ],
                 "team_generator":
@@ -2702,6 +2773,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_PANPOUR",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2732,6 +2804,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_PANSEAR",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2762,6 +2835,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_PANSAGE",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2791,6 +2865,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_LILLIPUP",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -2820,6 +2895,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_SEWADDLE",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2849,6 +2925,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_EMOLGA",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -2878,6 +2955,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_DRILBUR",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2907,6 +2985,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_WOOBAT",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -2937,6 +3016,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_CUBCHOO",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2967,6 +3047,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_DRUDDIGON",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2996,6 +3077,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_VENIPEDE",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3025,6 +3107,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_FRILLISH",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3054,6 +3137,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_LITWICK",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3080,6 +3164,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_TIMBURR",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3105,6 +3190,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_PAWNIARD",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3135,6 +3221,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_MUNNA",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3164,6 +3251,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP" ],
+                "shiny_species": "SPECIES_LARVESTA",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3189,6 +3277,7 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP" ],
                 "weather": "NONE",
+                "shiny_species": "SPECIES_AXEW",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3222,6 +3311,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_SCATTERBUG",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3247,6 +3337,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_TYRUNT",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3273,6 +3364,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_RIOLU",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3297,6 +3389,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_SKIDDO",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3327,6 +3420,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_HELIOPTILE",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3352,6 +3446,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_EEVEE",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3377,6 +3472,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_ESPURR",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3402,6 +3498,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_BERGMITE",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3436,6 +3533,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_FLETCHINDER",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3461,6 +3559,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_CLAUNCHER",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3487,6 +3586,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_HONEDGE",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3513,6 +3613,7 @@
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_ELITE" ],
                 "weather": "NONE",
+                "shiny_species": "SPECIES_NOIBAT",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3547,6 +3648,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_CHAMP" ],
+                "shiny_species": "SPECIES_RALTS",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3575,6 +3677,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_CRABRAWLER",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3600,6 +3703,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_ROCKRUFF",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3625,6 +3729,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_MEOWTH_ALOLAN",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3650,6 +3755,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_MUDBRAY",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3676,6 +3782,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_YUNGOOS",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3701,6 +3808,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_DEWPIDER",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3726,6 +3834,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_CUBONE",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3751,6 +3860,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_BOUNSWEET",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3776,6 +3886,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM" ],
+                "shiny_species": "SPECIES_GEODUDE_ALOLAN",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3801,6 +3912,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_SANDYGAST",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3827,6 +3939,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_CUTIEFLY",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3856,6 +3969,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_ORICORIO",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3882,6 +3996,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_DIGLETT_ALOLAN",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3911,6 +4026,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_CHAMP" ],
+                "shiny_species": "SPECIES_ROWLET",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3941,6 +4057,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_GOSSIFLEUR",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3966,6 +4083,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_CHEWTLE",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3991,6 +4109,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_SIZZLIPEDE",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -4016,6 +4135,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_FARFETCHD_GALARIAN",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -4041,6 +4161,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_CORSOLA_GALARIAN",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -4066,6 +4187,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_MILCERY",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -4091,6 +4213,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_ROLYCOLY",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -4116,6 +4239,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_DARUMAKA_GALARIAN",
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -4141,6 +4265,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_GYM", "CLASS_ELITE" ],
+                "shiny_species": "SPECIES_ZIGZAGOON_GALARIAN",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -4167,6 +4292,7 @@
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_GYM", "CLASS_ELITE" ],
                 "weather": "SANDSTORM",
+                "shiny_species": "SPECIES_DURALUDON",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -4203,6 +4329,7 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_CHAMP" ],
+                "shiny_species": "SPECIES_CHARMANDER",
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -4439,7 +4566,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "I hatched and rasied all of my POKéMON!",
+                        "PRE_BATTLE_TAUNT": "I hatched and rasied all of my Pokémon!",
                         "POST_BATTLE_TAUNT": "I guess I need to work in my breeding technique…",
                         "POST_BATTLE_CLOSER": "My breeding technique still needs work I guess…"
                     }
@@ -4461,9 +4588,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Did you really raise all your POKéMON yourself?",
-                        "POST_BATTLE_TAUNT": "I don't believe you…",
-                        "POST_BATTLE_CLOSER": "Someone else must've raised your POKéMON for you."
+                        "PRE_BATTLE_TAUNT": "Did you really raise all your Pokémon yourself?",
+                        "POST_BATTLE_TAUNT": "Wow! That was something else!",
+                        "POST_BATTLE_CLOSER": "You've done a great job raising your Pokémon!"
                     }
                 ],
                 "team_generator":
@@ -4527,9 +4654,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "My mind and my POKéMON are in sync!",
-                        "POST_BATTLE_TAUNT": "You and your POKéMON were more in sync, it seems.",
-                        "POST_BATTLE_CLOSER": "How did you train your POKéMON I wonder?\\pLet me read you mind to find out!\\p… … …\\pThat makes no sense…\\nYou're crazy."
+                        "PRE_BATTLE_TAUNT": "My mind and my Pokémon are in sync!",
+                        "POST_BATTLE_TAUNT": "You and your Pokémon were more in sync, it seems.",
+                        "POST_BATTLE_CLOSER": "How did you train your Pokémon I wonder?\\pLet me read you mind to find out!\\p… … …\\pThat makes no sense…\\nYou're crazy."
                     }
                 ],
                 "team_generator":
@@ -4600,7 +4727,7 @@
                 [
                     {
                         "PRE_BATTLE_TAUNT": "Ah!\\pYou look like a strong trainer!",
-                        "POST_BATTLE_TAUNT": "Honestly…\\nI was expecting more from you…",
+                        "POST_BATTLE_TAUNT": "Ouch…",
                         "POST_BATTLE_CLOSER": "Yes you are strong.\\pNot at strong as I was in my prime."
                     }
                 ],
@@ -4710,8 +4837,8 @@
                 [
                     {
                         "PRE_BATTLE_TAUNT": "I lost my last battle so I'm gonna get payback on you!",
-                        "POST_BATTLE_TAUNT": "Err, you were suppose to lose!",
-                        "POST_BATTLE_CLOSER": "Amature."
+                        "POST_BATTLE_TAUNT": "Oh no!\\nYou were suppose to lose!",
+                        "POST_BATTLE_CLOSER": "Why do I keep losing?"
                     }
                 ],
                 "team_generator":
@@ -4731,9 +4858,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "That's a neat BAG you've got there!",
-                        "POST_BATTLE_TAUNT": "Still not as good as my BAG, though.",
-                        "POST_BATTLE_CLOSER": "You're BAG may be cool, but it's not even close to mine."
+                        "PRE_BATTLE_TAUNT": "That's a neat Bag you've got there!",
+                        "POST_BATTLE_TAUNT": "Still not as good as my Bag, though.",
+                        "POST_BATTLE_CLOSER": "Your Bag may be cool, but it's not even close to mine."
                     }
                 ],
                 "team_generator":
@@ -4759,9 +4886,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "My bird POKéMON are the strongest in the world!",
+                        "PRE_BATTLE_TAUNT": "My bird Pokémon are the strongest in the world!",
                         "POST_BATTLE_TAUNT": "They're still the strongest in my world.",
-                        "POST_BATTLE_CLOSER": "Bird POKéMON are super cool, don't you think?!"
+                        "POST_BATTLE_CLOSER": "Bird Pokémon are super cool, don't you think?!"
                     }
                 ],
                 "team_generator":
@@ -4787,7 +4914,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "What do my little eyes spy?\\pIs that… a POKéMON battle?!",
+                        "PRE_BATTLE_TAUNT": "What do my little eyes spy?\\pIs that… a Pokémon battle?!",
                         "POST_BATTLE_TAUNT": "My little eyes did not spy this.",
                         "POST_BATTLE_CLOSER": "I'll be honest… I'm not entirely sure how I spy works.\\pDid I do it right?"
                     }
@@ -4837,7 +4964,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Fufufu!\\pI always look forward to POKéMON battles.",
+                        "PRE_BATTLE_TAUNT": "Fufufu!\\pI always look forward to Pokémon battles.",
                         "POST_BATTLE_TAUNT": "That was it!",
                         "POST_BATTLE_CLOSER": "Maybe we can battle again sometime?\\pFufufu."
                     }
@@ -4915,9 +5042,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "I bought myself the most powerful POKéMON imaginable!\\pYou don't stand a chance!",
+                        "PRE_BATTLE_TAUNT": "I bought myself the most powerful Pokémon imaginable!\\pYou don't stand a chance!",
                         "POST_BATTLE_TAUNT": "What!?!",
-                        "POST_BATTLE_CLOSER": "I spent so much on these useless POKéMON too."
+                        "POST_BATTLE_CLOSER": "I spent so much on these useless Pokémon too."
                     }
                 ],
                 "team_generator":
@@ -4937,9 +5064,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Me and my precious Bug POKéMON are on our way to fight a GYM!",
+                        "PRE_BATTLE_TAUNT": "Me and my precious Bug Pokémon are on our way to fight a GYM!",
                         "POST_BATTLE_TAUNT": "I guess we're not quite ready yet.",
-                        "POST_BATTLE_CLOSER": "I love Bug POKéMON with all my heart!"
+                        "POST_BATTLE_CLOSER": "I love Bug Pokémon with all my heart!"
                     }
                 ],
                 "team_generator":
@@ -4965,9 +5092,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "You look very capable!\\pWould you mind entertaining my POKéMON in a battle?",
+                        "PRE_BATTLE_TAUNT": "You look very capable!\\pWould you mind entertaining my Pokémon in a battle?",
                         "POST_BATTLE_TAUNT": "Astounding!",
-                        "POST_BATTLE_CLOSER": "You have done a remarkable job raising up your POKéMON!"
+                        "POST_BATTLE_CLOSER": "You have done a remarkable job raising up your Pokémon!"
                     }
                 ],
                 "team_generator":
@@ -5016,7 +5143,7 @@
                 [
                     {
                         "PRE_BATTLE_TAUNT": "You better not wipe my run!",
-                        "POST_BATTLE_TAUNT": "NOOOOOOO!",
+                        "POST_BATTLE_TAUNT": "I was in the middle of a Quest too…",
                         "POST_BATTLE_CLOSER": "Why?\\pI've been grinding this out for like 6 months…"
                     }
                 ],
