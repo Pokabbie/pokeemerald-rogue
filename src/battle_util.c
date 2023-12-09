@@ -48,7 +48,7 @@
 
 #include "constants/rogue.h"
 #include "rogue_baked.h"
-#include "rogue_quest.h"
+#include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_safari.h"
 
@@ -696,22 +696,31 @@ bool8 TryRunFromBattle(u8 battler)
         if (!IsBattlerAlive(runningFromBattler))
             runningFromBattler |= BIT_FLANK;
 
+        if(Rogue_IsRunActive())
+        {
+            if(Rogue_GetCurrentDifficulty() == 0)
+            {
+                // Always allow running when on 0 badges
+                effect = TRUE;
+            }
+        }
+
         if (InBattlePyramid())
         {
             pyramidMultiplier = GetPyramidRunMultiplier();
             speedVar = (gBattleMons[battler].speed * pyramidMultiplier) / (gBattleMons[runningFromBattler].speed) + (gBattleStruct->runTries * 30);
             if (speedVar > (Random() & 0xFF))
-                effect++;
+                    effect = TRUE;
         }
         else if (gBattleMons[battler].speed < gBattleMons[runningFromBattler].speed)
         {
             speedVar = (gBattleMons[battler].speed * 128) / (gBattleMons[runningFromBattler].speed) + (gBattleStruct->runTries * 30);
             if (speedVar > (Random() & 0xFF))
-                effect++;
+                    effect = TRUE;
         }
         else // same speed or faster
         {
-            effect++;
+                effect = TRUE;
         }
 
         gBattleStruct->runTries++;

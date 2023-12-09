@@ -1281,6 +1281,24 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
             return FALSE;
 #endif
 
+        if(Rogue_IsRunActive())
+        {
+            // Berries are not functional outside of the hub
+            switch (itemId)
+            {
+                case ITEM_DURIN_BERRY:
+                case ITEM_PAMTRE_BERRY:
+                case ITEM_NOMEL_BERRY:
+                case ITEM_BELUE_BERRY:
+                case ITEM_WATMEL_BERRY:
+                case ITEM_SPELON_BERRY:
+                case ITEM_RABUTA_BERRY:
+                case ITEM_CORNN_BERRY:
+                case ITEM_MAGOST_BERRY:
+                    return FALSE;
+            }
+        }
+
         switch (itemId)
         {
         case ITEM_SACRED_ASH:
@@ -1296,18 +1314,10 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         case ITEM_FLUFFY_TAIL:
         case ITEM_SOOTHE_BELL:
 
-        //case ITEM_DURIN_BERRY:
-        //case ITEM_PAMTRE_BERRY:
-        //case ITEM_NOMEL_BERRY:
         case ITEM_PINAP_BERRY:
         case ITEM_NANAB_BERRY:
         case ITEM_RAZZ_BERRY:
         case ITEM_ENIGMA_BERRY:
-        //case ITEM_BELUE_BERRY:
-        //case ITEM_WATMEL_BERRY:
-        //case ITEM_SPELON_BERRY:
-        //case ITEM_RABUTA_BERRY:
-        //case ITEM_CORNN_BERRY:
         case ITEM_WEPEAR_BERRY:
         case ITEM_BLUK_BERRY:
 
@@ -1318,7 +1328,6 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         case ITEM_IAPAPA_BERRY:
         case ITEM_MAGO_BERRY:
         case ITEM_FIGY_BERRY:
-        //case ITEM_MAGOST_BERRY:
 #ifdef ROGUE_EXPANSION
         case ITEM_ENIGMA_BERRY_E_READER:
 
@@ -2674,7 +2683,7 @@ static void BeginRogueRun(void)
     }
 
     Rogue_SetCurrentDifficulty(GetStartDifficulty());
-    gRogueRun.currentLevelOffset = 5;
+    gRogueRun.currentLevelOffset = 3; // assume STARTER_MON_LEVEL == 5 and first boss level is 10
     gRogueRun.adventureRoomId = ADVPATH_INVALID_ROOM_ID;
     
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))

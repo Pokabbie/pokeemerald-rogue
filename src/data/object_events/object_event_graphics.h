@@ -141,6 +141,7 @@ const u32 gObjectEventPic_Teala[] = INCBIN_U32("graphics/object_events/pics/peop
 const u32 gObjectEventPic_Artist[] = INCBIN_U32("graphics/object_events/pics/people/artist.4bpp");
 const u32 gObjectEventPic_Cameraman[] = INCBIN_U32("graphics/object_events/pics/people/cameraman.4bpp");
 const u32 gObjectEventPic_Scientist2[] = INCBIN_U32("graphics/object_events/pics/people/scientist_2.4bpp");
+const u32 gObjectEventPic_Scientist2Riding[] = INCBIN_U32("graphics/object_events/pics/people/scientist_2_riding.4bpp");
 const u32 gObjectEventPic_DevonEmployee[] = INCBIN_U32("graphics/object_events/pics/people/devon_employee.4bpp");
 const u32 gObjectEventPic_AquaMemberM[] = INCBIN_U32("graphics/object_events/pics/people/team_aqua/aqua_member_m.4bpp");
 const u32 gObjectEventPic_AquaMemberF[] = INCBIN_U32("graphics/object_events/pics/people/team_aqua/aqua_member_f.4bpp");
@@ -418,6 +419,8 @@ const u16 gObjectEventPal_PlayerCalemLayers[] = INCBIN_U16("graphics/rogue_palet
 const u16 gObjectEventPal_PlayerSerenaBase[] = INCBIN_U16("graphics/rogue_palettes/serena/object_event_base.gbapal");
 const u16 gObjectEventPal_PlayerSerenaLayers[] = INCBIN_U16("graphics/rogue_palettes/serena/object_event_layers.gbapal");
 
+const u16 gObjectEventPal_PlayerZefaBase[] = INCBIN_U16("graphics/object_events/pics/people/zefa/palette.gbapal");
+
 const u32 gObjectEventPic_LyraNormal[] = INCBIN_U32("graphics/object_events/pics/people/lyra/walking.4bpp");
 const u32 gObjectEventPic_LyraRunning[] = INCBIN_U32("graphics/object_events/pics/people/lyra/running.4bpp");
 const u32 gObjectEventPic_LyraMachBike[] = INCBIN_U32("graphics/object_events/pics/people/lyra/mach_bike.4bpp");
@@ -457,6 +460,10 @@ const u32 gObjectEventPic_CalemNormal[] = INCBIN_U32("graphics/object_events/pic
 const u32 gObjectEventPic_CalemRiding[] = INCBIN_U32("graphics/object_events/pics/people/calem/riding.4bpp");
 const u32 gObjectEventPic_SerenaNormal[] = INCBIN_U32("graphics/object_events/pics/people/serena/walking.4bpp");
 const u32 gObjectEventPic_SerenaRiding[] = INCBIN_U32("graphics/object_events/pics/people/serena/riding.4bpp");
+
+const u32 gObjectEventPic_ZefaNormal[] = INCBIN_U32("graphics/object_events/pics/people/zefa/walking.4bpp");
+const u32 gObjectEventPic_ZefaRunning[] = INCBIN_U32("graphics/object_events/pics/people/zefa/running.4bpp");
+const u32 gObjectEventPic_ZefaRiding[] = INCBIN_U32("graphics/object_events/pics/people/zefa/riding.4bpp");
 
 const u16 gObjectEventPal_BirthIslandStone[] = INCBIN_U16("graphics/object_events/palettes/birth_island_stone.gbapal");
 const u32 gObjectEventPic_BirthIslandStone[] = INCBIN_U32("graphics/object_events/pics/misc/birth_island_stone.4bpp");
@@ -668,6 +675,7 @@ const u32 gObjectEventPic_Galar_Piers[] = INCBIN_U32("graphics/object_events/pic
 const u32 gObjectEventPic_Galar_Raihan[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/galar/raihan.4bpp");
 
 const u32 gObjectEventPic_Misc_Aroma_Girl[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/aroma_girl.4bpp");
+const u32 gObjectEventPic_Misc_Aroma_GirlRiding[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/aroma_girl_riding.4bpp");
 const u32 gObjectEventPic_Misc_Backpacker_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/backpacker_f.4bpp");
 const u32 gObjectEventPic_Misc_Backpacker_M[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/backpacker_m.4bpp");
 const u32 gObjectEventPic_Misc_Bug_Catcher[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/bug_catcher.4bpp");
@@ -726,8 +734,11 @@ const u32 gObjectEventPic_Rival_Tierno[] = INCBIN_U32("graphics/object_events/pi
 const u32 gObjectEventPic_Rival_Trevor[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/trevor.4bpp");
 
 const u32 gObjectEventPic_Glitch_Kate[] = INCBIN_U32("graphics/object_events/pics/people/glitch/kate.4bpp");
+const u32 gObjectEventPic_Glitch_KateRiding[] = INCBIN_U32("graphics/object_events/pics/people/glitch/kate_riding.4bpp");
 const u32 gObjectEventPic_Glitch_Erma[] = INCBIN_U32("graphics/object_events/pics/people/glitch/erma.4bpp");
+const u32 gObjectEventPic_Glitch_ErmaRiding[] = INCBIN_U32("graphics/object_events/pics/people/glitch/erma_riding.4bpp");
 const u32 gObjectEventPic_Glitch_Raven[] = INCBIN_U32("graphics/object_events/pics/people/glitch/raven.4bpp");
+const u32 gObjectEventPic_Glitch_RavenRiding[] = INCBIN_U32("graphics/object_events/pics/people/glitch/raven_riding.4bpp");
 
 const u16 gObjectEventPal_Glitch_NPC_Kate[] = INCBIN_U16("graphics/object_events/pics/people/glitch/kate.gbapal");
 const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events/pics/people/glitch/erma.gbapal");

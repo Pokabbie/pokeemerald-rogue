@@ -284,17 +284,23 @@ static u8 CalculateLvlFor(u8 difficulty)
         return MAX_LEVEL;
     }
 
-    // Gym leaders lvs 15 -> 85
-    if(difficulty <= 7)
+    // Gym leaders lvs 10 -> 80
+    if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
     {
+        return 10 * (difficulty + 1);
+
         return min(100, 15 + 10 * difficulty);
+    }
+    else if(difficulty < ROGUE_CHAMP_START_DIFFICULTY)
+    {
+        difficulty -= ROGUE_ELITE_START_DIFFICULTY;
+        return 80 + 4 * (difficulty + 1);
     }
     else
     {
-        // Both champions are lvl 100
-        difficulty -= 7; // (1 - 6)
-        return min(100, 85 + 3 * difficulty);
+        return MAX_LEVEL;
     }
+    
 }
 
 static u8 Rogue_CalculateTrainerLvlCap(bool8 keyBattle)

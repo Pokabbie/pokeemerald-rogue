@@ -38,6 +38,7 @@
 #include "rogue_controller.h"
 #include "rogue_campaign.h"
 #include "rogue_player_customisation.h"
+#include "rogue_settings.h"
 
 #define HALL_OF_FAME_MAX_TEAMS 30
 #define TAG_CONFETTI 1001
@@ -61,6 +62,8 @@ struct HallofFameMon
 struct HallofFameTeam
 {
     struct HallofFameMon mon[PARTY_SIZE];
+    u32 rewardDifficulty : 2;
+    u32 pad0 : 30;
 };
 
 STATIC_ASSERT(sizeof(struct HallofFameTeam) * HALL_OF_FAME_MAX_TEAMS <= SECTOR_DATA_SIZE * NUM_HOF_SECTORS, HallOfFameFreeSpace);
@@ -85,7 +88,7 @@ static void LoadHofGfx(void);
 static void InitHofBgs(void);
 static bool8 CreateHofConfettiSprite(void);
 static void StartCredits(void);
-static bool8 LoadHofBgs(void);
+static bool8 LoadHofBgs(bool8 inPC);
 static void Task_Hof_InitMonData(u8 taskId);
 static void Task_Hof_InitTeamSaveData(u8 taskId);
 static void Task_Hof_SetMonDisplayTask(u8 taskId);
@@ -116,6 +119,7 @@ static void HallOfFame_PrintWelcomeText(u8 unusedPossiblyWindowId, u8 unused2);
 static void HallOfFame_PrintPlayerInfo(u8 unused1, u8 unused2);
 static void Task_DoDomeConfetti(u8 taskId);
 static void SpriteCB_HofConfetti(struct Sprite* sprite);
+static void CopyBgTilemapBufferForDifficulty(u8 rewardDifficulty);
 
 static const struct BgTemplate sHof_BgTemplates[] =
 {
@@ -352,6 +356,11 @@ static const struct SpriteTemplate sSpriteTemplate_HofConfetti =
     .callback = SpriteCB_HofConfetti
 };
 
+static const u32 sHallOfFame_TileMap_Easy[] = INCBIN_U32("graphics/misc/rogue_hof_easy.bin.lz");
+static const u32 sHallOfFame_TileMap_Average[] = INCBIN_U32("graphics/misc/rogue_hof_average.bin.lz");
+static const u32 sHallOfFame_TileMap_Hard[] = INCBIN_U32("graphics/misc/rogue_hof_hard.bin.lz");
+static const u32 sHallOfFame_TileMap_Brutal[] = INCBIN_U32("graphics/misc/rogue_hof_brutal.bin.lz");
+
 static const u16 sHallOfFame_Pal[] = INCBIN_U16("graphics/misc/japanese_hof.gbapal");
 
 static const u32 sHallOfFame_Gfx[] = INCBIN_U32("graphics/misc/japanese_hof.4bpp.lz");
@@ -414,7 +423,7 @@ static bool8 InitHallOfFameScreen(void)
         gMain.state++;
         break;
     case 3:
-        if (!LoadHofBgs())
+        if (!LoadHofBgs(FALSE))
         {
             SetVBlankCallback(VBlankCB_HallOfFame);
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, RGB_BLACK);
@@ -466,6 +475,8 @@ static void Task_Hof_InitMonData(u8 taskId)
     u16 i, j;
 
     gTasks[taskId].tMonNumber = 0; // valid pokes
+
+    sHofMonPtr->rewardDifficulty = Rogue_GetDifficultyRewardLevel();
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
@@ -948,7 +959,7 @@ void CB2_DoHallOfFamePC(void)
         gMain.state++;
         break;
     case 3:
-        if (!LoadHofBgs())
+        if (!LoadHofBgs(TRUE))
         {
             struct HallofFameTeam *fameTeam = (struct HallofFameTeam*)(gDecompressionBuffer);
             fameTeam->mon[0] = sDummyFameMon;
@@ -1025,6 +1036,9 @@ static void Task_HofPC_DrawSpritesPrintText(u8 taskId)
 
     for (i = 0; i < gTasks[taskId].tCurrTeamNo; i++)
         savedTeams++;
+
+    // Swap out the bg
+    CopyBgTilemapBufferForDifficulty(savedTeams->rewardDifficulty);
 
     currMon = &savedTeams->mon[0];
     sHofBackgroundPalettes = 0;
@@ -1470,7 +1484,52 @@ static void InitHofBgs(void)
     ChangeBgY(3, 0, BG_COORD_SET);
 }
 
-static bool8 LoadHofBgs(void)
+enum
+{
+    HOF_TILE_BG = 2,
+    HOF_TILE_SPARKLE_SM = 3,
+
+    HOF_TILE_SPARKLE_MD_TL = 4,
+    HOF_TILE_SPARKLE_MD_TR = 5,
+    HOF_TILE_SPARKLE_MD_BL = 6,
+    HOF_TILE_SPARKLE_MD_BR = 7,
+
+    HOF_TILE_SPARKLE_LG_TL = 8,
+    HOF_TILE_SPARKLE_LG_TR = 9,
+    HOF_TILE_SPARKLE_LG_BL = 10,
+    HOF_TILE_SPARKLE_LG_BR = 11,
+};
+
+static void CopyBgTilemapBufferForDifficulty(u8 rewardDifficulty)
+{
+    switch (rewardDifficulty)
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        CopyToBgTilemapBuffer(3, sHallOfFame_TileMap_Easy, 0, 0);
+        break;
+    
+    case DIFFICULTY_LEVEL_MEDIUM:
+        CopyToBgTilemapBuffer(3, sHallOfFame_TileMap_Average, 0, 0);
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
+        CopyToBgTilemapBuffer(3, sHallOfFame_TileMap_Hard, 0, 0);
+        break;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        CopyToBgTilemapBuffer(3, sHallOfFame_TileMap_Brutal, 0, 0);
+        break;
+    
+    default:
+        // Default of old method i.e. no stars
+        FillBgTilemapBufferRect_Palette0(3, HOF_TILE_BG, 0, 0, 32, 32);
+        break;
+    }
+
+    CopyBgTilemapBufferToVram(3);
+}
+
+static bool8 LoadHofBgs(bool8 inPC)
 {
     switch (sHofGfxPtr->state)
     {
@@ -1482,13 +1541,12 @@ static bool8 LoadHofBgs(void)
             return TRUE;
         break;
     case 2:
-        FillBgTilemapBufferRect_Palette0(1, 1, 0, 0, 0x20, 2);
-        FillBgTilemapBufferRect_Palette0(1, 0, 0, 3, 0x20, 0xB);
-        FillBgTilemapBufferRect_Palette0(1, 1, 0, 0xE, 0x20, 6);
-        FillBgTilemapBufferRect_Palette0(3, 2, 0, 0, 0x20, 0x20);
+        FillBgTilemapBufferRect_Palette0(1, 1, 0, 0, 32, 2);
+        FillBgTilemapBufferRect_Palette0(1, 0, 0, 3, 32, 11);
+        FillBgTilemapBufferRect_Palette0(1, 1, 0, 14, 32, 6);
 
-        CopyBgTilemapBufferToVram(1);
-        CopyBgTilemapBufferToVram(3);
+        // Apply default bg in PC for initial load
+        CopyBgTilemapBufferForDifficulty(inPC ? 255 : Rogue_GetDifficultyRewardLevel());
         break;
     case 3:
         InitStandardTextBoxWindows();

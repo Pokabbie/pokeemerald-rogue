@@ -43,6 +43,7 @@ extern const u8 BattleScript_ActionSwitch[];
 extern const u8 BattleScript_Pausex20[];
 extern const u8 BattleScript_LevelUp_Minimal[];
 extern const u8 BattleScript_LevelUp_Full[];
+extern const u8 BattleScript_LevelUp_Team[];
 extern const u8 BattleScript_RainContinuesOrEnds[];
 extern const u8 BattleScript_DamagingWeatherContinues[];
 extern const u8 BattleScript_SandStormHailEnds[];

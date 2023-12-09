@@ -4283,7 +4283,21 @@ static void Cmd_getexp(void)
                     u32 nextLvlExp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1);
 
                     if (currExp + gBattleMoveDamage < nextLvlExp)
-                        gBattlescriptCurrInstr = BattleScript_LevelUp_Full;
+                    {
+                        if(Rogue_ForceExpAll())
+                        {
+                            if(gBattleStruct->expGetterMonId + 1 == gPlayerPartyCount)
+                            {
+                                // Print message at very end
+                                gBattlescriptCurrInstr = BattleScript_LevelUp_Team;
+                            }
+                        }
+                        else
+                        {
+                            // Print message for each mon
+                            gBattlescriptCurrInstr = BattleScript_LevelUp_Full;
+                        }
+                    }
                 }
 
                 // update battle mon structure after level up

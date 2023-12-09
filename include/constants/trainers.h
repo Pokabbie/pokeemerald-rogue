@@ -232,30 +232,32 @@
 #define TRAINER_PIC_CALEM                 208
 #define TRAINER_PIC_SERENA                209
 
-#define TRAINER_PIC_POKABBIE              210
-#define TRAINER_PIC_POKABBIE_JUST_DITTO   211 // Just used for battle transition
-#define TRAINER_PIC_POKABBIE_AND_DITTO    212
-#define TRAINER_PIC_GLITCH_KATE           213
-#define TRAINER_PIC_GLITCH_TAILS          214
-#define TRAINER_PIC_GLITCH_ERMA           215
+#define TRAINER_PIC_RIVAL_BRENDAN         210
+#define TRAINER_PIC_RIVAL_MAY             211
+#define TRAINER_PIC_RIVAL_SILVER          212
+#define TRAINER_PIC_RIVAL_BARRY           213
+#define TRAINER_PIC_RIVAL_BIANCA          214
+#define TRAINER_PIC_RIVAL_CHEREN          215
+#define TRAINER_PIC_RIVAL_N               216
+#define TRAINER_PIC_RIVAL_HUGH            217
+#define TRAINER_PIC_RIVAL_SHAUNA          218
+#define TRAINER_PIC_RIVAL_TREVOR          219
+#define TRAINER_PIC_RIVAL_TIERNO          220
+#define TRAINER_PIC_RIVAL_HAU             221
+#define TRAINER_PIC_RIVAL_GLADION         222
+#define TRAINER_PIC_RIVAL_HOP             223
+#define TRAINER_PIC_RIVAL_MARNIE          224
+#define TRAINER_PIC_RIVAL_BEDE            225
+
+#define TRAINER_PIC_POKABBIE              226
+#define TRAINER_PIC_POKABBIE_JUST_DITTO   227 // Just used for battle transition
+#define TRAINER_PIC_POKABBIE_AND_DITTO    228
+#define TRAINER_PIC_GLITCH_KATE           229
+#define TRAINER_PIC_GLITCH_TAILS          230
+#define TRAINER_PIC_GLITCH_ERMA           231
 #define TRAINER_PIC_GLITCH_RAVEN          TRAINER_PIC_POKEMON_BREEDER_F
 
-#define TRAINER_PIC_RIVAL_BRENDAN         216
-#define TRAINER_PIC_RIVAL_MAY             217
-#define TRAINER_PIC_RIVAL_SILVER          218
-#define TRAINER_PIC_RIVAL_BARRY           219
-#define TRAINER_PIC_RIVAL_BIANCA          220
-#define TRAINER_PIC_RIVAL_CHEREN          221
-#define TRAINER_PIC_RIVAL_N               222
-#define TRAINER_PIC_RIVAL_HUGH            223
-#define TRAINER_PIC_RIVAL_SHAUNA          224
-#define TRAINER_PIC_RIVAL_TREVOR          225
-#define TRAINER_PIC_RIVAL_TIERNO          226
-#define TRAINER_PIC_RIVAL_HAU             227
-#define TRAINER_PIC_RIVAL_GLADION         228
-#define TRAINER_PIC_RIVAL_HOP             229
-#define TRAINER_PIC_RIVAL_MARNIE          230
-#define TRAINER_PIC_RIVAL_BEDE            231
+#define TRAINER_PIC_COMMUNITY_ZEFA        232
 
 
 // Special cases
@@ -276,6 +278,7 @@
 #define TRAINER_BACK_PIC_STEVEN                 10
 #define TRAINER_BACK_PIC_LUCAS                  11
 #define TRAINER_BACK_PIC_DAWN                   12
+#define TRAINER_BACK_PIC_COMMUNITY_ZEFA         13
 
 #define TRAINER_BACK_PIC_PLAYER                 0xFF
 
