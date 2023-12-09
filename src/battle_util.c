@@ -51,6 +51,7 @@
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_safari.h"
+#include "rogue_quest.h"
 
 //extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
