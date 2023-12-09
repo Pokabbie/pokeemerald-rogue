@@ -2683,7 +2683,7 @@ static void BeginRogueRun(void)
     }
 
     Rogue_SetCurrentDifficulty(GetStartDifficulty());
-    gRogueRun.currentLevelOffset = 5;
+    gRogueRun.currentLevelOffset = 3; // assume STARTER_MON_LEVEL == 5 and first boss level is 10
     gRogueRun.adventureRoomId = ADVPATH_INVALID_ROOM_ID;
     
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))

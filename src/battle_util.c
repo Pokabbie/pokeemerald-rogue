@@ -36,6 +36,7 @@
 #include "constants/species.h"
 #include "constants/weather.h"
 
+#include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_safari.h"
 
@@ -450,6 +451,15 @@ bool8 TryRunFromBattle(u8 battler)
     }
     else
     {
+        if(Rogue_IsRunActive())
+        {
+            if(Rogue_GetCurrentDifficulty() == 0)
+            {
+                // Always allow running when on 0 badges
+                effect = TRUE;
+            }
+        }
+
         if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
         {
             if (InBattlePyramid())
@@ -457,17 +467,17 @@ bool8 TryRunFromBattle(u8 battler)
                 pyramidMultiplier = GetPyramidRunMultiplier();
                 speedVar = (gBattleMons[battler].speed * pyramidMultiplier) / (gBattleMons[BATTLE_OPPOSITE(battler)].speed) + (gBattleStruct->runTries * 30);
                 if (speedVar > (Random() & 0xFF))
-                    effect++;
+                    effect = TRUE;
             }
             else if (gBattleMons[battler].speed < gBattleMons[BATTLE_OPPOSITE(battler)].speed)
             {
                 speedVar = (gBattleMons[battler].speed * 128) / (gBattleMons[BATTLE_OPPOSITE(battler)].speed) + (gBattleStruct->runTries * 30);
                 if (speedVar > (Random() & 0xFF))
-                    effect++;
+                    effect = TRUE;
             }
             else // same speed or faster
             {
-                effect++;
+                effect = TRUE;
             }
         }
 
