@@ -690,6 +690,9 @@ bool8 Rogue_IsRideMonSwimming()
         s16 x, y;
         u16 tileBehavior;
 
+        if(Rogue_IsRideMonFlying())
+            return FALSE;
+
         PlayerGetDestCoords(&x, &y);
         tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
