@@ -635,7 +635,7 @@
       "MonOffsetX": 0,
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
-      "RiderOffsetY": -10,
+      "RiderOffsetY": -11,
       "RiderRendersInFront": true
     },
     "SideSprite": {
@@ -743,9 +743,9 @@
       "RiderRendersInFront": false
     },
     "SideSprite": {
-      "MonOffsetX": -4,
+      "MonOffsetX": -3,
       "MonOffsetY": 1,
-      "RiderOffsetX": 4,
+      "RiderOffsetX": 2,
       "RiderOffsetY": -6,
       "RiderRendersInFront": true
     },
@@ -811,7 +811,7 @@
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
       "RiderOffsetY": -11,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "DownSprite": {
       "MonOffsetX": 0,
@@ -821,11 +821,11 @@
       "RiderRendersInFront": false
     },
     "SideSprite": {
-      "MonOffsetX": -3,
+      "MonOffsetX": -2,
       "MonOffsetY": 1,
-      "RiderOffsetX": 4,
+      "RiderOffsetX": 2,
       "RiderOffsetY": -11,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "SupportsClimbing": false,
     "SupportsSwimming": true,
@@ -889,7 +889,7 @@
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
       "RiderOffsetY": -8,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "DownSprite": {
       "MonOffsetX": 0,
@@ -941,7 +941,7 @@
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
       "RiderOffsetY": -6,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "DownSprite": {
       "MonOffsetX": 0,
@@ -1130,7 +1130,7 @@
       "MonOffsetY": 0,
       "RiderOffsetX": 0,
       "RiderOffsetY": -8,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "SideSprite": {
       "MonOffsetX": -4,
@@ -1149,7 +1149,7 @@
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
       "RiderOffsetY": -7,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "DownSprite": {
       "MonOffsetX": 0,
@@ -1193,32 +1193,6 @@
     },
     "SupportsClimbing": false,
     "SupportsSwimming": true,
-    "SupportsFlying": false
-  },
-  "AMPHAROS": {
-    "UpSprite": {
-      "MonOffsetX": 0,
-      "MonOffsetY": 1,
-      "RiderOffsetX": 0,
-      "RiderOffsetY": -5,
-      "RiderRendersInFront": true
-    },
-    "DownSprite": {
-      "MonOffsetX": 0,
-      "MonOffsetY": 1,
-      "RiderOffsetX": 0,
-      "RiderOffsetY": -5,
-      "RiderRendersInFront": false
-    },
-    "SideSprite": {
-      "MonOffsetX": -4,
-      "MonOffsetY": 1,
-      "RiderOffsetX": 1,
-      "RiderOffsetY": -5,
-      "RiderRendersInFront": true
-    },
-    "SupportsClimbing": false,
-    "SupportsSwimming": false,
     "SupportsFlying": false
   },
   "POLITOED": {
@@ -1331,7 +1305,7 @@
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
       "RiderOffsetY": -6,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "DownSprite": {
       "MonOffsetX": 0,
@@ -1345,7 +1319,7 @@
       "MonOffsetY": 1,
       "RiderOffsetX": 2,
       "RiderOffsetY": -5,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "SupportsClimbing": false,
     "SupportsSwimming": false,
@@ -1617,7 +1591,7 @@
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
       "RiderOffsetY": -5,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "DownSprite": {
       "MonOffsetX": 0,
@@ -1649,8 +1623,8 @@
       "MonOffsetX": 0,
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
-      "RiderOffsetY": -6,
-      "RiderRendersInFront": false
+      "RiderOffsetY": -8,
+      "RiderRendersInFront": true
     },
     "SideSprite": {
       "MonOffsetX": -4,
@@ -1721,7 +1695,7 @@
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
       "RiderOffsetY": -8,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "DownSprite": {
       "MonOffsetX": 0,
@@ -1799,7 +1773,7 @@
       "MonOffsetY": -13,
       "RiderOffsetX": 0,
       "RiderOffsetY": -7,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "DownSprite": {
       "MonOffsetX": 0,
@@ -2300,13 +2274,13 @@
       "MonOffsetY": 0,
       "RiderOffsetX": 0,
       "RiderOffsetY": -6,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "SideSprite": {
       "MonOffsetX": -3,
       "MonOffsetY": 0,
       "RiderOffsetX": 5,
-      "RiderOffsetY": -5,
+      "RiderOffsetY": -6,
       "RiderRendersInFront": true
     },
     "SupportsClimbing": false,
@@ -2683,7 +2657,7 @@
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
       "RiderOffsetY": -5,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "DownSprite": {
       "MonOffsetX": 0,

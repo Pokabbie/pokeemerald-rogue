@@ -67,7 +67,7 @@ namespace RideMonSpriteConfigurer.Helpers
 
 		public static void ExportGameData()
 		{
-			string fileName = Path.GetFullPath("rogue_ridemon_infos.h");
+			string fileName = Path.Combine(GameDataHelpers.RootDirectory, "src\\data\\rogue_ridemon_infos.h");
 
 			Console.WriteLine($"Exporting to '{fileName}'");
 			Directory.CreateDirectory(Path.GetDirectoryName(fileName));

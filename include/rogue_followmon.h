@@ -27,6 +27,7 @@ void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny, u8* sp
 
 void FollowMon_OverworldCB();
 void FollowMon_OnWarp();
+void FollowMon_RecountActiveObjects();
 void FollowMon_OnObjectEventSpawned(struct ObjectEvent *objectEvent);
 void FollowMon_OnObjectEventRemoved(struct ObjectEvent *objectEvent);
 

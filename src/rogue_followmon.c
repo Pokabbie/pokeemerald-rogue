@@ -940,6 +940,21 @@ static bool8 PlaySpawnAnims()
     return Rogue_IsRunActive() || Rogue_InWildSafari();
 }
 
+void FollowMon_RecountActiveObjects()
+{
+    u8 i;
+
+    sFollowMonData.activeCount = 0;
+
+    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        if(FollowMon_IsMonObject(&gObjectEvents[i], TRUE))
+        {
+            ++sFollowMonData.activeCount;
+        }
+    }
+}
+
 void FollowMon_OnObjectEventSpawned(struct ObjectEvent *objectEvent)
 {
     if(PlaySpawnAnims())

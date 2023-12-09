@@ -2768,12 +2768,21 @@
             {
                 "name": "CRESS",
                 "type_assignment": "WATER",
-                "type_group_override": "WATER",
+                "type_group_override": "GRASS",
                 "gfx_suffix": "UNOVA_CRESS",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_PANPOUR",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: What incredible luck for you--",
+                        "PRE_BATTLE_TAUNT": "You get to battle the best among of the three brothers!",
+                        "POST_BATTLE_TAUNT": "Lose? Me?\\nI don't believe this.",
+                        "POST_BATTLE_CLOSER": "Why, you're quite remarkable.\\pYou're sure to go far!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2799,12 +2808,21 @@
             {
                 "name": "CHILI",
                 "type_assignment": "FIRE",
-                "type_group_override": "WATER",
+                "type_group_override": "GRASS",
                 "gfx_suffix": "UNOVA_CHILI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_PANSEAR",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Ta-da! The Fire-type scorcher {STR_VAR_1}-- that's me--",
+                        "PRE_BATTLE_TAUNT": "will be your opponent!",
+                        "POST_BATTLE_TAUNT": "You got me.\\nI am… burned… out…",
+                        "POST_BATTLE_CLOSER": "Whoa ho! You're on fire!\\pYou've for sure got this!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2830,12 +2848,21 @@
             {
                 "name": "CILAN",
                 "type_assignment": "GRASS",
-                "type_group_override": "WATER",
+                "type_group_override": "GRASS",
                 "gfx_suffix": "UNOVA_CILAN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_PANSAGE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Nothing personal… No hard feelings… Me and my Grass-type Pokémon will… um…",
+                        "PRE_BATTLE_TAUNT": "We're gonna battle, come what may.",
+                        "POST_BATTLE_TAUNT": "Er…\\nIs it over now?",
+                        "POST_BATTLE_CLOSER": "…What a surprise.\\pYou… are very strong.\\pI wish the best of luck to you in your Adventure."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2866,6 +2893,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_LILLIPUP",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Well then, challenger, I'm going to research…",
+                        "PRE_BATTLE_TAUNT": "How you battle with the Pokémon you've so lovingly raised!",
+                        "POST_BATTLE_TAUNT": "My theory about you was correct.",
+                        "POST_BATTLE_CLOSER": "You're more than just talented…\\pYou're motivated! I salute you!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -2896,6 +2932,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_SEWADDLE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My Bug Pokémon are scurrying with excitement about getting to battle you.",
+                        "PRE_BATTLE_TAUNT": "Let's get straight to it!",
+                        "POST_BATTLE_TAUNT": "Is it over?\\nHas my muse abandoned me?",
+                        "POST_BATTLE_CLOSER": "Aww… I lost.\\pWhatever! Losing to you doesn't bug me because you are a-MAZ-ingly strong!\\pI'm certain you'll reach your goal!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2926,6 +2971,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_EMOLGA",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Let's get right to it!",
+                        "PRE_BATTLE_TAUNT": "My beloved Pokémon will make your head spin!",
+                        "POST_BATTLE_TAUNT": "I meant to make your head spin, but you shocked me instead.",
+                        "POST_BATTLE_CLOSER": "My, oh my…\\nYou have a sweet fighting style.\\pBest of luck with the rest of your Adventure!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -2956,6 +3010,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_DRILBUR",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Well…",
+                        "PRE_BATTLE_TAUNT": "Think it's about time to see fer myself what yer skills are all about.",
+                        "POST_BATTLE_TAUNT": "Well, I've had enough… And just so you know, I didn't go easy on you.",
+                        "POST_BATTLE_CLOSER": "Mrrrmph. I see. But I sure don't like it!\\pFer such a young 'un, ya have an imposin' battle style.\\pYou gotta live up to yer pontential now, yer hear!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -2986,6 +3049,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_WOOBAT",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Hee-hee!\\nI've been waiting for you.",
+                        "PRE_BATTLE_TAUNT": "Let's battle as hard as we can!",
+                        "POST_BATTLE_TAUNT": "Being your opponent in battle is a new source of strength to me. Thank you!",
+                        "POST_BATTLE_CLOSER": "My Pokémon and I are happy because for the first time in a while, we could fight with our full strength.\\pYou're an amazing Pokémon Trainer!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3017,6 +3089,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_CUBCHOO",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You appear ready to face me…\\nThen…",
+                        "PRE_BATTLE_TAUNT": "Bring it!",
+                        "POST_BATTLE_TAUNT": "The wonderful combination of you and your Pokémon!\\pWhat a beautiful friendship!",
+                        "POST_BATTLE_CLOSER": "You possess an honorable and stout heart\\pI wish you the best of luck in your Adventure!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3048,6 +3129,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_DRUDDIGON",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: As a Trainer, I've simply been pursuing greater strength.\\pBut what I'm searching for now is a young Trainer who can show me a bright future.",
+                        "PRE_BATTLE_TAUNT": "Perhaps that trainer shall be you.",
+                        "POST_BATTLE_TAUNT": "This intense feeling that floods me after a defeat… I don't know how to describe it.",
+                        "POST_BATTLE_CLOSER": "Wonderful.\\pI'm grateful we had a chance to meet and battle.\\pGood luck to you in your upcoming battles."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3078,6 +3168,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_VENIPEDE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Get ready!",
+                        "PRE_BATTLE_TAUNT": "I'm gonna knock some sense outta ya!",
+                        "POST_BATTLE_TAUNT": "Wait!\\nI was right in the middle of the chorus!",
+                        "POST_BATTLE_CLOSER": "Sigh!\\nWhat are you doing losing, Roxie?!\\pWell…\\nI guess that means you're strong!\\pYou better not lose any of your other battles!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3108,6 +3207,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM" ],
                 "shiny_species": "SPECIES_FRILLISH",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Sup!\\nYou look strong!",
+                        "PRE_BATTLE_TAUNT": "Shoots! Let's start!",
+                        "POST_BATTLE_TAUNT": "You totally rocked that!",
+                        "POST_BATTLE_CLOSER": "You're raising some wicked Pokémon.\\pYou got this Trainer thing down!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3138,6 +3246,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
                 "shiny_species": "SPECIES_LITWICK",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I was inspired by the challenger who was just here, and somehow I got a little sad…\\pExcuse me.\\nYou're a challenger, right?",
+                        "PRE_BATTLE_TAUNT": "I, the Ghost-type Pokémon user, shall be your opponent.",
+                        "POST_BATTLE_TAUNT": "Wow. I'm dumbstruck!",
+                        "POST_BATTLE_CLOSER": "I know a lot of words, but right now I can't figure out how to say this.\\pPerhaps, if the feeling I'm having now is put into words, it will be trapped there.\\pSo let me say this…\\nMy feeling is you're a great Trainer!\\pI'm sure you'll go far!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3165,6 +3282,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
                 "shiny_species": "SPECIES_TIMBURR",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: It is my intention to test you-- to take you to the limits of your strength.",
+                        "PRE_BATTLE_TAUNT": "Kiai!",
+                        "POST_BATTLE_TAUNT": "There is no single strongest Pokémon or sole best combination…\\pThat's why it is difficult to keep winning.",
+                        "POST_BATTLE_CLOSER": "I think a heart that desires strength and strives to grow stronger is a precious ideal.\\pThat is why I respect you-- because you have these things.\\pYou are destined to go far!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3191,6 +3317,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
                 "shiny_species": "SPECIES_PAWNIARD",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I, {STR_VAR_1}…",
+                        "PRE_BATTLE_TAUNT": "Will fulfill my duty to be your opponent.",
+                        "POST_BATTLE_TAUNT": "A real warrior doesn't dash off in pursuit of the next victory, nor throw a fit when experiencing a loss.\\pA real warrior ponders the next battle.",
+                        "POST_BATTLE_CLOSER": "Whether or not you get to fight at full strength, whether or not luck smiles on you-- none of that matters.\\pOnly results matter. And a loss is a loss.\\pIt would be wise to remember that in your upcoming battles."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3222,6 +3357,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_ELITE" ],
                 "shiny_species": "SPECIES_MUNNA",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Who are you?\\nHow impudent you are to disturb my sleep.",
+                        "PRE_BATTLE_TAUNT": "Make your best effort not to bore me with a yawn-inducing battle. Clear?",
+                        "POST_BATTLE_TAUNT": "As a Trainer, you are both excellent and elegant. Your Pokémon have class.",
+                        "POST_BATTLE_CLOSER": "I am very pleased to have battled you.\\pYou'll certainly go far."
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
@@ -3252,6 +3396,15 @@
                 "music_player": "unova_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP" ],
                 "shiny_species": "SPECIES_LARVESTA",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Say Trainer…",
+                        "PRE_BATTLE_TAUNT": "How about a match with the strongest Trainer in the Unova region?",
+                        "POST_BATTLE_TAUNT": "After the battle, a fresh wind blew through my heart…",
+                        "POST_BATTLE_CLOSER": "Use the battle with me as a stepping stone and move forward!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
@@ -3278,6 +3431,15 @@
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP" ],
                 "weather": "NONE",
                 "shiny_species": "SPECIES_AXEW",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I've been waiting for this!\\pI really look forward to having serious battles with strong Trainers!",
+                        "PRE_BATTLE_TAUNT": "OK! Brace yourself!",
+                        "POST_BATTLE_TAUNT": "Aghhhh…\\nI did my best, but we lost…",
+                        "POST_BATTLE_CLOSER": "I'm upset I couldn't win!\\pBut you know what? More than that, I'm happy!\\pI mean, come on.\\nBy having a serious battle, you and your Pokémon, and me and my Pokémon, we all got to know one another better than before!\\pWhich is why I know you'll succeed in your future battles!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "FEMALE",
