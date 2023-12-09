@@ -152,14 +152,27 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SerenaNorma
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SerenaRiding;
 
 
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Raven;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Tails;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokabbieNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokabbieRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KateNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KateRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ErmaNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ErmaRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RavenNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RavenRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TailsNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TailsRiding;
+
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZefaNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZefaRiding;
+
+extern const u16 gObjectEventPal_Npc1[];
+extern const u16 gObjectEventPal_Npc2[];
+extern const u16 gObjectEventPal_Npc3[];
+extern const u16 gObjectEventPal_Npc4[];
+extern const u16 gObjectEventPal_Glitch_NPC_Kate[];
+extern const u16 gObjectEventPal_Glitch_NPC_Erma[];
 
 
 // We should always load something to as other object animation/effects rely on this palette slot
@@ -550,10 +563,10 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
-            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
-            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_PokabbieNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PokabbieRiding,
         },
-        .objectEventBasePal = DEFAULT_OVERWORLD_PAL,
+        .objectEventBasePal = gObjectEventPal_Npc1,
         .objectEventLayerPal = NULL,
         .trainerFrontBasePal = NULL,
         .trainerFrontLayerPal = NULL,
@@ -570,10 +583,10 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
-            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Glitch_Kate,
-            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Glitch_Kate,
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_KateNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_KateRiding,
         },
-        .objectEventBasePal = DEFAULT_OVERWORLD_PAL,
+        .objectEventBasePal = gObjectEventPal_Glitch_NPC_Kate,
         .objectEventLayerPal = NULL,
         .trainerFrontBasePal = NULL,
         .trainerFrontLayerPal = NULL,
@@ -590,10 +603,10 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
-            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Glitch_Erma,
-            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Glitch_Erma,
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_ErmaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_ErmaRiding,
         },
-        .objectEventBasePal = DEFAULT_OVERWORLD_PAL,
+        .objectEventBasePal = gObjectEventPal_Glitch_NPC_Erma,
         .objectEventLayerPal = NULL,
         .trainerFrontBasePal = NULL,
         .trainerFrontLayerPal = NULL,
@@ -610,10 +623,10 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
-            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Glitch_Raven,
-            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Glitch_Raven,
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_RavenNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_RavenRiding,
         },
-        .objectEventBasePal = DEFAULT_OVERWORLD_PAL,
+        .objectEventBasePal = gObjectEventPal_Npc3,
         .objectEventLayerPal = NULL,
         .trainerFrontBasePal = NULL,
         .trainerFrontLayerPal = NULL,
@@ -630,10 +643,10 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
-            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_Glitch_Tails,
-            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_Glitch_Tails,
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_TailsNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_TailsRiding,
         },
-        .objectEventBasePal = DEFAULT_OVERWORLD_PAL,
+        .objectEventBasePal = gObjectEventPal_Npc1,
         .objectEventLayerPal = NULL,
         .trainerFrontBasePal = NULL,
         .trainerFrontLayerPal = NULL,
