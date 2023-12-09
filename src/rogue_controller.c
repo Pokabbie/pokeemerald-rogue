@@ -3104,22 +3104,9 @@ static bool8 IsRouteEnabled(u16 routeId)
     const struct RogueRouteEncounter* route = &gRogueRouteTable.routes[routeId];
     u16 includeFlags = ROUTE_FLAG_NONE;
     u16 excludeFlags = ROUTE_FLAG_NONE;
-    
-    // TODO - Rework this
-    if(TRUE)
-        includeFlags |= ROUTE_FLAG_HOENN;
 
-    if(TRUE)
-        includeFlags |= ROUTE_FLAG_KANTO;
-
-    if(TRUE)
-        includeFlags |= ROUTE_FLAG_JOHTO;
-
-    // Use the custom fallback set >:3
-    if(includeFlags == ROUTE_FLAG_NONE)
-    {
-        includeFlags |= ROUTE_FLAG_FALLBACK_REGION;
-    }
+    // Force all route flags now
+    includeFlags |= ROUTE_FLAG_ANY;
 
     if(excludeFlags != ROUTE_FLAG_NONE && (route->mapFlags & excludeFlags) != 0)
     {
@@ -3185,6 +3172,11 @@ u8 Rogue_SelectRouteRoom(void)
     u16 routeId = NextRouteId();
 
     HistoryBufferPush(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId);
+
+    if(RogueDebug_GetConfigRange(DEBUG_RANGE_FORCED_ROUTE) != 0)
+    {
+        routeId = RogueDebug_GetConfigRange(DEBUG_RANGE_FORCED_ROUTE) - 1;
+    }
 
     return routeId;
 }
