@@ -276,8 +276,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 42,
-      "y": 7,
+      "x": 85,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -393,7 +393,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 39,
+      "x": 36,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
