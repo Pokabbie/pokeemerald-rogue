@@ -403,6 +403,8 @@ const u16 gObjectEventPal_PlayerCalemLayers[] = INCBIN_U16("graphics/rogue_palet
 const u16 gObjectEventPal_PlayerSerenaBase[] = INCBIN_U16("graphics/rogue_palettes/serena/object_event_base.gbapal");
 const u16 gObjectEventPal_PlayerSerenaLayers[] = INCBIN_U16("graphics/rogue_palettes/serena/object_event_layers.gbapal");
 
+const u16 gObjectEventPal_PlayerZefaBase[] = INCBIN_U16("graphics/object_events/pics/people/zefa/palette.gbapal");
+
 const u32 gObjectEventPic_LyraNormal[] = INCBIN_U32("graphics/object_events/pics/people/lyra/walking.4bpp");
 const u32 gObjectEventPic_LyraRunning[] = INCBIN_U32("graphics/object_events/pics/people/lyra/running.4bpp");
 const u32 gObjectEventPic_LyraMachBike[] = INCBIN_U32("graphics/object_events/pics/people/lyra/mach_bike.4bpp");
@@ -442,6 +444,10 @@ const u32 gObjectEventPic_CalemNormal[] = INCBIN_U32("graphics/object_events/pic
 const u32 gObjectEventPic_CalemRiding[] = INCBIN_U32("graphics/object_events/pics/people/calem/riding.4bpp");
 const u32 gObjectEventPic_SerenaNormal[] = INCBIN_U32("graphics/object_events/pics/people/serena/walking.4bpp");
 const u32 gObjectEventPic_SerenaRiding[] = INCBIN_U32("graphics/object_events/pics/people/serena/riding.4bpp");
+
+const u32 gObjectEventPic_ZefaNormal[] = INCBIN_U32("graphics/object_events/pics/people/zefa/walking.4bpp");
+const u32 gObjectEventPic_ZefaRunning[] = INCBIN_U32("graphics/object_events/pics/people/zefa/running.4bpp");
+const u32 gObjectEventPic_ZefaRiding[] = INCBIN_U32("graphics/object_events/pics/people/zefa/riding.4bpp");
 
 const u16 gObjectEventPal_BirthIslandStone[] = INCBIN_U16("graphics/object_events/palettes/birth_island_stone.gbapal");
 const u32 gObjectEventPic_BirthIslandStone[] = INCBIN_U32("graphics/object_events/pics/misc/birth_island_stone.4bpp");

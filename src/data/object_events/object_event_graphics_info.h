@@ -511,4 +511,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CalemRiding       
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SerenaNormal             = {TAG_NONE, OBJ_EVENT_PAL_TAG_PLAYER, OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION, 512, 16, 32, 0, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_BrendanMayNormal, sPicTable_SerenaNormal, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SerenaRiding             = {TAG_NONE, OBJ_EVENT_PAL_TAG_PLAYER, OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION, 512, 16, 32, 0, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_BrendanMayNormal, sPicTable_SerenaRiding, gDummySpriteAffineAnimTable};
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZefaNormal            = {TAG_NONE, OBJ_EVENT_PAL_TAG_PLAYER, OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION, 512, 16, 32, 0, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_BrendanMayNormal, sPicTable_ZefaNormal, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZefaRiding            = {TAG_NONE, OBJ_EVENT_PAL_TAG_PLAYER, OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION, 512, 16, 32, 0, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_BrendanMayNormal, sPicTable_ZefaRiding, gDummySpriteAffineAnimTable};
+
+
 #include "../../../graphics/object_events/pics/pokemon_ow/include/object_event_graphics_info_gen.h"

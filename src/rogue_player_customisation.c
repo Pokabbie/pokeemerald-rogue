@@ -85,6 +85,9 @@ enum
     PLAYER_OUTFIT_RAVEN,
     PLAYER_OUTFIT_TAILS,
 
+    // Community secret unlocks
+    PLAYER_OUTFIT_ZEFA,
+
     PLAYER_OUTFIT_COUNT,
 };
 
@@ -154,6 +157,9 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Raven;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Tails;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZefaNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZefaRiding;
 
 
 // We should always load something to as other object animation/effects rely on this palette slot
@@ -634,6 +640,26 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
     },
+    [PLAYER_OUTFIT_ZEFA] =
+    {
+        .name = _("Zefa"),
+        .trainerFrontPic = TRAINER_PIC_COMMUNITY_ZEFA,
+        .trainerBackPic = TRAINER_BACK_PIC_COMMUNITY_ZEFA,
+        .bagVariant = BAG_GFX_VARIANT_MAY,
+        .outfitUnlockId = OUTFIT_UNLOCK_ZEFA,
+        .hasSpritingAnims = TRUE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_ZefaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_ZefaRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerZefaBase,
+        .objectEventLayerPal = NULL,
+        .trainerFrontBasePal = NULL,
+        .trainerFrontLayerPal = NULL,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+    },
 };
 
 static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] = 
@@ -703,6 +729,18 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             {
                 .name = _("TMK4"),
                 .eggSpecies = SPECIES_AZURILL,
+            }
+        }
+    },
+    [OUTFIT_UNLOCK_ZEFA] = 
+    {
+        .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
+        .params = 
+        {
+            .easterEgg = 
+            {
+                .name = _("ZEFA"),
+                .eggSpecies = SPECIES_TRAPINCH,
             }
         }
     },

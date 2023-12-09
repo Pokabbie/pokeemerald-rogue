@@ -3302,6 +3302,8 @@ extern const u32 gTrainerPalette_PlayerCalemFrontLayers[];
 extern const u32 gTrainerPalette_PlayerSerenaFrontBase[];
 extern const u32 gTrainerPalette_PlayerSerenaFrontLayers[];
 
+extern const u32 gTrainerPalette_PlayerZefaBackBase[];
+
 extern const u32 gTrainerPalette_LeaderBrock[];
 extern const u32 gTrainerPalette_LeaderMisty[];
 extern const u32 gTrainerPalette_LeaderLtSurge[];
@@ -3339,6 +3341,9 @@ extern const u32 gTrainerPalette_PokabbieJustDitto[];
 extern const u32 gTrainerPalette_GlitchKate[];
 extern const u32 gTrainerPalette_GlitchTails[];
 extern const u32 gTrainerPalette_GlitchErma[];
+
+extern const u32 gTrainerFrontPic_CommunityZefa[];
+extern const u32 gTrainerPalette_CommunityZefa[];
 
 extern const u32 gTrainerFrontPic_RivalSilver[];
 extern const u32 gTrainerPalette_RivalSilver[];
@@ -3382,6 +3387,8 @@ extern const u8 gTrainerBackPic_Wally[];
 extern const u8 gTrainerBackPic_Steven[];
 extern const u8 gTrainerBackPic_Lucas[];
 extern const u8 gTrainerBackPic_Dawn[];
+
+extern const u8 gTrainerBackPic_CommunityZefa[];
 
 // pokeblock
 extern const u32 gMenuPokeblock_Gfx[];
@@ -5420,6 +5427,8 @@ extern const u16 gObjectEventPal_PlayerCalemBase[];
 extern const u16 gObjectEventPal_PlayerCalemLayers[];
 extern const u16 gObjectEventPal_PlayerSerenaBase[];
 extern const u16 gObjectEventPal_PlayerSerenaLayers[];
+
+extern const u16 gObjectEventPal_PlayerZefaBase[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];
