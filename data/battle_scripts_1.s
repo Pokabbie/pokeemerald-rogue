@@ -3161,6 +3161,11 @@ BattleScript_LevelUp_Full::
 	printstring STRINGID_PKMNGREWTOLV
 	setbyte sLVLBOX_STATE, 0
 	drawlvlupbox
+	goto BattleScript_PostLevelUp
+BattleScript_LevelUp_Team::
+	printstring STRINGID_TEAMGREWTOLV
+	setbyte sLVLBOX_STATE, 0
+	drawlvlupbox
 BattleScript_PostLevelUp::
 	handlelearnnewmove BattleScript_LearnedNewMove, BattleScript_LearnMoveReturn, TRUE
 	goto BattleScript_AskToLearnMove
