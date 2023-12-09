@@ -157,6 +157,7 @@ static u8 CalculateWildLevel(u8 variation);
 static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level);
 
 static u8 GetCurrentWildEncounterCount(void);
+static u8 GetCurrentWaterEncounterCount(void);
 static u16 GetWildGrassEncounter(u8 index);
 static u16 GetWildWaterEncounter(u8 index);
 static u16 GetWildEncounterIndexFor(u16 species);
@@ -1703,6 +1704,22 @@ u8* Rogue_GetMiniMenuContent(void)
     return gStringVar4;
 }
 
+static u16 GetMenuWildEncounterCount()
+{
+    if(Rogue_IsRideMonSwimming())
+        return GetCurrentWaterEncounterCount();
+
+    return GetCurrentWildEncounterCount();
+}
+
+static u16 GetMenuWildEncounterSpecies(u8 i)
+{
+    if(Rogue_IsRideMonSwimming())
+        return GetWildWaterEncounter(i);
+
+    return GetWildGrassEncounter(i);
+}
+
 void Rogue_CreateMiniMenuExtraGFX(void)
 {
     u8 i;
@@ -1726,11 +1743,11 @@ void Rogue_CreateMiniMenuExtraGFX(void)
 
         //LoadMonIconPalettes();
 
-        for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
+        for(i = 0; i < GetMenuWildEncounterCount(); ++i)
         {
             //u8 paletteOffset = i;
             u8 paletteOffset = 0; // No palette offset as we're going to greyscale and share anyway
-            u16 targetSpecies = GetWildGrassEncounter(i);
+            u16 targetSpecies = GetMenuWildEncounterSpecies(i);
 
             isVisible = GetSetPokedexSpeciesFlag(targetSpecies, FLAG_GET_SEEN);
 
@@ -1771,10 +1788,10 @@ void Rogue_RemoveMiniMenuExtraGFX(void)
     {
         bool8 isVisible;
 
-        for(i = 0; i < GetCurrentWildEncounterCount(); ++i)
+        for(i = 0; i < GetMenuWildEncounterCount(); ++i)
         {
             u8 paletteOffset = i;
-            u16 targetSpecies = GetWildGrassEncounter(i);
+            u16 targetSpecies = GetMenuWildEncounterSpecies(i);
 
             isVisible = GetSetPokedexSpeciesFlag(targetSpecies, FLAG_GET_SEEN);
 
@@ -4726,6 +4743,52 @@ static u8 GetCurrentWildEncounterCount()
     return count;
 }
 
+static u8 GetCurrentWaterEncounterCount(void)
+{
+    u16 count = 0;
+
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+    {
+        u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
+        count = 2;
+
+        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard route
+        {
+            // Less encounters
+            count = 1;
+        }
+        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_AVERAGE) // Avg route
+        {
+            // Slightly less encounters
+            count = 1;
+        }
+
+        // Apply charms
+        {
+            u16 decValue = GetCurseValue(EFFECT_WILD_ENCOUNTER_COUNT);
+
+            count += GetCharmValue(EFFECT_WILD_ENCOUNTER_COUNT);
+
+            if(decValue > count)
+                count = 0;
+            else
+                count -= decValue;
+        }
+
+        // Clamp
+        count = max(count, 1);
+        count = min(count, WILD_ENCOUNTER_WATER_CAPACITY);
+
+        // Move count down if we have haven't actually managed to spawn in enough unique encounters
+        while(count != 0 && GetWildWaterEncounter(count - 1) == SPECIES_NONE)
+        {
+            count--;
+        }
+    }
+
+    return count;
+}
+
 static u16 GetWildGrassEncounter(u8 index)
 {
     AGB_ASSERT(index < WILD_ENCOUNTER_GRASS_CAPACITY);
@@ -4807,7 +4870,9 @@ static bool8 IsChainSpeciesValidForSpawning(u8 area, u16 species)
 
     if(area == 1) //WILD_AREA_WATER)
     {
-        for(i = 0; i < WILD_ENCOUNTER_WATER_CAPACITY; ++i)
+        u16 count = GetCurrentWaterEncounterCount();
+
+        for(i = 0; i < count; ++i)
         {
             if(GetWildWaterEncounter(i) == species)
                 return TRUE;
@@ -4882,7 +4947,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
         }
         else if(area == 1) //WILD_AREA_WATER)
         {
-            u16 randIdx = Random() % WILD_ENCOUNTER_WATER_CAPACITY; 
+            u16 randIdx = Random() % GetCurrentWaterEncounterCount(); 
 
             *species = GetWildWaterEncounter(randIdx);
         }

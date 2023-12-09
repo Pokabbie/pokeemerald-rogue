@@ -72,7 +72,6 @@ struct RideMonInfo
 struct RideObjectEvent
 {
     struct RogueRideMonState state;
-    u16 desiredRideSpecies;
     u8 riderObjectEventId;
     u8 riderSpriteId;
     u8 monSpriteId;
@@ -94,8 +93,8 @@ void ResetRideObject(struct RideObjectEvent* rideObject)
     rideObject->riderObjectEventId = 0;
     rideObject->riderSpriteId = SPRITE_NONE;
     rideObject->monSpriteId = SPRITE_NONE;
-    rideObject->desiredRideSpecies = SPECIES_NONE;
 
+    rideObject->state.desiredRideSpecies = SPECIES_NONE;
     rideObject->state.flyingState = 0;
     rideObject->state.flyingHeight = 0;
     rideObject->state.whistleType = RIDE_WHISTLE_BASIC;
@@ -151,7 +150,7 @@ static bool8 CalculateRideSpecies(s8 dir)
 
     // Loop through mons from last riden
     sRideMonData.recentRideIndex = min(sRideMonData.recentRideIndex, gPlayerPartyCount - 1);
-    sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].desiredRideSpecies = SPECIES_NONE;
+    sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = SPECIES_NONE;
 
     for(counter = 0; counter < gPlayerPartyCount; ++counter)
     {
@@ -170,7 +169,7 @@ static bool8 CalculateRideSpecies(s8 dir)
         if(IsValidMonToRideNow(&gPlayerParty[monIdx]))
         {
             sRideMonData.recentRideIndex = monIdx;
-            sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].desiredRideSpecies = FollowMon_GetMonGraphics(&gPlayerParty[monIdx]);
+            sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = FollowMon_GetMonGraphics(&gPlayerParty[monIdx]);
             return TRUE;
         }
     }
@@ -191,7 +190,7 @@ static bool8 CalculateInitialRideSpecies()
         if(IsValidSpeciesToRideNow(species))
         {
             sRideMonData.recentRideIndex = 0;
-            sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].desiredRideSpecies = speciesGfx;
+            sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = speciesGfx;
             return TRUE;
         }
 
@@ -209,7 +208,7 @@ static bool8 CalculateInitialRideSpecies()
         {
             monIdx = (sRideMonData.recentRideIndex + counter) % gPlayerPartyCount;
 
-            if(IsValidMonToRideNow(&gPlayerParty[monIdx]) && FollowMon_GetMonGraphics(&gPlayerParty[monIdx]) == sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].desiredRideSpecies)
+            if(IsValidMonToRideNow(&gPlayerParty[monIdx]) && FollowMon_GetMonGraphics(&gPlayerParty[monIdx]) == sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies)
             {
                 sRideMonData.recentRideIndex = monIdx;
                 return TRUE;
@@ -321,9 +320,9 @@ static void UpdatePlayerRideState()
     if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].isActive)
     {
         // When changing mons play a cry here
-        if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].desiredRideSpecies != sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.monGfx)
+        if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies != sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.monGfx)
         {
-            u16 species = sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].desiredRideSpecies;
+            u16 species = sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies;
 
             if(species >= FOLLOWMON_SHINY_OFFSET)
                 species -= FOLLOWMON_SHINY_OFFSET;
@@ -335,7 +334,7 @@ static void UpdatePlayerRideState()
     }
     else
     {
-        sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].desiredRideSpecies = SPECIES_NONE;
+        sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = SPECIES_NONE;
         sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.monGfx = SPECIES_NONE;
 
         if(wasActive)
@@ -385,18 +384,18 @@ void Rogue_SetupRideObject(u8 rideObjectId, u8 objectEventId, u16 rideSpecies, b
 {
     AGB_ASSERT(rideObjectId < RIDE_OBJECT_COUNT);
     sRideMonData.rideObjects[rideObjectId].isActive = TRUE;
-    sRideMonData.rideObjects[rideObjectId].desiredRideSpecies = rideSpecies;
     sRideMonData.rideObjects[rideObjectId].riderSpriteId = gObjectEvents[objectEventId].spriteId;
     sRideMonData.rideObjects[rideObjectId].riderObjectEventId = objectEventId;
     sRideMonData.rideObjects[rideObjectId].state.flyingState = isFlying;
+    sRideMonData.rideObjects[rideObjectId].state.desiredRideSpecies = rideSpecies;
 }
 
 void Rogue_ClearRideObject(u8 rideObjectId)
 {
     AGB_ASSERT(rideObjectId < RIDE_OBJECT_COUNT);
     sRideMonData.rideObjects[rideObjectId].isActive = FALSE;
-    sRideMonData.rideObjects[rideObjectId].desiredRideSpecies = SPECIES_NONE;
     sRideMonData.rideObjects[rideObjectId].riderSpriteId = SPRITE_NONE;
+    sRideMonData.rideObjects[rideObjectId].state.desiredRideSpecies = SPECIES_NONE;
 
     // Don't clear here, clear above when sprite is removed
     //sRideMonData.rideObjects[rideObjectId].riderObjectEventId = OBJECT_EVENTS_COUNT;
@@ -522,7 +521,7 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
 {
     if(rideObject->isActive)
     {
-        AGB_ASSERT(rideObject->desiredRideSpecies != SPECIES_NONE);
+        AGB_ASSERT(rideObject->state.desiredRideSpecies != SPECIES_NONE);
 
         if(rideObjectId != RIDE_OBJECT_PLAYER)
         {
@@ -530,7 +529,7 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
             gObjectEvents[rideObject->riderObjectEventId].hideReflection = TRUE;
         }
 
-        if(rideObject->monSpriteId != SPRITE_NONE && rideObject->state.monGfx != rideObject->desiredRideSpecies)
+        if(rideObject->monSpriteId != SPRITE_NONE && rideObject->state.monGfx != rideObject->state.desiredRideSpecies)
         {
             // Species changed so dealloc sprite ready to make new sprite
             DestroySprite(&gSprites[rideObject->monSpriteId]);
@@ -543,7 +542,7 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
             s16 spriteX = gObjectEvents[rideObject->riderObjectEventId].currentCoords.x;
             s16 spriteY = gObjectEvents[rideObject->riderObjectEventId].currentCoords.y;
 
-            rideObject->state.monGfx = rideObject->desiredRideSpecies;
+            rideObject->state.monGfx = rideObject->state.desiredRideSpecies;
 
             rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_RIDE_MON_FIRST + rideObjectId, SpriteCallbackDummy, spriteX, spriteY, 0);
             gSprites[rideObject->monSpriteId].oam.priority = 2;
