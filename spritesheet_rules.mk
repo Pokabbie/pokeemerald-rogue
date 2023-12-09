@@ -499,6 +499,9 @@ $(OBJEVENTGFXDIR)/people/scientist_1.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/scientist_2.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/scientist_2_riding.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/people/scott.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
@@ -914,10 +917,19 @@ $(OBJEVENTGFXDIR)/people/johto/red.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/glitch/kate.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/glitch/kate_riding.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/people/glitch/erma.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/glitch/erma_riding.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/people/glitch/raven.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/glitch/raven_riding.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/rogue/pc.4bpp: %.4bpp: %.png
@@ -993,6 +1005,9 @@ $(OBJEVENTGFXDIR)/rogue/route/water.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 
 $(OBJEVENTGFXDIR)/rogue/npc/misc/aroma_girl.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/rogue/npc/misc/aroma_girl_riding.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/rogue/npc/misc/backpacker_f.4bpp: %.4bpp: %.png
