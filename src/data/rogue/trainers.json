@@ -2768,7 +2768,7 @@
             {
                 "name": "CRESS",
                 "type_assignment": "WATER",
-                "type_group_override": "WATER",
+                "type_group_override": "GRASS",
                 "gfx_suffix": "UNOVA_CRESS",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
@@ -2808,7 +2808,7 @@
             {
                 "name": "CHILI",
                 "type_assignment": "FIRE",
-                "type_group_override": "WATER",
+                "type_group_override": "GRASS",
                 "gfx_suffix": "UNOVA_CHILI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
@@ -2848,7 +2848,7 @@
             {
                 "name": "CILAN",
                 "type_assignment": "GRASS",
-                "type_group_override": "WATER",
+                "type_group_override": "GRASS",
                 "gfx_suffix": "UNOVA_CILAN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
