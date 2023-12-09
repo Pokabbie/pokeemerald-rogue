@@ -2144,6 +2144,7 @@ void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 void Rogue_NotifySaveLoaded(void)
 {
     RogueQuest_OnLoadGame();
+    FollowMon_RecountActiveObjects();
 
     gRogueLocal.hasQuickLoadPending = FALSE;
 
