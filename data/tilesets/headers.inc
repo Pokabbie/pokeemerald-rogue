@@ -841,3 +841,14 @@ gTileset_GeneralHub::
 	.4byte gMetatiles_GeneralHub
 	.4byte gMetatileAttributes_GeneralHub
 	.4byte InitTilesetAnim_General
+
+	.align 2
+gTileset_EternaForest::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_EternaForest
+	.4byte gTilesetPalettes_EternaForest
+	.4byte gMetatiles_EternaForest
+	.4byte gMetatileAttributes_EternaForest
+	.4byte NULL

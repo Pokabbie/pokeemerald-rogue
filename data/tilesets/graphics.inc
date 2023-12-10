@@ -1749,3 +1749,23 @@ gTilesetPalettes_GeneralHub::
 	.align 2
 gTilesetTiles_GeneralHub::
 	.incbin "data/tilesets/primary/general_hub/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_EternaForest::
+	.incbin "data/tilesets/secondary/eternaforest/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/eternaforest/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_EternaForest::
+	.incbin "data/tilesets/secondary/eternaforest/tiles.4bpp.lz"
