@@ -172,7 +172,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         outEvo->param = ITEM_PEAT_BLOCK;
     }
 
-    if(species == SPECIES_BASCULIN_WHITE_STRIPED)
+    if(species == SPECIES_BASCULIN || species == SPECIES_BASCULIN_WHITE_STRIPED || species == SPECIES_BASCULIN_BLUE_STRIPED)
     {
         if(evoIdx == 0)
         {
@@ -485,7 +485,7 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
             case EVO_LEVEL_NATURE_AMPED:
             case EVO_LEVEL_NATURE_LOW_KEY:
 #endif
-                outEvo->method = EVO_LEVEL_ITEM;
+                outEvo->method = EVO_ITEM;
                 outEvo->param = ITEM_LINK_CABLE;
                 break;
             }
