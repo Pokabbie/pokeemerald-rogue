@@ -1195,6 +1195,15 @@ static void DisplayMonEvosText()
                     break;
 
 #ifdef ROGUE_EXPANSION
+                case EVO_LEVEL_MALE:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelMale);
+                    break;
+                case EVO_LEVEL_FEMALE:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelFemale);
+                    break;
+
                 case EVO_LEVEL_DUSK:
                     ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
                     StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevelDusk);
