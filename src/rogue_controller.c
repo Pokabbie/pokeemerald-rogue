@@ -5351,10 +5351,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 
     case ROGUE_SHOP_HELD_ITEMS:
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_HELD_ITEMS);
-        if(Rogue_IsRunActive())
-            *minSalePrice = 1500;
-        else
-            *minSalePrice = 2000;
+        *minSalePrice = 0;
         applyRandomChance = TRUE;
         break;
 
