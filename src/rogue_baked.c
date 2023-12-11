@@ -867,10 +867,17 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
     return gItemIconTable[itemId][which];
 }
 
+#define HELD_ITEM_HIGH_PRICE 16000
+#define HELD_ITEM_MID_PRICE  10000
+
 u16 Rogue_GetPrice(u16 itemId)
 {
     u16 price = 0;
+    struct Item item;
+
     itemId = SanitizeItemId(itemId);
+    Rogue_ModifyItem(itemId, &item);
+
     AGB_ASSERT(itemId < ITEMS_COUNT);
 
     if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
@@ -906,6 +913,12 @@ u16 Rogue_GetPrice(u16 itemId)
             price *= 10;
     }
 
+    // Set hold items price based on usage and override specifics below
+    if(item.holdEffect != 0 && item.pocket != POCKET_BERRIES)
+    {
+        price = max(1000, min(gRoguePokemonHeldItemUsages[itemId], 300) * 50);
+    }
+
 #ifdef ROGUE_EXPANSION
     if(itemId >= ITEM_X_ATTACK && itemId <= ITEM_GUARD_SPEC)
 #else
@@ -919,7 +932,6 @@ u16 Rogue_GetPrice(u16 itemId)
     {
         price = 50;
     }
-
 
     // Don't move evo items into held item pocket
     if(Rogue_IsEvolutionItem(itemId))
@@ -940,17 +952,17 @@ u16 Rogue_GetPrice(u16 itemId)
 
     if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
     {
-        price = 5000;
+        price = HELD_ITEM_HIGH_PRICE;
     }
 
     if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
     {
-        price = 5000;
+        price = HELD_ITEM_MID_PRICE;
     }
 
     if(itemId >= ITEM_ROTOM_CATALOG && itemId <= ITEM_REINS_OF_UNITY)
     {
-        price = 5000;
+        price = 0;
     }
 
     if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
@@ -961,22 +973,22 @@ u16 Rogue_GetPrice(u16 itemId)
     // Plates
     if(itemId >= ITEM_FLAME_PLATE && itemId <= ITEM_PIXIE_PLATE)
     {
-        price = 4000;
+        price = HELD_ITEM_MID_PRICE / 2;
     }
 
     if(itemId >= ITEM_DOUSE_DRIVE && itemId <= ITEM_CHILL_DRIVE)
     {
-        price = 1000;
+        price = HELD_ITEM_MID_PRICE;
     }
 
     if(itemId >= ITEM_FIRE_MEMORY && itemId <= ITEM_FAIRY_MEMORY)
     {
-        price = 1000;
+        price = HELD_ITEM_MID_PRICE;
     }
 
     if(itemId >= ITEM_ADAMANT_CRYSTAL && itemId <= ITEM_LUSTROUS_GLOBE)
     {
-        price = 5000;
+        price = HELD_ITEM_HIGH_PRICE;
     }
 
 #endif
@@ -1017,7 +1029,7 @@ u16 Rogue_GetPrice(u16 itemId)
             break;
     
         case ITEM_SOUL_DEW:
-            price = 5000;
+            price = HELD_ITEM_MID_PRICE;
             break;
 
 #ifdef ROGUE_EXPANSION
@@ -1033,12 +1045,12 @@ u16 Rogue_GetPrice(u16 itemId)
         case ITEM_ADAMANT_ORB:
         case ITEM_LUSTROUS_ORB:
         case ITEM_GRISEOUS_ORB:
-            price = 2000;
+            price = HELD_ITEM_MID_PRICE / 2;
             break;
 
         case ITEM_RUSTED_SWORD:
         case ITEM_RUSTED_SHIELD:
-            price = 5000;
+            price = HELD_ITEM_HIGH_PRICE;
             break;
 
         case ITEM_DUSK_BALL:
@@ -1077,44 +1089,7 @@ u16 Rogue_GetPrice(u16 itemId)
         case ITEM_MASTER_BALL:
             price = 0;
             break;
-
-        // Common Battle Items
-        //
-        case ITEM_METAL_POWDER:
-            price = 500;
-            break;
-
-        case ITEM_WHITE_HERB:
-        case ITEM_LEFTOVERS:
-            price = 8000;
-            break;
-
-#ifdef ROGUE_EXPANSION
-        case ITEM_QUICK_POWDER:
-            price = 500;
-            break;
-
-        case ITEM_RING_TARGET:
-        case ITEM_BINDING_BAND:
-            price = 1000;
-            break;
-
-        case ITEM_RED_CARD:
-        case ITEM_AIR_BALLOON:
-        case ITEM_EJECT_BUTTON:
-            price = 2000;
-            break;
-
-        case ITEM_ASSAULT_VEST:
-            price = 4000;
-            break;
-
-        case ITEM_LIFE_ORB:
-            price = 8000;
-            break;
-#endif
     }
-
 
     return price;
 }
