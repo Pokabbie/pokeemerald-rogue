@@ -5571,19 +5571,35 @@ void ItemUseCB_EvolutionStone(u8 taskId, TaskFunc task)
     }
 }
 
+const u8* GetItemEffectPtr(u16 item)
+{
+    if (!ITEM_HAS_EFFECT(item))
+    {
+        if(Rogue_IsEvolutionItem(item))
+        {
+            // Hack act as if evo stone
+            return gItemEffectTable[ITEM_FIRE_STONE - ITEM_POTION];
+        }
+
+        return NULL;
+    }
+
+    // Read the item's effect properties.
+    if (item == ITEM_ENIGMA_BERRY)
+        return gSaveBlock1Ptr->enigmaBerry.itemEffect;
+    else
+        return gItemEffectTable[item - ITEM_POTION];
+}
+
 u8 GetItemEffectType(u16 item)
 {
     const u8 *itemEffect;
     u32 statusCure;
 
-    if (!ITEM_HAS_EFFECT(item))
-        return ITEM_EFFECT_NONE;
+    itemEffect = GetItemEffectPtr(item);
 
-    // Read the item's effect properties.
-    if (item == ITEM_ENIGMA_BERRY)
-        itemEffect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
-    else
-        itemEffect = gItemEffectTable[item - ITEM_POTION];
+    if (itemEffect == NULL)
+        return ITEM_EFFECT_NONE;
 
     if ((itemEffect[0] & (ITEM0_DIRE_HIT | ITEM0_X_ATTACK)) || itemEffect[1] || itemEffect[2] || (itemEffect[3] & ITEM3_GUARD_SPEC))
         return ITEM_EFFECT_X_ITEM;

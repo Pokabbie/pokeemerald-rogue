@@ -161,14 +161,14 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     if(species == SPECIES_SCYTHER && evoIdx == 1)
     {
         outEvo->targetSpecies = SPECIES_KLEAVOR;
-        outEvo->method = EVO_LEVEL_ITEM;
+        outEvo->method = EVO_ITEM;
         outEvo->param = ITEM_BLACK_AUGURITE;
     }
 
     if(species == SPECIES_URSARING && evoIdx == 0)
     {
         outEvo->targetSpecies = SPECIES_URSALUNA;
-        outEvo->method = EVO_ITEM_HOLD_NIGHT;
+        outEvo->method = EVO_ITEM;
         outEvo->param = ITEM_PEAT_BLOCK;
     }
 
@@ -190,7 +190,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     if(species == SPECIES_SNEASEL_HISUIAN && evoIdx == 0)
     {
         outEvo->targetSpecies = SPECIES_SNEASLER;
-        outEvo->method = EVO_ITEM_HOLD_DAY;
+        outEvo->method = EVO_ITEM;
         outEvo->param = ITEM_RAZOR_CLAW;
     }
 
@@ -339,13 +339,13 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
         if(species == SPECIES_MELTAN && evoIdx == 0)
         {
-            outEvo->method = EVO_LEVEL_ITEM;
+            outEvo->method = EVO_ITEM;
             outEvo->param = ITEM_METAL_COAT;
         }
 
         if(species == SPECIES_EXEGGCUTE && evoIdx == 1)
         {
-            outEvo->method = EVO_LEVEL_ITEM;
+            outEvo->method = EVO_ITEM;
             outEvo->param = ITEM_DRAGON_SCALE;
         }
 
@@ -383,11 +383,14 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 
             case(EVO_TRADE):
-                outEvo->method = EVO_LEVEL_ITEM;
+                outEvo->method = EVO_ITEM;
                 outEvo->param = ITEM_LINK_CABLE;
                 break;
             case(EVO_TRADE_ITEM):
-                outEvo->method = EVO_LEVEL_ITEM;
+            case(EVO_LEVEL_ITEM):
+            case(EVO_ITEM_HOLD_DAY):
+            case(EVO_ITEM_HOLD_NIGHT):
+                outEvo->method = EVO_ITEM;
                 break;
 
             case(EVO_FRIENDSHIP_DAY):
@@ -417,7 +420,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 
             case(EVO_TRADE_SPECIFIC_MON):
-                outEvo->method = EVO_LEVEL_ITEM;
+                outEvo->method = EVO_ITEM;
                 outEvo->param = ITEM_LINK_CABLE;
                 break;
 
@@ -1217,7 +1220,12 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     // Don't move evo items into held item pocket
     if(Rogue_IsEvolutionItem(itemId))
     {
-        outItem->pocket = POCKET_ITEMS;
+        outItem->pocket = POCKET_ITEMS; 
+
+        // Become evo items
+        outItem->type = ITEM_USE_PARTY_MENU;
+        outItem->fieldUseFunc = ItemUseOutOfBattle_EvolutionStone;
+
     }
     else if(outItem->holdEffect != 0 && outItem->pocket != POCKET_BERRIES)
     {

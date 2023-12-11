@@ -4877,6 +4877,8 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
     }                                                                                                   \
 }
 
+const u8* GetItemEffectPtr(u16 item);
+
 // Returns TRUE if the item has no effect on the Pokémon, FALSE otherwise
 bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex, bool8 usedByAI)
 {
@@ -4933,10 +4935,10 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         battlerId = MAX_BATTLERS_COUNT;
     }
 
+    itemEffect = GetItemEffectPtr(item);
+
     // Skip using the item if it won't do anything
-    if (!ITEM_HAS_EFFECT(item))
-        return TRUE;
-    if (gItemEffectTable[item - ITEM_POTION] == NULL && item != ITEM_ENIGMA_BERRY)
+    if (itemEffect == NULL && item != ITEM_ENIGMA_BERRY)
         return TRUE;
 
     // Get item effect
@@ -4946,10 +4948,6 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             itemEffect = gEnigmaBerries[gActiveBattler].itemEffect;
         else
             itemEffect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
-    }
-    else
-    {
-        itemEffect = gItemEffectTable[item - ITEM_POTION];
     }
 
     // Do item effect
