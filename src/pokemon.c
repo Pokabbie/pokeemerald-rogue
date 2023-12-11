@@ -4781,7 +4781,9 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         retVal = substruct2->sheen;
         break;
     case MON_DATA_POKERUS:
-        retVal = substruct3->pokerus;
+        // RogueNote: Hack to disable pokerus
+        //retVal = substruct3->pokerus;
+        retVal = FALSE;
         break;
     case MON_DATA_MET_LOCATION:
         retVal = substruct3->metLocation;

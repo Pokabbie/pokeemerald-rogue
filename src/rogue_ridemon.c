@@ -208,9 +208,10 @@ static bool8 CalculateInitialRideSpecies()
         {
             monIdx = (sRideMonData.recentRideIndex + counter) % gPlayerPartyCount;
 
-            if(IsValidMonToRideNow(&gPlayerParty[monIdx]) && FollowMon_GetMonGraphics(&gPlayerParty[monIdx]) == sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies)
+            if(IsValidMonToRideNow(&gPlayerParty[monIdx]))
             {
                 sRideMonData.recentRideIndex = monIdx;
+                sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = FollowMon_GetMonGraphics(&gPlayerParty[monIdx]);
                 return TRUE;
             }
         }

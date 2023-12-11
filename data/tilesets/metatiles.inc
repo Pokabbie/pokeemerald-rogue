@@ -565,3 +565,11 @@ gMetatiles_GeneralHub::
 	.align 1
 gMetatileAttributes_GeneralHub::
 	.incbin "data/tilesets/primary/general_hub/metatile_attributes.bin"
+
+	.align 1
+gMetatiles_EternaForest::
+	.incbin "data/tilesets/secondary/eternaforest/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_EternaForest::
+	.incbin "data/tilesets/secondary/eternaforest/metatile_attributes.bin"

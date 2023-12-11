@@ -155,10 +155,12 @@
 // Routes
 //
 #define ROUTE_FLAG_NONE                   0
-#define ROUTE_FLAG_HOENN                  (1 << 1)
-#define ROUTE_FLAG_KANTO                  (1 << 2)
-#define ROUTE_FLAG_JOHTO                  (1 << 3)
-#define ROUTE_FLAG_FALLBACK_REGION        (1 << 4) // If the player unselects all route expansions, use this custom fallback set
+#define ROUTE_FLAG_KANTO                  (1 << 1)
+#define ROUTE_FLAG_JOHTO                  (1 << 2)
+#define ROUTE_FLAG_HOENN                  (1 << 3)
+#define ROUTE_FLAG_SINNOH                 (1 << 4)
+
+#define ROUTE_FLAG_ANY                    (ROUTE_FLAG_KANTO | ROUTE_FLAG_JOHTO | ROUTE_FLAG_HOENN | ROUTE_FLAG_SINNOH)
 
 // Adventure
 //
@@ -396,8 +398,9 @@
 
 // DEBUG_RANGE_
 #define DEBUG_RANGE_START_DIFFICULTY                (DEBUG_START_VALUE + 0)
-#define DEBUG_RANGE_FORCED_WEATHER                  (DEBUG_START_VALUE + 1)
-#define DEBUG_RANGE_COUNT                           2
+#define DEBUG_RANGE_FORCED_ROUTE                    (DEBUG_START_VALUE + 1)
+#define DEBUG_RANGE_FORCED_WEATHER                  (DEBUG_START_VALUE + 3)
+#define DEBUG_RANGE_COUNT                           4
 
 
 #define BATTLE_FORMAT_SINGLES   0

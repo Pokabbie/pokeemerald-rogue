@@ -817,3 +817,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Interior_School/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Sinnoh_205/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_EternaForest/scripts.inc"
