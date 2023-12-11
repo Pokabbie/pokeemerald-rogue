@@ -872,6 +872,7 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
 
 u16 Rogue_GetPrice(u16 itemId)
 {
+    bool8 applyDefaultHubIncrease = FALSE;
     u16 price = 0;
     struct Item item;
 
@@ -916,7 +917,8 @@ u16 Rogue_GetPrice(u16 itemId)
     // Set hold items price based on usage and override specifics below
     if(item.holdEffect != 0 && item.pocket != POCKET_BERRIES)
     {
-        price = max(1000, min(gRoguePokemonHeldItemUsages[itemId], 300) * 50);
+        applyDefaultHubIncrease = TRUE;
+        price = 2000 + (min(gRoguePokemonHeldItemUsages[itemId], 280) / 4) * 200;
     }
 
 #ifdef ROGUE_EXPANSION
@@ -952,12 +954,16 @@ u16 Rogue_GetPrice(u16 itemId)
 
     if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
     {
+        // Expect price from above
         price = HELD_ITEM_HIGH_PRICE;
+        applyDefaultHubIncrease = TRUE;
     }
 
     if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
     {
+        // Expect price from above
         price = HELD_ITEM_MID_PRICE;
+        applyDefaultHubIncrease = TRUE;
     }
 
     if(itemId >= ITEM_ROTOM_CATALOG && itemId <= ITEM_REINS_OF_UNITY)
@@ -973,21 +979,25 @@ u16 Rogue_GetPrice(u16 itemId)
     // Plates
     if(itemId >= ITEM_FLAME_PLATE && itemId <= ITEM_PIXIE_PLATE)
     {
+        applyDefaultHubIncrease = TRUE;
         price = HELD_ITEM_MID_PRICE / 2;
     }
 
     if(itemId >= ITEM_DOUSE_DRIVE && itemId <= ITEM_CHILL_DRIVE)
     {
+        applyDefaultHubIncrease = TRUE;
         price = HELD_ITEM_MID_PRICE;
     }
 
     if(itemId >= ITEM_FIRE_MEMORY && itemId <= ITEM_FAIRY_MEMORY)
     {
+        applyDefaultHubIncrease = TRUE;
         price = HELD_ITEM_MID_PRICE;
     }
 
     if(itemId >= ITEM_ADAMANT_CRYSTAL && itemId <= ITEM_LUSTROUS_GLOBE)
     {
+        applyDefaultHubIncrease = TRUE;
         price = HELD_ITEM_HIGH_PRICE;
     }
 
@@ -1029,6 +1039,7 @@ u16 Rogue_GetPrice(u16 itemId)
             break;
     
         case ITEM_SOUL_DEW:
+            applyDefaultHubIncrease = TRUE;
             price = HELD_ITEM_MID_PRICE;
             break;
 
@@ -1045,11 +1056,13 @@ u16 Rogue_GetPrice(u16 itemId)
         case ITEM_ADAMANT_ORB:
         case ITEM_LUSTROUS_ORB:
         case ITEM_GRISEOUS_ORB:
-            price = HELD_ITEM_MID_PRICE / 2;
+            applyDefaultHubIncrease = TRUE;
+            price = HELD_ITEM_MID_PRICE;
             break;
 
         case ITEM_RUSTED_SWORD:
         case ITEM_RUSTED_SHIELD:
+            applyDefaultHubIncrease = TRUE;
             price = HELD_ITEM_HIGH_PRICE;
             break;
 
@@ -1089,6 +1102,12 @@ u16 Rogue_GetPrice(u16 itemId)
         case ITEM_MASTER_BALL:
             price = 0;
             break;
+    }
+
+    // Hub is more pricy!
+    if(applyDefaultHubIncrease && !Rogue_IsRunActive())
+    {
+        price *= 2;
     }
 
     return price;
