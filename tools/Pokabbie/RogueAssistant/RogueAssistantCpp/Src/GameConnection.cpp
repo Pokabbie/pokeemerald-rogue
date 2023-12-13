@@ -10,7 +10,7 @@ GameConnection::GameConnection()
 	: m_State(GameConnectionState::AwaitingFirstHandshake)
 	, m_GameRPCs(*this)
 	, m_SendSize(0)
-	, m_UpdateTimer(UpdateTimer::c_10UPS)
+	, m_UpdateTimer(UpdateTimer::c_20UPS) // todo - give option? 10ups is less laggy emu but smoother mp
 {
 	m_ObservedGameMemory = std::make_unique<ObservedGameMemory>(*this);
 	m_Socket.setBlocking(false);
