@@ -4978,6 +4978,15 @@
                 "trainer_flags": [ "REGION_ROGUE", "CLASS_ELITE" ],
                 "weather": "SANDSTORM",
                 "shiny_species": "SPECIES_ERMA_ACE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: What was that? A challenge?\\pThen let us get started!",
+                        "PRE_BATTLE_TAUNT": "You better not underestimate me!",
+                        "POST_BATTLE_TAUNT": "Woah! You're amazing!\\nLet's do this again sometime!",
+                        "POST_BATTLE_CLOSER": "It's not going to get easier from here on out.\\pI'll be rooting for you!"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
