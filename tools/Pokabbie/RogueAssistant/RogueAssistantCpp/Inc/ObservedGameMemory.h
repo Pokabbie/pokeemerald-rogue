@@ -3,7 +3,6 @@
 #include "GameConnectionMessage.h"
 #include "GameData.h"
 #include "Log.h"
-#include "Timer.h"
 
 #include <vector>
 
@@ -81,7 +80,6 @@ public:
 
 private:
 	GameConnection& m_Game;
-	UpdateTimer m_UpdateTimer;
 
 	ObservedStruct<GameStructures::GFRomHeader> m_GFRomHeader;
 	ObservedStruct<GameStructures::RogueAssistantHeader> m_RogueHeader;

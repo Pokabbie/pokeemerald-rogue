@@ -60,7 +60,6 @@ void ObservedBlob::Clear()
 
 ObservedGameMemory::ObservedGameMemory(GameConnection& game)
 	: m_Game(game)
-	, m_UpdateTimer(UpdateTimer::c_10UPS)
 {
 }
 
@@ -76,7 +75,7 @@ void ObservedGameMemory::Update()
 		GameMessageID messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::RogueHeader);
 		m_Game.ReadRequest(messageId, m_GFRomHeader->rogueAssistantHeader, m_RogueHeader.GetSize());
 	}
-	else if (m_UpdateTimer.Update())
+	else
 	{
 		// Both headers are valid, so can update other memory now
 		GameMessageID messageId;

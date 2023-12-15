@@ -21,10 +21,14 @@ static void Condition_NotEqualTo(struct QueryScriptContext* context);
 static void Condition_HasType(struct QueryScriptContext* context);
 static void Condition_IsMonoType(struct QueryScriptContext* context);
 static void Condition_HasUniqueTypeInTeam(struct QueryScriptContext* context);
+static void Condition_AlreadyHasTypeInTeam(struct QueryScriptContext* context);
 
 static void Action_IncludeTypes(struct QueryScriptContext* context);
 static void Action_ExcludeTypes(struct QueryScriptContext* context);
-static void Action_IncludeSpecies(struct QueryScriptContext* context);
+static void Action_ForceIncludeSpecies(struct QueryScriptContext* context);
+static void Action_ForceIncludeSpeciesList(struct QueryScriptContext* context);
+static void Action_TryIncludeSpecies(struct QueryScriptContext* context);
+static void Action_TryIncludeSpeciesList(struct QueryScriptContext* context);
 static void Action_IncFavour(struct QueryScriptContext* context);
 static void Action_DecFavour(struct QueryScriptContext* context);
 static void Action_ImpossibleFavour(struct QueryScriptContext* context);
@@ -41,10 +45,14 @@ static ScriptCallback const gScriptTable[] =
     [QUERY_SCRIPT_HAS_TYPE] = Condition_HasType,
     [QUERY_SCRIPT_IS_MONO_TYPE] = Condition_IsMonoType,
     [QUERY_SCRIPT_HAS_UNIQUE_TYPE_IN_TEAM] = Condition_HasUniqueTypeInTeam,
+    [QUERY_SCRIPT_ALREADY_HAS_TYPE_IN_TEAM] = Condition_AlreadyHasTypeInTeam,
 
     [QUERY_SCRIPT_INCLUDE_TYPES] = Action_IncludeTypes,
     [QUERY_SCRIPT_EXCLUDE_TYPES] = Action_ExcludeTypes,
-    [QUERY_SCRIPT_INCLUDE_SPECIES] = Action_IncludeSpecies,
+    [QUERY_SCRIPT_FORCE_INCLUDE_SPECIES] = Action_ForceIncludeSpecies,
+    [QUERY_SCRIPT_FORCE_INCLUDE_SPECIES_LIST] = Action_ForceIncludeSpeciesList,
+    [QUERY_SCRIPT_TRY_INCLUDE_SPECIES] = Action_TryIncludeSpecies,
+    [QUERY_SCRIPT_TRY_INCLUDE_SPECIES_LIST] = Action_TryIncludeSpeciesList,
 
     [QUERY_SCRIPT_INC_FAVOUR] = Action_IncFavour,
     [QUERY_SCRIPT_DEC_FAVOUR] = Action_DecFavour,
@@ -273,6 +281,13 @@ static void Condition_HasUniqueTypeInTeam(struct QueryScriptContext* context)
         ((context->partyTypeFlags & MON_TYPE_VAL_TO_FLAGS(gBaseStats[context->currentSpecies].type2)) == 0);
 }
 
+static void Condition_AlreadyHasTypeInTeam(struct QueryScriptContext* context)
+{
+    context->conditionState = 
+        ((context->partyTypeFlags & MON_TYPE_VAL_TO_FLAGS(gBaseStats[context->currentSpecies].type1)) != 0) ||
+        ((context->partyTypeFlags & MON_TYPE_VAL_TO_FLAGS(gBaseStats[context->currentSpecies].type2)) != 0);
+}
+
 static void Action_IncludeTypes(struct QueryScriptContext* context)
 {
     u32 typeFlags = ParseMonTypeFlags(context);
@@ -293,7 +308,7 @@ static void Action_ExcludeTypes(struct QueryScriptContext* context)
     }
 }
 
-static void Action_IncludeSpecies(struct QueryScriptContext* context)
+static void Action_ForceIncludeSpecies(struct QueryScriptContext* context)
 {
     u16 species = ParseScriptValue(context);
 
@@ -301,6 +316,49 @@ static void Action_IncludeSpecies(struct QueryScriptContext* context)
     {
         RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
     }
+}
+
+static void Action_ForceIncludeSpeciesList(struct QueryScriptContext* context)
+{
+    u16 species;
+
+    do
+    {
+        species = ParseScriptValue(context);
+
+        if(context->conditionState && species != SPECIES_NONE)
+        {
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
+        }
+    } 
+    while (species != SPECIES_NONE);
+}
+
+
+static void Action_TryIncludeSpecies(struct QueryScriptContext* context)
+{
+    u16 species = ParseScriptValue(context);
+
+    if(context->conditionState && Query_IsSpeciesEnabled(species))
+    {
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
+    }
+}
+
+static void Action_TryIncludeSpeciesList(struct QueryScriptContext* context)
+{
+    u16 species;
+
+    do
+    {
+        species = ParseScriptValue(context);
+
+        if(context->conditionState && species != SPECIES_NONE && Query_IsSpeciesEnabled(species))
+        {
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
+        }
+    } 
+    while (species != SPECIES_NONE);
 }
 
 static void Action_IncFavour(struct QueryScriptContext* context)

@@ -621,13 +621,15 @@ static bool8 ShouldSyncObjectBeVisible(struct SyncedObjectEventInfo* syncInfo)
     return FALSE;
 }
 
+bool8 IsSafeToSpawnObjectEvents();
+
 static u8 ProcessSyncedObjectEvent(struct SyncedObjectEventInfo* syncInfo)
 {
     u8 objectEventId = GetSpecialObjectEventIdByLocalId(syncInfo->localId);
 
     if(ShouldSyncObjectBeVisible(syncInfo))
     {
-        if(objectEventId == OBJECT_EVENTS_COUNT)
+        if(objectEventId == OBJECT_EVENTS_COUNT && IsSafeToSpawnObjectEvents())
         {
             objectEventId = SpawnSpecialObjectEventParameterized(
                 syncInfo->gfxId,

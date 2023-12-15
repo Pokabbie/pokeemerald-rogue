@@ -597,8 +597,7 @@ void Rogue_ChooseBossTrainersForNewAdventure()
         {
             if(difficulty == ROGUE_FINAL_CHAMP_DIFFICULTY)
             {
-                // The actual final boss
-                trainerNum = gRogueRun.rivalTrainerNum; // TODO
+                trainerNum = Rogue_ChooseBossTrainerId(difficulty, historyBuffer, ARRAY_COUNT(historyBuffer));
             }
             else
             {
@@ -2062,6 +2061,21 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
     return FALSE;
 }
 
+static bool8 HasDamagingMove(struct RoguePokemonCompetitiveSet const* preset)
+{
+    u8 i;
+    u16 move;
+
+    for(i = 0; i <MAX_MON_MOVES; ++i)
+    {
+        move = preset->moves[i];
+        if(move != MOVE_NONE && gBattleMoves[move].power != 0)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, u8 monIdx, struct RoguePokemonCompetitiveSet* outPreset)
 {
     u8 i;
@@ -2097,6 +2111,12 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
             {
                 currPreset = &gRoguePokemonProfiles[species].competitiveSets[((randOffset + i) % presetCount)];
                 currentScore = 1024;
+
+                // Avoid presets which don't have any damaging moves (e.g. Giratina)
+                if(!HasDamagingMove(currPreset))
+                {
+                    currentScore /= 2;
+                }
 
                 // Avoid duplicate items (If this preset is used, we'll just replace the item)
                 //

@@ -57,6 +57,7 @@ static void FaintFromFieldPoison(u8 partyIdx)
 
 static bool8 MonIsCurrentlyAffectedByPoison(struct Pokemon *mon)
 {
+    // RogueNote: Disable field poison?
     if(GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS)) == AILMENT_PSN)
     {
 #ifdef ROGUE_EXPANSION

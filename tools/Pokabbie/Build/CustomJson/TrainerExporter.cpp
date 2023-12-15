@@ -289,6 +289,7 @@ static void ExportQueryScriptData_C(TrainerDataExport_C& exporter, std::string c
 			|| strutil::starts_with(cmd, "STAT_")
 			|| strutil::starts_with(cmd, "SPECIES_")
 			|| strutil::starts_with(cmd, "ITEM_")
+			|| strutil::starts_with(cmd, "#")
 			)
 		{
 			// do nothing, these are allowed constants we can reference

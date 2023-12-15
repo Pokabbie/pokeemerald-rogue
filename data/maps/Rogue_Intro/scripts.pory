@@ -30,13 +30,181 @@ script Rogue_Intro_MapScripts_OnLoad
     setvar(VAR_FOLLOW_MON_0, SPECIES_AMPHAROS) // OBJ_LOCAL_ID_FOLLOWMON_PARENT
     setvar(VAR_FOLLOW_MON_1, SPECIES_MAREEP) // OBJ_LOCAL_ID_FOLLOWMON_CHILD
 
-    setvar(VAR_FOLLOW_MON_2, SPECIES_SWELLOW) // OBJ_LOCAL_ID_FOLLOWMON_FLYMON0
-    setvar(VAR_FOLLOW_MON_3, SPECIES_SWELLOW) // OBJ_LOCAL_ID_FOLLOWMON_FLYMON1
 
-    setvar(VAR_FOLLOW_MON_4, SPECIES_GOLEM) // OBJ_LOCAL_ID_FOLLOWMON_FIGHTMON0
-    setvar(VAR_FOLLOW_MON_5, SPECIES_MACHAMP) // OBJ_LOCAL_ID_FOLLOWMON_FIGHTMON1
+    // OBJ_LOCAL_ID_FOLLOWMON_FLYMON0
+    // OBJ_LOCAL_ID_FOLLOWMON_FLYMON1
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            random(3)
 
-    setvar(VAR_FOLLOW_MON_6, SPECIES_SUICUNE) // OBJ_LOCAL_ID_FOLLOWMON_ROAMER
+            switch(var(VAR_RESULT))
+            {
+                case 0:
+                    setvar(VAR_FOLLOW_MON_2, SPECIES_PIDGEOTTO)
+                    setvar(VAR_FOLLOW_MON_3, SPECIES_PIDGEOTTO)
+
+                case 1:
+                    setvar(VAR_FOLLOW_MON_2, SPECIES_NOCTOWL)
+                    setvar(VAR_FOLLOW_MON_3, SPECIES_NOCTOWL)
+
+                case 2:
+                    setvar(VAR_FOLLOW_MON_2, SPECIES_SWELLOW)
+                    setvar(VAR_FOLLOW_MON_3, SPECIES_SWELLOW)
+            }
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            random(8)
+
+            switch(var(VAR_RESULT))
+            {
+                case 0:
+                    setvar(VAR_FOLLOW_MON_2, SPECIES_PIDGEOTTO)
+                    setvar(VAR_FOLLOW_MON_3, SPECIES_PIDGEOTTO)
+
+                case 1:
+                    setvar(VAR_FOLLOW_MON_2, SPECIES_NOCTOWL)
+                    setvar(VAR_FOLLOW_MON_3, SPECIES_NOCTOWL)
+
+                case 2:
+                    setvar(VAR_FOLLOW_MON_2, SPECIES_SWELLOW)
+                    setvar(VAR_FOLLOW_MON_3, SPECIES_SWELLOW)
+
+                case 3:
+                    setvar(VAR_FOLLOW_MON_2, SPECIES_STARAVIA)
+                    setvar(VAR_FOLLOW_MON_3, SPECIES_STARAVIA)
+
+                case 4:
+                    setvar(VAR_FOLLOW_MON_2, SPECIES_TRANQUILL)
+                    setvar(VAR_FOLLOW_MON_3, SPECIES_TRANQUILL)
+
+                case 5:
+                    setvar(VAR_FOLLOW_MON_2, SPECIES_TALONFLAME)
+                    setvar(VAR_FOLLOW_MON_3, SPECIES_TALONFLAME)
+
+                case 6:
+                    setvar(VAR_FOLLOW_MON_2, SPECIES_TRUMBEAK)
+                    setvar(VAR_FOLLOW_MON_3, SPECIES_TRUMBEAK)
+
+                case 7:
+                    setvar(VAR_FOLLOW_MON_2, SPECIES_CORVISQUIRE)
+                    setvar(VAR_FOLLOW_MON_3, SPECIES_CORVISQUIRE)
+            }
+        }
+    }
+
+    // OBJ_LOCAL_ID_FOLLOWMON_FIGHTMON0
+    // OBJ_LOCAL_ID_FOLLOWMON_FIGHTMON1
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            random(3)
+
+            switch(var(VAR_RESULT))
+            {
+                case 0:
+                    setvar(VAR_FOLLOW_MON_4, SPECIES_GOLEM)
+
+                case 1:
+                    setvar(VAR_FOLLOW_MON_4, SPECIES_SCIZOR)
+
+                case 2:
+                    setvar(VAR_FOLLOW_MON_4, SPECIES_VIGOROTH)
+            }
+            
+            random(3)
+
+            switch(var(VAR_RESULT))
+            {
+                case 0:
+                    setvar(VAR_FOLLOW_MON_5, SPECIES_MACHAMP)
+
+                case 1:
+                    setvar(VAR_FOLLOW_MON_5, SPECIES_HERACROSS)
+
+                case 2:
+                    setvar(VAR_FOLLOW_MON_5, SPECIES_MAWILE)
+            }
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            random(8)
+
+            switch(var(VAR_RESULT))
+            {
+                case 0:
+                    setvar(VAR_FOLLOW_MON_4, SPECIES_GOLEM)
+
+                case 1:
+                    setvar(VAR_FOLLOW_MON_4, SPECIES_SCIZOR)
+
+                case 2:
+                    setvar(VAR_FOLLOW_MON_4, SPECIES_VIGOROTH)
+
+                case 3:
+                    setvar(VAR_FOLLOW_MON_4, SPECIES_GALLADE)
+
+                case 4:
+                    setvar(VAR_FOLLOW_MON_4, SPECIES_GURDURR)
+
+                case 5:
+                    setvar(VAR_FOLLOW_MON_4, SPECIES_AURORUS)
+
+                case 6:
+                    setvar(VAR_FOLLOW_MON_4, SPECIES_MUDSDALE)
+
+                case 7:
+                    setvar(VAR_FOLLOW_MON_4, SPECIES_TOXTRICITY)
+            }
+            
+            random(8)
+
+            switch(var(VAR_RESULT))
+            {
+                case 0:
+                    setvar(VAR_FOLLOW_MON_5, SPECIES_MACHAMP)
+
+                case 1:
+                    setvar(VAR_FOLLOW_MON_5, SPECIES_HERACROSS)
+
+                case 2:
+                    setvar(VAR_FOLLOW_MON_5, SPECIES_MAWILE)
+
+                case 3:
+                    setvar(VAR_FOLLOW_MON_5, SPECIES_WEAVILE)
+
+                case 4:
+                    setvar(VAR_FOLLOW_MON_5, SPECIES_DARMANITAN)
+
+                case 5:
+                    setvar(VAR_FOLLOW_MON_5, SPECIES_TYRANTRUM)
+
+                case 6:
+                    setvar(VAR_FOLLOW_MON_5, SPECIES_BEWEAR)
+
+                case 7:
+                    setvar(VAR_FOLLOW_MON_5, SPECIES_OBSTAGOON)
+            }
+        }
+    }
+
+    // OBJ_LOCAL_ID_FOLLOWMON_ROAMER
+    random(3)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            setvar(VAR_FOLLOW_MON_6, SPECIES_RAIKOU)
+
+        case 1:
+            setvar(VAR_FOLLOW_MON_6, SPECIES_ENTEI)
+
+        case 2:
+            setvar(VAR_FOLLOW_MON_6, SPECIES_SUICUNE)
+    }
 }
 
 script Rogue_Intro_MapScripts_LoadFrame_0
@@ -69,7 +237,7 @@ script Rogue_Intro_MapScripts_LoadFrame_0
 
     // Pokemon walking anims
     //
-    msgbox(format("I'm PROF. BIRCH."))
+    msgbox(format("I am Professor Birch."))
 
     call(Rogue_Intro_PlayAnim_FlyingMons)
     call(Rogue_Intro_PlayAnim_FightMons)
@@ -77,14 +245,14 @@ script Rogue_Intro_MapScripts_LoadFrame_0
     call(Rogue_Intro_PlayAnim_ParentChildMon)
 
     msgbox(format(
-        "BIRCH: POKéMON inhabit every inch of this world… Be it land, sky or sea!\p"
-        "POKéMON are the friends of many and, for some, they even train and fight alongside their POKéMON in an attempt to become a POKéMON CHAMPION!\p"
-        "I myself study POKéMON to try and understand what makes each and every species unique!\p"
+        "BIRCH: Pokémon inhabit every inch of this world… Be it land, sky or sea!\p"
+        "Pokémon are the friends of many and, for some, they even train and fight alongside their Pokémon in an attempt to become a Pokémon Champion!\p"
+        "I myself study Pokémon to try and understand what makes each and every species unique!\p"
 
         "The world has changed quite a lot recently…\p"
         "Routes within the world seem to be connecting up at random. Making exploring even more difficult.\p"
         "Though there is one thing for sure, trainers are still out their and itching for battles!\p"
-        "So, only skilled POKéMON trainers can thrive!\p"
+        "So, only skilled Pokémon trainers can thrive!\p"
 
         "Now…\nLet me put your memory to the test…"
     ))

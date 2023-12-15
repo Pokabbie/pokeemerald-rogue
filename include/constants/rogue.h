@@ -255,6 +255,15 @@
 #define ROGUE_RIVAL_TOTAL_MON_COUNT 9
 #define ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS 4
 
+// Some defines to use in trainer setup just to make the EX/Vanilla versioning easier ;)
+#ifdef ROGUE_EXPANSION
+#define SPECIES_RAVEN_ACE       SPECIES_GOOMY
+#define SPECIES_ERMA_ACE        SPECIES_FOMANTIS
+#else
+#define SPECIES_RAVEN_ACE       SPECIES_NONE
+#define SPECIES_ERMA_ACE        SPECIES_NONE
+#endif
+
 // Mon Preset flags
 //
 #define MON_FLAG_NONE                   0
