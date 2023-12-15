@@ -447,6 +447,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EthanAlt;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Raven;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Tails;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Bug;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Dark;
@@ -915,6 +917,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 
     [OBJ_EVENT_GFX_GLITCH_KATE] =              &gObjectEventGraphicsInfo_Glitch_Kate,
     [OBJ_EVENT_GFX_GLITCH_ERMA] =              &gObjectEventGraphicsInfo_Glitch_Erma,
+    [OBJ_EVENT_GFX_GLITCH_RAVEN] =             &gObjectEventGraphicsInfo_Glitch_Raven,
+    [OBJ_EVENT_GFX_GLITCH_TAILS] =             &gObjectEventGraphicsInfo_Glitch_Tails,
 
     [OBJ_EVENT_GFX_ROUTE_BUG] =                &gObjectEventGraphicsInfo_Route_Bug,
     [OBJ_EVENT_GFX_ROUTE_DARK] =               &gObjectEventGraphicsInfo_Route_Dark,

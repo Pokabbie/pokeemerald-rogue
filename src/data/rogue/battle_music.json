@@ -197,6 +197,15 @@
                 }
             ]
         },
+        "rogue_boss":
+        {
+            "conditional_redirects":
+            [
+                {
+                    "music_player": "sinnoh_boss"
+                }
+            ]
+        },
 
         "route_trainer":
         {
