@@ -83,6 +83,30 @@
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_RIVAL" ],
                 "shiny_species": "SPECIES_ZUBAT",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "...\\pHow did you get a Pokémon like that?!\\nWhat a waste.\\pThat's a Pokémon that's too good for a wimp like you.",
+                        "POST_BATTLE_TAUNT": "…Humph!\\nAre you happy you won?",
+                        "POST_BATTLE_CLOSER": "...\\pI'm going to be the world's greatest Pokémon Trainer.\\pSo you better not get in my way."
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "…didn't I tell you to not get in my way?\\pIf you're that insistent…\\pThen let's see how good you are.",
+                        "POST_BATTLE_TAUNT": "…Humph!\\nUseless Pokémon!",
+                        "POST_BATTLE_CLOSER": "Listen, you. You won only because my Pokémon were weak.\\pI hate the weak…\\pPokémon or Trainers…\\pYou stay out of my way.\\nYou won't be an exception if you get in my way."
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Hold it.\\pYour journey ends here!\\pBecause… right here, right now…\\nI will crush you!",
+                        "POST_BATTLE_TAUNT": "…I couldn't win…\\pI gave it everything I had…",
+                        "POST_BATTLE_CLOSER": "… … …\\pI haven't given up on becoming the greatest Trainer…\\pI'm going to find out why I can't win and become stronger.\\pWhen I do, I will challenge you.\\pI'll beat you down with all my power.\\n…Humph! You keep at it until then."
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\pHey, {PLAYER}.",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: You made it!\\pThose Trainers were really tough, which made it easy to train my Pokemon!\\p{PLAYER}!\\nI know that you are strong…\\pBut…\\nI can't help but challenge you!",
+                        "POST_BATTLE_TAUNT": "Humph!\\nI guess it can't be helped…",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "team_generator":
                 {
                     "preferredGender": "MALE",
