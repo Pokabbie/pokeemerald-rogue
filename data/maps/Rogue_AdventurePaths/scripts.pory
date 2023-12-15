@@ -46,7 +46,7 @@ script Rogue_AdventurePaths_InteractRoom
             msgbox(format("It's a Strong Trainer!\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_WILD_DEN:
-            msgbox(format("It's the home of a Strong POKéMON!\nEnter this encounter?"), MSGBOX_YESNO)
+            msgbox(format("It's the home of a Strong Pokémon!\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_GAMESHOW:
             msgbox(format("It's a... Game Show?\nEnter this encounter?"), MSGBOX_YESNO)
@@ -55,7 +55,7 @@ script Rogue_AdventurePaths_InteractRoom
             msgbox(format("It's a Dark Deal...?\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_LAB:
-            msgbox(format("It's a POKéMON LAB.\nEnter this encounter?"), MSGBOX_YESNO)
+            msgbox(format("It's a Pokémon LAB.\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_RESTSTOP:
             switch(var(VAR_NODE_PARAM1))
@@ -90,7 +90,7 @@ script Rogue_AdventurePaths_InteractRoom
             }
 
         case ADVPATH_ROOM_LEGENDARY:
-            msgbox(format("It's a Powerful POKéMON!\nEnter this encounter?"), MSGBOX_YESNO)
+            msgbox(format("It's a Powerful Pokémon!\nEnter this encounter?"), MSGBOX_YESNO)
 
         default:
             msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)

@@ -50,7 +50,7 @@ script Rogue_ConfigRoom_TalkAssistant
     faceplayer
     if(flag(FLAG_SET_SEED_ENABLED) == FALSE)
     {
-        msgbox(format("ASSISTANT: The settings back here are for SEEDED mode!\pIn SEEDED mode you will always encounter the same ROUTES, TRAINERS and POKéMON.\pI can enabled SEEDED mode for your next adventure, if you'd like?"), MSGBOX_DEFAULT)
+        msgbox(format("ASSISTANT: The settings back here are for SEEDED mode!\pIn SEEDED mode you will always encounter the same ROUTES, TRAINERS and Pokémon.\pI can enabled SEEDED mode for your next adventure, if you'd like?"), MSGBOX_DEFAULT)
     }
 
     clearflag(FLAG_SEED_APPLY_MOVEMENT)
@@ -132,7 +132,7 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
     switch(var(VAR_ROGUE_DESIRED_CAMPAIGN))
     {
         case ROGUE_CAMPAIGN_LOW_BST:
-            msgbox(format("The BST CUP is short for Base Stat Total Cup.\pThe jist of it, is that you want to try and complete a full run using the weakest POKéMON you can find (The POKéMON with the lowest BST).\pEvery POKéMON you have in your party will be considered for the score.\pFor this Campaign, you'll have to enter a Standard Battle Adventure.\pGauntlet and Rainbow mode ain't allowed!\pFinally, this campaign will adjust Config Lab settings and TM TOXIC is banned.\p(Note the score will update when starting a battle, to give you a chance to catch and release mons)"))
+            msgbox(format("The BST CUP is short for Base Stat Total Cup.\pThe jist of it, is that you want to try and complete a full run using the weakest Pokémon you can find (The Pokémon with the lowest BST).\pEvery Pokémon you have in your party will be considered for the score.\pFor this Campaign, you'll have to enter a Standard Battle Adventure.\pGauntlet and Rainbow mode ain't allowed!\pFinally, this campaign will adjust Config Lab settings and TM TOXIC is banned.\p(Note the score will update when starting a battle, to give you a chance to catch and release mons)"))
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
         case ROGUE_CAMPAIGN_CLASSIC:
@@ -140,23 +140,23 @@ script Rogue_ConfigRoom_Campaign_CampaignDescription
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure."), MSGBOX_DEFAULT)
 
         case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
-            msgbox(format("Battle Addict makes the Adventures never create 'Route' encounters.\pInstead you have Strong Trainer encounters.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many POKéMON faint during the run.\pThe aim is to get the lowest score possible."))
+            msgbox(format("Battle Addict makes the Adventures never create 'Route' encounters.\pInstead you have Strong Trainer encounters.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many Pokémon faint during the run.\pThe aim is to get the lowest score possible."))
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
         case ROGUE_CAMPAIGN_AUTO_BATTLER:
-            msgbox(format("Auto Battler makes it so in battles, both you and the opponent will always pick random moves.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many POKéMON faint during the run.\pThe aim is to get the lowest score possible."))
+            msgbox(format("Auto Battler makes it so in battles, both you and the opponent will always pick random moves.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many Pokémon faint during the run.\pThe aim is to get the lowest score possible."))
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
         case ROGUE_CAMPAIGN_LATERMANNER:
-            msgbox(format("LaterManner Mode was made for the streamer himself!\pIt's..!\pErr...\pWell it is a mode...\pYou gain score if a POKéMON faints...\pAnd well... You'll figure out the rest."))
+            msgbox(format("LaterManner Mode was made for the streamer himself!\pIt's..!\pErr...\pWell it is a mode...\pYou gain score if a Pokémon faints...\pAnd well... You'll figure out the rest."))
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
         case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
-            msgbox(format("Limited Capture Mode will provide you a limited number of POKé BALLs and your goal is simply to complete an Adventure.\pYou will not be able to purchase or find new POKé BALLs during the Adventure and encounters which give you POKéMON, such as the POKéMON LAB, will no longer appear.\pThis can be played in any adventure type and will force Bag Wipe in Config Lab."))
+            msgbox(format("Limited Capture Mode will provide you a limited number of POKé BALLs and your goal is simply to complete an Adventure.\pYou will not be able to purchase or find new POKé BALLs during the Adventure and encounters which give you Pokémon, such as the Pokémon LAB, will no longer appear.\pThis can be played in any adventure type and will force Bag Wipe in Config Lab."))
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure."), MSGBOX_DEFAULT)
 
         case ROGUE_CAMPAIGN_ONE_HP:
-            msgbox(format("One Hit Mode will cause all of your POKéMON to take enough damage to faint from every hit.\pBattles with wild POKéMON will still behave normally.\pDamage over time and status effects, such as poison or hail damage, will act as normal.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many POKéMON faint during the run.\pThe aim is to get the lowest score possible."))
+            msgbox(format("One Hit Mode will cause all of your Pokémon to take enough damage to faint from every hit.\pBattles with wild Pokémon will still behave normally.\pDamage over time and status effects, such as poison or hail damage, will act as normal.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many Pokémon faint during the run.\pThe aim is to get the lowest score possible."))
             msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
 
         default:
@@ -251,7 +251,7 @@ script Rogue_ConfigRoom_Campaign_NewPhrase
 
         if(var(VAR_TEMP_F) == YES)
         {
-            msgbox(format("When you take part in a Campaign settings will be changed to give a unique challenge.\pI may swap out your POKéMON and change some of the items in your bag.\pI may also edit your settings in the Config Lab.\pEach Campaign has a specific setup, rules and restrictions."), MSGBOX_DEFAULT)
+            msgbox(format("When you take part in a Campaign settings will be changed to give a unique challenge.\pI may swap out your Pokémon and change some of the items in your bag.\pI may also edit your settings in the Config Lab.\pEach Campaign has a specific setup, rules and restrictions."), MSGBOX_DEFAULT)
         }
 
         call(Rogue_ConfigRoom_Campaign_Choice)
@@ -558,7 +558,7 @@ script Rogue_ConfigRoom_MegaBag
     {
         ROGUE_VERSION_VANILLA
         {
-            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable POKéMON from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
+            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable Pokémon from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
         }
         ROGUE_VERSION_EXPANSION
         {
@@ -596,7 +596,7 @@ script Rogue_ConfigRoom_ZMoveBag
     {
         ROGUE_VERSION_VANILLA
         {
-            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable POKéMON from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
+            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable Pokémon from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
         }
         ROGUE_VERSION_EXPANSION
         {
@@ -634,7 +634,7 @@ script Rogue_ConfigRoom_DynamaxBag
     {
         ROGUE_VERSION_VANILLA
         {
-            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable POKéMON from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
+            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable Pokémon from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
         }
         ROGUE_VERSION_EXPANSION
         {
@@ -721,7 +721,7 @@ script Rogue_ConfigRoom_AdjustWildGens_Regional
             copyvar(VAR_ROGUE_ENABLED_GEN_LIMIT, VAR_RESULT) // Use the same gen limit
             
             call(Rogue_ConfigRoom_BufferRegionName)
-            msgbox(format("Now you will encounter POKéMON from the {STR_VAR_1} REGIONAL DEX."), MSGBOX_DEFAULT)
+            msgbox(format("Now you will encounter Pokémon from the {STR_VAR_1} REGIONAL DEX."), MSGBOX_DEFAULT)
             setvar(VAR_RESULT, YES)
 
         case MULTI_B_PRESSED: 
@@ -761,7 +761,7 @@ script Rogue_ConfigRoom_AdjustWildGens_National
             setvar(VAR_ROGUE_REGION_DEX_LIMIT, 0) // No regional dex
 
             buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
-            msgbox(format("Now you will encounter POKéMON upto GENERATION {STR_VAR_1}."), MSGBOX_DEFAULT)
+            msgbox(format("Now you will encounter Pokémon upto GENERATION {STR_VAR_1}."), MSGBOX_DEFAULT)
             setvar(VAR_RESULT, YES)
 
         case MULTI_B_PRESSED: 
@@ -773,7 +773,7 @@ script Rogue_ConfigRoom_AdjustWildGens
 {
     lock
     faceplayer
-    msgbox(format("Hi there {PLAYER}!\pI can adjust the enabled GENERATIONs if you'd like to expand or shrink the types of POKéMON you'll encounter."), MSGBOX_DEFAULT)
+    msgbox(format("Hi there {PLAYER}!\pI can adjust the enabled GENERATIONs if you'd like to expand or shrink the types of Pokémon you'll encounter."), MSGBOX_DEFAULT)
 
     buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
     if(var(VAR_ROGUE_REGION_DEX_LIMIT) == 0)
@@ -1170,7 +1170,7 @@ script Rogue_ConfigRoom_Button_ExpAll
     if(var(VAR_RESULT) == NO)
     {
         // Print Info
-        msgbox(format("When enabled all POKéMON in the party will gain EXP.\nIt is heavily recommended that you keep this ON as the game has been balanced around it."), MSGBOX_DEFAULT)
+        msgbox(format("When enabled all Pokémon in the party will gain EXP.\nIt is heavily recommended that you keep this ON as the game has been balanced around it."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)
@@ -1202,7 +1202,7 @@ script Rogue_ConfigRoom_Button_CanOverLvl
     if(var(VAR_RESULT) == NO)
     {
         // Print Info
-        msgbox(format("When disabled will prevent POKéMON from levelling past the hight level POKéMON of the next GYM LEADER/BOSS."), MSGBOX_DEFAULT)
+        msgbox(format("When disabled will prevent Pokémon from levelling past the hight level Pokémon of the next GYM LEADER/BOSS."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)
@@ -1234,7 +1234,7 @@ script Rogue_ConfigRoom_Button_EVGainEnabled
     if(var(VAR_RESULT) == NO)
     {
         // Print Info
-        msgbox(format("When enabled, POKéMON will gain EVs at the very end of Trainer battles.\pThese REWARD EVs will be given based on the nature of the POKéMON gaining them.\pThis features is intended to be a reward mechanic for not having POKéMON faint.\pWhen disabled POKéMON will always have 0 EVs.\pThis control will only affect you, the player; trainers will never have EVs, regardless of whether this is enabled or disabled."), MSGBOX_DEFAULT)
+        msgbox(format("When enabled, Pokémon will gain EVs at the very end of Trainer battles.\pThese REWARD EVs will be given based on the nature of the Pokémon gaining them.\pThis features is intended to be a reward mechanic for not having Pokémon faint.\pWhen disabled Pokémon will always have 0 EVs.\pThis control will only affect you, the player; trainers will never have EVs, regardless of whether this is enabled or disabled."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)
@@ -1298,7 +1298,7 @@ script Rogue_ConfigRoom_Button_WildMons
     if(var(VAR_RESULT) == NO)
     {
         // Print Info
-        msgbox(format("If enabled, WILD POKéMON will spawn in the overworld and roam around.\pIf disabled, WILD POKéMON will appear randomly when walking around in tall grass in the same fashion they do in older games.\pIt is recommended to keep this setting enabled."), MSGBOX_DEFAULT)
+        msgbox(format("If enabled, WILD Pokémon will spawn in the overworld and roam around.\pIf disabled, WILD Pokémon will appear randomly when walking around in tall grass in the same fashion they do in older games.\pIt is recommended to keep this setting enabled."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)
@@ -1458,7 +1458,7 @@ script Rogue_ConfigRoom_Button_SeedItems
 
 script Rogue_ConfigRoom_Button_SeedWildMons
 {
-    bufferstring(STR_VAR_1, format("SEED WILD POKéMON"))
+    bufferstring(STR_VAR_1, format("SEED WILD Pokémon"))
 
     if(flag(FLAG_SET_SEED_WILDMONS))
     {
@@ -1482,7 +1482,7 @@ script Rogue_ConfigRoom_Button_SeedWildMons
     if(var(VAR_RESULT) == NO)
     {
         // Print Info
-        msgbox(format("If disabled WILD POKéMON encounters will be completely RANDOM and not linked to the SEED.\pNote this does not affect LEGENDARY encounters."), MSGBOX_DEFAULT)
+        msgbox(format("If disabled WILD Pokémon encounters will be completely RANDOM and not linked to the SEED.\pNote this does not affect LEGENDARY encounters."), MSGBOX_DEFAULT)
     }
 
     call(Rogue_ConfigRoom_PostButtonInternal)

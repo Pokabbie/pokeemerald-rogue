@@ -253,7 +253,7 @@ script RogueHub_Intro0
         applymovement(OBJ_EVENT_ID_PLAYER, RogueHub_Intro_PlayerGreetAtTruck)
         waitmovement(0)
 
-        msgbox(format("SCOTT: Well we're here!\pThe POKéMON HUB!\pSorry again for making you sit in the back with all the supplies.\pI'm sure you're raring to go, but first you should go speak the PROF."))
+        msgbox(format("SCOTT: Well we're here!\pThe Pokémon HUB!\pSorry again for making you sit in the back with all the supplies.\pI'm sure you're raring to go, but first you should go speak the PROF."))
 
         applymovement(NPC_INTRO_SCOTT, RogueHub_Intro_ScottWalkToPost)
         waitmovement(0)
@@ -480,7 +480,7 @@ script RogueHub_SpeakSafariWelcome
     lock
     faceplayer
 
-    msgbox(format("Welcome to the SAFARI ZONE!\pWe use the data from your POKéDEX to breed POKéMON and let them roam freely!\pAs a thanks for providing the POKéMON data for us, we'll allow you to enter and capture a few POKéMON of your choosing which you may then use as a PARTNER in future adventures!"), MSGBOX_NPC)
+    msgbox(format("Welcome to the SAFARI ZONE!\pWe use the data from your POKéDEX to breed Pokémon and let them roam freely!\pAs a thanks for providing the Pokémon data for us, we'll allow you to enter and capture a few Pokémon of your choosing which you may then use as a PARTNER in future adventures!"), MSGBOX_NPC)
 
     release
 }
@@ -659,7 +659,7 @@ script RogueHub_EnterSafari
         questcollected(QUEST_Collector2)
         if(var(VAR_RESULT) == YES)
         {
-            msgbox(format("You can choose to either have POKéMON from every GENERATION appear or select a specific GENERATION to catch from.\pWould you like to limit to a single GENERATION?"), MSGBOX_YESNO)
+            msgbox(format("You can choose to either have Pokémon from every GENERATION appear or select a specific GENERATION to catch from.\pWould you like to limit to a single GENERATION?"), MSGBOX_YESNO)
 
             if(var(VAR_RESULT) == YES)
             {
@@ -770,7 +770,7 @@ script RogueHub_HintSafariShinies
     lock
     faceplayer
 
-    msgbox(format("The Safari Zone have some very dedicated staff!\pThey even keep track of the last few shiny POKéMON you've caught whilst on an Adventure!\pSo if you catch a shiny whilst on an Adventure you'll be able to find it in the Safari Zone super easy!\pIf you've forgotten what those shinies are, go check the list behind me.\pWhat dedicated staff!"), MSGBOX_DEFAULT)
+    msgbox(format("The Safari Zone have some very dedicated staff!\pThey even keep track of the last few shiny Pokémon you've caught whilst on an Adventure!\pSo if you catch a shiny whilst on an Adventure you'll be able to find it in the Safari Zone super easy!\pIf you've forgotten what those shinies are, go check the list behind me.\pWhat dedicated staff!"), MSGBOX_DEFAULT)
 
     release
 }
@@ -833,17 +833,17 @@ script RogueHub_CombineMons
 {
     lock
 
-    msgbox(format("I found a powerful artefact in the ground here...\pThe deeper I dig...\nThe more I find...\pThe artefacts I've found have the power to combine specific POKéMON together!"), MSGBOX_DEFAULT)
+    msgbox(format("I found a powerful artefact in the ground here...\pThe deeper I dig...\nThe more I find...\pThe artefacts I've found have the power to combine specific Pokémon together!"), MSGBOX_DEFAULT)
 
     specialvar(VAR_RESULT, CalculatePlayerPartyCount)
     faceplayer
     if(var(VAR_RESULT) > 1)
     {
-        msgbox(format("Would you like me to check 2 of your POKéMON?"), MSGBOX_YESNO)
+        msgbox(format("Would you like me to check 2 of your Pokémon?"), MSGBOX_YESNO)
     
         if(var(VAR_RESULT) == YES)
         {
-            msgbox(format("Which POKéMON would you like me to check?"), MSGBOX_DEFAULT)
+            msgbox(format("Which Pokémon would you like me to check?"), MSGBOX_DEFAULT)
 
             // 1st mon
             special(ChoosePartyMon)
@@ -871,7 +871,7 @@ script RogueHub_CombineMons
             {
                 if(var(VAR_0x8003) == VAR_0x8004)
                 {
-                    msgbox(format("I can't combine the same POKéMON..."), MSGBOX_DEFAULT)
+                    msgbox(format("I can't combine the same Pokémon..."), MSGBOX_DEFAULT)
                 }
                 else
                 {
@@ -883,7 +883,7 @@ script RogueHub_CombineMons
                         bufferspeciesname(STR_VAR_2, VAR_0x8006)
         
                         msgbox(format("Oh yes!\nMy artefacts!\p{STR_VAR_1} is responding!\pWhat's that {STR_VAR_1}..?\pMhm..."), MSGBOX_DEFAULT)
-                        msgbox(format("I can combine those POKéMON together!\pAlthough once it's done..\nit can NEVER be undone...\pWould you like to combine those POKéMON?"), MSGBOX_YESNO)
+                        msgbox(format("I can combine those Pokémon together!\pAlthough once it's done..\nit can NEVER be undone...\pWould you like to combine those Pokémon?"), MSGBOX_YESNO)
 
                         if(var(VAR_RESULT) == YES)
                         {
@@ -916,7 +916,7 @@ script RogueHub_CombineMons
     }
     else
     {
-        msgbox(format("If you come back with 2 POKéMON I could check them... if you'd like..."), MSGBOX_DEFAULT)
+        msgbox(format("If you come back with 2 Pokémon I could check them... if you'd like..."), MSGBOX_DEFAULT)
     }
 
     release
@@ -926,7 +926,7 @@ script RogueHub_HintQuickRun1
 {
     lockall
 
-    msgbox(format("I'm double tapping B to run super fast!\pSame as if you want to escape from Wild POKéMON faster!\pSo fast!"), MSGBOX_DEFAULT)
+    msgbox(format("I'm double tapping B to run super fast!\pSame as if you want to escape from Wild Pokémon faster!\pSo fast!"), MSGBOX_DEFAULT)
 
     releaseall
 }
@@ -946,7 +946,7 @@ script RogueHub_HintHMUsage
 
     msgbox(format("If only I had a surf HM..."), MSGBOX_DEFAULT)
     faceplayer
-    msgbox(format("You don't even need to teach them to your POKéMON to use them anymore!\pIF ONLY I COULD SURF!"), MSGBOX_DEFAULT)
+    msgbox(format("You don't even need to teach them to your Pokémon to use them anymore!\pIF ONLY I COULD SURF!"), MSGBOX_DEFAULT)
 
 
     release
@@ -963,8 +963,8 @@ script RogueHub_HintRouteAdjectives
     if(var(VAR_RESULT) == YES)
     {
         msgbox(format("Route names are split into 2 adjectives.\pThe Difficulty and the Type Hint."), MSGBOX_DEFAULT)
-        msgbox(format("There are 3 difficulties.\nCalm, Average and Tough.\pCalm routes have more wild POKéMON, fewer items and the Trainers aren't as skilled.\pTough routes have few wild POKéMON, but more items and the Trainers are more skilled.\pAverage routes are the middle ground for both of those."), MSGBOX_DEFAULT)
-        msgbox(format("The 2nd Adjective is the Type Hint, so it gives you an idea of what types of wild POKéMON might turn up on a route.\pFor example a WARM route will have chance of having wild FIRE type POKéMON.\pThough it doesn't mean that the route will always be home to that type.\pIt's just that its more likely to than the other routes."), MSGBOX_DEFAULT)
+        msgbox(format("There are 3 difficulties.\nCalm, Average and Tough.\pCalm routes have more wild Pokémon, fewer items and the Trainers aren't as skilled.\pTough routes have few wild Pokémon, but more items and the Trainers are more skilled.\pAverage routes are the middle ground for both of those."), MSGBOX_DEFAULT)
+        msgbox(format("The 2nd Adjective is the Type Hint, so it gives you an idea of what types of wild Pokémon might turn up on a route.\pFor example a WARM route will have chance of having wild FIRE type Pokémon.\pThough it doesn't mean that the route will always be home to that type.\pIt's just that its more likely to than the other routes."), MSGBOX_DEFAULT)
     }
 
     release
@@ -1016,7 +1016,7 @@ script RogueHub_HintCampaignLowBst
     lock
 
     faceplayer
-    msgbox(format("You know there was once a Competition to try and complete and Adventure with the weakest POKéMON possible?\pYou can join in on our own SMALL HOLIDAY if you'd like."), MSGBOX_DEFAULT)
+    msgbox(format("You know there was once a Competition to try and complete and Adventure with the weakest Pokémon possible?\pYou can join in on our own SMALL HOLIDAY if you'd like."), MSGBOX_DEFAULT)
 
     release
 }
@@ -1026,7 +1026,7 @@ script RogueHub_HintCampaignPokeballLimit
     lock
 
     faceplayer
-    msgbox(format("There's nothing worse than when I'm on and Adventure and I end up all OUT of BALLs so I can't catch any new POKéMON."), MSGBOX_DEFAULT)
+    msgbox(format("There's nothing worse than when I'm on and Adventure and I end up all OUT of BALLs so I can't catch any new Pokémon."), MSGBOX_DEFAULT)
 
     release
 }
@@ -1036,7 +1036,7 @@ script RogueHub_HintCampaignOneHit
     lock
 
     faceplayer
-    msgbox(format("I've got a great new strategy for my next Adventure...\pI'm going to increase my POKéMON's evasion and keep chanting PLEASE MISS over and over.\pIt's bound to work eventually!"), MSGBOX_DEFAULT)
+    msgbox(format("I've got a great new strategy for my next Adventure...\pI'm going to increase my Pokémon's evasion and keep chanting PLEASE MISS over and over.\pIt's bound to work eventually!"), MSGBOX_DEFAULT)
 
     release
 }

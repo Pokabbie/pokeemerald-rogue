@@ -26,6 +26,7 @@
 #include "event_object_movement.h"
 #include "sound.h"
 #include "string_util.h"
+#include "strings.h"
 #include "international_string_util.h"
 #include "trainer_pokemon_sprites.h"
 #include "pokemon_icon.h"
@@ -246,7 +247,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
 
     [UI_ENTRY_EDIT_APPEARANCE] = 
     {
-        .text = _("Edit Appearance.."),
+        .text = _("Appearance…"),
         .processInput = RoguePlayerUI_EntryOpenPage_ProcessInput,
         .drawChoices = NULL,
         .userData = 
@@ -256,7 +257,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     },
     [UI_ENTRY_EDIT_PRIMARY] = 
     {
-        .text = _("Edit Primary Colour.."),
+        .text = _("Primary Colour…"),
         .processInput = RoguePlayerUI_EntryOpenPage_ProcessInput,
         .drawChoices = NULL,
         .userData = 
@@ -266,7 +267,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     },
     [UI_ENTRY_EDIT_SECONDARY] = 
     {
-        .text = _("Edit Secondary Colour.."),
+        .text = _("Secondary Colour…"),
         .processInput = RoguePlayerUI_EntryOpenPage_ProcessInput,
         .drawChoices = NULL,
         .userData = 
@@ -290,7 +291,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     },
     [UI_ENTRY_APPEARANCE_R] = 
     {
-        .text = _("Red"),
+        .text = _("R"),
         .processInput = RoguePlayerUI_EntryClothesStyleRGB_ProcessInput,
         .drawChoices = RoguePlayerUI_EntryClothesStyleRGB_DrawChoices,
         .userData = 
@@ -304,7 +305,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     },
     [UI_ENTRY_APPEARANCE_G] = 
     {
-        .text = _("Green"),
+        .text = _("G"),
         .processInput = RoguePlayerUI_EntryClothesStyleRGB_ProcessInput,
         .drawChoices = RoguePlayerUI_EntryClothesStyleRGB_DrawChoices,
         .userData = 
@@ -318,7 +319,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     },
     [UI_ENTRY_APPEARANCE_B] = 
     {
-        .text = _("Blue"),
+        .text = _("B"),
         .processInput = RoguePlayerUI_EntryClothesStyleRGB_ProcessInput,
         .drawChoices = RoguePlayerUI_EntryClothesStyleRGB_DrawChoices,
         .userData = 
@@ -346,7 +347,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     },
     [UI_ENTRY_PRIMARY_R] = 
     {
-        .text = _("Red"),
+        .text = _("R"),
         .processInput = RoguePlayerUI_EntryClothesStyleRGB_ProcessInput,
         .drawChoices = RoguePlayerUI_EntryClothesStyleRGB_DrawChoices,
         .userData =  
@@ -360,7 +361,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     },
     [UI_ENTRY_PRIMARY_G] = 
     {
-        .text = _("Green"),
+        .text = _("G"),
         .processInput = RoguePlayerUI_EntryClothesStyleRGB_ProcessInput,
         .drawChoices = RoguePlayerUI_EntryClothesStyleRGB_DrawChoices,
         .userData =  
@@ -374,7 +375,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     },
     [UI_ENTRY_PRIMARY_B] = 
     {
-        .text = _("Blue"),
+        .text = _("B"),
         .processInput = RoguePlayerUI_EntryClothesStyleRGB_ProcessInput,
         .drawChoices = RoguePlayerUI_EntryClothesStyleRGB_DrawChoices,
         .userData =  
@@ -402,7 +403,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     },
     [UI_ENTRY_SECONDARY_R] = 
     {
-        .text = _("Red"),
+        .text = _("R"),
         .processInput = RoguePlayerUI_EntryClothesStyleRGB_ProcessInput,
         .drawChoices = RoguePlayerUI_EntryClothesStyleRGB_DrawChoices,
         .userData =  
@@ -416,7 +417,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     },
     [UI_ENTRY_SECONDARY_G] = 
     {
-        .text = _("Green"),
+        .text = _("G"),
         .processInput = RoguePlayerUI_EntryClothesStyleRGB_ProcessInput,
         .drawChoices = RoguePlayerUI_EntryClothesStyleRGB_DrawChoices,
         .userData =  
@@ -430,7 +431,7 @@ static const struct RoguePlayerUIEntry sRoguePlayerUIEntries[UI_ENTRY_COUNT] =
     },
     [UI_ENTRY_SECONDARY_B] = 
     {
-        .text = _("Blue"),
+        .text = _("B"),
         .processInput = RoguePlayerUI_EntryClothesStyleRGB_ProcessInput,
         .drawChoices = RoguePlayerUI_EntryClothesStyleRGB_DrawChoices,
         .userData =  
@@ -961,9 +962,10 @@ static void AddMenuNameText(u8 menuOffset, const char* text)
     if(menuOffset == sPlayerOutfitUIState->currentOptionIdx)
     {
         font = FONT_GREEN;
+        AddTextPrinterParameterized4(WIN_INFO_PANEL, FONT_NARROW, 0, YPOS_SPACING * menuOffset, 0, 0, sRoguePlayerUIWindowFontColors[font], TEXT_SKIP_DRAW, gText_SelectorArrow);
     }
 
-    AddTextPrinterParameterized4(WIN_INFO_PANEL, FONT_NARROW, 0, YPOS_SPACING * menuOffset, 0, 0, sRoguePlayerUIWindowFontColors[font], TEXT_SKIP_DRAW, text);
+    AddTextPrinterParameterized4(WIN_INFO_PANEL, FONT_NARROW, 10, YPOS_SPACING * menuOffset, 0, 0, sRoguePlayerUIWindowFontColors[font], TEXT_SKIP_DRAW, text);
 }
 
 static void AddMenuValueText(u8 menuOffset, s8 offset, const char* text)

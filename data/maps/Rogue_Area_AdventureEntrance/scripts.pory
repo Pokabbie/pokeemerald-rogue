@@ -216,7 +216,7 @@ script Rogue_StartAdventureInternal
     if(var(VAR_RESULT) > VAR_0x8004)
     {
         buffernumberstring(STR_VAR_1, VAR_0x8004)
-        msgbox(format("Looks like you have too many POKéMON.\pYou may only take in {STR_VAR_1} POKéMON into this type of Adventure.\pYou will need to deposit some into a PC, before I can let you on an Adventure."), MSGBOX_DEFAULT)
+        msgbox(format("Looks like you have too many Pokémon.\pYou may only take in {STR_VAR_1} Pokémon into this type of Adventure.\pYou will need to deposit some into a PC, before I can let you on an Adventure."), MSGBOX_DEFAULT)
         setvar(VAR_RESULT, NO)
     }
     else
@@ -322,7 +322,7 @@ script Rogue_ReturnAdventureInternal
             
             //if(!flag(FLAG_ROGUE_LVL_TUTORIAL))
             //{
-            //    msgbox(format("Ah!\nIs this the first time your party has leveled in {POKEMON_HUB}?\pThese LVLs don't work entirely the same as they do whilst out on Adventures.\pPOKéMON will not naturally learn moves or evolve whilst in the HUB.\pYou will need to find specialist NPCs who will be able to help out, once your POKéMON has reached the correct level.\pAny levels you gain in the HUB will be temporarily reset when you embark on Adventures.\pThe HUB level will be restored once you return."))
+            //    msgbox(format("Ah!\nIs this the first time your party has leveled in {POKEMON_HUB}?\pThese LVLs don't work entirely the same as they do whilst out on Adventures.\pPOKéMON will not naturally learn moves or evolve whilst in the HUB.\pYou will need to find specialist NPCs who will be able to help out, once your Pokémon has reached the correct level.\pAny levels you gain in the HUB will be temporarily reset when you embark on Adventures.\pThe HUB level will be restored once you return."))
             //    setflag(FLAG_ROGUE_LVL_TUTORIAL)
             //}
         }
