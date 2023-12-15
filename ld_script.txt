@@ -1286,8 +1286,11 @@ SECTIONS {
         sound/songs/midi/ph_nurse_solo.o(.rodata);
         sound/songs/midi/mus_hg_vs_wild.o(.rodata);
         sound/songs/midi/mus_hg_vs_trainer.o(.rodata);
+        sound/songs/midi/mus_hg_vs_trainer_kanto.o(.rodata);
         sound/songs/midi/mus_hg_vs_gym_leader.o(.rodata);
+        sound/songs/midi/mus_hg_vs_gym_leader_kanto.o(.rodata);
         sound/songs/midi/mus_hg_vs_champion.o(.rodata);
+        sound/songs/midi/mus_hg_vs_frontier_brain.o(.rodata);
         sound/songs/midi/mus_hg_vs_rival.o(.rodata);
         sound/songs/midi/mus_hg_vs_rocket.o(.rodata);
         sound/songs/midi/mus_hg_vs_suicune.o(.rodata);
@@ -1297,6 +1300,7 @@ SECTIONS {
         sound/songs/midi/mus_hg_vs_lugia.o(.rodata);
         sound/songs/midi/mus_hg_victory_trainer.o(.rodata);
         sound/songs/midi/mus_hg_victory_gym_leader.o(.rodata);
+        sound/songs/midi/mus_hg_victory_frontier_brain.o(.rodata);
         sound/songs/midi/mus_hg_route29.o(.rodata);
         sound/songs/midi/mus_hg_route30.o(.rodata);
         sound/songs/midi/mus_hg_route34.o(.rodata);

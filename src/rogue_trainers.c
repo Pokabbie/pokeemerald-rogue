@@ -597,8 +597,7 @@ void Rogue_ChooseBossTrainersForNewAdventure()
         {
             if(difficulty == ROGUE_FINAL_CHAMP_DIFFICULTY)
             {
-                // The actual final boss
-                trainerNum = gRogueRun.rivalTrainerNum; // TODO
+                trainerNum = Rogue_ChooseBossTrainerId(difficulty, historyBuffer, ARRAY_COUNT(historyBuffer));
             }
             else
             {

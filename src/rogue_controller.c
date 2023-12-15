@@ -281,7 +281,8 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
 
 bool8 Rogue_UseFinalQuestEffects(void)
 {
-    return FALSE;
+    // TODO - Swap out with other mechanism?
+    return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE);
 }
 
 bool8 Rogue_AssumeFinalQuestFakeChamp(void)

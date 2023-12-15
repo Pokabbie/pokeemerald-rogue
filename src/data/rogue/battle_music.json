@@ -197,14 +197,51 @@
                 }
             ]
         },
+    
         "rogue_boss":
         {
+            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
+            "battle": "MUS_DP_VS_TRAINER",
+            "victory": "MUS_DP_VICTORY_GYM_LEADER",
             "conditional_redirects":
             [
                 {
-                    "music_player": "sinnoh_boss"
+                    "trainer_class": "RIVAL",
+                    "music_player": "rogue_rival"
+                },
+                {
+                    "trainer_class": "ELITE_FOUR",
+                    "music_player": "rogue_elite"
+                },
+                {
+                    "trainer_class": "CHAMPION",
+                    "music_player": "rogue_champion"
                 }
             ]
+        },
+        "rogue_elite":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
+            "battle": "MUS_HG_VS_GYM_LEADER_KANTO",
+            "victory": "MUS_HG_VICTORY_GYM_LEADER"
+        },
+        "rogue_champion":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_CHAMPION",
+            "battle": "MUS_DP_VS_CHAMPION",
+            "victory": "MUS_DP_VICTORY_CHAMPION"
+        },
+        "rogue_rival":
+        {
+            "encounter": "MUS_HG_ENCOUNTER_GIRL_2",
+            "battle": "MUS_HG_VS_TRAINER_KANTO",
+            "victory": "MUS_DP_VICTORY_TRAINER"
+        },
+        "rogue_final_champion":
+        {
+            "encounter": "MUS_NONE",
+            "battle": "MUS_HG_VS_FRONTIER_BRAIN",
+            "victory": "MUS_HG_VICTORY_FRONTIER_BRAIN"
         },
 
         "route_trainer":

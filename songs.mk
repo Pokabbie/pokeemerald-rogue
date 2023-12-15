@@ -792,11 +792,23 @@ $(MID_SUBDIR)/mus_hg_vs_wild.s: %.s: %.mid
 $(MID_SUBDIR)/mus_hg_vs_trainer.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V095 -P1
 
+$(MID_SUBDIR)/mus_hg_vs_trainer_kanto.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V119
+
 $(MID_SUBDIR)/mus_hg_vs_gym_leader.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V098 -P1
 
+$(MID_SUBDIR)/mus_hg_vs_gym_leader_kanto.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V075
+
 $(MID_SUBDIR)/mus_hg_vs_champion.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V113 -P1
+
+$(MID_SUBDIR)/mus_hg_vs_frontier_brain.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V100
+
+$(MID_SUBDIR)/mus_hg_victory_frontier_brain.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V097
 
 $(MID_SUBDIR)/mus_hg_vs_rival.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V084

@@ -5129,7 +5129,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: This glitchy world… anything can happen.",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Your willingness to adapt has brought you this far.",
                         "PRE_BATTLE_TAUNT": "Let us see who is the better strategist!",
                         "POST_BATTLE_TAUNT": "Seems RNG favored you this battle!",
                         "POST_BATTLE_CLOSER": "This Pokémon League is always unpredictable.\\pGood luck!"
@@ -5366,7 +5366,7 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "KANTO_PROFOAK",
                 "trainer_class": "TRAINER_CLASS_LEADER",
-                "music_player": "rogue_boss",
+                "music_player": "rogue_final_champion",
                 "trainer_flags": [ "REGION_ROGUE", "CLASS_CHAMP" ],
                 "shiny_species": "SPECIES_MEW",
                 "team_generator":
