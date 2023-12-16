@@ -530,9 +530,26 @@ const u8* Rogue_GetTrainerName(u16 trainerNum)
 #endif
 }
 
-static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass)
+static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass, bool8 forMusic)
 {
 #ifndef ROGUE_BAKING
+    if(forMusic)
+    {
+        // Repoint to keep the music player simple
+        switch (trainerClass)
+        {
+        case TRAINER_CLASS_DEVELOPER:
+            trainerClass = TRAINER_CLASS_RIVAL;
+            break;
+
+        case TRAINER_CLASS_COMMUNITY_MOD:
+            trainerClass = TRAINER_CLASS_LEADER;
+            break;
+        }
+    }
+
+    // TODO - Always redirect TRAINER_CLASS_COMMUNITY_MOD, not just music, if in rainbow?
+
     if(trainerClass == TRAINER_CLASS_LEADER || trainerClass == TRAINER_CLASS_TOTEM_LEADER)
     {
         if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
@@ -549,6 +566,13 @@ static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass)
         if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY || Rogue_AssumeFinalQuestFakeChamp())
         {
             trainerClass = TRAINER_CLASS_CHAMPION;
+        }
+    }
+    else if(trainerClass == TRAINER_CLASS_DEVELOPER)
+    {
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY || Rogue_AssumeFinalQuestFakeChamp())
+        {
+            trainerClass = TRAINER_CLASS_DEVELOPER_CHAMPION;
         }
     }
 #endif
@@ -568,7 +592,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
     {
         //struct RogueBattleMusic const* musicPlayer = Rogue_GetTrainerMusic(trainerNum);
 
-        outTrainer->trainerClass = ModifyTrainerClass(trainerNum, trainer->trainerClass);
+        outTrainer->trainerClass = ModifyTrainerClass(trainerNum, trainer->trainerClass, FALSE);
         outTrainer->encounterMusic_gender = trainer->teamGenerator.preferredGender == MALE ? 0 : F_TRAINER_FEMALE; // not actually used for encounter music anymore
         outTrainer->trainerPic = trainer->trainerPic;
 
@@ -618,7 +642,7 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
     {
     case BATTLE_MUSIC_TYPE_TRAINER:
         trainer = Rogue_GetTrainer(trainerSpecies);
-        trainerClass = ModifyTrainerClass(trainerSpecies, trainer->trainerClass);
+        trainerClass = ModifyTrainerClass(trainerSpecies, trainer->trainerClass, TRUE);
         currMusic = &gRogueTrainerMusic[trainer->musicPlayer];
         break;
     
