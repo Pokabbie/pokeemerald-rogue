@@ -360,6 +360,7 @@ struct RogueTrainer
     u16 objectEventGfx;
     u16 typeAssignment;
     u16 typeAssignmentGroup;
+    u16 preferredPokeballItem;
     u16 potentialShinySpecies;
     u8 levelOverride;
     u8 trainerClass;
