@@ -837,7 +837,7 @@ static u8 GetTrainerBattleTransition(void)
     //if (trainer.trainerClass == TRAINER_CLASS_RIVAL)
     //    return B_TRANSITION_CHAMPION_STEVEN;
 
-    if (trainer.trainerClass == TRAINER_CLASS_ELITE_FOUR)
+    if (trainer.trainerClass == TRAINER_CLASS_ELITE_FOUR || trainer.trainerClass == TRAINER_CLASS_COMMUNITY_MOD)
     {
         switch(Rogue_GetCurrentDifficulty() % 4)
         {
@@ -853,7 +853,7 @@ static u8 GetTrainerBattleTransition(void)
         return B_TRANSITION_CHAMPION;
     }
 
-    if (trainer.trainerClass == TRAINER_CLASS_CHAMPION)
+    if (trainer.trainerClass == TRAINER_CLASS_CHAMPION || trainer.trainerClass == TRAINER_CLASS_DEVELOPER_CHAMPION)
     {
         if (Rogue_GetCurrentDifficulty() >= 13)
             return B_TRANSITION_CHAMPION_STEVEN;
