@@ -4726,6 +4726,10 @@ static s16 AI_SetupFirstTurn(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
     if (IsTargetingPartner(battlerAtk, battlerDef)
       || gBattleResults.battleTurnCounter != 0)
         return score;
+
+    // RogueNote: 66% chance to actually buff up otherwise don't (Just to add some fuzziness)
+    if ((Random() % 3) == 0)
+        return score;
     
     if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_SMART_SWITCHING 
       && AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_SLOWER
