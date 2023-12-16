@@ -236,12 +236,19 @@
 #define TRAINER_FLAG_REGION_ANY                 (TRAINER_FLAG_REGION_KANTO | TRAINER_FLAG_REGION_JOHTO | TRAINER_FLAG_REGION_HOENN | TRAINER_FLAG_REGION_SINNOH | TRAINER_FLAG_REGION_UNOVA | TRAINER_FLAG_REGION_KALOS | TRAINER_FLAG_REGION_ALOLA | TRAINER_FLAG_REGION_GALAR | TRAINER_FLAG_REGION_ROGUE)
 #define TRAINER_FLAG_REGION_DEFAULT             (TRAINER_FLAG_REGION_ANY & ~TRAINER_FLAG_REGION_ROGUE)
 
-
+// Strings
 #define TRAINER_STRING_PRE_BATTLE_OPENNING      0 // before encounter music (Only supported for gyms)
 #define TRAINER_STRING_PRE_BATTLE_TAUNT         1 // after encounter music, before battle
 #define TRAINER_STRING_POST_BATTLE_TAUNT        2 // before leave battle victory message
 #define TRAINER_STRING_POST_BATTLE_CLOSER       3 // after battle (back in overworld; auto speak for gyms)
 #define TRAINER_STRING_COUNT                    4
+
+// Order
+#define TRAINER_ORDER_DEFAULT                   0
+#define TRAINER_ORDER_RAINBOW                   1
+#define TRAINER_ORDER_OFFICIAL                  2
+#define TRAINER_ORDER_COUNT                     3
+
 
 // 8 badges, 4 elite, 2 champion
 #define ROGUE_MAX_BOSS_COUNT 14
@@ -392,7 +399,8 @@
 #define CONFIG_RANGE_BATTLE_FORMAT          3
 #define CONFIG_RANGE_POKEDEX_VARIANT        4
 #define CONFIG_RANGE_POKEDEX_GEN            5
-#define CONFIG_RANGE_COUNT                  6
+#define CONFIG_RANGE_TRAINER_ORDER          6
+#define CONFIG_RANGE_COUNT                  7
 
 #define DEBUG_START_VALUE           0x7FFF
 

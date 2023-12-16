@@ -1111,7 +1111,7 @@ void QuestNotify_BeginAdventure(void)
     }
 
     {
-        bool8 rainbowMode = FlagGet(FLAG_ROGUE_RAINBOW_MODE);
+        bool8 rainbowMode = Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER) == TRAINER_ORDER_RAINBOW;
         u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
         u16 genLimit = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 

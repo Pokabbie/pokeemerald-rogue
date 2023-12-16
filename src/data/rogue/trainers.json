@@ -1126,7 +1126,7 @@
                 "gfx_suffix": "KANTO_PROFOAK",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_CHAMP" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
                 "shiny_species": "SPECIES_MEW",
                 "encounter_text":
                 [
@@ -2803,7 +2803,7 @@
                 "gfx_suffix": "SINNOH_CYNTHIA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_CHAMP" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
                 "shiny_species": "SPECIES_GIBLE",
                 "encounter_text":
                 [
@@ -3473,7 +3473,7 @@
                 "gfx_suffix": "UNOVA_ALDER",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
                 "shiny_species": "SPECIES_LARVESTA",
                 "encounter_text":
                 [
@@ -3888,7 +3888,7 @@
                 "gfx_suffix": "KALOS_DIANTHA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_CHAMP" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
                 "shiny_species": "SPECIES_RALTS",
                 "team_generator":
                 {
@@ -4266,7 +4266,7 @@
                 "gfx_suffix": "ALOLA_KUKUI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_CHAMP" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
                 "shiny_species": "SPECIES_ROWLET",
                 "team_generator":
                 {
@@ -4569,7 +4569,7 @@
                 "gfx_suffix": "GALAR_LEON",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_CHAMP" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
                 "shiny_species": "SPECIES_CHARMANDER",
                 "team_generator":
                 {
@@ -4853,7 +4853,7 @@
                 "trainer_pic": "TRAINER_PIC_GLITCH_KATE",
                 "trainer_class": "TRAINER_CLASS_COMMUNITY_MOD",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_ELITE" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_ELITE", "MISC_RAINBOW_EXCLUDE" ],
                 "weather": "VOLCANIC_ASH",
                 "shiny_species": "SPECIES_GASTLY",
                 "pokeball": "LUXURY_BALL",
@@ -4977,7 +4977,7 @@
                 "trainer_pic": "TRAINER_PIC_GLITCH_ERMA",
                 "trainer_class": "TRAINER_CLASS_COMMUNITY_MOD",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_ELITE" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_ELITE", "MISC_RAINBOW_EXCLUDE" ],
                 "weather": "SANDSTORM",
                 "shiny_species": "SPECIES_ERMA_ACE",
                 "encounter_text":
@@ -5134,7 +5134,7 @@
                 "trainer_pic": "TRAINER_PIC_GLITCH_TAILS",
                 "trainer_class": "TRAINER_CLASS_COMMUNITY_MOD",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_ELITE" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_ELITE", "MISC_RAINBOW_EXCLUDE" ],
                 "weather": "PSYCHIC_FOG",
                 "shiny_species": "SPECIES_AZURILL",
                 "encounter_text":
@@ -5292,7 +5292,7 @@
                 "trainer_pic": "TRAINER_PIC_GLITCH_RAVEN",
                 "trainer_class": "TRAINER_CLASS_COMMUNITY_MOD",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_ELITE" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_ELITE", "MISC_RAINBOW_EXCLUDE" ],
                 "weather": "MISTY_FOG",
                 "shiny_species": "SPECIES_RAVEN_ACE",
                 "team_generator":
@@ -5378,7 +5378,7 @@
                 "gfx_suffix": "KANTO_PROFOAK",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "rogue_final_champion",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_CHAMP" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
                 "shiny_species": "SPECIES_MEW",
                 "pokeball": "FINAL_BOSS_POKEBALL",
                 "team_generator":
@@ -5405,8 +5405,8 @@
         "misc_trainers":
         [
             {
-                "name": "HELPER",
-                "type_assignment": "MYSTERY",
+                "name": "ASSISTANT",
+                "type_assignment": "NONE",
                 "level_override": 1,
                 "object_event": "OBJ_EVENT_GFX_MISC_POKE_FAN_F",
                 "trainer_pic": "TRAINER_PIC_POKEFAN_F",
@@ -5610,7 +5610,7 @@
         [
             {
                 "name": "MALONE",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_GIRL_1",
                 "trainer_pic": "TRAINER_PIC_POKEMON_BREEDER_F",
                 "trainer_class": "TRAINER_CLASS_PKMN_BREEDER",
@@ -5632,7 +5632,7 @@
             },
             {
                 "name": "CAIRO",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_BOY_2",
                 "trainer_pic": "TRAINER_PIC_POKEMON_BREEDER_M",
                 "trainer_class": "TRAINER_CLASS_PKMN_BREEDER",
@@ -5654,7 +5654,7 @@
             },
             {
                 "name": "JETT",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_MAN_3",
                 "trainer_pic": "TRAINER_PIC_COOLTRAINER_M",
                 "trainer_class": "TRAINER_CLASS_COOLTRAINER",
@@ -5676,7 +5676,7 @@
             },
             {
                 "name": "HARTLEY",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_WOMAN_5",
                 "trainer_pic": "TRAINER_PIC_COOLTRAINER_F",
                 "trainer_class": "TRAINER_CLASS_COOLTRAINER",
@@ -5726,7 +5726,7 @@
             },
             {
                 "name": "KOBIE",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_TUBER_M",
                 "trainer_pic": "TRAINER_PIC_TUBER_M",
                 "trainer_class": "TRAINER_CLASS_TUBER_M",
@@ -5748,7 +5748,7 @@
             },
             {
                 "name": "KHARI",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_TUBER_F",
                 "trainer_pic": "TRAINER_PIC_TUBER_F",
                 "trainer_class": "TRAINER_CLASS_TUBER_F",
@@ -5770,7 +5770,7 @@
             },
             {
                 "name": "GIFT",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_EXPERT_F",
                 "trainer_pic": "TRAINER_PIC_EXPERT_F",
                 "trainer_class": "TRAINER_CLASS_EXPERT",
@@ -5792,7 +5792,7 @@
             },
             {
                 "name": "DUSTY",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_EXPERT_M",
                 "trainer_pic": "TRAINER_PIC_EXPERT_M",
                 "trainer_class": "TRAINER_CLASS_EXPERT",
@@ -5814,7 +5814,7 @@
             },
             {
                 "name": "ELY",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
                 "trainer_pic": "TRAINER_PIC_RUNNING_TRIATHLETE_M",
                 "trainer_class": "TRAINER_CLASS_TRIATHLETE",
@@ -5836,7 +5836,7 @@
             },
             {
                 "name": "TEEGAN",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
                 "trainer_pic": "TRAINER_PIC_RUNNING_TRIATHLETE_F",
                 "trainer_class": "TRAINER_CLASS_TRIATHLETE",
@@ -5858,7 +5858,7 @@
             },
             {
                 "name": "ELIYAH",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_SCHOOL_KID_M",
                 "trainer_pic": "TRAINER_PIC_SCHOOL_KID_M",
                 "trainer_class": "TRAINER_CLASS_SCHOOL_KID",
@@ -5880,7 +5880,7 @@
             },
             {
                 "name": "MASON",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_LITTLE_GIRL",
                 "trainer_pic": "TRAINER_PIC_SCHOOL_KID_F",
                 "trainer_class": "TRAINER_CLASS_SCHOOL_KID",
@@ -5958,7 +5958,7 @@
             },
             {
                 "name": "ZELAND",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_MANIAC",
                 "trainer_pic": "TRAINER_PIC_COLLECTOR",
                 "trainer_class": "TRAINER_CLASS_COLLECTOR",
@@ -6064,7 +6064,7 @@
             },
             {
                 "name": "SHINE",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_BEAUTY",
                 "trainer_pic": "TRAINER_PIC_BEAUTY",
                 "trainer_class": "TRAINER_CLASS_BEAUTY",
@@ -6086,7 +6086,7 @@
             },
             {
                 "name": "COPELAND",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_RICH_BOY",
                 "trainer_pic": "TRAINER_PIC_RICH_BOY",
                 "trainer_class": "TRAINER_CLASS_RICH_BOY",
@@ -6136,7 +6136,7 @@
             },
             {
                 "name": "QUINCY",
-                "type_assignment": "MYSTERY",
+                "type_assignment": "NONE",
                 "object_event": "OBJ_EVENT_GFX_GENTLEMAN",
                 "trainer_pic": "TRAINER_PIC_GENTLEMAN",
                 "trainer_class": "TRAINER_CLASS_GENTLEMAN",

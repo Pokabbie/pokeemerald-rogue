@@ -538,7 +538,7 @@ static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
 #endif
 
     // TODO - Rework this flag
-    if(FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+    if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER) == TRAINER_ORDER_RAINBOW)
         *excludeFlags |= TRAINER_FLAG_MISC_RAINBOW_EXCLUDE;
     else
         *excludeFlags |= TRAINER_FLAG_MISC_RAINBOW_ONLY;
@@ -613,19 +613,33 @@ static u16 Rogue_ChooseTrainerId(u32 includeFlags, u32 excludeFlags, u16* histor
 
 static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 historyBufferCapacity)
 {
-    u32 includeFlags;
-    u32 excludeFlags;
+    u32 includeFlags = 0;
+    u32 excludeFlags = 0;
 
-    // Only include trainers we want
-    includeFlags = TRAINER_FLAG_NONE;
-    if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
-        includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
-    else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
-        includeFlags |= TRAINER_FLAG_CLASS_ELITE;
-    else
-        includeFlags |= TRAINER_FLAG_CLASS_GYM;
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER))
+    {
+    case TRAINER_ORDER_DEFAULT:
+        {
+            // Only include trainers we want
+            includeFlags = TRAINER_FLAG_NONE;
+            if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+                includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
+            else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
+                includeFlags |= TRAINER_FLAG_CLASS_ELITE;
+            else
+                includeFlags |= TRAINER_FLAG_CLASS_GYM;
+        }
+        break;
+    
+    case TRAINER_ORDER_RAINBOW:
+        includeFlags = TRAINER_FLAG_CLASS_ANY_MAIN_BOSS;
+        break;
 
-    excludeFlags = 0;
+    default:
+        AGB_ASSERT(FALSE);
+        includeFlags = TRAINER_FLAG_CLASS_ANY_MAIN_BOSS;
+        break;
+    }
 
     return Rogue_ChooseTrainerId(includeFlags, excludeFlags, historyBuffer, historyBufferCapacity);
 }
@@ -664,7 +678,7 @@ void Rogue_ChooseBossTrainersForNewAdventure()
         {
             // Clear the history buffer, as we track based on types
             // In rainbow mode, the type can only appear once though
-            if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+            if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER) != TRAINER_ORDER_RAINBOW)
             {
                 switch(difficulty)
                 {

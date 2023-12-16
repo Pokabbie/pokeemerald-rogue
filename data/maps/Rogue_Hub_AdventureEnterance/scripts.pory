@@ -284,7 +284,6 @@ script Rogue_Adventure_StartRainbow
     {
         case 0: // Yes
             call(Rogue_ResetAdventureFlags)
-            setflag(FLAG_ROGUE_RAINBOW_MODE)
             call(Rogue_StartAdventureCommon)
 
         case 1: // No
@@ -304,7 +303,6 @@ script Rogue_ResetAdventureFlags
 {
     //clearflag(FLAG_ROGUE_DOUBLE_BATTLES)
     clearflag(FLAG_ROGUE_GAUNTLET_MODE)
-    clearflag(FLAG_ROGUE_RAINBOW_MODE)
 }
 
 script Rogue_StartAdventureCommon

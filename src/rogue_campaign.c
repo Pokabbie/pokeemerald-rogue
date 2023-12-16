@@ -152,7 +152,8 @@ u16 Rogue_PreActivateDesiredCampaign(void)
         switch (desiredCampaign)
         {
         case ROGUE_CAMPAIGN_LOW_BST:
-            if(FlagGet(FLAG_ROGUE_RAINBOW_MODE) || FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            //if(FlagGet(FLAG_ROGUE_RAINBOW_MODE) || FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
                 desiredCampaign = ROGUE_CAMPAIGN_NONE;
             break;
 
