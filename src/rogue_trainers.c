@@ -1,10 +1,12 @@
 #include "global.h"
+#include "constants/battle.h"
 #include "constants/event_objects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/weather.h"
 #include "gba/isagbprint.h"
 
+#include "battle.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "malloc.h"
@@ -1784,6 +1786,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 
     if(scratch->shouldRegenerateQuery)
     {
+        u32 strongFlags;
         u32 fallbackTypeFlags = 0;
         bool8 customScript = FALSE;
         struct RogueTeamGeneratorSubset const* currentSubset = NULL;
@@ -1844,7 +1847,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 
         if(scratch->preferStrongSpecies && CanEntirelyAvoidWeakSpecies())
         {
-            RogueMonQuery_ContainsPresetFlags(QUERY_FUNC_INCLUDE, MON_FLAG_STRONG);
+            RogueMonQuery_ContainsPresetFlags(QUERY_FUNC_INCLUDE, MON_FLAG_SINGLES_STRONG);
         }
 
         if(scratch->forceLegends)
@@ -1860,11 +1863,11 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 
             // Only allowed strong legends
             else if(!scratch->allowWeakLegends && scratch->allowStrongLegends)
-                RogueMonQuery_IsLegendaryWithPresetFlags(QUERY_FUNC_INCLUDE, MON_FLAG_STRONG);
+                RogueMonQuery_IsLegendaryWithPresetFlags(QUERY_FUNC_INCLUDE, MON_FLAG_SINGLES_STRONG);
 
             // Only allowed weak legends
             else if(scratch->allowWeakLegends && !scratch->allowStrongLegends)
-                RogueMonQuery_IsLegendaryWithPresetFlags(QUERY_FUNC_EXCLUDE, MON_FLAG_STRONG);
+                RogueMonQuery_IsLegendaryWithPresetFlags(QUERY_FUNC_EXCLUDE, MON_FLAG_SINGLES_STRONG);
         }
 
 
@@ -2116,6 +2119,22 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                 if(!HasDamagingMove(currPreset))
                 {
                     currentScore /= 2;
+                }
+
+                // Slightly prefer sets which are intended for this format
+                if(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+                {
+                    if((currPreset->flags & MON_FLAG_DOUBLES_STRONG) != 0)
+                    {
+                        currentScore += 32;
+                    }
+                }
+                else
+                {
+                    if((currPreset->flags & MON_FLAG_SINGLES_STRONG) != 0)
+                    {
+                        currentScore += 32;
+                    }
                 }
 
                 // Avoid duplicate items (If this preset is used, we'll just replace the item)

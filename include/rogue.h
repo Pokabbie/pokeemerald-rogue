@@ -537,6 +537,7 @@ struct RoguePokedexRegion
 struct RoguePokemonCompetitiveSet
 {
     u16 moves[MAX_MON_MOVES];
+    u16 flags;
     u16 heldItem;
     u16 ability;
     u8 hiddenPowerType;

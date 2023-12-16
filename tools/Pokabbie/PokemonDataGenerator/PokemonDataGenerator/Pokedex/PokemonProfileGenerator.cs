@@ -1001,7 +1001,12 @@ namespace PokemonDataGenerator.Pokedex
 				{
 					upperBlock.AppendLine($"\t{{");
 
-					if(compSet.Item != null)
+					upperBlock.Append($"\t\t.flags= (0");
+					foreach (var tier in compSet.SourceTiers)
+						upperBlock.Append($" | MON_FLAGS_{tier}");
+					upperBlock.AppendLine("),");
+
+					if (compSet.Item != null)
 						upperBlock.AppendLine($"\t\t.heldItem={compSet.Item},");
 
 					if (compSet.Ability != null)
