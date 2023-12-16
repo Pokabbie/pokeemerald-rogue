@@ -224,6 +224,12 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 		else
 			exporter.trainerStructsBlock << c_TabSpacing << ".potentialShinySpecies = SPECIES_NONE,\n";
 
+		// Optional Pokeball type
+		if(trainer.contains("pokeball"))
+			exporter.trainerStructsBlock << c_TabSpacing << ".preferredPokeballItem = ITEM_" << strutil::to_upper(trainer["pokeball"].get<std::string>()) << ",\n";
+		else
+			exporter.trainerStructsBlock << c_TabSpacing << ".preferredPokeballItem = ITEM_NONE,\n";
+
 		// Flags
 		exporter.trainerStructsBlock << c_TabSpacing << ".trainerFlags = TRAINER_FLAG_NONE";
 		for (auto flag : trainer["trainer_flags"])

@@ -71,12 +71,6 @@ bool8 Rogue_IsBossTrainer(u16 trainerNum)
     return (trainer->trainerFlags & TRAINER_FLAG_CLASS_ANY_MAIN_BOSS) != 0;
 }
 
-bool8 Rogue_IsMiniBossTrainer(u16 trainerNum)
-{
-    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
-    return (trainer->trainerFlags & TRAINER_FLAG_CLASS_MINI_BOSS) != 0;
-}
-
 bool8 Rogue_IsRivalTrainer(u16 trainerNum)
 {
     const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
@@ -85,7 +79,7 @@ bool8 Rogue_IsRivalTrainer(u16 trainerNum)
 
 bool8 Rogue_IsAnyBossTrainer(u16 trainerNum)
 {
-    return Rogue_IsBossTrainer(trainerNum) || Rogue_IsMiniBossTrainer(trainerNum) || Rogue_IsRivalTrainer(trainerNum);
+    return Rogue_IsBossTrainer(trainerNum) || Rogue_IsRivalTrainer(trainerNum);
 }
 
 bool8 Rogue_IsKeyTrainer(u16 trainerNum)
@@ -103,11 +97,6 @@ static u8 GetTrainerLevel(u16 trainerNum)
     if(Rogue_IsRivalTrainer(trainerNum))
     {
         return Rogue_CalculateRivalMonLvl();
-    }
-
-    if(Rogue_IsMiniBossTrainer(trainerNum))
-    {
-        return Rogue_CalculateMiniBossMonLvl();
     }
 
     {
@@ -397,6 +386,65 @@ u8 Rogue_GetTrainerTypeAssignment(u16 trainerNum)
 {
     const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
     return trainer->typeAssignment;
+}
+
+u16 Rogue_GetTrainerPokeballId(u16 trainerNum)
+{
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+
+    if(Rogue_IsAnyBossTrainer(trainerNum))
+    {
+        if(trainer->preferredPokeballItem != ITEM_NONE)
+        {
+            return trainer->preferredPokeballItem;
+        }
+
+        // Default pokeballs based on type
+        switch (Rogue_GetTrainerTypeAssignment(trainerNum))
+        {
+            case TYPE_BUG:
+                return ITEM_NET_BALL;
+            case TYPE_DRAGON:
+                return ITEM_MASTER_BALL;
+            case TYPE_FIGHTING:
+                return ITEM_ULTRA_BALL;
+            case TYPE_FIRE:
+                return ITEM_REPEAT_BALL;
+            case TYPE_FLYING:
+                return ITEM_PREMIER_BALL;
+            case TYPE_GRASS:
+                return ITEM_NEST_BALL;
+            case TYPE_WATER:
+                return ITEM_DIVE_BALL;
+            case TYPE_ICE:
+                return ITEM_GREAT_BALL;
+            case TYPE_ROCK:
+                return ITEM_TIMER_BALL;
+            case TYPE_MYSTERY:
+                return ITEM_LUXURY_BALL;
+
+#ifdef ROGUE_EXPANSION
+            case TYPE_FAIRY:
+                return ITEM_LOVE_BALL;
+            case TYPE_GHOST:
+                return ITEM_DUSK_BALL;
+            case TYPE_STEEL:
+                return ITEM_HEAVY_BALL;
+            case TYPE_PSYCHIC:
+                return ITEM_DREAM_BALL;
+            case TYPE_DARK:
+                return ITEM_DUSK_BALL;
+            case TYPE_ELECTRIC:
+                return ITEM_QUICK_BALL;
+            case TYPE_GROUND:
+                return ITEM_FRIEND_BALL;
+            case TYPE_POISON:
+                return ITEM_MOON_BALL;
+#endif
+        }
+    }
+
+    return ITEM_POKE_BALL;
 }
 
 u16 Rogue_GetTrainerTypeGroupId(u16 trainerNum)
@@ -1222,12 +1270,22 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
     u8 monCount;
     u32 tempSeed = gRngRogueValue;
 
-    SeedRogueRng(RogueRandom() + trainerNum * RogueRandom());
+    SeedRogueRng(RogueRandom() + trainerNum * RogueRandom()); // todo - move this sooner? Need to sync doubles/singles mixed mode to seed
 
     if(Rogue_IsRivalTrainer(trainerNum))
         monCount = CreateRivalPartyInternal(trainerNum, party, monCapacity);
     else
         monCount = CreateTrainerPartyInternal(trainerNum, party, 0, monCapacity, firstTrainer, 0);
+
+    // Adjust mons
+    {
+        // Assign the pokeball based on the trainer
+        u8 i;
+        u32 pokeballId = Rogue_GetTrainerPokeballId(trainerNum);
+
+        for(i = 0; i < monCount; ++i)
+            SetMonData(&party[i], MON_DATA_POKEBALL, &pokeballId);
+    }
 
     ReorderPartyMons(trainerNum, party, monCount);
 
