@@ -35,7 +35,7 @@ script Rogue_Hub_ProfLab_SpeakProf
     {
         if(var(VAR_ROGUE_INTRO_STATE) <= 3)
         {
-            msgbox(format("BIRCH: Go ahead!\nPick a PARTNER POKéMON!"), MSGBOX_DEFAULT)
+            msgbox(format("BIRCH: Go ahead!\nPick a PARTNER Pokémon!"), MSGBOX_DEFAULT)
         }
         else
         {
@@ -61,7 +61,7 @@ script Rogue_Hub_ProfLab_ProfExplain
 
     if(var(VAR_RESULT) == YES)
     {
-        msgbox(format("BIRCH: You never know what you're gonna see on an adventure!\pThe routes will swap around, the POKéMON and TRAINERS you encounter will also change!\pWhen you finish your adventure you'll be escorted back to the HUB and we'll restore your BAG and POKéMON back to their original states.\pSo, for example, if you evolved your PARTNER POKéMON whilst on an adventure, it would unevolve when you come back to the HUB."), MSGBOX_DEFAULT)
+        msgbox(format("BIRCH: You never know what you're gonna see on an adventure!\pThe routes will swap around, the Pokémon and TRAINERS you encounter will also change!\pWhen you finish your adventure you'll be escorted back to the HUB and we'll restore your BAG and Pokémon back to their original states.\pSo, for example, if you evolved your PARTNER Pokémon whilst on an adventure, it would unevolve when you come back to the HUB."), MSGBOX_DEFAULT)
         msgbox(format("When you return from adventures, you'll get given reward money which you can then spend on anything you'd like in the HUB.\pWhatever you buy or use in the HUB will be permanent.\pSo if you went and bought extra potions in the HUB but used them during an adventure, once you returned you'd find that they've been placed right back in to you BAG.\pThe best way to learn about adventures is to go on many of them!\pSo go ahead!\nExplore and have fun!"), MSGBOX_DEFAULT)
     }
 
@@ -196,7 +196,7 @@ script Rogue_Hub_ProfLab_ProfCycleEvos
 
             case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
                 buffernumberstring(STR_VAR_3, VAR_0x8007)
-                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst a DARK type POKéMON is in the party."))
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst a DARK type Pokémon is in the party."))
 
             case EVO_TRADE_SPECIFIC_MON:
                 bufferspeciesname(STR_VAR_3, VAR_0x8007)
@@ -229,7 +229,7 @@ script Rogue_Hub_ProfLab_ProfCycleEvos
 
 script Rogue_Hub_ProfLab_ProfShowEvos
 {
-    msgbox(format("BIRCH: Would you like to check how a POKéMON evolves?"), MSGBOX_YESNO)
+    msgbox(format("BIRCH: Would you like to check how a Pokémon evolves?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {
@@ -290,7 +290,7 @@ movement Rogue_Hub_ProfLab_WalkBackwards
 
 script Rogue_Hub_ProfLab_IntroCommon
 {
-    msgbox(format("BIRCH: {PLAYER}!\nYou finally made it!\pI assume you're itching to go on adventures, but before you start you need a POKéMON of your own."), MSGBOX_DEFAULT)
+    msgbox(format("BIRCH: {PLAYER}!\nYou finally made it!\pI assume you're itching to go on adventures, but before you start you need a Pokémon of your own."), MSGBOX_DEFAULT)
     turnobject(NPC_BIRCH, DIR_EAST)
     msgbox(format("BIRCH: I went out and caught a few for you to pick from this morning.\pPick whichever you like!"), MSGBOX_DEFAULT)
     return
@@ -335,7 +335,7 @@ script Rogue_Hub_ProfLab_IntroTriggerL
         turnobject(NPC_BIRCH, DIR_SOUTH)
         turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 
-        msgbox(format("BIRCH: Oh...\pWould you prefer some different POKéMON options?"), MSGBOX_YESNO)
+        msgbox(format("BIRCH: Oh...\pWould you prefer some different Pokémon options?"), MSGBOX_YESNO)
 
         if(var(VAR_RESULT) == YES)
         {
@@ -372,7 +372,7 @@ script Rogue_Hub_ProfLab_IntroTriggerR
         turnobject(NPC_BIRCH, DIR_SOUTH)
         turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 
-        msgbox(format("BIRCH: Oh...\pWould you prefer a different POKéMON?"), MSGBOX_YESNO)
+        msgbox(format("BIRCH: Oh...\pWould you prefer a different Pokémon?"), MSGBOX_YESNO)
 
         if(var(VAR_RESULT) == YES)
         {

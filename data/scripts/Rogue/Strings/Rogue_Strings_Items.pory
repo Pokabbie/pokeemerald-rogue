@@ -1,6 +1,6 @@
 text gItemDesc_LinkCable
 {
-    format("Makes certain species of POKéMON evolve when held.")
+    format("Makes certain species of Pokémon evolve when held.")
 }
 
 text gItemDesc_QuestLog
@@ -165,29 +165,29 @@ text gItemDesc_FlinchCurse
 
 text gItemDesc_CritCharm
 {
-    format("Friendly POKéMON have an increased crit rate.")
+    format("Friendly Pokémon have an increased crit rate.")
 }
 text gItemDesc_CritCurse
 {
-    format("Opponent POKéMON have an increased crit rate.")
+    format("Opponent Pokémon have an increased crit rate.")
 }
 
 text gItemDesc_ShedSkinCharm
 {
-    format("Friendly POKéMON have a 20% chance to cure status.")
+    format("Friendly Pokémon have a 20% chance to cure status.")
 }
 text gItemDesc_ShedSkinCurse
 {
-    format("Opponent POKéMON have a 15% chance to cure status.")
+    format("Opponent Pokémon have a 15% chance to cure status.")
 }
 
 text gItemDesc_WildIVCharm
 {
-    format("Caught POKéMON are slightly stronger.")
+    format("Caught Pokémon are slightly stronger.")
 }
 text gItemDesc_WildIVCurse
 {
-    format("Caught POKéMON are slightly weaker.")
+    format("Caught Pokémon are slightly weaker.")
 }
 
 text gItemDesc_CatchingCharm
@@ -210,11 +210,11 @@ text gItemDesc_GraceCurse
 
 text gItemDesc_WildCharm
 {
-    format("Routes contain 2 additional wild POKéMON.")
+    format("Routes contain 2 additional wild Pokémon.")
 }
 text gItemDesc_WildCurse
 {
-    format("Routes contain 1 less wild POKéMON.")
+    format("Routes contain 1 less wild Pokémon.")
 }
 
 text gItemDesc_PriorityCharm
@@ -228,16 +228,16 @@ text gItemDesc_PriorityCurse
 
 text gItemDesc_EndureCharm
 {
-    format("Friendly POKéMON have a 20% chance to endure OHKOs.")
+    format("Friendly Pokémon have a 20% chance to endure OHKOs.")
 }
 text gItemDesc_EndureCurse
 {
-    format("Opponent POKéMON have a 20% chance to endure OHKOs.")
+    format("Opponent Pokémon have a 20% chance to endure OHKOs.")
 }
 
 text gItemDesc_PartyCurse
 {
-    format("The maximum number of POKéMON in your party is reduced.")
+    format("The maximum number of Pokémon in your party is reduced.")
 }
 
 text gItemDesc_EverstoneCurse
@@ -252,7 +252,7 @@ text gItemDesc_BattleItemCurse
 
 text gItemDesc_SpeciesClauseCurse
 {
-    format("POKéMON can't be caught if species already in party.")
+    format("Pokémon can't be caught if species already in party.")
 }
 
 text gItemDesc_ItemShuffleCurse

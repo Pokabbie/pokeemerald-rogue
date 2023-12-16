@@ -399,37 +399,37 @@ script RogueSafari_Sign_South
 {
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
     {
-        msgbox(format("SOUTH AREA home to:\nNORMAL, FIGHTING, FAIRY POKéMON"), MSGBOX_SIGN)
+        msgbox(format("SOUTH AREA home to:\nNORMAL, FIGHTING, FAIRY Pokémon"), MSGBOX_SIGN)
     }
     else
     {
-        msgbox(format("SOUTH AREA home to:\nNORMAL, FIGHTING POKéMON"), MSGBOX_SIGN)
+        msgbox(format("SOUTH AREA home to:\nNORMAL, FIGHTING Pokémon"), MSGBOX_SIGN)
     }
 }
 
 script RogueSafari_Sign_SouthWest
 {
-    msgbox(format("SOUTH WEST AREA home to:\nGRASS, POISON, DARK POKéMON"), MSGBOX_SIGN)
+    msgbox(format("SOUTH WEST AREA home to:\nGRASS, POISON, DARK Pokémon"), MSGBOX_SIGN)
 }
 
 script RogueSafari_Sign_NorthWest
 {
-    msgbox(format("NORTH WEST AREA home to:\nDRAGON, STEEL, PSYCHIC POKéMON"), MSGBOX_SIGN)
+    msgbox(format("NORTH WEST AREA home to:\nDRAGON, STEEL, PSYCHIC Pokémon"), MSGBOX_SIGN)
 }
 
 script RogueSafari_Sign_North
 {
-    msgbox(format("NORTH AREA home to:\nFLYING, GHOST, FIRE POKéMON"), MSGBOX_SIGN)
+    msgbox(format("NORTH AREA home to:\nFLYING, GHOST, FIRE Pokémon"), MSGBOX_SIGN)
 }
 
 script RogueSafari_Sign_NorthEast
 {
-    msgbox(format("NORTH EAST AREA home to:\nROCK, GROUND, ELECTRIC POKéMON"), MSGBOX_SIGN)
+    msgbox(format("NORTH EAST AREA home to:\nROCK, GROUND, ELECTRIC Pokémon"), MSGBOX_SIGN)
 }
 
 script RogueSafari_Sign_SouthEast
 {
-    msgbox(format("SOUTH EAST AREA home to:\nWATER, BUG, ICE POKéMON"), MSGBOX_SIGN)
+    msgbox(format("SOUTH EAST AREA home to:\nWATER, BUG, ICE Pokémon"), MSGBOX_SIGN)
 }
 
 
@@ -442,7 +442,7 @@ script Rogue_Tutor_MoveRelearn
 
     lock
     faceplayer
-    msgbox(format("I'm the LVL MOVE TUTOR.\p I can teach POKéMON moves if you'd like?\pFor a cost of course."), MSGBOX_DEFAULT)
+    msgbox(format("I'm the LVL MOVE TUTOR.\p I can teach Pokémon moves if you'd like?\pFor a cost of course."), MSGBOX_DEFAULT)
 
     call(Rogue_Tutor_MoveTeachLoop)
     release
@@ -455,7 +455,7 @@ script Rogue_Tutor_EggMoveLearn
 
     lock
     faceplayer
-    msgbox(format("I'm the EGG MOVE TUTOR.\p I can teach POKéMON moves if you'd like?"), MSGBOX_DEFAULT)
+    msgbox(format("I'm the EGG MOVE TUTOR.\p I can teach Pokémon moves if you'd like?"), MSGBOX_DEFAULT)
 
     call(Rogue_Tutor_MoveTeachLoop)
     release
@@ -468,7 +468,7 @@ script Rogue_Tutor_TutorMoveLearn
 
     lock
     faceplayer
-    msgbox(format("HYAH!\p I'm the SPECIAL MOVE TUTOR!\p I can teach POKéMON moves some radical moves!"), MSGBOX_DEFAULT)
+    msgbox(format("HYAH!\p I'm the SPECIAL MOVE TUTOR!\p I can teach Pokémon moves some radical moves!"), MSGBOX_DEFAULT)
 
     call(Rogue_Tutor_MoveTeachLoop)
     release
@@ -483,7 +483,7 @@ script Rogue_Tutor_MoveTeachLoop
 {
     showmoneybox(0, 0)
     buffernumberstring(STR_VAR_1, VAR_0x8009)
-    msgbox(format("Would you like me to teach your POKéMON a move for ¥{STR_VAR_1}?"), MSGBOX_YESNO)
+    msgbox(format("Would you like me to teach your Pokémon a move for ¥{STR_VAR_1}?"), MSGBOX_YESNO)
     hidemoneybox
 
     if(var(VAR_RESULT) == NO)
@@ -541,7 +541,7 @@ script Rogue_Tutor_MoveTeachLoop
                     playse(SE_SHOP)
 
                     showmoneybox(0, 0)
-                    msgbox(format("Do you want me to teach another POKéMON?"), MSGBOX_YESNO)
+                    msgbox(format("Do you want me to teach another Pokémon?"), MSGBOX_YESNO)
                     hidemoneybox
                 }
                 else
@@ -558,7 +558,7 @@ script Rogue_Tutor_MoveDelete
 {
     lock
     faceplayer
-    msgbox(format("Uh..\nOh, yes, I'm the MOVE DELETER.\pI can make POKéMON forget their moves, if you'd like?"), MSGBOX_YESNO)
+    msgbox(format("Uh..\nOh, yes, I'm the MOVE DELETER.\pI can make Pokémon forget their moves, if you'd like?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == NO)
     {
@@ -602,7 +602,7 @@ script Rogue_Tutor_MoveDelete
 
 script Rogue_Tutor_MoveDeleteNoMoves
 {
-    msgbox(format("This POKéMON needs move moves before I can make it forget any."), MSGBOX_DEFAULT)
+    msgbox(format("This Pokémon needs move moves before I can make it forget any."), MSGBOX_DEFAULT)
     release
 }
 

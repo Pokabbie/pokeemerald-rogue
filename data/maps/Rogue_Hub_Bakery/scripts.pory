@@ -78,7 +78,7 @@ script RogueHub_Bakery_SpeakChefSlice
     setvar(VAR_0x8004, 0)
     special(BufferMonNickname)
 
-    msgbox(format("Welcome to the Bakery!\nI specialize in Cupcakes, which can slightly increase your POKéMON's stats.\pWould you like me to bake a Cupcake for both you and {STR_VAR_1} to share?"), MSGBOX_YESNO)
+    msgbox(format("Welcome to the Bakery!\nI specialize in Cupcakes, which can slightly increase your Pokémon's stats.\pWould you like me to bake a Cupcake for both you and {STR_VAR_1} to share?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {
@@ -149,7 +149,7 @@ script RogueHub_Bakery_SpeakChefFull
     setvar(VAR_0x8004, 0)
     special(BufferMonNickname)
 
-    msgbox(format("Welcome to the Bakery!\nI specialize in Pies, which can increase your POKéMON's stats.\pWould you like me to bake a Pie for both you and {STR_VAR_1} to share?"), MSGBOX_YESNO)
+    msgbox(format("Welcome to the Bakery!\nI specialize in Pies, which can increase your Pokémon's stats.\pWould you like me to bake a Pie for both you and {STR_VAR_1} to share?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {
@@ -217,7 +217,7 @@ script RogueHub_Bakery_SpeakBerryCheck
     lock
     faceplayer
 
-    msgbox(format("Did you know that different berries change different POKéMON stats when once they've been baked."))
+    msgbox(format("Did you know that different berries change different Pokémon stats when once they've been baked."))
     msgbox(format("Do you want me to tell you which stat a berry will change?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
@@ -233,28 +233,28 @@ script RogueHub_Bakery_SpeakBerryCheck
             switch(var(VAR_RESULT))
             {
                 case BERRY_BUFF_FRIEND:
-                    msgbox(format("{STR_VAR_1} will make a POKéMON more friendly."))
+                    msgbox(format("{STR_VAR_1} will make a Pokémon more friendly."))
 
                 case BERRY_BUFF_HP:
-                    msgbox(format("{STR_VAR_1} will improve a POKéMON's HP."))
+                    msgbox(format("{STR_VAR_1} will improve a Pokémon's HP."))
 
                 case BERRY_BUFF_ATK:
-                    msgbox(format("{STR_VAR_1} will improve a POKéMON's Atk."))
+                    msgbox(format("{STR_VAR_1} will improve a Pokémon's Atk."))
 
                 case BERRY_BUFF_DEF:
-                    msgbox(format("{STR_VAR_1} will improve a POKéMON's Def."))
+                    msgbox(format("{STR_VAR_1} will improve a Pokémon's Def."))
 
                 case BERRY_BUFF_SPATK:
-                    msgbox(format("{STR_VAR_1} will improve a POKéMON's SpAtk."))
+                    msgbox(format("{STR_VAR_1} will improve a Pokémon's SpAtk."))
 
                 case BERRY_BUFF_SPDEF:
-                    msgbox(format("{STR_VAR_1} will improve a POKéMON's SpDef."))
+                    msgbox(format("{STR_VAR_1} will improve a Pokémon's SpDef."))
 
                 case BERRY_BUFF_SPD:
-                    msgbox(format("{STR_VAR_1} will improve a POKéMON's Speed."))
+                    msgbox(format("{STR_VAR_1} will improve a Pokémon's Speed."))
 
                 case BERRY_BUFF_WEAKEN:
-                    msgbox(format("{STR_VAR_1} will make a POKéMON weaker."))
+                    msgbox(format("{STR_VAR_1} will make a Pokémon weaker."))
             }
         }
     }
@@ -267,7 +267,7 @@ script RogueHub_Bakery_SpeakIVEVInspector
     lock
     faceplayer
 
-    msgbox(format("Did you know you can check a POKéMON's IVs and EVs by pressing A on the POKéMON summary screen?\pModern technology sure is great huh!"))
+    msgbox(format("Did you know you can check a Pokémon's IVs and EVs by pressing A on the Pokémon summary screen?\pModern technology sure is great huh!"))
 
     release
 }

@@ -219,8 +219,8 @@ script Rogue_Area_RideTraining_SpeakClown
 
 script Rogue_Area_RideTraining_GiveFieldMoves
 {
-    msgbox(format("Well hey there {PLAYER}!\pIt's awfully nice of you to have gone and cleared out an area for me!\pI was hoping to build a real life Circus you see!\pAn area where people and POKéMON can train and have fun together!"))
-    msgbox(format("You know, you need to train a whole lot alongside your POKéMON to take part in a Circus.\pAs a thanks to you, let me teach you some of these skills to help you out on your Adventures!"))
+    msgbox(format("Well hey there {PLAYER}!\pIt's awfully nice of you to have gone and cleared out an area for me!\pI was hoping to build a real life Circus you see!\pAn area where people and Pokémon can train and have fun together!"))
+    msgbox(format("You know, you need to train a whole lot alongside your Pokémon to take part in a Circus.\pAs a thanks to you, let me teach you some of these skills to help you out on your Adventures!"))
 
     msgbox(format("Hmm…\nHow about we start with teaching you how to clear obstacles?"))
 
@@ -229,7 +229,7 @@ script Rogue_Area_RideTraining_GiveFieldMoves
     playfanfare(MUS_EVOLVED)
     waitfanfare
 
-    msgbox(format("You see those little trees and rocks at the edge of the path?\pYou should now be able to clear those out of the way, with the help of your POKéMON!"))
+    msgbox(format("You see those little trees and rocks at the edge of the path?\pYou should now be able to clear those out of the way, with the help of your Pokémon!"))
     msgbox(format("I've still got plenty of skills I can teach you!\pIf you're ever wanting to learn some more skills, I'm always happy to help for a little donation towards the Circus!"))
 
     setflag(FLAG_SYS_FIELD_MOVES_GET)
@@ -239,7 +239,7 @@ script Rogue_Area_RideTraining_GiveBasicWhistle
 {
     showmoneybox(0, 0)
 
-    msgbox(format("I could teach you how to ride your POKéMON for ¥5000?"), MSGBOX_YESNO)
+    msgbox(format("I could teach you how to ride your Pokémon for ¥5000?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {
@@ -253,24 +253,24 @@ script Rogue_Area_RideTraining_GiveBasicWhistle
             waitse
 
             msgbox(format("Thank you very much for the donation {PLAYER}!"))
-            msgbox(format("In order to ride your POKéMON, you'll need to use this."))
+            msgbox(format("In order to ride your Pokémon, you'll need to use this."))
 
             hidemoneybox
             giveitem(ITEM_BASIC_RIDING_WHISTLE)
 
-            msgbox(format("You'll only be able to ride certain species of POKéMON from your PARTY.\pYou should now be able to check your POKéDEX to find out which POKéMON can be riden."))
+            msgbox(format("You'll only be able to ride certain species of Pokémon from your PARTY.\pYou should now be able to check your POKéDEX to find out which Pokémon can be riden."))
             msgbox(format("You know what… here why don't you take Stantler along with you!\pIt's been itching to go on Adventures and you can even ride it too!"))
 
             givemon(SPECIES_STANTLER, 5)
             setflag(FLAG_HIDE_STANTLER)
             removeobject(NPC_OBJ_STANTLER)
 
-            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to ride POKéMON!"))
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to ride Pokémon!"))
             waitmessage
             playfanfare(MUS_EVOLVED)
             waitfanfare
 
-            msgbox(format("All you need to do is use that whilst, whilst you have a ridable POKéMON in your party.\pIf have multiple POKéMON you can ride, you can quickly cycle between them by using {L_BUTTON} and {R_BUTTON}."))
+            msgbox(format("All you need to do is use that whilst, whilst you have a ridable Pokémon in your party.\pIf have multiple Pokémon you can ride, you can quickly cycle between them by using {L_BUTTON} and {R_BUTTON}."))
         }
         else
         {
@@ -305,12 +305,12 @@ script Rogue_Area_RideTraining_TeachLedgeJump
             msgbox(format("Here, let me teach you!"))
 
             hidemoneybox
-            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to climb ledges whilst riding POKéMON!"))
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to climb ledges whilst riding Pokémon!"))
             waitmessage
             playfanfare(MUS_EVOLVED)
             waitfanfare
 
-            msgbox(format("When riding your POKéMON, some of them will be able to jump back up ledges, allowing you to more easily backtrack.\pYou should now be able to see which POKéMON are able to use this skill in your POKéDEX.\pThat Stantler I gave to you previously should be able to help you jump over ledges."))
+            msgbox(format("When riding your Pokémon, some of them will be able to jump back up ledges, allowing you to more easily backtrack.\pYou should now be able to see which Pokémon are able to use this skill in your POKéDEX.\pThat Stantler I gave to you previously should be able to help you jump over ledges."))
 
             setflag(FLAG_SYS_RIDING_LEDGE_JUMP)
         }
@@ -347,12 +347,12 @@ script Rogue_Area_RideTraining_TeachSurf
             msgbox(format("Here, let me teach you!"))
 
             hidemoneybox
-            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to swim whilst riding POKéMON!"))
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to swim whilst riding Pokémon!"))
             waitmessage
             playfanfare(MUS_EVOLVED)
             waitfanfare
 
-            msgbox(format("When riding your POKéMON, some of them will be able to now swim in water.\pYou should now be able to see which POKéMON are able to use this skill in your POKéDEX."))
+            msgbox(format("When riding your Pokémon, some of them will be able to now swim in water.\pYou should now be able to see which Pokémon are able to use this skill in your POKéDEX."))
 
             setflag(FLAG_SYS_RIDING_SURF)
         }
@@ -389,12 +389,12 @@ script Rogue_Area_RideTraining_TeachFly
             msgbox(format("Here, let me teach you!"))
 
             hidemoneybox
-            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to fly whilst riding POKéMON!"))
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to fly whilst riding Pokémon!"))
             waitmessage
             playfanfare(MUS_EVOLVED)
             waitfanfare
 
-            msgbox(format("When riding your POKéMON, some of them will be able to now fly by pressing {B_BUTTON}.\pWhilst you are up in the air, you won't be able to interact with items and you won't be seen by trainers either.\pYou will have to be careful however, as your POKéMON will only have enough energy to fly once per route, whilst you are out exploring.\pYou should now be able to see which POKéMON are able to use this skill in your POKéDEX."))
+            msgbox(format("When riding your Pokémon, some of them will be able to now fly by pressing {B_BUTTON}.\pWhilst you are up in the air, you won't be able to interact with items and you won't be seen by trainers either.\pYou will have to be careful however, as your Pokémon will only have enough energy to fly once per route, whilst you are out exploring.\pYou should now be able to see which Pokémon are able to use this skill in your POKéDEX."))
 
             setflag(FLAG_SYS_RIDING_FLY)
         }
@@ -433,7 +433,7 @@ script Rogue_Area_RideTraining_GiveGoldWhistle
             hidemoneybox
             giveitem(ITEM_GOLD_RIDING_WHISTLE)
 
-            msgbox(format("Rather than riding on POKéMON in your party, that GOLD WHISTLE is linked my friend.\pCome on out!"))
+            msgbox(format("Rather than riding on Pokémon in your party, that GOLD WHISTLE is linked my friend.\pCome on out!"))
 
             poryswitch(ROGUE_VERSION)
             {
@@ -444,7 +444,7 @@ script Rogue_Area_RideTraining_GiveGoldWhistle
                     playmoncry(SPECIES_DITTO, CRY_MODE_NORMAL)
                     waitmoncry
 
-                    msgbox(format("You can speak with DITTO whenever you want and get it to transform into one of your POKéMON.\pFrom then on, even if you don't have that POKéMON in your party, you will be able to summon it using the GOLD WHISTLE."))
+                    msgbox(format("You can speak with DITTO whenever you want and get it to transform into one of your Pokémon.\pFrom then on, even if you don't have that Pokémon in your party, you will be able to summon it using the GOLD WHISTLE."))
 
                     message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to summon DITTO!"))
                     waitmessage
@@ -458,7 +458,7 @@ script Rogue_Area_RideTraining_GiveGoldWhistle
                     playmoncry(SPECIES_ZORUA_HISUIAN, CRY_MODE_NORMAL)
                     waitmoncry
 
-                    msgbox(format("You can speak with ZORUA whenever you want and get it to transform into one of your POKéMON.\pFrom then on, even if you don't have that POKéMON in your party, you will be able to summon it using the GOLD WHISTLE."))
+                    msgbox(format("You can speak with ZORUA whenever you want and get it to transform into one of your Pokémon.\pFrom then on, even if you don't have that Pokémon in your party, you will be able to summon it using the GOLD WHISTLE."))
 
                     message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to summon ZORUA!"))
                     waitmessage

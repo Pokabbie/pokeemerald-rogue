@@ -82,17 +82,17 @@ script Rogue_Area_SafariZone_Tutorial_FrameEnter
     {
         lock
         turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
-        msgbox(format("BIRCH: Good job {PLAYER}!\pThe POKéMON didn't seem too dangerous.\nThey actually seemed rather friendly to me!\pDefinitely not a POKéMON invasion fuhahaha.\pCome on now!\nLet's head back to the lab."))
+        msgbox(format("BIRCH: Good job {PLAYER}!\pThe Pokémon didn't seem too dangerous.\nThey actually seemed rather friendly to me!\pDefinitely not a Pokémon invasion fuhahaha.\pCome on now!\nLet's head back to the lab."))
         warp(MAP_ROGUE_INTERIOR_PROF_LAB, 2)
         release
     }
     elif(flag(FLAG_HAS_ENTERED) == FALSE)
     {
         lock
-        msgbox(format("BIRCH: OK {PLAYER}!\pI know this is your first time catching POKéMON… but I really need some help on this one!\pHere!\nTake this!"))
+        msgbox(format("BIRCH: OK {PLAYER}!\pI know this is your first time catching Pokémon… but I really need some help on this one!\pHere!\nTake this!"))
         giveitem(ITEM_POKE_BALL)
 
-        msgbox(format("If you can capture one POKéMON, I'll handle the others!"))
+        msgbox(format("If you can capture one Pokémon, I'll handle the others!"))
         setflag(FLAG_HAS_ENTERED)
         release
     }
@@ -119,7 +119,7 @@ script Rogue_Area_SafariZone_Tutorial_InteractWildFollowMon
 script Rogue_Area_SafariZone_TryExitEast
 {
     lock
-    msgbox(format("(You can't leave whilst there are still POKéMON about!)"))
+    msgbox(format("(You can't leave whilst there are still Pokémon about!)"))
     closemessage
 
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerLeft)
@@ -131,7 +131,7 @@ script Rogue_Area_SafariZone_TryExitEast
 script Rogue_Area_SafariZone_TryExitSouth
 {
     lock
-    msgbox(format("(You can't leave whilst there are still POKéMON about!)"))
+    msgbox(format("(You can't leave whilst there are still Pokémon about!)"))
     closemessage
 
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerUp)
@@ -143,7 +143,7 @@ script Rogue_Area_SafariZone_TryExitSouth
 script Rogue_Area_SafariZone_TryExitWest
 {
     lock
-    msgbox(format("(You can't leave whilst there are still POKéMON about!)"))
+    msgbox(format("(You can't leave whilst there are still Pokémon about!)"))
     closemessage
 
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerRight)
@@ -156,7 +156,7 @@ script Rogue_Area_SafariZone_Tutorial_TalkBirch
 {
     lock
     faceplayer
-    msgbox(format("BIRCH: Go ahead, {PLAYER}!\pYou catch one of the POKéMON and I'll handle the others."))
+    msgbox(format("BIRCH: Go ahead, {PLAYER}!\pYou catch one of the Pokémon and I'll handle the others."))
     release
 }
 

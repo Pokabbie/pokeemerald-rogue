@@ -132,7 +132,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GALAR_RAIHAN",
+      "graphics_id": "OBJ_EVENT_GFX_ALOLA_NANU",
       "x": 21,
       "y": 16,
       "elevation": 3,
@@ -210,7 +210,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_UNOVA_CLAY",
+      "graphics_id": "OBJ_EVENT_GFX_ALOLA_HALA",
       "x": 1,
       "y": 16,
       "elevation": 3,
