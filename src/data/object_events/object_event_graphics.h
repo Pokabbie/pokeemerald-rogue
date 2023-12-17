@@ -405,14 +405,14 @@ const u16 gObjectEventPal_PlayerSerenaBase[] = INCBIN_U16("graphics/rogue_palett
 const u16 gObjectEventPal_PlayerSerenaLayers[] = INCBIN_U16("graphics/rogue_palettes/serena/object_event_layers.gbapal");
 
 const u16 gObjectEventPal_PlayerElioBase[] = INCBIN_U16("graphics/rogue_palettes/elio/object_event_base.gbapal");
-//const u16 gObjectEventPal_PlayerElioLayers[] = INCBIN_U16("graphics/rogue_palettes/elio/object_event_layers.gbapal");
+const u16 gObjectEventPal_PlayerElioLayers[] = INCBIN_U16("graphics/rogue_palettes/elio/object_event_layers.gbapal");
 const u16 gObjectEventPal_PlayerSeleneBase[] = INCBIN_U16("graphics/rogue_palettes/selene/object_event_base.gbapal");
-//const u16 gObjectEventPal_PlayerSeleneLayers[] = INCBIN_U16("graphics/rogue_palettes/selene/object_event_layers.gbapal");
+const u16 gObjectEventPal_PlayerSeleneLayers[] = INCBIN_U16("graphics/rogue_palettes/selene/object_event_layers.gbapal");
 
 const u16 gObjectEventPal_PlayerVictorBase[] = INCBIN_U16("graphics/rogue_palettes/victor/object_event_base.gbapal");
-//const u16 gObjectEventPal_PlayerVictorLayers[] = INCBIN_U16("graphics/rogue_palettes/victor/object_event_layers.gbapal");
+const u16 gObjectEventPal_PlayerVictorLayers[] = INCBIN_U16("graphics/rogue_palettes/victor/object_event_layers.gbapal");
 const u16 gObjectEventPal_PlayerGloriaBase[] = INCBIN_U16("graphics/rogue_palettes/gloria/object_event_base.gbapal");
-//const u16 gObjectEventPal_PlayerGloriaLayers[] = INCBIN_U16("graphics/rogue_palettes/gloria/object_event_layers.gbapal");
+const u16 gObjectEventPal_PlayerGloriaLayers[] = INCBIN_U16("graphics/rogue_palettes/gloria/object_event_layers.gbapal");
 
 const u16 gObjectEventPal_PlayerZefaBase[] = INCBIN_U16("graphics/object_events/pics/people/zefa/palette.gbapal");
 

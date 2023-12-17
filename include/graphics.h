@@ -3307,14 +3307,14 @@ extern const u32 gTrainerPalette_PlayerSerenaFrontBase[];
 extern const u32 gTrainerPalette_PlayerSerenaFrontLayers[];
 
 extern const u32 gTrainerPalette_PlayerElioFrontBase[];
-//extern const u32 gTrainerPalette_PlayerElioFrontLayers[];
+extern const u32 gTrainerPalette_PlayerElioFrontLayers[];
 extern const u32 gTrainerPalette_PlayerSeleneFrontBase[];
-//extern const u32 gTrainerPalette_PlayerSeleneFrontLayers[];
+extern const u32 gTrainerPalette_PlayerSeleneFrontLayers[];
 
 extern const u32 gTrainerPalette_PlayerVictorFrontBase[];
-//extern const u32 gTrainerPalette_PlayerVictorFrontLayers[];
+extern const u32 gTrainerPalette_PlayerVictorFrontLayers[];
 extern const u32 gTrainerPalette_PlayerGloriaFrontBase[];
-//extern const u32 gTrainerPalette_PlayerGloriaFrontLayers[];
+extern const u32 gTrainerPalette_PlayerGloriaFrontLayers[];
 
 extern const u32 gTrainerPalette_PlayerZefaBackBase[];
 
@@ -5443,14 +5443,14 @@ extern const u16 gObjectEventPal_PlayerSerenaBase[];
 extern const u16 gObjectEventPal_PlayerSerenaLayers[];
 
 extern const u16 gObjectEventPal_PlayerElioBase[];
-//extern const u16 gObjectEventPal_PlayerElioLayers[];
+extern const u16 gObjectEventPal_PlayerElioLayers[];
 extern const u16 gObjectEventPal_PlayerSeleneBase[];
-//extern const u16 gObjectEventPal_PlayerSeleneLayers[];
+extern const u16 gObjectEventPal_PlayerSeleneLayers[];
 
 extern const u16 gObjectEventPal_PlayerVictorBase[];
-//extern const u16 gObjectEventPal_PlayerVictorLayers[];
+extern const u16 gObjectEventPal_PlayerVictorLayers[];
 extern const u16 gObjectEventPal_PlayerGloriaBase[];
-//extern const u16 gObjectEventPal_PlayerGloriaLayers[];
+extern const u16 gObjectEventPal_PlayerGloriaLayers[];
 
 extern const u16 gObjectEventPal_PlayerZefaBase[];
 

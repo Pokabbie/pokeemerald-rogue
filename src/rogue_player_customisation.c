@@ -580,9 +580,9 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_ElioRiding,
         },
         .objectEventBasePal = gObjectEventPal_PlayerElioBase,
-        .objectEventLayerPal = NULL,
+        .objectEventLayerPal = gObjectEventPal_PlayerElioLayers,
         .trainerFrontBasePal = gTrainerPalette_PlayerElioFrontBase,
-        .trainerFrontLayerPal = NULL,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerElioFrontLayers,
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
         .supportedLayers = 
@@ -606,16 +606,16 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_SeleneRiding,
         },
         .objectEventBasePal = gObjectEventPal_PlayerSeleneBase,
-        .objectEventLayerPal = NULL,
+        .objectEventLayerPal = gObjectEventPal_PlayerSeleneLayers,
         .trainerFrontBasePal = gTrainerPalette_PlayerSeleneFrontBase,
-        .trainerFrontLayerPal = NULL,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerSeleneFrontLayers,
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
             [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
-            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
         }
     },
 
@@ -633,9 +633,9 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_VictorRiding,
         },
         .objectEventBasePal = gObjectEventPal_PlayerVictorBase,
-        .objectEventLayerPal = NULL,
+        .objectEventLayerPal = gObjectEventPal_PlayerVictorLayers,
         .trainerFrontBasePal = gTrainerPalette_PlayerVictorFrontBase,
-        .trainerFrontLayerPal = NULL,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerVictorFrontLayers,
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
         .supportedLayers = 
@@ -659,16 +659,16 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_GloriaRiding,
         },
         .objectEventBasePal = gObjectEventPal_PlayerGloriaBase,
-        .objectEventLayerPal = NULL,
+        .objectEventLayerPal = gObjectEventPal_PlayerGloriaLayers,
         .trainerFrontBasePal = gTrainerPalette_PlayerGloriaFrontBase,
-        .trainerFrontLayerPal = NULL,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerGloriaFrontLayers,
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
             [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
-            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
         }
     },
 
