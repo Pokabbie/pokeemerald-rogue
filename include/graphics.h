@@ -2972,6 +2972,10 @@ extern const u32 gTrainerFrontPic_Nate[];
 extern const u32 gTrainerFrontPic_Rosa[];
 extern const u32 gTrainerFrontPic_Calem[];
 extern const u32 gTrainerFrontPic_Serena[];
+extern const u32 gTrainerFrontPic_Elio[];
+extern const u32 gTrainerFrontPic_Selene[];
+extern const u32 gTrainerFrontPic_Victor[];
+extern const u32 gTrainerFrontPic_Gloria[];
 
 extern const u32 gTrainerFrontPic_LeaderBrock[];
 extern const u32 gTrainerFrontPic_LeaderMisty[];
@@ -3301,6 +3305,16 @@ extern const u32 gTrainerPalette_PlayerCalemFrontBase[];
 extern const u32 gTrainerPalette_PlayerCalemFrontLayers[];
 extern const u32 gTrainerPalette_PlayerSerenaFrontBase[];
 extern const u32 gTrainerPalette_PlayerSerenaFrontLayers[];
+
+extern const u32 gTrainerPalette_PlayerElioFrontBase[];
+//extern const u32 gTrainerPalette_PlayerElioFrontLayers[];
+extern const u32 gTrainerPalette_PlayerSeleneFrontBase[];
+//extern const u32 gTrainerPalette_PlayerSeleneFrontLayers[];
+
+extern const u32 gTrainerPalette_PlayerVictorFrontBase[];
+//extern const u32 gTrainerPalette_PlayerVictorFrontLayers[];
+extern const u32 gTrainerPalette_PlayerGloriaFrontBase[];
+//extern const u32 gTrainerPalette_PlayerGloriaFrontLayers[];
 
 extern const u32 gTrainerPalette_PlayerZefaBackBase[];
 

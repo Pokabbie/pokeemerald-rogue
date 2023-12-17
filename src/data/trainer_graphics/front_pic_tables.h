@@ -103,6 +103,10 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_ROSA] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_CALEM] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_SERENA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_ELIO] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SELENE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_VICTOR] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_GLORIA] = {.size = 8, .y_offset = 1},
 
     [TRAINER_PIC_KANTO_BROCK] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_KANTO_MISTY] = {.size = 8, .y_offset = 1},
@@ -347,6 +351,10 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(ROSA, gTrainerFrontPic_Rosa),
     TRAINER_SPRITE(CALEM, gTrainerFrontPic_Calem),
     TRAINER_SPRITE(SERENA, gTrainerFrontPic_Serena),
+    TRAINER_SPRITE(ELIO, gTrainerFrontPic_Elio),
+    TRAINER_SPRITE(SELENE, gTrainerFrontPic_Selene),
+    TRAINER_SPRITE(VICTOR, gTrainerFrontPic_Victor),
+    TRAINER_SPRITE(GLORIA, gTrainerFrontPic_Gloria),
 
     TRAINER_SPRITE(KANTO_BROCK, gTrainerFrontPic_LeaderBrock),
     TRAINER_SPRITE(KANTO_MISTY, gTrainerFrontPic_LeaderMisty),
@@ -588,6 +596,10 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(ROSA, gTrainerPalette_PlayerFrontPlaceholder),
     TRAINER_PAL(CALEM, gTrainerPalette_PlayerFrontPlaceholder),
     TRAINER_PAL(SERENA, gTrainerPalette_PlayerFrontPlaceholder),
+    TRAINER_PAL(ELIO, gTrainerPalette_PlayerFrontPlaceholder),
+    TRAINER_PAL(SELENE, gTrainerPalette_PlayerFrontPlaceholder),
+    TRAINER_PAL(VICTOR, gTrainerPalette_PlayerFrontPlaceholder),
+    TRAINER_PAL(GLORIA, gTrainerPalette_PlayerFrontPlaceholder),
     
     TRAINER_PAL(KANTO_BROCK, gTrainerPalette_LeaderBrock),
     TRAINER_PAL(KANTO_MISTY, gTrainerPalette_LeaderMisty),

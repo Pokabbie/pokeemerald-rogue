@@ -230,33 +230,37 @@
 #define TRAINER_PIC_ROSA                  207
 #define TRAINER_PIC_CALEM                 208
 #define TRAINER_PIC_SERENA                209
+#define TRAINER_PIC_ELIO                  210
+#define TRAINER_PIC_SELENE                211
+#define TRAINER_PIC_VICTOR                212
+#define TRAINER_PIC_GLORIA                213
 
-#define TRAINER_PIC_RIVAL_BRENDAN         210
-#define TRAINER_PIC_RIVAL_MAY             211
-#define TRAINER_PIC_RIVAL_SILVER          212
-#define TRAINER_PIC_RIVAL_BARRY           213
-#define TRAINER_PIC_RIVAL_BIANCA          214
-#define TRAINER_PIC_RIVAL_CHEREN          215
-#define TRAINER_PIC_RIVAL_N               216
-#define TRAINER_PIC_RIVAL_HUGH            217
-#define TRAINER_PIC_RIVAL_SHAUNA          218
-#define TRAINER_PIC_RIVAL_TREVOR          219
-#define TRAINER_PIC_RIVAL_TIERNO          220
-#define TRAINER_PIC_RIVAL_HAU             221
-#define TRAINER_PIC_RIVAL_GLADION         222
-#define TRAINER_PIC_RIVAL_HOP             223
-#define TRAINER_PIC_RIVAL_MARNIE          224
-#define TRAINER_PIC_RIVAL_BEDE            225
+#define TRAINER_PIC_RIVAL_BRENDAN         214
+#define TRAINER_PIC_RIVAL_MAY             215
+#define TRAINER_PIC_RIVAL_SILVER          216
+#define TRAINER_PIC_RIVAL_BARRY           217
+#define TRAINER_PIC_RIVAL_BIANCA          218
+#define TRAINER_PIC_RIVAL_CHEREN          219
+#define TRAINER_PIC_RIVAL_N               220
+#define TRAINER_PIC_RIVAL_HUGH            221
+#define TRAINER_PIC_RIVAL_SHAUNA          222
+#define TRAINER_PIC_RIVAL_TREVOR          223
+#define TRAINER_PIC_RIVAL_TIERNO          224
+#define TRAINER_PIC_RIVAL_HAU             225
+#define TRAINER_PIC_RIVAL_GLADION         226
+#define TRAINER_PIC_RIVAL_HOP             227
+#define TRAINER_PIC_RIVAL_MARNIE          228
+#define TRAINER_PIC_RIVAL_BEDE            229
 
-#define TRAINER_PIC_POKABBIE              226
-#define TRAINER_PIC_POKABBIE_JUST_DITTO   227 // Just used for battle transition
-#define TRAINER_PIC_POKABBIE_AND_DITTO    228
-#define TRAINER_PIC_GLITCH_KATE           229
-#define TRAINER_PIC_GLITCH_TAILS          230
-#define TRAINER_PIC_GLITCH_ERMA           231
+#define TRAINER_PIC_POKABBIE              230
+#define TRAINER_PIC_POKABBIE_JUST_DITTO   231 // Just used for battle transition
+#define TRAINER_PIC_POKABBIE_AND_DITTO    232
+#define TRAINER_PIC_GLITCH_KATE           233
+#define TRAINER_PIC_GLITCH_TAILS          234
+#define TRAINER_PIC_GLITCH_ERMA           235
 #define TRAINER_PIC_GLITCH_RAVEN          TRAINER_PIC_POKEMON_BREEDER_F
 
-#define TRAINER_PIC_COMMUNITY_ZEFA        232
+#define TRAINER_PIC_COMMUNITY_ZEFA        236
 
 
 // Special cases
