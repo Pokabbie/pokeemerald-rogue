@@ -46,15 +46,15 @@
       "x": 6,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": 13
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 11
     },
     {
       "x": 7,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": 13
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 11
     }
   ],
   "coord_events": [

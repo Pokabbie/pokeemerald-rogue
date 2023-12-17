@@ -37,8 +37,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
-      "x": 27,
-      "y": 12,
+      "x": 18,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -50,7 +50,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MISC_BACKPACKER_F",
-      "x": 24,
+      "x": 11,
       "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -63,7 +63,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LINK_RECEPTIONIST",
-      "x": 12,
+      "x": 7,
       "y": 3,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -76,7 +76,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
-      "x": 10,
+      "x": 5,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -89,7 +89,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
-      "x": 14,
+      "x": 9,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -102,7 +102,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
-      "x": 9,
+      "x": 4,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -115,10 +115,23 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
-      "x": 15,
+      "x": 10,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MISC_KALOS_WORKER",
+      "x": 19,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -143,14 +156,14 @@
       "dest_warp_id": 0
     },
     {
-      "x": 39,
+      "x": 45,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": 0
     },
     {
-      "x": 39,
+      "x": 45,
       "y": 16,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
@@ -185,24 +198,31 @@
       "dest_warp_id": 0
     },
     {
-      "x": 4,
-      "y": 6,
+      "x": 15,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_RESTAURANT",
       "dest_warp_id": 0
     },
     {
-      "x": 34,
+      "x": 40,
       "y": 21,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_CAFE",
       "dest_warp_id": 0
     },
     {
-      "x": 7,
-      "y": 22,
+      "x": 10,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_SCHOOL",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 26,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
       "dest_warp_id": 0
     }
   ],

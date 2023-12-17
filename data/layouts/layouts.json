@@ -1574,8 +1574,8 @@
     {
       "id": "LAYOUT_ROGUE_AREA_LABS",
       "name": "Rogue_Area_Labs_Layout",
-      "width": 30,
-      "height": 24,
+      "width": 28,
+      "height": 14,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Area_Labs/border.bin",
@@ -1684,7 +1684,7 @@
     {
       "id": "LAYOUT_ROGUE_AREA_TOWN_SQUARE",
       "name": "Rogue_Area_TownSquare_Layout",
-      "width": 40,
+      "width": 46,
       "height": 30,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Slateport",
