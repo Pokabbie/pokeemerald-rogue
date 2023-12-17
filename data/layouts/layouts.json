@@ -1740,6 +1740,16 @@
       "secondary_tileset": "gTileset_EternaForest",
       "border_filepath": "data/layouts/Rogue_Route_Sinnoh_EternaForest/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_EternaForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_SINNOH_207",
+      "name": "Rogue_Route_Sinnoh_207_Layout",
+      "width": 62,
+      "height": 108,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/Rogue_Route_Sinnoh_207/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_207/map.bin"
     }
   ]
 }
