@@ -139,6 +139,11 @@ text gItemDesc_FairyPokeblock
     format("{POKEBLOCK} enjoyed by Fairy type {PKMN}.")
 }
 
+text gItemDesc_ShinyPokeblock
+{
+    format("{POKEBLOCK} enjoyed by most {PKMN}.")
+}
+
 text gItemDesc_StatPokeblock
 {
     format("{POKEBLOCK} used to bake treats for {PKMN}.")

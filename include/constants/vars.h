@@ -62,7 +62,7 @@
 #define VAR_ENIGMA_BERRY_AVAILABLE           0x402D
 #define VAR_WONDER_NEWS_COUNTER              0x402E
 
-#define VAR_UNUSED_0x402F                    0x402F
+#define VAR_ROGUE_ACTIVE_POKEBLOCK           0x402F
 #define VAR_UNUSED_0x4030                    0x4030
 #define VAR_ROGUE_SAFARI_BALL_TYPE           0x4031
 #define VAR_ROGUE_REGISTERED_RIDE_MON        0x4032

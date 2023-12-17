@@ -76,6 +76,8 @@ static void UseTMHMYesNo(u8);
 static void UseTMHM(u8);
 static void Task_StartUseRepel(u8);
 static void Task_UseRepel(u8);
+static void Task_StartUsePokeblock(u8);
+static void Task_UsePokeblock(u8);
 static void Task_CloseCantUseKeyItemMessage(u8);
 static void SetDistanceOfClosestHiddenItem(u8, s16, s16);
 static void CB2_OpenPokeblockFromBag(void);
@@ -111,6 +113,9 @@ static void SetUpItemUseCallback(u8 taskId)
         type = gTasks[taskId].tEnigmaBerryType - 1;
     else
         type = ItemId_GetType(gSpecialVar_ItemId) - 1;
+
+    AGB_ASSERT(type < ARRAY_COUNT(sItemUseCallbacks));
+
     if (!InBattlePyramid())
     {
         gBagMenu->newScreenCallback = sItemUseCallbacks[type];
@@ -1003,6 +1008,41 @@ static void Task_UseRepel(u8 taskId)
             DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
         else
             DisplayItemMessageInBattlePyramid(taskId, gStringVar4, Task_CloseBattlePyramidBagMessage);
+    }
+}
+
+extern const u8 gText_PokeblockHasNoEffect[];
+extern const u8 gText_PokeblockWouldHaveNoEffect[];
+extern const u8 gText_PokeblockAlreadyScattered[];
+
+static void ItemUseOnFieldCB_Pokeblock(u8 taskId)
+{
+    ScriptContext2_Enable();
+    ScriptContext1_SetupScript(Rogue_EventScript_UsePokeblockItem);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_Pokeblock(u8 taskId)
+{
+    u8 type = ItemId_GetSecondaryId(gSpecialVar_ItemId);
+    if(type == TYPE_NONE)
+    {
+        // Some pokeblock can't be scattered
+        DisplayItemMessage(taskId, FONT_NORMAL, gText_PokeblockHasNoEffect, CloseItemMessage);
+    }
+    else if(Rogue_CanRerollSingleWildSpecies())
+    {
+        // Scatter this pokeblock
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Pokeblock;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+    {
+        // Cannot scatter currently
+        if(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK) != 0)
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_PokeblockAlreadyScattered, CloseItemMessage);
+        else
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_PokeblockWouldHaveNoEffect, CloseItemMessage);
     }
 }
 

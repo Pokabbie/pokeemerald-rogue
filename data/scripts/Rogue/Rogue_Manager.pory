@@ -185,6 +185,29 @@ script Rogue_EventScript_ItemUseHealingFlask
     release
 }
 
+script Rogue_EventScript_UsePokeblockItem
+{
+    lock
+
+    bufferitemname(STR_VAR_1, VAR_ITEM_ID)
+    copyvar(VAR_ROGUE_ACTIVE_POKEBLOCK, VAR_ITEM_ID)
+
+    playse(SE_REPEL)
+    special(Rogue_ScatterPokeblockItem)
+    waitse
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("The {STR_VAR_1} was scattered…\pThe Pokémon seem to enjoy it!"))
+    }
+    else
+    {
+        msgbox(format("The {STR_VAR_1} was scattered…\pThe Pokémon don't seem interested in it…"))
+    }
+
+    release
+}
+
 script Rogue_EventScript_AttemptPostGymHeal
 {
     // Don't heal if we're in the healing flask mode

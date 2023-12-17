@@ -1087,3 +1087,17 @@ void Rogue_IsFinalQuestActive()
 {
     gSpecialVar_Result = Rogue_UseFinalQuestEffects() != 0;
 }
+
+void Rogue_ScatterPokeblockItem()
+{
+    if(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK) == ITEM_POKEBLOCK_SHINY)
+    {
+        // For the shiny pokeblock always scatter it
+        gSpecialVar_Result = TRUE;
+    }
+    else
+    {
+        u8 type = ItemId_GetSecondaryId(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK));
+        gSpecialVar_Result = Rogue_RerollSingleWildSpecies(type);
+    }
+}

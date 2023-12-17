@@ -22,6 +22,7 @@ void ItemUseOutOfBattle_PPUp(u8);
 void ItemUseOutOfBattle_RareCandy(u8);
 void ItemUseOutOfBattle_TMHM(u8);
 void ItemUseOutOfBattle_Repel(u8);
+void ItemUseOutOfBattle_Pokeblock(u8);
 void ItemUseOutOfBattle_EscapeRope(u8);
 void ItemUseOutOfBattle_BlackWhiteFlute(u8);
 void ItemUseOutOfBattle_EvolutionStone(u8);
