@@ -338,8 +338,12 @@ u8 Rogue_CalculateTrainerMonLvl()
 
     if(Rogue_GetCurrentDifficulty() == 0)
     {
-        startLvl = 5;
         playerLvl = max(5, Rogue_CalculateTrainerLvlCap(FALSE) / 2); // climb slowly for difficulty 1
+
+        if(playerLvl <= 7)
+            startLvl = 2;
+        else
+            startLvl = 5;
     }
     else
     {

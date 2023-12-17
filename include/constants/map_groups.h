@@ -94,6 +94,7 @@
 #define MAP_ROGUE_ROUTE_CHAOS0               (26 | (5 << 8))
 #define MAP_ROGUE_ROUTE_SINNOH_205           (27 | (5 << 8))
 #define MAP_ROGUE_ROUTE_SINNOH_ETERNA_FOREST (28 | (5 << 8))
+#define MAP_ROGUE_ROUTE_SINNOH_207           (29 | (5 << 8))
 
 // gMapGroup_RogueAdventureEncounters
 #define MAP_ROGUE_ENCOUNTER_REST_STOP (0 | (6 << 8))
