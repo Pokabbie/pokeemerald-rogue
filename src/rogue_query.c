@@ -295,7 +295,7 @@ void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8
     
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
-        if(Rogue_GetEvolutionCount(species) != 0 && GetQueryBitFlag(species))
+        if(Rogue_GetMaxEvolutionCount(species) != 0 && GetQueryBitFlag(species))
         {
             Query_ApplyEvolutions(species, levelLimit, includeItemEvos, !keepSourceSpecies);
         }

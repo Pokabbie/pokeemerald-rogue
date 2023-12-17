@@ -1561,12 +1561,18 @@ u16 Rogue_GetEggSpecies(u16 species)
 #endif
 }
 
-u8 Rogue_GetEvolutionCount(u16 species)
+u8 Rogue_GetMaxEvolutionCount(u16 species)
 {
 #ifdef ROGUE_BAKE_VALID
     return gRogueBake_EvolutionCount[species];
     
 #else
+    return Rogue_GetActiveEvolutionCount(species);
+#endif
+}
+
+u8 Rogue_GetActiveEvolutionCount(u16 species)
+{
     u16 s, e;
     struct Evolution evo;
 
@@ -1585,13 +1591,12 @@ u8 Rogue_GetEvolutionCount(u16 species)
         {
             if (s != SPECIES_NONE)
             {
-                return 1 + Rogue_GetEvolutionCount(s);
+                return 1 + Rogue_GetActiveEvolutionCount(s);
             }
         }
     }
 
     return 0;
-#endif
 }
 
 bool8 Rogue_DoesEvolveInto(u16 fromSpecies, u16 toSpecies)

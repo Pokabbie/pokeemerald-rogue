@@ -751,6 +751,9 @@ void Rogue_ChooseBossTrainersForNewAdventure()
     }
 }
 
+#define RIVAL_STARTER_INDEX 1
+#define RIVAL_BASE_PARTY_SIZE 5
+
 static u16 Rogue_ChooseRivalTrainerId()
 {
     u32 includeFlags;
@@ -776,6 +779,10 @@ static u8 SelectRivalWeakestMon(u16* speciesBuffer, u8 partySize)
 
     for(i = 0; i < partySize; ++i)
     {
+        // Never remove the starter
+        if(i == RIVAL_STARTER_INDEX)
+            continue;
+
         species = speciesBuffer[i];
         if(species != SPECIES_NONE)
         {
@@ -830,8 +837,6 @@ void Rogue_ChooseRivalTrainerForNewAdventure()
     gRogueRun.rivalEncounterDifficulties[3] = ROGUE_ELITE_START_DIFFICULTY - (RogueRandom() % 2);
 }
 
-#define RIVAL_BASE_PARTY_SIZE 5
-
 static void SortByBst(u16* speciesBuffer, u16 bufferSize)
 {
     u8 i, j;
@@ -847,6 +852,41 @@ static void SortByBst(u16* speciesBuffer, u16 bufferSize)
         {
             SWAP(speciesBuffer[j], speciesBuffer[j - 1], temp);
         }
+    }
+}
+
+static void SelectAndMoveStarterSpecies(u16 trainerNum, u16* speciesBuffer, u16 bufferSize)
+{
+    u8 i;
+    u16 score;
+    u16 highestScore = 0;
+    u8 highestIndex = RIVAL_STARTER_INDEX;
+    bool8 preferManualChoice = (RogueRandom() % 5) == 0;
+    
+    // Find the most desireable starter which is the mon with the highest BST and ideally 3 evos
+    // Then move it into the starter index (This is so it will appear all fights and that slot is exempt from being replaced for a later mon)
+    //
+    for(i = 0; i < bufferSize; ++i)
+    {
+        score = RoguePokedex_GetSpeciesBST(speciesBuffer[i]) + 1000 * Rogue_GetActiveEvolutionCount(speciesBuffer[i]);
+
+        // occassionally we're going to prefer our manually chosen ace/shiny mon (if we have it)
+        if(preferManualChoice && Rogue_IsValidTrainerShinySpecies(trainerNum, speciesBuffer[i]))
+        {
+            score = 30000;
+        }
+
+        if(score > highestScore)
+        {
+            highestIndex = i;
+            highestScore = score;
+        }
+    }
+
+    if(highestIndex != RIVAL_STARTER_INDEX)
+    {
+        u16 temp;
+        SWAP(speciesBuffer[RIVAL_STARTER_INDEX], speciesBuffer[highestIndex], temp);
     }
 }
 
@@ -886,6 +926,9 @@ void Rogue_GenerateRivalBaseTeamIfNeeded()
 
         // For just the base species we're going to sort based on BST so weakest mons appear first
         SortByBst(gRogueRun.rivalSpecies, RIVAL_BASE_PARTY_SIZE);
+
+        // Assign the starter to stick with the player throughout
+        SelectAndMoveStarterSpecies(gRogueRun.rivalTrainerNum, gRogueRun.rivalSpecies, RIVAL_BASE_PARTY_SIZE);
 
         // Zero mons to avoid conflicts if called during team generation
         ZeroEnemyPartyMons();
@@ -969,6 +1012,9 @@ void Rogue_GenerateRivalSwapTeamIfNeeded()
         // Restore difficulty
         Rogue_SetCurrentDifficulty(tempDifficulty);
         gRngRogueValue = savedRng;
+
+        // Sort new mons by BST so we save the strongest mons to the fianl fights
+        SortByBst(&gRogueRun.rivalSpecies[RIVAL_BASE_PARTY_SIZE], (ROGUE_RIVAL_TOTAL_MON_COUNT - RIVAL_BASE_PARTY_SIZE));
 
         // Zero mons to avoid conflicts if called during team generation
         ZeroEnemyPartyMons();

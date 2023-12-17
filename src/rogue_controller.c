@@ -2414,7 +2414,7 @@ static void GiveMonPartnerRibbon(void)
         {
             SetMonData(&gPlayerParty[i], MON_DATA_EFFORT_RIBBON, &ribbonSet);
 
-            if(Rogue_GetEvolutionCount(species) != 0 && !HasAnyActiveEvos(species))
+            if(Rogue_GetMaxEvolutionCount(species) != 0 && !HasAnyActiveEvos(species))
                 Rogue_PushPopup_UnableToEvolve(i);
         }
     }
