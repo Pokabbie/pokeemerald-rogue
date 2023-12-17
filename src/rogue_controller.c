@@ -164,6 +164,8 @@ static u16 GetWildEncounterIndexFor(u16 species);
 
 static void EnableRivalEncounterIfRequired();
 static bool8 ChooseLegendarysForNewAdventure();
+static void RememberPartyHeldItems();
+static void TryRestorePartyHeldItems(bool8 allowThief);
 
 static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party);
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party);
@@ -3757,6 +3759,9 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty, bool8 ca
             u32 hp = 0;
             SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
 
+            // Forget about re-equipping the held item
+            gRogueRun.partyHeldItems[slot] = ITEM_NONE;
+
             if(shiftUpwardsParty)
             {
                 RemoveAnyFaintedMons(keepItems, canSendToLab);
@@ -3893,6 +3898,7 @@ void Rogue_Battle_StartTrainerBattle(void)
         }
     }
 
+    RememberPartyHeldItems();
     RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_START);
 }
 
@@ -4104,6 +4110,7 @@ static void EnableRivalEncounterIfRequired()
 
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
+    TryRestorePartyHeldItems(FALSE);
     RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_END);
 
     if(Rogue_IsRunActive())
@@ -4190,8 +4197,10 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         }
     }
 }
+
 void Rogue_Battle_StartWildBattle(void)
 {
+    RememberPartyHeldItems();
     RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_START);
 }
 
@@ -4199,6 +4208,7 @@ void Rogue_Battle_EndWildBattle(void)
 {
     u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
 
+    TryRestorePartyHeldItems(TRUE);
     RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_END);
 
     if(DidCompleteWildChain(gBattleOutcome))
@@ -4307,6 +4317,73 @@ void Rogue_Safari_EndWildBattle(void)
     {
         u8 safariIndex = RogueSafari_GetPendingBattleMonIdx();
         RogueSafari_ClearSafariMonAtIdx(safariIndex);
+    }
+}
+
+static void RememberPartyHeldItems()
+{
+    if(Rogue_IsRunActive())
+    {
+        u8 i;
+
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            if(i >= gPlayerPartyCount)
+                gRogueRun.partyHeldItems[i] = ITEM_NONE; // account for if we catch a mon
+            else
+                gRogueRun.partyHeldItems[i] = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+        }
+    }
+}
+
+static void TryRestorePartyHeldItems(bool8 allowThief)
+{
+    if(Rogue_IsRunActive())
+    {
+        u8 i;
+        u32 item;
+        u16 successBerryIcon = ITEM_NONE;
+        u16 failBerryIcon = ITEM_NONE;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            item = gRogueRun.partyHeldItems[i];
+
+            // Ignore fainted mons
+            if(GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0)
+                continue;
+
+            // We're still holding the same item no need to continue
+            if(GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) == item)
+                continue;
+
+            if(item == ITEM_NONE)
+            {
+                // We previously weren't holding anything but if we're allowed to steal then don't stomp over current held item
+                if(allowThief)
+                    continue;
+            }
+
+            // Consume berries but attempt to auto re-equip from bag
+            if(item >= FIRST_BERRY_INDEX && item <= LAST_BERRY_INDEX)
+            {
+                if(RemoveBagItem(item, 1))
+                    successBerryIcon = item;
+                else
+                {
+                    failBerryIcon = item;
+                    item = ITEM_NONE;
+                }
+            }
+
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &item);
+        }
+
+        // Make a popup to indicate the berries have or haven't been requiped
+        if(failBerryIcon != ITEM_NONE)
+            Rogue_PushPopup_RequipBerryFail(failBerryIcon);
+        else if(successBerryIcon != ITEM_NONE)
+            Rogue_PushPopup_RequipBerrySuccess(successBerryIcon);
     }
 }
 

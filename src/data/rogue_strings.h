@@ -240,18 +240,24 @@ const u8 gText_Popup_BagFull[] = _("{COLOR LIGHT_RED}{SHADOW RED}Bag too full.")
 const u8 gText_Popup_SingleItem[] = _("{STR_VAR_1}");
 const u8 gText_Popup_MultipleItem[] = _("{STR_VAR_1} {COLOR LIGHT_GREEN}{SHADOW GREEN}x{STR_VAR_2}");
 
+const u8 gText_Popup_BerriesRequipSuccess[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Re-equipped");
+const u8 gText_Popup_BerriesRequipSuccessSubtitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Taken from Bag");
+
+const u8 gText_Popup_BerriesRequipFail[] = _("Re-equip Fail");
+const u8 gText_Popup_BerriesRequipFailSubtitle[] = _("{COLOR LIGHT_RED}{SHADOW RED}None in Bag");
+
 const u8 gPopupText_WeakLegendaryClause[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Basic Legendary");
 const u8 gPopupText_StrongLegendaryClause[] = _("{COLOR LIGHT_RED}{SHADOW RED}Strong Legendary");
 
 const u8 gPopupText_CampaignNoneScore[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Campaign Active!");
-const u8 gPopupText_CampaignHighScore[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Aim for High Score!");
+const u8 gPopupText_CampaignHighScore[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Aim for High Score!");
 const u8 gPopupText_CampaignLowScore[] = _("{COLOR RED}{SHADOW LIGHT_RED}Aim for Low Score!");
 
-const u8 gPopupText_SafariArea[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Safari Area");
+const u8 gPopupText_SafariArea[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Safari Area");
 
 const u8 gPopupText_StarterWarning[] = _("{COLOR LIGHT_RED}{SHADOW RED}Evos. Disabled");
 
-const u8 gPopupText_EncounterChain[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Encounter Chain");
+const u8 gPopupText_EncounterChain[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Encounter Chain");
 const u8 gPopupText_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RED}Chain Lost");
 
 const u8 gText_Popup_PokedexUnlock[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Recieved Pokedex!");

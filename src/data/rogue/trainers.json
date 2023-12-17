@@ -3206,7 +3206,7 @@
                 "gfx_suffix": "UNOVA_DRAYDEN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "_8" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_8" ],
                 "shiny_species": "SPECIES_DRUDDIGON",
                 "encounter_text":
                 [

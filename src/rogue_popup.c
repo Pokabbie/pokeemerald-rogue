@@ -146,6 +146,11 @@ extern const u8 gText_Popup_BagFull[];
 extern const u8 gText_Popup_SingleItem[];
 extern const u8 gText_Popup_MultipleItem[];
 
+extern const u8 gText_Popup_BerriesRequipSuccess[];
+extern const u8 gText_Popup_BerriesRequipSuccessSubtitle[];
+extern const u8 gText_Popup_BerriesRequipFail[];
+extern const u8 gText_Popup_BerriesRequipFailSubtitle[];
+
 extern const u8 gPopupText_CampaignNoneScore[];
 extern const u8 gPopupText_CampaignHighScore[];
 extern const u8 gPopupText_CampaignLowScore[];
@@ -1088,6 +1093,29 @@ void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount)
 
     popup->expandTextData[1] = amount;
     popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_RequipBerrySuccess(u16 itemId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = itemId;
+
+    popup->titleText = gText_Popup_BerriesRequipSuccess;
+    popup->subtitleText = gText_Popup_BerriesRequipSuccessSubtitle;
+}
+
+void Rogue_PushPopup_RequipBerryFail(u16 itemId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = itemId;
+    popup->soundEffect = SE_NOT_EFFECTIVE;
+
+    popup->titleText = gText_Popup_BerriesRequipFail;
+    popup->subtitleText = gText_Popup_BerriesRequipFailSubtitle;
 }
 
 void Rogue_PushPopup_TriggerExtraLife()
