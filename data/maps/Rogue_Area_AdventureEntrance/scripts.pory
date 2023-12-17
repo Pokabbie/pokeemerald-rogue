@@ -190,7 +190,6 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
 script Rogue_ResetAdventureVars
 {
     clearflag(FLAG_ROGUE_GAUNTLET_MODE)
-    clearflag(FLAG_ROGUE_RAINBOW_MODE)
     
     setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
 }

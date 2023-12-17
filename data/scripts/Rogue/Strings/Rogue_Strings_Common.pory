@@ -39,3 +39,18 @@ text gPlaceholder_Trainer_PostBattleCloser
 {
     format("TRAINER-STRING-POST-BATTLE-CLOSER")
 }
+
+text gText_PokeblockHasNoEffect
+{
+    format("This {POKEBLOCK} has no effect.{PAUSE_UNTIL_PRESS}")
+}
+
+text gText_PokeblockWouldHaveNoEffect
+{
+    format("{POKEBLOCK} would have no effect, if scatted here.{PAUSE_UNTIL_PRESS}")
+}
+
+text gText_PokeblockAlreadyScattered
+{
+    format("{POKEBLOCK} has already been scattered here.{PAUSE_UNTIL_PRESS}")
+}

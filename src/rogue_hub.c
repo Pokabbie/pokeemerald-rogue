@@ -74,11 +74,12 @@ void RogueHub_ClearProgress()
     memset(&gRogueSaveBlock->hubMap, 0, sizeof(gRogueSaveBlock->hubMap));
 
     // Build default area at 0,0
-    RogueHub_BuildArea(HUB_AREA_LABS, 0, 0);
+    RogueHub_BuildArea(HUB_AREA_TOWN_SQUARE, 0, 0);
 
-    // Place adventure entrance & safari randomly
-    BuildAtRandomConnectionFrom(HUB_AREA_LABS, HUB_AREA_ADVENTURE_ENTRANCE);
+    // Place required areas randomly (Order matters)
+    BuildAtRandomConnectionFrom(HUB_AREA_TOWN_SQUARE, HUB_AREA_ADVENTURE_ENTRANCE);
     BuildAtRandomConnectionFrom(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_SAFARI_ZONE);
+    BuildAtRandomConnectionFrom(HUB_AREA_TOWN_SQUARE, HUB_AREA_LABS);
 }
 
 bool8 RogueHub_HasUpgrade(u16 upgradeId)
@@ -442,24 +443,24 @@ static void RogueHub_UpdateLabsAreaMetatiles()
     // Remove connectionss
     if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(17, 0, 22, 0, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(17, 1, 22, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(12, 0, 15, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(12, 1, 15, TREE_TYPE_DENSE);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(28, 11);
+        MetatileFill_CommonWarpExitHorizontal(26, 7);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitVertical(18, 22);
-        MetatileFill_TreeCaps(18, 23, 21);
+        MetatileFill_CommonWarpExitVertical(12, 12);
+        MetatileFill_TreeCaps(12, 13, 15);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(0, 17);
+        MetatileFill_CommonWarpExitHorizontal(0, 7);
     }
 }
 
@@ -695,13 +696,13 @@ static void RogueHub_UpdateTownSquareAreaMetatiles()
     // Remove connectionss
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(19, 0, 24, 0, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(19, 1, 24, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(20, 0, 23, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(20, 1, 23, TREE_TYPE_DENSE);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(38, 13);
+        MetatileFill_CommonWarpExitHorizontal(44, 13);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
@@ -914,7 +915,7 @@ void RogueHub_SetRandomFollowMonsFromPC()
 
 static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea)
 {
-    do
+    while (TRUE)
     {
         u8 dir = Random() % HUB_AREA_CONN_COUNT;
         u8 invDir = InvertConnDirection(dir);
@@ -926,8 +927,20 @@ static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea)
             pos.y = GetActiveHubMap()->areaCoords[fromArea].y;
             IncrementCoordsByDirection(&pos, dir);
 
+            // We cannot place the lab next to the safari as it will bork up the tutorial sequence
+            if(buildArea == HUB_AREA_LABS)
+            {
+                if(
+                    RogueHub_FindAreaAtCoord(pos.x + 1, pos.y) == HUB_AREA_SAFARI_ZONE ||
+                    RogueHub_FindAreaAtCoord(pos.x - 1, pos.y) == HUB_AREA_SAFARI_ZONE ||
+                    RogueHub_FindAreaAtCoord(pos.x, pos.y + 1) == HUB_AREA_SAFARI_ZONE ||
+                    RogueHub_FindAreaAtCoord(pos.x, pos.y - 1) == HUB_AREA_SAFARI_ZONE
+                )
+                    continue;
+            }
+
             RogueHub_BuildArea(buildArea, pos.x, pos.y);
             break;
         }
-    } while (TRUE);
+    }
 }

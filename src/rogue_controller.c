@@ -201,7 +201,12 @@ bool8 RogueRandomChance(u8 chance, u16 seedFlag)
 
 u16 Rogue_GetShinyOdds(void)
 {
-    return 512;
+    u16 baseOdds = 512;
+    
+    if(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK) == ITEM_POKEBLOCK_SHINY)
+        baseOdds /= 2;
+
+    return baseOdds;
 }
 
 static u16 GetEncounterChainShinyOdds(u8 count)
@@ -2414,7 +2419,7 @@ static void GiveMonPartnerRibbon(void)
         {
             SetMonData(&gPlayerParty[i], MON_DATA_EFFORT_RIBBON, &ribbonSet);
 
-            if(Rogue_GetEvolutionCount(species) != 0 && !HasAnyActiveEvos(species))
+            if(Rogue_GetMaxEvolutionCount(species) != 0 && !HasAnyActiveEvos(species))
                 Rogue_PushPopup_UnableToEvolve(i);
         }
     }
@@ -3263,6 +3268,7 @@ void Rogue_OnWarpIntoMap(void)
     u8 difficultyLevel;
     gRogueAdvPath.isOverviewActive = FALSE;
 
+    VarSet(VAR_ROGUE_ACTIVE_POKEBLOCK, ITEM_NONE);
     FlagSet(FLAG_ROGUE_REWARD_ITEM_MART_DISABLED);
     FlagSet(FLAG_ROGUE_RARE_ITEM_MART_DISABLED);
 
@@ -5657,7 +5663,7 @@ static u8 RandomiseWildEncounters_CalculateInitialWeight(u16 index, u16 species,
         return 0;
 }
 
-static void RandomiseWildEncounters(void)
+static void BeginWildEncounterQuery()
 {
     u8 maxlevel = CalculateWildLevel(0);
     u32 typeFlags;
@@ -5680,7 +5686,16 @@ static void RandomiseWildEncounters(void)
 
     // Now we've evolved we're only caring about mons of this type
     RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
+}
 
+static void EndWildEncounterQuery()
+{
+    RogueMonQuery_End();
+}
+
+static void RandomiseWildEncounters(void)
+{
+    BeginWildEncounterQuery();
     {
         u8 i;
         u8 typeHint = Rogue_GetTypeForHintForRoom(&gRogueAdvPath.rooms[gRogueRun.adventureRoomId]);
@@ -5721,8 +5736,47 @@ static void RandomiseWildEncounters(void)
 
         RogueWeightQuery_End();
     }
+    EndWildEncounterQuery();
+}
 
-    RogueMonQuery_End();
+bool8 Rogue_CanRerollSingleWildSpecies()
+{
+    if(Rogue_IsRunActive())
+        return VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK) == ITEM_NONE && GetCurrentWildEncounterCount() > 0;
+    else
+        return FALSE;
+}
+
+bool8 Rogue_RerollSingleWildSpecies(u8 type)
+{
+    bool8 success = FALSE;
+
+    BeginWildEncounterQuery();
+    RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, MON_TYPE_VAL_TO_FLAGS(type));
+
+    {
+        RogueWeightQuery_Begin();
+        RogueWeightQuery_FillWeights(1);
+
+        if(RogueWeightQuery_HasAnyWeights())
+        {
+            u16 species = RogueWeightQuery_SelectRandomFromWeights(Random());
+            u8 index = Random() % GetCurrentWildEncounterCount();
+
+            gRogueRun.wildEncounters.species[index] = species;
+            success = TRUE;
+        }
+        else
+        {
+            success = FALSE;
+        }
+
+        RogueWeightQuery_End();
+    }
+
+    EndWildEncounterQuery();
+
+    return success;
 }
 
 static u8 RandomiseFishingEncounters_CalculateWeight(u16 index, u16 species, void* data)

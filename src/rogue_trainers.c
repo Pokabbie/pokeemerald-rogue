@@ -538,7 +538,7 @@ static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
 #endif
 
     // TODO - Rework this flag
-    if(FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+    if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER) == TRAINER_ORDER_RAINBOW)
         *excludeFlags |= TRAINER_FLAG_MISC_RAINBOW_EXCLUDE;
     else
         *excludeFlags |= TRAINER_FLAG_MISC_RAINBOW_ONLY;
@@ -613,19 +613,87 @@ static u16 Rogue_ChooseTrainerId(u32 includeFlags, u32 excludeFlags, u16* histor
 
 static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 historyBufferCapacity)
 {
-    u32 includeFlags;
-    u32 excludeFlags;
+    u32 includeFlags = 0;
+    u32 excludeFlags = 0;
 
-    // Only include trainers we want
-    includeFlags = TRAINER_FLAG_NONE;
-    if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
-        includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
-    else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
-        includeFlags |= TRAINER_FLAG_CLASS_ELITE;
-    else
-        includeFlags |= TRAINER_FLAG_CLASS_GYM;
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER))
+    {
+    case TRAINER_ORDER_DEFAULT:
+        {
+            // Only include trainers we want
+            includeFlags = TRAINER_FLAG_NONE;
+            if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+                includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
+            else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
+                includeFlags |= TRAINER_FLAG_CLASS_ANY_ELITE;
+            else
+                includeFlags |= TRAINER_FLAG_CLASS_ANY_GYM;
+        }
+        break;
+    
+    case TRAINER_ORDER_RAINBOW:
+        includeFlags = TRAINER_FLAG_CLASS_ANY_MAIN_BOSS;
+        break;
+    
+    case TRAINER_ORDER_OFFICIAL:
+        {
+            switch (difficulty)
+            {
+            case ROGUE_GYM_START_DIFFICULTY + 0:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_1;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 1:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_2;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 2:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_3;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 3:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_4;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 4:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_5;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 5:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_6;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 6:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_7;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 7:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_8;
+                break;
 
-    excludeFlags = 0;
+            case ROGUE_ELITE_START_DIFFICULTY + 0:
+                includeFlags |= TRAINER_FLAG_CLASS_ELITE_1;
+                break;
+            case ROGUE_ELITE_START_DIFFICULTY + 1:
+                includeFlags |= TRAINER_FLAG_CLASS_ELITE_2;
+                break;
+            case ROGUE_ELITE_START_DIFFICULTY + 2:
+                includeFlags |= TRAINER_FLAG_CLASS_ELITE_3;
+                break;
+            case ROGUE_ELITE_START_DIFFICULTY + 3:
+                includeFlags |= TRAINER_FLAG_CLASS_ELITE_4;
+                break;
+
+            case ROGUE_CHAMP_START_DIFFICULTY + 0:
+            case ROGUE_CHAMP_START_DIFFICULTY + 1:
+                includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
+                break;
+
+            default:
+                AGB_ASSERT(FALSE);
+                break;
+            }
+        }
+        break;
+
+    default:
+        AGB_ASSERT(FALSE);
+        includeFlags = TRAINER_FLAG_CLASS_ANY_MAIN_BOSS;
+        break;
+    }
 
     return Rogue_ChooseTrainerId(includeFlags, excludeFlags, historyBuffer, historyBufferCapacity);
 }
@@ -664,7 +732,7 @@ void Rogue_ChooseBossTrainersForNewAdventure()
         {
             // Clear the history buffer, as we track based on types
             // In rainbow mode, the type can only appear once though
-            if(!FlagGet(FLAG_ROGUE_RAINBOW_MODE))
+            if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER) != TRAINER_ORDER_RAINBOW)
             {
                 switch(difficulty)
                 {
@@ -682,6 +750,9 @@ void Rogue_ChooseBossTrainersForNewAdventure()
         DebugPrintf("    [%d] = %d", difficulty, trainerNum);
     }
 }
+
+#define RIVAL_STARTER_INDEX 1
+#define RIVAL_BASE_PARTY_SIZE 5
 
 static u16 Rogue_ChooseRivalTrainerId()
 {
@@ -708,6 +779,10 @@ static u8 SelectRivalWeakestMon(u16* speciesBuffer, u8 partySize)
 
     for(i = 0; i < partySize; ++i)
     {
+        // Never remove the starter
+        if(i == RIVAL_STARTER_INDEX)
+            continue;
+
         species = speciesBuffer[i];
         if(species != SPECIES_NONE)
         {
@@ -762,8 +837,6 @@ void Rogue_ChooseRivalTrainerForNewAdventure()
     gRogueRun.rivalEncounterDifficulties[3] = ROGUE_ELITE_START_DIFFICULTY - (RogueRandom() % 2);
 }
 
-#define RIVAL_BASE_PARTY_SIZE 5
-
 static void SortByBst(u16* speciesBuffer, u16 bufferSize)
 {
     u8 i, j;
@@ -779,6 +852,41 @@ static void SortByBst(u16* speciesBuffer, u16 bufferSize)
         {
             SWAP(speciesBuffer[j], speciesBuffer[j - 1], temp);
         }
+    }
+}
+
+static void SelectAndMoveStarterSpecies(u16 trainerNum, u16* speciesBuffer, u16 bufferSize)
+{
+    u8 i;
+    u16 score;
+    u16 highestScore = 0;
+    u8 highestIndex = RIVAL_STARTER_INDEX;
+    bool8 preferManualChoice = (RogueRandom() % 5) == 0;
+    
+    // Find the most desireable starter which is the mon with the highest BST and ideally 3 evos
+    // Then move it into the starter index (This is so it will appear all fights and that slot is exempt from being replaced for a later mon)
+    //
+    for(i = 0; i < bufferSize; ++i)
+    {
+        score = RoguePokedex_GetSpeciesBST(speciesBuffer[i]) + 1000 * Rogue_GetActiveEvolutionCount(speciesBuffer[i]);
+
+        // occassionally we're going to prefer our manually chosen ace/shiny mon (if we have it)
+        if(preferManualChoice && Rogue_IsValidTrainerShinySpecies(trainerNum, speciesBuffer[i]))
+        {
+            score = 30000;
+        }
+
+        if(score > highestScore)
+        {
+            highestIndex = i;
+            highestScore = score;
+        }
+    }
+
+    if(highestIndex != RIVAL_STARTER_INDEX)
+    {
+        u16 temp;
+        SWAP(speciesBuffer[RIVAL_STARTER_INDEX], speciesBuffer[highestIndex], temp);
     }
 }
 
@@ -818,6 +926,9 @@ void Rogue_GenerateRivalBaseTeamIfNeeded()
 
         // For just the base species we're going to sort based on BST so weakest mons appear first
         SortByBst(gRogueRun.rivalSpecies, RIVAL_BASE_PARTY_SIZE);
+
+        // Assign the starter to stick with the player throughout
+        SelectAndMoveStarterSpecies(gRogueRun.rivalTrainerNum, gRogueRun.rivalSpecies, RIVAL_BASE_PARTY_SIZE);
 
         // Zero mons to avoid conflicts if called during team generation
         ZeroEnemyPartyMons();
@@ -901,6 +1012,9 @@ void Rogue_GenerateRivalSwapTeamIfNeeded()
         // Restore difficulty
         Rogue_SetCurrentDifficulty(tempDifficulty);
         gRngRogueValue = savedRng;
+
+        // Sort new mons by BST so we save the strongest mons to the fianl fights
+        SortByBst(&gRogueRun.rivalSpecies[RIVAL_BASE_PARTY_SIZE], (ROGUE_RIVAL_TOTAL_MON_COUNT - RIVAL_BASE_PARTY_SIZE));
 
         // Zero mons to avoid conflicts if called during team generation
         ZeroEnemyPartyMons();

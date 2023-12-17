@@ -2,7 +2,7 @@ const FLAG_HIDE_BIRCH = FLAG_TEMP_1
 
 const VAR_RETURN_STATE = VAR_TEMP_0
 
-const OBJ_EVENT_BIRCH = 4
+const OBJ_EVENT_BIRCH = 2
 
 mapscripts Rogue_Area_Labs_MapScripts 
 {
@@ -17,7 +17,7 @@ script Rogue_Area_Labs_OnMapLoad
 {
     if(flag(FLAG_ROGUE_DEBUG_DISABLED))
     {
-        fillmetatile(10, 17, 11, 17, METATILE_GeneralHub_Grass, FALSE)
+        fillmetatile(22, 6, 23, 6, METATILE_GeneralHub_Grass, FALSE)
     }
 
     if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_SPAWN)
@@ -53,14 +53,15 @@ script Rogue_Area_Labs_StartGame
     applymovement(OBJ_EVENT_BIRCH, BirchStartGame1)
     waitmovement(0)
 
-    opendoor(8, 8)
+    opendoor(7, 6)
     waitdooranim
 
     applymovement(OBJ_EVENT_BIRCH, BirchStartGame2)
     waitmovement(0)
     hideobjectat(OBJ_EVENT_BIRCH, MAP_ROGUE_AREA_LABS)
+    setflag(FLAG_HIDE_BIRCH)
 
-    closedoor(8, 8)
+    closedoor(7, 6)
     waitdooranim
 
     addvar(VAR_ROGUE_INTRO_STATE, 1)
@@ -80,7 +81,7 @@ movement PlayerStartGame0
 movement BirchStartGame1
 {
     walk_left
-    walk_up * 3
+    walk_up * 2
 }
 
 movement BirchStartGame2

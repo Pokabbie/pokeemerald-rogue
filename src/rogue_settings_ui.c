@@ -25,6 +25,7 @@
 #include "rogue_settings.h"
 
 extern const u8 gText_16Spaces[];
+extern const u8 gText_32Spaces[];
 extern const u8 gText_DifficultySettings[];
 extern const u8 gText_DifficultyArrowLeft[];
 extern const u8 gText_DifficultyArrowRight[];
@@ -82,9 +83,14 @@ static u8 const sMenuName_AdventureSubmenu[] = _("ADVENTURE");
 static u8 const sMenuName_TrainersSubmenu[] = _("TRAINERS");
 
 static u8 const sMenuName_BattleFormat[] = _("BATTLE FORMAT");
-static u8 const sMenuName_BattleFormatSingles[] = _("SINGLES");
-static u8 const sMenuName_BattleFormatDoubles[] = _("DOUBLES");
-static u8 const sMenuName_BattleFormatMixed[] = _("MIXED");
+static u8 const sMenuName_BattleFormatSingles[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}SINGLES");
+static u8 const sMenuName_BattleFormatDoubles[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}DOUBLES");
+static u8 const sMenuName_BattleFormatMixed[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}MIXED");
+
+static u8 const sMenuName_TrainerOrder[] = _("TRAINER ORDER");
+static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}DEFAULT");
+static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}RAINBOW");
+static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}OFFICIAL");
 
 static u8 const sMenuName_TrainerRogue[] = _("ROGUE");
 static u8 const sMenuName_TrainerKanto[] = _("KANTO");
@@ -98,61 +104,83 @@ static u8 const sMenuName_TrainerAlola[] = _("ALOLA");
 static u8 const sMenuName_TrainerGalar[] = _("GALAR");
 #endif
 
-const u8 sMenuNameDesc_TrainersSubmenu[] = _(
+static u8 const sMenuNameDesc_TrainersSubmenu[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Edit which trainers you will encounter in\n"
     "adventures to your liking."
 );
 
-const u8 sMenuNameDesc_BattleFormat[] = _(
+static u8 const sMenuNameDesc_BattleFormat[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Controls if battles are 1v1, 2v2 or\n"
     "a random mix of both."
 );
 
-const u8 sMenuNameDesc_Rogue[] = _(
+static u8 const sMenuNameDesc_TrainerOrder_Default[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Strong Trainers appear in a random order\n"
+    "within their official Trainer Class.\n"
+);
+static u8 const sMenuNameDesc_TrainerOrder_Rainbow[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Strong Trainers appear in a random order.\n"
+    "(Type specialties won't repeat)\n"
+);
+static u8 const sMenuNameDesc_TrainerOrder_Official[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Strong Trainers appear in the order\n"
+    "they appear in their official games.\n"
+);
+static u8 const* const sMenuNameDesc_TrainerOrder[] = 
+{
+    [TRAINER_ORDER_DEFAULT] = sMenuNameDesc_TrainerOrder_Default,
+    [TRAINER_ORDER_RAINBOW] = sMenuNameDesc_TrainerOrder_Rainbow,
+    [TRAINER_ORDER_OFFICIAL] = sMenuNameDesc_TrainerOrder_Official,
+};
+
+static u8 const sMenuNameDesc_Rogue[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the…\n"
     "ROGUE region?\n"
 );
 
-const u8 sMenuNameDesc_Kanto[] = _(
+static u8 const sMenuNameDesc_Kanto[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the KANTO region.\n"
 );
 
-const u8 sMenuNameDesc_Johto[] = _(
+static u8 const sMenuNameDesc_Johto[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the JOHTO region.\n"
 );
 
-const u8 sMenuNameDesc_Hoenn[] = _(
+static u8 const sMenuNameDesc_Hoenn[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the HOENN region.\n"
 );
 
 #ifdef ROGUE_EXPANSION
-const u8 sMenuNameDesc_Sinnoh[] = _(
+static u8 const sMenuNameDesc_Sinnoh[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the SINNOH region.\n"
 );
 
-const u8 sMenuNameDesc_Unova[] = _(
+static u8 const sMenuNameDesc_Unova[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the UNOVA region.\n"
 );
 
-const u8 sMenuNameDesc_Kalos[] = _(
+static u8 const sMenuNameDesc_Kalos[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the KALOS region.\n"
 );
 
-const u8 sMenuNameDesc_Alola[] = _(
+static u8 const sMenuNameDesc_Alola[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the ALOLA region.\n"
 );
 
-const u8 sMenuNameDesc_Galar[] = _(
+static u8 const sMenuNameDesc_Galar[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the GALAR region.\n"
 );
@@ -207,6 +235,7 @@ enum
     MENUITEM_MENU_SLIDER_ITEM,
     MENUITEM_MENU_SLIDER_LEGENDARY,
     MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
+    MENUITEM_MENU_SLIDER_TRAINER_ORDER,
 
 #ifdef ROGUE_DEBUG
     MENUITEM_MENU_DEBUG_SUBMENU,
@@ -273,6 +302,8 @@ static u8 Empty_ProcessInput(u8 menuOffset, u8 selection);
 static void Empty_DrawChoices(u8 menuOffset, u8 selection);
 static u8 BattleFormat_ProcessInput(u8 menuOffset, u8 selection);
 static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection);
+static u8 TrainerOrder_ProcessInput(u8 menuOffset, u8 selection);
+static void TrainerOrder_DrawChoices(u8 menuOffset, u8 selection);
 
 #ifdef ROGUE_DEBUG
 static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection);
@@ -294,10 +325,12 @@ typedef void (*MenuItemDrawCallback)(u8, u8);
 
 struct MenuEntry
 {
-    const u8 * itemName;
-    const u8 * itemDesc;
+    const u8* itemName;
+    const u8* singleDesc;
+    const u8* const* multiDesc;
     MenuItemInputCallback processInput;
     MenuItemDrawCallback drawChoices;
+    u8 descCount;
 };
 
 struct MenuEntries
@@ -305,12 +338,15 @@ struct MenuEntries
     const u8 menuOptions[MAX_MENUITEM_COUNT];
 };
 
+#define SINGLE_DESC(text) singleDesc=text, .descCount=1
+#define MULTI_DESC(text) multiDesc=text, .descCount=ARRAY_COUNT(text)
+
 static const struct MenuEntry sOptionMenuItems[] =
 {
     [MENUITEM_DIFFICULTY_PRESET] = 
     {
         .itemName = gText_DifficultyPreset,
-        .itemDesc = gText_DifficultyPresetDesc,
+        .SINGLE_DESC(gText_DifficultyPresetDesc),
         .processInput = Slider_ProcessInput,
         .drawChoices = Slider_DrawChoices
     },
@@ -318,21 +354,21 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_DIFFICULTY_SUBMENU] = 
     {
         .itemName = sMenuName_DifficultySubmenu,
-        .itemDesc = gText_DifficultyCustomDesc,
+        .SINGLE_DESC(gText_DifficultyCustomDesc),
         .processInput = Empty_ProcessInput,
         .drawChoices = ArrowRight_DrawChoices
     },
     [MENUITEM_MENU_ADVENTURE_SUBMENU] = 
     {
         .itemName = sMenuName_AdventureSubmenu,
-        .itemDesc = gText_AdventureCustomDesc,
+        .SINGLE_DESC(gText_AdventureCustomDesc),
         .processInput = Empty_ProcessInput,
         .drawChoices = ArrowRight_DrawChoices
     },
     [MENUITEM_MENU_TRAINERS_SUBMENU] = 
     {
         .itemName = sMenuName_TrainersSubmenu,
-        .itemDesc = sMenuNameDesc_TrainersSubmenu,
+        .SINGLE_DESC(sMenuNameDesc_TrainersSubmenu),
         .processInput = Empty_ProcessInput,
         .drawChoices = ArrowRight_DrawChoices
     },
@@ -340,42 +376,42 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_TOGGLE_EXP_ALL] = 
     {
         .itemName = gText_DifficultyExpAll,
-        .itemDesc = gText_DifficultyExpAllDesc,
+        .SINGLE_DESC(gText_DifficultyExpAllDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_OVER_LVL] = 
     {
         .itemName = gText_DifficultyOverLvl,
-        .itemDesc = gText_DifficultyOverLvlDesc,
+        .SINGLE_DESC(gText_DifficultyOverLvlDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_EV_GAIN] = 
     {
         .itemName = gText_DifficultyEVGain,
-        .itemDesc = gText_DifficultyEVGainDesc,
+        .SINGLE_DESC(gText_DifficultyEVGainDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_OVERWORLD_MONS] = 
     {
         .itemName = gText_DifficultyOverworldMons,
-        .itemDesc = gText_DifficultyOverworldMonsDesc,
+        .SINGLE_DESC(gText_DifficultyOverworldMonsDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_BAG_WIPE] = 
     {
         .itemName = gText_DifficultyBagWipe,
-        .itemDesc = gText_DifficultyBagWipeDesc,
+        .SINGLE_DESC(gText_DifficultyBagWipeDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_SWITCH_MODE] = 
     {
         .itemName = gText_DifficultySwitchMode,
-        .itemDesc = gText_DifficultySwitchModeDesc,
+        .SINGLE_DESC(gText_DifficultySwitchModeDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
@@ -385,28 +421,28 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_TOGGLE_TRAINER_ROGUE] = 
     {
         .itemName = sMenuName_TrainerRogue,
-        .itemDesc = sMenuNameDesc_Rogue,
+        .SINGLE_DESC(sMenuNameDesc_Rogue),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_TRAINER_KANTO] = 
     {
         .itemName = sMenuName_TrainerKanto,
-        .itemDesc = sMenuNameDesc_Kanto,
+        .SINGLE_DESC(sMenuNameDesc_Kanto),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_TRAINER_JOHTO] = 
     {
         .itemName = sMenuName_TrainerJohto,
-        .itemDesc = sMenuNameDesc_Johto,
+        .SINGLE_DESC(sMenuNameDesc_Johto),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_TRAINER_HOENN] = 
     {
         .itemName = sMenuName_TrainerHoenn,
-        .itemDesc = sMenuNameDesc_Hoenn,
+        .SINGLE_DESC(sMenuNameDesc_Hoenn),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
@@ -414,35 +450,35 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_TOGGLE_TRAINER_SINNOH] = 
     {
         .itemName = sMenuName_TrainerSinnoh,
-        .itemDesc = sMenuNameDesc_Sinnoh,
+        .SINGLE_DESC(sMenuNameDesc_Sinnoh),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_TRAINER_UNOVA] = 
     {
         .itemName = sMenuName_TrainerUnova,
-        .itemDesc = sMenuNameDesc_Unova,
+        .SINGLE_DESC(sMenuNameDesc_Unova),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_TRAINER_KALOS] = 
     {
         .itemName = sMenuName_TrainerKalos,
-        .itemDesc = sMenuNameDesc_Kalos,
+        .SINGLE_DESC(sMenuNameDesc_Kalos),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_TRAINER_ALOLA] = 
     {
         .itemName = sMenuName_TrainerAlola,
-        .itemDesc = sMenuNameDesc_Alola,
+        .SINGLE_DESC(sMenuNameDesc_Alola),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_TRAINER_GALAR] = 
     {
         .itemName = sMenuName_TrainerGalar,
-        .itemDesc = sMenuNameDesc_Galar,
+        .SINGLE_DESC(sMenuNameDesc_Galar),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
@@ -451,37 +487,43 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_SLIDER_TRAINER] = 
     {
         .itemName = gText_DifficultyTrainers,
-        .itemDesc = gText_DifficultyTrainersDesc,
+        .SINGLE_DESC(gText_DifficultyTrainersDesc),
         .processInput = Slider_ProcessInput,
         .drawChoices = Slider_DrawChoices
     },
     [MENUITEM_MENU_SLIDER_ITEM] = 
     {
         .itemName = gText_DifficultyItems,
-        .itemDesc = gText_DifficultyItemsDesc,
+        .SINGLE_DESC(gText_DifficultyItemsDesc),
         .processInput = Slider_ProcessInput,
         .drawChoices = Slider_DrawChoices
     },
     [MENUITEM_MENU_SLIDER_LEGENDARY] = 
     {
         .itemName = gText_DifficultyLegendaries,
-        .itemDesc = gText_DifficultyLegendariesDesc,
+        .SINGLE_DESC(gText_DifficultyLegendariesDesc),
         .processInput = Slider_ProcessInput,
         .drawChoices = Slider_DrawChoices
     },
     [MENUITEM_MENU_SLIDER_BATTLE_FORMAT] = 
     {
         .itemName = sMenuName_BattleFormat,
-        .itemDesc = sMenuNameDesc_BattleFormat,
+        .SINGLE_DESC(sMenuNameDesc_BattleFormat),
         .processInput = BattleFormat_ProcessInput,
         .drawChoices = BattleFormat_DrawChoices
+    },
+    [MENUITEM_MENU_SLIDER_TRAINER_ORDER] = 
+    {
+        .itemName = sMenuName_TrainerOrder,
+        .MULTI_DESC(sMenuNameDesc_TrainerOrder),
+        .processInput = TrainerOrder_ProcessInput,
+        .drawChoices = TrainerOrder_DrawChoices
     },
 
 #ifdef ROGUE_DEBUG
     [MENUITEM_MENU_DEBUG_SUBMENU] = 
     {
         .itemName = sMenuName_Debug,
-        .itemDesc = gText_EmptyString2,
         .processInput = Empty_ProcessInput,
         .drawChoices = ArrowRight_DrawChoices
     },
@@ -489,56 +531,48 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL] = 
     {
         .itemName = sMenuName_DebugToggleInfoPanel,
-        .itemDesc = gText_EmptyString2,
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
     [MENUITEM_MENU_DEBUG_TOGGLE_STEAL_TEAM] = 
     {
         .itemName = sMenuName_DebugToggleStealTeam,
-        .itemDesc = gText_EmptyString2,
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
     [MENUITEM_MENU_DEBUG_TOGGLE_TRAINER_LVL_5] = 
     {
         .itemName = sMenuName_DebugToggleLvl5,
-        .itemDesc = gText_EmptyString2,
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
     [MENUITEM_MENU_DEBUG_TOGGLE_ALLOW_SAVE_SCUM] = 
     {
         .itemName = sMenuName_DebugToggleAllowSaveScum,
-        .itemDesc = gText_EmptyString2,
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
     [MENUITEM_MENU_DEBUG_TOGGLE_INSTANT_CAPTURE] = 
     {
         .itemName = sMenuName_DebugToggleInstantCapture,
-        .itemDesc = gText_EmptyString2,
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
     [MENUITEM_MENU_DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR] = 
     {
         .itemName = sMenuName_DebugToggleTodTintUsePlayerColour,
-        .itemDesc = gText_EmptyString2,
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
     [MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_SHOPS] = 
     {
         .itemName = sMenuName_DebugToggleDebugShops,
-        .itemDesc = gText_EmptyString2,
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
     [MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_LEGENDS] = 
     {
         .itemName = sMenuName_DebugToggleDebugLegends,
-        .itemDesc = gText_EmptyString2,
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
@@ -546,21 +580,18 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY] = 
     {
         .itemName = sMenuName_DebugRangeStartDifficulty,
-        .itemDesc = gText_EmptyString2,
         .processInput = DebugRange_DifficultySkipProcessInput,
         .drawChoices = DebugRange_DrawChoices
     },
     [MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE] = 
     {
         .itemName = sMenuName_DebugRangeForcedRoute,
-        .itemDesc = gText_EmptyString2,
         .processInput = DebugRange_ForcedRouteProcessInput,
         .drawChoices = DebugRange_DrawChoices
     },
     [MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER] = 
     {
         .itemName = sMenuName_DebugRangeForcedWeather,
-        .itemDesc = gText_EmptyString2,
         .processInput = DebugRange_ProcessInput,
         .drawChoices = DebugRange_DrawChoices
     },
@@ -574,6 +605,9 @@ static const struct MenuEntry sOptionMenuItems[] =
         .drawChoices = Empty_DrawChoices
     },
 };
+
+#undef SINGLE_DESC
+#undef MULTI_DESC
 
 static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
 {
@@ -612,6 +646,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
             MENUITEM_MENU_TOGGLE_EXP_ALL,
             MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
+            MENUITEM_MENU_SLIDER_TRAINER_ORDER,
 
             
             MENUITEM_CANCEL
@@ -1076,7 +1111,7 @@ static void Slider_DrawChoices(u8 menuOffset, u8 selection)
     u8 style = 0;
 
     // Hack to wipe tiles????
-    DrawOptionMenuChoice(gText_16Spaces, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
 
     switch (selection)
     {
@@ -1121,7 +1156,7 @@ static u8 Toggle_ProcessInput(u8 menuOffset, u8 selection)
 static void Toggle_DrawChoices(u8 menuOffset, u8 selection)
 {
     // Hack to wipe tiles????
-    DrawOptionMenuChoice(gText_16Spaces, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
 
     if(selection == 0)
         DrawOptionMenuChoice(gText_DifficultyDisabled, 104, menuOffset * YPOS_SPACING, 0);
@@ -1129,14 +1164,14 @@ static void Toggle_DrawChoices(u8 menuOffset, u8 selection)
         DrawOptionMenuChoice(gText_DifficultyEnabled, 104, menuOffset * YPOS_SPACING, 0);
 }
 
-static u8 BattleFormat_ProcessInput(u8 menuOffset, u8 selection)
+static u8 ProcessInputRange(u8 menuOffset, u8 selection, u8 range)
 {
     if(ShouldSkipInput())
         return selection;
 
     if (JOY_NEW(DPAD_RIGHT))
     {
-        if (selection == BATTLE_FORMAT_COUNT -1)
+        if (selection == range -1)
             selection = 0;
         else
             ++selection;
@@ -1146,7 +1181,7 @@ static u8 BattleFormat_ProcessInput(u8 menuOffset, u8 selection)
     if (JOY_NEW(DPAD_LEFT))
     {
         if (selection == 0)
-            selection = BATTLE_FORMAT_COUNT -1;
+            selection = range -1;
         else
             --selection;
 
@@ -1155,13 +1190,18 @@ static u8 BattleFormat_ProcessInput(u8 menuOffset, u8 selection)
     return selection;
 }
 
+static u8 BattleFormat_ProcessInput(u8 menuOffset, u8 selection)
+{
+    return ProcessInputRange(menuOffset, selection, BATTLE_FORMAT_COUNT);
+}
+
 static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection)
 {
     const u8* text;
     u8 style = 0;
 
     // Hack to wipe tiles????
-    DrawOptionMenuChoice(gText_16Spaces, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
 
     switch (selection)
     {
@@ -1175,6 +1215,37 @@ static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection)
 
     case BATTLE_FORMAT_MIXED:
         text = sMenuName_BattleFormatMixed;
+        break;
+    }
+
+    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, style);
+}
+
+static u8 TrainerOrder_ProcessInput(u8 menuOffset, u8 selection)
+{
+    return ProcessInputRange(menuOffset, selection, TRAINER_ORDER_COUNT);
+}
+
+static void TrainerOrder_DrawChoices(u8 menuOffset, u8 selection)
+{
+    const u8* text;
+    u8 style = 0;
+
+    // Hack to wipe tiles????
+    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
+
+    switch (selection)
+    {
+    case TRAINER_ORDER_DEFAULT:
+        text = sMenuName_TrainerOrderDefault;
+        break;
+
+    case TRAINER_ORDER_RAINBOW:
+        text = sMenuName_TrainerOrderRainbow;
+        break;
+
+    case TRAINER_ORDER_OFFICIAL:
+        text = sMenuName_TrainerOrderOfficial;
         break;
     }
 
@@ -1220,7 +1291,7 @@ static void DebugRange_DrawChoices(u8 menuOffset, u8 selection)
 {
     u8 text[16];
 
-    DrawOptionMenuChoice(gText_16Spaces, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
 
     ConvertUIntToDecimalStringN(&text[0], selection, STR_CONV_MODE_LEFT_ALIGN, 3);
     DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, 0);
@@ -1331,8 +1402,18 @@ static void DrawDescriptionOptionMenuText(u8 submenu, u8 selection)
     AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, text, 120, 0, TEXT_SKIP_DRAW, NULL);
 
     // Element description
-    if(sOptionMenuItems[menuItem].itemDesc != NULL)
-        AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, sOptionMenuItems[menuItem].itemDesc, 8, 17, TEXT_SKIP_DRAW, NULL);
+    if(sOptionMenuItems[menuItem].descCount != 0)
+    {
+        if(sOptionMenuItems[menuItem].descCount > 1)
+        {
+            u8 value = min(GetMenuItemValue(menuItem), sOptionMenuItems[menuItem].descCount - 1);
+            AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, sOptionMenuItems[menuItem].multiDesc[value], 8, 17, TEXT_SKIP_DRAW, NULL);
+        }
+        else
+        {
+            AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, sOptionMenuItems[menuItem].singleDesc, 8, 17, TEXT_SKIP_DRAW, NULL);
+        }
+    }
 
     CopyWindowToVram(WIN_TEXT_OPTION, COPYWIN_FULL);
 }
@@ -1433,6 +1514,9 @@ static u8 GetMenuItemValue(u8 menuItem)
 
     case MENUITEM_MENU_SLIDER_BATTLE_FORMAT:
         return Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT);
+
+    case MENUITEM_MENU_SLIDER_TRAINER_ORDER:
+        return Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER);
 
 #ifdef ROGUE_DEBUG
     case MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL:
@@ -1560,6 +1644,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_SLIDER_BATTLE_FORMAT:
         Rogue_SetConfigRange(CONFIG_RANGE_BATTLE_FORMAT, value);
+        break;
+
+    case MENUITEM_MENU_SLIDER_TRAINER_ORDER:
+        Rogue_SetConfigRange(CONFIG_RANGE_TRAINER_ORDER, value);
         break;
 
 #ifdef ROGUE_DEBUG

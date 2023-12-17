@@ -71,6 +71,7 @@ const u8 gText_EscapeRopeDesc[] = _(
 //{COLOR RED}{SHADOW LIGHT_RED} red tint
 //{COLOR LIGHT_BLUE}{SHADOW BLUE} green tint
 const u8 gText_16Spaces[] = _("                ");
+const u8 gText_32Spaces[] = _("                                ");
 
 const u8 gText_DifficultySettings[] = _("DIFFICULTY SETTINGS");
 const u8 gText_DifficultyArrowLeft[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}{LEFT_ARROW}");

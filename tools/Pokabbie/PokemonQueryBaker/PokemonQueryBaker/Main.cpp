@@ -69,7 +69,7 @@ int main()
 		{
 			u16 eggSpecies = Rogue_GetEggSpecies(s);
 			eggLookup[s] = eggSpecies;
-			evolutionCountLookup[s] = Rogue_GetEvolutionCount(s);
+			evolutionCountLookup[s] = Rogue_GetMaxEvolutionCount(s);
 
 			if (gBaseStats[s].type1 != TYPE_NONE)
 				eggEvolutionTypes[eggSpecies].insert(gBaseStats[s].type1);

@@ -545,6 +545,7 @@ extern const u8 BerryTree_EventScript_ItemUsePlantBerry[];
 extern const u8 BerryTree_EventScript_ItemUseWailmerPail[];
 
 extern const u8 Rogue_EventScript_ItemUseHealingFlask[];
+extern const u8 Rogue_EventScript_UsePokeblockItem[];
 
 extern const u8 EventScript_SelectWithoutRegisteredItem[];
 

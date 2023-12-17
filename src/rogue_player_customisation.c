@@ -77,6 +77,10 @@ enum
     PLAYER_OUTFIT_ROSA,
     PLAYER_OUTFIT_CALEM,
     PLAYER_OUTFIT_SERENA,
+    PLAYER_OUTFIT_ELIO,
+    PLAYER_OUTFIT_SELENE,
+    PLAYER_OUTFIT_VICTOR,
+    PLAYER_OUTFIT_GLORIA,
 
     // Secret unlocks
     PLAYER_OUTFIT_POKABBIE,
@@ -151,6 +155,15 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CalemRiding
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SerenaNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SerenaRiding;
 
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ElioNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ElioRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SeleneNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SeleneRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VictorNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VictorRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GloriaNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GloriaRiding;
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokabbieNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokabbieRiding;
@@ -550,6 +563,112 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
             [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
             [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
+        }
+    },
+
+    [PLAYER_OUTFIT_ELIO] =
+    {
+        .name = _("Elio"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_ALOLA,
+        .trainerFrontPic = TRAINER_PIC_ELIO,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_RED_BLACK,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_ElioNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_ElioRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerElioBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerElioLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerElioFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerElioFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
+        }
+    },
+    [PLAYER_OUTFIT_SELENE] =
+    {
+        .name = _("Selene"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_ALOLA,
+        .trainerFrontPic = TRAINER_PIC_SELENE,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_LEAF,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_SeleneNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_SeleneRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerSeleneBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerSeleneLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerSeleneFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerSeleneFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+
+    [PLAYER_OUTFIT_VICTOR] =
+    {
+        .name = _("Victor"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_GALAR,
+        .trainerFrontPic = TRAINER_PIC_VICTOR,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_RED_BLACK,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_VictorNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_VictorRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerVictorBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerVictorLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerVictorFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerVictorFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
+        }
+    },
+    [PLAYER_OUTFIT_GLORIA] =
+    {
+        .name = _("Gloria"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_GALAR,
+        .trainerFrontPic = TRAINER_PIC_GLORIA,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_BLACK,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_GloriaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_GloriaRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerGloriaBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerGloriaLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerGloriaFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerGloriaFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
         }
     },
 

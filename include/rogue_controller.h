@@ -139,6 +139,8 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny);
 u16 Rogue_SelectRandomWildMon(void);
 bool8 Rogue_PreferTraditionalWildMons(void);
 bool8 Rogue_AreWildMonEnabled(void);
+bool8 Rogue_CanRerollSingleWildSpecies();
+bool8 Rogue_RerollSingleWildSpecies(u8 type);
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize);
 void Rogue_ModifyWildMon(struct Pokemon* mon);
