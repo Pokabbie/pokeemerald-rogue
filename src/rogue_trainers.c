@@ -625,14 +625,68 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
             if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
                 includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
             else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
-                includeFlags |= TRAINER_FLAG_CLASS_ELITE;
+                includeFlags |= TRAINER_FLAG_CLASS_ANY_ELITE;
             else
-                includeFlags |= TRAINER_FLAG_CLASS_GYM;
+                includeFlags |= TRAINER_FLAG_CLASS_ANY_GYM;
         }
         break;
     
     case TRAINER_ORDER_RAINBOW:
         includeFlags = TRAINER_FLAG_CLASS_ANY_MAIN_BOSS;
+        break;
+    
+    case TRAINER_ORDER_OFFICIAL:
+        {
+            switch (difficulty)
+            {
+            case ROGUE_GYM_START_DIFFICULTY + 0:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_1;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 1:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_2;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 2:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_3;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 3:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_4;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 4:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_5;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 5:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_6;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 6:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_7;
+                break;
+            case ROGUE_GYM_START_DIFFICULTY + 7:
+                includeFlags |= TRAINER_FLAG_CLASS_GYM_8;
+                break;
+
+            case ROGUE_ELITE_START_DIFFICULTY + 0:
+                includeFlags |= TRAINER_FLAG_CLASS_ELITE_1;
+                break;
+            case ROGUE_ELITE_START_DIFFICULTY + 1:
+                includeFlags |= TRAINER_FLAG_CLASS_ELITE_2;
+                break;
+            case ROGUE_ELITE_START_DIFFICULTY + 2:
+                includeFlags |= TRAINER_FLAG_CLASS_ELITE_3;
+                break;
+            case ROGUE_ELITE_START_DIFFICULTY + 3:
+                includeFlags |= TRAINER_FLAG_CLASS_ELITE_4;
+                break;
+
+            case ROGUE_CHAMP_START_DIFFICULTY + 0:
+            case ROGUE_CHAMP_START_DIFFICULTY + 1:
+                includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
+                break;
+
+            default:
+                AGB_ASSERT(FALSE);
+                break;
+            }
+        }
         break;
 
     default:
