@@ -154,11 +154,18 @@ BattleScript_PrintCaughtMonInfo::
     sethword gBattle_BG2_X, 0
 BattleScript_TryPrintCaughtMonInfo:
     jumpifbattletype BATTLE_TYPE_RECORDED, BattleScript_GiveCaughtMonEnd
-    trysetcaughtmondexflags BattleScript_TryNicknameCaughtMon
+    trysetcaughtmondexflags BattleScript_TryAddCaughtMon
     printstring STRINGID_PKMNDATAADDEDTODEX
     waitstate
     setbyte gBattleCommunication, 0
     displaydexinfo
+BattleScript_TryAddCaughtMon::
+    rogue_caughtmon
+    rogue_partyhasroom BattleScript_TryNicknameCaughtMon
+    openpartyscreen BS_PLAYER1 | PARTY_SCREEN_OPTIONAL, BattleScript_GiveMonPartySizeContinue
+BattleScript_GiveMonPartySizeContinue::
+    rogue_partyhasroom BattleScript_TryNicknameCaughtMon
+    goto BattleScript_SuccessBallThrowEnd
 BattleScript_TryNicknameCaughtMon::
     printstring STRINGID_GIVENICKNAMECAPTURED
     waitstate
@@ -196,6 +203,18 @@ BattleScript_TrainerBallBlock::
     waitmessage B_WAIT_TIME_LONG
     printstring STRINGID_DONTBEATHIEF
     waitmessage B_WAIT_TIME_LONG
+    finishaction
+
+BattleScript_ExternalBallBlock::
+    waitmessage B_WAIT_TIME_LONG
+    printstring STRINGID_ITDODGEDBALL
+    waitmessage B_WAIT_TIME_ABSOLUTE | B_WAIT_TIME_LONG
+    finishaction
+
+BattleScript_AlphaMonBallBlock::
+    waitmessage B_WAIT_TIME_LONG
+    printstring STRINGID_PKMNISANGRY
+    waitmessage B_WAIT_TIME_ABSOLUTE | B_WAIT_TIME_LONG
     finishaction
 
 BattleScript_RunByUsingItem::

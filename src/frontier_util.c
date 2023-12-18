@@ -38,6 +38,8 @@
 #include "constants/event_objects.h"
 #include "party_menu.h"
 
+#include "rogue_controller.h"
+
 struct FrontierBrainMon
 {
     u16 species;
@@ -1890,7 +1892,7 @@ static void CheckBattleTypeFlag(void)
 
 static u8 AppendCaughtBannedMonSpeciesName(u16 species, u8 count, s32 numBannedMonsCaught)
 {
-    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
+    if (GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
     {
         count++;
         if (numBannedMonsCaught == count)
@@ -2013,7 +2015,7 @@ static void CheckPartyIneligibility(void)
         s32 species = gFrontierBannedSpecies[0];
         for (i = 0; species != 0xFFFF; i++, species = gFrontierBannedSpecies[i])
         {
-            if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
+            if (GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
                 caughtBannedMons++;
         }
         gStringVar1[0] = EOS;
@@ -2386,39 +2388,48 @@ void SaveGameFrontier(void)
 u8 GetFrontierBrainTrainerPicIndex(void)
 {
     s32 facility;
+    struct Trainer trainer;
 
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
         facility = GetRecordedBattleFrontierFacility();
     else
         facility = VarGet(VAR_FRONTIER_FACILITY);
 
-    return gTrainers[sFrontierBrainTrainerIds[facility]].trainerPic;
+    Rogue_ModifyTrainer(sFrontierBrainTrainerIds[facility], &trainer);
+
+    return trainer.trainerPic;
 }
 
 u8 GetFrontierBrainTrainerClass(void)
 {
     s32 facility;
+    struct Trainer trainer;
 
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
         facility = GetRecordedBattleFrontierFacility();
     else
         facility = VarGet(VAR_FRONTIER_FACILITY);
 
-    return gTrainers[sFrontierBrainTrainerIds[facility]].trainerClass;
+    Rogue_ModifyTrainer(sFrontierBrainTrainerIds[facility], &trainer);
+
+    return trainer.trainerClass;
 }
 
 void CopyFrontierBrainTrainerName(u8 *dst)
 {
     s32 i;
     s32 facility;
+    const u8* trainerName;
 
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
         facility = GetRecordedBattleFrontierFacility();
     else
         facility = VarGet(VAR_FRONTIER_FACILITY);
 
+    trainerName = Rogue_GetTrainerName(sFrontierBrainTrainerIds[facility]);
+
     for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-        dst[i] = gTrainers[sFrontierBrainTrainerIds[facility]].trainerName[i];
+        dst[i] = trainerName[i];
 
     dst[i] = EOS;
 }
@@ -2462,10 +2473,7 @@ void CreateFrontierBrainPokemon(void)
 
         do
         {
-            do
-            {
-                j = Random32(); //should just be one while loop, but that doesn't match
-            } while (IsShinyOtIdPersonality(FRONTIER_BRAIN_OTID, j));
+            j = Random32();
         } while (sFrontierBrainsMons[facility][symbol][i].nature != GetNatureFromPersonality(j));
         CreateMon(&gEnemyParty[monPartyId],
                   sFrontierBrainsMons[facility][symbol][i].species,

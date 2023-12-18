@@ -60,10 +60,11 @@ enum {
     PERIOD_PM,
 };
 
-enum {
-    MOVE_NONE,
-    MOVE_BACKWARD,
-    MOVE_FORWARD,
+enum
+{
+    MOVE_CLOCK_NONE,
+    MOVE_CLOCK_BACKWARD,
+    MOVE_CLOCK_FORWARD,
 };
 
 enum {
@@ -806,15 +807,15 @@ static void Task_SetClock_HandleInput(u8 taskId)
         }
         else
         {
-            gTasks[taskId].tMoveDir = MOVE_NONE;
+            gTasks[taskId].tMoveDir = MOVE_CLOCK_NONE;
 
             if (JOY_HELD(DPAD_LEFT))
-                gTasks[taskId].tMoveDir = MOVE_BACKWARD;
+                gTasks[taskId].tMoveDir = MOVE_CLOCK_BACKWARD;
 
             if (JOY_HELD(DPAD_RIGHT))
-                gTasks[taskId].tMoveDir = MOVE_FORWARD;
+                gTasks[taskId].tMoveDir = MOVE_CLOCK_FORWARD;
 
-            if (gTasks[taskId].tMoveDir != MOVE_NONE)
+            if (gTasks[taskId].tMoveDir != MOVE_CLOCK_NONE)
             {
                 if (gTasks[taskId].tMoveSpeed < 0xFF)
                     gTasks[taskId].tMoveSpeed++;
@@ -916,13 +917,13 @@ static u16 CalcNewMinHandAngle(u16 angle, u8 direction, u8 speed)
     u8 delta = CalcMinHandDelta(speed);
     switch (direction)
     {
-    case MOVE_BACKWARD:
+    case MOVE_CLOCK_BACKWARD:
         if (angle)
             angle -= delta;
         else
             angle = 360 - delta;
         break;
-    case MOVE_FORWARD:
+    case MOVE_CLOCK_FORWARD:
         if (angle < 360 - delta)
             angle += delta;
         else
@@ -936,7 +937,7 @@ static bool32 AdvanceClock(u8 taskId, u8 direction)
 {
     switch (direction)
     {
-    case MOVE_BACKWARD:
+    case MOVE_CLOCK_BACKWARD:
         if (gTasks[taskId].tMinutes > 0)
         {
             gTasks[taskId].tMinutes--;
@@ -953,7 +954,7 @@ static bool32 AdvanceClock(u8 taskId, u8 direction)
             UpdateClockPeriod(taskId, direction);
         }
         break;
-    case MOVE_FORWARD:
+    case MOVE_CLOCK_FORWARD:
         if (gTasks[taskId].tMinutes < 59)
         {
             gTasks[taskId].tMinutes++;
@@ -979,7 +980,7 @@ static void UpdateClockPeriod(u8 taskId, u8 direction)
     u8 hours = gTasks[taskId].tHours;
     switch (direction)
     {
-    case MOVE_BACKWARD:
+    case MOVE_CLOCK_BACKWARD:
         switch (hours)
         {
         case 11:
@@ -990,7 +991,7 @@ static void UpdateClockPeriod(u8 taskId, u8 direction)
             break;
         }
         break;
-    case MOVE_FORWARD:
+    case MOVE_CLOCK_FORWARD:
         switch (hours)
         {
         case 0:

@@ -66,9 +66,8 @@ struct BackupMapLayout
 struct ObjectEventTemplate
 {
     /*0x00*/ u8 localId;
-    /*0x01*/ u8 graphicsId;
-    /*0x02*/ u8 kind; // Always OBJ_KIND_NORMAL in Emerald.
-    /*0x03*/ //u8 padding1;
+    /*0x01*/ u16 graphicsId;
+    ///*0x02*/ u8 inConnection; // Leftover from FRLG
     /*0x04*/ s16 x;
     /*0x06*/ s16 y;
     /*0x08*/ u8 elevation;
@@ -195,9 +194,7 @@ struct ObjectEvent
              u32 disableJumpLandingGroundEffect:1;
              u32 fixedPriority:1;
              u32 hideReflection:1;
-             //u32 padding:4;
-    /*0x04*/ u8 spriteId;
-    /*0x05*/ u8 graphicsId;
+    /*0x04*/ u16 graphicsId;
     /*0x06*/ u8 movementType;
     /*0x07*/ u8 trainerType;
     /*0x08*/ u8 localId;
@@ -218,10 +215,11 @@ struct ObjectEvent
     /*0x1D*/ u8 trainerRange_berryTreeId;
     /*0x1E*/ u8 currentMetatileBehavior;
     /*0x1F*/ u8 previousMetatileBehavior;
-    /*0x20*/ u8 previousMovementDirection;
+    /*0x20*/ u8 previousMovementDirection:4;
+             u8 directionOverwrite:4;
     /*0x21*/ u8 directionSequenceIndex;
     /*0x22*/ u8 playerCopyableMovement; // COPY_MOVE_*
-    /*0x23*/ //u8 padding2;
+    /*0x23*/ u8 spriteId;
     /*size = 0x24*/
 };
 
@@ -250,21 +248,28 @@ enum {
     PLAYER_AVATAR_STATE_MACH_BIKE,
     PLAYER_AVATAR_STATE_ACRO_BIKE,
     PLAYER_AVATAR_STATE_SURFING,
-    PLAYER_AVATAR_STATE_UNDERWATER,
+    PLAYER_AVATAR_STATE_RIDE_GRABBING,
     PLAYER_AVATAR_STATE_FIELD_MOVE,
     PLAYER_AVATAR_STATE_FISHING,
     PLAYER_AVATAR_STATE_WATERING,
+
     PLAYER_AVATAR_STATE_VSSEEKER,
+    // This has to be unused (The flags below have to align)
+    PLAYER_AVATAR_STATE_UNDERWATER,
+
+    PLAYER_AVATAR_STATE_COUNT
 };
 
 #define PLAYER_AVATAR_FLAG_ON_FOOT      (1 << 0)
 #define PLAYER_AVATAR_FLAG_MACH_BIKE    (1 << 1)
 #define PLAYER_AVATAR_FLAG_ACRO_BIKE    (1 << 2)
 #define PLAYER_AVATAR_FLAG_SURFING      (1 << 3)
-#define PLAYER_AVATAR_FLAG_UNDERWATER   (1 << 4)
+#define PLAYER_AVATAR_FLAG_RIDING       (1 << 4)
 #define PLAYER_AVATAR_FLAG_CONTROLLABLE (1 << 5)
 #define PLAYER_AVATAR_FLAG_FORCED_MOVE  (1 << 6)
 #define PLAYER_AVATAR_FLAG_DASH         (1 << 7)
+
+#define PLAYER_AVATAR_FLAG_UNDERWATER   (0) // unused now
 
 enum
 {
@@ -293,6 +298,11 @@ enum
     COLLISION_ISOLATED_HORIZONTAL_RAIL,
     COLLISION_VERTICAL_RAIL,
     COLLISION_HORIZONTAL_RAIL,
+    COLLISION_START_SWIMMING,
+    COLLISION_STOP_SWIMMING,
+    //sideways_stairs
+    COLLISION_SIDEWAYS_STAIRS_TO_RIGHT,
+    COLLISION_SIDEWAYS_STAIRS_TO_LEFT
 };
 
 // player running states

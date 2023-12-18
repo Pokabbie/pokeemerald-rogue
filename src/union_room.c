@@ -6,7 +6,6 @@
 #include "cable_club.h"
 #include "data.h"
 #include "decompress.h"
-#include "dodrio_berry_picking.h"
 #include "dynamic_placeholder_text_util.h"
 #include "easy_chat.h"
 #include "event_data.h"
@@ -328,7 +327,6 @@ static void GetAwaitingCommunicationText(u8 *dst, u8 activity)
     case ACTIVITY_TRADE:
     case ACTIVITY_POKEMON_JUMP:
     case ACTIVITY_BERRY_CRUSH:
-    case ACTIVITY_BERRY_PICK:
     case ACTIVITY_BATTLE_TOWER:
     case ACTIVITY_BATTLE_TOWER_OPEN:
     case ACTIVITY_RECORD_CORNER:
@@ -357,7 +355,6 @@ static bool32 IsActivityWithVariableGroupSize(u32 activity)
     {
     case ACTIVITY_POKEMON_JUMP:
     case ACTIVITY_BERRY_CRUSH:
-    case ACTIVITY_BERRY_PICK:
     case ACTIVITY_RECORD_CORNER:
     case ACTIVITY_BERRY_BLENDER:
     case ACTIVITY_CONTEST_COOL:
@@ -753,7 +750,6 @@ static void Leader_GetAcceptNewMemberPrompt(u8 *dst, u8 activity)
     case ACTIVITY_BATTLE_MULTI:
     case ACTIVITY_POKEMON_JUMP:
     case ACTIVITY_BERRY_CRUSH:
-    case ACTIVITY_BERRY_PICK:
     case ACTIVITY_RECORD_CORNER:
     case ACTIVITY_BERRY_BLENDER:
     case ACTIVITY_CONTEST_COOL:
@@ -797,7 +793,6 @@ static void GetYouAskedToJoinGroupPleaseWaitMessage(u8 *dst, u8 activity)
     case ACTIVITY_BATTLE_MULTI:
     case ACTIVITY_POKEMON_JUMP:
     case ACTIVITY_BERRY_CRUSH:
-    case ACTIVITY_BERRY_PICK:
     case ACTIVITY_RECORD_CORNER:
     case ACTIVITY_BERRY_BLENDER:
     case ACTIVITY_CONTEST_COOL:
@@ -826,7 +821,6 @@ static void GetGroupLeaderSentAnOKMessage(u8 *dst, u8 activity)
     case ACTIVITY_BATTLE_MULTI:
     case ACTIVITY_POKEMON_JUMP:
     case ACTIVITY_BERRY_CRUSH:
-    case ACTIVITY_BERRY_PICK:
     case ACTIVITY_RECORD_CORNER:
     case ACTIVITY_BERRY_BLENDER:
     case ACTIVITY_CONTEST_COOL:
@@ -1099,7 +1093,6 @@ static void Task_TryJoinLinkGroup(u8 taskId)
             case ACTIVITY_CHAT:
             case ACTIVITY_POKEMON_JUMP:
             case ACTIVITY_BERRY_CRUSH:
-            case ACTIVITY_BERRY_PICK:
             case ACTIVITY_SPIN_TRADE:
             case ACTIVITY_BATTLE_TOWER:
             case ACTIVITY_BATTLE_TOWER_OPEN:
@@ -1650,7 +1643,6 @@ static void Task_StartActivity(u8 taskId)
     case ACTIVITY_TRADE:
     case ACTIVITY_POKEMON_JUMP:
     case ACTIVITY_BERRY_CRUSH:
-    case ACTIVITY_BERRY_PICK:
     case ACTIVITY_SPIN_TRADE:
     case ACTIVITY_RECORD_CORNER:
         SaveLinkTrainerNames();
@@ -1671,7 +1663,7 @@ static void Task_StartActivity(u8 taskId)
         HealPlayerParty();
         SavePlayerParty();
         LoadPlayerBag();
-        WarpForCableClubActivity(MAP_GROUP(BATTLE_COLOSSEUM_2P), MAP_NUM(BATTLE_COLOSSEUM_2P), 6, 8, USING_SINGLE_BATTLE);
+        //WarpForCableClubActivity(MAP_GROUP(BATTLE_COLOSSEUM_2P), MAP_NUM(BATTLE_COLOSSEUM_2P), 6, 8, USING_SINGLE_BATTLE);
         SetMainCallback2(CB2_TransitionToCableClub);
         break;
     case ACTIVITY_BATTLE_DOUBLE:
@@ -1680,7 +1672,7 @@ static void Task_StartActivity(u8 taskId)
         SavePlayerParty();
         LoadPlayerBag();
         CreateTrainerCardInBuffer(gBlockSendBuffer, TRUE);
-        WarpForCableClubActivity(MAP_GROUP(BATTLE_COLOSSEUM_2P), MAP_NUM(BATTLE_COLOSSEUM_2P), 6, 8, USING_DOUBLE_BATTLE);
+        //WarpForCableClubActivity(MAP_GROUP(BATTLE_COLOSSEUM_2P), MAP_NUM(BATTLE_COLOSSEUM_2P), 6, 8, USING_DOUBLE_BATTLE);
         SetMainCallback2(CB2_TransitionToCableClub);
         break;
     case ACTIVITY_BATTLE_MULTI:
@@ -1689,19 +1681,19 @@ static void Task_StartActivity(u8 taskId)
         SavePlayerParty();
         LoadPlayerBag();
         CreateTrainerCardInBuffer(gBlockSendBuffer, TRUE);
-        WarpForCableClubActivity(MAP_GROUP(BATTLE_COLOSSEUM_4P), MAP_NUM(BATTLE_COLOSSEUM_4P), 5, 8, USING_MULTI_BATTLE);
+        //WarpForCableClubActivity(MAP_GROUP(BATTLE_COLOSSEUM_4P), MAP_NUM(BATTLE_COLOSSEUM_4P), 5, 8, USING_MULTI_BATTLE);
         SetMainCallback2(CB2_TransitionToCableClub);
         break;
     case ACTIVITY_TRADE:
         CreateTrainerCardInBuffer(gBlockSendBuffer, TRUE);
         CleanupOverworldWindowsAndTilemaps();
-        WarpForCableClubActivity(MAP_GROUP(TRADE_CENTER), MAP_NUM(TRADE_CENTER), 5, 8, USING_TRADE_CENTER);
+        //WarpForCableClubActivity(MAP_GROUP(TRADE_CENTER), MAP_NUM(TRADE_CENTER), 5, 8, USING_TRADE_CENTER);
         SetMainCallback2(CB2_TransitionToCableClub);
         break;
     case ACTIVITY_RECORD_CORNER:
         CreateTrainerCardInBuffer(gBlockSendBuffer, TRUE);
         CleanupOverworldWindowsAndTilemaps();
-        WarpForCableClubActivity(MAP_GROUP(RECORD_CORNER), MAP_NUM(RECORD_CORNER), 8, 9, USING_RECORD_CORNER);
+        //WarpForCableClubActivity(MAP_GROUP(RECORD_CORNER), MAP_NUM(RECORD_CORNER), 8, 9, USING_RECORD_CORNER);
         SetMainCallback2(CB2_TransitionToCableClub);
         break;
     case ACTIVITY_TRADE | IN_UNION_ROOM:
@@ -1733,10 +1725,6 @@ static void Task_StartActivity(u8 taskId)
     case ACTIVITY_BERRY_CRUSH:
         WarpForWirelessMinigame(USING_BERRY_CRUSH, 9, 1);
         StartBerryCrush(CB2_LoadMap);
-        break;
-    case ACTIVITY_BERRY_PICK:
-        WarpForWirelessMinigame(USING_MINIGAME, 5, 1);
-        StartDodrioBerryPicking(GetCursorSelectionMonId(), CB2_LoadMap);
         break;
     }
 
@@ -4305,9 +4293,7 @@ static bool32 PollPartnerYesNoResponse(struct WirelessLink_URoom *data)
 
 bool32 InUnionRoom(void)
 {
-    return gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNION_ROOM)
-        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(UNION_ROOM)
-        ? TRUE : FALSE;
+    return FALSE;
 }
 
 static bool32 HasAtLeastTwoMonsOfLevel30OrLower(void)

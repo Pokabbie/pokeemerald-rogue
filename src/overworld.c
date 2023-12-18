@@ -60,6 +60,7 @@
 #include "wild_encounter.h"
 #include "vs_seeker.h"
 #include "frontier_util.h"
+#include "follow_me.h"
 #include "constants/abilities.h"
 #include "constants/layouts.h"
 #include "constants/map_types.h"
@@ -67,6 +68,19 @@
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "constants/event_object_movement.h"
+
+#include "constants/heal_locations.h"
+
+#include "rogue_assistant.h"
+#include "rogue_automation.h"
+#include "rogue_campaign.h"
+#include "rogue_charms.h"
+#include "rogue_controller.h"
+#include "rogue_followmon.h"
+#include "rogue_quest.h"
+#include "rogue_popup.h"
+
 
 struct CableClubPlayer
 {
@@ -363,7 +377,16 @@ void DoWhiteOut(void)
         SetMoney(&gSaveBlock1Ptr->money, GetMoney(&gSaveBlock1Ptr->money) / 2);
     HealPlayerParty();
     Overworld_ResetStateAfterWhiteOut();
-    SetWarpDestinationToLastHealLocation();
+
+    if(Rogue_IsRunActive() && IsCharmActive(EFFECT_EXTRA_LIFE))
+    {
+        Rogue_ExecuteExtraLife();
+    }
+    else
+    {
+        SetWarpDestinationToLastHealLocation();
+    }
+    
     WarpIntoMap();
 }
 
@@ -427,13 +450,8 @@ static void Overworld_ResetStateAfterWhiteOut(void)
     FlagClear(FLAG_SYS_USE_FLASH);
     if (B_RESET_FLAGS_VARS_AFTER_WHITEOUT == TRUE)
         Overworld_ResetBattleFlagsAndVars();
-    // If you were defeated by Kyogre/Groudon and the step counter has
-    // maxed out, end the abnormal weather.
-    if (VarGet(VAR_SHOULD_END_ABNORMAL_WEATHER) == 1)
-    {
-        VarSet(VAR_SHOULD_END_ABNORMAL_WEATHER, 0);
-        VarSet(VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_NONE);
-    }
+
+    FollowMe_TryRemoveFollowerOnWhiteOut();
 }
 
 static void UpdateMiscOverworldStates(void)
@@ -463,6 +481,9 @@ void IncrementGameStat(u8 index)
         else
             statVal = 0xFFFFFF;
 
+        Rogue_CampaignNotify_StatIncrement(index);
+        QuestNotify_StatIncrement(index);
+
         SetGameStat(index, statVal);
     }
 }
@@ -491,6 +512,8 @@ void ApplyNewEncryptionKeyToGameStats(u32 newKey)
 
 void LoadObjEventTemplatesFromHeader(void)
 {
+    u8 objectCount = gMapHeader.events->objectEventCount;
+
     // Clear map object templates
     CpuFill32(0, gSaveBlock1Ptr->objectEventTemplates, sizeof(gSaveBlock1Ptr->objectEventTemplates));
 
@@ -498,16 +521,35 @@ void LoadObjEventTemplatesFromHeader(void)
     CpuCopy32(gMapHeader.events->objectEvents,
               gSaveBlock1Ptr->objectEventTemplates,
               gMapHeader.events->objectEventCount * sizeof(struct ObjectEventTemplate));
+    
+    Rogue_ModifyObjectEvents(&gMapHeader, FALSE, gSaveBlock1Ptr->objectEventTemplates, &objectCount, ARRAY_COUNT(gSaveBlock1Ptr->objectEventTemplates));
+    gSaveBlock1Ptr->objectEventTemplatesCount = objectCount;
 }
 
 void LoadSaveblockObjEventScripts(void)
 {
     const struct ObjectEventTemplate *mapHeaderObjTemplates = gMapHeader.events->objectEvents;
     struct ObjectEventTemplate *savObjTemplates = gSaveBlock1Ptr->objectEventTemplates;
-    s32 i;
+    u8 objectCount = gSaveBlock1Ptr->objectEventTemplatesCount;
+    s32 i, j, k;
 
     for (i = 0; i < OBJECT_EVENT_TEMPLATES_COUNT; i++)
-        savObjTemplates[i].script = mapHeaderObjTemplates[i].script;
+    {
+        for(j = 0; j < OBJECT_EVENT_TEMPLATES_COUNT; j++)
+        {
+            // Should be faster to just use the same index 95% of the time
+            k = (j + i) % OBJECT_EVENT_TEMPLATES_COUNT;
+
+            if(savObjTemplates[i].localId == mapHeaderObjTemplates[k].localId)
+            {
+                savObjTemplates[i].script = mapHeaderObjTemplates[k].script;
+                break;
+            }
+        }
+    }
+
+    Rogue_ModifyObjectEvents(&gMapHeader, TRUE, savObjTemplates, &objectCount, ARRAY_COUNT(gSaveBlock1Ptr->objectEventTemplates));
+    gSaveBlock1Ptr->objectEventTemplatesCount = objectCount;
 }
 
 void SetObjEventTemplateCoords(u8 localId, s16 x, s16 y)
@@ -578,6 +620,8 @@ static void SetWarpData(struct WarpData *warp, s8 mapGroup, s8 mapNum, s8 warpId
     warp->warpId = warpId;
     warp->x = x;
     warp->y = y;
+
+    //Rogue_OnSetWarpData(warp);
 }
 
 static bool32 IsDummyWarp(struct WarpData *warp)
@@ -612,12 +656,16 @@ static void LoadCurrentMapData(void)
     gMapHeader = *Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
     gSaveBlock1Ptr->mapLayoutId = gMapHeader.mapLayoutId;
     gMapHeader.mapLayout = GetMapLayout(gMapHeader.mapLayoutId);
+
+    Rogue_ModifyMapHeader(&gMapHeader);
 }
 
 static void LoadSaveblockMapHeader(void)
 {
     gMapHeader = *Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
     gMapHeader.mapLayout = GetMapLayout(gMapHeader.mapLayoutId);
+
+    Rogue_ModifyMapHeader(&gMapHeader);
 }
 
 static void SetPlayerCoordsFromWarp(void)
@@ -648,11 +696,14 @@ void WarpIntoMap(void)
     ApplyCurrentWarp();
     LoadCurrentMapData();
     SetPlayerCoordsFromWarp();
+
+    Rogue_OnWarpIntoMap();
 }
 
 void SetWarpDestination(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 {
     SetWarpData(&sWarpDestination, mapGroup, mapNum, warpId, x, y);
+    Rogue_OnSetWarpData(&sWarpDestination);
 }
 
 void SetWarpDestinationToMapWarp(s8 mapGroup, s8 mapNum, s8 warpId)
@@ -690,16 +741,28 @@ void SetWarpDestinationToLastHealLocation(void)
 void SetLastHealLocationWarp(u8 healLocationId)
 {
     const struct HealLocation *healLocation = GetHealLocation(healLocationId);
-    if (healLocation)
-        SetWarpData(&gSaveBlock1Ptr->lastHealLocation, healLocation->group, healLocation->map, WARP_ID_NONE, healLocation->x, healLocation->y);
+    //if(healLocationId == HEAL_LOCATION_ROGUE_HUB)
+    //{
+    //    s16 playerX, playerY;
+    //    PlayerGetDestCoords(&playerX, &playerY);
+    //
+    //    // RogueNote: We want to apply an additional offset based on the player start location
+    //    if (healLocation)
+    //        SetWarpData(&gSaveBlock1Ptr->lastHealLocation, healLocation->group, healLocation->map, WARP_ID_NONE, playerX - MAP_OFFSET, playerY - MAP_OFFSET);
+    //}
+    //else
+    {
+        if (healLocation)
+            SetWarpData(&gSaveBlock1Ptr->lastHealLocation, healLocation->group, healLocation->map, WARP_ID_NONE, healLocation->x, healLocation->y);
+    }
 }
 
 void UpdateEscapeWarp(s16 x, s16 y)
 {
-    u8 currMapType = GetCurrentMapType();
-    u8 destMapType = GetMapTypeByGroupAndId(sWarpDestination.mapGroup, sWarpDestination.mapNum);
-    if (IsMapTypeOutdoors(currMapType) && IsMapTypeOutdoors(destMapType) != TRUE)
-        SetEscapeWarp(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, WARP_ID_NONE, x - MAP_OFFSET, y - MAP_OFFSET + 1);
+    //u8 currMapType = GetCurrentMapType();
+    //u8 destMapType = GetMapTypeByGroupAndId(sWarpDestination.mapGroup, sWarpDestination.mapNum);
+    //if (IsMapTypeOutdoors(currMapType) && IsMapTypeOutdoors(destMapType) != TRUE)
+    //    SetEscapeWarp(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, WARP_ID_NONE, x - MAP_OFFSET, y - MAP_OFFSET + 1);
 }
 
 void SetEscapeWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
@@ -709,7 +772,10 @@ void SetEscapeWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 
 void SetWarpDestinationToEscapeWarp(void)
 {
-    sWarpDestination = gSaveBlock1Ptr->escapeWarp;
+    // RogueNote: We're just going to jump to the next warp location
+    Rogue_OnSetWarpData(&sWarpDestination);
+
+    //sWarpDestination = gSaveBlock1Ptr->escapeWarp;
 }
 
 void SetFixedDiveWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
@@ -747,9 +813,17 @@ void SetContinueGameWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 
 void SetContinueGameWarpToHealLocation(u8 healLocationId)
 {
-    const struct HealLocation *healLocation = GetHealLocation(healLocationId);
-    if (healLocation)
-        SetWarpData(&gSaveBlock1Ptr->continueGameWarp, healLocation->group, healLocation->map, WARP_ID_NONE, healLocation->x, healLocation->y);
+    //if(healLocationId == HEAL_LOCATION_ROGUE_HUB)
+    //{
+    //    // RogueNote: Just copy the heal location
+    //    SetWarpData(&gSaveBlock1Ptr->continueGameWarp, gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum, gSaveBlock1Ptr->lastHealLocation.warpId, gSaveBlock1Ptr->lastHealLocation.x, gSaveBlock1Ptr->lastHealLocation.y);
+    //}
+    //else
+    {
+        const struct HealLocation *healLocation = GetHealLocation(healLocationId);
+        if (healLocation)
+            SetWarpData(&gSaveBlock1Ptr->continueGameWarp, healLocation->group, healLocation->map, WARP_ID_NONE, healLocation->x, healLocation->y);
+    }
 }
 
 void SetContinueGameWarpToDynamicWarp(int unused)
@@ -767,8 +841,13 @@ const struct MapConnection *GetMapConnection(u8 dir)
         return NULL;
 
     for(i = 0; i < count; i++, connection++)
+    {
+        if(!Rogue_AcceptMapConnection(&gMapHeader, connection))
+            continue;
+
         if (connection->direction == dir)
             return connection;
+    }
 
     return NULL;
 }
@@ -856,9 +935,7 @@ static void LoadMapFromWarp(bool32 a1)
     LoadCurrentMapData();
     if (!(sObjectEventLoadFlag & SKIP_OBJECT_EVENT_LOAD))
     {
-        if (gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PYRAMID_FLOOR)
-            LoadBattlePyramidObjectEventTemplates();
-        else if (InTrainerHill())
+        if (InTrainerHill())
             LoadTrainerHillObjectEventTemplates();
         else
             LoadObjEventTemplatesFromHeader();
@@ -888,9 +965,7 @@ if (I_VS_SEEKER_CHARGING != 0)
     RunOnTransitionMapScript();
     UpdateLocationHistoryForRoamer();
     RoamerMoveToOtherLocationSet();
-    if (gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PYRAMID_FLOOR)
-        InitBattlePyramidMap(FALSE);
-    else if (InTrainerHill())
+    if (InTrainerHill())
         InitTrainerHillMap();
     else
         InitMap();
@@ -906,11 +981,13 @@ void ResetInitialPlayerAvatarState(void)
 {
     sInitialPlayerAvatarState.direction = DIR_SOUTH;
     sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_ON_FOOT;
+    sInitialPlayerAvatarState.maintainDirection = FALSE;
 }
 
 void StoreInitialPlayerAvatarState(void)
 {
     sInitialPlayerAvatarState.direction = GetPlayerFacingDirection();
+    sInitialPlayerAvatarState.maintainDirection = FALSE;
 
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE))
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_MACH_BIKE;
@@ -920,8 +997,16 @@ void StoreInitialPlayerAvatarState(void)
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_SURFING;
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_UNDERWATER))
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_UNDERWATER;
+    else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING))
+        sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_RIDING;
     else
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_ON_FOOT;
+}
+
+void StoreInitialPlayerAvatarStateForReloadWarp(void)
+{
+    StoreInitialPlayerAvatarState();
+    sInitialPlayerAvatarState.maintainDirection = TRUE;
 }
 
 static struct InitialPlayerAvatarState *GetInitialPlayerAvatarState(void)
@@ -948,15 +1033,19 @@ static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *pla
         return PLAYER_AVATAR_FLAG_ON_FOOT;
     else if (playerStruct->transitionFlags == PLAYER_AVATAR_FLAG_MACH_BIKE)
         return PLAYER_AVATAR_FLAG_MACH_BIKE;
-    else if (playerStruct->transitionFlags != PLAYER_AVATAR_FLAG_ACRO_BIKE)
-        return PLAYER_AVATAR_FLAG_ON_FOOT;
-    else
+    else if (playerStruct->transitionFlags == PLAYER_AVATAR_FLAG_ACRO_BIKE)
         return PLAYER_AVATAR_FLAG_ACRO_BIKE;
+    else if (playerStruct->transitionFlags == PLAYER_AVATAR_FLAG_RIDING)
+        return PLAYER_AVATAR_FLAG_RIDING;
+    else
+        return PLAYER_AVATAR_FLAG_ON_FOOT;
 }
 
 static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u8 transitionFlags, u16 metatileBehavior, u8 mapType)
 {
-    if (FlagGet(FLAG_SYS_CRUISE_MODE) && mapType == MAP_TYPE_OCEAN_ROUTE)
+    if(playerStruct->maintainDirection)
+        return playerStruct->direction;
+    else if (FlagGet(FLAG_SYS_CRUISE_MODE) && mapType == MAP_TYPE_OCEAN_ROUTE)
         return DIR_EAST;
     else if (MetatileBehavior_IsDeepSouthWarp(metatileBehavior) == TRUE)
         return DIR_NORTH;
@@ -1037,73 +1126,21 @@ static u8 UNUSED GetObjectEventLoadFlag(void)
 
 static bool16 ShouldLegendaryMusicPlayAtLocation(struct WarpData *warp)
 {
-    if (!FlagGet(FLAG_SYS_WEATHER_CTRL))
-        return FALSE;
-    if (warp->mapGroup == 0)
-    {
-        switch (warp->mapNum)
-        {
-        case MAP_NUM(LILYCOVE_CITY):
-        case MAP_NUM(MOSSDEEP_CITY):
-        case MAP_NUM(SOOTOPOLIS_CITY):
-        case MAP_NUM(EVER_GRANDE_CITY):
-        case MAP_NUM(ROUTE124):
-        case MAP_NUM(ROUTE125):
-        case MAP_NUM(ROUTE126):
-        case MAP_NUM(ROUTE127):
-        case MAP_NUM(ROUTE128):
-            return TRUE;
-        default:
-            if (VarGet(VAR_SOOTOPOLIS_CITY_STATE) < 4)
-                return FALSE;
-            switch (warp->mapNum)
-            {
-            case MAP_NUM(ROUTE129):
-            case MAP_NUM(ROUTE130):
-            case MAP_NUM(ROUTE131):
-                return TRUE;
-            }
-        }
-    }
     return FALSE;
 }
 
 static bool16 NoMusicInSotopolisWithLegendaries(struct WarpData *warp)
 {
-    if (VarGet(VAR_SKY_PILLAR_STATE) != 1)
-        return FALSE;
-    else if (warp->mapGroup != MAP_GROUP(SOOTOPOLIS_CITY))
-        return FALSE;
-    else if (warp->mapNum == MAP_NUM(SOOTOPOLIS_CITY))
-        return TRUE;
-    else
-        return FALSE;
+    return FALSE;
 }
 
 static bool16 IsInfiltratedWeatherInstitute(struct WarpData *warp)
 {
-    if (VarGet(VAR_WEATHER_INSTITUTE_STATE))
-        return FALSE;
-    else if (warp->mapGroup != MAP_GROUP(ROUTE119_WEATHER_INSTITUTE_1F))
-        return FALSE;
-    else if (warp->mapNum == MAP_NUM(ROUTE119_WEATHER_INSTITUTE_1F)
-     || warp->mapNum == MAP_NUM(ROUTE119_WEATHER_INSTITUTE_2F))
-        return TRUE;
-    else
-        return FALSE;
+    return FALSE;
 }
 
 static bool16 IsInflitratedSpaceCenter(struct WarpData *warp)
 {
-    if (VarGet(VAR_MOSSDEEP_CITY_STATE) == 0)
-        return FALSE;
-    else if (VarGet(VAR_MOSSDEEP_CITY_STATE) > 2)
-        return FALSE;
-    else if (warp->mapGroup != MAP_GROUP(MOSSDEEP_CITY_SPACE_CENTER_1F))
-        return FALSE;
-    else if (warp->mapNum == MAP_NUM(MOSSDEEP_CITY_SPACE_CENTER_1F)
-     || warp->mapNum == MAP_NUM(MOSSDEEP_CITY_SPACE_CENTER_2F))
-        return TRUE;
     return FALSE;
 }
 
@@ -1118,18 +1155,12 @@ u16 GetLocationMusic(struct WarpData *warp)
     else if (IsInfiltratedWeatherInstitute(warp) == TRUE)
         return MUS_MT_CHIMNEY;
     else
-        return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
+        return Rogue_ModifyPlayBGM(Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music);
 }
 
 u16 GetCurrLocationDefaultMusic(void)
 {
     u16 music;
-
-    // Play the desert music only when the sandstorm is active on Route 111.
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE111)
-     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE111)
-     && GetSavedWeather() == WEATHER_SANDSTORM)
-        return MUS_DESERT;
 
     music = GetLocationMusic(&gSaveBlock1Ptr->location);
     if (music != MUS_ROUTE118)
@@ -1154,11 +1185,7 @@ u16 GetWarpDestinationMusic(void)
     }
     else
     {
-        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAUVILLE_CITY)
-         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAUVILLE_CITY))
-            return MUS_ROUTE110;
-        else
-            return MUS_ROUTE119;
+        return MUS_ROUTE119;
     }
 }
 
@@ -1179,6 +1206,13 @@ void Overworld_PlaySpecialMapMusic(void)
             music = MUS_UNDERWATER;
         else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
             music = MUS_SURF;
+    }
+
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTRO) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_INTRO))
+    {
+        // Use whatever the music we previously had on is
+        // (We call a bunch of special screens and want the same music throughout)
+        music = GetCurrentMapMusic();
     }
 
     if (music != GetCurrentMapMusic())
@@ -1245,17 +1279,15 @@ void TryFadeOutOldMapMusic(void)
 {
     u16 currentMusic = GetCurrentMapMusic();
     u16 warpMusic = GetWarpDestinationMusic();
+
+    if(!WaitFanfare(FALSE))
+    {
+        // We're actively playing a fanfare
+        return;
+    }
+
     if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE && warpMusic != GetCurrentMapMusic())
     {
-        if (currentMusic == MUS_SURF
-            && VarGet(VAR_SKY_PILLAR_STATE) == 2
-            && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SOOTOPOLIS_CITY)
-            && gSaveBlock1Ptr->location.mapNum == MAP_NUM(SOOTOPOLIS_CITY)
-            && sWarpDestination.mapGroup == MAP_GROUP(SOOTOPOLIS_CITY)
-            && sWarpDestination.mapNum == MAP_NUM(SOOTOPOLIS_CITY)
-            && sWarpDestination.x == 29
-            && sWarpDestination.y == 53)
-            return;
         FadeOutMapMusic(GetMapMusicFadeoutSpeed());
     }
 }
@@ -1301,7 +1333,8 @@ void UpdateAmbientCry(s16 *state, u16 *delayCounter)
     switch (*state)
     {
     case AMB_CRY_INIT:
-        // This state will be revisited whenever ResetFieldTasksArgs is called (which happens on map transition)
+        ChooseAmbientCrySpecies();
+
         if (sAmbientCrySpecies == SPECIES_NONE)
             *state = AMB_CRY_IDLE;
         else
@@ -1344,16 +1377,16 @@ void UpdateAmbientCry(s16 *state, u16 *delayCounter)
 
 static void ChooseAmbientCrySpecies(void)
 {
-    if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE130)
-     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE130))
-     && !IsMirageIslandPresent())
-    {
-        // Only play water pokemon cries on this route
-        // when Mirage Island is not present
-        sIsAmbientCryWaterMon = TRUE;
-        sAmbientCrySpecies = GetLocalWaterMon();
-    }
-    else
+    //if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE130)
+    // && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE130))
+    // && !IsMirageIslandPresent())
+    //{
+    //    // Only play water pokemon cries on this route
+    //    // when Mirage Island is not present
+    //    sIsAmbientCryWaterMon = TRUE;
+    //    sAmbientCrySpecies = GetLocalWaterMon();
+    //}
+    //else
     {
         sAmbientCrySpecies = GetLocalWildMon(&sIsAmbientCryWaterMon);
     }
@@ -1465,6 +1498,8 @@ bool32 IsOverworldLinkActive(void)
 
 static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
 {
+    bool8 allowPopups;
+    bool8 inputActive = FALSE;
     struct FieldInput inputStruct;
 
     UpdatePlayerAvatarTransitionState();
@@ -1475,13 +1510,35 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
         if (ProcessPlayerFieldInput(&inputStruct) == 1)
         {
             LockPlayerFieldControls();
-            HideMapNamePopUpWindow();
+            HideMapNamePopUpWindow(); 
+            Rogue_UpdatePopups(TRUE, FALSE);
+            PUSH_ASSISTANT_STATE2(OVERWORLD, LOCKED);
         }
         else
         {
             PlayerStep(inputStruct.dpadDirection, newKeys, heldKeys);
+            Rogue_UpdatePopups(TRUE, TRUE);
+            FollowMon_OverworldCB();
+            inputActive = TRUE;
+            PUSH_ASSISTANT_STATE2(OVERWORLD, MOVEMENT);
         }
     }
+    else
+    {
+        PUSH_ASSISTANT_STATE2(OVERWORLD, LOCKED);
+        //PlayerStep(0, 0, 0); // since dynamic player model, it forgets direction when reloading (Force update here for that reason)
+        Rogue_UpdatePopups(TRUE, FALSE);
+    }
+
+    Rogue_OverworldCB(newKeys, heldKeys, inputActive);
+
+    // if stop running but keep holding B -> fix follower frame
+    if (PlayerHasFollower() && IsPlayerOnFoot() && IsPlayerStandingStill())
+        ObjectEventSetHeldMovement(&gObjectEvents[GetFollowerObjectId()], GetFaceDirectionAnimNum(gObjectEvents[GetFollowerObjectId()].facingDirection));
+
+#ifdef ROGUE_FEATURE_AUTOMATION
+    Rogue_PushAutomationInputState(AUTO_INPUT_STATE_OVERWORLD);
+#endif
 }
 
 void CB1_Overworld(void)
@@ -1567,7 +1624,7 @@ void CB2_NewGame(void)
     PlayTimeCounter_Start();
     ScriptContext_Init();
     UnlockPlayerFieldControls();
-    gFieldCallback = ExecuteTruckSequence;
+    gFieldCallback = NULL;//ExecuteTruckSequence;
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();
@@ -1734,6 +1791,8 @@ void CB2_ContinueSavedGame(void)
 {
     u8 trainerHillMapId;
 
+    // RogueNote: rest handle continue
+
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     ResetSafariZoneFlag_();
@@ -1743,9 +1802,7 @@ void CB2_ContinueSavedGame(void)
     LoadSaveblockMapHeader();
     ClearDiveAndHoleWarps();
     trainerHillMapId = GetCurrentTrainerHillMapId();
-    if (gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PYRAMID_FLOOR)
-        LoadBattlePyramidFloorObjectEventScripts();
-    else if (trainerHillMapId != 0 && trainerHillMapId != TRAINER_HILL_ENTRANCE)
+    if (trainerHillMapId != 0 && trainerHillMapId != TRAINER_HILL_ENTRANCE)
         LoadTrainerHillFloorObjectEventScripts();
     else
         LoadSaveblockObjEventScripts();
@@ -1753,9 +1810,7 @@ void CB2_ContinueSavedGame(void)
     UnfreezeObjectEvents();
     DoTimeBasedEvents();
     UpdateMiscOverworldStates();
-    if (gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PYRAMID_FLOOR)
-        InitBattlePyramidMap(TRUE);
-    else if (trainerHillMapId != 0)
+    if (trainerHillMapId != 0)
         InitTrainerHillMap();
     else
         InitMapFromSavedGame();
@@ -2001,6 +2056,7 @@ static bool32 ReturnToFieldLocal(u8 *state)
     case 1:
         InitViewGraphics();
         TryLoadTrainerHillEReaderPalette();
+        FollowMe_BindToSurbBlobOnReloadScreen();
         (*state)++;
         break;
     case 2:
@@ -2177,6 +2233,8 @@ static void ResumeMap(bool32 a1)
         SetUpFieldTasks();
     RunOnResumeMapScript();
     TryStartMirageTowerPulseBlendEffect();
+
+    Rogue_OnResumeMap();
 }
 
 static void InitObjectEventsLink(void)
@@ -2203,12 +2261,16 @@ static void InitObjectEventsLocal(void)
     ResetInitialPlayerAvatarState();
     TrySpawnObjectEvents(0, 0);
     TryRunOnWarpIntoMapScript();
+    FollowMe_HandleSprite();
+
+    Rogue_OnObjectEventsInit();
 }
 
 static void InitObjectEventsReturnToField(void)
 {
     SpawnObjectEventsOnReturnToField(0, 0);
     RotatingGate_InitPuzzleAndGraphics();
+    Rogue_OnObjectEventsInit();
     RunOnReturnToFieldMapScript();
 }
 
@@ -2803,29 +2865,13 @@ static const u8 *TryInteractWithPlayer(struct CableClubPlayer *player)
 // these event scripts runs.
 static u16 GetDirectionForEventScript(const u8 *script)
 {
-    if (script == EventScript_BattleColosseum_4P_PlayerSpot0)
-        return FACING_FORCED_RIGHT;
-    else if (script == EventScript_BattleColosseum_4P_PlayerSpot1)
-        return FACING_FORCED_LEFT;
-    else if (script == EventScript_BattleColosseum_4P_PlayerSpot2)
-        return FACING_FORCED_RIGHT;
-    else if (script == EventScript_BattleColosseum_4P_PlayerSpot3)
-        return FACING_FORCED_LEFT;
-    else if (script == EventScript_RecordCenter_Spot0)
+    if (script == EventScript_RecordCenter_Spot0)
         return FACING_FORCED_RIGHT;
     else if (script == EventScript_RecordCenter_Spot1)
         return FACING_FORCED_LEFT;
     else if (script == EventScript_RecordCenter_Spot2)
         return FACING_FORCED_RIGHT;
     else if (script == EventScript_RecordCenter_Spot3)
-        return FACING_FORCED_LEFT;
-    else if (script == EventScript_BattleColosseum_2P_PlayerSpot0)
-        return FACING_FORCED_RIGHT;
-    else if (script == EventScript_BattleColosseum_2P_PlayerSpot1)
-        return FACING_FORCED_LEFT;
-    else if (script == EventScript_TradeCenter_Chair0)
-        return FACING_FORCED_RIGHT;
-    else if (script == EventScript_TradeCenter_Chair1)
         return FACING_FORCED_LEFT;
     else
         return FACING_NONE;
@@ -2852,9 +2898,6 @@ static void RunInteractLocalPlayerScript(const u8 *script)
 
 static void RunConfirmLeaveCableClubScript(void)
 {
-    PlaySE(SE_WIN_OPEN);
-    ScriptContext_SetupScript(EventScript_ConfirmLeaveCableClubRoom);
-    LockPlayerFieldControls();
 }
 
 static void InitMenuBasedScript(const u8 *script)

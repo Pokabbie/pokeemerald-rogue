@@ -692,6 +692,7 @@ const u8 gHealthboxElementsGfxTable[] = INCBIN_U8("graphics/battle_interface/hpb
                                                   "graphics/battle_interface/status2.4bpp", // these three duplicate sets of graphics are for the opponent/partner pokemon
                                                   "graphics/battle_interface/status3.4bpp",
                                                   "graphics/battle_interface/status4.4bpp",
+                                                  "graphics/battle_interface/rogue_status1.4bpp",
                                                   "graphics/battle_interface/healthbox_doubles_frameend.4bpp",
                                                   "graphics/battle_interface/healthbox_doubles_frameend_bar.4bpp");
 const u32 gBattleInterfaceGfx_UnusedWindow3[] = INCBIN_U32("graphics/battle_interface/unused_window3.4bpp.lz");
@@ -1639,6 +1640,15 @@ const u32 gBagMaleTiles[] = INCBIN_U32("graphics/bag/bag_male.4bpp.lz");
 const u32 gBagFemaleTiles[] = INCBIN_U32("graphics/bag/bag_female.4bpp.lz");
 const u32 gBagPalette[] = INCBIN_U32("graphics/bag/bag.gbapal.lz");
 
+const u32 gBagKantoMaleTiles[] = INCBIN_U32("graphics/bag/bag_male_kanto.4bpp.lz");
+const u32 gBagKantoFemaleTiles[] = INCBIN_U32("graphics/bag/bag_female_kanto.4bpp.lz");
+const u32 gBagKantoPalette[] = INCBIN_U32("graphics/bag/bag_kanto.gbapal.lz");
+const u32 gBagJohtoPalette[] = INCBIN_U32("graphics/bag/bag_johto.gbapal.lz");
+const u32 gBagKantoBlackPalette[] = INCBIN_U32("graphics/bag/bag_kanto_black.gbapal.lz");
+const u32 gBagKantoPinkPalette[] = INCBIN_U32("graphics/bag/bag_kanto_pink.gbapal.lz");
+const u32 gBagHoennSilverPalette[] = INCBIN_U32("graphics/bag/bag_hoenn_silver.gbapal.lz");
+const u32 gBagHoennBlackPalette[] = INCBIN_U32("graphics/bag/bag_hoenn_black.gbapal.lz");
+
 const u32 gBagScreenMale_Pal[] = INCBIN_U32("graphics/bag/menu_male.gbapal.lz");
 const u32 gBagScreenFemale_Pal[] = INCBIN_U32("graphics/bag/menu_female.gbapal.lz");
 
@@ -1770,6 +1780,8 @@ const u16 gMenuInfoElements3_Pal[] = INCBIN_U16("graphics/interface/menu_info3.g
 const u8 gMenuInfoElements_Gfx[] = INCBIN_U8("graphics/interface/menu_info.4bpp");
 
 const u8 gBagMenuHMIcon_Gfx[] = INCBIN_U8("graphics/bag/hm.4bpp");
+const u8 gBagMenuTMIcon_Gfx[] = INCBIN_U8("graphics/bag/tm.4bpp");
+const u8 gBagMenuTRIcon_Gfx[] = INCBIN_U8("graphics/bag/tr.4bpp");
 
 // contest results screen
 
@@ -1950,6 +1962,12 @@ const u16 gTilesetPalettes_General[][16] =
     INCBIN_U16("data/tilesets/primary/general/palettes/14.gbapal"),
     INCBIN_U16("data/tilesets/primary/general/palettes/15.gbapal"),
 };
+
+// Pal 02 contains all the greens we want to override for season
+const u16 gTilesetPalettes_General02_Spring[] = INCBIN_U16("data/tilesets/primary/general/palettes/season/02_spring.gbapal");
+const u16 gTilesetPalettes_General02_Summer[] = INCBIN_U16("data/tilesets/primary/general/palettes/season/02_summer.gbapal");
+const u16 gTilesetPalettes_General02_Autumn[] = INCBIN_U16("data/tilesets/primary/general/palettes/season/02_autumn.gbapal");
+const u16 gTilesetPalettes_General02_Winter[] = INCBIN_U16("data/tilesets/primary/general/palettes/season/02_winter.gbapal");
 
 const u32 gTilesetTiles_General[] = INCBIN_U32("data/tilesets/primary/general/tiles.4bpp.lz");
 

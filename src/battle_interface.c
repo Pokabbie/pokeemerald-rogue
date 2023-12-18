@@ -18,11 +18,13 @@
 #include "battle_message.h"
 #include "pokedex.h"
 #include "palette.h"
+#include "item.h"
 #include "international_string_util.h"
 #include "safari_zone.h"
 #include "battle_anim.h"
 #include "data.h"
 #include "pokemon_summary_screen.h"
+#include "pokemon_storage_system.h"
 #include "strings.h"
 #include "battle_debug.h"
 #include "item.h"
@@ -33,6 +35,14 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/items.h"
+
+#include "rogue_baked.h"
+#include "rogue_controller.h"
+#include "rogue_safari.h"
+
+#define BATTLE_INTERFACE_TRANSPARENT_BG 0
+#define BATTLE_INTERFACE_FILLED_BG 5
+
 
 enum
 {   // Corresponds to gHealthboxElementsGfxTable (and the tables after it) in graphics.c
@@ -163,6 +173,7 @@ enum
     HEALTHBOX_GFX_114,
     HEALTHBOX_GFX_115,
     HEALTHBOX_GFX_STATUS_FSB_BATTLER3, //status4 "FSB"
+    HEALTHBOX_GFX_STATUS_ANGRY, //RogueNote: used for AlphaMon
     HEALTHBOX_GFX_122,
     HEALTHBOX_GFX_123,
     HEALTHBOX_GFX_FRAME_END,
@@ -590,6 +601,7 @@ static const struct SpriteTemplate sStatusSummaryBallsSpriteTemplates[2] =
 
 static const u8 sEmptyWhiteText_GrayHighlight[] = __("{COLOR WHITE}{HIGHLIGHT DARK_GRAY}              ");
 static const u8 sEmptyWhiteText_TransparentHighlight[] = __("{COLOR WHITE}{HIGHLIGHT TRANSPARENT}              ");
+static const u8 sEmptyWhiteText_TransparentHighlightMinimal[] = _("{COLOR DARK_GRAY}{SHADOW WHITE}{HIGHLIGHT TRANSPARENT}");
 
 enum
 {
@@ -597,7 +609,8 @@ enum
     PAL_STATUS_PAR,
     PAL_STATUS_SLP,
     PAL_STATUS_FRZ,
-    PAL_STATUS_BRN
+    PAL_STATUS_BRN,
+    PAL_STATUS_ROGUE_ANGRY
 };
 
 static const u16 sStatusIconColors[] =
@@ -607,6 +620,7 @@ static const u16 sStatusIconColors[] =
     [PAL_STATUS_SLP] = RGB(20, 20, 17),
     [PAL_STATUS_FRZ] = RGB(17, 22, 28),
     [PAL_STATUS_BRN] = RGB(28, 14, 10),
+    [PAL_STATUS_ROGUE_ANGRY] = RGB(30, 10, 10)
 };
 
 static const struct WindowTemplate sHealthboxWindowTemplate = {
@@ -1038,6 +1052,7 @@ static void UpdateLvlInHealthbox(u8 healthboxSpriteId, u8 lvl)
     u32 windowId, spriteTileNum;
     u8 *windowTileData;
     u8 text[16];
+    u8* textPtr;
     u32 xPos;
     u8 *objVram;
     u8 battler = gSprites[healthboxSpriteId].hMain_Battler;
@@ -1052,15 +1067,16 @@ static void UpdateLvlInHealthbox(u8 healthboxSpriteId, u8 lvl)
     }
     else
     {
-        text[0] = CHAR_EXTRA_SYMBOL;
-        text[1] = CHAR_LV_2;
+        textPtr = StringCopy(text, gText_HealthboxNickname);
+        textPtr[0] = CHAR_EXTRA_SYMBOL;
+        textPtr[1] = CHAR_LV_2;
 
-        objVram = ConvertIntToDecimalStringN(text + 2, lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
-        xPos = 5 * (3 - (objVram - (text + 2)));
+        objVram = ConvertIntToDecimalStringN(textPtr + 2, lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
+        xPos = 5 * (3 - (objVram - (textPtr + 2)));
         MegaIndicator_SetVisibilities(healthboxSpriteId, TRUE);
     }
 
-    windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, xPos, 3, 2, &windowId);
+    windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, xPos, 3, BATTLE_INTERFACE_FILLED_BG, &windowId);
     spriteTileNum = gSprites[healthboxSpriteId].oam.tileNum * TILE_SIZE_4BPP;
 
     if (GetBattlerSide(battler) == B_SIDE_PLAYER)
@@ -1230,24 +1246,27 @@ static void UpdateHpTextInHealthboxInDoubles(u32 healthboxSpriteId, u32 maxOrCur
 static void PrintSafariMonInfo(u8 healthboxSpriteId, struct Pokemon *mon)
 {
     u8 text[20];
+    u8* textPtr;
     s32 j, spriteTileNum;
     u8 *barFontGfx;
     u8 i, var, nature, healthBarSpriteId;
 
-    memcpy(text, sEmptyWhiteText_GrayHighlight, sizeof(sEmptyWhiteText_GrayHighlight));
+    textPtr = StringCopy(text, gText_HealthboxNickname);
+
+    memcpy(textPtr, sEmptyWhiteText_GrayHighlight, sizeof(sEmptyWhiteText_GrayHighlight));
     barFontGfx = &gMonSpritesGfxPtr->barFontGfx[0x520 + (GetBattlerPosition(gSprites[healthboxSpriteId].hMain_Battler) * 384)];
     var = 5;
     nature = GetNature(mon);
-    StringCopy(&text[6], gNatureNamePointers[nature]);
+    StringCopy(&textPtr[6], gNatureNamePointers[nature]);
     RenderTextHandleBold(barFontGfx, FONT_BOLD, text);
 
     for (j = 6, i = 0; i < var; i++, j++)
     {
         u8 elementId;
 
-        if ((text[j] >= 55 && text[j] <= 74) || (text[j] >= 135 && text[j] <= 154))
+        if ((textPtr[j] >= 55 && textPtr[j] <= 74) || (textPtr[j] >= 135 && textPtr[j] <= 154))
             elementId = 44;
-        else if ((text[j] >= 75 && text[j] <= 79) || (text[j] >= 155 && text[j] <= 159))
+        else if ((textPtr[j] >= 75 && textPtr[j] <= 79) || (textPtr[j] >= 155 && textPtr[j] <= 159))
             elementId = 45;
         else
             elementId = 43;
@@ -1267,10 +1286,10 @@ static void PrintSafariMonInfo(u8 healthboxSpriteId, struct Pokemon *mon)
     }
 
     healthBarSpriteId = gSprites[healthboxSpriteId].hMain_HealthBarSpriteId;
-    ConvertIntToDecimalStringN(&text[6], gBattleStruct->safariCatchFactor, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    ConvertIntToDecimalStringN(&text[9], gBattleStruct->safariEscapeFactor, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    text[5] = CHAR_SPACE;
-    text[8] = CHAR_SLASH;
+    ConvertIntToDecimalStringN(&textPtr[6], gBattleStruct->safariCatchFactor, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    ConvertIntToDecimalStringN(&textPtr[9], gBattleStruct->safariEscapeFactor, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    textPtr[5] = CHAR_SPACE;
+    textPtr[8] = CHAR_SLASH;
     RenderTextHandleBold(gMonSpritesGfxPtr->barFontGfx, FONT_BOLD, text);
 
     j = healthBarSpriteId; // Needed to match for some reason.
@@ -2287,15 +2306,15 @@ static void UpdateNickInHealthbox(u8 healthboxSpriteId, struct Pokemon *mon)
     {
     default:
         StringCopy(ptr, gText_HealthboxGender_None);
-        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 3, 2, &windowId);
+        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 3, BATTLE_INTERFACE_FILLED_BG, &windowId);
         break;
     case MON_MALE:
         StringCopy(ptr, gText_HealthboxGender_Male);
-        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 3, 2, &windowId);
+        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 3, BATTLE_INTERFACE_FILLED_BG, &windowId);
         break;
     case MON_FEMALE:
         StringCopy(ptr, gText_HealthboxGender_Female);
-        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 3, 2, &windowId);
+        windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gDisplayedStringBattle, 0, 3, BATTLE_INTERFACE_FILLED_BG, &windowId);
         break;
     }
 
@@ -2322,6 +2341,7 @@ static void UpdateNickInHealthbox(u8 healthboxSpriteId, struct Pokemon *mon)
 static void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
 {
     u8 battlerId, healthBarSpriteId;
+    u16 targetGfxId = HEALTHBOX_GFX_STATUS_BALL_CAUGHT;
 
     if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL)
         return;
@@ -2331,13 +2351,20 @@ static void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
     battlerId = gSprites[healthboxSpriteId].hMain_Battler;
     if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
         return;
-    if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES)), FLAG_GET_CAUGHT))
+    if (!GetSetPokedexSpeciesFlag(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES), FLAG_GET_CAUGHT))
         return;
+
+    if(GetSafariZoneFlag() || Rogue_InWildSafari())
+    {
+        if(!AnyPlayerPartyMonOfSpecies(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES))
+            && !AnyStorageMonOfSpecies(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES)))
+            targetGfxId = HEALTHBOX_GFX_STATUS_BALL_STATUSED;
+    }
 
     healthBarSpriteId = gSprites[healthboxSpriteId].hMain_HealthBarSpriteId;
 
     if (noStatus)
-        CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_STATUS_BALL_CAUGHT), (void *)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 32);
+        CpuCopy32(GetHealthboxElementGfxPtr(targetGfxId), (void*)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 32);
     else
         CpuFill32(0, (void *)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 32);
 }
@@ -2397,9 +2424,17 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
         statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_PRZ_BATTLER0, battlerId));
         statusPalId = PAL_STATUS_PAR;
     }
+    else if((GetBattlerSide(battlerId) == B_SIDE_OPPONENT) && gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0)
+    {
+        statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_ANGRY, battlerId));
+        statusPalId = PAL_STATUS_ROGUE_ANGRY;
+    }
     else
     {
-        statusGfxPtr = GetHealthboxElementGfxPtr(HEALTHBOX_GFX_39);
+        if (!IsDoubleBattle() && GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+            statusGfxPtr = GetHealthboxElementGfxPtr(HEALTHBOX_GFX_36);
+        else
+            statusGfxPtr = GetHealthboxElementGfxPtr(HEALTHBOX_GFX_39);
 
         for (i = 0; i < 3; i++)
             CpuCopy32(statusGfxPtr, (void *)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + tileNumAdder + i) * TILE_SIZE_4BPP), 32);
@@ -2501,9 +2536,15 @@ static u8 GetStatusIconForBattlerId(u8 statusElementId, u8 battlerId)
 static void UpdateSafariBallsTextOnHealthbox(u8 healthboxSpriteId)
 {
     u32 windowId, spriteTileNum;
+    u8 text[16];
+    u8 *txtPtr;
     u8 *windowTileData;
 
-    windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(gText_SafariBalls, 0, 3, 2, &windowId);
+    txtPtr = StringCopy(text, gText_HealthboxNickname);
+    StringAppend(txtPtr, gText_SafariBalls);
+    StringAppend(txtPtr, Rogue_GetItemName(RogueSafari_GetActivePokeballType()));
+
+    windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, 0, 3, BATTLE_INTERFACE_FILLED_BG, &windowId);
     spriteTileNum = gSprites[healthboxSpriteId].oam.tileNum * TILE_SIZE_4BPP;
     TextIntoHealthboxObject((void *)(OBJ_VRAM0 + 0x40) + spriteTileNum, windowTileData, 6);
     TextIntoHealthboxObject((void *)(OBJ_VRAM0 + 0x800) + spriteTileNum, windowTileData + 0xC0, 2);
@@ -2512,15 +2553,16 @@ static void UpdateSafariBallsTextOnHealthbox(u8 healthboxSpriteId)
 
 static void UpdateLeftNoOfBallsTextOnHealthbox(u8 healthboxSpriteId)
 {
-    u8 text[16];
+    u8 text[32];
     u8 *txtPtr;
     u32 windowId, spriteTileNum;
     u8 *windowTileData;
 
-    txtPtr = StringCopy(text, gText_SafariBallLeft);
-    ConvertIntToDecimalStringN(txtPtr, gNumSafariBalls, STR_CONV_MODE_LEFT_ALIGN, 2);
+    txtPtr = StringCopy(text, gText_HealthboxNickname);
+    txtPtr = StringAppend(txtPtr, gText_SafariBallLeft);
+    ConvertIntToDecimalStringN(txtPtr, GetItemCountInBag(RogueSafari_GetActivePokeballType()), STR_CONV_MODE_LEFT_ALIGN, 2);
 
-    windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, GetStringRightAlignXOffset(FONT_SMALL, text, 0x2F), 3, 2, &windowId);
+    windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, GetStringRightAlignXOffset(FONT_SMALL, text, 0x2F), 3, BATTLE_INTERFACE_FILLED_BG, &windowId);
     spriteTileNum = gSprites[healthboxSpriteId].oam.tileNum * TILE_SIZE_4BPP;
     SafariTextIntoHealthboxObject((void *)(OBJ_VRAM0 + 0x2C0) + spriteTileNum, windowTileData, 2);
     SafariTextIntoHealthboxObject((void *)(OBJ_VRAM0 + 0xA00) + spriteTileNum, windowTileData + 0x40, 4);
@@ -2565,9 +2607,9 @@ void UpdateHealthboxAttribute(u8 healthboxSpriteId, struct Pokemon *mon, u8 elem
             species = GetMonData(mon, MON_DATA_SPECIES);
             level = GetMonData(mon, MON_DATA_LEVEL);
             exp = GetMonData(mon, MON_DATA_EXP);
-            currLevelExp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+            currLevelExp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level);
             currExpBarValue = exp - currLevelExp;
-            maxExpBarValue = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLevelExp;
+            maxExpBarValue = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1) - currLevelExp;
             SetBattleBarStruct(battlerId, healthboxSpriteId, maxExpBarValue, currExpBarValue, isDoubles);
             MoveBattleBar(battlerId, healthboxSpriteId, EXP_BAR, 0);
         }
@@ -2630,6 +2672,9 @@ s32 MoveBattleBar(u8 battlerId, u8 healthboxSpriteId, u8 whichBar, u8 unused)
         if (expFraction == 0)
             expFraction = 1;
         expFraction = abs(gBattleSpritesDataPtr->battleBars[battlerId].receivedValue / expFraction);
+
+        // RogueNote: Fast exp bar
+        expFraction = 100;
 
         currentBarValue = CalcNewBarValue(gBattleSpritesDataPtr->battleBars[battlerId].maxValue,
                     gBattleSpritesDataPtr->battleBars[battlerId].oldValue,

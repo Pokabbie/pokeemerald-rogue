@@ -227,6 +227,25 @@ gScriptCmdTable::
 	.4byte ScrCmd_warpwhitefade                     @ 0xe0
 	.4byte ScrCmd_buffercontestname                 @ 0xe1
 	.4byte ScrCmd_bufferitemnameplural              @ 0xe2
+	.4byte ScrCmd_fillmetatile                      @ 0xe3
+	.4byte ScrCmd_pokemartwithminprice              @ 0xe4
+	.4byte ScrCmd_rogue_dynamicpokemart             @ 0xe5
+	.4byte ScrCmd_warprespawn                       @ 0xe6
+	.4byte ScrCmd_bufferconstantnumberstring        @ 0xe7
+	.4byte ScrCmd_checkconstantmoney                @ 0xe8
+	.4byte ScrCmd_removeconstantmoney               @ 0xe9
+	.4byte ScrCmd_questcompleted                    @ 0xea
+	.4byte ScrCmd_questcollected                    @ 0xeb
+	.4byte ScrCmd_nextquestreward                   @ 0xec
+	.4byte ScrCmd_unlockquest                       @ 0xed
+	.4byte ScrCmd_completequest                     @ 0xee
+	.4byte ScrCmd_deactivatequest                   @ 0xef
+	.4byte ScrCmd_setfollower                       @ 0xf0
+	.4byte ScrCmd_destroyfollower                   @ 0xf1
+	.4byte ScrCmd_facefollower                      @ 0xf2
+	.4byte ScrCmd_checkfollower                     @ 0xf3
+	.4byte ScrCmd_multichoicedynamic                @ 0xf4
+	.4byte ScrCmd_hubupgradeunlocked                @ 0xf5
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

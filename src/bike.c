@@ -10,6 +10,9 @@
 #include "constants/map_types.h"
 #include "constants/songs.h"
 
+#include "rogue_followmon.h"
+#include "rogue_ridemon.h"
+
 // this file's functions
 static void MovePlayerOnMachBike(u8, u16, u16);
 static u8 GetMachBikeTransition(u8 *);
@@ -143,6 +146,19 @@ static u8 GetMachBikeTransition(u8 *dirTraveling)
     // if the dir updated before this function, get the relevent new direction to check later.
     u8 direction = GetPlayerMovementDirection();
 
+    // fix direction when moving on sideways stairs
+    switch (direction)
+    {
+    case DIR_SOUTHWEST:
+    case DIR_NORTHWEST:
+        direction = DIR_WEST;
+        break;
+    case DIR_SOUTHEAST:
+    case DIR_NORTHEAST:
+        direction = DIR_EAST;
+        break;
+    }
+
     // is the player standing still?
     if (*dirTraveling == 0)
     {
@@ -233,7 +249,9 @@ static void MachBikeTransition_TrySpeedUp(u8 direction)
         }
         else
         {
-            // we did not hit anything that can slow us down, so perform the advancement callback depending on the bikeFrameCounter and try to increase the mach bike's speed.
+            if (ObjectMovingOnRockStairs(playerObjEvent, direction) && gPlayerAvatar.bikeFrameCounter > 1)
+                gPlayerAvatar.bikeFrameCounter--;
+
             sMachBikeSpeedCallbacks[gPlayerAvatar.bikeFrameCounter](direction);
             gPlayerAvatar.bikeSpeed = gPlayerAvatar.bikeFrameCounter + (gPlayerAvatar.bikeFrameCounter >> 1); // same as dividing by 2, but compiler is insistent on >> 1
             if (gPlayerAvatar.bikeFrameCounter < 2) // do not go faster than the last element in the mach bike array
@@ -563,7 +581,10 @@ static void AcroBikeTransition_Moving(u8 direction)
     }
     else
     {
-        PlayerRideWaterCurrent(direction);
+        if (ObjectMovingOnRockStairs(playerObjEvent, direction))
+            PlayerWalkFast(direction);
+        else
+            PlayerRideWaterCurrent(direction);
     }
 }
 
@@ -985,6 +1006,8 @@ void GetOnOffBike(u8 transitionFlags)
         Overworld_SetSavedMusic(MUS_CYCLING);
         Overworld_ChangeMusicTo(MUS_CYCLING);
     }
+
+    SetupFollowParterMonObjectEvent();
 }
 
 void BikeClearState(int newDirHistory, int newAbStartHistory)
@@ -1024,6 +1047,8 @@ s16 GetPlayerSpeed(void)
 
     memcpy(machSpeeds, sMachBikeSpeeds, sizeof(machSpeeds));
 
+    if(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
+        return RideMonGetPlayerSpeed();
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
         return machSpeeds[gPlayerAvatar.bikeFrameCounter];
     else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE)

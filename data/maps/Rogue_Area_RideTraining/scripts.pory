@@ -1,0 +1,480 @@
+const FLAG_HIDE_STANTLER = FLAG_TEMP_5
+const FLAG_HIDE_DITTO = FLAG_TEMP_6
+
+const NPC_OBJ_STANTLER = 16
+const NPC_OBJ_DITTO = 20
+
+mapscripts Rogue_Area_RideTraining_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_RideTraining_OnTransition
+}
+
+script Rogue_Area_RideTraining_OnTransition
+{
+    setvar(VAR_FOLLOW_MON_0, SPECIES_STANTLER)
+    addvar(VAR_FOLLOW_MON_0, FOLLOWMON_SHINY_OFFSET)
+
+    call(Rogue_Area_RideTraining_SetDittoGraphics)
+
+    setvar(VAR_FOLLOW_MON_2, SPECIES_MR_MIME)
+    setvar(VAR_FOLLOW_MON_3, SPECIES_CHIMECHO)
+
+    checkitem(ITEM_BASIC_RIDING_WHISTLE)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        setflag(FLAG_HIDE_STANTLER)
+    }
+
+    checkitem(ITEM_GOLD_RIDING_WHISTLE)
+
+    if(var(VAR_RESULT) == FALSE)
+    {
+        setflag(FLAG_HIDE_DITTO)
+    }
+}
+
+script Rogue_Area_RideTraining_SetDittoGraphics
+{
+    if(var(VAR_ROGUE_REGISTERED_RIDE_MON) == SPECIES_NONE)
+    {
+        poryswitch(ROGUE_VERSION)
+        {
+            ROGUE_VERSION_VANILLA
+            {
+                setvar(VAR_FOLLOW_MON_1, SPECIES_DITTO)
+            }
+            ROGUE_VERSION_EXPANSION
+            {
+                setvar(VAR_FOLLOW_MON_1, SPECIES_ZORUA_HISUIAN)
+            }
+        }
+    }
+    else
+    {
+        copyvar(VAR_FOLLOW_MON_1, VAR_ROGUE_REGISTERED_RIDE_MON)
+    }
+}
+
+script Rogue_Area_RideTraining_FindItemFieldMoves
+{
+    finditem(ITEM_LEFTOVERS, 1)
+}
+
+script Rogue_Area_RideTraining_FindItemLedgeJump
+{
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            finditem(ITEM_ULTRA_BALL, 10)
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            finditem(ITEM_DUSK_BALL, 10)
+        }
+    }
+}
+
+script Rogue_Area_RideTraining_FindItemSurf
+{
+    finditem(ITEM_CHOICE_BAND, 1)
+}
+
+script Rogue_Area_RideTraining_FindItemFly
+{
+    finditem(ITEM_ESCAPE_ROPE, 1)
+}
+
+script Rogue_Area_RideTraining_SpeakDitto
+{
+    lock
+    faceplayer
+
+    special(Rogue_GetFollowMonSpecies)
+    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+
+    bufferpartymonnick(STR_VAR_1, 0)
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            if(var(VAR_ROGUE_REGISTERED_RIDE_MON) == SPECIES_NONE)
+            {
+                msgbox(format("Would you like DITTO to transform into {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    special(Rogue_RegisterRideMon)
+
+                    call(Rogue_Area_RideTraining_SetDittoGraphics)
+                    removeobject(NPC_OBJ_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+
+                    special(Rogue_GetFollowMonSpecies)
+                    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+                }
+            }
+            else
+            {
+                msgbox(format("Would you clear DITTO's transform?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    setvar(VAR_ROGUE_REGISTERED_RIDE_MON, SPECIES_NONE)
+
+                    call(Rogue_Area_RideTraining_SetDittoGraphics)
+                    removeobject(NPC_OBJ_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+
+                    special(Rogue_GetFollowMonSpecies)
+                    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+                }
+            }
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            if(var(VAR_ROGUE_REGISTERED_RIDE_MON) == SPECIES_NONE)
+            {
+                msgbox(format("Would you like ZORUA to transform into {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    special(Rogue_RegisterRideMon)
+
+                    call(Rogue_Area_RideTraining_SetDittoGraphics)
+                    removeobject(NPC_OBJ_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+
+                    special(Rogue_GetFollowMonSpecies)
+                    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+                }
+            }
+            else
+            {
+                msgbox(format("Would you clear ZORUA's transform?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    setvar(VAR_ROGUE_REGISTERED_RIDE_MON, SPECIES_NONE)
+
+                    call(Rogue_Area_RideTraining_SetDittoGraphics)
+                    removeobject(NPC_OBJ_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+
+                    special(Rogue_GetFollowMonSpecies)
+                    playmoncry(VAR_0x800A, CRY_MODE_NORMAL)
+                }
+            }
+        }
+    }
+
+    release
+}
+
+script Rogue_Area_RideTraining_SpeakClown
+{
+    lock
+    faceplayer
+
+    if(!flag(FLAG_SYS_FIELD_MOVES_GET))
+    {
+        call(Rogue_Area_RideTraining_GiveFieldMoves)
+    }
+    else
+    {
+        msgbox(format("Well hi there {PLAYER}!\pWere you wanting me to teach you some more?"))
+
+        checkitem(ITEM_BASIC_RIDING_WHISTLE)
+
+        if(var(VAR_RESULT) == FALSE)
+        {
+            call(Rogue_Area_RideTraining_GiveBasicWhistle)
+        }
+        elif (!flag(FLAG_SYS_RIDING_LEDGE_JUMP))
+        {
+            call(Rogue_Area_RideTraining_TeachLedgeJump)
+        }
+        elif (!flag(FLAG_SYS_RIDING_SURF))
+        {
+            call(Rogue_Area_RideTraining_TeachSurf)
+        }
+        elif (!flag(FLAG_SYS_RIDING_FLY))
+        {
+            call(Rogue_Area_RideTraining_TeachFly)
+        }
+        else
+        {
+            checkitem(ITEM_GOLD_RIDING_WHISTLE)
+            if(var(VAR_RESULT) == FALSE)
+            {
+                call(Rogue_Area_RideTraining_GiveGoldWhistle)
+            }
+            else
+            {
+                msgbox(format("I don't have anything more I can teach you at the moment, I'm afraid."))
+            }
+        }
+    }
+
+    release
+}
+
+script Rogue_Area_RideTraining_GiveFieldMoves
+{
+    msgbox(format("Well hey there {PLAYER}!\pIt's awfully nice of you to have gone and cleared out an area for me!\pI was hoping to build a real life Circus you see!\pAn area where people and Pokémon can train and have fun together!"))
+    msgbox(format("You know, you need to train a whole lot alongside your Pokémon to take part in a Circus.\pAs a thanks to you, let me teach you some of these skills to help you out on your Adventures!"))
+
+    msgbox(format("Hmm…\nHow about we start with teaching you how to clear obstacles?"))
+
+    message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to perform field moves!"))
+    waitmessage
+    playfanfare(MUS_EVOLVED)
+    waitfanfare
+
+    msgbox(format("You see those little trees and rocks at the edge of the path?\pYou should now be able to clear those out of the way, with the help of your Pokémon!"))
+    msgbox(format("I've still got plenty of skills I can teach you!\pIf you're ever wanting to learn some more skills, I'm always happy to help for a little donation towards the Circus!"))
+
+    setflag(FLAG_SYS_FIELD_MOVES_GET)
+}
+
+script Rogue_Area_RideTraining_GiveBasicWhistle
+{
+    showmoneybox(0, 0)
+
+    msgbox(format("I could teach you how to ride your Pokémon for ¥5000?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        checkmoney(5000)
+        if(var(VAR_RESULT) == YES)
+        {
+            removemoney(5000)
+            updatemoneybox
+
+            playse(SE_SHOP)
+            waitse
+
+            msgbox(format("Thank you very much for the donation {PLAYER}!"))
+            msgbox(format("In order to ride your Pokémon, you'll need to use this."))
+
+            hidemoneybox
+            giveitem(ITEM_BASIC_RIDING_WHISTLE)
+
+            msgbox(format("You'll only be able to ride certain species of Pokémon from your PARTY.\pYou should now be able to check your POKéDEX to find out which Pokémon can be riden."))
+            msgbox(format("You know what… here why don't you take Stantler along with you!\pIt's been itching to go on Adventures and you can even ride it too!"))
+
+            givemon(SPECIES_STANTLER, 5)
+            setflag(FLAG_HIDE_STANTLER)
+            removeobject(NPC_OBJ_STANTLER)
+
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to ride Pokémon!"))
+            waitmessage
+            playfanfare(MUS_EVOLVED)
+            waitfanfare
+
+            msgbox(format("All you need to do is use that whilst, whilst you have a ridable Pokémon in your party.\pIf have multiple Pokémon you can ride, you can quickly cycle between them by using {L_BUTTON} and {R_BUTTON}."))
+        }
+        else
+        {
+            msgbox(format("Oh… it doesn't look like you have enough money at the moment."))
+            hidemoneybox
+        }
+    }
+    else
+    {
+        hidemoneybox
+    }
+}
+
+script Rogue_Area_RideTraining_TeachLedgeJump
+{
+    showmoneybox(0, 0)
+
+    msgbox(format("I could teach you how to climb back up ledges for ¥10000?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        checkmoney(10000)
+        if(var(VAR_RESULT) == YES)
+        {
+            removemoney(10000)
+            updatemoneybox
+
+            playse(SE_SHOP)
+            waitse
+
+            msgbox(format("Thank you very much for the donation {PLAYER}!"))
+            msgbox(format("Here, let me teach you!"))
+
+            hidemoneybox
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to climb ledges whilst riding Pokémon!"))
+            waitmessage
+            playfanfare(MUS_EVOLVED)
+            waitfanfare
+
+            msgbox(format("When riding your Pokémon, some of them will be able to jump back up ledges, allowing you to more easily backtrack.\pYou should now be able to see which Pokémon are able to use this skill in your POKéDEX.\pThat Stantler I gave to you previously should be able to help you jump over ledges."))
+
+            setflag(FLAG_SYS_RIDING_LEDGE_JUMP)
+        }
+        else
+        {
+            msgbox(format("Oh… it doesn't look like you have enough money at the moment."))
+            hidemoneybox
+        }
+    }
+    else
+    {
+        hidemoneybox
+    }
+}
+
+script Rogue_Area_RideTraining_TeachSurf
+{
+    showmoneybox(0, 0)
+
+    msgbox(format("I could teach you how to swim for ¥15000?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        checkmoney(15000)
+        if(var(VAR_RESULT) == YES)
+        {
+            removemoney(15000)
+            updatemoneybox
+
+            playse(SE_SHOP)
+            waitse
+
+            msgbox(format("Thank you very much for the donation {PLAYER}!"))
+            msgbox(format("Here, let me teach you!"))
+
+            hidemoneybox
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to swim whilst riding Pokémon!"))
+            waitmessage
+            playfanfare(MUS_EVOLVED)
+            waitfanfare
+
+            msgbox(format("When riding your Pokémon, some of them will be able to now swim in water.\pYou should now be able to see which Pokémon are able to use this skill in your POKéDEX."))
+
+            setflag(FLAG_SYS_RIDING_SURF)
+        }
+        else
+        {
+            msgbox(format("Oh… it doesn't look like you have enough money at the moment."))
+            hidemoneybox
+        }
+    }
+    else
+    {
+        hidemoneybox
+    }
+}
+
+script Rogue_Area_RideTraining_TeachFly
+{
+    showmoneybox(0, 0)
+
+    msgbox(format("I could teach you how to fly for ¥20000?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        checkmoney(20000)
+        if(var(VAR_RESULT) == YES)
+        {
+            removemoney(20000)
+            updatemoneybox
+
+            playse(SE_SHOP)
+            waitse
+
+            msgbox(format("Thank you very much for the donation {PLAYER}!"))
+            msgbox(format("Here, let me teach you!"))
+
+            hidemoneybox
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to fly whilst riding Pokémon!"))
+            waitmessage
+            playfanfare(MUS_EVOLVED)
+            waitfanfare
+
+            msgbox(format("When riding your Pokémon, some of them will be able to now fly by pressing {B_BUTTON}.\pWhilst you are up in the air, you won't be able to interact with items and you won't be seen by trainers either.\pYou will have to be careful however, as your Pokémon will only have enough energy to fly once per route, whilst you are out exploring.\pYou should now be able to see which Pokémon are able to use this skill in your POKéDEX."))
+
+            setflag(FLAG_SYS_RIDING_FLY)
+        }
+        else
+        {
+            msgbox(format("Oh… it doesn't look like you have enough money at the moment."))
+            hidemoneybox
+        }
+    }
+    else
+    {
+        hidemoneybox
+    }
+}
+
+script Rogue_Area_RideTraining_GiveGoldWhistle
+{
+    showmoneybox(0, 0)
+
+    msgbox(format("I could give you a GOLDEN POKéWHISTLE for ¥25000?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        checkmoney(25000)
+        if(var(VAR_RESULT) == YES)
+        {
+            removemoney(25000)
+            updatemoneybox
+
+            playse(SE_SHOP)
+            waitse
+
+            msgbox(format("Thank you very much for the donation {PLAYER}!"))
+            msgbox(format("Here you go!"))
+
+            hidemoneybox
+            giveitem(ITEM_GOLD_RIDING_WHISTLE)
+
+            msgbox(format("Rather than riding on Pokémon in your party, that GOLD WHISTLE is linked my friend.\pCome on out!"))
+
+            poryswitch(ROGUE_VERSION)
+            {
+                ROGUE_VERSION_VANILLA
+                {
+                    clearflag(FLAG_HIDE_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+                    playmoncry(SPECIES_DITTO, CRY_MODE_NORMAL)
+                    waitmoncry
+
+                    msgbox(format("You can speak with DITTO whenever you want and get it to transform into one of your Pokémon.\pFrom then on, even if you don't have that Pokémon in your party, you will be able to summon it using the GOLD WHISTLE."))
+
+                    message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to summon DITTO!"))
+                    waitmessage
+                    playfanfare(MUS_EVOLVED)
+                    waitfanfare
+                }
+                ROGUE_VERSION_EXPANSION
+                {
+                    clearflag(FLAG_HIDE_DITTO)
+                    addobject(NPC_OBJ_DITTO)
+                    playmoncry(SPECIES_ZORUA_HISUIAN, CRY_MODE_NORMAL)
+                    waitmoncry
+
+                    msgbox(format("You can speak with ZORUA whenever you want and get it to transform into one of your Pokémon.\pFrom then on, even if you don't have that Pokémon in your party, you will be able to summon it using the GOLD WHISTLE."))
+
+                    message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} learnt how to summon ZORUA!"))
+                    waitmessage
+                    playfanfare(MUS_EVOLVED)
+                    waitfanfare
+                }
+            }
+        }
+        else
+        {
+            msgbox(format("Oh… it doesn't look like you have enough money at the moment."))
+            hidemoneybox
+        }
+    }
+    else
+    {
+        hidemoneybox
+    }
+}

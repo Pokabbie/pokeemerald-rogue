@@ -678,15 +678,7 @@ static void DecorationMenuAction_Toss(u8 taskId)
 static void DecorationMenuAction_Cancel(u8 taskId)
 {
     RemoveDecorationWindow(WINDOW_MAIN_MENU);
-    if (!sDecorationContext.isPlayerRoom)
-    {
-        ScriptContext_SetupScript(SecretBase_EventScript_PCCancel);
-        DestroyTask(taskId);
-    }
-    else
-    {
-        ReshowPlayerPC(taskId);
-    }
+    ReshowPlayerPC(taskId);
 }
 
 static void ReturnToDecorationActionsAfterInvalidSelection(u8 taskId)
@@ -1650,23 +1642,6 @@ static void PlaceDecorationPrompt(u8 taskId)
 
 static void PlaceDecoration(u8 taskId)
 {
-    ClearDialogWindowAndFrame(0, FALSE);
-    PlaceDecoration_(taskId);
-    if (gDecorations[gCurDecorationItems[gCurDecorationIndex]].permission != DECORPERM_SPRITE)
-    {
-        ShowDecorationOnMap(gTasks[taskId].tCursorX, gTasks[taskId].tCursorY, gCurDecorationItems[gCurDecorationIndex]);
-    }
-    else
-    {
-        sCurDecorMapX = gTasks[taskId].tCursorX - MAP_OFFSET;
-        sCurDecorMapY = gTasks[taskId].tCursorY - MAP_OFFSET;
-        ScriptContext_SetupScript(SecretBase_EventScript_SetDecoration);
-    }
-
-    gSprites[sDecor_CameraSpriteObjectIdx1].y += 2;
-    if (gMapHeader.regionMapSectionId == MAPSEC_SECRET_BASE)
-        TryPutSecretBaseVisitOnAir();
-
     CancelDecorating_(taskId);
 }
 
@@ -1759,7 +1734,6 @@ static void Task_InitDecorationItemsWindow(u8 taskId)
         tState++;
         break;
     case 1:
-        ScriptContext_SetupScript(SecretBase_EventScript_InitDecorations);
         tState++;
         break;
     case 2:
@@ -2256,7 +2230,6 @@ static void Task_PutAwayDecoration(u8 taskId)
     case 1:
         if (!gPaletteFade.active) {
             DrawWholeMapView();
-            ScriptContext_SetupScript(SecretBase_EventScript_PutAwayDecoration);
             ClearDialogWindowAndFrame(0, TRUE);
             gTasks[taskId].tState = 2;
         }
@@ -2655,7 +2628,6 @@ static void Task_ReinitializeDecorationMenuHandler(u8 taskId)
         tState++;
         break;
     case 1:
-        ScriptContext_SetupScript(SecretBase_EventScript_InitDecorations);
         tState++;
         break;
     case 2:

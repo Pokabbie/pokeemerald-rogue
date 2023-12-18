@@ -22,6 +22,9 @@
 #include "constants/songs.h"
 #include "constants/rgb.h"
 
+#include "rogue_controller.h"
+#include "rogue_safari.h"
+
 // iwram
 u32 gMonShrinkDuration;
 u16 gMonShrinkDelta;
@@ -1481,7 +1484,13 @@ static void SpriteCB_Ball_Wobble_Step(struct Sprite *sprite)
     case BALL_NEXT_MOVE:
         SHAKE_INC(sprite->sState);
         shakes = SHAKES(sprite->sState);
-        if (IsCriticalCapture())
+
+        if(Rogue_InWildSafari())
+        {
+            sprite->affineAnimPaused = TRUE;
+            sprite->callback = SpriteCB_Ball_Capture;
+        }
+        else if (IsCriticalCapture())
         {
             if (gBattleSpritesDataPtr->animationData->criticalCaptureSuccess)
             {
@@ -2481,8 +2490,6 @@ void AnimTask_SetTargetToEffectBattler(u8 taskId)
 void TryShinyAnimation(u8 battler, struct Pokemon *mon)
 {
     bool8 isShiny;
-    u32 otId, personality;
-    u32 shinyValue;
     u8 taskCirc, taskDgnl;
     struct Pokemon* illusionMon;
 
@@ -2492,14 +2499,10 @@ void TryShinyAnimation(u8 battler, struct Pokemon *mon)
     if (illusionMon != NULL)
         mon = illusionMon;
 
-    otId = GetMonData(mon, MON_DATA_OT_ID);
-    personality = GetMonData(mon, MON_DATA_PERSONALITY);
 
     if (IsBattlerSpriteVisible(battler) && IsValidForBattle(mon))
     {
-        shinyValue = GET_SHINY_VALUE(otId, personality);
-        if (shinyValue < SHINY_ODDS)
-            isShiny = TRUE;
+        isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
 
         if (isShiny)
         {

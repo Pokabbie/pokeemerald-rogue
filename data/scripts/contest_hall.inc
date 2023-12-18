@@ -111,16 +111,6 @@ LilycoveCity_ContestLobby_EventScript_ChooseContestMon::
 	end
 
 LilycoveCity_ContestLobby_EventScript_ChooseContestRank::
-	message LilycoveCity_ContestLobby_Text_EnterWhichRank
-	waitmessage
-	multichoice 0, 0, MULTI_CONTEST_RANK, FALSE
-	switch VAR_RESULT
-	case 0, LilycoveCity_ContestLobby_EventScript_EnterNormalRank
-	case 1, LilycoveCity_ContestLobby_EventScript_EnterSuperRank
-	case 2, LilycoveCity_ContestLobby_EventScript_EnterHyperRank
-	case 3, LilycoveCity_ContestLobby_EventScript_EnterMasterRank
-	case 4, LilycoveCity_ContestLobby_EventScript_CancelEnterContest
-	case MULTI_B_PRESSED, LilycoveCity_ContestLobby_EventScript_CancelEnterContest
 	end
 
 LilycoveCity_ContestLobby_EventScript_EnterNormalRank::
@@ -191,33 +181,9 @@ LilycoveCity_ContestLobby_EventScript_CantEnterFainted::
 
 @ The return here is back to LilycoveCity_ContestLobby_EventScript_ContestReceptionist
 LilycoveCity_ContestLobby_EventScript_EnterMon::
-	msgbox LilycoveCity_ContestLobby_Text_YourMonIsEntryNum4, MSGBOX_DEFAULT
-	closemessage
-	releaseall
-	setvar VAR_CONTEST_HALL_STATE, 1
 	return
 
 ContestHall_EventScript_DoContest::
-	special LinkContestTryShowWirelessIndicator
-	setvar VAR_0x8006, 0
-	lockall
-	applymovement LOCALID_CONTESTANT_4, ContestHall_Movement_Player4FaceUp
-	waitmovement 0
-	applymovement LOCALID_MC, ContestHall_Movement_MCWalkDown
-	waitmovement 0
-	releaseall
-	call ContestHall_EventScript_TryWaitForLink
-	call ContestHall_EventScript_GetContestRankStringId
-	call ContestHall_EventScript_GetContestCategory
-	call ContestHall_EventScript_ContestGettingStarted
-	call ContestHall_EventScript_ShowContestMons
-	call ContestHall_EventScript_DoContestAppeals
-	call ContestHall_EventScript_ContestResults
-	call ContestHall_EventScript_GetWinnerObjEventId
-	call ContestHall_EventScript_CongratulateWinner
-	call ContestHall_EventScript_AudienceLookAround
-	call ContestHall_EventScript_GiveWinnerPrize
-	setvar VAR_CONTEST_HALL_STATE, 2
 	return
 
 ContestHall_EventScript_GetContestRankStringId::

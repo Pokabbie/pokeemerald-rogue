@@ -26,12 +26,15 @@
 #include "trainer_pokemon_sprites.h"
 #include "trig.h"
 #include "util.h"
+#include "follow_me.h"
 #include "constants/field_effects.h"
 #include "constants/event_object_movement.h"
 #include "constants/metatile_behaviors.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/map_types.h"
+#include "rogue_controller.h"
+#include "rogue_followmon.h"
 
 #define subsprite_table(ptr) {.subsprites = ptr, .subspriteCount = (sizeof ptr) / (sizeof(struct Subsprite))}
 
@@ -700,6 +703,10 @@ u32 FieldEffectStart(u8 id)
     u8 *script;
     u32 val;
 
+    // RogueNote: Skip this animation
+    //if(id == FLDEFF_FIELD_MOVE_SHOW_MON_INIT)
+    //    return 0;
+
     FieldEffectActiveListAdd(id);
 
     script = gFieldEffectScriptPointers[id];
@@ -786,16 +793,34 @@ void FieldEffectScript_LoadTiles(u8 **script)
 
 void FieldEffectScript_LoadFadedPalette(u8 **script)
 {
+    u8 palIndex;
     struct SpritePalette *palette = (struct SpritePalette *)FieldEffectScript_ReadWord(script);
-    LoadSpritePalette(palette);
+    bool8 freshLoad = IndexOfSpritePaletteTag(palette->tag) == 0xFF;
+
+    palIndex = LoadSpritePalette(palette);
+
+    if(palIndex != 0xFF && freshLoad)
+    {
+        Rogue_ModifyOverworldPalette(0x100 + palIndex * 16, 1);
+    }
+
     UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(palette->tag));
     (*script) += 4;
 }
 
 void FieldEffectScript_LoadPalette(u8 **script)
 {
+    u8 palIndex;
     struct SpritePalette *palette = (struct SpritePalette *)FieldEffectScript_ReadWord(script);
-    LoadSpritePalette(palette);
+    bool8 freshLoad = IndexOfSpritePaletteTag(palette->tag) == 0xFF;
+
+    palIndex = LoadSpritePalette(palette);
+
+    if(palIndex != 0xFF && freshLoad)
+    {
+        Rogue_ModifyOverworldPalette(0x100 + palIndex * 16, 1);
+    }
+
     (*script) += 4;
 }
 
@@ -849,6 +874,38 @@ void FieldEffectFreePaletteIfUnused(u8 paletteNum)
     }
 }
 
+static bool8 IsFieldEffectSprite(struct Sprite* sprite)
+{
+    u8 i;
+
+    for(i = 0; i <= FLDEFFOBJ_RAYQUAZA; ++i)
+    {
+        if(gFieldEffectObjectTemplatePointers[i]->paletteTag == TAG_NONE)
+            continue;
+
+        if(sprite->inUse && sprite->template->paletteTag == gFieldEffectObjectTemplatePointers[i]->paletteTag)
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+void FieldEffectFreeAllSprites()
+{
+    u8 i;
+    FieldEffectActiveListClear();
+
+    for (i = 0; i < MAX_SPRITES; i++)
+    {
+        if (IsFieldEffectSprite(&gSprites[i]))
+        {
+            FieldEffectFreeGraphicsResources(&gSprites[i]);
+        }
+    }
+}
+
 void FieldEffectActiveListClear(void)
 {
     u8 i;
@@ -891,9 +948,11 @@ bool8 FieldEffectActiveListContains(u8 id)
     return FALSE;
 }
 
-u8 CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
+struct TrainerSpriteInfo CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
 {
     struct SpriteTemplate spriteTemplate;
+    struct TrainerSpriteInfo outInfo;
+
     LoadCompressedSpritePaletteOverrideBuffer(&gTrainerFrontPicPaletteTable[trainerSpriteID], buffer);
     LoadCompressedSpriteSheetOverrideBuffer(&gTrainerFrontPicTable[trainerSpriteID], buffer);
     spriteTemplate.tileTag = gTrainerFrontPicTable[trainerSpriteID].tag;
@@ -903,7 +962,30 @@ u8 CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buf
     spriteTemplate.images = NULL;
     spriteTemplate.affineAnims = gDummySpriteAffineAnimTable;
     spriteTemplate.callback = SpriteCallbackDummy;
-    return CreateSprite(&spriteTemplate, x, y, subpriority);
+
+    outInfo.spriteId = CreateSprite(&spriteTemplate, x, y, subpriority);
+    outInfo.tileTag = spriteTemplate.tileTag;
+    return outInfo;
+}
+
+struct TrainerSpriteInfo UpdateTrainerSprite(u8 spriteID, u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
+{
+    struct SpriteTemplate spriteTemplate;
+    struct TrainerSpriteInfo outInfo;
+
+    LoadCompressedSpritePaletteOverrideBuffer(&gTrainerFrontPicPaletteTable[trainerSpriteID], buffer);
+    LoadCompressedSpriteSheetOverrideBuffer(&gTrainerFrontPicTable[trainerSpriteID], buffer);
+    spriteTemplate.tileTag = gTrainerFrontPicTable[trainerSpriteID].tag;
+    spriteTemplate.paletteTag = gTrainerFrontPicPaletteTable[trainerSpriteID].tag;
+    spriteTemplate.oam = &sOam_64x64;
+    spriteTemplate.anims = gDummySpriteAnimTable;
+    spriteTemplate.images = NULL;
+    spriteTemplate.affineAnims = gDummySpriteAffineAnimTable;
+    spriteTemplate.callback = SpriteCallbackDummy;
+
+    outInfo.spriteId = CreateSpriteAt(spriteID, &spriteTemplate, x, y, subpriority);
+    outInfo.tileTag = spriteTemplate.tileTag;
+    return outInfo;
 }
 
 static void UNUSED LoadTrainerGfx_TrainerCard(u8 gender, u16 palOffset, u8 *dest)
@@ -930,6 +1012,8 @@ u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
 
 u8 CreateMonSprite_FieldMove(u16 species, u32 otId, u32 personality, s16 x, s16 y, u8 subpriority)
 {
+    // TODO - Fixup shinyness
+    const struct CompressedSpritePalette *spritePalette = GetMonSpritePalStructFromOtIdPersonality(species, otId, personality);
     u16 spriteId = CreateMonPicSprite(species, otId, personality, TRUE, x, y, 0, species);
     PreservePaletteInWeather(IndexOfSpritePaletteTag(species) + 0x10);
     if (spriteId == 0xFFFF)
@@ -1549,6 +1633,7 @@ static bool8 FallWarpEffect_End(struct Task *task)
     UnfreezeObjectEvents();
     InstallCameraPanAheadCallback();
     DestroyTask(FindTaskIdByFunc(Task_FallWarpFieldEffect));
+    FollowMe_WarpSetEnd();
     return FALSE;
 }
 
@@ -1600,6 +1685,9 @@ static bool8 EscalatorWarpOut_WaitForPlayer(struct Task *task)
         task->tState++;
         task->data[2] = 0;
         task->data[3] = 0;
+
+        EscalatorMoveFollower(task->data[1]);
+
         if ((u8)task->tGoingUp == FALSE)
         {
             task->tState = 4; // jump to EscalatorWarpOut_Down_Ride
@@ -2335,6 +2423,10 @@ static void EscapeRopeWarpInEffect_Spin(struct Task *task)
             objectEvent->invisible = FALSE;
             UnlockPlayerFieldControls();
             UnfreezeObjectEvents();
+
+            // Re-add partner after escape rope
+            ResetFollowParterMonObjectEvent();
+            SetupFollowParterMonObjectEvent();
             DestroyTask(FindTaskIdByFunc(Task_EscapeRopeWarpIn));
             return;
         }
@@ -2945,6 +3037,8 @@ static u8 InitFieldMoveMonSprite(u32 species, u32 otId, u32 personality)
 
 static void SpriteCB_FieldMoveMonSlideOnscreen(struct Sprite *sprite)
 {
+
+    // RogueNote: Modify HM anim?
     if ((sprite->x -= 20) <= DISPLAY_WIDTH / 2)
     {
         sprite->x = DISPLAY_WIDTH / 2;
@@ -3012,6 +3106,7 @@ static void SurfFieldEffect_Init(struct Task *task)
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_SURFING);
     PlayerGetDestCoords(&task->tDestX, &task->tDestY);
     MoveCoords(gObjectEvents[gPlayerAvatar.objectEventId].movementDirection, &task->tDestX, &task->tDestY);
+    SetupFollowParterMonObjectEvent();
     task->tState++;
 }
 
@@ -3048,6 +3143,9 @@ static void SurfFieldEffect_JumpOnSurfBlob(struct Task *task)
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_SURFING));
         ObjectEventClearHeldMovementIfFinished(objectEvent);
         ObjectEventSetHeldMovement(objectEvent, GetJumpSpecialMovementAction(objectEvent->movementDirection));
+
+        FollowMe_FollowerToWater();
+
         gFieldEffectArguments[0] = task->tDestX;
         gFieldEffectArguments[1] = task->tDestY;
         gFieldEffectArguments[2] = gPlayerAvatar.objectEventId;

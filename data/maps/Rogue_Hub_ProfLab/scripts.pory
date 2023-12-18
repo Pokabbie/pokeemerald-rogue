@@ -1,0 +1,532 @@
+const VAR_ROGUE_INTRO_STATE = VAR_LITTLEROOT_INTRO_STATE
+const VAR_PICKING_STARTER = VAR_TEMP_F
+
+const NPC_BIRCH = 1
+
+mapscripts Rogue_Hub_ProfLab_MapScripts 
+{
+    MAP_SCRIPT_ON_TRANSITION: Rogue_Hub_ProfLab_OnTransition
+}
+
+script Rogue_Hub_ProfLab_OnTransition
+{
+    switch(var(VAR_STARTER_MON))
+    {
+        case 1:
+            setflag(FLAG_TEMP_1)
+        case 2:
+            setflag(FLAG_TEMP_2)
+        case 3:
+            setflag(FLAG_TEMP_3)
+    }
+}
+
+script Rogue_Hub_ProfLab_SpeakProf
+{
+    lockall
+    faceplayer
+
+    if(flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+        msgbox(format("BIRCH: Hey {PLAYER}!\nHope you're enjoying the adventure so far!"))
+        call(Rogue_Hub_ProfLab_ProfShowEvos)
+    }
+    else
+    {
+        if(var(VAR_ROGUE_INTRO_STATE) <= 3)
+        {
+            msgbox(format("BIRCH: Go ahead!\nPick a PARTNER Pokémon!"), MSGBOX_DEFAULT)
+        }
+        else
+        {
+            call(Rogue_Hub_ProfLab_ProfExplain)
+            if(var(VAR_RESULT) == NO)
+            {
+                call(Rogue_Hub_ProfLab_ProfShowEvos)
+            }
+        }
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("BIRCH: OK then!\nIf you ever need an explanation, you know where to find me."), MSGBOX_DEFAULT)
+    }
+
+    releaseall
+}
+
+script Rogue_Hub_ProfLab_ProfExplain
+{
+    msgbox(format("BIRCH: Would you like me to explain how adventures work?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("BIRCH: You never know what you're gonna see on an adventure!\pThe routes will swap around, the Pokémon and TRAINERS you encounter will also change!\pWhen you finish your adventure you'll be escorted back to the HUB and we'll restore your BAG and Pokémon back to their original states.\pSo, for example, if you evolved your PARTNER Pokémon whilst on an adventure, it would unevolve when you come back to the HUB."), MSGBOX_DEFAULT)
+        msgbox(format("When you return from adventures, you'll get given reward money which you can then spend on anything you'd like in the HUB.\pWhatever you buy or use in the HUB will be permanent.\pSo if you went and bought extra potions in the HUB but used them during an adventure, once you returned you'd find that they've been placed right back in to you BAG.\pThe best way to learn about adventures is to go on many of them!\pSo go ahead!\nExplore and have fun!"), MSGBOX_DEFAULT)
+    }
+
+    return
+}
+
+script Rogue_Hub_ProfLab_ProfCycleEvos
+{
+    while(var(VAR_0x8005) < VAR_RESULT)
+    {
+        special(Rogue_GetMonEvoParams)
+        addvar(VAR_0x8005, 1) // Increment now so text below doesn't count from 0
+
+        buffernumberstring(STR_VAR_2, VAR_0x8005)
+
+        switch(var(VAR_0x8006))
+        {
+            case EVO_FRIENDSHIP:
+                msgbox(format("{STR_VAR_2}. get high friendship."))
+
+            case EVO_FRIENDSHIP_DAY:
+                msgbox(format("{STR_VAR_2}. get high friendship during the day."))
+
+            case EVO_FRIENDSHIP_NIGHT:
+                msgbox(format("{STR_VAR_2}. get high friendship during the night."))
+
+            case EVO_LEVEL:
+            case EVO_LEVEL_NINJASK:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox("{STR_VAR_2}. raise to lvl {STR_VAR_3}.")
+
+            case EVO_TRADE:
+                msgbox(format("{STR_VAR_2}. trade."))
+
+            case EVO_TRADE_ITEM:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. trade whilst holding {STR_VAR_3}."))
+
+            case EVO_ITEM:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. use a {STR_VAR_3}."))
+
+            case EVO_LEVEL_ATK_GT_DEF:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst attack is higher than defence."))
+
+            case EVO_LEVEL_ATK_EQ_DEF:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst attack is equal to defence."))
+
+            case EVO_LEVEL_ATK_LT_DEF:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst attack is lower than defence."))
+
+            case EVO_LEVEL_SILCOON:
+            case EVO_LEVEL_CASCOON:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} with a specific personality."))
+
+            case EVO_LEVEL_SHEDINJA:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} with a spare slot in your party available."))
+
+            case EVO_BEAUTY:
+                msgbox(format("{STR_VAR_2}. get high beauty."))
+
+            case EVO_LEVEL_ITEM:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst holding {STR_VAR_3}."))
+
+
+            // EX methods
+            //
+            case EVO_LEVEL_FEMALE:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} when female."))
+
+            case EVO_LEVEL_MALE:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} when male."))
+
+            case EVO_LEVEL_NIGHT:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} during the night."))
+
+            case EVO_LEVEL_DAY:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} during the day."))
+
+            case EVO_LEVEL_DUSK:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} during dusk."))
+
+            case EVO_ITEM_HOLD_DAY:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst holding {STR_VAR_3} during the day."))
+
+            case EVO_ITEM_HOLD_NIGHT:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst holding {STR_VAR_3} during the night."))
+    
+
+            case EVO_MOVE:
+                buffermovename(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst knowing {STR_VAR_3}."))
+    
+            case EVO_MOVE_TYPE:
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst knowing a FAIRY move.")) // Hard coded, as this is only instance
+
+            case EVO_MAPSEC:
+            case EVO_SPECIFIC_MAP:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst holding {STR_VAR_3} when in ??? location."))
+
+
+            case EVO_ITEM_MALE:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. use a {STR_VAR_3} when male."))
+
+            case EVO_ITEM_FEMALE:
+                bufferitemname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. use a {STR_VAR_3} when female."))
+
+
+            case EVO_LEVEL_RAIN:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst it is raining."))
+
+            case EVO_SPECIFIC_MON_IN_PARTY:
+                bufferspeciesname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise by a lvl whilst {STR_VAR_3} is in the party."))
+
+            case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} whilst a DARK type Pokémon is in the party."))
+
+            case EVO_TRADE_SPECIFIC_MON:
+                bufferspeciesname(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. trade for a {STR_VAR_3}."))
+
+
+            case EVO_LEVEL_NATURE_AMPED:
+            case EVO_LEVEL_NATURE_LOW_KEY:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. raise to lvl {STR_VAR_3} with a specific nature."))
+
+            case EVO_CRITICAL_HITS:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. deal {STR_VAR_3} critical hits in a single battle."))
+
+            case EVO_SCRIPT_TRIGGER_DMG:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. when hp less than {STR_VAR_3} interact with ???."))
+    
+            case EVO_DARK_SCROLL:
+            case EVO_WATER_SCROLL:
+                msgbox(format("{STR_VAR_2}. interact with ???."))
+
+            default:
+                buffernumberstring(STR_VAR_3, VAR_0x8007)
+                msgbox(format("{STR_VAR_2}. UNKNOWN EVO TYPE, {STR_VAR_3}."))
+        }
+    }
+}
+
+script Rogue_Hub_ProfLab_ProfShowEvos
+{
+    msgbox(format("BIRCH: Would you like to check how a Pokémon evolves?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Who would you like information on?"))
+        special(ChoosePartyMon)
+        waitstate
+        
+        if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+        {
+            msgbox(format("BIRCH: OK then!\nIf you ever need any help, you know where to find me."), MSGBOX_DEFAULT)
+        }
+        else
+        {
+            specialvar(VAR_RESULT, Rogue_GetMonEvoCount)
+            special(BufferMonNickname)
+
+            if(var(VAR_RESULT) == 0)
+            {
+                msgbox(format("{STR_VAR_1} doesn't appear to currently have access to any evolutions."))
+            }
+            elif(var(VAR_RESULT) == 1)
+            {
+                buffernumberstring(STR_VAR_2, VAR_RESULT)
+                msgbox(format("{STR_VAR_1} currently has access to {STR_VAR_2} evolution."))
+
+                setvar(VAR_0x8005, 0)
+                call(Rogue_Hub_ProfLab_ProfCycleEvos)
+                msgbox(format("BIRCH: If you ever need any more help, you know where to find me."), MSGBOX_DEFAULT)
+            }
+            else
+            {
+                buffernumberstring(STR_VAR_2, VAR_RESULT)
+                msgbox(format("{STR_VAR_1} currently has access to {STR_VAR_2} evolutions."))
+
+                setvar(VAR_0x8005, 0)
+                call(Rogue_Hub_ProfLab_ProfCycleEvos)
+                msgbox(format("BIRCH: If you ever need any more help, you know where to find me."), MSGBOX_DEFAULT)
+            }
+        }
+
+        setvar(VAR_RESULT, YES)
+    }
+}
+
+script Rogue_Hub_ProfLab_TriggerPC
+{
+    lockall
+    msgbox(format("(I shouldn't use this now)"), MSGBOX_DEFAULT)
+    applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Hub_ProfLab_WalkBackwards)
+    waitmovement(0)
+    releaseall
+}
+
+movement Rogue_Hub_ProfLab_WalkBackwards 
+{
+    walk_down
+}
+
+script Rogue_Hub_ProfLab_IntroCommon
+{
+    msgbox(format("BIRCH: {PLAYER}!\nYou finally made it!\pI assume you're itching to go on adventures, but before you start you need a Pokémon of your own."), MSGBOX_DEFAULT)
+    turnobject(NPC_BIRCH, DIR_EAST)
+    msgbox(format("BIRCH: I went out and caught a few for you to pick from this morning.\pPick whichever you like!"), MSGBOX_DEFAULT)
+    return
+}
+
+script Rogue_Hub_ProfLab_IntroRunAwayCommon
+{
+    bufferspeciesname(STR_VAR_1, SPECIES_SUNKERN)
+    givemon(SPECIES_SUNKERN, 7, ITEM_ORAN_BERRY)
+
+    playfanfare(MUS_OBTAIN_ITEM)
+    message(format("{PLAYER} obtained a {STR_VAR_1}."))
+    waitmessage
+    waitfanfare
+
+    msgbox(format("BIRCH: Would you like to give {STR_VAR_1} a nickname?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+    
+    setvar(VAR_STARTER_MON, 4)
+
+    call(Rogue_Hub_ProfLab_PostStarterSelect)
+    return
+}
+
+script Rogue_Hub_ProfLab_IntroTriggerL
+{
+    lockall
+    if(var(VAR_PICKING_STARTER) != YES)
+    {
+        setvar(VAR_PICKING_STARTER, YES)
+
+        applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Hub_ProfLab_WalkToProfL)
+        waitmovement(0)
+
+        call(Rogue_Hub_ProfLab_IntroCommon)
+    }
+    else
+    {
+        turnobject(NPC_BIRCH, DIR_SOUTH)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+
+        msgbox(format("BIRCH: Oh...\pWould you prefer some different Pokémon options?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("BIRCH: OK, here you go!"), MSGBOX_DEFAULT)
+
+            applymovement(NPC_BIRCH, Rogue_Hub_ProfLab_WalkFromProfL)
+            waitmovement(0)
+
+            call(Rogue_Hub_ProfLab_IntroRunAwayCommon)
+        }
+        else
+        {
+            applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Hub_ProfLab_WalkUpOne)
+            waitmovement(0)
+        }
+    }
+    releaseall
+}
+
+script Rogue_Hub_ProfLab_IntroTriggerR
+{
+    lockall
+    if(var(VAR_PICKING_STARTER) != YES)
+    {
+        setvar(VAR_PICKING_STARTER, YES)
+
+        applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Hub_ProfLab_WalkToProfR)
+        waitmovement(0)
+
+        call(Rogue_Hub_ProfLab_IntroCommon)
+    }
+    else
+    {
+        turnobject(NPC_BIRCH, DIR_SOUTH)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+
+        msgbox(format("BIRCH: Oh...\pWould you prefer a different Pokémon?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("BIRCH: OK, here you go!"), MSGBOX_DEFAULT)
+
+            applymovement(NPC_BIRCH, Rogue_Hub_ProfLab_WalkFromProfR)
+            waitmovement(0)
+
+            call(Rogue_Hub_ProfLab_IntroRunAwayCommon)
+        }
+        else
+        {
+            applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Hub_ProfLab_WalkUpOne)
+            waitmovement(0)
+        }
+    }
+    releaseall
+}
+
+movement Rogue_Hub_ProfLab_WalkUpOne
+{
+    walk_up
+}
+
+movement Rogue_Hub_ProfLab_WalkToProfL
+{
+    walk_up * 3
+}
+
+movement Rogue_Hub_ProfLab_WalkToProfR
+{
+    walk_left
+    walk_up * 3
+}
+
+movement Rogue_Hub_ProfLab_WalkFromProfL
+{
+    walk_down * 3
+}
+
+movement Rogue_Hub_ProfLab_WalkFromProfR
+{
+    walk_right
+    walk_down * 3
+}
+
+script Rogue_Hub_ProfLab_PokeballCommon
+{
+    if(var(VAR_ROGUE_INTRO_STATE) <= 3)
+    {
+        turnobject(NPC_BIRCH, DIR_EAST)
+
+        showmonpic(VAR_0x8001, 10, 3)
+        playmoncry(VAR_0x8001, CRY_MODE_NORMAL)
+        waitmoncry
+
+        bufferspeciesname(STR_VAR_1, VAR_0x8001)
+        msgbox(format("BIRCH: You'd like to take {STR_VAR_1}?"), MSGBOX_YESNO)
+        hidemonpic
+
+        if(var(VAR_RESULT) == YES)
+        {
+            removeobject(VAR_LAST_TALKED)
+            givemon(VAR_0x8001, 7, ITEM_ORAN_BERRY)
+
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(format("{PLAYER} obtained a {STR_VAR_1}."))
+            waitmessage
+            waitfanfare
+
+            msgbox(format("BIRCH: Would you like to give {STR_VAR_1} a nickname?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                call(Common_EventScript_GetGiftMonPartySlot)
+                call(Common_EventScript_NameReceivedPartyMon)
+            }
+            
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+            call(Rogue_Hub_ProfLab_PostStarterSelect)
+
+            setvar(VAR_RESULT, YES)
+            return
+        }
+    }
+    else
+    {
+        bufferspeciesname(STR_VAR_1, VAR_0x8001)
+        msgbox(format("(Poor {STR_VAR_1}...)\p(Must be lonely...)"))
+    }
+
+    setvar(VAR_RESULT, NO)
+    return
+}
+
+script Rogue_Hub_ProfLab_PostStarterSelect
+{
+    msgbox(format("BIRCH: I also threw some items and a POKéDEX in there too!"), MSGBOX_DEFAULT)
+    
+    giveitem(ITEM_POKE_BALL, 5)
+    giveitem(ITEM_POTION, 1)
+    
+    setflag(FLAG_SYS_POKEDEX_GET)
+    setflag(FLAG_SYS_POKEMON_GET)
+    setvar(VAR_ROGUE_INTRO_STATE, 4)
+
+    msgbox(format("You're now ready to go on adventures!"), MSGBOX_DEFAULT)
+
+    call(Rogue_Hub_ProfLab_ProfExplain)
+
+    special(Rogue_SetupFollowParterMonObjectEvent)
+    return
+}
+
+script Rogue_Hub_ProfLab_Pokeball0
+{
+    lock
+    copyvar(VAR_0x8001, VAR_ROGUE_STARTER0)
+    call(Rogue_Hub_ProfLab_PokeballCommon)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_STARTER_MON, 1)
+        setflag(FLAG_TEMP_1)
+    }
+
+    release
+}
+
+script Rogue_Hub_ProfLab_Pokeball1
+{
+    lock
+    copyvar(VAR_0x8001, VAR_ROGUE_STARTER1)
+    call(Rogue_Hub_ProfLab_PokeballCommon)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_STARTER_MON, 2)
+        setflag(FLAG_TEMP_2)
+    }
+
+    release
+}
+
+script Rogue_Hub_ProfLab_Pokeball2
+{
+    lock
+    copyvar(VAR_0x8001, VAR_ROGUE_STARTER2)
+    call(Rogue_Hub_ProfLab_PokeballCommon)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_STARTER_MON, 3)
+        setflag(FLAG_TEMP_3)
+    }
+
+    release
+}

@@ -1,0 +1,576 @@
+{
+    "music_players":
+    {
+        "kanto_boss":
+        {
+            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
+            "battle": "MUS_RG_VS_GYM_LEADER",
+            "victory": "MUS_RG_VICTORY_GYM_LEADER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "RIVAL",
+                    "music_player": "kanto_rival"
+                },
+                {
+                    "trainer_class": "ELITE_FOUR",
+                    "music_player": "kanto_elite"
+                },
+                {
+                    "trainer_class": "CHAMPION",
+                    "music_player": "kanto_champion"
+                }
+            ]
+        },
+        "kanto_elite":
+        {
+            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
+            "battle": "MUS_RG_VS_GYM_LEADER",
+            "victory": "MUS_RG_VICTORY_GYM_LEADER"
+        },
+        "kanto_champion":
+        {
+            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
+            "battle": "MUS_RG_VS_CHAMPION",
+            "victory": "MUS_VICTORY_LEAGUE"
+        },
+        "kanto_rival":
+        {
+            "encounter": "MUS_RG_ENCOUNTER_RIVAL",
+            "battle": "MUS_RG_VS_TRAINER",
+            "victory": "MUS_RG_VICTORY_TRAINER"
+        },
+
+        "johto_boss":
+        {
+            "encounter": "MUS_HG_ENCOUNTER_BOY_1",
+            "battle": "MUS_HG_VS_GYM_LEADER",
+            "victory": "MUS_HG_VICTORY_GYM_LEADER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "RIVAL",
+                    "music_player": "johto_rival"
+                },
+                {
+                    "trainer_class": "ELITE_FOUR",
+                    "music_player": "johto_elite"
+                },
+                {
+                    "trainer_class": "CHAMPION",
+                    "music_player": "johto_champion"
+                }
+            ]
+        },
+        "johto_elite":
+        {
+            "encounter": "MUS_HG_ENCOUNTER_BOY_1",
+            "battle": "MUS_HG_VS_GYM_LEADER",
+            "victory": "MUS_HG_VICTORY_GYM_LEADER"
+        },
+        "johto_champion":
+        {
+            "encounter": "MUS_HG_ENCOUNTER_BOY_1",
+            "battle": "MUS_HG_VS_CHAMPION",
+            "victory": "MUS_HG_VICTORY_GYM_LEADER"
+        },
+        "johto_rival":
+        {
+            "encounter": "MUS_HG_ENCOUNTER_RIVAL",
+            "battle": "MUS_HG_VS_RIVAL",
+            "victory": "MUS_HG_VICTORY_TRAINER"
+        },
+
+        "hoenn_boss":
+        {
+            "encounter": "MUS_ENCOUNTER_INTENSE",
+            "battle": "MUS_VS_GYM_LEADER",
+            "victory": "MUS_VICTORY_GYM_LEADER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "RIVAL",
+                    "music_player": "hoenn_rival"
+                },
+                {
+                    "trainer_class": "ELITE_FOUR",
+                    "music_player": "hoenn_elite"
+                },
+                {
+                    "trainer_class": "CHAMPION",
+                    "music_player": "hoenn_champion"
+                }
+            ]
+        },
+        "hoenn_elite":
+        {
+            "encounter": "MUS_ENCOUNTER_ELITE_FOUR",
+            "battle": "MUS_VS_ELITE_FOUR",
+            "victory": "MUS_VICTORY_LEAGUE"
+        },
+        "hoenn_champion":
+        {
+            "encounter": "MUS_ENCOUNTER_CHAMPION",
+            "battle": "MUS_VS_CHAMPION",
+            "victory": "MUS_VICTORY_LEAGUE"
+        },
+        "hoenn_rival":
+        {
+            "encounter": "MUS_ENCOUNTER_BRENDAN",
+            "battle": "MUS_VS_RIVAL",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+
+        "sinnoh_boss":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
+            "battle": "MUS_DP_VS_GYM_LEADER",
+            "victory": "MUS_DP_VICTORY_GYM_LEADER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "RIVAL",
+                    "music_player": "sinnoh_rival"
+                },
+                {
+                    "trainer_class": "ELITE_FOUR",
+                    "music_player": "sinnoh_elite"
+                },
+                {
+                    "trainer_class": "CHAMPION",
+                    "music_player": "sinnoh_champion"
+                }
+            ]
+        },
+        "sinnoh_elite":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_ELITE_FOUR",
+            "battle": "MUS_DP_VS_ELITE_FOUR",
+            "victory": "MUS_DP_VICTORY_ELITE_FOUR"
+        },
+        "sinnoh_champion":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_CHAMPION",
+            "battle": "MUS_DP_VS_CHAMPION",
+            "victory": "MUS_DP_VICTORY_CHAMPION"
+        },
+        "sinnoh_rival":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_ACE_TRAINER",
+            "battle": "MUS_DP_VS_RIVAL",
+            "victory": "MUS_DP_VICTORY_TRAINER"
+        },
+
+        "unova_boss":
+        {
+            "conditional_redirects":
+            [
+                {
+                    "music_player": "kanto_boss"
+                }
+            ]
+        },
+        "kalos_boss":
+        {
+            "conditional_redirects":
+            [
+                {
+                    "music_player": "johto_boss"
+                }
+            ]
+        },
+        "alola_boss":
+        {
+            "conditional_redirects":
+            [
+                {
+                    "music_player": "hoenn_boss"
+                }
+            ]
+        },
+        "galar_boss":
+        {
+            "conditional_redirects":
+            [
+                {
+                    "music_player": "sinnoh_boss"
+                }
+            ]
+        },
+    
+        "rogue_boss":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
+            "battle": "MUS_DP_VS_TRAINER",
+            "victory": "MUS_DP_VICTORY_GYM_LEADER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "RIVAL",
+                    "music_player": "rogue_rival"
+                },
+                {
+                    "trainer_class": "ELITE_FOUR",
+                    "music_player": "rogue_elite"
+                },
+                {
+                    "trainer_class": "CHAMPION",
+                    "music_player": "rogue_champion"
+                }
+            ]
+        },
+        "rogue_elite":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
+            "battle": "MUS_HG_VS_GYM_LEADER_KANTO",
+            "victory": "MUS_HG_VICTORY_GYM_LEADER"
+        },
+        "rogue_champion":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_CHAMPION",
+            "battle": "MUS_DP_VS_CHAMPION",
+            "victory": "MUS_DP_VICTORY_CHAMPION"
+        },
+        "rogue_rival":
+        {
+            "encounter": "MUS_HG_ENCOUNTER_GIRL_2",
+            "battle": "MUS_HG_VS_TRAINER_KANTO",
+            "victory": "MUS_DP_VICTORY_TRAINER"
+        },
+        "rogue_final_champion":
+        {
+            "encounter": "MUS_NONE",
+            "battle": "MUS_HG_VS_FRONTIER_BRAIN",
+            "victory": "MUS_HG_VICTORY_FRONTIER_BRAIN"
+        },
+
+        "route_trainer":
+        {
+            "encounter": "MUS_ENCOUNTER_MALE",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "PKMN_BREEDER",
+                    "music_player": "route_trainer_female"
+                },
+                {
+                    "trainer_class": "BEAUTY",
+                    "music_player": "route_trainer_female"
+                },
+                {
+                    "trainer_class": "COOLTRAINER",
+                    "music_player": "route_trainer_cool"
+                },
+                {
+                    "trainer_class": "BIRD_KEEPER",
+                    "music_player": "route_trainer_cool"
+                },
+                {
+                    "trainer_class": "PSYCHIC",
+                    "music_player": "route_trainer_intense"
+                },
+                {
+                    "trainer_class": "EXPERT",
+                    "music_player": "route_trainer_intense"
+                },
+                {
+                    "trainer_class": "BLACK_BELT",
+                    "music_player": "route_trainer_intense"
+                },
+                {
+                    "trainer_class": "DRAGON_TAMER",
+                    "music_player": "route_trainer_intense"
+                },
+                {
+                    "trainer_class": "TUBER_M",
+                    "music_player": "route_trainer_girl"
+                },
+                {
+                    "trainer_class": "TUBER_F",
+                    "music_player": "route_trainer_girl"
+                },
+                {
+                    "trainer_class": "SCHOOL_KID",
+                    "music_player": "route_trainer_girl"
+                },
+                {
+                    "trainer_class": "HIKER",
+                    "music_player": "route_trainer_hiker"
+                },
+                {
+                    "trainer_class": "RUIN_MANIAC",
+                    "music_player": "route_trainer_hiker"
+                },
+                {
+                    "trainer_class": "COLLECTOR",
+                    "music_player": "route_trainer_suspicious"
+                },
+                {
+                    "trainer_class": "HEX_MANIAC",
+                    "music_player": "route_trainer_suspicious"
+                },
+                {
+                    "trainer_class": "RICH_BOY",
+                    "music_player": "route_trainer_rich"
+                },
+                {
+                    "trainer_class": "GENTLEMAN",
+                    "music_player": "route_trainer_rich"
+                }
+            ]
+        },
+        "route_trainer_girl":
+        {
+            "encounter": "MUS_ENCOUNTER_GIRL",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_female":
+        {
+            "encounter": "MUS_ENCOUNTER_FEMALE",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_cool":
+        {
+            "encounter": "MUS_ENCOUNTER_COOL",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_intense":
+        {
+            "encounter": "MUS_ENCOUNTER_INTENSE",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_hiker":
+        {
+            "encounter": "MUS_ENCOUNTER_HIKER",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_suspicious":
+        {
+            "encounter": "MUS_ENCOUNTER_SUSPICIOUS",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+        "route_trainer_rich":
+        {
+            "encounter": "MUS_ENCOUNTER_RICH",
+            "battle": "MUS_VS_TRAINER",
+            "victory": "MUS_VICTORY_TRAINER"
+        },
+
+        "team_aqua":
+        {
+            "encounter": "MUS_ENCOUNTER_AQUA",
+            "battle": "MUS_VS_AQUA_MAGMA",
+            "victory": "MUS_VICTORY_AQUA_MAGMA"
+        },
+        "team_magma":
+        {
+            "encounter": "MUS_ENCOUNTER_MAGMA",
+            "battle": "MUS_VS_AQUA_MAGMA",
+            "victory": "MUS_VICTORY_AQUA_MAGMA"
+        },
+
+        "wild_battle":
+        {
+            "battle": "MUS_VS_WILD",
+            "victory": "MUS_VICTORY_WILD"
+        },
+        "legendary_battle":
+        {
+            "battle": "MUS_RG_VS_LEGEND",
+            "victory": "MUS_VICTORY_WILD",
+            "conditional_redirects":
+            [
+                {
+                    "base_species": "MEW",
+                    "music_player": "legendary_mew"
+                },
+                {
+                    "base_species": "MEWTWO",
+                    "music_player": "legendary_mewtwo"
+                },
+
+                {
+                    "base_species": "RAIKOU",
+                    "music_player": "legendary_raikou"
+                },
+                {
+                    "base_species": "ENTEI",
+                    "music_player": "legendary_entei"
+                },
+                {
+                    "base_species": "SUICUNE",
+                    "music_player": "legendary_suicune"
+                },
+
+                {
+                    "base_species": "HO_OH",
+                    "music_player": "legendary_ho_oh"
+                },
+                {
+                    "base_species": "LUGIA",
+                    "music_player": "legendary_lugia"
+                },
+
+                {
+                    "base_species": "GROUDON",
+                    "music_player": "legendary_weather_trio"
+                },
+                {
+                    "base_species": "KYOGRE",
+                    "music_player": "legendary_weather_trio"
+                },
+                {
+                    "base_species": "RAYQUAZA",
+                    "music_player": "legendary_weather_trio"
+                },
+
+                {
+                    "base_species": "JIRACHI",
+                    "music_player": "legendary_space"
+                },
+                {
+                    "base_species": "DEOXYS",
+                    "music_player": "legendary_space"
+                },
+                
+                {
+                    "base_species": "REGIROCK",
+                    "music_player": "legendary_regi"
+                },
+                {
+                    "base_species": "REGICE",
+                    "music_player": "legendary_regi"
+                },
+                {
+                    "base_species": "REGISTEEL",
+                    "music_player": "legendary_regi"
+                },
+                {
+                    "base_species": "REGIGIGAS",
+                    "music_player": "legendary_regi"
+                },
+                {
+                    "base_species": "REGIELEKI",
+                    "music_player": "legendary_regi"
+                },
+                {
+                    "base_species": "REGIDRAGO",
+                    "music_player": "legendary_regi"
+                },
+
+                {
+                    "base_species": "UXIE",
+                    "music_player": "legendary_lake_guardians"
+                },
+                {
+                    "base_species": "MESPRIT",
+                    "music_player": "legendary_lake_guardians"
+                },
+                {
+                    "base_species": "AZELF",
+                    "music_player": "legendary_lake_guardians"
+                },
+
+                {
+                    "base_species": "DIALGA",
+                    "music_player": "legendary_dialga_palkia"
+                },
+                {
+                    "base_species": "PALKIA",
+                    "music_player": "legendary_dialga_palkia"
+                },
+                {
+                    "base_species": "ARCEUS",
+                    "music_player": "legendary_arceus"
+                },
+                {
+                    "base_species": "GIRATINA",
+                    "music_player": "legendary_giratina"
+                }
+            ]
+        },
+
+        "legendary_mew":
+        {
+            "battle": "MUS_VS_MEW",
+            "victory": "MUS_VICTORY_WILD"
+        },
+        "legendary_mewtwo":
+        {
+            "battle": "MUS_RG_VS_MEWTWO",
+            "victory": "MUS_VICTORY_WILD"
+        },
+
+        "legendary_raikou":
+        {
+            "battle": "MUS_HG_VS_RAIKOU",
+            "victory": "MUS_VICTORY_WILD"
+        },
+        "legendary_entei":
+        {
+            "battle": "MUS_HG_VS_ENTEI",
+            "victory": "MUS_VICTORY_WILD"
+        },
+        "legendary_suicune":
+        {
+            "battle": "MUS_HG_VS_SUICUNE",
+            "victory": "MUS_VICTORY_WILD"
+        },
+
+        "legendary_ho_oh":
+        {
+            "battle": "MUS_HG_VS_HO_OH",
+            "victory": "MUS_VICTORY_WILD"
+        },
+        "legendary_lugia":
+        {
+            "battle": "MUS_HG_VS_LUGIA",
+            "victory": "MUS_VICTORY_WILD"
+        },
+        
+        "legendary_weather_trio":
+        {
+            "battle": "MUS_VS_KYOGRE_GROUDON",
+            "victory": "MUS_VICTORY_WILD"
+        },
+        "legendary_space":
+        {
+            "battle": "MUS_RG_VS_DEOXYS",
+            "victory": "MUS_VICTORY_WILD"
+        },
+        "legendary_regi":
+        {
+            "battle": "MUS_VS_REGI",
+            "victory": "MUS_VICTORY_WILD"
+        },
+
+        "legendary_lake_guardians":
+        {
+            "battle": "MUS_DP_VS_UXIE_MESPRIT_AZELF",
+            "victory": "MUS_DP_VICTORY_WILD"
+        },
+        "legendary_dialga_palkia":
+        {
+            "battle": "MUS_DP_VS_DIALGA_PALKIA",
+            "victory": "MUS_DP_VICTORY_WILD"
+        },
+        "legendary_arceus":
+        {
+            "battle": "MUS_DP_VS_ARCEUS",
+            "victory": "MUS_DP_VICTORY_WILD"
+        },
+        "legendary_giratina":
+        {
+            "battle": "MUS_PL_VS_GIRATINA",
+            "victory": "MUS_DP_VICTORY_WILD"
+        }
+    }
+}

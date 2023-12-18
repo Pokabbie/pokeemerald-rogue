@@ -73,7 +73,7 @@
 #define BATTLE_TYPE_RECORDED_LINK      (1 << 25)
 #define BATTLE_TYPE_TRAINER_HILL       (1 << 26)
 #define BATTLE_TYPE_SECRET_BASE        (1 << 27)
-#define BATTLE_TYPE_28                 (1 << 28)
+#define BATTLE_TYPE_ALPHA_MON          (1 << 28)
 #define BATTLE_TYPE_29                 (1 << 29)
 #define BATTLE_TYPE_30                 (1 << 30)
 #define BATTLE_TYPE_RECORDED_IS_MASTER (1 << 31)
@@ -426,10 +426,12 @@
 
 #define BATTLE_TERRAIN_COUNT            22
 
-#define B_WAIT_TIME_LONG        (B_WAIT_TIME_MULTIPLIER * 4)
-#define B_WAIT_TIME_MED         (B_WAIT_TIME_MULTIPLIER * 3)
-#define B_WAIT_TIME_SHORT       (B_WAIT_TIME_MULTIPLIER * 2)
-#define B_WAIT_TIME_SHORTEST    (B_WAIT_TIME_MULTIPLIER)
+#define B_WAIT_TIME_ABSOLUTE  128
+
+#define B_WAIT_TIME_LONG     64
+#define B_WAIT_TIME_MED      48
+#define B_WAIT_TIME_SHORT    32
+#define B_WAIT_TIME_SHORTEST 16
 
 #define FLEE_ITEM    1
 #define FLEE_ABILITY 2

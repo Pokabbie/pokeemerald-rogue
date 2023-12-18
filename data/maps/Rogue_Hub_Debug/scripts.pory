@@ -1,0 +1,190 @@
+mapscripts Rogue_Hub_Debug_MapScripts {}
+
+
+script Rogue_Debug_FillPCWithGen
+{
+    lock
+    
+    message(format("Fill PC with GEN?"))
+    waitmessage
+
+    //setflag(FLAG_SYS_QUEST_LOG_GET)
+    setflag(FLAG_SYS_FIELD_MOVES_GET)
+
+    checkitem(ITEM_QUEST_LOG)
+    if(var(VAR_RESULT) == NO)
+    {
+        giveitem(ITEM_QUEST_LOG)
+    }
+
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+    }
+    else
+    {
+        multichoice(20, 6, MULTI_GENERATIONS_UPTO3, NO)
+    }
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+            waitse
+            playse(SE_PIN)
+            addvar(VAR_RESULT, 1)
+            copyvar(VAR_0x8004, VAR_RESULT)
+
+            special(RogueDebug_FillGenPC)
+
+            msgbox(format("Done."), MSGBOX_DEFAULT)
+
+        case MULTI_B_PRESSED: 
+            msgbox(format("No worries!\nCome chat to me if you ever change your mind."), MSGBOX_DEFAULT)
+
+    }
+
+    release
+}
+
+script Rogue_Debug_ClearQuests
+{
+    lock
+
+    msgbox(format("ClearQuests"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(RogueDebug_ClearQuests)
+    }
+
+    release
+}
+
+script Rogue_Debug_CompleteAvaliableQuests
+{
+    lock
+
+    msgbox(format("CompleteAvaliableQuests"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(RogueDebug_CompleteAvaliableQuests)
+    }
+
+    release
+}
+
+script Rogue_Debug_CollectAllQuests
+{
+    lock
+
+    msgbox(format("CollectAllQuests"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(RogueDebug_CollectAllQuests)
+    }
+
+    release
+}
+
+script Rogue_Debug_AddMoney
+{
+    lock
+
+    addmoney(10000)
+    msgbox(format("Lots of stuff."), MSGBOX_DEFAULT)
+
+    //checkitem(ITEM_HEALING_FLASK)
+    //if(var(VAR_RESULT) == NO)
+    //{
+    //    giveitem(ITEM_HEALING_FLASK, 1)
+    //}
+
+    //checkitem(ITEM_BASIC_RIDING_WHISTLE)
+    //if(var(VAR_RESULT) == NO)
+    //{
+    //    giveitem(ITEM_BASIC_RIDING_WHISTLE, 1)
+    //}
+//
+    //checkitem(ITEM_GOLD_RIDING_WHISTLE)
+    //if(var(VAR_RESULT) == NO)
+    //{
+    //    giveitem(ITEM_GOLD_RIDING_WHISTLE, 1)
+    //}
+
+    checkitem(ITEM_C_GEAR)
+    if(var(VAR_RESULT) == NO)
+    {
+        giveitem(ITEM_C_GEAR, 1)
+    }
+
+    giveitem(ITEM_STAR_PIECE, 100)
+    giveitem(ITEM_RARE_CANDY, 100)
+    giveitem(ITEM_ESCAPE_ROPE, 100)
+    giveitem(ITEM_BUILDING_SUPPLIES, 100)
+
+    release
+}
+
+script Rogue_Debug_GiveSacredAsh
+{
+    lock
+
+    checkitem(ITEM_SACRED_ASH)
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("REMOVED"))
+        removeitem(ITEM_SACRED_ASH, 1)
+    }
+    else
+    {
+        msgbox(format("GIVEN"))
+        giveitem(ITEM_SACRED_ASH, 1)
+    }
+
+    release
+}
+
+script Rogue_Debug_TrainerSingle
+{
+    lock
+    special(HealPlayerParty)
+    special(RogueDebug_StartBattle)
+    release
+}
+
+script Rogue_Debug_DisplayDifficultyConfigMenu
+{
+    lock
+    msgbox(format("Difficulty menu"))
+    special(Special_ViewDifficultyConfigMenu)
+    waitstate
+    //msgbox(format("closed")) <- this gets ignored?
+    release
+}
+
+script Rogue_Debug_DisplayPokedex
+{
+    lock
+    msgbox(format("Rogue Pokedex"))
+    special(Special_ViewRoguePokedex)
+    waitstate
+    release
+}
+
+script Rogue_Debug_DisplayVoltorbFlip
+{
+    lock
+    msgbox(format("Voltorb flip"))
+    special(Special_ViewVoltorbFlip)
+    waitstate
+    release
+}

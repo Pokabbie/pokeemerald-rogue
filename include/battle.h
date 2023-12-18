@@ -582,6 +582,8 @@ struct BattleStruct
 {
     u8 turnEffectsTracker;
     u8 turnEffectsBattlerId;
+    u8 rogueAlphaMonActive : 1;
+    u8 rogueAlphaMonWeakened : 1;
     u8 turnCountersTracker;
     u16 wrappedMove[MAX_BATTLERS_COUNT];
     u16 moveTarget[MAX_BATTLERS_COUNT];
@@ -863,6 +865,7 @@ struct BattleSpriteInfo
 {
     u16 invisible:1; // 0x1
     u16 lowHpSong:1; // 0x2
+    u16 lowHpSongHeard:1;
     u16 behindSubstitute:1; // 0x4
     u16 flag_x8:1; // 0x8
     u16 hpNumbersNoBars:1; // 0x10

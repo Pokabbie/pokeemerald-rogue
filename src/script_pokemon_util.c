@@ -25,6 +25,8 @@
 #include "constants/items.h"
 #include "constants/battle_frontier.h"
 
+#include "rogue_controller.h"
+
 static void CB2_ReturnFromChooseHalfParty(void);
 static void CB2_ReturnFromChooseBattleFrontierParty(void);
 
@@ -33,6 +35,8 @@ void HealPlayerParty(void)
     u8 i, j;
     u8 ppBonuses;
     u8 arg[4];
+
+    CalculatePlayerPartyCount();
 
     // restore HP.
     for(i = 0; i < gPlayerPartyCount; i++)
@@ -84,6 +88,8 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
         CalculateMonStats(&mon);
     }
 
+    Rogue_ModifyScriptMon(&mon);
+
     sentToPc = GiveMonToPlayer(&mon);
     nationalDexNum = SpeciesToNationalPokedexNum(species);
 
@@ -92,8 +98,11 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     {
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
-        GetSetPokedexFlag(nationalDexNum, FLAG_SET_SEEN);
-        GetSetPokedexFlag(nationalDexNum, FLAG_SET_CAUGHT);
+        GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
+        GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
+
+        if(IsMonShiny(&mon))
+            GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT_SHINY);
         break;
     }
     return sentToPc;
@@ -149,9 +158,12 @@ bool8 DoesPartyHaveEnigmaBerry(void)
     return hasItem;
 }
 
-void CreateScriptedWildMon(u16 species, u8 level, u16 item)
+void CreateScriptedWildMon(u16 species, u8 level, u16 item, bool8 isShiny)
 {
+    // RogueNote: wild encounters
     u8 heldItem[2];
+    
+    Rogue_CreateEventMon(&species, &level, &item);
 
     ZeroEnemyPartyMons();
     if (OW_SYNCHRONIZE_NATURE > GEN_3)
@@ -164,8 +176,17 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item)
         heldItem[1] = item >> 8;
         SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, heldItem);
     }
+
+    if(isShiny)
+    {
+        u8 shiny = 1;
+        SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &shiny);
+    }
+
+    Rogue_ModifyWildMon(&gEnemyParty[0]);
 }
-void CreateScriptedDoubleWildMon(u16 species1, u8 level1, u16 item1, u16 species2, u8 level2, u16 item2)
+
+void CreateScriptedDoubleWildMon(u16 species1, u8 level1, u16 item1, bool8 isShiny1, u16 species2, u8 level2, u16 item2, bool8 isShiny2)
 {
     u8 heldItem1[2];
     u8 heldItem2[2];
@@ -183,6 +204,12 @@ void CreateScriptedDoubleWildMon(u16 species1, u8 level1, u16 item1, u16 species
         SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, heldItem1);
     }
 
+    if(isShiny1)
+    {
+        u8 shiny = 1;
+        SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &shiny);
+    }
+
     if (OW_SYNCHRONIZE_NATURE > GEN_3)
         CreateMonWithNature(&gEnemyParty[1], species2, level2, 32, PickWildMonNature());
     else
@@ -192,6 +219,12 @@ void CreateScriptedDoubleWildMon(u16 species1, u8 level1, u16 item1, u16 species
         heldItem2[0] = item2;
         heldItem2[1] = item2 >> 8;
         SetMonData(&gEnemyParty[1], MON_DATA_HELD_ITEM, heldItem2);
+    }
+
+    if(isShiny2)
+    {
+        u8 shiny = 1;
+        SetMonData(&gEnemyParty[1], MON_DATA_IS_SHINY, &shiny);
     }
 }
 

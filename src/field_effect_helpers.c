@@ -13,6 +13,9 @@
 #include "constants/field_effects.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
+#include "rogue_ridemon.h"
+
 #define OBJ_EVENT_PAL_TAG_NONE 0x11FF // duplicate of define in event_object_movement.c
 
 static void UpdateObjectReflectionSprite(struct Sprite *);
@@ -42,16 +45,19 @@ static u32 ShowDisguiseFieldEffect(u8, u8, u8);
 #define sReflectionObjEventId       data[0]
 #define sReflectionObjEventLocalId  data[1]
 #define sReflectionVerticalOffset   data[2]
+#define sIsRideMon                  data[3]
 #define sIsStillReflection          data[7]
 
-void SetUpReflection(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 stillReflection)
+static void SetUpReflectionInternal(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 stillReflection, bool8 isRideMon)
 {
     struct Sprite *reflectionSprite;
 
     reflectionSprite = &gSprites[CreateCopySpriteAt(sprite, sprite->x, sprite->y, 152)];
     reflectionSprite->callback = UpdateObjectReflectionSprite;
     reflectionSprite->oam.priority = 3;
-    reflectionSprite->oam.paletteNum = gReflectionEffectPaletteMap[reflectionSprite->oam.paletteNum];
+    reflectionSprite->oam.paletteNum = sprite->oam.paletteNum;
+    reflectionSprite->subpriority = sprite->subpriority;
+    //reflectionSprite->oam.paletteNum = gReflectionEffectPaletteMap[reflectionSprite->oam.paletteNum];
     reflectionSprite->usingSheet = TRUE;
     reflectionSprite->anims = gDummySpriteAnimTable;
     StartSpriteAnim(reflectionSprite, 0);
@@ -61,10 +67,26 @@ void SetUpReflection(struct ObjectEvent *objectEvent, struct Sprite *sprite, boo
     reflectionSprite->sReflectionObjEventId = sprite->data[0];
     reflectionSprite->sReflectionObjEventLocalId = objectEvent->localId;
     reflectionSprite->sIsStillReflection = stillReflection;
-    LoadObjectReflectionPalette(objectEvent, reflectionSprite);
+    reflectionSprite->sIsRideMon = isRideMon;
+
+    //if(!isRideMon)
+    //    LoadObjectReflectionPalette(objectEvent, reflectionSprite); // probably don't need to load palette anymore
 
     if (!stillReflection)
         reflectionSprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
+}
+
+void SetUpReflection(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 stillReflection)
+{
+    SetUpReflectionInternal(objectEvent, sprite, stillReflection, FALSE);
+
+    if(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
+    {
+        u8 spriteId = Rogue_GetRideMonSprite(objectEvent);
+
+        if(spriteId != SPRITE_NONE)
+            SetUpReflectionInternal(objectEvent, &gSprites[spriteId], stillReflection, TRUE);
+    }
 }
 
 static s16 GetReflectionVerticalOffset(struct ObjectEvent *objectEvent)
@@ -123,19 +145,28 @@ static void LoadObjectHighBridgeReflectionPalette(struct ObjectEvent *objectEven
 
 static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)
 {
-    struct ObjectEvent *objectEvent = &gObjectEvents[reflectionSprite->sReflectionObjEventId];
-    struct Sprite *mainSprite = &gSprites[objectEvent->spriteId];
+    struct ObjectEvent *objectEvent;
+    struct Sprite *mainSprite;
+
+    objectEvent = &gObjectEvents[reflectionSprite->sReflectionObjEventId];
+
+    if(reflectionSprite->sIsRideMon)
+        mainSprite = &gSprites[Rogue_GetRideMonSprite(objectEvent)];
+    else
+        mainSprite = &gSprites[objectEvent->spriteId];
+
     if (!objectEvent->active || !objectEvent->hasReflection || objectEvent->localId != reflectionSprite->sReflectionObjEventLocalId)
     {
         reflectionSprite->inUse = FALSE;
     }
     else
     {
-        reflectionSprite->oam.paletteNum = gReflectionEffectPaletteMap[mainSprite->oam.paletteNum];
+        //reflectionSprite->oam.paletteNum = gReflectionEffectPaletteMap[mainSprite->oam.paletteNum];
         reflectionSprite->oam.shape = mainSprite->oam.shape;
         reflectionSprite->oam.size = mainSprite->oam.size;
         reflectionSprite->oam.matrixNum = mainSprite->oam.matrixNum | ST_OAM_VFLIP;
         reflectionSprite->oam.tileNum = mainSprite->oam.tileNum;
+        reflectionSprite->subpriority = mainSprite->subpriority;
         reflectionSprite->subspriteTables = mainSprite->subspriteTables;
         reflectionSprite->subspriteTableNum = mainSprite->subspriteTableNum;
         reflectionSprite->invisible = mainSprite->invisible;
@@ -246,6 +277,26 @@ u32 FldEff_Shadow(void)
     return 0;
 }
 
+void SetShadowFieldEffectVisible(struct ObjectEvent *objectEvent, bool8 state)
+{
+    if(state)
+    {
+        if (!objectEvent->hasShadow)
+        {
+            objectEvent->hasShadow = TRUE;
+            StartFieldEffectForObjectEvent(FLDEFF_SHADOW, objectEvent);
+        }
+    }
+    else
+    {
+        if (objectEvent->hasShadow)
+        {
+            objectEvent->hasShadow = FALSE;
+            // Should be sorted out by callback below
+        }
+    }
+}
+
 void UpdateShadowFieldEffect(struct Sprite *sprite)
 {
     u8 objectEventId;
@@ -261,6 +312,14 @@ void UpdateShadowFieldEffect(struct Sprite *sprite)
         sprite->oam.priority = linkedSprite->oam.priority;
         sprite->x = linkedSprite->x;
         sprite->y = linkedSprite->y + sprite->sYOffset;
+
+        if(objectEventId == gPlayerAvatar.objectEventId)
+        {
+            // Always keep shadow visible for whilst we're flying
+            if(Rogue_IsRideMonFlying())
+                return;
+        }
+
         if (!objectEvent->active || !objectEvent->hasShadow
          || MetatileBehavior_IsPokeGrass(objectEvent->currentMetatileBehavior)
          || MetatileBehavior_IsSurfableWaterOrUnderwater(objectEvent->currentMetatileBehavior)
@@ -306,6 +365,8 @@ u32 FldEff_TallGrass(void)
         sprite->sMapNum = gFieldEffectArguments[4]; // Also sLocalId
         sprite->sMapGroup = gFieldEffectArguments[5];
         sprite->sCurrentMap = gFieldEffectArguments[6];
+
+        //Rogue_ModifySpritePalette(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS]);
 
         if (gFieldEffectArguments[7])
             SeekSpriteAnim(sprite, 4); // Skip to end of anim
@@ -1255,17 +1316,77 @@ void UpdateSandPileFieldEffect(struct Sprite *sprite)
 #undef sPrevX
 #undef sPrevY
 
+// This is hacky :3
+#define OBJ_EVENT_PAL_TAG_NPC_1                   0x1103
+#define OBJ_EVENT_PAL_TAG_NPC_2                   0x1104
+#define OBJ_EVENT_PAL_TAG_NPC_3                   0x1105
+#define OBJ_EVENT_PAL_TAG_NPC_4                   0x1106
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_1            0x1107 // OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_2            0x1108 // OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_3            0x1109 // OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_4            0x110A // OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION
+
+// RogueNote: Called from MovementAction_EmoteFollowMonSpawn
 u32 FldEff_Bubbles(void)
 {
     u8 spriteId;
+    u8 visual;
+    struct Sprite *sprite;
+    struct SpriteTemplate template;
+    s16 xOffset, yOffset;
+    u8 spriteData;
+    u16 paletteNum = 255;
+
+    switch (gFieldEffectArguments[3])
+    {
+    case 0: // Grass spawn
+        visual = FLDEFFOBJ_JUMP_TALL_GRASS;
+        xOffset = 0;
+        yOffset = 8;
+        break;
+
+    case 1: // Water spawn
+        visual = FLDEFFOBJ_JUMP_BIG_SPLASH; //FldEff_SecretPowerShrub
+        xOffset = 0;
+        yOffset = 0;
+        spriteData = FLDEFF_WATER_SURFACING;
+        break;
+
+    case 2: // Cave spawn
+        visual = FLDEFFOBJ_GROUND_IMPACT_DUST;
+        xOffset = 0;
+        yOffset = 8;
+        break;
+    
+    default: // Shiny spawn
+        visual = FLDEFFOBJ_BUBBLES;
+        xOffset = 0;
+        yOffset = 0;
+        break;
+    }
+
+    // RogueNote: This is hacky, calling through FldEff_Bubbles will expect this to go through FLDEFF_PAL_TAG_GENERAL_0, so override this here
+    memcpy(&template, gFieldEffectObjectTemplatePointers[visual], sizeof(template));
+    //template.paletteTag = FLDEFF_PAL_TAG_GENERAL_0; // <- enable this to free up the palette slots
+
+    // Share overworld sprites
+    if(template.paletteTag >= OBJ_EVENT_PAL_TAG_NPC_1 && template.paletteTag <= OBJ_EVENT_PAL_TAG_FOLLOW_MON_4)
+    {
+        paletteNum = 2 + template.paletteTag - OBJ_EVENT_PAL_TAG_NPC_1; 
+        template.paletteTag = TAG_NONE;
+    }
 
     SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 0);
-    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_BUBBLES], gFieldEffectArguments[0], gFieldEffectArguments[1], 82);
+    spriteId = CreateSpriteAtEnd(&template, gFieldEffectArguments[0] + xOffset, gFieldEffectArguments[1] + yOffset, 0x52);
     if (spriteId != MAX_SPRITES)
     {
-        struct Sprite *sprite = &gSprites[spriteId];
+        sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
-        sprite->oam.priority = 1;
+        sprite->oam.priority = 1;//gFieldEffectArguments[2];
+        //sprite->data[0] = spriteData;
+
+        if(paletteNum != 255)
+            sprite->oam.paletteNum = paletteNum;
     }
     return 0;
 }

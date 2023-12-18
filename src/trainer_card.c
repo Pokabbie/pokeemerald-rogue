@@ -33,6 +33,15 @@
 #include "constants/trainers.h"
 #include "constants/union_room.h"
 
+
+#include "rogue_campaign.h"
+#include "rogue_controller.h"
+#include "rogue_player_customisation.h"
+#include "rogue_quest.h"
+
+#define NUM_DISPLAY_BADGES NUM_BADGES
+#define NUM_TYPED_BADGES 19
+
 enum {
     WIN_MSG,
     WIN_CARD_TEXT,
@@ -58,7 +67,7 @@ struct TrainerCardData
     bool8 unused_E;
     bool8 unused_F;
     bool8 hasTrades;
-    u8 badgeCount[NUM_BADGES];
+    u8 badgeCount[NUM_DISPLAY_BADGES];
     u8 easyChatProfile[TRAINER_CARD_PROFILE_LENGTH][13];
     u8 textPlayersCard[70];
     u8 textHofTime[70];
@@ -82,7 +91,7 @@ struct TrainerCardData
     u16 frontTilemap[600];
     u16 backTilemap[600];
     u16 bgTilemap[600];
-    u8 badgeTiles[0x80 * NUM_BADGES];
+    u8 badgeTiles[0x80 * NUM_TYPED_BADGES];
     u8 stickerTiles[0x200];
     u8 cardTiles[0x2300];
     u16 cardTilemapBuffer[0x1000];
@@ -116,7 +125,7 @@ static u32 GetCappedGameStat(u8 statId, u32 maxValue);
 static bool8 HasAllFrontierSymbols(void);
 static u8 GetRubyTrainerStars(struct TrainerCard *);
 static u16 GetCaughtMonsCount(void);
-static void SetPlayerCardData(struct TrainerCard *, u8);
+static void SetPlayerCardData(struct TrainerCard*);
 static void TrainerCard_GenerateCardForPlayer(struct TrainerCard *);
 static u8 VersionToCardType(u8);
 static void SetDataFromTrainerCard(void);
@@ -182,6 +191,7 @@ static const u16 sHoennTrainerCardFemaleBg_Pal[] = INCBIN_U16("graphics/trainer_
 static const u16 sKantoTrainerCardFemaleBg_Pal[] = INCBIN_U16("graphics/trainer_card/frlg/female_bg.gbapal");
 static const u16 sHoennTrainerCardBadges_Pal[]   = INCBIN_U16("graphics/trainer_card/badges.gbapal");
 static const u16 sKantoTrainerCardBadges_Pal[]   = INCBIN_U16("graphics/trainer_card/frlg/badges.gbapal");
+static const u16 sTypedTrainerCardBadges_Pal[]   = INCBIN_U16("graphics/trainer_card/badges_types.gbapal");
 static const u16 sTrainerCardStar_Pal[]          = INCBIN_U16("graphics/trainer_card/star.gbapal");
 static const u16 sTrainerCardSticker1_Pal[]      = INCBIN_U16("graphics/trainer_card/frlg/stickers1.gbapal");
 static const u16 sTrainerCardSticker2_Pal[]      = INCBIN_U16("graphics/trainer_card/frlg/stickers2.gbapal");
@@ -189,6 +199,7 @@ static const u16 sTrainerCardSticker3_Pal[]      = INCBIN_U16("graphics/trainer_
 static const u16 sTrainerCardSticker4_Pal[]      = INCBIN_U16("graphics/trainer_card/frlg/stickers4.gbapal");
 static const u32 sHoennTrainerCardBadges_Gfx[]   = INCBIN_U32("graphics/trainer_card/badges.4bpp.lz");
 static const u32 sKantoTrainerCardBadges_Gfx[]   = INCBIN_U32("graphics/trainer_card/frlg/badges.4bpp.lz");
+static const u32 sTypedTrainerCardBadges_Gfx[]   = INCBIN_U32("graphics/trainer_card/badges_types.4bpp.lz");
 
 static const struct BgTemplate sTrainerCardBgTemplates[4] =
 {
@@ -284,6 +295,8 @@ static const u8 sTrainerCardTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_D
 static const u8 sTrainerCardStatColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_LIGHT_RED};
 static const u8 sTimeColonInvisibleTextColors[6] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_TRANSPARENT, TEXT_COLOR_TRANSPARENT};
 
+// PLAYER_STYLE_COUNT TODO
+
 static const u8 sTrainerPicOffset[2][GENDER_COUNT][2] =
 {
     // Kanto
@@ -298,23 +311,33 @@ static const u8 sTrainerPicOffset[2][GENDER_COUNT][2] =
     },
 };
 
-static const u8 sTrainerPicFacilityClass[][GENDER_COUNT] =
+//static const u8 sTrainerPicFacilityClass[][GENDER_COUNT] =
+//{
+//    [CARD_TYPE_FRLG] =
+//    {
+//        [MALE]   = FACILITY_CLASS_RED,
+//        [FEMALE] = FACILITY_CLASS_LEAF
+//    },
+//    [CARD_TYPE_RS] =
+//    {
+//        [MALE]   = FACILITY_CLASS_RS_BRENDAN,
+//        [FEMALE] = FACILITY_CLASS_RS_MAY
+//    },
+//    [CARD_TYPE_EMERALD] =
+//    {
+//        [MALE]   = FACILITY_CLASS_BRENDAN,
+//        [FEMALE] = FACILITY_CLASS_MAY
+//    }
+//};
+
+static const u8 sTrainerPicFacilityClass[PLAYER_STYLE_COUNT] =
 {
-    [CARD_TYPE_FRLG] =
-    {
-        [MALE]   = FACILITY_CLASS_RED,
-        [FEMALE] = FACILITY_CLASS_LEAF
-    },
-    [CARD_TYPE_RS] =
-    {
-        [MALE]   = FACILITY_CLASS_RS_BRENDAN,
-        [FEMALE] = FACILITY_CLASS_RS_MAY
-    },
-    [CARD_TYPE_EMERALD] =
-    {
-        [MALE]   = FACILITY_CLASS_BRENDAN,
-        [FEMALE] = FACILITY_CLASS_MAY
-    }
+    [STYLE_EMR_BRENDAN] = FACILITY_CLASS_BRENDAN,
+    [STYLE_EMR_MAY] = FACILITY_CLASS_MAY,
+    [STYLE_RED]   = FACILITY_CLASS_RED,
+    [STYLE_LEAF] = FACILITY_CLASS_LEAF,
+    [STYLE_ETHAN] = FACILITY_CLASS_ETHAN,
+    [STYLE_LYRA] = FACILITY_CLASS_LYRA,
 };
 
 static bool8 (*const sTrainerCardFlipTasks[])(struct Task *) =
@@ -563,7 +586,8 @@ static bool8 LoadCardGfx(void)
         break;
     case 3:
         if (sData->cardType != CARD_TYPE_FRLG)
-            LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sData->badgeTiles);
+            //LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sData->badgeTiles);
+            LZ77UnCompWram(sTypedTrainerCardBadges_Gfx, sData->badgeTiles);
         else
             LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sData->badgeTiles);
         break;
@@ -666,11 +690,11 @@ u32 CountPlayerTrainerStars(void)
 
     if (GetGameStat(GAME_STAT_ENTERED_HOF))
         stars++;
-    if (HasAllHoennMons())
+    if (GetCompletedQuestPerc() == 100)
         stars++;
-    if (CountPlayerMuseumPaintings() >= CONTEST_CATEGORIES_COUNT)
+    if (IsQuestCollected(QUEST_GlitchMode))
         stars++;
-    if (HasAllFrontierSymbols())
+    if (Rogue_CheckTrainerCardCampaignCompletion())
         stars++;
 
     return stars;
@@ -692,10 +716,28 @@ static u8 GetRubyTrainerStars(struct TrainerCard *trainerCard)
     return stars;
 }
 
-static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
+static void SetPlayerCardData(struct TrainerCard *trainerCard)
 {
     u32 playTime;
     u8 i;
+    u8 cardType;
+
+    switch(gSaveBlock2Ptr->playerGender)
+    {
+        case STYLE_RED:
+        case STYLE_LEAF:
+        case STYLE_ETHAN:
+        case STYLE_LYRA:
+            cardType = CARD_TYPE_FRLG;
+            break;
+
+        default:
+        //case STYLE_EMR_BRENDAN:
+        //case STYLE_EMR_MAY:
+            cardType = CARD_TYPE_EMERALD;
+            break;
+
+    };
 
     trainerCard->gender = gSaveBlock2Ptr->playerGender;
     trainerCard->playTimeHours = gSaveBlock2Ptr->playTimeHours;
@@ -733,41 +775,43 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
 
     StringCopy(trainerCard->playerName, gSaveBlock2Ptr->playerName);
 
-    switch (cardType)
-    {
-    case CARD_TYPE_EMERALD:
-        trainerCard->battleTowerWins = 0;
-        trainerCard->battleTowerStraightWins = 0;
-    // Seems like GF got CARD_TYPE_FRLG and CARD_TYPE_RS wrong.
-    case CARD_TYPE_FRLG:
-        trainerCard->contestsWithFriends = GetCappedGameStat(GAME_STAT_WON_LINK_CONTEST, 999);
-        trainerCard->pokeblocksWithFriends = GetCappedGameStat(GAME_STAT_POKEBLOCKS_WITH_FRIENDS, 0xFFFF);
-        if (CountPlayerMuseumPaintings() >= CONTEST_CATEGORIES_COUNT)
-            trainerCard->hasAllPaintings = TRUE;
-        trainerCard->stars = GetRubyTrainerStars(trainerCard);
-        break;
-    case CARD_TYPE_RS:
-        trainerCard->battleTowerWins = 0;
-        trainerCard->battleTowerStraightWins = 0;
-        trainerCard->contestsWithFriends = 0;
-        trainerCard->pokeblocksWithFriends = 0;
-        trainerCard->hasAllPaintings = 0;
-        trainerCard->stars = 0;
-        break;
-    }
+    trainerCard->stars = CountPlayerTrainerStars(); // TODO - Doesn't work for multiplayer
+    //switch (cardType)
+    //{
+    //case CARD_TYPE_EMERALD:
+    //    trainerCard->battleTowerWins = 0;
+    //    trainerCard->battleTowerStraightWins = 0;
+    //    trainerCard->stars = CountPlayerTrainerStars(); // TODO - Doesn't work for line
+    //// Seems like GF got CARD_TYPE_FRLG and CARD_TYPE_RS wrong.
+    //case CARD_TYPE_FRLG:
+    //    trainerCard->contestsWithFriends = GetCappedGameStat(GAME_STAT_WON_LINK_CONTEST, 999);
+    //    trainerCard->pokeblocksWithFriends = GetCappedGameStat(GAME_STAT_POKEBLOCKS_WITH_FRIENDS, 0xFFFF);
+    //    if (CountPlayerMuseumPaintings() >= CONTEST_CATEGORIES_COUNT)
+    //        trainerCard->hasAllPaintings = TRUE;
+    //    trainerCard->stars = GetRubyTrainerStars(trainerCard);
+    //    break;
+    //case CARD_TYPE_RS:
+    //    trainerCard->battleTowerWins = 0;
+    //    trainerCard->battleTowerStraightWins = 0;
+    //    trainerCard->contestsWithFriends = 0;
+    //    trainerCard->pokeblocksWithFriends = 0;
+    //    trainerCard->hasAllPaintings = 0;
+    //    trainerCard->stars = 0;
+    //    break;
+    //}
 }
 
 static void TrainerCard_GenerateCardForPlayer(struct TrainerCard *trainerCard)
 {
     memset(trainerCard, 0, sizeof(struct TrainerCard));
     trainerCard->version = GAME_VERSION;
-    SetPlayerCardData(trainerCard, CARD_TYPE_EMERALD);
+    SetPlayerCardData(trainerCard);
     trainerCard->hasAllFrontierSymbols = HasAllFrontierSymbols();
     trainerCard->frontierBP = gSaveBlock2Ptr->frontier.cardBattlePoints;
     if (trainerCard->hasAllFrontierSymbols)
         trainerCard->stars++;
 
-    if (trainerCard->gender == FEMALE)
+    if (trainerCard->gender % 2 == FEMALE)
         trainerCard->unionRoomClass = gUnionRoomFacilityClasses[(trainerCard->trainerId % NUM_UNION_ROOM_CLASSES) + NUM_UNION_ROOM_CLASSES];
     else
         trainerCard->unionRoomClass = gUnionRoomFacilityClasses[trainerCard->trainerId % NUM_UNION_ROOM_CLASSES];
@@ -777,13 +821,13 @@ void TrainerCard_GenerateCardForLinkPlayer(struct TrainerCard *trainerCard)
 {
     memset(trainerCard, 0, 0x60);
     trainerCard->version = GAME_VERSION;
-    SetPlayerCardData(trainerCard, CARD_TYPE_EMERALD);
+    SetPlayerCardData(trainerCard);
     trainerCard->linkHasAllFrontierSymbols = HasAllFrontierSymbols();
     *((u16 *)&trainerCard->linkPoints.frontier) = gSaveBlock2Ptr->frontier.cardBattlePoints;
     if (trainerCard->linkHasAllFrontierSymbols)
         trainerCard->stars++;
 
-    if (trainerCard->gender == FEMALE)
+    if (trainerCard->gender % 2 == FEMALE)
         trainerCard->unionRoomClass = gUnionRoomFacilityClasses[(trainerCard->trainerId % NUM_UNION_ROOM_CLASSES) + NUM_UNION_ROOM_CLASSES];
     else
         trainerCard->unionRoomClass = gUnionRoomFacilityClasses[trainerCard->trainerId % NUM_UNION_ROOM_CLASSES];
@@ -814,7 +858,6 @@ void CopyTrainerCardData(struct TrainerCard *dst, struct TrainerCard *src, u8 ga
 static void SetDataFromTrainerCard(void)
 {
     u8 i;
-    u32 badgeFlag;
 
     sData->hasPokedex = FALSE;
     sData->hasHofResult = FALSE;
@@ -839,10 +882,10 @@ static void SetDataFromTrainerCard(void)
     if (sData->trainerCard.battleTowerWins || sData->trainerCard.battleTowerStraightWins)
         sData->hasBattleTowerWins++;
 
-    for (i = 0, badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++, i++)
+    for (i = 0; i < NUM_DISPLAY_BADGES; i++)
     {
-        if (FlagGet(badgeFlag))
-            sData->badgeCount[i]++;
+        u8 offset = Rogue_GetCurrentDifficulty() > 8 ? (i + Rogue_GetCurrentDifficulty() - 8) : i;
+        sData->badgeCount[i] = gRogueRun.completedBadges[offset];
     }
 }
 
@@ -1431,19 +1474,20 @@ static u8 SetCardBgsAndPals(void)
     case 2:
         if (sData->cardType != CARD_TYPE_FRLG)
         {
-            LoadPalette(sHoennTrainerCardPals[sData->trainerCard.stars], BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
-            LoadPalette(sHoennTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
-            if (sData->trainerCard.gender != MALE)
-                LoadPalette(sHoennTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+            LoadPalette(sHoennTrainerCardStarPals[sData->trainerCard.stars], 0, 96);
+            //LoadPalette(sHoennTrainerCardBadges_Pal, 48, 32);
+            LoadPalette(sTypedTrainerCardBadges_Pal, 48, 32);
+            if (sData->trainerCard.gender % 2 != MALE)
+                LoadPalette(sHoennTrainerCardFemaleBg_Pal, 16, 32);
         }
         else
         {
-            LoadPalette(sKantoTrainerCardPals[sData->trainerCard.stars], BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
-            LoadPalette(sKantoTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
-            if (sData->trainerCard.gender != MALE)
-                LoadPalette(sKantoTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+            LoadPalette(sKantoTrainerCardStarPals[sData->trainerCard.stars], 0, 96);
+            LoadPalette(sKantoTrainerCardBadges_Pal, 48, 32);
+            if (sData->trainerCard.gender % 2 != MALE)
+                LoadPalette(sKantoTrainerCardFemaleBg_Pal, 16, 32);
         }
-        LoadPalette(sTrainerCardStar_Pal, BG_PLTT_ID(4), PLTT_SIZE_4BPP);
+        LoadPalette(sTrainerCardGold_Pal, 64, 32);
         break;
     case 3:
         SetBgTilemapBuffer(0, sData->cardTilemapBuffer);
@@ -1508,14 +1552,16 @@ static void DrawStarsAndBadgesOnCard(void)
     if (!sData->isLink)
     {
         x = 4;
-        for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
+        for (i = 0; i < NUM_DISPLAY_BADGES; i++, x += 3)
         {
-            if (sData->badgeCount[i])
+            if (sData->badgeCount[i] != TYPE_NONE)
             {
+                tileNum = 192 + sData->badgeCount[i] * 2;
+
                 FillBgTilemapBufferRect(3, tileNum, x, 15, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 15, 1, 1, palNum);
-                FillBgTilemapBufferRect(3, tileNum + 16, x, 16, 1, 1, palNum);
-                FillBgTilemapBufferRect(3, tileNum + 17, x + 1, 16, 1, 1, palNum);
+                FillBgTilemapBufferRect(3, tileNum + NUM_TYPED_BADGES * 2, x, 16, 1, 1, palNum);
+                FillBgTilemapBufferRect(3, tileNum + NUM_TYPED_BADGES * 2 + 1, x + 1, 16, 1, 1, palNum);
             }
         }
     }
@@ -1883,19 +1929,20 @@ static void CreateTrainerCardTrainerPic(void)
 {
     if (InUnionRoom() == TRUE && gReceivedRemoteLinkPlayers == 1)
     {
+        // todo - support this, if we want to inspect others trainer cards?
         CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sData->trainerCard.unionRoomClass),
                     TRUE,
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
+                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender % 2][0],
+                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender % 2][1],
                     8,
                     WIN_TRAINER_PIC);
     }
     else
     {
-        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->cardType][sData->trainerCard.gender]),
+        CreateTrainerCardTrainerPicSprite(RoguePlayer_GetTrainerFrontPic(),
                     TRUE,
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
+                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender % 2][0],
+                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender % 2][1],
                     8,
                     WIN_TRAINER_PIC);
     }

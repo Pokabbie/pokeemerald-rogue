@@ -3945,6 +3945,20 @@ BattleScript_RestoreHp:
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_AlphaMonWeakens::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNISCALM
+	updatestatusicon BS_TARGET
+	waitstate
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	setstatchanger STAT_ATK, 3, TRUE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_SPATK, 3, TRUE
+	call BattleScript_EffectStatUpAlpha
+	end2
+
 BattleScript_EffectToxic::
 	attackcanceler
 	attackstring
@@ -4640,6 +4654,39 @@ BattleScript_EffectCounter::
 	bichalfword gMoveResultFlags, MOVE_RESULT_NOT_VERY_EFFECTIVE | MOVE_RESULT_SUPER_EFFECTIVE
 	adjustdamage
 	goto BattleScript_HitFromAtkAnimation
+
+
+BattleScript_EffectStatUpAlpha::
+	statbuffchange STAT_BUFF_ALLOW_PTR, BattleScript_StatUpEndAlpha
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_StatUpAttackAnimAlpha
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_StatUpPrintStringAlpha
+BattleScript_StatUpAttackAnimAlpha::
+BattleScript_StatUpDoAnimAlpha::
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+BattleScript_StatUpPrintStringAlpha::
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_StatUpEndAlpha::
+	return
+
+BattleScript_AlphaMonActivates::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNISANGRY
+	updatestatusicon BS_TARGET
+	waitstate
+	playanimation BS_TARGET, B_ANIM_FOCUS_PUNCH_SETUP
+	
+	setstatchanger STAT_ATK, 1, FALSE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_SPATK, 1, FALSE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_DEF, 1, FALSE
+	call BattleScript_EffectStatUpAlpha
+	setstatchanger STAT_SPDEF, 1, FALSE
+	call BattleScript_EffectStatUpAlpha
+	end3
 
 BattleScript_EffectEncore::
 	attackcanceler
@@ -6786,11 +6833,18 @@ BattleScript_Pausex20::
 	pause B_WAIT_TIME_SHORT
 	return
 
-BattleScript_LevelUp::
-	fanfare MUS_LEVEL_UP
+BattleScript_LevelUp_Minimal::
+	goto BattleScript_PostLevelUp
+BattleScript_LevelUp_Full::
 	printstring STRINGID_PKMNGREWTOLV
 	setbyte sLVLBOX_STATE, 0
 	drawlvlupbox
+	goto BattleScript_PostLevelUp
+BattleScript_LevelUp_Team::
+	printstring STRINGID_TEAMGREWTOLV
+	setbyte sLVLBOX_STATE, 0
+	drawlvlupbox
+BattleScript_PostLevelUp::
 	handlelearnnewmove BattleScript_LearnedNewMove, BattleScript_LearnMoveReturn, TRUE
 	goto BattleScript_AskToLearnMove
 BattleScript_TryLearnMoveLoop::
@@ -6798,15 +6852,10 @@ BattleScript_TryLearnMoveLoop::
 BattleScript_AskToLearnMove::
 	buffermovetolearn
 	printstring STRINGID_TRYTOLEARNMOVE1
-	printstring STRINGID_TRYTOLEARNMOVE2
 	printstring STRINGID_TRYTOLEARNMOVE3
 	waitstate
 	setbyte sLEARNMOVE_STATE, 0
 	yesnoboxlearnmove BattleScript_ForgotAndLearnedNewMove
-	printstring STRINGID_STOPLEARNINGMOVE
-	waitstate
-	setbyte sLEARNMOVE_STATE, 0
-	yesnoboxstoplearningmove BattleScript_AskToLearnMove
 	printstring STRINGID_DIDNOTLEARNMOVE
 	goto BattleScript_TryLearnMoveLoop
 BattleScript_ForgotAndLearnedNewMove::
@@ -10012,8 +10061,15 @@ BattleScript_AskIfWantsToForfeitMatch::
 	forfeityesnobox BS_ATTACKER
 	endselectionscript
 
+BattleScript_AskIfWantsToForfeitMatch::
+	printselectionstring STRINGID_QUESTIONFORFEITMATCH
+	forfeityesnobox BS_ATTACKER
+	endselectionscript
+
 BattleScript_PrintPlayerForfeited::
 	printstring STRINGID_FORFEITEDMATCH
+	waitmessage B_WAIT_TIME_ABSOLUTE_MED
+	printstring STRINGID_PLAYERWHITEOUT2
 	waitmessage B_WAIT_TIME_LONG
 	end2
 

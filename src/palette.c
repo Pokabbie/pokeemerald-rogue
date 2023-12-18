@@ -6,6 +6,8 @@
 #include "task.h"
 #include "constants/rgb.h"
 
+#include "rogue_controller.h"
+
 enum
 {
     NORMAL_FADE,
@@ -82,13 +84,17 @@ static const u8 sRoundedDownGrayscaleMap[] = {
 
 void LoadCompressedPalette(const u32 *src, u16 offset, u16 size)
 {
-    LZDecompressWram(src, gPaletteDecompressionBuffer);
+    if(!Rogue_ModifyPaletteDecompress(src, gPaletteDecompressionBuffer))
+        LZDecompressWram(src, gPaletteDecompressionBuffer);
+
     CpuCopy16(gPaletteDecompressionBuffer, &gPlttBufferUnfaded[offset], size);
     CpuCopy16(gPaletteDecompressionBuffer, &gPlttBufferFaded[offset], size);
 }
 
 void LoadPalette(const void *src, u16 offset, u16 size)
 {
+    src = Rogue_ModifyPaletteLoad(src);
+
     CpuCopy16(src, &gPlttBufferUnfaded[offset], size);
     CpuCopy16(src, &gPlttBufferFaded[offset], size);
 }
@@ -165,7 +171,8 @@ bool8 BeginNormalPaletteFade(u32 selectedPalettes, s8 delay, u8 startY, u8 targe
     }
     else
     {
-        gPaletteFade.deltaY = 2;
+        // RogueNote: Always fast fades (Default 2)
+        gPaletteFade.deltaY = 4;
 
         if (delay < 0)
         {

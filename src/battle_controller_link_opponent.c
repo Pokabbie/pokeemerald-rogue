@@ -29,6 +29,8 @@
 #include "constants/trainers.h"
 #include "recorded_battle.h"
 
+#include "rogue_controller.h"
+
 static void LinkOpponentHandleLoadMonSprite(u32 battler);
 static void LinkOpponentHandleSwitchInAnim(u32 battler);
 static void LinkOpponentHandleDrawTrainerPic(u32 battler);

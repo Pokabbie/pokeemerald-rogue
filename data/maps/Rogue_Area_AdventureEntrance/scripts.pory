@@ -1,0 +1,358 @@
+const FLAG_HIDE_RUIN_MANIAC = FLAG_TEMP_1
+
+const VAR_FRAME_STATE = VAR_TEMP_0
+const VAR_INTRO_SCRIPT_STATE = VAR_TEMP_2
+
+const OBJ_EVENT_ADVENTURE_NURSE = 1
+const OBJ_EVENT_RUIN_MANIAC = 5
+
+mapscripts Rogue_Area_AdventureEntrance_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_AdventureEntrance_MapLoad
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_FRAME_STATE, 0: Rogue_Area_AdventureEntrance_WarpState0
+    ]
+}
+
+script Rogue_Area_AdventureEntrance_MapLoad
+{
+    if(var(VAR_ROGUE_INTRO_STATE) < ROGUE_INTRO_STATE_CATCH_MON)
+    {
+        clearflag(FLAG_HIDE_RUIN_MANIAC)
+
+        setvar(VAR_0x8004, HUB_AREA_SAFARI_ZONE)
+        special(Rogue_CheckHubConnectionDir)
+
+        copyvar(VAR_INTRO_SCRIPT_STATE, VAR_RESULT)
+
+        switch(var(VAR_RESULT))
+        {
+            case HUB_AREA_CONN_EAST:
+                setobjectxyperm(OBJ_EVENT_RUIN_MANIAC, 19, 11)
+                setobjectmovementtype(OBJ_EVENT_RUIN_MANIAC, MOVEMENT_TYPE_FACE_RIGHT)
+                break
+
+            case HUB_AREA_CONN_SOUTH:
+                setobjectxyperm(OBJ_EVENT_RUIN_MANIAC, 9, 15)
+                setobjectmovementtype(OBJ_EVENT_RUIN_MANIAC, MOVEMENT_TYPE_FACE_DOWN)
+                break
+
+            case HUB_AREA_CONN_WEST:
+                setobjectxyperm(OBJ_EVENT_RUIN_MANIAC, 0, 11)
+                setobjectmovementtype(OBJ_EVENT_RUIN_MANIAC, MOVEMENT_TYPE_FACE_LEFT)
+                break
+        }
+    }
+    else
+    {
+        setflag(FLAG_HIDE_RUIN_MANIAC)
+        setvar(VAR_INTRO_SCRIPT_STATE, HUB_AREA_CONN_COUNT)
+    }
+}
+
+script Rogue_Area_AdventureEntrance_WarpState0
+{
+    //if(var(VAR_ROGUE_INTRO_STATE) < ROGUE_INTRO_STATE_CATCH_MON)
+    //{
+    //    setvar(VAR_0x8004, HUB_AREA_SAFARI_ZONE)
+    //    special(Rogue_CheckHubConnectionDir)
+//
+    //    switch(var(VAR_RESULT))
+    //    {
+    //        case HUB_AREA_CONN_EAST:
+    //            turnobject(OBJ_EVENT_RUIN_MANIAC, DIR_EAST)
+    //            break
+//
+    //        case HUB_AREA_CONN_SOUTH:
+    //            turnobject(OBJ_EVENT_RUIN_MANIAC, DIR_SOUTH)
+    //            break
+//
+    //        case HUB_AREA_CONN_WEST:
+    //            turnobject(OBJ_EVENT_RUIN_MANIAC, DIR_WEST)
+    //            break
+    //    }
+    //}
+
+    if(flag(FLAG_ROGUE_LEFT_ON_RUN))
+    {
+        call(Rogue_ReturnAdventureInternal)
+    }
+    setvar(VAR_FRAME_STATE, 1)
+}
+
+script Rogue_Area_AdventureEntrance_SpeakRuinManiac
+{
+    lock
+    msgbox(format("Hmm…\nThose noises don't sound very good to me…"))
+    release
+}
+
+script Rogue_Area_AdventureEntrance_TriggerRuinManiacEast
+{
+    lock
+
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FacePlayer)
+    waitmovement(0)
+
+    msgbox(format("Hold on there!\pI've heard some strange noises from over there!\pYou should stand back and let me go first!\p… … …"))
+    
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FaceRight)
+    waitmovement(0)
+    msgbox(format("Just give me a moment to build up some courage…"))
+    closemessage
+
+    applymovement(OBJ_EVENT_ID_PLAYER, WalkLeft)
+    waitmovement(0)
+    release
+}
+
+script Rogue_Area_AdventureEntrance_TriggerRuinManiacSouth
+{
+    lock
+
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FacePlayer)
+    waitmovement(0)
+
+    msgbox(format("Hold on there!\pI've heard some strange noises from over there!\pYou should stand back and let me go first!\p… … …"))
+    
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FaceDown)
+    waitmovement(0)
+    msgbox(format("Just give me a moment to build up some courage…"))
+    closemessage
+
+    applymovement(OBJ_EVENT_ID_PLAYER, WalkUp)
+    waitmovement(0)
+    release
+}
+
+script Rogue_Area_AdventureEntrance_TriggerRuinManiacWest
+{
+    lock
+
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FacePlayer)
+    waitmovement(0)
+
+    msgbox(format("Hold on there!\pI've heard some strange noises from over there!\pYou should stand back and let me go first!\p… … …"))
+    
+    applymovement(OBJ_EVENT_RUIN_MANIAC, Common_Movement_FaceLeft)
+    waitmovement(0)
+    msgbox(format("Just give me a moment to build up some courage…"))
+    closemessage
+
+    applymovement(OBJ_EVENT_ID_PLAYER, WalkRight)
+    waitmovement(0)
+    release
+}
+movement FaceDown
+{
+    face_down
+}
+
+movement FaceLeft
+{
+    face_left
+}
+
+movement FaceRight
+{
+    face_right
+}
+
+
+script Rogue_Area_AdventureEntrance_SpeakNurse
+{
+    lockall
+    faceplayer
+
+    message(format("Hi {PLAYER}!\pWould you like to set off on an Adventure?"))
+    waitmessage
+
+    multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            call(Rogue_ResetAdventureVars)
+            call(Rogue_StartAdventureInternal)
+
+        case 1: // No
+        case MULTI_B_PRESSED:
+            msgbox(format("No worries!\pCome and talk to me, once you're ready."), MSGBOX_DEFAULT)
+
+        case 2: // Info
+            msgbox(format("todo"), MSGBOX_DEFAULT)
+    }
+
+    releaseall
+}
+
+script Rogue_ResetAdventureVars
+{
+    clearflag(FLAG_ROGUE_GAUNTLET_MODE)
+    
+    setvar(VAR_ROGUE_SKIP_TO_DIFFICULTY, 0)
+}
+
+script Rogue_StartAdventureInternal
+{
+    special(Rogue_AnyNewQuestsPending)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        msgbox(format("Before you head out, I should mention, you have pending Quest rewards to collect.\pDo you still want to continue?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == NO)
+        {
+            return
+        }
+    }
+
+    special(Rogue_EnterPartnerMonCapacity)
+    copyvar(VAR_0x8004, VAR_RESULT)
+
+    getpartysize
+
+    if(var(VAR_RESULT) > VAR_0x8004)
+    {
+        buffernumberstring(STR_VAR_1, VAR_0x8004)
+        msgbox(format("Looks like you have too many Pokémon.\pYou may only take in {STR_VAR_1} Pokémon into this type of Adventure.\pYou will need to deposit some into a PC, before I can let you on an Adventure."), MSGBOX_DEFAULT)
+        setvar(VAR_RESULT, NO)
+    }
+    else
+    {
+        setvar(VAR_RESULT, YES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Invalid team size
+        return
+    }
+
+    call(Common_EventScript_SaveGame)
+    if(var(VAR_RESULT) == YES)
+    {
+        special(Rogue_SeedRandomGenerators)
+        msgbox(format("Good luck {PLAYER}!"))
+        closemessage
+
+        applymovement(OBJ_EVENT_ADVENTURE_NURSE, Rogue_Adventure_WalkNurse)
+        applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Adventure_WalkPlayer)
+        waitmovement(0)
+
+        setflag(FLAG_ROGUE_LEFT_ON_RUN)
+        setrespawn(HEAL_LOCATION_ROGUE_HUB)
+        warp(MAP_ROGUE_ADVENTURE_PATHS, 0)
+        waitstate
+    }
+    else
+    {
+        msgbox(format("OK. Come speak to me once you're ready."), MSGBOX_DEFAULT)
+    }
+}
+
+movement Rogue_Adventure_WalkNurse
+{
+    walk_up
+    walk_right
+    face_up
+}
+
+movement Rogue_Adventure_WalkPlayer
+{
+    walk_up * 3
+}
+
+script Rogue_ReturnAdventureInternal
+{
+    lockall
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+
+    msgbox(format("Welcome back {PLAYER}!"), MSGBOX_DEFAULT)
+
+    special(Rogue_RunRewardMoney)
+    copyvar(VAR_0x8000, VAR_RESULT)
+
+    special(Rogue_RunRewardLvls)
+    copyvar(VAR_0x8001, VAR_RESULT)
+
+    if(var(VAR_0x8000) != 0 || var(VAR_0x8001) != 0)
+    {
+        msgbox(format("Let's take a look and see what you managed to gather."), MSGBOX_DEFAULT)
+
+        // Just returned from first successful adventure
+        //if(var(VAR_ROGUE_INTRO_STATE) == 6)
+        //{
+        //    buffernumberstring(STR_VAR_1, VAR_ROGUE_CURRENT_ROOM_IDX)
+        //    //buffernumberstring(STR_VAR_2, VAR_ROGUE_DIFFICULTY)
+        //
+        //    msgbox(format("Hmm…\pYou managed to complete{PAUSE 15}.{PAUSE 15}.{PAUSE 15}.\n{STR_VAR_1} routes…{PAUSE 15}"), MSGBOX_DEFAULT)
+        //    
+        //    //turnobject(NPC_INTRO_SCOTT, DIR_EAST)
+        //    msgbox(format("So…\nYour rewards should be{PAUSE 15}.{PAUSE 15}.{PAUSE 15}."), MSGBOX_DEFAULT)
+        //    //turnobject(NPC_INTRO_SCOTT, DIR_SOUTH)
+        //}
+
+        if(var(VAR_0x8000) != 0)
+        {
+            buffernumberstring(STR_VAR_1, VAR_0x8000)
+
+            message(format("You recieved ¥{STR_VAR_1}"))
+            playfanfare(MUS_OBTAIN_ITEM)
+            waitmessage
+            waitfanfare
+        }
+
+        if(var(VAR_0x8001) != 0)
+        {
+            if(var(VAR_0x8001) == 1)
+            {
+                message(format("Party recieved 1 LVL"))
+            }
+            else
+            {
+                buffernumberstring(STR_VAR_1, VAR_0x8001)
+                message(format("Party recieved {STR_VAR_1} LVLs"))
+            }
+
+            playfanfare(FANFARE_LEVEL_UP)
+            waitmessage
+            waitfanfare
+            
+            //if(!flag(FLAG_ROGUE_LVL_TUTORIAL))
+            //{
+            //    msgbox(format("Ah!\nIs this the first time your party has leveled in {POKEMON_HUB}?\pThese LVLs don't work entirely the same as they do whilst out on Adventures.\pPOKéMON will not naturally learn moves or evolve whilst in the HUB.\pYou will need to find specialist NPCs who will be able to help out, once your Pokémon has reached the correct level.\pAny levels you gain in the HUB will be temporarily reset when you embark on Adventures.\pThe HUB level will be restored once you return."))
+            //    setflag(FLAG_ROGUE_LVL_TUTORIAL)
+            //}
+        }
+    }
+    else
+    {
+        msgbox(format("Looks like there aren't any rewards for this Adventure."))
+    }
+
+    clearflag(FLAG_ROGUE_LEFT_ON_RUN)
+    //setvar(VAR_ROGUE_INTRO_STATE, 7)
+
+    //if(flag(FLAG_SET_SEED_ENABLED))
+    //{
+    //    msgbox(format("Would you like to keep the same SEED enabled for your next Adventure?"), MSGBOX_YESNO)
+    //    if(var(VAR_RESULT) == YES)
+    //    {
+    //        msgbox(format("OK.\nI'll remember the same SEED then."), MSGBOX_DEFAULT)
+    //    }
+    //    else
+    //    {
+    //        msgbox(format("OK.\nThe SEED will be removed for the next Adventure."), MSGBOX_DEFAULT)
+    //        clearflag(FLAG_SET_SEED_ENABLED)
+    //    }
+    //}
+    
+    msgbox(format("Would you like to SAVE your progress?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        call(Common_EventScript_SaveGame)
+    }
+    msgbox(format("Come speak to me, once you're ready for your next adventure."), MSGBOX_DEFAULT)
+    releaseall
+}

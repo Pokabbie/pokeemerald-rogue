@@ -38,8 +38,7 @@
 #include "constants/event_objects.h"
 #include "constants/moves.h"
 
-extern const u8 MossdeepCity_SpaceCenter_2F_EventScript_MaxieTrainer[];
-extern const u8 MossdeepCity_SpaceCenter_2F_EventScript_TabithaTrainer[];
+#include "rogue_baked.h"
 
 // EWRAM vars.
 EWRAM_DATA const struct BattleFrontierTrainer *gFacilityTrainers = NULL;
@@ -209,7 +208,7 @@ const u8 gTowerFemaleFacilityClasses[20] =
     FACILITY_CLASS_LASS
 };
 
-const u8 gTowerMaleTrainerGfxIds[30] =
+const u16 gTowerMaleTrainerGfxIds[30] =
 {
     OBJ_EVENT_GFX_HIKER,
     OBJ_EVENT_GFX_TUBER_M,
@@ -243,7 +242,7 @@ const u8 gTowerMaleTrainerGfxIds[30] =
     OBJ_EVENT_GFX_HIKER
 };
 
-const u8 gTowerFemaleTrainerGfxIds[20] =
+const u16 gTowerFemaleTrainerGfxIds[20] =
 {
     OBJ_EVENT_GFX_WOMAN_2,
     OBJ_EVENT_GFX_TUBER_F,
@@ -1163,7 +1162,7 @@ void SetBattleFacilityTrainerGfxId(u16 trainerId, u8 tempVarId)
 {
     u32 i;
     u8 facilityClass;
-    u8 trainerObjectGfxId;
+    u16 trainerObjectGfxId;
 
     SetFacilityPtrsGetLevel();
     if (trainerId == TRAINER_EREADER)
@@ -1256,11 +1255,11 @@ void SetEReaderTrainerGfxId(void)
     SetBattleFacilityTrainerGfxId(TRAINER_EREADER, 0);
 }
 
-u8 GetBattleFacilityTrainerGfxId(u16 trainerId)
+u16 GetBattleFacilityTrainerGfxId(u16 trainerId)
 {
     u32 i;
     u8 facilityClass;
-    u8 trainerObjectGfxId;
+    u16 trainerObjectGfxId;
 
     SetFacilityPtrsGetLevel();
     if (trainerId == TRAINER_EREADER)
@@ -1449,7 +1448,11 @@ u8 GetFrontierOpponentClass(u16 trainerId)
     }
     else if (trainerId == TRAINER_STEVEN_PARTNER)
     {
-        trainerClass = gTrainers[TRAINER_STEVEN].trainerClass;
+        struct Trainer trainer;
+
+        Rogue_ModifyTrainer(trainerId, &trainer);
+
+        trainerClass = trainer.trainerClass;
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
@@ -1533,8 +1536,10 @@ void GetFrontierTrainerName(u8 *dst, u16 trainerId)
     }
     else if (trainerId == TRAINER_STEVEN_PARTNER)
     {
+        const u8* trainerName = Rogue_GetTrainerName(trainerId);
+
         for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-            dst[i] = gTrainers[TRAINER_STEVEN].trainerName[i];
+            dst[i] = trainerName[i];
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
@@ -2139,14 +2144,20 @@ void DoSpecialTrainerBattle(void)
     case SPECIAL_BATTLE_STEVEN:
         gBattleTypeFlags = BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER;
         FillPartnerParty(TRAINER_STEVEN_PARTNER);
-        gApproachingTrainerId = 0;
-        BattleSetup_ConfigureTrainerBattle(MossdeepCity_SpaceCenter_2F_EventScript_MaxieTrainer + 1);
-        gApproachingTrainerId = 1;
-        BattleSetup_ConfigureTrainerBattle(MossdeepCity_SpaceCenter_2F_EventScript_TabithaTrainer + 1);
         gPartnerTrainerId = TRAINER_STEVEN_PARTNER;
         CreateTask(Task_StartBattleAfterTransition, 1);
         PlayMapChosenOrBattleBGM(0);
         BattleTransition_StartOnField(B_TRANSITION_MAGMA);
+        break;
+    case SPECIAL_BATTLE_AUTOMATION:
+        gBattleTypeFlags = BATTLE_TYPE_TRAINER;
+
+        // Manual BattleSetup_ConfigureTrainerBattle
+        BattleSetup_ConfigureAutomationTrainerBattle();
+
+        CreateTask(Task_StartBattleAfterTransition, 1);
+        PlayMapChosenOrBattleBGM(0);
+        BattleTransition_StartOnField(B_TRANSITION_BIG_POKEBALL);
         break;
     case SPECIAL_BATTLE_MULTI:
         if (gSpecialVar_0x8005 & MULTI_BATTLE_2_VS_WILD) // Player + AI against wild mon
@@ -3014,12 +3025,14 @@ static void FillPartnerParty(u16 trainerId)
 
     if (trainerId == TRAINER_STEVEN_PARTNER)
     {
+        const u8* trainerName = Rogue_GetTrainerName(trainerId);
+
         for (i = 0; i < MULTI_PARTY_SIZE; i++)
         {
             do
             {
                 j = Random32();
-            } while (IsShinyOtIdPersonality(STEVEN_OTID, j) || sStevenMons[i].nature != GetNatureFromPersonality(j));
+            } while (sStevenMons[i].nature != GetNatureFromPersonality(j));
             CreateMon(&gPlayerParty[MULTI_PARTY_SIZE + i],
                       sStevenMons[i].species,
                       sStevenMons[i].level,
@@ -3035,7 +3048,7 @@ static void FillPartnerParty(u16 trainerId)
                 SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_HP_EV + j, &sStevenMons[i].evs[j]);
             for (j = 0; j < MAX_MON_MOVES; j++)
                 SetMonMoveSlot(&gPlayerParty[MULTI_PARTY_SIZE + i], sStevenMons[i].moves[j], j);
-            SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_NAME, gTrainers[TRAINER_STEVEN].trainerName);
+            SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_NAME, trainerName);
             j = MALE;
             SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_GENDER, &j);
             CalculateMonStats(&gPlayerParty[MULTI_PARTY_SIZE + i]);
@@ -3585,9 +3598,9 @@ static void FillTentTrainerParty_(u16 trainerId, u8 firstMonId, u8 monCount)
     }
 }
 
-u8 FacilityClassToGraphicsId(u8 facilityClass)
+u16 FacilityClassToGraphicsId(u8 facilityClass)
 {
-    u8 trainerObjectGfxId;
+    u16 trainerObjectGfxId;
     u8 i;
 
     // Search male classes.
@@ -3651,6 +3664,7 @@ void TrySetLinkBattleTowerEnemyPartyLevel(void)
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
     {
         s32 i;
+        u32 exp;
         u8 enemyLevel = SetFacilityPtrsGetLevel();
 
         for (i = 0; i < PARTY_SIZE; i++)
@@ -3658,7 +3672,9 @@ void TrySetLinkBattleTowerEnemyPartyLevel(void)
             u32 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES, NULL);
             if (species)
             {
-                SetMonData(&gEnemyParty[i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][enemyLevel]);
+                exp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, enemyLevel);
+
+                SetMonData(&gEnemyParty[i], MON_DATA_EXP, &exp);
                 CalculateMonStats(&gEnemyParty[i]);
             }
         }

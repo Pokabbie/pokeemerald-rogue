@@ -13,6 +13,8 @@
 #include "link.h"
 #include "constants/game_stat.h"
 
+#include "rogue_save.h"
+
 static u16 CalculateChecksum(void *, u16);
 static bool8 ReadFlashSector(u8, struct SaveSector *);
 static u8 GetSaveValidStatus(const struct SaveSectorLocation *);
@@ -710,6 +712,8 @@ u8 HandleSavingData(u8 saveType)
     u32 *backupVar = gTrainerHillVBlankCounter;
     u8 *tempAddr;
 
+    // RogueNote: todo pre save
+
     gTrainerHillVBlankCounter = NULL;
     UpdateSaveAddresses();
     switch (saveType)
@@ -726,6 +730,7 @@ u8 HandleSavingData(u8 saveType)
 
         // Write the full save slot first
         CopyPartyAndObjectsToSave();
+        RogueSave_FormatForWriting();
         WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
 
         // Save the Hall of Fame
@@ -736,6 +741,7 @@ u8 HandleSavingData(u8 saveType)
     case SAVE_NORMAL:
     default:
         CopyPartyAndObjectsToSave();
+        RogueSave_FormatForWriting();
         WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
         break;
     case SAVE_LINK:
@@ -743,6 +749,7 @@ u8 HandleSavingData(u8 saveType)
         // Used by link / Battle Frontier
         // Write only SaveBlocks 1 and 2 (skips the PC)
         CopyPartyAndObjectsToSave();
+        RogueSave_FormatForWriting();
         for(i = SECTOR_ID_SAVEBLOCK2; i <= SECTOR_ID_SAVEBLOCK1_END; i++)
             HandleReplaceSector(i, gRamSaveSectorLocations);
         for(i = SECTOR_ID_SAVEBLOCK2; i <= SECTOR_ID_SAVEBLOCK1_END; i++)
@@ -755,9 +762,13 @@ u8 HandleSavingData(u8 saveType)
 
         // Overwrite save slot
         CopyPartyAndObjectsToSave();
+        RogueSave_FormatForWriting();
         WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
         break;
     }
+
+    RogueSave_FormatForReading();
+
     gTrainerHillVBlankCounter = backupVar;
     return 0;
 }
@@ -790,6 +801,7 @@ bool8 LinkFullSave_Init(void)
         return TRUE;
     UpdateSaveAddresses();
     CopyPartyAndObjectsToSave();
+    RogueSave_FormatForWriting();
     RestoreSaveBackupVarsAndIncrement(gRamSaveSectorLocations);
     return FALSE;
 }
@@ -885,6 +897,8 @@ u8 LoadGameSave(u8 saveType)
     default:
         status = TryLoadSaveSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
         CopyPartyAndObjectsFromSave();
+        RogueSave_FormatForReading();
+        RogueSave_OnSaveLoaded();
         gSaveFileStatus = status;
         gGameContinueCallback = 0;
         break;

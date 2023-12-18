@@ -1,0 +1,69 @@
+mapscripts Rogue_Area_TownSquare_MapScripts {}
+
+
+script Rogue_Area_TownSquare_BlendPokeblock_Internal
+{
+    checkitem(ITEM_POKEBLOCK_DISPENSER)
+    if(var(VAR_RESULT) == NO)
+    {
+        giveitem(ITEM_POKEBLOCK_DISPENSER)
+        giveitem(ITEM_SITRUS_BERRY, 40)
+        giveitem(ITEM_CHERI_BERRY, 40)
+        giveitem(ITEM_CHESTO_BERRY, 40)
+    }
+
+    //goto(BerryBlender_EventScript_BerryBlender1)
+    
+    lockall
+    //applymovement LOCALID_EXPERT_M, BerryBlender_Movement_BlendLeaderWalkInPlace
+    //waitmovement 0
+
+    msgbox(format("MAKE {POKEBLOCK}?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        //goto(BerryBlender_EventScript_TryUseBerryBlender1)
+        
+        //checkitem ITEM_POKEBLOCK_CASE
+        //goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_Blender1NoCase
+        //specialvar VAR_RESULT, GetFirstFreePokeblockSlot
+        //goto_if_eq VAR_RESULT, 65535, BerryBlender_EventScript_Blender1CaseFull
+
+        specialvar(VAR_RESULT, PlayerHasBerries)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("LET'S PLAY"))
+            //goto BerryBlender_EventScript_UseBerryBlender1
+
+            // TODO - Explain
+            setvar(VAR_0x8004, 1) // NUM_OPPONENTS
+            fadescreen(FADE_TO_BLACK)
+            special(DoBerryBlending)
+            waitstate
+            releaseall
+        }
+        else
+        {
+            msgbox(format("NEED BERRIES"))
+        }
+    }
+    else
+    {
+        msgbox(format("SAD NO NO"))
+    }
+
+    releaseall
+}
+
+script Rogue_Area_TownSquare_BlendPokeblockNovice
+{
+    setflag(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER)
+    goto(Rogue_Area_TownSquare_BlendPokeblock_Internal)
+}
+
+script Rogue_Area_TownSquare_BlendPokeblockMaster
+{
+    clearflag(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER)
+    goto(Rogue_Area_TownSquare_BlendPokeblock_Internal)
+}

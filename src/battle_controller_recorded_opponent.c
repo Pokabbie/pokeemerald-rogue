@@ -54,6 +54,8 @@ static void RecordedOpponentBufferRunCommand(u32 battler);
 static void RecordedOpponentBufferExecCompleted(u32 battler);
 static void SwitchIn_HandleSoundAndEnd(u32 battler);
 
+#include "rogue_controller.h"
+
 static void (*const sRecordedOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
 {
     [CONTROLLER_GETMONDATA]               = BtlController_HandleGetMonData,

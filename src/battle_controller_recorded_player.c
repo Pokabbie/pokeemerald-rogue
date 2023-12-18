@@ -26,8 +26,11 @@
 #include "util.h"
 #include "window.h"
 #include "constants/battle_anim.h"
-#include "constants/songs.h"
+#include "constants/songs.h" 
 #include "constants/trainers.h"
+#include "rogue_controller.h"
+#include "rogue_player_customisation.h"
+
 
 static void RecordedPlayerHandleLoadMonSprite(u32 battler);
 static void RecordedPlayerHandleSwitchInAnim(u32 battler);
@@ -515,7 +518,7 @@ static void RecordedPlayerHandleIntroTrainerBallThrow(u32 battler)
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK)
         trainerPicId = gLinkPlayers[GetBattlerMultiplayerId(battler)].gender + TRAINER_BACK_PIC_BRENDAN;
     else
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+        trainerPicId = RoguePlayer_GetTrainerBackPic();
 
     trainerPal = gTrainerFrontPicPaletteTable[trainerPicId].data;
     BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F9, trainerPal, 24, Intro_TryShinyAnimShowHealthbox);

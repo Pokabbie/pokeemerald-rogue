@@ -3,9 +3,13 @@
 
 void ItemUseOutOfBattle_Mail(u8);
 void ItemUseOutOfBattle_Bike(u8);
+void ItemUseOutOfBattle_RideMon(u8);
 void ItemUseOutOfBattle_Rod(u8);
+void ItemUseOutOfBattle_HealingFlask(u8);
 void ItemUseOutOfBattle_Itemfinder(u8);
 void ItemUseOutOfBattle_PokeblockCase(u8);
+void ItemUseOutOfBattle_QuestLog(u8);
+void ItemUseOutOfBattle_CGear(u8);
 void ItemUseOutOfBattle_CoinCase(u8);
 void ItemUseOutOfBattle_PowderJar(u8);
 void ItemUseOutOfBattle_SSTicket(u8);
@@ -22,6 +26,7 @@ void ItemUseOutOfBattle_RareCandy(u8);
 void ItemUseOutOfBattle_TMHM(u8);
 void ItemUseOutOfBattle_Repel(u8);
 void ItemUseOutOfBattle_Lure(u8);
+void ItemUseOutOfBattle_Pokeblock(u8);
 void ItemUseOutOfBattle_EscapeRope(u8);
 void ItemUseOutOfBattle_BlackWhiteFlute(u8);
 void ItemUseOutOfBattle_EvolutionStone(u8);

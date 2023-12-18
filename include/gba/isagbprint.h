@@ -8,61 +8,59 @@
 #define MGBA_LOG_WARN   (2)
 #define MGBA_LOG_INFO   (3)
 #define MGBA_LOG_DEBUG  (4)
-
 #ifdef NDEBUG
 #define DebugPrintf(pBuf, ...)
 #define DebugPrintfLevel(level, pBuf, ...)
 #define MgbaOpen()
 #define MgbaClose()
+#define AGB_ASSERT(exp)
+#define AGB_WARNING(exp)
 #define AGBPrintInit()
-#define DebugAssert(pFile, nLine, pExpression, nStopProgram)
 #else
-
+#if (LOG_HANDLER == LOG_HANDLER_MGBA_PRINT)
 bool32 MgbaOpen(void);
 void MgbaClose(void);
-void MgbaPrintf(s32 level, const char *pBuf, ...);
+void MgbaPrintf(const char *pBuf, ...);
 void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nStopProgram);
-void NoCashGBAPrintf(const char *pBuf, ...);
-void NoCashGBAAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nStopProgram);
+#define DebugPrintf(pBuf, ...) MgbaPrintf(pBuf, __VA_ARGS__)
+#define AGB_ASSERT(exp) (exp) ? ((void*)0) : MgbaAssert(__FILE__, __LINE__, #exp, 1)
+#define AGB_WARNING(exp) (exp) ? ((void*)0) : MgbaAssert(__FILE__, __LINE__, #exp, 0)
+
+// Not used in this configuration
+#define AGBPrintfInit()
+#elif (LOG_HANDLER == LOG_HANDLER_NOCASH_PRINT)
+void NoCashGBAPrintf(const char *pBuf, ...)
+void NoCashGBAAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nStopProgram)
+#define DebugPrintf(pBuf, ...) NoCashGBAPrintf(pBuf, __VA_ARGS__)
+#define AGB_ASSERT(exp) (exp) ? ((void*)0) : NoCashGBAAssert(__FILE__, __LINE__, #exp, 1);
+#define AGB_WARNING(exp) (exp) ? ((void*)0) : NoCashGBAAssert(__FILE__, __LINE__, #exp, 0)
+
+// Not used in this configuration
+#define MgbaOpen()
+#define MgbaClose()
+#define AGBPrintInit()
+#else // Default to AGBPrint
 void AGBPrintf(const char *pBuf, ...);
 void AGBAssert(const char *pFile, int nLine, const char *pExpression, int nStopProgram);
 void AGBPrintInit(void);
+#define DebugPrintf(pBuf, ...) AGBPrintf(const char *pBuf, ...)
+#define AGB_ASSERT(exp) (exp) ? ((void*)0) : AGBAssert(__FILE__, __LINE__, #exp, 1)
+#define AGB_WARNING(exp) (exp) ? ((void*)0) : NoCashGBAAssert(__FILE__, __LINE__, #exp, 0)
 
-#if (LOG_HANDLER == LOG_HANDLER_MGBA_PRINT)
-
-#define DebugPrintf(pBuf, ...) MgbaPrintf(MGBA_LOG_INFO, pBuf, ## __VA_ARGS__)
-#define DebugAssert(pFile, nLine, pExpression, nStopProgram) MgbaAssert(pFile, nLine, pExpression, nStopProgram)
-#define DebugPrintfLevel(level, pBuf, ...) MgbaPrintf(level, pBuf, ## __VA_ARGS__)
-
-#elif (LOG_HANDLER == LOG_HANDLER_NOCASH_PRINT)
-
-#define DebugPrintf(pBuf, ...) NoCashGBAPrintf(pBuf, ## __VA_ARGS__)
-#define DebugAssert(pFile, nLine, pExpression, nStopProgram) NoCashGBAAssert(pFile, nLine, pExpression, nStopProgram)
-#define DebugPrintfLevel(level, pBuf, ...) NoCashGBAPrintf(pBuf, ## __VA_ARGS__)
-
-#else // Default to AGBPrint
-
-#define DebugPrintf(pBuf, ...) AGBPrintf(pBuf, ## __VA_ARGS__)
-#define DebugAssert(pFile, nLine, pExpression, nStopProgram) AGBAssert(pFile, nLine, pExpression, nStopProgram)
-#define DebugPrintfLevel(level, pBuf, ...) AGBPrintf(pBuf, ## __VA_ARGS__)
-
+// Not used in this configuration
+#define MgbaOpen()
+#define MgbaClose()
 #endif
 #endif
+
+#define DebugPrint(pBuf) DebugPrintf(pBuf, 0)
+
+// for matching purposes
 
 #ifdef NDEBUG
-
-#define AGB_ASSERT(exp)
-#define AGB_WARNING(exp)
-#define AGB_ASSERT_EX(exp, file, line)
-#define AGB_WARNING_EX(exp, file, line)
-
+#define    AGB_ASSERT_EX(exp, file, line)
 #else
-
-#define AGB_ASSERT(exp) (exp) ? ((void*)0) : DebugAssert(__FILE__, __LINE__, #exp, TRUE)
-#define AGB_WARNING(exp) (exp) ? ((void*)0) : DebugAssert(__FILE__, __LINE__, #exp, FALSE)
-
-#define AGB_WARNING_EX(exp, file, line) (exp) ? ((void *)0) : DebugAssert(file, line, #exp, FALSE);
-#define AGB_ASSERT_EX(exp, file, line) (exp) ? ((void *)0) : DebugAssert(file, line, #exp, TRUE);
+#define    AGB_ASSERT_EX(exp, file, line) AGB_ASSERT(exp);
 #endif
 
 #endif // GUARD_GBA_ISAGBPRINT_H

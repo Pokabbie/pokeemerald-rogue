@@ -3,10 +3,13 @@
 
 extern u32 gRngValue;
 extern u32 gRng2Value;
+extern u32 gRngRogueValue;
 
 //Returns a 16-bit pseudorandom number
 u16 Random(void);
 u16 Random2(void);
+u16 RogueRandom(void);
+u16 RandomCustom(u32* seed);
 
 //Returns a 32-bit pseudorandom number
 #define Random32() (Random() | (Random() << 16))
@@ -19,6 +22,7 @@ u16 Random2(void);
 //Sets the initial seed value of the pseudorandom number generator
 void SeedRng(u16 seed);
 void SeedRng2(u16 seed);
+void SeedRogueRng(u16 seed);
 
 void Shuffle8(void *data, size_t n);
 void Shuffle16(void *data, size_t n);

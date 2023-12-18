@@ -17,8 +17,8 @@
 #define MULTI_BASE_PC_WITH_REGISTRY        6
 #define MULTI_REGISTER_MENU                7
 #define MULTI_SSTIDAL_LILYCOVE             8 // Exit only, populated by CreateLilycoveSSTidalMultichoice
-#define MULTI_UNUSED_9                     9
-#define MULTI_UNUSED_10                    10
+#define MULTI_FULL_OR_SKIP                 9
+#define MULTI_EXPAND2_EXIT                 10
 #define MULTI_FRONTIER_PASS_INFO           11
 #define MULTI_BIKE                         12
 #define MULTI_STATUS_INFO                  13
@@ -27,10 +27,10 @@
 #define MULTI_VIEWED_PAINTINGS             16
 #define MULTI_YESNOINFO                    17
 #define MULTI_BATTLE_MODE                  18
-#define MULTI_UNUSED_19                    19
+#define MULTI_STYLE2_CHOICE                19
 #define MULTI_YESNOINFO_2                  20
-#define MULTI_UNUSED_21                    21
-#define MULTI_UNUSED_22                    22
+#define MULTI_GENERATIONS_UPTO3            21
+#define MULTI_GENERATIONS_UPTO8            22
 #define MULTI_CHALLENGEINFO                23
 #define MULTI_LEVEL_MODE                   24
 #define MULTI_MECHADOLL1_Q1                25
@@ -48,14 +48,14 @@
 #define MULTI_MECHADOLL5_Q1                37
 #define MULTI_MECHADOLL5_Q2                38
 #define MULTI_MECHADOLL5_Q3                39
-#define MULTI_UNUSED_40                    40
-#define MULTI_UNUSED_41                    41
+#define MULTI_EASY_AVERAGE_HARD_INFO       40
+#define MULTI_STYLE_CHOICE                 41
 #define MULTI_VENDING_MACHINE              42
 #define MULTI_MACH_BIKE_INFO               43
 #define MULTI_ACRO_BIKE_INFO               44
 #define MULTI_SATISFACTION                 45
 #define MULTI_STERN_DEEPSEA                46
-#define MULTI_UNUSED_ASH_VENDOR            47 // Replaced by scrollable multichoice
+#define MULTI_STR_VARS_2                   47
 #define MULTI_GAME_CORNER_DOLLS            48
 #define MULTI_GAME_CORNER_COINS            49
 #define MULTI_HOWS_FISHING                 50
@@ -90,17 +90,17 @@
 #define MULTI_WIRELESS_ALL_SERVICES        79
 #define MULTI_WIRELESS_MINIGAME            80
 #define MULTI_LINK_LEADER                  81
-#define MULTI_CONTEST_RANK                 82
+#define MULTI_LINK_HOST_JOIN               82
 #define MULTI_FRONTIER_ITEM_CHOOSE         83
 #define MULTI_LINK_CONTEST_INFO            84
 #define MULTI_LINK_CONTEST_MODE            85
 #define MULTI_FORCED_START_MENU            86
 #define MULTI_FRONTIER_GAMBLER_BET         87
 #define MULTI_TENT                         88
-#define MULTI_UNUSED_SSTIDAL_1             89 // These 4 were replaced by CreateLilycoveSSTidalMultichoice
-#define MULTI_UNUSED_SSTIDAL_2             90 //
-#define MULTI_UNUSED_SSTIDAL_3             91 //
-#define MULTI_UNUSED_SSTIDAL_4             92 //
+#define MULTI_RANDOM_SWAP_OPTIONS          89
+#define MULTI_CAMPAIGN_EXT_OPT             90
+#define MULTI_CAMPAIGN_OPT2                91
+#define MULTI_CAMPAIGN_OPT3                92
 #define MULTI_FOSSIL                       93
 #define MULTI_YESNO                        94
 #define MULTI_FRONTIER_RULES               95
@@ -122,6 +122,18 @@
 #define MULTI_SLATEPORT_TENT_RULES         111
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
+#define MULTI_REGION_OR_NATIONAL           114
+#define MULTI_REGION_UPTO_HOENN            115
+#define MULTI_REGION_FULL                  116
+#define MULTI_WORKBENCH_OPTIONS            117
+#define MULTI_CHANGE_CLOTHES               118
+#define MULTI_SELECT_SEASON                119
+#define MULTI_SELECT_TIME                  120
+
+#define MULTI_DYNAMIC_CALLBACK_START       (MULTI_SELECT_TIME + 1)
+#define MULTI_HUB_AREA_BUILDS              (MULTI_DYNAMIC_CALLBACK_START + 0)
+#define MULTI_HUB_AREA_BUILD_DIRECTION     (MULTI_DYNAMIC_CALLBACK_START + 1)
+#define MULTI_HUB_AREA_UPGRADES            (MULTI_DYNAMIC_CALLBACK_START + 2)
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0
@@ -164,5 +176,10 @@
 #define STDSTRING_BATTLE_ARENA     27
 #define STDSTRING_BATTLE_PIKE      28
 #define STDSTRING_BATTLE_PYRAMID   29
+#define STDSTRING_MEDICINE         30
+#define STDSTRING_CHARMS           31
+#define STDSTRING_STONES           32
+#define STDSTRING_HELD_ITEMS       33
+#define STDSTRING_POKEBLOCK        34
 
 #endif //GUARD_SCRIPT_MENU_CONSTANTS_H

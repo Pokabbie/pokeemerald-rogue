@@ -204,6 +204,32 @@
 #define METATILE_Fortree_WoodBridge1_Bottom                0x29F
 #define METATILE_Fortree_WoodBridge1_Top                   0x297
 
+// gTileset_GeneralHub
+#define METATILE_GeneralHub_Door_PokeConnect                    0x062
+#define METATILE_GeneralHub_Grass                               0x001
+#define METATILE_GeneralHub_GrassWarpEast                       0x027
+#define METATILE_GeneralHub_GrassWarpNorth                      0x01E
+#define METATILE_GeneralHub_GrassWarpShadowEast                 0x037
+#define METATILE_GeneralHub_GrassWarpShadowNorth                0x02E
+#define METATILE_GeneralHub_GrassWarpShadowSouth                0x036
+#define METATILE_GeneralHub_GrassWarpShadowWest                 0x02F
+#define METATILE_GeneralHub_GrassWarpSouth                      0x026
+#define METATILE_GeneralHub_GrassWarpWest                       0x01F
+#define METATILE_GeneralHub_Tree_BottomLeft_Dense               0x1E4
+#define METATILE_GeneralHub_Tree_BottomLeft_Dense_Overlapped    0x1DC
+#define METATILE_GeneralHub_Tree_BottomLeft_Sparse              0x1E6
+#define METATILE_GeneralHub_Tree_BottomLeft_Sparse_Overlapped   0x1DE
+#define METATILE_GeneralHub_Tree_BottomRight_Dense              0x1E5
+#define METATILE_GeneralHub_Tree_BottomRight_Dense_Overlapped   0x1DD
+#define METATILE_GeneralHub_Tree_BottomRight_Sparse             0x1E7
+#define METATILE_GeneralHub_Tree_BottomRight_Sparse_Overlapped  0x1DF
+#define METATILE_GeneralHub_Tree_TopLeft_CapGrass               0x1CE
+#define METATILE_GeneralHub_Tree_TopLeft_Dense                  0x1D4
+#define METATILE_GeneralHub_Tree_TopLeft_Sparse                 0x1D6
+#define METATILE_GeneralHub_Tree_TopRight_CapGrass              0x1CF
+#define METATILE_GeneralHub_Tree_TopRight_Dense                 0x1D5
+#define METATILE_GeneralHub_Tree_TopRight_Sparse                0x1D7
+
 // gTileset_General
 #define METATILE_General_BlueCaveIndent        0x1B0
 #define METATILE_General_BlueCaveOpen          0x1B1
@@ -216,10 +242,12 @@
 #define METATILE_General_Door_PokeCenter       0x061
 #define METATILE_General_Door_PokeMart         0x041
 #define METATILE_General_Grass                 0x001
+#define METATILE_General_Grass_Stone           0x0E0
 #define METATILE_General_Grass_TreeLeft        0x1CE
 #define METATILE_General_Grass_TreeRight       0x1CF
 #define METATILE_General_Grass_TreeUp          0x00E
 #define METATILE_General_LongGrass             0x015
+#define METATILE_General_Mountain_Stone        0x0E1
 #define METATILE_General_MuddySlope_Frame0     0x0E8
 #define METATILE_General_MuddySlope_Frame1     0x0E9
 #define METATILE_General_MuddySlope_Frame2     0x0EA
@@ -233,6 +261,7 @@
 #define METATILE_General_RoughDeepWater        0x14F
 #define METATILE_General_RoughWater            0x14E
 #define METATILE_General_SandPit_Center        0x121
+#define METATILE_General_SandPit_Stone         0x0E2
 #define METATILE_General_SecretBase_TreeLeft   0x026
 #define METATILE_General_SecretBase_TreeRight  0x027
 #define METATILE_General_SecretBase_VineLeft   0x036
@@ -326,30 +355,31 @@
 #define METATILE_MauvilleGym_RedBeamV2_On     0x249
 
 // gTileset_Mauville
-#define METATILE_Mauville_DeepSand_BottomMid  0x259
-#define METATILE_Mauville_DeepSand_Center     0x251
-#define METATILE_Mauville_Door                0x2AC
-#define METATILE_Mauville_Door_BattleTent     0x3D4
-#define METATILE_Mauville_Door_CyclingRoad    0x289
-#define METATILE_Mauville_Door_Verdanturf     0x3A1
-#define METATILE_Mauville_MirageTower_Tile0   0x3D8
-#define METATILE_Mauville_MirageTower_Tile1   0x3D9
-#define METATILE_Mauville_MirageTower_Tile10  0x3E4
-#define METATILE_Mauville_MirageTower_Tile11  0x3E5
-#define METATILE_Mauville_MirageTower_Tile2   0x3DA
-#define METATILE_Mauville_MirageTower_Tile3   0x3E0
-#define METATILE_Mauville_MirageTower_Tile4   0x3E1
-#define METATILE_Mauville_MirageTower_Tile5   0x3E2
-#define METATILE_Mauville_MirageTower_Tile6   0x3E8
-#define METATILE_Mauville_MirageTower_Tile7   0x3E9
-#define METATILE_Mauville_MirageTower_Tile8   0x3EA
-#define METATILE_Mauville_MirageTower_Tile9   0x3F0
-#define METATILE_Mauville_MirageTower_TileA   0x3F1
-#define METATILE_Mauville_MirageTower_TileB   0x3F2
-#define METATILE_Mauville_MirageTower_TileC   0x3DB
-#define METATILE_Mauville_MirageTower_TileD   0x3DC
-#define METATILE_Mauville_MirageTower_TileE   0x3DD
-#define METATILE_Mauville_MirageTower_TileF   0x3E3
+#define METATILE_Mauville_DeepSand_BottomMid   0x259
+#define METATILE_Mauville_DeepSand_Center      0x251
+#define METATILE_Mauville_Door                 0x2AC
+#define METATILE_Mauville_DoorTop_CyclingRoad  0x281
+#define METATILE_Mauville_Door_BattleTent      0x3D4
+#define METATILE_Mauville_Door_CyclingRoad     0x289
+#define METATILE_Mauville_Door_Verdanturf      0x3A1
+#define METATILE_Mauville_MirageTower_Tile0    0x3D8
+#define METATILE_Mauville_MirageTower_Tile1    0x3D9
+#define METATILE_Mauville_MirageTower_Tile10   0x3E4
+#define METATILE_Mauville_MirageTower_Tile11   0x3E5
+#define METATILE_Mauville_MirageTower_Tile2    0x3DA
+#define METATILE_Mauville_MirageTower_Tile3    0x3E0
+#define METATILE_Mauville_MirageTower_Tile4    0x3E1
+#define METATILE_Mauville_MirageTower_Tile5    0x3E2
+#define METATILE_Mauville_MirageTower_Tile6    0x3E8
+#define METATILE_Mauville_MirageTower_Tile7    0x3E9
+#define METATILE_Mauville_MirageTower_Tile8    0x3EA
+#define METATILE_Mauville_MirageTower_Tile9    0x3F0
+#define METATILE_Mauville_MirageTower_TileA    0x3F1
+#define METATILE_Mauville_MirageTower_TileB    0x3F2
+#define METATILE_Mauville_MirageTower_TileC    0x3DB
+#define METATILE_Mauville_MirageTower_TileD    0x3DC
+#define METATILE_Mauville_MirageTower_TileE    0x3DD
+#define METATILE_Mauville_MirageTower_TileF    0x3E3
 
 // gTileset_MeteorFalls
 #define METATILE_MeteorFalls_CaveEntrance_Bottom  0x24E
@@ -431,13 +461,13 @@
 #define METATILE_PokemonCenter_Floor_ShadowTop           0x21E
 #define METATILE_PokemonCenter_Floor_ShadowTop_Alt       0x2DC
 
-// gTileset_RSMossdeepGym
-#define METATILE_RSMossdeepGym_RedArrow_Down   0x205
-#define METATILE_RSMossdeepGym_RedArrow_Left   0x20C
-#define METATILE_RSMossdeepGym_RedArrow_Right  0x204
-#define METATILE_RSMossdeepGym_RedArrow_Up     0x20D
-#define METATILE_RSMossdeepGym_Switch_Down     0x239
-#define METATILE_RSMossdeepGym_Switch_Up       0x238
+// gTileset_RS
+#define METATILE_RS_MossdeepGym_RedArrow_Down   0x205
+#define METATILE_RS_MossdeepGym_RedArrow_Left   0x20C
+#define METATILE_RS_MossdeepGym_RedArrow_Right  0x204
+#define METATILE_RS_MossdeepGym_RedArrow_Up     0x20D
+#define METATILE_RS_MossdeepGym_Switch_Down     0x239
+#define METATILE_RS_MossdeepGym_Switch_Up       0x238
 
 // gTileset_Rustboro
 #define METATILE_Rustboro_Door_Gray  0x21F
@@ -459,7 +489,9 @@
 #define METATILE_SecretBase_BigPlant_BaseRight1         0x2ED
 #define METATILE_SecretBase_BigPlant_BaseRight2         0x2EF
 #define METATILE_SecretBase_BigPlant_TopLeft            0x2E4
+#define METATILE_SecretBase_BigPlant_TopLeftWall        0x2E5
 #define METATILE_SecretBase_BigPlant_TopRight           0x2E6
+#define METATILE_SecretBase_BigPlant_TopRightWall       0x2E6
 #define METATILE_SecretBase_BlueBalloon                 0x33C
 #define METATILE_SecretBase_BlueBrick_Bottom            0x22F
 #define METATILE_SecretBase_BlueBrick_Top               0x227

@@ -146,7 +146,6 @@ static const u8 sActivityGroupInfo[][3] = {
     {ACTIVITY_WONDER_NEWS_DUP,               GROUPTYPE_TOTAL,  2},
     {ACTIVITY_POKEMON_JUMP,                  GROUPTYPE_TOTAL,  0},
     {ACTIVITY_BERRY_CRUSH,                   GROUPTYPE_TOTAL,  0},
-    {ACTIVITY_BERRY_PICK,                    GROUPTYPE_TOTAL,  0},
     {ACTIVITY_SEARCH,                        GROUPTYPE_NONE,   0},
     {ACTIVITY_SPIN_TRADE,                    GROUPTYPE_TRADE,  0},
     {ACTIVITY_BERRY_BLENDER,                 GROUPTYPE_TOTAL,  0},

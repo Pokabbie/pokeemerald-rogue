@@ -1,0 +1,120 @@
+const BOSS_NPC = 1
+
+mapscripts Rogue_Boss_12_MapScripts
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Boss_12_MapLoad
+}
+
+script Rogue_Boss_12_MapLoad
+{
+    special(Rogue_IsFinalQuestActive)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        setobjectxyperm(BOSS_NPC, 20, 4)
+    }
+}
+
+script Rogue_EnterBattle
+{
+    special(Rogue_IsFinalQuestActive)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        goto(Rogue_FinalQuest_FakeBoss12)
+    }
+    else
+    {
+        goto(Rogue_Battle_Boss12)
+    }
+}
+
+script Rogue_Battle_Boss12
+{
+    lockall
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToBattleFieldBoss12)
+    waitmovement(0)
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss12)
+    waitmovement(0)
+
+    buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+    msgbox(gPlaceholder_Gym_PreBattleOpenning)
+
+    call(Rogue_SetDesiredWeather)
+
+    applymovement(BOSS_NPC, BossToFightBoss12)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss12)
+    waitmovement(0)
+    
+    special(Rogue_PlayStaticTrainerEncounterBGM)
+    msgbox(gPlaceholder_Gym_PreBattleTaunt)
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, gPlaceholder_Gym_PostBattleTaunt)
+    call(Rogue_BattleDefeated_Boss12)
+}
+
+script Rogue_BattleDefeated_Boss12
+{
+    call(Rogue_ClearWeather)
+
+    message(format("{PLAYER} received a CHAMPION BADGE!"))
+    waitmessage()
+    call(Common_EventScript_PlayGymBadgeFanfare)
+
+    playbgm(MUS_VICTORY_LEAGUE, FALSE)
+    buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+    
+    msgbox(gPlaceholder_Gym_PostBattleCloser)
+    playbgm(MUS_NONE, TRUE)
+    msgbox(format("Oh yes…\nI'm afraid one final battle awaits you, before you may be given the title of Champion.\pGood luck…"))
+
+    waitmessage()
+    call(Rogue_EventScript_AttemptPostGymHeal)
+    special(RemoveCameraObject)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)
+    waitstate
+}
+
+movement PlayerToBattleFieldBoss12 {
+    walk_up * 10
+}
+
+movement CameraToBattleFieldBoss12 {
+    walk_up * 3
+}
+
+movement PlayerToFightBoss12 {
+    walk_up
+}
+
+movement BossToFightBoss12 {
+    walk_down
+}
+
+script Rogue_FinalQuest_FakeBoss12
+{
+    lockall
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToBattleFieldBoss12)
+    waitmovement(0)
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss12)
+    waitmovement(0)
+
+    playbgm(MUS_NONE, TRUE)
+
+    applymovement(OBJ_EVENT_ID_PLAYER, FinalQuest_FakeBoss12)
+    waitmovement(0)
+
+    setflag(FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP)
+
+    call(Rogue_EventScript_AttemptPostGymHeal)
+    special(RemoveCameraObject)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)
+    waitstate
+}
+
+movement FinalQuest_FakeBoss12 
+{
+    emote_question_mark
+    delay_16 * 3
+}

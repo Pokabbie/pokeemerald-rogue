@@ -6,8 +6,13 @@
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/moves.h"
+#include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/battle_ai.h"
+
+#include "constants/rogue.h"
+#include "rogue.h"
+#include "rogue_query_script.h"
 
 const u16 gMinigameDigits_Pal[] = INCBIN_U16("graphics/link/minigame_digits.gbapal");
 const u32 gMinigameDigits_Gfx[] = INCBIN_U32("graphics/link/minigame_digits.4bpp.lz");
@@ -47,6 +52,14 @@ const struct SpriteFrameImage gBattlerPicTable_OpponentRight[] =
     {BATTLER_OFFSET(15), MON_PIC_SIZE},
 };
 
+const struct SpriteFrameImage gTrainerBackPicTable_None[] =
+{
+    gTrainerBackPic_None, 0x0800,
+    gTrainerBackPic_None, 0x0800,
+    gTrainerBackPic_None, 0x0800,
+    gTrainerBackPic_None, 0x0800,
+};
+
 const struct SpriteFrameImage gTrainerBackPicTable_Brendan[] =
 {
     {gTrainerBackPic_Brendan + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
@@ -81,6 +94,24 @@ const struct SpriteFrameImage gTrainerBackPicTable_Leaf[] =
     {gTrainerBackPic_Leaf + TRAINER_PIC_SIZE * 4, TRAINER_PIC_SIZE},
 };
 
+const struct SpriteFrameImage gTrainerBackPicTable_Ethan[] =
+{
+    gTrainerBackPic_Ethan, 0x0800,
+    gTrainerBackPic_Ethan + 0x0800, 0x0800,
+    gTrainerBackPic_Ethan + 0x1000, 0x0800,
+    gTrainerBackPic_Ethan + 0x1800, 0x0800,
+    gTrainerBackPic_Ethan + 0x2000, 0x0800,
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_Lyra[] =
+{
+    gTrainerBackPic_Lyra, 0x0800,
+    gTrainerBackPic_Lyra + 0x0800, 0x0800,
+    gTrainerBackPic_Lyra + 0x1000, 0x0800,
+    gTrainerBackPic_Lyra + 0x1800, 0x0800,
+    gTrainerBackPic_Lyra + 0x2000, 0x0800,
+};
+
 const struct SpriteFrameImage gTrainerBackPicTable_RubySapphireBrendan[] =
 {
     {gTrainerBackPic_RubySapphireBrendan + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
@@ -111,6 +142,32 @@ const struct SpriteFrameImage gTrainerBackPicTable_Steven[] =
     {gTrainerBackPic_Steven + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
     {gTrainerBackPic_Steven + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
     {gTrainerBackPic_Steven + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_Lucas[] =
+{
+    gTrainerBackPic_Lucas, 0x0800,
+    gTrainerBackPic_Lucas + 0x0800, 0x0800,
+    gTrainerBackPic_Lucas + 0x1000, 0x0800,
+    gTrainerBackPic_Lucas + 0x1800, 0x0800,
+    gTrainerBackPic_Lucas + 0x2000, 0x0800,
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_Dawn[] =
+{
+    gTrainerBackPic_Dawn, 0x0800,
+    gTrainerBackPic_Dawn + 0x0800, 0x0800,
+    gTrainerBackPic_Dawn + 0x1000, 0x0800,
+    gTrainerBackPic_Dawn + 0x1800, 0x0800,
+    gTrainerBackPic_Dawn + 0x2000, 0x0800,
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_CommunityZefa[] =
+{
+    gTrainerBackPic_CommunityZefa, 0x0800,
+    gTrainerBackPic_CommunityZefa + 0x0800, 0x0800,
+    gTrainerBackPic_CommunityZefa + 0x1000, 0x0800,
+    gTrainerBackPic_CommunityZefa + 0x1800, 0x0800,
 };
 
 const union AnimCmd sAnim_GeneralFrame0[] =
@@ -294,3 +351,17 @@ const union AnimCmd *const gAnims_MonPic[MAX_MON_PIC_FRAMES] =
 #include "data/text/trainer_class_names.h"
 #include "data/trainers.h"
 #include "data/text/move_names.h"
+
+#include "data/rogue_adventure.h"
+#include "data/rogue_hub.h"
+#include "data/rogue_routes.h"
+#include "data/rogue_strings.h"
+#include "data/rogue_species.h"
+#include "data/rogue_trainers.h"
+#include "data/rogue_pokemon_profiles.h"
+#include "data/rogue_pokedex.h"
+#include "data/rogue_quests.h"
+#include "data/rogue_bake_data.h"
+
+#include "data/rogue/battle_music.h"
+#include "data/rogue/trainers.h"

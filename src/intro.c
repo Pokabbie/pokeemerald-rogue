@@ -8,7 +8,6 @@
 #include "malloc.h"
 #include "gpu_regs.h"
 #include "link.h"
-#include "multiboot_pokemon_colosseum.h"
 #include "load_save.h"
 #include "save.h"
 #include "new_game.h"
@@ -26,6 +25,9 @@
 #include "expansion_intro.h"
 #include "constants/rgb.h"
 #include "constants/battle_anim.h"
+
+#include "rogue_assistant.h"
+#include "rogue_save.h"
 
 /*
     The intro is grouped into the following scenes
@@ -1035,11 +1037,15 @@ static void VBlankCB_Intro(void)
 
 void MainCB2_Intro(void)
 {
+    PUSH_ASSISTANT_STATE2(TITLE_SCREEN, INTRO);
+
     RunTasks();
     AnimateSprites();
     BuildOamBuffer();
     UpdatePaletteFade();
-    if (gMain.newKeys != 0 && !gPaletteFade.active)
+    // RogueNote: Skip default intro
+    //if (gMain.newKeys && !gPaletteFade.active)
+    if (!gPaletteFade.active)
         SetMainCallback2(MainCB2_EndIntro);
     else if (gIntroFrameCounter != -1)
         gIntroFrameCounter++;
@@ -1123,20 +1129,6 @@ static u8 SetUpCopyrightScreen(void)
         CreateTask(Task_Scene1_Load, 0);
         SetMainCallback2(MainCB2_Intro);
 #endif
-        if (gMultibootProgramStruct.gcmb_field_2 != 0)
-        {
-            if (gMultibootProgramStruct.gcmb_field_2 == 2)
-            {
-                // check the multiboot ROM header game code to see if we already did this
-                if (*(u32 *)(EWRAM_START + 0xAC) == COLOSSEUM_GAME_CODE)
-                {
-                    CpuCopy16(&gMultiBootProgram_PokemonColosseum_Start, (void *)EWRAM_START, sizeof(gMultiBootProgram_PokemonColosseum_Start));
-                    *(u32 *)(EWRAM_START + 0xAC) = COLOSSEUM_GAME_CODE;
-                }
-                GameCubeMultiBoot_ExecuteProgram(&gMultibootProgramStruct);
-            }
-        }
-        else
         {
             GameCubeMultiBoot_Quit();
             SetSerialCallback(SerialCB);
@@ -1152,6 +1144,7 @@ void CB2_InitCopyrightScreenAfterBootup(void)
     if (!SetUpCopyrightScreen())
     {
         SetSaveBlocksPointers(GetSaveBlocksPointersBaseOffset());
+        RogueSave_UpdatePointers();
         ResetMenuAndMonGlobals();
         Save_ResetSaveCounters();
         LoadGameSave(SAVE_NORMAL);
@@ -1172,7 +1165,7 @@ void CB2_InitCopyrightScreenAfterTitleScreen(void)
 void Task_Scene1_Load(u8 taskId)
 {
     SetVBlankCallback(NULL);
-    sIntroCharacterGender = MOD(Random(), GENDER_COUNT);
+    sIntroCharacterGender = Random() % PLAYER_STYLE_COUNT;
     IntroResetGpuRegs();
     SetGpuReg(REG_OFFSET_BG3VOFS, 0);
     SetGpuReg(REG_OFFSET_BG2VOFS, 80);
@@ -1380,10 +1373,20 @@ static void Task_Scene2_CreateSprites(u8 taskId)
     u8 spriteId;
 
     // Load sprite sheets
-    if (sIntroCharacterGender == MALE)
-        LoadCompressedSpriteSheet(gSpriteSheet_IntroBrendan);
-    else
-        LoadCompressedSpriteSheet(gSpriteSheet_IntroMay);
+    switch(sIntroCharacterGender)
+    {
+        case STYLE_EMR_BRENDAN: 
+        case STYLE_RED: 
+        case STYLE_ETHAN: 
+            LoadCompressedSpriteSheet(gSpriteSheet_IntroBrendan);
+            break;
+
+        case STYLE_EMR_MAY: 
+        case STYLE_LEAF: 
+        case STYLE_LYRA: 
+            LoadCompressedSpriteSheet(gSpriteSheet_IntroMay);
+            break;
+    }
 
     LoadCompressedSpriteSheet(gSpriteSheet_IntroBicycle);
     LoadCompressedSpriteSheet(gSpriteSheet_IntroFlygon);
@@ -1399,10 +1402,20 @@ static void Task_Scene2_CreateSprites(u8 taskId)
     CreateSprite(&sSpriteTemplate_Manectric, DISPLAY_WIDTH + 32, 128, 0);
     CreateSprite(&sSpriteTemplate_Torchic, DISPLAY_WIDTH + 48, 110, 1);
 
-    if (sIntroCharacterGender == MALE)
-        spriteId = CreateIntroBrendanSprite(DISPLAY_WIDTH + 32, 100);
-    else
-        spriteId = CreateIntroMaySprite(DISPLAY_WIDTH + 32, 100);
+    switch(sIntroCharacterGender)
+    {
+        case STYLE_EMR_BRENDAN: 
+        case STYLE_RED: 
+        case STYLE_ETHAN: 
+            spriteId = CreateIntroBrendanSprite(DISPLAY_WIDTH + 32, 100);
+            break;
+
+        case STYLE_EMR_MAY: 
+        case STYLE_LEAF: 
+        case STYLE_LYRA: 
+            spriteId = CreateIntroMaySprite(DISPLAY_WIDTH + 32, 100);
+            break;
+    }
 
     gSprites[spriteId].callback = SpriteCB_PlayerOnBicycle;
     gSprites[spriteId].anims = sAnims_PlayerBicycle;

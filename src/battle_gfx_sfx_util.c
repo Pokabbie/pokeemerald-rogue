@@ -26,6 +26,8 @@
 #include "constants/rgb.h"
 #include "constants/battle_palace.h"
 
+#include "rogue_controller.h"
+
 extern const u8 gBattlePalaceNatureToMoveTarget[];
 extern const struct CompressedSpriteSheet gSpriteSheet_EnemyShadow;
 extern const struct SpriteTemplate gSpriteTemplate_EnemyShadow;
@@ -396,7 +398,20 @@ void SpriteCB_TrainerSlideIn(struct Sprite *sprite)
 {
     if (!(gIntroSlideFlags & 1))
     {
-        sprite->x2 += sprite->sSpeedX;
+        if(sprite->x2 < 0)
+        {
+            sprite->x2 += sprite->sSpeedX;
+            if(sprite->x2 >= 0)
+                sprite->x2 = 0;
+        }
+        else
+        {
+            sprite->x2 += sprite->sSpeedX;
+
+            if(sprite->x2 <= 0)
+                sprite->x2 = 0;
+        }
+
         if (sprite->x2 == 0)
         {
             if (sprite->y2 != 0)
@@ -622,7 +637,7 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
     if (gBattleSpritesDataPtr->battlerData[battler].transformSpecies == SPECIES_NONE)
         lzPaletteData = GetMonFrontSpritePal(mon);
     else
-        lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(species, currentOtId, currentPersonality);
+        lzPaletteData = GetMonSpritePalFromSpecies(species, GetMonData(mon, MON_DATA_IS_SHINY, NULL));
 
     LZDecompressWram(lzPaletteData, gDecompressionBuffer);
     LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);
@@ -870,6 +885,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
     u32 personalityValue, otId, position, paletteOffset, targetSpecies;
     const void *lzPaletteData, *src;
     void *dst;
+        bool8 isShiny;
 
     if (IsContest())
     {
@@ -888,9 +904,15 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
         position = GetBattlerPosition(battlerAtk);
 
         if (GetBattlerSide(battlerDef) == B_SIDE_OPPONENT)
+        {
             targetSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_SPECIES);
+            isShiny = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_IS_SHINY); 
+        }
         else
+        {
             targetSpecies = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_SPECIES);
+            isShiny = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerDef]], MON_DATA_IS_SHINY); 
+        }
 
         if (GetBattlerSide(battlerAtk) == B_SIDE_PLAYER)
         {
@@ -935,7 +957,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
     dst = (void *)(OBJ_VRAM0 + gSprites[gBattlerSpriteIds[battlerAtk]].oam.tileNum * 32);
     DmaCopy32(3, src, dst, MON_PIC_SIZE);
     paletteOffset = OBJ_PLTT_ID(battlerAtk);
-    lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(targetSpecies, otId, personalityValue);
+    lzPaletteData = GetMonSpritePalFromSpecies(targetSpecies, isShiny);
     LZDecompressWram(lzPaletteData, gDecompressionBuffer);
     LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);
 
@@ -1016,16 +1038,35 @@ void HandleLowHpMusicChange(struct Pokemon *mon, u8 battler)
 
     if (GetHPBarLevel(hp, maxHP) == HP_BAR_RED)
     {
-        if (!gBattleSpritesDataPtr->battlerData[battler].lowHpSong)
+        if (!gBattleSpritesDataPtr->battlerData[battler].lowHpSongHeard)
         {
-            if (!gBattleSpritesDataPtr->battlerData[BATTLE_PARTNER(battler)].lowHpSong)
-                PlaySE(SE_LOW_HEALTH);
-            gBattleSpritesDataPtr->battlerData[battler].lowHpSong = 1;
+            if (!gBattleSpritesDataPtr->battlerData[battler].lowHpSong)
+            {
+                if (!gBattleSpritesDataPtr->battlerData[BATTLE_PARTNER(battler)].lowHpSong)
+                    PlaySE(SE_LOW_HEALTH);
+                gBattleSpritesDataPtr->battlerData[battler].lowHpSong = 1;
+            }
+            gBattleSpritesDataPtr->battlerData[battler].lowHpSongHeard = 1;
+        }
+        else
+        {
+            if (!IsDoubleBattle())
+            {
+                m4aSongNumStop(SE_LOW_HEALTH);
+                return;
+            }
+            if (IsDoubleBattle() && !gBattleSpritesDataPtr->battlerData[BATTLE_PARTNER(battler)].lowHpSong)
+            {
+                m4aSongNumStop(SE_LOW_HEALTH);
+                return;
+            }
         }
     }
     else
     {
         gBattleSpritesDataPtr->battlerData[battler].lowHpSong = 0;
+        gBattleSpritesDataPtr->battlerData[battler].lowHpSongHeard = 0;
+
         if (!IsDoubleBattle())
         {
             m4aSongNumStop(SE_LOW_HEALTH);
@@ -1044,8 +1085,12 @@ void BattleStopLowHpSound(void)
     u8 playerBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
 
     gBattleSpritesDataPtr->battlerData[playerBattler].lowHpSong = 0;
+    gBattleSpritesDataPtr->battlerData[playerBattler].lowHpSongHeard = 0;
     if (IsDoubleBattle())
+    {
         gBattleSpritesDataPtr->battlerData[BATTLE_PARTNER(playerBattler)].lowHpSong = 0;
+        gBattleSpritesDataPtr->battlerData[BATTLE_PARTNER(playerBattler)].lowHpSongHeard = 0;
+    }
 
     m4aSongNumStop(SE_LOW_HEALTH);
 }

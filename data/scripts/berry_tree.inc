@@ -2,7 +2,7 @@ BerryTreeScript::
 	special ObjectEventInteractionGetBerryTreeData
 	switch VAR_0x8004
 	case BERRY_STAGE_SPARKLING, BerryTree_EventScript_Sparkling
-	case BERRY_STAGE_NO_BERRY, BerryTree_EventScript_CheckSoil
+	case BERRY_STAGE_NO_BERRY, Rogue_BerryTree_CheckBerry
 	case BERRY_STAGE_PLANTED, BerryTree_EventScript_CheckBerryStage1
 	case BERRY_STAGE_SPROUTED, BerryTree_EventScript_CheckBerryStage2
 	case BERRY_STAGE_TALLER, BerryTree_EventScript_CheckBerryStage3
@@ -103,30 +103,25 @@ BerryTree_EventScript_CheckBerryFullyGrown::
 	lock
 	faceplayer
 	special ObjectEventInteractionGetBerryCountString
-	msgbox BerryTree_Text_WantToPick, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BerryTree_EventScript_PickBerry
-	goto_if_eq VAR_RESULT, NO, BerryTree_EventScript_CancelPickingBerry
+	goto BerryTree_EventScript_PickBerry
 
 BerryTree_EventScript_PickBerry::
 	special ObjectEventInteractionPickBerryTree
 	goto_if_eq VAR_0x8004, 0, BerryTree_EventScript_BerryPocketFull
 	special IncrementDailyPickedBerries
 	special ObjectEventInteractionRemoveBerryTree
-	message BerryTree_Text_PickedTheBerry
-	playfanfare MUS_OBTAIN_BERRY
-	waitmessage
-	waitfanfare
-	waitbuttonpress
-	message BerryTree_Text_PutAwayBerry
-	waitmessage
-	waitbuttonpress
+	@ msgbox BerryTree_Text_PickedTheBerry, MSGBOX_DEFAULT
+	@ playfanfare MUS_OBTAIN_BERRY
+	@ waitmessage
+	@ call Rogue_BerryTree_PickedUpBerry
+	@ waitbuttonpress
+	@ message BerryTree_Text_PutAwayBerry
+	@ waitmessage
+	@ waitbuttonpress
 	release
 	end
 
 BerryTree_EventScript_BerryPocketFull::
-	message BerryTree_Text_BerryPocketFull
-	waitmessage
-	waitbuttonpress
 	release
 	end
 
@@ -225,13 +220,11 @@ BerryTree_Text_PickedTheBerry:
 
 BerryTree_Text_PutAwayBerry:
 	.string "{PLAYER} put away the {STR_VAR_1}\n"
-	.string "in the BAG's BERRIES POCKET.\p"
-	.string "The soil returned to its soft and\n"
-	.string "loamy state.$"
+	.string "in the BAG's BERRIES POCKET.$"
 
 BerryTree_Text_BerryPocketFull:
-	.string "The BAG's BERRIES POCKET is full.\p"
-	.string "The {STR_VAR_1} couldn't be taken.$"
+	.string "The BAG is too full to take the\n"
+	.string "{STR_VAR_1}.$"
 
 BerryTree_Text_BerryLeftUnpicked:
 	.string "{PLAYER} left the {STR_VAR_1}\n"

@@ -118,6 +118,9 @@ gTrickHouse_Mechadoll_Four::
 gTrickHouse_Mechadoll_Six::
 	.string "6$"
 
+gTrickHouse_Mechadoll_Nine::
+	.string "9$"
+
 gTrickHouse_Mechadoll_Seven::
 	.string "7$"
 

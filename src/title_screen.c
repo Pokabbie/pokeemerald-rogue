@@ -22,6 +22,9 @@
 #include "graphics.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/species.h"
+
+#include "rogue_assistant.h"
 
 enum {
     TAG_VERSION = 1000,
@@ -60,6 +63,7 @@ static void SpriteCB_PokemonLogoShine(struct Sprite *sprite);
 // const rom data
 static const u16 sUnusedUnknownPal[] = INCBIN_U16("graphics/title_screen/unused.gbapal");
 
+// RogueNote: Title screen update
 static const u32 sTitleScreenRayquazaGfx[] = INCBIN_U32("graphics/title_screen/rayquaza.4bpp.lz");
 static const u32 sTitleScreenRayquazaTilemap[] = INCBIN_U32("graphics/title_screen/rayquaza.bin.lz");
 static const u32 sTitleScreenLogoShineGfx[] = INCBIN_U32("graphics/title_screen/logo_shine.4bpp.lz");
@@ -441,7 +445,7 @@ static void CreateCopyrightBanner(s16 x, s16 y)
     u8 i;
     u8 spriteId;
 
-    x -= 64;
+    x -= 70;
     for (i = 0; i < NUM_COPYRIGHT_FRAMES; i++, x += 32)
     {
         spriteId = CreateSprite(&sStartCopyrightBannerSpriteTemplate, x, y, 0);
@@ -569,6 +573,8 @@ static void VBlankCB(void)
 
 void CB2_InitTitleScreen(void)
 {
+    PUSH_ASSISTANT_STATE2(TITLE_SCREEN, PRESS_START);
+
     switch (gMain.state)
     {
     default:
@@ -577,7 +583,7 @@ void CB2_InitTitleScreen(void)
         SetGpuReg(REG_OFFSET_BLDCNT, 0);
         SetGpuReg(REG_OFFSET_BLDALPHA, 0);
         SetGpuReg(REG_OFFSET_BLDY, 0);
-        *((u16 *)PLTT) = RGB_WHITE;
+        *((u16 *)PLTT) = RGB_BLACK; // RogueNote: Previously RGB_WHITE
         SetGpuReg(REG_OFFSET_DISPCNT, 0);
         SetGpuReg(REG_OFFSET_BG2CNT, 0);
         SetGpuReg(REG_OFFSET_BG1CNT, 0);
@@ -621,7 +627,7 @@ void CB2_InitTitleScreen(void)
     {
         u8 taskId = CreateTask(Task_TitleScreenPhase1, 0);
 
-        gTasks[taskId].tCounter = 256;
+        gTasks[taskId].tCounter = 80; // RogueNote: default 256
         gTasks[taskId].tSkipToNext = FALSE;
         gTasks[taskId].tPointless = -16;
         gTasks[taskId].tBg2Y = -32;
@@ -629,7 +635,7 @@ void CB2_InitTitleScreen(void)
         break;
     }
     case 3:
-        BeginNormalPaletteFade(PALETTES_ALL, 1, 16, 0, RGB_WHITEALPHA);
+        BeginNormalPaletteFade(PALETTES_ALL, 1, 0x10, 0, RGB_BLACK); // RogueNote: Previously RGB_WHITEALPHA
         SetVBlankCallback(VBlankCB);
         gMain.state = 4;
         break;
@@ -658,7 +664,7 @@ void CB2_InitTitleScreen(void)
                                     | DISPCNT_OBJ_ON
                                     | DISPCNT_WIN0_ON
                                     | DISPCNT_OBJWIN_ON);
-        m4aSongNumStart(MUS_TITLE);
+        m4aSongNumStart(MUS_RG_TITLE);
         gMain.state = 5;
         break;
     case 5:
@@ -781,6 +787,7 @@ static void Task_TitleScreenPhase3(u8 taskId)
 {
     if (JOY_NEW(A_BUTTON) || JOY_NEW(START_BUTTON))
     {
+        PlayCryInternal(SPECIES_WOBBUFFET, 0, 120, 10, 0);
         FadeOutBGM(4);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_WHITEALPHA);
         SetMainCallback2(CB2_GoToMainMenu);
@@ -854,14 +861,25 @@ static void CB2_GoToBerryFixScreen(void)
     }
 }
 
+static s32 ColLerp(s32 a, s32 b, s32 intensity)
+{
+    return a + (b - a) * intensity / 256;
+}
+
 static void UpdateLegendaryMarkingColor(u8 frameNum)
 {
     if ((frameNum % 4) == 0) // Change color every 4th frame
     {
         s32 intensity = Cos(frameNum, 128) + 128;
-        s32 r = 31 - ((intensity * 32 - intensity) / 256);
-        s32 g = 31 - (intensity * 22 / 256);
-        s32 b = 12;
+        // 0, 4, 9
+
+        s32 r = ColLerp(0, 31, intensity);
+        s32 g = ColLerp(3, 31, intensity);
+        s32 b = ColLerp(9, 31, intensity);
+
+        //s32 r = 31 - (intensity);
+        //s32 g = 31 - (intensity * 22 / 256);
+        //s32 b = 31 - ((intensity * 32 - intensity) / 256);
 
         u16 color = RGB(r, g, b);
         LoadPalette(&color, BG_PLTT_ID(14) + 15, sizeof(color));

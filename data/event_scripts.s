@@ -2,6 +2,7 @@
 #include "config/battle.h"
 #include "config/item.h"
 #include "constants/global.h"
+#include "constants/rogue.h"
 #include "constants/apprentice.h"
 #include "constants/battle.h"
 #include "constants/battle_arena.h"
@@ -56,6 +57,7 @@
 #include "constants/union_room.h"
 #include "constants/vars.h"
 #include "constants/weather.h"
+#include "constants/follow_me.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
@@ -104,476 +106,16 @@ gStdScripts::
 	.4byte Std_MsgboxPokenav           @ MSGBOX_POKENAV
 gStdScripts_End::
 
-	.include "data/maps/PetalburgCity/scripts.inc"
-	.include "data/maps/SlateportCity/scripts.inc"
-	.include "data/maps/MauvilleCity/scripts.inc"
-	.include "data/maps/RustboroCity/scripts.inc"
-	.include "data/maps/FortreeCity/scripts.inc"
-	.include "data/maps/LilycoveCity/scripts.inc"
-	.include "data/maps/MossdeepCity/scripts.inc"
-	.include "data/maps/SootopolisCity/scripts.inc"
-	.include "data/maps/EverGrandeCity/scripts.inc"
-	.include "data/maps/LittlerootTown/scripts.inc"
-	.include "data/maps/OldaleTown/scripts.inc"
-	.include "data/maps/DewfordTown/scripts.inc"
-	.include "data/maps/LavaridgeTown/scripts.inc"
-	.include "data/maps/FallarborTown/scripts.inc"
-	.include "data/maps/VerdanturfTown/scripts.inc"
-	.include "data/maps/PacifidlogTown/scripts.inc"
-	.include "data/maps/Route101/scripts.inc"
-	.include "data/maps/Route102/scripts.inc"
-	.include "data/maps/Route103/scripts.inc"
-	.include "data/maps/Route104/scripts.inc"
-	.include "data/maps/Route105/scripts.inc"
-	.include "data/maps/Route106/scripts.inc"
-	.include "data/maps/Route107/scripts.inc"
-	.include "data/maps/Route108/scripts.inc"
-	.include "data/maps/Route109/scripts.inc"
-	.include "data/maps/Route110/scripts.inc"
-	.include "data/maps/Route111/scripts.inc"
-	.include "data/maps/Route112/scripts.inc"
-	.include "data/maps/Route113/scripts.inc"
-	.include "data/maps/Route114/scripts.inc"
-	.include "data/maps/Route115/scripts.inc"
-	.include "data/maps/Route116/scripts.inc"
-	.include "data/maps/Route117/scripts.inc"
-	.include "data/maps/Route118/scripts.inc"
-	.include "data/maps/Route119/scripts.inc"
-	.include "data/maps/Route120/scripts.inc"
-	.include "data/maps/Route121/scripts.inc"
-	.include "data/maps/Route122/scripts.inc"
-	.include "data/maps/Route123/scripts.inc"
-	.include "data/maps/Route124/scripts.inc"
-	.include "data/maps/Route125/scripts.inc"
-	.include "data/maps/Route126/scripts.inc"
-	.include "data/maps/Route127/scripts.inc"
-	.include "data/maps/Route128/scripts.inc"
-	.include "data/maps/Route129/scripts.inc"
-	.include "data/maps/Route130/scripts.inc"
-	.include "data/maps/Route131/scripts.inc"
-	.include "data/maps/Route132/scripts.inc"
-	.include "data/maps/Route133/scripts.inc"
-	.include "data/maps/Route134/scripts.inc"
-	.include "data/maps/Underwater_Route124/scripts.inc"
-	.include "data/maps/Underwater_Route126/scripts.inc"
-	.include "data/maps/Underwater_Route127/scripts.inc"
-	.include "data/maps/Underwater_Route128/scripts.inc"
-	.include "data/maps/Underwater_Route129/scripts.inc"
-	.include "data/maps/Underwater_Route105/scripts.inc"
-	.include "data/maps/Underwater_Route125/scripts.inc"
-	.include "data/maps/LittlerootTown_BrendansHouse_1F/scripts.inc"
-	.include "data/maps/LittlerootTown_BrendansHouse_2F/scripts.inc"
-	.include "data/maps/LittlerootTown_MaysHouse_1F/scripts.inc"
-	.include "data/maps/LittlerootTown_MaysHouse_2F/scripts.inc"
-	.include "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.inc"
-	.include "data/maps/OldaleTown_House1/scripts.inc"
-	.include "data/maps/OldaleTown_House2/scripts.inc"
-	.include "data/maps/OldaleTown_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/OldaleTown_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/OldaleTown_Mart/scripts.inc"
-	.include "data/maps/DewfordTown_House1/scripts.inc"
-	.include "data/maps/DewfordTown_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/DewfordTown_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/DewfordTown_Gym/scripts.inc"
-	.include "data/maps/DewfordTown_Hall/scripts.inc"
-	.include "data/maps/DewfordTown_House2/scripts.inc"
-	.include "data/maps/LavaridgeTown_HerbShop/scripts.inc"
-	.include "data/maps/LavaridgeTown_Gym_1F/scripts.inc"
-	.include "data/maps/LavaridgeTown_Gym_B1F/scripts.inc"
-	.include "data/maps/LavaridgeTown_House/scripts.inc"
-	.include "data/maps/LavaridgeTown_Mart/scripts.inc"
-	.include "data/maps/LavaridgeTown_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/LavaridgeTown_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/FallarborTown_Mart/scripts.inc"
-	.include "data/maps/FallarborTown_BattleTentLobby/scripts.inc"
-	.include "data/maps/FallarborTown_BattleTentCorridor/scripts.inc"
-	.include "data/maps/FallarborTown_BattleTentBattleRoom/scripts.inc"
-	.include "data/maps/FallarborTown_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/FallarborTown_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/FallarborTown_CozmosHouse/scripts.inc"
-	.include "data/maps/FallarborTown_MoveRelearnersHouse/scripts.inc"
-	.include "data/maps/VerdanturfTown_BattleTentLobby/scripts.inc"
-	.include "data/maps/VerdanturfTown_BattleTentCorridor/scripts.inc"
-	.include "data/maps/VerdanturfTown_BattleTentBattleRoom/scripts.inc"
-	.include "data/maps/VerdanturfTown_Mart/scripts.inc"
-	.include "data/maps/VerdanturfTown_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/VerdanturfTown_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/VerdanturfTown_WandasHouse/scripts.inc"
-	.include "data/maps/VerdanturfTown_FriendshipRatersHouse/scripts.inc"
-	.include "data/maps/VerdanturfTown_House/scripts.inc"
-	.include "data/maps/PacifidlogTown_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/PacifidlogTown_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/PacifidlogTown_House1/scripts.inc"
-	.include "data/maps/PacifidlogTown_House2/scripts.inc"
-	.include "data/maps/PacifidlogTown_House3/scripts.inc"
-	.include "data/maps/PacifidlogTown_House4/scripts.inc"
-	.include "data/maps/PacifidlogTown_House5/scripts.inc"
-	.include "data/maps/PetalburgCity_WallysHouse/scripts.inc"
-	.include "data/maps/PetalburgCity_Gym/scripts.inc"
-	.include "data/maps/PetalburgCity_House1/scripts.inc"
-	.include "data/maps/PetalburgCity_House2/scripts.inc"
-	.include "data/maps/PetalburgCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/PetalburgCity_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/PetalburgCity_Mart/scripts.inc"
-	.include "data/maps/SlateportCity_SternsShipyard_1F/scripts.inc"
-	.include "data/maps/SlateportCity_SternsShipyard_2F/scripts.inc"
-	.include "data/maps/SlateportCity_BattleTentLobby/scripts.inc"
-	.include "data/maps/SlateportCity_BattleTentCorridor/scripts.inc"
-	.include "data/maps/SlateportCity_BattleTentBattleRoom/scripts.inc"
-	.include "data/maps/SlateportCity_NameRatersHouse/scripts.inc"
-	.include "data/maps/SlateportCity_PokemonFanClub/scripts.inc"
-	.include "data/maps/SlateportCity_OceanicMuseum_1F/scripts.inc"
-	.include "data/maps/SlateportCity_OceanicMuseum_2F/scripts.inc"
-	.include "data/maps/SlateportCity_Harbor/scripts.inc"
-	.include "data/maps/SlateportCity_House/scripts.inc"
-	.include "data/maps/SlateportCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/SlateportCity_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/SlateportCity_Mart/scripts.inc"
-	.include "data/maps/MauvilleCity_Gym/scripts.inc"
-	.include "data/maps/MauvilleCity_BikeShop/scripts.inc"
-	.include "data/maps/MauvilleCity_House1/scripts.inc"
-	.include "data/maps/MauvilleCity_GameCorner/scripts.inc"
-	.include "data/maps/MauvilleCity_House2/scripts.inc"
-	.include "data/maps/MauvilleCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/MauvilleCity_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/MauvilleCity_Mart/scripts.inc"
-	.include "data/maps/RustboroCity_DevonCorp_1F/scripts.inc"
-	.include "data/maps/RustboroCity_DevonCorp_2F/scripts.inc"
-	.include "data/maps/RustboroCity_DevonCorp_3F/scripts.inc"
-	.include "data/maps/RustboroCity_Gym/scripts.inc"
-	.include "data/maps/RustboroCity_PokemonSchool/scripts.inc"
-	.include "data/maps/RustboroCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/RustboroCity_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/RustboroCity_Mart/scripts.inc"
-	.include "data/maps/RustboroCity_Flat1_1F/scripts.inc"
-	.include "data/maps/RustboroCity_Flat1_2F/scripts.inc"
-	.include "data/maps/RustboroCity_House1/scripts.inc"
-	.include "data/maps/RustboroCity_CuttersHouse/scripts.inc"
-	.include "data/maps/RustboroCity_House2/scripts.inc"
-	.include "data/maps/RustboroCity_Flat2_1F/scripts.inc"
-	.include "data/maps/RustboroCity_Flat2_2F/scripts.inc"
-	.include "data/maps/RustboroCity_Flat2_3F/scripts.inc"
-	.include "data/maps/RustboroCity_House3/scripts.inc"
-	.include "data/maps/FortreeCity_House1/scripts.inc"
-	.include "data/maps/FortreeCity_Gym/scripts.inc"
-	.include "data/maps/FortreeCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/FortreeCity_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/FortreeCity_Mart/scripts.inc"
-	.include "data/maps/FortreeCity_House2/scripts.inc"
-	.include "data/maps/FortreeCity_House3/scripts.inc"
-	.include "data/maps/FortreeCity_House4/scripts.inc"
-	.include "data/maps/FortreeCity_House5/scripts.inc"
-	.include "data/maps/FortreeCity_DecorationShop/scripts.inc"
-	.include "data/maps/LilycoveCity_CoveLilyMotel_1F/scripts.inc"
-	.include "data/maps/LilycoveCity_CoveLilyMotel_2F/scripts.inc"
-	.include "data/maps/LilycoveCity_LilycoveMuseum_1F/scripts.inc"
-	.include "data/maps/LilycoveCity_LilycoveMuseum_2F/scripts.inc"
-	.include "data/maps/LilycoveCity_ContestLobby/scripts.inc"
-	.include "data/maps/LilycoveCity_ContestHall/scripts.inc"
-	.include "data/maps/LilycoveCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/LilycoveCity_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/LilycoveCity_UnusedMart/scripts.inc"
-	.include "data/maps/LilycoveCity_PokemonTrainerFanClub/scripts.inc"
-	.include "data/maps/LilycoveCity_Harbor/scripts.inc"
-	.include "data/maps/LilycoveCity_MoveDeletersHouse/scripts.inc"
-	.include "data/maps/LilycoveCity_House1/scripts.inc"
-	.include "data/maps/LilycoveCity_House2/scripts.inc"
-	.include "data/maps/LilycoveCity_House3/scripts.inc"
-	.include "data/maps/LilycoveCity_House4/scripts.inc"
-	.include "data/maps/LilycoveCity_DepartmentStore_1F/scripts.inc"
-	.include "data/maps/LilycoveCity_DepartmentStore_2F/scripts.inc"
-	.include "data/maps/LilycoveCity_DepartmentStore_3F/scripts.inc"
-	.include "data/maps/LilycoveCity_DepartmentStore_4F/scripts.inc"
-	.include "data/maps/LilycoveCity_DepartmentStore_5F/scripts.inc"
-	.include "data/maps/LilycoveCity_DepartmentStoreRooftop/scripts.inc"
-	.include "data/maps/LilycoveCity_DepartmentStoreElevator/scripts.inc"
-	.include "data/maps/MossdeepCity_Gym/scripts.inc"
-	.include "data/maps/MossdeepCity_House1/scripts.inc"
-	.include "data/maps/MossdeepCity_House2/scripts.inc"
-	.include "data/maps/MossdeepCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/MossdeepCity_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/MossdeepCity_Mart/scripts.inc"
-	.include "data/maps/MossdeepCity_House3/scripts.inc"
-	.include "data/maps/MossdeepCity_StevensHouse/scripts.inc"
-	.include "data/maps/MossdeepCity_House4/scripts.inc"
-	.include "data/maps/MossdeepCity_SpaceCenter_1F/scripts.inc"
-	.include "data/maps/MossdeepCity_SpaceCenter_2F/scripts.inc"
-	.include "data/maps/MossdeepCity_GameCorner_1F/scripts.inc"
-	.include "data/maps/MossdeepCity_GameCorner_B1F/scripts.inc"
-	.include "data/maps/SootopolisCity_Gym_1F/scripts.inc"
-	.include "data/maps/SootopolisCity_Gym_B1F/scripts.inc"
-	.include "data/maps/SootopolisCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/SootopolisCity_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/SootopolisCity_Mart/scripts.inc"
-	.include "data/maps/SootopolisCity_House1/scripts.inc"
-	.include "data/maps/SootopolisCity_House2/scripts.inc"
-	.include "data/maps/SootopolisCity_House3/scripts.inc"
-	.include "data/maps/SootopolisCity_House4/scripts.inc"
-	.include "data/maps/SootopolisCity_House5/scripts.inc"
-	.include "data/maps/SootopolisCity_House6/scripts.inc"
-	.include "data/maps/SootopolisCity_House7/scripts.inc"
-	.include "data/maps/SootopolisCity_LotadAndSeedotHouse/scripts.inc"
-	.include "data/maps/SootopolisCity_MysteryEventsHouse_1F/scripts.inc"
-	.include "data/maps/SootopolisCity_MysteryEventsHouse_B1F/scripts.inc"
-	.include "data/maps/EverGrandeCity_SidneysRoom/scripts.inc"
-	.include "data/maps/EverGrandeCity_PhoebesRoom/scripts.inc"
-	.include "data/maps/EverGrandeCity_GlaciasRoom/scripts.inc"
-	.include "data/maps/EverGrandeCity_DrakesRoom/scripts.inc"
-	.include "data/maps/EverGrandeCity_ChampionsRoom/scripts.inc"
-	.include "data/maps/EverGrandeCity_Hall1/scripts.inc"
-	.include "data/maps/EverGrandeCity_Hall2/scripts.inc"
-	.include "data/maps/EverGrandeCity_Hall3/scripts.inc"
-	.include "data/maps/EverGrandeCity_Hall4/scripts.inc"
-	.include "data/maps/EverGrandeCity_Hall5/scripts.inc"
-	.include "data/maps/EverGrandeCity_PokemonLeague_1F/scripts.inc"
-	.include "data/maps/EverGrandeCity_HallOfFame/scripts.inc"
-	.include "data/maps/EverGrandeCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/EverGrandeCity_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/EverGrandeCity_PokemonLeague_2F/scripts.inc"
-	.include "data/maps/Route104_MrBrineysHouse/scripts.inc"
-	.include "data/maps/Route104_PrettyPetalFlowerShop/scripts.inc"
-	.include "data/maps/Route111_WinstrateFamilysHouse/scripts.inc"
-	.include "data/maps/Route111_OldLadysRestStop/scripts.inc"
-	.include "data/maps/Route112_CableCarStation/scripts.inc"
-	.include "data/maps/MtChimney_CableCarStation/scripts.inc"
-	.include "data/maps/Route114_FossilManiacsHouse/scripts.inc"
-	.include "data/maps/Route114_FossilManiacsTunnel/scripts.inc"
-	.include "data/maps/Route114_LanettesHouse/scripts.inc"
-	.include "data/maps/Route116_TunnelersRestHouse/scripts.inc"
-	.include "data/maps/Route117_PokemonDayCare/scripts.inc"
 	.include "data/maps/Route121_SafariZoneEntrance/scripts.inc"
-	.include "data/maps/MeteorFalls_1F_1R/scripts.inc"
-	.include "data/maps/MeteorFalls_1F_2R/scripts.inc"
-	.include "data/maps/MeteorFalls_B1F_1R/scripts.inc"
-	.include "data/maps/MeteorFalls_B1F_2R/scripts.inc"
-	.include "data/maps/RusturfTunnel/scripts.inc"
-	.include "data/maps/Underwater_SootopolisCity/scripts.inc"
-	.include "data/maps/DesertRuins/scripts.inc"
-	.include "data/maps/GraniteCave_1F/scripts.inc"
-	.include "data/maps/GraniteCave_B1F/scripts.inc"
-	.include "data/maps/GraniteCave_B2F/scripts.inc"
-	.include "data/maps/GraniteCave_StevensRoom/scripts.inc"
-	.include "data/maps/PetalburgWoods/scripts.inc"
-	.include "data/maps/MtChimney/scripts.inc"
-	.include "data/maps/JaggedPass/scripts.inc"
-	.include "data/maps/FieryPath/scripts.inc"
-	.include "data/maps/MtPyre_1F/scripts.inc"
-	.include "data/maps/MtPyre_2F/scripts.inc"
-	.include "data/maps/MtPyre_3F/scripts.inc"
-	.include "data/maps/MtPyre_4F/scripts.inc"
-	.include "data/maps/MtPyre_5F/scripts.inc"
-	.include "data/maps/MtPyre_6F/scripts.inc"
-	.include "data/maps/MtPyre_Exterior/scripts.inc"
-	.include "data/maps/MtPyre_Summit/scripts.inc"
-	.include "data/maps/AquaHideout_1F/scripts.inc"
-	.include "data/maps/AquaHideout_B1F/scripts.inc"
-	.include "data/maps/AquaHideout_B2F/scripts.inc"
-	.include "data/maps/Underwater_SeafloorCavern/scripts.inc"
-	.include "data/maps/SeafloorCavern_Entrance/scripts.inc"
-	.include "data/maps/SeafloorCavern_Room1/scripts.inc"
-	.include "data/maps/SeafloorCavern_Room2/scripts.inc"
-	.include "data/maps/SeafloorCavern_Room3/scripts.inc"
-	.include "data/maps/SeafloorCavern_Room4/scripts.inc"
-	.include "data/maps/SeafloorCavern_Room5/scripts.inc"
-	.include "data/maps/SeafloorCavern_Room6/scripts.inc"
-	.include "data/maps/SeafloorCavern_Room7/scripts.inc"
-	.include "data/maps/SeafloorCavern_Room8/scripts.inc"
-	.include "data/maps/SeafloorCavern_Room9/scripts.inc"
-	.include "data/maps/CaveOfOrigin_Entrance/scripts.inc"
-	.include "data/maps/CaveOfOrigin_1F/scripts.inc"
-	.include "data/maps/CaveOfOrigin_UnusedRubySapphireMap1/scripts.inc"
-	.include "data/maps/CaveOfOrigin_UnusedRubySapphireMap2/scripts.inc"
-	.include "data/maps/CaveOfOrigin_UnusedRubySapphireMap3/scripts.inc"
-	.include "data/maps/CaveOfOrigin_B1F/scripts.inc"
-	.include "data/maps/VictoryRoad_1F/scripts.inc"
-	.include "data/maps/VictoryRoad_B1F/scripts.inc"
-	.include "data/maps/VictoryRoad_B2F/scripts.inc"
-	.include "data/maps/ShoalCave_LowTideEntranceRoom/scripts.inc"
-	.include "data/maps/ShoalCave_LowTideInnerRoom/scripts.inc"
-	.include "data/maps/ShoalCave_LowTideStairsRoom/scripts.inc"
-	.include "data/maps/ShoalCave_LowTideLowerRoom/scripts.inc"
-	.include "data/maps/ShoalCave_HighTideEntranceRoom/scripts.inc"
-	.include "data/maps/ShoalCave_HighTideInnerRoom/scripts.inc"
-	.include "data/maps/NewMauville_Entrance/scripts.inc"
-	.include "data/maps/NewMauville_Inside/scripts.inc"
-	.include "data/maps/AbandonedShip_Deck/scripts.inc"
-	.include "data/maps/AbandonedShip_Corridors_1F/scripts.inc"
-	.include "data/maps/AbandonedShip_Rooms_1F/scripts.inc"
-	.include "data/maps/AbandonedShip_Corridors_B1F/scripts.inc"
-	.include "data/maps/AbandonedShip_Rooms_B1F/scripts.inc"
-	.include "data/maps/AbandonedShip_Rooms2_B1F/scripts.inc"
-	.include "data/maps/AbandonedShip_Underwater1/scripts.inc"
-	.include "data/maps/AbandonedShip_Room_B1F/scripts.inc"
-	.include "data/maps/AbandonedShip_Rooms2_1F/scripts.inc"
-	.include "data/maps/AbandonedShip_CaptainsOffice/scripts.inc"
-	.include "data/maps/AbandonedShip_Underwater2/scripts.inc"
-	.include "data/maps/AbandonedShip_HiddenFloorCorridors/scripts.inc"
-	.include "data/maps/AbandonedShip_HiddenFloorRooms/scripts.inc"
-	.include "data/maps/IslandCave/scripts.inc"
-	.include "data/maps/AncientTomb/scripts.inc"
-	.include "data/maps/Underwater_Route134/scripts.inc"
-	.include "data/maps/Underwater_SealedChamber/scripts.inc"
-	.include "data/maps/SealedChamber_OuterRoom/scripts.inc"
-	.include "data/maps/SealedChamber_InnerRoom/scripts.inc"
-	.include "data/maps/ScorchedSlab/scripts.inc"
-	.include "data/maps/AquaHideout_UnusedRubyMap1/scripts.inc"
-	.include "data/maps/AquaHideout_UnusedRubyMap2/scripts.inc"
-	.include "data/maps/AquaHideout_UnusedRubyMap3/scripts.inc"
-	.include "data/maps/SkyPillar_Entrance/scripts.inc"
-	.include "data/maps/SkyPillar_Outside/scripts.inc"
-	.include "data/maps/SkyPillar_1F/scripts.inc"
-	.include "data/maps/SkyPillar_2F/scripts.inc"
-	.include "data/maps/SkyPillar_3F/scripts.inc"
-	.include "data/maps/SkyPillar_4F/scripts.inc"
-	.include "data/maps/ShoalCave_LowTideIceRoom/scripts.inc"
-	.include "data/maps/SkyPillar_5F/scripts.inc"
-	.include "data/maps/SkyPillar_Top/scripts.inc"
-	.include "data/maps/MagmaHideout_1F/scripts.inc"
-	.include "data/maps/MagmaHideout_2F_1R/scripts.inc"
-	.include "data/maps/MagmaHideout_2F_2R/scripts.inc"
-	.include "data/maps/MagmaHideout_3F_1R/scripts.inc"
-	.include "data/maps/MagmaHideout_3F_2R/scripts.inc"
-	.include "data/maps/MagmaHideout_4F/scripts.inc"
-	.include "data/maps/MagmaHideout_3F_3R/scripts.inc"
-	.include "data/maps/MagmaHideout_2F_3R/scripts.inc"
-	.include "data/maps/MirageTower_1F/scripts.inc"
-	.include "data/maps/MirageTower_2F/scripts.inc"
-	.include "data/maps/MirageTower_3F/scripts.inc"
-	.include "data/maps/MirageTower_4F/scripts.inc"
-	.include "data/maps/DesertUnderpass/scripts.inc"
-	.include "data/maps/ArtisanCave_B1F/scripts.inc"
-	.include "data/maps/ArtisanCave_1F/scripts.inc"
-	.include "data/maps/Underwater_MarineCave/scripts.inc"
-	.include "data/maps/MarineCave_Entrance/scripts.inc"
-	.include "data/maps/MarineCave_End/scripts.inc"
-	.include "data/maps/TerraCave_Entrance/scripts.inc"
-	.include "data/maps/TerraCave_End/scripts.inc"
-	.include "data/maps/AlteringCave/scripts.inc"
-	.include "data/maps/MeteorFalls_StevensCave/scripts.inc"
 	.include "data/scripts/shared_secret_base.inc"
-	.include "data/maps/BattleColosseum_2P/scripts.inc"
-	.include "data/maps/TradeCenter/scripts.inc"
-	.include "data/maps/RecordCorner/scripts.inc"
-	.include "data/maps/BattleColosseum_4P/scripts.inc"
-	.include "data/maps/ContestHall/scripts.inc"
 	.include "data/maps/InsideOfTruck/scripts.inc"
-	.include "data/maps/SSTidalCorridor/scripts.inc"
-	.include "data/maps/SSTidalLowerDeck/scripts.inc"
-	.include "data/maps/SSTidalRooms/scripts.inc"
-	.include "data/maps/BattlePyramidSquare01/scripts.inc"
-	.include "data/maps/UnionRoom/scripts.inc"
 	.include "data/maps/SafariZone_Northwest/scripts.inc"
 	.include "data/maps/SafariZone_North/scripts.inc"
 	.include "data/maps/SafariZone_Southwest/scripts.inc"
 	.include "data/maps/SafariZone_South/scripts.inc"
-	.include "data/maps/BattleFrontier_OutsideWest/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleTowerLobby/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleTowerElevator/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleTowerCorridor/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleTowerBattleRoom/scripts.inc"
-	.include "data/maps/SouthernIsland_Exterior/scripts.inc"
-	.include "data/maps/SouthernIsland_Interior/scripts.inc"
 	.include "data/maps/SafariZone_RestHouse/scripts.inc"
 	.include "data/maps/SafariZone_Northeast/scripts.inc"
 	.include "data/maps/SafariZone_Southeast/scripts.inc"
-	.include "data/maps/BattleFrontier_OutsideEast/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleTowerMultiPartnerRoom/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleTowerMultiCorridor/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleTowerMultiBattleRoom/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleDomeLobby/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleDomeCorridor/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleDomePreBattleRoom/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleDomeBattleRoom/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePalaceLobby/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePalaceCorridor/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePalaceBattleRoom/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePyramidLobby/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePyramidFloor/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePyramidTop/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleArenaLobby/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleArenaCorridor/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleArenaBattleRoom/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleFactoryLobby/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleFactoryPreBattleRoom/scripts.inc"
-	.include "data/maps/BattleFrontier_BattleFactoryBattleRoom/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePikeLobby/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePikeCorridor/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePikeThreePathRoom/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePikeRoomNormal/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePikeRoomFinal/scripts.inc"
-	.include "data/maps/BattleFrontier_BattlePikeRoomWildMons/scripts.inc"
-	.include "data/maps/BattleFrontier_RankingHall/scripts.inc"
-	.include "data/maps/BattleFrontier_Lounge1/scripts.inc"
-	.include "data/maps/BattleFrontier_ExchangeServiceCorner/scripts.inc"
-	.include "data/maps/BattleFrontier_Lounge2/scripts.inc"
-	.include "data/maps/BattleFrontier_Lounge3/scripts.inc"
-	.include "data/maps/BattleFrontier_Lounge4/scripts.inc"
-	.include "data/maps/BattleFrontier_ScottsHouse/scripts.inc"
-	.include "data/maps/BattleFrontier_Lounge5/scripts.inc"
-	.include "data/maps/BattleFrontier_Lounge6/scripts.inc"
-	.include "data/maps/BattleFrontier_Lounge7/scripts.inc"
-	.include "data/maps/BattleFrontier_ReceptionGate/scripts.inc"
-	.include "data/maps/BattleFrontier_Lounge8/scripts.inc"
-	.include "data/maps/BattleFrontier_Lounge9/scripts.inc"
-	.include "data/maps/BattleFrontier_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/BattleFrontier_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/BattleFrontier_Mart/scripts.inc"
-	.include "data/maps/FarawayIsland_Entrance/scripts.inc"
-	.include "data/maps/FarawayIsland_Interior/scripts.inc"
-	.include "data/maps/BirthIsland_Exterior/scripts.inc"
-	.include "data/maps/BirthIsland_Harbor/scripts.inc"
-	.include "data/maps/TrainerHill_Entrance/scripts.inc"
-	.include "data/maps/TrainerHill_1F/scripts.inc"
-	.include "data/maps/TrainerHill_2F/scripts.inc"
-	.include "data/maps/TrainerHill_3F/scripts.inc"
-	.include "data/maps/TrainerHill_4F/scripts.inc"
-	.include "data/maps/TrainerHill_Roof/scripts.inc"
-	.include "data/maps/NavelRock_Exterior/scripts.inc"
-	.include "data/maps/NavelRock_Harbor/scripts.inc"
-	.include "data/maps/NavelRock_Entrance/scripts.inc"
-	.include "data/maps/NavelRock_B1F/scripts.inc"
-	.include "data/maps/NavelRock_Fork/scripts.inc"
-	.include "data/maps/NavelRock_Up1/scripts.inc"
-	.include "data/maps/NavelRock_Up2/scripts.inc"
-	.include "data/maps/NavelRock_Up3/scripts.inc"
-	.include "data/maps/NavelRock_Up4/scripts.inc"
-	.include "data/maps/NavelRock_Top/scripts.inc"
-	.include "data/maps/NavelRock_Down01/scripts.inc"
-	.include "data/maps/NavelRock_Down02/scripts.inc"
-	.include "data/maps/NavelRock_Down03/scripts.inc"
-	.include "data/maps/NavelRock_Down04/scripts.inc"
-	.include "data/maps/NavelRock_Down05/scripts.inc"
-	.include "data/maps/NavelRock_Down06/scripts.inc"
-	.include "data/maps/NavelRock_Down07/scripts.inc"
-	.include "data/maps/NavelRock_Down08/scripts.inc"
-	.include "data/maps/NavelRock_Down09/scripts.inc"
-	.include "data/maps/NavelRock_Down10/scripts.inc"
-	.include "data/maps/NavelRock_Down11/scripts.inc"
-	.include "data/maps/NavelRock_Bottom/scripts.inc"
-	.include "data/maps/TrainerHill_Elevator/scripts.inc"
-	.include "data/maps/Route104_Prototype/scripts.inc"
-	.include "data/maps/Route104_PrototypePrettyPetalFlowerShop/scripts.inc"
-	.include "data/maps/Route109_SeashoreHouse/scripts.inc"
-	.include "data/maps/Route110_TrickHouseEntrance/scripts.inc"
-	.include "data/maps/Route110_TrickHouseEnd/scripts.inc"
-	.include "data/maps/Route110_TrickHouseCorridor/scripts.inc"
-	.include "data/maps/Route110_TrickHousePuzzle1/scripts.inc"
-	.include "data/maps/Route110_TrickHousePuzzle2/scripts.inc"
-	.include "data/maps/Route110_TrickHousePuzzle3/scripts.inc"
-	.include "data/maps/Route110_TrickHousePuzzle4/scripts.inc"
-	.include "data/maps/Route110_TrickHousePuzzle5/scripts.inc"
-	.include "data/maps/Route110_TrickHousePuzzle6/scripts.inc"
-	.include "data/maps/Route110_TrickHousePuzzle7/scripts.inc"
-	.include "data/maps/Route110_TrickHousePuzzle8/scripts.inc"
-	.include "data/maps/Route110_SeasideCyclingRoadNorthEntrance/scripts.inc"
-	.include "data/maps/Route110_SeasideCyclingRoadSouthEntrance/scripts.inc"
-	.include "data/maps/Route113_GlassWorkshop/scripts.inc"
-	.include "data/maps/Route123_BerryMastersHouse/scripts.inc"
-	.include "data/maps/Route119_WeatherInstitute_1F/scripts.inc"
-	.include "data/maps/Route119_WeatherInstitute_2F/scripts.inc"
-	.include "data/maps/Route119_House/scripts.inc"
-	.include "data/maps/Route124_DivingTreasureHuntersHouse/scripts.inc"
-
 	.include "data/scripts/std_msgbox.inc"
 	.include "data/scripts/trainer_battle.inc"
 	.include "data/scripts/new_game.inc"
@@ -729,7 +271,6 @@ Common_EventScript_OutOfCenterPartyHeal::
 
 EventScript_RegionMap::
 	lockall
-	msgbox Common_Text_LookCloserAtMap, MSGBOX_DEFAULT
 	fadescreen FADE_TO_BLACK
 	special FieldShowRegionMap
 	waitstate
@@ -778,8 +319,6 @@ EventScript_HideMrBriney::
 	return
 
 RusturfTunnel_EventScript_SetRusturfTunnelOpen::
-	removeobject LOCALID_WANDAS_BF
-	removeobject LOCALID_WANDA
 	clearflag FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDAS_BOYFRIEND
 	clearflag FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDA
 	setvar VAR_RUSTURF_TUNNEL_STATE, 6
@@ -802,11 +341,6 @@ Movement_UnusedBoardFerry:
 	step_end
 
 Common_EventScript_FerryDepartIsland::
-	call_if_eq VAR_FACING, DIR_SOUTH, Ferry_EventScript_DepartIslandSouth
-	call_if_eq VAR_FACING, DIR_WEST, Ferry_EventScript_DepartIslandWest
-	delay 30
-	hideobjectat OBJ_EVENT_ID_PLAYER, 0
-	call Common_EventScript_FerryDepart
 	return
 
 	.include "data/scripts/cave_of_origin.inc"
@@ -859,7 +393,7 @@ gText_SandstormIsVicious::
 	.string "It's impossible to keep going.$"
 
 gText_SelectWithoutRegisteredItem::
-	.string "An item in the BAG can be\n"
+	.string "Up to four items in the BAG can be\n"
 	.string "registered to SELECT for easy use.$"
 
 gText_PokemonTrainerSchoolEmail::
@@ -944,8 +478,7 @@ gText_ThankYouForAccessingMysteryGift::
 	.string "MYSTERY GIFT System.$"
 
 gText_PlayerFoundOneTMHM::
-	.string "{PLAYER} found one {STR_VAR_1}\n"
-	.string "{STR_VAR_2}!$"
+	.string "{PLAYER} found {STR_VAR_1}!$"
 
 gText_Sudowoodo_Attacked::
 	.string "The weird tree doesn't like the\n"
@@ -1036,7 +569,6 @@ EventScript_VsSeekerChargingDone::
 	.include "data/scripts/profile_man.inc"
 	.include "data/scripts/day_care.inc"
 	.include "data/scripts/flash.inc"
-	.include "data/scripts/players_house.inc"
 	.include "data/scripts/berry_blender.inc"
 	.include "data/text/mauville_man.inc"
 	.include "data/text/trainers.inc"
@@ -1067,3 +599,240 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+
+	.include "data/scripts/Rogue/Rogue_FollowMon.inc"
+	.include "data/scripts/Rogue/Rogue_Hub.inc"
+	.include "data/scripts/Rogue/Rogue_Manager.inc"
+	.include "data/scripts/Rogue/Rogue_Multiplayer.inc"
+
+	.include "data/scripts/Rogue/Strings/Rogue_Strings_Common.inc"
+	.include "data/scripts/Rogue/Strings/Rogue_Strings_Items.inc"
+	.include "data/scripts/Rogue/Generated/trainers.inc"
+	.include "data/scripts/Rogue/Generated/quests.inc"
+
+	.include "data/maps/Rogue_Hub/scripts.inc"
+
+	.include "data/maps/Rogue_HubTransition/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Field0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Field1/scripts.inc"
+
+	.include "data/maps/Rogue_Manager/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_0/scripts.inc"
+
+	.include "data/maps/Rogue_Hub_PokemonCentre/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_8/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_9/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_10/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_11/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_12/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_13/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Forest0/scripts.inc"
+
+	.include "data/maps/Rogue_Hub_Interior_ConfigRoom/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_RestStop/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Forest1/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Cave0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Mountain0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_WaterFront0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Urban0/scripts.inc"
+
+	.include "data/maps/Rogue_SouthernIsland_Latios/scripts.inc"
+
+	.include "data/maps/Rogue_SouthernIsland_Latias/scripts.inc"
+
+	.include "data/maps/Rogue_Hub_ProfLab/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Articuno/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Zapdos/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Moltres/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Mewtwo/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Raikou/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Entei/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Suicune/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Celebi/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Jirachi/scripts.inc"
+
+	.include "data/maps/Rogue_Hub_Interior_ClothesShop/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Mountain1/scripts.inc"
+
+	.include "data/maps/Rogue_Special_GenericWildMon/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Kanto_Field0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Mountain2/scripts.inc"
+
+	.include "data/maps/Rogue_AdventurePaths/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_Healing/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_Shops/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_Tutors/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_MiniBoss/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_Den/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_GameShow/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_Graveyard/scripts.inc"
+
+	.include "data/maps/Rogue_Route_WaterFront1/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Mountain3/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Urban1/scripts.inc"
+
+	.include "data/maps/Rogue_Hub_AdventureEnterance/scripts.inc"
+
+	.include "data/maps/Rogue_Hub_Debug/scripts.inc"
+
+	.include "data/maps/Rogue_Hub_Bakery/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Kanto_Mountain0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Kanto_Urban0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Chaos0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Johto_Field0/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_Lab/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Kanto_Forest0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Kanto_Cave0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Kanto_Urban1/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Johto_Field1/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Johto_Cave0/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Gen4_Mon/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Gen5_Mon/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Gen6_Mon/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Gen7_Mon/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Gen8_Mon/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Johto_WaterFront0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Johto_Urban0/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Johto_Mountain0/scripts.inc"
+
+
+	.include "data/maps/Rogue_Tile_Test1/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_Test2/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_Test3/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_AdventureEntrance/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_Empty/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_Mart/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_SafariEntrance/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_OutdoorMart/scripts.inc"
+
+	.include "data/maps/Rogue_Tile_BerryPatch1/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Regi/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Deoxys/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Mew/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Kyogre/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Groudon/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Rayquaza/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Hooh/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Lugia/scripts.inc"
+
+	.include "data/maps/Rogue_HallwayFacade_Horizontal/scripts.inc"
+
+	.include "data/maps/Rogue_HallwayFacade_Vertical/scripts.inc"
+
+	.include "data/maps/Rogue_Area_Home/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_Home/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_HomeUpper/scripts.inc"
+
+	.include "data/maps/Rogue_Area_FarmingField/scripts.inc"
+
+	.include "data/maps/Rogue_Area_Labs/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_ProfLab/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_ConfigLab/scripts.inc"
+
+	.include "data/maps/Rogue_Area_AdventureEntrance/scripts.inc"
+
+	.include "data/maps/Rogue_Intro/scripts.inc"
+
+	.include "data/maps/Rogue_Area_SafariZone/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_PokeConnect/scripts.inc"
+
+	.include "data/maps/Rogue_Area_RideTraining/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_SafariCave/scripts.inc"
+
+	.include "data/maps/Rogue_Area_Marts/scripts.inc"
+
+	.include "data/maps/Rogue_Area_SafariZone_Tutorial/scripts.inc"
+
+	.include "data/maps/Rogue_Area_TownSquare/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_Restaurant/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_Cafe/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_School/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_205/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_EternaForest/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_207/scripts.inc"
+
+	.include "data/maps/Rogue_Special_LakeGuardian/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Arceus/scripts.inc"

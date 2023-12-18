@@ -157,8 +157,208 @@ extern const u32 gTrainerFrontPic_PikeQueenLucy[];
 extern const u32 gTrainerFrontPic_PyramidKingBrandon[];
 extern const u32 gTrainerFrontPic_Red[];
 extern const u32 gTrainerFrontPic_Leaf[];
+extern const u32 gTrainerFrontPic_Ethan[];
+extern const u32 gTrainerFrontPic_Lyra[];
 extern const u32 gTrainerFrontPic_RubySapphireBrendan[];
 extern const u32 gTrainerFrontPic_RubySapphireMay[];
+extern const u32 gTrainerFrontPic_Lucas[];
+extern const u32 gTrainerFrontPic_Dawn[];
+extern const u32 gTrainerFrontPic_Hilbert[];
+extern const u32 gTrainerFrontPic_Hilda[];
+extern const u32 gTrainerFrontPic_Nate[];
+extern const u32 gTrainerFrontPic_Rosa[];
+extern const u32 gTrainerFrontPic_Calem[];
+extern const u32 gTrainerFrontPic_Serena[];
+extern const u32 gTrainerFrontPic_Elio[];
+extern const u32 gTrainerFrontPic_Selene[];
+extern const u32 gTrainerFrontPic_Victor[];
+extern const u32 gTrainerFrontPic_Gloria[];
+
+extern const u32 gTrainerFrontPic_LeaderBrock[];
+extern const u32 gTrainerFrontPic_LeaderMisty[];
+extern const u32 gTrainerFrontPic_LeaderLtSurge[];
+extern const u32 gTrainerFrontPic_LeaderErika[];
+extern const u32 gTrainerFrontPic_LeaderKoga[];
+extern const u32 gTrainerFrontPic_LeaderSabrina[];
+extern const u32 gTrainerFrontPic_LeaderBlaine[];
+extern const u32 gTrainerFrontPic_LeaderGiovanni[];
+
+extern const u32 gTrainerFrontPic_EliteFourLorelei[];
+extern const u32 gTrainerFrontPic_EliteFourBruno[];
+extern const u32 gTrainerFrontPic_EliteFourAgatha[];
+extern const u32 gTrainerFrontPic_EliteFourLance[];
+
+extern const u32 gTrainerFrontPic_ChampionBlue[];
+extern const u32 gTrainerFrontPic_ChampionProfOak[];
+
+extern const u32 gTrainerFrontPic_LeaderFalkner[];
+extern const u32 gTrainerFrontPic_LeaderBugsy[];
+extern const u32 gTrainerFrontPic_LeaderWhitney[];
+extern const u32 gTrainerFrontPic_LeaderMorty[];
+extern const u32 gTrainerFrontPic_LeaderChuck[];
+extern const u32 gTrainerFrontPic_LeaderJasmine[];
+extern const u32 gTrainerFrontPic_LeaderPryce[];
+extern const u32 gTrainerFrontPic_LeaderClair[];
+
+extern const u32 gTrainerFrontPic_EliteFourWill[];
+extern const u32 gTrainerFrontPic_EliteFourKaren[];
+
+extern const u32 gTrainerFrontPic_ChampionRed[];
+
+extern const u32 gTrainerFrontPic_Sinnoh_Aaron[];
+extern const u32 gTrainerFrontPic_Sinnoh_Bertha[];
+extern const u32 gTrainerFrontPic_Sinnoh_Byron[];
+extern const u32 gTrainerFrontPic_Sinnoh_Candice[];
+extern const u32 gTrainerFrontPic_Sinnoh_CrasherWake[];
+extern const u32 gTrainerFrontPic_Sinnoh_Cynthia[];
+extern const u32 gTrainerFrontPic_Sinnoh_Fantina[];
+extern const u32 gTrainerFrontPic_Sinnoh_Flint[];
+extern const u32 gTrainerFrontPic_Sinnoh_Gardenia[];
+extern const u32 gTrainerFrontPic_Sinnoh_Lucian[];
+extern const u32 gTrainerFrontPic_Sinnoh_Maylene[];
+extern const u32 gTrainerFrontPic_Sinnoh_Roark[];
+extern const u32 gTrainerFrontPic_Sinnoh_Volkner[];
+
+extern const u32 gTrainerPalette_Sinnoh_Aaron[];
+extern const u32 gTrainerPalette_Sinnoh_Bertha[];
+extern const u32 gTrainerPalette_Sinnoh_Byron[];
+extern const u32 gTrainerPalette_Sinnoh_Candice[];
+extern const u32 gTrainerPalette_Sinnoh_CrasherWake[];
+extern const u32 gTrainerPalette_Sinnoh_Cynthia[];
+extern const u32 gTrainerPalette_Sinnoh_Fantina[];
+extern const u32 gTrainerPalette_Sinnoh_Flint[];
+extern const u32 gTrainerPalette_Sinnoh_Gardenia[];
+extern const u32 gTrainerPalette_Sinnoh_Lucian[];
+extern const u32 gTrainerPalette_Sinnoh_Maylene[];
+extern const u32 gTrainerPalette_Sinnoh_Roark[];
+extern const u32 gTrainerPalette_Sinnoh_Volkner[];
+
+extern const u32 gTrainerFrontPic_Unova_Alder[];
+extern const u32 gTrainerFrontPic_Unova_Brycen[];
+extern const u32 gTrainerFrontPic_Unova_Burgh[];
+extern const u32 gTrainerFrontPic_Unova_Caitlin[];
+extern const u32 gTrainerFrontPic_Unova_Chili[];
+extern const u32 gTrainerFrontPic_Unova_Cilan[];
+extern const u32 gTrainerFrontPic_Unova_Clay[];
+extern const u32 gTrainerFrontPic_Unova_Cress[];
+extern const u32 gTrainerFrontPic_Unova_Drayden[];
+extern const u32 gTrainerFrontPic_Unova_Elesa[];
+extern const u32 gTrainerFrontPic_Unova_Grimsley[];
+extern const u32 gTrainerFrontPic_Unova_Iris[];
+extern const u32 gTrainerFrontPic_Unova_Lenora[];
+extern const u32 gTrainerFrontPic_Unova_Marlon[];
+extern const u32 gTrainerFrontPic_Unova_Marshal[];
+extern const u32 gTrainerFrontPic_Unova_Roxie[];
+extern const u32 gTrainerFrontPic_Unova_Shauntal[];
+extern const u32 gTrainerFrontPic_Unova_Skyla[];
+
+extern const u32 gTrainerPalette_Unova_Alder[];
+extern const u32 gTrainerPalette_Unova_Brycen[];
+extern const u32 gTrainerPalette_Unova_Burgh[];
+extern const u32 gTrainerPalette_Unova_Caitlin[];
+extern const u32 gTrainerPalette_Unova_Chili[];
+extern const u32 gTrainerPalette_Unova_Cilan[];
+extern const u32 gTrainerPalette_Unova_Clay[];
+extern const u32 gTrainerPalette_Unova_Cress[];
+extern const u32 gTrainerPalette_Unova_Drayden[];
+extern const u32 gTrainerPalette_Unova_Elesa[];
+extern const u32 gTrainerPalette_Unova_Grimsley[];
+extern const u32 gTrainerPalette_Unova_Iris[];
+extern const u32 gTrainerPalette_Unova_Lenora[];
+extern const u32 gTrainerPalette_Unova_Marlon[];
+extern const u32 gTrainerPalette_Unova_Marshal[];
+extern const u32 gTrainerPalette_Unova_Roxie[];
+extern const u32 gTrainerPalette_Unova_Shauntal[];
+extern const u32 gTrainerPalette_Unova_Skyla[];
+
+extern const u32 gTrainerFrontPic_Kalos_Clemont[];
+extern const u32 gTrainerFrontPic_Kalos_Diantha[];
+extern const u32 gTrainerFrontPic_Kalos_Drasna[];
+extern const u32 gTrainerFrontPic_Kalos_Grant[];
+extern const u32 gTrainerFrontPic_Kalos_Korrina[];
+extern const u32 gTrainerFrontPic_Kalos_Malva[];
+extern const u32 gTrainerFrontPic_Kalos_Olympia[];
+extern const u32 gTrainerFrontPic_Kalos_Ramos[];
+extern const u32 gTrainerFrontPic_Kalos_Siebold[];
+extern const u32 gTrainerFrontPic_Kalos_Valerie[];
+extern const u32 gTrainerFrontPic_Kalos_Viola[];
+extern const u32 gTrainerFrontPic_Kalos_Wikstrom[];
+extern const u32 gTrainerFrontPic_Kalos_Wulfric[];
+
+extern const u32 gTrainerPalette_Kalos_Clemont[];
+extern const u32 gTrainerPalette_Kalos_Diantha[];
+extern const u32 gTrainerPalette_Kalos_Drasna[];
+extern const u32 gTrainerPalette_Kalos_Grant[];
+extern const u32 gTrainerPalette_Kalos_Korrina[];
+extern const u32 gTrainerPalette_Kalos_Malva[] ;
+extern const u32 gTrainerPalette_Kalos_Olympia[];
+extern const u32 gTrainerPalette_Kalos_Ramos[];
+extern const u32 gTrainerPalette_Kalos_Siebold[];
+extern const u32 gTrainerPalette_Kalos_Valerie[];
+extern const u32 gTrainerPalette_Kalos_Viola[];
+extern const u32 gTrainerPalette_Kalos_Wikstrom[];
+extern const u32 gTrainerPalette_Kalos_Wulfric[];
+
+extern const u32 gTrainerFrontPic_Alola_Acerola[];
+extern const u32 gTrainerFrontPic_Alola_Hala[];
+extern const u32 gTrainerFrontPic_Alola_Hapu[];
+extern const u32 gTrainerFrontPic_Alola_Ilima[];
+extern const u32 gTrainerFrontPic_Alola_Kahili[];
+extern const u32 gTrainerFrontPic_Alola_Kiawe[];
+extern const u32 gTrainerFrontPic_Alola_Kukui[];
+extern const u32 gTrainerFrontPic_Alola_Lana[];
+extern const u32 gTrainerFrontPic_Alola_Mallow[];
+extern const u32 gTrainerFrontPic_Alola_Mina[];
+extern const u32 gTrainerFrontPic_Alola_Molayne[];
+extern const u32 gTrainerFrontPic_Alola_Nanu[];
+extern const u32 gTrainerFrontPic_Alola_Olivia[];
+extern const u32 gTrainerFrontPic_Alola_Sophocles[];
+
+extern const u32 gTrainerPalette_Alola_Acerola[];
+extern const u32 gTrainerPalette_Alola_Hala[];
+extern const u32 gTrainerPalette_Alola_Hapu[];
+extern const u32 gTrainerPalette_Alola_Ilima[];
+extern const u32 gTrainerPalette_Alola_Kahili[];
+extern const u32 gTrainerPalette_Alola_Kiawe[];
+extern const u32 gTrainerPalette_Alola_Kukui[];
+extern const u32 gTrainerPalette_Alola_Lana[];
+extern const u32 gTrainerPalette_Alola_Mallow[];
+extern const u32 gTrainerPalette_Alola_Mina[];
+extern const u32 gTrainerPalette_Alola_Molayne[];
+extern const u32 gTrainerPalette_Alola_Nanu[];
+extern const u32 gTrainerPalette_Alola_Olivia[];
+extern const u32 gTrainerPalette_Alola_Sophocles[];
+
+extern const u32 gTrainerFrontPic_Galar_Allister[];
+extern const u32 gTrainerFrontPic_Galar_Bea[];
+extern const u32 gTrainerFrontPic_Galar_Gordie[];
+extern const u32 gTrainerFrontPic_Galar_Kabu[];
+extern const u32 gTrainerFrontPic_Galar_Leon[];
+extern const u32 gTrainerFrontPic_Galar_Melony[];
+extern const u32 gTrainerFrontPic_Galar_Milo[];
+extern const u32 gTrainerFrontPic_Galar_Nessa[];
+extern const u32 gTrainerFrontPic_Galar_Opal[];
+extern const u32 gTrainerFrontPic_Galar_Piers[];
+extern const u32 gTrainerFrontPic_Galar_Raihan[];
+
+extern const u32 gTrainerPalette_Galar_Allister[];
+extern const u32 gTrainerPalette_Galar_Bea[];
+extern const u32 gTrainerPalette_Galar_Gordie[];
+extern const u32 gTrainerPalette_Galar_Kabu[];
+extern const u32 gTrainerPalette_Galar_Leon[];
+extern const u32 gTrainerPalette_Galar_Melony[];
+extern const u32 gTrainerPalette_Galar_Milo[];
+extern const u32 gTrainerPalette_Galar_Nessa[];
+extern const u32 gTrainerPalette_Galar_Opal[];
+extern const u32 gTrainerPalette_Galar_Piers[];
+extern const u32 gTrainerPalette_Galar_Raihan[];
+
+extern const u32 gTrainerFrontPic_Pokabbie[];
+extern const u32 gTrainerFrontPic_PokabbieAndDitto[];
+extern const u32 gTrainerFrontPic_PokabbieJustDitto[];
+extern const u32 gTrainerFrontPic_GlitchKate[];
+extern const u32 gTrainerFrontPic_GlitchTails[];
+extern const u32 gTrainerFrontPic_GlitchErma[];
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -231,6 +431,11 @@ extern const u32 gTrainerPalette_Twins[];
 extern const u32 gTrainerPalette_Sailor[];
 extern const u32 gTrainerPalette_MagmaAdmin[];
 extern const u32 gTrainerPalette_Wally[];
+
+// Share palette for now
+#define gTrainerPalette_Leaf_Front_0_0 gTrainerPalette_Red_Front_0_0
+#define gTrainerPalette_Leaf_Back_0_0 gTrainerPalette_Red_Back_0_0
+
 extern const u32 gTrainerPalette_Brendan[];
 extern const u32 gTrainerPalette_May[];
 extern const u32 gTrainerPalette_BugCatcher[];
@@ -254,6 +459,136 @@ extern const u32 gTrainerPalette_Leaf[];
 extern const u32 gTrainerPalette_RubySapphireBrendan[];
 extern const u32 gTrainerPalette_RubySapphireMay[];
 
+extern const u32 gTrainerPalette_PlayerFrontPlaceholder[];
+extern const u32 gTrainerPalette_PlayerBackPlaceholder[];
+
+extern const u32 gTrainerPalette_PlayerBrendanBase[];
+extern const u32 gTrainerPalette_PlayerBrendanLayers[];
+extern const u32 gTrainerPalette_PlayerMayBase[];
+extern const u32 gTrainerPalette_PlayerMayLayers[];
+
+extern const u32 gTrainerPalette_PlayerRedLeafFrontBase[];
+extern const u32 gTrainerPalette_PlayerRedLeafFrontLayers[];
+extern const u32 gTrainerPalette_PlayerRedLeafBackBase[];
+extern const u32 gTrainerPalette_PlayerRedLeafBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerEthanFrontBase[];
+extern const u32 gTrainerPalette_PlayerEthanFrontLayers[];
+extern const u32 gTrainerPalette_PlayerEthanBackBase[];
+extern const u32 gTrainerPalette_PlayerEthanBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerLyraFrontBase[];
+extern const u32 gTrainerPalette_PlayerLyraFrontLayers[];
+extern const u32 gTrainerPalette_PlayerLyraBackBase[];
+extern const u32 gTrainerPalette_PlayerLyraBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerLucasFrontBase[];
+extern const u32 gTrainerPalette_PlayerLucasFrontLayers[];
+extern const u32 gTrainerPalette_PlayerLucasBackBase[];
+extern const u32 gTrainerPalette_PlayerLucasBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerDawnFrontBase[];
+extern const u32 gTrainerPalette_PlayerDawnFrontLayers[];
+extern const u32 gTrainerPalette_PlayerDawnBackBase[];
+extern const u32 gTrainerPalette_PlayerDawnBackLayers[];
+
+extern const u32 gTrainerPalette_PlayerHilbertFrontBase[];
+extern const u32 gTrainerPalette_PlayerHilbertFrontLayers[];
+extern const u32 gTrainerPalette_PlayerHildaFrontBase[];
+extern const u32 gTrainerPalette_PlayerHildaFrontLayers[];
+
+extern const u32 gTrainerPalette_PlayerNateFrontBase[];
+extern const u32 gTrainerPalette_PlayerNateFrontLayers[];
+extern const u32 gTrainerPalette_PlayerRosaFrontBase[];
+extern const u32 gTrainerPalette_PlayerRosaFrontLayers[];
+
+extern const u32 gTrainerPalette_PlayerCalemFrontBase[];
+extern const u32 gTrainerPalette_PlayerCalemFrontLayers[];
+extern const u32 gTrainerPalette_PlayerSerenaFrontBase[];
+extern const u32 gTrainerPalette_PlayerSerenaFrontLayers[];
+
+extern const u32 gTrainerPalette_PlayerElioFrontBase[];
+extern const u32 gTrainerPalette_PlayerElioFrontLayers[];
+extern const u32 gTrainerPalette_PlayerSeleneFrontBase[];
+extern const u32 gTrainerPalette_PlayerSeleneFrontLayers[];
+
+extern const u32 gTrainerPalette_PlayerVictorFrontBase[];
+extern const u32 gTrainerPalette_PlayerVictorFrontLayers[];
+extern const u32 gTrainerPalette_PlayerGloriaFrontBase[];
+extern const u32 gTrainerPalette_PlayerGloriaFrontLayers[];
+
+extern const u32 gTrainerPalette_PlayerZefaBackBase[];
+
+extern const u32 gTrainerPalette_LeaderBrock[];
+extern const u32 gTrainerPalette_LeaderMisty[];
+extern const u32 gTrainerPalette_LeaderLtSurge[];
+extern const u32 gTrainerPalette_LeaderErika[];
+extern const u32 gTrainerPalette_LeaderKoga[];
+extern const u32 gTrainerPalette_LeaderSabrina[];
+extern const u32 gTrainerPalette_LeaderBlaine[];
+extern const u32 gTrainerPalette_LeaderGiovanni[];
+
+extern const u32 gTrainerPalette_EliteFourLorelei[];
+extern const u32 gTrainerPalette_EliteFourBruno[];
+extern const u32 gTrainerPalette_EliteFourAgatha[];
+extern const u32 gTrainerPalette_EliteFourLance[];
+
+extern const u32 gTrainerPalette_ChampionBlue[];
+extern const u32 gTrainerPalette_ChampionProfOak[];
+
+extern const u32 gTrainerPalette_LeaderFalkner[];
+extern const u32 gTrainerPalette_LeaderBugsy[];
+extern const u32 gTrainerPalette_LeaderWhitney[];
+extern const u32 gTrainerPalette_LeaderMorty[];
+extern const u32 gTrainerPalette_LeaderChuck[];
+extern const u32 gTrainerPalette_LeaderJasmine[];
+extern const u32 gTrainerPalette_LeaderPryce[];
+extern const u32 gTrainerPalette_LeaderClair[];
+
+extern const u32 gTrainerPalette_EliteFourWill[];
+extern const u32 gTrainerPalette_EliteFourKaren[];
+
+extern const u32 gTrainerPalette_ChampionRed[];
+
+extern const u32 gTrainerPalette_Pokabbie[];
+extern const u32 gTrainerPalette_PokabbieAndDitto[];
+extern const u32 gTrainerPalette_PokabbieJustDitto[];
+extern const u32 gTrainerPalette_GlitchKate[];
+extern const u32 gTrainerPalette_GlitchTails[];
+extern const u32 gTrainerPalette_GlitchErma[];
+
+extern const u32 gTrainerFrontPic_CommunityZefa[];
+extern const u32 gTrainerPalette_CommunityZefa[];
+
+extern const u32 gTrainerFrontPic_RivalSilver[];
+extern const u32 gTrainerPalette_RivalSilver[];
+extern const u32 gTrainerFrontPic_RivalBarry[];
+extern const u32 gTrainerPalette_RivalBarry[];
+extern const u32 gTrainerFrontPic_RivalBianca[];
+extern const u32 gTrainerPalette_RivalBianca[];
+extern const u32 gTrainerFrontPic_RivalCheren[];
+extern const u32 gTrainerPalette_RivalCheren[];
+extern const u32 gTrainerFrontPic_RivalN[];
+extern const u32 gTrainerPalette_RivalN[];
+extern const u32 gTrainerFrontPic_RivalHugh[];
+extern const u32 gTrainerPalette_RivalHugh[];
+extern const u32 gTrainerFrontPic_RivalShauna[];
+extern const u32 gTrainerPalette_RivalShauna[];
+extern const u32 gTrainerFrontPic_RivalTrevor[];
+extern const u32 gTrainerPalette_RivalTrevor[];
+extern const u32 gTrainerFrontPic_RivalTierno[];
+extern const u32 gTrainerPalette_RivalTierno[];
+extern const u32 gTrainerFrontPic_RivalHau[];
+extern const u32 gTrainerPalette_RivalHau[];
+extern const u32 gTrainerFrontPic_RivalGladion[];
+extern const u32 gTrainerPalette_RivalGladion[];
+extern const u32 gTrainerFrontPic_RivalHop[];
+extern const u32 gTrainerPalette_RivalHop[];
+extern const u32 gTrainerFrontPic_RivalMarnie[];
+extern const u32 gTrainerPalette_RivalMarnie[];
+extern const u32 gTrainerFrontPic_RivalBede[];
+extern const u32 gTrainerPalette_RivalBede[];
+
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];
 extern const u8 gTrainerBackPic_Red[];
@@ -263,6 +598,10 @@ extern const u8 gTrainerBackPic_RubySapphireMay[];
 extern const u8 gTrainerBackPic_Wally[];
 extern const u8 gTrainerBackPic_Steven[];
 
+extern const u8 gTrainerBackPic_None[];
+extern const u8 gTrainerBackPic_Ethan[];
+extern const u8 gTrainerBackPic_Lyra[];
+extern const u8 gTrainerBackPic_Lucas[];
 extern const u32 gTrainerBackPicPalette_Red[];
 extern const u32 gTrainerBackPicPalette_Leaf[];
 
@@ -418,6 +757,7 @@ extern const u32 gBattleTerrainTilemap_TallGrass[];
 extern const u32 gBattleTerrainAnimTiles_TallGrass[];
 extern const u32 gBattleTerrainAnimTilemap_TallGrass[];
 extern const u32 gBattleTerrainPalette_TallGrass[];
+extern const u32 gBattleTerrainPalette_TallGrass_Summer[];
 extern const u32 gBattleTerrainTiles_LongGrass[];
 extern const u32 gBattleTerrainTilemap_LongGrass[];
 extern const u32 gBattleTerrainAnimTiles_LongGrass[];
@@ -1908,6 +2248,48 @@ extern const u32 gItemIconPalette_HearthflameMask[];
 extern const u32 gItemIcon_CornerstoneMask[];
 extern const u32 gItemIconPalette_CornerstoneMask[];
 
+extern const u32 gItemIcon_CGear[];
+extern const u32 gItemIconPalette_CGear[];
+extern const u32 gItemIcon_Pokedex[];
+extern const u32 gItemIconPalette_Pokedex[];
+extern const u32 gItemIcon_QuestBook[];
+extern const u32 gItemIconPalette_QuestBook[];
+extern const u32 gItemIcon_PokeWhistle[];
+extern const u32 gItemIconPalette_PokeWhistleBasic[];
+extern const u32 gItemIconPalette_PokeWhistleGold[];
+extern const u32 gItemIconPalette_HealingFlask[];
+
+
+extern const u32 gItemIcon_RogueCharm[];
+extern const u32 gItemIconPalette_RogueCharm[];
+extern const u32 gItemIcon_RogueCurse[];
+extern const u32 gItemIconPalette_RogueCurse[];
+
+extern const u32 gItemIcon_Pokeblock[];
+extern const u32 gItemIcon_PokeblockShiny[];
+
+extern const u32 gItemIconPalette_PokeblockNormal[];
+extern const u32 gItemIconPalette_PokeblockFighting[];
+extern const u32 gItemIconPalette_PokeblockFlying[];
+extern const u32 gItemIconPalette_PokeblockPoison[];
+extern const u32 gItemIconPalette_PokeblockGround[];
+extern const u32 gItemIconPalette_PokeblockRock[];
+extern const u32 gItemIconPalette_PokeblockBug[];
+extern const u32 gItemIconPalette_PokeblockGhost[];
+extern const u32 gItemIconPalette_PokeblockSteel[];
+extern const u32 gItemIconPalette_PokeblockFire[];
+extern const u32 gItemIconPalette_PokeblockWater[];
+extern const u32 gItemIconPalette_PokeblockGrass[];
+extern const u32 gItemIconPalette_PokeblockElectric[];
+extern const u32 gItemIconPalette_PokeblockPsychic[];
+extern const u32 gItemIconPalette_PokeblockIce[];
+extern const u32 gItemIconPalette_PokeblockDragon[];
+extern const u32 gItemIconPalette_PokeblockDark[];
+extern const u32 gItemIconPalette_PokeblockFairy[];
+extern const u32 gItemIconPalette_PokeblockShiny[];
+extern const u32 gItemIconPalette_PokeblockStat[];
+extern const u32 gItemIconPalette_PokeblockStatAlt[];
+
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
 
@@ -1923,12 +2305,23 @@ extern const u32 gBagScreen_GfxTileMap[];
 extern const u32 gBagScreenFemale_Pal[];
 extern const u32 gBagScreenMale_Pal[];
 extern const u8 gBagMenuHMIcon_Gfx[];
+extern const u8 gBagMenuTMIcon_Gfx[];
+extern const u8 gBagMenuTRIcon_Gfx[];
 
 // item menu icons graphics
 extern const u32 gBagMaleTiles[];
 extern const u32 gBagFemaleTiles[];
 extern const u32 gBagPalette[];
 extern const u32 gBerryCheckCircle_Gfx[];
+
+extern const u32 gBagKantoMaleTiles[];
+extern const u32 gBagKantoFemaleTiles[];
+extern const u32 gBagKantoPalette[];
+extern const u32 gBagJohtoPalette[];
+extern const u32 gBagKantoBlackPalette[];
+extern const u32 gBagKantoPinkPalette[];
+extern const u32 gBagHoennSilverPalette[];
+extern const u32 gBagHoennBlackPalette[];
 
 //intro graphics
 extern const u32 gIntroSparkle_Gfx[];
@@ -3523,4 +3916,54 @@ extern const u8 gMailTilemap_Retro[];
 extern const u8 gMonMarkingsMenu_Gfx[];
 extern const u16 gMonMarkingsMenu_Pal[];
 
+// Player
+extern const u16 gObjectEventPal_PlayerPlaceholder[];
+// Object event pals
+extern const u16 gObjectEventPal_Brendan[];
+extern const u16 gObjectEventPal_PlayerBrendanLayers[];
+extern const u16 gObjectEventPal_May[];
+extern const u16 gObjectEventPal_PlayerMayLayers[];
+
+extern const u16 gObjectEventPal_PlayerRedLeafBase[];
+extern const u16 gObjectEventPal_PlayerRedLeafLayers[];
+
+extern const u16 gObjectEventPal_PlayerEthanBase[];
+extern const u16 gObjectEventPal_PlayerEthanLayers[];
+extern const u16 gObjectEventPal_PlayerLyraBase[];
+extern const u16 gObjectEventPal_PlayerLyraLayers[];
+
+extern const u16 gObjectEventPal_PlayerLucasBase[];
+extern const u16 gObjectEventPal_PlayerLucasLayers[];
+extern const u16 gObjectEventPal_PlayerDawnBase[];
+extern const u16 gObjectEventPal_PlayerDawnLayers[];
+
+extern const u16 gObjectEventPal_PlayerHilbertBase[];
+extern const u16 gObjectEventPal_PlayerHilbertLayers[];
+extern const u16 gObjectEventPal_PlayerHildaBase[];
+extern const u16 gObjectEventPal_PlayerHildaLayers[];
+
+extern const u16 gObjectEventPal_PlayerNateBase[];
+extern const u16 gObjectEventPal_PlayerNateLayers[];
+extern const u16 gObjectEventPal_PlayerRosaBase[];
+extern const u16 gObjectEventPal_PlayerRosaLayers[];
+
+extern const u16 gObjectEventPal_PlayerCalemBase[];
+extern const u16 gObjectEventPal_PlayerCalemLayers[];
+extern const u16 gObjectEventPal_PlayerSerenaBase[];
+extern const u16 gObjectEventPal_PlayerSerenaLayers[];
+
+extern const u16 gObjectEventPal_PlayerElioBase[];
+extern const u16 gObjectEventPal_PlayerElioLayers[];
+extern const u16 gObjectEventPal_PlayerSeleneBase[];
+extern const u16 gObjectEventPal_PlayerSeleneLayers[];
+
+extern const u16 gObjectEventPal_PlayerVictorBase[];
+extern const u16 gObjectEventPal_PlayerVictorLayers[];
+extern const u16 gObjectEventPal_PlayerGloriaBase[];
+extern const u16 gObjectEventPal_PlayerGloriaLayers[];
+
+extern const u16 gObjectEventPal_PlayerZefaBase[];
+
+extern const u16 gObjectEventPal_Kanto_Blue[];
+extern const u16 gObjectEventPal_Johto_NPC_Red[];
 #endif //GUARD_GRAPHICS_H

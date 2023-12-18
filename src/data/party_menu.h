@@ -719,6 +719,13 @@ struct
     [MENU_CATALOG_MOWER] = {gText_LawnMower, CursorCb_CatalogMower},
     [MENU_CHANGE_FORM] = {gText_ChangeForm, CursorCb_ChangeForm},
     [MENU_CHANGE_ABILITY] = {gText_ChangeAbility, CursorCb_ChangeAbility},
+    [MENU_RELEASE] = {gText_Release, CursorCb_Release},
+    [MENU_RELEASE_FIELD] = {gText_Release, CursorCb_ReleaseField},
+    [MENU_RENAME] = {gText_Rename, CursorCb_RenameField},
+    [MENU_RELEARN_MOVE] = {gText_RelearnMove, CursorCb_RelearnMoves},
+    [MENU_EVOLVE] = {gText_Evolve, CursorCb_Evolve},
+    [MENU_CYCLE_SUBMENU] = {gText_CycleSubMenu, CursorCb_CycleSubMenu},
+    [MENU_POKEDEX] = {gText_PokedexEntry, CursorCb_Pokedex},
     [MENU_FIELD_MOVES + FIELD_MOVE_CUT] = {gMoveNames[MOVE_CUT], CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_FLASH] = {gMoveNames[MOVE_FLASH], CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_ROCK_SMASH] = {gMoveNames[MOVE_ROCK_SMASH], CursorCb_FieldMove},
@@ -748,6 +755,7 @@ static const u8 sPartyMenuAction_RegisterSummaryCancel[] = {MENU_REGISTER, MENU_
 static const u8 sPartyMenuAction_TradeSummaryCancel1[] = {MENU_TRADE1, MENU_SUMMARY, MENU_CANCEL1};
 static const u8 sPartyMenuAction_TradeSummaryCancel2[] = {MENU_TRADE2, MENU_SUMMARY, MENU_CANCEL1};
 static const u8 sPartyMenuAction_TakeItemTossCancel[] = {MENU_TAKE_ITEM, MENU_TOSS, MENU_CANCEL1};
+static const u8 sPartyMenuAction_ReleaseSummaryCancel[] = {MENU_RELEASE, MENU_SUMMARY, MENU_CANCEL1};
 static const u8 sPartyMenuAction_RotomCatalog[] = {MENU_CATALOG_BULB, MENU_CATALOG_OVEN, MENU_CATALOG_WASHING, MENU_CATALOG_FRIDGE, MENU_CATALOG_FAN, MENU_CATALOG_MOWER, MENU_CANCEL1};
 static const u8 sPartyMenuAction_ZygardeCube[] = {MENU_CHANGE_FORM, MENU_CHANGE_ABILITY, MENU_CANCEL1};
 
@@ -771,6 +779,7 @@ static const u8 *const sPartyMenuActions[] =
     [ACTIONS_TAKEITEM_TOSS] = sPartyMenuAction_TakeItemTossCancel,
     [ACTIONS_ROTOM_CATALOG] = sPartyMenuAction_RotomCatalog,
     [ACTIONS_ZYGARDE_CUBE]  = sPartyMenuAction_ZygardeCube,
+    [ACTIONS_RELEASE]       = sPartyMenuAction_ReleaseSummaryCancel,
 };
 
 static const u8 sPartyMenuActionCounts[] =
@@ -791,6 +800,7 @@ static const u8 sPartyMenuActionCounts[] =
     [ACTIONS_TAKEITEM_TOSS] = ARRAY_COUNT(sPartyMenuAction_TakeItemTossCancel),
     [ACTIONS_ROTOM_CATALOG] = ARRAY_COUNT(sPartyMenuAction_RotomCatalog),
     [ACTIONS_ZYGARDE_CUBE]  = ARRAY_COUNT(sPartyMenuAction_ZygardeCube),
+    [ACTIONS_RELEASE]       = ARRAY_COUNT(sPartyMenuAction_ReleaseSummaryCancel),
 };
 
 static const u16 sFieldMoves[FIELD_MOVES_COUNT + 1] =

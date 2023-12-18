@@ -48,6 +48,14 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "constants/rogue.h"
+#include "rogue.h"
+#include "rogue_controller.h"
+#include "rogue_player_customisation.h"
+#include "rogue_pokedex.h"
+#include "rogue_questmenu.h"
+#include "rogue_settings.h"
+
 // Menu actions
 enum
 {
@@ -60,10 +68,13 @@ enum
     MENU_ACTION_OPTION,
     MENU_ACTION_EXIT,
     MENU_ACTION_RETIRE_SAFARI,
+    MENU_ACTION_RETIRE_ADVENTURE,
     MENU_ACTION_PLAYER_LINK,
     MENU_ACTION_REST_FRONTIER,
     MENU_ACTION_RETIRE_FRONTIER,
     MENU_ACTION_PYRAMID_BAG,
+    MENU_ACTION_QUICK_SAVE,
+    MENU_ACTION_QUESTS,
     MENU_ACTION_DEBUG,
 };
 
@@ -82,6 +93,7 @@ bool8 (*gMenuCallback)(void);
 // EWRAM
 EWRAM_DATA static u8 sSafariBallsWindowId = 0;
 EWRAM_DATA static u8 sBattlePyramidFloorWindowId = 0;
+EWRAM_DATA static u8 sRogueRunWindowId = 0;
 EWRAM_DATA static u8 sStartMenuCursorPos = 0;
 EWRAM_DATA static u8 sNumStartMenuActions = 0;
 EWRAM_DATA static u8 sCurrentStartMenuActions[9] = {0};
@@ -91,10 +103,12 @@ EWRAM_DATA static u8 (*sSaveDialogCallback)(void) = NULL;
 EWRAM_DATA static u8 sSaveDialogTimer = 0;
 EWRAM_DATA static bool8 sSavingComplete = FALSE;
 EWRAM_DATA static u8 sSaveInfoWindowId = 0;
+EWRAM_DATA static bool8 sBufferedAButton = FALSE;
 
 // Menu action callbacks
 static bool8 StartMenuPokedexCallback(void);
 static bool8 StartMenuPokemonCallback(void);
+static bool8 StartMenuQuestsCallback(void);
 static bool8 StartMenuBagCallback(void);
 static bool8 StartMenuPokeNavCallback(void);
 static bool8 StartMenuPlayerNameCallback(void);
@@ -106,6 +120,7 @@ static bool8 StartMenuLinkModePlayerNameCallback(void);
 static bool8 StartMenuBattlePyramidRetireCallback(void);
 static bool8 StartMenuBattlePyramidBagCallback(void);
 static bool8 StartMenuDebugCallback(void);
+static bool8 StartMenuQuickSaveCallback(void);
 
 // Menu callbacks
 static bool8 SaveStartCallback(void);
@@ -117,6 +132,7 @@ static bool8 HandleStartMenuInput(void);
 
 // Save dialog callbacks
 static u8 SaveConfirmSaveCallback(void);
+static u8 SaveForceSaveCallback(void);
 static u8 SaveYesNoCallback(void);
 static u8 SaveConfirmInputCallback(void);
 static u8 SaveFileExistsCallback(void);
@@ -148,6 +164,16 @@ static const struct WindowTemplate sWindowTemplate_SafariBalls = {
     .height = 4,
     .paletteNum = 15,
     .baseBlock = 0x8
+};
+
+static const struct WindowTemplate sRogueRunWindowTemplate = {
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = 9,
+    .height = 6,
+    .paletteNum = 15,
+    .baseBlock = 0x8,
 };
 
 static const u8 *const sPyramidFloorNames[FRONTIER_STAGES_PER_CHALLENGE + 1] =
@@ -186,20 +212,23 @@ static const u8 sText_MenuDebug[] = _("DEBUG");
 
 static const struct MenuAction sStartMenuItems[] =
 {
-    [MENU_ACTION_POKEDEX]         = {gText_MenuPokedex, {.u8_void = StartMenuPokedexCallback}},
-    [MENU_ACTION_POKEMON]         = {gText_MenuPokemon, {.u8_void = StartMenuPokemonCallback}},
-    [MENU_ACTION_BAG]             = {gText_MenuBag,     {.u8_void = StartMenuBagCallback}},
-    [MENU_ACTION_POKENAV]         = {gText_MenuPokenav, {.u8_void = StartMenuPokeNavCallback}},
-    [MENU_ACTION_PLAYER]          = {gText_MenuPlayer,  {.u8_void = StartMenuPlayerNameCallback}},
-    [MENU_ACTION_SAVE]            = {gText_MenuSave,    {.u8_void = StartMenuSaveCallback}},
-    [MENU_ACTION_OPTION]          = {gText_MenuOption,  {.u8_void = StartMenuOptionCallback}},
-    [MENU_ACTION_EXIT]            = {gText_MenuExit,    {.u8_void = StartMenuExitCallback}},
-    [MENU_ACTION_RETIRE_SAFARI]   = {gText_MenuRetire,  {.u8_void = StartMenuSafariZoneRetireCallback}},
-    [MENU_ACTION_PLAYER_LINK]     = {gText_MenuPlayer,  {.u8_void = StartMenuLinkModePlayerNameCallback}},
-    [MENU_ACTION_REST_FRONTIER]   = {gText_MenuRest,    {.u8_void = StartMenuSaveCallback}},
-    [MENU_ACTION_RETIRE_FRONTIER] = {gText_MenuRetire,  {.u8_void = StartMenuBattlePyramidRetireCallback}},
+    [MENU_ACTION_POKEDEX]         = {gText_MenuPokedex,     {.u8_void = StartMenuPokedexCallback}},
+    [MENU_ACTION_POKEMON]         = {gText_MenuPokemon,     {.u8_void = StartMenuPokemonCallback}},
+    [MENU_ACTION_BAG]             = {gText_MenuBag,         {.u8_void = StartMenuBagCallback}},
+    [MENU_ACTION_POKENAV]         = {gText_MenuPokenav,     {.u8_void = StartMenuPokeNavCallback}},
+    [MENU_ACTION_PLAYER]          = {gText_MenuPlayer,      {.u8_void = StartMenuPlayerNameCallback}},
+    [MENU_ACTION_SAVE]            = {gText_MenuSave,        {.u8_void = StartMenuSaveCallback}},
+    [MENU_ACTION_OPTION]          = {gText_MenuOption,      {.u8_void = StartMenuOptionCallback}},
+    [MENU_ACTION_EXIT]            = {gText_MenuExit,        {.u8_void = StartMenuExitCallback}},
+    [MENU_ACTION_RETIRE_SAFARI]   = {gText_MenuRetire,      {.u8_void = StartMenuSafariZoneRetireCallback}},
+    [MENU_ACTION_RETIRE_ADVENTURE]= {gText_MenuRetireRun,   {.u8_void = StartMenuSafariZoneRetireCallback}},
+    [MENU_ACTION_PLAYER_LINK]     = {gText_MenuPlayer,      {.u8_void = StartMenuLinkModePlayerNameCallback}},
+    [MENU_ACTION_REST_FRONTIER]   = {gText_MenuRest,        {.u8_void = StartMenuSaveCallback}},
+    [MENU_ACTION_RETIRE_FRONTIER] = {gText_MenuRetire,      {.u8_void = StartMenuBattlePyramidRetireCallback}},
     [MENU_ACTION_PYRAMID_BAG]     = {gText_MenuBag,     {.u8_void = StartMenuBattlePyramidBagCallback}},
     [MENU_ACTION_DEBUG]           = {sText_MenuDebug,   {.u8_void = StartMenuDebugCallback}},
+    [MENU_ACTION_QUICK_SAVE]      = {gText_MenuQuickSave,   {.u8_void = StartMenuQuickSaveCallback}},
+    [MENU_ACTION_QUESTS]          = {gText_MenuQuests,      {.u8_void = StartMenuQuestsCallback}},
 };
 
 static const struct BgTemplate sBgTemplates_LinkBattleSave[] =
@@ -244,6 +273,7 @@ static void BuildStartMenuActions(void);
 static void AddStartMenuAction(u8 action);
 static void BuildNormalStartMenu(void);
 static void BuildDebugStartMenu(void);
+static void BuildRogueRunStartMenu(void);
 static void BuildSafariZoneStartMenu(void);
 static void BuildLinkModeStartMenu(void);
 static void BuildUnionRoomStartMenu(void);
@@ -252,6 +282,7 @@ static void BuildBattlePyramidStartMenu(void);
 static void BuildMultiPartnerRoomStartMenu(void);
 static void ShowSafariBallsWindow(void);
 static void ShowPyramidFloorWindow(void);
+static void ShowExtraStartMenuWindows(void);
 static void RemoveExtraStartMenuWindows(void);
 static bool32 PrintStartMenuActions(s8 *pIndex, u32 count);
 static bool32 InitStartMenuStep(void);
@@ -278,7 +309,7 @@ void SetDexPokemonPokenavFlags(void) // unused
 {
     FlagSet(FLAG_SYS_POKEDEX_GET);
     FlagSet(FLAG_SYS_POKEMON_GET);
-    FlagSet(FLAG_SYS_POKENAV_GET);
+    //FlagSet(FLAG_SYS_QUEST_LOG_GET);
 }
 
 static void BuildStartMenuActions(void)
@@ -309,6 +340,10 @@ static void BuildStartMenuActions(void)
     {
         BuildMultiPartnerRoomStartMenu();
     }
+    else if(Rogue_IsRunActive())
+    {
+        BuildRogueRunStartMenu();
+    }
     else
     {
         if (DEBUG_OVERWORLD_MENU == TRUE && DEBUG_OVERWORLD_IN_MENU == TRUE)
@@ -336,15 +371,40 @@ static void BuildNormalStartMenu(void)
 
     AddStartMenuAction(MENU_ACTION_BAG);
 
-    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
+    if (FlagGet(FLAG_SYS_QUEST_LOG_GET) == TRUE)
     {
-        AddStartMenuAction(MENU_ACTION_POKENAV);
+        AddStartMenuAction(MENU_ACTION_QUESTS);
     }
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
     AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
-    AddStartMenuAction(MENU_ACTION_EXIT);
+    //AddStartMenuAction(MENU_ACTION_EXIT);
+}
+
+static void BuildRogueRunStartMenu(void)
+{
+    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+    {
+        AddStartMenuAction(MENU_ACTION_POKEDEX);
+    }
+    if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
+    {
+        AddStartMenuAction(MENU_ACTION_POKEMON);
+    }
+
+    AddStartMenuAction(MENU_ACTION_BAG);
+
+    if (FlagGet(FLAG_SYS_QUEST_LOG_GET) == TRUE)
+    {
+        AddStartMenuAction(MENU_ACTION_QUESTS);
+    }
+
+    AddStartMenuAction(MENU_ACTION_PLAYER);
+    AddStartMenuAction(MENU_ACTION_QUICK_SAVE);
+    AddStartMenuAction(MENU_ACTION_OPTION);
+    AddStartMenuAction(MENU_ACTION_RETIRE_ADVENTURE);
+    //AddStartMenuAction(MENU_ACTION_EXIT);
 }
 
 static void BuildDebugStartMenu(void)
@@ -378,10 +438,10 @@ static void BuildLinkModeStartMenu(void)
     AddStartMenuAction(MENU_ACTION_POKEMON);
     AddStartMenuAction(MENU_ACTION_BAG);
 
-    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
-    {
-        AddStartMenuAction(MENU_ACTION_POKENAV);
-    }
+    //if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
+    //{
+    //    AddStartMenuAction(MENU_ACTION_POKENAV);
+    //}
 
     AddStartMenuAction(MENU_ACTION_PLAYER_LINK);
     AddStartMenuAction(MENU_ACTION_OPTION);
@@ -393,10 +453,10 @@ static void BuildUnionRoomStartMenu(void)
     AddStartMenuAction(MENU_ACTION_POKEMON);
     AddStartMenuAction(MENU_ACTION_BAG);
 
-    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
-    {
-        AddStartMenuAction(MENU_ACTION_POKENAV);
-    }
+    //if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
+    //{
+    //    AddStartMenuAction(MENU_ACTION_POKENAV);
+    //}
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
     AddStartMenuAction(MENU_ACTION_OPTION);
@@ -440,6 +500,8 @@ static void ShowSafariBallsWindow(void)
     StringExpandPlaceholders(gStringVar4, gText_SafariBallStock);
     AddTextPrinterParameterized(sSafariBallsWindowId, FONT_NORMAL, gStringVar4, 0, 1, TEXT_SKIP_DRAW, NULL);
     CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
+    
+    Rogue_CreateMiniMenuExtraGFX();
 }
 
 static void ShowPyramidFloorWindow(void)
@@ -457,10 +519,37 @@ static void ShowPyramidFloorWindow(void)
     CopyWindowToVram(sBattlePyramidFloorWindowId, COPYWIN_GFX);
 }
 
+static void ShowRogueRunWindow(void)
+{
+    struct WindowTemplate windowTemplate;
+    memcpy(&windowTemplate, &sRogueRunWindowTemplate, sizeof(windowTemplate));
+    windowTemplate.height = Rogue_MiniMenuHeight();
+
+    sRogueRunWindowId = AddWindow(&windowTemplate);
+    PutWindowTilemap(sRogueRunWindowId);
+    DrawStdWindowFrame(sRogueRunWindowId, FALSE);
+    AddTextPrinterParameterized(sRogueRunWindowId, FONT_NORMAL, Rogue_GetMiniMenuContent(), 0, 1, TEXT_SKIP_DRAW, NULL);
+    CopyWindowToVram(sRogueRunWindowId, COPYWIN_GFX);
+
+    Rogue_CreateMiniMenuExtraGFX();
+}
+
+static void ShowExtraStartMenuWindows(void)
+{
+    if (GetSafariZoneFlag())
+        ShowSafariBallsWindow();
+    if (InBattlePyramid())
+        ShowPyramidFloorWindow();
+    if (Rogue_ShouldShowMiniMenu())
+        ShowRogueRunWindow();
+}
+
 static void RemoveExtraStartMenuWindows(void)
 {
     if (GetSafariZoneFlag())
     {
+        Rogue_RemoveMiniMenuExtraGFX();
+
         ClearStdWindowAndFrameToTransparent(sSafariBallsWindowId, FALSE);
         CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
         RemoveWindow(sSafariBallsWindowId);
@@ -469,6 +558,13 @@ static void RemoveExtraStartMenuWindows(void)
     {
         ClearStdWindowAndFrameToTransparent(sBattlePyramidFloorWindowId, FALSE);
         RemoveWindow(sBattlePyramidFloorWindowId);
+    }
+    if (Rogue_ShouldShowMiniMenu())
+    {
+        Rogue_RemoveMiniMenuExtraGFX();
+
+        ClearStdWindowAndFrameToTransparent(sRogueRunWindowId, FALSE);
+        RemoveWindow(sRogueRunWindowId);
     }
 }
 
@@ -523,10 +619,7 @@ static bool32 InitStartMenuStep(void)
         sInitStartMenuData[0]++;
         break;
     case 3:
-        if (GetSafariZoneFlag())
-            ShowSafariBallsWindow();
-        if (InBattlePyramid())
-            ShowPyramidFloorWindow();
+        ShowExtraStartMenuWindows();
         sInitStartMenuData[0]++;
         break;
     case 4:
@@ -618,34 +711,38 @@ void ShowStartMenu(void)
 
 static bool8 HandleStartMenuInput(void)
 {
-    if (JOY_NEW(DPAD_UP))
+    if (JOY_NEW(DPAD_UP) && !sBufferedAButton)
     {
         PlaySE(SE_SELECT);
         sStartMenuCursorPos = Menu_MoveCursor(-1);
     }
 
-    if (JOY_NEW(DPAD_DOWN))
+    if (JOY_NEW(DPAD_DOWN) && !sBufferedAButton)
     {
         PlaySE(SE_SELECT);
         sStartMenuCursorPos = Menu_MoveCursor(1);
     }
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW(A_BUTTON) || sBufferedAButton)
     {
-        PlaySE(SE_SELECT);
-        if (sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void == StartMenuPokedexCallback)
+        // RogueNote: Audio music bug, wait for fanfare music to stop
+        // If we don't do this music can cutout and cause soft-locks on warps
+        if(!WaitFanfare(FALSE))
         {
-            if (GetNationalPokedexCount(FLAG_GET_SEEN) == 0)
-                return FALSE;
+            sBufferedAButton = TRUE;
+            return;
         }
 
+        sBufferedAButton = FALSE;
+        PlaySE(SE_SELECT);
         gMenuCallback = sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void;
 
         if (gMenuCallback != StartMenuSaveCallback
             && gMenuCallback != StartMenuExitCallback
             && gMenuCallback != StartMenuDebugCallback
             && gMenuCallback != StartMenuSafariZoneRetireCallback
-            && gMenuCallback != StartMenuBattlePyramidRetireCallback)
+            && gMenuCallback != StartMenuBattlePyramidRetireCallback
+            && gMenuCallback != StartMenuQuickSaveCallback)
         {
            FadeScreen(FADE_TO_BLACK, 0);
         }
@@ -653,8 +750,19 @@ static bool8 HandleStartMenuInput(void)
         return FALSE;
     }
 
+#ifdef ROGUE_DEBUG
+    if (JOY_NEW(L_BUTTON) || JOY_NEW(R_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        RemoveExtraStartMenuWindows();
+        ShowExtraStartMenuWindows();
+    }
+#endif
+
     if (JOY_NEW(START_BUTTON | B_BUTTON))
     {
+        sBufferedAButton = FALSE;
+
         RemoveExtraStartMenuWindows();
         HideStartMenu();
         return TRUE;
@@ -671,7 +779,9 @@ static bool8 StartMenuPokedexCallback(void)
         PlayRainStoppingSoundEffect();
         RemoveExtraStartMenuWindows();
         CleanupOverworldWindowsAndTilemaps();
-        SetMainCallback2(CB2_OpenPokedex);
+
+        Rogue_ShowPokedexFromMenu();
+        //SetMainCallback2(CB2_OpenPokedex);
 
         return TRUE;
     }
@@ -687,7 +797,22 @@ static bool8 StartMenuPokemonCallback(void)
         RemoveExtraStartMenuWindows();
         CleanupOverworldWindowsAndTilemaps();
         SetMainCallback2(CB2_PartyMenuFromStartMenu); // Display party menu
+        return TRUE;
+    }
 
+    return FALSE;
+}
+
+static bool8 StartMenuQuestsCallback(void)
+{
+    if (!gPaletteFade.active)
+    {
+        PlayRainStoppingSoundEffect();
+        RemoveExtraStartMenuWindows();
+        CleanupOverworldWindowsAndTilemaps();
+        //SetMainCallback2(CB2_PartyMenuFromStartMenu); // Display party menu
+
+        Rogue_OpenQuestMenu(CB2_ReturnToFieldWithOpenMenu);
         return TRUE;
     }
 
@@ -775,6 +900,37 @@ static bool8 StartMenuExitCallback(void)
 {
     RemoveExtraStartMenuWindows();
     HideStartMenu(); // Hide start menu
+
+    return TRUE;
+}
+
+extern const u8 Rogue_RetireFromRun[];
+extern const u8 Rogue_QuickSaveRun[];
+
+static bool8 StartMenuSafariZoneRetireCallback(void)
+{
+    RemoveExtraStartMenuWindows();
+    HideStartMenu();
+
+    if(Rogue_IsRunActive())
+    {
+        ScriptContext_SetupScript(Rogue_RetireFromRun);
+    }
+    else
+    {
+        SafariZoneRetirePrompt();
+    }
+
+    return TRUE;
+}
+
+static bool8 StartMenuQuickSaveCallback(void)
+{
+    RemoveExtraStartMenuWindows();
+    HideStartMenu();
+
+    gRogueRun.isQuickSaveValid = TRUE;
+    ScriptContext_SetupScript(Rogue_QuickSaveRun);
 
     return TRUE;
 }
@@ -914,7 +1070,6 @@ static bool8 BattlePyramidRetireCallback(void)
         ClearDialogWindowAndFrameToTransparent(0, TRUE);
         ScriptUnfreezeObjectEvents();
         UnlockPlayerFieldControls();
-        ScriptContext_SetupScript(BattlePyramid_Retire);
         return TRUE;
     }
 
@@ -925,6 +1080,13 @@ static void InitSave(void)
 {
     SaveMapView();
     sSaveDialogCallback = SaveConfirmSaveCallback;
+    sSavingComplete = FALSE;
+}
+
+static void InitForceSave(void)
+{
+    SaveMapView();
+    sSaveDialogCallback = SaveForceSaveCallback;
     sSavingComplete = FALSE;
 }
 
@@ -943,6 +1105,12 @@ static u8 RunSaveCallback(void)
 void SaveGame(void)
 {
     InitSave();
+    CreateTask(SaveGameTask, 0x50);
+}
+
+void ForceSaveGame(void)
+{
+    InitForceSave();
     CreateTask(SaveGameTask, 0x50);
 }
 
@@ -1037,6 +1205,15 @@ static u8 SaveConfirmSaveCallback(void)
         ShowSaveMessage(gText_ConfirmSave, SaveYesNoCallback);
     }
 
+    return SAVE_IN_PROGRESS;
+}
+
+static u8 SaveForceSaveCallback(void)
+{
+    ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
+    RemoveStartMenuWindow();
+    ShowSaveInfoWindow();
+    sSaveDialogCallback = SaveSavingMessageCallback;
     return SAVE_IN_PROGRESS;
 }
 
@@ -1379,7 +1556,6 @@ static void Task_SaveAfterLinkBattle(u8 taskId)
 static void ShowSaveInfoWindow(void)
 {
     struct WindowTemplate saveInfoWindow = sSaveInfoWindowTemplate;
-    u8 gender;
     u8 color;
     u32 xOffset;
     u32 yOffset;
@@ -1392,17 +1568,25 @@ static void ShowSaveInfoWindow(void)
     sSaveInfoWindowId = AddWindow(&saveInfoWindow);
     DrawStdWindowFrame(sSaveInfoWindowId, FALSE);
 
-    gender = gSaveBlock2Ptr->playerGender;
-    color = TEXT_COLOR_RED;  // Red when female, blue when male.
-
-    if (gender == MALE)
+    // Unique text colour for player?
+    switch (RoguePlayer_GetTextVariantId() % 3)
     {
+    case 0:
+        color = TEXT_COLOR_RED;
+        break;
+
+    case 1:
+        color = TEXT_COLOR_GREEN;
+        break;
+
+    case 2:
         color = TEXT_COLOR_BLUE;
+        break;
     }
 
     // Print region name
     yOffset = 1;
-    BufferSaveMenuText(SAVE_MENU_LOCATION, gStringVar4, TEXT_COLOR_GREEN);
+    BufferSaveMenuText(SAVE_MENU_LOCATION, gStringVar4, TEXT_COLOR_BLUE);
     AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, 0, yOffset, TEXT_SKIP_DRAW, NULL);
 
     // Print player name
@@ -1412,22 +1596,36 @@ static void ShowSaveInfoWindow(void)
     xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
     PrintPlayerNameOnWindow(sSaveInfoWindowId, gStringVar4, xOffset, yOffset);
 
-    // Print badge count
-    yOffset += 16;
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gText_SavingBadges, 0, yOffset, TEXT_SKIP_DRAW, NULL);
-    BufferSaveMenuText(SAVE_MENU_BADGES, gStringVar4, color);
-    xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
-
-    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+    // When in run print badge count, when in hub print pokedex
+    //
+    if(Rogue_IsRunActive())
     {
-        // Print pokedex count
+        // Print badge count
         yOffset += 16;
-        AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gText_SavingPokedex, 0, yOffset, TEXT_SKIP_DRAW, NULL);
-        BufferSaveMenuText(SAVE_MENU_CAUGHT, gStringVar4, color);
+        AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gText_SavingBadges, 0, yOffset, TEXT_SKIP_DRAW, NULL);
+        BufferSaveMenuText(SAVE_MENU_BADGES, gStringVar4, color);
         xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
         AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
     }
+    else
+    {
+        if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+        {
+            // Print pokedex count
+            yOffset += 16;
+            AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gText_SavingPokedex, 0, yOffset, TEXT_SKIP_DRAW, NULL);
+            BufferSaveMenuText(SAVE_MENU_CAUGHT, gStringVar4, color);
+            xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
+            AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
+        }
+    }
+    
+    // Print quest percentage
+    yOffset += 16;
+    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gText_SavingQuests, 0, yOffset, TEXT_SKIP_DRAW, NULL);
+    BufferSaveMenuText(SAVE_MENU_QUESTS, gStringVar4, color);
+    xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
+    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
 
     // Print play time
     yOffset += 16;

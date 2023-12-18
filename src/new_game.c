@@ -1,4 +1,6 @@
 #include "global.h"
+#include "constants/items.h"
+
 #include "new_game.h"
 #include "random.h"
 #include "pokemon.h"
@@ -31,6 +33,9 @@
 #include "frontier_util.h"
 #include "pokedex.h"
 #include "save.h"
+#include "string.h"
+#include "strings.h"
+#include "string_util.h"
 #include "link_rfu.h"
 #include "main.h"
 #include "contest.h"
@@ -46,20 +51,17 @@
 #include "union_room_chat.h"
 #include "constants/items.h"
 
+#include "rogue_controller.h"
+
 extern const u8 EventScript_ResetAllMapFlags[];
 
 static void ClearFrontierRecord(void);
 static void WarpToTruck(void);
+static void WarpToIntro(void);
 static void ResetMiniGamesRecords(void);
 
 EWRAM_DATA bool8 gDifferentSaveFile = FALSE;
 EWRAM_DATA bool8 gEnableContestDebugging = FALSE;
-
-static const struct ContestWinner sContestWinnerPicDummy =
-{
-    .monName = _(""),
-    .trainerName = _("")
-};
 
 void SetTrainerId(u32 trainerId, u8 *dst)
 {
@@ -83,7 +85,7 @@ void CopyTrainerId(u8 *dst, u8 *src)
 
 static void InitPlayerTrainerId(void)
 {
-    u32 trainerId = (Random() << 16) | GetGeneratedTrainerIdLower();
+    u32 trainerId = (u32)(Random() << 16) | (u32)Random();
     SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
 }
 
@@ -93,27 +95,30 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
     gSaveBlock2Ptr->optionsWindowFrameType = 0;
     gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
-    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
-    gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
+    gSaveBlock2Ptr->optionsPopupSoundOff = FALSE;
+    gSaveBlock2Ptr->optionsSoundChannelBGM = 10;
+    gSaveBlock2Ptr->optionsSoundChannelSE = 10;
+    gSaveBlock2Ptr->options_Unused0 = 0;
+    gSaveBlock2Ptr->optionsSoundChannelBattleSE = 10;
+    gSaveBlock2Ptr->optionsDefaultBattleSceneOff = FALSE;
+    gSaveBlock2Ptr->optionsBossBattleSceneOff = FALSE;
+    gSaveBlock2Ptr->optionsAutoRunToggle = FALSE;
+    gSaveBlock2Ptr->optionsNicknameMode = OPTIONS_NICKNAME_MODE_ASK;
+    gSaveBlock2Ptr->timeOfDayVisuals = TRUE;
+    gSaveBlock2Ptr->seasonVisuals = TRUE;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
+    
+    Rogue_SetDefaultOptions();
 }
 
 static void ClearPokedexFlags(void)
 {
     gUnusedPokedexU8 = 0;
-    memset(&gSaveBlock1Ptr->dexCaught, 0, sizeof(gSaveBlock1Ptr->dexCaught));
-    memset(&gSaveBlock1Ptr->dexSeen, 0, sizeof(gSaveBlock1Ptr->dexSeen));
 }
 
 void ClearAllContestWinnerPics(void)
 {
-    s32 i;
-
     ClearContestWinnerPicsInContestHall();
-
-    // Clear Museum paintings
-    for (i = MUSEUM_CONTEST_WINNERS_START; i < NUM_CONTEST_WINNERS; i++)
-        gSaveBlock1Ptr->contestWinners[i] = sContestWinnerPicDummy;
 }
 
 static void ClearFrontierRecord(void)
@@ -126,7 +131,14 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
+    // HMM
     SetWarpDestination(MAP_GROUP(INSIDE_OF_TRUCK), MAP_NUM(INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
+    WarpIntoMap();
+}
+
+static void WarpToIntro(void)
+{
+    SetWarpDestination(MAP_GROUP(ROGUE_INTRO), MAP_NUM(ROGUE_INTRO), WARP_ID_NONE, 8, 5);
     WarpIntoMap();
 }
 
@@ -160,7 +172,6 @@ void NewGameInitData(void)
     ClearSav1();
     ClearAllMail();
     gSaveBlock2Ptr->specialSaveWarpFlags = 0;
-    gSaveBlock2Ptr->gcnLinkFlags = 0;
     InitPlayerTrainerId();
     PlayTimeCounter_Reset();
     ClearPokedexFlags();
@@ -182,7 +193,7 @@ void NewGameInitData(void)
     ResetPokemonStorageSystem();
     ClearRoamerData();
     ClearRoamerLocationData();
-    gSaveBlock1Ptr->registeredItem = ITEM_NONE;
+    memset(gSaveBlock1Ptr->registeredItems, 0, sizeof(gSaveBlock1Ptr->registeredItems));
     ClearBag();
     NewGameInitPCItems();
     ClearPokeblocks();
@@ -192,7 +203,7 @@ void NewGameInitData(void)
     InitDewfordTrend();
     ResetFanClub();
     ResetLotteryCorner();
-    WarpToTruck();
+    WarpToIntro();
     RunScriptImmediately(EventScript_ResetAllMapFlags);
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();
@@ -204,6 +215,9 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     ResetContestLinkResults();
+    Rogue_OnNewGame();
+
+    memset(&gSaveBlock2Ptr->follower, 0, sizeof(gSaveBlock2Ptr->follower));
 }
 
 static void ResetMiniGamesRecords(void)

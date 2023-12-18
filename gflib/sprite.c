@@ -3,6 +3,8 @@
 #include "main.h"
 #include "palette.h"
 
+#include "rogue_controller.h"
+
 #define MAX_SPRITE_COPY_REQUESTS 64
 
 #define OAM_MATRIX_COUNT 32
@@ -49,7 +51,6 @@ struct OamDimensions
 };
 
 static void SortSprites(u32 *spritePriorities, s32 n);
-static u8 CreateSpriteAt(u8 index, const struct SpriteTemplate *template, s16 x, s16 y, u8 subpriority);
 static void ResetOamMatrices(void);
 static void ResetSprite(struct Sprite *sprite);
 static s16 AllocSpriteTiles(u16 tileCount);
@@ -804,6 +805,8 @@ void ResetAllSprites(void)
     }
 
     ResetSprite(&gSprites[i]);
+
+    Rogue_OnResetAllSprites();
 }
 
 void FreeSpriteTiles(struct Sprite *sprite)
@@ -1441,6 +1444,21 @@ u16 LoadSpriteSheet(const struct SpriteSheet *sheet)
         CpuCopy16(sheet->data, (u8 *)OBJ_VRAM0 + TILE_SIZE_4BPP * tileStart, sheet->size);
         return (u16)tileStart;
     }
+}
+
+// Like LoadSpriteSheet, but checks if already, and uses template image frames
+u16 LoadSpriteSheetByTemplate(const struct SpriteTemplate *template, u8 frame) {
+    u16 tileStart;
+    struct SpriteSheet tempSheet;
+    // error if template is null or tile tag or images not set
+    if (!template || template->tileTag == TAG_NONE || !template->images)
+        return TAG_NONE;
+    if ((tileStart = GetSpriteTileStartByTag(template->tileTag)) != TAG_NONE) // return if already loaded
+        return tileStart;
+    tempSheet.data = template->images[frame].data;
+    tempSheet.size = template->images[frame].size;
+    tempSheet.tag = template->tileTag;
+    return LoadSpriteSheet(&tempSheet);
 }
 
 void LoadSpriteSheets(const struct SpriteSheet *sheets)

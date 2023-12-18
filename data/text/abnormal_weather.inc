@@ -5,3 +5,4 @@ gText_AbnormalWeatherEnded_Rain::
 gText_AbnormalWeatherEnded_Sun::
 	.string "The intense sunshine appears to\n"
 	.string "have subsided…$"
+

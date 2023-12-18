@@ -19,6 +19,7 @@
 #include "palette.h"
 #include "party_menu.h"
 #include "pokeball.h"
+#include "pokedex.h"
 #include "pokemon.h"
 #include "random.h"
 #include "recorded_battle.h"
@@ -38,6 +39,12 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/rgb.h"
+
+#include "rogue_assistant.h"
+#include "rogue_automation.h"
+#include "rogue_campaign.h"
+#include "rogue_controller.h"
+#include "rogue_player_customisation.h"
 
 static void PlayerBufferExecCompleted(u32 battler);
 static void PlayerHandleLoadMonSprite(u32 battler);
@@ -390,14 +397,23 @@ static void HandleInputChooseAction(u32 battler)
             BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_CANCEL_PARTNER, 0);
             PlayerBufferExecCompleted(battler);
         }
-        else if (B_QUICK_MOVE_CURSOR_TO_RUN)
+        else if(!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
         {
-            if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER)) // If wild battle, pressing B moves cursor to "Run".
+            PlaySE(SE_SELECT);
+
+            // Auto jump to run option
+            switch (gActionSelectionCursor[gActiveBattler])
             {
-                PlaySE(SE_SELECT);
-                ActionSelectionDestroyCursorAt(gActionSelectionCursor[battler]);
-                gActionSelectionCursor[battler] = 3;
-                ActionSelectionCreateCursorAt(gActionSelectionCursor[battler], 0);
+            case 3: // Bottom right
+                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_RUN, 0);
+                PlayerBufferExecCompleted();
+                break;
+
+            default: // Bottom left
+                ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
+                gActionSelectionCursor[gActiveBattler] = 3;
+                ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+                break;
             }
         }
     }
@@ -1443,7 +1459,7 @@ static void Task_GiveExpToMon(u8 taskId)
         u16 species = GetMonData(mon, MON_DATA_SPECIES);
         u8 level = GetMonData(mon, MON_DATA_LEVEL);
         u32 currExp = GetMonData(mon, MON_DATA_EXP);
-        u32 nextLvlExp = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1];
+        u32 nextLvlExp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1);
 
         if (currExp + gainedExp >= nextLvlExp)
         {
@@ -1492,11 +1508,11 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
     u8 level = GetMonData(mon, MON_DATA_LEVEL);
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     u32 exp = GetMonData(mon, MON_DATA_EXP);
-    u32 currLvlExp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+    u32 currLvlExp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level);
     u32 expToNextLvl;
 
     exp -= currLvlExp;
-    expToNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLvlExp;
+    expToNextLvl = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1) - currLvlExp;
     SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], expToNextLvl, exp, -gainedExp);
     TestRunner_Battle_RecordExp(battler, exp, -gainedExp);
     PlaySE(SE_EXP);
@@ -1509,7 +1525,7 @@ static void Task_GiveExpWithExpBar(u8 taskId)
     u16 species;
     s32 currExp, expOnNextLvl, newExpPoints;
 
-    if (gTasks[taskId].tExpTask_frames < 13)
+    if (gTasks[taskId].tExpTask_frames < 3)
     {
         gTasks[taskId].tExpTask_frames++;
     }
@@ -1527,7 +1543,7 @@ static void Task_GiveExpWithExpBar(u8 taskId)
             level = GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL);
             currExp = GetMonData(&gPlayerParty[monId], MON_DATA_EXP);
             species = GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES);
-            expOnNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1];
+            expOnNextLvl = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1);
 
             if (currExp + gainedExp >= expOnNextLvl)
             {
@@ -1725,41 +1741,144 @@ static void MoveSelectionDisplayPpNumber(u32 battler)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP_REMAINING);
 }
 
+static u8 GetMoveDisplayTyping(u16 move)
+{
+    u8 moveType;
+    if(move == MOVE_HIDDEN_POWER)
+        return CalcMonHiddenPowerType(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]]);
+
+#ifdef ROGUE_EXPANSION
+    SetTypeBeforeUsingMove(move, gActiveBattler);
+#endif
+    
+    GET_MOVE_TYPE(move, moveType);
+    
+    return moveType;
+}
+
+#define TYPE_x0     0
+#define TYPE_x0_25  5
+#define TYPE_x0_50  10
+#define TYPE_x1     20
+#define TYPE_x2     40
+#define TYPE_x4     80
+
+int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode);
+
+extern const u8 gText_MoveEffective[];
+extern const u8 gText_MoveNoEffect[];
+extern const u8 gText_MoveSuperEffective[];
+extern const u8 gText_MoveNotVeryEffective[];
+
 static void MoveSelectionDisplayMoveType(u32 battler)
 {
     u8 *txtPtr;
+#ifdef ROGUE_EXPANSION
     u8 type;
     u32 itemId;
     struct Pokemon *mon;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
+#else
+    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
+#endif
+    u16 move = moveInfo->moves[gMoveSelectionCursor[gActiveBattler]];
+    u8 displayType = GetMoveDisplayTyping(move);
 
-    txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
-    *(txtPtr)++ = EXT_CTRL_CODE_BEGIN;
-    *(txtPtr)++ = EXT_CTRL_CODE_FONT;
-    *(txtPtr)++ = FONT_NORMAL;
+    txtPtr = gDisplayedStringBattle;
+    txtPtr = StringCopy(txtPtr, gTypeNames[displayType]);
+    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
 
-    if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_IVY_CUDGEL)
+    txtPtr = gDisplayedStringBattle;
+    //*(txtPtr)++ = CHAR_SPACER;
+    //*(txtPtr)++ = CHAR_SPACER;
+    //*(txtPtr)++ = CHAR_SLASH;
+    //*(txtPtr)++ = CHAR_NEWLINE;
+
+    if (move == MOVE_NONE || move == MOVE_UNAVAILABLE || gBattleMoves[move].power == 0)
     {
-        mon = &GetSideParty(GetBattlerSide(battler))[gBattlerPartyIndexes[battler]];
-        itemId = GetMonData(mon, MON_DATA_HELD_ITEM);
-
-        if (ItemId_GetHoldEffect(itemId) == HOLD_EFFECT_MASK)
-            type = ItemId_GetSecondaryId(itemId);
-        else
-            type = gBattleMoves[MOVE_IVY_CUDGEL].type;
+        // -
+        *(txtPtr)++ = CHAR_HYPHEN;
+        *(txtPtr)++ = EOS;
     }
     else
-        type = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type;
+    {
+        u8 opposingBattler;
+        u8 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(gActiveBattler));
+        u16 opposingSpecies = gBattleMons[GetBattlerAtPosition(opposingPosition)].species;
+        
+        if(opposingSpecies == SPECIES_NONE)
+        {
+            opposingPosition = BATTLE_PARTNER(opposingPosition);
+            opposingSpecies = gBattleMons[GetBattlerAtPosition(opposingPosition)].species;
+        }
 
-    StringCopy(txtPtr, gTypeNames[type]);
+        opposingBattler = GetBattlerAtPosition(opposingPosition);
+
+        //if(GetSetPokedexFlag(SpeciesToNationalPokedexNum(opposingSpecies), FLAG_GET_CAUGHT))
+        //{
+        //    // ???
+        //    *(txtPtr)++ = CHAR_QUESTION_MARK;
+        //    *(txtPtr)++ = CHAR_QUESTION_MARK;
+        //    *(txtPtr)++ = CHAR_QUESTION_MARK;
+        //    *(txtPtr)++ = EOS;
+        //}
+        //else
+        {
+            u8 type1;
+            u8 type2;
+            int typeEffect;
+            u16 ability = 0;
+#ifdef ROGUE_EXPANSION
+            struct Pokemon *illusionMon = GetIllusionMonPtr(opposingBattler);
+
+            if(illusionMon != NULL)
+            {
+                u16 species = GetMonData(illusionMon, MON_DATA_SPECIES);
+                type1 = gBaseStats[species].type1;
+                type2 = gBaseStats[species].type2;
+                //ability = GetMonAbility(illusionMon);
+            }
+            else
+#endif
+            {
+                type1 = gBattleMons[opposingBattler].type1;
+                type2 = gBattleMons[opposingBattler].type2;
+                //ability = GetBattlerAbility(opposingBattler);
+            }
+
+            typeEffect = GetMovePower(move, displayType, type1, type2, ability, 0);
+
+            if(typeEffect == TYPE_x0)
+            {
+                txtPtr = StringCopy(txtPtr, gText_MoveNoEffect);
+            }
+            else if(typeEffect == TYPE_x1)
+            {
+                txtPtr = StringCopy(txtPtr, gText_MoveEffective);
+            }
+            else if(typeEffect < TYPE_x1)
+            {
+                txtPtr = StringCopy(txtPtr, gText_MoveNotVeryEffective);
+            }
+            else //if(typeEffect > TYPE_x1)
+            {
+                txtPtr = StringCopy(txtPtr, gText_MoveSuperEffective);
+            }
+        }
+    }
+
+    *(txtPtr)++ = EOS;
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
 }
+
+#define FLIP_VERTICAL (0x08 << 8)
+#define FLIP_HORIZONTAL (0x04 << 8)
 
 void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
 {
     u16 src[2];
-    src[0] = baseTileNum + 1;
-    src[1] = baseTileNum + 2;
+    src[0] = (0x3);
+    src[1] = (0x3) | FLIP_VERTICAL;
 
     CopyToBgTilemapBufferRect_ChangePalette(0, src, 9 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
@@ -1768,8 +1887,8 @@ void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
 void MoveSelectionDestroyCursorAt(u8 cursorPosition)
 {
     u16 src[2];
-    src[0] = 0x1016;
-    src[1] = 0x1016;
+    src[0] = 0xA;
+    src[1] = 0xA;
 
     CopyToBgTilemapBufferRect_ChangePalette(0, src, 9 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
@@ -1778,8 +1897,8 @@ void MoveSelectionDestroyCursorAt(u8 cursorPosition)
 void ActionSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
 {
     u16 src[2];
-    src[0] = 1;
-    src[1] = 2;
+    src[0] = (0x3);
+    src[1] = (0x3) | FLIP_VERTICAL;
 
     CopyToBgTilemapBufferRect_ChangePalette(0, src, 7 * (cursorPosition & 1) + 16, 35 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
@@ -1788,12 +1907,15 @@ void ActionSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
 void ActionSelectionDestroyCursorAt(u8 cursorPosition)
 {
     u16 src[2];
-    src[0] = 0x1016;
-    src[1] = 0x1016;
+    src[0] = 0xA;
+    src[1] = 0xA;
 
     CopyToBgTilemapBufferRect_ChangePalette(0, src, 7 * (cursorPosition & 1) + 16, 35 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
 }
+
+#undef FLIP_VERTICAL
+#undef FLIP_HORIZONTAL
 
 void CB2_SetUpReshowBattleScreenAfterMenu(void)
 {
@@ -1844,6 +1966,8 @@ u32 LinkPlayerGetTrainerPicId(u32 multiplayerId)
         trainerPicId = gender + TRAINER_BACK_PIC_BRENDAN;
 
     return trainerPicId;
+        Rogue_CampaignNotify_OnMonFormChange(GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES), gBattleBufferA[gActiveBattler][3]);
+
 }
 
 static u32 PlayerGetTrainerBackPicId(void)
@@ -1988,9 +2112,15 @@ static void PlayerHandleChooseAction(u32 battler)
 {
     s32 i;
 
+    PUSH_ASSISTANT_STATE2(BATTLE, CHOOSE_ACTION);
+
     gBattlerControllerFuncs[battler] = HandleChooseActionAfterDma3;
     BattleTv_ClearExplosionFaintCause();
-    BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
+
+    if(gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        BattlePutTextOnWindow(gText_TrainerBattleMenu, B_WIN_ACTION_MENU);
+    else
+        BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
 
     for (i = 0; i < 4; i++)
         ActionSelectionDestroyCursorAt(i);
@@ -2040,9 +2170,78 @@ static void PlayerChooseMoveInBattlePalace(u32 battler)
     }
 }
 
+static u16 ChooseRandomMoveAndTarget(void)
+{
+    u32 moveTarget;
+    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
+    u16 chosenMoveId = Random() % MAX_MON_MOVES;
+
+    // Force the choiced move to be used
+    {
+        u16 i;
+        u16 choicedMove = gBattleStruct->choicedMove[gActiveBattler];
+
+        if (choicedMove != MOVE_NONE && choicedMove != MOVE_UNAVAILABLE)
+        {
+            for(i = 0; i < MAX_MON_MOVES; ++i)
+            {
+                if(moveInfo->moves[i] == choicedMove)
+                {
+                    chosenMoveId = i;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Ensure we have chosen a valid move
+    while(moveInfo->moves[chosenMoveId] == MOVE_NONE)
+    {
+        chosenMoveId = Random() % MAX_MON_MOVES;
+    }
+
+    if (moveInfo->moves[chosenMoveId] == MOVE_CURSE)
+    {
+        if (moveInfo->monType1 != TYPE_GHOST && moveInfo->monType2 != TYPE_GHOST)
+            moveTarget = MOVE_TARGET_USER;
+        else
+            moveTarget = MOVE_TARGET_SELECTED;
+    }
+    else
+    {
+        moveTarget = gBattleMoves[moveInfo->moves[chosenMoveId]].target;
+    }
+
+    if (moveTarget & MOVE_TARGET_USER)
+        chosenMoveId |= (gActiveBattler << 8);
+    else if (moveTarget == MOVE_TARGET_SELECTED)
+        chosenMoveId |= ((gActiveBattler ^ BIT_SIDE) << 8);
+    else
+        chosenMoveId |= (GetBattlerAtPosition((GetBattlerPosition(gActiveBattler) & BIT_SIDE) ^ BIT_SIDE) << 8);
+
+    return chosenMoveId;
+}
+
+static void PlayerChooseMoveInAutoBattle(void)
+{
+    BtlController_EmitTwoReturnValues(BUFFER_B, 10, ChooseRandomMoveAndTarget());
+    PlayerBufferExecCompleted();
+}
+
 static void PlayerHandleChooseMove(u32 battler)
 {
-    if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
+#ifdef ROGUE_FEATURE_AUTOMATION
+    if (Rogue_AutomationGetFlag(AUTO_FLAG_PLAYER_AUTO_PICK_MOVES))
+    {
+        gBattlerControllerFuncs[gActiveBattler] = PlayerChooseMoveInAutoBattle;
+    }
+    else
+#endif
+    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
+    {
+        gBattlerControllerFuncs[gActiveBattler] = PlayerChooseMoveInAutoBattle;
+    }
+    else if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
     {
         *(gBattleStruct->arenaMindPoints + battler) = 8;
         gBattlerControllerFuncs[battler] = PlayerChooseMoveInBattlePalace;
@@ -2050,7 +2249,7 @@ static void PlayerHandleChooseMove(u32 battler)
     else
     {
         struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
-
+        PUSH_ASSISTANT_STATE2(BATTLE, CHOOSE_MOVE);
         InitMoveSelectionsVarsAndStrings(battler);
         gBattleStruct->mega.playerSelect = FALSE;
         gBattleStruct->burst.playerSelect = FALSE;
@@ -2091,6 +2290,8 @@ static void PlayerHandleChooseItem(u32 battler)
 {
     s32 i;
 
+    PUSH_ASSISTANT_STATE2(BATTLE, CHOOSE_ITEM);
+
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
     gBattlerControllerFuncs[battler] = OpenBagAndChooseItem;
     gBattlerInMenuId = battler;
@@ -2102,6 +2303,8 @@ static void PlayerHandleChooseItem(u32 battler)
 static void PlayerHandleChoosePokemon(u32 battler)
 {
     s32 i;
+
+    PUSH_ASSISTANT_STATE2(BATTLE, CHOOSE_POKEMON);
 
     for (i = 0; i < ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
         gBattlePartyCurrentOrder[i] = gBattleResources->bufferA[battler][4 + i];
@@ -2148,6 +2351,8 @@ void PlayerHandleExpUpdate(u32 battler)
     }
     else
     {
+
+        // RogueNote: exp
         LoadBattleBarGfx(1);
         expPointsToGive = T1_READ_32(&gBattleResources->bufferA[battler][2]);
         taskId = CreateTask(Task_GiveExpToMon, 10);
@@ -2232,7 +2437,7 @@ static void PlayerHandleOneReturnValue_Duplicate(u32 battler)
 
 static void PlayerHandleIntroTrainerBallThrow(u32 battler)
 {
-    const u32 *trainerPal = gTrainerBackPicPaletteTable[gSaveBlock2Ptr->playerGender].data;
+    const u32 *trainerPal = gTrainerBackPicPaletteTable[RoguePlayer_GetTrainerBackPic()].data;
     BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F8, trainerPal, 31, Intro_TryShinyAnimShowHealthbox);
 }
 

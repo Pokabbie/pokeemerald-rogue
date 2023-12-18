@@ -36,6 +36,15 @@ else
 EXE :=
 endif
 
+ifeq ($(OS),Windows_NT)
+PORYSCRIPT := tools/poryscript/poryscript-windows/poryscript$(EXE)
+else
+PORYSCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
+endif
+
+ROGUEPORYSCRIPTSDIR := data/scripts/Rogue
+PORYSCRIPTARGS := -s ROGUE_VERSION=ROGUE_VERSION_VANILLA -fc $(ROGUEPORYSCRIPTSDIR)/Strings/poryscript_font_config.json
+
 TITLE       := POKEMON EMER
 GAME_CODE   := BPEE
 MAKER_CODE  := 01
@@ -159,6 +168,8 @@ JSONPROC := tools/jsonproc/jsonproc$(EXE)
 PATCHELF := tools/patchelf/patchelf$(EXE)
 ROMTEST ?= $(shell { command -v mgba-rom-test || command -v tools/mgba/mgba-rom-test$(EXE); } 2>/dev/null)
 ROMTESTHYDRA := tools/mgba-rom-test-hydra/mgba-rom-test-hydra$(EXE)
+MEMORYSTATS := tools/Pokabbie/Build/MemoryStats/memorystats$(EXE)
+CUSTOMJSON := tools/Pokabbie/Build/CustomJson/customjson$(EXE)
 
 PERL := perl
 
@@ -285,6 +296,7 @@ mostlyclean: tidynonmodern tidymodern tidycheck
 	rm -f $(DATA_ASM_SUBDIR)/maps/connections.inc $(DATA_ASM_SUBDIR)/maps/events.inc $(DATA_ASM_SUBDIR)/maps/groups.inc $(DATA_ASM_SUBDIR)/maps/headers.inc
 	find $(DATA_ASM_SUBDIR)/maps \( -iname 'connections.inc' -o -iname 'events.inc' -o -iname 'header.inc' \) -exec rm {} +
 	rm -f $(AUTO_GEN_TARGETS)
+	rm -f $(patsubst %.pory,%.inc,$(shell find data/ -type f -name '*.pory'))
 	@$(MAKE) clean -C libagbsyscall
 
 tidy: tidynonmodern tidymodern tidycheck
@@ -305,16 +317,20 @@ ifneq ($(MODERN),0)
 $(C_BUILDDIR)/berry_crush.o: override CFLAGS += -Wno-address-of-packed-member
 endif
 
+include $(ROGUEPORYSCRIPTSDIR)/rogue_poryscripts.mk
 include graphics_file_rules.mk
 include map_data_rules.mk
 include spritesheet_rules.mk
 include json_data_rules.mk
 include songs.mk
+include $(DATA_SRC_SUBDIR)/rogue/custom_json_rules.mk
+include $(OBJEVENTGFXDIR)/pokemon_ow/include/spritesheet_rules_gen.mk
 
 %.s: ;
 %.png: ;
 %.pal: ;
 %.aif: ;
+%.pory: ;
 
 %.1bpp: %.png  ; $(GFX) $< $@
 %.4bpp: %.png  ; $(GFX) $< $@
@@ -327,6 +343,7 @@ include songs.mk
 $(CRY_SUBDIR)/uncomp_%.bin: $(CRY_SUBDIR)/uncomp_%.aif ; $(AIF) $< $@
 $(CRY_SUBDIR)/%.bin: $(CRY_SUBDIR)/%.aif ; $(AIF) $< $@ --compress
 sound/%.bin: sound/%.aif ; $(AIF) $< $@
+data/%.inc: data/%.pory; $(PORYSCRIPT) -i $< -o $@ $(PORYSCRIPTARGS)
 
 
 ifeq ($(MODERN),0)
@@ -482,6 +499,8 @@ $(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS) libagbsyscall
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@
 	$(FIX) $@ -p --silent
+	@echo "ROM size:" $$(stat -c "%s" $(ROM) | numfmt --to=iec --format="%.2f")
+	$(MEMORYSTATS) -F $(MAP_NAME)
 
 agbcc: all
 

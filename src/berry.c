@@ -14,6 +14,9 @@
 #include "constants/event_object_movement.h"
 #include "constants/items.h"
 
+#include "rogue_controller.h"
+#include "rogue_popup.h"
+
 static u32 GetEnigmaBerryChecksum(struct EnigmaBerry *enigmaBerry);
 static bool32 BerryTreeGrow(struct BerryTree *tree);
 static u16 BerryTypeToItemId(u16 berry);
@@ -1557,16 +1560,16 @@ static bool32 BerryTreeGrow(struct BerryTree *tree)
     case BERRY_STAGE_TALLER:
         tree->stage++;
         break;
-    case BERRY_STAGE_BERRIES:
-        tree->watered1 = 0;
-        tree->watered2 = 0;
-        tree->watered3 = 0;
-        tree->watered4 = 0;
-        tree->berryYield = 0;
-        tree->stage = BERRY_STAGE_SPROUTED;
-        if (++tree->regrowthCount == 10)
-            *tree = gBlankBerryTree;
-        break;
+    //case BERRY_STAGE_BERRIES:
+    //    tree->watered1 = 0;
+    //    tree->watered2 = 0;
+    //    tree->watered3 = 0;
+    //    tree->watered4 = 0;
+    //    tree->berryYield = 0;
+    //    tree->stage = BERRY_STAGE_SPROUTED;
+    //    if (++tree->regrowthCount == 10)
+    //        *tree = gBlankBerryTree;
+    //    break;
     }
     return TRUE;
 }
@@ -1582,9 +1585,12 @@ void BerryTreeTimeUpdate(s32 minutes)
 
         if (tree->berry && tree->stage && !tree->stopGrowth)
         {
+            // RogueNote: Don't ever reset tree
             if (minutes >= GetStageDurationByBerryType(tree->berry) * 71)
             {
-                *tree = gBlankBerryTree;
+                // RogueNote: Don't ever reset tree
+                //*tree = gBlankBerryTree;
+                continue;
             }
             else
             {
@@ -1617,6 +1623,10 @@ void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 allowGrowth)
     tree->berry = berry;
     tree->minutesUntilNextStage = GetStageDurationByBerryType(berry);
     tree->stage = stage;
+    tree->watered1 = TRUE;
+    tree->watered2 = TRUE;
+    tree->watered3 = TRUE;
+    tree->watered4 = TRUE;
     if (stage == BERRY_STAGE_BERRIES)
     {
         tree->berryYield = CalcBerryYield(tree);
@@ -1736,8 +1746,8 @@ static u8 CalcBerryYieldInternal(u16 max, u16 min, u8 water)
 static u8 CalcBerryYield(struct BerryTree *tree)
 {
     const struct Berry *berry = GetBerryInfo(tree->berry);
-    u8 min = berry->minYield;
-    u8 max = berry->maxYield;
+    u8 min = berry->minYield + 1;
+    u8 max = berry->maxYield + 1;
 
     return CalcBerryYieldInternal(max, min, BerryTreeGetNumStagesWatered(tree));
 }
@@ -1794,6 +1804,11 @@ void Bag_ChooseBerry(void)
     SetMainCallback2(CB2_ChooseBerry);
 }
 
+void Bag_ChooseBall(void)
+{
+    SetMainCallback2(CB2_ChooseBall);
+}
+
 void ObjectEventInteractionPlantBerryTree(void)
 {
     u8 berry = ItemIdToBerryType(gSpecialVar_ItemId);
@@ -1806,8 +1821,16 @@ void ObjectEventInteractionPickBerryTree(void)
 {
     u8 id = GetObjectEventBerryTreeId(gSelectedObjectEvent);
     u8 berry = GetBerryTypeByBerryTreeId(id);
+    u16 itemId = BerryTypeToItemId(berry);
+    u8 count = GetBerryCountByBerryTreeId(id);
 
-    gSpecialVar_0x8004 = AddBagItem(BerryTypeToItemId(berry), GetBerryCountByBerryTreeId(id));
+    count = Rogue_ModifyItemPickupAmount(itemId, count);
+    gSpecialVar_0x8004 = AddBagItem(itemId, count);
+
+    if(gSpecialVar_0x8004 == TRUE)
+        Rogue_PushPopup_AddBerry(itemId, count);
+    else
+        Rogue_PushPopup_CannotTakeItem(itemId, count);
 }
 
 void ObjectEventInteractionRemoveBerryTree(void)

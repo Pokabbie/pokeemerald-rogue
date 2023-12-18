@@ -30,6 +30,7 @@ struct InitialPlayerAvatarState
 {
     u8 transitionFlags;
     u8 direction;
+    bool8 maintainDirection;
 };
 
 struct LinkPlayerObjectEvent
@@ -94,6 +95,7 @@ bool8 SetDiveWarpDive(u16 x, u16 y);
 void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum);
 void ResetInitialPlayerAvatarState(void);
 void StoreInitialPlayerAvatarState(void);
+void StoreInitialPlayerAvatarStateForReloadWarp(void);
 bool32 Overworld_IsBikingAllowed(void);
 void SetDefaultFlashLevel(void);
 void SetFlashLevel(s32 flashLevel);

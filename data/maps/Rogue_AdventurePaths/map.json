@@ -1,0 +1,34 @@
+{
+  "id": "MAP_ROGUE_ADVENTURE_PATHS",
+  "name": "Rogue_AdventurePaths",
+  "layout": "LAYOUT_ROGUE_ADVENTURE_PATHS",
+  "music": "MUS_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_ADVENTURE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 0,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ADVENTURE_PATHS",
+      "dest_warp_id": 0
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

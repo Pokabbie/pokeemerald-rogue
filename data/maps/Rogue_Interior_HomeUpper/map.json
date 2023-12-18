@@ -1,0 +1,65 @@
+{
+  "id": "MAP_ROGUE_INTERIOR_HOME_UPPER",
+  "name": "Rogue_Interior_HomeUpper",
+  "layout": "LAYOUT_ROGUE_INTERIOR_HOME_UPPER",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 7,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_HOME",
+      "dest_warp_id": 2
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Rogue_Interior_Home_EnterBed"
+    }
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Rogue_Interior_Home_TurnOnPC"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Rogue_Interior_Home_NoteBook"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Rogue_Interior_Home_ChangeClothes"
+    }
+  ]
+}

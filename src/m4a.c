@@ -2,11 +2,14 @@
 #include "gba/m4a_internal.h"
 #include "global.h"
 
+u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 soundType);
+
 extern const u8 gCgb3Vol[];
 
 #define BSS_CODE __attribute__((section(".bss.code")))
 
-BSS_CODE ALIGNED(4) char SoundMainRAM_Buffer[0x800] = {0};
+BSS_CODE ALIGNED(4) char SoundMainRAM_Buffer[0xB40] = {0};
+BSS_CODE ALIGNED(4) u32 hq_buffer_ptr[0x130] = {0};
 
 struct SoundInfo gSoundInfo;
 struct PokemonCrySong gPokemonCrySongs[MAX_POKEMON_CRIES];
@@ -77,9 +80,9 @@ void m4aSoundInit(void)
     SoundInit(&gSoundInfo);
     MPlayExtender(gCgbChans);
     m4aSoundMode(SOUND_MODE_DA_BIT_8
-               | SOUND_MODE_FREQ_13379
+               | SOUND_MODE_FREQ_18157
                | (12 << SOUND_MODE_MASVOL_SHIFT)
-               | (5 << SOUND_MODE_MAXCHN_SHIFT));
+               | (MAX_DIRECTSOUND_CHANNELS << SOUND_MODE_MAXCHN_SHIFT));
 
     for (i = 0; i < NUM_MUSIC_PLAYERS; i++)
     {
@@ -244,7 +247,7 @@ void m4aMPlayImmInit(struct MusicPlayerInfo *mplayInfo)
                 Clear64byte(track);
                 track->flags = MPT_FLG_EXIST;
                 track->bendRange = 2;
-                track->volX = 64;
+                track->volX = Rogue_ModifySoundVolume(mplayInfo, 64, ROGUE_SOUND_TYPE_UNKNOWN);
                 track->lfoSpeed = 22;
                 track->tone.type = 1;
             }
@@ -734,7 +737,7 @@ void FadeOutBody(struct MusicPlayerInfo *mplayInfo)
         {
             fadeOV = mplayInfo->fadeOV;
 
-            track->volX = (fadeOV >> FADE_VOL_SHIFT);
+            track->volX = Rogue_ModifySoundVolume(mplayInfo, (fadeOV >> FADE_VOL_SHIFT), ROGUE_SOUND_TYPE_UNKNOWN);
             track->flags |= MPT_FLG_VOLCHG;
         }
 
@@ -749,8 +752,8 @@ void TrkVolPitSet(struct MusicPlayerInfo *mplayInfo, struct MusicPlayerTrack *tr
     {
         s32 x;
         s32 y;
-
-        x = (u32)(track->vol * track->volX) >> 5;
+        
+        x = (u32)(track->vol * Rogue_ModifySoundVolume(mplayInfo, track->volX, ROGUE_SOUND_TYPE_UNKNOWN)) >> 5;
 
         if (track->modT == 1)
             x = (u32)(x * (track->modM + 128)) >> 7;
@@ -1225,6 +1228,12 @@ void m4aMPlayTempoControl(struct MusicPlayerInfo *mplayInfo, u16 tempo)
 
 void m4aMPlayVolumeControl(struct MusicPlayerInfo *mplayInfo, u16 trackBits, u16 volume)
 {
+    //volume = Rogue_ModifySoundVolume(mplayInfo, volume, ROGUE_SOUND_TYPE_UNKNOWN);
+    m4aMPlayRawVolumeControl(mplayInfo, trackBits, volume);
+}
+
+void m4aMPlayRawVolumeControl(struct MusicPlayerInfo *mplayInfo, u16 trackBits, u16 volume)
+{
     s32 i;
     u32 bit;
     struct MusicPlayerTrack *track;
@@ -1682,6 +1691,7 @@ start_song:
 void SetPokemonCryVolume(u8 val)
 {
     gPokemonCrySong.volumeValue = val & 0x7F;
+    gPokemonCrySong.volumeValue = Rogue_ModifySoundVolume(&gMPlayInfo_BGM, gPokemonCrySong.volumeValue, ROGUE_SOUND_TYPE_CRY);
 }
 
 void SetPokemonCryPanpot(s8 val)

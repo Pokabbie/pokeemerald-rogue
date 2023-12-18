@@ -3,16 +3,16 @@
   "name": "Route121_SafariZoneEntrance",
   "layout": "LAYOUT_ROUTE121_SAFARI_ZONE_ENTRANCE",
   "music": "MUS_FORTREE",
-  "region_map_section": "MAPSEC_ROUTE_121",
+  "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
-  "allow_running": false,
+  "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
@@ -24,13 +24,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route121_SafariZoneEntrance_EventScript_WelcomeAttendant",
+      "script": "RogueHub_SpeakSafariWelcome",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 10,
-      "y": 2,
+      "x": -6,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -52,6 +52,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BARD",
+      "x": 14,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RogueHub_HintSafariShinies",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -60,28 +73,28 @@
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_SAFARI_ZONE_SOUTH",
-      "dest_warp_id": "0"
+      "dest_warp_id": 0
     },
     {
       "x": 3,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_SAFARI_ZONE_SOUTH",
-      "dest_warp_id": "0"
+      "dest_warp_id": 0
     },
     {
       "x": 14,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE121",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROGUE_HUB",
+      "dest_warp_id": 4
     },
     {
       "x": 15,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE121",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROGUE_HUB",
+      "dest_warp_id": 4
     }
   ],
   "coord_events": [
@@ -92,7 +105,7 @@
       "elevation": 3,
       "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "Route121_SafariZoneEntrance_EventScript_EntranceCounterTrigger"
+      "script": "RogueHub_EnterSafari"
     }
   ],
   "bg_events": [
@@ -102,7 +115,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route121_SafariZoneEntrance_EventScript_TrainerTipSign"
+      "script": "RogueHub_ListSafariShinies"
     }
   ]
 }

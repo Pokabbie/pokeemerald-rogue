@@ -6,6 +6,7 @@
 #include "battle_message.h"
 #include "bg.h"
 #include "data.h"
+#include "item.h"
 #include "item_menu.h"
 #include "link.h"
 #include "main.h"
@@ -24,6 +25,11 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/rgb.h"
+#include "constants/items.h"
+
+#include "rogue_controller.h"
+#include "rogue_player_customisation.h"
+#include "rogue_safari.h"
 
 static void SafariHandleDrawTrainerPic(u32 battler);
 static void SafariHandleSuccessBallThrowAnim(u32 battler);
@@ -123,30 +129,50 @@ static void SafariBufferRunCommand(u32 battler)
 
 static void HandleInputChooseAction(u32 battler)
 {
+    // RogueNote: Scuff the options
     if (JOY_NEW(A_BUTTON))
     {
-        PlaySE(SE_SELECT);
+        u16 itemId;
 
         switch (gActionSelectionCursor[battler])
         {
         case 0:
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SAFARI_BALL, 0);
+            itemId = RogueSafari_GetActivePokeballType();
+
+            if(GetItemCountInBag(itemId) > 0)
+            {
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SAFARI_BALL, 0);
+                SafariBufferExecCompleted(battler);
+            }
+            else
+            {
+                PlaySE(SE_FAILURE);
+            }
             break;
         case 1:
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SAFARI_POKEBLOCK, 0);
+            PlaySE(SE_SELECT);
+            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_USE_ITEM, 0);
+            SafariBufferExecCompleted(battler);
+
             break;
-        case 2:
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SAFARI_GO_NEAR, 0);
-            break;
+        //case 2:
+        //    //BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_GO_NEAR, 0);
+        //    break;
         case 3:
+            PlaySE(SE_SELECT);
             BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SAFARI_RUN, 0);
+            SafariBufferExecCompleted(battler);
             break;
         }
-        SafariBufferExecCompleted(battler);
     }
     else if (JOY_NEW(DPAD_LEFT))
     {
-        if (gActionSelectionCursor[battler] & 1)
+        if(gActionSelectionCursor[battler] == 3)
+        {
+            // Can't move left/right when on bottom row
+        }
+        else if (gActionSelectionCursor[battler] & 1)
         {
             PlaySE(SE_SELECT);
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[battler]);
@@ -156,7 +182,11 @@ static void HandleInputChooseAction(u32 battler)
     }
     else if (JOY_NEW(DPAD_RIGHT))
     {
-        if (!(gActionSelectionCursor[battler] & 1))
+        if(gActionSelectionCursor[battler] == 3)
+        {
+            // Can't move left/right when on bottom row
+        }
+        else if (!(gActionSelectionCursor[battler] & 1))
         {
             PlaySE(SE_SELECT);
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[battler]);
@@ -166,7 +196,11 @@ static void HandleInputChooseAction(u32 battler)
     }
     else if (JOY_NEW(DPAD_UP))
     {
-        if (gActionSelectionCursor[battler] & 2)
+        if(gActionSelectionCursor[battler] == 0)
+        {
+            // Can't move up/down in first column
+        }
+        else if (gActionSelectionCursor[battler] & 2)
         {
             PlaySE(SE_SELECT);
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[battler]);
@@ -176,7 +210,11 @@ static void HandleInputChooseAction(u32 battler)
     }
     else if (JOY_NEW(DPAD_DOWN))
     {
-        if (!(gActionSelectionCursor[battler] & 2))
+        if(gActionSelectionCursor[battler] == 0)
+        {
+            // Can't move up/down in first column
+        }
+        else if (!(gActionSelectionCursor[battler] & 2))
         {
             PlaySE(SE_SELECT);
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[battler]);
@@ -184,14 +222,27 @@ static void HandleInputChooseAction(u32 battler)
             ActionSelectionCreateCursorAt(gActionSelectionCursor[battler], 0);
         }
     }
-    else if (B_QUICK_MOVE_CURSOR_TO_RUN && JOY_NEW(B_BUTTON))
+    else if (JOY_NEW(B_BUTTON))
     {
         PlaySE(SE_SELECT);
-        ActionSelectionDestroyCursorAt(gActionSelectionCursor[battler]);
-        gActionSelectionCursor[battler] = 3;
-        ActionSelectionCreateCursorAt(gActionSelectionCursor[battler], 0);
+
+        // Auto jump to run option
+        switch (gActionSelectionCursor[battler])
+        {
+        case 3: // Bottom right
+            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SAFARI_RUN, 0);
+            SafariBufferExecCompleted();
+            break;
+
+        default: // Bottom left
+            ActionSelectionDestroyCursorAt(gActionSelectionCursor[battler]);
+            gActionSelectionCursor[battler] = 3;
+            ActionSelectionCreateCursorAt(gActionSelectionCursor[battler], 0);
+            break;
+        }
     }
 }
+
 
 static void Controller_WaitForHealthbox(u32 battler)
 {
@@ -246,7 +297,7 @@ static void SafariBufferExecCompleted(u32 battler)
 
 static void SafariHandleDrawTrainerPic(u32 battler)
 {
-    u32 trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+    u32 trainerPicId = RoguePlayer_GetTrainerBackPic();
 
     BtlController_HandleDrawTrainerPic(battler, trainerPicId, FALSE,
                                        80, 80 + 4 * (8 - gTrainerBackPicCoords[trainerPicId].size),
@@ -301,10 +352,33 @@ static void SafariHandleChooseAction(u32 battler)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
 }
 
+static void CompleteWhenChoseItem(void)
+{
+    if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
+    {
+        BtlController_EmitOneReturnValue(BUFFER_B, gSpecialVar_ItemId);
+        SafariBufferExecCompleted();
+    }
+}
+
+static void OpenBagAndChooseItem(void)
+{
+    if (!gPaletteFade.active)
+    {
+        gBattlerControllerFuncs[gActiveBattler] = CompleteWhenChoseItem;
+        ReshowBattleScreenDummy();
+        FreeAllWindowBuffers();
+        CB2_BagMenuFromBattle();
+    }
+}
+
 static void SafariHandleChooseItem(u32 battler)
 {
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-    gBattlerControllerFuncs[battler] = SafariOpenPokeblockCase;
+    //gBattlerControllerFuncs[battler] = SafariOpenPokeblockCase;
+    gBattlerControllerFuncs[battler] = OpenBagAndChooseItem;
+
+
     gBattlerInMenuId = battler;
 }
 

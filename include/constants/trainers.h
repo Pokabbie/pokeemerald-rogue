@@ -111,15 +111,180 @@
 #define TRAINER_PIC_RS_BRENDAN            91
 #define TRAINER_PIC_RS_MAY                92
 
+// RogueNote: Extra trainer pics
+#define TRAINER_PIC_KANTO_BROCK           93
+#define TRAINER_PIC_KANTO_MISTY           94
+#define TRAINER_PIC_KANTO_LTSURGE         95
+#define TRAINER_PIC_KANTO_ERIKA           96
+#define TRAINER_PIC_KANTO_KOGA            97
+#define TRAINER_PIC_KANTO_SABRINA         98
+#define TRAINER_PIC_KANTO_BLAINE          99
+#define TRAINER_PIC_KANTO_GIOVANNI        100
+
+#define TRAINER_PIC_KANTO_LORELEI         101
+#define TRAINER_PIC_KANTO_BRUNO           102
+#define TRAINER_PIC_KANTO_AGATHA          103
+#define TRAINER_PIC_KANTO_LANCE           104
+
+#define TRAINER_PIC_KANTO_BLUE            105
+#define TRAINER_PIC_KANTO_PROFOAK         106
+
+#define TRAINER_PIC_JOHTO_FALKNER         107
+#define TRAINER_PIC_JOHTO_BUGSY           108
+#define TRAINER_PIC_JOHTO_WHITNEY         109
+#define TRAINER_PIC_JOHTO_MORTY           110
+#define TRAINER_PIC_JOHTO_CHUCK           111
+#define TRAINER_PIC_JOHTO_JASMINE         112
+#define TRAINER_PIC_JOHTO_PRYCE           113
+#define TRAINER_PIC_JOHTO_CLAIR           114
+
+#define TRAINER_PIC_JOHTO_WILL            115
+#define TRAINER_PIC_JOHTO_KAREN           116
+
+#define TRAINER_PIC_JOHTO_RED             117
+
+
+#define TRAINER_PIC_SINNOH_AARON          118
+#define TRAINER_PIC_SINNOH_BERTHA         119
+#define TRAINER_PIC_SINNOH_BYRON          120
+#define TRAINER_PIC_SINNOH_CANDICE        121
+#define TRAINER_PIC_SINNOH_CRASHER_WAKE   122
+#define TRAINER_PIC_SINNOH_CYNTHIA        123
+#define TRAINER_PIC_SINNOH_FANTINA        124
+#define TRAINER_PIC_SINNOH_FLINT          125
+#define TRAINER_PIC_SINNOH_GARDENIA       126
+#define TRAINER_PIC_SINNOH_LUCIAN         127
+#define TRAINER_PIC_SINNOH_MAYLENE        128
+#define TRAINER_PIC_SINNOH_ROARK          129
+#define TRAINER_PIC_SINNOH_VOLKNER        130
+
+#define TRAINER_PIC_UNOVA_ALDER           131
+#define TRAINER_PIC_UNOVA_BRYCEN          132
+#define TRAINER_PIC_UNOVA_BURGH           133
+#define TRAINER_PIC_UNOVA_CAITLIN         134
+#define TRAINER_PIC_UNOVA_CHILI           135
+#define TRAINER_PIC_UNOVA_CILAN           136
+#define TRAINER_PIC_UNOVA_CLAY            137
+#define TRAINER_PIC_UNOVA_CRESS           138
+#define TRAINER_PIC_UNOVA_DRAYDEN         139
+#define TRAINER_PIC_UNOVA_ELESA           140
+#define TRAINER_PIC_UNOVA_GRIMSLEY        141
+#define TRAINER_PIC_UNOVA_IRIS            142
+#define TRAINER_PIC_UNOVA_LENORA          143
+#define TRAINER_PIC_UNOVA_MARLON          144
+#define TRAINER_PIC_UNOVA_MARSHAL         145
+#define TRAINER_PIC_UNOVA_ROXIE           146
+#define TRAINER_PIC_UNOVA_SHAUNTAL        147
+#define TRAINER_PIC_UNOVA_SKYLA           148
+
+#define TRAINER_PIC_KALOS_CLEMONT         149
+#define TRAINER_PIC_KALOS_DIANTHA         150
+#define TRAINER_PIC_KALOS_DRASNA          151
+#define TRAINER_PIC_KALOS_GRANT           152
+#define TRAINER_PIC_KALOS_KORRINA         153
+#define TRAINER_PIC_KALOS_MALVA           154
+#define TRAINER_PIC_KALOS_OLYMPIA         155
+#define TRAINER_PIC_KALOS_RAMOS           156
+#define TRAINER_PIC_KALOS_SIEBOLD         157
+#define TRAINER_PIC_KALOS_VALERIE         158
+#define TRAINER_PIC_KALOS_VIOLA           159
+#define TRAINER_PIC_KALOS_WIKSTROM        160
+#define TRAINER_PIC_KALOS_WULFRIC         161
+
+#define TRAINER_PIC_ALOLA_ACEROLA         162
+#define TRAINER_PIC_ALOLA_HALA            163
+#define TRAINER_PIC_ALOLA_HAPU            164
+#define TRAINER_PIC_ALOLA_ILIMA           165
+#define TRAINER_PIC_ALOLA_KAHILI          166
+#define TRAINER_PIC_ALOLA_KIAWE           167
+#define TRAINER_PIC_ALOLA_KUKUI           168
+#define TRAINER_PIC_ALOLA_LANA            169
+#define TRAINER_PIC_ALOLA_MALLOW          170
+#define TRAINER_PIC_ALOLA_MINA            171
+#define TRAINER_PIC_ALOLA_MOLAYNE         172
+#define TRAINER_PIC_ALOLA_NANU            173
+#define TRAINER_PIC_ALOLA_OLIVIA          174
+#define TRAINER_PIC_ALOLA_SOPHOCLES       175
+
+#define TRAINER_PIC_GALAR_ALLISTER        176
+#define TRAINER_PIC_GALAR_BEA             177
+#define TRAINER_PIC_GALAR_GORDIE          178
+#define TRAINER_PIC_GALAR_KABU            179
+#define TRAINER_PIC_GALAR_LEON            180
+#define TRAINER_PIC_GALAR_MELONY          181
+#define TRAINER_PIC_GALAR_MILO            182
+#define TRAINER_PIC_GALAR_NESSA           183
+#define TRAINER_PIC_GALAR_OPAL            184
+#define TRAINER_PIC_GALAR_PIERS           185
+#define TRAINER_PIC_GALAR_RAIHAN          186
+
+// gap for now as there are some more gens on the way
+
+#define TRAINER_PIC_ETHAN                 200
+#define TRAINER_PIC_LYRA                  201
+
+#define TRAINER_PIC_LUCAS                 202
+#define TRAINER_PIC_DAWN                  203
+#define TRAINER_PIC_HILBERT               204
+#define TRAINER_PIC_HILDA                 205
+#define TRAINER_PIC_NATE                  206
+#define TRAINER_PIC_ROSA                  207
+#define TRAINER_PIC_CALEM                 208
+#define TRAINER_PIC_SERENA                209
+#define TRAINER_PIC_ELIO                  210
+#define TRAINER_PIC_SELENE                211
+#define TRAINER_PIC_VICTOR                212
+#define TRAINER_PIC_GLORIA                213
+
+#define TRAINER_PIC_RIVAL_BRENDAN         214
+#define TRAINER_PIC_RIVAL_MAY             215
+#define TRAINER_PIC_RIVAL_SILVER          216
+#define TRAINER_PIC_RIVAL_BARRY           217
+#define TRAINER_PIC_RIVAL_BIANCA          218
+#define TRAINER_PIC_RIVAL_CHEREN          219
+#define TRAINER_PIC_RIVAL_N               220
+#define TRAINER_PIC_RIVAL_HUGH            221
+#define TRAINER_PIC_RIVAL_SHAUNA          222
+#define TRAINER_PIC_RIVAL_TREVOR          223
+#define TRAINER_PIC_RIVAL_TIERNO          224
+#define TRAINER_PIC_RIVAL_HAU             225
+#define TRAINER_PIC_RIVAL_GLADION         226
+#define TRAINER_PIC_RIVAL_HOP             227
+#define TRAINER_PIC_RIVAL_MARNIE          228
+#define TRAINER_PIC_RIVAL_BEDE            229
+
+#define TRAINER_PIC_POKABBIE              230
+#define TRAINER_PIC_POKABBIE_JUST_DITTO   231 // Just used for battle transition
+#define TRAINER_PIC_POKABBIE_AND_DITTO    232
+#define TRAINER_PIC_GLITCH_KATE           233
+#define TRAINER_PIC_GLITCH_TAILS          234
+#define TRAINER_PIC_GLITCH_ERMA           235
+#define TRAINER_PIC_GLITCH_RAVEN          TRAINER_PIC_POKEMON_BREEDER_F
+
+#define TRAINER_PIC_COMMUNITY_ZEFA        236
+
+
+// Special cases
+#define TRAINER_PIC_PLAYER_AVATAR           254
+#define TRAINER_PIC_PLAYER_OPPOSITE_AVATAR  255
+
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
-#define TRAINER_BACK_PIC_BRENDAN                0
-#define TRAINER_BACK_PIC_MAY                    1
-#define TRAINER_BACK_PIC_RED                    2
-#define TRAINER_BACK_PIC_LEAF                   3
-#define TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN  4
-#define TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY      5
-#define TRAINER_BACK_PIC_WALLY                  6
-#define TRAINER_BACK_PIC_STEVEN                 7
+#define TRAINER_BACK_PIC_NONE                   0
+#define TRAINER_BACK_PIC_BRENDAN                1
+#define TRAINER_BACK_PIC_MAY                    2
+#define TRAINER_BACK_PIC_RED                    3
+#define TRAINER_BACK_PIC_LEAF                   4
+#define TRAINER_BACK_PIC_ETHAN                  5
+#define TRAINER_BACK_PIC_LYRA                   6
+#define TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN  7
+#define TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY      8
+#define TRAINER_BACK_PIC_WALLY                  9
+#define TRAINER_BACK_PIC_STEVEN                 10
+#define TRAINER_BACK_PIC_LUCAS                  11
+#define TRAINER_BACK_PIC_DAWN                   12
+#define TRAINER_BACK_PIC_COMMUNITY_ZEFA         13
+
+#define TRAINER_BACK_PIC_PLAYER                 0xFF
 
 #define FACILITY_CLASS_HIKER                 0x0
 #define FACILITY_CLASS_AQUA_GRUNT_M          0x1
@@ -203,8 +368,10 @@
 #define FACILITY_CLASS_LEAF                  0x4f
 #define FACILITY_CLASS_RS_BRENDAN            0x50
 #define FACILITY_CLASS_RS_MAY                0x51
+#define FACILITY_CLASS_ETHAN                 0x52
+#define FACILITY_CLASS_LYRA                  0x53
 
-#define FACILITY_CLASSES_COUNT               0x52
+#define FACILITY_CLASSES_COUNT               0x54
 
 #define RS_FACILITY_CLASS_AQUA_LEADER_ARCHIE    0x0
 #define RS_FACILITY_CLASS_AQUA_GRUNT_M          0x1
@@ -352,8 +519,12 @@
 #define TRAINER_CLASS_PIKE_QUEEN     0x3f
 #define TRAINER_CLASS_PYRAMID_KING   0x40
 #define TRAINER_CLASS_RS_PROTAG      0x41
-#define TRAINER_CLASS_COUNT          0x42
+#define TRAINER_CLASS_TOTEM_LEADER   0x42
+#define TRAINER_CLASS_DEVELOPER      0x43
+#define TRAINER_CLASS_DEVELOPER_CHAMPION 0x44
+#define TRAINER_CLASS_COMMUNITY_MOD  0x45
 
+#define TRAINER_CLASS_COUNT          0x46
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music
 #define TRAINER_ENCOUNTER_MUSIC_GIRL         2 // used for male Tubers and Young Couples too

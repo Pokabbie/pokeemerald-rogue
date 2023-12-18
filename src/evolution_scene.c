@@ -34,6 +34,9 @@
 #include "constants/songs.h"
 #include "constants/rgb.h"
 #include "constants/items.h"
+#include "rogue_charms.h"
+#include "rogue_controller.h"
+
 
 struct EvoInfo
 {
@@ -208,6 +211,7 @@ void BeginEvolutionScene(struct Pokemon *mon, u16 postEvoSpecies, bool8 canStopE
 void EvolutionScene(struct Pokemon *mon, u16 postEvoSpecies, bool8 canStopEvo, u8 partyId)
 {
     u8 name[POKEMON_NAME_BUFFER_SIZE];
+    bool8 isShiny;
     u16 currSpecies;
     u32 trainerId, personality;
     u8 id;
@@ -255,6 +259,7 @@ void EvolutionScene(struct Pokemon *mon, u16 postEvoSpecies, bool8 canStopEvo, u
 
     // preEvo sprite
     currSpecies = GetMonData(mon, MON_DATA_SPECIES);
+    isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
     trainerId = GetMonData(mon, MON_DATA_OT_ID);
     personality = GetMonData(mon, MON_DATA_PERSONALITY);
     LoadSpecialPokePic(gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
@@ -309,11 +314,13 @@ void EvolutionScene(struct Pokemon *mon, u16 postEvoSpecies, bool8 canStopEvo, u
 static void CB2_EvolutionSceneLoadGraphics(void)
 {
     u8 id;
+    bool8 isShiny;
     u16 postEvoSpecies;
     u32 trainerId, personality;
     struct Pokemon *mon = &gPlayerParty[gTasks[sEvoStructPtr->evoTaskId].tPartyId];
 
     postEvoSpecies = gTasks[sEvoStructPtr->evoTaskId].tPostEvoSpecies;
+    isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
     trainerId = GetMonData(mon, MON_DATA_OT_ID);
     personality = GetMonData(mon, MON_DATA_PERSONALITY);
 
@@ -416,8 +423,7 @@ static void CB2_TradeEvolutionSceneLoadGraphics(void)
         break;
     case 4:
         {
-            u32 trainerId = GetMonData(mon, MON_DATA_OT_ID);
-            u32 personality = GetMonData(mon, MON_DATA_PERSONALITY);
+            bool8 isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
             LoadSpecialPokePic(gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_RIGHT],
                                 postEvoSpecies,
                                 personality,
@@ -463,6 +469,7 @@ static void CB2_TradeEvolutionSceneLoadGraphics(void)
 void TradeEvolutionScene(struct Pokemon *mon, u16 postEvoSpecies, u8 preEvoSpriteId, u8 partyId)
 {
     u8 name[POKEMON_NAME_BUFFER_SIZE];
+    bool8 isShiny;
     u16 currSpecies;
     u32 trainerId, personality;
     u8 id;
@@ -475,6 +482,7 @@ void TradeEvolutionScene(struct Pokemon *mon, u16 postEvoSpecies, u8 preEvoSprit
 
     // preEvo sprite
     currSpecies = GetMonData(mon, MON_DATA_SPECIES);
+    isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
     personality = GetMonData(mon, MON_DATA_PERSONALITY);
     trainerId = GetMonData(mon, MON_DATA_OT_ID);
 
@@ -571,7 +579,7 @@ static void CreateShedinja(u16 preEvoSpecies, struct Pokemon *mon)
         RemoveBagItem(ball, 1);
     #endif
 
-        for (i = MON_DATA_COOL_RIBBON; i < MON_DATA_COOL_RIBBON + CONTEST_CATEGORIES_COUNT; i++)
+        for (i = MON_DATA_CUTE_RIBBON; i <= MON_DATA_TOUGH_RIBBON; i++)
             SetMonData(&gPlayerParty[gPlayerPartyCount], i, &data);
         for (i = MON_DATA_CHAMPION_RIBBON; i <= MON_DATA_UNUSED_RIBBONS; i++)
             SetMonData(&gPlayerParty[gPlayerPartyCount], i, &data);
@@ -773,10 +781,16 @@ static void Task_EvolutionScene(u8 taskId)
             PlayBGM(MUS_EVOLVED);
             gTasks[taskId].tState++;
             SetMonData(mon, MON_DATA_SPECIES, (void *)(&gTasks[taskId].tPostEvoSpecies));
+            mon->rogueExtraData.hasPendingEvo = FALSE;
+
             CalculateMonStats(mon);
             EvolutionRenameMon(mon, gTasks[taskId].tPreEvoSpecies, gTasks[taskId].tPostEvoSpecies);
-            GetSetPokedexFlag(SpeciesToNationalPokedexNum(gTasks[taskId].tPostEvoSpecies), FLAG_SET_SEEN);
-            GetSetPokedexFlag(SpeciesToNationalPokedexNum(gTasks[taskId].tPostEvoSpecies), FLAG_SET_CAUGHT);
+            GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_SEEN);
+            GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT);
+
+            if(IsMonShiny(mon))
+                GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT_SHINY);
+
             IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
         }
         break;
@@ -888,13 +902,14 @@ static void Task_EvolutionScene(u8 taskId)
             }
             break;
         case MVSTATE_INTRO_MSG_2:
-            if (!IsTextPrinterActive(0) && !IsSEPlaying())
-            {
-                // "But, {mon} can't learn more than four moves"
-                BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_TRYTOLEARNMOVE2 - BATTLESTRINGS_TABLE_START]);
-                BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-                gTasks[taskId].tLearnMoveState++;
-            }
+            gTasks[taskId].tLearnMoveState++;
+            //if (!IsTextPrinterActive(0) && !IsSEPlaying())
+            //{
+            //    // "But, {mon} can't learn more than four moves"
+            //    BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_TRYTOLEARNMOVE2 - BATTLESTRINGS_TABLE_START]);
+            //    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+            //    gTasks[taskId].tLearnMoveState++;
+            //}
             break;
         case MVSTATE_INTRO_MSG_3:
             if (!IsTextPrinterActive(0) && !IsSEPlaying())
@@ -1026,11 +1041,12 @@ static void Task_EvolutionScene(u8 taskId)
             }
             break;
         case MVSTATE_ASK_CANCEL:
-            BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_STOPLEARNINGMOVE - BATTLESTRINGS_TABLE_START]);
-            BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-            gTasks[taskId].tLearnMoveYesState = MVSTATE_CANCEL;
-            gTasks[taskId].tLearnMoveNoState = MVSTATE_INTRO_MSG_1;
-            gTasks[taskId].tLearnMoveState = MVSTATE_PRINT_YES_NO;
+            gTasks[taskId].tLearnMoveState = MVSTATE_CANCEL;
+            //BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_STOPLEARNINGMOVE - BATTLESTRINGS_TABLE_START]);
+            //BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+            //gTasks[taskId].tLearnMoveYesState = MVSTATE_CANCEL;
+            //gTasks[taskId].tLearnMoveNoState = MVSTATE_INTRO_MSG_1;
+            //gTasks[taskId].tLearnMoveState = MVSTATE_PRINT_YES_NO;
             break;
         case MVSTATE_CANCEL:
             BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_DIDNOTLEARNMOVE - BATTLESTRINGS_TABLE_START]);
@@ -1192,17 +1208,23 @@ static void Task_TradeEvolutionScene(u8 taskId)
             PlayFanfare(MUS_EVOLVED);
             gTasks[taskId].tState++;
             SetMonData(mon, MON_DATA_SPECIES, (&gTasks[taskId].tPostEvoSpecies));
+            mon->rogueExtraData.hasPendingEvo = FALSE;
+
             CalculateMonStats(mon);
             EvolutionRenameMon(mon, gTasks[taskId].tPreEvoSpecies, gTasks[taskId].tPostEvoSpecies);
-            GetSetPokedexFlag(SpeciesToNationalPokedexNum(gTasks[taskId].tPostEvoSpecies), FLAG_SET_SEEN);
-            GetSetPokedexFlag(SpeciesToNationalPokedexNum(gTasks[taskId].tPostEvoSpecies), FLAG_SET_CAUGHT);
+            GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_SEEN);
+            GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT);
+            
+            if(IsMonShiny(mon))
+                GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT_SHINY);
+
             IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
         }
         break;
     case T_EVOSTATE_TRY_LEARN_MOVE:
         if (!IsTextPrinterActive(0) && IsFanfareTaskInactive() == TRUE)
         {
-            var = MonTryLearningNewMoveEvolution(mon, gTasks[taskId].tLearnsFirstMove);
+            var = MonTryLearningNewMoveByEvo(mon, gTasks[taskId].tLearnsFirstMove);
             if (var != MOVE_NONE && !gTasks[taskId].tEvoWasStopped)
             {
                 u8 nickname[POKEMON_NAME_BUFFER_SIZE];
@@ -1684,7 +1706,7 @@ static void RestoreBgAfterAnim(void)
 
 static void EvoScene_DoMonAnimAndCry(u8 monSpriteId, u16 speciesId)
 {
-    DoMonFrontSpriteAnimation(&gSprites[monSpriteId], speciesId, FALSE, 0);
+    DoMonFrontSpriteAnimation(&gSprites[monSpriteId], speciesId, FALSE, SKIP_FRONT_ANIM);
 }
 
 static bool32 EvoScene_IsMonAnimFinished(u8 monSpriteId)

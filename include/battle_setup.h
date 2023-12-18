@@ -12,8 +12,6 @@ struct RematchTrainer
     u16 mapNum;
 };
 
-extern const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES];
-
 extern u16 gTrainerBattleOpponent_A;
 extern u16 gTrainerBattleOpponent_B;
 extern u16 gPartnerTrainerId;
@@ -27,7 +25,6 @@ void BattleSetup_StartScriptedWildBattle(void);
 void BattleSetup_StartScriptedDoubleWildBattle(void);
 void BattleSetup_StartLatiBattle(void);
 void BattleSetup_StartLegendaryBattle(void);
-void StartGroudonKyogreBattle(void);
 void StartRegiBattle(void);
 u8 BattleSetup_GetTerrainId(void);
 u8 GetWildBattleTransition(void);
@@ -37,9 +34,11 @@ void ChooseStarter(void);
 void ResetTrainerOpponentIds(void);
 void SetMapVarsToTrainer(void);
 const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data);
+void BattleSetup_ConfigureAutomationTrainerBattle(void);
 void ConfigureAndSetUpOneTrainerBattle(u8 trainerObjEventId, const u8 *trainerScript);
 void ConfigureTwoTrainersBattle(u8 trainerObjEventId, const u8 *trainerScript);
 void SetUpTwoTrainersBattle(void);
+bool32 GetTrainerFlagFromObjectEventId(u8 trainerObjEventId);
 bool32 GetTrainerFlagFromScriptPointer(const u8 *data);
 void SetTrainerFacingDirection(void);
 u8 GetTrainerBattleMode(void);

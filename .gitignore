@@ -39,3 +39,10 @@ prefabs.json
 *.sym
 *.js
 src/data/map_group_count.h
+*.ups
+!scripts/*
+pokeemerald_memorystats.csv
+data/maps/**/*.inc
+tools/poryscript/*
+tools/ups/*
+!tools/Pokabbie/Build

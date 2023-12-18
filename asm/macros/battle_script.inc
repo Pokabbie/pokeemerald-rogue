@@ -1266,6 +1266,15 @@
 	.byte \position
 	.endm
 
+	.macro rogue_partyhasroom ptr:req
+	.byte 0xf9
+	.4byte \ptr
+	.endm
+
+	.macro rogue_caughtmon
+	.byte 0xfa
+	.endm
+
 	.macro settelekinesis failInstr:req
 	.byte 0xf9
 	.4byte \failInstr

@@ -71,9 +71,9 @@ static const u16 sMapPopUp_Palette_Underwater[16] = INCBIN_U16("graphics/map_pop
 
 static const u8 sRegionMapSectionId_To_PopUpThemeIdMapping[] =
 {
-    [MAPSEC_LITTLEROOT_TOWN] = MAPPOPUP_THEME_WOOD,
-    [MAPSEC_OLDALE_TOWN] = MAPPOPUP_THEME_WOOD,
-    [MAPSEC_DEWFORD_TOWN] = MAPPOPUP_THEME_WOOD,
+    [MAPSEC_POKEMON_HUB] = MAPPOPUP_THEME_WOOD,
+    [MAPSEC_ADVENTURE] = MAPPOPUP_THEME_WOOD,
+    [MAPSEC_OTHER_POKEMON_HUB] = MAPPOPUP_THEME_WOOD,
     [MAPSEC_LAVARIDGE_TOWN] = MAPPOPUP_THEME_WOOD,
     [MAPSEC_FALLARBOR_TOWN] = MAPPOPUP_THEME_WOOD,
     [MAPSEC_VERDANTURF_TOWN] = MAPPOPUP_THEME_WOOD,
@@ -227,25 +227,23 @@ enum {
 
 void ShowMapNamePopup(void)
 {
-    if (FlagGet(FLAG_HIDE_MAP_NAME_POPUP) != TRUE)
-    {
-        if (!FuncIsActiveTask(Task_MapNamePopUpWindow))
-        {
-            // New pop up window
-            sPopupTaskId = CreateTask(Task_MapNamePopUpWindow, 90);
-            SetGpuReg(REG_OFFSET_BG0VOFS, POPUP_OFFSCREEN_Y);
-            gTasks[sPopupTaskId].tState = STATE_PRINT;
-            gTasks[sPopupTaskId].tYOffset = POPUP_OFFSCREEN_Y;
-        }
-        else
-        {
-            // There's already a pop up window running.
-            // Hurry the old pop up offscreen so the new one can appear.
-            if (gTasks[sPopupTaskId].tState != STATE_SLIDE_OUT)
-                gTasks[sPopupTaskId].tState = STATE_SLIDE_OUT;
-            gTasks[sPopupTaskId].tIncomingPopUp = TRUE;
-        }
-    }
+    // RogueNote: Never show map popup
+    //if (FlagGet(FLAG_HIDE_MAP_NAME_POPUP) != TRUE)
+    //{
+    //    if (!FuncIsActiveTask(Task_MapNamePopUpWindow))
+    //    {
+    //        sPopupTaskId = CreateTask(Task_MapNamePopUpWindow, 90);
+    //        SetGpuReg(REG_OFFSET_BG0VOFS, 40);
+    //        gTasks[sPopupTaskId].data[0] = 6;
+    //        gTasks[sPopupTaskId].data[2] = 40;
+    //    }
+    //    else
+    //    {
+    //        if (gTasks[sPopupTaskId].data[0] != 2)
+    //            gTasks[sPopupTaskId].data[0] = 2;
+    //        gTasks[sPopupTaskId].data[3] = 1;
+    //    }
+    //}
 }
 
 static void Task_MapNamePopUpWindow(u8 taskId)
@@ -331,21 +329,6 @@ static void ShowMapNamePopUpWindow(void)
     u8 x;
     const u8 *mapDisplayHeaderSource;
 
-    if (InBattlePyramid())
-    {
-        if (gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PYRAMID_TOP)
-        {
-            withoutPrefixPtr = &(mapDisplayHeader[3]);
-            mapDisplayHeaderSource = sBattlePyramid_MapHeaderStrings[FRONTIER_STAGES_PER_CHALLENGE];
-        }
-        else
-        {
-            withoutPrefixPtr = &(mapDisplayHeader[3]);
-            mapDisplayHeaderSource = sBattlePyramid_MapHeaderStrings[gSaveBlock2Ptr->frontier.curChallengeBattleNum];
-        }
-        StringCopy(withoutPrefixPtr, mapDisplayHeaderSource);
-    }
-    else
     {
         withoutPrefixPtr = &(mapDisplayHeader[3]);
         GetMapName(withoutPrefixPtr, gMapHeader.regionMapSectionId, 0);

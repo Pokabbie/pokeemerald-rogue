@@ -1,8 +1,10 @@
 #include "global.h"
 #include "battle.h"
+#include "battle_setup.h"
 #include "battle_transition.h"
 #include "battle_transition_frontier.h"
 #include "bg.h"
+#include "data.h"
 #include "decompress.h"
 #include "event_object_movement.h"
 #include "field_camera.h"
@@ -24,6 +26,9 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/rgb.h"
+
+#include "rogue_controller.h"
+#include "rogue_player_customisation.h"
 
 #define PALTAG_UNUSED_MUGSHOT 0x100A
 
@@ -112,6 +117,7 @@ static void Task_Phoebe(u8);
 static void Task_Glacia(u8);
 static void Task_Drake(u8);
 static void Task_Champion(u8);
+static void Task_ChampionSteven(u8);
 static void Task_Aqua(u8);
 static void Task_Magma(u8);
 static void Task_Regice(u8);
@@ -363,6 +369,7 @@ static const TaskFunc sTasks_Main[B_TRANSITION_COUNT] =
     [B_TRANSITION_GLACIA] = Task_Glacia,
     [B_TRANSITION_DRAKE] = Task_Drake,
     [B_TRANSITION_CHAMPION] = Task_Champion,
+    [B_TRANSITION_CHAMPION_STEVEN] = Task_ChampionSteven,
     [B_TRANSITION_AQUA] = Task_Aqua,
     [B_TRANSITION_MAGMA] = Task_Magma,
     [B_TRANSITION_REGICE] = Task_Regice,
@@ -541,14 +548,17 @@ static const TransitionStateFunc sMugshot_Funcs[] =
     Mugshot_End
 };
 
-static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
-{
-    [MUGSHOT_SIDNEY]   = TRAINER_PIC_ELITE_FOUR_SIDNEY,
-    [MUGSHOT_PHOEBE]   = TRAINER_PIC_ELITE_FOUR_PHOEBE,
-    [MUGSHOT_GLACIA]   = TRAINER_PIC_ELITE_FOUR_GLACIA,
-    [MUGSHOT_DRAKE]    = TRAINER_PIC_ELITE_FOUR_DRAKE,
-    [MUGSHOT_CHAMPION] = TRAINER_PIC_CHAMPION_WALLACE,
-};
+// Handled Dynamically
+//static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
+//{
+//    [MUGSHOT_SIDNEY]   = TRAINER_PIC_ELITE_FOUR_SIDNEY,
+//    [MUGSHOT_PHOEBE]   = TRAINER_PIC_ELITE_FOUR_PHOEBE,
+//    [MUGSHOT_GLACIA]   = TRAINER_PIC_ELITE_FOUR_GLACIA,
+//    [MUGSHOT_DRAKE]    = TRAINER_PIC_ELITE_FOUR_DRAKE,
+//    [MUGSHOT_CHAMPION] = TRAINER_PIC_CHAMPION_WALLACE,
+//    [MUGSHOT_CHAMPION_STEVEN] = TRAINER_PIC_STEVEN,
+//};
+
 static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
 {
     [MUGSHOT_SIDNEY] =   {0x200, 0x200},
@@ -556,6 +566,7 @@ static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
     [MUGSHOT_GLACIA] =   {0x1B0, 0x1B0},
     [MUGSHOT_DRAKE] =    {0x1A0, 0x1A0},
     [MUGSHOT_CHAMPION] = {0x188, 0x188},
+    [MUGSHOT_CHAMPION_STEVEN] =    {0x1A0, 0x1A0},
 };
 static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
 {
@@ -564,6 +575,7 @@ static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
     [MUGSHOT_GLACIA] =   {-4,  4},
     [MUGSHOT_DRAKE] =    { 0,  5},
     [MUGSHOT_CHAMPION] = {-8,  7},
+    [MUGSHOT_CHAMPION_STEVEN] =    { 0,  5},
 };
 
 static const TransitionSpriteCallback sMugshotTrainerPicFuncs[] =
@@ -891,8 +903,9 @@ static const u16 sMugshotPal_Phoebe[] = INCBIN_U16("graphics/battle_transitions/
 static const u16 sMugshotPal_Glacia[] = INCBIN_U16("graphics/battle_transitions/glacia_bg.gbapal");
 static const u16 sMugshotPal_Drake[] = INCBIN_U16("graphics/battle_transitions/drake_bg.gbapal");
 static const u16 sMugshotPal_Champion[] = INCBIN_U16("graphics/battle_transitions/wallace_bg.gbapal");
+static const u16 sMugshotPal_Steven[] = INCBIN_U16("graphics/battle_transitions/steven_bg.gbapal");
 static const u16 sMugshotPal_Brendan[] = INCBIN_U16("graphics/battle_transitions/brendan_bg.gbapal");
-static const u16 sMugshotPal_May[] = INCBIN_U16("graphics/battle_transitions/may_bg.gbapal");
+//static const u16 sMugshotPal_May[] = INCBIN_U16("graphics/battle_transitions/may_bg.gbapal");
 
 static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
 {
@@ -900,13 +913,8 @@ static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
     [MUGSHOT_PHOEBE] = sMugshotPal_Phoebe,
     [MUGSHOT_GLACIA] = sMugshotPal_Glacia,
     [MUGSHOT_DRAKE] = sMugshotPal_Drake,
-    [MUGSHOT_CHAMPION] = sMugshotPal_Champion
-};
-
-static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =
-{
-    [MALE] = sMugshotPal_Brendan,
-    [FEMALE] = sMugshotPal_May
+    [MUGSHOT_CHAMPION] = sMugshotPal_Champion,
+    [MUGSHOT_CHAMPION_STEVEN] = sMugshotPal_Steven
 };
 
 static const u16 sUnusedTrainerPalette[] = INCBIN_U16("graphics/battle_transitions/unused_trainer.gbapal");
@@ -1156,7 +1164,7 @@ static bool8 Blur_Main(struct Task *task)
     }
     else
     {
-        task->tDelay = 4;
+        task->tDelay = 1;
         if (++task->tCounter == 10)
             BeginNormalPaletteFade(PALETTES_ALL, -1, 0, 16, RGB_BLACK);
         SetGpuReg(REG_OFFSET_MOSAIC, (task->tCounter & 15) * 17);
@@ -1798,7 +1806,7 @@ static bool8 PokeballsTrail_Main(struct Task *task)
         gFieldEffectArguments[0] = startX[side];   // x
         gFieldEffectArguments[1] = (i * 32) + 16;  // y
         gFieldEffectArguments[2] = side;
-        gFieldEffectArguments[3] = delays[i];
+        gFieldEffectArguments[3] = 0;//delays[i];
         FieldEffectStart(FLDEFF_POKEBALL_TRAIL);
     }
 
@@ -2289,6 +2297,12 @@ static void Task_Champion(u8 taskId)
     DoMugshotTransition(taskId);
 }
 
+static void Task_ChampionSteven(u8 taskId)
+{
+    gTasks[taskId].tMugshotId = MUGSHOT_CHAMPION_STEVEN;
+    DoMugshotTransition(taskId);
+}
+
 static void DoMugshotTransition(u8 taskId)
 {
     while (sMugshot_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
@@ -2328,7 +2342,7 @@ static bool8 Mugshot_SetGfx(struct Task *task)
     GetBg0TilesDst(&tilemap, &tileset);
     CpuSet(sEliteFour_Tileset, tileset, 0xF0);
     LoadPalette(sOpponentMugshotsPals[task->tMugshotId], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
-    LoadPalette(sPlayerMugshotsPals[gSaveBlock2Ptr->playerGender], BG_PLTT_ID(15) + 10, PLTT_SIZEOF(6));
+    LoadPalette(sMugshotPal_Brendan, BG_PLTT_ID(15) + 10, PLTT_SIZEOF(6)); // RogueNote: always use the same palette for the player
 
     for (i = 0; i < 20; i++)
     {
@@ -2576,17 +2590,27 @@ static void HBlankCB_Mugshots(void)
 
 static void Mugshots_CreateTrainerPics(struct Task *task)
 {
+    struct Trainer trainer;
     struct Sprite *opponentSprite, *playerSprite;
+    // Previous used mugshotId, but now default?
+    s16 mugshotId = 0;//task->tMugshotId;
 
-    s16 mugshotId = task->tMugshotId;
-    task->tOpponentSpriteId = CreateTrainerSprite(sMugshotsTrainerPicIDsTable[mugshotId],
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
+
+    if(trainer.trainerPic == TRAINER_PIC_POKABBIE_AND_DITTO)
+    {
+        // Hack to use a different pic, just for the transition
+        trainer.trainerPic = TRAINER_PIC_POKABBIE_JUST_DITTO;
+    }
+
+    task->tOpponentSpriteId = CreateTrainerSprite(trainer.trainerPic,
                                                   sMugshotsOpponentCoords[mugshotId][0] - 32,
                                                   sMugshotsOpponentCoords[mugshotId][1] + 42,
-                                                  0, gDecompressionBuffer);
-    task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender),
+                                                  0, gDecompressionBuffer).spriteId;
+    task->tPlayerSpriteId = CreateTrainerSprite(RoguePlayer_GetTrainerFrontPic(),
                                                 DISPLAY_WIDTH + 32,
                                                 106,
-                                                0, gDecompressionBuffer);
+                                                0, gDecompressionBuffer).spriteId;
 
     opponentSprite = &gSprites[task->tOpponentSpriteId];
     playerSprite = &gSprites[task->tPlayerSpriteId];

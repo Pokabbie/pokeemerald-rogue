@@ -1,9 +1,15 @@
+#include "global.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include "gba/gba.h"
 #include "config.h"
 #include "malloc.h"
 #include "mini_printf.h"
+
+#include "m4a.h"
+#include "main.h"
+#include "sound.h"
+#include "constants/songs.h"
 
 #define AGB_PRINT_FLUSH_ADDR 0x9FE209D
 #define AGB_PRINT_STRUCT_ADDR 0x9FE20F8
@@ -211,6 +217,14 @@ void NoCashGBAAssert(const char *pFile, s32 nLine, const char *pExpression, bool
 
 // mgba print functions
 #if (LOG_HANDLER == LOG_HANDLER_MGBA_PRINT)
+#define MGBA_PRINTF_BUFFER_SIZE (4096)
+
+#define MGBA_LOG_FATAL  (0)
+#define MGBA_LOG_ERROR  (1)
+#define MGBA_LOG_WARN   (2)
+#define MGBA_LOG_INFO   (3)
+#define MGBA_LOG_DEBUG  (4)
+
 #define MGBA_REG_DEBUG_MAX (256)
 
 bool32 MgbaOpen(void)
@@ -224,7 +238,7 @@ void MgbaClose(void)
     *REG_DEBUG_ENABLE = 0;
 }
 
-void MgbaPrintf(s32 level, const char* ptr, ...)
+static void MgbaPrintfBounded(s32 level, const char* ptr, ...)
 {
     va_list args;
 
@@ -241,17 +255,89 @@ void MgbaPrintf(s32 level, const char* ptr, ...)
     *REG_DEBUG_FLAGS = level | 0x100;
 }
 
+void MgbaPrintf(const char* ptr, ...)
+{
+    va_list args;
+    u32 offset = 0;
+    u32 n = 0;
+    u32 i;
+    char *buffer = Alloc(MGBA_PRINTF_BUFFER_SIZE);
+    AGB_ASSERT(buffer != NULL);
+
+    va_start(args, ptr);
+    #if (PRETTY_PRINT_HANDLER == PRETTY_PRINT_MINI_PRINTF)
+    n = mini_vsnprintf(buffer, MGBA_PRINTF_BUFFER_SIZE, ptr, args);
+    #elif (PRETTY_PRINT_HANDLER == PRETTY_PRINT_LIBC)
+    n = vsnprintf(buffer, MGBA_PRINTF_BUFFER_SIZE, ptr, args);
+    #else
+    #error "unspecified pretty printing handler."
+    #endif
+    va_end(args);
+
+    AGB_ASSERT(n < MGBA_PRINTF_BUFFER_SIZE);
+
+    do
+    {
+        for (i = 0; i < MGBA_REG_DEBUG_MAX; ++i)
+        {
+            REG_DEBUG_STRING[i] = buffer[offset + i];
+            if (buffer[offset + i] == 0)
+                break;
+        }
+        offset += i;
+        *REG_DEBUG_FLAGS = MGBA_LOG_INFO | 0x100;
+    } while ((i == MGBA_REG_DEBUG_MAX) && (buffer[offset] != '\0'));
+
+    Free(buffer);
+}
+
+void DebugForceReadKeys();
+
 void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nStopProgram)
 {
-    if (nStopProgram)
+    //if (nStopProgram)
     {
-        MgbaPrintf(MGBA_LOG_ERROR, "ASSERTION FAILED  FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
-        asm(".hword 0xEFFF");
+        MgbaPrintfBounded(MGBA_LOG_ERROR, "ASSERTION FAILED  FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
+        DebugPrint("A - Skip");
+        DebugPrint("B - Break Message");
+        DebugPrint("START - Crash Out");
+        DebugPrint("SELECT - Quick Skip");
+
+        PlaySE(SE_LOW_HEALTH);
+
+        while(TRUE)
+        {
+            if(JOY_NEW(A_BUTTON))
+            {
+                m4aSongNumStop(SE_LOW_HEALTH);
+                break;
+            }
+            else if(JOY_NEW(B_BUTTON))
+            {
+                m4aSongNumStop(SE_LOW_HEALTH);
+                MgbaPrintfBounded(MGBA_LOG_ERROR, "BREAK PRINT");
+                break;
+            }
+            else if(JOY_NEW(START_BUTTON))
+            {
+                asm(".hword 0xEFFF");
+            }
+            else if(JOY_HELD(SELECT_BUTTON))
+            {
+                m4aSongNumStop(SE_LOW_HEALTH);
+                MgbaPrintfBounded(MGBA_LOG_ERROR, "QUICK SKIP");
+                break;
+            }
+
+            DebugForceReadKeys();
+        }
     }
-    else
-    {
-        MgbaPrintf(MGBA_LOG_WARN, "WARING FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
-    }
+    //else
+    //{
+    //    MgbaPrintfBounded(MGBA_LOG_WARN, "WARING FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
+    //}
+
+    DebugForceReadKeys();
 }
 #endif
 #endif

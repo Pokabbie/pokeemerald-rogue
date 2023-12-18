@@ -29,6 +29,7 @@ enum
     SAVE_MENU_PLAY_TIME,
     SAVE_MENU_LOCATION,
     SAVE_MENU_BADGES,
+    SAVE_MENU_QUESTS,
 };
 
 struct MenuAction
@@ -47,6 +48,7 @@ void InitStandardTextBoxWindows(void);
 void InitTextBoxGfxAndPrinters(void);
 u16 RunTextPrintersAndIsPrinter0Active(void);
 void LoadMessageBoxAndBorderGfx(void);
+void LoadMessageBoxPalette(void);
 void DrawDialogueFrame(u8 windowId, bool8 copyToVram);
 void ClearStdWindowAndFrame(u8 windowId, bool8 copyToVram);
 u16 AddTextPrinterParameterized2(u8 windowId, u8 fontId, const u8 *str, u8 speed, void (*callback)(struct TextPrinterTemplate *, u16), u8 fgColor, u8 bgColor, u8 shadowColor);
@@ -106,6 +108,7 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color);
 void RemoveMapNamePopUpWindow(void);
 u8 GetMapNamePopUpWindowId(void);
 u8 AddMapNamePopUpWindow(void);
+u16 AddWindowParameterized(u8 bg, u8 left, u8 top, u8 width, u8 height, u8 paletteNum, u16 baseBlock);
 void AddTextPrinterParameterized5(u8 windowId, u8 fontId, const u8 *str, u8 left, u8 top, u8 speed, void (*callback)(struct TextPrinterTemplate *, u16), u8 letterSpacing, u8 lineSpacing);
 void SetBgTilemapPalette(u8 bgId, u8 left, u8 top, u8 width, u8 height, u8 palette);
 void AddValToTilemapBuffer(void *ptr, int delta, int width, int height, bool32 is8BPP);

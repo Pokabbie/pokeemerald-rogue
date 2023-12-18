@@ -31,6 +31,8 @@
 #include "constants/party_menu.h"
 #include "constants/trainers.h"
 
+#include "rogue_controller.h"
+
 static void PlayerPartnerHandleLoadMonSprite(u32 battler);
 static void PlayerPartnerHandleSwitchInAnim(u32 battler);
 static void PlayerPartnerHandleDrawTrainerPic(u32 battler);

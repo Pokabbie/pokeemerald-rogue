@@ -1,0 +1,71 @@
+const BOSS_NPC = 1
+const DITTO_NPC = 2
+
+mapscripts Rogue_Boss_13_MapScripts
+{
+}
+
+script Rogue_Battle_Boss13
+{
+    lockall()
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss13)
+    waitmovement(0)
+
+    buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+    msgbox(gPlaceholder_Gym_PreBattleOpenning)
+
+    call(Rogue_SetDesiredWeather)
+
+    applymovement(BOSS_NPC, BossToFightBoss13)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFightBoss13)
+    waitmovement(0)
+
+    // Manually kick off the encouter to control the music + avoid the trainer from changing directions
+    //playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
+    msgbox(gPlaceholder_Gym_PreBattleTaunt)
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, gPlaceholder_Gym_PostBattleTaunt)
+
+    call(Rogue_BattleDefeated_Boss13)
+}
+
+script Rogue_BattleDefeated_Boss13
+{
+
+    special(Rogue_IsFinalQuestActive)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        // Fake out the game clear
+        fadescreen(FADE_TO_BLACK)
+
+        // TODO
+        special(RemoveCameraObject)
+        warp(MAP_ROGUE_HUB_TRANSITION, 0)
+        waitstate
+    }
+    else
+    {
+        // Normal game clear
+        fadescreen(FADE_TO_BLACK)
+        special(GameClear)
+        waitstate
+        releaseall
+    }
+}
+
+movement CameraToBattleFieldBoss13 {
+    walk_up * 3
+}
+
+movement PlayerToFightBoss13 {
+    walk_up
+}
+
+movement BossToFightBoss13 {
+    face_down
+}
+
+movement DittoToFightBoss13 {
+    walk_faster_down * 4
+}

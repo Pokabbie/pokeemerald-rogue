@@ -4,7 +4,8 @@
 Std_ObtainItem::
 	additem ITEMID, AMOUNT
 	copyvar VAR_0x8007, VAR_RESULT
-	call EventScript_ObtainItemMessage
+	call Rogue_Common_DisplayPopups
+	@ call EventScript_ObtainItemMessage @ todo need to force popup dialogue here?
 	return
 
 EventScript_ObtainItemMessage::
@@ -18,14 +19,38 @@ EventScript_ObtainItemMessage::
 EventScript_BufferPocketNameAndTryFanfare::
 	switch VAR_RESULT
 	case POCKET_ITEMS,      EventScript_BufferItemsPocket
+	case POCKET_HELD_ITEMS, EventScript_BufferHeldItemsPocket
+	case POCKET_MEDICINE,   EventScript_BufferMedicinePocket
+	case POCKET_STONES,     EventScript_BufferStonesPocket
 	case POCKET_KEY_ITEMS,  EventScript_BufferKeyItemsPocket
 	case POCKET_POKE_BALLS, EventScript_BufferPokeballsPocket
 	case POCKET_TM_HM,      EventScript_BufferTMHMsPocket
 	case POCKET_BERRIES,    EventScript_BufferBerriesPocket
+	case POCKET_POKEBLOCK,  EventScript_BufferPokeblockPocket
 	end
 
 EventScript_BufferItemsPocket::
 	bufferstdstring STR_VAR_3, STDSTRING_ITEMS
+	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
+	return
+
+EventScript_BufferHeldItemsPocket::
+	bufferstdstring STR_VAR_3, STDSTRING_HELD_ITEMS
+	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
+	return
+
+EventScript_BufferMedicinePocket::
+	bufferstdstring STR_VAR_3, STDSTRING_MEDICINE
+	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
+	return
+
+EventScript_BufferCharmsPocket::
+	bufferstdstring STR_VAR_3, STDSTRING_CHARMS
+	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
+	return
+
+EventScript_BufferStonesPocket::
+	bufferstdstring STR_VAR_3, STDSTRING_STONES
 	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
 	return
 
@@ -46,6 +71,11 @@ EventScript_BufferTMHMsPocket::
 
 EventScript_BufferBerriesPocket::
 	bufferstdstring STR_VAR_3, STDSTRING_BERRIES
+	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
+	return
+
+EventScript_BufferPokeblockPocket::
+	bufferstdstring STR_VAR_3, STDSTRING_POKEBLOCK
 	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
 	return
 
@@ -102,7 +132,7 @@ Std_FindItem::
 	copyvar VAR_0x8007, VAR_RESULT
 	bufferitemnameplural STR_VAR_2, ITEMID, AMOUNT
 	checkitemtype ITEMID
-	call EventScript_BufferPocketNameAndTryFanfare
+	@ call EventScript_BufferPocketNameAndTryFanfare
 	call_if_eq VAR_0x8007, TRUE, EventScript_PickUpItem
 	call_if_eq VAR_0x8007, FALSE, EventScript_NoRoomToPickUpItem
 	release
@@ -111,16 +141,14 @@ Std_FindItem::
 EventScript_PickUpItem::
 	removeobject VAR_LAST_TALKED
 	additem VAR_0x8004, VAR_0x8005
-	specialvar VAR_RESULT, BufferTMHMMoveName
-	copyvar VAR_0x8008, VAR_RESULT
-	call_if_eq VAR_0x8008, TRUE, EventScript_FoundTMHM
-	call_if_eq VAR_0x8008, FALSE, EventScript_FoundItem
-	waitfanfare
-	waitmessage
-	bufferitemnameplural STR_VAR_2, VAR_0x8004, VAR_0x8005
-	pyramid_inchallenge
-	goto_if_eq VAR_RESULT, TRUE, EventScript_PutBattlePyramidItemInBag
-	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	@ specialvar VAR_RESULT, BufferTMHMMoveName
+	@ copyvar VAR_0x8008, VAR_RESULT
+	@ call_if_eq VAR_0x8008, TRUE, EventScript_FoundTMHM
+	@ call_if_eq VAR_0x8008, FALSE, EventScript_FoundItem
+	@ bufferitemnameplural STR_VAR_2, VAR_0x8004, VAR_0x8005
+	@ pyramid_inchallenge
+	@ goto_if_eq VAR_RESULT, TRUE, EventScript_PutBattlePyramidItemInBag
+	@ msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
 	return
 
 EventScript_PutBattlePyramidItemInBag::
@@ -129,16 +157,15 @@ EventScript_PutBattlePyramidItemInBag::
 
 EventScript_FoundTMHM::
 	bufferitemnameplural STR_VAR_1, VAR_0x8004, VAR_0x8005
-	message gText_PlayerFoundOneTMHM
+	msgbox gText_PlayerFoundOneTMHM, MSGBOX_DEFAULT
 	return
 
 EventScript_FoundItem::
-	message gText_PlayerFoundOneItem
+	msgbox gText_PlayerFoundOneItem, MSGBOX_DEFAULT
 	return
 
 EventScript_NoRoomToPickUpItem::
-	msgbox gText_ObtainedTheItem, MSGBOX_DEFAULT
-	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
+	special Popup_CannotTakeItem
 	setvar VAR_RESULT, FALSE
 	return
 

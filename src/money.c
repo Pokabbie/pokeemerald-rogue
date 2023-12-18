@@ -10,6 +10,9 @@
 #include "strings.h"
 #include "decompress.h"
 
+#include "rogue.h"
+#include "rogue_quest.h"
+
 EWRAM_DATA static u8 sMoneyBoxWindowId = 0;
 EWRAM_DATA static u8 sMoneyLabelSpriteId = 0;
 
@@ -103,6 +106,8 @@ void AddMoney(u32 *moneyPtr, u32 toAdd)
     }
 
     SetMoney(moneyPtr, toSet);
+
+    QuestNotify_OnAddMoney(toAdd);
 }
 
 void RemoveMoney(u32 *moneyPtr, u32 toSub)
@@ -116,6 +121,8 @@ void RemoveMoney(u32 *moneyPtr, u32 toSub)
         toSet -= toSub;
 
     SetMoney(moneyPtr, toSet);
+
+    QuestNotify_OnRemoveMoney(toSub);
 }
 
 bool8 IsEnoughForCostInVar0x8005(void)
@@ -133,7 +140,18 @@ void PrintMoneyAmountInMoneyBox(u8 windowId, int amount, u8 speed)
     PrintMoneyAmount(windowId, 38, 1, amount, speed);
 }
 
+void PrintMoneyAmountInMoneyBoxCustom(u8 windowId, int amount, u8 speed, const u8* expandStr)
+{
+    // TODO - Should be smarter with x offset
+    PrintMoneyAmountCustom(windowId, 33, 1, amount, speed, expandStr);
+}
+
 void PrintMoneyAmount(u8 windowId, u8 x, u8 y, int amount, u8 speed)
+{
+    PrintMoneyAmountCustom(windowId, x, y, amount, speed, gText_PokedollarVar1);
+}
+
+void PrintMoneyAmountCustom(u8 windowId, u8 x, u8 y, int amount, u8 speed, const u8* expandStr)
 {
     u8 *txtPtr;
     s32 strLength;
@@ -146,7 +164,7 @@ void PrintMoneyAmount(u8 windowId, u8 x, u8 y, int amount, u8 speed)
     while (strLength-- > 0)
         *(txtPtr++) = CHAR_SPACER;
 
-    StringExpandPlaceholders(txtPtr, gText_PokedollarVar1);
+    StringExpandPlaceholders(txtPtr, expandStr);
     AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar4, x, y, speed, NULL);
 }
 
@@ -154,6 +172,12 @@ void PrintMoneyAmountInMoneyBoxWithBorder(u8 windowId, u16 tileStart, u8 pallete
 {
     DrawStdFrameWithCustomTileAndPalette(windowId, FALSE, tileStart, pallete);
     PrintMoneyAmountInMoneyBox(windowId, amount, 0);
+}
+
+void PrintMoneyAmountInMoneyBoxWithBorderCustom(u8 windowId, u16 tileStart, u8 pallete, int amount, const u8* expandStr)
+{
+    DrawStdFrameWithCustomTileAndPalette(windowId, FALSE, tileStart, pallete);
+    PrintMoneyAmountInMoneyBoxCustom(windowId, amount, 0, expandStr);
 }
 
 void ChangeAmountInMoneyBox(int amount)

@@ -14,6 +14,7 @@ struct PartyMenu
     u8 layout:2;
     s8 slotId;
     s8 slotId2;
+    u8 subMenuId;
     u8 action;
     u16 bagItem;
     s16 data1;           // used variously as a moveId, counter, moveSlotId, or cursorPos
@@ -58,6 +59,7 @@ void ItemUseCB_ReduceEV(u8 taskId, TaskFunc task);
 void ItemUseCB_PPRecovery(u8 taskId, TaskFunc task);
 void ItemUseCB_PPUp(u8 taskId, TaskFunc task);
 u16 ItemIdToBattleMoveId(u16 item);
+u16 BattleMoveIdToItemId(u16 move);
 bool8 MonKnowsMove(struct Pokemon *mon, u16 move);
 bool8 BoxMonKnowsMove(struct BoxPokemon *boxMon, u16 move);
 void ItemUseCB_TMHM(u8 taskId, TaskFunc task);
@@ -92,6 +94,8 @@ bool8 CB2_FadeFromPartyMenu(void);
 void ChooseContestMon(void);
 void ChoosePartyMon(void);
 void ChooseMonForMoveRelearner(void);
+void ChooseMonForRelease(void);
+void ReturnToPartyMenuSubMenu(void);
 void BattlePyramidChooseMonHeldItems(void);
 void DoBattlePyramidMonsHaveHeldItem(void);
 void IsSelectedMonEgg(void);
@@ -100,5 +104,8 @@ void MoveDeleterForgetMove(void);
 void BufferMoveDeleterNicknameAndMove(void);
 void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
+
+u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves, u16 tutorMovesCapacity);
+u8 GetTutorMovesForSpecies(u16 species, u16 *tutorMoves, u16 tutorMovesCapacity);
 
 #endif // GUARD_PARTY_MENU_H

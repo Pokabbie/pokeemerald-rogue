@@ -89,7 +89,7 @@ struct ContestPokemon
     u16 species;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
     u8 trainerName[PLAYER_NAME_LENGTH + 1];
-    u8 trainerGfxId;
+    u16 trainerGfxId;
     u32 aiFlags;
     u8 whichRank:2;
     u8 aiPool_Cool:1;
@@ -324,7 +324,6 @@ extern u16 gSpecialVar_ContestRank;
 extern u8 gNumLinkContestPlayers;
 extern u8 gHighestRibbonRank;
 extern struct ContestResources *gContestResources;
-extern struct ContestWinner gCurContestWinner;
 extern u8 gCurContestWinnerIsForArtist;
 extern u8 gCurContestWinnerSaveIdx;
 extern u32 gContestRngValue;

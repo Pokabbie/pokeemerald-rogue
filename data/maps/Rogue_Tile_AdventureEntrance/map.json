@@ -1,0 +1,97 @@
+{
+  "id": "MAP_ROGUE_TILE_ADVENTURE_ENTRANCE",
+  "name": "Rogue_Tile_AdventureEntrance",
+  "layout": "LAYOUT_ROGUE_TILE_ADVENTURE_ENTRANCE",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "direction": "left",
+      "offset": 8,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+    },
+    {
+      "direction": "right",
+      "offset": 8,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+    },
+    {
+      "direction": "down",
+      "offset": 6,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "x": 8,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Hub_Clothes_ChangePokemonHubName",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 0,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_HOME",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_HOME",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 9,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_FARMING_FIELD",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 10,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_FARMING_FIELD",
+      "dest_warp_id": 0
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

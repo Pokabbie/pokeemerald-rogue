@@ -123,8 +123,8 @@ Route121_SafariZoneEntrance_Text_FirstTimeInfo:
 
 Route121_SafariZoneEntrance_Text_WouldYouLikeToPlay:
 	.string "Welcome to the SAFARI ZONE!\p"
-	.string "All you can catch for just ¥500!\n"
-	.string "Would you like to play a SAFARI Game?$"
+	.string "Entry is just ¥1000!\n"
+	.string "Would you like to enter?$"
 
 Route121_SafariZoneEntrance_Text_PlayAnotherTime:
 	.string "Okay.\n"
@@ -135,13 +135,13 @@ Route121_SafariZoneEntrance_Text_NotEnoughMoney:
 	.string "Sorry.$"
 
 Route121_SafariZoneEntrance_Text_ThatWillBe500Please:
-	.string "That will be ¥500, please.$"
+	.string "That will be ¥1000, please.$"
 
 Route121_SafariZoneEntrance_Text_HereAreYourSafariBalls:
 	.string "Here are your SAFARI BALLS.$"
 
 Route121_SafariZoneEntrance_Text_Received30SafariBalls:
-	.string "{PLAYER} received 30 SAFARI BALLS.$"
+	.string "{PLAYER} received 3 SAFARI BALLS.$"
 
 Route121_SafariZoneEntrance_Text_PleaseEnjoyYourself:
 	.string "We'll let you know when your game\n"

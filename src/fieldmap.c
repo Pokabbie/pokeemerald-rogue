@@ -17,6 +17,8 @@
 #include "constants/rgb.h"
 #include "constants/metatile_behaviors.h"
 
+#include "rogue_controller.h"
+
 struct ConnectionFlags
 {
     u8 south:1;
@@ -69,6 +71,7 @@ void InitMap(void)
     InitMapLayoutData(&gMapHeader);
     SetOccupiedSecretBaseEntranceMetatiles(gMapHeader.events);
     RunOnLoadMapScript();
+    Rogue_OnLoadMap();
 }
 
 void InitMapFromSavedGame(void)
@@ -78,6 +81,7 @@ void InitMapFromSavedGame(void)
     SetOccupiedSecretBaseEntranceMetatiles(gMapHeader.events);
     LoadSavedMapView();
     RunOnLoadMapScript();
+    Rogue_OnLoadMap();
     UpdateTVScreensOnMap(gBackupMapLayout.width, gBackupMapLayout.height);
 }
 
@@ -141,6 +145,10 @@ static void InitBackupMapLayoutConnections(struct MapHeader *mapHeader)
         {
             struct MapHeader const *cMap = GetMapHeaderFromConnection(connection);
             u32 offset = connection->offset;
+
+            if(!Rogue_AcceptMapConnection(mapHeader, connection))
+                continue;
+
             switch (connection->direction)
             {
             case CONNECTION_SOUTH:
@@ -697,6 +705,9 @@ static const struct MapConnection *GetIncomingConnection(u8 direction, int x, in
     connection = connections->connections;
     for (i = 0; i < count; i++, connection++)
     {
+        if(!Rogue_AcceptMapConnection(&gMapHeader, connection))
+            continue;
+
         if (connection->direction == direction && IsPosInIncomingConnectingMap(direction, x, y, connection) == TRUE)
             return connection;
     }
@@ -776,6 +787,9 @@ const struct MapConnection *GetMapConnectionAtPos(s16 x, s16 y)
         connection = gMapHeader.connections->connections;
         for (i = 0; i < count; i++, connection++)
         {
+            if(!Rogue_AcceptMapConnection(&gMapHeader, connection))
+                continue;
+
             direction = connection->direction;
             if ((direction == CONNECTION_DIVE || direction == CONNECTION_EMERGE)
              || (direction == CONNECTION_NORTH && y > MAP_OFFSET - 1)
@@ -942,5 +956,6 @@ void LoadMapTilesetPalettes(struct MapLayout const *mapLayout)
     {
         LoadPrimaryTilesetPalette(mapLayout);
         LoadSecondaryTilesetPalette(mapLayout);
+        Rogue_ModifyOverworldPalette(0, NUM_PALS_TOTAL);
     }
 }

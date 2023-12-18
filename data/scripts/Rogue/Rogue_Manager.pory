@@ -1,0 +1,1060 @@
+const VAR_ITEM_INDEX = VAR_0x8000
+const VAR_ITEM_ID_VAL = VAR_0x8001
+const VAR_ITEM_AMOUNT = VAR_0x8002
+const VAR_SHOP_DIFFICULTY = VAR_0x8000
+const VAR_SHOP_RANDOM_IDX = VAR_TEMP_F
+
+// Re-used scripts
+//
+
+script Rogue_GiveItem_Internal
+{
+    special(Rogue_DetermineItemPickupCount)
+    finditem(VAR_ITEM_ID_VAL, VAR_ITEM_AMOUNT)
+}
+
+script Rogue_Common_DisplayPopups
+{
+    closemessage
+    special(Rogue_DisplayPopupsFromScript)
+    waitstate
+    return
+}
+
+script Rogue_Common_WaitForRogueAssistant
+{
+    special(Rogue_IsRogueAssistantConnected)
+    if(var(VAR_RESULT) == NO)
+    {
+        message(format("Please connect Rogue Assistant.\n… … B Button: Cancel"))
+        waitmessage
+
+        callnative(Rogue_WaitForRogueAssistant)
+        waitstate
+
+        call(Rogue_Common_DisplayPopups)
+    }
+
+    return
+}
+
+script Rogue_QuickSaveRun
+{
+    lockall
+
+    call(Common_EventScript_SaveGame)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        fadescreen(FADE_TO_BLACK)
+        delay(60)
+        special(DoSoftReset)
+    }
+
+    releaseall
+}
+
+script Rogue_QuickSaveLoad
+{
+    // We can accidentally call this on successful run return
+    lockall
+
+    if(var(VAR_0x8004) == TRUE)
+    {
+        msgbox(format("Adventure has been reloaded.\pClearing temporary save entry…"))
+
+        call(Common_EventScript_ForceSaveGame)
+    }
+    else
+    {
+        msgbox(format("This save has already been reloaded.\pRetiring from Adventure…"))
+        call(Rogue_ReturnToHub)
+    }
+
+    releaseall
+}
+
+script Rogue_QuickSaveVersionWarning
+{
+    lockall
+
+    setvar(VAR_RESULT, YES)
+    while(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Invalid Save Location Detected!\pWhen upgrading to a new patch, make sure to save in the HUB outdoor area.\pPlease revert to the older patch and re-save in a valid location."))
+    }
+
+    releaseall
+}
+
+script Rogue_QuickSaveVersionUpdateMessage
+{
+    bufferstring(STR_VAR_1, gText_RogueVersion)
+    bufferstring(STR_VAR_2, gText_RogueVersionPrefix)
+    bufferstring(STR_VAR_3, gText_RogueVersionSuffix)
+
+    if(flag(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING))
+    {
+        msgbox(format("WARNING!\pThis save game was detected to have come from a pre-release patch version.\pIt is not recommended to continue using this save, as you may lock yourself out of new content.\pPlease restore a backup if possible."))
+    }
+
+    msgbox(format("Welcome to...\nEmerald Rogue {STR_VAR_2}!\p{STR_VAR_1} {STR_VAR_3}\pAlways remember to download from the official sources:\pPokeCommunity (posted by Pokabbie) or Discord\pFor guides, bug reporting and previews, feel free to join the official Discord:\phttps://discord.pokabbie.com"), MSGBOX_DEFAULT)
+    msgbox(format("I hope you enjoy Emerald Rogue!"), MSGBOX_DEFAULT)
+}
+
+//script Rogue_NewGameVersionUpdate
+//{
+//    lockall
+//
+//    call(Rogue_QuickSaveVersionUpdateMessage)
+//
+//    releaseall
+//}
+
+script Rogue_QuickSaveVersionUpdate
+{
+    lock
+
+    //call(Rogue_QuickSaveVersionUpdateMessage) - Reload and then show message after back in hub
+    setflag(FLAG_ROGUE_PENDING_PATCH_MSG)
+    warp(MAP_ROGUE_HUB, 8)
+
+    release
+}
+
+script Rogue_RetireFromRun
+{
+    lockall
+    msgbox(format("Are you sure you'd like to return to the HUB?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        call(Rogue_ReturnToHub)
+    }
+
+    releaseall
+}
+
+script Rogue_ReturnToHub
+{
+    warprespawn
+    waitstate
+    return
+}
+
+script Rogue_EventScript_ItemUseHealingFlask
+{
+    lock
+
+    if(flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+        copyvar(VAR_0x8004, VAR_ROGUE_FLASK_HEALS_MAX)
+        subvar(VAR_0x8004, VAR_ROGUE_FLASK_HEALS_USED)
+
+        buffernumberstring(STR_VAR_1, VAR_0x8004)
+
+        if(var(VAR_ROGUE_FLASK_HEALS_USED) < VAR_ROGUE_FLASK_HEALS_MAX)
+        {
+            msgbox("The flask has {STR_VAR_1} uses remaining.\nWould you like to heal?", MSGBOX_YESNO)
+
+            if(var(VAR_RESULT) == YES)
+            {
+                //playse(SE_SHOP)
+                //special(HealPlayerParty)
+                addvar(VAR_ROGUE_FLASK_HEALS_USED, 1)
+                call(Common_EventScript_OutOfCenterPartyHeal)
+                
+                copyvar(VAR_0x8004, VAR_ROGUE_FLASK_HEALS_MAX)
+                subvar(VAR_0x8004, VAR_ROGUE_FLASK_HEALS_USED)
+
+                buffernumberstring(STR_VAR_1, VAR_0x8004)
+                msgbox("The flask has {STR_VAR_1} uses remaining.", MSGBOX_DEFAULT)
+            }
+        }
+        else
+        {
+            msgbox("The flask has {STR_VAR_1} uses remaining.", MSGBOX_DEFAULT)
+        }
+    }
+    else
+    {
+        buffernumberstring(STR_VAR_1, VAR_ROGUE_FLASK_HEALS_MAX)
+        msgbox("The flask has {STR_VAR_1} total uses.", MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+script Rogue_EventScript_UsePokeblockItem
+{
+    lock
+
+    bufferitemname(STR_VAR_1, VAR_ITEM_ID)
+    copyvar(VAR_ROGUE_ACTIVE_POKEBLOCK, VAR_ITEM_ID)
+
+    playse(SE_REPEL)
+    special(Rogue_ScatterPokeblockItem)
+    waitse
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("The {STR_VAR_1} was scattered…\pThe Pokémon seem to enjoy it!"))
+    }
+    else
+    {
+        msgbox(format("The {STR_VAR_1} was scattered…\pThe Pokémon don't seem interested in it…"))
+    }
+
+    release
+}
+
+script Rogue_EventScript_AttemptPostGymHeal
+{
+    // Don't heal if we're in the healing flask mode
+    checkitem(ITEM_HEALING_FLASK)
+    if(var(VAR_RESULT) == NO)
+    {
+        special(HealPlayerParty)
+    }
+}
+
+script Rogue_EventScript_AttemptPostRivalHeal
+{
+    // Don't heal if we're in the healing flask mode
+    checkitem(ITEM_HEALING_FLASK)
+    if(var(VAR_RESULT) == NO)
+    {
+        special(HealPlayerParty)
+    }
+}
+
+script Rogue_EventScript_AttemptNurseHeal
+{
+    call(Common_EventScript_OutOfCenterPartyHeal)
+    setvar(VAR_ROGUE_FLASK_HEALS_USED, 0)
+}
+
+script Rogue_SetDesiredWeather
+{
+    if(var(VAR_ROGUE_DESIRED_WEATHER) != WEATHER_NONE)
+    {
+        setweather(VAR_ROGUE_DESIRED_WEATHER)
+        doweather
+    }
+}
+
+script Rogue_ClearWeather
+{
+    setweather(WEATHER_NONE)
+    doweather
+}
+
+// Movement
+//
+script Rogue_Common_TurnPlayerNorth
+{
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    end
+}
+script Rogue_Common_TurnPlayerSouth
+{
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+    end
+}
+script Rogue_Common_TurnPlayerEast
+{
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    end
+}
+script Rogue_Common_TurnPlayerWest
+{
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    end
+}
+
+// Shops
+//
+
+script Rogue_Shop_GetRandomIndex
+{
+    if(var(VAR_SHOP_RANDOM_IDX) == 0)
+    {
+        random(5)
+        addvar(VAR_RESULT, 1)
+        copyvar(VAR_SHOP_RANDOM_IDX, VAR_RESULT)
+    }
+    else
+    {
+        copyvar(VAR_RESULT, VAR_SHOP_RANDOM_IDX)
+    }
+}
+
+script Rogue_Shop_Balls
+{    
+    lock
+    faceplayer
+    message("Welcome to the POKéBALL Shop!")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_BALLS)
+
+    msgbox("Come again soon!")
+    release
+}
+
+script Rogue_Shop_Medicine
+{    
+    lock
+    faceplayer
+    message("Welcome to the GENERAL Shop!")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_GENERAL)
+
+    msgbox("Come again soon!")
+    release
+}
+
+script Rogue_Shop_TMs
+{
+    lock
+    faceplayer
+    message("Welcome to the TM Shop!")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_TMS)
+
+    msgbox("Come again soon!")
+    release
+}
+
+script Rogue_Shop_BattleEnhancers
+{
+    lock
+    faceplayer
+    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock ENHANCEMENT ITEMS.")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_BATTLE_ENHANCERS)
+
+    msgbox("Come again soon!")
+    release
+}
+
+script Rogue_Shop_HeldItems
+{
+    lock
+    faceplayer
+    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock HELD ITEMS.")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_HELD_ITEMS)
+
+    msgbox("Come again soon!")
+    release
+}
+
+script Rogue_Shop_RareHeldItems
+{
+    lock
+    faceplayer
+    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock RARE HELD ITEMS.")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_RARE_HELD_ITEMS)
+
+    msgbox("Come again soon!")
+    release
+}
+
+script Rogue_Shop_RarePlates
+{
+    lock
+    faceplayer
+    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock QUEST REWARD ITEMS.")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_QUEST_REWARDS)
+
+    msgbox("Come again soon!")
+    release
+}
+
+script Rogue_Shop_Charms
+{
+    lock
+    faceplayer
+
+    msgbox(format("Oh! Child! You startled me..."), MSGBOX_DEFAULT)
+    msgbox(format("I can offer you some Curses to add some extra challenge in your future Adventures...\pI can inflict you with new Curses..."), MSGBOX_DEFAULT)
+
+    msgbox(format("Would you like me to remove any active Curses?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        playse(SE_SHOP)
+        special(Rogue_ClearCharmsAndCurses)
+    }
+
+    message(format("So how would you like to adjust your fate...?"))
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_CHARMS)
+
+    msgbox(format("Good luck child..."), MSGBOX_DEFAULT)
+
+    release
+}
+
+script Rogue_Shop_Berries
+{    
+    lock
+    faceplayer
+    message("Welcome!\nWould you like to buy some berries?")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_BERRIES)
+
+    msgbox("Come again soon!")
+    release
+}
+
+script RogueSafari_Sign_South
+{
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        msgbox(format("SOUTH AREA home to:\nNORMAL, FIGHTING, FAIRY Pokémon"), MSGBOX_SIGN)
+    }
+    else
+    {
+        msgbox(format("SOUTH AREA home to:\nNORMAL, FIGHTING Pokémon"), MSGBOX_SIGN)
+    }
+}
+
+script RogueSafari_Sign_SouthWest
+{
+    msgbox(format("SOUTH WEST AREA home to:\nGRASS, POISON, DARK Pokémon"), MSGBOX_SIGN)
+}
+
+script RogueSafari_Sign_NorthWest
+{
+    msgbox(format("NORTH WEST AREA home to:\nDRAGON, STEEL, PSYCHIC Pokémon"), MSGBOX_SIGN)
+}
+
+script RogueSafari_Sign_North
+{
+    msgbox(format("NORTH AREA home to:\nFLYING, GHOST, FIRE Pokémon"), MSGBOX_SIGN)
+}
+
+script RogueSafari_Sign_NorthEast
+{
+    msgbox(format("NORTH EAST AREA home to:\nROCK, GROUND, ELECTRIC Pokémon"), MSGBOX_SIGN)
+}
+
+script RogueSafari_Sign_SouthEast
+{
+    msgbox(format("SOUTH EAST AREA home to:\nWATER, BUG, ICE Pokémon"), MSGBOX_SIGN)
+}
+
+
+// Tutors
+//
+script Rogue_Tutor_MoveRelearn
+{
+    special(TeachMoveSetContextRelearnMove)
+    setvar(VAR_0x8009, 1000)
+
+    lock
+    faceplayer
+    msgbox(format("I'm the LVL MOVE TUTOR.\p I can teach Pokémon moves if you'd like?\pFor a cost of course."), MSGBOX_DEFAULT)
+
+    call(Rogue_Tutor_MoveTeachLoop)
+    release
+}
+
+script Rogue_Tutor_EggMoveLearn
+{
+    special(TeachMoveSetContextEggMove)
+    setvar(VAR_0x8009, 2000)
+
+    lock
+    faceplayer
+    msgbox(format("I'm the EGG MOVE TUTOR.\p I can teach Pokémon moves if you'd like?"), MSGBOX_DEFAULT)
+
+    call(Rogue_Tutor_MoveTeachLoop)
+    release
+}
+
+script Rogue_Tutor_TutorMoveLearn
+{
+    special(TeachMoveSetContextTutorMove)
+    setvar(VAR_0x8009, 3000)
+
+    lock
+    faceplayer
+    msgbox(format("HYAH!\p I'm the SPECIAL MOVE TUTOR!\p I can teach Pokémon moves some radical moves!"), MSGBOX_DEFAULT)
+
+    call(Rogue_Tutor_MoveTeachLoop)
+    release
+}
+
+script Rogue_Tutor_MoveRelearnCancel
+{
+    msgbox(format("You know where to find me, if you change your mind."), MSGBOX_DEFAULT)
+}
+
+script Rogue_Tutor_MoveTeachLoop
+{
+    showmoneybox(0, 0)
+    buffernumberstring(STR_VAR_1, VAR_0x8009)
+    msgbox(format("Would you like me to teach your Pokémon a move for ¥{STR_VAR_1}?"), MSGBOX_YESNO)
+    hidemoneybox
+
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Tutor_MoveRelearnCancel)
+        setvar(VAR_RESULT, NO)
+    }
+
+    while(var(VAR_RESULT) == YES)
+    {
+        checkmoney(VAR_0x8009)
+        if(var(VAR_RESULT) == NO)
+        {
+            showmoneybox(0, 0)
+            buffernumberstring(STR_VAR_1, VAR_0x8009)
+            msgbox(format("You don't seem to have enough money at the moment.\pCome back once you have ¥{STR_VAR_1}."), MSGBOX_DEFAULT)
+            hidemoneybox
+        }
+        else
+        {
+            special(ChooseMonForMoveRelearner)
+            waitstate
+
+            if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+            {
+                goto(Rogue_Tutor_MoveRelearnCancel)
+                setvar(VAR_RESULT, NO)
+            }
+
+            if(var(VAR_RESULT) == YES)
+            {
+                special(IsSelectedMonEgg)
+
+                if(var(VAR_RESULT) == TRUE)
+                {
+                    goto(Rogue_Tutor_MoveRelearnCancel)
+                    setvar(VAR_RESULT, NO)
+                }
+                else
+                {
+                    setvar(VAR_RESULT, YES)
+                }
+            }
+
+            if(var(VAR_RESULT) == YES)
+            {
+                // Teach move
+                special(TeachMoveFromContext)
+                waitstate
+
+                // Always loop here to make batch teaching less tedious
+                if(var(VAR_0x8006) != 0)
+                {
+                    removemoney(VAR_0x8009)
+                    playse(SE_SHOP)
+
+                    showmoneybox(0, 0)
+                    msgbox(format("Do you want me to teach another Pokémon?"), MSGBOX_YESNO)
+                    hidemoneybox
+                }
+                else
+                {
+                    setvar(VAR_RESULT, YES)
+                }
+            }
+        }
+    }
+}
+
+
+script Rogue_Tutor_MoveDelete
+{
+    lock
+    faceplayer
+    msgbox(format("Uh..\nOh, yes, I'm the MOVE DELETER.\pI can make Pokémon forget their moves, if you'd like?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == NO)
+    {
+        goto(Rogue_Tutor_MoveDeleteCancel)
+    }
+
+    special(ChoosePartyMon)
+    waitstate
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+    {
+        goto(Rogue_Tutor_MoveDeleteCancel)
+    }
+
+    special(IsSelectedMonEgg)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        goto(Rogue_Tutor_MoveDeleteEgg)
+    }
+
+    special(GetNumMovesSelectedMonHas)
+    if(var(VAR_RESULT) <= 1)
+    {
+        goto(Rogue_Tutor_MoveDeleteNoMoves)
+    }
+
+    fadescreen(FADE_TO_BLACK)
+    special(MoveDeleterChooseMoveToForget)
+    fadescreen(FADE_FROM_BLACK)
+
+    if(var(VAR_0x8005) == MAX_MON_MOVES)
+    {
+        goto(Rogue_Tutor_MoveDeleteCancel)
+    }
+
+    special(MoveDeleterForgetMove)
+    playfanfare(MUS_MOVE_DELETED)
+    waitfanfare
+
+    release
+}
+
+script Rogue_Tutor_MoveDeleteNoMoves
+{
+    msgbox(format("This Pokémon needs move moves before I can make it forget any."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Tutor_MoveDeleteEgg
+{
+    msgbox(format("As much as wish I could..\nI can't unteach an EGG."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Tutor_MoveDeleteCancel
+{
+    msgbox(format("Oh.. OK then."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_BerryTree_CheckBerry
+{
+    if(!flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+        goto(BerryTree_EventScript_CheckSoil)
+    }
+    return
+}
+
+script Rogue_BerryTree_PickedUpBerry
+{
+    //if(!flag(FLAG_ROGUE_RUN_ACTIVE))
+    //{
+    //    waitfanfare
+    //}
+    return
+}
+
+// Trainer Blocks
+//
+script Rogue_Battle_PreBoss
+{
+    lock
+    faceplayer
+
+    // TODO - Rehook up EXP limiting
+    //if(flag(FLAG_ROGUE_CAN_OVERLVL))
+    //{
+    //    clearflag(FLAG_TEMP_1A)
+    //}
+
+    if(flag(FLAG_TEMP_1A))
+    {
+        msgbox(format("Good luck with the big battle!"), MSGBOX_DEFAULT)
+    }
+    else
+    {
+        buffernumberstring(STR_VAR_1, VAR_ROGUE_CURRENT_LEVEL_CAP)
+        msgbox(format("I can help you level up if you'd like.\pLvl. {STR_VAR_1} is the current cap. Would you like to battle?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_DYNAMIC, 0, gPlaceholder_Trainer_PostBattleTaunt)
+            setflag(FLAG_TEMP_1A)
+        }
+        else
+        {
+            msgbox(format("Let me know if you change your mind."), MSGBOX_DEFAULT)
+        }
+    }
+
+    release
+}
+
+script Rogue_Heal_PreBoss
+{
+    lock
+    faceplayer
+
+    msgbox(format("Urgh...\nYou want me to heal you or something?"), MSGBOX_DEFAULT)
+
+    if(flag(FLAG_ROGUE_FREE_HEAL_USED))
+    {
+        showmoneybox(0, 0)
+
+        switch(var(VAR_ROGUE_DIFFICULTY))
+        {
+            case 0:
+                checkconstantmoney(1000)
+                bufferconstantnumberstring(STR_VAR_1, 1000)
+            case 1:
+                checkconstantmoney(2000)
+                bufferconstantnumberstring(STR_VAR_1, 2000)
+            case 2:
+                checkconstantmoney(4000)
+                bufferconstantnumberstring(STR_VAR_1, 4000)
+            case 3:
+                checkconstantmoney(8000)
+                bufferconstantnumberstring(STR_VAR_1, 8000)
+            case 4:
+                checkconstantmoney(12000)
+                bufferconstantnumberstring(STR_VAR_1, 12000)
+            case 5:
+                checkconstantmoney(16000)
+                bufferconstantnumberstring(STR_VAR_1, 16000)
+            case 6:
+                checkconstantmoney(20000)
+                bufferconstantnumberstring(STR_VAR_1, 20000)
+            default:
+                checkconstantmoney(24000)
+                bufferconstantnumberstring(STR_VAR_1, 24000)
+        }
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("It's gonna cost you ¥{STR_VAR_1}."), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                playse(SE_VEND)
+                switch(var(VAR_ROGUE_DIFFICULTY))
+                {
+                    case 0:
+                        removeconstantmoney(1000)
+                    case 1:
+                        removeconstantmoney(2000)
+                    case 2:
+                        removeconstantmoney(4000)
+                    case 3:
+                        removeconstantmoney(8000)
+                    case 4:
+                        removeconstantmoney(12000)
+                    case 5:
+                        removeconstantmoney(16000)
+                    case 6:
+                        removeconstantmoney(20000)
+                    default:
+                        removeconstantmoney(24000)
+                }
+
+                call(Common_EventScript_OutOfCenterPartyHeal)
+            }
+        }
+        else
+        {
+            msgbox(format("It's gonna cost you ¥{STR_VAR_1}.\nBut you don't even have enough money..."), MSGBOX_DEFAULT)
+        }
+
+        hidemoneybox
+    }
+    else
+    {
+        msgbox(format("Look kid...\nI'll give you a single free heal. After that you're gonna have to pay."), MSGBOX_DEFAULT)
+        msgbox(format("You wanna use your free heal now?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            call(Common_EventScript_OutOfCenterPartyHeal)
+            setflag(FLAG_ROGUE_FREE_HEAL_USED)
+        }
+    }
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("What...\nYou're still here?"), MSGBOX_DEFAULT)
+    }
+    else
+    {
+        msgbox(format("So thanks for wasting my time I guess..."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+script Rogue_IsGlitchModeGymLeadersActive
+{
+    // TODO - Remove this
+    setvar(VAR_RESULT, NO)
+}
+
+script Rogue_GymIdentity_PreBoss
+{
+    msgbox(format("A mysterious statue!"), MSGBOX_DEFAULT)
+
+    call(Rogue_IsGlitchModeGymLeadersActive)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("The text is scratched up...\pIt reads...\nDMVBF DE LYF POLLU!!!\p(Whatever that means?)"), MSGBOX_DEFAULT)
+        setvar(VAR_RESULT, NO)
+    }
+    // TODO - Fix up statue hint for free if easy
+    //elif(flag(FLAG_ROGUE_EASY_TRAINERS))
+    //{
+    //    msgbox(format("It reads...\p'I can provide you a glimpse of the future'"), MSGBOX_DEFAULT)
+    //    msgbox(format("Do you want to read on?"), MSGBOX_YESNO)
+    //}
+    else
+    {
+        msgbox(format("It reads...\p'For a cost, I can provide you a glimpse of the future'"), MSGBOX_DEFAULT)
+
+        showmoneybox(0, 0)
+
+        switch(var(VAR_ROGUE_DIFFICULTY))
+        {
+            case 0:
+                checkconstantmoney(1000)
+                bufferconstantnumberstring(STR_VAR_1, 1000)
+            case 1:
+                checkconstantmoney(2000)
+                bufferconstantnumberstring(STR_VAR_1, 2000)
+            case 2:
+                checkconstantmoney(3000)
+                bufferconstantnumberstring(STR_VAR_1, 3000)
+            case 3:
+                checkconstantmoney(4000)
+                bufferconstantnumberstring(STR_VAR_1, 4000)
+            case 4:
+                checkconstantmoney(5000)
+                bufferconstantnumberstring(STR_VAR_1, 5000)
+            case 5:
+                checkconstantmoney(6000)
+                bufferconstantnumberstring(STR_VAR_1, 6000)
+            case 6:
+                checkconstantmoney(7000)
+                bufferconstantnumberstring(STR_VAR_1, 7000)
+            default:
+                checkconstantmoney(8000)
+                bufferconstantnumberstring(STR_VAR_1, 8000)
+        }
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Do you want to insert ¥{STR_VAR_1}?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                playse(SE_VEND)
+                switch(var(VAR_ROGUE_DIFFICULTY))
+                {
+                    case 0:
+                        removeconstantmoney(1000)
+                    case 1:
+                        removeconstantmoney(2000)
+                    case 2:
+                        removeconstantmoney(3000)
+                    case 3:
+                        removeconstantmoney(4000)
+                    case 4:
+                        removeconstantmoney(5000)
+                    case 5:
+                        removeconstantmoney(6000)
+                    case 6:
+                        removeconstantmoney(7000)
+                    default:
+                        removeconstantmoney(8000)
+                }
+
+                updatemoneybox
+                waitse
+            }
+        }
+        else
+        {
+            msgbox(format("Oh no!\pIt requires ¥{STR_VAR_1} which is more than what I have!"), MSGBOX_DEFAULT)
+        }
+
+        hidemoneybox
+    }
+}
+
+script Rogue_Battle_Trainer
+{
+    // Can't add any scripts before this
+    // the trainer_see/battle_setup code  wants to grab the trainerNum from the very top of the script
+    trainerbattle_single(TRAINER_ROGUE_DYNAMIC, gPlaceholder_Trainer_PreBattleTaunt, gPlaceholder_Trainer_PostBattleTaunt)
+    msgbox(gPlaceholder_Trainer_PostBattleCloser, MSGBOX_AUTOCLOSE)
+}
+
+script Rogue_Battle_Rival
+{
+    lock
+    faceplayer
+
+    special(Rogue_PlayRivalTrainerEncounterBGM)
+
+    buffertrainername(STR_VAR_1, TRAINER_ROGUE_DYNAMIC)
+    //msgbox(gPlaceholder_Trainer_PreBattleOpenning)
+
+    msgbox(gPlaceholder_Trainer_PreBattleTaunt)
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_DYNAMIC, 0, gPlaceholder_Trainer_PostBattleTaunt)
+    
+    special(Rogue_PlayRivalTrainerEncounterBGM)
+    msgbox(gPlaceholder_Trainer_PostBattleCloser)
+
+    playse(SE_EXIT)
+    removeobject(VAR_LAST_TALKED)
+
+    call(Rogue_EventScript_AttemptPostRivalHeal)
+    fadedefaultbgm
+
+    release
+}
+
+
+// Item Blocks
+//
+script Rogue_Give_Item0
+{
+    setvar(VAR_ITEM_INDEX, 0)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM0)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item1
+{
+    setvar(VAR_ITEM_INDEX, 1)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM1)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item2
+{
+    setvar(VAR_ITEM_INDEX, 2)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM2)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item3
+{
+    setvar(VAR_ITEM_INDEX, 3)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM3)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item4
+{
+    setvar(VAR_ITEM_INDEX, 4)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM4)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item5
+{
+    setvar(VAR_ITEM_INDEX, 5)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM5)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item6
+{
+    setvar(VAR_ITEM_INDEX, 6)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM6)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item7
+{
+    setvar(VAR_ITEM_INDEX, 7)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM7)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item8
+{
+    setvar(VAR_ITEM_INDEX, 8)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM8)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item9
+{
+    setvar(VAR_ITEM_INDEX, 9)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM9)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item10
+{
+    setvar(VAR_ITEM_INDEX, 10)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM10)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item11
+{
+    setvar(VAR_ITEM_INDEX, 11)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM11)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item12
+{
+    setvar(VAR_ITEM_INDEX, 12)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM12)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item13
+{
+    setvar(VAR_ITEM_INDEX, 13)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM13)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item14
+{
+    setvar(VAR_ITEM_INDEX, 14)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM14)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item15
+{
+    setvar(VAR_ITEM_INDEX, 15)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM15)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item16
+{
+    setvar(VAR_ITEM_INDEX, 16)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM16)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item17
+{
+    setvar(VAR_ITEM_INDEX, 17)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM17)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_Item18
+{
+    setvar(VAR_ITEM_INDEX, 18)
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM18)
+    call(Rogue_GiveItem_Internal)
+}

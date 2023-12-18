@@ -92,7 +92,9 @@
 #define MAX_STAT_STAGE    12
 
 // Shiny odds
-#define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
+// RogueNote: odds are currently ~1/100
+#define SHINY_ODDS 655 // Actual probability is SHINY_ODDS/65536
+#define NON_SHINY_PLACEHOLDER (SHINY_ODDS + 1)
 
 // Ribbon IDs used by TV and Pokénav
 #define CHAMPION_RIBBON       0
@@ -163,9 +165,7 @@
 
 #define LEVEL_UP_MOVE_ID   0x01FF
 #define LEVEL_UP_MOVE_LV   0xFE00
-#define LEVEL_UP_MOVE_END  0xFFFF
-
-#define MAX_LEVEL_UP_MOVES       20
+//#define LEVEL_UP_MOVE_END       0xFFFF
 
 #define MON_MALE       0x00
 #define MON_FEMALE     0xFE

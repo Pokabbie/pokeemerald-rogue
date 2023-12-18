@@ -182,6 +182,7 @@ struct NamingScreenData
 
 EWRAM_DATA static struct NamingScreenData *sNamingScreen = NULL;
 
+extern const u8 gText_NamePokemonHub[];
 static const u8 sPCIconOff_Gfx[] = INCBIN_U8("graphics/naming_screen/pc_icon_off.4bpp");
 static const u8 sPCIconOn_Gfx[] = INCBIN_U8("graphics/naming_screen/pc_icon_on.4bpp");
 static const u16 sKeyboard_Pal[] = INCBIN_U16("graphics/naming_screen/keyboard.gbapal");
@@ -1373,6 +1374,7 @@ static void NamingScreen_CreatePlayerIcon(void);
 static void NamingScreen_CreatePCIcon(void);
 static void NamingScreen_CreateMonIcon(void);
 static void NamingScreen_CreateWaldaDadIcon(void);
+static void NamingScreen_CreateQuestBoardIcon(void);
 
 static void (*const sIconFunctions[])(void) =
 {
@@ -1381,6 +1383,7 @@ static void (*const sIconFunctions[])(void) =
     NamingScreen_CreatePCIcon,
     NamingScreen_CreateMonIcon,
     NamingScreen_CreateWaldaDadIcon,
+    NamingScreen_CreateQuestBoardIcon,
 };
 
 static void CreateInputTargetIcon(void)
@@ -1395,11 +1398,10 @@ static void NamingScreen_NoIcon(void)
 
 static void NamingScreen_CreatePlayerIcon(void)
 {
-    u8 rivalGfxId;
-    u8 spriteId;
+    //u8 rivalGfxId;
 
-    rivalGfxId = GetRivalAvatarGraphicsIdByStateIdAndGender(PLAYER_AVATAR_STATE_NORMAL, sNamingScreen->monSpecies);
-    spriteId = CreateObjectGraphicsSprite(rivalGfxId, SpriteCallbackDummy, 56, 37, 0);
+    //rivalGfxId = GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL);
+    u8 spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_PLAYER_NORMAL, SpriteCallbackDummy, 56, 37, 0);
     gSprites[spriteId].oam.priority = 3;
     StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_SOUTH);
 }
@@ -1429,6 +1431,15 @@ static void NamingScreen_CreateWaldaDadIcon(void)
     spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_MAN_1, SpriteCallbackDummy, 56, 37, 0);
     gSprites[spriteId].oam.priority = 3;
     StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_SOUTH);
+}
+
+static void NamingScreen_CreateQuestBoardIcon(void)
+{
+    u8 spriteId;
+
+    spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_QUEST_BOARD, SpriteCallbackDummy, 56, 37, 0);
+    gSprites[spriteId].oam.priority = 3;
+    StartSpriteAnim(&gSprites[spriteId], ANIM_STD_FACE_SOUTH);
 }
 
 //--------------------------------------------------
@@ -1726,6 +1737,7 @@ static void (*const sDrawTextEntryBoxFuncs[])(void) =
     [NAMING_SCREEN_CAUGHT_MON] = DrawMonTextEntryBox,
     [NAMING_SCREEN_NICKNAME]   = DrawMonTextEntryBox,
     [NAMING_SCREEN_WALDA]      = DrawNormalTextEntryBox,
+    [NAMING_SCREEN_POKEMON_HUB]= DrawNormalTextEntryBox,
 };
 
 static void DrawTextEntryBox(void)
@@ -2128,6 +2140,17 @@ static const struct NamingScreenTemplate sWaldaWordsScreenTemplate =
     .title = gText_TellHimTheWords,
 };
 
+static const struct NamingScreenTemplate sPokemonHubNamingScreenTemplate =
+{
+    .copyExistingString = TRUE,
+    .maxChars = POKEMON_HUB_NAME_LENGTH,
+    .iconFunction = 5, // NamingScreen_CreateQuestBoardIcon
+    .addGenderIcon = FALSE,
+    .initialPage = KBPAGE_LETTERS_UPPER,
+    .unused = 11,
+    .title = gText_NamePokemonHub,
+};
+
 static const struct NamingScreenTemplate *const sNamingScreenTemplates[] =
 {
     [NAMING_SCREEN_PLAYER]     = &sPlayerNamingScreenTemplate,
@@ -2135,6 +2158,7 @@ static const struct NamingScreenTemplate *const sNamingScreenTemplates[] =
     [NAMING_SCREEN_CAUGHT_MON] = &sMonNamingScreenTemplate,
     [NAMING_SCREEN_NICKNAME]   = &sMonNamingScreenTemplate,
     [NAMING_SCREEN_WALDA]      = &sWaldaWordsScreenTemplate,
+    [NAMING_SCREEN_POKEMON_HUB]= &sPokemonHubNamingScreenTemplate,
 };
 
 static const struct OamData sOam_8x8 =

@@ -1651,6 +1651,51 @@ u8 CreateMonIconNoPersonality(u16 species, void (*callback)(struct Sprite *), s1
     return spriteId;
 }
 
+//#define PAL_TAG_CUSTOM            0x1000
+#define PAL_TAG_CUSTOM            (POKE_ICON_BASE_PAL_TAG)
+
+u8 CreateMonIconCustomPaletteOffset(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u16 paletteOffset)
+{
+    u8 spriteId;
+    struct MonIconSpriteTemplate iconTemplate =
+    {
+        .oam = &sMonIconOamData,
+        .image = NULL,
+        .anims = sMonIconAnims,
+        .affineAnims = sMonIconAffineAnims,
+        .callback = callback,
+        .paletteTag = PAL_TAG_CUSTOM + paletteOffset,
+    };
+
+    iconTemplate.image = GetMonIconTiles(species, TRUE);
+    spriteId = CreateMonIconSprite(&iconTemplate, x, y, subpriority);
+
+    UpdateMonIconFrame(&gSprites[spriteId]);
+
+    return spriteId;
+}
+
+u8 CreateMissingMonIcon(void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u16 paletteOffset)
+{
+    u8 spriteId;
+    struct MonIconSpriteTemplate iconTemplate =
+    {
+        .oam = &sMonIconOamData,
+        .image = NULL,
+        .anims = sMonIconAnims,
+        .affineAnims = sMonIconAffineAnims,
+        .callback = callback,
+        .paletteTag = PAL_TAG_CUSTOM + paletteOffset,
+    };
+
+    iconTemplate.image = gMonIcon_QuestionMark;
+    spriteId = CreateMonIconSprite(&iconTemplate, x, y, subpriority);
+
+    UpdateMonIconFrame(&gSprites[spriteId]);
+
+    return spriteId;
+}
+
 u16 GetIconSpecies(u16 species, u32 personality)
 {
     species = SanitizeSpeciesId(species);
@@ -1721,6 +1766,15 @@ void LoadMonIconPalettePersonality(u16 species, u32 personality)
         LoadSpritePalette(&gMonIconPaletteTable[palIndex]);
 }
 
+void LoadMonIconPaletteCustomOffset(u16 species, u16 paletteOffset)
+{
+    u8 palIndex = gMonIconPaletteIndices[species];
+    struct SpritePalette customIconPalette = { gMonIconPaletteTable[palIndex].data, PAL_TAG_CUSTOM + paletteOffset };
+
+    if (IndexOfSpritePaletteTag(customIconPalette.tag) == 0xFF)
+        LoadSpritePalette(&customIconPalette);
+}
+
 void FreeMonIconPalettes(void)
 {
     u8 i;
@@ -1741,6 +1795,12 @@ void FreeMonIconPalette(u16 species)
     u8 palIndex;
     palIndex = gSpeciesInfo[SanitizeSpeciesId(species)].iconPalIndex;
     FreeSpritePaletteByTag(gMonIconPaletteTable[palIndex].tag);
+}
+
+void FreeMonIconPaletteCustomOffset(u16 species, u16 paletteOffset)
+{
+    u16 tag = PAL_TAG_CUSTOM + paletteOffset;
+    FreeSpritePaletteByTag(tag);
 }
 
 void SpriteCB_MonIcon(struct Sprite *sprite)

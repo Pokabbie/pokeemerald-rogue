@@ -56,6 +56,7 @@
 #include "constants/abilities.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_string_ids.h"
+#include "constants/battle_frontier.h"
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -64,6 +65,14 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "cable_club.h"
+
+#include "rogue_assistant.h"
+#include "rogue_automation.h"
+#include "rogue_charms.h"
+#include "rogue_controller.h"
+#include "rogue_popup.h"
+#include "rogue_settings.h"
+#include "rogue_trainers.h"
 
 extern const struct BgTemplate gBattleBgTemplates[];
 extern const struct WindowTemplate *const gBattleWindowTemplates[];
@@ -349,13 +358,16 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_PSYCHIC, 6},
     {TRAINER_CLASS_GENTLEMAN, 20},
     {TRAINER_CLASS_ELITE_FOUR, 25},
+    {TRAINER_CLASS_COMMUNITY_MOD, 25},
     {TRAINER_CLASS_LEADER, 25},
+    {TRAINER_CLASS_TOTEM_LEADER, 25},
     {TRAINER_CLASS_SCHOOL_KID, 5},
     {TRAINER_CLASS_SR_AND_JR, 4},
     {TRAINER_CLASS_POKEFAN, 20},
     {TRAINER_CLASS_EXPERT, 10},
     {TRAINER_CLASS_YOUNGSTER, 4},
     {TRAINER_CLASS_CHAMPION, 50},
+    {TRAINER_CLASS_DEVELOPER_CHAMPION, 50},
     {TRAINER_CLASS_FISHERMAN, 10},
     {TRAINER_CLASS_TRIATHLETE, 10},
     {TRAINER_CLASS_DRAGON_TAMER, 12},
@@ -368,7 +380,8 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_TWINS, 3},
     {TRAINER_CLASS_SAILOR, 8},
     {TRAINER_CLASS_COLLECTOR, 15},
-    {TRAINER_CLASS_RIVAL, 15},
+    {TRAINER_CLASS_RIVAL, 20},
+    {TRAINER_CLASS_DEVELOPER, 20},
     {TRAINER_CLASS_PKMN_BREEDER, 10},
     {TRAINER_CLASS_PKMN_RANGER, 12},
     {TRAINER_CLASS_TEAM_MAGMA, 5},
@@ -465,6 +478,7 @@ const u8 *const gStatusConditionStringsTable[][2] =
 
 void CB2_InitBattle(void)
 {
+    PUSH_ASSISTANT_STATE2(BATTLE, INIT);
     if (!gTestRunnerEnabled)
         MoveSaveBlocks_ResetHeap();
     AllocateBattleResources();
@@ -1759,6 +1773,10 @@ void BattleMainCB2(void)
     RunTextPrinters();
     UpdatePaletteFade();
     RunTasks();
+    
+#ifdef ROGUE_FEATURE_AUTOMATION
+    Rogue_PushAutomationInputState(AUTO_INPUT_STATE_BATTLE);
+#endif
 
     if (JOY_HELD(B_BUTTON) && gBattleTypeFlags & BATTLE_TYPE_RECORDED && RecordedBattle_CanStopPlayback())
     {
@@ -1926,103 +1944,144 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
 u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, bool32 firstTrainer, u32 battleTypeFlags)
 {
     u32 personalityValue;
-    s32 i, j;
+    u8 fixedIV;
+    u8 i; 
+    s32 j;
     u8 monsCount;
+        
+#ifdef ROGUE_FEATURE_AUTOMATION
+    if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
+    {
+        Rogue_Battle_StartTrainerBattle();
+        return CalculateEnemyPartyCount();
+    }
+#endif
+#ifdef ROGUE_DEBUG
+    if(gBattleScripting.specialTrainerBattleType == SPECIAL_BATTLE_AUTOMATION)
+    {
+        Rogue_Battle_StartTrainerBattle();
+        return CalculateEnemyPartyCount();
+    }
+#endif
+
     if (battleTypeFlags & BATTLE_TYPE_TRAINER && !(battleTypeFlags & (BATTLE_TYPE_FRONTIER
                                                                         | BATTLE_TYPE_EREADER_TRAINER
                                                                         | BATTLE_TYPE_TRAINER_HILL)))
     {
+        
+        struct Trainer trainer;
+
+        Rogue_ModifyTrainer(trainerNum, &trainer);
+        
         if (firstTrainer == TRUE)
             ZeroEnemyPartyMons();
 
-        if (battleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+        monsCount = trainer.partySize;
+
+        if(Rogue_UseCustomPartyGenerator(trainerNum))
         {
-            if (trainer->partySize > PARTY_SIZE / 2)
-                monsCount = PARTY_SIZE / 2;
-            else
-                monsCount = trainer->partySize;
+            u8 monCapacity = PARTY_SIZE;
+            if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+            {
+                monCapacity = PARTY_SIZE / 2;
+            }
+
+            monsCount = Rogue_CreateTrainerParty(trainerNum, party, monCapacity, firstTrainer);
         }
         else
         {
-            monsCount = trainer->partySize;
-        }
-
-        for (i = 0; i < monsCount; i++)
-        {
-            s32 ball = -1;
-            u32 personalityHash = GeneratePartyHash(trainer, i);
-            const struct TrainerMon *partyData = trainer->party;
-            u32 otIdType = OT_ID_RANDOM_NO_SHINY;
-            u32 fixedOtId = 0;
-
-            if (trainer->doubleBattle == TRUE)
-                personalityValue = 0x80;
-            else if (trainer->encounterMusic_gender & F_TRAINER_FEMALE)
-                personalityValue = 0x78; // Use personality more likely to result in a female Pokémon
-            else
-                personalityValue = 0x88; // Use personality more likely to result in a male Pokémon
-
-            personalityValue += personalityHash << 8;
-            if (partyData[i].gender == TRAINER_MON_MALE)
-                personalityValue = (personalityValue & 0xFFFFFF00) | GeneratePersonalityForGender(MON_MALE, partyData[i].species);
-            else if (partyData[i].gender == TRAINER_MON_FEMALE)
-                personalityValue = (personalityValue & 0xFFFFFF00) | GeneratePersonalityForGender(MON_FEMALE, partyData[i].species);
-            if (partyData[i].nature != 0)
-                ModifyPersonalityForNature(&personalityValue, partyData[i].nature - 1);
-            if (partyData[i].isShiny)
+            if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             {
-                otIdType = OT_ID_PRESET;
-                fixedOtId = HIHALF(personalityValue) ^ LOHALF(personalityValue);
+                if (trainer.partySize > PARTY_SIZE / 2)
+                    monsCount = PARTY_SIZE / 2;
             }
-            CreateMon(&party[i], partyData[i].species, partyData[i].lvl, 0, TRUE, personalityValue, otIdType, fixedOtId);
-            SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
-            CustomTrainerPartyAssignMoves(&party[i], &partyData[i]);
-            SetMonData(&party[i], MON_DATA_IVS, &(partyData[i].iv));
-            if (partyData[i].ev != NULL)
+            for (i = 0; i < monsCount; i++)
             {
-                SetMonData(&party[i], MON_DATA_HP_EV, &(partyData[i].ev[0]));
-                SetMonData(&party[i], MON_DATA_ATK_EV, &(partyData[i].ev[1]));
-                SetMonData(&party[i], MON_DATA_DEF_EV, &(partyData[i].ev[2]));
-                SetMonData(&party[i], MON_DATA_SPATK_EV, &(partyData[i].ev[3]));
-                SetMonData(&party[i], MON_DATA_SPDEF_EV, &(partyData[i].ev[4]));
-                SetMonData(&party[i], MON_DATA_SPEED_EV, &(partyData[i].ev[5]));
-            }
-            if (partyData[i].ability != ABILITY_NONE)
-            {
-                const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[partyData[i].species];
-                u32 maxAbilities = ARRAY_COUNT(speciesInfo->abilities);
-                for (j = 0; j < maxAbilities; ++j)
+                if (trainer.doubleBattle == TRUE)
+                    personalityValue = 0x80;
+                else if (trainer.encounterMusic_gender & F_TRAINER_FEMALE)
+                    personalityValue = 0x78; // Use personality more likely to result in a female Pokémon
+                else
+                    personalityValue = 0x88; // Use personality more likely to result in a male Pokémon
+
+                for (j = 0; trainer.trainerName[j] != EOS; j++)
+                    nameHash += trainer.trainerName[j];
+
+                switch (trainer.partyFlags)
                 {
-                    if (speciesInfo->abilities[j] == partyData[i].ability)
-                        break;
-                }
-                if (j < maxAbilities)
-                    SetMonData(&party[i], MON_DATA_ABILITY_NUM, &j);
-            }
-            SetMonData(&party[i], MON_DATA_FRIENDSHIP, &(partyData[i].friendship));
-            if (partyData[i].ball != ITEM_NONE)
-            {
-                ball = partyData[i].ball;
-                SetMonData(&party[i], MON_DATA_POKEBALL, &ball);
-            }
-            if (partyData[i].nickname != NULL)
-            {
-                SetMonData(&party[i], MON_DATA_NICKNAME, partyData[i].nickname);
-            }
-            CalculateMonStats(&party[i]);
+                case 0:
+                {
+                    const struct TrainerMonNoItemDefaultMoves *partyData = trainer.party.NoItemDefaultMoves;
 
-        #if B_TRAINER_CLASS_POKE_BALLS >= GEN_7
-            if (ball == -1)
-            {
-                ball = (sTrainerBallTable[trainer->trainerClass]) ? sTrainerBallTable[trainer->trainerClass] : ITEM_POKE_BALL;
-                SetMonData(&party[i], MON_DATA_POKEBALL, &ball);
+                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
+                        nameHash += gSpeciesNames[partyData[i].species][j];
+
+                    personalityValue += nameHash << 8;
+                    fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
+                    CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                    break;
+                }
+                case F_TRAINER_PARTY_CUSTOM_MOVESET:
+                {
+                    const struct TrainerMonNoItemCustomMoves *partyData = trainer.party.NoItemCustomMoves;
+
+                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
+                        nameHash += gSpeciesNames[partyData[i].species][j];
+
+                    personalityValue += nameHash << 8;
+                    fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
+                    CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+
+                    for (j = 0; j < MAX_MON_MOVES; j++)
+                    {
+                        SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
+                        SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+                    }
+                    break;
+                }
+                case F_TRAINER_PARTY_HELD_ITEM:
+                {
+                    const struct TrainerMonItemDefaultMoves *partyData = trainer.party.ItemDefaultMoves;
+
+                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
+                        nameHash += gSpeciesNames[partyData[i].species][j];
+
+                    personalityValue += nameHash << 8;
+                    fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
+                    CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+
+                    SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
+                    break;
+                }
+                case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
+                {
+                    const struct TrainerMonItemCustomMoves *partyData = trainer.party.ItemCustomMoves;
+
+                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
+                        nameHash += gSpeciesNames[partyData[i].species][j];
+
+                    personalityValue += nameHash << 8;
+                    fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
+                    CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+
+                    SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
+
+                    for (j = 0; j < MAX_MON_MOVES; j++)
+                    {
+                        SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
+                        SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+                    }
+                    break;
+                }
+                }
             }
-        #endif
         }
+
+        gBattleTypeFlags |= trainer.doubleBattle;
     }
 
-    return trainer->partySize;
+    return monsCount;
 }
 
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
@@ -2645,9 +2704,10 @@ static void SpriteCB_MoveWildMonToRight(struct Sprite *sprite)
 {
     if ((gIntroSlideFlags & 1) == 0)
     {
-        sprite->x2 += 2;
-        if (sprite->x2 == 0)
+        sprite->x2 += Rogue_ModifyBattleSlideAnim(2);
+        if (sprite->x2 >= 0)
         {
+            sprite->x2 = 0;
             sprite->callback = SpriteCB_WildMonShowHealthbox;
         }
     }
@@ -3004,7 +3064,7 @@ static void BattleStartClearSetData(void)
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
     {
-        if (!(gBattleTypeFlags & BATTLE_TYPE_LINK) && gSaveBlock2Ptr->optionsBattleSceneOff == TRUE)
+        if (!(gBattleTypeFlags & BATTLE_TYPE_LINK) && !Rogue_GetBattleAnimsEnabled())
             gHitMarker |= HITMARKER_NO_ANIMATIONS;
     }
     else if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK)) && GetBattleSceneInRecordedBattle())
@@ -3012,7 +3072,7 @@ static void BattleStartClearSetData(void)
         gHitMarker |= HITMARKER_NO_ANIMATIONS;
     }
 
-    gBattleScripting.battleStyle = gSaveBlock2Ptr->optionsBattleStyle;
+    gBattleScripting.battleStyle = Rogue_GetConfigToggle(CONFIG_TOGGLE_SWITCH_MODE) ? OPTIONS_BATTLE_STYLE_SHIFT : OPTIONS_BATTLE_STYLE_SET;
 	gBattleScripting.expOnCatch = (B_EXP_CATCH >= GEN_6);
 	gBattleScripting.monCaught = FALSE;
 
@@ -3670,13 +3730,15 @@ static void DoBattleIntro(void)
                                           | BATTLE_TYPE_RECORDED_LINK
                                           | BATTLE_TYPE_TRAINER_HILL)))
                 {
-                    HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
+                    HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
                 }
             }
 
             gBattleStruct->switchInAbilitiesCounter = 0;
             gBattleStruct->switchInItemsCounter = 0;
             gBattleStruct->overworldWeatherDone = FALSE;
+            gBattleStruct->rogueAlphaMonActive = 0;
+            gBattleStruct->rogueAlphaMonWeakened = 0;
             SetAiLogicDataForTurn(AI_DATA); // get assumed abilities, hold effects, etc of all battlers
             Ai_InitPartyStruct(); // Save mons party counts, and first 2/4 mons on the battlefield.
             gBattleMainFunc = TryDoEventsBeforeFirstTurn;
@@ -3753,6 +3815,15 @@ static void TryDoEventsBeforeFirstTurn(void)
             BattleScriptExecute(BattleScript_TotemVar);
             return;
         }
+    }
+
+    // RogueNote: Activate alpha battle for legendaries
+    if((gBattleTypeFlags & BATTLE_TYPE_ALPHA_MON) != 0 && gBattleStruct->rogueAlphaMonActive == 0)
+    {
+        gBattlerTarget = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        BattleScriptPushCursorAndCallback(BattleScript_AlphaMonActivates);
+        gBattleStruct->rogueAlphaMonActive = 1;
+        return;
     }
 
     // Check neutralizing gas
@@ -4023,6 +4094,8 @@ static void HandleTurnActionSelectionState(void)
 {
     s32 i, battler;
 
+    Rogue_UpdatePopups(FALSE, TRUE);
+
     gBattleCommunication[ACTIONS_CONFIRMED_COUNT] = 0;
     for (battler = 0; battler < gBattlersCount; battler++)
     {
@@ -4251,8 +4324,9 @@ static void HandleTurnActionSelectionState(void)
                     break;
                 }
 
+                // RogueNote: Forfeit
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER
-                    && gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL)
+                    //&& gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL)
                     && gBattleResources->bufferB[battler][1] == B_ACTION_RUN)
                 {
                     gSelectionBattleScripts[battler] = BattleScript_AskIfWantsToForfeitMatch;
@@ -4571,6 +4645,30 @@ void SwapTurnOrder(u8 id1, u8 id2)
 
     SWAP(gActionsByTurnOrder[id1], gActionsByTurnOrder[id2], temp);
     SWAP(gBattlerByTurnOrder[id1], gBattlerByTurnOrder[id2], temp);
+}
+
+static bool8 ActivateMovePriorityCharm(u8 battler)
+{
+    u8 rand;
+
+    if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
+    {
+        rand = (gRandomTurnNumber & 0xFF);
+
+        if((battler / 2) != 0) // Flip for right side
+            rand = ~rand;
+
+        return rand % 100 < GetCurseValue(EFFECT_MOVE_PRIORITY_CHANCE);
+    }
+    else // B_SIDE_PLAYER
+    {
+        rand = ((gRandomTurnNumber & 0xFF00) >> 8);
+
+        if((battler / 2) != 0) // Flip for right side
+            rand = ~rand;
+
+        return rand % 100 < GetCharmValue(EFFECT_MOVE_PRIORITY_CHANCE);
+    }
 }
 
 // For AI, so it doesn't 'cheat' by knowing player's ability
@@ -5156,6 +5254,10 @@ static void CheckChangingTurnOrderEffects(void)
 
 static void RunTurnActionsFunctions(void)
 {
+    PUSH_ASSISTANT_STATE2(BATTLE, TURN_ACTIONS);
+
+    Rogue_UpdatePopups(FALSE, FALSE);
+
     if (gBattleOutcome != 0)
         gCurrentActionFuncId = B_ACTION_FINISHED;
 
@@ -5176,6 +5278,11 @@ static void RunTurnActionsFunctions(void)
     {
         gHitMarker &= ~HITMARKER_PASSIVE_DAMAGE;
         gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
+
+        if(gBattleMainFunc != HandleEndTurn_ContinueBattle)
+        {
+            PUSH_ASSISTANT_STATE2(BATTLE, END);
+        }
     }
     else
     {
@@ -5191,51 +5298,18 @@ static void HandleEndTurn_BattleWon(void)
 {
     gCurrentActionFuncId = 0;
 
-    if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
-        gSpecialVar_Result = gBattleOutcome;
-        gBattleTextBuff1[0] = gBattleOutcome;
-        gBattlerAttacker = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-        gBattlescriptCurrInstr = BattleScript_LinkBattleWonOrLost;
-        gBattleOutcome &= ~B_OUTCOME_LINK_BATTLE_RAN;
-    }
-    else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER
-            && gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL | BATTLE_TYPE_EREADER_TRAINER))
-    {
-        BattleStopLowHpSound();
-        gBattlescriptCurrInstr = BattleScript_FrontierTrainerBattleWon;
+        struct Trainer trainer;
+        struct RogueBattleMusic music;
 
-        if (gTrainerBattleOpponent_A == TRAINER_FRONTIER_BRAIN)
-            PlayBGM(MUS_VICTORY_GYM_LEADER);
-        else
-            PlayBGM(MUS_VICTORY_TRAINER);
-    }
-    else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & BATTLE_TYPE_LINK))
-    {
+        Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
+        Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, gTrainerBattleOpponent_A, &music);
+
         BattleStopLowHpSound();
         gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
 
-        switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
-        {
-        case TRAINER_CLASS_ELITE_FOUR:
-        case TRAINER_CLASS_CHAMPION:
-            PlayBGM(MUS_VICTORY_LEAGUE);
-            break;
-        case TRAINER_CLASS_TEAM_AQUA:
-        case TRAINER_CLASS_TEAM_MAGMA:
-        case TRAINER_CLASS_AQUA_ADMIN:
-        case TRAINER_CLASS_AQUA_LEADER:
-        case TRAINER_CLASS_MAGMA_ADMIN:
-        case TRAINER_CLASS_MAGMA_LEADER:
-            PlayBGM(MUS_VICTORY_AQUA_MAGMA);
-            break;
-        case TRAINER_CLASS_LEADER:
-            PlayBGM(MUS_VICTORY_GYM_LEADER);
-            break;
-        default:
-            PlayBGM(MUS_VICTORY_TRAINER);
-            break;
-        }
+        PlayBGM(music.victoryMusic);
     }
     else
     {
@@ -5285,11 +5359,12 @@ static void HandleEndTurn_RanFromBattle(void)
 {
     gCurrentActionFuncId = 0;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
+        // RogueNote: Always forfeit in tranier battles
         gBattlescriptCurrInstr = BattleScript_PrintPlayerForfeited;
         gBattleOutcome = B_OUTCOME_FORFEITED;
-        gSaveBlock2Ptr->frontier.disableRecordBattle = TRUE;
+        //gSaveBlock2Ptr->frontier.disableRecordBattle = TRUE;
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL)
     {
@@ -5447,6 +5522,8 @@ static void FreeResetData_ReturnToOvOrDoEvolutions(void)
             gBattleMainFunc = ReturnFromBattleToOverworld;
             return;
         }
+
+        // RogueNote: Release pokemon here
     }
 
     FreeAllWindowBuffers();
@@ -5497,10 +5574,13 @@ static void TryEvolvePokemon(void)
                 species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, levelUpBits, NULL);
                 if (species != SPECIES_NONE)
                 {
-                    FreeAllWindowBuffers();
-                    gBattleMainFunc = WaitForEvoSceneToFinish;
-                    EvolutionScene(&gPlayerParty[i], species, TRUE, i);
-                    return;
+                    // RogueNote: Don't auto-evolve pokemon from battle
+                    //Rogue_PushPopup_NewEvos(i);
+
+                    //FreeAllWindowBuffers();
+                    //gBattleMainFunc = WaitForEvoSceneToFinish;
+                    //EvolutionScene(&gPlayerParty[i], species, TRUE, i);
+                    //return;
                 }
             }
         }
@@ -5544,6 +5624,12 @@ static void ReturnFromBattleToOverworld(void)
 
     m4aSongNumStop(SE_LOW_HEALTH);
     SetMainCallback2(gMain.savedCallback);
+    
+    // if you experience the follower de-syncing with the player after battle, set POST_BATTLE_FOLLOWER_FIX to TRUE in include/constants/global.h
+    #if POST_BATTLE_FOLLOWER_FIX
+        FollowMe_WarpSetEnd();
+        gObjectEvents[GetFollowerObjectId()].invisible = TRUE;
+    #endif
 }
 
 void RunBattleScriptCommands_PopCallbacksStack(void)

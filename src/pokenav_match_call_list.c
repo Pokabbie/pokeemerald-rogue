@@ -14,6 +14,8 @@
 #include "strings.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
+
 struct Pokenav_MatchCallMenu
 {
     u16 optionCursorPos;
@@ -314,26 +316,19 @@ u16 GetMatchCallMapSec(int index)
 
 bool32 ShouldDrawRematchPokeballIcon(int index)
 {
-    struct Pokenav_MatchCallMenu *state = GetSubstructPtr(POKENAV_SUBSTRUCT_MATCH_CALL_MAIN);
-    if (!state->matchCallEntries[index].isSpecialTrainer)
-        index = state->matchCallEntries[index].headerId;
-    else
-        index = MatchCall_GetRematchTableIdx(state->matchCallEntries[index].headerId);
-
-    if (index == REMATCH_TABLE_ENTRIES)
-        return FALSE;
-
-    return gSaveBlock1Ptr->trainerRematches[index] != 0;
+    return FALSE;
 }
 
 int GetMatchCallTrainerPic(int index)
 {
     int headerId;
+    struct Trainer trainer;
     struct Pokenav_MatchCallMenu *state = GetSubstructPtr(POKENAV_SUBSTRUCT_MATCH_CALL_MAIN);
     if (!state->matchCallEntries[index].isSpecialTrainer)
     {
         index = GetTrainerIdxByRematchIdx(state->matchCallEntries[index].headerId);
-        return gTrainers[index].trainerPic;
+        Rogue_ModifyTrainer(index, &trainer);
+        return trainer.trainerPic;
     }
 
     headerId = state->matchCallEntries[index].headerId;
@@ -341,7 +336,8 @@ int GetMatchCallTrainerPic(int index)
     if (index != REMATCH_TABLE_ENTRIES)
     {
         index = GetTrainerIdxByRematchIdx(index);
-        return gTrainers[index].trainerPic;
+        Rogue_ModifyTrainer(index, &trainer);
+        return trainer.trainerPic;
     }
 
     index = MatchCall_GetOverrideFacilityClass(headerId);
@@ -402,11 +398,11 @@ void BufferMatchCallNameAndDesc(struct PokenavMatchCallEntry *matchCallEntry, u8
     const u8 *className;
     if (!matchCallEntry->isSpecialTrainer)
     {
+        struct Trainer trainer;
         int index = GetTrainerIdxByRematchIdx(matchCallEntry->headerId);
-        const struct Trainer *trainer = &gTrainers[index];
-        int class = trainer->trainerClass;
-        className = gTrainerClassNames[class];
-        trainerName = trainer->trainerName;
+        Rogue_ModifyTrainer(index, &trainer);
+        className = gTrainerClassNames[trainer.trainerClass];
+        trainerName = trainer.trainerName;
     }
     else
     {
@@ -426,9 +422,7 @@ void BufferMatchCallNameAndDesc(struct PokenavMatchCallEntry *matchCallEntry, u8
 
 u8 GetMatchTableMapSectionId(int rematchIndex)
 {
-    int mapGroup = gRematchTable[rematchIndex].mapGroup;
-    int mapNum = gRematchTable[rematchIndex].mapNum;
-    return Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
+    return 0;
 }
 
 int GetIndexDeltaOfNextCheckPageDown(int index)
@@ -467,51 +461,10 @@ int GetIndexDeltaOfNextCheckPageUp(int index)
 
 static bool32 UNUSED HasRematchEntry(void)
 {
-    int i;
-
-    for (i = 0; i < REMATCH_TABLE_ENTRIES; i++)
-    {
-        if (IsRematchEntryRegistered(i) && gSaveBlock1Ptr->trainerRematches[i])
-            return TRUE;
-    }
-
-    for (i = 0; i < MC_HEADER_COUNT; i++)
-    {
-        if (MatchCall_GetEnabled(i))
-        {
-            int index = MatchCall_GetRematchTableIdx(i);
-            if (gSaveBlock1Ptr->trainerRematches[index])
-                return TRUE;
-        }
-    }
-
     return FALSE;
 }
 
 static bool32 ShouldDoNearbyMessage(void)
 {
-    struct Pokenav_MatchCallMenu *state = GetSubstructPtr(POKENAV_SUBSTRUCT_MATCH_CALL_MAIN);
-    int selection = PokenavList_GetSelectedIndex();
-    if (!state->matchCallEntries[selection].isSpecialTrainer)
-    {
-        if (GetMatchCallMapSec(selection) == gMapHeader.regionMapSectionId)
-        {
-            if (!gSaveBlock1Ptr->trainerRematches[state->matchCallEntries[selection].headerId])
-                return TRUE;
-        }
-    }
-    else
-    {
-        if (state->matchCallEntries[selection].headerId == MC_HEADER_WATTSON)
-        {
-            if (GetMatchCallMapSec(selection) == gMapHeader.regionMapSectionId
-             && FlagGet(FLAG_BADGE05_GET) == TRUE)
-            {
-                if (!FlagGet(FLAG_WATTSON_REMATCH_AVAILABLE))
-                    return TRUE;
-            }
-        }
-    }
-
     return FALSE;
 }

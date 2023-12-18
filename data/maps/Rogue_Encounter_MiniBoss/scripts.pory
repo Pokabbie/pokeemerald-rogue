@@ -1,0 +1,176 @@
+const VAR_ITEM_INDEX = VAR_0x8000
+const VAR_ITEM_ID_VAL = VAR_0x8001
+
+const BOSS_NPC = 1
+
+mapscripts Rogue_Encounter_MiniBoss_MapScripts
+{
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerEast
+    ]
+    //MAP_SCRIPT_ON_FRAME_TABLE  
+    //[
+    //    VAR_TEMP_2, 0: Rogue_MiniBoss_OnFrame0
+    //]
+    MAP_SCRIPT_ON_LOAD: Rogue_MiniBoss_OnLoad
+}
+
+script Rogue_MiniBoss_OnLoad
+{
+    call(Rogue_SetDesiredWeather)
+
+    //setvar(VAR_TEMP_2, 1)
+}
+
+script Rogue_Battle_MiniBoss
+{
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, MiniBoss_PlayerToBattleField)
+    waitmovement(0)
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, MiniBoss_CameraToBattleField)
+    waitmovement(0)
+
+    call(Rogue_MiniBoss_IntroSpeech)
+
+    applymovement(BOSS_NPC, MiniBoss_BossToFight)
+    applymovement(OBJ_EVENT_ID_PLAYER, MiniBoss_PlayerToFight)
+    waitmovement(0)
+    
+    special(Rogue_PlayStaticTrainerEncounterBGM)
+    call(Rogue_MiniBoss_KickOffBattle)
+    call(Rogue_BattleDefeated_MiniBoss)
+}
+
+script Rogue_MiniBoss_CheckPartySize
+{
+    specialvar(VAR_TEMP_1, CalculatePlayerPartyCount)
+    specialvar(VAR_TEMP_2, Rogue_CalcMaxPartySize)
+    
+    if(var(VAR_TEMP_1) >= VAR_TEMP_2)
+    {
+        msgbox(format("It looks like you're going to need to release a Pokémon to make room."))
+        //fadescreen(FADE_TO_BLACK)
+        special(ChoosePartyMon)
+        waitstate
+
+        if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+        {
+            setvar(VAR_RESULT, NO)
+            return
+        }
+        else
+        {
+            special(Rogue_ReleaseMonInSlot)
+        }
+    }
+
+    setvar(VAR_RESULT, YES)
+    return
+}
+
+script Rogue_BattleDefeated_GiveMon
+{
+    message(format("Which of these Pokémon would you like to take with you?"))
+    waitmessage
+
+    bufferspeciesname(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1)
+    bufferspeciesname(STR_VAR_2, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2)
+
+    multichoice(17, 6, MULTI_EXPAND2_EXIT, FALSE)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            copyvar(VAR_TEMP_0, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1)
+            call(Rogue_MiniBoss_CheckPartySize)
+
+        case 1:
+            copyvar(VAR_TEMP_0, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2)
+            call(Rogue_MiniBoss_CheckPartySize)
+
+        case MULTI_B_PRESSED:
+            setvar(VAR_RESULT, NO)
+    }
+    
+    if(var(VAR_RESULT) == YES)
+    {
+        givemon(VAR_TEMP_0, 1)
+        bufferspeciesname(STR_VAR_1, VAR_TEMP_0)
+
+        playfanfare(MUS_OBTAIN_ITEM)
+        message(format("{PLAYER} obtained a {STR_VAR_1}."))
+        waitmessage
+        waitfanfare
+
+        msgbox(format("Would you like to give {STR_VAR_1} a nickname?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            call(Common_EventScript_GetGiftMonPartySlot)
+            call(Common_EventScript_NameReceivedPartyMon)
+        }
+    }
+    else
+    {
+        msgbox(format("Are you sure?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == NO)
+        {
+            call(Rogue_BattleDefeated_GiveMon)
+        }
+    }
+}
+
+script Rogue_BattleDefeated_MiniBoss
+{
+    call(Rogue_ClearWeather)
+
+    copyvar(VAR_ITEM_ID_VAL, VAR_ROGUE_ITEM0)
+    call(Rogue_GiveItem_Internal)
+
+    special(Rogue_ChooseMiniBossRewardMons)
+
+    if(var(VAR_ROGUE_ACTIVE_CAMPAIGN) != ROGUE_CAMPAIGN_POKEBALL_LIMIT)
+    {
+        // Pokeball limited mode won't give mons as rewards
+        call(Rogue_BattleDefeated_GiveMon)
+    }
+
+    special(HealPlayerParty)
+    special(RemoveCameraObject)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)
+    waitstate
+    
+    release
+}
+
+movement MiniBoss_PlayerToBattleField {
+    walk_right
+}
+
+movement MiniBoss_CameraToBattleField {
+    walk_right * 3
+}
+
+movement MiniBoss_PlayerToFight {
+    walk_right
+    face_right
+}
+
+movement MiniBoss_BossToFight {
+    walk_left
+}
+
+script Rogue_MiniBoss_IntroSpeech
+{
+}
+
+script Rogue_MiniBoss_KickOffBattle
+{
+    buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+
+    msgbox(format("{STR_VAR_1}: Show me everything you got!"))
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, format("Well colour me impressed!"))
+}

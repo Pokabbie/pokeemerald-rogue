@@ -1,0 +1,54 @@
+{
+  "id": "MAP_ROGUE_TILE_BERRY_PATCH1",
+  "name": "Rogue_Tile_BerryPatch1",
+  "layout": "LAYOUT_ROGUE_TILE_BERRY_PATCH1",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "direction": "dive",
+      "offset": 0,
+      "map": "MAP_INSIDE_OF_TRUCK"
+    },
+    {
+      "direction": "left",
+      "offset": 4,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+    },
+    {
+      "direction": "right",
+      "offset": 4,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+    },
+    {
+      "direction": "down",
+      "offset": 6,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
+    },
+    {
+      "direction": "up",
+      "offset": 6,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

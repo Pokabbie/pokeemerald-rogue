@@ -38,6 +38,21 @@ static const u8 sRotatingBall_Gfx[] = INCBIN_U8("graphics/bag/rotating_ball.4bpp
 static const u8 sCherryUnused[] = INCBIN_U8("graphics/unused/cherry.4bpp");
 static const u16 sCherryUnused_Pal[] = INCBIN_U16("graphics/unused/cherry.gbapal");
 
+static const u8 sPocketVisualIndex[POCKETS_COUNT] =
+{
+    [ITEMS_POCKET] = 0,
+    [HELD_ITEMS_POCKET] = 4,
+    [MEDICINE_POCKET] = 2,
+    [BALLS_POCKET] = 1,
+    [TMHM_POCKET]  = 2,
+    [BERRIES_POCKET] = 3,
+    [POKEBLOCK_POCKET] = 4,
+    [KEYITEMS_POCKET] = 4,
+#ifdef ROGUE_EXPANDED_POCKETS
+    [STONES_POCKET] = 3,
+#endif
+};
+
 static const struct OamData sBagOamData =
 {
     .y = 0,
@@ -127,19 +142,40 @@ static const union AffineAnimCmd *const sBagAffineAnimCmds[] =
     [ANIM_BAG_SHAKE]  = sSpriteAffineAnim_BagShake
 };
 
-const struct CompressedSpriteSheet gBagMaleSpriteSheet =
+const struct CompressedSpriteSheet gBagSpriteSheet[BAG_GFX_VARIANT_COUNT] =
 {
-    gBagMaleTiles, 0x3000, TAG_BAG_GFX
+    [BAG_GFX_VARIANT_BRENDAN] = { gBagMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY] = { gBagFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED] = { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF] = { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_BRENDAN_SILVER] = { gBagMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY_SILVER] = { gBagFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_BRENDAN_BLACK] = { gBagMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY_BLACK] = { gBagFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_SILVER] = { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_SILVER] = { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_BLACK] = { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_BLACK] = { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_PINK] = { gBagKantoMaleTiles, 0x3000, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_PINK] = { gBagKantoFemaleTiles, 0x3000, TAG_BAG_GFX },
 };
 
-const struct CompressedSpriteSheet gBagFemaleSpriteSheet =
+const struct CompressedSpritePalette gBagPaletteTable[BAG_GFX_VARIANT_COUNT] =
 {
-    gBagFemaleTiles, 0x3000, TAG_BAG_GFX
-};
-
-const struct CompressedSpritePalette gBagPaletteTable =
-{
-    gBagPalette, TAG_BAG_GFX
+    [BAG_GFX_VARIANT_BRENDAN] = { gBagPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY] = { gBagPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED] = { gBagKantoPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF] = { gBagKantoPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_BRENDAN_SILVER] = { gBagHoennSilverPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY_SILVER] = { gBagHoennSilverPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_BRENDAN_BLACK] = { gBagHoennBlackPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_MAY_BLACK] = { gBagHoennBlackPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_SILVER] = { gBagJohtoPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_SILVER] = { gBagJohtoPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_BLACK] = { gBagKantoBlackPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_BLACK] = { gBagKantoBlackPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_RED_PINK] = { gBagKantoPinkPalette, TAG_BAG_GFX },
+    [BAG_GFX_VARIANT_LEAF_PINK] = { gBagKantoPinkPalette, TAG_BAG_GFX },
 };
 
 static const struct SpriteTemplate sBagSpriteTemplate =
@@ -475,12 +511,12 @@ void SetBagVisualPocketId(u8 bagPocketId, bool8 isSwitchingPockets)
     {
         sprite->y2 = -5;
         sprite->callback = SpriteCB_BagVisualSwitchingPockets;
-        sprite->sPocketId = bagPocketId + 1;
+        sprite->data[0] = sPocketVisualIndex[bagPocketId] + 1;
         StartSpriteAnim(sprite, POCKET_NONE);
     }
     else
     {
-        StartSpriteAnim(sprite, bagPocketId + 1);
+        StartSpriteAnim(sprite, sPocketVisualIndex[bagPocketId] + 1);
     }
 }
 

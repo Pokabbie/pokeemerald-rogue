@@ -50,8 +50,6 @@ static void UpdatePerDay(struct Time *localTime)
         UpdatePartyPokerusTime(daysSince);
         UpdateMirageRnd(daysSince);
         UpdateBirchState(daysSince);
-        UpdateFrontierManiac(daysSince);
-        UpdateFrontierGambler(daysSince);
         SetShoalItemFlag(daysSince);
         SetRandomLotteryNumber(daysSince);
         *days = localTime->days;
@@ -69,8 +67,9 @@ static void UpdatePerMinute(struct Time *localTime)
     {
         if (minutes >= 0)
         {
-            BerryTreeTimeUpdate(minutes);
-            gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
+            // RogueNote: Don't update berries based on clock
+            //BerryTreeTimeUpdate(minutes);
+            //gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
             FormChangeTimeUpdate();
         }
     }

@@ -39,6 +39,8 @@
 #include "constants/trainers.h"
 #include "trainer_hill.h"
 #include "test_runner.h"
+#include "rogue_controller.h"
+
 
 static void OpponentHandleLoadMonSprite(u32 battler);
 static void OpponentHandleSwitchInAnim(u32 battler);
@@ -397,8 +399,12 @@ static void OpponentBufferExecCompleted(u32 battler)
     }
 }
 
+    // RogueNote: enemy
+
 static void OpponentHandleLoadMonSprite(u32 battler)
 {
+    // RogueNote: set enemy team
+
     BtlController_HandleLoadMonSprite(battler, TryShinyAnimAfterMonAnim);
 }
 
@@ -411,6 +417,11 @@ static void OpponentHandleSwitchInAnim(u32 battler)
 static u32 OpponentGetTrainerPicId(u32 battlerId)
 {
     u32 trainerPicId;
+    struct Trainer trainerA;
+    struct Trainer trainerB;
+
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainerA);
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_B, &trainerB);
 
     if (gBattleTypeFlags & BATTLE_TYPE_SECRET_BASE)
     {
@@ -455,13 +466,13 @@ static u32 OpponentGetTrainerPicId(u32 battlerId)
     else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
     {
         if (battlerId != 1)
-            trainerPicId = gTrainers[gTrainerBattleOpponent_B].trainerPic;
+            trainerPicId = trainerB.trainerPic;
         else
-            trainerPicId = gTrainers[gTrainerBattleOpponent_A].trainerPic;
+            trainerPicId = trainerA.trainerPic;
     }
     else
     {
-        trainerPicId = gTrainers[gTrainerBattleOpponent_A].trainerPic;
+        trainerPicId = trainerA.trainerPic;
     }
 
     return trainerPicId;

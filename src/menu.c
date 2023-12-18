@@ -20,6 +20,10 @@
 #include "window.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
+#include "rogue_popup.h"
+#include "rogue_quest.h"
+
 #define DLG_WINDOW_PALETTE_NUM 15
 #define DLG_WINDOW_BASE_TILE_NUM 0x200
 #define STD_WINDOW_PALETTE_NUM 14
@@ -49,7 +53,6 @@ struct Menu
     bool8 APressMuted;
 };
 
-static u16 AddWindowParameterized(u8, u8, u8, u8, u8, u8, u16);
 static void WindowFunc_DrawStandardFrame(u8, u8, u8, u8, u8, u8);
 static void WindowFunc_DrawDialogueFrame(u8, u8, u8, u8, u8, u8);
 static void WindowFunc_ClearStdWindowAndFrame(u8, u8, u8, u8, u8, u8);
@@ -75,9 +78,9 @@ const u16 gStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_menu.gbapa
 
 static const u8 sTextSpeedFrameDelays[] =
 {
-    [OPTIONS_TEXT_SPEED_SLOW] = 8,
-    [OPTIONS_TEXT_SPEED_MID]  = 4,
-    [OPTIONS_TEXT_SPEED_FAST] = 1
+    [OPTIONS_TEXT_SPEED_SLOW] = 4,
+    [OPTIONS_TEXT_SPEED_MID]  = 1,
+    [OPTIONS_TEXT_SPEED_FAST] = TEXT_INSTANT_DRAW
 };
 
 static const struct WindowTemplate sStandardTextBox_WindowTemplates[] =
@@ -140,11 +143,14 @@ static const struct MenuInfoIcon sMenuInfoIcons[] =
     [MENU_INFO_ICON_BALL_BLUE] = {  8,  8, 0xAF }, // For placed decorations in player's room
 };
 
+void InitQuestWindow();
+
 void InitStandardTextBoxWindows(void)
 {
     InitWindows(sStandardTextBox_WindowTemplates);
     sStartMenuWindowId = WINDOW_NONE;
     sMapNamePopupWindowId = WINDOW_NONE;
+    InitQuestWindow();
 }
 
 void FreeAllOverworldWindowBuffers(void)
@@ -211,6 +217,11 @@ void LoadMessageBoxAndBorderGfx(void)
 {
     LoadMessageBoxGfx(0, DLG_WINDOW_BASE_TILE_NUM, BG_PLTT_ID(DLG_WINDOW_PALETTE_NUM));
     LoadUserWindowBorderGfx(0, STD_WINDOW_BASE_TILE_NUM, BG_PLTT_ID(STD_WINDOW_PALETTE_NUM));
+}
+
+void LoadMessageBoxPalette(void)
+{
+    LoadMessageBoxGfx(0, DLG_WINDOW_BASE_TILE_NUM, BG_PLTT_ID(DLG_WINDOW_PALETTE_NUM));
 }
 
 void DrawDialogueFrame(u8 windowId, bool8 copyToVram)
@@ -473,8 +484,8 @@ void DisplayYesNoMenuWithDefault(u8 initialCursorPos)
 
 u32 GetPlayerTextSpeed(void)
 {
-    if (gTextFlags.forceMidTextSpeed)
-        return OPTIONS_TEXT_SPEED_MID;
+    //if (gTextFlags.forceMidTextSpeed)
+    //    return OPTIONS_TEXT_SPEED_MID;
     return gSaveBlock2Ptr->optionsTextSpeed;
 }
 
@@ -1588,7 +1599,11 @@ void PrintMenuTable(u8 windowId, u8 itemCount, const struct MenuAction *menuActi
     u32 i;
 
     for (i = 0; i < itemCount; i++)
-        AddTextPrinterParameterized(windowId, FONT_NORMAL, menuActions[i].text, 8, (i * 16) + 1, TEXT_SKIP_DRAW, NULL);
+    {
+        StringExpandPlaceholders(gStringVar4, menuActions[i].text);
+
+        AddTextPrinterParameterized(windowId, 1, gStringVar4, 8, (i * 16) + 1, TEXT_SKIP_DRAW, NULL);
+    }
 
     CopyWindowToVram(windowId, COPYWIN_GFX);
 }
@@ -1648,11 +1663,18 @@ void CreateYesNoMenu(const struct WindowTemplate *window, u16 baseTileNum, u8 pa
 void PrintMenuGridTable(u8 windowId, u8 optionWidth, u8 columns, u8 rows, const struct MenuAction *menuActions)
 {
     u32 i, j;
+    const u8* text;
 
     for (i = 0; i < rows; i++)
     {
         for (j = 0; j < columns; j++)
-            AddTextPrinterParameterized(windowId, FONT_NORMAL, menuActions[(i * columns) + j].text, (optionWidth * j) + 8, (i * 16) + 1, TEXT_SKIP_DRAW, NULL);
+        {
+            text = menuActions[(i * columns) + j].text;
+
+            StringExpandPlaceholders(gStringVar4, text);
+
+            AddTextPrinterParameterized(windowId, 1, gStringVar4, (optionWidth * j) + 8, (i * 16) + 1, TEXT_SKIP_DRAW, NULL);
+        }
     }
     CopyWindowToVram(windowId, COPYWIN_GFX);
 }
@@ -2104,7 +2126,6 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
 {
     s32 curFlag;
     s32 flagCount;
-    u8 *endOfString;
     u8 *string = dest;
 
     *(string++) = EXT_CTRL_CODE_BEGIN;
@@ -2135,13 +2156,12 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
             GetMapNameGeneric(string, gMapHeader.regionMapSectionId);
             break;
         case SAVE_MENU_BADGES:
-            for (curFlag = FLAG_BADGE01_GET, flagCount = 0, endOfString = string + 1; curFlag < FLAG_BADGE01_GET + NUM_BADGES; curFlag++)
-            {
-                if (FlagGet(curFlag))
-                    flagCount++;
-            }
-            *string = flagCount + CHAR_0;
-            *endOfString = EOS;
+            string = ConvertIntToDecimalStringN(string, Rogue_IsRunActive() ? Rogue_GetCurrentDifficulty() : 0, STR_CONV_MODE_RIGHT_ALIGN, 2);
+            break;
+        case SAVE_MENU_QUESTS:
+            string = ConvertIntToDecimalStringN(string, GetCompletedQuestPerc(), STR_CONV_MODE_LEFT_ALIGN, 3);
+            string[0] = 0x5B; // %
+            string[1] = EOS;
             break;
     }
 }

@@ -1,0 +1,175 @@
+{
+  "id": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
+  "name": "Rogue_Area_AdventureEntrance",
+  "layout": "LAYOUT_ROGUE_AREA_ADVENTURE_ENTRANCE",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "direction": "left",
+      "offset": 8,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+    },
+    {
+      "direction": "down",
+      "offset": 6,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
+    },
+    {
+      "direction": "right",
+      "offset": 8,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_UNION_ROOM_NURSE",
+      "x": 9,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_AdventureEntrance_SpeakNurse",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
+      "x": 11,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_InteractWithWorkbench",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PC_STAND",
+      "x": 6,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_PC",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_QUEST_BOARD",
+      "x": 4,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MISC_RUIN_MANIAC",
+      "x": 9,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_AdventureEntrance_SpeakRuinManiac",
+      "flag": "FLAG_TEMP_1"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 0,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 9,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 10,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
+      "dest_warp_id": 0
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "3",
+      "script": "Rogue_Area_AdventureEntrance_TriggerRuinManiacEast"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "Rogue_Area_AdventureEntrance_TriggerRuinManiacSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "2",
+      "script": "Rogue_Area_AdventureEntrance_TriggerRuinManiacWest"
+    }
+  ],
+  "bg_events": [
+
+  ]
+}

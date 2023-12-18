@@ -46,6 +46,8 @@
 #include "constants/songs.h"
 #include "contest.h"
 
+#include "rogue_controller.h"
+
 enum {
     SLIDING_TEXT_OFFSCREEN,
     SLIDING_TEXT_ENTERING,
@@ -613,12 +615,9 @@ static void Task_ShowContestResults(u8 taskId)
             SaveContestWinner(CONTEST_SAVE_FOR_ARTIST);
             gCurContestWinnerIsForArtist = TRUE;
             gCurContestWinnerSaveIdx = GetContestWinnerSaveIdx(CONTEST_SAVE_FOR_ARTIST, FALSE);
-            var = VarGet(VAR_CONTEST_HALL_STATE);
-            VarSet(VAR_CONTEST_HALL_STATE, 0);
             SetContinueGameWarpStatusToDynamicWarp();
             TrySavingData(SAVE_LINK);
             ClearContinueGameWarpStatus2();
-            VarSet(VAR_CONTEST_HALL_STATE, var);
             gTasks[taskId].tState++;
             break;
         case 1:
@@ -963,7 +962,7 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
 
 static void Task_SetSeenWinnerMon(u8 taskId)
 {
-    int i, nationalDexNum;
+    int i;
 
     if (JOY_NEW(A_BUTTON))
     {
@@ -971,8 +970,7 @@ static void Task_SetSeenWinnerMon(u8 taskId)
         {
             for (i = 0; i < CONTESTANT_COUNT; i++)
             {
-                nationalDexNum = SpeciesToNationalPokedexNum(gContestMons[i].species);
-                GetSetPokedexFlag(nationalDexNum, FLAG_SET_SEEN);
+                GetSetPokedexSpeciesFlag(gContestMons[i].species, FLAG_SET_SEEN);
             }
         }
 
@@ -1957,11 +1955,11 @@ u16 HasMonWonThisContestBefore(void)
     switch (gSpecialVar_ContestCategory)
     {
     case CONTEST_CATEGORY_COOL:
-        if (GetMonData(mon, MON_DATA_COOL_RIBBON) > gSpecialVar_ContestRank)
+        if (GetMonData(mon, MON_DATA_CUTE_RIBBON) > gSpecialVar_ContestRank)
             hasRankRibbon = TRUE;
         break;
     case CONTEST_CATEGORY_BEAUTY:
-        if (GetMonData(mon, MON_DATA_BEAUTY_RIBBON) > gSpecialVar_ContestRank)
+        if (GetMonData(mon, MON_DATA_CUTE_RIBBON) > gSpecialVar_ContestRank)
             hasRankRibbon = TRUE;
         break;
     case CONTEST_CATEGORY_CUTE:
@@ -2334,10 +2332,7 @@ void DoesContestCategoryHaveMuseumPainting(void)
         break;
     }
 
-    if (gSaveBlock1Ptr->contestWinners[contestWinner].species == SPECIES_NONE)
-        gSpecialVar_0x8004 = FALSE;
-    else
-        gSpecialVar_0x8004 = TRUE;
+    gSpecialVar_0x8004 = FALSE;
 }
 
 void SaveMuseumContestPainting(void)
@@ -2363,12 +2358,6 @@ u8 CountPlayerMuseumPaintings(void)
 {
     int i;
     u8 count = 0;
-
-    for (i = 0; i < NUM_CONTEST_WINNERS - MUSEUM_CONTEST_WINNERS_START; i++)
-    {
-        if (gSaveBlock1Ptr->contestWinners[MUSEUM_CONTEST_WINNERS_START + i].species)
-            count++;
-    }
 
     return count;
 }
@@ -2513,10 +2502,10 @@ void LoadLinkContestPlayerPalettes(void)
             }
             else
             {
-                if (gLinkPlayers[i].gender == MALE)
-                    LoadPalette(gObjectEventPal_Brendan, OBJ_PLTT_ID(6 + i), PLTT_SIZE_4BPP);
-                else
-                    LoadPalette(gObjectEventPal_May, OBJ_PLTT_ID(6 + i), PLTT_SIZE_4BPP);
+                //if (gLinkPlayers[i].gender == MALE)
+                //    LoadPalette(gObjectEventPal_Brendan, OBJ_PLTT_ID(6 + i), PLTT_SIZE_4BPP);
+                //else
+                //    LoadPalette(gObjectEventPal_May, OBJ_PLTT_ID(6 + i), PLTT_SIZE_4BPP);
             }
         }
     }

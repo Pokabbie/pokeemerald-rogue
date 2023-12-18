@@ -1,0 +1,105 @@
+const VAR_NODE_ID = VAR_0x8004
+const VAR_NODE_PARAM0 = VAR_0x8005
+const VAR_NODE_PARAM1 = VAR_0x8006
+
+const VAR_LOAD_STATE = VAR_TEMP_0
+
+mapscripts Rogue_AdventurePaths_MapScripts 
+{
+    MAP_SCRIPT_ON_RESUME: Rogue_AdventurePaths_OnLoad
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_LOAD_STATE, 0: Rogue_AdventurePaths_PreviewCutscene
+    ]
+}
+
+script Rogue_AdventurePaths_OnLoad
+{
+    // If we want to do it, don't do it On load/Resume
+    //special(SpawnCameraObject)
+    //applymovement(OBJ_EVENT_ID_CAMERA, AdventurePaths_OffsetCamera)
+
+    special(RogueAdv_ApplyAdventureMetatiles)
+}
+
+script Rogue_AdventurePaths_PreviewCutscene
+{
+    setvar(VAR_LOAD_STATE, 1)
+}
+
+movement AdventurePaths_OffsetCamera {
+    walk_right * 4
+}
+
+script Rogue_AdventurePaths_InteractRoom
+{
+    lock
+    special(RogueAdv_GetLastInteractedRoomParams)
+
+    switch(var(VAR_NODE_PARAM0))
+    {
+        case ADVPATH_ROOM_BOSS:
+            msgbox(format("It's a Mighty Trainer!"), MSGBOX_DEFAULT)
+            setvar(VAR_RESULT, YES)
+
+        case ADVPATH_ROOM_MINIBOSS:
+            msgbox(format("It's a Strong Trainer!\nEnter this encounter?"), MSGBOX_YESNO)
+
+        case ADVPATH_ROOM_WILD_DEN:
+            msgbox(format("It's the home of a Strong Pokémon!\nEnter this encounter?"), MSGBOX_YESNO)
+
+        case ADVPATH_ROOM_GAMESHOW:
+            msgbox(format("It's a... Game Show?\nEnter this encounter?"), MSGBOX_YESNO)
+
+        case ADVPATH_ROOM_DARK_DEAL:
+            msgbox(format("It's a Dark Deal...?\nEnter this encounter?"), MSGBOX_YESNO)
+
+        case ADVPATH_ROOM_LAB:
+            msgbox(format("It's a Pokémon LAB.\nEnter this encounter?"), MSGBOX_YESNO)
+
+        case ADVPATH_ROOM_RESTSTOP:
+            switch(var(VAR_NODE_PARAM1))
+            {
+                case 0:
+                    msgbox(format("It's a Full Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                case 1:
+                    msgbox(format("It's a Mart Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                case 2:
+                    msgbox(format("It's a Battle Prep. Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                default:
+                    msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
+            }
+            
+        case ADVPATH_ROOM_ROUTE:
+            switch(var(VAR_NODE_PARAM1))
+            {
+                case 0:
+                    msgbox(format("It's a CALM {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                case 1:
+                    msgbox(format("It's an AVERAGE {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                case 2:
+                    msgbox(format("It's an TOUGH {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
+
+                default:
+                    msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
+            }
+
+        case ADVPATH_ROOM_LEGENDARY:
+            msgbox(format("It's a Powerful Pokémon!\nEnter this encounter?"), MSGBOX_YESNO)
+
+        default:
+            msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
+    }
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(RogueAdv_WarpLastInteractedRoom)
+    }
+
+    release
+}

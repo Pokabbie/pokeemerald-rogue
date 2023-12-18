@@ -3,7 +3,10 @@
 #include "graphics.h"
 #include "item_icon.h"
 #include "malloc.h"
+#include "palette.h"
+#include "pokemon_icon.h"
 #include "sprite.h"
+#include "window.h"
 #include "constants/items.h"
 
 // EWRAM vars
@@ -12,6 +15,8 @@ EWRAM_DATA u8 *gItemIcon4x4Buffer = NULL;
 
 // const rom data
 #include "data/item_icon_table.h"
+
+#include "rogue_baked.h"
 
 static const struct OamData sOamData_ItemIcon =
 {
@@ -85,6 +90,14 @@ void CopyItemIconPicTo4x4Buffer(const void *src, void *dest)
 
 u8 AddItemIconSprite(u16 tilesTag, u16 paletteTag, u16 itemId)
 {
+    const u32* image = (const u32*)GetItemIconPicOrPalette(itemId, 0);
+    const u32* palette = (const u32*)GetItemIconPicOrPalette(itemId, 1);
+
+    return AddIconSprite(tilesTag, paletteTag, image, palette);
+}
+
+u8 AddIconSprite(u16 tilesTag, u16 paletteTag, const u32* image, const u32* palette)
+{
     if (!AllocItemIconTemporaryBuffers())
     {
         return MAX_SPRITES;
@@ -96,14 +109,14 @@ u8 AddItemIconSprite(u16 tilesTag, u16 paletteTag, u16 itemId)
         struct CompressedSpritePalette spritePalette;
         struct SpriteTemplate *spriteTemplate;
 
-        LZDecompressWram(GetItemIconPicOrPalette(itemId, 0), gItemIconDecompressionBuffer);
+        LZDecompressWram(image, gItemIconDecompressionBuffer);
         CopyItemIconPicTo4x4Buffer(gItemIconDecompressionBuffer, gItemIcon4x4Buffer);
         spriteSheet.data = gItemIcon4x4Buffer;
         spriteSheet.size = 0x200;
         spriteSheet.tag = tilesTag;
         LoadSpriteSheet(&spriteSheet);
 
-        spritePalette.data = GetItemIconPicOrPalette(itemId, 1);
+        spritePalette.data = palette;
         spritePalette.tag = paletteTag;
         LoadCompressedSpritePalette(&spritePalette);
 
@@ -118,6 +131,84 @@ u8 AddItemIconSprite(u16 tilesTag, u16 paletteTag, u16 itemId)
 
         return spriteId;
     }
+}
+
+u8 BlitItemIconToWindow(u16 itemId, u8 windowId, u16 x, u16 y, void * paletteDest) 
+{
+    if (!AllocItemIconTemporaryBuffers())
+        return 16;
+
+    LZDecompressWram(GetItemIconPicOrPalette(itemId, 0), gItemIconDecompressionBuffer);
+    CopyItemIconPicTo4x4Buffer(gItemIconDecompressionBuffer, gItemIcon4x4Buffer);
+    BlitBitmapToWindow(windowId, gItemIcon4x4Buffer, x, y, 32, 32);
+
+    // if paletteDest is nonzero, copies the decompressed palette directly into it
+    // otherwise, loads the compressed palette into the windowId's BG palette ID
+    if (paletteDest) 
+    {
+        LZDecompressWram(GetItemIconPicOrPalette(itemId, 1), gPaletteDecompressionBuffer);
+        CpuFastCopy(gPaletteDecompressionBuffer, paletteDest, PLTT_SIZE_4BPP);
+    } 
+    else 
+    {
+        LoadCompressedPalette(GetItemIconPicOrPalette(itemId, 1), BG_PLTT_ID(gWindows[windowId].window.paletteNum), PLTT_SIZE_4BPP);
+    }
+    FreeItemIconTemporaryBuffers();
+    return 0;
+}
+
+u8 BlitPokemonIconToWindow(u16 species, u8 windowId, u16 x, u16 y, void * paletteDest)
+{
+    u8 palId;
+
+    if (!AllocItemIconTemporaryBuffers())
+        return 16;
+
+    palId = GetMonIconPaletteIndexFromSpecies(species);
+
+    //LZDecompressWram(GetMonIconTiles(species, FALSE), gItemIconDecompressionBuffer);
+    //CopyItemIconPicTo4x4Buffer(GetMonIconTiles(species, FALSE), gItemIcon4x4Buffer);
+    
+    BlitBitmapToWindow(windowId, GetMonIconTiles(species, FALSE), x, y, 32, 32);
+
+    //gMonIconPaletteTable
+
+    // if paletteDest is nonzero, copies the decompressed palette directly into it
+    // otherwise, loads the compressed palette into the windowId's BG palette ID
+    if (paletteDest) 
+    {
+        CpuFastCopy(gMonIconPaletteTable[palId].data, paletteDest, PLTT_SIZE_4BPP);
+    } 
+    else 
+    {
+        LoadPalette(gMonIconPaletteTable[palId].data, BG_PLTT_ID(gWindows[windowId].window.paletteNum), PLTT_SIZE_4BPP);
+    }
+    FreeItemIconTemporaryBuffers();
+    return 0;
+}
+
+u8 BlitCustomItemIconToWindow(u8 windowId, u16 x, u16 y, void * paletteDest, u32 const* icon, u32 const* palette) 
+{
+    if (!AllocItemIconTemporaryBuffers())
+        return 16;
+
+    LZDecompressWram(icon, gItemIconDecompressionBuffer);
+    CopyItemIconPicTo4x4Buffer(gItemIconDecompressionBuffer, gItemIcon4x4Buffer);
+    BlitBitmapToWindow(windowId, gItemIcon4x4Buffer, x, y, 32, 32);
+
+    // if paletteDest is nonzero, copies the decompressed palette directly into it
+    // otherwise, loads the compressed palette into the windowId's BG palette ID
+    if (paletteDest) 
+    {
+        LZDecompressWram(palette, gPaletteDecompressionBuffer);
+        CpuFastCopy(gPaletteDecompressionBuffer, paletteDest, PLTT_SIZE_4BPP);
+    } 
+    else 
+    {
+        LoadCompressedPalette(palette, BG_PLTT_ID(gWindows[windowId].window.paletteNum), PLTT_SIZE_4BPP);
+    }
+    FreeItemIconTemporaryBuffers();
+    return 0;
 }
 
 u8 AddCustomItemIconSprite(const struct SpriteTemplate *customSpriteTemplate, u16 tilesTag, u16 paletteTag, u16 itemId)
@@ -164,5 +255,5 @@ const void *GetItemIconPicOrPalette(u16 itemId, u8 which)
     else if (itemId >= ITEMS_COUNT)
         itemId = 0;
 
-    return gItemIconTable[itemId][which];
+    return Rogue_GetItemIconPicOrPalette(itemId, which);
 }

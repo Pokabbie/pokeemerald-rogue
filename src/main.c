@@ -13,6 +13,7 @@
 #include "random.h"
 #include "dma3.h"
 #include "gba/flash_internal.h"
+#include "gba/isagbprint.h"
 #include "load_save.h"
 #include "gpu_regs.h"
 #include "agb_flash.h"
@@ -24,6 +25,9 @@
 #include "main.h"
 #include "trainer_hill.h"
 #include "constants/rgb.h"
+
+#include "rogue_controller.h"
+#include "rogue_save.h"
 
 static void VBlankIntr(void);
 static void HBlankIntr(void);
@@ -73,16 +77,13 @@ u32 IntrMain_Buffer[0x200];
 s8 gPcmDmaCounter;
 void *gAgbMainLoop_sp;
 
-static EWRAM_DATA u16 sTrainerId = 0;
-
 //EWRAM_DATA void (**gFlashTimerIntrFunc)(void) = NULL;
 
 static void UpdateLinkAndCallCallbacks(void);
 static void InitMainCallbacks(void);
 static void CallCallbacks(void);
-#ifdef BUGFIX
 static void SeedRngWithRtc(void);
-#endif
+static void SeedRngWithVBlanks(void);
 static void ReadKeys(void);
 void InitIntrHandlers(void);
 static void WaitForVBlank(void);
@@ -110,8 +111,9 @@ void AgbMain()
     InitMainCallbacks();
     InitMapMusic();
 #ifdef BUGFIX
-    SeedRngWithRtc(); // see comment at SeedRngWithRtc definition below
+    //SeedRngWithRtc(); // see comment at SeedRngWithRtc definition below
 #endif
+    SeedRngWithVBlanks();
     ClearDma3Requests();
     ResetBgs();
     SetDefaultFontsPointer();
@@ -132,6 +134,11 @@ void AgbMain()
     AGBPrintfInit();
 #endif
 #endif
+
+    DebugPrint("Logger hooked up");
+
+    Rogue_MainInit();
+
     gAgbMainLoop_sp = __builtin_frame_address(0);
     AgbMainLoop();
 }
@@ -193,6 +200,7 @@ static void InitMainCallbacks(void)
     SetMainCallback2(gInitialMainCB2);
     gSaveBlock2Ptr = &gSaveblock2.block;
     gPokemonStoragePtr = &gPokemonStorage.block;
+    RogueSave_UpdatePointers();
 }
 
 static void CallCallbacks(void)
@@ -202,6 +210,8 @@ static void CallCallbacks(void)
 
     if (gMain.callback2)
         gMain.callback2();
+
+    Rogue_MainCB();
 }
 
 void SetMainCallback2(MainCallback callback)
@@ -220,12 +230,13 @@ void SeedRngAndSetTrainerId(void)
     u16 val = REG_TM1CNT_L;
     SeedRng(val);
     REG_TM1CNT_H = 0;
-    sTrainerId = val;
+    //sTrainerId = val;
 }
 
 u16 GetGeneratedTrainerIdLower(void)
 {
-    return sTrainerId;
+    // sTrainerId
+    return 123;//Random();
 }
 
 void EnableVCountIntrAtLine150(void)
@@ -242,8 +253,18 @@ static void SeedRngWithRtc(void)
     u32 seed = RtcGetMinuteCount();
     seed = (seed >> 16) ^ (seed & 0xFFFF);
     SeedRng(seed);
+    SeedRogueRng(Random());
 }
 #endif
+
+static void SeedRngWithVBlanks(void)
+{
+    SeedRng(gMain.vblankCounter1);
+    SeedRng2(gMain.vblankCounter2);
+
+    // Rogue will be seeded completely separately
+    //SeedRogueRng((Random() & 0xF0) | (Random2() & 0x0F)); // combination of both?
+}
 
 void InitKeys(void)
 {
@@ -255,6 +276,11 @@ void InitKeys(void)
     gMain.newAndRepeatedKeys = 0;
     gMain.heldKeysRaw = 0;
     gMain.newKeysRaw = 0;
+}
+
+void DebugForceReadKeys()
+{
+    ReadKeys();
 }
 
 static void ReadKeys(void)

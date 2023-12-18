@@ -1,0 +1,166 @@
+const BOSS_NPC = 1
+
+mapscripts Rogue_Boss_0_MapScripts
+{
+}
+
+script Rogue_Battle_Boss0_Hint
+{
+    lock
+
+    call(Rogue_GymIdentity_PreBoss)
+    if(var(VAR_RESULT) == YES)
+    {
+        switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1))
+        {
+            case TYPE_NONE:
+                bufferstring(STR_VAR_1, "NONE")
+
+            case TYPE_NORMAL:
+                bufferstring(STR_VAR_1, "NORMAL")
+
+            case TYPE_FIGHTING:
+                bufferstring(STR_VAR_1, "FIGHTING")
+
+            case TYPE_FLYING:
+                bufferstring(STR_VAR_1, "FLYING")
+
+            case TYPE_POISON:
+                bufferstring(STR_VAR_1, "POISON")
+
+            case TYPE_GROUND:
+                bufferstring(STR_VAR_1, "GROUND")
+
+            case TYPE_ROCK:
+                bufferstring(STR_VAR_1, "ROCK")
+
+            case TYPE_BUG:
+                bufferstring(STR_VAR_1, "BUG")
+
+            case TYPE_GHOST:
+                bufferstring(STR_VAR_1, "GHOST")
+
+            case TYPE_STEEL:
+                bufferstring(STR_VAR_1, "STEEL")
+
+            case TYPE_MYSTERY:
+                bufferstring(STR_VAR_1, "STRANGE")
+
+            case TYPE_FIRE:
+                bufferstring(STR_VAR_1, "FIRE")
+
+            case TYPE_WATER:
+                bufferstring(STR_VAR_1, "WATER")
+    
+            case TYPE_GRASS:
+                bufferstring(STR_VAR_1, "GRASS")
+    
+            case TYPE_ELECTRIC:
+                bufferstring(STR_VAR_1, "ELECTRIC")
+    
+            case TYPE_PSYCHIC:
+                bufferstring(STR_VAR_1, "PSYCHIC")
+    
+            case TYPE_ICE:
+                bufferstring(STR_VAR_1, "ICE")
+    
+            case TYPE_DRAGON:
+                bufferstring(STR_VAR_1, "DRAGON")
+    
+            case TYPE_DARK:
+                bufferstring(STR_VAR_1, "DARK")
+    
+            case 18: //TYPE_FAIRY
+                bufferstring(STR_VAR_1, "FAIRY")
+
+            default:
+                bufferstring(STR_VAR_1, "???")
+        }
+
+        msgbox(format("A GYM LEADER of the type {STR_VAR_1} awaits..."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+script Rogue_Battle_Boss0
+{
+    lockall()
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToBattleField)
+    waitmovement(0)
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleField)
+    waitmovement(0)
+
+    buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+    msgbox(gPlaceholder_Gym_PreBattleOpenning)
+
+    call(Rogue_SetDesiredWeather)
+
+    applymovement(BOSS_NPC, BossToFight)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerToFight)
+    waitmovement(0)
+    
+    special(Rogue_PlayStaticTrainerEncounterBGM)
+    msgbox(gPlaceholder_Gym_PreBattleTaunt)
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, gPlaceholder_Gym_PostBattleTaunt)
+    call(Rogue_BattleDefeated_Boss0)
+}
+
+script Rogue_BattleDefeated_Boss0
+{
+    call(Rogue_ClearWeather)
+    
+    message(format("{PLAYER} received a GYM BADGE!"))
+    waitmessage()
+    call(Common_EventScript_PlayGymBadgeFanfare)
+
+    if(flag(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE) == FALSE && flag(FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE))
+    {
+        msgbox(format("Looks like you have some Quests to collect!\pYou can either continue this Adventure or Retire and collect them now.\pWould you like to continue this Adventure?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == NO)
+        {
+            msgbox(format("So you want to Retire and return to the HUB?"), MSGBOX_YESNO)
+        
+            if(var(VAR_RESULT) == YES)
+            {
+                call(Rogue_ReturnToHub)
+                return
+            }
+            else
+            {
+                setflag(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE)
+            }
+        }
+        else
+        {
+            setflag(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE)
+        }
+    }
+
+    msgbox(gPlaceholder_Gym_PostBattleCloser)
+    waitmessage()
+    call(Rogue_EventScript_AttemptPostGymHeal)
+    special(RemoveCameraObject)
+    warp(MAP_ROGUE_HUB_TRANSITION, 0)
+    waitstate
+}
+
+movement PlayerToBattleField {
+    walk_up * 10
+    walk_right
+}
+
+movement CameraToBattleField {
+    walk_right * 4
+}
+
+movement PlayerToFight {
+    walk_right
+    face_right
+}
+
+movement BossToFight {
+    walk_left
+}

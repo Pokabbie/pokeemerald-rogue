@@ -1,0 +1,235 @@
+{
+  "id": "MAP_ROGUE_AREA_TOWN_SQUARE",
+  "name": "Rogue_Area_TownSquare",
+  "layout": "LAYOUT_ROGUE_AREA_TOWN_SQUARE",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "direction": "down",
+      "offset": 18,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
+    },
+    {
+      "direction": "left",
+      "offset": 6,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+    },
+    {
+      "direction": "right",
+      "offset": 12,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+    },
+    {
+      "direction": "up",
+      "offset": 18,
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
+      "x": 18,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_InteractWithWorkbench",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MISC_BACKPACKER_F",
+      "x": 11,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_Labs_TalkBackpacker",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LINK_RECEPTIONIST",
+      "x": 7,
+      "y": 3,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Shop_Berries",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
+      "x": 5,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_TownSquare_BlendPokeblockMaster",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
+      "x": 9,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_TownSquare_BlendPokeblockNovice",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 4,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
+      "x": 10,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MISC_KALOS_WORKER",
+      "x": 19,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 21,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 22,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 45,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 45,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 21,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 22,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_RESTAURANT",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 40,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_CAFE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 10,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_SCHOOL",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 26,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
+      "dest_warp_id": 0
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -9,6 +9,8 @@
 #include "pokemon.h"
 #include "constants/trainers.h"
 
+#include "rogue_controller.h"
+
 #define PICS_COUNT 8
 
 // Needs to be large enough to store either a decompressed pokemon pic or trainer pic
@@ -65,6 +67,23 @@ static bool16 DecompressPic(u16 species, u32 personality, bool8 isFrontPic, u8 *
     }
     else
     {
+        // RogueNote: gender swap around backPicId indices
+        //switch(species)
+        //{
+        //    case 2: 
+        //        species = 4;
+        //        break;
+        //    case 3: 
+        //        species = 5;
+        //        break;
+        //    case 4: 
+        //        species = 2;
+        //        break;
+        //    case 5: 
+        //        species = 3;
+        //        break;
+        //};
+
         if (isFrontPic)
             DecompressPicFromTable(&gTrainerFrontPicTable[species], dest);
         else
@@ -73,19 +92,19 @@ static bool16 DecompressPic(u16 species, u32 personality, bool8 isFrontPic, u8 *
     return FALSE;
 }
 
-static void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, u8 paletteSlot, u16 paletteTag, bool8 isTrainer)
+static void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, bool8 isShiny, u8 paletteSlot, u16 paletteTag, bool8 isTrainer)
 {
     if (!isTrainer)
     {
         if (paletteTag == TAG_NONE)
         {
             sCreatingSpriteTemplate.paletteTag = TAG_NONE;
-            LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), OBJ_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
+            LoadCompressedPalette(GetMonSpritePalFromSpecies(species, isShiny), 0x100 + paletteSlot * 0x10, 0x20);
         }
         else
         {
             sCreatingSpriteTemplate.paletteTag = paletteTag;
-            LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), species);
+            LoadCompressedSpritePalette(GetMonSpritePalStructFromSpecies(species, isShiny));
         }
     }
     else
@@ -106,7 +125,7 @@ static void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, u8
 static void LoadPicPaletteBySlot(u16 species, u32 otId, u32 personality, u8 paletteSlot, bool8 isTrainer)
 {
     if (!isTrainer)
-        LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
+        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, FALSE), PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
     else
         LoadCompressedPalette(gTrainerFrontPicPaletteTable[species].data, PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
 }
@@ -161,7 +180,7 @@ static u16 CreatePicSprite(u16 species, u32 otId, u32 personality, bool8 isFront
     sCreatingSpriteTemplate.images = images;
     sCreatingSpriteTemplate.affineAnims = gDummySpriteAffineAnimTable;
     sCreatingSpriteTemplate.callback = DummyPicSpriteCallback;
-    LoadPicPaletteByTagOrSlot(species, otId, personality, paletteSlot, paletteTag, isTrainer);
+    LoadPicPaletteByTagOrSlot(species, otId, personality, FALSE, paletteSlot, paletteTag, isTrainer);
     spriteId = CreateSprite(&sCreatingSpriteTemplate, x, y, 0);
     if (paletteTag == TAG_NONE)
         gSprites[spriteId].oam.paletteNum = paletteSlot;
@@ -173,7 +192,7 @@ static u16 CreatePicSprite(u16 species, u32 otId, u32 personality, bool8 isFront
     return spriteId;
 }
 
-u16 CreateMonPicSprite_Affine(u16 species, u32 otId, u32 personality, u8 flags, s16 x, s16 y, u8 paletteSlot, u16 paletteTag)
+u16 CreateMonPicSprite_Affine(u16 species, u32 otId, u32 personality, bool8 isShiny, u8 flags, s16 x, s16 y, u8 paletteSlot, u16 paletteTag)
 {
     u8 *framePics;
     struct SpriteFrameImage *images;
@@ -239,7 +258,7 @@ u16 CreateMonPicSprite_Affine(u16 species, u32 otId, u32 personality, u8 flags, 
         sCreatingSpriteTemplate.affineAnims = gDummySpriteAffineAnimTable;
     }
     sCreatingSpriteTemplate.callback = DummyPicSpriteCallback;
-    LoadPicPaletteByTagOrSlot(species, otId, personality, paletteSlot, paletteTag, FALSE);
+    LoadPicPaletteByTagOrSlot(species, otId, personality, isShiny, paletteSlot, paletteTag, FALSE);
     spriteId = CreateSprite(&sCreatingSpriteTemplate, x, y, 0);
     if (paletteTag == TAG_NONE)
         gSprites[spriteId].oam.paletteNum = paletteSlot;
@@ -339,16 +358,4 @@ static u16 UNUSED LoadTrainerPicInWindow(u16 species, bool8 isFrontPic, u8 palet
 u16 CreateTrainerCardTrainerPicSprite(u16 species, bool8 isFrontPic, u16 destX, u16 destY, u8 paletteSlot, u8 windowId)
 {
     return CreateTrainerCardSprite(species, 0, 0, isFrontPic, destX, destY, paletteSlot, windowId, TRUE);
-}
-
-u16 PlayerGenderToFrontTrainerPicId_Debug(u8 gender, bool8 getClass)
-{
-    if (getClass == TRUE)
-    {
-        if (gender != MALE)
-            return gFacilityClassToPicIndex[FACILITY_CLASS_MAY];
-        else
-            return gFacilityClassToPicIndex[FACILITY_CLASS_BRENDAN];
-    }
-    return gender;
 }

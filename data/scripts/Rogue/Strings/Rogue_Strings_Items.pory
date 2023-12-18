@@ -1,0 +1,311 @@
+text gItemDesc_LinkCable
+{
+    format("Makes certain species of Pokémon evolve when held.")
+}
+
+text gItemDesc_QuestLog
+{
+    format("A diary log for tracking Quests and Challenges.")
+}
+
+text gItemDesc_HealingFlask
+{
+    format("Rechargable flask capable of healing all {PKMN} in the party.")
+}
+
+text gItemDesc_RidingWhistle
+{
+    format("A whistle used to ride {PKMN} from the party.")
+}
+
+text gItemDesc_GoldRidingWhistle
+{
+    format("A whistle used to ride registered {PKMN}.")
+}
+
+text gItemDesc_CGear
+{
+    format("A watch which can remotely access the Config Lab.")
+}
+
+text gItemDesc_BuildingSupplies
+{
+    format("Supplies used to create and upgrade buildings.")
+}
+
+text gItemDesc_TM
+{
+    format("Reusable machine for teaching {PKMN} one specific move.")
+}
+
+text gItemDesc_TR
+{
+    format("Single use machine for teaching {PKMN} one specific move.")
+}
+
+
+text gItemDesc_PokeblockDispenser
+{
+    format("Device that uses {POKEBLOCK} to attract wild {PKMN}.")
+}
+
+text gItemDesc_NormalPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Normal type {PKMN}.")
+}
+
+text gItemDesc_FightingPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Fighting type {PKMN}.")
+}
+
+text gItemDesc_FlyingPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Flying type {PKMN}.")
+}
+
+text gItemDesc_PoisonPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Poison type {PKMN}.")
+}
+
+text gItemDesc_GroundPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Ground type {PKMN}.")
+}
+
+text gItemDesc_RockPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Rock type {PKMN}.")
+}
+
+text gItemDesc_BugPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Bug type {PKMN}.")
+}
+
+text gItemDesc_GhostPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Ghost type {PKMN}.")
+}
+
+text gItemDesc_SteelPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Steel type {PKMN}.")
+}
+
+text gItemDesc_FirePokeblock
+{
+    format("{POKEBLOCK} enjoyed by Fire type {PKMN}.")
+}
+
+text gItemDesc_WaterPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Water type {PKMN}.")
+}
+
+text gItemDesc_GrassPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Grass type {PKMN}.")
+}
+
+text gItemDesc_ElectricPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Electric type {PKMN}.")
+}
+
+text gItemDesc_PsychicPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Psychic type {PKMN}.")
+}
+
+text gItemDesc_IcePokeblock
+{
+    format("{POKEBLOCK} enjoyed by Ice type {PKMN}.")
+}
+
+text gItemDesc_DragonPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Dragon type {PKMN}.")
+}
+
+text gItemDesc_DarkPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Dark type {PKMN}.")
+}
+
+text gItemDesc_FairyPokeblock
+{
+    format("{POKEBLOCK} enjoyed by Fairy type {PKMN}.")
+}
+
+text gItemDesc_ShinyPokeblock
+{
+    format("{POKEBLOCK} enjoyed by most {PKMN}.")
+}
+
+text gItemDesc_StatPokeblock
+{
+    format("{POKEBLOCK} used to bake treats for {PKMN}.")
+}
+
+
+text gItemDesc_ShopPriceCharm
+{
+    format("Shop prices are reduced by 40%")
+}
+text gItemDesc_ShopPriceCurse
+{
+    format("Shop prices are increased by 40%")
+}
+
+text gItemDesc_FlinchCharm
+{
+    format("Friendly moves have an extra 10% chance to flinch.")
+}
+text gItemDesc_FlinchCurse
+{
+    format("Opponent moves have an extra 10% chance to flinch.")
+}
+
+text gItemDesc_CritCharm
+{
+    format("Friendly Pokémon have an increased crit rate.")
+}
+text gItemDesc_CritCurse
+{
+    format("Opponent Pokémon have an increased crit rate.")
+}
+
+text gItemDesc_ShedSkinCharm
+{
+    format("Friendly Pokémon have a 20% chance to cure status.")
+}
+text gItemDesc_ShedSkinCurse
+{
+    format("Opponent Pokémon have a 15% chance to cure status.")
+}
+
+text gItemDesc_WildIVCharm
+{
+    format("Caught Pokémon are slightly stronger.")
+}
+text gItemDesc_WildIVCurse
+{
+    format("Caught Pokémon are slightly weaker.")
+}
+
+text gItemDesc_CatchingCharm
+{
+    format("BALL effectiveness is increased by 100%.")
+}
+text gItemDesc_CatchingCurse
+{
+    format("BALL effectiveness is decreased by 25%.")
+}
+
+text gItemDesc_GraceCharm
+{
+    format("Friendly moves have an extra 75% for extra effects.")
+}
+text gItemDesc_GraceCurse
+{
+    format("Opponent moves have an extra 50% for extra effects.")
+}
+
+text gItemDesc_WildCharm
+{
+    format("Routes contain 2 additional wild Pokémon.")
+}
+text gItemDesc_WildCurse
+{
+    format("Routes contain 1 less wild Pokémon.")
+}
+
+text gItemDesc_PriorityCharm
+{
+    format("Friendly moves have 10% chance to apply Quick Claw.")
+}
+text gItemDesc_PriorityCurse
+{
+    format("Opponent moves have 10% chance to apply Quick Claw.")
+}
+
+text gItemDesc_EndureCharm
+{
+    format("Friendly Pokémon have a 20% chance to endure OHKOs.")
+}
+text gItemDesc_EndureCurse
+{
+    format("Opponent Pokémon have a 20% chance to endure OHKOs.")
+}
+
+text gItemDesc_PartyCurse
+{
+    format("The maximum number of Pokémon in your party is reduced.")
+}
+
+text gItemDesc_EverstoneCurse
+{
+    format("'LVL UP' Evolutions turn into 'LVL whilst holding LINK CABLE'.")
+}
+
+text gItemDesc_BattleItemCurse
+{
+    format("Items cannot be used in battle. (Except POKéBALLS)")
+}
+
+text gItemDesc_SpeciesClauseCurse
+{
+    format("Pokémon can't be caught if species already in party.")
+}
+
+text gItemDesc_ItemShuffleCurse
+{
+    format("Entering a Battle will shuffle Held Items between {PKMN}.")
+}
+
+// Hub upgrades
+// (Appear in item shop layout)
+//
+
+text gHubUpgradeDesc_Home_LowerFloor
+{
+    format("A cozy home used to store items and change outfits.")
+}
+
+text gHubUpgradeDesc_Home_UpperFloor
+{
+    format("A 2nd floor with a bed allowing you to rest until a specific time.")
+}
+
+text gHubUpgradeDesc_Home_BerryField1
+{
+    format("A small plot to plant berries.")
+}
+
+text gHubUpgradeDesc_Home_BerryField2
+{
+    format("A 2nd small plot to plant berries. (Unlocks Berry Fields area)")
+}
+
+text gHubUpgradeDesc_Home_GrassField
+{
+    format("A small cosmetic garden your caught {PKMN} can roam in.")
+}
+
+text gHubUpgradeDesc_Home_FieldShed
+{
+    format("TODO - Desc")
+}
+
+
+text gHubUpgradeDesc_BerryField_ExtraField
+{
+    format("An additional plot to grown berries in.")
+}
+
+text gHubUpgradeDesc_BerryField_HigherYeild
+{
+    format("Increased yield when picking berries.")
+}

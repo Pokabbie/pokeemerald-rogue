@@ -52,10 +52,15 @@ gSpecials::
 	def_special LoadPlayerParty
 	def_special ChooseHalfPartyForBattle
 	def_special Script_ShowLinkTrainerCard
+	def_special Script_ShowTrainerCard
+	def_special Script_ChangePlayerGender
+	def_special Script_ChangePlayerStyle0
+	def_special Script_ChangePlayerStyle1
 	def_special ObjectEventInteractionGetBerryTreeData
 	def_special ObjectEventInteractionGetBerryName
 	def_special ObjectEventInteractionGetBerryCountString
 	def_special Bag_ChooseBerry
+	def_special Bag_ChooseBall
 	def_special ObjectEventInteractionPlantBerryTree
 	def_special ObjectEventInteractionPickBerryTree
 	def_special ObjectEventInteractionRemoveBerryTree
@@ -105,6 +110,7 @@ gSpecials::
 	def_special GiveMonArtistRibbon
 	def_special TryContestGModeLinkup
 	def_special SaveGame
+	def_special ForceSaveGame
 	def_special DoWateringBerryTreeAnim
 	def_special ShowEasyChatScreen
 	def_special ShowEasyChatProfile
@@ -136,6 +142,8 @@ gSpecials::
 	def_special CompareLotadSize
 	def_special TryPutNameRaterShowOnTheAir
 	def_special BufferMonNickname
+	def_special ChangePlayerNickname
+	def_special ChangePokemonHubName
 	def_special IsMonOTIDNotPlayers
 	def_special BufferTrendyPhraseString
 	def_special IsTrendyPhraseBoring
@@ -171,6 +179,72 @@ gSpecials::
 	def_special StartWallyTutorialBattle
 	def_special ChangePokemonNickname
 	def_special ChoosePartyMon
+	def_special Rogue_SeedRandomGenerators
+	def_special Rogue_RandomisePartyMon
+	def_special Rogue_AlterMonIVs
+	def_special Rogue_ApplyStatusToMon
+	def_special Rogue_ReleaseMonInSlot
+	def_special Rogue_ReleaseMonInSlot_NoLabBuffering
+	def_special Rogue_CalcMaxPartySize
+	def_special Rogue_GetMonEvoCount
+	def_special Rogue_GetMonEvoParams
+	def_special RogueDebug_FillGenPC
+	def_special RogueDebug_ClearQuests
+	def_special RogueDebug_CompleteAvaliableQuests
+	def_special RogueDebug_CollectAllQuests
+	def_special RogueDebug_StartBattle
+	def_special Rogue_DetermineItemPickupCount
+	def_special Rogue_CheckBerryTreat
+	def_special Rogue_ApplyBerryTreat
+	def_special Rogue_ChangeMonBall
+	def_special Rogue_AnyNewQuestsPending
+	def_special Rogue_BufferLabMonName
+	def_special Rogue_GiveLabMon
+	def_special Rogue_ChooseMiniBossRewardMons
+	def_special Rogue_ClearCharmsAndCurses
+	def_special Rogue_IsRoamerActive
+	def_special Rogue_BufferRoamerName
+	def_special Rogue_GetActiveCampaign
+	def_special Rogue_GetUnlockedCampaignCount
+	def_special Rogue_GetNextUnlockedCampaign
+	def_special Rogue_GetCampaignHighScore
+	def_special Rogue_BufferCampaignName
+	def_special Rogue_CheckMonCombo
+	def_special Rogue_ApplyMonCombo
+	def_special Rogue_GetFollowMonSpecies
+	def_special Rogue_TryEnqueueWildBattleMon
+	def_special Rogue_GetTrainerNum
+	def_special Rogue_PlayStaticTrainerEncounterBGM
+	def_special Rogue_PlayRivalTrainerEncounterBGM
+	def_special Rogue_EnterPartnerMonCapacity
+	def_special Rogue_IsMultiplayerActive
+	def_special Rogue_IsMultiplayerHost
+	def_special Rogue_HostMultiplayer
+	def_special Rogue_JoinMultiplayer
+	def_special Rogue_CloseMultiplayer
+	def_special Rogue_IsRogueAssistantConnected
+	def_special Rogue_SetupFollowParterMonObjectEvent
+	def_special Rogue_RegisterRideMon
+	def_special Rogue_RunRewardLvls
+	def_special Rogue_RunRewardMoney
+	def_special Rogue_SetTimeAndSeason
+	def_special Popup_CannotTakeItem
+	def_special Rogue_GetBagCapacityUpgradeLevel
+	def_special Rogue_IncreaseBagCapacityUpgradeLevel
+	def_special Rogue_BufferBagUpgradeCost
+	def_special Rogue_CheckBagUpgradeCost
+	def_special Rogue_RemoveBagUpgradeCost
+	def_special Rogue_CheckHubConnectionDir
+	def_special Rogue_AssignDefaultRegion
+	def_special Rogue_IsFinalQuestActive
+	def_special Rogue_ScatterPokeblockItem
+	def_special Rogue_DisplayPopupsFromScript
+	def_special RogueHub_SetRandomFollowMonsFromPC
+	def_special RogueAdv_ApplyAdventureMetatiles
+	def_special RogueAdv_GetLastInteractedRoomParams
+	def_special RogueAdv_WarpLastInteractedRoom
+	def_special RoguePlayer_HandleEasterEggOutfitUnlocks
+	def_special ReloadWarpSilent
 	def_special GetFirstFreePokeblockSlot
 	def_special DoBerryBlending
 	def_special PlayRoulette
@@ -235,6 +309,10 @@ gSpecials::
 	def_special MoveDeleterForgetMove
 	def_special BufferMoveDeleterNicknameAndMove
 	def_special GetNumMovesSelectedMonHas
+	def_special TeachMoveSetContextRelearnMove
+	def_special TeachMoveSetContextEggMove
+	def_special TeachMoveSetContextTutorMove
+	def_special TeachMoveFromContext
 	def_special TeachMoveRelearnerMove
 	def_special GetRecordedCyclingRoadResults
 	def_special Special_BeginCyclingRoadChallenge
@@ -276,18 +354,26 @@ gSpecials::
 	def_special ScriptMenu_CreatePCMultichoice
 	def_special AccessHallOfFamePC
 	def_special Special_ShowDiploma
+	def_special Special_ViewDifficultyConfigMenu
+	def_special Special_ViewRoguePokedex
+	def_special Special_ViewPlayerCustomisationMenu
+	def_special Special_ViewVoltorbFlip
 	def_special CheckLeadMonCool
 	def_special CheckLeadMonBeauty
 	def_special CheckLeadMonCute
 	def_special CheckLeadMonSmart
 	def_special CheckLeadMonTough
+	def_special GetLeadMonLevel
 	def_special LookThroughPorthole
 	def_special DoSoftReset
 	def_special GameClear
 	def_special MoveElevator
 	def_special ShowGlassWorkshopMenu
 	def_special SpawnCameraObject
+	def_special SpawnCameraObjectAtCoords
 	def_special RemoveCameraObject
+	def_special ShowPlayerObject
+	def_special HidePlayerObject
 	def_special GetPokeblockNameByMonNature
 	def_special GetSecretBaseNearbyMapName
 	def_special CheckRelicanthWailord
@@ -321,7 +407,7 @@ gSpecials::
 	def_special IsPokerusInParty
 	def_special SetSootopolisGymCrackedIceMetatiles
 	def_special ShakeCamera
-	def_special StartGroudonKyogreBattle
+	def_special BattleSetup_StartWildBattle
 	def_special BattleSetup_StartLegendaryBattle
 	def_special StartRegiBattle
 	def_special SetTrainerFacingDirection
@@ -438,8 +524,6 @@ gSpecials::
 	def_special HasAtLeastOneBerry
 	def_special IsPokemonJumpSpeciesInParty
 	def_special ShowPokemonJumpRecords
-	def_special IsDodrioInParty
-	def_special ShowDodrioBerryPickingRecords
 	def_special OffsetCameraForBattle
 	def_special GetDeptStoreDefaultFloorChoice
 	def_special BufferVarsForIVRater

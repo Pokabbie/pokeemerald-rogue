@@ -33,6 +33,8 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 
+#include "rogue_controller.h"
+
 // In this file only the values normally associated with Battle Pike and Factory are swapped.
 // Note that this is *not* a bug, because they are properly swapped consistently in this file.
 // There would only be an issue if anything in this file interacted with something expecting
@@ -1128,18 +1130,6 @@ static u32 GetNumRegisteredNPCs(void)
 
 static u32 GetActiveMatchCallTrainerId(u32 activeMatchCallId)
 {
-    u32 i;
-    for (i = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
-    {
-        if (FlagGet(FLAG_MATCH_CALL_REGISTERED + i))
-        {
-            if (!activeMatchCallId)
-                return gRematchTable[i].trainerIds[0];
-
-            activeMatchCallId--;
-        }
-    }
-
     return REMATCH_TABLE_ENTRIES;
 }
 
@@ -1459,25 +1449,17 @@ static void Task_SpinPokenavIcon(u8 taskId)
 
 static bool32 TrainerIsEligibleForRematch(int matchCallId)
 {
-    return gSaveBlock1Ptr->trainerRematches[matchCallId] > 0;
+    return FALSE;
 }
 
 static u16 GetRematchTrainerLocation(int matchCallId)
 {
-    const struct MapHeader *mapHeader = Overworld_GetMapHeaderByGroupAndId(gRematchTable[matchCallId].mapGroup, gRematchTable[matchCallId].mapNum);
-    return mapHeader->regionMapSectionId;
+    return 0;
 }
 
 static u32 GetNumRematchTrainersFought(void)
 {
-    u32 i, count;
-    for (i = 0, count = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
-    {
-        if (HasTrainerBeenFought(gRematchTable[i].trainerIds[0]))
-            count++;
-    }
-
-    return count;
+    return 0;
 }
 
 // Look through the rematch table for trainers that have been defeated once before.
@@ -1485,19 +1467,6 @@ static u32 GetNumRematchTrainersFought(void)
 // or REMATCH_TABLE_ENTRIES if fewer than n rematch trainers have been defeated.
 static u32 GetNthRematchTrainerFought(int n)
 {
-    u32 i, count;
-
-    for (i = 0, count = 0; i < REMATCH_TABLE_ENTRIES; i++)
-    {
-        if (HasTrainerBeenFought(gRematchTable[i].trainerIds[0]))
-        {
-            if (count == n)
-                return i;
-
-            count++;
-        }
-    }
-
     return REMATCH_TABLE_ENTRIES;
 }
 
@@ -1679,6 +1648,8 @@ static void PopulateTrainerName(int matchCallId, u8 *destStr)
 {
     u32 i;
     u16 trainerId = sMatchCallTrainers[matchCallId].trainerId;
+    const u8* trainerName = Rogue_GetTrainerName(trainerId);
+
     for (i = 0; i < ARRAY_COUNT(sMultiTrainerMatchCallTexts); i++)
     {
         if (sMultiTrainerMatchCallTexts[i].trainerId == trainerId)
@@ -1688,7 +1659,7 @@ static void PopulateTrainerName(int matchCallId, u8 *destStr)
         }
     }
 
-    StringCopy(destStr, gTrainers[trainerId].trainerName);
+    StringCopy(destStr, trainerName);
 }
 
 static void PopulateMapName(int matchCallId, u8 *destStr)
@@ -1742,48 +1713,6 @@ static u8 GetWaterEncounterSlot(void)
 
 static void PopulateSpeciesFromTrainerLocation(int matchCallId, u8 *destStr)
 {
-    u16 species[2];
-    int numSpecies;
-    u8 slot;
-    int i = 0;
-
-    if (gWildMonHeaders[i].mapGroup != MAP_GROUP(UNDEFINED)) // ??? This check is nonsense.
-    {
-        while (gWildMonHeaders[i].mapGroup != MAP_GROUP(UNDEFINED))
-        {
-            if (gWildMonHeaders[i].mapGroup == gRematchTable[matchCallId].mapGroup
-             && gWildMonHeaders[i].mapNum == gRematchTable[matchCallId].mapNum)
-                break;
-
-            i++;
-        }
-
-        if (gWildMonHeaders[i].mapGroup != MAP_GROUP(UNDEFINED))
-        {
-            numSpecies = 0;
-            if (gWildMonHeaders[i].landMonsInfo)
-            {
-                slot = GetLandEncounterSlot();
-                species[numSpecies] = gWildMonHeaders[i].landMonsInfo->wildPokemon[slot].species;
-                numSpecies++;
-            }
-
-            if (gWildMonHeaders[i].waterMonsInfo)
-            {
-                slot = GetWaterEncounterSlot();
-                species[numSpecies] = gWildMonHeaders[i].waterMonsInfo->wildPokemon[slot].species;
-                numSpecies++;
-            }
-
-            if (numSpecies)
-            {
-                StringCopy(destStr, GetSpeciesName(species[Random() % numSpecies]));
-                return;
-            }
-        }
-    }
-
-    destStr[0] = EOS;
 }
 
 static void PopulateSpeciesFromTrainerParty(int matchCallId, u8 *destStr)
@@ -1792,10 +1721,12 @@ static void PopulateSpeciesFromTrainerParty(int matchCallId, u8 *destStr)
     const struct TrainerMon *party;
     u8 monId;
     const u8 *speciesName;
+    struct Trainer trainer;
 
     trainerId = GetLastBeatenRematchTrainerId(sMatchCallTrainers[matchCallId].trainerId);
-    party = gTrainers[trainerId].party;
-    monId = Random() % gTrainers[trainerId].partySize;
+    Rogue_ModifyTrainer(trainerId, &trainer);
+    party = trainer.party;
+    monId = Random() % trainer.partySize;
     speciesName = GetSpeciesName(party[monId].species);
 
     StringCopy(destStr, speciesName);
@@ -1830,29 +1761,9 @@ static void PopulateBattleFrontierStreak(int matchCallId, u8 *destStr)
     ConvertIntToDecimalStringN(destStr, sBattleFrontierStreakInfo.streak, STR_CONV_MODE_LEFT_ALIGN, i);
 }
 
-static const u16 sBadgeFlags[NUM_BADGES] =
-{
-    FLAG_BADGE01_GET,
-    FLAG_BADGE02_GET,
-    FLAG_BADGE03_GET,
-    FLAG_BADGE04_GET,
-    FLAG_BADGE05_GET,
-    FLAG_BADGE06_GET,
-    FLAG_BADGE07_GET,
-    FLAG_BADGE08_GET,
-};
-
 static int GetNumOwnedBadges(void)
 {
-    u32 i;
-
-    for (i = 0; i < NUM_BADGES; i++)
-    {
-        if (!FlagGet(sBadgeFlags[i]))
-            break;
-    }
-
-    return i;
+    return Rogue_IsRunActive() ? Rogue_GetCurrentDifficulty() : 0;
 }
 
 // Whether or not a trainer calling the player from a different route should request a battle
@@ -2008,9 +1919,9 @@ static u8 GetPokedexRatingLevel(u16 numSeen)
     if (numSeen < 200)
         return 19;
 
-    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(SPECIES_DEOXYS), FLAG_GET_CAUGHT))
+    if (GetSetPokedexSpeciesFlag(SPECIES_DEOXYS, FLAG_GET_CAUGHT))
         numSeen--;
-    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(SPECIES_JIRACHI), FLAG_GET_CAUGHT))
+    if (GetSetPokedexSpeciesFlag(SPECIES_JIRACHI, FLAG_GET_CAUGHT))
         numSeen--;
 
     if (numSeen < 200)

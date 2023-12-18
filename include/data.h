@@ -68,7 +68,7 @@ struct Trainer
     /*0x1F*/ u8 partySize;
 };
 
-#define TRAINER_ENCOUNTER_MUSIC(trainer)((gTrainers[trainer].encounterMusic_gender & 0x7F))
+//#define TRAINER_ENCOUNTER_MUSIC(encounterMusic_gender)((encounterMusic_gender & 0x7F))
 
 extern const u16 gMinigameDigits_Pal[];
 extern const u32 gMinigameDigits_Gfx[];
@@ -77,14 +77,21 @@ extern const struct SpriteFrameImage gBattlerPicTable_PlayerLeft[];
 extern const struct SpriteFrameImage gBattlerPicTable_OpponentLeft[];
 extern const struct SpriteFrameImage gBattlerPicTable_PlayerRight[];
 extern const struct SpriteFrameImage gBattlerPicTable_OpponentRight[];
+extern const struct SpriteFrameImage gTrainerBackPicTable_None[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_Brendan[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_May[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_Red[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_Leaf[];
+extern const struct SpriteFrameImage gTrainerBackPicTable_Ethan[];
+extern const struct SpriteFrameImage gTrainerBackPicTable_Lyra[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_RubySapphireBrendan[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_RubySapphireMay[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_Wally[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_Steven[];
+extern const struct SpriteFrameImage gTrainerBackPicTable_Lucas[];
+extern const struct SpriteFrameImage gTrainerBackPicTable_Dawn[];
+
+extern const struct SpriteFrameImage gTrainerBackPicTable_CommunityZefa[];
 
 extern const union AffineAnimCmd *const gAffineAnims_BattleSpritePlayerSide[];
 extern const union AffineAnimCmd *const gAffineAnims_BattleSpriteOpponentSide[];
@@ -101,7 +108,6 @@ extern const struct MonCoords gTrainerBackPicCoords[];
 extern const struct CompressedSpriteSheet gTrainerBackPicTable[]; // functionally unused
 extern const struct CompressedSpritePalette gTrainerBackPicPaletteTable[];
 
-extern const struct Trainer gTrainers[];
 extern const u8 gTrainerClassNames[][13];
 extern const u8 gMoveNames[MOVES_COUNT_DYNAMAX][MOVE_NAME_LENGTH + 1];
 extern const u8 *const gZMoveNames[];

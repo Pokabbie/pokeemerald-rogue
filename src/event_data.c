@@ -167,8 +167,10 @@ u16 *GetVarPointer(u16 id)
         return NULL;
     else if (id < SPECIAL_VARS_START)
         return &gSaveBlock1Ptr->vars[id - VARS_START];
-    else
+    else if(id <= SPECIAL_VARS_END)
         return gSpecialVars[id - SPECIAL_VARS_START];
+
+    return NULL;
 }
 
 u16 VarGet(u16 id)
@@ -196,7 +198,7 @@ bool8 VarSet(u16 id, u16 value)
     return TRUE;
 }
 
-u8 VarGetObjectEventGraphicsId(u8 id)
+u16 VarGetObjectEventGraphicsId(u8 id)
 {
     return VarGet(VAR_OBJ_GFX_ID_0 + id);
 }

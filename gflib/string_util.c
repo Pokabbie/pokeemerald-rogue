@@ -150,6 +150,31 @@ s32 StringCompareN(const u8 *str1, const u8 *str2, u32 n)
     return *str1 - *str2;
 }
 
+static u8 CharToLower(u8 c)
+{
+    if(c >= CHAR_A && c <= CHAR_Z)
+    {
+        return c  + CHAR_a - CHAR_A;
+    }
+
+    return c;
+}
+
+s32 StringCompareCaseInsensitiveN(const u8 *str1, const u8 *str2, u32 n)
+{
+    while (CharToLower(*str1) == CharToLower(*str2))
+    {
+        if (*str1 == EOS)
+            return 0;
+        str1++;
+        str2++;
+        if (--n == 0)
+            return 0;
+    }
+
+    return CharToLower(*str1) - CharToLower(*str2);
+}
+
 bool8 IsStringLengthAtLeast(const u8 *str, s32 n)
 {
     u8 i;
@@ -497,6 +522,12 @@ static const u8 *ExpandPlaceholder_Groudon(void)
     return gText_ExpandedPlaceholder_Groudon;
 }
 
+static const u8 *ExpandPlaceholder_PokemonHub(void)
+{
+    //return gText_ExpandedPlaceholder_PokemonHub;
+    return gSaveBlock2Ptr->pokemonHubName;
+}
+
 const u8 *GetExpandedPlaceholder(u32 id)
 {
     typedef const u8 *(*ExpandPlaceholderFunc)(void);
@@ -517,6 +548,7 @@ const u8 *GetExpandedPlaceholder(u32 id)
         [PLACEHOLDER_ID_MAXIE]        = ExpandPlaceholder_Maxie,
         [PLACEHOLDER_ID_KYOGRE]       = ExpandPlaceholder_Kyogre,
         [PLACEHOLDER_ID_GROUDON]      = ExpandPlaceholder_Groudon,
+        [PLACEHOLDER_ID_POKEMON_HUB]  = ExpandPlaceholder_PokemonHub,
     };
 
     if (id >= ARRAY_COUNT(funcs))

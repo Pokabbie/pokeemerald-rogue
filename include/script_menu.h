@@ -7,6 +7,7 @@
 extern const u8 *const gStdStrings[];
 
 bool8 ScriptMenu_Multichoice(u8 left, u8 top, u8 multichoiceId, bool8 ignoreBPress);
+u8 ScriptMenu_MultichoiceLength(u8 multichoiceId);
 bool8 ScriptMenu_MultichoiceWithDefault(u8 left, u8 top, u8 multichoiceId, bool8 ignoreBPress, u8 defaultChoice);
 void DrawMultichoiceMenuInternal(u8 left, u8 top, u8 multichoiceId, bool8 ignoreBPress, u8 cursorPos, const struct MenuAction *actions, int count);
 bool8 ScriptMenu_YesNo(u8 left, u8 top);

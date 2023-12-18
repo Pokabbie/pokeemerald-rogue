@@ -11,6 +11,8 @@
 #include "trig.h"
 #include "constants/trainers.h"
 
+#include "rogue_controller.h"
+
 extern const u8 gBattleAnimBgCntSet[];
 extern const u8 gBattleAnimBgCntGet[];
 
@@ -99,6 +101,8 @@ int GetAnimBgAttribute(u8 bgId, u8 attributeId)
 
 #define tState data[0]
 #define tTerrain data[1]
+#define tEnemyPlatformX data[2]
+#define tPlayerPlatformX data[3]
 
 void HandleIntroSlide(u8 terrain)
 {
@@ -116,11 +120,6 @@ void HandleIntroSlide(u8 terrain)
     {
         taskId = CreateTask(BattleIntroSlide3, 0);
     }
-    else if (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL) == SPECIES_KYOGRE)
-    {
-        terrain = BATTLE_TERRAIN_UNDERWATER;
-        taskId = CreateTask(BattleIntroSlide2, 0);
-    }
     else
     {
         taskId = CreateTask(sBattleIntroSlideFuncs[terrain], 0);
@@ -128,8 +127,8 @@ void HandleIntroSlide(u8 terrain)
 
     gTasks[taskId].tState = 0;
     gTasks[taskId].tTerrain = terrain;
-    gTasks[taskId].data[2] = 0;
-    gTasks[taskId].data[3] = 0;
+    gTasks[taskId].tEnemyPlatformX = 0;
+    gTasks[taskId].tPlayerPlatformX = 0;
     gTasks[taskId].data[4] = 0;
     gTasks[taskId].data[5] = 0;
     gTasks[taskId].data[6] = 0;
@@ -152,6 +151,7 @@ static void BattleIntroSlideEnd(u8 taskId)
 static void BattleIntroSlide1(u8 taskId)
 {
     int i;
+    u16 slideRate;
 
     gBattle_BG1_X += 6;
     switch (gTasks[taskId].tState)
@@ -159,17 +159,17 @@ static void BattleIntroSlide1(u8 taskId)
     case 0:
         if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         {
-            gTasks[taskId].data[2] = 16;
+            gTasks[taskId].tEnemyPlatformX = 16;
             gTasks[taskId].tState++;
         }
         else
         {
-            gTasks[taskId].data[2] = 1;
+            gTasks[taskId].tEnemyPlatformX = 1;
             gTasks[taskId].tState++;
         }
         break;
     case 1:
-        if (--gTasks[taskId].data[2] == 0)
+        if (--gTasks[taskId].tEnemyPlatformX == 0)
         {
             gTasks[taskId].tState++;
             SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG_ALL | WININ_WIN0_OBJ | WININ_WIN0_CLR);
@@ -180,15 +180,20 @@ static void BattleIntroSlide1(u8 taskId)
         if ((gBattle_WIN0V & 0xFF00) == 0x3000)
         {
             gTasks[taskId].tState++;
-            gTasks[taskId].data[2] = DISPLAY_WIDTH;
-            gTasks[taskId].data[3] = 32;
+            gTasks[taskId].tEnemyPlatformX = 240;
+            gTasks[taskId].tPlayerPlatformX = 32;
             gIntroSlideFlags &= ~1;
         }
         break;
     case 3:
-        if (gTasks[taskId].data[3])
+        if (gTasks[taskId].tPlayerPlatformX)
         {
-            gTasks[taskId].data[3]--;
+            slideRate = Rogue_ModifyBattleSlideAnim(1);
+
+            if (gTasks[taskId].tPlayerPlatformX > slideRate)
+                gTasks[taskId].tPlayerPlatformX -= slideRate;
+            else
+                gTasks[taskId].tPlayerPlatformX = 0;
         }
         else
         {
@@ -207,17 +212,21 @@ static void BattleIntroSlide1(u8 taskId)
         if (gBattle_WIN0V & 0xFF00)
             gBattle_WIN0V -= 0x3FC;
 
-        if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+        slideRate  = Rogue_ModifyBattleSlideAnim(2);
+
+        if (gTasks[taskId].tEnemyPlatformX > slideRate)
+            gTasks[taskId].tEnemyPlatformX -= slideRate;
+        else
+            gTasks[taskId].tEnemyPlatformX = 0;
 
         // Scanline settings have already been set in CB2_InitBattleInternal()
         for (i = 0; i < DISPLAY_HEIGHT / 2; i++)
-            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].data[2];
+            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].tEnemyPlatformX;
 
         for (; i < DISPLAY_HEIGHT; i++)
-            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = -gTasks[taskId].data[2];
+            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = -gTasks[taskId].tEnemyPlatformX;
 
-        if (gTasks[taskId].data[2] == 0)
+        if (!gTasks[taskId].tEnemyPlatformX)
         {
             gScanlineEffect.state = 3;
             gTasks[taskId].tState++;
@@ -237,6 +246,7 @@ static void BattleIntroSlide1(u8 taskId)
 static void BattleIntroSlide2(u8 taskId)
 {
     int i;
+    u16 slideRate;
 
     switch (gTasks[taskId].tTerrain)
     {
@@ -267,17 +277,17 @@ static void BattleIntroSlide2(u8 taskId)
         gTasks[taskId].data[4] = 16;
         if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         {
-            gTasks[taskId].data[2] = 16;
+            gTasks[taskId].tEnemyPlatformX = 16;
             gTasks[taskId].tState++;
         }
         else
         {
-            gTasks[taskId].data[2] = 1;
+            gTasks[taskId].tEnemyPlatformX = 1;
             gTasks[taskId].tState++;
         }
         break;
     case 1:
-        if (--gTasks[taskId].data[2] == 0)
+        if (--gTasks[taskId].tEnemyPlatformX == 0)
         {
             gTasks[taskId].tState++;
             SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG_ALL | WININ_WIN0_OBJ | WININ_WIN0_CLR);
@@ -288,16 +298,16 @@ static void BattleIntroSlide2(u8 taskId)
         if ((gBattle_WIN0V & 0xFF00) == 0x3000)
         {
             gTasks[taskId].tState++;
-            gTasks[taskId].data[2] = DISPLAY_WIDTH;
-            gTasks[taskId].data[3] = 32;
+            gTasks[taskId].tEnemyPlatformX = 240;
+            gTasks[taskId].tPlayerPlatformX = 32;
             gTasks[taskId].data[5] = 1;
             gIntroSlideFlags &= ~1;
         }
         break;
     case 3:
-        if (gTasks[taskId].data[3])
+        if (gTasks[taskId].tPlayerPlatformX)
         {
-            if (--gTasks[taskId].data[3] == 0)
+            if (--gTasks[taskId].tPlayerPlatformX == 0)
             {
                 SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG3 | BLDCNT_TGT2_OBJ);
                 SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(15, 0));
@@ -316,17 +326,22 @@ static void BattleIntroSlide2(u8 taskId)
         if (gBattle_WIN0V & 0xFF00)
             gBattle_WIN0V -= 0x3FC;
 
-        if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+        slideRate  = Rogue_ModifyBattleSlideAnim(2);
+
+        if (gTasks[taskId].tEnemyPlatformX > slideRate)
+            gTasks[taskId].tEnemyPlatformX -= slideRate;
+        else
+            gTasks[taskId].tEnemyPlatformX = 0;
+
 
         // Scanline settings have already been set in CB2_InitBattleInternal()
         for (i = 0; i < DISPLAY_HEIGHT / 2; i++)
-            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].data[2];
+            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].tEnemyPlatformX;
 
         for (; i < DISPLAY_HEIGHT; i++)
-            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = -gTasks[taskId].data[2];
+            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = -gTasks[taskId].tEnemyPlatformX;
 
-        if (gTasks[taskId].data[2] == 0)
+        if (!gTasks[taskId].tEnemyPlatformX)
         {
             gScanlineEffect.state = 3;
             gTasks[taskId].tState++;
@@ -349,6 +364,7 @@ static void BattleIntroSlide2(u8 taskId)
 static void BattleIntroSlide3(u8 taskId)
 {
     int i;
+    u16 slideRate;
 
     gBattle_BG1_X += 8;
     switch (gTasks[taskId].tState)
@@ -360,17 +376,17 @@ static void BattleIntroSlide3(u8 taskId)
         gTasks[taskId].data[4] = BLDALPHA_BLEND(8, 8);
         if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
         {
-            gTasks[taskId].data[2] = 16;
+            gTasks[taskId].tEnemyPlatformX = 16;
             gTasks[taskId].tState++;
         }
         else
         {
-            gTasks[taskId].data[2] = 1;
+            gTasks[taskId].tEnemyPlatformX = 1;
             gTasks[taskId].tState++;
         }
         break;
     case 1:
-        if (--gTasks[taskId].data[2] == 0)
+        if (--gTasks[taskId].tEnemyPlatformX == 0)
         {
             gTasks[taskId].tState++;
             SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG_ALL | WININ_WIN0_OBJ | WININ_WIN0_CLR);
@@ -381,16 +397,21 @@ static void BattleIntroSlide3(u8 taskId)
         if ((gBattle_WIN0V & 0xFF00) == 0x3000)
         {
             gTasks[taskId].tState++;
-            gTasks[taskId].data[2] = DISPLAY_WIDTH;
-            gTasks[taskId].data[3] = 32;
+            gTasks[taskId].tEnemyPlatformX = 240;
+            gTasks[taskId].tPlayerPlatformX = 32;
             gTasks[taskId].data[5] = 1;
             gIntroSlideFlags &= ~1;
         }
         break;
     case 3:
-        if (gTasks[taskId].data[3])
+        if (gTasks[taskId].tPlayerPlatformX)
         {
-            gTasks[taskId].data[3]--;
+            slideRate = Rogue_ModifyBattleSlideAnim(1);
+
+            if (gTasks[taskId].tPlayerPlatformX > slideRate)
+                gTasks[taskId].tPlayerPlatformX -= slideRate;
+            else
+                gTasks[taskId].tPlayerPlatformX = 0;
         }
         else
         {
@@ -404,17 +425,21 @@ static void BattleIntroSlide3(u8 taskId)
         if (gBattle_WIN0V & 0xFF00)
             gBattle_WIN0V -= 0x3FC;
 
-        if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+        slideRate  = Rogue_ModifyBattleSlideAnim(2);
+
+        if (gTasks[taskId].tEnemyPlatformX > slideRate)
+            gTasks[taskId].tEnemyPlatformX -= slideRate;
+        else
+            gTasks[taskId].tEnemyPlatformX = 0;
 
         // Scanline settings have already been set in CB2_InitBattleInternal()
         for (i = 0; i < DISPLAY_HEIGHT / 2; i++)
-            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].data[2];
+            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].tEnemyPlatformX;
 
         for (; i < DISPLAY_HEIGHT; i++)
-            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = -gTasks[taskId].data[2];
+            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = -gTasks[taskId].tEnemyPlatformX;
 
-        if (gTasks[taskId].data[2] == 0)
+        if (!gTasks[taskId].tEnemyPlatformX)
         {
             gScanlineEffect.state = 3;
             gTasks[taskId].tState++;
@@ -437,6 +462,7 @@ static void BattleIntroSlide3(u8 taskId)
 static void BattleIntroSlideLink(u8 taskId)
 {
     int i;
+    u16 slideRate;
 
     if (gTasks[taskId].tState > 1 && !gTasks[taskId].data[4])
     {
@@ -457,11 +483,11 @@ static void BattleIntroSlideLink(u8 taskId)
     switch (gTasks[taskId].tState)
     {
     case 0:
-        gTasks[taskId].data[2] = 32;
+        gTasks[taskId].tEnemyPlatformX = 32;
         gTasks[taskId].tState++;
         break;
     case 1:
-        if (--gTasks[taskId].data[2] == 0)
+        if (--gTasks[taskId].tEnemyPlatformX == 0)
         {
             gTasks[taskId].tState++;
             gSprites[gBattleStruct->linkBattleVsSpriteId_V].oam.objMode = ST_OAM_OBJ_WINDOW;
@@ -477,8 +503,8 @@ static void BattleIntroSlideLink(u8 taskId)
         if ((gBattle_WIN0V & 0xFF00) == 0x3000)
         {
             gTasks[taskId].tState++;
-            gTasks[taskId].data[2] = DISPLAY_WIDTH;
-            gTasks[taskId].data[3] = 32;
+            gTasks[taskId].tEnemyPlatformX = 240;
+            gTasks[taskId].tPlayerPlatformX = 32;
             gIntroSlideFlags &= ~1;
         }
         break;
@@ -486,17 +512,21 @@ static void BattleIntroSlideLink(u8 taskId)
         if (gBattle_WIN0V & 0xFF00)
             gBattle_WIN0V -= 0x3FC;
 
-        if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+        slideRate  = Rogue_ModifyBattleSlideAnim(2);
+
+        if (gTasks[taskId].tEnemyPlatformX > slideRate)
+            gTasks[taskId].tEnemyPlatformX -= slideRate;
+        else
+            gTasks[taskId].tEnemyPlatformX = 0;
 
         // Scanline settings have already been set in CB2_InitBattleInternal()
         for (i = 0; i < DISPLAY_HEIGHT / 2; i++)
-            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].data[2];
+            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].tEnemyPlatformX;
 
         for (; i < DISPLAY_HEIGHT; i++)
-            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = -gTasks[taskId].data[2];
+            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = -gTasks[taskId].tEnemyPlatformX;
 
-        if (gTasks[taskId].data[2] == 0)
+        if (!gTasks[taskId].tEnemyPlatformX)
         {
             gScanlineEffect.state = 3;
             gTasks[taskId].tState++;
@@ -514,14 +544,16 @@ static void BattleIntroSlideLink(u8 taskId)
 
 static void BattleIntroSlidePartner(u8 taskId)
 {
+    u16 slideRate;
+
     switch (gTasks[taskId].tState)
     {
     case 0:
-        gTasks[taskId].data[2] = 1;
+        gTasks[taskId].tEnemyPlatformX = 1;
         gTasks[taskId].tState++;
         break;
     case 1:
-        if (--gTasks[taskId].data[2] == 0)
+        if (--gTasks[taskId].tEnemyPlatformX == 0)
         {
             gTasks[taskId].tState++;
             SetGpuReg(REG_OFFSET_BG1CNT, BGCNT_PRIORITY(2) | BGCNT_CHARBASE(2) | BGCNT_16COLOR | BGCNT_SCREENBASE(28) | BGCNT_TXT512x256);
@@ -542,7 +574,7 @@ static void BattleIntroSlidePartner(u8 taskId)
         if ((gBattle_WIN0V & 0xFF00) == 0x2000)
         {
             gTasks[taskId].tState++;
-            gTasks[taskId].data[2] = DISPLAY_WIDTH;
+            gTasks[taskId].tEnemyPlatformX = 240;
             gIntroSlideFlags &= ~1;
         }
         break;
@@ -550,12 +582,16 @@ static void BattleIntroSlidePartner(u8 taskId)
         if ((gBattle_WIN0V & 0xFF00) != 0x4C00)
             gBattle_WIN0V += 0x3FC;
 
-        if (gTasks[taskId].data[2])
-            gTasks[taskId].data[2] -= 2;
+        slideRate  = Rogue_ModifyBattleSlideAnim(2);
 
-        gBattle_BG1_X = gTasks[taskId].data[2];
-        gBattle_BG2_X = -gTasks[taskId].data[2];
-        if (gTasks[taskId].data[2] == 0)
+        if (gTasks[taskId].tEnemyPlatformX > slideRate)
+            gTasks[taskId].tEnemyPlatformX -= slideRate;
+        else
+            gTasks[taskId].tEnemyPlatformX = 0;
+
+        gBattle_BG1_X = gTasks[taskId].tEnemyPlatformX;
+        gBattle_BG2_X = -gTasks[taskId].tEnemyPlatformX;
+        if (!gTasks[taskId].tEnemyPlatformX)
             gTasks[taskId].tState++;
         break;
     case 4:

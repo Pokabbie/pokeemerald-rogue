@@ -1,0 +1,1747 @@
+const OBJ_ASSISTANT_ID =  1
+const OBJ_POKABBIE_ID =  4
+
+const VAR_FLAG_STATE = VAR_0x8000
+const FLAG_SEED_APPLY_MOVEMENT = FLAG_TEMP_2
+
+// Temp hack to get compile until this map is deleted
+const FLAG_ROGUE_EXP_ALL = FLAG_TEMP_1
+const FLAG_ROGUE_CAN_OVERLVL = FLAG_TEMP_1
+const FLAG_ROGUE_EV_GAIN_ENABLED = FLAG_TEMP_1
+const FLAG_ROGUE_OVERWORLD_WILD_MONS = FLAG_TEMP_1
+const FLAG_ROGUE_FORCE_BASIC_BAG = FLAG_TEMP_1
+
+const FLAG_ROGUE_HARD_TRAINERS = FLAG_TEMP_1
+const FLAG_ROGUE_EASY_TRAINERS = FLAG_TEMP_2
+const FLAG_ROGUE_HARD_LEGENDARIES = FLAG_TEMP_1
+const FLAG_ROGUE_EASY_LEGENDARIES = FLAG_TEMP_2
+
+const FLAG_ROGUE_HOENN_ROUTES = FLAG_TEMP_2
+const FLAG_ROGUE_HOENN_BOSSES = FLAG_TEMP_2
+const FLAG_ROGUE_KANTO_ROUTES = FLAG_TEMP_2
+const FLAG_ROGUE_KANTO_BOSSES = FLAG_TEMP_2
+const FLAG_ROGUE_JOHTO_ROUTES = FLAG_TEMP_2
+const FLAG_ROGUE_JOHTO_BOSSES = FLAG_TEMP_2
+
+const METATILE_BikeShop_Button_Red = 0x23E
+
+mapscripts Rogue_Hub_Interior_ConfigRoom_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_ConfigRoom_OnLoad
+}
+
+script Rogue_ConfigRoom_OnLoad
+{
+    setvar(VAR_FOLLOW_MON_0, SPECIES_DITTO)
+    call(Rogue_ConfigRoom_RedrawMap)
+}
+
+script Rogue_ConfigRoom_TalkLanette
+{
+    lock
+    faceplayer
+    msgbox(format("LANETTE: Hi {PLAYER}!\pThis is the CONFIG LAB!\pIn here you can change settings for the next time you go on an adventure.\pJust step onto a switch to adjust the setting."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_ConfigRoom_TalkAssistant
+{
+    lock
+    faceplayer
+    if(flag(FLAG_SET_SEED_ENABLED) == FALSE)
+    {
+        msgbox(format("ASSISTANT: The settings back here are for SEEDED mode!\pIn SEEDED mode you will always encounter the same ROUTES, TRAINERS and Pokémon.\pI can enabled SEEDED mode for your next adventure, if you'd like?"), MSGBOX_DEFAULT)
+    }
+
+    clearflag(FLAG_SEED_APPLY_MOVEMENT)
+    call(Rogue_ConfigRoom_TalkAssistantInternal)
+    release
+}
+
+script Rogue_ConfigRoom_SpeakSeedMode
+{
+    lock
+    faceplayer
+    if(flag(FLAG_SET_SEED_ENABLED) == FALSE)
+    {
+        msgbox(format("ASSISTANT: I can enabled SEEDED mode for your next adventure, if you'd like?"), MSGBOX_DEFAULT)
+    }
+
+    clearflag(FLAG_SEED_APPLY_MOVEMENT)
+    call(Rogue_ConfigRoom_TalkAssistantInternal)
+    release
+}
+
+script Rogue_ConfigRoom_TalkAssistantInternal
+{
+    if(flag(FLAG_SET_SEED_ENABLED) == TRUE)
+    {
+        msgbox(format("ASSISTANT: Do you want to disable SEEDED mode?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("ASSISTANT: OK.\nI'll disable SEEDED mode"), MSGBOX_DEFAULT)
+            clearflag(FLAG_SET_SEED_ENABLED)
+
+            if(flag(FLAG_SEED_APPLY_MOVEMENT))
+            {
+                applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft)
+                applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookLeft)
+                waitmovement(0)
+            }
+        }
+    }
+    else
+    {
+        msgbox(format("ASSISTANT: Do you want to enable SEEDED mode for your next adventure?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("ASSISTANT: Please select the SEED phrases"), MSGBOX_DEFAULT)
+            setvar(VAR_0x8004, EASY_CHAT_TYPE_ROGUE_SEED)
+            call(Common_ShowEasyChatScreen)
+
+            if(var(VAR_RESULT) == TRUE)
+            {
+                msgbox(format("ASSISTANT: OK.\nI'll enable SEEDED mode using that phrase!"), MSGBOX_DEFAULT)
+                setflag(FLAG_SET_SEED_ENABLED)
+            }
+            else
+            {
+                msgbox(format("ASSISTANT: Oh.\nSpeak to me if you ever want to enable SEEDED mode"), MSGBOX_DEFAULT)
+                if(flag(FLAG_SEED_APPLY_MOVEMENT))
+                {
+                    applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft)
+                    applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookLeft)
+                    waitmovement(0)
+                }
+            }
+        }
+        else
+        {
+            if(flag(FLAG_SEED_APPLY_MOVEMENT))
+            {
+                applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_WalkLeft)
+                applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookLeft)
+                waitmovement(0)
+            }
+        }
+    }
+}
+
+script Rogue_ConfigRoom_Campaign_CampaignDescription
+{
+    switch(var(VAR_ROGUE_DESIRED_CAMPAIGN))
+    {
+        case ROGUE_CAMPAIGN_LOW_BST:
+            msgbox(format("The BST CUP is short for Base Stat Total Cup.\pThe jist of it, is that you want to try and complete a full run using the weakest Pokémon you can find (The Pokémon with the lowest BST).\pEvery Pokémon you have in your party will be considered for the score.\pFor this Campaign, you'll have to enter a Standard Battle Adventure.\pGauntlet and Rainbow mode ain't allowed!\pFinally, this campaign will adjust Config Lab settings and TM TOXIC is banned.\p(Note the score will update when starting a battle, to give you a chance to catch and release mons)"))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
+
+        case ROGUE_CAMPAIGN_CLASSIC:
+            msgbox(format("Classic Mode makes the Adventures more similar to how they use to be 'back in the ol' days'.\pThe main feature is that you no longer get any options for encounter.\pYou'll always have to take a specific path.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure."), MSGBOX_DEFAULT)
+
+        case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
+            msgbox(format("Battle Addict makes the Adventures never create 'Route' encounters.\pInstead you have Strong Trainer encounters.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many Pokémon faint during the run.\pThe aim is to get the lowest score possible."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
+
+        case ROGUE_CAMPAIGN_AUTO_BATTLER:
+            msgbox(format("Auto Battler makes it so in battles, both you and the opponent will always pick random moves.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many Pokémon faint during the run.\pThe aim is to get the lowest score possible."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
+
+        case ROGUE_CAMPAIGN_LATERMANNER:
+            msgbox(format("LaterManner Mode was made for the streamer himself!\pIt's..!\pErr...\pWell it is a mode...\pYou gain score if a Pokémon faints...\pAnd well... You'll figure out the rest."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
+
+        case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
+            msgbox(format("Limited Capture Mode will provide you a limited number of POKé BALLs and your goal is simply to complete an Adventure.\pYou will not be able to purchase or find new POKé BALLs during the Adventure and encounters which give you Pokémon, such as the Pokémon LAB, will no longer appear.\pThis can be played in any adventure type and will force Bag Wipe in Config Lab."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure."), MSGBOX_DEFAULT)
+
+        case ROGUE_CAMPAIGN_ONE_HP:
+            msgbox(format("One Hit Mode will cause all of your Pokémon to take enough damage to faint from every hit.\pBattles with wild Pokémon will still behave normally.\pDamage over time and status effects, such as poison or hail damage, will act as normal.\pThis can be played in any adventure type and doesn't adjust any of the settings in the Config Lab.\pYour score is based on how many Pokémon faint during the run.\pThe aim is to get the lowest score possible."))
+            msgbox(format("You'll know if the Campaign is active; it'll be announced to you at the start of the Adventure and you'll be able to view your current score in the pause menu."), MSGBOX_DEFAULT)
+
+        default:
+            msgbox(format("???"))
+    }
+}
+
+script Rogue_ConfigRoom_Campaign_Choice
+{
+    special(Rogue_BufferCampaignName)
+    special(Rogue_GetCampaignHighScore)
+
+    if(var(VAR_RESULT) == 0)
+    {
+        message(format("You wanna give the {STR_VAR_1} Campaign a go?"))
+    }
+    else
+    {
+        buffernumberstring(STR_VAR_2, VAR_RESULT)
+        message(format("Play the {STR_VAR_1} Campaign?\n(Best Score: {STR_VAR_2})"))
+    }
+
+    waitmessage
+    multichoice(20, 6, MULTI_YESNOINFO, YES)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            waitse
+            playse(SE_PIN)
+            msgbox(format("Good luck, kid!"), MSGBOX_DEFAULT)
+
+        case 2: // Info
+            call(Rogue_ConfigRoom_Campaign_CampaignDescription)
+            call(Rogue_ConfigRoom_Campaign_Choice)
+
+        case 1: // No
+        case MULTI_B_PRESSED:
+            setvar(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE)
+    }
+}
+
+script Rogue_ConfigRoom_Campaign_ReplayChoice
+{
+    special(Rogue_BufferCampaignName)
+    special(Rogue_GetCampaignHighScore)
+
+    if(var(VAR_RESULT) == 0)
+    {
+        message(format("Play the {STR_VAR_1} Campaign?"))
+    }
+    else
+    {
+        buffernumberstring(STR_VAR_2, VAR_RESULT)
+        message(format("Play the {STR_VAR_1} Campaign?\n(Best Score: {STR_VAR_2})"))
+    }
+
+    waitmessage
+    multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            waitse
+            playse(SE_PIN)
+            msgbox(format("Good luck, kid!"), MSGBOX_DEFAULT)
+
+        case 2: // Info
+            call(Rogue_ConfigRoom_Campaign_CampaignDescription)
+            call(Rogue_ConfigRoom_Campaign_ReplayChoice)
+
+        case 1: // No
+        case MULTI_B_PRESSED:
+            setvar(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE)
+    }
+}
+
+script Rogue_ConfigRoom_Campaign_NewPhrase
+{
+    msgbox(format("...\pWhat was that?"))
+
+    setvar(VAR_0x8004, EASY_CHAT_TYPE_ROGUE_CAMPAIGN)
+    call(Common_ShowEasyChatScreen)
+    
+    if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
+    {
+        faceplayer
+        completequest(QUEST_CampaignTease)
+
+        special(Rogue_BufferCampaignName)
+        msgbox(format("Whoa!\pThat there's the secret phrase for the {STR_VAR_1} Campaign!"), MSGBOX_DEFAULT)
+
+        if(var(VAR_TEMP_F) == YES)
+        {
+            msgbox(format("When you take part in a Campaign settings will be changed to give a unique challenge.\pI may swap out your Pokémon and change some of the items in your bag.\pI may also edit your settings in the Config Lab.\pEach Campaign has a specific setup, rules and restrictions."), MSGBOX_DEFAULT)
+        }
+
+        call(Rogue_ConfigRoom_Campaign_Choice)
+
+        if(var(VAR_ROGUE_DESIRED_CAMPAIGN) == ROGUE_CAMPAIGN_NONE)
+        {
+            msgbox(format("You let me know, if you wanna have a go of it."), MSGBOX_DEFAULT)
+        }
+    }
+    else
+    {
+        msgbox(format("Nah...\nThat ain't no mode I know about..."), MSGBOX_DEFAULT)
+    }
+}
+
+script Rogue_ConfigRoom_SelectCampaign_Loop
+{
+    special(Rogue_GetNextUnlockedCampaign)
+    if(var(VAR_0x8004) != ROGUE_CAMPAIGN_NONE)
+    {
+        setvar(VAR_RESULT, YES)
+    }
+    else
+    {
+        setvar(VAR_RESULT, NO)
+    }
+
+    while(var(VAR_RESULT) == YES)
+    {
+        copyvar(VAR_ROGUE_DESIRED_CAMPAIGN, VAR_0x8004)
+        call(Rogue_ConfigRoom_Campaign_ReplayChoice)
+
+        if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
+        {
+            setvar(VAR_RESULT, NO)
+        }
+        else
+        {
+            special(Rogue_GetNextUnlockedCampaign)
+            if(var(VAR_0x8004) == ROGUE_CAMPAIGN_NONE)
+            {
+                // Ran out of campaigns
+                setvar(VAR_RESULT, NO)
+            }
+            else
+            {
+                // Still got more to check
+                setvar(VAR_RESULT, YES)
+            }
+        }
+    }
+
+    if(var(VAR_ROGUE_DESIRED_CAMPAIGN) == ROGUE_CAMPAIGN_NONE)
+    {
+        msgbox(format("That's all I've got I'm afraid..."))
+    }
+}
+
+script Rogue_ConfigRoom_Campaign
+{
+    lock
+
+    special(Rogue_GetUnlockedCampaignCount)
+    if(var(VAR_RESULT) == 0)
+    {
+        setvar(VAR_TEMP_F, YES)
+        call(Rogue_ConfigRoom_Campaign_NewPhrase)
+    }
+    else
+    {
+        faceplayer
+        msgbox(format("Hiya kid!"))
+
+        // Always mark this as complete as some people are not getting it first time?
+        completequest(QUEST_CampaignTease)
+
+        if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
+        {
+            call(Rogue_ConfigRoom_Campaign_Choice)
+
+            if(var(VAR_ROGUE_DESIRED_CAMPAIGN) == ROGUE_CAMPAIGN_NONE)
+            {
+                msgbox(format("You let me know, if you wanna give it another go."), MSGBOX_DEFAULT)
+            }
+        }
+        else
+        {
+            // Additional options
+            message(format("How can I help?"))
+            waitmessage
+
+            multichoice(20, 6, MULTI_CAMPAIGN_EXT_OPT, NO)
+
+            switch(var(VAR_RESULT))
+            {
+                case 0: // Play Campaign
+                    setvar(VAR_0x8004, ROGUE_CAMPAIGN_NONE)
+                    call(Rogue_ConfigRoom_SelectCampaign_Loop)
+
+                case 1: // New Phrase
+                    setvar(VAR_TEMP_F, NO)
+                    call(Rogue_ConfigRoom_Campaign_NewPhrase)
+
+                //case 2:
+                //case MULTI_B_PRESSED: 
+            }
+        }
+    }
+
+    release
+}
+
+script Rogue_ConfigRoom_WalkAboveAssistant
+{
+    lockall
+
+    if(flag(FLAG_SET_SEED_ENABLED) == FALSE)
+    {
+        lockall
+        applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookUp)
+        applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_LookDown)
+        waitmovement(0)
+
+        setflag(FLAG_SEED_APPLY_MOVEMENT)
+        call(Rogue_ConfigRoom_TalkAssistantInternal)
+    }
+
+    releaseall
+}
+
+script Rogue_ConfigRoom_WalkBelowAssistant
+{
+    lockall
+
+    if(flag(FLAG_SET_SEED_ENABLED) == FALSE)
+    {
+        applymovement(OBJ_ASSISTANT_ID, ConfigRoom_LookDown)
+        applymovement(OBJ_EVENT_ID_PLAYER, ConfigRoom_LookUp)
+        waitmovement(0)
+
+        setflag(FLAG_SEED_APPLY_MOVEMENT)
+        call(Rogue_ConfigRoom_TalkAssistantInternal)
+    }
+
+    releaseall
+}
+
+movement ConfigRoom_LookUp {
+    face_up
+}
+
+movement ConfigRoom_LookDown {
+    face_down
+}
+
+movement ConfigRoom_LookLeft {
+    face_left
+}
+
+movement ConfigRoom_WalkLeft {
+    walk_left
+}
+
+script Rogue_ConfigRoom_TalkHiddenEnterance
+{
+    if(flag(FLAG_ROGUE_UNCOVERRED_POKABBIE) == FALSE)
+    {
+        lock
+
+        msgbox(format("What's this?\pA hidden switch!\pPress the switch?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("WARNING!\nPressing this switch will skip ahead and activate post-game content.\pYou're recommended to complete a run normally before pressing this switch.\pPress the switch?"), MSGBOX_YESNO)
+
+            if(var(VAR_RESULT) == YES)
+            {
+                setflag(FLAG_ROGUE_UNCOVERRED_POKABBIE)
+
+                waitse
+                playse(SE_TRUCK_DOOR)
+                call(Rogue_ConfigRoom_RedrawMap)
+            }
+        }
+
+        release
+    }
+}
+
+script Rogue_ConfigRoom_MeetPokabbie
+{
+    lockall
+
+    playse(SE_PIN)
+    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_NoticePlayer)
+    waitmovement(0)
+
+    if(flag(FLAG_IS_CHAMPION))
+    {
+        msgbox(format("POKABBIE: Ah {PLAYER}!\pWelcome to my LAB!\nOr what I like to dub...\pThe EXPANSION ROOM!"))
+        msgbox(format("You can use this ROOM to enable SPECIAL MODES and although there's not too many now, I'll be sure to add more in future!\pFeel free to look around!"))
+    }
+    else
+    {
+        msgbox(format("???: What are you doing here!\pYou discovered my SECRET LAB already!"))
+
+        applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_FaceUp)
+        waitmovement(0)
+
+        msgbox(format("I was gonna wait until you had beat the CHAMPION at least..."))
+
+        applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_FaceDown)
+        waitmovement(0)
+
+        msgbox(format("Anyway!\pWhere are my manners!\nAllow me to introduce myself!"))
+
+        applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_Spin)
+        waitmovement(0)
+
+        msgbox(format("The name's Abbie!\nBut you can call me Pokabbie!"))
+
+        msgbox(format("POKABBIE: I'm the DEV behind EMERALD ROGUE!\pWelcome to my LAB!\nOr what I like to dub...\pThe EXPANSION ROOM!"))
+        msgbox(format("You can use this ROOM to enable SPECIAL MODES and although there's not too many now, I'll be sure to add more in future!\pFeel free to look around!"))
+    }
+
+    completequest(QUEST_MeetPokabbie)
+    setflag(FLAG_ROGUE_MET_POKABBIE)
+    setvar(VAR_TEMP_1, 1)
+
+    releaseall
+}
+
+script Rogue_ConfigRoom_TalkPokabbie
+{
+    lockall
+
+    faceplayer
+    msgbox(format("POKABBIE: I hope you're enjoying EMERALD ROGUE!\pFeel free to enable any SPECIAL MODES from this room!\pI'll be sure to add some more in future!"), MSGBOX_DEFAULT)
+
+    applymovement(OBJ_POKABBIE_ID, ConfigRoom_Pokabbie_Spin)
+    waitmovement(0)
+
+    releaseall
+}
+
+script Rogue_ConfigRoom_TalkDitto
+{
+    lock
+
+    playmoncry(SPECIES_DITTO, CRY_MODE_NORMAL)
+    msgbox(format("A Ditto!\pWhy is it here?"), MSGBOX_DEFAULT)
+
+    release
+}
+
+movement ConfigRoom_Pokabbie_FaceDown 
+{
+    face_down
+}
+
+movement ConfigRoom_Pokabbie_FaceUp 
+{
+    face_up
+}
+
+movement ConfigRoom_Pokabbie_NoticePlayer 
+{
+    face_down
+    emote_exclamation_mark
+}
+
+movement ConfigRoom_Pokabbie_Spin 
+{
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+    
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+}
+
+script Rogue_ConfigRoom_MegaBag
+{
+    lock
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable Pokémon from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            bufferitemname(STR_VAR_1, ITEM_MEGA_RING)
+            checkitem(ITEM_MEGA_RING)
+
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("Would you like to take the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    giveitem(ITEM_MEGA_RING)
+                }
+            }
+            else
+            {
+                msgbox(format("Would you like to put back the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("The {STR_VAR_1} was placed back into the bag."), MSGBOX_DEFAULT)
+                    removeitem(ITEM_MEGA_RING)
+                }
+            }
+        }
+    }
+
+    release
+}
+
+script Rogue_ConfigRoom_ZMoveBag
+{
+    lock
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable Pokémon from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            bufferitemname(STR_VAR_1, ITEM_Z_POWER_RING)
+            checkitem(ITEM_Z_POWER_RING)
+
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("Would you like to take the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    giveitem(ITEM_Z_POWER_RING)
+                }
+            }
+            else
+            {
+                msgbox(format("Would you like to put back the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("The {STR_VAR_1} was placed back into the bag."), MSGBOX_DEFAULT)
+                    removeitem(ITEM_Z_POWER_RING)
+                }
+            }
+        }
+    }
+
+    release
+}
+
+script Rogue_ConfigRoom_DynamaxBag
+{
+    lock
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("It's an bag with a note attached...\pThanks for player Vanilla Version!\pIn EX Version this room can be used to enable Pokémon from future generations!\pIf that sounds fun, you can start a New Game on EX version and immediately unlock this room by interacting with the window inside the Config Lab."))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            bufferitemname(STR_VAR_1, ITEM_DYNAMAX_BAND)
+            checkitem(ITEM_DYNAMAX_BAND)
+
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("Would you like to take the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    giveitem(ITEM_DYNAMAX_BAND)
+                }
+            }
+            else
+            {
+                msgbox(format("Would you like to put back the {STR_VAR_1}?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("The {STR_VAR_1} was placed back into the bag."), MSGBOX_DEFAULT)
+                    removeitem(ITEM_DYNAMAX_BAND)
+                }
+            }
+        }
+    }
+
+    release
+}
+
+script Rogue_ConfigRoom_BufferRegionName 
+{
+    switch(var(VAR_ROGUE_REGION_DEX_LIMIT))
+    {
+        case 1:
+            bufferstring(STR_VAR_1, "KANTO")
+        case 2:
+            bufferstring(STR_VAR_1, "JOHTO")
+        case 3:
+            bufferstring(STR_VAR_1, "HOENN")
+        case 4:
+            bufferstring(STR_VAR_1, "SINNOH")
+        case 5:
+            bufferstring(STR_VAR_1, "UNOVA")
+        case 6:
+            bufferstring(STR_VAR_1, "KALOS")
+        case 7:
+            bufferstring(STR_VAR_1, "ALOLA")
+        case 8:
+            bufferstring(STR_VAR_1, "GALAR")
+        default:
+            bufferstring(STR_VAR_1, "???")
+    }
+}
+
+script Rogue_ConfigRoom_AdjustWildGens_Regional
+{
+    message(format("Which REGION's DEX would you like to use?"))
+    waitmessage
+
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        multichoice(20, 0, MULTI_REGION_FULL, NO)
+    }
+    else
+    {
+        multichoice(20, 6, MULTI_REGION_UPTO_HOENN, NO)
+    }
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+            waitse
+            playse(SE_PIN)
+
+            addvar(VAR_RESULT, 1)
+            copyvar(VAR_ROGUE_REGION_DEX_LIMIT, VAR_RESULT)
+            copyvar(VAR_ROGUE_ENABLED_GEN_LIMIT, VAR_RESULT) // Use the same gen limit
+            
+            call(Rogue_ConfigRoom_BufferRegionName)
+            msgbox(format("Now you will encounter Pokémon from the {STR_VAR_1} REGIONAL DEX."), MSGBOX_DEFAULT)
+            setvar(VAR_RESULT, YES)
+
+        case MULTI_B_PRESSED: 
+            setvar(VAR_RESULT, NO)
+    }
+}
+
+script Rogue_ConfigRoom_AdjustWildGens_National
+{
+    message(format("What generation limit would you like to use?"))
+    waitmessage
+
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+    }
+    else
+    {
+        multichoice(20, 6, MULTI_GENERATIONS_UPTO3, NO)
+    }
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+            waitse
+            playse(SE_PIN)
+
+            addvar(VAR_RESULT, 1)
+            copyvar(VAR_ROGUE_ENABLED_GEN_LIMIT, VAR_RESULT)
+            setvar(VAR_ROGUE_REGION_DEX_LIMIT, 0) // No regional dex
+
+            buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
+            msgbox(format("Now you will encounter Pokémon upto GENERATION {STR_VAR_1}."), MSGBOX_DEFAULT)
+            setvar(VAR_RESULT, YES)
+
+        case MULTI_B_PRESSED: 
+            setvar(VAR_RESULT, NO)
+    }
+}
+
+script Rogue_ConfigRoom_AdjustWildGens
+{
+    lock
+    faceplayer
+    msgbox(format("Hi there {PLAYER}!\pI can adjust the enabled GENERATIONs if you'd like to expand or shrink the types of Pokémon you'll encounter."), MSGBOX_DEFAULT)
+
+    buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
+    if(var(VAR_ROGUE_REGION_DEX_LIMIT) == 0)
+    {
+        buffernumberstring(STR_VAR_1, VAR_ROGUE_ENABLED_GEN_LIMIT)
+        msgbox(format("You're currently using NATIONAL mode up to GEN {STR_VAR_1}.\pWould you like to change it?"), MSGBOX_YESNO)
+    }
+    else
+    {
+        call(Rogue_ConfigRoom_BufferRegionName)
+        msgbox(format("You're currently using {STR_VAR_1} REGIONAL mode.\pWould you like to change it?"), MSGBOX_YESNO)
+    }
+
+    if(var(VAR_RESULT) == YES)
+    {
+        message(format("Which mode would you like to use?"))
+        waitmessage
+        multichoice(20, 8, MULTI_REGION_OR_NATIONAL, NO)
+        
+        switch(var(VAR_RESULT))
+        {
+            case 0:
+                call(Rogue_ConfigRoom_AdjustWildGens_National)
+
+            case 1:
+                call(Rogue_ConfigRoom_AdjustWildGens_Regional)
+
+            case MULTI_B_PRESSED: 
+                setvar(VAR_RESULT, NO)
+        }
+    }
+
+
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("No worries!\nCome chat to me if you ever change your mind."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+
+script Rogue_ConfigRoom_PreButtonInternal
+{
+    lockall
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            bufferstring(STR_VAR_2, format("OFF"))
+        case 1:
+            bufferstring(STR_VAR_2, format("ON"))
+        default:
+            bufferstring(STR_VAR_2, format("???"))
+    }
+
+    message(format("{STR_VAR_1} is currently '{STR_VAR_2}'"))
+    waitmessage
+    multichoice(20, 6, MULTI_YESNOINFO_2, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Yes
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 0)
+            setvar(VAR_RESULT, YES)
+
+        case 1: // No
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 1)
+            setvar(VAR_RESULT, YES)
+
+        case 2: // Info
+            setvar(VAR_RESULT, NO)
+
+        case MULTI_B_PRESSED:
+            setvar(VAR_RESULT, YES)
+    }
+}
+
+script Rogue_ConfigRoom_PreEAHButtonInternal
+{
+    lockall
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            bufferstring(STR_VAR_2, format("EASY"))
+        case 1:
+            bufferstring(STR_VAR_2, format("AVERAGE"))
+        case 2:
+            bufferstring(STR_VAR_2, format("HARD"))
+        default:
+            bufferstring(STR_VAR_2, format("???"))
+    }
+
+    message(format("{STR_VAR_1} is currently '{STR_VAR_2}'"))
+    waitmessage
+    multichoice(20, 4, MULTI_EASY_AVERAGE_HARD_INFO, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0: // Easy
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 0)
+            setvar(VAR_RESULT, YES)
+
+        case 1: // Average
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 1)
+            setvar(VAR_RESULT, YES)
+
+        case 2: // Hard
+            waitse
+            playse(SE_PIN)
+            setvar(VAR_FLAG_STATE, 2)
+            setvar(VAR_RESULT, YES)
+
+        case 3: // Info
+            setvar(VAR_RESULT, NO)
+
+        case MULTI_B_PRESSED:
+            setvar(VAR_RESULT, YES)
+    }
+}
+
+script Rogue_ConfigRoom_PostButtonInternal
+{
+    if(var(VAR_RESULT) == YES)
+    {
+        call(Rogue_ConfigRoom_RedrawMap)
+    }
+    releaseall
+    return
+}
+
+script Rogue_ConfigRoom_RedrawMap
+{
+    if(flag(FLAG_ROGUE_UNCOVERRED_POKABBIE))
+    {
+        setmetatile(8,0, 0x25C, TRUE)
+        setmetatile(8,1, 0x293, TRUE)
+
+        setmetatile(9,0, 0x26E, TRUE)
+        setmetatile(9,1, 0x276, FALSE)
+        
+        setmetatile(10,0, 0x25D, TRUE)
+        setmetatile(10,1, 0x294, TRUE)
+    }
+
+    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    {
+        setvar(VAR_TEMP_2, 1)
+        clearflag(FLAG_TEMP_1)
+    }
+    else
+    {
+        setvar(VAR_TEMP_2, 1)
+        setflag(FLAG_TEMP_1)
+    }
+
+    if(flag(FLAG_ROGUE_MET_POKABBIE))
+    {
+        setvar(VAR_TEMP_1, 1)
+    }
+    else
+    {
+        setvar(VAR_TEMP_1, 0)
+    }
+
+    // Charms/Curse npc
+    questcollected(QUEST_DevilDeal)
+    if(var(VAR_RESULT) == NO)
+    {
+        setflag(FLAG_ROGUE_TRAINER0)
+    }
+    else
+    {
+        clearflag(FLAG_ROGUE_TRAINER0)
+    }
+
+
+    if(flag(FLAG_ROGUE_EXP_ALL))
+    {
+        setmetatile(1,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(1,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_ROGUE_CAN_OVERLVL))
+    {
+        setmetatile(3,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(3,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_ROGUE_EV_GAIN_ENABLED))
+    {
+        setmetatile(5,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(5,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_ROGUE_OVERWORLD_WILD_MONS))
+    {
+        setmetatile(7,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(7,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        setmetatile(9,3, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(9,3, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+
+    if(flag(FLAG_ROGUE_HARD_TRAINERS))
+    {
+        setmetatile(1,5, METATILE_BikeShop_Button_Red, FALSE)
+    }
+    elif (flag(FLAG_ROGUE_EASY_TRAINERS))
+    {
+        setmetatile(1,5, METATILE_BikeShop_Button_Blue, FALSE)
+    }
+    else
+    {
+        setmetatile(1,5, METATILE_BikeShop_Button_Green, FALSE)
+    }
+
+    if(flag(FLAG_ROGUE_HARD_ITEMS))
+    {
+        setmetatile(3,5, METATILE_BikeShop_Button_Red, FALSE)
+    }
+    elif (flag(FLAG_ROGUE_EASY_ITEMS))
+    {
+        setmetatile(3,5, METATILE_BikeShop_Button_Blue, FALSE)
+    }
+    else
+    {
+        setmetatile(3,5, METATILE_BikeShop_Button_Green, FALSE)
+    }
+
+    if(flag(FLAG_ROGUE_HARD_LEGENDARIES))
+    {
+        setmetatile(5,5, METATILE_BikeShop_Button_Red, FALSE)
+    }
+    elif (flag(FLAG_ROGUE_EASY_LEGENDARIES))
+    {
+        setmetatile(5,5, METATILE_BikeShop_Button_Blue, FALSE)
+    }
+    else
+    {
+        setmetatile(5,5, METATILE_BikeShop_Button_Green, FALSE)
+    }
+
+
+    // SEED settings
+    //
+    if(flag(FLAG_SET_SEED_ITEMS))
+    {
+        setmetatile(14,6, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(14,6, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_SET_SEED_WILDMONS))
+    {
+        setmetatile(16,6, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(16,6, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_SET_SEED_TRAINERS))
+    {
+        setmetatile(14,8, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(14,8, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    if(flag(FLAG_SET_SEED_BOSSES))
+    {
+        setmetatile(16,8, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(16,8, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    // Expansion Room
+    //
+    if(flag(FLAG_ROGUE_KANTO_ROUTES))
+    {
+        setmetatile(15,20, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(15,20, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    if(flag(FLAG_ROGUE_KANTO_BOSSES))
+    {
+        setmetatile(15,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(15,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    
+    if(flag(FLAG_ROGUE_JOHTO_ROUTES))
+    {
+        setmetatile(17,20, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(17,20, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    if(flag(FLAG_ROGUE_JOHTO_BOSSES))
+    {
+        setmetatile(17,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(17,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    
+    if(flag(FLAG_ROGUE_HOENN_ROUTES))
+    {
+        setmetatile(19,20, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(19,20, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+    if(flag(FLAG_ROGUE_HOENN_BOSSES))
+    {
+        setmetatile(19,22, METATILE_BikeShop_Button_Green, FALSE)
+    }
+    else
+    {
+        setmetatile(19,22, METATILE_BikeShop_Button_Pressed, FALSE)
+    }
+
+    special(DrawWholeMapView)
+    return
+}
+
+// Settings
+//
+
+script Rogue_ConfigRoom_Button_ExpAll
+{
+    bufferstring(STR_VAR_1, format("EXP. ALL"))
+
+    if(flag(FLAG_ROGUE_EXP_ALL))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_EXP_ALL)
+        case 1:
+            clearflag(FLAG_ROGUE_EXP_ALL)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled all Pokémon in the party will gain EXP.\nIt is heavily recommended that you keep this ON as the game has been balanced around it."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_CanOverLvl
+{
+    bufferstring(STR_VAR_1, format("ALLOW OVERLEVLING"))
+
+    if(flag(FLAG_ROGUE_CAN_OVERLVL))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_CAN_OVERLVL)
+        case 1:
+            clearflag(FLAG_ROGUE_CAN_OVERLVL)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When disabled will prevent Pokémon from levelling past the hight level Pokémon of the next GYM LEADER/BOSS."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_EVGainEnabled
+{
+    bufferstring(STR_VAR_1, format("ENABLE REWARD EVs"))
+
+    if(flag(FLAG_ROGUE_EV_GAIN_ENABLED))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_EV_GAIN_ENABLED)
+        case 1:
+            clearflag(FLAG_ROGUE_EV_GAIN_ENABLED)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled, Pokémon will gain EVs at the very end of Trainer battles.\pThese REWARD EVs will be given based on the nature of the Pokémon gaining them.\pThis features is intended to be a reward mechanic for not having Pokémon faint.\pWhen disabled Pokémon will always have 0 EVs.\pThis control will only affect you, the player; trainers will never have EVs, regardless of whether this is enabled or disabled."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_BasicBag
+{
+    bufferstring(STR_VAR_1, format("BAG WIPE"))
+
+    if(flag(FLAG_ROGUE_FORCE_BASIC_BAG))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_FORCE_BASIC_BAG)
+        case 1:
+            clearflag(FLAG_ROGUE_FORCE_BASIC_BAG)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If enabled, when embarking on an Adventure the contents of your bag will be wiped and you will be given the starter items instead.\pKey items are the only pocket which will remain untouched."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_WildMons
+{
+    bufferstring(STR_VAR_1, format("OVERWORLD WILD SPAWNS"))
+
+    if(flag(FLAG_ROGUE_OVERWORLD_WILD_MONS))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_OVERWORLD_WILD_MONS)
+        case 1:
+            clearflag(FLAG_ROGUE_OVERWORLD_WILD_MONS)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If enabled, WILD Pokémon will spawn in the overworld and roam around.\pIf disabled, WILD Pokémon will appear randomly when walking around in tall grass in the same fashion they do in older games.\pIt is recommended to keep this setting enabled."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_TrainerDifficulty
+{
+    bufferstring(STR_VAR_1, format("TRAINER DIFFICULTY"))
+
+    if(flag(FLAG_ROGUE_EASY_TRAINERS))
+    {
+        setvar(VAR_FLAG_STATE, 0)
+    }
+    elif(flag(FLAG_ROGUE_HARD_TRAINERS))
+    {
+        setvar(VAR_FLAG_STATE, 2)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, 1)
+    }
+
+    call(Rogue_ConfigRoom_PreEAHButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_EASY_TRAINERS)
+            clearflag(FLAG_ROGUE_HARD_TRAINERS)
+        case 1:
+            clearflag(FLAG_ROGUE_EASY_TRAINERS)
+            clearflag(FLAG_ROGUE_HARD_TRAINERS)
+        case 2:
+            clearflag(FLAG_ROGUE_EASY_TRAINERS)
+            setflag(FLAG_ROGUE_HARD_TRAINERS)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("Adjust teams/moves from very casual to very competitive.\pAverage mode will start casual but get more competitive as you progress.\pThe higher this difficulty the more rewards you get when returning from an adventure."), MSGBOX_DEFAULT)
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_ItemDifficulty
+{
+    bufferstring(STR_VAR_1, format("ITEM RATES"))
+
+    if(flag(FLAG_ROGUE_EASY_ITEMS))
+    {
+        setvar(VAR_FLAG_STATE, 0)
+    }
+    elif(flag(FLAG_ROGUE_HARD_ITEMS))
+    {
+        setvar(VAR_FLAG_STATE, 2)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, 1)
+    }
+
+    call(Rogue_ConfigRoom_PreEAHButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_EASY_ITEMS)
+            clearflag(FLAG_ROGUE_HARD_ITEMS)
+        case 1:
+            clearflag(FLAG_ROGUE_EASY_ITEMS)
+            clearflag(FLAG_ROGUE_HARD_ITEMS)
+        case 2:
+            clearflag(FLAG_ROGUE_EASY_ITEMS)
+            setflag(FLAG_ROGUE_HARD_ITEMS)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("Increases/Decrease the rate at which items will appear and money trainers give"), MSGBOX_DEFAULT)
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_LegendaryDifficulty
+{
+    bufferstring(STR_VAR_1, format("LEGENDARY ENCOUNTERS"))
+
+    if(flag(FLAG_ROGUE_EASY_LEGENDARIES))
+    {
+        setvar(VAR_FLAG_STATE, 0)
+    }
+    elif(flag(FLAG_ROGUE_HARD_LEGENDARIES))
+    {
+        setvar(VAR_FLAG_STATE, 2)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, 1)
+    }
+
+    call(Rogue_ConfigRoom_PreEAHButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_EASY_LEGENDARIES)
+            clearflag(FLAG_ROGUE_HARD_LEGENDARIES)
+        case 1:
+            clearflag(FLAG_ROGUE_EASY_LEGENDARIES)
+            clearflag(FLAG_ROGUE_HARD_LEGENDARIES)
+        case 2:
+            clearflag(FLAG_ROGUE_EASY_LEGENDARIES)
+            setflag(FLAG_ROGUE_HARD_LEGENDARIES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("Adjust the rate and quality of Legendary encounters may appear.\pEasy makes sure any Legendaries may appear fairly frequently.\pAverage will result in few Legendary encounters and the quality of those Legendaries will get stronger the further into a run you are.\pHard will result in few encounters and stronger Legendaries will not appear."), MSGBOX_DEFAULT)
+    }
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_SeedItems
+{
+    bufferstring(STR_VAR_1, format("SEED ITEMS"))
+
+    if(flag(FLAG_SET_SEED_ITEMS))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_SET_SEED_ITEMS)
+        case 1:
+            clearflag(FLAG_SET_SEED_ITEMS)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If disabled items will be completely RANDOM and not linked to the SEED."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_SeedWildMons
+{
+    bufferstring(STR_VAR_1, format("SEED WILD Pokémon"))
+
+    if(flag(FLAG_SET_SEED_WILDMONS))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_SET_SEED_WILDMONS)
+        case 1:
+            clearflag(FLAG_SET_SEED_WILDMONS)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If disabled WILD Pokémon encounters will be completely RANDOM and not linked to the SEED.\pNote this does not affect LEGENDARY encounters."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_SeedTrainers
+{
+    bufferstring(STR_VAR_1, format("SEED TRAINERS"))
+
+    if(flag(FLAG_SET_SEED_TRAINERS))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_SET_SEED_TRAINERS)
+        case 1:
+            clearflag(FLAG_SET_SEED_TRAINERS)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If disabled TRAINER spawns and teams will be completely RANDOM and not linked to the SEED."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_SeedBosses
+{
+    bufferstring(STR_VAR_1, format("SEED BOSSES"))
+
+    if(flag(FLAG_SET_SEED_BOSSES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_SET_SEED_BOSSES)
+        case 1:
+            clearflag(FLAG_SET_SEED_BOSSES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("If disabled GYM LEADER teams will be completely RANDOM and not linked to the SEED."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+
+script Rogue_ConfigRoom_Button_KantoRoutes
+{
+    bufferstring(STR_VAR_1, format("KANTO ROUTES"))
+
+    if(flag(FLAG_ROGUE_KANTO_ROUTES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_KANTO_ROUTES)
+        case 1:
+            clearflag(FLAG_ROGUE_KANTO_ROUTES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled you may start to encounter routes from the Kanto region during adventures."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_KantoBosses
+{
+    bufferstring(STR_VAR_1, format("KANTO LEADERS"))
+
+    if(flag(FLAG_ROGUE_KANTO_BOSSES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_KANTO_BOSSES)
+        case 1:
+            clearflag(FLAG_ROGUE_KANTO_BOSSES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled, leaders from the Kanto region may start appearing for Mighty trainer battles.\p(This setting is ignored for Rainbow mode)"), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+
+script Rogue_ConfigRoom_Button_JohtoRoutes
+{
+    bufferstring(STR_VAR_1, format("JOHTO ROUTES"))
+
+    if(flag(FLAG_ROGUE_JOHTO_ROUTES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_JOHTO_ROUTES)
+        case 1:
+            clearflag(FLAG_ROGUE_JOHTO_ROUTES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled you may start to encounter routes from the Johto region during adventures."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_JohtoBosses
+{
+    bufferstring(STR_VAR_1, format("JOHTO LEADERS"))
+
+    if(flag(FLAG_ROGUE_JOHTO_BOSSES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_JOHTO_BOSSES)
+        case 1:
+            clearflag(FLAG_ROGUE_JOHTO_BOSSES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled, leaders from the Johto region may start appearing for Mighty trainer battles.\p(This setting is ignored for Rainbow mode)"), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_HoennRoutes
+{
+    bufferstring(STR_VAR_1, format("HOENN ROUTES"))
+
+    if(flag(FLAG_ROGUE_HOENN_ROUTES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_HOENN_ROUTES)
+        case 1:
+            clearflag(FLAG_ROGUE_HOENN_ROUTES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled you may start to encounter routes from the Hoenn region during adventures."), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}
+
+script Rogue_ConfigRoom_Button_HoennBosses
+{
+    bufferstring(STR_VAR_1, format("HOENN LEADERS"))
+
+    if(flag(FLAG_ROGUE_HOENN_BOSSES))
+    {
+        setvar(VAR_FLAG_STATE, YES)
+    }
+    else
+    {
+        setvar(VAR_FLAG_STATE, NO)
+    }
+
+    call(Rogue_ConfigRoom_PreButtonInternal)
+
+    switch(var(VAR_FLAG_STATE))
+    {
+        case 0:
+            setflag(FLAG_ROGUE_HOENN_BOSSES)
+        case 1:
+            clearflag(FLAG_ROGUE_HOENN_BOSSES)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        // Print Info
+        msgbox(format("When enabled, leaders from the Hoenn region may start appearing for Mighty trainer battles.\p(This setting is ignored for Rainbow mode)"), MSGBOX_DEFAULT)
+    }
+
+    call(Rogue_ConfigRoom_PostButtonInternal)
+}

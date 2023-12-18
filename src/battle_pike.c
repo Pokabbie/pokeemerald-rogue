@@ -24,6 +24,8 @@
 #include "constants/party_menu.h"
 #include "constants/battle_pike.h"
 
+#include "rogue_baked.h"
+
 struct PikeRoomNPC
 {
     u16 graphicsId;
@@ -1113,6 +1115,7 @@ bool32 TryGenerateBattlePikeWildMon(bool8 checkKeenEyeIntimidate)
 {
     s32 i;
     s32 monLevel;
+    u32 exp;
     u8 headerId = GetBattlePikeWildMonHeaderId();
     u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
     const struct PikeWildMon *const *const wildMons = sWildMons[lvlMode];
@@ -1142,9 +1145,11 @@ bool32 TryGenerateBattlePikeWildMon(bool8 checkKeenEyeIntimidate)
     if (checkKeenEyeIntimidate == TRUE && !CanEncounterWildMon(monLevel))
         return FALSE;
 
+    exp = Rogue_ModifyExperienceTables(gBaseStats[wildMons[headerId][pikeMonId].species].growthRate, monLevel);
+
     SetMonData(&gEnemyParty[0],
                MON_DATA_EXP,
-               &gExperienceTables[gSpeciesInfo[wildMons[headerId][pikeMonId].species].growthRate][monLevel]);
+               &exp);
 
     if (gSpeciesInfo[wildMons[headerId][pikeMonId].species].abilities[1])
         abilityNum = Random() % 2;
@@ -1332,10 +1337,7 @@ static void GetInBattlePike(void)
 
 bool8 InBattlePike(void)
 {
-    return gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_THREE_PATH_ROOM
-        || gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_NORMAL
-        || gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS
-        || gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_UNUSED;
+    return FALSE;
 }
 
 static void SetHintedRoom(void)

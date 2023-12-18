@@ -6,6 +6,8 @@
 #include "pokemon_debug.h"
 #include "text.h"
 
+#include "rogue_controller.h"
+
 EWRAM_DATA ALIGNED(4) u8 gDecompressionBuffer[0x4000] = {0};
 
 void LZDecompressWram(const u32 *src, void *dest)
@@ -44,7 +46,9 @@ void LoadCompressedSpritePalette(const struct CompressedSpritePalette *src)
 {
     struct SpritePalette dest;
 
-    LZ77UnCompWram(src->data, gDecompressionBuffer);
+    if(!Rogue_ModifyPaletteDecompress(src->data, gDecompressionBuffer))
+        LZ77UnCompWram(src->data, gDecompressionBuffer);
+
     dest.data = (void *) gDecompressionBuffer;
     dest.tag = src->tag;
     LoadSpritePalette(&dest);
@@ -64,7 +68,9 @@ void LoadCompressedSpritePaletteOverrideBuffer(const struct CompressedSpritePale
 {
     struct SpritePalette dest;
 
-    LZ77UnCompWram(src->data, buffer);
+    if(!Rogue_ModifyPaletteDecompress(src->data, buffer))
+        LZ77UnCompWram(src->data, buffer);
+
     dest.data = buffer;
     dest.tag = src->tag;
     LoadSpritePalette(&dest);
@@ -290,7 +296,10 @@ bool8 LoadCompressedSpritePaletteUsingHeap(const struct CompressedSpritePalette 
     void *buffer;
 
     buffer = AllocZeroed(src->data[0] >> 8);
-    LZ77UnCompWram(src->data, buffer);
+
+    if(!Rogue_ModifyPaletteDecompress(src->data, buffer))
+        LZ77UnCompWram(src->data, buffer);
+
     dest.data = buffer;
     dest.tag = src->tag;
 

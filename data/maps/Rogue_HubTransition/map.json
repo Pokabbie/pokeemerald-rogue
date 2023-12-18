@@ -1,0 +1,53 @@
+{
+  "id": "MAP_ROGUE_HUB_TRANSITION",
+  "name": "Rogue_HubTransition",
+  "layout": "LAYOUT_ROGUE_HUB_TRANSITION",
+  "music": "MUS_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_ADVENTURE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CONTEST_JUDGE",
+      "x": 13,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_HubTransition_RandomMan",
+      "flag": "FLAG_ROGUE_RANDOM_TRADE_DISABLED"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 10,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 10,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_HUB_TRANSITION",
+      "dest_warp_id": 1
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

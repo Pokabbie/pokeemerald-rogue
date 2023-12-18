@@ -8,6 +8,8 @@
 #include "constants/songs.h"
 #include "task.h"
 
+#include "rogue_controller.h"
+
 struct Fanfare
 {
     u16 songNum;
@@ -182,6 +184,8 @@ void PlayFanfareByFanfareNum(u8 fanfareNum)
     m4aMPlayStop(&gMPlayInfo_BGM);
     songNum = sFanfares[fanfareNum].songNum;
     sFanfareCounter = sFanfares[fanfareNum].duration;
+
+    songNum = Rogue_ModifyPlayFanfare(songNum);
     m4aSongNumStart(songNum);
 }
 
@@ -212,6 +216,7 @@ void StopFanfareByFanfareNum(u8 fanfareNum)
 void PlayFanfare(u16 songNum)
 {
     s32 i;
+    songNum = Rogue_ModifyPlayFanfare(songNum);
     for (i = 0; (u32)i < ARRAY_COUNT(sFanfares); i++)
     {
         if (sFanfares[i].songNum == songNum)
@@ -300,7 +305,7 @@ bool8 IsBGMStopped(void)
 
 void PlayCry_Normal(u16 species, s8 pan)
 {
-    m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 85);
+    m4aMPlayRawVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, Rogue_ModifySoundVolume(&gMPlayInfo_BGM, 85, ROGUE_SOUND_TYPE_CRY));
     PlayCryInternal(species, pan, CRY_VOLUME, CRY_PRIORITY_NORMAL, CRY_MODE_NORMAL);
     gPokemonCryBGMDuckingCounter = 2;
     RestoreBGMVolumeAfterPokemonCry();
@@ -320,7 +325,7 @@ void PlayCry_ByMode(u16 species, s8 pan, u8 mode)
     }
     else
     {
-        m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 85);
+        m4aMPlayRawVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, Rogue_ModifySoundVolume(&gMPlayInfo_BGM, 85, ROGUE_SOUND_TYPE_CRY));
         PlayCryInternal(species, pan, CRY_VOLUME, CRY_PRIORITY_NORMAL, mode);
         gPokemonCryBGMDuckingCounter = 2;
         RestoreBGMVolumeAfterPokemonCry();
@@ -337,7 +342,7 @@ void PlayCry_ReleaseDouble(u16 species, s8 pan, u8 mode)
     else
     {
         if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
-            m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 85);
+            m4aMPlayRawVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, Rogue_ModifySoundVolume(&gMPlayInfo_BGM, 85, ROGUE_SOUND_TYPE_CRY));
         PlayCryInternal(species, pan, CRY_VOLUME, CRY_PRIORITY_NORMAL, mode);
     }
 }
@@ -351,7 +356,7 @@ void PlayCry_DuckNoRestore(u16 species, s8 pan, u8 mode)
     }
     else
     {
-        m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 85);
+        m4aMPlayRawVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, Rogue_ModifySoundVolume(&gMPlayInfo_BGM, 85, ROGUE_SOUND_TYPE_CRY));
         PlayCryInternal(species, pan, CRY_VOLUME, CRY_PRIORITY_NORMAL, mode);
         gPokemonCryBGMDuckingCounter = 2;
     }
@@ -359,7 +364,7 @@ void PlayCry_DuckNoRestore(u16 species, s8 pan, u8 mode)
 
 void PlayCry_Script(u16 species, u8 mode)
 {
-    m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 85);
+    m4aMPlayRawVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, Rogue_ModifySoundVolume(&gMPlayInfo_BGM, 85, ROGUE_SOUND_TYPE_CRY));
     PlayCryInternal(species, 0, CRY_VOLUME, CRY_PRIORITY_NORMAL, mode);
     gPokemonCryBGMDuckingCounter = 2;
     RestoreBGMVolumeAfterPokemonCry();
@@ -535,6 +540,8 @@ static void RestoreBGMVolumeAfterPokemonCry(void)
 
 void PlayBGM(u16 songNum)
 {
+    songNum = Rogue_ModifyPlayBGM(songNum);
+
     if (gDisableMusic)
         songNum = 0;
     if (songNum == MUS_NONE)
@@ -544,11 +551,13 @@ void PlayBGM(u16 songNum)
 
 void PlaySE(u16 songNum)
 {
+    songNum = Rogue_ModifyPlaySE(songNum);
     m4aSongNumStart(songNum);
 }
 
 void PlaySE12WithPanning(u16 songNum, s8 pan)
 {
+    songNum = Rogue_ModifyPlaySE(songNum);
     m4aSongNumStart(songNum);
     m4aMPlayImmInit(&gMPlayInfo_SE1);
     m4aMPlayImmInit(&gMPlayInfo_SE2);
@@ -558,6 +567,7 @@ void PlaySE12WithPanning(u16 songNum, s8 pan)
 
 void PlaySE1WithPanning(u16 songNum, s8 pan)
 {
+    songNum = Rogue_ModifyPlaySE(songNum);
     m4aSongNumStart(songNum);
     m4aMPlayImmInit(&gMPlayInfo_SE1);
     m4aMPlayPanpotControl(&gMPlayInfo_SE1, TRACKS_ALL, pan);
@@ -565,6 +575,7 @@ void PlaySE1WithPanning(u16 songNum, s8 pan)
 
 void PlaySE2WithPanning(u16 songNum, s8 pan)
 {
+    songNum = Rogue_ModifyPlaySE(songNum);
     m4aSongNumStart(songNum);
     m4aMPlayImmInit(&gMPlayInfo_SE2);
     m4aMPlayPanpotControl(&gMPlayInfo_SE2, TRACKS_ALL, pan);

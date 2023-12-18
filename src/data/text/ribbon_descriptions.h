@@ -15,8 +15,8 @@ const u8 gRibbonDescriptionPart1_Victory[] = _("For clearing Open Level");
 const u8 gRibbonDescriptionPart2_Victory[] = _("at the BATTLE TOWER.");
 const u8 gRibbonDescriptionPart1_Artist[] = _("RIBBON for being chosen");
 const u8 gRibbonDescriptionPart2_Artist[] = _("as a super sketch model.");
-const u8 gRibbonDescriptionPart1_Effort[] = _("RIBBON awarded for");
-const u8 gRibbonDescriptionPart2_Effort[] = _("being a hard worker.");
+const u8 gRibbonDescriptionPart1_Effort[] = _("RIBBON given to");
+const u8 gRibbonDescriptionPart2_Effort[] = _("PARTNER POKéMON.");
 
 const u8 *const gRibbonDescriptionPointers[][2] =
 {

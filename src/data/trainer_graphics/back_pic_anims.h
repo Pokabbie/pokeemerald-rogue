@@ -92,6 +92,18 @@ static const union AnimCmd *const sBackAnims_Leaf[] =
     sAnimCmd_Leaf_1,
 };
 
+static const union AnimCmd *const sBackAnims_Lyra[] =
+{
+    sAnim_GeneralFrame0,
+    sAnimCmd_Leaf_1,
+};
+
+static const union AnimCmd *const sBackAnims_Ethan[] =
+{
+    sAnim_GeneralFrame0,
+    sAnimCmd_Red_1,
+};
+
 static const union AnimCmd *const sBackAnims_RubySapphireBrendan[] =
 {
     sAnim_GeneralFrame3,
@@ -118,12 +130,18 @@ static const union AnimCmd *const sBackAnims_Steven[] =
 
 const union AnimCmd *const *const gTrainerBackAnimsPtrTable[] =
 {
+    [TRAINER_BACK_PIC_NONE] = sBackAnims_Brendan,
     [TRAINER_BACK_PIC_BRENDAN] = sBackAnims_Brendan,
     [TRAINER_BACK_PIC_MAY] = sBackAnims_May,
     [TRAINER_BACK_PIC_RED] = sBackAnims_Red,
     [TRAINER_BACK_PIC_LEAF] = sBackAnims_Leaf,
+    [TRAINER_BACK_PIC_ETHAN] = sBackAnims_Ethan,
+    [TRAINER_BACK_PIC_LYRA] = sBackAnims_Lyra,
     [TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN] = sBackAnims_RubySapphireBrendan,
     [TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY] = sBackAnims_RubySapphireMay,
     [TRAINER_BACK_PIC_WALLY] = sBackAnims_Wally,
     [TRAINER_BACK_PIC_STEVEN] = sBackAnims_Steven,
+    [TRAINER_BACK_PIC_LUCAS] = sBackAnims_Ethan,
+    [TRAINER_BACK_PIC_DAWN] = sBackAnims_Lyra,
+    [TRAINER_BACK_PIC_COMMUNITY_ZEFA] = sBackAnims_Brendan,
 };

@@ -227,7 +227,7 @@ static const match_call_text_data_t sMomTextScripts[] = {
 static const struct MatchCallStructNPC sMomMatchCallHeader =
 {
     .type = MC_TYPE_NPC,
-    .mapSec = MAPSEC_LITTLEROOT_TOWN,
+    .mapSec = MAPSEC_POKEMON_HUB,
     .flag = FLAG_ENABLE_MOM_MATCH_CALL,
     .desc = gText_MomMatchCallDesc,
     .name = gText_MomMatchCallName,
@@ -394,7 +394,7 @@ static const match_call_text_data_t sBrawlyTextScripts[] = {
 static const struct MatchCallStructTrainer sBrawlyMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
-    .mapSec = MAPSEC_DEWFORD_TOWN,
+    .mapSec = MAPSEC_OTHER_POKEMON_HUB,
     .flag = FLAG_ENABLE_BRAWLY_MATCH_CALL,
     .rematchTableIdx = REMATCH_BRAWLY,
     .desc = gText_BrawlyMatchCallDesc,
@@ -717,18 +717,11 @@ static u32 MatchCallGetFunctionIndex(match_call_t matchCall)
 
 u32 GetTrainerIdxByRematchIdx(u32 rematchIdx)
 {
-    return gRematchTable[rematchIdx].trainerIds[0];
+    return 0;
 }
 
 s32 GetRematchIdxByTrainerIdx(s32 trainerIdx)
 {
-    s32 rematchIdx;
-
-    for (rematchIdx = 0; rematchIdx < REMATCH_TABLE_ENTRIES; rematchIdx++)
-    {
-        if (gRematchTable[rematchIdx].trainerIds[0] == trainerIdx)
-            return rematchIdx;
-    }
     return -1;
 }
 
@@ -842,14 +835,12 @@ static bool32 MatchCall_IsRematchable_NPC(match_call_t matchCall)
 
 static bool32 MatchCall_IsRematchable_Trainer(match_call_t matchCall)
 {
-    if (matchCall.trainer->rematchTableIdx >= REMATCH_ELITE_FOUR_ENTRIES)
-        return FALSE;
-    return gSaveBlock1Ptr->trainerRematches[matchCall.trainer->rematchTableIdx] ? TRUE : FALSE;
+    return FALSE;
 }
 
 static bool32 MatchCall_IsRematchable_Wally(match_call_t matchCall)
 {
-    return gSaveBlock1Ptr->trainerRematches[matchCall.wally->rematchTableIdx] ? TRUE : FALSE;
+    return FALSE;
 }
 
 static bool32 MatchCall_IsRematchable_Rival(match_call_t matchCall)
@@ -1022,19 +1013,6 @@ static void MatchCall_BufferCallMessageTextByRematchTeam(const match_call_text_d
     }
     else
     {
-        if (FlagGet(FLAG_SYS_GAME_CLEAR))
-        {
-            do
-            {
-                if (gSaveBlock1Ptr->trainerRematches[idx])
-                    i += 2;
-                else if (CountBattledRematchTeams(idx) >= 2)
-                    i += 3;
-                else
-                    i++;
-            } while (0);
-        }
-
         StringExpandPlaceholders(dest, textData[i].text);
     }
 }
@@ -1087,9 +1065,6 @@ static void MatchCall_GetNameAndDesc_Birch(match_call_t matchCall, const u8 **de
 
 static void MatchCall_GetNameAndDescByRematchIdx(u32 idx, const u8 **desc, const u8 **name)
 {
-    const struct Trainer *trainer = gTrainers + GetTrainerIdxByRematchIdx(idx);
-    *desc = gTrainerClassNames[trainer->trainerClass];
-    *name = trainer->trainerName;
 }
 
 const u8 *MatchCall_GetOverrideFlavorText(u32 idx, u32 offset)

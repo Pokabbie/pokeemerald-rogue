@@ -499,25 +499,4 @@ typedef struct
     u16 dayCountdown;
 } PokeNews;
 
-struct GabbyAndTyData
-{
-    /*2BA4*/ u16 mon1;
-    /*2BA6*/ u16 mon2;
-    /*2BA8*/ u16 lastMove;
-    /*2BAA*/ u16 quote[1];
-    /*2BAC*/ u8 mapnum;
-    /*2BAD*/ u8 battleNum;
-    /*2BAE*/ u8 battleTookMoreThanOneTurn:1;
-             u8 playerLostAMon:1;
-             u8 playerUsedHealingItem:1;
-             u8 playerThrewABall:1;
-             u8 onAir:1;
-             u8 valA_5:3;
-    /*2BAF*/ u8 battleTookMoreThanOneTurn2:1;
-             u8 playerLostAMon2:1;
-             u8 playerUsedHealingItem2:1;
-             u8 playerThrewABall2:1;
-             u8 valB_4:4;
-};
-
 #endif //GUARD_GLOBAL_TV_H

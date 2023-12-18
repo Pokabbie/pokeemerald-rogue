@@ -1,6 +1,7 @@
 #ifndef GUARD_ITEM_H
 #define GUARD_ITEM_H
 
+#include "constants/rogue.h"
 #include "constants/item.h"
 #include "constants/items.h"
 #include "constants/tms_hms.h"
@@ -13,7 +14,7 @@ struct Item
     u16 secondaryId;
     ItemUseFunc fieldUseFunc;
     const u8 *description;
-    u8 name[ITEM_NAME_LENGTH];
+    const u8 name[ITEM_NAME_LENGTH];
     u8 holdEffect;
     u8 holdEffectParam;
     u8 importance;
@@ -21,6 +22,28 @@ struct Item
     u8 type;
     u8 battleUsage;
     u8 flingPower;
+};
+
+// This struct is to accomodate custom Rogue items without in both branches more easily
+// It will be applied in rogue_baked.c
+//
+struct RogueItem
+{
+    const u8 name[ROGUE_ITEM_NAME_LENGTH];
+    const u8* description;
+    u16 itemId;
+    u16 price;
+    u8 holdEffect;
+    u8 holdEffectParam;
+    bool8 registrability; // unused
+    u8 pocket;
+    u8 type;
+    ItemUseFunc fieldUseFunc;
+    u8 battleUsage;
+    ItemUseFunc battleUseFunc;
+    u8 secondaryId;
+    const u32 * const iconImage;
+    const u32 * const iconPalette;
 };
 
 struct BagPocket
@@ -32,20 +55,35 @@ struct BagPocket
 extern const struct Item gItems[];
 extern struct BagPocket gBagPockets[];
 
+u16 GetBagItemQuantity(u16 *quantity);
+void SetBagItemQuantity(u16 *quantity, u16 newValue);
+u16 GetPCItemQuantity(u16 *quantity);
+void SetPCItemQuantity(u16 *quantity, u16 newValue);
+
 void ApplyNewEncryptionKeyToBagItems(u32 newKey);
 void ApplyNewEncryptionKeyToBagItems_(u32 newKey);
-void SetBagItemsPointers(void);
+void UpdateBagItemsPointers(void);
+u16 GetBagUnreservedFreeSlots();
+u16 GetBagUnreservedTotalSlots();
+u16 GetBagReservedFreeSlots();
+u16 GetBagReservedTotalSlots();
+bool8 ItemPocketUsesReservedSlots(u8 pocket);
+
+void RemoveEmptyBagItems(void);
+void ShrinkBagItems(void);
 void CopyItemName(u16 itemId, u8 *dst);
+void CopyItemNameN(u16 itemId, u8 *dst, u16 length);
 void CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity);
 void GetBerryCountString(u8 *dst, const u8 *berryName, u32 quantity);
 bool8 IsBagPocketNonEmpty(u8 pocket);
 bool8 CheckBagHasItem(u16 itemId, u16 count);
+u16 GetItemCountInBag(u16 itemId);
 bool8 HasAtLeastOneBerry(void);
 bool8 CheckBagHasSpace(u16 itemId, u16 count);
 bool8 AddBagItem(u16 itemId, u16 count);
 bool8 RemoveBagItem(u16 itemId, u16 count);
 u8 GetPocketByItemId(u16 itemId);
-void ClearItemSlots(struct ItemSlot *itemSlots, u8 itemCount);
+void ClearItemSlots(struct ItemSlot *itemSlots, u16 itemCount);
 u8 CountUsedPCItemSlots(void);
 bool8 CheckPCHasItem(u16 itemId, u16 count);
 bool8 AddPCItem(u16 itemId, u16 count);
@@ -55,6 +93,7 @@ void SwapRegisteredBike(void);
 u16 BagGetItemIdByPocketPosition(u8 pocketId, u16 pocketPos);
 u16 BagGetQuantityByPocketPosition(u8 pocketId, u16 pocketPos);
 void CompactItemsInBagPocket(struct BagPocket *bagPocket);
+void SortItemsInBag();
 void SortBerriesOrTMHMs(struct BagPocket *bagPocket);
 void MoveItemSlotInList(struct ItemSlot* itemSlots_, u32 from, u32 to_);
 void ClearBag(void);

@@ -8,6 +8,8 @@
 #define NUM_FOG_DIAGONAL_SPRITES     20
 #define NUM_SANDSTORM_SPRITES        20
 #define NUM_SWIRL_SANDSTORM_SPRITES  5
+#define NUM_LEAVES_SPRITES           20
+#define NUM_SWIRL_LEAVES_SPRITES     5
 
 // Controls how the weather should be changing the screen palettes.
 #define WEATHER_PAL_STATE_CHANGING_WEATHER   0

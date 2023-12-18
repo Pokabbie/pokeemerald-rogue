@@ -9,6 +9,8 @@
 #include "tv.h"
 #include "constants/heal_locations.h"
 
+#include "rogue_controller.h"
+
 int GameClear(void)
 {
     int i;
@@ -18,7 +20,8 @@ int GameClear(void)
         u8 count;
     } ribbonCounts[6];
 
-    HealPlayerParty();
+    // RogueNote: No need to heal party on clear
+    //HealPlayerParty();
 
     if (FlagGet(FLAG_SYS_GAME_CLEAR) == TRUE)
     {
@@ -34,11 +37,6 @@ int GameClear(void)
         SetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME, (gSaveBlock2Ptr->playTimeHours << 16) | (gSaveBlock2Ptr->playTimeMinutes << 8) | gSaveBlock2Ptr->playTimeSeconds);
 
     SetContinueGameWarpStatus();
-
-    if (gSaveBlock2Ptr->playerGender == MALE)
-        SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F);
-    else
-        SetContinueGameWarpToHealLocation(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F);
 
     ribbonGet = FALSE;
 
@@ -80,6 +78,8 @@ int GameClear(void)
             TryPutSpotTheCutiesOnAir(&gPlayerParty[ribbonCounts[0].partyIndex], MON_DATA_CHAMPION_RIBBON);
         }
     }
+
+    Rogue_GameClear();
 
     SetMainCallback2(CB2_DoHallOfFameScreen);
     return 0;

@@ -1,0 +1,460 @@
+#include "global.h"
+#include "constants/game_stat.h"
+#include "constants/items.h"
+
+#include "event_data.h"
+#include "item.h"
+#include "overworld.h"
+#include "pokemon.h"
+
+#include "rogue_campaign.h"
+#include "rogue_controller.h"
+#include "rogue_save.h"
+
+extern const u8 gText_Campaign_None[];
+extern const u8 gText_Campaign_LowBST[];
+extern const u8 gText_Campaign_Classic[];
+extern const u8 gText_Campaign_MiniBossBattler[];
+extern const u8 gText_Campaign_AutoBattler[];
+extern const u8 gText_Campaign_LaterManner[];
+extern const u8 gText_Campaign_PokeballLimit[];
+extern const u8 gText_Campaign_OneHp[];
+
+static void Campaign_LowBst_RecalculateScore(void);
+static u16 Campaign_LowBst_ScoreFromSpecies(u16 species);
+
+const u8* GetCampaignTitle(u16 campaignId)
+{
+    switch (campaignId)
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        return &gText_Campaign_LowBST[0];
+
+    case ROGUE_CAMPAIGN_CLASSIC:
+        return &gText_Campaign_Classic[0];
+
+    case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
+        return &gText_Campaign_MiniBossBattler[0];
+
+    case ROGUE_CAMPAIGN_AUTO_BATTLER:
+        return &gText_Campaign_AutoBattler[0];
+
+    case ROGUE_CAMPAIGN_LATERMANNER:
+        return &gText_Campaign_LaterManner[0];
+
+    case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
+        return &gText_Campaign_PokeballLimit[0];
+
+    case ROGUE_CAMPAIGN_ONE_HP:
+        return &gText_Campaign_OneHp[0];
+    
+    default:
+        return &gText_Campaign_None[0];
+    }
+}
+
+void Rogue_ResetCampaignAfter(u16 count)
+{
+    u16 i;
+
+    if(count < ROGUE_CAMPAIGN_COUNT)
+    {
+        // Reset the state for any new quests
+        for(i = count; i < ROGUE_CAMPAIGN_COUNT; ++i)
+        {
+            memset(&gRogueSaveBlock->campaignData[i], 0, sizeof(struct RogueCampaignState));
+        }
+    }
+}
+
+bool8 Rogue_CheckTrainerCardCampaignCompletion(void)
+{
+    u16 i;
+
+    for(i = ROGUE_CAMPAIGN_FIRST; i <= ROGUE_CAMPAIGN_LAST; ++i)
+    {
+        // These campaigns don't contribute to trainer card
+        switch (i)
+        {
+        case ROGUE_CAMPAIGN_LOW_BST:
+        case ROGUE_CAMPAIGN_LATERMANNER:
+            continue;
+        }
+
+        if(!gRogueSaveBlock->campaignData[i].isCompleted)
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+u16 Rogue_GetActiveCampaign(void)
+{
+    return VarGet(VAR_ROGUE_ACTIVE_CAMPAIGN);
+}
+
+bool8 Rogue_IsCampaignActive(void)
+{
+    return Rogue_GetActiveCampaign() != ROGUE_CAMPAIGN_NONE;
+}
+
+u16 TryGetCampaignId(u16 word0, u16 word1)
+{
+    if(word0 == 5160 && word1 == 6705) // SMALL HOLIDAY
+        return ROGUE_CAMPAIGN_LOW_BST;
+
+    if(word0 == 9843 && word1 == 6699) // REFLECT ADVENTURE
+        return ROGUE_CAMPAIGN_CLASSIC;
+
+    if(word0 == 8716 && word1 == 7194) // BATTLETOWER NOW
+        return ROGUE_CAMPAIGN_MINIBOSS_BATTLER;
+
+    if(word0 == 1554 && word1 == 7714) // ATTACK WHAT
+        return ROGUE_CAMPAIGN_AUTO_BATTLER;
+
+    if(word0 == 7184 && word1 == 2579) // LATER MAN
+        return ROGUE_CAMPAIGN_LATERMANNER;
+
+    if(word0 == 6701 && word1 == 4152) // BALL OUT
+        return ROGUE_CAMPAIGN_POKEBALL_LIMIT;
+
+    if(word0 == 5649 && word1 == 3598) // PLEASE MISS
+        return ROGUE_CAMPAIGN_ONE_HP;
+
+    return ROGUE_CAMPAIGN_NONE;
+}
+
+bool8 Rogue_TryUpdateDesiredCampaign(u16 word0, u16 word1)
+{
+    u16 campaignId = TryGetCampaignId(word0, word1);
+    VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, campaignId);
+
+    if(campaignId != ROGUE_CAMPAIGN_NONE)
+    {
+        gRogueSaveBlock->campaignData[campaignId - ROGUE_CAMPAIGN_FIRST].isUnlocked =  TRUE;
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+u16 Rogue_PreActivateDesiredCampaign(void)
+{
+    // Activate desired campaign
+    {
+        u16 desiredCampaign;
+
+        if(VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY) != 0)
+            return ROGUE_CAMPAIGN_NONE;
+
+        desiredCampaign = VarGet(VAR_ROGUE_DESIRED_CAMPAIGN);
+
+        switch (desiredCampaign)
+        {
+        case ROGUE_CAMPAIGN_LOW_BST:
+            //if(FlagGet(FLAG_ROGUE_RAINBOW_MODE) || FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+                desiredCampaign = ROGUE_CAMPAIGN_NONE;
+            break;
+
+        default:
+            break;
+        }
+
+        VarSet(VAR_ROGUE_ACTIVE_CAMPAIGN, desiredCampaign);
+    }
+
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        Rogue_ResetConfigHubSettings();
+
+        //FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
+
+        // Expansion Room settings
+#ifdef ROGUE_EXPANSION
+        VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 8);
+#else
+        VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
+#endif
+        VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
+
+        break;
+
+    case ROGUE_CAMPAIGN_LATERMANNER:
+        Rogue_ResetConfigHubSettings();
+        //FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
+        break;
+
+    case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
+        //FlagSet(FLAG_ROGUE_FORCE_BASIC_BAG);
+        break;
+    }
+}
+
+u16 Rogue_PostActivateDesiredCampaign(void)
+{
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        {
+            u16 i;
+            gRogueRun.campaignData.lowBst.scoreSpecies = SPECIES_NONE;
+
+            for(i = 0; i < PARTY_SIZE; ++i)
+                ZeroMonData(&gPlayerParty[i]);
+        
+            // Force sunkern start
+            CreateMon(&gPlayerParty[0], SPECIES_SUNKERN, 15, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+            CalculatePlayerPartyCount();
+
+            AddBagItem(ITEM_EVERSTONE_CURSE, 1);
+            AddBagItem(ITEM_SPECIES_CLAUSE_CURSE, 1);
+            AddBagItem(ITEM_LINK_CABLE, 50);
+            AddBagItem(ITEM_RARE_CANDY, 8);
+            
+            Campaign_LowBst_RecalculateScore();
+        }
+        break;
+
+    case ROGUE_CAMPAIGN_LATERMANNER:
+        {
+            u16 i;
+            gRogueRun.campaignData.generic.score = 0;
+
+            for(i = 0; i < PARTY_SIZE; ++i)
+                ZeroMonData(&gPlayerParty[i]);
+        
+            // Force Farfetched start
+            CreateMon(&gPlayerParty[0], SPECIES_FARFETCHD, 15, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+            CalculatePlayerPartyCount();
+        }
+        break;
+
+    case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
+        RemoveBagItem(ITEM_POKE_BALL, 5);
+
+        AddBagItem(ITEM_ULTRA_BALL, 5);
+        break;
+
+    default:
+        gRogueRun.campaignData.generic.score = 0;
+        break;
+    }
+}
+
+u16 Rogue_DeactivateActiveCampaign(void)
+{
+    if(Rogue_IsCampaignActive())
+    {
+        if(Rogue_GetCurrentDifficulty() >= 14)
+        {
+            if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED) < 999)
+                IncrementGameStat(GAME_STAT_CAMPAIGNS_COMPLETED);
+
+            gRogueSaveBlock->campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].isCompleted =  TRUE;
+            gRogueSaveBlock->campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].bestScore =  Rogue_GetCampaignScore();
+        }
+    }
+
+    VarSet(VAR_ROGUE_ACTIVE_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
+}
+
+bool8 Rogue_IsActiveCampaignScored(void)
+{
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+    case ROGUE_CAMPAIGN_LATERMANNER:
+    case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
+    case ROGUE_CAMPAIGN_AUTO_BATTLER:
+    case ROGUE_CAMPAIGN_ONE_HP:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_IsActiveCampaignLowScoreGood(void)
+{
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+    case ROGUE_CAMPAIGN_LATERMANNER:
+    case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
+    case ROGUE_CAMPAIGN_AUTO_BATTLER:
+    case ROGUE_CAMPAIGN_ONE_HP:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+u16 Rogue_GetCampaignScore(void)
+{
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        return Campaign_LowBst_ScoreFromSpecies(gRogueRun.campaignData.lowBst.scoreSpecies);
+    }
+
+    return gRogueRun.campaignData.generic.score;
+}
+
+u16 Rogue_GetCampaignRunId(void)
+{
+    // Some basic verification for screenshots, do bitwise XOR on this and score and then bitflip
+    u16 scoreEncode;
+    u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[0]) | (gSaveBlock2Ptr->playerTrainerId[1] << 8);
+    u16 compatOffset = RogueSave_GetVersionId();
+
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        scoreEncode = gRogueRun.campaignData.lowBst.scoreSpecies;
+        break;
+
+    default:
+        scoreEncode = Rogue_GetCampaignScore();
+        break;
+    }
+
+    return ~((trainerId ^ scoreEncode) + compatOffset);
+}
+
+bool8 Rogue_CheckCampaignBansItem(u16 item)
+{
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        {
+            if(item == ITEM_TM06_TOXIC)
+                return TRUE;
+        }
+        break;
+
+    case ROGUE_CAMPAIGN_POKEBALL_LIMIT:
+        {
+            if(item >= FIRST_BALL && item <= LAST_BALL)
+                return TRUE;
+        }
+        break;
+    }
+
+    return FALSE;
+}
+
+void Rogue_CampaignNotify_StatIncrement(u8 statIndex)
+{
+    if(!Rogue_IsCampaignActive())
+        return;
+
+    switch (statIndex)
+    {
+    case GAME_STAT_TOTAL_BATTLES:
+        if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_LOW_BST)
+            Campaign_LowBst_RecalculateScore();
+        break;
+    
+    default:
+        break;
+    } 
+}
+
+void Rogue_CampaignNotify_OnMonFainted(void)
+{
+    if(!Rogue_IsCampaignActive())
+        return;
+
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LATERMANNER:
+    case ROGUE_CAMPAIGN_MINIBOSS_BATTLER:
+    case ROGUE_CAMPAIGN_AUTO_BATTLER:
+    case ROGUE_CAMPAIGN_ONE_HP:
+        ++gRogueRun.campaignData.generic.score;
+        break;
+    }
+}
+
+void Rogue_CampaignNotify_OnMonFormChange(u16 fromSpecies, u16 toSpecies)
+{
+    if(!Rogue_IsCampaignActive())
+        return;
+
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        {
+            u16 currentScore = Campaign_LowBst_ScoreFromSpecies(gRogueRun.campaignData.lowBst.scoreSpecies);
+            u16 formScore = Campaign_LowBst_ScoreFromSpecies(toSpecies);
+
+            if(formScore > currentScore)
+                gRogueRun.campaignData.lowBst.scoreSpecies = toSpecies;
+        }
+        break;
+    }
+}
+
+void Rogue_CampaignNotify_OnMegaEvolve(u16 fromSpecies, u16 toSpecies)
+{
+#ifdef ROGUE_EXPANSION
+    if(!Rogue_IsCampaignActive())
+        return;
+
+    switch (Rogue_GetActiveCampaign())
+    {
+    case ROGUE_CAMPAIGN_LOW_BST:
+        {
+            u16 currentScore = Campaign_LowBst_ScoreFromSpecies(gRogueRun.campaignData.lowBst.scoreSpecies);
+            u16 megaScore = Campaign_LowBst_ScoreFromSpecies(toSpecies);
+
+            if(megaScore > currentScore)
+                gRogueRun.campaignData.lowBst.scoreSpecies = toSpecies;
+        }
+        break;
+    }
+
+#endif
+}
+
+static void Campaign_LowBst_RecalculateScore(void)
+{
+    u16 i;
+    u16 tempSpecies;
+    u16 tempScore;
+    u16 currentSpecies =  gRogueRun.campaignData.lowBst.scoreSpecies;
+    u16 currentScore = Campaign_LowBst_ScoreFromSpecies(currentSpecies);
+
+    // Get lowest BST
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        tempSpecies = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        if(tempSpecies != SPECIES_NONE)
+        {
+            tempScore = Campaign_LowBst_ScoreFromSpecies(tempSpecies);
+
+            if(tempScore > currentScore || currentScore == 0)
+            {
+                currentSpecies = tempSpecies;
+                currentScore = tempScore;
+            }
+        }
+    }
+
+    gRogueRun.campaignData.lowBst.scoreSpecies = currentSpecies;
+}
+
+static u16 Campaign_LowBst_ScoreFromSpecies(u16 species)
+{
+    if(species == SPECIES_NONE)
+        return 0;
+
+    return gBaseStats[species].baseHP +
+        gBaseStats[species].baseAttack +
+        gBaseStats[species].baseDefense +
+        gBaseStats[species].baseSpeed +
+        gBaseStats[species].baseSpAttack +
+        gBaseStats[species].baseSpDefense;
+}

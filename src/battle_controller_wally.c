@@ -32,6 +32,8 @@
 #include "constants/trainers.h"
 #include "constants/rgb.h"
 
+#include "rogue_controller.h"
+
 static void WallyHandleDrawTrainerPic(u32 battler);
 static void WallyHandleTrainerSlide(u32 battler);
 static void WallyHandleSuccessBallThrowAnim(u32 battler);

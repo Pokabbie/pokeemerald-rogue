@@ -1,6 +1,5 @@
 #include "global.h"
 #include "malloc.h"
-#include "bard_music.h"
 #include "bg.h"
 #include "data.h"
 #include "decompress.h"
@@ -32,6 +31,11 @@
 #include "constants/mauville_old_man.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "constants/rogue.h"
+
+#include "rogue_campaign.h"
+#include "rogue_controller.h"
+#include "rogue_pokedex.h"
 
 static EWRAM_DATA struct EasyChatScreen *sEasyChatScreen = NULL;
 static EWRAM_DATA struct EasyChatScreenControl *sScreenControl = NULL;
@@ -523,7 +527,7 @@ static const struct EasyChatScreenTemplate sEasyChatScreenTemplates[] = {
         .confirmText2 = gText_IsAsShownOkay,
     },
     {
-        .type = EASY_CHAT_TYPE_TRENDY_PHRASE,
+        .type = EASY_CHAT_TYPE_ROGUE_SEED,
         .numColumns = 2,
         .numRows = 1,
         .frameId = FRAMEID_COMBINE_TWO_WORDS,
@@ -677,6 +681,18 @@ static const struct EasyChatScreenTemplate sEasyChatScreenTemplates[] = {
         .instructionsText2 = gText_AndFillOutTheQuestionnaire,
         .confirmText1 = gText_TheAnswer,
         .confirmText2 = gText_IsAsShownOkay,
+    },
+    {
+        .type = EASY_CHAT_TYPE_ROGUE_CAMPAIGN,
+        .numColumns = 2,
+        .numRows = 1,
+        .frameId = FRAMEID_COMBINE_TWO_WORDS,
+        .fourFooterOptions = FALSE,
+        .titleText = gText_CampaignPhrase,
+        .instructionsText1 = gText_CampaignWhatToSay,
+        .instructionsText2 = gText_CampaignWhatToSay2,
+        .confirmText1 = gText_CampaignSayingOk,
+        .confirmText2 = gText_CampaignSayingOk1,
     },
 };
 
@@ -1453,6 +1469,11 @@ static void ExitEasyChatScreen(MainCallback callback)
     SetMainCallback2(callback);
 }
 
+static bool8 CanPokemonBeShown(u16 species)
+{
+    return RoguePokedex_IsSpeciesEnabled(species);
+}
+
 void ShowEasyChatScreen(void)
 {
     int i;
@@ -1495,13 +1516,17 @@ void ShowEasyChatScreen(void)
         words = gSaveBlock1Ptr->tvShows[gSpecialVar_0x8005].dummy.words;
         displayedPersonType = EASY_CHAT_PERSON_REPORTER_MALE;
         break;
-    case EASY_CHAT_TYPE_TRENDY_PHRASE:
+    case EASY_CHAT_TYPE_ROGUE_SEED:
         words = (u16 *)gStringVar3;
         words[0] = gSaveBlock1Ptr->dewfordTrends[0].words[0];
         words[1] = gSaveBlock1Ptr->dewfordTrends[0].words[1];
         break;
+    case EASY_CHAT_TYPE_ROGUE_CAMPAIGN:
+        words = (u16 *)gStringVar3;
+        words[0] = gSaveBlock1Ptr->dewfordTrends[1].words[0];
+        words[1] = gSaveBlock1Ptr->dewfordTrends[1].words[1];
+        break;
     case EASY_CHAT_TYPE_GABBY_AND_TY:
-        words = gSaveBlock1Ptr->gabbyAndTyData.quote;
         *words = EC_EMPTY_WORD;
         displayedPersonType = EASY_CHAT_PERSON_REPORTER_FEMALE;
         break;
@@ -1647,7 +1672,7 @@ static bool8 InitEasyChatScreenStruct(u8 type, u16 *words, u8 displayedPersonTyp
     sEasyChatScreen->savedPhrase = words;
     sEasyChatScreen->mainCursorColumn = 0;
     sEasyChatScreen->mainCursorRow = 0;
-    sEasyChatScreen->inAlphabetMode = FALSE;
+    sEasyChatScreen->inAlphabetMode = TRUE;
     sEasyChatScreen->displayedPersonType = displayedPersonType;
     sEasyChatScreen->unused = 0;
     templateId = GetEachChatScreenTemplateId(type);
@@ -2139,8 +2164,9 @@ static u16 TryConfirmWords(void)
         sEasyChatScreen->inputState = INPUTSTATE_CONFIRM_WORDS_YES_NO;
         return ECFUNC_PROMPT_CONFIRM;
     }
-    else if (sEasyChatScreen->type == EASY_CHAT_TYPE_TRENDY_PHRASE
-          || sEasyChatScreen->type == EASY_CHAT_TYPE_GOOD_SAYING)
+    else if (sEasyChatScreen->type == EASY_CHAT_TYPE_ROGUE_SEED
+          || sEasyChatScreen->type == EASY_CHAT_TYPE_GOOD_SAYING
+          || sEasyChatScreen->type == EASY_CHAT_TYPE_ROGUE_CAMPAIGN)
     {
         if (!IsCurrentPhraseFull())
         {
@@ -2344,7 +2370,15 @@ static bool32 GetEasyChatCompleted(void)
     }
     else
     {
-        return DidPhraseChange();
+        if(sEasyChatScreen->type == EASY_CHAT_TYPE_ROGUE_SEED || sEasyChatScreen->type == EASY_CHAT_TYPE_ROGUE_CAMPAIGN)
+        {
+            // RogueNote: Always accept phrase change, can be used to reset SEED quickly
+            return TRUE;
+        }
+        else
+        {
+            return DidPhraseChange();
+        }
     }
 }
 
@@ -2975,9 +3009,19 @@ static void SetSpecialEasyChatResult(void)
         else
             gSpecialVar_0x8004 = 0;
         break;
-    case EASY_CHAT_TYPE_TRENDY_PHRASE:
+    case EASY_CHAT_TYPE_ROGUE_SEED:
         BufferCurrentPhraseToStringVar2();
-        gSpecialVar_0x8004 = TrySetTrendyPhrase(sEasyChatScreen->currentPhrase);
+        //gSpecialVar_0x8004 = TrySetTrendyPhrase(sEasyChatScreen->currentPhrase);
+        gSaveBlock1Ptr->dewfordTrends[0].words[0] = sEasyChatScreen->currentPhrase[0];
+        gSaveBlock1Ptr->dewfordTrends[0].words[1] = sEasyChatScreen->currentPhrase[1];
+        gSpecialVar_0x8004 = TRUE;
+        break;
+    case EASY_CHAT_TYPE_ROGUE_CAMPAIGN:
+        BufferCurrentPhraseToStringVar2();
+        //gSpecialVar_0x8004 = TrySetTrendyPhrase(sEasyChatScreen->currentPhrase);
+        gSaveBlock1Ptr->dewfordTrends[1].words[0] = sEasyChatScreen->currentPhrase[0];
+        gSaveBlock1Ptr->dewfordTrends[1].words[1] = sEasyChatScreen->currentPhrase[1];
+        gSpecialVar_0x8004 = Rogue_TryUpdateDesiredCampaign(gSaveBlock1Ptr->dewfordTrends[1].words[0], gSaveBlock1Ptr->dewfordTrends[1].words[1]);
         break;
     case EASY_CHAT_TYPE_GOOD_SAYING:
         gSpecialVar_0x8004 = DidPlayerInputABerryMasterWifePhrase();
@@ -5035,7 +5079,7 @@ static void TryAddInterviewObjectEvents(void)
 
     // Add object for player (facing right)
     spriteId = CreateObjectGraphicsSprite(
-        gSaveBlock2Ptr->playerGender == MALE ? OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL : OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
+        OBJ_EVENT_GFX_PLAYER_NORMAL,
         SpriteCallbackDummy,
         52,
         40,
@@ -5181,11 +5225,11 @@ bool8 IsBardWordInvalid(u16 easyChatWord)
     {
     case EC_GROUP_POKEMON:
     case EC_GROUP_POKEMON_NATIONAL:
-        numWordsInGroup = gNumBardWords_Species;
+        numWordsInGroup = NUM_SPECIES;
         break;
     case EC_GROUP_MOVE_1:
     case EC_GROUP_MOVE_2:
-        numWordsInGroup = gNumBardWords_Moves;
+        numWordsInGroup = MOVES_COUNT;
         break;
     default:
         numWordsInGroup = gEasyChatGroups[groupId].numWords;
@@ -5444,9 +5488,10 @@ void BufferDeepLinkPhrase(void)
 */
 static bool8 IsTrendySayingUnlocked(u8 wordIndex)
 {
-    int byteOffset = wordIndex / 8;
-    int shift = wordIndex % 8;
-    return (gSaveBlock1Ptr->unlockedTrendySayings[byteOffset] >> shift) & 1;
+    return TRUE;
+    //int byteOffset = additionalPhraseId / 8;
+    //int shift = additionalPhraseId % 8;
+    //return (gSaveBlock1Ptr->additionalPhrases[byteOffset] >> shift) & 1;
 }
 
 void UnlockTrendySaying(u8 wordIndex)
@@ -5544,8 +5589,7 @@ static u16 GetRandomUnlockedEasyChatPokemon(void)
     numWords = gEasyChatGroups[EC_GROUP_POKEMON].numWords;
     for (i = 0; i < numWords; i++)
     {
-        u16 dexNum = SpeciesToNationalPokedexNum(*species);
-        if (GetSetPokedexFlag(dexNum, FLAG_GET_SEEN))
+        if (CanPokemonBeShown(*species))
         {
             if (index)
                 index--;
@@ -5793,14 +5837,15 @@ static u16 SetSelectedWordGroup_AlphabetMode(u16 groupId)
 
 static bool8 IsEasyChatGroupUnlocked2(u8 groupId)
 {
-    int i;
-    for (i = 0; i < sWordData->numUnlockedGroups; i++)
-    {
-        if (sWordData->unlockedGroupIds[i] == groupId)
-            return TRUE;
-    }
-
-    return FALSE;
+    return TRUE;
+    //int i;
+    //for (i = 0; i < sWordData->numUnlockedGroups; i++)
+    //{
+    //    if (sWordData->unlockedGroupIds[i] == groupId)
+    //        return TRUE;
+    //}
+//
+    //return FALSE;
 }
 
 static bool8 IsEasyChatIndexAndGroupUnlocked(u16 wordIndex, u8 groupId)
@@ -5808,18 +5853,19 @@ static bool8 IsEasyChatIndexAndGroupUnlocked(u16 wordIndex, u8 groupId)
     switch (groupId)
     {
     case EC_GROUP_POKEMON:
-        return GetSetPokedexFlag(SpeciesToNationalPokedexNum(wordIndex), FLAG_GET_SEEN);
+        return CanPokemonBeShown(wordIndex);
     case EC_GROUP_POKEMON_NATIONAL:
         if (IsRestrictedWordSpecies(wordIndex))
-            GetSetPokedexFlag(SpeciesToNationalPokedexNum(wordIndex), FLAG_GET_SEEN);
+            CanPokemonBeShown(wordIndex);
         return TRUE;
-    case EC_GROUP_MOVE_1:
-    case EC_GROUP_MOVE_2:
-        return TRUE;
-    case EC_GROUP_TRENDY_SAYING:
-        return IsTrendySayingUnlocked(wordIndex);
+    //case EC_GROUP_MOVE_1:
+    //case EC_GROUP_MOVE_2:
+    //    return TRUE;
+    //case EC_GROUP_TRENDY_SAYING:
+    //    return IsAdditionalPhraseUnlocked(wordIndex);
     default:
-        return gEasyChatGroups[groupId].wordData.words[wordIndex].enabled;
+        //return gEasyChatGroups[groupId].wordData.words[wordIndex].enabled;
+        return TRUE;
     }
 }
 
@@ -5827,24 +5873,25 @@ static bool8 IsEasyChatIndexAndGroupUnlocked(u16 wordIndex, u8 groupId)
 // unless they are in this group. If they are in this group (just Deoxys), they must also have been seen.
 static int IsRestrictedWordSpecies(u16 species)
 {
-    u32 i;
-    for (i = 0; i < ARRAY_COUNT(sRestrictedWordSpecies); i++)
-    {
-        if (sRestrictedWordSpecies[i] == species)
-            return TRUE;
-    }
+    //u32 i;
+    //for (i = 0; i < ARRAY_COUNT(sRestrictedWordSpecies); i++)
+    //{
+    //    if (sRestrictedWordSpecies[i] == species)
+    //        return TRUE;
+    //}
 
     return FALSE;
 }
 
 static u8 IsEasyChatWordUnlocked(u16 easyChatWord)
 {
-    u8 groupId = EC_GROUP(easyChatWord);
-    u32 index = EC_INDEX(easyChatWord);
-    if (!IsEasyChatGroupUnlocked2(groupId))
-        return FALSE;
-    else
-        return IsEasyChatIndexAndGroupUnlocked(index, groupId);
+    return TRUE;
+    //u8 groupId = EC_GROUP(easyChatWord);
+    //u32 index = EC_INDEX(easyChatWord);
+    //if (!IsEasyChatGroupUnlocked2(groupId))
+    //    return FALSE;
+    //else
+    //    return IsEasyChatIndexAndGroupUnlocked(index, groupId);
 }
 
 void InitializeEasyChatWordArray(u16 *words, u16 length)
@@ -5864,11 +5911,12 @@ void InitQuestionnaireWords(void)
 
 bool32 IsEasyChatAnswerUnlocked(int easyChatWord)
 {
-    int groupId = EC_GROUP(easyChatWord);
-    int mask = EC_MASK_GROUP;
-    int index = EC_INDEX(easyChatWord);
-    if (!IsEasyChatGroupUnlocked(groupId & mask))
-        return FALSE;
-    else
-        return IsEasyChatIndexAndGroupUnlocked(index, groupId & mask);
+    return TRUE;
+    //int groupId = EC_GROUP(easyChatWord);
+    //int mask = EC_MASK_GROUP;
+    //int index = EC_INDEX(easyChatWord);
+    //if (!IsEasyChatGroupUnlocked(groupId & mask))
+    //    return FALSE;
+    //else
+    //    return IsEasyChatIndexAndGroupUnlocked(index, groupId & mask);
 }

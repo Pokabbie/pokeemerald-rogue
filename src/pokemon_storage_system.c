@@ -506,6 +506,7 @@ struct PokemonStorageSystemData
     u8 displayMonMarkings;
     u8 displayMonLevel;
     bool8 displayMonIsEgg;
+    bool8 displayMonIsShiny;
     u8 displayMonName[POKEMON_NAME_LENGTH + 1];
     u8 displayMonNameText[36];
     u8 displayMonSpeciesName[36];
@@ -6538,35 +6539,30 @@ static void TrySetCursorFistAnim(void)
 // they may not release their last Pokémon that knows the specified move.
 // This is to stop the player from softlocking themselves by not having
 // a Pokémon that knows a required field move.
-struct
-{
-    s8 mapGroup;
-    s8 mapNum;
-    u16 move;
-} static const sRestrictedReleaseMoves[] =
-{
-    {MAP_GROUPS_COUNT, 0, MOVE_SURF},
-    {MAP_GROUPS_COUNT, 0, MOVE_DIVE},
-    {MAP_GROUP(EVER_GRANDE_CITY_POKEMON_LEAGUE_1F), MAP_NUM(EVER_GRANDE_CITY_POKEMON_LEAGUE_1F), MOVE_STRENGTH},
-    {MAP_GROUP(EVER_GRANDE_CITY_POKEMON_LEAGUE_1F), MAP_NUM(EVER_GRANDE_CITY_POKEMON_LEAGUE_1F), MOVE_ROCK_SMASH},
-    {MAP_GROUP(EVER_GRANDE_CITY_POKEMON_LEAGUE_2F), MAP_NUM(EVER_GRANDE_CITY_POKEMON_LEAGUE_2F), MOVE_STRENGTH},
-    {MAP_GROUP(EVER_GRANDE_CITY_POKEMON_LEAGUE_2F), MAP_NUM(EVER_GRANDE_CITY_POKEMON_LEAGUE_2F), MOVE_ROCK_SMASH},
-};
+//struct
+//{
+//    s8 mapGroup;
+//    s8 mapNum;
+//    u16 move;
+//} static const sRestrictedReleaseMoves[] =
+//{
+//    {MAP_GROUPS_COUNT, 0, MOVE_SURF},
+//    {MAP_GROUPS_COUNT, 0, MOVE_DIVE},
+//};
 
 static void GetRestrictedReleaseMoves(u16 *moves)
 {
-    s32 i;
-
-    for (i = 0; i < ARRAY_COUNT(sRestrictedReleaseMoves); i++)
-    {
-        if (sRestrictedReleaseMoves[i].mapGroup == MAP_GROUPS_COUNT
-        || (sRestrictedReleaseMoves[i].mapGroup == gSaveBlock1Ptr->location.mapGroup
-         && sRestrictedReleaseMoves[i].mapNum == gSaveBlock1Ptr->location.mapNum))
-        {
-            *moves = sRestrictedReleaseMoves[i].move;
-            moves++;
-        }
-    }
+    //s32 i;
+    //for (i = 0; i < ARRAY_COUNT(sRestrictedReleaseMoves); i++)
+    //{
+    //    if (sRestrictedReleaseMoves[i].mapGroup == MAP_GROUPS_COUNT
+    //    || (sRestrictedReleaseMoves[i].mapGroup == gSaveBlock1Ptr->location.mapGroup
+    //     && sRestrictedReleaseMoves[i].mapNum == gSaveBlock1Ptr->location.mapNum))
+    //    {
+    //        *moves = sRestrictedReleaseMoves[i].move;
+    //        moves++;
+    //    }
+    //}
     *moves = MOVES_COUNT;
 }
 
@@ -6939,6 +6935,7 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
         struct Pokemon *mon = (struct Pokemon *)pokemon;
 
         sStorage->displayMonSpecies = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
+        sStorage->displayMonIsShiny = GetMonData(mon, MON_DATA_IS_SHINY);
         if (sStorage->displayMonSpecies != SPECIES_NONE)
         {
             sanityIsBadEgg = GetMonData(mon, MON_DATA_SANITY_IS_BAD_EGG);
@@ -6962,6 +6959,7 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
         struct BoxPokemon *boxMon = (struct BoxPokemon *)pokemon;
 
         sStorage->displayMonSpecies = GetBoxMonData(pokemon, MON_DATA_SPECIES_OR_EGG);
+        sStorage->displayMonIsShiny = GetMonData(pokemon, MON_DATA_IS_SHINY);
         if (sStorage->displayMonSpecies != SPECIES_NONE)
         {
             u32 otId = GetBoxMonData(boxMon, MON_DATA_OT_ID);
@@ -6977,8 +6975,8 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
             sStorage->displayMonLevel = GetLevelFromBoxMonExp(boxMon);
             sStorage->displayMonMarkings = GetBoxMonData(boxMon, MON_DATA_MARKINGS);
             sStorage->displayMonPersonality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
-            sStorage->displayMonPalette = GetMonSpritePalFromSpeciesAndPersonality(sStorage->displayMonSpecies, otId, sStorage->displayMonPersonality);
-            gender = GetGenderFromSpeciesAndPersonality(sStorage->displayMonSpecies, sStorage->displayMonPersonality);
+            sStorage->displayMonPalette = GetMonSpritePalFromSpecies(sStorage->displayMonSpecies, sStorage->displayMonIsShiny);
+            gender = GetBoxMonGender(boxMon);
             sStorage->displayMonItemId = GetBoxMonData(boxMon, MON_DATA_HELD_ITEM);
         }
     }
@@ -9733,6 +9731,39 @@ bool32 AnyStorageMonWithMove(u16 moveId)
                 && GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_KNOWN_MOVES, (u8 *)moves))
                 return TRUE;
         }
+    }
+
+    return FALSE;
+}
+
+bool8 AnyStorageMonOfSpecies(u16 species)
+{
+    s32 i, j;
+
+    for (i = 0; i < TOTAL_BOXES_COUNT; i++)
+    {
+        for (j = 0; j < IN_BOX_COUNT; j++)
+        {
+            if (GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_HAS_SPECIES)
+                && !GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_IS_EGG)
+                && GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SPECIES) == species)
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+bool8 AnyPlayerPartyMonOfSpecies(u16 species)
+{
+    u16 i;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+{
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_HAS_SPECIES)
+            && !GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_EGG)
+            && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == species)
+            return TRUE;
     }
 
     return FALSE;
