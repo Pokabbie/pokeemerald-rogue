@@ -622,8 +622,9 @@
 #define MUS_DP_VICTORY_CHAMPION         (MUS_DP_TITLE + 32)
 #define MUS_DP_VICTORY_GALACTIC         (MUS_DP_TITLE + 33)
 #define MUS_DP_VICTORY_ELITE_FOUR       (MUS_DP_TITLE + 34)
+#define MUS_DP_HALL_OF_ORIGIN           (MUS_DP_TITLE + 35)
 
-#define MUS_PL_VS_GIRATINA              (MUS_DP_TITLE + 35)
+#define MUS_PL_VS_GIRATINA              (MUS_DP_TITLE + 36)
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
