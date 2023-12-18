@@ -3083,7 +3083,7 @@ bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species)
         case SPECIES_COSMOEM:
         case SPECIES_SOLGALEO:
         case SPECIES_LUNALA:
-        case SPECIES_NIHILEGO:
+        case SPECIES_NECROZMA:
 
         case SPECIES_ZACIAN:
         case SPECIES_ZAMAZENTA:
