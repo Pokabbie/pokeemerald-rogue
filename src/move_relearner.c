@@ -395,7 +395,7 @@ void TeachMoveFromContext(void)
 {
     sMoveRelearnerMenuSate.inPartyMenu = FALSE;
 
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     CreateTask(Task_WaitForFadeOut, 10);
     // Fade to black
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
@@ -415,7 +415,7 @@ void TeachMoveRelearnerMove(void)
 {
     sMoveRelearnerMenuSate.teachMoveState = TEACH_STATE_RELEARN;
 
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     CreateTask(Task_WaitForFadeOut, 10);
     // Fade to black
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);

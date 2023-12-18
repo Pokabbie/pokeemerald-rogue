@@ -486,7 +486,7 @@ static void PlayerPC_Decoration(u8 taskId)
 
 static void PlayerPC_TurnOff(u8 taskId)
 {
-    EnableBothScriptContexts();
+    ScriptContext_Enable();
     DestroyTask(taskId);
 }
 

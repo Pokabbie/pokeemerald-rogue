@@ -311,7 +311,7 @@ static void VBlankCB(void)
 void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback)
 {
     gMain.savedCallback = callback;
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     SetMainCallback2(CB2_InitQuestMenu);
     gFieldCallback = FieldCB_ContinueScriptHandleMusic;
 }

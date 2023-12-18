@@ -563,7 +563,7 @@ static void Task_WaitForConnection(u8 taskId)
         // Cancelled
         RogueMP_Close();
         gSpecialVar_Result = FALSE;
-        EnableBothScriptContexts();
+        ScriptContext_Enable();
         DestroyTask(taskId);
     }
     else if(RogueMP_IsActive())
@@ -573,7 +573,7 @@ static void Task_WaitForConnection(u8 taskId)
             DebugPrint("Host created successfully");
             // Has connected
             gSpecialVar_Result = TRUE;
-            EnableBothScriptContexts();
+            ScriptContext_Enable();
             DestroyTask(taskId);
         }
         else if(!RogueMP_IsConnecting())
@@ -581,7 +581,7 @@ static void Task_WaitForConnection(u8 taskId)
             DebugPrint("Client connected successfully");
             // Has connected
             gSpecialVar_Result = TRUE;
-            EnableBothScriptContexts();
+            ScriptContext_Enable();
             DestroyTask(taskId);
         }
     }
@@ -591,7 +591,7 @@ static void Task_WaitForConnection(u8 taskId)
     //    DebugPrint("Connection aborted...");
     //    // TODO - store some infor
     //    gSpecialVar_Result = FALSE;
-    //    EnableBothScriptContexts();
+    //    ScriptContext_Enable();
     //    DestroyTask(taskId);
     //}
 }

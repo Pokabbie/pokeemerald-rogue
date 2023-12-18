@@ -74,7 +74,7 @@ void DoBrailleDigEffect(void)
     DrawWholeMapView();
     PlaySE(SE_BANG);
     FlagSet(FLAG_SYS_BRAILLE_DIG);
-    ScriptContext2_Disable();
+    UnlockPlayerFieldControls();
 }
 
 bool8 CheckRelicanthWailord(void)
@@ -140,7 +140,7 @@ static void Task_SealedChamberShakingEffect(u8 taskId)
         if (task->tShakeCounter == task->tNumShakes)
         {
             DestroyTask(taskId);
-            EnableBothScriptContexts();
+            ScriptContext_Enable();
             InstallCameraPanAheadCallback();
         }
     }
@@ -180,7 +180,7 @@ static void DoBrailleRegirockEffect(void)
     DrawWholeMapView();
     PlaySE(SE_BANG);
     FlagSet(FLAG_SYS_REGIROCK_PUZZLE_COMPLETED);
-    ScriptContext2_Disable();
+    UnlockPlayerFieldControls();
 }
 
 bool8 ShouldDoBrailleRegisteelEffect(void)
@@ -211,7 +211,7 @@ static void DoBrailleRegisteelEffect(void)
     DrawWholeMapView();
     PlaySE(SE_BANG);
     FlagSet(FLAG_SYS_REGISTEEL_PUZZLE_COMPLETED);
-    ScriptContext2_Disable();
+    UnlockPlayerFieldControls();
 }
 
 // theory: another commented out DoBrailleWait and Task_BrailleWait.

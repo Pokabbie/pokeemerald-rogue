@@ -515,7 +515,7 @@ bool8 FollowMon_ProcessMonInteraction()
                         if(script != NULL)
                         {
                             VarSet(VAR_LAST_TALKED, curObject->localId);
-                            ScriptContext1_SetupScript(script);
+                            ScriptContext_SetupScript(script);
                             return TRUE;
                         }
                     }

@@ -6533,14 +6533,14 @@ static void Task_PartyMenuWaitForFade(u8 taskId)
     if (IsWeatherNotFadingIn())
     {
         DestroyTask(taskId);
-        ScriptContext2_Disable();
-        EnableBothScriptContexts();
+        UnlockPlayerFieldControls();
+        ScriptContext_Enable();
     }
 }
 
 void ChooseContestMon(void)
 {
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     FadeScreen(FADE_TO_BLACK, 0);
     CreateTask(Task_ChooseContestMon, 10);
 }
@@ -6568,7 +6568,7 @@ static void CB2_ChooseContestMon(void)
 // Used as a script special for showing a party mon to various npcs (e.g. in-game trades, move deleter)
 void ChoosePartyMon(void)
 {
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     FadeScreen(FADE_TO_BLACK, 0);
     CreateTask(Task_ChoosePartyMon, 10);
 }
@@ -6585,7 +6585,7 @@ static void Task_ChoosePartyMon(u8 taskId)
 
 void ChooseMonForMoveRelearner(void)
 {
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     FadeScreen(FADE_TO_BLACK, 0);
     CreateTask(Task_ChooseMonForMoveRelearner, 10);
 }
@@ -6609,7 +6609,7 @@ static void Task_ChooseMonForMoveRelearner(u8 taskId)
 
 void ChooseMonForRelease(void)
 {
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     FadeScreen(FADE_TO_BLACK, 0);
     CreateTask(Task_ChoosePartyMon, 10);
 }
@@ -6644,7 +6644,7 @@ void DoBattlePyramidMonsHaveHeldItem(void)
 // The player can then select to toss items from the bag or take/toss held items from the party
 void BattlePyramidChooseMonHeldItems(void)
 {
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     FadeScreen(FADE_TO_BLACK, 0);
     CreateTask(Task_BattlePyramidChooseMonHeldItems, 10);
 }

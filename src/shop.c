@@ -311,7 +311,7 @@ static u8 CreateShopMenu(u8 martType)
 {
     int numMenuItems;
 
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     sMartInfo.martType = martType;
 
     if (martType == MART_TYPE_NORMAL)
@@ -447,7 +447,7 @@ static void Task_HandleShopMenuQuit(u8 taskId)
     ClearStdWindowAndFrameToTransparent(sMartInfo.windowId, 2);
     RemoveWindow(sMartInfo.windowId);
     TryPutSmartShopperOnAir();
-    ScriptContext2_Disable();
+    UnlockPlayerFieldControls();
     DestroyTask(taskId);
 
     if(sMartInfo.anythingBought)
@@ -1620,7 +1620,7 @@ void CreatePokemartMenu(const u16 *itemsForSale)
     CreateShopMenu(MART_TYPE_NORMAL);
     SetShopItemsFromStaticList(itemsForSale, ITEM_NONE);
     ClearItemPurchases();
-    SetShopMenuCallback(EnableBothScriptContexts);
+    SetShopMenuCallback(ScriptContext_Enable);
 }
 
 void CreateDecorationShop1Menu(const u16 *itemsForSale)
@@ -1630,7 +1630,7 @@ void CreateDecorationShop1Menu(const u16 *itemsForSale)
 
     CreateShopMenu(MART_TYPE_DECOR);
     SetShopItemsFromStaticList(itemsForSale, ITEM_NONE);
-    SetShopMenuCallback(EnableBothScriptContexts);
+    SetShopMenuCallback(ScriptContext_Enable);
 }
 
 void CreateDecorationShop2Menu(const u16 *itemsForSale)
@@ -1640,7 +1640,7 @@ void CreateDecorationShop2Menu(const u16 *itemsForSale)
 
     CreateShopMenu(MART_TYPE_DECOR2);
     SetShopItemsFromStaticList(itemsForSale, ITEM_NONE);
-    SetShopMenuCallback(EnableBothScriptContexts);
+    SetShopMenuCallback(ScriptContext_Enable);
 }
 
 void CreatePokemartMenuWithMinPrice(const u16 *itemsForSale, u16 minPrice)
@@ -1653,7 +1653,7 @@ void CreatePokemartMenuWithMinPrice(const u16 *itemsForSale, u16 minPrice)
     CreateShopMenu(MART_TYPE_NORMAL);
     SetShopItemsFromStaticList(itemsForSale, ITEM_NONE);
     ClearItemPurchases();
-    SetShopMenuCallback(EnableBothScriptContexts);
+    SetShopMenuCallback(ScriptContext_Enable);
 }
 
 static u16 HubUpgradeShopItemListCallback(u16 index)
@@ -1782,7 +1782,7 @@ void CreateDynamicPokemartMenu(const u16 category)
         sMartInfo.dynamicMartCategory = category;
         ClearItemPurchases();
     }
-    SetShopMenuCallback(EnableBothScriptContexts);
+    SetShopMenuCallback(ScriptContext_Enable);
 }
 
 // Item type callbacks

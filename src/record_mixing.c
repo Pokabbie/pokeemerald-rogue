@@ -365,7 +365,7 @@ static void Task_RecordMixing_Main(u8 taskId)
                 CreateTask(Task_ReturnToFieldRecordMixing, 10);
             ClearDialogWindowAndFrame(0, 1);
             DestroyTask(taskId);
-            EnableBothScriptContexts();
+            ScriptContext_Enable();
         }
         break;
     }

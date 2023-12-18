@@ -2544,7 +2544,7 @@ bool8 UseRegisteredKeyItemOnField(void)
 
     if (func) 
     {
-        ScriptContext2_Enable();
+        LockPlayerFieldControls();
         FreezeObjectEvents();
         PlayerFreeze();
         StopPlayerAvatar();
@@ -2552,7 +2552,7 @@ bool8 UseRegisteredKeyItemOnField(void)
         gTasks[taskId].tUsingRegisteredKeyItem = TRUE;
         return TRUE;
     }
-    ScriptContext1_SetupScript(EventScript_SelectWithoutRegisteredItem);
+    ScriptContext_SetupScript(EventScript_SelectWithoutRegisteredItem);
     return TRUE;
 }
 
@@ -2682,7 +2682,7 @@ static void Task_KeyItemWheel(u8 taskId) {
     case 3:
         FreeKeyItemWheelGfx(data);
         ScriptUnfreezeObjectEvents();
-        ScriptContext2_Disable();
+        UnlockPlayerFieldControls();
         DestroyTask(taskId);
         DisableInterrupts(INTR_FLAG_HBLANK);
         break;

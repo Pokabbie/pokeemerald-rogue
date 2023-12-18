@@ -218,7 +218,7 @@ static void PrepareSongText(void)
 void PlayBardSong(void)
 {
     StartBardSong(gSpecialVar_0x8004);
-    ScriptContext1_Stop();
+    ScriptContext_Stop();
 }
 
 void GetHipsterSpokenFlag(void)
@@ -1130,7 +1130,7 @@ static void Task_StoryListMenu(u8 taskId)
         }
         ClearToTransparentAndRemoveWindow(sStorytellerWindowId);
         DestroyTask(taskId);
-        EnableBothScriptContexts();
+        ScriptContext_Enable();
         break;
     }
 }
