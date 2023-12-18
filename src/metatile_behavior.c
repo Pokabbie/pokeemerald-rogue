@@ -45,6 +45,7 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_LAVARIDGE_GYM_B1F_WARP]          = TILE_FLAG_UNUSED,
     [MB_SEAWEED_NO_SURFACING]            = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
     [MB_REFLECTION_UNDER_BRIDGE]         = TILE_FLAG_UNUSED,
+    [MB_MIRROR]                          = TILE_FLAG_UNUSED,
     [MB_IMPASSABLE_EAST]                 = TILE_FLAG_UNUSED,
     [MB_IMPASSABLE_WEST]                 = TILE_FLAG_UNUSED,
     [MB_IMPASSABLE_NORTH]                = TILE_FLAG_UNUSED,
@@ -208,7 +209,8 @@ bool8 MetatileBehavior_IsReflective(u8 metatileBehavior)
      || metatileBehavior == MB_UNUSED_SOOTOPOLIS_DEEP_WATER_2
      || metatileBehavior == MB_ICE
      || metatileBehavior == MB_SOOTOPOLIS_DEEP_WATER
-     || metatileBehavior == MB_REFLECTION_UNDER_BRIDGE)
+     || metatileBehavior == MB_REFLECTION_UNDER_BRIDGE
+     || metatileBehavior == MB_MIRROR)
         return TRUE;
     else
         return FALSE;
