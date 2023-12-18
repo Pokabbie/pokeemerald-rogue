@@ -228,14 +228,21 @@ static u8 CalcBeatUpPower(void)
 {
     struct Pokemon *party;
     u8 basePower;
+    u8 beatupSlot;
     u16 species;
 
     if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
         party = gPlayerParty;
     else
         party = gEnemyParty;
+
     // Party slot is set in the battle script for Beat Up
-    species = GetMonData(&party[gBattleCommunication[0] - 1], MON_DATA_SPECIES);
+    // (This doesn't get set correctly for AI it seems)
+    beatupSlot = gBattleCommunication[0];
+    if(beatupSlot != 0)
+        --beatupSlot;
+
+    species = GetMonData(&party[beatupSlot], MON_DATA_SPECIES);
     basePower = (gBaseStats[species].baseAttack / 10) + 5;
 
     return basePower;
