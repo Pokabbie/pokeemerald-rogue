@@ -52,10 +52,10 @@
 #define CALC_HOUR_FROM_TIME(time) (time / 60)
 #define CALC_MINS_FROM_TIME(time) (time % 60)
 
-#define RGB_NIGHT           RGB(9, 12, 19)
-#define RGB_SUNRISE         RGB(31, 16, 6)
+#define RGB_NIGHT           RGB(9, 15, 21)
+#define RGB_SUNRISE         RGB(31, 19, 12)
 #define RGB_DAYTIME         RGB_WHITE
-#define RGB_SUNSET          RGB(31, 12, 9)
+#define RGB_SUNSET          RGB(31, 16, 16)
 
 #define DAYS_PER_SEASON     2 
 
@@ -67,13 +67,14 @@ struct ToDPalette
     u8 timeCode;
 };
 
-struct TODData
+struct ToDData
 {
     bool8 areCalcsValid;
     u8 timeCode;
     u16 overworldColour;
     u16 battleColour;
 };
+
 enum
 {
     TIME_CODE_DAWN,
@@ -133,7 +134,7 @@ EWRAM_DATA static u8 sTimeOfDayTimeCode = TIME_CODE_NIGHT;
 EWRAM_DATA static u16 sTimeOfDayOverworldColour = 0;
 EWRAM_DATA static u16 sTimeOfDayBattleColour = 0;
 
-EWRAM_DATA static struct TODData sTimeOfDay = {0};
+EWRAM_DATA static struct ToDData sTimeOfDay = {0};
 
 //extern const u16 gTilesetPalettes_General[][16];
 extern const u16 gTilesetPalettes_General02_Spring[];
