@@ -4455,23 +4455,14 @@ void Rogue_PreBattleSetup(void)
 
 bool8 Rogue_OverrideTrainerItems(u16* items)
 {
-#ifdef ROGUE_FEATURE_AUTOMATION
-    if(TRUE)
-#else
-    if(Rogue_IsRunActive())
-#endif
+    u8 i;
+
+    for (i = 0; i < MAX_TRAINER_ITEMS; i++)
     {
-        u8 i;
-
-        for (i = 0; i < MAX_TRAINER_ITEMS; i++)
-        {
-            items[i] = ITEM_NONE;
-        }
-
-        return TRUE;
+        items[i] = ITEM_NONE;
     }
 
-    return FALSE;
+    return TRUE;
 }
 
 extern const u16* const gRegionalDexSpecies[];
