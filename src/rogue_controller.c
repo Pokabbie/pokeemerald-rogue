@@ -1038,6 +1038,9 @@ u8 SpeciesToGen(u16 species)
         case SPECIES_CALYREX_ICE_RIDER:
         case SPECIES_CALYREX_SHADOW_RIDER:
             return 8;
+
+        case SPECIES_ENAMORUS_THERIAN:
+            return 8;
     }
 
     // Alternate forms
