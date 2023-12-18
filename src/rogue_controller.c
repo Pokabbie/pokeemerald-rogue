@@ -5050,7 +5050,8 @@ u16 Rogue_SelectRandomWildMon(void)
     if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
         u16 count = GetCurrentWildEncounterCount();
-        return GetWildGrassEncounter(Random() % count);
+        if(count != 0)
+            return GetWildGrassEncounter(Random() % count);
     }
 
     return SPECIES_NONE;
