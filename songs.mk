@@ -1029,6 +1029,9 @@ $(MID_SUBDIR)/mus_dp_victory_galactic.s: %.s: %.mid
 $(MID_SUBDIR)/mus_dp_victory_elite_four.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V090
 
+$(MID_SUBDIR)/mus_dp_hall_of_origin.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V127
+
 $(MID_SUBDIR)/mus_pl_vs_giratina.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V105
 

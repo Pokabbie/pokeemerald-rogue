@@ -134,12 +134,14 @@
 #define MAP_ROGUE_SPECIAL_RAYQUAZA         (16 | (7 << 8))
 #define MAP_ROGUE_SPECIAL_JIRACHI          (17 | (7 << 8))
 #define MAP_ROGUE_SPECIAL_DEOXYS           (18 | (7 << 8))
-#define MAP_ROGUE_SPECIAL_GENERIC_WILD_MON (19 | (7 << 8))
-#define MAP_ROGUE_SPECIAL_GEN4_MON         (20 | (7 << 8))
-#define MAP_ROGUE_SPECIAL_GEN5_MON         (21 | (7 << 8))
-#define MAP_ROGUE_SPECIAL_GEN6_MON         (22 | (7 << 8))
-#define MAP_ROGUE_SPECIAL_GEN7_MON         (23 | (7 << 8))
-#define MAP_ROGUE_SPECIAL_GEN8_MON         (24 | (7 << 8))
+#define MAP_ROGUE_SPECIAL_LAKE_GUARDIAN    (19 | (7 << 8))
+#define MAP_ROGUE_SPECIAL_ARCEUS           (20 | (7 << 8))
+#define MAP_ROGUE_SPECIAL_GENERIC_WILD_MON (21 | (7 << 8))
+#define MAP_ROGUE_SPECIAL_GEN4_MON         (22 | (7 << 8))
+#define MAP_ROGUE_SPECIAL_GEN5_MON         (23 | (7 << 8))
+#define MAP_ROGUE_SPECIAL_GEN6_MON         (24 | (7 << 8))
+#define MAP_ROGUE_SPECIAL_GEN7_MON         (25 | (7 << 8))
+#define MAP_ROGUE_SPECIAL_GEN8_MON         (26 | (7 << 8))
 
 #define MAP_GROUPS_COUNT 8
 

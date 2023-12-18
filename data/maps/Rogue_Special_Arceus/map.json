@@ -1,11 +1,11 @@
 {
-  "id": "MAP_ROGUE_SPECIAL_GEN4_MON",
-  "name": "Rogue_Special_Gen4_Mon",
-  "layout": "LAYOUT_ROGUE_SPECIAL_GEN4_MON",
-  "music": "MUS_DP_SPEAR_PILLAR",
+  "id": "MAP_ROGUE_SPECIAL_ARCEUS",
+  "name": "Rogue_Special_Arceus",
+  "layout": "LAYOUT_ROGUE_SPECIAL_ARCEUS",
+  "music": "MUS_DP_HALL_OF_ORIGIN",
   "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
-  "weather": "WEATHER_PSYCHIC_FOG",
+  "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -17,7 +17,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_FOLLOW_MON_0",
       "x": 9,
-      "y": 8,
+      "y": 1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -31,7 +31,7 @@
   "warp_events": [
     {
       "x": 9,
-      "y": 19,
+      "y": 31,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_SPECIAL_JIRACHI",
       "dest_warp_id": 0

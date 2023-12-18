@@ -692,6 +692,7 @@ gSongTable::
 	song mus_dp_victory_champion, 0, 0
 	song mus_dp_victory_galactic, 0, 0
 	song mus_dp_victory_elite_four, 0, 0
+	song mus_dp_hall_of_origin, 0, 0
 	song mus_pl_vs_giratina, 0, 0
 
 	.align 2

@@ -1267,7 +1267,7 @@
       "width": 19,
       "height": 28,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/Rogue_Special_Gen4_Mon/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Special_Gen4_Mon/map.bin"
     },
@@ -1750,6 +1750,26 @@
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/Rogue_Route_Sinnoh_207/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_207/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_LAKE_GUARDIAN",
+      "name": "Rogue_Special_LakeGuardian_Layout",
+      "width": 19,
+      "height": 22,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_LakeGuardian/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_LakeGuardian/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_ARCEUS",
+      "name": "Rogue_Special_Arceus_Layout",
+      "width": 19,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NavelRock",
+      "border_filepath": "data/layouts/Rogue_Special_Arceus/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Arceus/map.bin"
     }
   ]
 }
