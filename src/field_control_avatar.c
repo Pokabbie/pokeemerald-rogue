@@ -244,7 +244,7 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
     if (script != EventScript_PC)
         PlaySE(SE_SELECT);
 
-    ScriptContext1_SetupScript(script);
+    ScriptContext_SetupScript(script);
     return TRUE;
 }
 
@@ -491,7 +491,7 @@ static bool32 TrySetupDiveDownScript(void)
 
     if (TrySetDiveWarp() == 2)
     {
-        ScriptContext1_SetupScript(EventScript_UseDive);
+        ScriptContext_SetupScript(EventScript_UseDive);
         return TRUE;
     }
     return FALSE;
@@ -505,7 +505,7 @@ static bool32 TrySetupDiveEmergeScript(void)
 
     if (gMapHeader.mapType == MAP_TYPE_UNDERWATER && TrySetDiveWarp() == 1)
     {
-        ScriptContext1_SetupScript(EventScript_UseDiveUnderwater);
+        ScriptContext_SetupScript(EventScript_UseDiveUnderwater);
         return TRUE;
     }
     return FALSE;
@@ -532,7 +532,7 @@ static bool8 TryStartCoordEventScript(struct MapPosition *position)
 
     if (script == NULL)
         return FALSE;
-    ScriptContext1_SetupScript(script);
+    ScriptContext_SetupScript(script);
     return TRUE;
 }
 
@@ -542,7 +542,7 @@ static bool8 TryStartMiscWalkingScripts(u16 metatileBehavior)
 
     if (MetatileBehavior_IsCrackedFloorHole(metatileBehavior))
     {
-        ScriptContext1_SetupScript(EventScript_FallDownHole);
+        ScriptContext_SetupScript(EventScript_FallDownHole);
         return TRUE;
     }
     else if (MetatileBehavior_IsBattlePyramidWarp(metatileBehavior))
@@ -578,13 +578,13 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
     {
         if (UpdatePoisonStepCounter() == TRUE)
         {
-            ScriptContext1_SetupScript(EventScript_FieldPoison);
+            ScriptContext_SetupScript(EventScript_FieldPoison);
             return TRUE;
         }
         if (ShouldEggHatch())
         {
             IncrementGameStat(GAME_STAT_HATCHED_EGGS);
-            ScriptContext1_SetupScript(EventScript_EggHatch);
+            ScriptContext_SetupScript(EventScript_EggHatch);
             return TRUE;
         }
     }
@@ -882,7 +882,7 @@ static u8 *TryRunCoordEventScript(struct CoordEvent *coordEvent)
         }
         if (coordEvent->trigger == 0)
         {
-            ScriptContext2_RunNewScript(coordEvent->script);
+            RunScriptImmediately(coordEvent->script);
             return NULL;
         }
         if (VarGet(coordEvent->trigger) == (u8)coordEvent->index)

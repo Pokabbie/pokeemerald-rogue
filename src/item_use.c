@@ -181,7 +181,7 @@ static void Task_CloseCantUseKeyItemMessage(u8 taskId)
     ClearDialogWindowAndFrame(0, 1);
     DestroyTask(taskId);
     ScriptUnfreezeObjectEvents();
-    ScriptContext2_Disable();
+    UnlockPlayerFieldControls();
 }
 
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId)
@@ -238,7 +238,7 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
         GetOnOffBike(PLAYER_AVATAR_FLAG_ACRO_BIKE);
     FollowMe_HandleBike();
     ScriptUnfreezeObjectEvents();
-    ScriptContext2_Disable();
+    UnlockPlayerFieldControls();
     DestroyTask(taskId);
 }
 
@@ -283,7 +283,7 @@ static void ItemUseOnFieldCB_RideMon(u8 taskId)
         Rogue_GetOnOffRideMon(ItemId_GetSecondaryId(gSpecialVar_ItemId), FALSE);
         FollowMe_HandleBike(); // Do we need this?
         ScriptUnfreezeObjectEvents();
-        ScriptContext2_Disable();
+        UnlockPlayerFieldControls();
         DestroyTask(taskId);
     }
     else
@@ -349,8 +349,8 @@ void ItemUseOutOfBattle_HealingFlask(u8 taskId)
 
 static void ItemUseOnFieldCB_HealingFlask(u8 taskId)
 {
-    ScriptContext2_Enable();
-    ScriptContext1_SetupScript(Rogue_EventScript_ItemUseHealingFlask);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Rogue_EventScript_ItemUseHealingFlask);
     DestroyTask(taskId);
 }
 
@@ -418,7 +418,7 @@ static void Task_CloseItemfinderMessage(u8 taskId)
 {
     ClearDialogWindowAndFrame(0, 1);
     ScriptUnfreezeObjectEvents();
-    ScriptContext2_Disable();
+    UnlockPlayerFieldControls();
     DestroyTask(taskId);
 }
 
@@ -845,8 +845,8 @@ void ItemUseOutOfBattle_Berry(u8 taskId)
 static void ItemUseOnFieldCB_Berry(u8 taskId)
 {
     RemoveBagItem(gSpecialVar_ItemId, 1);
-    ScriptContext2_Enable();
-    ScriptContext1_SetupScript(BerryTree_EventScript_ItemUsePlantBerry);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(BerryTree_EventScript_ItemUsePlantBerry);
     DestroyTask(taskId);
 }
 
@@ -865,8 +865,8 @@ void ItemUseOutOfBattle_WailmerPail(u8 taskId)
 
 static void ItemUseOnFieldCB_WailmerPailBerry(u8 taskId)
 {
-    ScriptContext2_Enable();
-    ScriptContext1_SetupScript(BerryTree_EventScript_ItemUseWailmerPail);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(BerryTree_EventScript_ItemUseWailmerPail);
     DestroyTask(taskId);
 }
 
@@ -1036,8 +1036,8 @@ extern const u8 gText_PokeblockAlreadyScattered[];
 
 static void ItemUseOnFieldCB_Pokeblock(u8 taskId)
 {
-    ScriptContext2_Enable();
-    ScriptContext1_SetupScript(Rogue_EventScript_UsePokeblockItem);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Rogue_EventScript_UsePokeblockItem);
     DestroyTask(taskId);
 }
 

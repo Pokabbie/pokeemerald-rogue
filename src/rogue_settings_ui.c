@@ -773,7 +773,7 @@ void Rogue_OpenDifficultyConfigMenu(RogueDifficultyMenuCallback callback)
 {
     gMain.savedCallback = callback;
     SetMainCallback2(CB2_InitDifficultyConfigMenu);
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
 }
 
 void CB2_InitDifficultyConfigMenu(void)
@@ -1025,7 +1025,7 @@ static void Task_OptionMenuFadeOut(u8 taskId)
         DestroyTask(taskId);
         FreeAllWindowBuffers();
         SetMainCallback2(gMain.savedCallback);
-        // EnableBothScriptContexts(); <- handled in savedCallback
+        // ScriptContext_Enable(); <- handled in savedCallback
     }
 }
 

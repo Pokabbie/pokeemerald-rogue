@@ -563,7 +563,7 @@ static void AddDecorationActionsWindow(void)
 static void InitDecorationActionsWindow(void)
 {
     sDecorationActionsCursorPos = 0;
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     AddDecorationActionsWindow();
     PrintCurMainMenuDescription();
 }
@@ -1697,7 +1697,7 @@ static void c1_overworld_prev_quest(u8 taskId)
     switch (gTasks[taskId].tState)
     {
     case 0:
-        ScriptContext2_Enable();
+        LockPlayerFieldControls();
         if (!gPaletteFade.active)
         {
             WarpToInitialPosition(taskId);
@@ -1727,7 +1727,7 @@ static void Task_InitDecorationItemsWindow(u8 taskId)
         tState++;
         break;
     case 2:
-        ScriptContext2_Enable();
+        LockPlayerFieldControls();
         tState++;
         break;
     case 3:
@@ -1741,7 +1741,7 @@ static void FieldCB_InitDecorationItemsWindow(void)
 {
     u8 taskId;
 
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     FadeInFromBlack();
     taskId = CreateTask(Task_InitDecorationItemsWindow, 8);
     AddDecorationItemsWindow(taskId);
@@ -2225,7 +2225,7 @@ static void Task_PutAwayDecoration(u8 taskId)
         }
         break;
     case 2:
-        ScriptContext2_Enable();
+        LockPlayerFieldControls();
         IdentifyOwnedDecorationsCurrentlyInUseInternal(taskId);
         FadeInFromBlack();
         gTasks[taskId].tState = 3;
@@ -2621,7 +2621,7 @@ static void Task_ReinitializeDecorationMenuHandler(u8 taskId)
         tState++;
         break;
     case 2:
-        ScriptContext2_Enable();
+        LockPlayerFieldControls();
         tState++;
         break;
     case 3:

@@ -412,7 +412,7 @@ static void EnterNewlyCreatedSecretBase_WaitFadeIn(u8 taskId)
     ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
     if (IsWeatherNotFadingIn() == TRUE)
     {
-        EnableBothScriptContexts();
+        ScriptContext_Enable();
         DestroyTask(taskId);
     }
 }
@@ -421,7 +421,7 @@ static void EnterNewlyCreatedSecretBase_StartFadeIn(void)
 {
     s16 x, y;
 
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     HideMapNamePopUpWindow();
     FindMetatileIdMapCoords(&x, &y, METATILE_SecretBase_PC);
     x += MAP_OFFSET;
@@ -526,7 +526,7 @@ static void Task_WarpOutOfSecretBase(u8 taskId)
     switch (gTasks[taskId].data[0])
     {
     case 0:
-        ScriptContext2_Enable();
+        LockPlayerFieldControls();
         gTasks[taskId].data[0] = 1;
         break;
     case 1:
@@ -538,7 +538,7 @@ static void Task_WarpOutOfSecretBase(u8 taskId)
         WarpIntoMap();
         gFieldCallback = FieldCB_DefaultWarpExit;
         SetMainCallback2(CB2_LoadMap);
-        ScriptContext2_Disable();
+        UnlockPlayerFieldControls();
         DestroyTask(taskId);
         break;
     }
@@ -735,7 +735,7 @@ void ShowSecretBaseRegistryMenu(void)
 static void Task_ShowSecretBaseRegistryMenu(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    ScriptContext2_Enable();
+    LockPlayerFieldControls();
     tNumBases = GetNumRegisteredSecretBases();
     if (tNumBases != 0)
     {

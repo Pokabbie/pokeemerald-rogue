@@ -276,14 +276,14 @@ static void Task_WaitForConnection(u8 taskId)
     {
         // Cancelled
         gSpecialVar_Result = FALSE;
-        EnableBothScriptContexts();
+        ScriptContext_Enable();
         DestroyTask(taskId);
     }
     else if(Rogue_IsAssistantConnected())
     {
         // Has connected
         gSpecialVar_Result = TRUE;
-        EnableBothScriptContexts();
+        ScriptContext_Enable();
         DestroyTask(taskId);
     }
 }
@@ -597,7 +597,7 @@ static void Task_ConnectMultiplayer(u8 taskId)
         // Cancelled
         Rogue_UpdateAssistantRequestState(REQUEST_STATE_NONE);
         gSpecialVar_Result = FALSE;
-        EnableBothScriptContexts();
+        ScriptContext_Enable();
         DestroyTask(taskId);
     }
     else if(Rogue_IsNetMultiplayerActive())
@@ -605,7 +605,7 @@ static void Task_ConnectMultiplayer(u8 taskId)
         // Has connected
         Rogue_UpdateAssistantRequestState(REQUEST_STATE_NONE);
         gSpecialVar_Result = TRUE;
-        EnableBothScriptContexts();
+        ScriptContext_Enable();
         DestroyTask(taskId);
     }
 }

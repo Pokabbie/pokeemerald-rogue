@@ -204,7 +204,7 @@ void NewGameInitData(void)
     ResetFanClub();
     ResetLotteryCorner();
     WarpToIntro();
-    ScriptContext2_RunNewScript(EventScript_ResetAllMapFlags);
+    RunScriptImmediately(EventScript_ResetAllMapFlags);
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();
     InitLilycoveLady();

@@ -287,7 +287,7 @@ bool8 FldEff_UseCutOnGrass(void)
 static void FieldCallback_CutTree(void)
 {
     gFieldEffectArguments[0] = GetCursorSelectionMonId();
-    ScriptContext1_SetupScript(EventScript_UseCut);
+    ScriptContext_SetupScript(EventScript_UseCut);
 }
 
 bool8 FldEff_UseCutOnTree(void)
@@ -576,7 +576,7 @@ static void CutGrassSpriteCallbackEnd(struct Sprite *sprite)
     FieldEffectStop(&gSprites[sCutGrassSpriteArrayPtr[0]], FLDEFF_CUT_GRASS);
     FREE_AND_SET_NULL(sCutGrassSpriteArrayPtr);
     ScriptUnfreezeObjectEvents();
-    ScriptContext2_Disable();
+    UnlockPlayerFieldControls();
 }
 
 void FixLongGrassMetatilesWindowTop(s16 x, s16 y)
@@ -633,5 +633,5 @@ static void StartCutTreeFieldEffect(void)
 {
     PlaySE(SE_M_CUT);
     FieldEffectActiveListRemove(FLDEFF_USE_CUT_ON_TREE);
-    EnableBothScriptContexts();
+    ScriptContext_Enable();
 }

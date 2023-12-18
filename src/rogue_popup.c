@@ -401,7 +401,7 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
         {
             // Disable script enabled mode now, as we've reached end of queue
             sRoguePopups.scriptEnabled = FALSE;
-            EnableBothScriptContexts();
+            ScriptContext_Enable();
         }
         else
         {
@@ -430,7 +430,7 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 
 void Rogue_DisplayPopupsFromScript()
 {
-    ScriptContext1_Stop();
+    ScriptContext_Stop();
     sRoguePopups.scriptEnabled = TRUE;
 }
 

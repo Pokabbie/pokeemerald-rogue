@@ -2167,13 +2167,13 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
     if(gRogueLocal.hasSaveWarningPending)
     {
         gRogueLocal.hasSaveWarningPending = FALSE;
-        ScriptContext1_SetupScript(Rogue_QuickSaveVersionWarning);
+        ScriptContext_SetupScript(Rogue_QuickSaveVersionWarning);
         return TRUE;
     }
     else if(gRogueLocal.hasVersionUpdateMsgPending)
     {
         gRogueLocal.hasVersionUpdateMsgPending = FALSE;
-        ScriptContext1_SetupScript(Rogue_QuickSaveVersionUpdate);
+        ScriptContext_SetupScript(Rogue_QuickSaveVersionUpdate);
         return TRUE;
     }
     else if(!RogueDebug_GetConfigToggle(DEBUG_TOGGLE_ALLOW_SAVE_SCUM) && gRogueLocal.hasQuickLoadPending)
@@ -2183,7 +2183,7 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         VarSet(VAR_0x8004, gRogueRun.isQuickSaveValid);
         gRogueRun.isQuickSaveValid = FALSE;
 
-        ScriptContext1_SetupScript(Rogue_QuickSaveLoad);
+        ScriptContext_SetupScript(Rogue_QuickSaveLoad);
         return TRUE;
     }
     else if(FollowMon_ProcessMonInteraction() == TRUE)
@@ -4455,23 +4455,14 @@ void Rogue_PreBattleSetup(void)
 
 bool8 Rogue_OverrideTrainerItems(u16* items)
 {
-#ifdef ROGUE_FEATURE_AUTOMATION
-    if(TRUE)
-#else
-    if(Rogue_IsRunActive())
-#endif
+    u8 i;
+
+    for (i = 0; i < MAX_TRAINER_ITEMS; i++)
     {
-        u8 i;
-
-        for (i = 0; i < MAX_TRAINER_ITEMS; i++)
-        {
-            items[i] = ITEM_NONE;
-        }
-
-        return TRUE;
+        items[i] = ITEM_NONE;
     }
 
-    return FALSE;
+    return TRUE;
 }
 
 extern const u16* const gRegionalDexSpecies[];
