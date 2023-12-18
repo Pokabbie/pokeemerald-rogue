@@ -493,12 +493,6 @@ void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
         if(wildEncounterIndex != WILD_ENCOUNTER_TOTAL_CAPACITY)
             speciesCatchCount = gRogueRun.wildEncounters.catchCounts[wildEncounterIndex];
 
-        if(gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
-        {
-            // Want to make legendaries hard to catch than other mons in the area
-            difficulty += 1;
-        }
-
         if(gBattleTypeFlags & BATTLE_TYPE_ROAMER)
         {
             // Roamers hard to make early captures possible but not impossible
