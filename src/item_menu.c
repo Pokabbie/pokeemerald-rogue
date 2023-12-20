@@ -2569,8 +2569,7 @@ static void HBlankCB_KeyItemWheel(void) {
     }
     // Copy item 3
     if (vCount >= 64 && sKeyItemWheelExtraPalette[0] == 0) {
-        AGB_ASSERT(FALSE); // fixme
-        //CpuFastCopy(sKeyItemWheelExtraPalette, (u32*)(BG_PLTT + PLTT_ID(13)*2), PLTT_SIZE_4BPP);
+        CpuFastCopy(&sKeyItemWheelExtraPalette[0], (u32*)(BG_PLTT + PLTT_ID(13)*2), PLTT_SIZE_4BPP);
         sKeyItemWheelExtraPalette[0] = 0x8000;
     }
 }
