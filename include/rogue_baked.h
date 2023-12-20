@@ -9,7 +9,7 @@ struct Evolution;
 struct Item;
 struct Trainer;
 
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
 #define gRogueSpeciesInfo  gSpeciesInfo
 #else
 #define gRogueSpeciesInfo  gBaseStats

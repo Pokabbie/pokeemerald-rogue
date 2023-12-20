@@ -719,6 +719,7 @@ const u8 gText_Gen5[] = _("GEN 5");
 const u8 gText_Gen6[] = _("GEN 6");
 const u8 gText_Gen7[] = _("GEN 7");
 const u8 gText_Gen8[] = _("GEN 8");
+const u8 gText_Gen9[] = _("GEN 9");
 const u8 gText_GenStr1[] = _("Gen. {STR_VAR_1}");
 const u8 gText_Regional[] = _("Regional Dex");
 const u8 gText_National[] = _("National Dex");

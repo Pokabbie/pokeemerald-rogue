@@ -1,5 +1,5 @@
 #include "BakeHelpers.h"
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
 const union AnimCmd sAnim_GeneralFrame0[] =
 {
     ANIMCMD_FRAME(0, 0),

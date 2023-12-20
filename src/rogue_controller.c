@@ -992,6 +992,9 @@ u8 SpeciesToGen(u16 species)
     if(species >= SPECIES_WYRDEER && species <= SPECIES_ENAMORUS)
         return 8;
 
+    if(species >= SPECIES_SPRIGATITO && species <= SPECIES_URSALUNA_BLOODMOON)
+        return 9;
+
     if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_MAROWAK_ALOLAN)
         return 7;
     if(species >= SPECIES_MEOWTH_GALARIAN && species <= SPECIES_STUNFISK_GALARIAN)
@@ -1006,6 +1009,8 @@ u8 SpeciesToGen(u16 species)
 
     // Just treat megas as gen 1 as they are controlled by a different mechanism
     if(species >= SPECIES_VENUSAUR_MEGA && species <= SPECIES_GROUDON_PRIMAL)
+        return 1;
+    if(species >= SPECIES_VENUSAUR_GIGANTAMAX && species <= SPECIES_URSHIFU_RAPID_STRIKE_STYLE_GIGANTAMAX)
         return 1;
     
     switch(species)
@@ -1988,7 +1993,7 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
     RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
     RogueMonQuery_TransformIntoEggSpecies();
     RogueMonQuery_TransformIntoEvos(2, FALSE, FALSE); // to force mons to fit gen settings
-    RogueMonQuery_AnyActiveEvos(QUERY_FUNC_INCLUDE, FALSE);
+    RogueMonQuery_AnyActiveEvos(QUERY_FUNC_INCLUDE);
 
     {
         u8 i;
@@ -2415,13 +2420,7 @@ static bool8 HasAnyActiveEvos(u16 species)
 
         if(evo.targetSpecies != SPECIES_NONE)
         {
-#ifdef ROGUE_EXPANSION
-            if(evo.method != EVO_MEGA_EVOLUTION &&
-                evo.method != EVO_MOVE_MEGA_EVOLUTION &&
-                evo.method != EVO_PRIMAL_REVERSION
-            )
-#endif
-                return TRUE;
+            return TRUE;
         }
     }
 
@@ -4085,7 +4084,7 @@ static void MonGainRewardEVs(struct Pokemon *mon)
 
         evIncrease = gNatureEvRewardStatTable[nature][i];
 
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
         if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == i)
             evIncrease += bonus;
 #endif

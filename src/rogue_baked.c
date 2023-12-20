@@ -16,7 +16,7 @@
 #undef AGB_ASSERT
 #define AGB_ASSERT(...)
 
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
 extern const struct SpeciesInfo gSpeciesInfo[];
 #else
 extern const struct BaseStats gBaseStats[];
@@ -290,21 +290,6 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         outEvo->targetSpecies = SPECIES_NONE;
         outEvo->method = 0;
         return;
-    }
-#endif
-
-#if defined(ROGUE_EXPANSION) && !defined(ROGUE_BAKING)
-    if(!IsMegaEvolutionEnabled())
-    {
-        switch(outEvo->method)
-        {
-            case(EVO_MEGA_EVOLUTION):
-            case(EVO_MOVE_MEGA_EVOLUTION):
-            case(EVO_PRIMAL_REVERSION):
-                outEvo->targetSpecies = SPECIES_NONE;
-                outEvo->method = 0;
-                break;
-        }
     }
 #endif
 
@@ -634,7 +619,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         //outTrainer->partyFlags = 0;
         outTrainer->doubleBattle = FALSE;
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
         outTrainer->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE | AI_FLAG_HELP_PARTNER | AI_FLAG_SMART_SWITCHING;
 #else
         outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN;
@@ -1571,19 +1556,11 @@ u16 Rogue_GetEggSpecies(u16 species)
             {
                 Rogue_ModifyEvolution(spe, evo, &evolution);
 
-#ifdef ROGUE_EXPANSION
-                if(evolution.method != EVO_MEGA_EVOLUTION &&
-                    evolution.method != EVO_MOVE_MEGA_EVOLUTION &&
-                    evolution.method != EVO_PRIMAL_REVERSION
-                )
-#endif
+                if (evolution.targetSpecies == species)
                 {
-                    if (evolution.targetSpecies == species)
-                    {
-                        species = spe;
-                        found = TRUE;
-                        break;
-                    }
+                    species = spe;
+                    found = TRUE;
+                    break;
                 }
             }
 
@@ -1621,17 +1598,9 @@ u8 Rogue_GetActiveEvolutionCount(u16 species)
 
         s = evo.targetSpecies;
 
-#ifdef ROGUE_EXPANSION
-        if(evo.method != EVO_MEGA_EVOLUTION &&
-            evo.method != EVO_MOVE_MEGA_EVOLUTION &&
-            evo.method != EVO_PRIMAL_REVERSION
-        )
-#endif
+        if (s != SPECIES_NONE)
         {
-            if (s != SPECIES_NONE)
-            {
-                return 1 + Rogue_GetActiveEvolutionCount(s);
-            }
+            return 1 + Rogue_GetActiveEvolutionCount(s);
         }
     }
 
@@ -1665,7 +1634,7 @@ bool8 Rogue_DoesEvolveInto(u16 fromSpecies, u16 toSpecies)
 
 void Rogue_AppendSpeciesTypeFlags(u16 species, u32* outFlags)
 {
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
     *outFlags |= MON_TYPE_VAL_TO_FLAGS(gSpeciesInfo[species].types[0]);
     *outFlags |= MON_TYPE_VAL_TO_FLAGS(gSpeciesInfo[species].types[1]);
 #else

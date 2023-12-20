@@ -43,7 +43,7 @@ PORYSCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
 endif
 
 ROGUEPORYSCRIPTSDIR := data/scripts/Rogue
-PORYSCRIPTARGS := -s ROGUE_VERSION=ROGUE_VERSION_VANILLA -fc $(ROGUEPORYSCRIPTSDIR)/Strings/poryscript_font_config.json
+PORYSCRIPTARGS := -s ROGUE_VERSION=ROGUE_VERSION_EXPANSION -fc $(ROGUEPORYSCRIPTSDIR)/Strings/poryscript_font_config.json
 
 TITLE       := POKEMON EMER
 GAME_CODE   := BPEE

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -68,7 +69,12 @@ namespace PokemonDataGenerator.Pokedex
 				fullDexes.Add(GatherDexData("galar_swsh", "Sword/Shield", 8, "galar"));
 
 				fullDexes.Add(GatherDexData("hisui_legendsarceus", "LegendsArceus", 8, "hisui"));
-							}
+
+				fullDexes.Add(GatherDexData("paldea_fulldlc", "Scarlet/Violet + DLC", 9, "paldea", "kitakami"));//, "blueberry"));
+				//fullDexes.Add(GatherDexData("paldea_blueberry", "Indigo Disk", 9, "blueberry"));
+				fullDexes.Add(GatherDexData("paldea_kitakami", "The Teal Mask", 9, "kitakami"));
+				fullDexes.Add(GatherDexData("paldea_scvi", "Scarlet/Violet", 9, "paldea"));
+			}
 
 			Dictionary<string, List<PokedexData>> regionVariants = new Dictionary<string, List<PokedexData>>();
 
@@ -83,8 +89,8 @@ namespace PokemonDataGenerator.Pokedex
 			}
 
 			string outputDir = Path.GetFullPath($"pokedex_generator");
-			ExportConstants(Path.Combine(outputDir, "constants", "rogue_pokedex.h"), fullDexes, regionVariants);
-			ExportData(Path.Combine(outputDir, "src/data", "rogue_pokedex.h"), fullDexes, regionVariants);
+			ExportConstants(Path.Combine(GameDataHelpers.RootDirectory, "include\\constants\\rogue_pokedex.h"), fullDexes, regionVariants);
+			ExportData(Path.Combine(GameDataHelpers.RootDirectory, "src\\data\\rogue_pokedex.h"), fullDexes, regionVariants);
 
 
 			return;

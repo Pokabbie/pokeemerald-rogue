@@ -600,7 +600,7 @@ void RogueMonQuery_IsRoamerLegendary(u8 func)
     }
 }
 
-void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
+void RogueMonQuery_AnyActiveEvos(u8 func)
 {
     bool8 hasValidEvo;
     u16 species, i;
@@ -622,19 +622,6 @@ void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
 
                 if (evo.targetSpecies != SPECIES_NONE && evo.method != 0)
                 {
-                    if(!includeMegas)
-                    {
-#ifdef ROGUE_EXPANSION
-                        switch (evo.method)
-                        {
-                            case EVO_MEGA_EVOLUTION:
-                            case EVO_MOVE_MEGA_EVOLUTION:
-                            case EVO_PRIMAL_REVERSION:
-                                continue;
-                        }
-#endif
-                    }
-
                     hasValidEvo = TRUE;
                     break;
                 }
@@ -1279,8 +1266,6 @@ void RogueMoveQuery_IsTM(u8 func)
 
 void RogueMoveQuery_IsHM(u8 func)
 {
-    u16 i, move;
-
     ASSERT_MOVES_QUERY;
 
     if(func == QUERY_FUNC_INCLUDE)
@@ -1291,6 +1276,9 @@ void RogueMoveQuery_IsHM(u8 func)
     else if(func == QUERY_FUNC_EXCLUDE)
     {
 #ifndef ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
+        u16 move;
+        u16 i;
+
         for(i = 0; i < NUM_HIDDEN_MACHINES; ++i)
         {
             move = ItemIdToBattleMoveId(ITEM_HM01 + i);

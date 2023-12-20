@@ -1172,6 +1172,7 @@ extern const u8 gText_Gen5[];
 extern const u8 gText_Gen6[];
 extern const u8 gText_Gen7[];
 extern const u8 gText_Gen8[];
+extern const u8 gText_Gen9[];
 extern const u8 gText_GenStr1[];
 extern const u8 gText_Regional[];
 extern const u8 gText_National[];

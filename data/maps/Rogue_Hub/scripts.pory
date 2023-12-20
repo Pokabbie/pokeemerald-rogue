@@ -668,7 +668,7 @@ script RogueHub_EnterSafari
                 
                 if(flag(FLAG_ROGUE_EXPANSION_ACTIVE) && flag(FLAG_ROGUE_MET_POKABBIE))
                 {
-                    multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+                    multichoice(20, 0, MULTI_GENERATIONS_UPTO9, NO)
                 }
                 else
                 {

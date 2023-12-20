@@ -33,7 +33,7 @@
 #include "rogue_settings.h"
 
 #ifdef ROGUE_EXPANSION
-#define DEX_GEN_LIMIT 8
+#define DEX_GEN_LIMIT 9
 #else
 #define DEX_GEN_LIMIT 3
 #endif
@@ -1065,11 +1065,6 @@ static u16 GetMaxEvoScrollOffset()
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
 
-#ifdef ROGUE_EXPANSION
-        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
-            continue;
-#endif
-        
         ++count;
     }
 
@@ -1091,11 +1086,6 @@ static u16 GetActiveEvoSpecies()
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
 
-#ifdef ROGUE_EXPANSION
-        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
-            continue;
-#endif
-        
         if(listIndex >= sPokedexMenu->listScrollAmount)
             return evo.targetSpecies;
 
@@ -1125,11 +1115,6 @@ static void DisplayMonEvosText()
 
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
-        
-#ifdef ROGUE_EXPANSION
-        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
-            continue;
-#endif
 
         if(listIndex >= sPokedexMenu->listScrollAmount)
         {
@@ -2312,7 +2297,7 @@ static void MonInfo_CreateSprites(bool8 includeType)
         sPokedexMenu->viewBaseSpecies,
         NON_SHINY_PLACEHOLDER,
         GetPokedexMonPersonality(sPokedexMenu->viewBaseSpecies),
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
         GetGenderForSpecies(sPokedexMenu->viewBaseSpecies, 0),
 #endif
         isShiny,
@@ -2685,12 +2670,7 @@ static void MonEvos_CreateSprites()
 
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
-    
-#ifdef ROGUE_EXPANSION
-        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
-            continue;
-#endif
-            
+
         if(listIndex >= sPokedexMenu->listScrollAmount)
         {
             sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(evo.targetSpecies, SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, MON_MALE);
@@ -3192,7 +3172,7 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
 
 u8 const* RoguePokedex_GetSpeciesName(u16 species)
 {
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
     return gSpeciesInfo[species].speciesName;
 #define gRogueSpeciesInfo  gSpeciesInfo
 #else
@@ -3203,7 +3183,7 @@ u8 const* RoguePokedex_GetSpeciesName(u16 species)
 
 u8 RoguePokedex_GetSpeciesType(u16 species, u8 typeIndex)
 {
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
     AGB_ASSERT(typeIndex < ARRAY_COUNT(gSpeciesInfo[species].types));
     return gSpeciesInfo[species].types[typeIndex];
 #define gRogueSpeciesInfo  gSpeciesInfo

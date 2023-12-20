@@ -10,7 +10,7 @@ extern "C"
 {
 	#include "rogue_baked.h"
 
-#if 1//def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
 	extern const struct SpeciesInfo gSpeciesInfo[];
 #else
 	extern const struct BaseStats gBaseStats[];
@@ -77,7 +77,7 @@ int main()
 
 
 
-#if 1//def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
 			if (gSpeciesInfo[s].types[0] != TYPE_NONE)
 				eggEvolutionTypes[eggSpecies].insert(gSpeciesInfo[s].types[0]);
 

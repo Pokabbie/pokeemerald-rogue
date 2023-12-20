@@ -302,15 +302,7 @@ u16 Rogue_GetMonEvoCount(void)
 
             if (evo.targetSpecies != SPECIES_NONE)
             {
-#ifdef ROGUE_EXPANSION
-                if(evo.method != EVO_MEGA_EVOLUTION &&
-                    evo.method != EVO_MOVE_MEGA_EVOLUTION &&
-                    evo.method != EVO_PRIMAL_REVERSION
-                )
-#endif
-                {
-                    ++count;
-                }
+                ++count;
             }
         }
 
@@ -330,7 +322,8 @@ void Rogue_GetMonEvoParams(void)
     gSpecialVar_0x8007 = 0;
 
     if(species != SPECIES_NONE)
-    {        // evoIdx doesn't mean array idx annoyingly as evos can be toggled/changed
+    {        
+        // evoIdx doesn't mean array idx annoyingly as evos can be toggled/changed
         u16 e;
         struct Evolution evo;
         u8 evoCount = Rogue_GetMaxEvolutionCount(species);
@@ -343,19 +336,11 @@ void Rogue_GetMonEvoParams(void)
 
             if (evo.targetSpecies != SPECIES_NONE)
             {
-#ifdef ROGUE_EXPANSION
-                if(evo.method != EVO_MEGA_EVOLUTION &&
-                    evo.method != EVO_MOVE_MEGA_EVOLUTION &&
-                    evo.method != EVO_PRIMAL_REVERSION
-                )
-#endif
+                if(count++ == evoIdx)
                 {
-                    if(count++ == evoIdx)
-                    {
-                        gSpecialVar_0x8006 = evo.method;
-                        gSpecialVar_0x8007 = evo.param;
-                        return;
-                    }
+                    gSpecialVar_0x8006 = evo.method;
+                    gSpecialVar_0x8007 = evo.param;
+                    return;
                 }
             }
         }
@@ -740,7 +725,7 @@ static u16 GetSpeciesComboOutput(u16 speciesA, u16 speciesB, bool8 getItem)
     //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_EEVEE, SPECIES_CHARMANDER))
     //    return getItem ? ITEM_PECHA_BERRY : SPECIES_ABSOL;
 
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
     if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_KYUREM, SPECIES_RESHIRAM))
         return getItem ? ITEM_DNA_SPLICERS : SPECIES_KYUREM_WHITE;
 

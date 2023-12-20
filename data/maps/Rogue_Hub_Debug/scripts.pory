@@ -19,7 +19,7 @@ script Rogue_Debug_FillPCWithGen
 
     if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
     {
-        multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+        multichoice(20, 0, MULTI_GENERATIONS_UPTO9, NO)
     }
     else
     {
@@ -36,6 +36,7 @@ script Rogue_Debug_FillPCWithGen
         case 5:
         case 6:
         case 7:
+        case 8:
             waitse
             playse(SE_PIN)
             addvar(VAR_RESULT, 1)

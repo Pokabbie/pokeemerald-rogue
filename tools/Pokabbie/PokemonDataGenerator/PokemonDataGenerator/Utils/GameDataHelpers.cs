@@ -81,6 +81,68 @@ namespace PokemonDataGenerator.Utils
 				{
 					s_SpeciesDefines = new Dictionary<string, string>();
 					ParseFileDefines("#define SPECIES_", SpeciesDefinesPath, s_SpeciesDefines);
+
+					if (!IsVanillaVersion)
+					{
+						// Remove placeholders
+						s_SpeciesDefines.Remove("SPECIES_1018");
+						s_SpeciesDefines.Remove("SPECIES_1019");
+						s_SpeciesDefines.Remove("SPECIES_1020");
+						s_SpeciesDefines.Remove("SPECIES_1021");
+						s_SpeciesDefines.Remove("SPECIES_1022");
+						s_SpeciesDefines.Remove("SPECIES_1023");
+						s_SpeciesDefines.Remove("SPECIES_1024");
+						s_SpeciesDefines.Remove("SPECIES_1024_FORM_1");
+						s_SpeciesDefines.Remove("SPECIES_1024_FORM_2");
+						s_SpeciesDefines.Remove("SPECIES_1024_FORM_3");
+						s_SpeciesDefines.Remove("SPECIES_1025");
+
+						foreach(var key in s_SpeciesDefines.Keys.ToArray())
+						{
+							if(s_SpeciesDefines[key].StartsWith("PLACEHOLDER_START"))
+								s_SpeciesDefines.Remove(key);
+						}
+
+						// We have a lot of defines which are just alternate names, so lets just remove them here to make it simpler
+						// e.g. #define SPECIES_WORMADAM                                SPECIES_WORMADAM_PLANT_CLOAK
+						// e.g. #define SPECIES_WORMADAM_PLANT_CLOAK                    413
+						// We want to keep SPECIES_WORMADAM and remove SPECIES_WORMADAM_PLANT_CLOAK in this instance
+						//
+						// Alcreamie is confusing here (So let's remove stuf that point to the same thing?
+
+						bool anyAdjustments;
+						do
+						{
+							anyAdjustments = false;
+							var copy = new Dictionary<string, string>(s_SpeciesDefines);
+						
+							foreach (var kvp in copy)
+							{
+								if (copy.ContainsKey(kvp.Value))
+								{
+									s_SpeciesDefines[kvp.Key] = copy[kvp.Value];
+									anyAdjustments = true;
+								}
+							}
+						}
+						while (anyAdjustments);
+
+						// Now just take the very first entry per value to make it consistant/easier to deal with
+						{
+							HashSet<string> existingValues = new HashSet<string>();
+							var copy = new Dictionary<string, string>(s_SpeciesDefines);
+							s_SpeciesDefines.Clear();
+
+							foreach (var kvp in copy)
+							{
+								if(!existingValues.Contains(kvp.Value))
+								{
+									s_SpeciesDefines.Add(kvp.Key, kvp.Value);
+									existingValues.Add(kvp.Value);
+								}
+							}
+						}
+					}
 				}
 
 				return s_SpeciesDefines;

@@ -2473,6 +2473,7 @@ static u8 MonPresetCountMoves(struct RoguePokemonCompetitiveSet* preset)
     return count;
 }
 
+#ifndef ROGUE_EXPANSION
 static bool8 MonPresetReplaceMove(struct RoguePokemonCompetitiveSet* preset, u16 fromMove, u16 toMove)
 {
     u8 i;
@@ -2488,6 +2489,7 @@ static bool8 MonPresetReplaceMove(struct RoguePokemonCompetitiveSet* preset, u16
 
     return FALSE;
 }
+#endif
 
 static void ModifyTrainerMonPreset(u16 trainerNum, struct RoguePokemonCompetitiveSet* preset, struct RoguePokemonCompetitiveSetRules* presetRules)
 {
@@ -2534,7 +2536,7 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     u16 item = GetMonData(mon, MON_DATA_HELD_ITEM);
 
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
     if(((item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) || (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)))
     {
         score -= 20;

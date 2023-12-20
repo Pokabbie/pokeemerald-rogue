@@ -1748,7 +1748,7 @@ static u8 GetMoveDisplayTyping(u32 battler, u16 move)
         return CalcMonHiddenPowerType(&gPlayerParty[gBattlerPartyIndexes[battler]]);
 
 #ifdef ROGUE_EXPANSION
-    SetTypeBeforeUsingMove(move, gActiveBattler);
+    SetTypeBeforeUsingMove(move, battler);
 #endif
     
     GET_MOVE_TYPE(move, moveType);

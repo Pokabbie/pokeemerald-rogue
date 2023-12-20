@@ -210,6 +210,11 @@ namespace PokemonDataGenerator.Utils
 					apiSpecies = apiSpecies.Substring(0, apiSpecies.Length - "_HISUIAN".Length);
 					variantName = variantName.Replace("-hisuian", "-hisui");
 				}
+				else if (speciesName.EndsWith("_PALDEAN"))
+				{
+					apiSpecies = apiSpecies.Substring(0, apiSpecies.Length - "_HISUIAN".Length);
+					variantName = variantName.Replace("-paldean", "-paldea");
+				}
 				else if (speciesName.EndsWith("_ORIGIN"))
 				{
 					apiSpecies = apiSpecies.Substring(0, apiSpecies.Length - "_ORIGIN".Length);
@@ -263,6 +268,11 @@ namespace PokemonDataGenerator.Utils
 						variantName = "darmanitan-galar-standard";
 						break;
 
+					case "SPECIES_DARMANITAN_GALARIAN_ZEN_MODE":
+						apiSpecies = "SPECIES_DARMANITAN";
+						variantName = "darmanitan-galar-zen";
+						break;
+
 					case "SPECIES_PIKACHU_PH_D":
 						apiSpecies = "SPECIES_PIKACHU";
 						variantName = "pikachu-phd";
@@ -295,6 +305,7 @@ namespace PokemonDataGenerator.Utils
 
 					case "SPECIES_MEOWSTIC_FEMALE":
 						apiSpecies = "SPECIES_MEOWSTIC";
+						variantName = "meowstic-female";
 						break;
 
 					case "SPECIES_HOOPA_UNBOUND":
@@ -325,6 +336,7 @@ namespace PokemonDataGenerator.Utils
 
 					case "SPECIES_INDEEDEE_FEMALE":
 						apiSpecies = "SPECIES_INDEEDEE";
+						variantName = "indeedee-female";
 						break;
 
 					case "SPECIES_ZACIAN_CROWNED_SWORD":
@@ -343,6 +355,91 @@ namespace PokemonDataGenerator.Utils
 
 					case "SPECIES_BASCULEGION_FEMALE":
 						apiSpecies = "SPECIES_BASCULEGION";
+						break;
+
+					case "SPECIES_OINKOLOGNE_FEMALE":
+						apiSpecies = "SPECIES_OINKOLOGNE";
+						variantName = "oinkologne-female";
+						break;
+
+					case "SPECIES_PALAFIN_HERO":
+						apiSpecies = "SPECIES_PALAFIN";
+						variantName = "palafin-hero";
+						break;
+
+					case "SPECIES_MAUSHOLD":
+						apiSpecies = "SPECIES_MAUSHOLD";
+						variantName = "maushold-family-of-three";
+						break;
+
+					case "SPECIES_MAUSHOLD_FAMILY_OF_FOUR":
+						apiSpecies = "SPECIES_MAUSHOLD";
+						variantName = "maushold";
+						break;
+
+					case "SPECIES_TATSUGIRI_DROOPY":
+						apiSpecies = "SPECIES_TATSUGIRI";
+						variantName = "tatsugiri-droopy";
+						break;
+
+					case "SPECIES_TATSUGIRI_STRETCHY":
+						apiSpecies = "SPECIES_TATSUGIRI";
+						variantName = "tatsugiri-stretchy";
+						break;
+
+					case "SPECIES_DUDUNSPARCE_THREE_SEGMENT":
+						apiSpecies = "SPECIES_DUDUNSPARCE";
+						variantName = "dudunsparce-three-segment";
+						break;
+
+					case "SPECIES_GIMMIGHOUL_ROAMING":
+						apiSpecies = "SPECIES_GIMMIGHOUL";
+						variantName = "gimmighoul-roaming";
+						break;
+
+					case "SPECIES_TAUROS_PALDEAN_COMBAT_BREED":
+						apiSpecies = "SPECIES_TAUROS";
+						variantName = "tauros-paldea-combat-breed";
+						break;
+
+					case "SPECIES_TAUROS_PALDEAN_BLAZE_BREED":
+						apiSpecies = "SPECIES_TAUROS";
+						variantName = "tauros-paldea-blaze-breed";
+						break;
+
+					case "SPECIES_TAUROS_PALDEAN_AQUA_BREED":
+						apiSpecies = "SPECIES_TAUROS";
+						variantName = "tauros-paldea-aqua-breed";
+						break;
+
+					case "SPECIES_POLTCHAGEIST_ARTISAN":
+						apiSpecies = "SPECIES_POLTCHAGEIST";
+						variantName = "poltchageist";
+						break;
+
+					case "SPECIES_SINISTCHA_MASTERPIECE":
+						apiSpecies = "SPECIES_SINISTCHA";
+						variantName = "sinistcha";
+						break;
+
+					case "SPECIES_OGERPON_WELLSPRING_MASK":
+						apiSpecies = "SPECIES_OGERPON";
+						variantName = "ogerpon-wellspring-mask";
+						break;
+
+					case "SPECIES_OGERPON_HEARTHFLAME_MASK":
+						apiSpecies = "SPECIES_OGERPON";
+						variantName = "ogerpon-hearthflame-mask";
+						break;
+
+					case "SPECIES_OGERPON_CORNERSTONE_MASK":
+						apiSpecies = "SPECIES_OGERPON";
+						variantName = "ogerpon-cornerstone-mask";
+						break;
+
+					case "SPECIES_URSALUNA_BLOODMOON":
+						apiSpecies = "SPECIES_URSALUNA";
+						variantName = "ursaluna-bloodmoon";
 						break;
 
 						//
@@ -395,36 +492,7 @@ namespace PokemonDataGenerator.Utils
 				lookupGens.Add("gen6");
 				lookupGens.Add("gen7");
 				lookupGens.Add("gen8");
-
-
-				// For now, we're only accepting hisui sets
-				bool allowGen9 = false;
-
-				switch (speciesName)
-				{
-					case "SPECIES_WYRDEER":
-					case "SPECIES_KLEAVOR":
-					case "SPECIES_URSALUNA":
-					case "SPECIES_BASCULEGION":
-					case "SPECIES_SNEASLER":
-					case "SPECIES_OVERQWIL":
-					case "SPECIES_ENAMORUS":
-					case "SPECIES_DIALGA_ORIGIN":
-					case "SPECIES_PALKIA_ORIGIN":
-					case "SPECIES_BASCULIN_WHITE_STRIPED":
-					case "SPECIES_ENAMORUS_THERIAN":
-					case "SPECIES_BASCULEGION_F":
-						allowGen9 = true;
-						break; // accept these
-
-					default:
-						if (speciesName.EndsWith("_HISUIAN", StringComparison.CurrentCultureIgnoreCase))
-							allowGen9 = true;
-						break;
-				};
-
-				if(allowGen9)
-					lookupGens.Add("gen9");
+				lookupGens.Add("gen9");
 			}
 
 			JObject output = new JObject();
@@ -447,8 +515,7 @@ namespace PokemonDataGenerator.Utils
 						foreach (var speciesSetGroupKvp in upperGroupingKvp.Value.Value<JObject>())
 						{
 							// Verify that the mons we're examining are correctly handled or have an equivilant species in game
-							if(!compTierKvp.Key.StartsWith("gen9"))
-								VerifyCompetitiveSpecies(speciesSetGroupKvp.Key);
+							VerifyCompetitiveSpecies(speciesSetGroupKvp.Key);
 
 							string currentSpeciesName = CompetitiveApiNameToSpeciesName(speciesSetGroupKvp.Key);
 
@@ -523,13 +590,19 @@ namespace PokemonDataGenerator.Utils
 				if (apiName.EndsWith("-Galar"))
 					apiName = apiName.Replace("-Galar", "-Galarian");
 
+				if (apiName.EndsWith("-Hisui"))
+					apiName = apiName.Replace("-Hisui", "-Hisuian");
+
+				if (apiName.EndsWith("-Paldea"))
+					apiName = apiName.Replace("-Paldea", "-Paldean");
+
 				switch (apiName)
 				{
 					case "Darmanitan-Zen":
 						apiName = "Darmanitan-Zen-mode";
 						break;
 					case "Darmanitan-Galar-Zen":
-						apiName = "Darmanitan-Zen-mode-Galarian";
+						apiName = "Darmanitan-Galarian-Zen-mode";
 						break;
 
 					case "Wormadam-Sandy":
@@ -557,6 +630,49 @@ namespace PokemonDataGenerator.Utils
 
 					case "Urshifu-Rapid-Strike":
 						apiName = "Urshifu-Rapid-Strike-Style";
+						break;
+
+					case "Basculegion-F":
+						apiName = "Basculegion-Female";
+						break;
+
+					case "Oinkologne-F":
+						apiName = "Oinkologne-Female";
+						break;
+
+					case "Ogerpon-Wellspring":
+						apiName = "Ogerpon-Wellspring-Mask";
+						break;
+
+					case "Ogerpon-Hearthflame":
+						apiName = "Ogerpon-Hearthflame-Mask";
+						break;
+
+					case "Ogerpon-Cornerstone":
+						apiName = "Ogerpon-Cornerstone-Mask";
+						break;
+
+					case "Tauros-Paldea-Combat":
+						apiName = "Tauros-Paldean-Combat-Breed";
+						break;
+
+					case "Tauros-Paldea-Blaze":
+						apiName = "Tauros-Paldean-Blaze-Breed";
+						break;
+
+					case "Tauros-Paldea-Aqua":
+						apiName = "Tauros-Paldean-Aqua-Breed";
+						break;
+
+					case "Maushold-Four":
+						apiName = "Maushold-Family-Of-Four";
+						break;
+
+					case "Squawkabilly-Green":
+					case "Squawkabilly-Blue":
+					case "Squawkabilly-Yellow":
+					case "Squawkabilly-White":
+						apiName += "-Plumage";
 						break;
 				}
 			}

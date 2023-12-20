@@ -2,7 +2,7 @@
 #include "gba/gba.h"
 #include "constants/global.h"
 
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
 #include "config.h"
 #include "config/pokemon.h"
 #include "constants/cries.h"
@@ -29,7 +29,7 @@
 #define _(str) (str)
 #define ARRAY_COUNT(array) (size_t)(sizeof(array) / sizeof((array)[0]))
 
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
 #define COMPOUND_STRING(str) ""
 #define FORM_SPECIES_END (0xffff)
 
@@ -106,7 +106,7 @@ struct Evolution
     u16 targetSpecies;
 };
 
-#if 1 //def ROGUE_EXPANSION
+#ifdef ROGUE_EXPANSION
 struct FormChange
 {
     u16 method;
@@ -144,7 +144,7 @@ struct SpeciesInfo /*0x8C*/
     /* 0x16 */ u8 eggGroups[2];
     /* 0x18 */ u16 abilities[NUM_ABILITY_SLOTS]; // 3 abilities, no longer u8 because we have over 255 abilities now.
     /* 0x1E */ u8 safariZoneFleeRate;
-    // Pokédex data
+    // Pokï¿½dex data
     /* 0x1F */ u8 categoryName[13];
     /* 0x1F */ u8 speciesName[POKEMON_NAME_LENGTH + 1];
     /* 0x2C */ u16 cryId;
@@ -174,7 +174,7 @@ struct SpeciesInfo /*0x8C*/
     /* 0x68 */ const u8* iconSprite;
     /* 0x6C */ const u8* iconSpriteFemale;
     /* 0x70 */ const u8* footprint;
-    // All Pokémon pics are 64x64, but this data table defines where in this 64x64 frame the sprite's non-transparent pixels actually are.
+    // All Pokï¿½mon pics are 64x64, but this data table defines where in this 64x64 frame the sprite's non-transparent pixels actually are.
     /* 0x74 */ u8 frontPicSize; // The dimensions of this drawn pixel area.
     /* 0x74 */ u8 frontPicSizeFemale; // The dimensions of this drawn pixel area.
     /* 0x75 */ u8 frontPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
@@ -185,7 +185,7 @@ struct SpeciesInfo /*0x8C*/
     u8 iconPalIndexFemale : 3;
     u8 stub : 1;
     u8 padding3 : 1;
-    /* 0x79 */ u8 enemyMonElevation; // This determines how much higher above the usual position the enemy Pokémon is during battle. Species that float or fly have nonzero values.
+    /* 0x79 */ u8 enemyMonElevation; // This determines how much higher above the usual position the enemy Pokï¿½mon is during battle. Species that float or fly have nonzero values.
     // Flags
     /* 0x7A */ u32 isLegendary : 1;
     u32 isMythical : 1;
