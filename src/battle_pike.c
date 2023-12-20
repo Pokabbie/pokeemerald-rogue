@@ -1145,7 +1145,7 @@ bool32 TryGenerateBattlePikeWildMon(bool8 checkKeenEyeIntimidate)
     if (checkKeenEyeIntimidate == TRUE && !CanEncounterWildMon(monLevel))
         return FALSE;
 
-    exp = Rogue_ModifyExperienceTables(gBaseStats[wildMons[headerId][pikeMonId].species].growthRate, monLevel);
+    exp = Rogue_ModifyExperienceTables(gSpeciesInfo[wildMons[headerId][pikeMonId].species].growthRate, monLevel);
 
     SetMonData(&gEnemyParty[0],
                MON_DATA_EXP,

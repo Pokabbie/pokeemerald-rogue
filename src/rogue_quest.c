@@ -20,7 +20,6 @@
 
 // new quests
 
-static u8* RogueQuest_GetExtraState(size_t size);
 static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -30,12 +29,12 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
 // ensure we are serializing the correct amount
 STATIC_ASSERT(QUEST_SAVE_COUNT >= QUEST_ID_COUNT, saveQuestCountMissmatch);
 
-static u8* RogueQuest_GetExtraState(size_t size)
-{
-    // todo
-    AGB_ASSERT(FALSE);
-    return NULL;
-}
+//static u8* RogueQuest_GetExtraState(size_t size)
+//{
+//    // todo
+//    AGB_ASSERT(FALSE);
+//    return NULL;
+//}
 
 static struct RogueQuestEntry const* RogueQuest_GetEntry(u16 questId)
 {
@@ -124,7 +123,10 @@ bool8 RogueQuest_TryUnlockQuest(u16 questId)
     {
         RogueQuest_SetStateFlag(questId, QUEST_STATE_UNLOCKED, TRUE);
         RogueQuest_SetStateFlag(questId, QUEST_STATE_NEW_UNLOCK, TRUE);
+        return TRUE;
     }
+
+    return FALSE;
 }
 
 void RogueQuest_ClearNewUnlockQuests()
@@ -256,8 +258,7 @@ static void ExecuteQuestTriggers(u16 questId, u16 triggerFlag)
 
 void RogueQuest_OnTrigger(u16 triggerFlag)
 {
-    u16 i, j;
-    struct RogueQuestStateNEW* state;
+    u16 i;
 
     // Execute quest callback for any active quests which are listening for this trigger
     for(i = 0; i < QUEST_ID_COUNT; ++i)
@@ -275,7 +276,7 @@ static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* 
     return TRUE;
 }
 
-static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger)
+static bool8 UNUSED QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     u8 i;
     u16 species, targetType;
@@ -287,7 +288,7 @@ static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrig
     {
         species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
 
-        if(gBaseStats[species].type1 == targetType || gBaseStats[species].type2 == targetType)
+        if(RoguePokedex_GetSpeciesType(species, 0) == targetType || RoguePokedex_GetSpeciesType(species, 1) == targetType)
         {
             return TRUE;
         }
@@ -308,7 +309,7 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
     {
         species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
 
-        if(gBaseStats[species].type1 != targetType && gBaseStats[species].type2 != targetType)
+        if(RoguePokedex_GetSpeciesType(species, 0) != targetType && RoguePokedex_GetSpeciesType(species, 1) != targetType)
         {
             return FALSE;
         }
@@ -707,7 +708,7 @@ bool8 GiveNextRewardAndFormat(u8* str, u8* type)
                     break;
 
                 case QUEST_REWARD_GIVE_POKEMON:
-                    StringCopy(gStringVar1, gSpeciesNames[reward->params[0]]);
+                    StringCopy(gStringVar1, RoguePokedex_GetSpeciesName(reward->params[0]));
 
                     if(reward->params[2] == TRUE)
                         StringExpandPlaceholders(str, gText_QuestRewardGiveShinyMon);
@@ -840,7 +841,7 @@ static void ForEachUnlockedQuest(QuestCallbackOLD callback)
     }
 }
 
-static void ForEachActiveQuest(QuestCallbackOLD callback)
+static void UNUSED ForEachActiveQuest(QuestCallbackOLD callback)
 {
     u16 i;
     struct OLDRogueQuestState* state;
@@ -1116,9 +1117,9 @@ void QuestNotify_BeginAdventure(void)
         u16 genLimit = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 
         // TODO FIXUP
-        bool8 kantoBosses = FALSE; //FlagGet(FLAG_ROGUE_KANTO_BOSSES);
-        bool8 johtoBosses = FALSE; //FlagGet(FLAG_ROGUE_JOHTO_BOSSES);
-        bool8 hoennBosses = FALSE; //FlagGet(FLAG_ROGUE_HOENN_BOSSES);
+        //bool8 kantoBosses = FALSE; //FlagGet(FLAG_ROGUE_KANTO_BOSSES);
+        //bool8 johtoBosses = FALSE; //FlagGet(FLAG_ROGUE_JOHTO_BOSSES);
+        //bool8 hoennBosses = FALSE; //FlagGet(FLAG_ROGUE_HOENN_BOSSES);
 
         bool8 justKantoBosses = FALSE; //;kantoBosses && !johtoBosses && !hoennBosses;
         bool8 justJohtoBosses = FALSE; //!kantoBosses && johtoBosses && !hoennBosses;
@@ -1273,7 +1274,7 @@ static void UpdateMonoQuests(void)
             for(i = 0; i < gPlayerPartyCount; ++i)
             {
                 u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-                hasType = gBaseStats[species].type1 == type || gBaseStats[species].type2 == type;
+                hasType = RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type;
 
                 if(species != SPECIES_NONE && !hasType)
                 {
@@ -1289,7 +1290,6 @@ static void CompleteMonoQuests(void)
 {
     u16 type;
     u16 questId;
-    u8 i;
 
     for(type = TYPE_NORMAL; type < NUMBER_OF_MON_TYPES; ++type)
     {

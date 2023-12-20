@@ -79,7 +79,7 @@ struct RoguePlayerUIState
 
 struct RoguePlayerUIEntry
 {
-    const char text[24];
+    const u8 text[24];
     MenuItemInputCallback processInput;
     MenuItemDrawCallback drawChoices;
     union
@@ -546,7 +546,6 @@ static void RoguePlayerUI_PreSetupCB(void)
 
 static void RoguePlayerUI_SetupCB(void)
 {
-    u8 taskId;
     switch (gMain.state)
     {
     case 0:
@@ -589,7 +588,7 @@ static void RoguePlayerUI_SetupCB(void)
         RoguePlayerUI_PrintTitleText();
         RoguePlayerUI_PrintMenuText();
 
-        taskId = CreateTask(Task_RoguePlayerUIWaitFadeIn, 0);
+        CreateTask(Task_RoguePlayerUIWaitFadeIn, 0);
         gMain.state++;
         break;
     case 6:
@@ -955,7 +954,7 @@ static void RoguePlayerUI_PrintTitleText()
 }
 
 
-static void AddMenuNameText(u8 menuOffset, const char* text)
+static void AddMenuNameText(u8 menuOffset, const u8* text)
 {
     u8 font = FONT_BLUE;
 
@@ -968,7 +967,7 @@ static void AddMenuNameText(u8 menuOffset, const char* text)
     AddTextPrinterParameterized4(WIN_INFO_PANEL, FONT_NARROW, 10, YPOS_SPACING * menuOffset, 0, 0, sRoguePlayerUIWindowFontColors[font], TEXT_SKIP_DRAW, text);
 }
 
-static void AddMenuValueText(u8 menuOffset, s8 offset, const char* text)
+static void AddMenuValueText(u8 menuOffset, s8 offset, const u8* text)
 {
     u8 font = FONT_BLACK;
 
@@ -995,7 +994,7 @@ static const u8 sText_RoguePlayerMissingBacksprites[] = _("{COLOR LIGHT_BLUE}{SH
 
 static void RoguePlayerUI_PrintMenuText()
 {
-    u8 i, currentEntryIdx;
+    u8 i;
 
     FillWindowPixelBuffer(WIN_INFO_PANEL, PIXEL_FILL(TEXT_COLOR_WHITE));
 
@@ -1170,7 +1169,7 @@ static void DrawBgWindowFrames(void)
         leftValid = left <= 29 && left <= right;
         rightValid = right <= 29 && right >= left;
         topValid = top <= 19 && top <= bottom;
-        bottomValid = bottom <= 19 && bottom >= bottom;
+        bottomValid = bottom <= 19;// && bottom >= bottom;
 
         //                     bg, tile,              x, y, width, height, palNum
         // Draw title window frame
@@ -1267,11 +1266,6 @@ static bool8 RoguePlayerUI_EntryRandomise_ProcessInput(u8 entryIdx, u8 menuOffse
     }
 
     return FALSE;
-}
-
-static u8 GetCurrentOutfitStyle(u8 entryIdx)
-{
-    return sRoguePlayerUIEntries[entryIdx].userData.val8[0];
 }
 
 static u8 GetCurrentOutfitStyleRGBChannel(u8 entryIdx)

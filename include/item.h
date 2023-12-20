@@ -40,7 +40,6 @@ struct RogueItem
     u8 type;
     ItemUseFunc fieldUseFunc;
     u8 battleUsage;
-    ItemUseFunc battleUseFunc;
     u8 secondaryId;
     const u32 * const iconImage;
     const u32 * const iconPalette;

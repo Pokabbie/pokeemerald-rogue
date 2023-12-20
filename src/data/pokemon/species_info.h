@@ -213,9 +213,8 @@ const u8 gOgerponCornerstoneMaskPokedexText[] = _(
         .iconSpriteFemale = gMonIcon_## sprite##F,          \
         .iconPalIndexFemale = palId
 
-#define LEARNSETS(learn)                                    \
-        .levelUpLearnset = s ## learn##LevelUpLearnset,     \
-        .teachableLearnset = s ## learn##TeachableLearnset
+// alternative method in Rogue
+#define LEARNSETS(learn)    .stub = 0
 
 // Maximum value for a female Pokémon is 254 (MON_FEMALE) which is 100% female.
 // 255 (MON_GENDERLESS) is reserved for genderless Pokémon.

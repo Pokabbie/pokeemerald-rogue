@@ -1785,7 +1785,7 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     return objectEventId;
 }
 
-u8 TrySpawnObjectEventTemplate(struct ObjectEventTemplate *objectEventTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
+u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
 {
     u8 objectEventId;
     struct SpriteTemplate spriteTemplate;
@@ -1911,7 +1911,7 @@ u8 CreateObjectGraphicsSpriteInObjectEventSpace(u16 graphicsId, void (*callback)
     struct Sprite *sprite;
     u8 spriteId;
 
-    spriteTemplate = malloc(sizeof(struct SpriteTemplate));
+    spriteTemplate = Alloc(sizeof(struct SpriteTemplate));
 
     graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
     CopyObjectGraphicsInfoToSpriteTemplate(graphicsId, callback, spriteTemplate, &subspriteTables); // ?
@@ -1920,7 +1920,7 @@ u8 CreateObjectGraphicsSpriteInObjectEventSpace(u16 graphicsId, void (*callback)
     spriteTemplate->paletteTag = TAG_NONE;
 
     spriteId = CreateSprite(spriteTemplate, x, y, subpriority);
-    free(spriteTemplate);
+    Free(spriteTemplate);
 
     if(spriteId != MAX_SPRITES)
     {
@@ -2264,7 +2264,7 @@ static void SetBerryTreeGraphics(struct ObjectEvent *objectEvent, struct Sprite 
     }
 }
 
-static void UpdateDynamicObjectEventPicTable(struct SpriteFrameImage* imgTable, u16 slot, u16 idx, const u32* data, u16 width, u16 height, u16 frame)
+static void UNUSED UpdateDynamicObjectEventPicTable(struct SpriteFrameImage* imgTable, u16 slot, u16 idx, const u32* data, u16 width, u16 height, u16 frame)
 {
     struct SpriteFrameImage imgFrame = overworld_frame(data, width, height, frame);
     imgTable[idx].data = imgFrame.data;
@@ -2426,7 +2426,8 @@ static void LoadObjectEventPalette(u16 paletteTag)
 
     if (i != OBJ_EVENT_PAL_TAG_NONE) // always true
     {
-        u16 paletteOffset = LoadSpritePaletteIfTagExists(&sObjectEventSpritePalettes[i]);
+        //u16 paletteOffset = LoadSpritePaletteIfTagExists(&sObjectEventSpritePalettes[i]);
+        LoadSpritePaletteIfTagExists(&sObjectEventSpritePalettes[i]);
 
         //if(paletteOffset != 0xFF)
         //{
@@ -2485,8 +2486,6 @@ static u8 FindObjectEventPaletteIndexByTag(u16 tag)
 
 void LoadPlayerObjectReflectionPalette(u16 tag, u8 slot)
 {
-    u8 i;
-
     PatchObjectPalette(tag, slot);
     // RogueNote: No bespoke reflection palette
     //for (i = 0; sPlayerReflectionPaletteSets[i].tag != OBJ_EVENT_PAL_TAG_NONE; i++)
@@ -2501,8 +2500,6 @@ void LoadPlayerObjectReflectionPalette(u16 tag, u8 slot)
 
 void LoadSpecialObjectReflectionPalette(u16 tag, u8 slot)
 {
-    u8 i;
-
     sCurrentSpecialObjectPaletteTag = tag;
     PatchObjectPalette(tag, slot);
     //for (i = 0; sSpecialObjectReflectionPaletteSets[i].tag != OBJ_EVENT_PAL_TAG_NONE; i++)
@@ -2921,7 +2918,7 @@ void OverrideTemplateCoordsForObjectEvent(const struct ObjectEvent *objectEvent)
     }
 }
 
-static void OverrideObjectEventTemplateScript(const struct ObjectEvent *objectEvent, const u8 *script)
+static void UNUSED OverrideObjectEventTemplateScript(const struct ObjectEvent *objectEvent, const u8 *script)
 {
     struct ObjectEventTemplate *objectEventTemplate;
 
@@ -5165,7 +5162,6 @@ static bool8 ObjectEventOnRightSideStair(struct ObjectEvent *objectEvent, s16 x,
 
 u8 GetCollisionAtCoords(struct ObjectEvent *objectEvent, s16 x, s16 y, u32 dir)
 {
-    u8 direction = dir;
     u8 currentBehavior = MapGridGetMetatileBehaviorAt(objectEvent->currentCoords.x, objectEvent->currentCoords.y);
     u8 nextBehavior = MapGridGetMetatileBehaviorAt(x, y);
     u8 collision;

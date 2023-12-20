@@ -2053,7 +2053,7 @@ u8 GetBattlerSpriteBGPriorityRank(u8 battlerId)
 }
 
 // Create pokemon sprite to be used for a move animation effect (e.g. Role Play / Snatch)
-u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16 x, s16 y, u8 subpriority, u32 personality, u32 trainerId, u32 battlerId)
+u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16 x, s16 y, u8 subpriority, u32 personality, u8 gender, u32 trainerId, u32 battlerId)
 {
     u8 spriteId;
     u16 sheet = LoadSpriteSheet(&sSpriteSheets_MoveEffectMons[id]);
@@ -2063,18 +2063,20 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
         gMonSpritesGfxPtr->buffer = AllocZeroed(MON_PIC_SIZE * MAX_MON_PIC_FRAMES);
     if (!isBackpic)
     {
-        LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, trainerId, personality), OBJ_PLTT_ID(palette), PLTT_SIZE_4BPP);
+        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, gender, FALSE), OBJ_PLTT_ID(palette), PLTT_SIZE_4BPP);
         LoadSpecialPokePic(gMonSpritesGfxPtr->buffer,
                            species,
                            personality,
+                           gender,
                            TRUE);
     }
     else
     {
-        LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, trainerId, personality), OBJ_PLTT_ID(palette), PLTT_SIZE_4BPP);
+        LoadCompressedPalette(GetMonSpritePalFromSpecies(species, gender, FALSE), OBJ_PLTT_ID(palette), PLTT_SIZE_4BPP);
         LoadSpecialPokePic(gMonSpritesGfxPtr->buffer,
                            species,
                            personality,
+                           gender,
                            FALSE);
     }
 
@@ -2106,6 +2108,7 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
     int ret;
     u8 size;
     u8 y_offset;
+    u8 gender;
     struct BattleSpriteInfo *spriteInfo;
 
     if (IsContest())
@@ -2114,11 +2117,13 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
         {
             species = gContestResources->moveAnim->targetSpecies;
             personality = gContestResources->moveAnim->targetPersonality;
+            gender = MON_MALE; // fixme
         }
         else
         {
             species = gContestResources->moveAnim->species;
             personality = gContestResources->moveAnim->personality;
+            gender = MON_MALE; // fixme
         }
         species = SanitizeSpeciesId(species);
         if (species == SPECIES_UNOWN)
@@ -2135,17 +2140,20 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
             {
                 species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
                 personality = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_PERSONALITY);
+                gender = GetMonGender(&gPlayerParty[gBattlerPartyIndexes[battlerId]]);
             }
             else
             {
                 species = spriteInfo[battlerId].transformSpecies;
                 personality = gTransformedPersonalities[battlerId];
+                gender = MON_MALE; // fixme
+                AGB_ASSERT(FALSE);
             }
 
             species = SanitizeSpeciesId(species);
             if (species == SPECIES_UNOWN)
                 species = GetUnownSpeciesId(personality);
-            if (gSpeciesInfo[species].backPicFemale != NULL && IsPersonalityFemale(species, personality))
+            if (gSpeciesInfo[species].backPicFemale != NULL && gender == MON_FEMALE)
                 size = gSpeciesInfo[species].backPicSizeFemale;
             else
                 size = gSpeciesInfo[species].backPicSize;
@@ -2158,17 +2166,20 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
             {
                 species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
                 personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_PERSONALITY);
+                gender = GetMonGender(&gEnemyParty[gBattlerPartyIndexes[battlerId]]);
             }
             else
             {
                 species = spriteInfo[battlerId].transformSpecies;
                 personality = gTransformedPersonalities[battlerId];
+                gender = MON_MALE; // fixme
+                AGB_ASSERT(FALSE);
             }
 
             species = SanitizeSpeciesId(species);
             if (species == SPECIES_UNOWN)
                 species = GetUnownSpeciesId(personality);
-            if (gSpeciesInfo[species].frontPicFemale != NULL && IsPersonalityFemale(species, personality))
+            if (gSpeciesInfo[species].frontPicFemale != NULL && gender == MON_FEMALE)
                 size = gSpeciesInfo[species].frontPicSizeFemale;
             else
                 size = gSpeciesInfo[species].frontPicSize;

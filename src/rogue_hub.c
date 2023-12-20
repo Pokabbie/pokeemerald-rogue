@@ -212,7 +212,6 @@ bool8 RogueHub_HasAreaBuildRequirements(u8 area)
 u8 RogueHub_FindAreaAtCoord(s8 x, s8 y)
 {
     u8 i;
-    u8 count = 0;
 
     for(i = 0; i < HUB_AREA_COUNT; ++i)
     {

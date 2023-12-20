@@ -312,7 +312,8 @@ static void PlayerPartnerHandleDrawTrainerPic(u32 battler)
     }
     else if (IsAiVsAiBattle())
     {
-        trainerPicId = gTrainers[gPartnerTrainerId].trainerPic;
+        AGB_ASSERT(FALSE); // fixme
+        trainerPicId = TRAINER_BACK_PIC_STEVEN; //gTrainers[gPartnerTrainerId].trainerPic;
         xPos = 60;
         yPos = (8 - gTrainerFrontPicCoords[trainerPicId].size) * 4 + 80;
     }
@@ -446,7 +447,10 @@ static void PlayerPartnerHandleIntroTrainerBallThrow(u32 battler)
     else if (gPartnerTrainerId >= TRAINER_CUSTOM_PARTNER) // Custom multi battle.
         trainerPal = gTrainerBackPicPaletteTable[gPartnerSpriteId].data;
     else if (IsAiVsAiBattle())
-        trainerPal = gTrainerFrontPicPaletteTable[gTrainers[gPartnerTrainerId].trainerPic].data;
+    {
+        AGB_ASSERT(FALSE); // fixme
+        trainerPal = gTrainerBackPicPaletteTable[TRAINER_STEVEN_PARTNER].data; // gTrainerFrontPicPaletteTable[gTrainers[gPartnerTrainerId].trainerPic].data;
+    }
     else
         trainerPal = gTrainerFrontPicPaletteTable[GetFrontierTrainerFrontSpriteId(gPartnerTrainerId)].data; // 2 vs 2 multi battle in Battle Frontier, load front sprite and pal.
 

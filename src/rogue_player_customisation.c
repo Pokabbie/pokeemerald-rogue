@@ -1168,7 +1168,7 @@ const u8* RoguePlayer_GetOutfitName()
     return GetCurrentOutfit()->name;
 }
 
-static s8 ClampRange(s8 value, s8 minVal, s8 maxVal)
+static s8 UNUSED ClampRange(s8 value, s8 minVal, s8 maxVal)
 {
     return min(maxVal, max(minVal, value));
 }

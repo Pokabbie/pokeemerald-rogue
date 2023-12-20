@@ -191,9 +191,9 @@ bool8 SetUpFieldMove_Cut(void)
                     }
                 #ifdef BUGFIX
                     // Collision has a range 0-3, any value != 0 is impassable
-                    if (MapGridGetCollisionAt(x, y))
+                    if (MapGridIsImpassableAt(x, y))
                 #else
-                    if (MapGridGetCollisionAt(x, y) == 1)
+                    if (MapGridIsImpassableAt(x, y) == 1)
                 #endif
                     {
                         cutTiles[i * 3 + j] = FALSE;

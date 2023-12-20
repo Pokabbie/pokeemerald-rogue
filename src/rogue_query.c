@@ -305,10 +305,7 @@ void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8
 static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 removeWhenEvo)
 {
     u8 i;
-    bool8 hasEvolved;
     struct Evolution evo;
-
-    hasEvolved = FALSE;
 
     ASSERT_MON_QUERY;
     
@@ -368,7 +365,6 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
         }
 
         // If we reach here we're allowed to evolve
-        hasEvolved = TRUE;
         SetQueryBitFlag(evo.targetSpecies, TRUE);
 
         if(removeWhenEvo)
@@ -387,7 +383,6 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
 
 void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
 {
-    u8 i;
     u16 species;
     u32 speciesFlags;
 
@@ -424,7 +419,6 @@ void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
 
 void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags)
 {
-    u8 i;
     bool8 containsAnyType;
     u16 species;
 
@@ -460,7 +454,6 @@ void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags)
 
 void RogueMonQuery_ContainsPresetFlags(u8 func, u32 presetflags)
 {
-    u8 i;
     u16 species;
     u32 speciesFlags;
 
@@ -511,7 +504,6 @@ void RogueMonQuery_IsLegendary(u8 func)
 
 void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 presetflags)
 {
-    u8 i;
     u16 species;
     u32 speciesFlags;
 
@@ -547,7 +539,6 @@ void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 presetflags)
 
 void RogueMonQuery_IsBoxLegendary(u8 func)
 {
-    u8 i;
     bool8 valid;
     u16 species;
 
@@ -579,7 +570,6 @@ void RogueMonQuery_IsBoxLegendary(u8 func)
 
 void RogueMonQuery_IsRoamerLegendary(u8 func)
 {
-    u8 i;
     bool8 valid;
     u16 species;
 
@@ -631,6 +621,7 @@ void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
                 {
                     if(!includeMegas)
                     {
+#ifdef ROGUE_EXPANSION
                         switch (evo.method)
                         {
                             case EVO_MEGA_EVOLUTION:
@@ -638,6 +629,7 @@ void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
                             case EVO_PRIMAL_REVERSION:
                                 continue;
                         }
+#endif
                     }
 
                     hasValidEvo = TRUE;
@@ -785,7 +777,7 @@ bool8 Query_IsSpeciesEnabledInternal(u16 species)
 bool8 Query_IsSpeciesEnabled(u16 species)
 {
     // Check if mon has valid data
-    if(gBaseStats[species].abilities[0] != ABILITY_NONE && gBaseStats[species].catchRate != 0)
+    if(gRogueSpeciesInfo[species].abilities[0] != ABILITY_NONE && gRogueSpeciesInfo[species].catchRate != 0)
     {
 #ifdef ROGUE_EXPANSION
         // Include specific forms in these queries

@@ -1590,11 +1590,13 @@ static void ResetPokedexView(struct PokedexView *pokedexView)
 
 void CB2_OpenPokedex(void)
 {
+#if POKEDEX_PLUS_HGSS
     if (POKEDEX_PLUS_HGSS)
     {
         CB2_OpenPokedexPlusHGSS();
         return;
     }
+#endif
 
     switch (gMain.state)
     {
@@ -3912,10 +3914,11 @@ static void HighlightSubmenuScreenSelectBarItem(u8 a, u16 b)
 u8 DisplayCaughtMonDexPage(u16 species, u32 otId, u32 personality)
 {
     u8 taskId = 0;
-    if (POKEDEX_PLUS_HGSS)
-        taskId = CreateTask(Task_DisplayCaughtMonDexPageHGSS, 0);
-    else
-        taskId = CreateTask(Task_DisplayCaughtMonDexPage, 0);
+    #if POKEDEX_PLUS_HGSS
+    taskId = CreateTask(Task_DisplayCaughtMonDexPageHGSS, 0);
+    #else
+    taskId = CreateTask(Task_DisplayCaughtMonDexPage, 0);
+    #endif
 
     gTasks[taskId].tState = 0;
     gTasks[taskId].tSpecies = species;
@@ -3972,7 +3975,7 @@ static void Task_DisplayCaughtMonDexPage(u8 taskId)
         gTasks[taskId].tState++;
         break;
     case 4:
-        spriteId = CreateMonPicSprite(NationalPokedexNumToSpecies(dexNum), 0, ((u16)gTasks[taskId].tPersonalityHi << 16) | (u16)gTasks[taskId].tPersonalityLo, TRUE, MON_PAGE_X, MON_PAGE_Y, 0, TAG_NONE);
+        spriteId = CreateMonPicSprite(NationalPokedexNumToSpecies(dexNum), 0, ((u16)gTasks[taskId].tPersonalityHi << 16) | (u16)gTasks[taskId].tPersonalityLo, GetGenderForSpecies(NationalPokedexNumToSpecies(dexNum), 0), TRUE, MON_PAGE_X, MON_PAGE_Y, 0, TAG_NONE);
         gSprites[spriteId].oam.priority = 0;
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, RGB_BLACK);
         SetVBlankCallback(gPokedexVBlankCB);
@@ -4022,8 +4025,8 @@ static void Task_ExitCaughtMonPage(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        u32 otId;
-        u32 personality;
+        //u32 otId;
+        //u32 personality;
         u8 paletteNum;
         const u32 *lzPaletteData;
         void *buffer;
@@ -4037,10 +4040,11 @@ static void Task_ExitCaughtMonPage(u8 taskId)
         if (buffer)
             Free(buffer);
 
-        otId = ((u16)gTasks[taskId].tOtIdHi << 16) | (u16)gTasks[taskId].tOtIdLo;
-        personality = ((u16)gTasks[taskId].tPersonalityHi << 16) | (u16)gTasks[taskId].tPersonalityLo;
+        //otId = ((u16)gTasks[taskId].tOtIdHi << 16) | (u16)gTasks[taskId].tOtIdLo;
+        //personality = ((u16)gTasks[taskId].tPersonalityHi << 16) | (u16)gTasks[taskId].tPersonalityLo;
         paletteNum = gSprites[gTasks[taskId].tMonSpriteId].oam.paletteNum;
-        lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(gTasks[taskId].tSpecies, otId, personality);
+        AGB_ASSERT(FALSE);
+        lzPaletteData = NULL;//GetMonSpritePalFromSpeciesAndPersonality(gTasks[taskId].tSpecies, otId, personality);
         LoadCompressedPalette(lzPaletteData, OBJ_PLTT_ID(paletteNum), PLTT_SIZE_4BPP);
         DestroyTask(taskId);
     }
@@ -4229,6 +4233,7 @@ s8 GetSetPokedexFlag(u16 nationalDexNo, u8 caseID)
 {
     // Shouldn't use this path
     AGB_ASSERT(FALSE);
+    return 0;
 }
 
 s8 GetSetPokedexSpeciesFlag(u16 species, u8 caseId)
@@ -4236,7 +4241,7 @@ s8 GetSetPokedexSpeciesFlag(u16 species, u8 caseId)
     u32 index, bit, mask;
     u8 dexState;
     s8 retVal = 0;
-    u16 dexNum = SpeciesToNationalPokedexNum(species);
+    //u16 dexNum = SpeciesToNationalPokedexNum(species);
 
     index = species / 8;
     bit = species % 8;
@@ -4651,7 +4656,7 @@ u32 GetPokedexMonPersonality(u16 species)
 u16 CreateMonSpriteFromNationalDexNumber(u16 nationalNum, s16 x, s16 y, u16 paletteSlot)
 {
     nationalNum = NationalPokedexNumToSpecies(nationalNum);
-    return CreateMonPicSprite_HandleDeoxys(nationalNum, SHINY_ODDS, GetPokedexMonPersonality(nationalNum), TRUE, x, y, paletteSlot, TAG_NONE);
+    return CreateMonPicSprite_Affine(nationalNum, NON_SHINY_PLACEHOLDER, GetPokedexMonPersonality(nationalNum), GetGenderForSpecies(nationalNum, 0), FALSE, MON_PIC_AFFINE_FRONT, x, y, paletteSlot, TAG_NONE);
 }
 
 static u16 GetPokemonScaleFromNationalDexNumber(u16 nationalNum)

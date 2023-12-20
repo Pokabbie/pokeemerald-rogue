@@ -1310,6 +1310,7 @@ static const u16 sRestrictedWordSpecies[] = {
 void DoEasyChatScreen(u8 type, u16 *words, MainCallback exitCallback, u8 displayedPersonType)
 {
     u8 taskId;
+    AGB_ASSERT(words != NULL);
 
     ResetTasks();
     taskId = CreateTask(Task_InitEasyChatScreen, 0);
@@ -1477,7 +1478,7 @@ static bool8 CanPokemonBeShown(u16 species)
 void ShowEasyChatScreen(void)
 {
     int i;
-    u16 *words;
+    u16 *words = NULL;
     struct MauvilleManBard *bard;
     u8 displayedPersonType = EASY_CHAT_PERSON_DISPLAY_NONE;
     switch (gSpecialVar_0x8004)
@@ -1527,7 +1528,9 @@ void ShowEasyChatScreen(void)
         words[1] = gSaveBlock1Ptr->dewfordTrends[1].words[1];
         break;
     case EASY_CHAT_TYPE_GABBY_AND_TY:
-        *words = EC_EMPTY_WORD;
+        //words = gSaveBlock1Ptr->gabbyAndTyData.quote;
+        //*words = EC_EMPTY_WORD;
+        AGB_ASSERT(FALSE);
         displayedPersonType = EASY_CHAT_PERSON_REPORTER_FEMALE;
         break;
     case EASY_CHAT_TYPE_CONTEST_INTERVIEW:
@@ -5835,7 +5838,7 @@ static u16 SetSelectedWordGroup_AlphabetMode(u16 groupId)
     return totalWords;
 }
 
-static bool8 IsEasyChatGroupUnlocked2(u8 groupId)
+static bool8 UNUSED IsEasyChatGroupUnlocked2(u8 groupId)
 {
     return TRUE;
     //int i;

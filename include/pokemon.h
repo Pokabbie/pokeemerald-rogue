@@ -61,8 +61,8 @@ enum {
     MON_DATA_TOUGH,
     MON_DATA_SHEEN,
     MON_DATA_OT_GENDER,
-    MON_DATA_COOL_RIBBON,
-    MON_DATA_BEAUTY_RIBBON,
+    MON_DATA_IS_SHINY, // Originally MON_DATA_COOL_RIBBON
+    MON_DATA_GENDER_FLAG, // MON_DATA_BEAUTY_RIBBON
     MON_DATA_CUTE_RIBBON,
     MON_DATA_SMART_RIBBON,
     MON_DATA_TOUGH_RIBBON,
@@ -302,6 +302,7 @@ struct BattlePokemon
     /*0x51*/ u32 status2;
     /*0x55*/ u32 otId;
     /*0x59*/ u8 metLevel;
+             u8 genderFlag : 1;
 };
 
 struct Evolution
@@ -378,7 +379,8 @@ struct SpeciesInfo /*0x8C*/
  /* 0x77 */ u8 backPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
  /* 0x78 */ u8 iconPalIndex:3;
             u8 iconPalIndexFemale:3;
-            u8 padding3:2;
+            u8 stub:1;
+            u8 padding3:1;
  /* 0x79 */ u8 enemyMonElevation; // This determines how much higher above the usual position the enemy Pokémon is during battle. Species that float or fly have nonzero values.
             // Flags
  /* 0x7A */ u32 isLegendary:1;
@@ -397,8 +399,6 @@ struct SpeciesInfo /*0x8C*/
             u32 allPerfectIVs:1;
             u32 padding4:18;
             // Move Data
- /* 0x80 */ const struct LevelUpMove *levelUpLearnset;
- /* 0x84 */ const u16 *teachableLearnset;
  /* 0x88 */ const struct Evolution *evolutions;
  /* 0x84 */ const u16 *formSpeciesIdTable;
  /* 0x84 */ const struct FormChange *formChangeTable;
@@ -579,7 +579,6 @@ u8 GetBoxMonGender(struct BoxPokemon *boxMon);
 u8 GetGenderForSpecies(u16 species, u8 genderFlag);
 u8 CalcGenderForMon(struct Pokemon *mon);
 u8 CalcGenderForBoxMon(struct BoxPokemon *boxMon);
-bool32 IsPersonalityFemale(u16 species, u32 personality);
 u32 GetUnownSpeciesId(u32 personality);
 void SetMultiuseSpriteTemplateToPokemon(u16 speciesTag, u8 battlerPosition);
 void SetMultiuseSpriteTemplateToTrainerBack(u16 trainerSpriteId, u8 battlerPosition);
@@ -620,8 +619,6 @@ const u8 *GetSpeciesCategory(u16 species);
 const u8 *GetSpeciesPokedexDescription(u16 species);
 u16 GetSpeciesHeight(u16 species);
 u16 GetSpeciesWeight(u16 species);
-const struct LevelUpMove *GetSpeciesLevelUpLearnset(u16 species);
-const u16 *GetSpeciesTeachableLearnset(u16 species);
 const struct Evolution *GetSpeciesEvolutions(u16 species);
 const u16 *GetSpeciesFormTable(u16 species);
 const struct FormChange *GetSpeciesFormChanges(u16 species);
@@ -663,7 +660,8 @@ void UpdatePartyPokerusTime(u16 days);
 void PartySpreadPokerus(struct Pokemon *party);
 bool8 TryIncrementMonLevel(struct Pokemon *mon);
 u8 CalcMonHiddenPowerType(struct Pokemon *mon);
-u8 CanLearnTeachableMove(u16 species, u16 move);
+u32 CanMonLearnTM(struct Pokemon *mon, u16 itemId);
+u32 CanSpeciesLearnTM(u16 species, u16 itemId);
 bool8 CanSpeciesLearnMoveByLevelup(u16 species, u16 moves);
 u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves);
 u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves);
@@ -675,7 +673,8 @@ void PlayBattleBGM(void);
 void PlayMapChosenOrBattleBGM(u16 songId);
 void CreateTask_PlayMapChosenOrBattleBGM(u16 songId);
 const u32 *GetMonFrontSpritePal(struct Pokemon *mon);
-const u32 *GetMonSpritePalFromSpecies(u16 species, bool8 shiny);
+const u32 *GetMonSpritePalFromSpecies(u16 species, u8 gender, bool8 shiny);
+bool32 CanUseHMMove2(u16 move);
 bool8 IsMoveHM(u16 move);
 bool8 IsMonSpriteNotFlipped(u16 species);
 s8 GetMonFlavorRelation(struct Pokemon *mon, u8 flavor);

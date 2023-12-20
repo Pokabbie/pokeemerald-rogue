@@ -131,7 +131,6 @@ const u8* Rogue_GetTrainerString(u16 trainerNum, u8 textId)
     // For rival trainer we have initial battle, middle battles, final pre E4 battle then E4 battle
     if(Rogue_IsRivalTrainer(trainerNum))
     {
-        u8 i;
         u8 offset = 0;
 
         if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY || Rogue_AssumeFinalQuestFakeChamp())
@@ -487,26 +486,6 @@ bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum)
     return TRUE;
 }
 
-
-static u16 GetTrainerHistoryKey(u16 trainerNum)
-{
-    if(Rogue_IsBossTrainer(trainerNum))
-    {
-        // We're gonna always use the trainer's assigned type to prevent dupes
-        // The history buffer will be wiped between stages to allow for types to re-appear later e.g. juan can appear as gym and wallace can appear as champ
-        u16 type = Rogue_GetTrainerTypeAssignment(trainerNum);
-
-        // None type trainers are unqiue, so we don't care about the type repeat
-        if(type == TYPE_NONE)
-            return NUMBER_OF_MON_TYPES + trainerNum;
-
-        return type;
-    }
-
-    // Just avoid repeating this trainer
-    return trainerNum;
-}
-
 static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
 {
     *includeFlags = TRAINER_FLAG_NONE;
@@ -791,9 +770,9 @@ static u8 SelectRivalWeakestMon(u16* speciesBuffer, u8 partySize)
         if(species != SPECIES_NONE)
         {
             currBst = RoguePokedex_GetSpeciesBST(species);
-            if(lowestBstIdx == 255 || currBst < lowestBstIdx)
+            if(lowestBstIdx == 255 || currBst < lowestBst)
             {
-                lowestBstIdx = currBst;
+                lowestBst = currBst;
                 lowestBstIdx = i;
             }
         }
@@ -805,7 +784,6 @@ static u8 SelectRivalWeakestMon(u16* speciesBuffer, u8 partySize)
 
 void Rogue_ChooseRivalTrainerForNewAdventure()
 {
-    u8 i;
     u16 trainerNum = Rogue_ChooseRivalTrainerId();
     DebugPrintf("Picking rival = %d", trainerNum);
 
@@ -898,7 +876,7 @@ void Rogue_GenerateRivalBaseTeamIfNeeded()
 {
     if(gRogueRun.rivalSpecies[0] == SPECIES_NONE)
     {
-        u8 i, j;
+        u8 i;
         u32 savedRng = gRngRogueValue;
 
         // Fake the difficulty for the generator
@@ -962,7 +940,6 @@ void Rogue_GenerateRivalSwapTeamIfNeeded()
         // Remove the weakest species
         {
             u8 write;
-            u32 hp = 0;
             u16 speciesBuffer[PARTY_SIZE];
 
             memcpy(speciesBuffer, gRogueRun.rivalSpecies, sizeof(speciesBuffer));
@@ -1053,21 +1030,6 @@ void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity)
     }
 }
 
-u16 Rogue_NextMinibossTrainerId()
-{
-    // TODO
-    return gRogueRun.rivalTrainerNum;
-    //u16 trainerNum = NextTrainerNum(TRAINER_NUM_MINIBOSS_START, TRAINER_NUM_MINIBOSS_END, &gRogueAdvPath.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer));
-    //const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
-//
-    //if(trainer != NULL)
-    //{
-    //    HistoryBufferPush(&gRogueAdvPath.miniBossHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer), GetTrainerHistoryKey(trainerNum));
-    //}
-//
-    //return trainerNum;
-}
-
 void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum)
 {
     u8 type = Rogue_GetTrainerTypeAssignment(trainerNum);
@@ -1134,7 +1096,7 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
 
 static u8 CalculateMonFixedIV(u16 trainerNum)
 {
-    u8 fixedIV;
+    u8 fixedIV = 0;
 
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
@@ -1272,7 +1234,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
 
 static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
 {
-    u8 monCount;
+    u8 monCount = 0;
 
     // Hack for EXP trainer
     if(monLevel == 1)
@@ -1516,11 +1478,9 @@ static u8 SelectEvoChainMon_CalculateWeight(u16 index, u16 species, void* data)
 
 static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 monCapacity)
 {
-    u8 i;
     u8 level;
     u8 monCount;
     u8 fixedIV;
-    u16 species;
     struct TrainerPartyScratch scratch;
 
     level = GetTrainerLevel(trainerNum);
@@ -1962,7 +1922,6 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 
     if(scratch->shouldRegenerateQuery)
     {
-        u32 strongFlags;
         u32 fallbackTypeFlags = 0;
         bool8 customScript = FALSE;
         struct RogueTeamGeneratorSubset const* currentSubset = NULL;
@@ -2183,7 +2142,6 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
 static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monIdx, u8 totalMonCount)
 {
     bool8 preferCompetitive = FALSE;
-    bool8 result = FALSE;
     u8 difficultyLevel = Rogue_GetCurrentDifficulty();
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
@@ -2522,8 +2480,13 @@ static bool8 MonPresetReplaceMove(struct RoguePokemonCompetitiveSet* preset, u16
     for(i = 0; i < MAX_MON_MOVES; ++i)
     {
         if(preset->moves[i] == fromMove)
-            preset->moves[i] == toMove;
+        {
+            preset->moves[i] = toMove;
+            return TRUE;
+        }
     }
+
+    return FALSE;
 }
 
 static void ModifyTrainerMonPreset(u16 trainerNum, struct RoguePokemonCompetitiveSet* preset, struct RoguePokemonCompetitiveSetRules* presetRules)
@@ -2571,7 +2534,7 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     u16 item = GetMonData(mon, MON_DATA_HELD_ITEM);
 
-#ifdef ROGUE_EXPANSION
+#if 1 //def ROGUE_EXPANSION
     if(((item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) || (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)))
     {
         score -= 20;

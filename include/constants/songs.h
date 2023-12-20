@@ -339,7 +339,7 @@
 #define MUS_MT_CHIMNEY              406 // MUS_TOZAN            // Also used in Desert Underpass, Mirage Tower, Seafloor Cavern and Sky Pillar.
 #define MUS_ENCOUNTER_FEMALE        407 // MUS_GIRLEYE
 #define MUS_LILYCOVE                408 // MUS_MINAMO           // Also used in Pacifidlog Town and the Diving Treasure Hunter's house.
-#define MUS_DESERT                  409 // MUS_ASHROAD
+#define MUS_ROUTE111                409 // MUS_ASHROAD
 #define MUS_HELP                    410 // MUS_EVENT0
 #define MUS_UNDERWATER              411 // MUS_DEEPDEEP
 #define MUS_VICTORY_TRAINER         412 // MUS_KACHI1
@@ -490,7 +490,7 @@
 #define MUS_RG_TRAINER_TOWER        556 // MUS_RG_T_TOWER
 #define MUS_RG_SLOW_PALLET          557 // MUS_RG_SLOWMASARA
 #define MUS_RG_TEACHY_TV_MENU       558 // MUS_RG_TVNOIZE
-#define END_MUS                     MUS_RG_TEACHY_TV_MENU
+//#define END_MUS                     MUS_RG_TEACHY_TV_MENU
 
 #define PH_TRAP_BLEND               559
 #define PH_TRAP_HELD                560
@@ -628,6 +628,7 @@
 #define MUS_DP_HALL_OF_ORIGIN           (MUS_DP_TITLE + 35)
 
 #define MUS_PL_VS_GIRATINA              (MUS_DP_TITLE + 36)
+#define END_MUS                     MUS_PL_VS_GIRATINA
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

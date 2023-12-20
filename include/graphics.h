@@ -602,6 +602,8 @@ extern const u8 gTrainerBackPic_None[];
 extern const u8 gTrainerBackPic_Ethan[];
 extern const u8 gTrainerBackPic_Lyra[];
 extern const u8 gTrainerBackPic_Lucas[];
+extern const u8 gTrainerBackPic_Dawn[];
+extern const u8 gTrainerBackPic_CommunityZefa[];
 extern const u32 gTrainerBackPicPalette_Red[];
 extern const u32 gTrainerBackPicPalette_Leaf[];
 
@@ -758,11 +760,21 @@ extern const u32 gBattleTerrainAnimTiles_TallGrass[];
 extern const u32 gBattleTerrainAnimTilemap_TallGrass[];
 extern const u32 gBattleTerrainPalette_TallGrass[];
 extern const u32 gBattleTerrainPalette_TallGrass_Summer[];
+extern const u32 gBattleTerrainPalette_TallGrass_Autumn[];
+extern const u32 gBattleTerrainPalette_TallGrass_Winter[];
 extern const u32 gBattleTerrainTiles_LongGrass[];
 extern const u32 gBattleTerrainTilemap_LongGrass[];
 extern const u32 gBattleTerrainAnimTiles_LongGrass[];
 extern const u32 gBattleTerrainAnimTilemap_LongGrass[];
 extern const u32 gBattleTerrainPalette_LongGrass[];
+extern const u32 gBattleTerrainTiles_Plain[];
+extern const u32 gBattleTerrainTilemap_Plain[];
+extern const u32 gBattleTerrainAnimTiles_Plain[];
+extern const u32 gBattleTerrainAnimTilemap_Plain[];
+extern const u32 gBattleTerrainPalette_Plain[];
+extern const u32 gBattleTerrainPalette_Plain_Summer[];
+extern const u32 gBattleTerrainPalette_Plain_Autumn[];
+extern const u32 gBattleTerrainPalette_Plain_Winter[];
 extern const u32 gBattleTerrainTiles_Sand[];
 extern const u32 gBattleTerrainTilemap_Sand[];
 extern const u32 gBattleTerrainAnimTiles_Sand[];
@@ -802,6 +814,12 @@ extern const u32 gBattleTerrainPalette_Plain[];
 extern const u32 gBattleTerrainPalette_Frontier[];
 extern const u32 gBattleTerrainTiles_Stadium[];
 extern const u32 gBattleTerrainTilemap_Stadium[];
+extern const u32 gBattleTerrainTiles_StadiumInverted[];
+extern const u32 gBattleTerrainPalette_StadiumInverted[];
+extern const u32 gBattleTerrainTilemap_StadiumInverted[];
+extern const u32 gBattleTerrainTiles_StadiumSpace[];
+extern const u32 gBattleTerrainPalette_StadiumSpace[];
+extern const u32 gBattleTerrainTilemap_StadiumSpace[];
 extern const u32 gBattleTerrainTiles_Rayquaza[];
 extern const u32 gBattleTerrainTilemap_Rayquaza[];
 extern const u32 gBattleTerrainAnimTiles_Rayquaza[];
@@ -3869,6 +3887,59 @@ extern const u16 gFrontierFactoryMenu_Gfx[34 * TILE_SIZE_4BPP / 2];
 extern const u16 gFrontierFactoryMenu_Tilemap[];
 extern const u16 gFrontierFactoryMenu_Pal[];
 
+// Player
+extern const u16 gObjectEventPal_PlayerPlaceholder[];
+
+extern const u16 gObjectEventPal_PlayerBrendanBase[];
+extern const u16 gObjectEventPal_PlayerBrendanLayers[];
+extern const u16 gObjectEventPal_PlayerMayBase[];
+extern const u16 gObjectEventPal_PlayerMayLayers[];
+
+extern const u16 gObjectEventPal_PlayerRedLeafBase[];
+extern const u16 gObjectEventPal_PlayerRedLeafLayers[];
+
+extern const u16 gObjectEventPal_PlayerEthanBase[];
+extern const u16 gObjectEventPal_PlayerEthanLayers[];
+extern const u16 gObjectEventPal_PlayerLyraBase[];
+extern const u16 gObjectEventPal_PlayerLyraLayers[];
+
+extern const u16 gObjectEventPal_PlayerLucasBase[];
+extern const u16 gObjectEventPal_PlayerLucasLayers[];
+extern const u16 gObjectEventPal_PlayerDawnBase[];
+extern const u16 gObjectEventPal_PlayerDawnLayers[];
+
+extern const u16 gObjectEventPal_PlayerHilbertBase[];
+extern const u16 gObjectEventPal_PlayerHilbertLayers[];
+extern const u16 gObjectEventPal_PlayerHildaBase[];
+extern const u16 gObjectEventPal_PlayerHildaLayers[];
+
+extern const u16 gObjectEventPal_PlayerNateBase[];
+extern const u16 gObjectEventPal_PlayerNateLayers[];
+extern const u16 gObjectEventPal_PlayerRosaBase[];
+extern const u16 gObjectEventPal_PlayerRosaLayers[];
+
+extern const u16 gObjectEventPal_PlayerCalemBase[];
+extern const u16 gObjectEventPal_PlayerCalemLayers[];
+extern const u16 gObjectEventPal_PlayerSerenaBase[];
+extern const u16 gObjectEventPal_PlayerSerenaLayers[];
+
+extern const u16 gObjectEventPal_PlayerElioBase[];
+extern const u16 gObjectEventPal_PlayerElioLayers[];
+extern const u16 gObjectEventPal_PlayerSeleneBase[];
+extern const u16 gObjectEventPal_PlayerSeleneLayers[];
+
+extern const u16 gObjectEventPal_PlayerVictorBase[];
+extern const u16 gObjectEventPal_PlayerVictorLayers[];
+extern const u16 gObjectEventPal_PlayerGloriaBase[];
+extern const u16 gObjectEventPal_PlayerGloriaLayers[];
+
+extern const u16 gObjectEventPal_PlayerZefaBase[];
+
+extern const u16 gObjectEventPal_RubySapphireBrendan[];
+extern const u16 gObjectEventPal_RubySapphireMay[];
+extern const u16 gObjectEventPal_Kanto_Blue[];
+extern const u16 gObjectEventPal_Johto_NPC_Red[];
+
 // Object event pals
 extern const u16 gObjectEventPal_Brendan[];
 extern const u16 gObjectEventPal_May[];
@@ -3916,54 +3987,4 @@ extern const u8 gMailTilemap_Retro[];
 extern const u8 gMonMarkingsMenu_Gfx[];
 extern const u16 gMonMarkingsMenu_Pal[];
 
-// Player
-extern const u16 gObjectEventPal_PlayerPlaceholder[];
-// Object event pals
-extern const u16 gObjectEventPal_Brendan[];
-extern const u16 gObjectEventPal_PlayerBrendanLayers[];
-extern const u16 gObjectEventPal_May[];
-extern const u16 gObjectEventPal_PlayerMayLayers[];
-
-extern const u16 gObjectEventPal_PlayerRedLeafBase[];
-extern const u16 gObjectEventPal_PlayerRedLeafLayers[];
-
-extern const u16 gObjectEventPal_PlayerEthanBase[];
-extern const u16 gObjectEventPal_PlayerEthanLayers[];
-extern const u16 gObjectEventPal_PlayerLyraBase[];
-extern const u16 gObjectEventPal_PlayerLyraLayers[];
-
-extern const u16 gObjectEventPal_PlayerLucasBase[];
-extern const u16 gObjectEventPal_PlayerLucasLayers[];
-extern const u16 gObjectEventPal_PlayerDawnBase[];
-extern const u16 gObjectEventPal_PlayerDawnLayers[];
-
-extern const u16 gObjectEventPal_PlayerHilbertBase[];
-extern const u16 gObjectEventPal_PlayerHilbertLayers[];
-extern const u16 gObjectEventPal_PlayerHildaBase[];
-extern const u16 gObjectEventPal_PlayerHildaLayers[];
-
-extern const u16 gObjectEventPal_PlayerNateBase[];
-extern const u16 gObjectEventPal_PlayerNateLayers[];
-extern const u16 gObjectEventPal_PlayerRosaBase[];
-extern const u16 gObjectEventPal_PlayerRosaLayers[];
-
-extern const u16 gObjectEventPal_PlayerCalemBase[];
-extern const u16 gObjectEventPal_PlayerCalemLayers[];
-extern const u16 gObjectEventPal_PlayerSerenaBase[];
-extern const u16 gObjectEventPal_PlayerSerenaLayers[];
-
-extern const u16 gObjectEventPal_PlayerElioBase[];
-extern const u16 gObjectEventPal_PlayerElioLayers[];
-extern const u16 gObjectEventPal_PlayerSeleneBase[];
-extern const u16 gObjectEventPal_PlayerSeleneLayers[];
-
-extern const u16 gObjectEventPal_PlayerVictorBase[];
-extern const u16 gObjectEventPal_PlayerVictorLayers[];
-extern const u16 gObjectEventPal_PlayerGloriaBase[];
-extern const u16 gObjectEventPal_PlayerGloriaLayers[];
-
-extern const u16 gObjectEventPal_PlayerZefaBase[];
-
-extern const u16 gObjectEventPal_Kanto_Blue[];
-extern const u16 gObjectEventPal_Johto_NPC_Red[];
 #endif //GUARD_GRAPHICS_H

@@ -3,6 +3,7 @@
 
 #include "palette.h"
 #include "main.h"
+#include "malloc.h"
 #include "field_screen_effect.h"
 #include "gpu_regs.h"
 #include "scanline_effect.h"
@@ -342,7 +343,7 @@ static void CB2_InitQuestMenu(void)
     ResetPaletteFade();
     FreeAllSpritePalettes();
 
-    sQuestMenuData = malloc(sizeof(struct QuestMenuData));
+    sQuestMenuData = Alloc(sizeof(struct QuestMenuData));
 
     // TODO - Init quest menu data
 
@@ -1058,7 +1059,7 @@ static void Draw_QuestPage()
                         0, 0,
                         0,
                         0,
-                        FALSE
+                        MON_MALE
                     );
 
                     gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 0;

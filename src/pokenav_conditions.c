@@ -522,8 +522,9 @@ static void GetMonConditionGraphData(s16 listId, u8 loadId)
 static void ConditionGraphDrawMonPic(s16 listId, u8 loadId)
 {
     u16 boxId, monId, species;
-    u32 personality, tid;
+    u32 personality;
     bool8 isShiny;
+    u8 genderFlag;
     struct Pokenav_ConditionMenu *menu = GetSubstructPtr(POKENAV_SUBSTRUCT_CONDITION_GRAPH_MENU);
     struct PokenavMonList *monListPtr = GetSubstructPtr(POKENAV_SUBSTRUCT_MON_LIST);
 
@@ -534,10 +535,10 @@ static void ConditionGraphDrawMonPic(s16 listId, u8 loadId)
     monId = monListPtr->monData[listId].monId;
     species = GetBoxOrPartyMonData(boxId, monId, MON_DATA_SPECIES_OR_EGG, NULL);
     isShiny = GetBoxOrPartyMonData(boxId, monId, MON_DATA_IS_SHINY, NULL);
-    tid = GetBoxOrPartyMonData(boxId, monId, MON_DATA_OT_ID, NULL);
+    genderFlag = GetGenderForSpecies(species, GetBoxOrPartyMonData(boxId, monId, MON_DATA_GENDER_FLAG, NULL));
     personality = GetBoxOrPartyMonData(boxId, monId, MON_DATA_PERSONALITY, NULL);
-    LoadSpecialPokePic(menu->monPicGfx[loadId], species, personality, TRUE);
-    LZ77UnCompWram(GetMonSpritePalFromSpecies(species, isShiny), menu->monPal[loadId]);
+    LoadSpecialPokePic(menu->monPicGfx[loadId], species, personality, GetGenderForSpecies(species, genderFlag), TRUE);
+    LZ77UnCompWram(GetMonSpritePalFromSpecies(species, GetGenderForSpecies(species, genderFlag), isShiny), menu->monPal[loadId]);
 }
 
 u16 GetMonListCount(void)

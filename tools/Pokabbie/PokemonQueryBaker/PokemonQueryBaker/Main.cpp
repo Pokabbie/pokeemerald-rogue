@@ -10,7 +10,11 @@ extern "C"
 {
 	#include "rogue_baked.h"
 
+#ifdef ROGUE_EXPANSION
+	extern const struct SpeciesInfo gSpeciesInfo[];
+#else
 	extern const struct BaseStats gBaseStats[];
+#endif
 
 	extern const struct RoguePokedexVariant gPokedexVariants[POKEDEX_VARIANT_COUNT];
 	extern const struct RoguePokedexRegion gPokedexRegions[POKEDEX_REGION_COUNT];
@@ -71,11 +75,11 @@ int main()
 			eggLookup[s] = eggSpecies;
 			evolutionCountLookup[s] = Rogue_GetMaxEvolutionCount(s);
 
-			if (gBaseStats[s].type1 != TYPE_NONE)
-				eggEvolutionTypes[eggSpecies].insert(gBaseStats[s].type1);
+			if (gRogueSpeciesInfo[s].type1 != TYPE_NONE)
+				eggEvolutionTypes[eggSpecies].insert(gRogueSpeciesInfo[s].type1);
 
-			if (gBaseStats[s].type2 != TYPE_NONE)
-				eggEvolutionTypes[eggSpecies].insert(gBaseStats[s].type2);
+			if (gRogueSpeciesInfo[s].type2 != TYPE_NONE)
+				eggEvolutionTypes[eggSpecies].insert(gRogueSpeciesInfo[s].type2);
 		}
 	}
 

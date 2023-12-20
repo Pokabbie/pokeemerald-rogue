@@ -268,7 +268,7 @@ bool8 IsMirageTowerVisible(void)
     return FALSE;
 }
 
-static void UpdateMirageTowerPulseBlend(u8 taskId)
+static void UNUSED UpdateMirageTowerPulseBlend(u8 taskId)
 {
     UpdatePulseBlend(&sMirageTowerPulseBlend->pulseBlend);
 }

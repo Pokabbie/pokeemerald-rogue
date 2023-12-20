@@ -282,6 +282,7 @@
 #define ITEM_RETRO_MAIL 210
 
 #define FIRST_MAIL_INDEX ITEM_ORANGE_MAIL
+#define LAST_MAIL_INDEX ITEM_RETRO_MAIL
 
 // Evolution Items
 #define ITEM_FIRE_STONE 211
@@ -841,7 +842,7 @@
 // Charms
 #define ITEM_OVAL_CHARM 690
 #define ITEM_SHINY_CHARM 691
-#define ITEM_CATCHING_CHARM 692
+#define ITEM_CATCHING_CHARM_GF 692
 #define ITEM_EXP_CHARM 693
 
 // Form-changing Key Items

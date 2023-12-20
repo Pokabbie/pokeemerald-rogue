@@ -593,8 +593,6 @@ static void VBlankCB_ShowContestResults(void)
 
 static void Task_ShowContestResults(u8 taskId)
 {
-    u16 var;
-
     if (gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK)
     {
         switch (gTasks[taskId].tState)
@@ -878,8 +876,8 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
     int i;
     u8 spriteId;
     u16 species;
-    u32 otId;
     u32 personality;
+    u8 gender;
 
     switch (gTasks[taskId].tState)
     {
@@ -890,13 +888,14 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
         GET_CONTEST_WINNER_ID(i);
         species = gContestMons[i].species;
         personality = gContestMons[i].personality;
-        otId = gContestMons[i].otId;
+        gender = GetGenderForSpecies(species, 0); // RogueNote: TODO
         HandleLoadSpecialPokePic(TRUE,
                                 gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
                                 species,
-                                personality);
+                                personality,
+                                gender);
 
-        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), species);
+        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpecies(species, gender, FALSE), species);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         gMultiuseSpriteTemplate.paletteTag = species;
         spriteId = CreateSprite(&gMultiuseSpriteTemplate, DISPLAY_WIDTH + 32, DISPLAY_HEIGHT / 2, 10);
@@ -1092,8 +1091,9 @@ static void LoadContestMonIcon(u16 species, u8 monIndex, u8 srcOffset, u8 useDma
 {
     const u8 *iconPtr;
     u16 var0, var1;
+    u8 gender = GetGenderForSpecies(species, 0); // RogueNote: TODO
 
-    iconPtr = GetMonIconPtr(species, personality);
+    iconPtr = GetMonIconPtr(species, personality, gender);
     iconPtr += srcOffset * 0x200 + 0x80;
     if (useDmaNow)
     {
@@ -1989,23 +1989,23 @@ void GiveMonContestRibbon(void)
     switch (gSpecialVar_ContestCategory)
     {
     case CONTEST_CATEGORY_COOL:
-        ribbonData = GetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_COOL_RIBBON);
+        ribbonData = GetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_CUTE_RIBBON);
         if (ribbonData <= gSpecialVar_ContestRank && ribbonData <= CONTEST_RANK_MASTER)
         {
             ribbonData++;
-            SetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_COOL_RIBBON, &ribbonData);
+            SetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_CUTE_RIBBON, &ribbonData);
             if (GetRibbonCount(&gPlayerParty[gContestMonPartyIndex]) > NUM_CUTIES_RIBBONS)
-                TryPutSpotTheCutiesOnAir(&gPlayerParty[gContestMonPartyIndex], MON_DATA_COOL_RIBBON);
+                TryPutSpotTheCutiesOnAir(&gPlayerParty[gContestMonPartyIndex], MON_DATA_CUTE_RIBBON);
         }
         break;
     case CONTEST_CATEGORY_BEAUTY:
-        ribbonData = GetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_BEAUTY_RIBBON);
+        ribbonData = GetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_CUTE_RIBBON);
         if (ribbonData <= gSpecialVar_ContestRank && ribbonData <= CONTEST_RANK_MASTER)
         {
             ribbonData++;
-            SetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_BEAUTY_RIBBON, &ribbonData);
+            SetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_CUTE_RIBBON, &ribbonData);
             if (GetRibbonCount(&gPlayerParty[gContestMonPartyIndex]) > NUM_CUTIES_RIBBONS)
-                TryPutSpotTheCutiesOnAir(&gPlayerParty[gContestMonPartyIndex], MON_DATA_BEAUTY_RIBBON);
+                TryPutSpotTheCutiesOnAir(&gPlayerParty[gContestMonPartyIndex], MON_DATA_CUTE_RIBBON);
         }
         break;
     case CONTEST_CATEGORY_CUTE:
@@ -2309,29 +2309,8 @@ void BufferContestTrainerAndMonNames(void)
 }
 
 // Unused
-void DoesContestCategoryHaveMuseumPainting(void)
+void UNUSED DoesContestCategoryHaveMuseumPainting(void)
 {
-    int contestWinner;
-    switch (gSpecialVar_ContestCategory)
-    {
-    case CONTEST_CATEGORY_COOL:
-        contestWinner = CONTEST_WINNER_MUSEUM_COOL - 1;
-        break;
-    case CONTEST_CATEGORY_BEAUTY:
-        contestWinner = CONTEST_WINNER_MUSEUM_BEAUTY - 1;
-        break;
-    case CONTEST_CATEGORY_CUTE:
-        contestWinner = CONTEST_WINNER_MUSEUM_CUTE - 1;
-        break;
-    case CONTEST_CATEGORY_SMART:
-        contestWinner = CONTEST_WINNER_MUSEUM_SMART - 1;
-        break;
-    case CONTEST_CATEGORY_TOUGH:
-    default:
-        contestWinner = CONTEST_WINNER_MUSEUM_TOUGH - 1;
-        break;
-    }
-
     gSpecialVar_0x8004 = FALSE;
 }
 
@@ -2356,9 +2335,7 @@ void ShouldReadyContestArtist(void)
 
 u8 CountPlayerMuseumPaintings(void)
 {
-    int i;
     u8 count = 0;
-
     return count;
 }
 
@@ -2541,11 +2518,12 @@ bool8 IsContestDebugActive(void)
 
 void ShowContestEntryMonPic(void)
 {
-    u32 personality, otId;
+    u32 personality;
     u16 species;
     u8 spriteId;
     u8 taskId;
     u8 left, top;
+    u8 gender;
 
     if (FindTaskIdByFunc(Task_ShowContestEntryMonPic) == TASK_NONE)
     {
@@ -2554,13 +2532,13 @@ void ShowContestEntryMonPic(void)
         top = 3;
         species = gContestMons[gSpecialVar_0x8006].species;
         personality = gContestMons[gSpecialVar_0x8006].personality;
-        otId = gContestMons[gSpecialVar_0x8006].otId;
+        gender = GetGenderForSpecies(species, 0); // RogueNote: TODO
         taskId = CreateTask(Task_ShowContestEntryMonPic, 0x50);
         gTasks[taskId].data[0] = 0;
         gTasks[taskId].data[1] = species;
-        HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality);
+        HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality, gender);
 
-        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), species);
+        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpecies(species, gender, FALSE), species);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         gMultiuseSpriteTemplate.paletteTag = species;
         spriteId = CreateSprite(&gMultiuseSpriteTemplate, (left + 1) * 8 + 32, (top * 8) + 40, 0);

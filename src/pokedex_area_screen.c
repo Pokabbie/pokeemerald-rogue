@@ -244,7 +244,7 @@ static void FindMapsWithMon(u16 species)
 {
 }
 
-static void SetAreaHasMon(u16 mapGroup, u16 mapNum)
+static void UNUSED SetAreaHasMon(u16 mapGroup, u16 mapNum)
 {
     if (sPokedexAreaScreen->numOverworldAreas < MAX_AREA_HIGHLIGHTS)
     {
@@ -255,7 +255,7 @@ static void SetAreaHasMon(u16 mapGroup, u16 mapNum)
     }
 }
 
-static void SetSpecialMapHasMon(u16 mapGroup, u16 mapNum)
+static void UNUSED SetSpecialMapHasMon(u16 mapGroup, u16 mapNum)
 {
     int i;
 
@@ -300,7 +300,7 @@ static u16 GetRegionMapSectionId(u8 mapGroup, u8 mapNum)
     return Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
 }
 
-static bool8 MapHasSpecies(const struct WildPokemonHeader *info, u16 species)
+static bool8 UNUSED MapHasSpecies(const struct WildPokemonHeader *info, u16 species)
 {
     // If this is a header for Altering Cave, skip it if it's not the current Altering Cave encounter set
     if (GetRegionMapSectionId(info->mapGroup, info->mapNum) == MAPSEC_ALTERING_CAVE)

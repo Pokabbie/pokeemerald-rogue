@@ -60,7 +60,6 @@ void SetPCItemQuantity(u16 *quantity, u16 newValue)
 void ApplyNewEncryptionKeyToBagItems(u32 newKey)
 {
     u16 i;
-    u32 pocket, item;
     
     for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
         ApplyNewEncryptionKeyToHword(&gSaveBlock1Ptr->bagPockets[i].quantity, newKey);
@@ -193,7 +192,6 @@ void ShrinkBagItems(void)
 {
     bool8 repeat;
     u16 i;
-    u16 j;
     u8 pocket;
     u16 quantityCapacity;
     u16 quantityA;
@@ -599,20 +597,12 @@ bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, 
         {
             u8 battleUsageA = ItemId_GetBattleUsage(itemIdA);
             u8 battleUsageB = ItemId_GetBattleUsage(itemIdB);
-            ItemUseFunc battleUseFuncA = ItemId_GetBattleFunc(itemIdA);
-            ItemUseFunc battleUseFuncB = ItemId_GetBattleFunc(itemIdB);
 
             if(battleUsageA != 0 || battleUsageB != 0)
             {
                 if(battleUsageA != battleUsageB)
                 {
                     return battleUsageA < battleUsageB;
-                }
-
-                if(battleUseFuncA != battleUseFuncB)
-                {
-                    // Prefer showing items which have a battle func first
-                    return battleUseFuncA > battleUseFuncB;
                 }
             }
         }
@@ -1113,14 +1103,12 @@ void CompactItemsInBagPocket(struct BagPocket *bagPocket)
 
 void SortItemsInBag()
 {
-    u16 i, j;
-    bool8 anySorts;
+    u16 i;
     struct ItemSlot currItem;
     
-
     ShrinkBagItems();
 
-    for(i = 0; j < BAG_ITEM_CAPACITY; ++i)
+    for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
     {
         currItem = gSaveBlock1Ptr->bagPockets[i];
 
@@ -1201,7 +1189,7 @@ u16 CountTotalItemQuantityInBag(u16 itemId)
     return ownedCount;
 }
 
-static bool8 CheckPyramidBagHasItem(u16 itemId, u16 count)
+static bool8 UNUSED CheckPyramidBagHasItem(u16 itemId, u16 count)
 {
     u8 i;
     u16 *items = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode];
@@ -1223,7 +1211,7 @@ static bool8 CheckPyramidBagHasItem(u16 itemId, u16 count)
     return FALSE;
 }
 
-static bool8 CheckPyramidBagHasSpace(u16 itemId, u16 count)
+static bool8 UNUSED CheckPyramidBagHasSpace(u16 itemId, u16 count)
 {
     u8 i;
     u16 *items = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode];

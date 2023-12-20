@@ -762,7 +762,7 @@ static void DrawPokeblockMenuHighlight(u16 cursorPos, u16 tileNum)
     ScheduleBgCopyTilemapToVram(2);
 }
 
-static void CompactPokeblockSlots(void)
+static void UNUSED CompactPokeblockSlots(void)
 {
 }
 
@@ -1084,7 +1084,7 @@ static void UsePokeblockOnField(void)
 {
 }
 
-static void ReturnToPokeblockCaseOnField(void)
+static void UNUSED ReturnToPokeblockCaseOnField(void)
 {
     OpenPokeblockCase(PBLOCK_CASE_FIELD, sSavedPokeblockData.callback);
 }
@@ -1093,7 +1093,7 @@ static void PokeblockAction_Toss(u8 taskId)
 {
 }
 
-static void CreateTossPokeblockYesNoMenu(u8 taskId)
+static void UNUSED CreateTossPokeblockYesNoMenu(u8 taskId)
 {
     CreateYesNoMenuWithCallbacks(taskId, &sTossPkblockWindowTemplate, 1, 0, 2, 1, 0xE, &sTossYesNoFuncTable);
 }

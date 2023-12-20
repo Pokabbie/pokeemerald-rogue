@@ -23,6 +23,8 @@
 #include "constants/moves.h"
 #include "constants/items.h"
 
+#include "rogue_controller.h"
+
 #define AI_ACTION_DONE          (1 << 0)
 #define AI_ACTION_FLEE          (1 << 1)
 #define AI_ACTION_WATCH         (1 << 2)
@@ -93,6 +95,9 @@ void BattleAI_SetupItems(void)
     s32 i;
     u8 *data = (u8 *)BATTLE_HISTORY;
 
+    bool8 shouldOverrideItems = FALSE;
+    u16 overrideItems[MAX_TRAINER_ITEMS] = {0};
+
     for (i = 0; i < sizeof(struct BattleHistory); i++)
         data[i] = 0;
 
@@ -104,12 +109,29 @@ void BattleAI_SetupItems(void)
             )
        )
     {
+        shouldOverrideItems = Rogue_OverrideTrainerItems(&overrideItems[0]);
+
         for (i = 0; i < MAX_TRAINER_ITEMS; i++)
         {
-            if (gTrainers[gTrainerBattleOpponent_A].items[i] != 0)
+            if(shouldOverrideItems)
             {
-                BATTLE_HISTORY->trainerItems[BATTLE_HISTORY->itemsNo] = gTrainers[gTrainerBattleOpponent_A].items[i];
-                BATTLE_HISTORY->itemsNo++;
+                if(overrideItems[i] != 0)
+                {
+                    BATTLE_HISTORY->trainerItems[BATTLE_HISTORY->itemsNo] = overrideItems[i];
+                    BATTLE_HISTORY->itemsNo++;
+                }
+            }
+            else
+            {
+                struct Trainer trainer;
+
+                Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
+
+                if (trainer.items[i] != 0)
+                {
+                    BATTLE_HISTORY->trainerItems[BATTLE_HISTORY->itemsNo] = trainer.items[i];
+                    BATTLE_HISTORY->itemsNo++;
+                }
             }
         }
     }
@@ -141,6 +163,12 @@ static u32 GetWildAiFlags(void)
 
 void BattleAI_SetupFlags(void)
 {
+    struct Trainer trainerA;
+    struct Trainer trainerB;
+
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainerA);
+    Rogue_ModifyTrainer(gTrainerBattleOpponent_B, &trainerB);
+
 #if DEBUG_OVERWORLD_MENU == TRUE
     if (gIsDebugBattle)
         AI_THINKING_STRUCT->aiFlags = gDebugAIFlags;
@@ -159,15 +187,15 @@ void BattleAI_SetupFlags(void)
     else if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER_HILL | BATTLE_TYPE_SECRET_BASE))
         AI_THINKING_STRUCT->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT;
     else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-        AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags | gTrainers[gTrainerBattleOpponent_B].aiFlags;
+        AI_THINKING_STRUCT->aiFlags = trainerA.aiFlags | trainerB.aiFlags;
     else
-        AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags;
+        AI_THINKING_STRUCT->aiFlags = trainerA.aiFlags;
 
     // check smart wild AI
     if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_TRAINER)) && IsWildMonSmart())
         AI_THINKING_STRUCT->aiFlags |= GetWildAiFlags();
 
-    if (gBattleTypeFlags & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS) || gTrainers[gTrainerBattleOpponent_A].doubleBattle)
+    if (gBattleTypeFlags & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS) || trainerA.doubleBattle)
         AI_THINKING_STRUCT->aiFlags |= AI_FLAG_DOUBLE_BATTLE; // Act smart in doubles and don't attack your partner.
 }
 

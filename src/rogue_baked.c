@@ -13,7 +13,12 @@
 // Manually reinclude this if regenerating
 #include "BakeHelpers.h"
 
+#ifdef ROGUE_EXPANSION
+extern const struct SpeciesInfo gSpeciesInfo[];
+#else
 extern const struct BaseStats gBaseStats[];
+#endif
+
 #else
 #include "global.h"
 #include "data.h"
@@ -50,7 +55,7 @@ extern const u8 gText_TrainerName_Leaf[];
 extern const u8 gText_TrainerName_Ethan[];
 extern const u8 gText_TrainerName_Lyra[];
 
-extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+//extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 extern const struct RogueItem gRogueItems[];
 
 #ifdef ROGUE_BAKE_VALID
@@ -133,9 +138,16 @@ bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result)
     return FALSE;
 }
 
+static const struct Evolution* GetBaseEvolution(u16 species, u8 evoIdx)
+{
+    // TODO - Validate that this is a valid read
+    AGB_ASSERT(gSpeciesInfo[species].evolutions != NULL);
+    return &gSpeciesInfo[species].evolutions[evoIdx];
+}
+
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
-    memcpy(outEvo, &gEvolutionTable[species][evoIdx], sizeof(struct Evolution));
+    memcpy(outEvo, GetBaseEvolution(species, evoIdx), sizeof(struct Evolution));
 
     // Any species alterations
 #ifdef ROGUE_EXPANSION
@@ -596,9 +608,9 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         outTrainer->encounterMusic_gender = trainer->teamGenerator.preferredGender == MALE ? 0 : F_TRAINER_FEMALE; // not actually used for encounter music anymore
         outTrainer->trainerPic = trainer->trainerPic;
 
-        outTrainer->partyFlags = 0;
+        //outTrainer->partyFlags = 0;
         outTrainer->doubleBattle = FALSE;
-#ifdef ROGUE_EXPANSION
+#if 1 //def ROGUE_EXPANSION
         outTrainer->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE | AI_FLAG_HELP_PARTNER | AI_FLAG_SMART_SWITCHING;
 #else
         outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN;
@@ -634,7 +646,7 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
     u8 i;
     bool8 shouldRedirect;
     u16 trainerClass = 0;
-    u16 baseSpecies;
+    u16 baseSpecies = 0;
     struct RogueBattleMusic const* currMusic = NULL;
     const struct RogueTrainer* trainer = NULL;
 
@@ -915,7 +927,7 @@ u16 Rogue_GetPrice(u16 itemId)
 
 
     if(itemId == ITEM_NONE)
-        return;
+        return 0;
 
     // Range edits
     if(itemId >= ITEM_HP_UP && itemId <= ITEM_PP_MAX)
@@ -1171,10 +1183,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
         if(isValidItem)
         {
-            outItem->itemId = itemId;
+            //outItem->itemId = itemId;
             outItem->holdEffect = rogueItem->holdEffect;
             outItem->holdEffectParam = rogueItem->holdEffectParam;
-            outItem->registrability = rogueItem->registrability;
+            //outItem->registrability = rogueItem->registrability;
             outItem->pocket = rogueItem->pocket;
             outItem->type = rogueItem->type;
             outItem->fieldUseFunc = rogueItem->fieldUseFunc;
@@ -1341,7 +1353,6 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         if(outItem->pocket != POCKET_POKE_BALLS && IsCurseActive(EFFECT_BATTLE_ITEM_BAN))
         {
             outItem->battleUsage = 0;
-            outItem->battleUseFunc = 0;
         }
     }
 }
@@ -1624,8 +1635,13 @@ bool8 Rogue_DoesEvolveInto(u16 fromSpecies, u16 toSpecies)
 
 void Rogue_AppendSpeciesTypeFlags(u16 species, u32* outFlags)
 {
-    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gBaseStats[species].type1);
-    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gBaseStats[species].type2);
+#if 1 //def ROGUE_EXPANSION
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gSpeciesInfo[species].types[0]);
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gSpeciesInfo[species].types[1]);
+#else
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gRogueSpeciesInfo[species].type1);
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gRogueSpeciesInfo[species].type2);
+#endif
 }
 
 u32 Rogue_GetSpeciesEvolutionChainTypeFlags(u16 species)

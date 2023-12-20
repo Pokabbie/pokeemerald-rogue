@@ -8463,7 +8463,7 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_CATCHING_CHARM] =
+    [ITEM_CATCHING_CHARM_GF] =
     {
         .name = _("CatchngCharm"),
         .price = 0,

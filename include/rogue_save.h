@@ -5,6 +5,7 @@ extern struct RogueSaveBlock *gRogueSaveBlock;
 
 enum
 {
+    SAVE_VER_ID_UNKNOWN,
     SAVE_VER_ID_1_X,
     SAVE_VER_ID_2_0
 };

@@ -1456,7 +1456,12 @@ u8 GetFrontierOpponentClass(u16 trainerId)
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
-        trainerClass = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerClass;
+        struct Trainer trainer;
+        AGB_ASSERT(FALSE); // fixme
+
+        Rogue_ModifyTrainer(trainerId - TRAINER_CUSTOM_PARTNER, &trainer);
+
+        trainerClass = trainer.trainerClass;
     }
     else if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
@@ -1543,8 +1548,11 @@ void GetFrontierTrainerName(u8 *dst, u16 trainerId)
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
-        for (i = 0; gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerName[i] != EOS; i++)
-            dst[i] = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerName[i];
+        const u8* trainerName = Rogue_GetTrainerName(trainerId - TRAINER_CUSTOM_PARTNER);
+        AGB_ASSERT(FALSE); // fixme
+
+        for (i = 0; trainerName[i] != EOS; i++)
+            dst[i] = trainerName[i];
     }
     else if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
@@ -3015,12 +3023,11 @@ void TryHideBattleTowerReporter(void)
 static void FillPartnerParty(u16 trainerId)
 {
     s32 i, j;
-    u32 ivs, level, personality;
+    u32 ivs, level;
     u32 friendship;
     u16 monId;
     u32 otID;
     u8 trainerName[(PLAYER_NAME_LENGTH * 3) + 1];
-    s32 ball = -1;
     SetFacilityPtrsGetLevel();
 
     if (trainerId == TRAINER_STEVEN_PARTNER)
@@ -3056,75 +3063,7 @@ static void FillPartnerParty(u16 trainerId)
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
-        otID = Random32();
-
-        for (i = 0; i < 3; i++)
-            ZeroMonData(&gPlayerParty[i + 3]);
-
-        for (i = 0; i < 3 && i < gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].partySize; i++)
-        {
-            const struct TrainerMon *partyData = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].party;
-            u32 otIdType = OT_ID_RANDOM_NO_SHINY;
-            do
-            {
-                personality = Random32();
-            } while (IsShinyOtIdPersonality(otID, personality));
-
-            if (partyData[i].gender == TRAINER_MON_MALE)
-                personality = (personality & 0xFFFFFF00) | GeneratePersonalityForGender(MON_MALE, partyData[i].species);
-            else if (partyData[i].gender == TRAINER_MON_FEMALE)
-                personality = (personality & 0xFFFFFF00) | GeneratePersonalityForGender(MON_FEMALE, partyData[i].species);
-            if (partyData[i].nature != 0)
-                ModifyPersonalityForNature(&personality, partyData[i].nature - 1);
-            if (partyData[i].isShiny)
-            {
-                otIdType = OT_ID_PRESET;
-                otID = HIHALF(personality) ^ LOHALF(personality);
-            }
-
-            CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, 0, TRUE, personality, otIdType, otID);
-            SetMonData(&gPlayerParty[i + 3], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
-            CustomTrainerPartyAssignMoves(&gPlayerParty[i+3], &partyData[i]);
-
-            SetMonData(&gPlayerParty[i+3], MON_DATA_IVS, &(partyData[i].iv));
-            if (partyData[i].ev != NULL)
-            {
-                SetMonData(&gPlayerParty[i+3], MON_DATA_HP_EV, &(partyData[i].ev[0]));
-                SetMonData(&gPlayerParty[i+3], MON_DATA_ATK_EV, &(partyData[i].ev[1]));
-                SetMonData(&gPlayerParty[i+3], MON_DATA_DEF_EV, &(partyData[i].ev[2]));
-                SetMonData(&gPlayerParty[i+3], MON_DATA_SPATK_EV, &(partyData[i].ev[3]));
-                SetMonData(&gPlayerParty[i+3], MON_DATA_SPDEF_EV, &(partyData[i].ev[4]));
-                SetMonData(&gPlayerParty[i+3], MON_DATA_SPEED_EV, &(partyData[i].ev[5]));
-            }
-            if (partyData[i].ability != ABILITY_NONE)
-            {
-                const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[partyData[i].species];
-                u32 maxAbilities = ARRAY_COUNT(speciesInfo->abilities);
-                for (j = 0; j < maxAbilities; ++j)
-                {
-                    if (speciesInfo->abilities[j] == partyData[i].ability)
-                        break;
-                }
-                if (j < maxAbilities)
-                    SetMonData(&gPlayerParty[i+3], MON_DATA_ABILITY_NUM, &j);
-            }
-            SetMonData(&gPlayerParty[i+3], MON_DATA_FRIENDSHIP, &(partyData[i].friendship));
-            if (partyData[i].ball != ITEM_NONE)
-            {
-                ball = partyData[i].ball;
-                SetMonData(&gPlayerParty[i+3], MON_DATA_POKEBALL, &ball);
-            }
-            if (partyData[i].nickname != NULL)
-            {
-                SetMonData(&gPlayerParty[i+3], MON_DATA_NICKNAME, partyData[i].nickname);
-            }
-            CalculateMonStats(&gPlayerParty[i+3]);
-
-            StringCopy(trainerName, gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerName);
-            SetMonData(&gPlayerParty[i + 3], MON_DATA_OT_NAME, trainerName);
-            j = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].encounterMusic_gender >> 7;
-            SetMonData(&gPlayerParty[i+3], MON_DATA_OT_GENDER, &j);
-        }
+        AGB_ASSERT(FALSE); // fixme
     }
     else if (trainerId == TRAINER_EREADER)
     {
@@ -3672,7 +3611,7 @@ void TrySetLinkBattleTowerEnemyPartyLevel(void)
             u32 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES, NULL);
             if (species)
             {
-                exp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, enemyLevel);
+                exp = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, enemyLevel);
 
                 SetMonData(&gEnemyParty[i], MON_DATA_EXP, &exp);
                 CalculateMonStats(&gEnemyParty[i]);

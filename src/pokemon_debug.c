@@ -900,9 +900,9 @@ static void LoadBattleBg(u8 battleBgType, u8 battleTerrain)
         LoadCompressedPalette(gBattleTerrainPalette_Kyogre, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_RAYQUAZA:
-        LZDecompressVram(gBattleTerrainTiles_Rayquaza, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Rayquaza, (void*)(BG_SCREEN_ADDR(26)));
-        LoadCompressedPalette(gBattleTerrainPalette_Rayquaza, 0x20, 0x60);
+        LZDecompressVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
+        LZDecompressVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
+        LoadCompressedPalette(gBattleTerrainPalette_Frontier, 0x20, 0x60);
         break;
     }
 }
@@ -1139,7 +1139,7 @@ void CB2_Debug_Pokemon(void)
             palette = GetMonSpritePalStructCustom(species, data->isFemale, data->isShiny);
             LoadCompressedSpritePaletteWithTag(palette, species);
             //Front
-            HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[1], species, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY));
+            HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[1], species, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY), (data->isFemale ? MON_FEMALE : MON_MALE));
             data->isShiny = FALSE;
             data->isFemale = FALSE;
             BattleLoadOpponentMonSpriteGfxCustom(species, data->isFemale, data->isShiny, 1);
@@ -1154,7 +1154,7 @@ void CB2_Debug_Pokemon(void)
             LoadAndCreateEnemyShadowSpriteCustom(data, species);
 
             //Back
-            HandleLoadSpecialPokePic(FALSE, gMonSpritesGfxPtr->sprites.ptr[2], species, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY));
+            HandleLoadSpecialPokePic(FALSE, gMonSpritesGfxPtr->sprites.ptr[2], species, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY), (data->isFemale ? MON_FEMALE : MON_MALE));
             BattleLoadOpponentMonSpriteGfxCustom(species, data->isFemale, data->isShiny, 4);
             SetMultiuseSpriteTemplateToPokemon(species, 2);
             offset_y = gSpeciesInfo[species].backPicYOffset;
@@ -1164,7 +1164,7 @@ void CB2_Debug_Pokemon(void)
             gSprites[data->backspriteId].oam.priority = 0;
 
             //Icon Sprite
-            data->iconspriteId = CreateMonIcon(species, SpriteCB_MonIcon, DEBUG_ICON_X, DEBUG_ICON_Y, 4, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY));
+            data->iconspriteId = CreateMonIcon(species, SpriteCB_MonIcon, DEBUG_ICON_X, DEBUG_ICON_Y, 4, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY), (data->isFemale ? MON_FEMALE : MON_MALE));
             gSprites[data->iconspriteId].oam.priority = 0;
 
             //Modify Arrows
@@ -1682,7 +1682,7 @@ static void ReloadPokemonSprites(struct PokemonDebugMenu *data)
     FreeMonIconPalettes();
 
     AllocateMonSpritesGfx();
-    LoadMonIconPalettePersonality(species, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY));
+    LoadMonIconPaletteGender(species, (data->isFemale ? MON_FEMALE : MON_MALE));
 
     //Update instructions
     PrintInstructionsOnWindow(data);
@@ -1691,7 +1691,7 @@ static void ReloadPokemonSprites(struct PokemonDebugMenu *data)
     palette = GetMonSpritePalStructCustom(species, data->isFemale, data->isShiny);
     LoadCompressedSpritePaletteWithTag(palette, species);
     //Front
-    HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[1], species, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY));
+    HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[1], species, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY), (data->isFemale ? MON_FEMALE : MON_MALE));
     BattleLoadOpponentMonSpriteGfxCustom(species, data->isFemale, data->isShiny, 1);
     SetMultiuseSpriteTemplateToPokemon(species, 1);
     gMultiuseSpriteTemplate.paletteTag = species;
@@ -1704,7 +1704,7 @@ static void ReloadPokemonSprites(struct PokemonDebugMenu *data)
     LoadAndCreateEnemyShadowSpriteCustom(data, species);
 
     //Back
-    HandleLoadSpecialPokePic(FALSE, gMonSpritesGfxPtr->sprites.ptr[2], species, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY));
+    HandleLoadSpecialPokePic(FALSE, gMonSpritesGfxPtr->sprites.ptr[2], species, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY), (data->isFemale ? MON_FEMALE : MON_MALE));
     BattleLoadOpponentMonSpriteGfxCustom(species, data->isFemale, data->isShiny, 5);
     SetMultiuseSpriteTemplateToPokemon(species, 2);
     offset_y = gSpeciesInfo[species].backPicYOffset;
@@ -1714,7 +1714,7 @@ static void ReloadPokemonSprites(struct PokemonDebugMenu *data)
     gSprites[data->backspriteId].oam.priority = 0;
 
     //Icon Sprite
-    data->iconspriteId = CreateMonIcon(species, SpriteCB_MonIcon, DEBUG_ICON_X, DEBUG_ICON_Y, 4, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY));
+    data->iconspriteId = CreateMonIcon(species, SpriteCB_MonIcon, DEBUG_ICON_X, DEBUG_ICON_Y, 4, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY), (data->isFemale ? MON_FEMALE : MON_MALE));
     gSprites[data->iconspriteId].oam.priority = 0;
 
     //Modify Arrows

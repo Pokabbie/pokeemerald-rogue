@@ -401,7 +401,7 @@ static void GetMonNicknameLevelGender(u8 *nick, u8 *level, u8 *gender)
     StringGet_Nickname(nick);
 }
 
-static void GetMonSpeciesPersonalityOtId(u16 *species, u32 *personality, u32 *otId)
+static void GetMonSpeciesPersonalityOtId(u16 *species, u32 *personality, u32 *otId, u8 *gender)
 {
     struct Pokenav_RibbonsSummaryList *list = GetSubstructPtr(POKENAV_SUBSTRUCT_RIBBONS_SUMMARY_LIST);
     struct PokenavMonList *mons = list->monList;
@@ -414,6 +414,7 @@ static void GetMonSpeciesPersonalityOtId(u16 *species, u32 *personality, u32 *ot
         *species = GetMonData(mon, MON_DATA_SPECIES);
         *personality = GetMonData(mon, MON_DATA_PERSONALITY);
         *otId = GetMonData(mon, MON_DATA_OT_ID);
+        *gender = GetMonGender(mon);
     }
     else
     {
@@ -422,6 +423,7 @@ static void GetMonSpeciesPersonalityOtId(u16 *species, u32 *personality, u32 *ot
         *species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
         *personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
         *otId = GetBoxMonData(boxMon, MON_DATA_OT_ID);
+        *gender = GetBoxMonGender(boxMon);
     }
 }
 
@@ -942,8 +944,9 @@ static void ResetSpritesAndDrawMonFrontPic(struct Pokenav_RibbonsSummaryMenu *me
 {
     u16 species;
     u32 personality, otId;
+    u8 gender;
 
-    GetMonSpeciesPersonalityOtId(&species, &personality, &otId);
+    GetMonSpeciesPersonalityOtId(&species, &personality, &otId, &gender);
     ResetAllPicSprites();
     menu->monSpriteId = DrawRibbonsMonFrontPic(MON_SPRITE_X_ON, MON_SPRITE_Y);
     PokenavFillPalette(15, 0);
@@ -961,9 +964,10 @@ static u16 DrawRibbonsMonFrontPic(s32 x, s32 y)
 {
     u16 species, spriteId;
     u32 personality, otId;
+    u8 gender;
 
-    GetMonSpeciesPersonalityOtId(&species, &personality, &otId);
-    spriteId = CreateMonPicSprite(species, otId, personality, TRUE, MON_SPRITE_X_ON, MON_SPRITE_Y, 15, TAG_NONE);
+    GetMonSpeciesPersonalityOtId(&species, &personality, &otId, &gender);
+    spriteId = CreateMonPicSprite(species, otId, personality, gender, TRUE, MON_SPRITE_X_ON, MON_SPRITE_Y, 15, TAG_NONE);
     gSprites[spriteId].oam.priority = 0;
     return spriteId;
 }

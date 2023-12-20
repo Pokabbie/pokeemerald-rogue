@@ -867,9 +867,9 @@ static s32 RotatingGate_CanRotate(u8 gateId, s32 rotationDirection)
             {
             #ifdef BUGFIX
                 // Collision has a range 0-3, any value != 0 is impassable
-                if (MapGridGetCollisionAt(x + armPos[armIndex].x, y + armPos[armIndex].y))
+                if (MapGridIsImpassableAt(x + armPos[armIndex].x, y + armPos[armIndex].y))
             #else
-                if (MapGridGetCollisionAt(x + armPos[armIndex].x, y + armPos[armIndex].y) == 1)
+                if (MapGridIsImpassableAt(x + armPos[armIndex].x, y + armPos[armIndex].y) == 1)
             #endif
                     return FALSE;
             }

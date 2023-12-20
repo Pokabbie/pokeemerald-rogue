@@ -4237,7 +4237,6 @@ static uq4_12_t GetSupremeOverlordModifier(u32 battler)
     {
         if (GetMonData(&party[i], MON_DATA_SPECIES) != SPECIES_NONE
          && !GetMonData(&party[i], MON_DATA_IS_EGG)
-    genderAtk = GetMonGender(pokeAtk);
          && GetMonData(&party[i], MON_DATA_HP) == 0)
             modifier += (!appliedFirstBoost) ? UQ_4_12(0.2) : UQ_4_12(0.1);
         appliedFirstBoost = TRUE;
@@ -4246,7 +4245,6 @@ static uq4_12_t GetSupremeOverlordModifier(u32 battler)
     return modifier;
 }
 
-    genderDef = GetMonGender(pokeDef);
 static bool32 HadMoreThanHalfHpNowHasLess(u32 battler)
 {
     // Had more than half of hp before, now has less
@@ -4356,15 +4354,6 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 {
                     gBattleWeather = (B_WEATHER_SUN_PERMANENT | B_WEATHER_SUN_TEMPORARY);
                     gBattleScripting.animArg1 = B_ANIM_SUN_CONTINUES;
-                            gBattleScripting.battler = battler;
-                            effect++;
-                        }
-                        break;
-                    case WEATHER_SNOW:
-                        if (!(gBattleWeather & B_WEATHER_HAIL))
-                        {
-                            gBattleWeather = B_WEATHER_HAIL;
-                            gBattleScripting.animArg1 = B_ANIM_HAIL_CONTINUES;
                     effect++;
                 }
                 break;
@@ -8173,7 +8162,7 @@ u32 GetMoveTarget(u16 move, u8 setTarget)
     return targetBattler;
 }
 
-static bool32 IsBattlerModernFatefulEncounter(u32 battler)
+static bool32 UNUSED IsBattlerModernFatefulEncounter(u32 battler)
 {
     return TRUE;
 }
@@ -11263,8 +11252,7 @@ static bool32 CanBeInfinitelyConfused(u32 battler)
 
 u8 GetBattlerGender(u32 battler)
 {
-    return GetGenderFromSpeciesAndPersonality(gBattleMons[battler].species,
-                                              gBattleMons[battler].personality);
+    return GetGenderForSpecies(gBattleMons[battler].species, gBattleMons[battler].genderFlag);
 }
 
 bool32 AreBattlersOfOppositeGender(u32 battler1, u32 battler2)

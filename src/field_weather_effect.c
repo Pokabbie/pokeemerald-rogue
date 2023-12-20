@@ -958,7 +958,6 @@ static void UNUSED WaitSnowflakeSprite(struct Sprite *sprite)
 static void UpdateSnowflakeSprite(struct Sprite *sprite)
 {
     s16 x;
-    s16 y;
 
     sprite->tPosY += sprite->tDeltaY;
     sprite->y = sprite->tPosY >> 7;
@@ -2241,8 +2240,8 @@ void Leaves_InitVars(void)
 {
     gWeatherPtr->initStep = 0;
     gWeatherPtr->weatherGfxLoaded = 0;
-    gWeatherPtr->gammaTargetIndex = 0;
-    gWeatherPtr->gammaStepDelay = 20;
+    gWeatherPtr->targetColorMapIndex = 0;
+    gWeatherPtr->colorMapStepDelay = 20;
     if (!gWeatherPtr->leavesSpritesCreated)
     {
         gWeatherPtr->leavesXOffset = gWeatherPtr->leavesYOffset = 0;

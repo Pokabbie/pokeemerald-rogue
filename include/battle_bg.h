@@ -8,6 +8,7 @@ struct BattleBackground
     const void *entryTileset;
     const void *entryTilemap;
     const void *palette;
+    const void *perSeasonPalette[SEASON_COUNT];
 };
 
 void BattleInitBgsAndWindows(void);

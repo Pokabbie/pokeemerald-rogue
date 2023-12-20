@@ -1059,7 +1059,7 @@ static void InitMapBasedOnPlayerLocation(void)
     sRegionMap->cursorPosY = gRegionMapEntries[sRegionMap->mapSecId].y + y + MAPCURSOR_Y_MIN;
 }
 
-static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
+static void UNUSED RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 {
     u16 y;
     u16 x;

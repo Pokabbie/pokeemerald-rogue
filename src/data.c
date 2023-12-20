@@ -54,10 +54,10 @@ const struct SpriteFrameImage gBattlerPicTable_OpponentRight[] =
 
 const struct SpriteFrameImage gTrainerBackPicTable_None[] =
 {
-    gTrainerBackPic_None, 0x0800,
-    gTrainerBackPic_None, 0x0800,
-    gTrainerBackPic_None, 0x0800,
-    gTrainerBackPic_None, 0x0800,
+    {gTrainerBackPic_None, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_None, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_None, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_None, TRAINER_PIC_SIZE},
 };
 
 const struct SpriteFrameImage gTrainerBackPicTable_Brendan[] =
@@ -96,20 +96,20 @@ const struct SpriteFrameImage gTrainerBackPicTable_Leaf[] =
 
 const struct SpriteFrameImage gTrainerBackPicTable_Ethan[] =
 {
-    gTrainerBackPic_Ethan, 0x0800,
-    gTrainerBackPic_Ethan + 0x0800, 0x0800,
-    gTrainerBackPic_Ethan + 0x1000, 0x0800,
-    gTrainerBackPic_Ethan + 0x1800, 0x0800,
-    gTrainerBackPic_Ethan + 0x2000, 0x0800,
+    {gTrainerBackPic_Ethan + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Ethan + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Ethan + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Ethan + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Ethan + TRAINER_PIC_SIZE * 4, TRAINER_PIC_SIZE},
 };
 
 const struct SpriteFrameImage gTrainerBackPicTable_Lyra[] =
 {
-    gTrainerBackPic_Lyra, 0x0800,
-    gTrainerBackPic_Lyra + 0x0800, 0x0800,
-    gTrainerBackPic_Lyra + 0x1000, 0x0800,
-    gTrainerBackPic_Lyra + 0x1800, 0x0800,
-    gTrainerBackPic_Lyra + 0x2000, 0x0800,
+    {gTrainerBackPic_Lyra + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Lyra + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Lyra + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Lyra + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Lyra + TRAINER_PIC_SIZE * 4, TRAINER_PIC_SIZE},
 };
 
 const struct SpriteFrameImage gTrainerBackPicTable_RubySapphireBrendan[] =
@@ -146,28 +146,28 @@ const struct SpriteFrameImage gTrainerBackPicTable_Steven[] =
 
 const struct SpriteFrameImage gTrainerBackPicTable_Lucas[] =
 {
-    gTrainerBackPic_Lucas, 0x0800,
-    gTrainerBackPic_Lucas + 0x0800, 0x0800,
-    gTrainerBackPic_Lucas + 0x1000, 0x0800,
-    gTrainerBackPic_Lucas + 0x1800, 0x0800,
-    gTrainerBackPic_Lucas + 0x2000, 0x0800,
+    {gTrainerBackPic_Lucas + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Lucas + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Lucas + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Lucas + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Lucas + TRAINER_PIC_SIZE * 4, TRAINER_PIC_SIZE},
 };
 
 const struct SpriteFrameImage gTrainerBackPicTable_Dawn[] =
 {
-    gTrainerBackPic_Dawn, 0x0800,
-    gTrainerBackPic_Dawn + 0x0800, 0x0800,
-    gTrainerBackPic_Dawn + 0x1000, 0x0800,
-    gTrainerBackPic_Dawn + 0x1800, 0x0800,
-    gTrainerBackPic_Dawn + 0x2000, 0x0800,
+    {gTrainerBackPic_Dawn + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Dawn + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Dawn + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Dawn + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Dawn + TRAINER_PIC_SIZE * 4, TRAINER_PIC_SIZE},
 };
 
 const struct SpriteFrameImage gTrainerBackPicTable_CommunityZefa[] =
 {
-    gTrainerBackPic_CommunityZefa, 0x0800,
-    gTrainerBackPic_CommunityZefa + 0x0800, 0x0800,
-    gTrainerBackPic_CommunityZefa + 0x1000, 0x0800,
-    gTrainerBackPic_CommunityZefa + 0x1800, 0x0800,
+    {gTrainerBackPic_CommunityZefa + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_CommunityZefa + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_CommunityZefa + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_CommunityZefa + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
 };
 
 const union AnimCmd sAnim_GeneralFrame0[] =
@@ -347,9 +347,7 @@ const union AnimCmd *const gAnims_MonPic[MAX_MON_PIC_FRAMES] =
 #include "data/trainer_graphics/back_pic_anims.h"
 #include "data/trainer_graphics/back_pic_tables.h"
 
-#include "data/trainer_parties.h"
 #include "data/text/trainer_class_names.h"
-#include "data/trainers.h"
 #include "data/text/move_names.h"
 
 #include "data/rogue_adventure.h"

@@ -562,7 +562,7 @@ static void CB2_MoveRelearnerMain(void)
     UpdatePaletteFade();
 }
 
-static void PrintMessageWithPlaceholders(const u8 *src)
+static void FormatAndPrintText(const u8 *src)
 {
     StringExpandPlaceholders(gStringVar4, src);
     MoveRelearnerPrintMessage(gStringVar4);
@@ -673,7 +673,7 @@ static void DoMoveRelearnerMain(void)
         }
         break;
     case MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT:
-        PrintMessageWithPlaceholders(gText_MoveRelearnerPkmnTryingToLearnMove);
+        FormatAndPrintText(gText_MoveRelearnerPkmnTryingToLearnMove);
         sMoveRelearnerStruct->state++;
         break;
     case MENU_STATE_WAIT_FOR_TRYING_TO_LEARN:
@@ -689,7 +689,7 @@ static void DoMoveRelearnerMain(void)
 
             if (selection == 0)
             {
-                PrintMessageWithPlaceholders(gText_MoveRelearnerWhichMoveToForget);
+                FormatAndPrintText(gText_MoveRelearnerWhichMoveToForget);
                 sMoveRelearnerStruct->state = MENU_STATE_PRINT_WHICH_MOVE_PROMPT;
             }
             else if (selection == MENU_B_PRESSED || selection == 1)

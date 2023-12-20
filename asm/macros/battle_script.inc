@@ -1267,12 +1267,12 @@
 	.endm
 
 	.macro rogue_partyhasroom ptr:req
-	.byte 0xf9
+	.byte 0xe7
 	.4byte \ptr
 	.endm
 
 	.macro rogue_caughtmon
-	.byte 0xfa
+	.byte 0xfd
 	.endm
 
 	.macro settelekinesis failInstr:req

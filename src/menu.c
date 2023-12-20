@@ -2091,9 +2091,10 @@ static void UNUSED LoadMonIconPalAtOffset(u8 palOffset, u16 speciesId)
     LoadPalette(GetValidMonIconPalettePtr(speciesId), palOffset, PLTT_SIZE_4BPP);
 }
 
-static void UNUSED DrawMonIconAtPos(u8 windowId, u16 speciesId, u32 personality, u16 x, u16 y)
+static void UNUSED DrawMonIconAtPos(u8 windowId, u16 species, u32 personality, u16 x, u16 y)
 {
-    BlitBitmapToWindow(windowId, GetMonIconPtr(speciesId, personality), x, y, 32, 32);
+    u8 gender = GetGenderForSpecies(species, 0); // RogueNote: TODO
+    BlitBitmapToWindow(windowId, GetMonIconPtr(species, personality, gender), x, y, 32, 32);
 }
 
 void ListMenuLoadStdPalAt(u8 palOffset, u8 palId)
@@ -2124,8 +2125,6 @@ void BlitMenuInfoIcon(u8 windowId, u8 iconId, u16 x, u16 y)
 
 void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
 {
-    s32 curFlag;
-    s32 flagCount;
     u8 *string = dest;
 
     *(string++) = EXT_CTRL_CODE_BEGIN;

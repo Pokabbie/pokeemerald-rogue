@@ -1505,7 +1505,7 @@ void SetPokemonAnglerSpecies(u16 species)
 // If enough Pokémon were caught during the day the show can be put on air (and will
 // be moved out of the last slot).
 // Either way the temporary version of the show in the last slot is deleted.
-static void ResolveWorldOfMastersShow(u16 days)
+static void UNUSED ResolveWorldOfMastersShow(u16 days)
 {
     TVShow *show = &gSaveBlock1Ptr->tvShows[LAST_TVSHOW_IDX];
     if (show->worldOfMasters.kind == TVSHOW_WORLD_OF_MASTERS)
@@ -2138,7 +2138,7 @@ void TryPutSecretBaseSecretsOnAir(void)
 
 // Check var thresholds required to trigger the Number One show
 // The vars are reset afterwards regardless
-static void ResolveNumberOneShow(u16 days)
+static void UNUSED ResolveNumberOneShow(u16 days)
 {
     u8 i;
 
@@ -2369,7 +2369,7 @@ static bool8 IsAddingPokeNewsDisallowed(u8 newsKind)
     return FALSE;
 }
 
-static void UpdatePokeNewsCountdown(u16 days)
+static void UNUSED UpdatePokeNewsCountdown(u16 days)
 {
     u8 i;
 

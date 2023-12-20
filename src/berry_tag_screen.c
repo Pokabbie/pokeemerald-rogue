@@ -631,7 +631,6 @@ static void HandleBagCursorPositionChange(s8 toMove)
 
 static void Task_DisplayAnotherBerry(u8 taskId)
 {
-    u16 i;
     s16 y;
     s16 *data = gTasks[taskId].data;
     tBerryY += DISPLAY_SPEED;

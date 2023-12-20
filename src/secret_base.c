@@ -76,7 +76,6 @@ struct SecretBaseEntranceMetatiles
 };
 
 static EWRAM_DATA u8 sCurSecretBaseId = 0;
-static EWRAM_DATA bool8 sInFriendSecretBase = FALSE;
 static EWRAM_DATA struct SecretBaseRegistryMenu *sRegistryMenu = NULL;
 
 static void Task_ShowSecretBaseRegistryMenu(u8);
@@ -93,7 +92,7 @@ static void DeleteRegistry_Yes(u8);
 static void DeleteRegistry_No(u8);
 static void ReturnToMainRegistryMenu(u8);
 static void GoToSecretBasePCRegisterMenu(u8);
-static u8 GetSecretBaseOwnerType(u8);
+//static u8 UNUSED GetSecretBaseOwnerType(u8);
 
 static const struct SecretBaseEntranceMetatiles sSecretBaseEntranceMetatiles[] =
 {
@@ -374,8 +373,6 @@ static void SetSecretBaseWarpDestination(void)
 
 static void Task_EnterSecretBase(u8 taskId)
 {
-    u16 secretBaseIdx;
-
     switch (gTasks[taskId].tState)
     {
     case 0:
@@ -419,7 +416,7 @@ static void EnterNewlyCreatedSecretBase_WaitFadeIn(u8 taskId)
     }
 }
 
-static void EnterNewlyCreatedSecretBase_StartFadeIn(void)
+static void UNUSED EnterNewlyCreatedSecretBase_StartFadeIn(void)
 {
     s16 x, y;
 
@@ -438,17 +435,18 @@ static void Task_EnterNewlyCreatedSecretBase(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        s8 secretBaseGroup = SECRET_BASE_ID_TO_GROUP(sCurSecretBaseId);
-        SetWarpDestination(
-            gSaveBlock1Ptr->location.mapGroup,
-            gSaveBlock1Ptr->location.mapNum,
-            WARP_ID_NONE,
-            GET_BASE_COMPUTER_X(secretBaseGroup),
-            GET_BASE_COMPUTER_Y(secretBaseGroup));
-        WarpIntoMap();
-        gFieldCallback = EnterNewlyCreatedSecretBase_StartFadeIn;
-        SetMainCallback2(CB2_LoadMap);
-        DestroyTask(taskId);
+        AGB_ASSERT(FALSE);
+        //s8 secretBaseGroup = SECRET_BASE_ID_TO_GROUP(sCurSecretBaseId);
+        //SetWarpDestination(
+        //    gSaveBlock1Ptr->location.mapGroup,
+        //    gSaveBlock1Ptr->location.mapNum,
+        //    WARP_ID_NONE,
+        //    GET_BASE_COMPUTER_X(secretBaseGroup),
+        //    GET_BASE_COMPUTER_Y(secretBaseGroup));
+        //WarpIntoMap();
+        //gFieldCallback = EnterNewlyCreatedSecretBase_StartFadeIn;
+        //SetMainCallback2(CB2_LoadMap);
+        //DestroyTask(taskId);
     }
 }
 
@@ -945,7 +943,7 @@ static void GoToSecretBasePCRegisterMenu(u8 taskId)
 #undef tActionWindowId
 #undef tArrowTaskId
 
-static u8 GetSecretBaseOwnerType(u8 secretBaseIdx)
+static u8 UNUSED sGetSecretBaseOwnerType(u8 secretBaseIdx)
 {
     return (gSaveBlock1Ptr->secretBases[secretBaseIdx].trainerId[0] % 5)
          + (gSaveBlock1Ptr->secretBases[secretBaseIdx].gender * 5);
@@ -1137,7 +1135,7 @@ static u8 TrySaveFriendsSecretBase(struct SecretBase *secretBase, u32 version, u
 
 // Moves the registered secret bases to the beginning of the array, so that
 // they won't be forgotten during record mixing.
-static void SortSecretBasesByRegistryStatus(void)
+static void UNUSED SortSecretBasesByRegistryStatus(void)
 {
     u8 i;
     u8 j;
@@ -1347,7 +1345,7 @@ static void TrySaveRegisteredDuplicates(struct SecretBaseRecordMixer *mixers)
     }
 }
 
-static void SaveRecordMixBases(struct SecretBaseRecordMixer *mixers)
+static void UNUSED SaveRecordMixBases(struct SecretBaseRecordMixer *mixers)
 {
     DeleteFirstOldBaseFromPlayerInRecordMixingFriendsRecords(mixers[0].secretBases, mixers[1].secretBases, mixers[2].secretBases);
     ClearDuplicateOwnedSecretBases(gSaveBlock1Ptr->secretBases, mixers[0].secretBases, mixers[1].secretBases, mixers[2].secretBases);

@@ -2963,14 +2963,15 @@ static void CreateJumpMonSprite(struct PokemonJumpGfx *jumpGfx, struct PokemonJu
         HandleLoadSpecialPokePic(TRUE,
                                 buffer,
                                 monInfo->species,
-                                monInfo->personality);
+                                monInfo->personality,
+                                MON_MALE); // fixme
 
         spriteSheet.data = buffer;
         spriteSheet.tag = multiplayerId;
         spriteSheet.size = MON_PIC_SIZE;
         LoadSpriteSheet(&spriteSheet);
 
-        spritePalette.data = GetMonSpritePalFromSpecies(monInfo->species, FALSE);
+        spritePalette.data = GetMonSpritePalFromSpecies(monInfo->species, GetGenderForSpecies(monInfo->species, 0), FALSE);
         spritePalette.tag = multiplayerId;
         LoadCompressedSpritePalette(&spritePalette);
 

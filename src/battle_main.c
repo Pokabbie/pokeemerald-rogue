@@ -1889,7 +1889,7 @@ static u32 Crc32B (const u8 *data, u32 size)
    return ~crc;
 }
 
-static u32 GeneratePartyHash(const struct Trainer *trainer, u32 i)
+static u32 UNUSED GeneratePartyHash(const struct Trainer *trainer, u32 i)
 {
     const u8 *buffer = (const u8 *) &trainer->party[i];
     u32 n = sizeof(*trainer->party);
@@ -1941,42 +1941,34 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
     }
 }
 
-u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, bool32 firstTrainer, u32 battleTypeFlags)
+u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, u16 trainerNum, const struct Trainer *trainer, bool32 firstTrainer, u32 battleTypeFlags)
 {
-    u32 personalityValue;
-    u8 fixedIV;
-    u8 i; 
-    s32 j;
-    u8 monsCount;
-        
-#ifdef ROGUE_FEATURE_AUTOMATION
-    if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
-    {
-        Rogue_Battle_StartTrainerBattle();
-        return CalculateEnemyPartyCount();
-    }
-#endif
-#ifdef ROGUE_DEBUG
-    if(gBattleScripting.specialTrainerBattleType == SPECIAL_BATTLE_AUTOMATION)
-    {
-        Rogue_Battle_StartTrainerBattle();
-        return CalculateEnemyPartyCount();
-    }
-#endif
+    u8 monsCount = 0;
 
-    if (battleTypeFlags & BATTLE_TYPE_TRAINER && !(battleTypeFlags & (BATTLE_TYPE_FRONTIER
-                                                                        | BATTLE_TYPE_EREADER_TRAINER
-                                                                        | BATTLE_TYPE_TRAINER_HILL)))
+    if(trainer == NULL)
     {
-        
-        struct Trainer trainer;
-
-        Rogue_ModifyTrainer(trainerNum, &trainer);
-        
+        AGB_ASSERT(FALSE);
+        monsCount = 1;
+    }
+    else
+    {
         if (firstTrainer == TRUE)
             ZeroEnemyPartyMons();
-
-        monsCount = trainer.partySize;
+            
+#ifdef ROGUE_FEATURE_AUTOMATION
+        if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
+        {
+            Rogue_Battle_StartTrainerBattle();
+            return CalculateEnemyPartyCount();
+        }
+#endif
+#ifdef ROGUE_DEBUG
+        if(gBattleScripting.specialTrainerBattleType == SPECIAL_BATTLE_AUTOMATION)
+        {
+            Rogue_Battle_StartTrainerBattle();
+            return CalculateEnemyPartyCount();
+        }
+#endif
 
         if(Rogue_UseCustomPartyGenerator(trainerNum))
         {
@@ -1990,95 +1982,10 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         }
         else
         {
-            if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-            {
-                if (trainer.partySize > PARTY_SIZE / 2)
-                    monsCount = PARTY_SIZE / 2;
-            }
-
-            for (i = 0; i < monsCount; i++)
-            {
-                if (trainer.doubleBattle == TRUE)
-                    personalityValue = 0x80;
-                else if (trainer.encounterMusic_gender & F_TRAINER_FEMALE)
-                    personalityValue = 0x78; // Use personality more likely to result in a female Pokémon
-                else
-                    personalityValue = 0x88; // Use personality more likely to result in a male Pokémon
-
-                for (j = 0; trainer.trainerName[j] != EOS; j++)
-                    nameHash += trainer.trainerName[j];
-
-                switch (trainer.partyFlags)
-                {
-                case 0:
-                {
-                    const struct TrainerMonNoItemDefaultMoves *partyData = trainer.party.NoItemDefaultMoves;
-
-                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                        nameHash += gSpeciesNames[partyData[i].species][j];
-
-                    personalityValue += nameHash << 8;
-                    fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
-                    CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-                    break;
-                }
-                case F_TRAINER_PARTY_CUSTOM_MOVESET:
-                {
-                    const struct TrainerMonNoItemCustomMoves *partyData = trainer.party.NoItemCustomMoves;
-
-                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                        nameHash += gSpeciesNames[partyData[i].species][j];
-
-                    personalityValue += nameHash << 8;
-                    fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
-                    CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-
-                    for (j = 0; j < MAX_MON_MOVES; j++)
-                    {
-                        SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
-                        SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
-                    }
-                    break;
-                }
-                case F_TRAINER_PARTY_HELD_ITEM:
-                {
-                    const struct TrainerMonItemDefaultMoves *partyData = trainer.party.ItemDefaultMoves;
-
-                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                        nameHash += gSpeciesNames[partyData[i].species][j];
-
-                    personalityValue += nameHash << 8;
-                    fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
-                    CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-
-                    SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
-                    break;
-                }
-                case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
-                {
-                    const struct TrainerMonItemCustomMoves *partyData = trainer.party.ItemCustomMoves;
-
-                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                        nameHash += gSpeciesNames[partyData[i].species][j];
-
-                    personalityValue += nameHash << 8;
-                    fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
-                    CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-
-                    SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
-
-                    for (j = 0; j < MAX_MON_MOVES; j++)
-                    {
-                        SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
-                        SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
-                    }
-                    break;
-                }
-                }
-            }
+            AGB_ASSERT(FALSE);
         }
 
-        gBattleTypeFlags |= trainer.doubleBattle;
+        gBattleTypeFlags |= trainer->doubleBattle;
     }
 
     return monsCount;
@@ -2087,16 +1994,13 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
 {
     u8 retVal;
+    struct Trainer trainer;
+
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
-    retVal = CreateNPCTrainerPartyFromTrainer(party, &gTrainers[trainerNum], firstTrainer, gBattleTypeFlags);
 
-    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & (BATTLE_TYPE_FRONTIER
-                                                                        | BATTLE_TYPE_EREADER_TRAINER
-                                                                        | BATTLE_TYPE_TRAINER_HILL)))
-    {
-        gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
-    }
+    Rogue_ModifyTrainer(trainerNum, &trainer);
+    retVal = CreateNPCTrainerPartyFromTrainer(party, trainerNum, &trainer, firstTrainer, gBattleTypeFlags);
     return retVal;
 }
 
@@ -2104,7 +2008,8 @@ void CreateTrainerPartyForPlayer(void)
 {
     ZeroPlayerPartyMons();
     gPartnerTrainerId = gSpecialVar_0x8004;
-    CreateNPCTrainerPartyFromTrainer(gPlayerParty, &gTrainers[gSpecialVar_0x8004], TRUE, BATTLE_TYPE_TRAINER);
+    AGB_ASSERT(FALSE);
+    CreateNPCTrainerPartyFromTrainer(gPlayerParty, 0, NULL, TRUE, BATTLE_TYPE_TRAINER);
 }
 
 void VBlankCB_Battle(void)
@@ -3730,7 +3635,7 @@ static void DoBattleIntro(void)
                                           | BATTLE_TYPE_RECORDED_LINK
                                           | BATTLE_TYPE_TRAINER_HILL)))
                 {
-                    HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
+                    HandleSetPokedexFlag(gBattleMons[battler].species, FLAG_SET_SEEN, gBattleMons[battler].personality);
                 }
             }
 
@@ -4647,25 +4552,28 @@ void SwapTurnOrder(u8 id1, u8 id2)
     SWAP(gBattlerByTurnOrder[id1], gBattlerByTurnOrder[id2], temp);
 }
 
-static bool8 ActivateMovePriorityCharm(u8 battler)
+static bool8 UNUSED ActivateMovePriorityCharm(u8 battler)
 {
-    u8 rand;
+    u8 rand = 0;
 
     if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
     {
-        rand = (gRandomTurnNumber & 0xFF);
-
-        if((battler / 2) != 0) // Flip for right side
-            rand = ~rand;
+        AGB_ASSERT(FALSE); // fixme
+        //RandomPercentage(RNG_QUICK_CLAW, GetBattlerHoldEffectParam(battler1))
+        //rand = (gRandomTurnNumber & 0xFF);
+//
+        //if((battler / 2) != 0) // Flip for right side
+        //    rand = ~rand;
 
         return rand % 100 < GetCurseValue(EFFECT_MOVE_PRIORITY_CHANCE);
     }
     else // B_SIDE_PLAYER
     {
-        rand = ((gRandomTurnNumber & 0xFF00) >> 8);
-
-        if((battler / 2) != 0) // Flip for right side
-            rand = ~rand;
+        AGB_ASSERT(FALSE); // fixme
+        //rand = ((gRandomTurnNumber & 0xFF00) >> 8);
+//
+        //if((battler / 2) != 0) // Flip for right side
+        //    rand = ~rand;
 
         return rand % 100 < GetCharmValue(EFFECT_MOVE_PRIORITY_CHANCE);
     }

@@ -334,7 +334,7 @@ static u16 GetRandomAlternateMove(u8 monId)
     return 0;
 }
 
-static bool8 TrySetMove(u8 monId, u16 moveId)
+static bool8 UNUSED TrySetMove(u8 monId, u16 moveId)
 {
     u8 i;
 

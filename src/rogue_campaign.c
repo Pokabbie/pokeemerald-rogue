@@ -9,6 +9,7 @@
 
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
+#include "rogue_pokedex.h"
 #include "rogue_save.h"
 
 extern const u8 gText_Campaign_None[];
@@ -138,14 +139,14 @@ bool8 Rogue_TryUpdateDesiredCampaign(u16 word0, u16 word1)
     return FALSE;
 }
 
-u16 Rogue_PreActivateDesiredCampaign(void)
+void Rogue_PreActivateDesiredCampaign(void)
 {
     // Activate desired campaign
     {
         u16 desiredCampaign;
 
         if(VarGet(VAR_ROGUE_SKIP_TO_DIFFICULTY) != 0)
-            return ROGUE_CAMPAIGN_NONE;
+            return;
 
         desiredCampaign = VarGet(VAR_ROGUE_DESIRED_CAMPAIGN);
 
@@ -192,7 +193,7 @@ u16 Rogue_PreActivateDesiredCampaign(void)
     }
 }
 
-u16 Rogue_PostActivateDesiredCampaign(void)
+void Rogue_PostActivateDesiredCampaign(void)
 {
     switch (Rogue_GetActiveCampaign())
     {
@@ -243,7 +244,7 @@ u16 Rogue_PostActivateDesiredCampaign(void)
     }
 }
 
-u16 Rogue_DeactivateActiveCampaign(void)
+void Rogue_DeactivateActiveCampaign(void)
 {
     if(Rogue_IsCampaignActive())
     {
@@ -328,7 +329,7 @@ bool8 Rogue_CheckCampaignBansItem(u16 item)
     {
     case ROGUE_CAMPAIGN_LOW_BST:
         {
-            if(item == ITEM_TM06_TOXIC)
+            if(item == ITEM_TM06)
                 return TRUE;
         }
         break;
@@ -451,10 +452,5 @@ static u16 Campaign_LowBst_ScoreFromSpecies(u16 species)
     if(species == SPECIES_NONE)
         return 0;
 
-    return gBaseStats[species].baseHP +
-        gBaseStats[species].baseAttack +
-        gBaseStats[species].baseDefense +
-        gBaseStats[species].baseSpeed +
-        gBaseStats[species].baseSpAttack +
-        gBaseStats[species].baseSpDefense;
+    return RoguePokedex_GetSpeciesBST(species);
 }

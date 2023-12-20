@@ -868,9 +868,8 @@ static u8 GetSumOfEnemyPartyLevel(u16 opponentId, u8 numMons)
 
     sum = 0;
 
-    party = gTrainers[opponentId].party;
     for (i = 0; i < count; i++)
-        sum += party[i].lvl;
+        sum += trainer.party[i].lvl;
 
     return sum;
 }
@@ -1843,7 +1842,7 @@ s32 TrainerIdToRematchTableId(const struct RematchTrainer *table, u16 trainerId)
 
 // Returns TRUE if the given trainer (by their entry in the rematch table) is not allowed to have rematches.
 // This applies to the Elite Four and Victory Road Wally (if he's not been defeated yet)
-static bool32 IsRematchForbidden(s32 rematchTableId)
+static bool32 UNUSED IsRematchForbidden(s32 rematchTableId)
 {
     if (rematchTableId >= REMATCH_ELITE_FOUR_ENTRIES)
         return TRUE;
@@ -1853,11 +1852,11 @@ static bool32 IsRematchForbidden(s32 rematchTableId)
         return FALSE;
 }
 
-static void SetRematchIdForTrainer(const struct RematchTrainer *table, u32 tableId)
+static void UNUSED SetRematchIdForTrainer(const struct RematchTrainer *table, u32 tableId)
 {
 }
 
-static bool32 DoesCurrentMapMatchRematchTrainerMap(s32 i, const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
+static bool32 UNUSED DoesCurrentMapMatchRematchTrainerMap(s32 i, const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
 {
     return table[i].mapGroup == mapGroup && table[i].mapNum == mapNum;
 }
@@ -1867,7 +1866,7 @@ bool32 TrainerIsMatchCallRegistered(s32 i)
     return FlagGet(FLAG_MATCH_CALL_REGISTERED + i);
 }
 
-static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
+static bool32 UNUSED UpdateRandomTrainerRematches(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
 {
     return FALSE;
 }
@@ -1876,12 +1875,12 @@ void UpdateRematchIfDefeated(s32 rematchTableId)
 {
 }
 
-static bool32 DoesSomeoneWantRematchIn_(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
+static bool32 UNUSED DoesSomeoneWantRematchIn_(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
 {
     return FALSE;
 }
 
-static bool32 IsRematchTrainerIn_(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
+static bool32 UNUSED IsRematchTrainerIn_(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
 {
     s32 i;
 
@@ -1894,12 +1893,12 @@ static bool32 IsRematchTrainerIn_(const struct RematchTrainer *table, u16 mapGro
     return FALSE;
 }
 
-static bool8 IsFirstTrainerIdReadyForRematch(const struct RematchTrainer *table, u16 firstBattleTrainerId)
+static bool8 UNUSED IsFirstTrainerIdReadyForRematch(const struct RematchTrainer *table, u16 firstBattleTrainerId)
 {
     return FALSE;
 }
 
-static bool8 IsTrainerReadyForRematch_(const struct RematchTrainer *table, u16 trainerId)
+static bool8 UNUSED IsTrainerReadyForRematch_(const struct RematchTrainer *table, u16 trainerId)
 {
     return FALSE;
 }
@@ -1925,7 +1924,7 @@ u16 GetRematchTrainerIdFromTable(const struct RematchTrainer *table, u16 firstBa
     return trainerEntry->trainerIds[REMATCHES_COUNT - 1]; // already beaten at max stage
 }
 
-static u16 GetLastBeatenRematchTrainerIdFromTable(const struct RematchTrainer *table, u16 firstBattleTrainerId)
+static u16 UNUSED GetLastBeatenRematchTrainerIdFromTable(const struct RematchTrainer *table, u16 firstBattleTrainerId)
 {
     const struct RematchTrainer *trainerEntry;
     s32 i;
@@ -1946,7 +1945,7 @@ static u16 GetLastBeatenRematchTrainerIdFromTable(const struct RematchTrainer *t
     return trainerEntry->trainerIds[REMATCHES_COUNT - 1]; // already beaten at max stage
 }
 
-static void ClearTrainerWantRematchState(const struct RematchTrainer *table, u16 firstBattleTrainerId)
+static void UNUSED ClearTrainerWantRematchState(const struct RematchTrainer *table, u16 firstBattleTrainerId)
 {
 }
 
@@ -1965,7 +1964,7 @@ static void RegisterTrainerInMatchCall(void)
     }
 }
 
-static bool8 WasSecondRematchWon(const struct RematchTrainer *table, u16 firstBattleTrainerId)
+static bool8 UNUSED WasSecondRematchWon(const struct RematchTrainer *table, u16 firstBattleTrainerId)
 {
     s32 tableId = FirstBattleTrainerIdToRematchTableId(table, firstBattleTrainerId);
 
@@ -1977,7 +1976,7 @@ static bool8 WasSecondRematchWon(const struct RematchTrainer *table, u16 firstBa
     return TRUE;
 }
 
-static bool32 HasAtLeastFiveBadges(void)
+static bool32 UNUSED HasAtLeastFiveBadges(void)
 {
     //s32 i, count;
 //
@@ -1999,7 +1998,7 @@ void IncrementRematchStepCounter(void)
 {
 }
 
-static bool32 IsRematchStepCounterMaxed(void)
+static bool32 UNUSED IsRematchStepCounterMaxed(void)
 {
     return FALSE;
 }

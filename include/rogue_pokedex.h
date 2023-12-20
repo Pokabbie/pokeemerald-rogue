@@ -28,6 +28,9 @@ u16 RoguePokedex_GetSpeciesCurrentNum(u16 species);
 bool8 RoguePokedex_IsSpeciesLegendary(u16 species);
 bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species);
 bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species);
+
+u8 const* RoguePokedex_GetSpeciesName(u16 species);
+u8 RoguePokedex_GetSpeciesType(u16 species, u8 typeIndex);
 u16 RoguePokedex_GetSpeciesBST(u16 species);
 u8 RoguePokedex_GetSpeciesBestStat(u16 species);
 u8 RoguePokedex_GetSpeciesWorstStat(u16 species);

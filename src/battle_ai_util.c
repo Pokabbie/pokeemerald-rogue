@@ -489,7 +489,6 @@ void SaveBattlerData(u32 battlerId)
 static bool32 ShouldFailForIllusion(u32 illusionSpecies, u32 battlerId)
 {
     u32 i, j;
-    const struct LevelUpMove *learnset;
 
     if (BATTLE_HISTORY->abilities[battlerId] == ABILITY_ILLUSION)
         return FALSE;
@@ -501,18 +500,17 @@ static bool32 ShouldFailForIllusion(u32 illusionSpecies, u32 battlerId)
         if (move == MOVE_NONE)
             continue;
 
-        learnset = GetSpeciesLevelUpLearnset(illusionSpecies);
-        for (j = 0; learnset[j].move != MOVE_UNAVAILABLE; j++)
+        for (j = 0; gRoguePokemonProfiles[illusionSpecies].levelUpMoves[j].move != MOVE_NONE; j++)
         {
-            if (learnset[j].move == move)
+            if (gRoguePokemonProfiles[illusionSpecies].levelUpMoves[j].move == move)
                 break;
         }
         // The used move is in the learnsets of the fake species.
-        if (learnset[j].move != MOVE_UNAVAILABLE)
+        if (gRoguePokemonProfiles[illusionSpecies].levelUpMoves[j].move != MOVE_NONE)
             continue;
 
         // The used move can be learned from Tm/Hm or Move Tutors.
-        if (CanLearnTeachableMove(illusionSpecies, move))
+        if (CanSpeciesLearnTM(illusionSpecies, move)) // todo tutor hookup too
             continue;
 
         // 'Illegal move', AI won't fail for the illusion.

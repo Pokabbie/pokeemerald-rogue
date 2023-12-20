@@ -169,7 +169,7 @@ u8 BlitPokemonIconToWindow(u16 species, u8 windowId, u16 x, u16 y, void * palett
     //LZDecompressWram(GetMonIconTiles(species, FALSE), gItemIconDecompressionBuffer);
     //CopyItemIconPicTo4x4Buffer(GetMonIconTiles(species, FALSE), gItemIcon4x4Buffer);
     
-    BlitBitmapToWindow(windowId, GetMonIconTiles(species, FALSE), x, y, 32, 32);
+    BlitBitmapToWindow(windowId, GetMonIconTiles(species, FALSE, MON_MALE), x, y, 32, 32);
 
     //gMonIconPaletteTable
 

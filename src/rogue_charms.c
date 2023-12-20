@@ -157,7 +157,6 @@ static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
 void RecalcCharmCurseValues(void)
 {
     u8 effectType;
-    u16 itemId;
     DebugPrint("Recalcing Charm&Curse Values");
 
     for(effectType = 0; effectType < EFFECT_COUNT; ++effectType)

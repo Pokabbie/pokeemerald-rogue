@@ -402,17 +402,17 @@ static void HandleInputChooseAction(u32 battler)
             PlaySE(SE_SELECT);
 
             // Auto jump to run option
-            switch (gActionSelectionCursor[gActiveBattler])
+            switch (gActionSelectionCursor[battler])
             {
             case 3: // Bottom right
-                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_RUN, 0);
-                PlayerBufferExecCompleted();
+                BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_RUN, 0);
+                PlayerBufferExecCompleted(battler);
                 break;
 
             default: // Bottom left
-                ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
-                gActionSelectionCursor[gActiveBattler] = 3;
-                ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+                ActionSelectionDestroyCursorAt(gActionSelectionCursor[battler]);
+                gActionSelectionCursor[battler] = 3;
+                ActionSelectionCreateCursorAt(gActionSelectionCursor[battler], 0);
                 break;
             }
         }
@@ -1459,7 +1459,7 @@ static void Task_GiveExpToMon(u8 taskId)
         u16 species = GetMonData(mon, MON_DATA_SPECIES);
         u8 level = GetMonData(mon, MON_DATA_LEVEL);
         u32 currExp = GetMonData(mon, MON_DATA_EXP);
-        u32 nextLvlExp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1);
+        u32 nextLvlExp = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, level + 1);
 
         if (currExp + gainedExp >= nextLvlExp)
         {
@@ -1508,11 +1508,11 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
     u8 level = GetMonData(mon, MON_DATA_LEVEL);
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     u32 exp = GetMonData(mon, MON_DATA_EXP);
-    u32 currLvlExp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level);
+    u32 currLvlExp = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, level);
     u32 expToNextLvl;
 
     exp -= currLvlExp;
-    expToNextLvl = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1) - currLvlExp;
+    expToNextLvl = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, level + 1) - currLvlExp;
     SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], expToNextLvl, exp, -gainedExp);
     TestRunner_Battle_RecordExp(battler, exp, -gainedExp);
     PlaySE(SE_EXP);
@@ -1543,7 +1543,7 @@ static void Task_GiveExpWithExpBar(u8 taskId)
             level = GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL);
             currExp = GetMonData(&gPlayerParty[monId], MON_DATA_EXP);
             species = GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES);
-            expOnNextLvl = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1);
+            expOnNextLvl = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, level + 1);
 
             if (currExp + gainedExp >= expOnNextLvl)
             {
@@ -1741,11 +1741,11 @@ static void MoveSelectionDisplayPpNumber(u32 battler)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP_REMAINING);
 }
 
-static u8 GetMoveDisplayTyping(u16 move)
+static u8 GetMoveDisplayTyping(u32 battler, u16 move)
 {
     u8 moveType;
     if(move == MOVE_HIDDEN_POWER)
-        return CalcMonHiddenPowerType(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]]);
+        return CalcMonHiddenPowerType(&gPlayerParty[gBattlerPartyIndexes[battler]]);
 
 #ifdef ROGUE_EXPANSION
     SetTypeBeforeUsingMove(move, gActiveBattler);
@@ -1773,16 +1773,9 @@ extern const u8 gText_MoveNotVeryEffective[];
 static void MoveSelectionDisplayMoveType(u32 battler)
 {
     u8 *txtPtr;
-#ifdef ROGUE_EXPANSION
-    u8 type;
-    u32 itemId;
-    struct Pokemon *mon;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
-#else
-    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
-#endif
-    u16 move = moveInfo->moves[gMoveSelectionCursor[gActiveBattler]];
-    u8 displayType = GetMoveDisplayTyping(move);
+    u16 move = moveInfo->moves[gMoveSelectionCursor[battler]];
+    u8 displayType = GetMoveDisplayTyping(battler, move);
 
     txtPtr = gDisplayedStringBattle;
     txtPtr = StringCopy(txtPtr, gTypeNames[displayType]);
@@ -1803,7 +1796,7 @@ static void MoveSelectionDisplayMoveType(u32 battler)
     else
     {
         u8 opposingBattler;
-        u8 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(gActiveBattler));
+        u8 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(battler));
         u16 opposingSpecies = gBattleMons[GetBattlerAtPosition(opposingPosition)].species;
         
         if(opposingSpecies == SPECIES_NONE)
@@ -1828,18 +1821,16 @@ static void MoveSelectionDisplayMoveType(u32 battler)
             u8 type2;
             int typeEffect;
             u16 ability = 0;
-#ifdef ROGUE_EXPANSION
             struct Pokemon *illusionMon = GetIllusionMonPtr(opposingBattler);
 
             if(illusionMon != NULL)
             {
                 u16 species = GetMonData(illusionMon, MON_DATA_SPECIES);
-                type1 = gBaseStats[species].type1;
-                type2 = gBaseStats[species].type2;
+                type1 = gSpeciesInfo[species].types[0];
+                type2 = gSpeciesInfo[species].types[1];
                 //ability = GetMonAbility(illusionMon);
             }
             else
-#endif
             {
                 type1 = gBattleMons[opposingBattler].type1;
                 type2 = gBattleMons[opposingBattler].type2;
@@ -1966,7 +1957,6 @@ u32 LinkPlayerGetTrainerPicId(u32 multiplayerId)
         trainerPicId = gender + TRAINER_BACK_PIC_BRENDAN;
 
     return trainerPicId;
-        Rogue_CampaignNotify_OnMonFormChange(GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES), gBattleBufferA[gActiveBattler][3]);
 
 }
 
@@ -2170,16 +2160,16 @@ static void PlayerChooseMoveInBattlePalace(u32 battler)
     }
 }
 
-static u16 ChooseRandomMoveAndTarget(void)
+static u16 ChooseRandomMoveAndTarget(u32 battler)
 {
     u32 moveTarget;
-    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
+    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
     u16 chosenMoveId = Random() % MAX_MON_MOVES;
 
     // Force the choiced move to be used
     {
         u16 i;
-        u16 choicedMove = gBattleStruct->choicedMove[gActiveBattler];
+        u16 choicedMove = gBattleStruct->choicedMove[battler];
 
         if (choicedMove != MOVE_NONE && choicedMove != MOVE_UNAVAILABLE)
         {
@@ -2213,19 +2203,19 @@ static u16 ChooseRandomMoveAndTarget(void)
     }
 
     if (moveTarget & MOVE_TARGET_USER)
-        chosenMoveId |= (gActiveBattler << 8);
+        chosenMoveId |= (battler << 8);
     else if (moveTarget == MOVE_TARGET_SELECTED)
-        chosenMoveId |= ((gActiveBattler ^ BIT_SIDE) << 8);
+        chosenMoveId |= ((battler ^ BIT_SIDE) << 8);
     else
-        chosenMoveId |= (GetBattlerAtPosition((GetBattlerPosition(gActiveBattler) & BIT_SIDE) ^ BIT_SIDE) << 8);
+        chosenMoveId |= (GetBattlerAtPosition((GetBattlerPosition(battler) & BIT_SIDE) ^ BIT_SIDE) << 8);
 
     return chosenMoveId;
 }
 
-static void PlayerChooseMoveInAutoBattle(void)
+static void PlayerChooseMoveInAutoBattle(u32 battler)
 {
-    BtlController_EmitTwoReturnValues(BUFFER_B, 10, ChooseRandomMoveAndTarget());
-    PlayerBufferExecCompleted();
+    BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, ChooseRandomMoveAndTarget(battler));
+    PlayerBufferExecCompleted(battler);
 }
 
 static void PlayerHandleChooseMove(u32 battler)
@@ -2239,7 +2229,7 @@ static void PlayerHandleChooseMove(u32 battler)
 #endif
     if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
     {
-        gBattlerControllerFuncs[gActiveBattler] = PlayerChooseMoveInAutoBattle;
+        gBattlerControllerFuncs[battler] = PlayerChooseMoveInAutoBattle;
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
     {

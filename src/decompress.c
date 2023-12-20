@@ -81,12 +81,12 @@ void DecompressPicFromTable(const struct CompressedSpriteSheet *src, void *buffe
     LZ77UnCompWram(src->data, buffer);
 }
 
-void HandleLoadSpecialPokePic(bool32 isFrontPic, void *dest, s32 species, u32 personality)
+void HandleLoadSpecialPokePic(bool32 isFrontPic, void *dest, s32 species, u32 personality, u8 gender)
 {
-    LoadSpecialPokePic(dest, species, personality, isFrontPic);
+    LoadSpecialPokePic(dest, species, personality, gender, isFrontPic);
 }
 
-void LoadSpecialPokePic(void *dest, s32 species, u32 personality, bool8 isFrontPic)
+void LoadSpecialPokePic(void *dest, s32 species, u32 personality, u8 gender, bool8 isFrontPic)
 {
     species = SanitizeSpeciesId(species);
     if (species == SPECIES_UNOWN)
@@ -94,7 +94,7 @@ void LoadSpecialPokePic(void *dest, s32 species, u32 personality, bool8 isFrontP
 
     if (isFrontPic)
     {
-        if (gSpeciesInfo[species].frontPicFemale != NULL && IsPersonalityFemale(species, personality))
+        if (gSpeciesInfo[species].frontPicFemale != NULL && gender == MON_FEMALE)
             LZ77UnCompWram(gSpeciesInfo[species].frontPicFemale, dest);
         else if (gSpeciesInfo[species].frontPic != NULL)
             LZ77UnCompWram(gSpeciesInfo[species].frontPic, dest);
@@ -103,7 +103,7 @@ void LoadSpecialPokePic(void *dest, s32 species, u32 personality, bool8 isFrontP
     }
     else
     {
-        if (gSpeciesInfo[species].backPicFemale != NULL && IsPersonalityFemale(species, personality))
+        if (gSpeciesInfo[species].backPicFemale != NULL && gender == MON_FEMALE)
             LZ77UnCompWram(gSpeciesInfo[species].backPicFemale, dest);
         else if (gSpeciesInfo[species].backPic != NULL)
             LZ77UnCompWram(gSpeciesInfo[species].backPic, dest);

@@ -178,8 +178,10 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_BuildingSupplies,
         .pocket = POCKET_KEY_ITEMS,
         .registrability = FALSE,
-        .iconImage = gItemIcon_OaksParcel,
-        .iconPalette = gItemIconPalette_OaksParcel,
+        .iconImage = gItemIcon_CGear,
+        .iconPalette = gItemIconPalette_CGear, // todo - need to fixup
+        //.iconImage = gItemIcon_OaksParcel,
+        //.iconPalette = gItemIconPalette_OaksParcel,
     },
     [ITEM_POKEBLOCK_DISPENSER - ITEM_ROGUE_ITEM_FIRST] =
     {

@@ -231,7 +231,7 @@ static void HandleInputChooseAction(u32 battler)
         {
         case 3: // Bottom right
             BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SAFARI_RUN, 0);
-            SafariBufferExecCompleted();
+            SafariBufferExecCompleted(battler);
             break;
 
         default: // Bottom left
@@ -260,7 +260,7 @@ static void SafariSetBattleEndCallbacks(u32 battler)
     }
 }
 
-static void SafariOpenPokeblockCase(u32 battler)
+static void UNUSED SafariOpenPokeblockCase(u32 battler)
 {
     if (!gPaletteFade.active)
     {
@@ -352,20 +352,20 @@ static void SafariHandleChooseAction(u32 battler)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
 }
 
-static void CompleteWhenChoseItem(void)
+static void CompleteWhenChoseItem(u32 battler)
 {
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
-        BtlController_EmitOneReturnValue(BUFFER_B, gSpecialVar_ItemId);
-        SafariBufferExecCompleted();
+        BtlController_EmitOneReturnValue(battler, BUFFER_B, gSpecialVar_ItemId);
+        SafariBufferExecCompleted(battler);
     }
 }
 
-static void OpenBagAndChooseItem(void)
+static void OpenBagAndChooseItem(u32 battler)
 {
     if (!gPaletteFade.active)
     {
-        gBattlerControllerFuncs[gActiveBattler] = CompleteWhenChoseItem;
+        gBattlerControllerFuncs[battler] = CompleteWhenChoseItem;
         ReshowBattleScreenDummy();
         FreeAllWindowBuffers();
         CB2_BagMenuFromBattle();

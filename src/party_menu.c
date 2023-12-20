@@ -136,7 +136,7 @@ enum {
     ACTIONS_SPIN_TRADE,
     ACTIONS_TAKEITEM_TOSS,
     ACTIONS_ROTOM_CATALOG,
-    ACTIONS_ZYGARDE_CUBE,,
+    ACTIONS_ZYGARDE_CUBE,
     ACTIONS_RELEASE
 };
 
@@ -307,7 +307,7 @@ static void DisplayPartyPokemonGender(u8, u16, u8 *, struct PartyMenuBox *);
 static void DisplayPartyPokemonHP(u16 hp, u16 maxHp, struct PartyMenuBox *menuBox);
 static void DisplayPartyPokemonMaxHP(u16, struct PartyMenuBox *);
 static void DisplayPartyPokemonHPBar(u16, u16, struct PartyMenuBox *);
-static void CreatePartyMonIconSpriteParameterized(u16, u32, struct PartyMenuBox *, u8);
+static void CreatePartyMonIconSpriteParameterized(u16, u32, u8, struct PartyMenuBox *, u8);
 static void CreatePartyMonHeldItemSpriteParameterized(u16, u16, struct PartyMenuBox *);
 static void CreatePartyMonPokeballSpriteParameterized(u16, struct PartyMenuBox *);
 static void CreatePartyMonStatusSpriteParameterized(u16, u8, struct PartyMenuBox *);
@@ -339,7 +339,6 @@ static void Task_ClosePartyMenuAfterText(u8);
 static void TryGiveMailToSelectedMon(u8);
 static void TryGiveItemOrMailToSelectedMon(u8);
 static void SwitchSelectedMons(u8);
-static void ReleaseSelectedMon();
 static void TryEnterMonForMinigame(u8, u8);
 static void Task_TryCreateSelectionWindow(u8);
 static void FinishTwoMonAction(u8);
@@ -1241,7 +1240,7 @@ static void CreatePartyMonSprites(u8 slot)
 
         if (gMultiPartnerParty[actualSlot].species != SPECIES_NONE)
         {
-            CreatePartyMonIconSpriteParameterized(gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].personality, &sPartyMenuBoxes[slot], 0);
+            CreatePartyMonIconSpriteParameterized(gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].personality, gMultiPartnerParty[actualSlot].gender, &sPartyMenuBoxes[slot], 0);
             CreatePartyMonHeldItemSpriteParameterized(gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].heldItem, &sPartyMenuBoxes[slot]);
             CreatePartyMonPokeballSpriteParameterized(gMultiPartnerParty[actualSlot].species, &sPartyMenuBoxes[slot]);
             if (gMultiPartnerParty[actualSlot].hp == 0)
@@ -2241,31 +2240,34 @@ static void Task_HandleCancelParticipationYesNoInput(u8 taskId)
 
 static u8 CanTeachMove(struct Pokemon *mon, u16 move)
 {
-    u16 move;
+    AGB_ASSERT(FALSE); //fixme
+    return CANNOT_LEARN_MOVE;
 
-    if (GetMonData(mon, MON_DATA_IS_EGG))
-        return CANNOT_LEARN_MOVE_IS_EGG;
-
-    if (item >= ITEM_TM01)
-    {
-        if (!CanMonLearnTM(mon, item))
-            return CANNOT_LEARN_MOVE;
-        else
-            move = ItemIdToBattleMoveId(item);
-    }
-    else
-    {
-        AGB_ASSERT(FALSE);
-        //if (!CanLearnTutorMove(GetMonData(mon, MON_DATA_SPECIES), tutor))
-        //    return CANNOT_LEARN_MOVE;
-        //else
-        //    move = GetTutorMove(tutor);
-    }
-
-    if (MonKnowsMove(mon, move) == TRUE)
-        return ALREADY_KNOWS_MOVE;
-    else
-        return CAN_LEARN_MOVE;
+    //u16 move;
+//
+    //if (GetMonData(mon, MON_DATA_IS_EGG))
+    //    return CANNOT_LEARN_MOVE_IS_EGG;
+//
+    //if (item >= ITEM_TM01)
+    //{
+    //    if (!CanMonLearnTM(mon, item))
+    //        return CANNOT_LEARN_MOVE;
+    //    else
+    //        move = ItemIdToBattleMoveId(item);
+    //}
+    //else
+    //{
+    //    AGB_ASSERT(FALSE);
+    //    //if (!CanLearnTutorMove(GetMonData(mon, MON_DATA_SPECIES), tutor))
+    //    //    return CANNOT_LEARN_MOVE;
+    //    //else
+    //    //    move = GetTutorMove(tutor);
+    //}
+//
+    //if (MonKnowsMove(mon, move) == TRUE)
+    //    return ALREADY_KNOWS_MOVE;
+    //else
+    //    return CAN_LEARN_MOVE;
 }
 
 u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves, u16 tutorMovesCapacity)
@@ -2885,7 +2887,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         }
 
         {
-            u16 targetSpecies = GetEvolutionTargetSpecies(&mons[slotId], EVO_MODE_NORMAL, ITEM_NONE);
+            u16 targetSpecies = GetEvolutionTargetSpecies(&mons[slotId], EVO_MODE_NORMAL, ITEM_NONE, NULL);
 
             if(targetSpecies != SPECIES_NONE)
             {
@@ -3674,8 +3676,6 @@ static void Task_ReleaseSelectedMonYesNo(u8 taskId)
 
 static void Task_ReleaseSelectedMonYesNoInput(u8 taskId)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
-
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
     case 0:
@@ -3750,7 +3750,7 @@ static void CursorCb_Evolve(u8 taskId)
 {
     // Based on PartyMenuTryEvolution(taskId);
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
-    u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE);
+    u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, NULL);
 
     PlaySE(SE_SELECT);
 
@@ -4444,15 +4444,15 @@ static void CreatePartyMonIconSprite(struct Pokemon *mon, struct PartyMenuBox *m
     u16 species2;
 
     species2 = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
-    CreatePartyMonIconSpriteParameterized(species2, GetMonData(mon, MON_DATA_PERSONALITY), menuBox, 1);
+    CreatePartyMonIconSpriteParameterized(species2, GetMonData(mon, MON_DATA_PERSONALITY), GetMonGender(mon), menuBox, 1);
     UpdatePartyMonHPBar(menuBox->monSpriteId, mon);
 }
 
-static void CreatePartyMonIconSpriteParameterized(u16 species, u32 pid, struct PartyMenuBox *menuBox, u8 priority)
+static void CreatePartyMonIconSpriteParameterized(u16 species, u32 pid, u8 gender, struct PartyMenuBox *menuBox, u8 priority)
 {
     if (species != SPECIES_NONE)
     {
-        menuBox->monSpriteId = CreateMonIcon(species, SpriteCB_MonIcon, menuBox->spriteCoords[0], menuBox->spriteCoords[1], 4, pid);
+        menuBox->monSpriteId = CreateMonIcon(species, SpriteCB_MonIcon, menuBox->spriteCoords[0], menuBox->spriteCoords[1], 4, pid, gender);
         gSprites[menuBox->monSpriteId].oam.priority = priority;
     }
 }
@@ -5795,7 +5795,7 @@ static void StopLearningMovePrompt(u8 taskId)
     //gTasks[taskId].func = Task_StopLearningMoveYesNo;
 }
 
-static void Task_StopLearningMoveYesNo(u8 taskId)
+static void UNUSED Task_StopLearningMoveYesNo(u8 taskId)
 {
     if (IsPartyMenuTextPrinterActive() != TRUE)
     {
@@ -5926,7 +5926,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
 
             DisplayPartyMenuMessage(gStringVar4, TRUE);
             ScheduleBgCopyTilemapToVram(2);
-            gTasks[taskId].func = Task_TryLearnNewMoves; //Task_DisplayLevelUpStatsPg1;
+            gTasks[taskId].func = Task_TryLearnNewMoves1; //Task_DisplayLevelUpStatsPg1;
         }
         else
         {
@@ -5954,7 +5954,7 @@ static void UpdateMonDisplayInfoAfterRareCandy(u8 slot, struct Pokemon *mon)
     ScheduleBgCopyTilemapToVram(0);
 }
 
-static void Task_DisplayLevelUpStatsPg1(u8 taskId)
+static void UNUSED Task_DisplayLevelUpStatsPg1(u8 taskId)
 {
     if (WaitFanfare(FALSE) && IsPartyMenuTextPrinterActive() != TRUE && ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON))))
     {
@@ -5971,7 +5971,7 @@ static void Task_DisplayLevelUpStatsPg2(u8 taskId)
         PlaySE(SE_SELECT);
         DisplayLevelUpStatsPg2(taskId);
         sInitialLevel += 1; // so the Pokemon doesn't learn a move meant for its previous level
-        gTasks[taskId].func = Task_TryLearnNewMoves;
+        gTasks[taskId].func = Task_TryLearnNewMoves2;
     }
 }
 
@@ -6640,7 +6640,7 @@ static void Task_TryItemUseFormChange(u8 taskId)
         if (gTasks[taskId].tAnimWait == 0)
         {
             FreeAndDestroyMonIconSprite(icon);
-            CreatePartyMonIconSpriteParameterized(targetSpecies, GetMonData(mon, MON_DATA_PERSONALITY, NULL), &sPartyMenuBoxes[gPartyMenu.slotId], 1);
+            CreatePartyMonIconSpriteParameterized(targetSpecies, GetMonData(mon, MON_DATA_PERSONALITY, NULL), GetMonGender(mon), &sPartyMenuBoxes[gPartyMenu.slotId], 1);
             icon->oam.mosaic = TRUE;
             icon->data[0] = 10;
             icon->data[1] = 1;
@@ -6845,7 +6845,7 @@ void TryItemHoldFormChange(struct Pokemon *mon)
         PlayCry_NormalNoDucking(targetSpecies, 0, CRY_VOLUME_RS, CRY_VOLUME_RS);
         SetMonData(mon, MON_DATA_SPECIES, &targetSpecies);
         FreeAndDestroyMonIconSprite(&gSprites[sPartyMenuBoxes[gPartyMenu.slotId].monSpriteId]);
-        CreatePartyMonIconSpriteParameterized(targetSpecies, GetMonData(mon, MON_DATA_PERSONALITY, NULL), &sPartyMenuBoxes[gPartyMenu.slotId], 1);
+        CreatePartyMonIconSpriteParameterized(targetSpecies, GetMonData(mon, MON_DATA_PERSONALITY, NULL), GetMonGender(mon), &sPartyMenuBoxes[gPartyMenu.slotId], 1);
         CalculateMonStats(mon);
         UpdatePartyMonHeldItemSprite(mon, &sPartyMenuBoxes[gPartyMenu.slotId]);
     }
@@ -6858,22 +6858,17 @@ void TryItemHoldFormChange(struct Pokemon *mon)
 
 const u8* GetItemEffect(u16 item)
 {
-    if (!ITEM_HAS_EFFECT(item))
+    if(Rogue_IsEvolutionItem(item))
     {
-        if(Rogue_IsEvolutionItem(item))
-        {
-            // Hack act as if evo stone
-            return gItemEffectTable[ITEM_FIRE_STONE - ITEM_POTION];
-        }
-
-        return NULL;
+        // Hack act as if evo stone
+        return gItemEffectTable[ITEM_FIRE_STONE];
     }
 
     // Read the item's effect properties.
     if (item == ITEM_ENIGMA_BERRY)
         return gSaveBlock1Ptr->enigmaBerry.itemEffect;
     else
-        return gItemEffectTable[item - ITEM_POTION];
+        return gItemEffectTable[item];
 }
 
 u8 GetItemEffectType(u16 item)
@@ -6938,7 +6933,7 @@ u8 GetItemEffectType(u16 item)
         return ITEM_EFFECT_NONE;
 }
 
-static void TryTutorSelectedMon(u8 taskId)
+static void UNUSED TryTutorSelectedMon(u8 taskId)
 {
     struct Pokemon *mon;
     s16 *move;
@@ -7339,7 +7334,7 @@ static u8 GetMinBattleEntries(void)
     }
 }
 
-static u8 GetBattleEntryLevelCap(void)
+static u8 UNUSED GetBattleEntryLevelCap(void)
 {
     switch (VarGet(VAR_FRONTIER_FACILITY))
     {

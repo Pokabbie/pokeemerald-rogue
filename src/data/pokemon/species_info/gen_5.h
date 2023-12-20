@@ -8541,8 +8541,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
         PALETTES(KyuremWhite),
         ICON(KyuremWhite, 0),
-        .levelUpLearnset = sKyuremWhiteLevelUpLearnset,
-        .teachableLearnset = sKyuremTeachableLearnset,
+        //.levelUpLearnset = sKyuremWhiteLevelUpLearnset,
+        //.teachableLearnset = sKyuremTeachableLearnset,
         .cannotBeTraded = TRUE,
     },
 
@@ -8578,8 +8578,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .backAnimId = BACK_ANIM_SHAKE_GLOW_BLUE,
         PALETTES(KyuremBlack),
         ICON(KyuremBlack, 0),
-        .levelUpLearnset = sKyuremBlackLevelUpLearnset,
-        .teachableLearnset = sKyuremTeachableLearnset,
+        //.levelUpLearnset = sKyuremBlackLevelUpLearnset,
+        //.teachableLearnset = sKyuremTeachableLearnset,
         .cannotBeTraded = TRUE,
     },
 #endif //P_FUSION_FORMS

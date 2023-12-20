@@ -289,10 +289,10 @@ static const struct MenuAction sItemMenuActions[] = {
     [ACTION_SHOW]              = {gMenuText_Show,     {ItemMenu_Show}},
     [ACTION_GIVE_FAVOR_LADY]   = {gMenuText_Give2,    {ItemMenu_GiveFavorLady}},
     [ACTION_CONFIRM_QUIZ_LADY] = {gMenuText_Confirm,  {ItemMenu_ConfirmQuizLady}},
-    [ACTION_SORT_TYPE]         = {gMenuText_SortType,   ItemMenu_SortByType},
-    [ACTION_SORT_NAME]         = {gMenuText_SortName,   ItemMenu_SortByName},
-    [ACTION_SORT_VALUE]        = {gMenuText_SortValue,  ItemMenu_SortByValue},
-    [ACTION_SORT_AMOUNT]       = {gMenuText_SortAmount, ItemMenu_SortByAmount},
+    [ACTION_SORT_TYPE]         = {gMenuText_SortType,   {ItemMenu_SortByType}},
+    [ACTION_SORT_NAME]         = {gMenuText_SortName,   {ItemMenu_SortByName}},
+    [ACTION_SORT_VALUE]        = {gMenuText_SortValue,  {ItemMenu_SortByValue}},
+    [ACTION_SORT_AMOUNT]       = {gMenuText_SortAmount, {ItemMenu_SortByAmount}},
     [ACTION_DUMMY]             = {gText_EmptyString2, {NULL}}
 };
 
@@ -1791,7 +1791,7 @@ static void DrawPocketIndicatorSquare(u8 x, bool8 isCurrentPocket)
     ScheduleBgCopyTilemapToVram(2);
 }
 
-static bool8 CanSwapItems(void)
+static bool8 UNUSED CanSwapItems(void)
 {
     // Swaps can only be done from the field or in battle (as opposed to while selling items, for example)
     if (gBagPosition.location == ITEMMENULOCATION_FIELD
@@ -1805,7 +1805,7 @@ static bool8 CanSwapItems(void)
     return FALSE;
 }
 
-static void StartItemSwap(u8 taskId)
+static void UNUSED StartItemSwap(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
@@ -2569,7 +2569,8 @@ static void HBlankCB_KeyItemWheel(void) {
     }
     // Copy item 3
     if (vCount >= 64 && sKeyItemWheelExtraPalette[0] == 0) {
-        CpuFastCopy(sKeyItemWheelExtraPalette, (u32*)(BG_PLTT + PLTT_ID(13)*2), PLTT_SIZE_4BPP);
+        AGB_ASSERT(FALSE); // fixme
+        //CpuFastCopy(sKeyItemWheelExtraPalette, (u32*)(BG_PLTT + PLTT_ID(13)*2), PLTT_SIZE_4BPP);
         sKeyItemWheelExtraPalette[0] = 0x8000;
     }
 }
@@ -2622,7 +2623,6 @@ static void FreeKeyItemWheelGfx(s16 *data) {
 static void Task_KeyItemWheel(u8 taskId) {
     u32 i, j;
     s16 *data = gTasks[taskId].data;
-    struct Sprite *sprite;
     switch (tState)
     {
     case 0:

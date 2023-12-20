@@ -185,7 +185,7 @@ static void AnimateIndoorShowMonBg(struct Task *);
 static bool8 SlideIndoorBannerOnscreen(struct Task *);
 static bool8 SlideIndoorBannerOffscreen(struct Task *);
 
-static u8 InitFieldMoveMonSprite(u32, u32, u32);
+static u8 InitFieldMoveMonSprite(u32, u32, u32, u8);
 static void SpriteCB_FieldMoveMonSlideOnscreen(struct Sprite *);
 static void SpriteCB_FieldMoveMonWaitAfterCry(struct Sprite *);
 static void SpriteCB_FieldMoveMonSlideOffscreen(struct Sprite *);
@@ -1002,7 +1002,7 @@ u8 AddNewGameBirchObject(s16 x, s16 y, u8 subpriority)
 
 u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
 {
-    s32 spriteId = CreateMonPicSprite(species, 0, 0x8000, TRUE, x, y, 0, species);
+    s32 spriteId = CreateMonPicSprite(species, 0, 0x8000, GetGenderForSpecies(species, 0), TRUE, x, y, 0, species);
     PreservePaletteInWeather(IndexOfSpritePaletteTag(species) + 0x10);
     if (spriteId == 0xFFFF)
         return MAX_SPRITES;
@@ -1010,11 +1010,10 @@ u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority)
         return spriteId;
 }
 
-u8 CreateMonSprite_FieldMove(u16 species, u32 otId, u32 personality, s16 x, s16 y, u8 subpriority)
+u8 CreateMonSprite_FieldMove(u16 species, u32 otId, u32 personality, u8 gender, s16 x, s16 y, u8 subpriority)
 {
     // TODO - Fixup shinyness
-    const struct CompressedSpritePalette *spritePalette = GetMonSpritePalStructFromOtIdPersonality(species, otId, personality);
-    u16 spriteId = CreateMonPicSprite(species, otId, personality, TRUE, x, y, 0, species);
+    u16 spriteId = CreateMonPicSprite(species, otId, personality, gender, TRUE, x, y, 0, species);
     PreservePaletteInWeather(IndexOfSpritePaletteTag(species) + 0x10);
     if (spriteId == 0xFFFF)
         return MAX_SPRITES;
@@ -2667,7 +2666,7 @@ bool8 FldEff_FieldMoveShowMon(void)
     else
         taskId = CreateTask(Task_FieldMoveShowMonIndoors, 0xff);
 
-    gTasks[taskId].tMonSpriteId = InitFieldMoveMonSprite(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    gTasks[taskId].tMonSpriteId = InitFieldMoveMonSprite(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2], MON_MALE); // fixme
     return FALSE;
 }
 
@@ -3019,14 +3018,14 @@ static bool8 SlideIndoorBannerOffscreen(struct Task *task)
 #undef tBgOffset
 #undef tMonSpriteId
 
-static u8 InitFieldMoveMonSprite(u32 species, u32 otId, u32 personality)
+static u8 InitFieldMoveMonSprite(u32 species, u32 otId, u32 personality, u8 gender)
 {
     bool16 noDucking;
     u8 monSprite;
     struct Sprite *sprite;
     noDucking = (species & SHOW_MON_CRY_NO_DUCKING) >> 16;
     species &= ~SHOW_MON_CRY_NO_DUCKING;
-    monSprite = CreateMonSprite_FieldMove(species, otId, personality, 320, 80, 0);
+    monSprite = CreateMonSprite_FieldMove(species, otId, personality, gender, 320, 80, 0);
     sprite = &gSprites[monSprite];
     sprite->callback = SpriteCallbackDummy;
     sprite->oam.priority = 0;

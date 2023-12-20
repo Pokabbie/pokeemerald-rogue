@@ -89,7 +89,6 @@ static EWRAM_DATA u32 sBikeCyclingTimer = 0;
 static EWRAM_DATA u8 sSlidingDoorNextFrameCounter = 0;
 static EWRAM_DATA u8 sSlidingDoorFrame = 0;
 static EWRAM_DATA u8 sTutorMoveAndElevatorWindowId = 0;
-static EWRAM_DATA u16 sLilycoveDeptStore_NeverRead = 0;
 static EWRAM_DATA u16 sLilycoveDeptStore_DefaultFloorChoice = 0;
 static EWRAM_DATA struct ListMenuItem *sScrollableMultichoice_ListMenuItem = NULL;
 static EWRAM_DATA u16 sScrollableMultichoice_ScrollOffset = 0;
@@ -2849,6 +2848,7 @@ void ScrollableMultichoice_RedrawPersistentMenu(void)
         AddTextPrinterParameterized(task->tWindowId, FONT_NORMAL, gText_SelectorArrow, 0, selectedRow * 16, TEXT_SKIP_DRAW, NULL);
         PutWindowTilemap(task->tWindowId);
         CopyWindowToVram(task->tWindowId, COPYWIN_FULL);
+    }
 }
 
 // Never called
@@ -2968,7 +2968,7 @@ static void ChangeDeoxysRockLevel(u8 rockLevel)
 {
 }
 
-static void WaitForDeoxysRockMovement(u8 taskId)
+static void UNUSED WaitForDeoxysRockMovement(u8 taskId)
 {
     if (FieldEffectActiveListContains(FLDEFF_MOVE_DEOXYS_ROCK) == FALSE)
     {
@@ -3399,7 +3399,7 @@ bool8 IsFanClubMemberFanOfPlayer(void)
     return FALSE;
 }
 
-static void SetInitialFansOfPlayer(void)
+static void UNUSED SetInitialFansOfPlayer(void)
 {
 }
 
@@ -3481,7 +3481,7 @@ void UpdateTrainerFansAfterLinkBattle(void)
 {
 }
 
-static bool8 DidPlayerGetFirstFans(void)
+static bool8 UNUSED DidPlayerGetFirstFans(void)
 {
     return FALSE;
 }

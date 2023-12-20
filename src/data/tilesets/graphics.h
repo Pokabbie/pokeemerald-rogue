@@ -1634,3 +1634,41 @@ const u16 gTilesetPalettes_UnionRoom[][16] =
 };
 
 const u32 gTilesetTiles_UnionRoom[] = INCBIN_U32("data/tilesets/secondary/union_room/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_GeneralHub[][16] =
+{
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/00.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/01.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/02.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/03.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/04.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/05.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/06.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/07.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/08.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/09.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/10.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/11.gbapal"),
+	INCBIN_U16("data/tilesets/primary/general_hub/palettes/12.gbapal")
+};
+
+const u32 gTilesetTiles_GeneralHub[] = INCBIN_U32("data/tilesets/primary/general_hub/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_EternaForest[][16] =
+{
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/00.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/01.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/02.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/03.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/04.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/05.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/06.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/07.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/08.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/09.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/10.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/11.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/eternaforest/palettes/12.gbapal")
+};
+
+const u32 gTilesetTiles_EternaForest[] = INCBIN_U32("data/tilesets/secondary/eternaforest/tiles.4bpp.lz");

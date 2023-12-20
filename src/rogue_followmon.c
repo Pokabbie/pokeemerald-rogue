@@ -267,7 +267,8 @@ void SetupFollowParterMonObjectEvent()
         if(!FollowMon_IsPartnerMonActive())
         {
             u16 localId = OBJ_EVENT_ID_FOLLOWER;
-            u8 objectEventId = SpawnSpecialObjectEventParameterized(
+            //u8 objectEventId = 
+            SpawnSpecialObjectEventParameterized(
                 OBJ_EVENT_GFX_FOLLOW_MON_PARTNER,
                 MOVEMENT_TYPE_FACE_DOWN,
                 localId,
@@ -827,8 +828,6 @@ void FollowMon_OverworldCB()
 
                 if(spawnSlot != INVALID_SPAWN_SLOT)
                 {
-                    u16 spawnRate;
-                    bool8 isShiny = (VarGet(VAR_FOLLOW_MON_0 + spawnSlot) >= FOLLOWMON_SHINY_OFFSET);
                     u8 localId = OBJ_EVENT_ID_FOLLOW_MON_FIRST + spawnSlot;
                     u8 objectEventId = SpawnSpecialObjectEventParameterized(
                         OBJ_EVENT_GFX_FOLLOW_MON_0 + spawnSlot,

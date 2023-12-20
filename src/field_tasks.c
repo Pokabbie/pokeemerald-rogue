@@ -748,7 +748,6 @@ static void SootopolisGymIcePerStepCallback(u8 taskId)
 static void AshGrassPerStepCallback(u8 taskId)
 {
     s16 x, y;
-    u16 *ashGatherCount;
     s16 *data = gTasks[taskId].data;
     PlayerGetDestCoords(&x, &y);
 

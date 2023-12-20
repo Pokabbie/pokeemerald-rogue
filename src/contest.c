@@ -3115,12 +3115,13 @@ static u8 CreateJudgeSpeechBubbleSprite(void)
 
 static u8 CreateContestantSprite(u16 species, u32 otId, u32 personality, u32 index)
 {
-    u8 spriteId;
+    u8 spriteId, gender;
     species = SanitizeSpecies(species);
+    gender = GetGenderForSpecies(species, 0); // RogueNote: TODO
 
-    HandleLoadSpecialPokePic(FALSE, gMonSpritesGfxPtr->sprites.ptr[B_POSITION_PLAYER_LEFT], species, personality);
+    HandleLoadSpecialPokePic(FALSE, gMonSpritesGfxPtr->sprites.ptr[B_POSITION_PLAYER_LEFT], species, personality, gender);
 
-    LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), OBJ_PLTT_ID(2), PLTT_SIZE_4BPP);
+    LoadCompressedPalette(GetMonSpritePalFromSpecies(species, gender, FALSE), OBJ_PLTT_ID(2), PLTT_SIZE_4BPP);
     SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_PLAYER_LEFT);
 
     spriteId = CreateSprite(&gMultiuseSpriteTemplate, 0x70, GetBattlerSpriteFinal_Y(2, species, FALSE), 30);
@@ -5554,8 +5555,6 @@ bool8 SaveContestWinner(u8 rank)
 // If actually preparing to insert the winner into the saveblock, shift is TRUE
 u8 GetContestWinnerSaveIdx(u8 rank, bool8 shift)
 {
-    s32 i;
-
     switch (rank)
     {
     case CONTEST_RANK_NORMAL:

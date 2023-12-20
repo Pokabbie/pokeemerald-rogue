@@ -356,7 +356,7 @@ u8 MapGridGetElevationAt(int x, int y)
     return block >> MAPGRID_ELEVATION_SHIFT;
 }
 
-u8 MapGridGetCollisionAt(int x, int y)
+u8 MapGridIsImpassableAt(int x, int y)
 {
     u16 block = GetMapGridBlockAt(x, y);
 
@@ -646,7 +646,7 @@ static void SetPositionFromConnection(const struct MapConnection *connection, in
         gSaveBlock1Ptr->pos.y = mapHeader->mapLayout->height;
         break;
     default:
-        DebugPrintfLevel(MGBA_LOG_WARN, "SetPositionFromConnection was passed an invalid direction (%d)!", direction);
+        DebugPrintf("SetPositionFromConnection was passed an invalid direction (%d)!", direction);
         break;
     }
 }
@@ -683,7 +683,7 @@ bool8 CameraMove(int x, int y)
         }
         else
         {
-            DebugPrintfLevel(MGBA_LOG_WARN, "GetIncomingConnection returned an invalid connection inside CameraMove!");
+            DebugPrint("GetIncomingConnection returned an invalid connection inside CameraMove!");
         }
 
     }

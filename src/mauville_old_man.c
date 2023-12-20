@@ -29,7 +29,6 @@ static void Storyteller_ResetFlag(void);
 
 static u8 sSelectedStory;
 
-static EWRAM_DATA u16 sUnknownBardRelated = 0;
 static EWRAM_DATA struct MauvilleManStoryteller * sStorytellerPtr = NULL;
 static EWRAM_DATA u8 sStorytellerWindowId = 0;
 
@@ -166,7 +165,7 @@ void SaveBardSongLyrics(void)
 }
 
 // Copies lyrics into gStringVar4
-static void PrepareSongText(void)
+static void UNUSED PrepareSongText(void)
 {
     struct MauvilleManBard *bard = &gSaveBlock1Ptr->oldMan.bard;
     u16 * lyrics = gSpecialVar_0x8004 == 0 ? bard->songLyrics : bard->temporaryLyrics;
@@ -430,7 +429,7 @@ static void StartBardSong(bool8 useTemporaryLyrics)
     //gTasks[taskId].tUseTemporaryLyrics = useTemporaryLyrics;
 }
 
-static void EnableTextPrinters(void)
+static void UNUSED EnableTextPrinters(void)
 {
     gDisableTextPrinters = FALSE;
 }
@@ -440,7 +439,7 @@ static void DisableTextPrinters(struct TextPrinterTemplate * printer, u16 render
     gDisableTextPrinters = TRUE;
 }
 
-static void DrawSongTextWindow(const u8 *str)
+static void UNUSED DrawSongTextWindow(const u8 *str)
 {
     DrawDialogueFrame(0, FALSE);
     AddTextPrinterParameterized(0, FONT_NORMAL, str, 0, 1, 1, DisableTextPrinters);

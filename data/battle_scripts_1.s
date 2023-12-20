@@ -4657,7 +4657,7 @@ BattleScript_EffectCounter::
 
 
 BattleScript_EffectStatUpAlpha::
-	statbuffchange STAT_BUFF_ALLOW_PTR, BattleScript_StatUpEndAlpha
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_StatUpEndAlpha
 	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_StatUpAttackAnimAlpha
 	pause B_WAIT_TIME_SHORT
 	goto BattleScript_StatUpPrintStringAlpha
@@ -10055,11 +10055,6 @@ BattleScript_ArenaJudgmentDraw:
 	cleareffectsonfaint BS_OPPONENT1
 	arenabothmonlost
 	end2
-
-BattleScript_AskIfWantsToForfeitMatch::
-	printselectionstring STRINGID_QUESTIONFORFEITMATCH
-	forfeityesnobox BS_ATTACKER
-	endselectionscript
 
 BattleScript_AskIfWantsToForfeitMatch::
 	printselectionstring STRINGID_QUESTIONFORFEITMATCH

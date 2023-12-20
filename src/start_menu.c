@@ -415,8 +415,8 @@ static void BuildDebugStartMenu(void)
     if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKEMON);
     AddStartMenuAction(MENU_ACTION_BAG);
-    if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
-        AddStartMenuAction(MENU_ACTION_POKENAV);
+    //if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
+    //    AddStartMenuAction(MENU_ACTION_POKENAV);
     AddStartMenuAction(MENU_ACTION_PLAYER);
     AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
@@ -730,7 +730,7 @@ static bool8 HandleStartMenuInput(void)
         if(!WaitFanfare(FALSE))
         {
             sBufferedAButton = TRUE;
-            return;
+            return FALSE;
         }
 
         sBufferedAButton = FALSE;
@@ -946,15 +946,6 @@ static bool8 StartMenuDebugCallback(void)
 #endif
 
 return TRUE;
-}
-
-static bool8 StartMenuSafariZoneRetireCallback(void)
-{
-    RemoveExtraStartMenuWindows();
-    HideStartMenu();
-    SafariZoneRetirePrompt();
-
-    return TRUE;
 }
 
 static void HideStartMenuDebug(void)

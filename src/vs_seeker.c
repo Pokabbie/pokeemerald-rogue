@@ -176,17 +176,6 @@ static void Task_ResetObjectsRematchWantedState(u8 taskId)
 
 u16 VsSeekerConvertLocalIdToTableId(u16 localId)
 {
-    u32 localIdIndex = 0;
-    u32 trainerId = 0;
-
-    for (localIdIndex = 0; localIdIndex < OBJECT_EVENTS_COUNT ; localIdIndex++)
-    {
-        if (sVsSeeker->trainerInfo[localIdIndex].localId == localId)
-        {
-            trainerId = sVsSeeker->trainerInfo[localIdIndex].trainerIdx;
-            return TrainerIdToRematchTableId(gRematchTable,trainerId);
-        }
-    }
     return -1;
 }
 
@@ -221,32 +210,6 @@ void VsSeekerResetObjectMovementAfterChargeComplete(void)
 
 bool8 UpdateVsSeekerStepCounter(void)
 {
-    u8 x = 0;
-
-    if (!I_VS_SEEKER_CHARGING) return FALSE;
-
-    if (CheckBagHasItem(ITEM_VS_SEEKER, 1))
-    {
-        if ((gSaveBlock1Ptr->trainerRematchStepCounter & 0xFF) < VSSEEKER_RECHARGE_STEPS)
-            gSaveBlock1Ptr->trainerRematchStepCounter++;
-    }
-
-    if (FlagGet(I_VS_SEEKER_CHARGING))
-    {
-        if (((gSaveBlock1Ptr->trainerRematchStepCounter >> 8) & 0xFF) < VSSEEKER_RECHARGE_STEPS)
-        {
-            x = (((gSaveBlock1Ptr->trainerRematchStepCounter >> 8) & 0xFF) + 1);
-            gSaveBlock1Ptr->trainerRematchStepCounter = (gSaveBlock1Ptr->trainerRematchStepCounter & 0xFF) | (x << 8);
-        }
-        if (((gSaveBlock1Ptr->trainerRematchStepCounter >> 8) & 0xFF) == VSSEEKER_RECHARGE_STEPS)
-        {
-            FlagClear(I_VS_SEEKER_CHARGING);
-            VsSeekerResetChargingStepCounter();
-            ClearAllTrainerRematchStates();
-            return TRUE;
-        }
-    }
-
     return FALSE;
 }
 
@@ -262,34 +225,14 @@ void MapResetTrainerRematches(u16 mapGroup, u16 mapNum)
 
 static void ResetMovementOfRematchableTrainers(void)
 {
-    u32 i;
-    u8 movementType = 0;
-
-    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
-    {
-        struct ObjectEvent * objectEvent = &gObjectEvents[i];
-        if (objectEvent->movementType != MOVEMENT_TYPE_ROTATE_CLOCKWISE)
-            continue;
-
-        movementType = GetRandomFaceDirectionMovementType();
-
-        if (!objectEvent->active || gSprites[objectEvent->spriteId].data[0] != i)
-            continue;
-
-        gSprites[objectEvent->spriteId].x2 = 0;
-        gSprites[objectEvent->spriteId].y2 = 0;
-        SetTrainerMovementType(objectEvent, movementType);
-    }
 }
 
 static void VsSeekerResetInBagStepCounter(void)
 {
-    gSaveBlock1Ptr->trainerRematchStepCounter &= 0xFF00;
 }
 
 static void VsSeekerResetChargingStepCounter(void)
 {
-    gSaveBlock1Ptr->trainerRematchStepCounter &= 0x00FF;
 }
 
 void Task_InitVsSeekerAndCheckForTrainersOnScreen(u8 taskId)
@@ -403,15 +346,15 @@ static void Task_VsSeeker_ShowResponseToPlayer(u8 taskId)
 
 static u8 CanUseVsSeeker(void)
 {
-    u8 vsSeekerChargeSteps = gSaveBlock1Ptr->trainerRematchStepCounter;
-
-    if ((vsSeekerChargeSteps == VSSEEKER_RECHARGE_STEPS) && (GetRematchableTrainerLocalId() == 0xFF))
-        return VSSEEKER_NO_ONE_IN_RANGE;
-
-    if (vsSeekerChargeSteps == VSSEEKER_RECHARGE_STEPS)
-        return VSSEEKER_CAN_USE;
-
-    ConvertIntToDecimalStringN(gStringVar1, (VSSEEKER_RECHARGE_STEPS - vsSeekerChargeSteps), STR_CONV_MODE_LEFT_ALIGN, 3);
+    //u8 vsSeekerChargeSteps = gSaveBlock1Ptr->trainerRematchStepCounter;
+//
+    //if ((vsSeekerChargeSteps == VSSEEKER_RECHARGE_STEPS) && (GetRematchableTrainerLocalId() == 0xFF))
+    //    return VSSEEKER_NO_ONE_IN_RANGE;
+//
+    //if (vsSeekerChargeSteps == VSSEEKER_RECHARGE_STEPS)
+    //    return VSSEEKER_CAN_USE;
+//
+    //ConvertIntToDecimalStringN(gStringVar1, (VSSEEKER_RECHARGE_STEPS - vsSeekerChargeSteps), STR_CONV_MODE_LEFT_ALIGN, 3);
     return VSSEEKER_NOT_CHARGED;
 }
 
@@ -438,7 +381,7 @@ static u8 GetVsSeekerResponseInArea(void)
             continue;
         }
 
-        rematchTrainerIdx = GetRematchTrainerIdFromTable(gRematchTable, trainerIdx);
+        rematchTrainerIdx = 0;//GetRematchTrainerIdFromTable(gRematchTable, trainerIdx);
         if (rematchTrainerIdx == 0)
         {
             StartTrainerObjectMovementScript(&sVsSeeker->trainerInfo[vsSeekerIdx], sMovementScript_TrainerNoRematch);
@@ -464,7 +407,7 @@ static u8 GetVsSeekerResponseInArea(void)
             }
             else
             {
-                gSaveBlock1Ptr->trainerRematches[VsSeekerConvertLocalIdToTableId(sVsSeeker->trainerInfo[vsSeekerIdx].localId)] = rematchTrainerIdx;
+                //gSaveBlock1Ptr->trainerRematches[VsSeekerConvertLocalIdToTableId(sVsSeeker->trainerInfo[vsSeekerIdx].localId)] = rematchTrainerIdx;
                 ShiftStillObjectEventCoords(&gObjectEvents[sVsSeeker->trainerInfo[vsSeekerIdx].objectEventId]);
                 StartTrainerObjectMovementScript(&sVsSeeker->trainerInfo[vsSeekerIdx], sMovementScript_TrainerRematch);
                 sVsSeeker->trainerIdxArray[sVsSeeker->numRematchableTrainers] = trainerIdx;
@@ -492,73 +435,75 @@ static u8 GetVsSeekerResponseInArea(void)
 
 void ClearRematchMovementByTrainerId(void)
 {
-    s32 i;
-    u8 objEventId = 0;
-    struct ObjectEventTemplate *objectEventTemplates = gSaveBlock1Ptr->objectEventTemplates;
-    struct ObjectEvent *objectEvent;
-
-    int vsSeekerDataIdx = TrainerIdToRematchTableId(gRematchTable, gTrainerBattleOpponent_A);
-
-    if (!I_VS_SEEKER_CHARGING) return;
-
-    if (vsSeekerDataIdx == -1)
-        return;
-
-    for (i = 0; i < gMapHeader.events->objectEventCount; i++)
-    {
-        if ((objectEventTemplates[i].trainerType != TRAINER_TYPE_NORMAL
-        && objectEventTemplates[i].trainerType != TRAINER_TYPE_BURIED)
-        || vsSeekerDataIdx != TrainerIdToRematchTableId(gRematchTable, GetTrainerFlagFromScript(objectEventTemplates[i].script)))
-            continue;
-
-        TryGetObjectEventIdByLocalIdAndMap(objectEventTemplates[i].localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, &objEventId);
-        objectEvent = &gObjectEvents[objEventId];
-        GetRandomFaceDirectionMovementType(&objectEventTemplates[i]);
-        TryOverrideTemplateCoordsForObjectEvent(objectEvent, sFaceDirectionMovementTypeByFacingDirection[objectEvent->facingDirection]);
-
-        if (gSelectedObjectEvent == objEventId)
-            objectEvent->movementType = sFaceDirectionMovementTypeByFacingDirection[objectEvent->facingDirection];
-        else
-            objectEvent->movementType = MOVEMENT_TYPE_FACE_DOWN;
-    }
+    //s32 i;
+    //u8 objEventId = 0;
+    //struct ObjectEventTemplate *objectEventTemplates = gSaveBlock1Ptr->objectEventTemplates;
+    //struct ObjectEvent *objectEvent;
+//
+    //int vsSeekerDataIdx = TrainerIdToRematchTableId(gRematchTable, gTrainerBattleOpponent_A);
+//
+    //if (!I_VS_SEEKER_CHARGING) return;
+//
+    //if (vsSeekerDataIdx == -1)
+    //    return;
+//
+    //for (i = 0; i < gMapHeader.events->objectEventCount; i++)
+    //{
+    //    if ((objectEventTemplates[i].trainerType != TRAINER_TYPE_NORMAL
+    //    && objectEventTemplates[i].trainerType != TRAINER_TYPE_BURIED)
+    //    || vsSeekerDataIdx != TrainerIdToRematchTableId(gRematchTable, GetTrainerFlagFromScript(objectEventTemplates[i].script)))
+    //        continue;
+//
+    //    TryGetObjectEventIdByLocalIdAndMap(objectEventTemplates[i].localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, &objEventId);
+    //    objectEvent = &gObjectEvents[objEventId];
+    //    GetRandomFaceDirectionMovementType(&objectEventTemplates[i]);
+    //    TryOverrideTemplateCoordsForObjectEvent(objectEvent, sFaceDirectionMovementTypeByFacingDirection[objectEvent->facingDirection]);
+//
+    //    if (gSelectedObjectEvent == objEventId)
+    //        objectEvent->movementType = sFaceDirectionMovementTypeByFacingDirection[objectEvent->facingDirection];
+    //    else
+    //        objectEvent->movementType = MOVEMENT_TYPE_FACE_DOWN;
+    //}
 }
 
-static u32 GetGameProgressFlags()
+static u32 UNUSED GetGameProgressFlags()
 {
-    const u32 gameProgressFlags[] = {
-        FLAG_VISITED_LAVARIDGE_TOWN,
-        FLAG_VISITED_FORTREE_CITY,
-        FLAG_SYS_GAME_CLEAR,
-        FLAG_DEFEATED_METEOR_FALLS_STEVEN
-    };
-    u32 i = 0, numGameProgressFlags = 0;
-    u32 maxGameProgressFlags = ARRAY_COUNT(gameProgressFlags);
-
-    for (i = 0; i < maxGameProgressFlags; i++)
-    {
-        if (FlagGet(gameProgressFlags[i]))
-            numGameProgressFlags++;
-    }
-
-    return numGameProgressFlags;
+    //const u32 gameProgressFlags[] = {
+    //    FLAG_VISITED_LAVARIDGE_TOWN,
+    //    FLAG_VISITED_FORTREE_CITY,
+    //    FLAG_SYS_GAME_CLEAR,
+    //    FLAG_DEFEATED_METEOR_FALLS_STEVEN
+    //};
+    //u32 i = 0, numGameProgressFlags = 0;
+    //u32 maxGameProgressFlags = ARRAY_COUNT(gameProgressFlags);
+//
+    //for (i = 0; i < maxGameProgressFlags; i++)
+    //{
+    //    if (FlagGet(gameProgressFlags[i]))
+    //        numGameProgressFlags++;
+    //}
+//
+    //return numGameProgressFlags;
+    return 0;
 }
 
 u16 GetRematchTrainerIdVSSeeker(u16 trainerId)
 {
-    u32 tableId = FirstBattleTrainerIdToRematchTableId(gRematchTable, trainerId);
-    u32 rematchTrainerIdx = GetGameProgressFlags();
-
-    if (!I_VS_SEEKER_CHARGING) return 0;
-
-    while (!HasTrainerBeenFought(gRematchTable[tableId].trainerIds[rematchTrainerIdx-1]))
-    {
-        if (rematchTrainerIdx== 0)
-            break;
-
-        rematchTrainerIdx--;
-    }
-
-    return gRematchTable[tableId].trainerIds[rematchTrainerIdx];
+    //u32 tableId = FirstBattleTrainerIdToRematchTableId(gRematchTable, trainerId);
+    //u32 rematchTrainerIdx = GetGameProgressFlags();
+//
+    //if (!I_VS_SEEKER_CHARGING) return 0;
+//
+    //while (!HasTrainerBeenFought(gRematchTable[tableId].trainerIds[rematchTrainerIdx-1]))
+    //{
+    //    if (rematchTrainerIdx== 0)
+    //        break;
+//
+    //    rematchTrainerIdx--;
+    //}
+//
+    //return gRematchTable[tableId].trainerIds[rematchTrainerIdx];
+    return 0;
 }
 
 static bool8 ObjectEventIdIsSane(u8 objectEventId)
@@ -701,13 +646,13 @@ static u16 GetTrainerFlagFromScript(const u8 *script)
 
 static void ClearAllTrainerRematchStates(void)
 {
-    u32 i;
-
-    if (!CheckBagHasItem(ITEM_VS_SEEKER, 1))
-        return;
-
-    for (i = 0; i < ARRAY_COUNT(gSaveBlock1Ptr->trainerRematches); i++)
-        gSaveBlock1Ptr->trainerRematches[i] = 0;
+    //u32 i;
+//
+    //if (!CheckBagHasItem(ITEM_VS_SEEKER, 1))
+    //    return;
+//
+    //for (i = 0; i < ARRAY_COUNT(gSaveBlock1Ptr->trainerRematches); i++)
+    //    gSaveBlock1Ptr->trainerRematches[i] = 0;
 }
 
 static bool8 IsTrainerVisibleOnScreen(struct VsSeekerTrainerInfo * trainerInfo)
@@ -728,18 +673,18 @@ static bool8 IsTrainerVisibleOnScreen(struct VsSeekerTrainerInfo * trainerInfo)
     return FALSE;
 }
 
-static u32 GetRematchableTrainerLocalId(void)
+static u32 UNUSED GetRematchableTrainerLocalId(void)
 {
-    u32 i;
-
-    for (i = 0; sVsSeeker->trainerInfo[i].localId != 0xFF; i++)
-    {
-        if (IsTrainerVisibleOnScreen(&sVsSeeker->trainerInfo[i]) == 1)
-        {
-            if (HasTrainerBeenFought(sVsSeeker->trainerInfo[i].trainerIdx) != 1 || GetRematchTrainerIdFromTable(gRematchTable, sVsSeeker->trainerInfo[i].trainerIdx))
-                return sVsSeeker->trainerInfo[i].localId;
-        }
-    }
+    //u32 i;
+//
+    //for (i = 0; sVsSeeker->trainerInfo[i].localId != 0xFF; i++)
+    //{
+    //    if (IsTrainerVisibleOnScreen(&sVsSeeker->trainerInfo[i]) == 1)
+    //    {
+    //        if (HasTrainerBeenFought(sVsSeeker->trainerInfo[i].trainerIdx) != 1 || GetRematchTrainerIdFromTable(gRematchTable, sVsSeeker->trainerInfo[i].trainerIdx))
+    //            return sVsSeeker->trainerInfo[i].localId;
+    //    }
+    //}
 
     return 0xFF;
 }
@@ -772,22 +717,22 @@ static u8 GetCurVsSeekerResponse(s32 vsSeekerIdx, u16 trainerIdx)
 
 static void StartAllRespondantIdleMovements(void)
 {
-    s32 i;
-    s32 j;
-
-    for (i = 0; i < sVsSeeker->numRematchableTrainers; i++)
-    {
-        for (j = 0; sVsSeeker->trainerInfo[j].localId != 0xFF; j++)
-        {
-            if (sVsSeeker->trainerInfo[j].trainerIdx == sVsSeeker->trainerIdxArray[i])
-            {
-                struct ObjectEvent *objectEvent = &gObjectEvents[sVsSeeker->trainerInfo[j].objectEventId];
-
-                if (ObjectEventIdIsSane(sVsSeeker->trainerInfo[j].objectEventId) == 1)
-                    SetTrainerMovementType(objectEvent, sVsSeeker->runningBehaviourEtcArray[i]);
-                TryOverrideTemplateCoordsForObjectEvent(objectEvent, sVsSeeker->runningBehaviourEtcArray[i]);
-                gSaveBlock1Ptr->trainerRematches[VsSeekerConvertLocalIdToTableId(sVsSeeker->trainerInfo[j].localId)] = GetRematchTrainerIdFromTable(gRematchTable, sVsSeeker->trainerInfo[j].trainerIdx);
-            }
-        }
-    }
+    //s32 i;
+    //s32 j;
+//
+    //for (i = 0; i < sVsSeeker->numRematchableTrainers; i++)
+    //{
+    //    for (j = 0; sVsSeeker->trainerInfo[j].localId != 0xFF; j++)
+    //    {
+    //        if (sVsSeeker->trainerInfo[j].trainerIdx == sVsSeeker->trainerIdxArray[i])
+    //        {
+    //            struct ObjectEvent *objectEvent = &gObjectEvents[sVsSeeker->trainerInfo[j].objectEventId];
+//
+    //            if (ObjectEventIdIsSane(sVsSeeker->trainerInfo[j].objectEventId) == 1)
+    //                SetTrainerMovementType(objectEvent, sVsSeeker->runningBehaviourEtcArray[i]);
+    //            TryOverrideTemplateCoordsForObjectEvent(objectEvent, sVsSeeker->runningBehaviourEtcArray[i]);
+    //            gSaveBlock1Ptr->trainerRematches[VsSeekerConvertLocalIdToTableId(sVsSeeker->trainerInfo[j].localId)] = GetRematchTrainerIdFromTable(gRematchTable, sVsSeeker->trainerInfo[j].trainerIdx);
+    //        }
+    //    }
+    //}
 }

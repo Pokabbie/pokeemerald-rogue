@@ -428,14 +428,10 @@ extern const u8 DebugScript_ZeroDaycareMons[];
 extern const u8 Debug_ShowFieldMessageStringVar4[];
 extern const u8 Debug_CheatStart[];
 extern const u8 Debug_HatchAnEgg[];
-extern const u8 PlayersHouse_2F_EventScript_SetWallClock[];
-extern const u8 PlayersHouse_2F_EventScript_CheckWallClock[];
 extern const u8 Debug_CheckSaveBlock[];
 extern const u8 Debug_CheckROMSpace[];
 extern const u8 Debug_BoxFilledMessage[];
 extern const u8 Debug_ShowExpansionVersion[];
-
-extern const u8 FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon[];
 
 #include "data/map_group_count.h"
 
@@ -1147,7 +1143,7 @@ static u8 Debug_CheckToggleFlags(u8 id)
             result = IsNationalPokedexEnabled();
             break;
         case DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_POKENAV:
-            result = FlagGet(FLAG_SYS_POKENAV_GET);
+            result = FALSE;//FlagGet(FLAG_SYS_POKENAV_GET);
             break;
         case DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_MATCH_CALL:
             result = FlagGet(FLAG_ADDED_MATCH_CALL_TO_POKENAV) && FlagGet(FLAG_HAS_MATCH_CALL);
@@ -2113,12 +2109,12 @@ static void DebugAction_Util_Weather_SelectId(u8 taskId)
 
 static void DebugAction_Util_CheckWallClock(u8 taskId)
 {
-    Debug_DestroyMenu_Full_Script(taskId, PlayersHouse_2F_EventScript_CheckWallClock);
+    //Debug_DestroyMenu_Full_Script(taskId, PlayersHouse_2F_EventScript_CheckWallClock);
 }
 
 static void DebugAction_Util_SetWallClock(u8 taskId)
 {
-    Debug_DestroyMenu_Full_Script(taskId, PlayersHouse_2F_EventScript_SetWallClock);
+    //Debug_DestroyMenu_Full_Script(taskId, PlayersHouse_2F_EventScript_SetWallClock);
 }
 
 static void DebugAction_Util_WatchCredits(u8 taskId)
@@ -2504,8 +2500,8 @@ static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
     u16 species;
 
     // Reset Pokedex to emtpy
-    memset(&gSaveBlock1Ptr->dexCaught, 0, sizeof(gSaveBlock1Ptr->dexCaught));
-    memset(&gSaveBlock1Ptr->dexSeen, 0, sizeof(gSaveBlock1Ptr->dexSeen));
+    memset(&gSaveBlock1Ptr->pokedexBitFlags1, 0, sizeof(gSaveBlock1Ptr->pokedexBitFlags1));
+    memset(&gSaveBlock1Ptr->pokedexBitFlags2, 0, sizeof(gSaveBlock1Ptr->pokedexBitFlags2));
 
     // Add party Pokemon to Pokedex
     for (partyId = 0; partyId < PARTY_SIZE; partyId++)
@@ -2513,8 +2509,8 @@ static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
         if (GetMonData(&gPlayerParty[partyId], MON_DATA_SANITY_HAS_SPECIES))
         {
             species = GetMonData(&gPlayerParty[partyId], MON_DATA_SPECIES);
-            GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_CAUGHT);
-            GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_SEEN);
+            GetSetPokedexFlag(species, FLAG_SET_CAUGHT);
+            GetSetPokedexFlag(species, FLAG_SET_SEEN);
         }
     }
 
@@ -2560,11 +2556,11 @@ static void DebugAction_FlagsVars_SwitchNatDex(u8 taskId)
 
 static void DebugAction_FlagsVars_SwitchPokeNav(u8 taskId)
 {
-    if (FlagGet(FLAG_SYS_POKENAV_GET))
-        PlaySE(SE_PC_OFF);
-    else
-        PlaySE(SE_PC_LOGIN);
-    FlagToggle(FLAG_SYS_POKENAV_GET);
+    //if (FlagGet(FLAG_SYS_POKENAV_GET))
+    //    PlaySE(SE_PC_OFF);
+    //else
+    //    PlaySE(SE_PC_LOGIN);
+    //FlagToggle(FLAG_SYS_POKENAV_GET);
 }
 
 static void DebugAction_FlagsVars_SwitchMatchCall(u8 taskId)
@@ -2989,7 +2985,7 @@ static void DebugAction_Give_PokemonSimple(u8 taskId)
 
     FreeMonIconPalettes();
     LoadMonIconPalette(gTasks[taskId].tInput);
-    gTasks[taskId].tSpriteId = CreateMonIcon(gTasks[taskId].tInput, SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0);
+    gTasks[taskId].tSpriteId = CreateMonIcon(gTasks[taskId].tInput, SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0, MON_MALE);
     gSprites[gTasks[taskId].tSpriteId].oam.priority = 0;
 }
 
@@ -3028,7 +3024,7 @@ static void DebugAction_Give_PokemonComplex(u8 taskId)
 
     FreeMonIconPalettes();
     LoadMonIconPalette(gTasks[taskId].tInput);
-    gTasks[taskId].tSpriteId = CreateMonIcon(gTasks[taskId].tInput, SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0);
+    gTasks[taskId].tSpriteId = CreateMonIcon(gTasks[taskId].tInput, SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0, MON_MALE);
     gSprites[gTasks[taskId].tSpriteId].oam.priority = 0;
     gTasks[taskId].tIterator = 0;
 }
@@ -3072,7 +3068,7 @@ static void DebugAction_Give_Pokemon_SelectId(u8 taskId)
         FreeAndDestroyMonIconSprite(&gSprites[gTasks[taskId].tSpriteId]);
         FreeMonIconPalettes();
         LoadMonIconPalette(gTasks[taskId].tInput);
-        gTasks[taskId].tSpriteId = CreateMonIcon(gTasks[taskId].tInput, SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0);
+        gTasks[taskId].tSpriteId = CreateMonIcon(gTasks[taskId].tInput, SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0, MON_MALE);
         gSprites[gTasks[taskId].tSpriteId].oam.priority = 0;
     }
 
@@ -4622,7 +4618,7 @@ static void DebugAction_PartyBoxes_AccessPC(u8 taskId)
 
 static void DebugAction_PartyBoxes_MoveReminder(u8 taskId)
 {
-    Debug_DestroyMenu_Full_Script(taskId, FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon);
+    //Debug_DestroyMenu_Full_Script(taskId, FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon);
 }
 
 static void DebugAction_PartyBoxes_HatchAnEgg(u8 taskId)

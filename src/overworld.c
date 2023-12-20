@@ -1286,7 +1286,7 @@ void TryFadeOutOldMapMusic(void)
         return;
     }
 
-    if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE && warpMusic != GetCurrentMapMusic())
+    if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE && warpMusic != currentMusic)
     {
         FadeOutMapMusic(GetMapMusicFadeoutSpeed());
     }
@@ -1498,7 +1498,6 @@ bool32 IsOverworldLinkActive(void)
 
 static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
 {
-    bool8 allowPopups;
     bool8 inputActive = FALSE;
     struct FieldInput inputStruct;
 
@@ -3240,7 +3239,7 @@ static u8 LinkPlayerGetCollision(u8 selfObjEventId, u8 direction, s16 x, s16 y)
             }
         }
     }
-    return MapGridGetCollisionAt(x, y);
+    return MapGridIsImpassableAt(x, y);
 }
 
 static void CreateLinkPlayerSprite(u8 linkPlayerId, u8 gameVersion)

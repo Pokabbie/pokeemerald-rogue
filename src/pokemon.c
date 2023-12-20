@@ -79,7 +79,6 @@ static void EncryptBoxMon(struct BoxPokemon *boxMon);
 static void DecryptBoxMon(struct BoxPokemon *boxMon);
 static void Task_PlayMapChosenOrBattleBGM(u8 taskId);
 static bool8 ShouldSkipFriendshipChange(void);
-static u8 SendMonToPC(struct Pokemon* mon);
 static u8 CalcGenderFromSpeciesAndPersonality(u16 species, u32 personality);
 static void RemoveIVIndexFromList(u8 *ivs, u8 selectedIv);
 void TrySpecialOverworldEvo();
@@ -401,8 +400,6 @@ const s8 gNatureStatTable[NUM_NATURES][NUM_NATURE_STATS] =
 
 #include "data/pokemon/trainer_class_lookups.h"
 #include "data/pokemon/experience_tables.h"
-#include "data/pokemon/level_up_learnsets.h"
-#include "data/pokemon/teachable_learnsets.h"
 #include "data/pokemon/form_species_tables.h"
 #include "data/pokemon/form_change_tables.h"
 #include "data/pokemon/form_change_table_pointers.h"
@@ -874,7 +871,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
     SetBoxMonData(boxMon, MON_DATA_SPECIES, &species);
 
-    exp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level);
+    exp = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, level);
     SetBoxMonData(boxMon, MON_DATA_EXP, &exp);
     SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].friendship);
     value = GetCurrentRegionMapSectionId();
@@ -1422,8 +1419,6 @@ u16 GetUnionRoomTrainerClass(void)
 
 void CreateEnemyEventMon(void)
 {
-    u8 i;
-    u16 moveId;
     u16 species = VarGet(gSpecialVar_0x8004);
     u8 level = gSpecialVar_0x8005;
     u16 itemId = gSpecialVar_0x8006;
@@ -1580,7 +1575,7 @@ u8 GetLevelFromMonExp(struct Pokemon *mon)
     u32 exp = GetMonData(mon, MON_DATA_EXP, NULL);
     s32 level = 1;
 
-    while (level <= MAX_LEVEL && Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level) <= exp)
+    while (level <= MAX_LEVEL && Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, level) <= exp)
         level++;
 
     return level - 1;
@@ -1592,7 +1587,7 @@ u8 GetLevelFromBoxMonExp(struct BoxPokemon *boxMon)
     u32 exp = GetBoxMonData(boxMon, MON_DATA_EXP, NULL);
     s32 level = 1;
 
-    while (level <= MAX_LEVEL && Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level) <= exp)
+    while (level <= MAX_LEVEL && Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, level) <= exp)
         level++;
 
     return level - 1;
@@ -1697,20 +1692,19 @@ void GiveBoxMonInitialMoveset_Fast(struct BoxPokemon *boxMon) //Credit: Asparagu
     u16 levelMoveCount = 0;
     u16 moves[MAX_MON_MOVES] = {0};
     u8 addedMoves = 0;
-    const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
 
-    for (i = 0; learnset[i].move != LEVEL_UP_MOVE_END; i++)
+    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
         levelMoveCount++;
 
     for (i = levelMoveCount; (i >= 0 && addedMoves < MAX_MON_MOVES); i--)
     {
-        if (learnset[i].level > level)
+        if (gRoguePokemonProfiles[species].levelUpMoves[i].level > level)
             continue;
-        if (learnset[i].level == 0)
+        if (gRoguePokemonProfiles[species].levelUpMoves[i].level == 0)
             continue;
 
-        if (moves[addedMoves] != learnset[i].move)
-            moves[addedMoves++] = learnset[i].move;
+        if (moves[addedMoves] != gRoguePokemonProfiles[species].levelUpMoves[i].move)
+            moves[addedMoves++] = gRoguePokemonProfiles[species].levelUpMoves[i].move;
     }
     for (i = MAX_MON_MOVES - 1; i >= 0; i--)
     {
@@ -1729,7 +1723,6 @@ static u16 MonTryLearningNewMoveInternal(struct Pokemon *mon, bool8 firstMove, b
     u32 retVal = MOVE_NONE;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
-    const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
 
     // since you can learn more than one move per level
     // the game needs to know whether you decided to
@@ -1892,12 +1885,12 @@ u8 GetBoxMonGender(struct BoxPokemon *boxMon)
 u8 GetGenderForSpecies(u16 species, u8 genderFlag)
 {
     // Ignore gender flag for 100% 
-    switch (gBaseStats[species].genderRatio)
+    switch (gSpeciesInfo[species].genderRatio)
     {
     case MON_MALE:
     case MON_FEMALE:
     case MON_GENDERLESS:
-        return gBaseStats[species].genderRatio;
+        return gSpeciesInfo[species].genderRatio;
     }
 
     if(genderFlag == 0)
@@ -1933,10 +1926,6 @@ u8 CalcGenderForBoxMon(struct BoxPokemon *boxMon)
     u32 personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY, NULL);
 
     return CalcGenderFromSpeciesAndPersonality(species, personality);
-
-bool32 IsPersonalityFemale(u16 species, u32 personality)
-{
-    return CalcGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE;
 }
 
 u32 GetUnownSpeciesId(u32 personality)
@@ -2318,14 +2307,11 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_ABILITY_NUM:
             retVal = substruct3->abilityNum;
             break;
-        case MON_DATA_COOL_RIBBON:
-            retVal = substruct3->coolRibbon;
+        case MON_DATA_IS_SHINY:
+            retVal = substruct3->isShiny;
             break;
-        case MON_DATA_BEAUTY_RIBBON:
-            retVal = substruct3->beautyRibbon;
-            break;
-        case MON_DATA_CUTE_RIBBON:
-            retVal = substruct3->cuteRibbon;
+        case MON_DATA_GENDER_FLAG:
+            retVal = substruct3->genderFlag;
             break;
         case MON_DATA_SMART_RIBBON:
             retVal = substruct3->smartRibbon;
@@ -2410,8 +2396,8 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal = 0;
             if (substruct0->species && !substruct3->isEgg)
             {
-                retVal += substruct3->coolRibbon;
-                retVal += substruct3->beautyRibbon;
+                //retVal += substruct3->coolRibbon;
+                //retVal += substruct3->beautyRibbon;
                 retVal += substruct3->cuteRibbon;
                 retVal += substruct3->smartRibbon;
                 retVal += substruct3->toughRibbon;
@@ -2434,8 +2420,8 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             if (substruct0->species && !substruct3->isEgg)
             {
                 retVal = substruct3->championRibbon
-                    | (substruct3->coolRibbon << 1)
-                    | (substruct3->beautyRibbon << 4)
+                    //| (substruct3->coolRibbon << 1)
+                    //| (substruct3->beautyRibbon << 4)
                     | (substruct3->cuteRibbon << 7)
                     | (substruct3->smartRibbon << 10)
                     | (substruct3->toughRibbon << 13)
@@ -2753,10 +2739,10 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             SET8(substruct3->abilityNum);
             break;
     case MON_DATA_IS_SHINY:
-        SET8(substruct3->isShiny);
+            SET8(substruct3->isShiny);
             break;
     case MON_DATA_GENDER_FLAG:
-        SET8(substruct3->genderFlag);
+            SET8(substruct3->genderFlag);
             break;
         case MON_DATA_CUTE_RIBBON:
             SET8(substruct3->cuteRibbon);
@@ -3149,22 +3135,6 @@ u16 GetSpeciesWeight(u16 species)
     return gSpeciesInfo[SanitizeSpeciesId(species)].weight;
 }
 
-const struct LevelUpMove *GetSpeciesLevelUpLearnset(u16 species)
-{
-    const struct LevelUpMove *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].levelUpLearnset;
-    if (learnset == NULL)
-        return gSpeciesInfo[SPECIES_NONE].levelUpLearnset;
-    return learnset;
-}
-
-const u16 *GetSpeciesTeachableLearnset(u16 species)
-{
-    const u16 *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].teachableLearnset;
-    if (learnset == NULL)
-        return gSpeciesInfo[SPECIES_NONE].teachableLearnset;
-    return learnset;
-}
-
 const struct Evolution *GetSpeciesEvolutions(u16 species)
 {
     const struct Evolution *evolutions = gSpeciesInfo[SanitizeSpeciesId(species)].evolutions;
@@ -3371,19 +3341,20 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
 
                 if (param == 0) // Rare Candy
                 {
-                    dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][GetMonData(mon, MON_DATA_LEVEL, NULL) + 1];
+                    dataUnsigned = Rogue_ModifyExperienceTables(gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate, GetMonData(mon, MON_DATA_LEVEL, NULL) + 1);
                 }
                 else if (param - 1 < ARRAY_COUNT(sExpCandyExperienceTable)) // EXP Candies
                 {
-                    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-                    dataUnsigned = sExpCandyExperienceTable[param - 1] + GetMonData(mon, MON_DATA_EXP, NULL);
-                    if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL])
-                        dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL];
+                    AGB_ASSERT(FALSE); // fixme
+                    dataUnsigned = Rogue_ModifyExperienceTables(gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate, GetMonData(mon, MON_DATA_LEVEL, NULL) + 1);
+                    //u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+                    //dataUnsigned = sExpCandyExperienceTable[param - 1] + GetMonData(mon, MON_DATA_EXP, NULL);
+                    //if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL])
+                    //    dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL];
                 }
 
                 if (dataUnsigned != 0) // Failsafe
                 {
-                dataUnsigned = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate, GetMonData(mon, MON_DATA_LEVEL, NULL) + 1); fixme
                     SetMonData(mon, MON_DATA_EXP, &dataUnsigned);
                     CalculateMonStats(mon);
                     retVal = FALSE;
@@ -3951,7 +3922,6 @@ void SetNature(struct Pokemon *mon, u8 nature)
 
 void SetNatureBoxMon(struct BoxPokemon *mon, u8 nature)
 {
-    u16 i;
     u32 personality = GetBoxMonData(mon, MON_DATA_PERSONALITY, 0);
     u8 origNature = GetNatureFromPersonality(personality);
 
@@ -4671,8 +4641,10 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 
     if (species && species != SPECIES_EGG)
     {
+        struct Trainer trainer;
         u8 friendshipLevel = 0;
         s16 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
+        Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
 
         if (friendship > 99)
             friendshipLevel++;
@@ -4975,12 +4947,12 @@ bool8 TryIncrementMonLevel(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u8 nextLevel = GetMonData(mon, MON_DATA_LEVEL, 0) + 1;
     u32 expPoints = GetMonData(mon, MON_DATA_EXP, 0);
-    if (expPoints > Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, MAX_LEVEL))
+    if (expPoints > Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, MAX_LEVEL))
     {
-        expPoints = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, MAX_LEVEL);
+        expPoints = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, MAX_LEVEL);
         SetMonData(mon, MON_DATA_EXP, &expPoints);
     }
-    if (nextLevel > MAX_LEVEL || expPoints < Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, nextLevel))
+    if (nextLevel > MAX_LEVEL || expPoints < Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, nextLevel))
     {
         return FALSE;
     }
@@ -5013,7 +4985,7 @@ u8 CalcMonHiddenPowerType(struct Pokemon *mon)
 
 u32 CanMonLearnTM(struct Pokemon *mon, u16 itemId)
 {
-    return CanSpeciesLearnTM(GetMonData(mon, MON_DATA_SPECIES2, 0), itemId);
+    return CanSpeciesLearnTM(GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0), itemId);
 }
 
 u32 CanSpeciesLearnTM(u16 species, u16 itemId)
@@ -5148,19 +5120,7 @@ u16 GetBattleBGM(void)
 
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
-        u8 trainerClass;
-        struct Trainer trainer;
-
-        Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
         Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, gTrainerBattleOpponent_A, &music);
-
-        if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
-            trainerClass = GetFrontierOpponentClass(gTrainerBattleOpponent_A);
-        else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL)
-            trainerClass = TRAINER_CLASS_EXPERT;
-        else
-            trainerClass = trainer.trainerClass;
-
         return music.battleMusic;
     }
     else
@@ -5218,18 +5178,17 @@ const u32 *GetMonFrontSpritePal(struct Pokemon *mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
     bool8 shiny = GetMonData(mon, MON_DATA_IS_SHINY, 0);
-    return GetMonSpritePalFromSpecies(species, shiny);
+    u8 gender = GetMonGender(mon);
+    return GetMonSpritePalFromSpecies(species, gender, shiny);
 }
 
-const u32 *GetMonSpritePalFromSpecies(u16 species, bool8 shiny)
+const u32 *GetMonSpritePalFromSpecies(u16 species, u8 gender, bool8 shiny)
 {
-    u32 shinyValue;
-
     species = SanitizeSpeciesId(species);
 
     if (shiny)
     {
-        if (gSpeciesInfo[species].shinyPaletteFemale != NULL && IsPersonalityFemale(species, personality))
+        if (gSpeciesInfo[species].shinyPaletteFemale != NULL && gender == MON_FEMALE)
             return gSpeciesInfo[species].shinyPaletteFemale;
         else if (gSpeciesInfo[species].shinyPalette != NULL)
             return gSpeciesInfo[species].shinyPalette;
@@ -5238,13 +5197,29 @@ const u32 *GetMonSpritePalFromSpecies(u16 species, bool8 shiny)
     }
     else
     {
-        if (gSpeciesInfo[species].paletteFemale != NULL && IsPersonalityFemale(species, personality))
+        if (gSpeciesInfo[species].paletteFemale != NULL && gender == MON_FEMALE)
             return gSpeciesInfo[species].paletteFemale;
         else if (gSpeciesInfo[species].palette != NULL)
             return gSpeciesInfo[species].palette;
         else
             return gSpeciesInfo[SPECIES_NONE].palette;
     }
+}
+
+bool32 CanUseHMMove2(u16 move)
+{
+    return FlagGet(FLAG_SYS_FIELD_MOVES_GET) == TRUE;
+
+    //int i = 0;
+    //while (sHMMoves[i] != HM_MOVES_END)
+    //{
+    //    if (sHMMoves[i] == move)
+    //    {
+    //        return CheckBagHasItem(ITEM_HM01 + i, 1);
+    //    }
+    //    ++i;
+    //}
+    //return FALSE;
 }
 
 bool8 IsMoveHM(u16 move)
@@ -5344,7 +5319,7 @@ void SetMonPreventsSwitchingString(void)
     BattleStringExpandPlaceholders(gText_PkmnsXPreventsSwitching, gStringVar4);
 }
 
-static s32 GetWildMonTableIdInAlteringCave(u16 species)
+static s32 UNUSED GetWildMonTableIdInAlteringCave(u16 species)
 {
     s32 i;
     for (i = 0; i < (s32) ARRAY_COUNT(sAlteringCaveWildMonHeldItems); i++)
@@ -5370,43 +5345,47 @@ void SetWildMonHeldItem(void)
     {
         u16 rnd;
         u16 species;
+        u16 chanceNoItem = 45;
+        u16 chanceNotRare = 95;
         u16 count = (WILD_DOUBLE_BATTLE) ? 2 : 1;
         u16 i;
-        bool32 itemHeldBoost = CanFirstMonBoostHeldItemRarity();
-        u16 chanceNoItem = itemHeldBoost ? 20 : 45;
-        u16 chanceNotRare = itemHeldBoost ? 80 : 95;
         u16 heldItem = 0;
 
+        if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG, 0)
+            && (GetMonAbility(&gPlayerParty[0]) == ABILITY_COMPOUND_EYES
+                || GetMonAbility(&gPlayerParty[0]) == ABILITY_SUPER_LUCK))
+        {
+            chanceNoItem = 20;
+            chanceNotRare = 80;
+        }
 
         for (i = 0; i < count; i++)
         {
             if (GetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, NULL) != ITEM_NONE)
-                continue; // prevent overwriting previously set item
-
+                continue; // prevent ovewriting previously set item
+            
             rnd = Random() % 100;
             species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES, 0);
-        
-        {
-            if (gBaseStats[species].itemCommon == gBaseStats[species].itemRare && gBaseStats[species].itemCommon != ITEM_NONE)
+            if (gSpeciesInfo[species].itemCommon == gSpeciesInfo[species].itemRare && gSpeciesInfo[species].itemCommon != ITEM_NONE)
             {
                 // Both held items are the same, 100% chance to hold item
-                heldItem = gBaseStats[species].itemCommon;
+                heldItem = gSpeciesInfo[species].itemCommon;
             }
             else
             {
                 if (rnd < chanceNoItem)
-                    return;
+                    continue;
                 if (rnd < chanceNotRare)
-                    heldItem = gBaseStats[species].itemCommon;
+                    heldItem = gSpeciesInfo[species].itemCommon;
                 else
-                    heldItem = gBaseStats[species].itemRare;
+                    heldItem = gSpeciesInfo[species].itemRare;
             }
         }
 
         if(heldItem)
         {
             Rogue_ModifyWildMonHeldItem(&heldItem);
-            SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &heldItem);
+            SetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM, &heldItem);
         }
     }
 }
@@ -5995,7 +5974,6 @@ u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
-    const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
 
     // Since you can learn more than one move per level,
     // the game needs to know whether you decided to
@@ -6005,11 +5983,11 @@ u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove)
     {
         sLearningMoveTableID = 0;
     }
-    while(learnset[sLearningMoveTableID].move != LEVEL_UP_MOVE_END)
+    while(gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].move != MOVE_NONE)
     {
-        while (learnset[sLearningMoveTableID].level == 0 || learnset[sLearningMoveTableID].level == level)
+        while (gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].level == 0 || gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].level == level)
         {
-            gMoveToLearn = learnset[sLearningMoveTableID].move;
+            gMoveToLearn = gRoguePokemonProfiles[species].levelUpMoves[sLearningMoveTableID].move;
             sLearningMoveTableID++;
             return GiveMoveToMon(mon, gMoveToLearn);
         }

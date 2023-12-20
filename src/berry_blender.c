@@ -245,7 +245,6 @@ EWRAM_DATA static s32 sDebug_PokeblockFactorFlavorsAfterRPM[FLAVOR_COUNT] = {0};
 EWRAM_DATA static u32 sDebug_PokeblockFactorRPM = 0;
 
 static s16 sPokeblockFlavors[FLAVOR_COUNT + 1]; // + 1 for feel
-static s16 sPokeblockPresentFlavors[FLAVOR_COUNT + 1];
 static s16 sDebug_MaxRPMStage;
 static s16 sDebug_GameTimeStage;
 
@@ -1276,8 +1275,6 @@ static void InitLocalPlayers(u8 opponentsNum)
 
 static void StartBlender(void)
 {
-    s32 i;
-
     SetGpuReg(REG_OFFSET_DISPCNT, 0);
     if (sBerryBlender == NULL)
         sBerryBlender = AllocZeroed(sizeof(*sBerryBlender));
@@ -1544,7 +1541,7 @@ static u8 GetArrowProximity(u16 arrowPos, u8 playerId)
     return PROXIMITY_MISS;
 }
 
-static void SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct BlenderBerry* playerBerry)
+static void UNUSED SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct BlenderBerry* playerBerry)
 {
     u16 opponentSetId = 0;
     u16 opponentBerryId;

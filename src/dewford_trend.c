@@ -383,7 +383,7 @@ static void SeedTrendRng(struct DewfordTrend *trend)
     trend->rand = Random();
 }
 
-static bool8 IsPhraseInSavedTrends(u16 *phrase)
+static bool8 UNUSED IsPhraseInSavedTrends(u16 *phrase)
 {
     u16 i;
 

@@ -130,12 +130,12 @@ u8 RogueQueryScript_CalculateWeightsCallback(u16 index, u16 species, void* data)
         {
             signedValue *= -1;
             shift = min(signedValue, 3);
-            weight = (8 >> signedValue);
+            weight = (8 >> shift);
         }
         else
         {
             shift = min(signedValue, 4);
-            weight = (8 << signedValue);
+            weight = (8 << shift);
         }
 
         return weight;
@@ -163,28 +163,28 @@ static u16 ParseScriptValue(struct QueryScriptContext* context)
             return SpeciesToGen(context->currentSpecies);
 
         case QUERY_VAR_MON_TYPE1:
-            return gBaseStats[context->currentSpecies].type1;
+            return RoguePokedex_GetSpeciesType(context->currentSpecies, 0);
         case QUERY_VAR_MON_TYPE2:
-            return gBaseStats[context->currentSpecies].type1;
+            return RoguePokedex_GetSpeciesType(context->currentSpecies, 1);
 
         case QUERY_VAR_MON_BST:
             return RoguePokedex_GetSpeciesBST(context->currentSpecies);
 
         case QUERY_VAR_MON_HP:
-            return gBaseStats[context->currentSpecies].baseHP;
+            return gRogueSpeciesInfo[context->currentSpecies].baseHP;
 
         case QUERY_VAR_MON_ATK:
-            return gBaseStats[context->currentSpecies].baseAttack;
+            return gRogueSpeciesInfo[context->currentSpecies].baseAttack;
         case QUERY_VAR_MON_DEF:
-            return gBaseStats[context->currentSpecies].baseDefense;
+            return gRogueSpeciesInfo[context->currentSpecies].baseDefense;
 
         case QUERY_VAR_MON_SPATK:
-            return gBaseStats[context->currentSpecies].baseSpAttack;
+            return gRogueSpeciesInfo[context->currentSpecies].baseSpAttack;
         case QUERY_VAR_MON_SPDEF:
-            return gBaseStats[context->currentSpecies].baseSpDefense;
+            return gRogueSpeciesInfo[context->currentSpecies].baseSpDefense;
 
         case QUERY_VAR_MON_SPEED:
-            return gBaseStats[context->currentSpecies].baseSpeed;
+            return gRogueSpeciesInfo[context->currentSpecies].baseSpeed;
 
         case QUERY_VAR_MON_BEST_STAT:
             return RoguePokedex_GetSpeciesBestStat(context->currentSpecies);
@@ -266,26 +266,26 @@ static void Condition_HasType(struct QueryScriptContext* context)
 {
     u16 typeToCheck = ParseScriptValue(context);
 
-    context->conditionState = (gBaseStats[context->currentSpecies].type1 == typeToCheck || gBaseStats[context->currentSpecies].type2 == typeToCheck);
+    context->conditionState = ( RoguePokedex_GetSpeciesType(context->currentSpecies, 0) == typeToCheck || RoguePokedex_GetSpeciesType(context->currentSpecies, 1) == typeToCheck);
 }
 
 static void Condition_IsMonoType(struct QueryScriptContext* context)
 {
-    context->conditionState = (gBaseStats[context->currentSpecies].type1 == gBaseStats[context->currentSpecies].type2);
+    context->conditionState = (RoguePokedex_GetSpeciesType(context->currentSpecies, 0) == RoguePokedex_GetSpeciesType(context->currentSpecies, 1));
 }
 
 static void Condition_HasUniqueTypeInTeam(struct QueryScriptContext* context)
 {
     context->conditionState = 
-        ((context->partyTypeFlags & MON_TYPE_VAL_TO_FLAGS(gBaseStats[context->currentSpecies].type1)) == 0) ||
-        ((context->partyTypeFlags & MON_TYPE_VAL_TO_FLAGS(gBaseStats[context->currentSpecies].type2)) == 0);
+        ((context->partyTypeFlags & MON_TYPE_VAL_TO_FLAGS(RoguePokedex_GetSpeciesType(context->currentSpecies, 0))) == 0) ||
+        ((context->partyTypeFlags & MON_TYPE_VAL_TO_FLAGS(RoguePokedex_GetSpeciesType(context->currentSpecies, 1))) == 0);
 }
 
 static void Condition_AlreadyHasTypeInTeam(struct QueryScriptContext* context)
 {
     context->conditionState = 
-        ((context->partyTypeFlags & MON_TYPE_VAL_TO_FLAGS(gBaseStats[context->currentSpecies].type1)) != 0) ||
-        ((context->partyTypeFlags & MON_TYPE_VAL_TO_FLAGS(gBaseStats[context->currentSpecies].type2)) != 0);
+        ((context->partyTypeFlags & MON_TYPE_VAL_TO_FLAGS(RoguePokedex_GetSpeciesType(context->currentSpecies, 0))) != 0) ||
+        ((context->partyTypeFlags & MON_TYPE_VAL_TO_FLAGS(RoguePokedex_GetSpeciesType(context->currentSpecies, 1))) != 0);
 }
 
 static void Action_IncludeTypes(struct QueryScriptContext* context)

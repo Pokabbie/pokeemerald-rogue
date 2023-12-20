@@ -1236,7 +1236,7 @@ static void TurnNPCIntoFollower(u8 localId, u16 followerFlags)
 {
     struct ObjectEvent* follower;
     u8 eventObjId;
-    const u8 *script;
+    //const u8 *script;
     u16 flag;
     
     if (gSaveBlock2Ptr->follower.inProgress)

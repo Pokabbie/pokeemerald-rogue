@@ -700,7 +700,7 @@ u32 CountPlayerTrainerStars(void)
     return stars;
 }
 
-static u8 GetRubyTrainerStars(struct TrainerCard *trainerCard)
+static u8 UNUSED GetRubyTrainerStars(struct TrainerCard *trainerCard)
 {
     u8 stars = 0;
 
@@ -720,24 +720,6 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard)
 {
     u32 playTime;
     u8 i;
-    u8 cardType;
-
-    switch(gSaveBlock2Ptr->playerGender)
-    {
-        case STYLE_RED:
-        case STYLE_LEAF:
-        case STYLE_ETHAN:
-        case STYLE_LYRA:
-            cardType = CARD_TYPE_FRLG;
-            break;
-
-        default:
-        //case STYLE_EMR_BRENDAN:
-        //case STYLE_EMR_MAY:
-            cardType = CARD_TYPE_EMERALD;
-            break;
-
-    };
 
     trainerCard->gender = gSaveBlock2Ptr->playerGender;
     trainerCard->playTimeHours = gSaveBlock2Ptr->playTimeHours;
@@ -1426,7 +1408,7 @@ static void LoadMonIconGfx(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (sData->trainerCard.monSpecies[i])
-            LoadBgTiles(3, GetMonIconTiles(sData->trainerCard.monSpecies[i], 0), 512, 16 * i + 32);
+            LoadBgTiles(3, GetMonIconTiles(sData->trainerCard.monSpecies[i], 0, MON_MALE), 512, 16 * i + 32);
     }
 }
 
@@ -1474,7 +1456,7 @@ static u8 SetCardBgsAndPals(void)
     case 2:
         if (sData->cardType != CARD_TYPE_FRLG)
         {
-            LoadPalette(sHoennTrainerCardStarPals[sData->trainerCard.stars], 0, 96);
+            LoadPalette(sHoennTrainerCardPals[sData->trainerCard.stars], 0, 96);
             //LoadPalette(sHoennTrainerCardBadges_Pal, 48, 32);
             LoadPalette(sTypedTrainerCardBadges_Pal, 48, 32);
             if (sData->trainerCard.gender % 2 != MALE)
@@ -1482,12 +1464,12 @@ static u8 SetCardBgsAndPals(void)
         }
         else
         {
-            LoadPalette(sKantoTrainerCardStarPals[sData->trainerCard.stars], 0, 96);
+            LoadPalette(sKantoTrainerCardPals[sData->trainerCard.stars], 0, 96);
             LoadPalette(sKantoTrainerCardBadges_Pal, 48, 32);
             if (sData->trainerCard.gender % 2 != MALE)
                 LoadPalette(sKantoTrainerCardFemaleBg_Pal, 16, 32);
         }
-        LoadPalette(sTrainerCardGold_Pal, 64, 32);
+        LoadPalette(sTrainerCardStar_Pal, 64, 32);
         break;
     case 3:
         SetBgTilemapBuffer(0, sData->cardTilemapBuffer);

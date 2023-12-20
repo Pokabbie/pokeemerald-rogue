@@ -65,7 +65,6 @@ void HealPlayerParty(void)
 
 u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 unused3)
 {
-    u16 nationalDexNum;
     int sentToPc;
     u8 heldItem[2];
     struct Pokemon mon;
@@ -91,7 +90,6 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     Rogue_ModifyScriptMon(&mon);
 
     sentToPc = GiveMonToPlayer(&mon);
-    nationalDexNum = SpeciesToNationalPokedexNum(species);
 
     // Don't set Pokédex flag for MON_CANT_GIVE
     switch(sentToPc)

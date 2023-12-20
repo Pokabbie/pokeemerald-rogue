@@ -757,7 +757,7 @@ static void Task_UpdatePage(u8 taskId)
             if (gTasks[taskId].tCurrentIndex < ARRAY_COUNT(sCreditsEntryPointerTable))
             {
                 // Print text for this Credits page
-                u16 entryIdx, entryCount, offset;
+                u16 entryIdx, entryCount;
                 u16 entryIndices[ENTRIES_PER_PAGE];
 
                 entryCount = 0;
@@ -770,11 +770,6 @@ static void Task_UpdatePage(u8 taskId)
                     if((sCreditsEntryPointerTable[entryIdx].flags & CREDITS_FLAG_BREAK) != 0)
                         break;
                 }
-
-                if(entryCount <= 2)
-                    offset = 2;
-                else
-                    offset = 0;
 
                 for (i = 0; i < entryCount; i++)
                 {

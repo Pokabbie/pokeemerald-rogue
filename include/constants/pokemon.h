@@ -302,6 +302,13 @@
 #define EVO_LEVEL_FAMILY_OF_THREE         45     // Pokémon reaches the specified level with a personality value with a modulus of 0
 #define EVO_LEVEL_FAMILY_OF_FOUR          46     // Pokémon reaches the specified level with a personality value with a modulus of 1-99
 
+// rogue note hookup
+#define EVO_LEVEL_ITEM                    47     // Pokémon levels up whilst holding item
+#define EVO_MOVE_TYPE                     48     // Pokémon levels up, knows move with specified type
+
+// Still needed in rogue?
+#define EVOS_PER_MON 10
+
 // Evolution 'modes,' for GetEvolutionTargetSpecies
 #define EVO_MODE_NORMAL            0
 #define EVO_MODE_TRADE             1

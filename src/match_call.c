@@ -1667,7 +1667,7 @@ static void PopulateMapName(int matchCallId, u8 *destStr)
     GetMapName(destStr, GetRematchTrainerLocation(matchCallId), 0);
 }
 
-static u8 GetLandEncounterSlot(void)
+static u8 UNUSED GetLandEncounterSlot(void)
 {
     int rand = Random() % 100;
     if (rand < 20)
@@ -1696,7 +1696,7 @@ static u8 GetLandEncounterSlot(void)
         return 11;
 }
 
-static u8 GetWaterEncounterSlot(void)
+static u8 UNUSED GetWaterEncounterSlot(void)
 {
     int rand = Random() % 100;
     if (rand < 60)

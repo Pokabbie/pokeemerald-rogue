@@ -458,7 +458,7 @@ static void UNUSED TrainerHillDummy_Unused(void)
 
 }
 
-static void TrainerHillDummy(void)
+static void UNUSED TrainerHillDummy(void)
 {
 
 }
@@ -754,7 +754,7 @@ u8 GetTrainerEncounterMusicIdInTrainerHill(u16 trainerId)
 static void SetTrainerHillMonLevel(struct Pokemon *mon, u8 level)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-    u32 exp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level);
+    u32 exp = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, level);
 
     SetMonData(mon, MON_DATA_EXP, &exp);
     SetMonData(mon, MON_DATA_LEVEL, &level);
@@ -821,7 +821,7 @@ static void TrainerHillSetMode(void)
 }
 
 // Determines which prize list to use from the set of prize lists.
-static u8 GetPrizeListId(bool8 allowTMs)
+static u8 UNUSED GetPrizeListId(bool8 allowTMs)
 {
     u8 prizeListId, i, modBy;
 
@@ -847,7 +847,7 @@ static u8 GetPrizeListId(bool8 allowTMs)
     return prizeListId;
 }
 
-static u16 GetPrizeItemId(void)
+static u16 UNUSED GetPrizeItemId(void)
 {
     return ITEM_POKE_BALL;
 }

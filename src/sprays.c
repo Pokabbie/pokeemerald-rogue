@@ -75,31 +75,33 @@ u32 SetSprayMenuCursorPosition(int currentSpray, int count)
 #if I_REPEL_LURE_MENU == TRUE
 void DrawSprayMenu(void)
 {
-    struct MenuAction menuItems[NUM_SPRAY_STRENGTH+1] = {NULL};
-    int sprayIndex, count = 0, menuPos = 0, currentSpray, yCoord = 0;
-    u32 spray = GetLastUsedSprayType();
+    //struct MenuAction menuItems[NUM_SPRAY_STRENGTH+1] = {NULL};
+    //int sprayIndex, count = 0, menuPos = 0, currentSpray, yCoord = 0;
+    //u32 spray = GetLastUsedSprayType();
+//
+    //for (sprayIndex = 0; sprayIndex < (NUM_SPRAY_STRENGTH); sprayIndex++)
+    //{
+    //    currentSpray = spray + sprayIndex;
+//
+    //    if (!CheckBagHasItem(currentSpray, 1))
+    //        continue;
+//
+    //    menuItems[count].text = ItemId_GetName(currentSpray);
+    //    VarSet(LOCAL_VAR_SPRAY_CONST + count, currentSpray);
+//
+    //    if (VAR_LAST_REPEL_LURE_USED != 0)
+    //        menuPos = SetSprayMenuCursorPosition(currentSpray, count);
+//
+    //    yCoord = SPRAY_MENU_Y_COORD - (2 * count);
+    //    count++;
+    //}
+//
+    //gSpecialVar_0x8003 = count;
+    //menuItems[count].text = gText_Cancel2;
 
-    for (sprayIndex = 0; sprayIndex < (NUM_SPRAY_STRENGTH); sprayIndex++)
-    {
-        currentSpray = spray + sprayIndex;
-
-        if (!CheckBagHasItem(currentSpray, 1))
-            continue;
-
-        menuItems[count].text = ItemId_GetName(currentSpray);
-        VarSet(LOCAL_VAR_SPRAY_CONST + count, currentSpray);
-
-        if (VAR_LAST_REPEL_LURE_USED != 0)
-            menuPos = SetSprayMenuCursorPosition(currentSpray, count);
-
-        yCoord = SPRAY_MENU_Y_COORD - (2 * count);
-        count++;
-    }
-
-    gSpecialVar_0x8003 = count;
-    menuItems[count].text = gText_Cancel2;
-
-    DrawMultichoiceMenuInternal(18, yCoord, 0, FALSE, menuPos, menuItems, count+1);
+    // todo - fixme
+    AGB_ASSERT(FALSE);
+    //DrawMultichoiceMenuInternal(18, yCoord, 0, FALSE, menuPos, menuItems, count+1);
 }
 #endif
 

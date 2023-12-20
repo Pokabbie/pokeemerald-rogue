@@ -1049,7 +1049,7 @@ extern const u8 gText_QuestLogOverviewRewardsToCollect[];
 extern const u8 gText_RogueDebug_Header[];
 #endif
 
-static void QuestMenuOverview(u8 windowId)
+static void UNUSED QuestMenuOverview(u8 windowId)
 {
     s32 x;
     const u8 *str;
@@ -1092,12 +1092,11 @@ static void QuestMenuOverview(u8 windowId)
     }
 }
 
-static void QuestMenuPreviewDescription(u32 chosenQuest)
+static void UNUSED QuestMenuPreviewDescription(u32 chosenQuest)
 {
     s32 x;
     const struct RogueQuestConstants* quest;
     struct OLDRogueQuestState questState;
-    u8 buffer[32];
     const u8 *str;
 
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
@@ -1141,13 +1140,12 @@ static void QuestMenuPreviewDescription(u32 chosenQuest)
     AddTextPrinterParameterized(0, FONT_SHORT, str, x, 80, 0, NULL);
 }
 
-static void QuestMenuRewardDescription(u32 chosenQuest)
+static void UNUSED QuestMenuRewardDescription(u32 chosenQuest)
 {
-    s32 x, y;
+    s32 x;
     u8 i;
     const struct RogueQuestConstants* quest;
     struct OLDRogueQuestState questState;
-    u8 buffer[32];
     const u8 *str;
 
     FillWindowPixelBuffer(1, PIXEL_FILL(1));
@@ -1162,8 +1160,6 @@ static void QuestMenuRewardDescription(u32 chosenQuest)
     }
 
     quest = &gRogueQuests[chosenQuest];
-
-    y = 0;
 
     for(i = 0; i < ARRAY_COUNT(quest->rewards); ++i)
     {
@@ -1195,7 +1191,7 @@ static void QuestMenuRewardDescription(u32 chosenQuest)
                     break;
     
                 case QUEST_REWARD_GIVE_POKEMON:
-                    StringCopy(gStringVar1, gSpeciesNames[quest->rewards[i].params[0]]);
+                    StringCopy(gStringVar1, gSpeciesInfo[quest->rewards[i].params[0]].speciesName);
                     
                     if(quest->rewards[i].params[2] == TRUE)
                         StringExpandPlaceholders(gStringVar2, gText_QuestLogTitleRewardShinyPokemon);
@@ -1477,12 +1473,12 @@ void GetConditionMenuMonGfx(void *tilesDst, void *palDst, u16 boxId, u16 monId, 
     if (partyId != numMons)
     {
         u16 species = GetBoxOrPartyMonData(boxId, monId, MON_DATA_SPECIES_OR_EGG, NULL);
-        u32 trainerId = GetBoxOrPartyMonData(boxId, monId, MON_DATA_OT_ID, NULL);
         u32 personality = GetBoxOrPartyMonData(boxId, monId, MON_DATA_PERSONALITY, NULL);
         bool8 isShiny = GetBoxOrPartyMonData(boxId, monId, MON_DATA_IS_SHINY, NULL);
+        u8 gender = GetGenderForSpecies(species, GetBoxOrPartyMonData(boxId, monId, MON_DATA_GENDER_FLAG, NULL));
 
-        LoadSpecialPokePic(tilesDst, species, personality, TRUE);
-        LZ77UnCompWram(GetMonSpritePalFromSpecies(species, isShiny), palDst);
+        LoadSpecialPokePic(tilesDst, species, personality, gender, TRUE);
+        LZ77UnCompWram(GetMonSpritePalFromSpecies(species, gender, isShiny), palDst);
     }
 }
 

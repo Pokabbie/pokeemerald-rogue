@@ -719,7 +719,8 @@ static bool8 LoadMonAndSceneGfx(struct Pokemon *mon)
 {
     u16 species;
     bool8 isShiny;
-    u32 personality, trainerId;
+    u8 gender;
+    u32 personality;
 
     switch (sPokeblockFeed->loadGfxState)
     {
@@ -727,14 +728,16 @@ static bool8 LoadMonAndSceneGfx(struct Pokemon *mon)
         // Load mon gfx
         species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
         personality = GetMonData(mon, MON_DATA_PERSONALITY);
-        HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality);
+        gender = GetMonGender(mon);
+        HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality, gender);
         sPokeblockFeed->loadGfxState++;
         break;
     case 1:
         // Load mon palette
         species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
         isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
-        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(species, trainerId, personality), species);
+        gender = GetMonGender(mon);
+        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpecies(species, gender, isShiny), species);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         sPokeblockFeed->loadGfxState++;
         break;
@@ -843,7 +846,7 @@ static void LaunchPokeblockFeedTask(void)
     gTasks[taskId].tHorizontalThrow = TRUE;
 }
 
-static void Task_WaitForAtePokeblockMessage(u8 taskId)
+static void UNUSED Task_WaitForAtePokeblockMessage(u8 taskId)
 {
     if (RunTextPrintersRetIsActive(0) != TRUE)
         gTasks[taskId].func = Task_FadeOutPokeblockFeed;

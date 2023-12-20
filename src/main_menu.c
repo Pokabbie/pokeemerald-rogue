@@ -476,31 +476,31 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_PlayerShrink[] =
 };
 
 static const struct MenuAction sMenuActions_Gender[4] = { //PLAYER_STYLE_COUNT
-    {gText_BirchBrendan, NULL},
-    {gText_BirchMay, NULL},
+    {gText_BirchBrendan, {NULL}},
+    {gText_BirchMay, {NULL}},
 
-    {gText_BirchRed, NULL},
-    {gText_BirchLeaf, NULL},
+    {gText_BirchRed, {NULL}},
+    {gText_BirchLeaf, {NULL}},
 
     // TODO - ETHAN LYRA (If we want them here?)
-    //{gText_BirchRed, NULL},
-    //{gText_BirchLeaf, NULL},
+    //{gText_BirchRed, {NULL}},
+    //{gText_BirchLeaf, {NULL}},
 };
 
 static const struct MenuAction sMenuActions_Styles[4] = {
-    {gText_BirchStyleA, NULL},
-    {gText_BirchStyleB, NULL},
-    {gText_BirchStyleC, NULL},
-    {gText_BirchStyleD, NULL},
+    {gText_BirchStyleA, {NULL}},
+    {gText_BirchStyleB, {NULL}},
+    {gText_BirchStyleC, {NULL}},
+    {gText_BirchStyleD, {NULL}},
 };
 
 static const struct MenuAction sMenuActions_Styles2[4] = {
-    {gText_BirchStyleA, NULL},
-    {gText_BirchStyleB, NULL},
-    {gText_BirchStyleC, NULL},
-    {gText_BirchStyleD, NULL},
-    //{gText_BirchStyleE, NULL},
-    //{gText_BirchStyleF, NULL},
+    {gText_BirchStyleA, {NULL}},
+    {gText_BirchStyleB, {NULL}},
+    {gText_BirchStyleC, {NULL}},
+    {gText_BirchStyleD, {NULL}},
+    //{gText_BirchStyleE, {NULL}},
+    //{gText_BirchStyleF, {NULL}},
 };
 
 static const u8 *const sMalePresetNames[] = {
@@ -786,7 +786,7 @@ static void Task_MainMenuCheckBattery(u8 taskId)
     }
 }
 
-static void Task_WaitForBatteryDryErrorWindow(u8 taskId)
+static void UNUSED Task_WaitForBatteryDryErrorWindow(u8 taskId)
 {
     RunTextPrinters();
     if (!IsTextPrinterActive(7) && (JOY_NEW(A_BUTTON)))
@@ -1357,7 +1357,7 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
 #define tStyleSelectId data[14]
 // 16 pew pew
 
-static void Task_NewGameBirchSpeech_Init(u8 taskId)
+static void UNUSED Task_NewGameBirchSpeech_Init(u8 taskId)
 {
     RoguePlayer_SetNewGameOutfit();
 
@@ -1923,7 +1923,7 @@ static void Task_NewGameBirchSpeech_WaitForSpriteFadeInAndTextPrinter(u8 taskId)
 
 static void Task_NewGameBirchSpeech_AreYouReady(u8 taskId)
 {
-    u8 spriteId;
+    u8 spriteId = 0;
 
     if (gTasks[taskId].tIsDoneFadingSprites)
     {
@@ -2027,6 +2027,8 @@ static void CB2_NewGameBirchSpeech_ReturnFromNamingScreen(void)
     u8 spriteId;
     u16 savedIme;
 
+    spriteId = 0;
+
     ResetBgsAndClearDma3BusyFlags(0);
     SetGpuReg(REG_OFFSET_DISPCNT, 0);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
@@ -2127,7 +2129,7 @@ static void SpriteCB_MovePlayerDownWhileShrinking(struct Sprite *sprite)
 
 static u8 NewGameBirchSpeech_CreateLotadSprite(u8 x, u8 y)
 {
-    return CreateMonPicSprite_Affine(DISPLAY_MON_SPECIES, NON_SHINY_PLACEHOLDER, 0, FALSE, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
+    return CreateMonPicSprite_Affine(DISPLAY_MON_SPECIES, NON_SHINY_PLACEHOLDER, 0, MON_MALE, FALSE, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
 }
 
 static void FreeTrainerSprites(u8 taskId)

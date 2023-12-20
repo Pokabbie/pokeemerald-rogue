@@ -569,7 +569,8 @@ static void CB2_CreateTradeMenu(void)
                                                          (sTradeMonSpriteCoords[i][0] * 8) + 14,
                                                          (sTradeMonSpriteCoords[i][1] * 8) - 12,
                                                          1,
-                                                         GetMonData(mon, MON_DATA_PERSONALITY));
+                                                         GetMonData(mon, MON_DATA_PERSONALITY),
+                                                         GetMonGender(mon));
         }
 
         for (i = 0; i < sTradeMenu->partyCounts[TRADE_PARTNER]; i++)
@@ -580,7 +581,8 @@ static void CB2_CreateTradeMenu(void)
                                                          (sTradeMonSpriteCoords[i + PARTY_SIZE][0] * 8) + 14,
                                                          (sTradeMonSpriteCoords[i + PARTY_SIZE][1] * 8) - 12,
                                                          1,
-                                                         GetMonData(mon, MON_DATA_PERSONALITY));
+                                                         GetMonData(mon, MON_DATA_PERSONALITY),
+                                                         GetMonGender(mon));
         }
         gMain.state++;
         break;
@@ -758,7 +760,8 @@ static void CB2_ReturnToTradeMenu(void)
                                                          (sTradeMonSpriteCoords[i][0] * 8) + 14,
                                                          (sTradeMonSpriteCoords[i][1] * 8) - 12,
                                                          1,
-                                                         GetMonData(mon, MON_DATA_PERSONALITY));
+                                                         GetMonData(mon, MON_DATA_PERSONALITY),
+                                                         GetMonGender(mon));
         }
 
         for (i = 0; i < sTradeMenu->partyCounts[TRADE_PARTNER]; i++)
@@ -769,7 +772,8 @@ static void CB2_ReturnToTradeMenu(void)
                                                          (sTradeMonSpriteCoords[i + PARTY_SIZE][0] * 8) + 14,
                                                          (sTradeMonSpriteCoords[i + PARTY_SIZE][1] * 8) - 12,
                                                          1,
-                                                         GetMonData(mon, MON_DATA_PERSONALITY));
+                                                         GetMonData(mon, MON_DATA_PERSONALITY),
+                                                         GetMonGender(mon));
         }
         gMain.state++;
         break;
@@ -2769,6 +2773,7 @@ static void LoadTradeMonPic(u8 whichParty, u8 state)
     struct Pokemon *mon = NULL;
     u16 species = SPECIES_NONE;
     u32 personality;
+    u8 gender;
 
     if (whichParty == TRADE_PLAYER)
     {
@@ -2787,8 +2792,9 @@ static void LoadTradeMonPic(u8 whichParty, u8 state)
     {
     case 0:
         personality = GetMonData(mon, MON_DATA_PERSONALITY);
+        gender = GetMonGender(mon);
 
-        HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[whichParty * 2 + B_POSITION_OPPONENT_LEFT], species, personality);
+        HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[whichParty * 2 + B_POSITION_OPPONENT_LEFT], species, personality, gender);
 
         LoadCompressedSpritePaletteWithTag(GetMonFrontSpritePal(mon), species);
         sTradeAnim->monSpecies[whichParty] = species;
@@ -3788,7 +3794,8 @@ static bool8 DoTradeAnim_Cable(void)
             HandleLoadSpecialPokePic(TRUE,
                                      gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_RIGHT],
                                      sTradeAnim->monSpecies[TRADE_PARTNER],
-                                     sTradeAnim->monPersonalities[TRADE_PARTNER]);
+                                     sTradeAnim->monPersonalities[TRADE_PARTNER],
+                                     MON_MALE); //fixme
             sTradeAnim->state++;
         }
         break;
@@ -4285,7 +4292,8 @@ static bool8 DoTradeAnim_Wireless(void)
             HandleLoadSpecialPokePic(TRUE,
                                       gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_RIGHT],
                                       sTradeAnim->monSpecies[TRADE_PARTNER],
-                                      sTradeAnim->monPersonalities[TRADE_PARTNER]);
+                                      sTradeAnim->monPersonalities[TRADE_PARTNER],
+                                      MON_MALE); //fixme
             sTradeAnim->state++;
         }
         break;

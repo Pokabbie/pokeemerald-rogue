@@ -145,6 +145,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u16 species2; // 0x2
         u8 isEgg : 1; // 0x4
         u8 isShiny : 1; // 0x4
+        u8 genderFlag : 1;
         u8 level; // 0x5
         u8 ribbonCount; // 0x6
         u8 ailment; // 0x7
@@ -1519,6 +1520,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->species = GetMonData(mon, MON_DATA_SPECIES);
         sum->species2 = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
         sum->isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
+        sum->genderFlag = GetMonData(mon, MON_DATA_GENDER_FLAG);
         sum->exp = GetMonData(mon, MON_DATA_EXP);
         sum->level = GetMonData(mon, MON_DATA_LEVEL);
         sum->abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
@@ -1941,7 +1943,6 @@ static void ChangePage(u8 taskId, s8 delta)
 static void ChangeTab(u8 taskId, s8 delta)
 {
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
-    s16 *data = gTasks[taskId].data;
 
     if (summary->isEgg)
         return;
@@ -2813,8 +2814,8 @@ static void DrawExperienceProgressBar(struct Pokemon *unused)
 
     if (summary->level < MAX_LEVEL)
     {
-        u32 expBetweenLevels = Rogue_ModifyExperienceTables(gBaseStats[summary->species].growthRate, summary->level + 1) - Rogue_ModifyExperienceTables(gBaseStats[summary->species].growthRate, summary->level);
-        u32 expSinceLastLevel = summary->exp - Rogue_ModifyExperienceTables(gBaseStats[summary->species].growthRate, summary->level);
+        u32 expBetweenLevels = Rogue_ModifyExperienceTables(gSpeciesInfo[summary->species].growthRate, summary->level + 1) - Rogue_ModifyExperienceTables(gSpeciesInfo[summary->species].growthRate, summary->level);
+        u32 expSinceLastLevel = summary->exp - Rogue_ModifyExperienceTables(gSpeciesInfo[summary->species].growthRate, summary->level);
 
         // Calculate the number of 1-pixel "ticks" to illuminate in the experience progress bar.
         // There are 8 tiles that make up the bar, and each tile has 8 "ticks". Hence, the numerator
@@ -3577,7 +3578,6 @@ static void PrintFriendship(void)
 {
     const u8 *text;
     int x;
-    u16 value;
 
     //TODO - MAX_FRIENDSHIP to 1 -> 100 range?
     ConvertIntToDecimalStringN(gStringVar1, sMonSummaryScreen->summary.friendship, STR_CONV_MODE_LEFT_ALIGN, 3);
@@ -3698,7 +3698,7 @@ static void PrintExpPointsNextLevel(void)
     PrintTextOnWindow(windowId, gStringVar1, x, 1, 0, 0);
 
     if (sum->level < MAX_LEVEL)
-        expToNextLevel = Rogue_ModifyExperienceTables(gBaseStats[sum->species].growthRate, sum->level + 1) - sum->exp;
+        expToNextLevel = Rogue_ModifyExperienceTables(gSpeciesInfo[sum->species].growthRate, sum->level + 1) - sum->exp;
     else
         expToNextLevel = 0;
 
@@ -4054,12 +4054,12 @@ static void SetTypeIcons(void)
 void LoadMoveTypesSpritesheetAndPalette()
 {
     LoadCompressedPalette(gMoveTypes_Pal, 0x1D0, 0x60);
-    LoadCompressedSpriteSheet(&sSpriteSheet_MoveTypes);
+    LoadCompressedSpriteSheet(&gSpriteSheet_MoveTypes);
 }
 
 u8 CreateMonTypeIcon(u16 typeId, u8 x, u8 y)
 {
-    u8 spriteId = CreateSprite(&sSpriteTemplate_MoveTypes, 0, 0, 2);
+    u8 spriteId = CreateSprite(&gSpriteTemplate_MoveTypes, 0, 0, 2);
     if(spriteId != SPRITE_NONE)
     {
         struct Sprite *sprite = &gSprites[spriteId];
@@ -4211,7 +4211,8 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state)
             HandleLoadSpecialPokePic(TRUE,
                                      gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
                                      summary->species2,
-                                     summary->pid);
+                                     summary->pid,
+                                     GetGenderForSpecies(summary->species2, summary->genderFlag));
         }
         else
         {
@@ -4220,20 +4221,22 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state)
                 HandleLoadSpecialPokePic(TRUE,
                                          gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
                                          summary->species2,
-                                         summary->pid);
+                                         summary->pid,
+                                         GetGenderForSpecies(summary->species2, summary->genderFlag));
             }
             else
             {
                 HandleLoadSpecialPokePic(TRUE,
                                          MonSpritesGfxManager_GetSpritePtr(MON_SPR_GFX_MANAGER_A, B_POSITION_OPPONENT_LEFT),
                                          summary->species2,
-                                         summary->pid);
+                                         summary->pid,
+                                         GetGenderForSpecies(summary->species2, summary->genderFlag));
             }
         }
         (*state)++;
         return 0xFF;
     case 1:
-        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(summary->species2, summary->OTID, summary->pid), summary->species2);
+        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpecies(summary->species2, GetGenderForSpecies(summary->species2, summary->genderFlag), summary->isShiny), summary->species2);
         SetMultiuseSpriteTemplateToPokemon(summary->species2, B_POSITION_OPPONENT_LEFT);
         (*state)++;
         return 0xFF;

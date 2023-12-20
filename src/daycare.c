@@ -34,7 +34,6 @@ static void ClearDaycareMonMail(struct DaycareMail *mail);
 static void SetInitialEggData(struct Pokemon *mon, u16 species, struct DayCare *daycare);
 static void DaycarePrintMonInfo(u8 windowId, u32 daycareSlotId, u8 y);
 static u8 ModifyBreedingScoreForOvalCharm(u8 score);
-static u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves);
 
 //RogueNote: Stole memory for Rogue dynamic TMs
 
@@ -163,55 +162,55 @@ s8 Daycare_FindEmptySpot(struct DayCare *daycare)
     return -1;
 }
 
-static void ClearHatchedEggMoves(void)
+static void UNUSED ClearHatchedEggMoves(void)
 {
-    u16 i;
-
-    for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
-        sHatchedEggEggMoves[i] = MOVE_NONE;
+    //u16 i;
+//
+    //for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+    //    sHatchedEggEggMoves[i] = MOVE_NONE;
 }
 
 static void TransferEggMoves(void)
 {
-    u32 i, j, k, l;
-    u16 numEggMoves;
-    struct Pokemon mon;
-
-    for (i = 0; i < DAYCARE_MON_COUNT; i++)
-    {
-        if (!GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[i].mon, MON_DATA_SANITY_HAS_SPECIES))
-            continue;
-
-        BoxMonToMon(&gSaveBlock1Ptr->daycare.mons[i].mon, &mon);
-        ClearHatchedEggMoves();
-        numEggMoves = GetEggMoves(&mon, sHatchedEggEggMoves);
-        for (j = 0; j < numEggMoves; j++)
-        {
-            // Go through other Daycare mons
-            for (k = 0; k < DAYCARE_MON_COUNT; k++)
-            {
-                if (k == i || !GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[k].mon, MON_DATA_SANITY_HAS_SPECIES))
-                    continue;
-
-                // Check if you can inherit from them
-                if (GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[k].mon, MON_DATA_SPECIES) != GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[i].mon, MON_DATA_SPECIES)
-            #if P_EGG_MOVE_TRANSFER >= GEN_9
-                    && GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[i].mon, MON_DATA_HELD_ITEM) != ITEM_MIRROR_HERB
-            #endif
-                )
-                    continue;
-
-                for (l = 0; l < MAX_MON_MOVES; l++)
-                {
-                    if (GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[k].mon, MON_DATA_MOVE1 + l) != sHatchedEggEggMoves[j])
-                        continue;
-
-                    if (GiveMoveToBoxMon(&gSaveBlock1Ptr->daycare.mons[i].mon, sHatchedEggEggMoves[j]) == MON_HAS_MAX_MOVES)
-                        break;
-                }
-            }
-        }
-    }
+    //u32 i, j, k, l;
+    //u16 numEggMoves;
+    //struct Pokemon mon;
+//
+    //for (i = 0; i < DAYCARE_MON_COUNT; i++)
+    //{
+    //    if (!GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[i].mon, MON_DATA_SANITY_HAS_SPECIES))
+    //        continue;
+//
+    //    BoxMonToMon(&gSaveBlock1Ptr->daycare.mons[i].mon, &mon);
+    //    ClearHatchedEggMoves();
+    //    numEggMoves = GetEggMoves(&mon, sHatchedEggEggMoves);
+    //    for (j = 0; j < numEggMoves; j++)
+    //    {
+    //        // Go through other Daycare mons
+    //        for (k = 0; k < DAYCARE_MON_COUNT; k++)
+    //        {
+    //            if (k == i || !GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[k].mon, MON_DATA_SANITY_HAS_SPECIES))
+    //                continue;
+//
+    //            // Check if you can inherit from them
+    //            if (GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[k].mon, MON_DATA_SPECIES) != GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[i].mon, MON_DATA_SPECIES)
+    //        #if P_EGG_MOVE_TRANSFER >= GEN_9
+    //                && GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[i].mon, MON_DATA_HELD_ITEM) != ITEM_MIRROR_HERB
+    //        #endif
+    //            )
+    //                continue;
+//
+    //            for (l = 0; l < MAX_MON_MOVES; l++)
+    //            {
+    //                if (GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[k].mon, MON_DATA_MOVE1 + l) != sHatchedEggEggMoves[j])
+    //                    continue;
+//
+    //                if (GiveMoveToBoxMon(&gSaveBlock1Ptr->daycare.mons[i].mon, sHatchedEggEggMoves[j]) == MON_HAS_MAX_MOVES)
+    //                    break;
+    //            }
+    //        }
+    //    }
+    //}
 }
 
 static void StorePokemonInDaycare(struct Pokemon *mon, struct DaycareMon *daycareMon)
@@ -754,58 +753,59 @@ u8 GetEggMovesForSpecies(u16 species, u16 *eggMoves)
 
 u8 GetEggMovesSpecies(u16 species, u16 *eggMoves)
 {
-    u16 eggMoveIdx;
-    u16 numEggMoves;
-    u16 i;
-
-    numEggMoves = 0;
-    eggMoveIdx = 0;
-    for (i = 0; i < ARRAY_COUNT(gEggMoves) - 1; i++)
-    {
-        if (gEggMoves[i] == species + EGG_MOVES_SPECIES_OFFSET)
-        {
-            eggMoveIdx = i + 1;
-            break;
-        }
-    }
-
-    for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
-    {
-        if (gEggMoves[eggMoveIdx + i] > EGG_MOVES_SPECIES_OFFSET)
-        {
-            // TODO: the curly braces around this if statement are required for a matching build.
-            break;
-        }
-
-        eggMoves[i] = gEggMoves[eggMoveIdx + i];
-        numEggMoves++;
-    }
-
-    return numEggMoves;
+    //u16 eggMoveIdx;
+    //u16 numEggMoves;
+    //u16 i;
+//
+    //numEggMoves = 0;
+    //eggMoveIdx = 0;
+    //for (i = 0; i < ARRAY_COUNT(gEggMoves) - 1; i++)
+    //{
+    //    if (gEggMoves[i] == species + EGG_MOVES_SPECIES_OFFSET)
+    //    {
+    //        eggMoveIdx = i + 1;
+    //        break;
+    //    }
+    //}
+//
+    //for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+    //{
+    //    if (gEggMoves[eggMoveIdx + i] > EGG_MOVES_SPECIES_OFFSET)
+    //    {
+    //        // TODO: the curly braces around this if statement are required for a matching build.
+    //        break;
+    //    }
+//
+    //    eggMoves[i] = gEggMoves[eggMoveIdx + i];
+    //    numEggMoves++;
+    //}
+//
+    //return numEggMoves;
+    return 0;
 }
 
 bool8 SpeciesCanLearnEggMove(u16 species, u16 move) //Move search PokedexPlus HGSS_Ui
 {
-    u16 eggMoveIdx;
-    u16 i;
-    eggMoveIdx = 0;
-    for (i = 0; i < ARRAY_COUNT(gEggMoves) - 1; i++)
-    {
-        if (gEggMoves[i] == species + EGG_MOVES_SPECIES_OFFSET)
-        {
-            eggMoveIdx = i + 1;
-            break;
-        }
-    }
-
-    for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
-    {
-        if (gEggMoves[eggMoveIdx + i] > EGG_MOVES_SPECIES_OFFSET)
-            return FALSE;
-
-        if (move == gEggMoves[eggMoveIdx + i])
-            return TRUE;
-    }
+    //u16 eggMoveIdx;
+    //u16 i;
+    //eggMoveIdx = 0;
+    //for (i = 0; i < ARRAY_COUNT(gEggMoves) - 1; i++)
+    //{
+    //    if (gEggMoves[i] == species + EGG_MOVES_SPECIES_OFFSET)
+    //    {
+    //        eggMoveIdx = i + 1;
+    //        break;
+    //    }
+    //}
+//
+    //for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+    //{
+    //    if (gEggMoves[eggMoveIdx + i] > EGG_MOVES_SPECIES_OFFSET)
+    //        return FALSE;
+//
+    //    if (move == gEggMoves[eggMoveIdx + i])
+    //        return TRUE;
+    //}
     return FALSE;
 }
 
@@ -1253,11 +1253,8 @@ u8 GetDaycareCompatibilityScore(struct DayCare *daycare)
 
     for (i = 0; i < DAYCARE_MON_COUNT; i++)
     {
-        u32 personality;
-
         species[i] = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_SPECIES);
         trainerIds[i] = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_OT_ID);
-        personality = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_PERSONALITY);
         genders[i] = GetBoxMonGender(&daycare->mons[i].mon);
         eggGroups[i][0] = gSpeciesInfo[species[i]].eggGroups[0];
         eggGroups[i][1] = gSpeciesInfo[species[i]].eggGroups[1];

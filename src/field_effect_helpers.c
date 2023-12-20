@@ -94,7 +94,7 @@ static s16 GetReflectionVerticalOffset(struct ObjectEvent *objectEvent)
     return GetObjectEventGraphicsInfo(objectEvent->graphicsId)->height - 2;
 }
 
-static void LoadObjectReflectionPalette(struct ObjectEvent *objectEvent, struct Sprite *reflectionSprite)
+static void UNUSED LoadObjectReflectionPalette(struct ObjectEvent *objectEvent, struct Sprite *reflectionSprite)
 {
     u8 bridgeType;
     u16 bridgeReflectionVerticalOffsets[] = {
@@ -1334,7 +1334,7 @@ u32 FldEff_Bubbles(void)
     struct Sprite *sprite;
     struct SpriteTemplate template;
     s16 xOffset, yOffset;
-    u8 spriteData;
+    //u8 spriteData;
     u16 paletteNum = 255;
 
     switch (gFieldEffectArguments[3])
@@ -1349,7 +1349,7 @@ u32 FldEff_Bubbles(void)
         visual = FLDEFFOBJ_JUMP_BIG_SPLASH; //FldEff_SecretPowerShrub
         xOffset = 0;
         yOffset = 0;
-        spriteData = FLDEFF_WATER_SURFACING;
+        //spriteData = FLDEFF_WATER_SURFACING;
         break;
 
     case 2: // Cave spawn

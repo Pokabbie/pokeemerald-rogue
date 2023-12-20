@@ -136,7 +136,7 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     if(secretId != 27615)
     {
         DebugPrintf("Couldn't load save as missing secret ID (expected 27615, found %d)", secretId);
-        return;
+        return SAVE_VER_ID_UNKNOWN;
     }
 
     // Serialize data
@@ -202,11 +202,13 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
 
     SerializeData(stream, &gRogueAdvPath.currentRoomParams, sizeof(gRogueAdvPath.currentRoomParams));
     SerializeData(stream, &gRogueAdvPath.currentRoomType, sizeof(gRogueAdvPath.currentRoomType));
+
+    return saveBlock->saveVersion;
 }
 
 static u16 SerializeRogueBlock(bool8 inWriteMode)
 {
-    u16 count, saveVersion;
+    u16 saveVersion;
     struct RogueSaveBlock blockCopy;
     struct SaveBlockStream stream;
 
@@ -299,7 +301,6 @@ void RogueSave_OnSaveLoaded()
 
         if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_ADVENTURE_PATHS) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_ADVENTURE_PATHS))
         {
-            u8 i;
             gRogueAdvPath.isOverviewActive = TRUE;
         }
     }

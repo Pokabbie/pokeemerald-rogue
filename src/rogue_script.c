@@ -367,7 +367,6 @@ void RogueDebug_FillGenPC(void)
     u16 species;
     u16 writeIdx = 0;
     u16 genId = gSpecialVar_0x8004;
-    struct Pokemon mon;
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
@@ -580,7 +579,6 @@ void Rogue_ApplyBerryTreat(void)
     else if(berryBuff == BERRY_BUFF_WEAKEN)
     {
         u16 statOffset;
-        u16 ivCount;
 
         gSpecialVar_Result = FALSE;
 
@@ -669,7 +667,7 @@ void Rogue_IsRoamerActive(void)
 
 void Rogue_BufferRoamerName(void)
 {
-    GetSpeciesName(gStringVar1, gRogueRun.wildEncounters.roamer.species);
+    StringCopyN(gStringVar1, RoguePokedex_GetSpeciesName(gRogueRun.wildEncounters.roamer.species), POKEMON_NAME_LENGTH);
 }
 
 void Rogue_GetUnlockedCampaignCount(void)
@@ -740,7 +738,7 @@ static u16 GetSpeciesComboOutput(u16 speciesA, u16 speciesB, bool8 getItem)
     //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_EEVEE, SPECIES_CHARMANDER))
     //    return getItem ? ITEM_PECHA_BERRY : SPECIES_ABSOL;
 
-#ifdef ROGUE_EXPANSION
+#if 1 //def ROGUE_EXPANSION
     if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_KYUREM, SPECIES_RESHIRAM))
         return getItem ? ITEM_DNA_SPLICERS : SPECIES_KYUREM_WHITE;
 
@@ -790,7 +788,7 @@ void Rogue_ApplyMonCombo(void)
     if(outputSpecies)
     {
         u8 speciesName[POKEMON_NAME_LENGTH + 1];
-        GetSpeciesName(speciesName, outputSpecies);
+        StringCopyN(speciesName, RoguePokedex_GetSpeciesName(outputSpecies), ARRAY_COUNT(speciesName));
 
         SetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_SPECIES, &outputSpecies);
         SetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_NICKNAME, speciesName);

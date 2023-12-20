@@ -63,7 +63,7 @@ static void ProcessSyncedObjectMovement(struct SyncedObjectEventInfo* syncInfo, 
 STATIC_ASSERT(ARRAY_COUNT(gRogueMultiplayer->playerProfiles[0].preferredOutfitStyle) == PLAYER_OUTFIT_STYLE_COUNT, NetPlayerProfileOutfitStyleCount);
 
 
-bool8 RogueMP_Init()
+void RogueMP_Init()
 {
     gRogueMultiplayer = NULL;
 }

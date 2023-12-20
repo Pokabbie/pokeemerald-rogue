@@ -1645,7 +1645,7 @@ static void PlaceDecoration(u8 taskId)
     CancelDecorating_(taskId);
 }
 
-static void PlaceDecoration_(u8 taskId)
+static void UNUSED PlaceDecoration_(u8 taskId)
 {
     u16 i;
 

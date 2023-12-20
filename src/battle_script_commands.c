@@ -59,6 +59,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "constants/layouts.h"
 
 #include "battle_util.h"
 #include "constants/pokemon.h"
@@ -851,7 +852,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_getsecretpowereffect,                    //0xE4
     Cmd_pickup,                                  //0xE5
     Cmd_unused3,                                 //0xE6
-    Cmd_unused4,                                 //0xE7
+    Cmd_rogue_partyhasroom, // Cmd_unused4,      //0xE7
     Cmd_settypebasedhalvers,                     //0xE8
     Cmd_jumpifsubstituteblocks,                  //0xE9
     Cmd_tryrecycleitem,                          //0xEA
@@ -873,11 +874,10 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_swapstatstages,                          //0xFA
     Cmd_averagestats,                            //0xFB
     Cmd_jumpifoppositegenders,                   //0xFC
-    Cmd_unused,                                  //0xFD
+    Cmd_rogue_caughtmon, //Cmd_unused,           //0xFD
     Cmd_tryworryseed,                            //0xFE
     Cmd_callnative,                              //0xFF
-    Cmd_rogue_partyhasroom,                      //0xF9
-    Cmd_rogue_caughtmon,                         //0xFA
+
     //Cmd_rogue_releasecaughtmon,                  //0xFB
 };
 
@@ -2135,7 +2135,7 @@ static bool8 ActiveAlphaMonEndure(u8 battler)
     return FALSE;
 }
 
-static bool8 ActivateEndureCharm(u8 battler)
+static bool8 UNUSED ActivateEndureCharm(u8 battler)
 {
     if(ActiveAlphaMonEndure(battler))
     {
@@ -4077,8 +4077,6 @@ static u32 GetMonHoldEffect(struct Pokemon *mon)
 static void Cmd_getexp(void)
 {
     CMD_ARGS(u8 battler);
-    bool8 firstExpGained = TRUE;
-    bool8 hasLockedInBeforeStats = FALSE;
     u32 holdEffect;
     s32 i; // also used as stringId
     u8 *expMonId = &gBattleStruct->expGetterMonId;
@@ -4333,7 +4331,7 @@ static void Cmd_getexp(void)
                     u16 species = GetMonData(mon, MON_DATA_SPECIES);
                     u8 level = GetMonData(mon, MON_DATA_LEVEL);
                     u32 currExp = GetMonData(mon, MON_DATA_EXP);
-                    u32 nextLvlExp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1);
+                    u32 nextLvlExp = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, level + 1);
 
                     if (currExp + gBattleMoveDamage < nextLvlExp)
                     {
@@ -7153,9 +7151,9 @@ static void Cmd_handlelearnnewmove(void)
     {
         // RogueNote: Don't ask to teach moves in battle
         gMoveToLearn = MOVE_NONE;
-        gBattlescriptCurrInstr = nothingToLearnPtr;
+        gBattlescriptCurrInstr = cmd->nothingToLearnPtr;
         //Rogue_PushPopup_NewMoves(gBattleStruct->expGetterMonId);
-        gBattlescriptCurrInstr = cmd->nextInstr;
+        //gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else
     {
@@ -7368,37 +7366,7 @@ static void Cmd_hitanimation(void)
 
 static u32 GetTrainerMoneyToGive(u16 trainerId)
 {
-    u32 i = 0;
-    u32 lastMonLevel = 0;
-    u32 moneyReward;
-
-    if (trainerId == TRAINER_SECRET_BASE)
-    {
-        moneyReward = 20 * gBattleResources->secretBase->party.levels[0];
-    }
-    else
-    {
-        struct Trainer trainer;
-
-        Rogue_ModifyTrainer(trainerId, &trainer);
-        // RogueNote: calculate money reward from trainer battles
-        const struct TrainerMon *party = gTrainers[trainerId].party;
-        lastMonLevel = party[gTrainers[trainerId].partySize - 1].lvl;
-
-        for (; gTrainerMoneyTable[i].classId != 0xFF; i++)
-        {
-            if (gTrainerMoneyTable[i].classId == gTrainers[trainerId].trainerClass)
-                break;
-        }
-
-        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-            moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * gTrainerMoneyTable[i].value;
-        else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
-            moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * 2 * gTrainerMoneyTable[i].value;
-        else
-            moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * gTrainerMoneyTable[i].value;
-    }
-
+    u32 moneyReward = 0;
     Rogue_ModifyBattleWinnings(trainerId, &moneyReward);
     return moneyReward;
 }
@@ -8028,7 +7996,7 @@ static void PutMonIconOnLvlUpBanner(void)
     u32 species = GetMonData(mon, MON_DATA_SPECIES);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY);
 
-    iconSheet.data = GetMonIconPtr(species, personality);
+    iconSheet.data = GetMonIconPtr(species, personality, GetMonGender(mon));
     iconSheet.size = 0x200;
     iconSheet.tag = TAG_LVLUP_BANNER_MON_ICON;
 
@@ -14543,7 +14511,6 @@ static void Cmd_pickup(void)
 
     if (!InBattlePike()) // No items in Battle Pike.
     {
-        bool32 isInPyramid = InBattlePyramid_();
         for (i = 0; i < PARTY_SIZE; i++)
         {
             species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
@@ -14560,24 +14527,16 @@ static void Cmd_pickup(void)
                 && heldItem == ITEM_NONE
                 && (Random() % 10) == 0)
             {
-                if (isInPyramid)
-                {
-                    heldItem = GetBattlePyramidPickupItemId();
-                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
-                }
-                else
-                {
-                    u32 rand = Random() % 100;
-                    u32 percentTotal = 0;
+                u32 rand = Random() % 100;
+                u32 percentTotal = 0;
 
-                    for (j = 0; j < ARRAY_COUNT(sPickupTable); j++)
+                for (j = 0; j < ARRAY_COUNT(sPickupTable); j++)
+                {
+                    percentTotal += sPickupTable[j].percentage[lvlDivBy10];
+                    if (rand < percentTotal)
                     {
-                        percentTotal += sPickupTable[j].percentage[lvlDivBy10];
-                        if (rand < percentTotal)
-                        {
-                            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &sPickupTable[j].itemId);
-                            break;
-                        }
+                        SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &sPickupTable[j].itemId);
+                        break;
                     }
                 }
             }
@@ -14611,7 +14570,7 @@ static void Cmd_unused3(void)
 {
 }
 
-static void Cmd_unused4(void)
+static void UNUSED Cmd_unused4(void)
 {
 }
 
@@ -15234,29 +15193,28 @@ static void Cmd_handleballthrow(void)
 
 static void Cmd_rogue_partyhasroom(void)
 {
-    CMD_ARGS();
-	todo
+    CMD_ARGS(const u8 *successInstr);
+
     if(!Rogue_CheckPartyHasRoomForMon())
     {
         // Continue
-        gBattlescriptCurrInstr += 5;
+        gBattlescriptCurrInstr = cmd->nextInstr;
         return;
     }
 
     // Jump to location
-    gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+    gBattlescriptCurrInstr = cmd->successInstr;
     return;
 }
 
 static void Cmd_rogue_caughtmon(void)
 {
     CMD_ARGS();
-	todo
 
     // Modify before we've decided if we're going to release this or not
-    Rogue_ModifyCaughtMon(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+    Rogue_ModifyCaughtMon(&gEnemyParty[gBattlerPartyIndexes[BATTLE_OPPOSITE(gBattlerAttacker)]]);
 
-    gBattlescriptCurrInstr++;
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 static void Cmd_givecaughtmon(void)
@@ -15449,9 +15407,9 @@ static void Cmd_trygivecaughtmonnick(void)
     if(gMapHeader.mapLayoutId != LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL && (gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_NEVER || Rogue_InWildSafari()))
     {
         if (CalculatePlayerPartyCount() == PARTY_SIZE)
-            gBattlescriptCurrInstr += 5;
+            gBattlescriptCurrInstr = cmd->nextInstr;
         else
-            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+            gBattlescriptCurrInstr = cmd->successInstr;
         return;
     }
 
@@ -15657,7 +15615,7 @@ static void Cmd_jumpifoppositegenders(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static void Cmd_unused(void)
+static void UNUSED Cmd_unused(void)
 {
 }
 
@@ -15816,7 +15774,7 @@ static bool32 CriticalCapture(u32 odds)
     else
         odds = (odds * 250) / 100;
 
-    if (CheckBagHasItem(ITEM_CATCHING_CHARM, 1))
+    if (CheckBagHasItem(ITEM_CATCHING_CHARM_GF, 1))
         odds = (odds * (100 + B_CATCHING_CHARM_BOOST)) / 100;
 
     odds /= 6;

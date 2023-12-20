@@ -13,6 +13,7 @@
 #include "metatile_behavior.h"
 #include "sound.h"
 
+#include "rogue_baked.h"
 #include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
 #include "rogue_ridemon.h"
@@ -457,9 +458,9 @@ static const struct RideMonInfo* GetRideMonInfoForSpecies(u16 species)
     return rideInfo;
 }
 
-static u8 CalculateMovementModeForInternal(u16 species)
+static u8 UNUSED CalculateMovementModeForInternal(u16 species)
 {
-    u8 speed = gBaseStats[species].baseSpeed;
+    u8 speed = gRogueSpeciesInfo[species].baseSpeed;
     
     if(speed <= 30)
         return RIDE_MOVEMENT_SLOW;

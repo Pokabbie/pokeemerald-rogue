@@ -1604,6 +1604,7 @@ static u32 GetBattlerMonData(u32 battler, struct Pokemon *party, u32 monId, u8 *
         battleMon.spDefense = GetMonData(&party[monId], MON_DATA_SPDEF);
         battleMon.abilityNum = GetMonData(&party[monId], MON_DATA_ABILITY_NUM);
         battleMon.otId = GetMonData(&party[monId], MON_DATA_OT_ID);
+        battleMon.genderFlag = GetMonData(&party[monId], MON_DATA_GENDER_FLAG);
         battleMon.metLevel = GetMonData(&party[monId], MON_DATA_MET_LEVEL);
         GetMonData(&party[monId], MON_DATA_NICKNAME, nickname);
         StringCopy_Nickname(battleMon.nickname, nickname);
@@ -1845,11 +1846,11 @@ static u32 GetBattlerMonData(u32 battler, struct Pokemon *party, u32 monId, u8 *
         size = 1;
         break;
     case REQUEST_COOL_RIBBON_BATTLE:
-        dst[0] = GetMonData(&party[monId], MON_DATA_COOL_RIBBON);
+        dst[0] = GetMonData(&party[monId], MON_DATA_CUTE_RIBBON);
         size = 1;
         break;
     case REQUEST_BEAUTY_RIBBON_BATTLE:
-        dst[0] = GetMonData(&party[monId], MON_DATA_BEAUTY_RIBBON);
+        dst[0] = GetMonData(&party[monId], MON_DATA_CUTE_RIBBON);
         size = 1;
         break;
     case REQUEST_CUTE_RIBBON_BATTLE:
@@ -2068,10 +2069,10 @@ static void SetBattlerMonData(u32 battler, struct Pokemon *party, u32 monId)
         SetMonData(&party[monId], MON_DATA_SHEEN, &gBattleResources->bufferA[battler][3]);
         break;
     case REQUEST_COOL_RIBBON_BATTLE:
-        SetMonData(&party[monId], MON_DATA_COOL_RIBBON, &gBattleResources->bufferA[battler][3]);
+        SetMonData(&party[monId], MON_DATA_CUTE_RIBBON, &gBattleResources->bufferA[battler][3]);
         break;
     case REQUEST_BEAUTY_RIBBON_BATTLE:
-        SetMonData(&party[monId], MON_DATA_BEAUTY_RIBBON, &gBattleResources->bufferA[battler][3]);
+        SetMonData(&party[monId], MON_DATA_CUTE_RIBBON, &gBattleResources->bufferA[battler][3]);
         break;
     case REQUEST_CUTE_RIBBON_BATTLE:
         SetMonData(&party[monId], MON_DATA_CUTE_RIBBON, &gBattleResources->bufferA[battler][3]);
