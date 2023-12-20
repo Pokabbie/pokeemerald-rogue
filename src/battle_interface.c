@@ -3524,6 +3524,8 @@ bool32 CanThrowLastUsedBall(void)
         return FALSE;
     if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FRONTIER))
         return FALSE;
+    if(!(gBallToDisplay >= FIRST_BALL && gBallToDisplay <= LAST_BALL))
+        return FALSE;
     if (!CheckBagHasItem(gBallToDisplay, 1))
         return FALSE;
 
@@ -3534,8 +3536,8 @@ void TryAddLastUsedBallItemSprites(void)
 {
     if (B_LAST_USED_BALL == FALSE)
         return;
-    if (gLastThrownBall == 0
-      || (gLastThrownBall != 0 && !CheckBagHasItem(gLastThrownBall, 1)))
+    if (gBallToDisplay == 0
+      || (gBallToDisplay != 0 && !CheckBagHasItem(gBallToDisplay, 1)))
     {
         // we're out of the last used ball, so just set it to the first ball in the bag
         // we have to compact the bag first bc it is typically only compacted when you open it
