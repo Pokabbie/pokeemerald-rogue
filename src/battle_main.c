@@ -1944,47 +1944,53 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, u16 trainerNum, const
 {
     u8 monsCount = 0;
 
-    if(trainer == NULL)
+    // RogueNote: This path still goes down for wild battles
+    if (battleTypeFlags & BATTLE_TYPE_TRAINER && !(battleTypeFlags & (BATTLE_TYPE_FRONTIER
+                                                                        | BATTLE_TYPE_EREADER_TRAINER
+                                                                        | BATTLE_TYPE_TRAINER_HILL)))
     {
-        AGB_ASSERT(FALSE);
-        monsCount = 1;
-    }
-    else
-    {
-        if (firstTrainer == TRUE)
-            ZeroEnemyPartyMons();
-            
-#ifdef ROGUE_FEATURE_AUTOMATION
-        if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
+        if(trainer == NULL)
         {
-            Rogue_Battle_StartTrainerBattle();
-            return CalculateEnemyPartyCount();
-        }
-#endif
-#ifdef ROGUE_DEBUG
-        if(gBattleScripting.specialTrainerBattleType == SPECIAL_BATTLE_AUTOMATION)
-        {
-            Rogue_Battle_StartTrainerBattle();
-            return CalculateEnemyPartyCount();
-        }
-#endif
-
-        if(Rogue_UseCustomPartyGenerator(trainerNum))
-        {
-            u8 monCapacity = PARTY_SIZE;
-            if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-            {
-                monCapacity = PARTY_SIZE / 2;
-            }
-
-            monsCount = Rogue_CreateTrainerParty(trainerNum, party, monCapacity, firstTrainer);
+            AGB_ASSERT(FALSE);
+            monsCount = 1;
         }
         else
         {
-            AGB_ASSERT(FALSE);
-        }
+            if (firstTrainer == TRUE)
+                ZeroEnemyPartyMons();
+                
+#ifdef ROGUE_FEATURE_AUTOMATION
+            if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
+            {
+                Rogue_Battle_StartTrainerBattle();
+                return CalculateEnemyPartyCount();
+            }
+#endif
+#ifdef ROGUE_DEBUG
+            if(gBattleScripting.specialTrainerBattleType == SPECIAL_BATTLE_AUTOMATION)
+            {
+                Rogue_Battle_StartTrainerBattle();
+                return CalculateEnemyPartyCount();
+            }
+#endif
 
-        gBattleTypeFlags |= trainer->doubleBattle;
+            if(Rogue_UseCustomPartyGenerator(trainerNum))
+            {
+                u8 monCapacity = PARTY_SIZE;
+                if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+                {
+                    monCapacity = PARTY_SIZE / 2;
+                }
+
+                monsCount = Rogue_CreateTrainerParty(trainerNum, party, monCapacity, firstTrainer);
+            }
+            else
+            {
+                AGB_ASSERT(FALSE);
+            }
+
+            gBattleTypeFlags |= trainer->doubleBattle;
+        }
     }
 
     return monsCount;
