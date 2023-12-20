@@ -2485,10 +2485,10 @@ static void DebugAction_FlagsVars_SetValue(u8 taskId)
 static void DebugAction_FlagsVars_PokedexFlags_All(u8 taskId)
 {
     u16 i;
-    for (i = 0; i < NATIONAL_DEX_COUNT; i++)
+    for (i = 0; i < NUM_SPECIES; i++)
     {
-        GetSetPokedexFlag(i + 1, FLAG_SET_CAUGHT);
-        GetSetPokedexFlag(i + 1, FLAG_SET_SEEN);
+        GetSetPokedexSpeciesFlag(i + 1, FLAG_SET_CAUGHT);
+        GetSetPokedexSpeciesFlag(i + 1, FLAG_SET_SEEN);
     }
     Debug_DestroyMenu_Full(taskId);
     ScriptContext_Enable();
@@ -2509,8 +2509,8 @@ static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
         if (GetMonData(&gPlayerParty[partyId], MON_DATA_SANITY_HAS_SPECIES))
         {
             species = GetMonData(&gPlayerParty[partyId], MON_DATA_SPECIES);
-            GetSetPokedexFlag(species, FLAG_SET_CAUGHT);
-            GetSetPokedexFlag(species, FLAG_SET_SEEN);
+            GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
+            GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
         }
     }
 
@@ -2522,8 +2522,8 @@ static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
             if (GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
             {
                 species = GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SPECIES);
-                GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_CAUGHT);
-                GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_SEEN);
+                GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
+                GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
             }
         }
     }
@@ -3595,7 +3595,6 @@ static void DebugAction_Give_Pokemon_Move(u8 taskId)
 
 static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://github.com/ghoulslash/pokeemerald/tree/custom-givemon
 {
-    u16 nationalDexNum;
     int sentToPc;
     struct Pokemon mon;
     u8 i;
@@ -3689,13 +3688,12 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://githu
     }
 
     //Pokedex entry
-    nationalDexNum = SpeciesToNationalPokedexNum(species);
     switch(sentToPc)
     {
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
-        GetSetPokedexFlag(nationalDexNum, FLAG_SET_SEEN);
-        GetSetPokedexFlag(nationalDexNum, FLAG_SET_CAUGHT);
+        GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
+        GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
         break;
     case MON_CANT_GIVE:
         break;

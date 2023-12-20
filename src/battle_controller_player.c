@@ -1748,6 +1748,18 @@ static u8 GetMoveDisplayTyping(u32 battler, u16 move)
         return CalcMonHiddenPowerType(&gPlayerParty[gBattlerPartyIndexes[battler]]);
 
 #ifdef ROGUE_EXPANSION
+    if (move == MOVE_IVY_CUDGEL)
+    {
+        struct Pokemon* mon = &GetSideParty(GetBattlerSide(battler))[gBattlerPartyIndexes[battler]];
+        u32 itemId = GetMonData(mon, MON_DATA_HELD_ITEM);
+
+        if (ItemId_GetHoldEffect(itemId) == HOLD_EFFECT_MASK)
+            moveType = ItemId_GetSecondaryId(itemId);
+        else
+            moveType = gBattleMoves[MOVE_IVY_CUDGEL].type;
+        return moveType;
+    }
+
     SetTypeBeforeUsingMove(move, battler);
 #endif
     
@@ -1954,7 +1966,7 @@ u32 LinkPlayerGetTrainerPicId(u32 multiplayerId)
     else if (version == VERSION_RUBY || version == VERSION_SAPPHIRE)
         trainerPicId = gender + TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN;
     else
-        trainerPicId = gender + TRAINER_BACK_PIC_BRENDAN;
+        trainerPicId = RoguePlayer_GetTrainerBackPic();
 
     return trainerPicId;
 
@@ -1967,7 +1979,7 @@ static u32 PlayerGetTrainerBackPicId(void)
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         trainerPicId = LinkPlayerGetTrainerPicId(GetMultiplayerId());
     else
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+        trainerPicId = RoguePlayer_GetTrainerBackPic();
 
     return trainerPicId;
 }

@@ -516,7 +516,7 @@ static void RecordedPlayerHandleIntroTrainerBallThrow(u32 battler)
     const u32 *trainerPal;
 
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK)
-        trainerPicId = gLinkPlayers[GetBattlerMultiplayerId(battler)].gender + TRAINER_BACK_PIC_BRENDAN;
+        trainerPicId = RoguePlayer_GetTrainerBackPic();
     else
         trainerPicId = RoguePlayer_GetTrainerBackPic();
 

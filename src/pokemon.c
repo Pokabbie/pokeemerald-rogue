@@ -2266,10 +2266,18 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal = substruct2->sheen;
             break;
         case MON_DATA_POKERUS:
-            retVal = substruct3->pokerus;
+            // RogueNote: Hack to disable pokerus
+            //retVal = substruct3->pokerus;
+            retVal = FALSE;
             break;
         case MON_DATA_MET_LOCATION:
             retVal = substruct3->metLocation;
+
+            // If this mon is not from this trainer swap out the mapsec we met in
+            if(retVal == MAPSEC_POKEMON_HUB && IsOtherTrainer(boxMon->otId))
+            {
+                retVal = MAPSEC_OTHER_POKEMON_HUB;
+            }
             break;
         case MON_DATA_MET_LEVEL:
             retVal = substruct3->metLevel;

@@ -598,8 +598,8 @@ static void CreateShedinja(u16 preEvoSpecies, struct Pokemon *mon)
         CalculateMonStats(&gPlayerParty[gPlayerPartyCount]);
         CalculatePlayerPartyCount();
 
-        GetSetPokedexFlag(SpeciesToNationalPokedexNum(evolutions[1].targetSpecies), FLAG_SET_SEEN);
-        GetSetPokedexFlag(SpeciesToNationalPokedexNum(evolutions[1].targetSpecies), FLAG_SET_CAUGHT);
+        GetSetPokedexSpeciesFlag(evolutions[1].targetSpecies, FLAG_SET_SEEN);
+        GetSetPokedexSpeciesFlag(evolutions[1].targetSpecies, FLAG_SET_CAUGHT);
 
         if (GetMonData(shedinja, MON_DATA_SPECIES) == SPECIES_SHEDINJA
             && GetMonData(shedinja, MON_DATA_LANGUAGE) == LANGUAGE_JAPANESE

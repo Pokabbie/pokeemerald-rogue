@@ -82,7 +82,8 @@
         "xfacet": "cpp",
         "xlocinfo": "cpp",
         "xstddef": "cpp",
-        "csignal": "cpp"
+        "csignal": "cpp",
+        "filesystem": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "languageServerPoryscript.commandIncludes": [

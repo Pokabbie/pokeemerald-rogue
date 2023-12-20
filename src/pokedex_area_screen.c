@@ -603,7 +603,7 @@ static void Task_HandlePokedexAreaScreenInput(u8 taskId)
         }
         else if (JOY_NEW(DPAD_RIGHT) || (JOY_NEW(R_BUTTON) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR))
         {
-            if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(sPokedexAreaScreen->species), FLAG_GET_CAUGHT))
+            if (!GetSetPokedexSpeciesFlag(sPokedexAreaScreen->species, FLAG_GET_CAUGHT))
             {
                 PlaySE(SE_FAILURE);
                 return;

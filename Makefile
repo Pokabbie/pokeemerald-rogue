@@ -500,7 +500,7 @@ $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@
 	$(FIX) $@ -p --silent
 	@echo "ROM size:" $$(stat -c "%s" $(ROM) | numfmt --to=iec --format="%.2f")
-	$(MEMORYSTATS) -F $(MAP_NAME)
+	@echo $(MEMORYSTATS) -F $(MODERN_MAP_NAME)
 
 agbcc: all
 

@@ -6293,7 +6293,7 @@ static void Cmd_switchinanim(void)
                                  | BATTLE_TYPE_RECORDED_LINK
                                  | BATTLE_TYPE_TRAINER_HILL
                                  | BATTLE_TYPE_FRONTIER)))
-        HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
+        HandleSetPokedexFlag(gBattleMons[battler].species, FLAG_SET_SEEN, gBattleMons[battler].personality);
 
     gAbsentBattlerFlags &= ~(gBitTable[battler]);
 
@@ -14968,7 +14968,7 @@ static void Cmd_handleballthrow(void)
                 }
                 break;
             case ITEM_REPEAT_BALL:
-                if (GetSetPokedexFlag(gBattleMons[gBattlerTarget].species, FLAG_GET_CAUGHT))
+                if (GetSetPokedexSpeciesFlag(gBattleMons[gBattlerTarget].species, FLAG_GET_CAUGHT))
                     ballMultiplier = (B_REPEAT_BALL_MODIFIER >= GEN_7 ? 350 : 300);
                 break;
             case ITEM_TIMER_BALL:
