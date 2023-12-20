@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PokemonDataGenerator.OverworldSprites;
+using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -167,7 +168,7 @@ namespace PokemonDataGenerator
 			}
 			else
 			{
-				string finalOutputDir = Path.Combine(outDir, "output");
+				string finalOutputDir = Path.Combine(GameDataHelpers.RootDirectory, "graphics\\object_events\\pics\\pokemon_ow");
 
 				if (Directory.Exists(finalOutputDir))
 					Directory.Delete(finalOutputDir, true);
