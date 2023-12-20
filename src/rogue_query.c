@@ -24,7 +24,7 @@
 #include "rogue_trainers.h"
 
 #define QUERY_BUFFER_COUNT          128
-#define QUERY_NUM_SPECIES           NUM_SPECIES
+#define QUERY_NUM_SPECIES           PLACEHOLDER_START
 #define QUERY_NUM_ITEMS             ITEMS_COUNT
 #define QUERY_NUM_TRAINERS          256 // just a vague guess that needs to at least match gRogueTrainerCount
 #define QUERY_NUM_ADVENTURE_PATH    ROGUE_ADVPATH_ROOM_CAPACITY
@@ -306,10 +306,11 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
 {
     u8 i;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(species);
 
     ASSERT_MON_QUERY;
     
-    for(i = 0; i < EVOS_PER_MON; ++i)
+    for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(species, i, &evo);
 
@@ -604,6 +605,7 @@ void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
     bool8 hasValidEvo;
     u16 species, i;
     struct Evolution evo;
+    u8 evoCount;
 
     ASSERT_MON_QUERY;
     
@@ -612,8 +614,9 @@ void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
         if(GetQueryBitFlag(species))
         {
             hasValidEvo = FALSE;
+            evoCount = Rogue_GetMaxEvolutionCount(species);
 
-            for (i = 0; i < EVOS_PER_MON; i++)
+            for (i = 0; i < evoCount; i++)
             {
                 Rogue_ModifyEvolution(species, i, &evo);
 

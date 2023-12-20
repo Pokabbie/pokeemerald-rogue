@@ -292,9 +292,10 @@ u16 Rogue_GetMonEvoCount(void)
     {
         u16 e;
         struct Evolution evo;
+        u8 evoCount = Rogue_GetMaxEvolutionCount(species);
         u16 count = 0;
 
-        for (e = 0; e < EVOS_PER_MON; e++)
+        for (e = 0; e < evoCount; e++)
         {
             Rogue_ModifyEvolution(species, e, &evo);
             Rogue_ModifyEvolution_ApplyCurses(species, e, &evo);
@@ -332,9 +333,10 @@ void Rogue_GetMonEvoParams(void)
     {        // evoIdx doesn't mean array idx annoyingly as evos can be toggled/changed
         u16 e;
         struct Evolution evo;
+        u8 evoCount = Rogue_GetMaxEvolutionCount(species);
         u16 count = 0;
 
-        for (e = 0; e < EVOS_PER_MON; e++)
+        for (e = 0; e < evoCount; e++)
         {
             Rogue_ModifyEvolution(species, e, &evo);
             Rogue_ModifyEvolution_ApplyCurses(species, e, &evo);

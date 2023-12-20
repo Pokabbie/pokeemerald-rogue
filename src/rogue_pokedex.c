@@ -1054,10 +1054,11 @@ static u16 GetMaxEvoScrollOffset()
     u8 i;
     u8 count = 0;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
     FillWindowPixelBuffer(WIN_MON_LIST, PIXEL_FILL(0));
 
-    for(i = 0; i < EVOS_PER_MON; ++i)
+    for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
 
@@ -1081,8 +1082,9 @@ static u16 GetActiveEvoSpecies()
     u8 i;
     u8 listIndex = 0;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
-    for(i = 0; i < EVOS_PER_MON; ++i)
+    for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
 
@@ -1113,10 +1115,11 @@ static void DisplayMonEvosText()
     u8 listIndex = 0;
     u8 displayCount = 0;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
     FillWindowPixelBuffer(WIN_MON_LIST, PIXEL_FILL(0));
 
-    for(i = 0; i < EVOS_PER_MON; ++i)
+    for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
 
@@ -2664,6 +2667,7 @@ static void MonEvos_CreateSprites()
     u8 listIndex = 0;
     u8 displayCount = 0;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
     // Destroy any previous sprites
     for(i = 0; i < 4; ++i)
@@ -2675,7 +2679,7 @@ static void MonEvos_CreateSprites()
         }
     }
 
-    for(i = 0; i < EVOS_PER_MON && displayCount < 4; ++i)
+    for(i = 0; i < evoCount && displayCount < 4; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
 

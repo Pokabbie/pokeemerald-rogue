@@ -1,24 +1,24 @@
 {
   "map_sections": [
     {
-      "map_section": "MAPSEC_LITTLEROOT_TOWN",
-      "name": "LITTLEROOT TOWN",
+      "map_section": "MAPSEC_POKEMON_HUB",
+      "name": "",
       "x": 4,
       "y": 11,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_OLDALE_TOWN",
-      "name": "OLDALE TOWN",
+      "map_section": "MAPSEC_ADVENTURE",
+      "name": "ADVENTURE",
       "x": 4,
       "y": 9,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_DEWFORD_TOWN",
-      "name": "DEWFORD TOWN",
+      "map_section": "MAPSEC_OTHER_POKEMON_HUB",
+      "name": "DISTANT VILLAGE",
       "x": 2,
       "y": 14,
       "width": 1,

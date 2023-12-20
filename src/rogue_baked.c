@@ -13,7 +13,10 @@
 // Manually reinclude this if regenerating
 #include "BakeHelpers.h"
 
-#ifdef ROGUE_EXPANSION
+#undef AGB_ASSERT
+#define AGB_ASSERT(...)
+
+#if 1 //def ROGUE_EXPANSION
 extern const struct SpeciesInfo gSpeciesInfo[];
 #else
 extern const struct BaseStats gBaseStats[];
@@ -140,14 +143,35 @@ bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result)
 
 static const struct Evolution* GetBaseEvolution(u16 species, u8 evoIdx)
 {
-    // TODO - Validate that this is a valid read
-    AGB_ASSERT(gSpeciesInfo[species].evolutions != NULL);
     return &gSpeciesInfo[species].evolutions[evoIdx];
 }
 
+#ifndef ROGUE_BAKE_VALID
+static u8 GetMaxEvolutionCountInternal(u16 species)
+{
+    //EVOS_PER_MON
+
+    u8 i;
+    const struct Evolution* evo;
+
+    evo = GetBaseEvolution(species, 0);
+
+    if(evo == NULL)
+        return 0;
+
+    for(i = 0; evo->method != EVOLUTIONS_END; ++i)
+    {
+        evo = GetBaseEvolution(species, i);
+    }
+
+    return i;
+}
+#endif
+
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
-    memcpy(outEvo, GetBaseEvolution(species, evoIdx), sizeof(struct Evolution));
+    AGB_ASSERT(evoIdx < Rogue_GetMaxEvolutionCount(species));
+    memcpy(outEvo, GetBaseEvolution(species, evoIdx), sizeof(*outEvo));
 
     // Any species alterations
 #ifdef ROGUE_EXPANSION
@@ -1522,8 +1546,9 @@ u16 Rogue_GetEggSpecies(u16 species)
     return gRogueBake_EggSpecies[species];
 
 #else
-    u16 e, s, evo, spe;
+    u16 e, s, spe;
     bool8 found;
+    u8 evo, evoCount;
     struct Evolution evolution;
 
     // Working backwards up to 5 times seems arbitrary, since the maximum number
@@ -1540,7 +1565,9 @@ u16 Rogue_GetEggSpecies(u16 species)
                 // Start counting upwards now, as we've exhausted all of the before species
                 spe = s;
 
-            for (evo = 0; evo < EVOS_PER_MON; evo++)
+            evoCount = Rogue_GetMaxEvolutionCount(spe);
+
+            for (evo = 0; evo < evoCount; evo++)
             {
                 Rogue_ModifyEvolution(spe, evo, &evolution);
 
@@ -1576,18 +1603,19 @@ u8 Rogue_GetMaxEvolutionCount(u16 species)
 {
 #ifdef ROGUE_BAKE_VALID
     return gRogueBake_EvolutionCount[species];
-    
 #else
-    return Rogue_GetActiveEvolutionCount(species);
+    return GetMaxEvolutionCountInternal(species);
 #endif
 }
 
 u8 Rogue_GetActiveEvolutionCount(u16 species)
 {
-    u16 s, e;
+    u16 s;
+    u8 e;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(species);
 
-    for (e = 0; e < EVOS_PER_MON; e++)
+    for (e = 0; e < evoCount; e++)
     {
         Rogue_ModifyEvolution(species, e, &evo);
 
@@ -1614,7 +1642,9 @@ bool8 Rogue_DoesEvolveInto(u16 fromSpecies, u16 toSpecies)
 {
     u8 i;
     struct Evolution currentEvo;
-    for (i = 0; i < EVOS_PER_MON; i++)
+    u8 evoCount = Rogue_GetMaxEvolutionCount(fromSpecies);
+
+    for (i = 0; i < evoCount; i++)
     {
         Rogue_ModifyEvolution(fromSpecies, i, &currentEvo);
 
@@ -1674,17 +1704,19 @@ u32 Rogue_GetTypeFlagsFromArray(const u8* types, u8 count)
 
 u32 Rogue_GetMonFlags(u16 species)
 {
-    u32 flags;
+    u32 flags = 0;
+#ifndef ROGUE_BAKING
 #ifdef ROGUE_EXPANSION
     //u16 species2;;
 #endif
-    
+
     flags = gRoguePokemonProfiles[species].monFlags;
 
 #ifdef ROGUE_EXPANSION
     //species2 = GET_BASE_SPECIES_ID(species);
     //if(species2 != species)
     //    flags |= gPresetMonTable[species2].flags;
+#endif
 #endif
 
     return flags;

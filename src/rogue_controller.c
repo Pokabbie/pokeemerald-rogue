@@ -1829,7 +1829,29 @@ struct StarterSelectionData
 #define TYPE_x2     40
 #define TYPE_x4     80
 
-int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode);
+uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk, u32 battlerDef, u32 defAbility, bool32 recordAbilities);
+
+int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode)
+{
+    uq4_12_t modifier = CalcTypeEffectivenessMultiplier(move, moveType, defType1, defType2, defAbility, mode);
+
+    if (modifier == UQ_4_12(0.0))
+    {
+        return TYPE_x0;
+    }
+    else if (modifier == UQ_4_12(1.0))
+    {
+        return TYPE_x1;
+    }
+    else if (modifier > UQ_4_12(1.0))
+    {
+        return TYPE_x2;
+    }
+    else //if (modifier < UQ_4_12(1.0))
+    {
+        return TYPE_x0_50;
+    }
+}
 
 static bool8 IsSpeciesGoodAgainstInternal(u16 atkSpecies, u16 defSpecies)
 {
@@ -2385,8 +2407,9 @@ static bool8 HasAnyActiveEvos(u16 species)
 {
     u8 i;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(species);
 
-    for(i = 0; i < EVOS_PER_MON; ++i)
+    for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(species, i, &evo);
 

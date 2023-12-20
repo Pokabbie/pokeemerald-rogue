@@ -116,7 +116,6 @@ SECTIONS {
     {
         data/multiboot_ereader.o(.rodata);
         data/multiboot_berry_glitch_fix.o(.rodata);
-        data/multiboot_pokemon_colosseum.o(.rodata);
     } > ROM =0
 
     gfx_data :
