@@ -163,8 +163,10 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_TERMINATOR_NOP]           = BtlController_TerminatorNop
 };
 
+#if B_LAST_USED_BALL == TRUE && B_LAST_USED_BALL_CYCLE == TRUE
 static EWRAM_DATA bool8 sAckBallUseBtn = FALSE;
 static EWRAM_DATA bool8 sBallSwapped = FALSE;
+#endif
 
 void SetControllerToPlayer(u32 battler)
 {
@@ -207,6 +209,7 @@ static void CompleteOnBattlerSpritePosX_0(u32 battler)
         PlayerBufferExecCompleted(battler);
 }
 
+#if B_LAST_USED_BALL == TRUE && B_LAST_USED_BALL_CYCLE == TRUE
 static u16 GetPrevBall(u16 ballId)
 {
     u16 ballPrev;
@@ -250,6 +253,7 @@ static u16 GetNextBall(u16 ballId)
     else
         return ballNext;
 }
+#endif
 
 static void HandleInputChooseAction(u32 battler)
 {

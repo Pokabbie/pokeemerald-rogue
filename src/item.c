@@ -1369,14 +1369,6 @@ bool8 RemovePyramidBagItem(u16 itemId, u16 count)
     }
 }
 
-static u16 SanitizeItemId(u16 itemId)
-{
-    if (itemId >= ITEMS_COUNT)
-        return ITEM_NONE;
-    else
-        return itemId;
-}
-
 const u8 *ItemId_GetName(u16 itemId)
 {
     return Rogue_GetItemName(itemId);
@@ -1452,9 +1444,10 @@ u8 ItemId_GetSecondaryId(u16 itemId)
 
 u32 ItemId_GetFlingPower(u32 itemId)
 {
-    return gItems[SanitizeItemId(itemId)].flingPower;
+    struct Item item;
+    Rogue_ModifyItem(itemId, &item);
+    return item.flingPower;
 }
-
 
 u32 GetItemStatus1Mask(u16 itemId)
 {

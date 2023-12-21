@@ -457,7 +457,10 @@ void RogueDebug_StartBattle(void)
     u16 i;
 
     for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        ZeroMonData(&gEnemyParty[i]);
         BoxMonAtToMon(TOTAL_BOXES_COUNT- 1, i, &gEnemyParty[i]);
+    }
 
     CalculateEnemyPartyCount();
 

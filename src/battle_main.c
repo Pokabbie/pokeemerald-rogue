@@ -1956,9 +1956,6 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, u16 trainerNum, const
         }
         else
         {
-            if (firstTrainer == TRUE)
-                ZeroEnemyPartyMons();
-                
 #ifdef ROGUE_FEATURE_AUTOMATION
             if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
             {
@@ -1973,6 +1970,8 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, u16 trainerNum, const
                 return CalculateEnemyPartyCount();
             }
 #endif
+            if (firstTrainer == TRUE)
+                ZeroEnemyPartyMons();
 
             if(Rogue_UseCustomPartyGenerator(trainerNum))
             {

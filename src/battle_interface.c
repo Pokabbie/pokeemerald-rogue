@@ -173,7 +173,6 @@ enum
     HEALTHBOX_GFX_114,
     HEALTHBOX_GFX_115,
     HEALTHBOX_GFX_STATUS_FSB_BATTLER3, //status4 "FSB"
-    //HEALTHBOX_GFX_STATUS_ANGRY, //RogueNote: used for AlphaMon
     HEALTHBOX_GFX_122,
     HEALTHBOX_GFX_123,
     HEALTHBOX_GFX_FRAME_END,
@@ -2437,7 +2436,7 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     }
     else if (status & STATUS1_FROSTBITE)
     {
-        statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_FSB_BATTLER0, battlerId));
+        statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_FRZ_BATTLER0, battlerId));
         statusPalId = PAL_STATUS_FRZ;
     }
     else if (status & STATUS1_PARALYSIS)
@@ -2447,12 +2446,9 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     }
     else if((GetBattlerSide(battlerId) == B_SIDE_OPPONENT) && gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0)
     {
-        AGB_ASSERT(FALSE);
-        //statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_ANGRY, battlerId));
-        //statusPalId = PAL_STATUS_ROGUE_ANGRY;
-
-        statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_PRZ_BATTLER0, battlerId));
-        statusPalId = PAL_STATUS_PAR;
+        // Was HEALTHBOX_GFX_STATUS_ANGRY now repurposed HEALTHBOX_GFX_STATUS_FSB_BATTLER0
+        statusGfxPtr = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_FSB_BATTLER0, battlerId));
+        statusPalId = PAL_STATUS_ROGUE_ANGRY;
     }
     else
     {

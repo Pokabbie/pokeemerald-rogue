@@ -2000,6 +2000,39 @@ static void Cmd_typecalc(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+static bool8 ActiveAlphaMonEndure(u32 battler)
+{
+    if(gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0 && GetBattlerSide(battler) == B_SIDE_OPPONENT)
+    {
+        // Activate endure is the alpha mon is about to faint
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 ActivateEndureCharm(u32 battler)
+{
+    if(ActiveAlphaMonEndure(battler))
+    {
+        return TRUE;
+    }
+
+    if(gBattleMons[battler].hp == gBattleMons[battler].maxHP && gBattleMons[battler].hp <= gBattleMoveDamage)
+    {
+        if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        {
+            return Random() % 100 < GetCurseValue(EFFECT_ENDURE_CHANCE);
+        }
+        else // B_SIDE_PLAYER
+        {
+            return Random() % 100 < GetCharmValue(EFFECT_ENDURE_CHANCE);
+        }
+    }
+
+    return FALSE;
+}
+
 static void Cmd_adjustdamage(void)
 {
     CMD_ARGS();
@@ -2008,6 +2041,7 @@ static void Cmd_adjustdamage(void)
     u32 moveType;
     u32 affectionScore = GetBattlerAffectionHearts(gBattlerTarget);
     u32 rand = Random() % 100;
+    bool8 endureCharmActive = FALSE;
 
     GET_MOVE_TYPE(gCurrentMove, moveType);
 
@@ -2048,13 +2082,18 @@ static void Cmd_adjustdamage(void)
          || (affectionScore == AFFECTION_THREE_HEARTS && rand < 10))
             gSpecialStatuses[gBattlerTarget].affectionEndured = TRUE;
     }
+    else
+    {
+        endureCharmActive = ActivateEndureCharm(gBattlerTarget);
+    }
 
     if (gBattleMoves[gCurrentMove].effect != EFFECT_FALSE_SWIPE
         && !gProtectStructs[gBattlerTarget].endured
         && !gSpecialStatuses[gBattlerTarget].focusBanded
         && !gSpecialStatuses[gBattlerTarget].focusSashed
         && (B_AFFECTION_MECHANICS == FALSE || !gSpecialStatuses[gBattlerTarget].affectionEndured)
-        && !gSpecialStatuses[gBattlerTarget].sturdied)
+        && !gSpecialStatuses[gBattlerTarget].sturdied
+        && !endureCharmActive)
         goto END;
 
     // Handle reducing the dmg to 1 hp.
@@ -2078,6 +2117,10 @@ static void Cmd_adjustdamage(void)
     else if (B_AFFECTION_MECHANICS == TRUE && gSpecialStatuses[gBattlerTarget].affectionEndured)
     {
         gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED_AFFECTION;
+    }
+    else if (endureCharmActive)
+    {
+        gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
     }
 
 END:
@@ -2122,39 +2165,6 @@ END:
             gBattlescriptCurrInstr = BattleScript_AttackWeakenedByStrongWinds;
         }
     }
-}
-
-static bool8 ActiveAlphaMonEndure(u8 battler)
-{
-    if(gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0 && GetBattlerSide(battler) == B_SIDE_OPPONENT)
-    {
-        // Activate endure is the alpha mon is about to faint
-        return TRUE;
-    }
-
-    return FALSE;
-}
-
-static bool8 UNUSED ActivateEndureCharm(u8 battler)
-{
-    if(ActiveAlphaMonEndure(battler))
-    {
-        return TRUE;
-    }
-
-    if(gBattleMons[battler].hp == gBattleMons[battler].maxHP && gBattleMons[battler].hp <= gBattleMoveDamage)
-    {
-        if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
-        {
-            return Random() % 100 < GetCurseValue(EFFECT_ENDURE_CHANCE);
-        }
-        else // B_SIDE_PLAYER
-        {
-            return Random() % 100 < GetCharmValue(EFFECT_ENDURE_CHANCE);
-        }
-    }
-
-    return FALSE;
 }
 
 static void Cmd_multihitresultmessage(void)
@@ -12040,6 +12050,7 @@ static void Cmd_tryKO(void)
     bool32 lands = FALSE;
     u32 holdEffect = GetBattlerHoldEffect(gBattlerTarget, TRUE);
     u16 targetAbility = GetBattlerAbility(gBattlerTarget);
+    bool8 endureCharmActive = FALSE;
 
     // Dynamaxed Pokemon cannot be hit by OHKO moves.
     if (IsDynamaxed(gBattlerTarget))
@@ -12061,6 +12072,10 @@ static void Cmd_tryKO(void)
     {
         gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
+    }
+    else
+    {
+        endureCharmActive = ActivateEndureCharm(gBattlerTarget);
     }
 
     if (targetAbility == ABILITY_STURDY)
@@ -12106,6 +12121,11 @@ static void Cmd_tryKO(void)
             {
                 gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
                 gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED_AFFECTION;
+            }
+            else if (endureCharmActive)
+            {
+                gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
+                gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
             }
             else
             {
