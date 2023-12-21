@@ -9,6 +9,12 @@ struct Evolution;
 struct Item;
 struct Trainer;
 
+#ifdef ROGUE_EXPANSION
+#define gRogueSpeciesInfo  gSpeciesInfo
+#else
+#define gRogueSpeciesInfo  gBaseStats
+#endif
+
 // Misc utils (TODO - should really break these out into separate file)
 void HistoryBufferPush(u16* buffer, u16 capacity, u16 value);
 bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);

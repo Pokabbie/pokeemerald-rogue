@@ -3,7 +3,7 @@
 
 extern EWRAM_DATA struct RogueNetMultiplayer* gRogueMultiplayer;
 
-bool8 RogueMP_Init();
+void RogueMP_Init();
 
 bool8 RogueMP_IsActive();
 bool8 RogueMP_IsActiveOrConnecting();

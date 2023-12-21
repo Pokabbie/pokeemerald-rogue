@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PokemonDataGenerator.OverworldSprites;
+using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -99,7 +100,7 @@ namespace PokemonDataGenerator
 			{
 				if (!s_TargettingVanilla)
 				{
-					SpriteSheetSplitter_Gen5.AppendMonSprites();
+					SpriteSheetSplitter_Gen9.AppendMonSprites();
 				}
 			}
 			else
@@ -124,6 +125,7 @@ namespace PokemonDataGenerator
 					SpriteSheetSplitter_Gen6.AppendMonSprites();
 					SpriteSheetSplitter_Gen7.AppendMonSprites();
 					SpriteSheetSplitter_Gen8.AppendMonSprites();
+					//SpriteSheetSplitter_Gen9.AppendMonSprites();
 					SpriteSheetSplitter_Hisui.AppendMonSprites();
 				}
 			}
@@ -167,7 +169,7 @@ namespace PokemonDataGenerator
 			}
 			else
 			{
-				string finalOutputDir = Path.Combine(outDir, "output");
+				string finalOutputDir = Path.Combine(GameDataHelpers.RootDirectory, "graphics\\object_events\\pics\\pokemon_ow");
 
 				if (Directory.Exists(finalOutputDir))
 					Directory.Delete(finalOutputDir, true);

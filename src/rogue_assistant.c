@@ -33,6 +33,7 @@
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
+#include "rogue_pokedex.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
 
@@ -369,102 +370,104 @@ struct SyncObjectEventInfo
 
 static void SyncObjectEvent(struct SyncObjectEventInfo objectInfo)
 {
-    bool8 shouldBeVisible = (objectInfo.gfxId != 0) && (objectInfo.mapGroup == gSaveBlock1Ptr->location.mapGroup && objectInfo.mapNum == gSaveBlock1Ptr->location.mapNum);
-    u8 objectId = GetSpecialObjectEventIdByLocalId(objectInfo.localId);
-    s16 xDist = abs(objectInfo.mapX - gSaveBlock1Ptr->pos.x - MAP_OFFSET);
-    s16 yDist = abs(objectInfo.mapY - gSaveBlock1Ptr->pos.y - MAP_OFFSET);
+    AGB_ASSERT(FALSE); // fixme
 
-    if(shouldBeVisible && xDist <= 8 && yDist <= 5)
-    {
-        shouldBeVisible = TRUE;
-    }
-
-    if(shouldBeVisible)
-    {
-        if(objectId == OBJECT_EVENTS_COUNT && IsSafeToSpawnObjectEvents())
-        {
-            objectId = SpawnSpecialObjectEventParameterized(
-                objectInfo.gfxId,
-                MOVEMENT_TYPE_NONE,
-                objectInfo.localId,
-                objectInfo.mapX,
-                objectInfo.mapY,
-                MapGridGetElevationAt(objectInfo.mapX, objectInfo.mapY)
-            );
-        }
-
-        if(objectId != OBJECT_EVENTS_COUNT)
-        {
-            s16 totalDist;
-            u8 heldMovement = MOVEMENT_ACTION_NONE;
-            struct ObjectEvent* object = &gObjectEvents[objectId];
-            s16 xDiff = objectInfo.mapX - object->currentCoords.x;
-            s16 yDiff = objectInfo.mapY - object->currentCoords.y;
-
-            xDist = abs(xDiff);
-            yDist = abs(yDiff);
-            totalDist = xDist + yDist;
-
-            // Close enough to animate
-            if(totalDist < 12)
-            {
-                u8 heldMovement = MOVEMENT_ACTION_NONE;
-                u8 idealMovement = GetWalkNormalMovementAction(objectInfo.facingDirection);
-
-                // If we're facing a direction we need to go, do that preferably
-                if((idealMovement == MOVEMENT_ACTION_WALK_NORMAL_LEFT && xDiff < 0)
-                    || (idealMovement == MOVEMENT_ACTION_WALK_NORMAL_RIGHT && xDiff > 0)
-                    || (idealMovement == MOVEMENT_ACTION_WALK_NORMAL_UP && yDiff < 0)
-                    || (idealMovement == MOVEMENT_ACTION_WALK_NORMAL_DOWN && yDiff > 0)
-                )
-                {
-                    heldMovement = idealMovement;
-                }
-                // Otherwise try to move on smallest axis distance first
-                else if(xDist > 0 && (yDist == 0 || xDist > yDist))
-                {
-                    heldMovement = xDiff < 0 ? MOVEMENT_ACTION_WALK_NORMAL_LEFT : MOVEMENT_ACTION_WALK_NORMAL_RIGHT;
-                }
-                else if(yDist > 0)
-                {
-                    heldMovement = yDiff < 0 ? MOVEMENT_ACTION_WALK_NORMAL_UP : MOVEMENT_ACTION_WALK_NORMAL_DOWN;
-                }
-
-                // Speed up movement action if far away
-                if(totalDist >= 5)
-                    heldMovement += MOVEMENT_ACTION_WALK_FASTER_DOWN - MOVEMENT_ACTION_WALK_NORMAL_DOWN;
-                else if(totalDist >= 2)
-                    heldMovement += MOVEMENT_ACTION_WALK_FAST_DOWN - MOVEMENT_ACTION_WALK_NORMAL_DOWN;
-
-                if(ObjectEventClearHeldMovementIfFinished(object))
-                {
-                    if(heldMovement != MOVEMENT_ACTION_NONE)
-                    {
-                        // Keep queuing up the correct movement
-                        ObjectEventSetHeldMovement(object, heldMovement);
-                    }
-                    else if(object->facingDirection != objectInfo.facingDirection)
-                    {
-                        // Finished movement, so sync up facing direction
-                        ObjectEventSetHeldMovement(object, GetFaceDirectionMovementAction(objectInfo.facingDirection));
-                    }
-                }
-            }
-            else
-            {
-                // Teleport, as too far
-                MoveObjectEventToMapCoords(object, objectInfo.mapX, objectInfo.mapY);
-            }
-        }
-    }
-    else
-    {
-        // Remove object if currently exists
-        if(objectId != OBJECT_EVENTS_COUNT)
-        {
-            RemoveObjectEvent(&gObjectEvents[objectId]);
-        }
-    }
+    //bool8 shouldBeVisible = (objectInfo.gfxId != 0) && (objectInfo.mapGroup == gSaveBlock1Ptr->location.mapGroup && objectInfo.mapNum == gSaveBlock1Ptr->location.mapNum);
+    //u8 objectId = GetSpecialObjectEventIdByLocalId(objectInfo.localId);
+    //s16 xDist = abs(objectInfo.mapX - gSaveBlock1Ptr->pos.x - MAP_OFFSET);
+    //s16 yDist = abs(objectInfo.mapY - gSaveBlock1Ptr->pos.y - MAP_OFFSET);
+//
+    //if(shouldBeVisible && xDist <= 8 && yDist <= 5)
+    //{
+    //    shouldBeVisible = TRUE;
+    //}
+//
+    //if(shouldBeVisible)
+    //{
+    //    if(objectId == OBJECT_EVENTS_COUNT && IsSafeToSpawnObjectEvents())
+    //    {
+    //        objectId = SpawnSpecialObjectEventParameterized(
+    //            objectInfo.gfxId,
+    //            MOVEMENT_TYPE_NONE,
+    //            objectInfo.localId,
+    //            objectInfo.mapX,
+    //            objectInfo.mapY,
+    //            MapGridGetElevationAt(objectInfo.mapX, objectInfo.mapY)
+    //        );
+    //    }
+//
+    //    if(objectId != OBJECT_EVENTS_COUNT)
+    //    {
+    //        s16 totalDist;
+    //        u8 heldMovement = MOVEMENT_ACTION_NONE;
+    //        struct ObjectEvent* object = &gObjectEvents[objectId];
+    //        s16 xDiff = objectInfo.mapX - object->currentCoords.x;
+    //        s16 yDiff = objectInfo.mapY - object->currentCoords.y;
+//
+    //        xDist = abs(xDiff);
+    //        yDist = abs(yDiff);
+    //        totalDist = xDist + yDist;
+//
+    //        // Close enough to animate
+    //        if(totalDist < 12)
+    //        {
+    //            u8 heldMovement = MOVEMENT_ACTION_NONE;
+    //            u8 idealMovement = GetWalkNormalMovementAction(objectInfo.facingDirection);
+//
+    //            // If we're facing a direction we need to go, do that preferably
+    //            if((idealMovement == MOVEMENT_ACTION_WALK_NORMAL_LEFT && xDiff < 0)
+    //                || (idealMovement == MOVEMENT_ACTION_WALK_NORMAL_RIGHT && xDiff > 0)
+    //                || (idealMovement == MOVEMENT_ACTION_WALK_NORMAL_UP && yDiff < 0)
+    //                || (idealMovement == MOVEMENT_ACTION_WALK_NORMAL_DOWN && yDiff > 0)
+    //            )
+    //            {
+    //                heldMovement = idealMovement;
+    //            }
+    //            // Otherwise try to move on smallest axis distance first
+    //            else if(xDist > 0 && (yDist == 0 || xDist > yDist))
+    //            {
+    //                heldMovement = xDiff < 0 ? MOVEMENT_ACTION_WALK_NORMAL_LEFT : MOVEMENT_ACTION_WALK_NORMAL_RIGHT;
+    //            }
+    //            else if(yDist > 0)
+    //            {
+    //                heldMovement = yDiff < 0 ? MOVEMENT_ACTION_WALK_NORMAL_UP : MOVEMENT_ACTION_WALK_NORMAL_DOWN;
+    //            }
+//
+    //            // Speed up movement action if far away
+    //            if(totalDist >= 5)
+    //                heldMovement += MOVEMENT_ACTION_WALK_FASTER_DOWN - MOVEMENT_ACTION_WALK_NORMAL_DOWN;
+    //            else if(totalDist >= 2)
+    //                heldMovement += MOVEMENT_ACTION_WALK_FAST_DOWN - MOVEMENT_ACTION_WALK_NORMAL_DOWN;
+//
+    //            if(ObjectEventClearHeldMovementIfFinished(object))
+    //            {
+    //                if(heldMovement != MOVEMENT_ACTION_NONE)
+    //                {
+    //                    // Keep queuing up the correct movement
+    //                    ObjectEventSetHeldMovement(object, heldMovement);
+    //                }
+    //                else if(object->facingDirection != objectInfo.facingDirection)
+    //                {
+    //                    // Finished movement, so sync up facing direction
+    //                    ObjectEventSetHeldMovement(object, GetFaceDirectionMovementAction(objectInfo.facingDirection));
+    //                }
+    //            }
+    //        }
+    //        else
+    //        {
+    //            // Teleport, as too far
+    //            MoveObjectEventToMapCoords(object, objectInfo.mapX, objectInfo.mapY);
+    //        }
+    //    }
+    //}
+    //else
+    //{
+    //    // Remove object if currently exists
+    //    if(objectId != OBJECT_EVENTS_COUNT)
+    //    {
+    //        RemoveObjectEvent(&gObjectEvents[objectId]);
+    //    }
+    //}
 }
 
 bool8 Rogue_IsNetMultiplayerActive()
@@ -484,7 +487,7 @@ bool8 Rogue_IsNetMultiplayerClient()
 
 void Rogue_RemoveNetObjectEvents()
 {
-    u8 i, j;
+    u8 i;
     u8 objectId;
 
     for(i = OBJ_EVENT_ID_MULTIPLAYER_FIRST; i <= OBJ_EVENT_ID_MULTIPLAYER_LAST; ++i)
@@ -502,7 +505,7 @@ static bool8 AllowNetPartnerMons()
     return !Rogue_IsRunActive();
 }
 
-static void NetPlayerUpdate(u8 playerId, struct NetPlayerState* playerState)
+static void UNUSED NetPlayerUpdate(u8 playerId, struct NetPlayerState* playerState)
 {
     struct SyncObjectEventInfo syncObject;
 
@@ -615,7 +618,7 @@ static void Task_ConnectMultiplayer(u8 taskId)
 // Commands
 //
 
-static bool8 CommCmd_ProcessNext()
+static bool8 UNUSED CommCmd_ProcessNext()
 {
     u16 cmdToken, prevCmdToken, cmdIdx;
     buffer_offset_t inputPos = 0;
@@ -649,7 +652,7 @@ static bool8 CommCmd_ProcessNext()
     return FALSE;
 }
 
-static u8 Read8(buffer_offset_t* offset, u8* buffer, size_t capacity)
+static u8 UNUSED Read8(buffer_offset_t* offset, u8* buffer, size_t capacity)
 {
     u8* ptr = &buffer[*offset];
     u8 value;
@@ -675,7 +678,7 @@ static u16 Read16(buffer_offset_t* offset, u8* buffer, size_t capacity)
     return value;
 }
 
-static u32 Read32(buffer_offset_t* offset, u8* buffer, size_t capacity)
+static u32 UNUSED Read32(buffer_offset_t* offset, u8* buffer, size_t capacity)
 {
     u8* ptr = &buffer[*offset];
     u32 value;
@@ -710,7 +713,7 @@ static void Write16(buffer_offset_t* offset, u16 value, u8* buffer, size_t capac
     AGB_ASSERT(*offset < capacity);
 }
 
-static void Write32(buffer_offset_t* offset, u32 value, u8* buffer, size_t capacity)
+static void UNUSED Write32(buffer_offset_t* offset, u32 value, u8* buffer, size_t capacity)
 {
     u8* ptr = &buffer[*offset];
     
@@ -844,7 +847,7 @@ static void CommCmd_GetSpeciesName(buffer_offset_t inputPos, buffer_offset_t out
     {
         if(value < NUM_SPECIES)
         {
-            WRITE_OUTPUT_8(gSpeciesNames[value][i]);
+            WRITE_OUTPUT_8(RoguePokedex_GetSpeciesName(value)[i]);
         }
         else
         {

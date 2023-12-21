@@ -292,24 +292,17 @@ u16 Rogue_GetMonEvoCount(void)
     {
         u16 e;
         struct Evolution evo;
+        u8 evoCount = Rogue_GetMaxEvolutionCount(species);
         u16 count = 0;
 
-        for (e = 0; e < EVOS_PER_MON; e++)
+        for (e = 0; e < evoCount; e++)
         {
             Rogue_ModifyEvolution(species, e, &evo);
             Rogue_ModifyEvolution_ApplyCurses(species, e, &evo);
 
             if (evo.targetSpecies != SPECIES_NONE)
             {
-#ifdef ROGUE_EXPANSION
-                if(evo.method != EVO_MEGA_EVOLUTION &&
-                    evo.method != EVO_MOVE_MEGA_EVOLUTION &&
-                    evo.method != EVO_PRIMAL_REVERSION
-                )
-#endif
-                {
-                    ++count;
-                }
+                ++count;
             }
         }
 
@@ -329,31 +322,25 @@ void Rogue_GetMonEvoParams(void)
     gSpecialVar_0x8007 = 0;
 
     if(species != SPECIES_NONE)
-    {        // evoIdx doesn't mean array idx annoyingly as evos can be toggled/changed
+    {        
+        // evoIdx doesn't mean array idx annoyingly as evos can be toggled/changed
         u16 e;
         struct Evolution evo;
+        u8 evoCount = Rogue_GetMaxEvolutionCount(species);
         u16 count = 0;
 
-        for (e = 0; e < EVOS_PER_MON; e++)
+        for (e = 0; e < evoCount; e++)
         {
             Rogue_ModifyEvolution(species, e, &evo);
             Rogue_ModifyEvolution_ApplyCurses(species, e, &evo);
 
             if (evo.targetSpecies != SPECIES_NONE)
             {
-#ifdef ROGUE_EXPANSION
-                if(evo.method != EVO_MEGA_EVOLUTION &&
-                    evo.method != EVO_MOVE_MEGA_EVOLUTION &&
-                    evo.method != EVO_PRIMAL_REVERSION
-                )
-#endif
+                if(count++ == evoIdx)
                 {
-                    if(count++ == evoIdx)
-                    {
-                        gSpecialVar_0x8006 = evo.method;
-                        gSpecialVar_0x8007 = evo.param;
-                        return;
-                    }
+                    gSpecialVar_0x8006 = evo.method;
+                    gSpecialVar_0x8007 = evo.param;
+                    return;
                 }
             }
         }
@@ -367,7 +354,6 @@ void RogueDebug_FillGenPC(void)
     u16 species;
     u16 writeIdx = 0;
     u16 genId = gSpecialVar_0x8004;
-    struct Pokemon mon;
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
@@ -471,7 +457,10 @@ void RogueDebug_StartBattle(void)
     u16 i;
 
     for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        ZeroMonData(&gEnemyParty[i]);
         BoxMonAtToMon(TOTAL_BOXES_COUNT- 1, i, &gEnemyParty[i]);
+    }
 
     CalculateEnemyPartyCount();
 
@@ -580,7 +569,6 @@ void Rogue_ApplyBerryTreat(void)
     else if(berryBuff == BERRY_BUFF_WEAKEN)
     {
         u16 statOffset;
-        u16 ivCount;
 
         gSpecialVar_Result = FALSE;
 
@@ -669,7 +657,7 @@ void Rogue_IsRoamerActive(void)
 
 void Rogue_BufferRoamerName(void)
 {
-    GetSpeciesName(gStringVar1, gRogueRun.wildEncounters.roamer.species);
+    StringCopyN(gStringVar1, RoguePokedex_GetSpeciesName(gRogueRun.wildEncounters.roamer.species), POKEMON_NAME_LENGTH);
 }
 
 void Rogue_GetUnlockedCampaignCount(void)
@@ -790,7 +778,7 @@ void Rogue_ApplyMonCombo(void)
     if(outputSpecies)
     {
         u8 speciesName[POKEMON_NAME_LENGTH + 1];
-        GetSpeciesName(speciesName, outputSpecies);
+        StringCopyN(speciesName, RoguePokedex_GetSpeciesName(outputSpecies), ARRAY_COUNT(speciesName));
 
         SetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_SPECIES, &outputSpecies);
         SetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_NICKNAME, speciesName);

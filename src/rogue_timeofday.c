@@ -130,10 +130,6 @@ static const struct ToDPalette sToDPaletteLookup[] =
     },
 };
 
-EWRAM_DATA static u8 sTimeOfDayTimeCode = TIME_CODE_NIGHT;
-EWRAM_DATA static u16 sTimeOfDayOverworldColour = 0;
-EWRAM_DATA static u16 sTimeOfDayBattleColour = 0;
-
 EWRAM_DATA static struct ToDData sTimeOfDay = {0};
 
 //extern const u16 gTilesetPalettes_General[][16];
@@ -216,7 +212,7 @@ u16 RogueToD_GetMinutes()
     return CALC_MINS_FROM_TIME(gRogueSaveBlock->timeOfDayMinutes);
 }
 
-u16 RogueToD_AddMinutes(u16 minutes)
+void RogueToD_AddMinutes(u16 minutes)
 {
     RogueToD_SetTime(gRogueSaveBlock->timeOfDayMinutes + minutes);
 }
@@ -267,8 +263,7 @@ static void TintPalette_CompareOverride(u16 *palette, u16 count, const u16* comp
 static void TintPalette_CustomMultiply(u16 *palette, u16 count, u16 rTone, u16 gTone, u16 bTone)
 {
     s32 r, g, b;
-    u16 i, j;
-    u32 gray;
+    u16 i;
 
     for (i = 0; i < count; i++)
     {

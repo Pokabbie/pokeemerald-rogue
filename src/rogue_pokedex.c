@@ -33,7 +33,7 @@
 #include "rogue_settings.h"
 
 #ifdef ROGUE_EXPANSION
-#define DEX_GEN_LIMIT 8
+#define DEX_GEN_LIMIT 9
 #else
 #define DEX_GEN_LIMIT 3
 #endif
@@ -309,7 +309,7 @@ static void CB2_Rogue_ShowPokedex(void)
     ResetPaletteFade();
     FreeAllSpritePalettes();
     LoadPalette(sDiplomaPalettes, 0, 64);
-    sTilemapBufferPtr = malloc(BG_SCREEN_SIZE);
+    sTilemapBufferPtr = Alloc(BG_SCREEN_SIZE);
 
     InitOverviewBg();
     ResetTempTileDataBuffers();
@@ -466,9 +466,7 @@ static void InitPageResources(u8 fromPage, u8 toPage)
 }
 
 static void DestroyPageResources(u8 fromPage, u8 toPage)
-{
-    u8 i;
-    
+{    
     // TODO - Could stop sprites from flashing if we didn't destroy them here
 
     switch (fromPage)
@@ -805,11 +803,12 @@ static void DisplayTitleDexVariantText(void)
 static void DisplayMonEntryText(void)
 {
     u8 color[3] = {0, 2, 3};
+    u16 speciesNum = RoguePokedex_GetSpeciesCurrentNum(sPokedexMenu->viewBaseSpecies);
     
-    ConvertUIntToDecimalStringN(gStringVar1, RoguePokedex_GetSpeciesCurrentNum(sPokedexMenu->viewBaseSpecies), STR_CONV_MODE_LEADING_ZEROS, 3);
+    ConvertUIntToDecimalStringN(gStringVar1, speciesNum, STR_CONV_MODE_LEADING_ZEROS, speciesNum > 999 ? 4 : 3);
     StringExpandPlaceholders(gStringVar3, gText_NumberStr1);
 
-    AddTextPrinterParameterized4(WIN_MON_SPECIES, FONT_NARROW, 4, 1, 0, 0, color, TEXT_SKIP_DRAW, gSpeciesNames[sPokedexMenu->viewBaseSpecies]);
+    AddTextPrinterParameterized4(WIN_MON_SPECIES, FONT_NARROW, 4, 1, 0, 0, color, TEXT_SKIP_DRAW, RoguePokedex_GetSpeciesName(sPokedexMenu->viewBaseSpecies));
     AddTextPrinterParameterized4(WIN_MON_SPECIES, FONT_NARROW, 4, 17, 0, 0, color, TEXT_SKIP_DRAW, gStringVar3);
 
     PutWindowTilemap(WIN_MON_SPECIES);
@@ -829,9 +828,9 @@ static void DisplayMonStatsText(void)
         u16 prevAbility = ABILITY_NONE;
         u8 j = 0;
 
-        for(i = 0; i < ARRAY_COUNT(gBaseStats[sPokedexMenu->viewBaseSpecies].abilities); ++i)
+        for(i = 0; i < ARRAY_COUNT(gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].abilities); ++i)
         {
-            u16 ability = gBaseStats[sPokedexMenu->viewBaseSpecies].abilities[i];
+            u16 ability = gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].abilities[i];
 
             if(ability != ABILITY_NONE && ability != prevAbility)
             {
@@ -848,33 +847,33 @@ static void DisplayMonStatsText(void)
         i = 0;
 
         // HP
-        statTotal += gBaseStats[sPokedexMenu->viewBaseSpecies].baseHP;
-        ConvertUIntToDecimalStringN(gStringVar4, gBaseStats[sPokedexMenu->viewBaseSpecies].baseHP, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseHP;
+        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseHP, STR_CONV_MODE_RIGHT_ALIGN, 3);
         AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
         // Attack
-        statTotal += gBaseStats[sPokedexMenu->viewBaseSpecies].baseAttack;
-        ConvertUIntToDecimalStringN(gStringVar4, gBaseStats[sPokedexMenu->viewBaseSpecies].baseAttack, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseAttack;
+        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseAttack, STR_CONV_MODE_RIGHT_ALIGN, 3);
         AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
         // Def
-        statTotal += gBaseStats[sPokedexMenu->viewBaseSpecies].baseDefense;
-        ConvertUIntToDecimalStringN(gStringVar4, gBaseStats[sPokedexMenu->viewBaseSpecies].baseDefense, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseDefense;
+        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseDefense, STR_CONV_MODE_RIGHT_ALIGN, 3);
         AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
         // SpAttack
-        statTotal += gBaseStats[sPokedexMenu->viewBaseSpecies].baseSpAttack;
-        ConvertUIntToDecimalStringN(gStringVar4, gBaseStats[sPokedexMenu->viewBaseSpecies].baseSpAttack, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpAttack;
+        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpAttack, STR_CONV_MODE_RIGHT_ALIGN, 3);
         AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
         // SpDef
-        statTotal += gBaseStats[sPokedexMenu->viewBaseSpecies].baseSpDefense;
-        ConvertUIntToDecimalStringN(gStringVar4, gBaseStats[sPokedexMenu->viewBaseSpecies].baseSpDefense, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpDefense;
+        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpDefense, STR_CONV_MODE_RIGHT_ALIGN, 3);
         AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
         // Speed
-        statTotal += gBaseStats[sPokedexMenu->viewBaseSpecies].baseSpeed;
-        ConvertUIntToDecimalStringN(gStringVar4, gBaseStats[sPokedexMenu->viewBaseSpecies].baseSpeed, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpeed;
+        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpeed, STR_CONV_MODE_RIGHT_ALIGN, 3);
         AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
         // Total
@@ -1056,21 +1055,17 @@ static u16 GetMaxEvoScrollOffset()
     u8 i;
     u8 count = 0;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
     FillWindowPixelBuffer(WIN_MON_LIST, PIXEL_FILL(0));
 
-    for(i = 0; i < EVOS_PER_MON; ++i)
+    for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
 
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
 
-#ifdef ROGUE_EXPANSION
-        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
-            continue;
-#endif
-        
         ++count;
     }
 
@@ -1083,19 +1078,15 @@ static u16 GetActiveEvoSpecies()
     u8 i;
     u8 listIndex = 0;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
-    for(i = 0; i < EVOS_PER_MON; ++i)
+    for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
 
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
 
-#ifdef ROGUE_EXPANSION
-        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
-            continue;
-#endif
-        
         if(listIndex >= sPokedexMenu->listScrollAmount)
             return evo.targetSpecies;
 
@@ -1115,20 +1106,16 @@ static void DisplayMonEvosText()
     u8 listIndex = 0;
     u8 displayCount = 0;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
     FillWindowPixelBuffer(WIN_MON_LIST, PIXEL_FILL(0));
 
-    for(i = 0; i < EVOS_PER_MON; ++i)
+    for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
 
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
-        
-#ifdef ROGUE_EXPANSION
-        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
-            continue;
-#endif
 
         if(listIndex >= sPokedexMenu->listScrollAmount)
         {
@@ -1256,8 +1243,11 @@ static void DisplayMonEvosText()
             if(displayCount == 0)
                 AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gText_SelectorArrow);
 
-            AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 35 + (displayCount == 0 ? 8 : 0), ySpacing * displayCount++, 0, 0, color, TEXT_SKIP_DRAW, gSpeciesNames[evo.targetSpecies]);
-            AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 35, ySpacing * displayCount++, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+            AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 35 + (displayCount == 0 ? 8 : 0), ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, RoguePokedex_GetSpeciesName(evo.targetSpecies));
+            ++displayCount;
+
+            AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+            ++displayCount;
         }
         ++listIndex;
     }
@@ -2205,12 +2195,12 @@ static void Overview_CreateSprites()
                 if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
                 {
                     // Animated
-                    sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCB_MonIcon, 28 + 32 * x, 18 + 40 * y, 0, 0, TRUE);
+                    sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCB_MonIcon, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
                 }
                 else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
                 {
                     // Non animated
-                    sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, TRUE);
+                    sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
                 }
                 else
                 {
@@ -2314,18 +2304,22 @@ static void MonInfo_CreateSprites(bool8 includeType)
         isShiny,
         MON_PIC_AFFINE_FRONT,
         48, 66, 
-        0, 
+        0,
+#ifdef ROGUE_EXPANSION
+        isShiny ? (sPokedexMenu->viewBaseSpecies + SPECIES_SHINY_TAG) : sPokedexMenu->viewBaseSpecies
+#else
         isShiny ? gMonShinyPaletteTable[sPokedexMenu->viewBaseSpecies].tag : gMonPaletteTable[sPokedexMenu->viewBaseSpecies].tag
+#endif
     );
 
-    sPokedexMenu->pageSprites[MON_SPRITE_ICON] = CreateMonIcon(sPokedexMenu->viewBaseSpecies, SpriteCallbackDummy, 48, 8, 0, 0, TRUE);
+    sPokedexMenu->pageSprites[MON_SPRITE_ICON] = CreateMonIcon(sPokedexMenu->viewBaseSpecies, SpriteCallbackDummy, 48, 8, 0, 0, MON_MALE);
 
     if(includeType)
     {
-        sPokedexMenu->pageSprites[MON_SPRITE_TYPE1] = CreateMonTypeIcon(gBaseStats[sPokedexMenu->viewBaseSpecies].type1, 138, 24);
+        sPokedexMenu->pageSprites[MON_SPRITE_TYPE1] = CreateMonTypeIcon(RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 0), 138, 24);
 
-        if(gBaseStats[sPokedexMenu->viewBaseSpecies].type2 != gBaseStats[sPokedexMenu->viewBaseSpecies].type1)
-            sPokedexMenu->pageSprites[MON_SPRITE_TYPE2] = CreateMonTypeIcon(gBaseStats[sPokedexMenu->viewBaseSpecies].type2, 138 + 33, 24);
+        if(RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 0) != RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 1))
+            sPokedexMenu->pageSprites[MON_SPRITE_TYPE2] = CreateMonTypeIcon(RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 1), 138 + 33, 24);
     }
 }
 
@@ -2663,6 +2657,7 @@ static void MonEvos_CreateSprites()
     u8 listIndex = 0;
     u8 displayCount = 0;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
     // Destroy any previous sprites
     for(i = 0; i < 4; ++i)
@@ -2674,21 +2669,16 @@ static void MonEvos_CreateSprites()
         }
     }
 
-    for(i = 0; i < EVOS_PER_MON && displayCount < 4; ++i)
+    for(i = 0; i < evoCount && displayCount < 4; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
 
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
-    
-#ifdef ROGUE_EXPANSION
-        if(evo.method == EVO_MEGA_EVOLUTION || evo.method == EVO_MOVE_MEGA_EVOLUTION || evo.method == EVO_PRIMAL_REVERSION)
-            continue;
-#endif
-            
+
         if(listIndex >= sPokedexMenu->listScrollAmount)
         {
-            sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(evo.targetSpecies, SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, TRUE);
+            sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(evo.targetSpecies, SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, MON_MALE);
             ++displayCount;
         }
         ++listIndex;
@@ -2784,10 +2774,10 @@ u16 RoguePokedex_GetNationalDexLimit()
     case 2:
         return NATIONAL_DEX_CELEBI;
 
-#ifdef ROGUE_EXPANSION
     case 3:
         return NATIONAL_DEX_DEOXYS;
 
+#ifdef ROGUE_EXPANSION
     case 4:
         return NATIONAL_DEX_ARCEUS;
 
@@ -2799,9 +2789,16 @@ u16 RoguePokedex_GetNationalDexLimit()
 
     case 7:
         return NATIONAL_DEX_MELMETAL;
+
+    case 8:
+        return NATIONAL_DEX_ENAMORUS;
+
+    case 9:
+        return NATIONAL_DEX_OGERPON;
 #endif
     
     default:
+        AGB_ASSERT(FALSE); // This is unsafe given there could be placeholder species here
         return NATIONAL_DEX_COUNT;
     }
 }
@@ -2867,7 +2864,6 @@ bool8 RoguePokedex_IsSpeciesEnabled(u16 species)
 
     if(!RoguePokedex_IsNationalDexActive())
     {
-        bool8 result;
         u8 variant = RoguePokedex_GetDexVariant();
 
         // The species or the base species is allowed to use this
@@ -3019,6 +3015,21 @@ bool8 RoguePokedex_IsSpeciesLegendary(u16 species)
         case SPECIES_SPECTRIER:
         case SPECIES_CALYREX:
 
+        case SPECIES_ENAMORUS:
+
+        case SPECIES_WO_CHIEN:
+        case SPECIES_CHIEN_PAO:
+        case SPECIES_TING_LU:
+        case SPECIES_CHI_YU:
+        case SPECIES_KORAIDON:
+        case SPECIES_MIRAIDON:
+        case SPECIES_WALKING_WAKE:
+        case SPECIES_IRON_LEAVES:
+        case SPECIES_OKIDOGI:
+        case SPECIES_MUNKIDORI:
+        case SPECIES_FEZANDIPITI:
+        case SPECIES_OGERPON:
+
         // Forms
         case SPECIES_KYUREM_WHITE:
         case SPECIES_KYUREM_BLACK:
@@ -3089,6 +3100,10 @@ bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species)
         case SPECIES_ZAMAZENTA:
         case SPECIES_ETERNATUS:
         case SPECIES_CALYREX:
+        
+        case SPECIES_KORAIDON:
+        case SPECIES_MIRAIDON:
+        case SPECIES_OGERPON:
 
         // Forms
         case SPECIES_KYUREM_WHITE:
@@ -3172,6 +3187,15 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
         case SPECIES_URSHIFU:
         case SPECIES_ZARUDE:
 
+        case SPECIES_ENAMORUS:
+
+        case SPECIES_WALKING_WAKE:
+        case SPECIES_IRON_LEAVES:
+        
+        case SPECIES_OKIDOGI:
+        case SPECIES_MUNKIDORI:
+        case SPECIES_FEZANDIPITI:
+
         // Forms
         case SPECIES_URSHIFU_RAPID_STRIKE_STYLE:
         case SPECIES_ZARUDE_DADA:
@@ -3186,15 +3210,40 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
     return FALSE;
 }
 
+u8 const* RoguePokedex_GetSpeciesName(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    return gSpeciesInfo[species].speciesName;
+#else
+    return gSpeciesNames[species];
+#endif
+}
+
+u8 RoguePokedex_GetSpeciesType(u16 species, u8 typeIndex)
+{
+#ifdef ROGUE_EXPANSION
+    AGB_ASSERT(typeIndex < ARRAY_COUNT(gSpeciesInfo[species].types));
+    return gSpeciesInfo[species].types[typeIndex];
+#define gRogueSpeciesInfo  gSpeciesInfo
+#else
+    AGB_ASSERT(typeIndex < 2);
+
+    if(typeIndex == 0)
+        return gBaseStats[species].type1;
+    else
+        return gBaseStats[species].type2;
+#endif
+}
+
 u16 RoguePokedex_GetSpeciesBST(u16 species)
 {
     u16 statTotal =
-        gBaseStats[species].baseHP +
-        gBaseStats[species].baseAttack +
-        gBaseStats[species].baseDefense +
-        gBaseStats[species].baseSpAttack +
-        gBaseStats[species].baseSpDefense +
-        gBaseStats[species].baseSpeed;
+        gRogueSpeciesInfo[species].baseHP +
+        gRogueSpeciesInfo[species].baseAttack +
+        gRogueSpeciesInfo[species].baseDefense +
+        gRogueSpeciesInfo[species].baseSpAttack +
+        gRogueSpeciesInfo[species].baseSpDefense +
+        gRogueSpeciesInfo[species].baseSpeed;
     return statTotal;
 }
 
@@ -3205,12 +3254,12 @@ static u8 SelectBestWorstStat(u16 species, bool8 selectLargest)
     u8 statId = 0;
     u8 statScore = 0;
 
-    stats[STAT_HP] = gBaseStats[species].baseHP;
-    stats[STAT_ATK] = gBaseStats[species].baseAttack;
-    stats[STAT_DEF] = gBaseStats[species].baseDefense;
-    stats[STAT_SPATK] = gBaseStats[species].baseSpAttack;
-    stats[STAT_SPDEF] = gBaseStats[species].baseSpDefense;
-    stats[STAT_SPEED] = gBaseStats[species].baseSpeed;
+    stats[STAT_HP] = gRogueSpeciesInfo[species].baseHP;
+    stats[STAT_ATK] = gRogueSpeciesInfo[species].baseAttack;
+    stats[STAT_DEF] = gRogueSpeciesInfo[species].baseDefense;
+    stats[STAT_SPATK] = gRogueSpeciesInfo[species].baseSpAttack;
+    stats[STAT_SPDEF] = gRogueSpeciesInfo[species].baseSpDefense;
+    stats[STAT_SPEED] = gRogueSpeciesInfo[species].baseSpeed;
 
     for(i = 0; i < NUM_STATS; ++i)
     {

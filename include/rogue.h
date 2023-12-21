@@ -592,6 +592,18 @@ struct RogueSaveBlock
     u8 seasonCounter;
 };
 
+struct RogueSpeciesBakedData
+{
+    u32 evolutionChainTypeFlags : 18;
+    u32 eggSpecies : 11;
+    u32 unused1 : 3;
+
+    u32 evolutionCount : 8;
+    u32 unused2 : 24;
+};
+
+STATIC_ASSERT(sizeof(struct RogueSpeciesBakedData) == 8, SizeOfRogueSpeciesBakedData);
+
 extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;

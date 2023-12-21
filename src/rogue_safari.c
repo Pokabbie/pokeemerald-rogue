@@ -277,7 +277,7 @@ static u8 AllocSafariMonSlot()
     return 0;
 }
 
-static u8 FreeSafariMonSlotCount()
+static u8 UNUSED FreeSafariMonSlotCount()
 {
     u8 i;
     u8 count = 0;

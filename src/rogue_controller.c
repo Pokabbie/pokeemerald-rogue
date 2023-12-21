@@ -163,11 +163,10 @@ static u16 GetWildWaterEncounter(u8 index);
 static u16 GetWildEncounterIndexFor(u16 species);
 
 static void EnableRivalEncounterIfRequired();
-static bool8 ChooseLegendarysForNewAdventure();
+static void ChooseLegendarysForNewAdventure();
 static void RememberPartyHeldItems();
 static void TryRestorePartyHeldItems(bool8 allowThief);
 
-static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party);
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party);
 
 static void RandomiseSafariWildEncounters(void);
@@ -385,7 +384,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 
         if(currentLevel != MAX_LEVEL)
         {
-            u8 growthRate = gBaseStats[species].growthRate; // Was using GROWTH_FAST?
+            u8 growthRate = gRogueSpeciesInfo[species].growthRate; // Was using GROWTH_FAST?
             u32 currLvlExp;
             u32 nextLvlExp;
             u32 lvlExp;
@@ -960,11 +959,11 @@ s16 Rogue_ModifyBattleSlideAnim(s16 rate)
         else
             return rate * 2 + 1;
     }
-    //else if(difficulty == (ROGUE_MAX_BOSS_COUNT - 1))
-    //{
-    //    // Go at default speed for final fight
-    //    return rate * 2;
-    //}
+    else if(difficulty < ROGUE_FINAL_CHAMP_DIFFICULTY)
+    {
+        // Go at default speed for final fight
+        return rate * 2;
+    }
 
     // Still run faster and default game because it's way too slow :(
     return rate;
@@ -993,6 +992,9 @@ u8 SpeciesToGen(u16 species)
     if(species >= SPECIES_WYRDEER && species <= SPECIES_ENAMORUS)
         return 8;
 
+    if(species >= SPECIES_SPRIGATITO && species <= SPECIES_URSALUNA_BLOODMOON)
+        return 9;
+
     if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_MAROWAK_ALOLAN)
         return 7;
     if(species >= SPECIES_MEOWTH_GALARIAN && species <= SPECIES_STUNFISK_GALARIAN)
@@ -1007,6 +1009,8 @@ u8 SpeciesToGen(u16 species)
 
     // Just treat megas as gen 1 as they are controlled by a different mechanism
     if(species >= SPECIES_VENUSAUR_MEGA && species <= SPECIES_GROUDON_PRIMAL)
+        return 1;
+    if(species >= SPECIES_VENUSAUR_GIGANTAMAX && species <= SPECIES_URSHIFU_RAPID_STRIKE_STYLE_GIGANTAMAX)
         return 1;
     
     switch(species)
@@ -1465,7 +1469,8 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         struct Item item;
         Rogue_ModifyItem(itemId, &item);
 
-        return (item.itemId == itemId);
+        // Best entry to check that this item is valid
+        return (item.description != NULL);
     }
 }
 
@@ -1829,7 +1834,34 @@ struct StarterSelectionData
 #define TYPE_x2     40
 #define TYPE_x4     80
 
+#ifdef ROGUE_EXPANSION
+uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk, u32 battlerDef, u32 defAbility, bool32 recordAbilities);
+
+int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode)
+{
+    uq4_12_t modifier = CalcTypeEffectivenessMultiplier(move, moveType, defType1, defType2, defAbility, mode);
+
+    if (modifier == UQ_4_12(0.0))
+    {
+        return TYPE_x0;
+    }
+    else if (modifier == UQ_4_12(1.0))
+    {
+        return TYPE_x1;
+    }
+    else if (modifier > UQ_4_12(1.0))
+    {
+        return TYPE_x2;
+    }
+    else //if (modifier < UQ_4_12(1.0))
+    {
+        return TYPE_x0_50;
+    }
+}
+#else
+// Declared elsewhere in Vanilla
 int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode);
+#endif
 
 static bool8 IsSpeciesGoodAgainstInternal(u16 atkSpecies, u16 defSpecies)
 {
@@ -1838,10 +1870,10 @@ static bool8 IsSpeciesGoodAgainstInternal(u16 atkSpecies, u16 defSpecies)
 
     effectA = GetMovePower(
         MOVE_HIDDEN_POWER, 
-        gBaseStats[atkSpecies].type1,
-        gBaseStats[defSpecies].type1,
-        gBaseStats[defSpecies].type2,
-        gBaseStats[defSpecies].abilities[0],
+        RoguePokedex_GetSpeciesType(atkSpecies, 0),
+        RoguePokedex_GetSpeciesType(defSpecies, 0),
+        RoguePokedex_GetSpeciesType(defSpecies, 1),
+        gRogueSpeciesInfo[defSpecies].abilities[0],
         0
     );
 
@@ -1865,14 +1897,14 @@ static bool8 IsSpeciesGoodAgainstInternal(u16 atkSpecies, u16 defSpecies)
         break;
     }
     
-    if(gBaseStats[atkSpecies].type1 != gBaseStats[atkSpecies].type2)
+    if(RoguePokedex_GetSpeciesType(atkSpecies, 0) != RoguePokedex_GetSpeciesType(atkSpecies, 1))
     {
         int effectB = GetMovePower(
             MOVE_HIDDEN_POWER, 
-            gBaseStats[atkSpecies].type1,
-            gBaseStats[defSpecies].type1,
-            gBaseStats[defSpecies].type2,
-            gBaseStats[defSpecies].abilities[0],
+            RoguePokedex_GetSpeciesType(atkSpecies, 0),
+            RoguePokedex_GetSpeciesType(defSpecies, 0),
+            RoguePokedex_GetSpeciesType(defSpecies, 1),
+            gRogueSpeciesInfo[defSpecies].abilities[0],
             0
         );
 
@@ -1966,7 +1998,7 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
     RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
     RogueMonQuery_TransformIntoEggSpecies();
     RogueMonQuery_TransformIntoEvos(2, FALSE, FALSE); // to force mons to fit gen settings
-    RogueMonQuery_AnyActiveEvos(QUERY_FUNC_INCLUDE, FALSE);
+    RogueMonQuery_AnyActiveEvos(QUERY_FUNC_INCLUDE);
 
     {
         u8 i;
@@ -2003,7 +2035,7 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
     return starters;
 }
 
-static void ClearPokemonHeldItems(void)
+static void UNUSED ClearPokemonHeldItems(void)
 {
     struct BoxPokemon* boxMon;
     u16 boxId, boxPosition;
@@ -2342,7 +2374,7 @@ void Rogue_OnResetAllSprites()
     Rogue_OnResetRideMonSprites();
 }
 
-u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)
+void Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)
 {
     *count = gRogueHotTracking.triggerCount;
     *average = gRogueHotTracking.triggerAccumulation / gRogueHotTracking.triggerCount;
@@ -2385,20 +2417,15 @@ static bool8 HasAnyActiveEvos(u16 species)
 {
     u8 i;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(species);
 
-    for(i = 0; i < EVOS_PER_MON; ++i)
+    for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(species, i, &evo);
 
         if(evo.targetSpecies != SPECIES_NONE)
         {
-#ifdef ROGUE_EXPANSION
-            if(evo.method != EVO_MEGA_EVOLUTION &&
-                evo.method != EVO_MOVE_MEGA_EVOLUTION &&
-                evo.method != EVO_PRIMAL_REVERSION
-            )
-#endif
-                return TRUE;
+            return TRUE;
         }
     }
 
@@ -2484,7 +2511,7 @@ u16 Rogue_PostRunRewardLvls()
             {
                 if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) != MAX_LEVEL)
                 {
-                    exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, GetMonData(&gPlayerParty[i], MON_DATA_LEVEL, NULL) + 1);
+                    exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, GetMonData(&gPlayerParty[i], MON_DATA_LEVEL, NULL) + 1);
                     SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
                     CalculateMonStats(&gPlayerParty[i]);
                 }
@@ -2608,7 +2635,7 @@ static void BeginRogueRun_ModifyParty(void)
                 SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &temp);
 
                 // Force to starter lvl
-                exp = Rogue_ModifyExperienceTables(gBaseStats[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, STARTER_MON_LEVEL);
+                exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, STARTER_MON_LEVEL);
                 SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
 
                 // Partner's can't reappear in safari
@@ -2896,9 +2923,8 @@ static u16 SelectLegendarySpecies(u8 legendId)
     return species;
 }
 
-static bool8 ChooseLegendarysForNewAdventure()
+static void ChooseLegendarysForNewAdventure()
 {
-    u8 i;
     bool8 spawnRoamer = RogueRandomChance(50, 0);
     bool8 spawnMinor = RogueRandomChance(75, 0);
 
@@ -3067,7 +3093,7 @@ void Rogue_SelectMiniBossRewardMons()
     gRngRogueValue = startSeed;
 }
 
-static u8 RandomMonType(u16 seedFlag)
+static u8 UNUSED RandomMonType(u16 seedFlag)
 {
     u8 type;
 
@@ -3264,7 +3290,6 @@ static bool8 IsQuestRewardShopActive()
 
 void Rogue_OnWarpIntoMap(void)
 {
-    u8 difficultyLevel;
     gRogueAdvPath.isOverviewActive = FALSE;
 
     VarSet(VAR_ROGUE_ACTIVE_POKEBLOCK, ITEM_NONE);
@@ -4041,6 +4066,7 @@ static void MonGainRewardEVs(struct Pokemon *mon)
 
     stat = ItemId_GetSecondaryId(heldItem);
     bonus = ItemId_GetHoldEffectParam(heldItem);
+    totalEVs = 0;
 
     for (i = 0; i < NUM_STATS; i++)
     {
@@ -4462,9 +4488,6 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
     return TRUE;
 }
 
-extern const u16* const gRegionalDexSpecies[];
-extern u16 gRegionalDexSpeciesCount[];
-
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party)
 {
     if(aIdx != bIdx)
@@ -4520,7 +4543,6 @@ void Rogue_ApplyMonCompetitiveSet(struct Pokemon* mon, u8 level, struct RoguePok
 #endif
     u16 i;
     u16 move;
-    u16 heldItem;
     u8 writeMoveIdx;
     u16 initialMonMoves[MAX_MON_MOVES];
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
@@ -5161,7 +5183,6 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
         }
         else
         {
-            u32 value;
             struct RogueSafariMon* safariMon = RogueSafari_GetPendingBattleMon();
 
             AGB_ASSERT(safariMon != NULL);
@@ -5178,10 +5199,10 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
                     SetMonData(mon, MON_DATA_SPECIES, &eggSpecies);
                     GetMonData(mon, MON_DATA_NICKNAME, text);
 
-                    if(StringCompareN(text, gSpeciesNames[safariMon->species], POKEMON_NAME_LENGTH) == 0)
+                    if(StringCompareN(text, RoguePokedex_GetSpeciesName(safariMon->species), POKEMON_NAME_LENGTH) == 0)
                     {
                         // Doesn't have a nickname so update to match species name
-                        StringCopy_Nickname(text, gSpeciesNames[eggSpecies]);
+                        StringCopy_Nickname(text, RoguePokedex_GetSpeciesName(eggSpecies));
                         SetMonData(mon, MON_DATA_NICKNAME, text);
                     }
                 }
@@ -5301,7 +5322,7 @@ void Rogue_ModifyScriptMon(struct Pokemon* mon)
             SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
 
             // Set to the correct level
-            temp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, Rogue_CalculatePlayerMonLvl());
+            temp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[species].growthRate, Rogue_CalculatePlayerMonLvl());
             SetMonData(mon, MON_DATA_EXP, &temp);
             CalculateMonStats(mon);
 
@@ -5723,7 +5744,7 @@ static u8 RandomiseWildEncounters_CalculateInitialWeight(u16 index, u16 species,
     // For the 1st encounter, we ensure we will have a mon of that typ
     u8 typeHint = *((u8*)data);
 
-    if(gBaseStats[species].type1 == typeHint || gBaseStats[species].type1 == typeHint)
+    if(RoguePokedex_GetSpeciesType(species, 0) == typeHint || RoguePokedex_GetSpeciesType(species, 1) == typeHint)
         return RandomiseWildEncounters_CalculateWeight(index, species, NULL);
     else
         return 0;
@@ -6160,7 +6181,6 @@ static u8 RouteItems_CalculateWeight(u16 index, u16 itemId, void* data)
 
 static void RandomiseItemContent(u8 difficultyLevel)
 {
-    u16 queryCount;
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     u8 dropRarity = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].dropRarity;
 

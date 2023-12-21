@@ -44,7 +44,7 @@ void RogueMonQuery_IsLegendary(u8 func);
 void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 flags);
 void RogueMonQuery_IsBoxLegendary(u8 func);
 void RogueMonQuery_IsRoamerLegendary(u8 func);
-void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas);
+void RogueMonQuery_AnyActiveEvos(u8 func);
 void RogueMonQuery_CustomFilter(QueryFilterCallback filterFunc, void* usrData);
 
 bool8 Query_IsSpeciesEnabled(u16 species);

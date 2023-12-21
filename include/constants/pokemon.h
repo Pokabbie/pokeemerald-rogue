@@ -335,9 +335,6 @@
 
 // RogueNote: Dud evolution types no avaliable outside of ROGUE_EXPANSION, but easier to define here (Ones that are used are pulled out into methods above)
 // (Note that these values don't match either)
-#define EVO_MEGA_EVOLUTION                0xffff // Not an actual evolution, used to temporarily mega evolve in battle.
-#define EVO_MOVE_MEGA_EVOLUTION           0xfffe // Mega Evolution that checks for a move instead of held item.
-#define EVO_PRIMAL_REVERSION              0xfffd // Not an actual evolution, used to undergo primal reversion in battle.
 #define EVO_LEVEL_FEMALE                  19     // Pokémon reaches the specified level, is female
 #define EVO_LEVEL_MALE                    20     // Pokémon reaches the specified level, is male
 #define EVO_LEVEL_DUSK                    21     // Pokémon reaches the specified level, is dusk (5-6 P.M)

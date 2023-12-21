@@ -161,7 +161,7 @@ namespace PokemonDataGenerator.OverworldSprites
 				"obstagoon",
 				"darumaka_galarian",
 				"darmanitan_galarian",
-				"darmanitan_zen_mode_galarian",
+				"darmanitan_galarian_zen_mode",
 				"yamask_galarian",
 				"runerigus",
 				"stunfisk_galarian",

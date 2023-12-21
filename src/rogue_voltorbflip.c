@@ -504,7 +504,7 @@ void CB2_ShowVoltorbFlip(void)
     ResetPaletteFade();
     FreeAllSpritePalettes();
     LoadPalette(sVoltorbFlipPalettes, 0, ARRAY_COUNT(sVoltorbFlipPalettes) * 32);
-    sVoltorbFlipTilemapPtr = malloc(0x1000);
+    sVoltorbFlipTilemapPtr = Alloc(0x1000);
     sVoltorbFlipState = AllocZeroed(sizeof(struct VoltorbFlipState));
 
     sVoltorbFlipState->cursorX = BOARD_WIDTH / 2;

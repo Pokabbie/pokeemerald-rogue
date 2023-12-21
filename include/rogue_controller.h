@@ -95,7 +95,7 @@ void Rogue_OnResumeMap();
 void Rogue_OnObjectEventsInit();
 void Rogue_OnResetAllSprites();
 
-u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
+void Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
 
 void Rogue_OnLoadMap(void);
 void Rogue_OnWarpIntoMap(void);

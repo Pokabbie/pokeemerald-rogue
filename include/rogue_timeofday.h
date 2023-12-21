@@ -17,7 +17,7 @@ bool8 RogueToD_ApplySeasonVisuals();
 
 u16 RogueToD_GetHours();
 u16 RogueToD_GetMinutes();
-u16 RogueToD_AddMinutes(u16 minutes);
+void RogueToD_AddMinutes(u16 minutes);
 
 bool8 RogueToD_IsDawn();
 bool8 RogueToD_IsDay();
