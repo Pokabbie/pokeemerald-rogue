@@ -602,20 +602,12 @@ bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, 
         {
             u8 battleUsageA = ItemId_GetBattleUsage(itemIdA);
             u8 battleUsageB = ItemId_GetBattleUsage(itemIdB);
-            ItemUseFunc battleUseFuncA = ItemId_GetBattleFunc(itemIdA);
-            ItemUseFunc battleUseFuncB = ItemId_GetBattleFunc(itemIdB);
 
             if(battleUsageA != 0 || battleUsageB != 0)
             {
                 if(battleUsageA != battleUsageB)
                 {
                     return battleUsageA < battleUsageB;
-                }
-
-                if(battleUseFuncA != battleUseFuncB)
-                {
-                    // Prefer showing items which have a battle func first
-                    return battleUseFuncA > battleUseFuncB;
                 }
             }
         }
@@ -1116,14 +1108,13 @@ void CompactItemsInBagPocket(struct BagPocket *bagPocket)
 
 void SortItemsInBag()
 {
-    u16 i, j;
+    u16 i;
     bool8 anySorts;
     struct ItemSlot currItem;
     
-
     ShrinkBagItems();
 
-    for(i = 0; j < BAG_ITEM_CAPACITY; ++i)
+    for(i = 0; i < BAG_ITEM_CAPACITY; ++i)
     {
         currItem = gSaveBlock1Ptr->bagPockets[i];
 

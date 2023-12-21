@@ -1341,7 +1341,9 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         if(outItem->pocket != POCKET_POKE_BALLS && IsCurseActive(EFFECT_BATTLE_ITEM_BAN))
         {
             outItem->battleUsage = 0;
-            outItem->battleUseFunc = 0;
+#ifndef ROGUE_EXPANSION
+            outItem->battleUseFunc = NULL;
+#endif
         }
     }
 }
