@@ -767,7 +767,7 @@ bool8 Query_IsSpeciesEnabledInternal(u16 species)
 bool8 Query_IsSpeciesEnabled(u16 species)
 {
     // Check if mon has valid data
-    if(gRogueSpeciesInfo[species].abilities[0] != ABILITY_NONE && gRogueSpeciesInfo[species].catchRate != 0)
+    if(gRogueSpeciesInfo[species].baseHP != 0)
     {
 #ifdef ROGUE_EXPANSION
         // Include specific forms in these queries

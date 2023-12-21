@@ -803,8 +803,9 @@ static void DisplayTitleDexVariantText(void)
 static void DisplayMonEntryText(void)
 {
     u8 color[3] = {0, 2, 3};
+    u16 speciesNum = RoguePokedex_GetSpeciesCurrentNum(sPokedexMenu->viewBaseSpecies);
     
-    ConvertUIntToDecimalStringN(gStringVar1, RoguePokedex_GetSpeciesCurrentNum(sPokedexMenu->viewBaseSpecies), STR_CONV_MODE_LEADING_ZEROS, 3);
+    ConvertUIntToDecimalStringN(gStringVar1, speciesNum, STR_CONV_MODE_LEADING_ZEROS, speciesNum > 999 ? 4 : 3);
     StringExpandPlaceholders(gStringVar3, gText_NumberStr1);
 
     AddTextPrinterParameterized4(WIN_MON_SPECIES, FONT_NARROW, 4, 1, 0, 0, color, TEXT_SKIP_DRAW, RoguePokedex_GetSpeciesName(sPokedexMenu->viewBaseSpecies));
@@ -2304,7 +2305,11 @@ static void MonInfo_CreateSprites(bool8 includeType)
         MON_PIC_AFFINE_FRONT,
         48, 66, 
         0,
-        TAG_NONE
+#ifdef ROGUE_EXPANSION
+        isShiny ? (sPokedexMenu->viewBaseSpecies + SPECIES_SHINY_TAG) : sPokedexMenu->viewBaseSpecies
+#else
+        isShiny ? gMonShinyPaletteTable[sPokedexMenu->viewBaseSpecies].tag : gMonPaletteTable[sPokedexMenu->viewBaseSpecies].tag
+#endif
     );
 
     sPokedexMenu->pageSprites[MON_SPRITE_ICON] = CreateMonIcon(sPokedexMenu->viewBaseSpecies, SpriteCallbackDummy, 48, 8, 0, 0, MON_MALE);
@@ -2769,10 +2774,10 @@ u16 RoguePokedex_GetNationalDexLimit()
     case 2:
         return NATIONAL_DEX_CELEBI;
 
-#ifdef ROGUE_EXPANSION
     case 3:
         return NATIONAL_DEX_DEOXYS;
 
+#ifdef ROGUE_EXPANSION
     case 4:
         return NATIONAL_DEX_ARCEUS;
 
@@ -2784,9 +2789,16 @@ u16 RoguePokedex_GetNationalDexLimit()
 
     case 7:
         return NATIONAL_DEX_MELMETAL;
+
+    case 8:
+        return NATIONAL_DEX_ENAMORUS;
+
+    case 9:
+        return NATIONAL_DEX_OGERPON;
 #endif
     
     default:
+        AGB_ASSERT(FALSE); // This is unsafe given there could be placeholder species here
         return NATIONAL_DEX_COUNT;
     }
 }
@@ -3003,6 +3015,21 @@ bool8 RoguePokedex_IsSpeciesLegendary(u16 species)
         case SPECIES_SPECTRIER:
         case SPECIES_CALYREX:
 
+        case SPECIES_ENAMORUS:
+
+        case SPECIES_WO_CHIEN:
+        case SPECIES_CHIEN_PAO:
+        case SPECIES_TING_LU:
+        case SPECIES_CHI_YU:
+        case SPECIES_KORAIDON:
+        case SPECIES_MIRAIDON:
+        case SPECIES_WALKING_WAKE:
+        case SPECIES_IRON_LEAVES:
+        case SPECIES_OKIDOGI:
+        case SPECIES_MUNKIDORI:
+        case SPECIES_FEZANDIPITI:
+        case SPECIES_OGERPON:
+
         // Forms
         case SPECIES_KYUREM_WHITE:
         case SPECIES_KYUREM_BLACK:
@@ -3073,6 +3100,10 @@ bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species)
         case SPECIES_ZAMAZENTA:
         case SPECIES_ETERNATUS:
         case SPECIES_CALYREX:
+        
+        case SPECIES_KORAIDON:
+        case SPECIES_MIRAIDON:
+        case SPECIES_OGERPON:
 
         // Forms
         case SPECIES_KYUREM_WHITE:
@@ -3155,6 +3186,15 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
         case SPECIES_KUBFU:
         case SPECIES_URSHIFU:
         case SPECIES_ZARUDE:
+
+        case SPECIES_ENAMORUS:
+
+        case SPECIES_WALKING_WAKE:
+        case SPECIES_IRON_LEAVES:
+        
+        case SPECIES_OKIDOGI:
+        case SPECIES_MUNKIDORI:
+        case SPECIES_FEZANDIPITI:
 
         // Forms
         case SPECIES_URSHIFU_RAPID_STRIKE_STYLE:
