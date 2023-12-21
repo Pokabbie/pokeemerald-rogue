@@ -10390,6 +10390,18 @@ static const struct SpriteFrameImage sPicTable_Mon_decidueye_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_decidueye_hisuian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_sprigatito[] = {
+    overworld_frame(gObjectEventPic_Overworld_sprigatito, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_sprigatito, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_sprigatito, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_sprigatito, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_sprigatito, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_sprigatito, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_sprigatito, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_sprigatito, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_sprigatito, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_poipole[] = {
     overworld_frame(gObjectEventPic_Overworld_poipole, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_poipole, 4, 4, 1),
@@ -10424,6 +10436,18 @@ static const struct SpriteFrameImage sPicTable_Mon_typhlosion_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_typhlosion_hisuian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_typhlosion_hisuian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_typhlosion_hisuian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_floragato[] = {
+    overworld_frame(gObjectEventPic_Overworld_floragato, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_floragato, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_floragato, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_floragato, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_floragato, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_floragato, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_floragato, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_floragato, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_floragato, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_naganadel[] = {
@@ -10462,6 +10486,18 @@ static const struct SpriteFrameImage sPicTable_Mon_samurott_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_samurott_hisuian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_meowscarada[] = {
+    overworld_frame(gObjectEventPic_Overworld_meowscarada, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_meowscarada, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_meowscarada, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_meowscarada, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_meowscarada, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_meowscarada, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_meowscarada, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_meowscarada, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_meowscarada, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_stakataka[] = {
     overworld_frame(gObjectEventPic_Overworld_stakataka, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_stakataka, 4, 4, 1),
@@ -10496,6 +10532,18 @@ static const struct SpriteFrameImage sPicTable_Mon_wyrdeer[] = {
     overworld_frame(gObjectEventPic_Overworld_wyrdeer, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_wyrdeer, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_wyrdeer, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_fuecoco[] = {
+    overworld_frame(gObjectEventPic_Overworld_fuecoco, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_fuecoco, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_fuecoco, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_fuecoco, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_fuecoco, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_fuecoco, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_fuecoco, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_fuecoco, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_fuecoco, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_blacephalon[] = {
@@ -10534,6 +10582,18 @@ static const struct SpriteFrameImage sPicTable_Mon_kleavor[] = {
     overworld_frame(gObjectEventPic_Overworld_kleavor, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_crocalor[] = {
+    overworld_frame(gObjectEventPic_Overworld_crocalor, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_crocalor, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_crocalor, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_crocalor, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_crocalor, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_crocalor, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_crocalor, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_crocalor, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_crocalor, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_zeraora[] = {
     overworld_frame(gObjectEventPic_Overworld_zeraora, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_zeraora, 4, 4, 1),
@@ -10568,6 +10628,18 @@ static const struct SpriteFrameImage sPicTable_Mon_qwilfish_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_qwilfish_hisuian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_qwilfish_hisuian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_qwilfish_hisuian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_skeledirge[] = {
+    overworld_frame(gObjectEventPic_Overworld_skeledirge, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_skeledirge, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_skeledirge, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_skeledirge, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_skeledirge, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_skeledirge, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_skeledirge, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_skeledirge, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_skeledirge, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_meltan[] = {
@@ -10606,6 +10678,18 @@ static const struct SpriteFrameImage sPicTable_Mon_overqwil[] = {
     overworld_frame(gObjectEventPic_Overworld_overqwil, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_quaxly[] = {
+    overworld_frame(gObjectEventPic_Overworld_quaxly, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_quaxly, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_quaxly, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_quaxly, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_quaxly, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_quaxly, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_quaxly, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_quaxly, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_quaxly, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_melmetal[] = {
     overworld_frame(gObjectEventPic_Overworld_melmetal, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_melmetal, 4, 4, 1),
@@ -10640,6 +10724,18 @@ static const struct SpriteFrameImage sPicTable_Mon_lilligant_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_lilligant_hisuian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_lilligant_hisuian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_lilligant_hisuian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_quaxwell[] = {
+    overworld_frame(gObjectEventPic_Overworld_quaxwell, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_quaxwell, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_quaxwell, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_quaxwell, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_quaxwell, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_quaxwell, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_quaxwell, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_quaxwell, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_quaxwell, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_marowak_alolan[] = {
@@ -10678,6 +10774,18 @@ static const struct SpriteFrameImage sPicTable_Mon_ursaluna[] = {
     overworld_frame(gObjectEventPic_Overworld_ursaluna, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_quaquaval[] = {
+    overworld_frame(gObjectEventPic_Overworld_quaquaval, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_quaquaval, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_quaquaval, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_quaquaval, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_quaquaval, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_quaquaval, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_quaquaval, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_quaquaval, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_quaquaval, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_rattata_alolan[] = {
     overworld_frame(gObjectEventPic_Overworld_rattata_alolan, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_rattata_alolan, 4, 4, 1),
@@ -10712,6 +10820,18 @@ static const struct SpriteFrameImage sPicTable_Mon_sliggoo_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_sliggoo_hisuian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_sliggoo_hisuian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_sliggoo_hisuian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_lechonk[] = {
+    overworld_frame(gObjectEventPic_Overworld_lechonk, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_lechonk, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_lechonk, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_lechonk, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_lechonk, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_lechonk, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_lechonk, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_lechonk, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_lechonk, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_raticate_alolan[] = {
@@ -10750,6 +10870,18 @@ static const struct SpriteFrameImage sPicTable_Mon_goodra_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_goodra_hisuian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_oinkologne_male[] = {
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_male, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_male, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_male, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_male, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_male, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_male, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_male, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_male, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_male, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_raichu_alolan[] = {
     overworld_frame(gObjectEventPic_Overworld_raichu_alolan, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_raichu_alolan, 4, 4, 1),
@@ -10784,6 +10916,18 @@ static const struct SpriteFrameImage sPicTable_Mon_basculin_white_striped[] = {
     overworld_frame(gObjectEventPic_Overworld_basculin_white_striped, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_basculin_white_striped, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_basculin_white_striped, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_oinkologne_female[] = {
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_female, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_female, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_female, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_female, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_female, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_female, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_female, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_female, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_oinkologne_female, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_sandshrew_alolan[] = {
@@ -10822,6 +10966,18 @@ static const struct SpriteFrameImage sPicTable_Mon_basculegion[] = {
     overworld_frame(gObjectEventPic_Overworld_basculegion, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_tarountula[] = {
+    overworld_frame(gObjectEventPic_Overworld_tarountula, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tarountula, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tarountula, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tarountula, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tarountula, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tarountula, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tarountula, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tarountula, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tarountula, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_sandslash_alolan[] = {
     overworld_frame(gObjectEventPic_Overworld_sandslash_alolan, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_sandslash_alolan, 4, 4, 1),
@@ -10856,6 +11012,18 @@ static const struct SpriteFrameImage sPicTable_Mon_basculegion_female[] = {
     overworld_frame(gObjectEventPic_Overworld_basculegion_female, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_basculegion_female, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_basculegion_female, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_spidops[] = {
+    overworld_frame(gObjectEventPic_Overworld_spidops, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_spidops, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_spidops, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_spidops, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_spidops, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_spidops, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_spidops, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_spidops, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_spidops, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_vulpix_alolan[] = {
@@ -10894,6 +11062,18 @@ static const struct SpriteFrameImage sPicTable_Mon_growlithe_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_growlithe_hisuian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_nymble[] = {
+    overworld_frame(gObjectEventPic_Overworld_nymble, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_nymble, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_nymble, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_nymble, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_nymble, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_nymble, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_nymble, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_nymble, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_nymble, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_ninetales_alolan[] = {
     overworld_frame(gObjectEventPic_Overworld_ninetales_alolan, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_ninetales_alolan, 4, 4, 1),
@@ -10928,6 +11108,18 @@ static const struct SpriteFrameImage sPicTable_Mon_arcanine_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_arcanine_hisuian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_arcanine_hisuian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_arcanine_hisuian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_lokix[] = {
+    overworld_frame(gObjectEventPic_Overworld_lokix, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_lokix, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_lokix, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_lokix, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_lokix, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_lokix, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_lokix, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_lokix, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_lokix, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_diglett_alolan[] = {
@@ -10966,6 +11158,18 @@ static const struct SpriteFrameImage sPicTable_Mon_voltorb_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_voltorb_hisuian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_pawmi[] = {
+    overworld_frame(gObjectEventPic_Overworld_pawmi, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_pawmi, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_pawmi, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_pawmi, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_pawmi, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_pawmi, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_pawmi, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_pawmi, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_pawmi, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_dugtrio_alolan[] = {
     overworld_frame(gObjectEventPic_Overworld_dugtrio_alolan, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_dugtrio_alolan, 4, 4, 1),
@@ -11000,6 +11204,18 @@ static const struct SpriteFrameImage sPicTable_Mon_electrode_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_electrode_hisuian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_electrode_hisuian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_electrode_hisuian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_pawmo[] = {
+    overworld_frame(gObjectEventPic_Overworld_pawmo, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_pawmo, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_pawmo, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_pawmo, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_pawmo, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_pawmo, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_pawmo, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_pawmo, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_pawmo, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_meowth_alolan[] = {
@@ -11038,6 +11254,18 @@ static const struct SpriteFrameImage sPicTable_Mon_sneasel_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_sneasel_hisuian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_pawmot[] = {
+    overworld_frame(gObjectEventPic_Overworld_pawmot, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_pawmot, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_pawmot, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_pawmot, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_pawmot, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_pawmot, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_pawmot, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_pawmot, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_pawmot, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_persian_alolan[] = {
     overworld_frame(gObjectEventPic_Overworld_persian_alolan, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_persian_alolan, 4, 4, 1),
@@ -11072,6 +11300,18 @@ static const struct SpriteFrameImage sPicTable_Mon_sneasler[] = {
     overworld_frame(gObjectEventPic_Overworld_sneasler, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_sneasler, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_sneasler, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_tandemaus[] = {
+    overworld_frame(gObjectEventPic_Overworld_tandemaus, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tandemaus, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tandemaus, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tandemaus, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tandemaus, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tandemaus, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tandemaus, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tandemaus, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tandemaus, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_geodude_alolan[] = {
@@ -11110,6 +11350,18 @@ static const struct SpriteFrameImage sPicTable_Mon_avalugg_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_avalugg_hisuian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_maushold_family_of_four[] = {
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_four, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_four, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_four, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_four, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_four, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_four, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_four, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_four, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_four, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_graveler_alolan[] = {
     overworld_frame(gObjectEventPic_Overworld_graveler_alolan, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_graveler_alolan, 4, 4, 1),
@@ -11144,6 +11396,18 @@ static const struct SpriteFrameImage sPicTable_Mon_zorua_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_zorua_hisuian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_zorua_hisuian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_zorua_hisuian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_maushold_family_of_three[] = {
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_three, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_three, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_three, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_three, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_three, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_three, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_three, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_three, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_maushold_family_of_three, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_golem_alolan[] = {
@@ -11182,6 +11446,18 @@ static const struct SpriteFrameImage sPicTable_Mon_zoroark_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_zoroark_hisuian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_fidough[] = {
+    overworld_frame(gObjectEventPic_Overworld_fidough, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_fidough, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_fidough, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_fidough, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_fidough, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_fidough, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_fidough, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_fidough, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_fidough, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_grimer_alolan[] = {
     overworld_frame(gObjectEventPic_Overworld_grimer_alolan, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_grimer_alolan, 4, 4, 1),
@@ -11216,6 +11492,18 @@ static const struct SpriteFrameImage sPicTable_Mon_braviary_hisuian[] = {
     overworld_frame(gObjectEventPic_Overworld_braviary_hisuian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_braviary_hisuian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_braviary_hisuian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_dachsbun[] = {
+    overworld_frame(gObjectEventPic_Overworld_dachsbun, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_dachsbun, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_dachsbun, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_dachsbun, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_dachsbun, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_dachsbun, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_dachsbun, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_dachsbun, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_dachsbun, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_muk_alolan[] = {
@@ -11254,6 +11542,18 @@ static const struct SpriteFrameImage sPicTable_Mon_enamorus[] = {
     overworld_frame(gObjectEventPic_Overworld_enamorus, 8, 8, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_smoliv[] = {
+    overworld_frame(gObjectEventPic_Overworld_smoliv, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_smoliv, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_smoliv, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_smoliv, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_smoliv, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_smoliv, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_smoliv, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_smoliv, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_smoliv, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_zygarde_10[] = {
     overworld_frame(gObjectEventPic_Overworld_zygarde_10, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_zygarde_10, 4, 4, 1),
@@ -11288,6 +11588,18 @@ static const struct SpriteFrameImage sPicTable_Mon_enamorus_therian[] = {
     overworld_frame(gObjectEventPic_Overworld_enamorus_therian, 8, 8, 4),
     overworld_frame(gObjectEventPic_Overworld_enamorus_therian, 8, 8, 2),
     overworld_frame(gObjectEventPic_Overworld_enamorus_therian, 8, 8, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_dolliv[] = {
+    overworld_frame(gObjectEventPic_Overworld_dolliv, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_dolliv, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_dolliv, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_dolliv, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_dolliv, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_dolliv, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_dolliv, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_dolliv, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_dolliv, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_zygarde_complete[] = {
@@ -11326,6 +11638,18 @@ static const struct SpriteFrameImage sPicTable_Mon_dialga_origin[] = {
     overworld_frame(gObjectEventPic_Overworld_dialga_origin, 8, 8, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_arboliva[] = {
+    overworld_frame(gObjectEventPic_Overworld_arboliva, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_arboliva, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_arboliva, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_arboliva, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_arboliva, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_arboliva, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_arboliva, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_arboliva, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_arboliva, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_exeggutor_alolan[] = {
     overworld_frame(gObjectEventPic_Overworld_exeggutor_alolan, 8, 8, 0),
     overworld_frame(gObjectEventPic_Overworld_exeggutor_alolan, 8, 8, 1),
@@ -11362,6 +11686,18 @@ static const struct SpriteFrameImage sPicTable_Mon_palkia_origin[] = {
     overworld_frame(gObjectEventPic_Overworld_palkia_origin, 8, 8, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_squawkabilly_green_plumage[] = {
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_green_plumage, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_green_plumage, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_green_plumage, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_green_plumage, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_green_plumage, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_green_plumage, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_green_plumage, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_green_plumage, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_green_plumage, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_carkol[] = {
     overworld_frame(gObjectEventPic_Overworld_carkol, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_carkol, 4, 4, 1),
@@ -11372,6 +11708,18 @@ static const struct SpriteFrameImage sPicTable_Mon_carkol[] = {
     overworld_frame(gObjectEventPic_Overworld_carkol, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_carkol, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_carkol, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_squawkabilly_blue_plumage[] = {
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_blue_plumage, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_blue_plumage, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_blue_plumage, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_blue_plumage, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_blue_plumage, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_blue_plumage, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_blue_plumage, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_blue_plumage, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_blue_plumage, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_coalossal[] = {
@@ -11386,6 +11734,18 @@ static const struct SpriteFrameImage sPicTable_Mon_coalossal[] = {
     overworld_frame(gObjectEventPic_Overworld_coalossal, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_squawkabilly_yellow_plumage[] = {
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_yellow_plumage, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_yellow_plumage, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_yellow_plumage, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_yellow_plumage, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_yellow_plumage, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_yellow_plumage, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_yellow_plumage, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_yellow_plumage, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_yellow_plumage, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_applin[] = {
     overworld_frame(gObjectEventPic_Overworld_applin, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_applin, 4, 4, 1),
@@ -11396,6 +11756,18 @@ static const struct SpriteFrameImage sPicTable_Mon_applin[] = {
     overworld_frame(gObjectEventPic_Overworld_applin, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_applin, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_applin, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_squawkabilly_white_plumage[] = {
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_white_plumage, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_white_plumage, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_white_plumage, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_white_plumage, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_white_plumage, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_white_plumage, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_white_plumage, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_white_plumage, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_squawkabilly_white_plumage, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_flapple[] = {
@@ -11410,6 +11782,18 @@ static const struct SpriteFrameImage sPicTable_Mon_flapple[] = {
     overworld_frame(gObjectEventPic_Overworld_flapple, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_nacli[] = {
+    overworld_frame(gObjectEventPic_Overworld_nacli, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_nacli, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_nacli, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_nacli, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_nacli, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_nacli, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_nacli, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_nacli, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_nacli, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_appletun[] = {
     overworld_frame(gObjectEventPic_Overworld_appletun, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_appletun, 4, 4, 1),
@@ -11420,6 +11804,18 @@ static const struct SpriteFrameImage sPicTable_Mon_appletun[] = {
     overworld_frame(gObjectEventPic_Overworld_appletun, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_appletun, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_appletun, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_naclstack[] = {
+    overworld_frame(gObjectEventPic_Overworld_naclstack, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_naclstack, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_naclstack, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_naclstack, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_naclstack, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_naclstack, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_naclstack, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_naclstack, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_naclstack, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_silicobra[] = {
@@ -11434,6 +11830,18 @@ static const struct SpriteFrameImage sPicTable_Mon_silicobra[] = {
     overworld_frame(gObjectEventPic_Overworld_silicobra, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_garganacl[] = {
+    overworld_frame(gObjectEventPic_Overworld_garganacl, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_garganacl, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_garganacl, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_garganacl, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_garganacl, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_garganacl, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_garganacl, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_garganacl, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_garganacl, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_sandaconda[] = {
     overworld_frame(gObjectEventPic_Overworld_sandaconda, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_sandaconda, 4, 4, 1),
@@ -11444,6 +11852,18 @@ static const struct SpriteFrameImage sPicTable_Mon_sandaconda[] = {
     overworld_frame(gObjectEventPic_Overworld_sandaconda, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_sandaconda, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_sandaconda, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_charcadet[] = {
+    overworld_frame(gObjectEventPic_Overworld_charcadet, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_charcadet, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_charcadet, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_charcadet, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_charcadet, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_charcadet, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_charcadet, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_charcadet, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_charcadet, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_cramorant[] = {
@@ -11458,6 +11878,18 @@ static const struct SpriteFrameImage sPicTable_Mon_cramorant[] = {
     overworld_frame(gObjectEventPic_Overworld_cramorant, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_armarouge[] = {
+    overworld_frame(gObjectEventPic_Overworld_armarouge, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_armarouge, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_armarouge, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_armarouge, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_armarouge, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_armarouge, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_armarouge, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_armarouge, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_armarouge, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_arrokuda[] = {
     overworld_frame(gObjectEventPic_Overworld_arrokuda, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_arrokuda, 4, 4, 1),
@@ -11468,6 +11900,18 @@ static const struct SpriteFrameImage sPicTable_Mon_arrokuda[] = {
     overworld_frame(gObjectEventPic_Overworld_arrokuda, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_arrokuda, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_arrokuda, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_ceruledge[] = {
+    overworld_frame(gObjectEventPic_Overworld_ceruledge, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ceruledge, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ceruledge, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ceruledge, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ceruledge, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_ceruledge, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ceruledge, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_ceruledge, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ceruledge, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_barraskewda[] = {
@@ -11482,6 +11926,18 @@ static const struct SpriteFrameImage sPicTable_Mon_barraskewda[] = {
     overworld_frame(gObjectEventPic_Overworld_barraskewda, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_tadbulb[] = {
+    overworld_frame(gObjectEventPic_Overworld_tadbulb, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tadbulb, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tadbulb, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tadbulb, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tadbulb, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tadbulb, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tadbulb, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tadbulb, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tadbulb, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_toxel[] = {
     overworld_frame(gObjectEventPic_Overworld_toxel, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_toxel, 4, 4, 1),
@@ -11492,6 +11948,18 @@ static const struct SpriteFrameImage sPicTable_Mon_toxel[] = {
     overworld_frame(gObjectEventPic_Overworld_toxel, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_toxel, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_toxel, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_bellibolt[] = {
+    overworld_frame(gObjectEventPic_Overworld_bellibolt, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_bellibolt, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_bellibolt, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_bellibolt, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_bellibolt, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_bellibolt, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_bellibolt, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_bellibolt, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_bellibolt, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_toxtricity[] = {
@@ -11506,6 +11974,18 @@ static const struct SpriteFrameImage sPicTable_Mon_toxtricity[] = {
     overworld_frame(gObjectEventPic_Overworld_toxtricity, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_wattrel[] = {
+    overworld_frame(gObjectEventPic_Overworld_wattrel, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_wattrel, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_wattrel, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_wattrel, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_wattrel, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_wattrel, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_wattrel, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_wattrel, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_wattrel, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_toxtricity_low_key[] = {
     overworld_frame(gObjectEventPic_Overworld_toxtricity_low_key, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_toxtricity_low_key, 4, 4, 1),
@@ -11516,6 +11996,18 @@ static const struct SpriteFrameImage sPicTable_Mon_toxtricity_low_key[] = {
     overworld_frame(gObjectEventPic_Overworld_toxtricity_low_key, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_toxtricity_low_key, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_toxtricity_low_key, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_kilowattrel[] = {
+    overworld_frame(gObjectEventPic_Overworld_kilowattrel, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_kilowattrel, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_kilowattrel, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_kilowattrel, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_kilowattrel, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_kilowattrel, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_kilowattrel, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_kilowattrel, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_kilowattrel, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_sizzlipede[] = {
@@ -11530,6 +12022,18 @@ static const struct SpriteFrameImage sPicTable_Mon_sizzlipede[] = {
     overworld_frame(gObjectEventPic_Overworld_sizzlipede, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_maschiff[] = {
+    overworld_frame(gObjectEventPic_Overworld_maschiff, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_maschiff, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_maschiff, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_maschiff, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_maschiff, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_maschiff, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_maschiff, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_maschiff, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_maschiff, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_centiskorch[] = {
     overworld_frame(gObjectEventPic_Overworld_centiskorch, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_centiskorch, 4, 4, 1),
@@ -11540,6 +12044,18 @@ static const struct SpriteFrameImage sPicTable_Mon_centiskorch[] = {
     overworld_frame(gObjectEventPic_Overworld_centiskorch, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_centiskorch, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_centiskorch, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_mabosstiff[] = {
+    overworld_frame(gObjectEventPic_Overworld_mabosstiff, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_mabosstiff, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_mabosstiff, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_mabosstiff, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_mabosstiff, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_mabosstiff, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_mabosstiff, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_mabosstiff, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_mabosstiff, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_clobbopus[] = {
@@ -11554,6 +12070,18 @@ static const struct SpriteFrameImage sPicTable_Mon_clobbopus[] = {
     overworld_frame(gObjectEventPic_Overworld_clobbopus, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_shroodle[] = {
+    overworld_frame(gObjectEventPic_Overworld_shroodle, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_shroodle, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_shroodle, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_shroodle, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_shroodle, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_shroodle, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_shroodle, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_shroodle, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_shroodle, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_grapploct[] = {
     overworld_frame(gObjectEventPic_Overworld_grapploct, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_grapploct, 4, 4, 1),
@@ -11564,6 +12092,18 @@ static const struct SpriteFrameImage sPicTable_Mon_grapploct[] = {
     overworld_frame(gObjectEventPic_Overworld_grapploct, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_grapploct, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_grapploct, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_grafaiai[] = {
+    overworld_frame(gObjectEventPic_Overworld_grafaiai, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_grafaiai, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_grafaiai, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_grafaiai, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_grafaiai, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_grafaiai, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_grafaiai, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_grafaiai, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_grafaiai, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_sinistea[] = {
@@ -11578,6 +12118,18 @@ static const struct SpriteFrameImage sPicTable_Mon_sinistea[] = {
     overworld_frame(gObjectEventPic_Overworld_sinistea, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_bramblin[] = {
+    overworld_frame(gObjectEventPic_Overworld_bramblin, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_bramblin, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_bramblin, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_bramblin, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_bramblin, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_bramblin, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_bramblin, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_bramblin, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_bramblin, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_polteageist[] = {
     overworld_frame(gObjectEventPic_Overworld_polteageist, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_polteageist, 4, 4, 1),
@@ -11588,6 +12140,18 @@ static const struct SpriteFrameImage sPicTable_Mon_polteageist[] = {
     overworld_frame(gObjectEventPic_Overworld_polteageist, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_polteageist, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_polteageist, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_brambleghast[] = {
+    overworld_frame(gObjectEventPic_Overworld_brambleghast, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_brambleghast, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_brambleghast, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_brambleghast, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_brambleghast, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_brambleghast, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_brambleghast, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_brambleghast, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_brambleghast, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_hatenna[] = {
@@ -11602,6 +12166,18 @@ static const struct SpriteFrameImage sPicTable_Mon_hatenna[] = {
     overworld_frame(gObjectEventPic_Overworld_hatenna, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_toedscool[] = {
+    overworld_frame(gObjectEventPic_Overworld_toedscool, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_toedscool, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_toedscool, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_toedscool, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_toedscool, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_toedscool, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_toedscool, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_toedscool, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_toedscool, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_hattrem[] = {
     overworld_frame(gObjectEventPic_Overworld_hattrem, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_hattrem, 4, 4, 1),
@@ -11612,6 +12188,18 @@ static const struct SpriteFrameImage sPicTable_Mon_hattrem[] = {
     overworld_frame(gObjectEventPic_Overworld_hattrem, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_hattrem, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_hattrem, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_toedscruel[] = {
+    overworld_frame(gObjectEventPic_Overworld_toedscruel, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_toedscruel, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_toedscruel, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_toedscruel, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_toedscruel, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_toedscruel, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_toedscruel, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_toedscruel, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_toedscruel, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_hatterene[] = {
@@ -11626,6 +12214,18 @@ static const struct SpriteFrameImage sPicTable_Mon_hatterene[] = {
     overworld_frame(gObjectEventPic_Overworld_hatterene, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_klawf[] = {
+    overworld_frame(gObjectEventPic_Overworld_klawf, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_klawf, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_klawf, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_klawf, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_klawf, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_klawf, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_klawf, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_klawf, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_klawf, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_impidimp[] = {
     overworld_frame(gObjectEventPic_Overworld_impidimp, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_impidimp, 4, 4, 1),
@@ -11636,6 +12236,18 @@ static const struct SpriteFrameImage sPicTable_Mon_impidimp[] = {
     overworld_frame(gObjectEventPic_Overworld_impidimp, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_impidimp, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_impidimp, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_capsakid[] = {
+    overworld_frame(gObjectEventPic_Overworld_capsakid, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_capsakid, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_capsakid, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_capsakid, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_capsakid, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_capsakid, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_capsakid, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_capsakid, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_capsakid, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_morgrem[] = {
@@ -11650,6 +12262,18 @@ static const struct SpriteFrameImage sPicTable_Mon_morgrem[] = {
     overworld_frame(gObjectEventPic_Overworld_morgrem, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_scovillain[] = {
+    overworld_frame(gObjectEventPic_Overworld_scovillain, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_scovillain, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_scovillain, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_scovillain, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_scovillain, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_scovillain, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_scovillain, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_scovillain, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_scovillain, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_grimmsnarl[] = {
     overworld_frame(gObjectEventPic_Overworld_grimmsnarl, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_grimmsnarl, 4, 4, 1),
@@ -11660,6 +12284,18 @@ static const struct SpriteFrameImage sPicTable_Mon_grimmsnarl[] = {
     overworld_frame(gObjectEventPic_Overworld_grimmsnarl, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_grimmsnarl, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_grimmsnarl, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_rellor[] = {
+    overworld_frame(gObjectEventPic_Overworld_rellor, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_rellor, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_rellor, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_rellor, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_rellor, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_rellor, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_rellor, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_rellor, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_rellor, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_milcery[] = {
@@ -11674,6 +12310,18 @@ static const struct SpriteFrameImage sPicTable_Mon_milcery[] = {
     overworld_frame(gObjectEventPic_Overworld_milcery, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_rabsca[] = {
+    overworld_frame(gObjectEventPic_Overworld_rabsca, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_rabsca, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_rabsca, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_rabsca, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_rabsca, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_rabsca, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_rabsca, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_rabsca, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_rabsca, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_alcremie[] = {
     overworld_frame(gObjectEventPic_Overworld_alcremie, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_alcremie, 4, 4, 1),
@@ -11684,6 +12332,18 @@ static const struct SpriteFrameImage sPicTable_Mon_alcremie[] = {
     overworld_frame(gObjectEventPic_Overworld_alcremie, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_alcremie, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_alcremie, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_flittle[] = {
+    overworld_frame(gObjectEventPic_Overworld_flittle, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_flittle, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_flittle, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_flittle, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_flittle, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_flittle, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_flittle, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_flittle, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_flittle, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_falinks[] = {
@@ -11698,6 +12358,18 @@ static const struct SpriteFrameImage sPicTable_Mon_falinks[] = {
     overworld_frame(gObjectEventPic_Overworld_falinks, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_espathra[] = {
+    overworld_frame(gObjectEventPic_Overworld_espathra, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_espathra, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_espathra, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_espathra, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_espathra, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_espathra, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_espathra, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_espathra, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_espathra, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_pincurchin[] = {
     overworld_frame(gObjectEventPic_Overworld_pincurchin, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_pincurchin, 4, 4, 1),
@@ -11708,6 +12380,18 @@ static const struct SpriteFrameImage sPicTable_Mon_pincurchin[] = {
     overworld_frame(gObjectEventPic_Overworld_pincurchin, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_pincurchin, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_pincurchin, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_tinkatink[] = {
+    overworld_frame(gObjectEventPic_Overworld_tinkatink, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tinkatink, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tinkatink, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tinkatink, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tinkatink, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tinkatink, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tinkatink, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tinkatink, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tinkatink, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_snom[] = {
@@ -11722,6 +12406,18 @@ static const struct SpriteFrameImage sPicTable_Mon_snom[] = {
     overworld_frame(gObjectEventPic_Overworld_snom, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_tinkatuff[] = {
+    overworld_frame(gObjectEventPic_Overworld_tinkatuff, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tinkatuff, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tinkatuff, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tinkatuff, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tinkatuff, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tinkatuff, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tinkatuff, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tinkatuff, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tinkatuff, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_frosmoth[] = {
     overworld_frame(gObjectEventPic_Overworld_frosmoth, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_frosmoth, 4, 4, 1),
@@ -11732,6 +12428,18 @@ static const struct SpriteFrameImage sPicTable_Mon_frosmoth[] = {
     overworld_frame(gObjectEventPic_Overworld_frosmoth, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_frosmoth, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_frosmoth, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_tinkaton[] = {
+    overworld_frame(gObjectEventPic_Overworld_tinkaton, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tinkaton, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tinkaton, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tinkaton, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tinkaton, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tinkaton, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tinkaton, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tinkaton, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tinkaton, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_stonjourner[] = {
@@ -11746,6 +12454,18 @@ static const struct SpriteFrameImage sPicTable_Mon_stonjourner[] = {
     overworld_frame(gObjectEventPic_Overworld_stonjourner, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_wiglett[] = {
+    overworld_frame(gObjectEventPic_Overworld_wiglett, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_wiglett, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_wiglett, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_wiglett, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_wiglett, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_wiglett, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_wiglett, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_wiglett, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_wiglett, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_eiscue[] = {
     overworld_frame(gObjectEventPic_Overworld_eiscue, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_eiscue, 4, 4, 1),
@@ -11756,6 +12476,18 @@ static const struct SpriteFrameImage sPicTable_Mon_eiscue[] = {
     overworld_frame(gObjectEventPic_Overworld_eiscue, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_eiscue, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_eiscue, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_wugtrio[] = {
+    overworld_frame(gObjectEventPic_Overworld_wugtrio, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_wugtrio, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_wugtrio, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_wugtrio, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_wugtrio, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_wugtrio, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_wugtrio, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_wugtrio, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_wugtrio, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_eiscue_noice_face[] = {
@@ -11770,6 +12502,18 @@ static const struct SpriteFrameImage sPicTable_Mon_eiscue_noice_face[] = {
     overworld_frame(gObjectEventPic_Overworld_eiscue_noice_face, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_bombirdier[] = {
+    overworld_frame(gObjectEventPic_Overworld_bombirdier, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_bombirdier, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_bombirdier, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_bombirdier, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_bombirdier, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_bombirdier, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_bombirdier, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_bombirdier, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_bombirdier, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_indeedee_female[] = {
     overworld_frame(gObjectEventPic_Overworld_indeedee_female, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_indeedee_female, 4, 4, 1),
@@ -11780,6 +12524,18 @@ static const struct SpriteFrameImage sPicTable_Mon_indeedee_female[] = {
     overworld_frame(gObjectEventPic_Overworld_indeedee_female, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_indeedee_female, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_indeedee_female, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_finizen[] = {
+    overworld_frame(gObjectEventPic_Overworld_finizen, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_finizen, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_finizen, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_finizen, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_finizen, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_finizen, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_finizen, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_finizen, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_finizen, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_indeedee[] = {
@@ -11794,6 +12550,18 @@ static const struct SpriteFrameImage sPicTable_Mon_indeedee[] = {
     overworld_frame(gObjectEventPic_Overworld_indeedee, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_palafin_zero[] = {
+    overworld_frame(gObjectEventPic_Overworld_palafin_zero, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_palafin_zero, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_palafin_zero, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_palafin_zero, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_palafin_zero, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_palafin_zero, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_palafin_zero, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_palafin_zero, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_palafin_zero, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_morpeko[] = {
     overworld_frame(gObjectEventPic_Overworld_morpeko, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_morpeko, 4, 4, 1),
@@ -11804,6 +12572,18 @@ static const struct SpriteFrameImage sPicTable_Mon_morpeko[] = {
     overworld_frame(gObjectEventPic_Overworld_morpeko, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_morpeko, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_morpeko, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_palafin_hero[] = {
+    overworld_frame(gObjectEventPic_Overworld_palafin_hero, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_palafin_hero, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_palafin_hero, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_palafin_hero, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_palafin_hero, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_palafin_hero, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_palafin_hero, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_palafin_hero, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_palafin_hero, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_morpeko_hangry[] = {
@@ -11818,6 +12598,18 @@ static const struct SpriteFrameImage sPicTable_Mon_morpeko_hangry[] = {
     overworld_frame(gObjectEventPic_Overworld_morpeko_hangry, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_varoom[] = {
+    overworld_frame(gObjectEventPic_Overworld_varoom, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_varoom, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_varoom, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_varoom, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_varoom, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_varoom, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_varoom, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_varoom, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_varoom, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_cufant[] = {
     overworld_frame(gObjectEventPic_Overworld_cufant, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_cufant, 4, 4, 1),
@@ -11828,6 +12620,18 @@ static const struct SpriteFrameImage sPicTable_Mon_cufant[] = {
     overworld_frame(gObjectEventPic_Overworld_cufant, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_cufant, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_cufant, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_revavroom[] = {
+    overworld_frame(gObjectEventPic_Overworld_revavroom, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_revavroom, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_revavroom, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_revavroom, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_revavroom, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_revavroom, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_revavroom, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_revavroom, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_revavroom, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_copperajah[] = {
@@ -11842,6 +12646,18 @@ static const struct SpriteFrameImage sPicTable_Mon_copperajah[] = {
     overworld_frame(gObjectEventPic_Overworld_copperajah, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_cyclizar[] = {
+    overworld_frame(gObjectEventPic_Overworld_cyclizar, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_cyclizar, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_cyclizar, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_cyclizar, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_cyclizar, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_cyclizar, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_cyclizar, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_cyclizar, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_cyclizar, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_dracozolt[] = {
     overworld_frame(gObjectEventPic_Overworld_dracozolt, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_dracozolt, 4, 4, 1),
@@ -11852,6 +12668,18 @@ static const struct SpriteFrameImage sPicTable_Mon_dracozolt[] = {
     overworld_frame(gObjectEventPic_Overworld_dracozolt, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_dracozolt, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_dracozolt, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_orthworm[] = {
+    overworld_frame(gObjectEventPic_Overworld_orthworm, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_orthworm, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_orthworm, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_orthworm, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_orthworm, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_orthworm, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_orthworm, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_orthworm, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_orthworm, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_arctozolt[] = {
@@ -11866,6 +12694,18 @@ static const struct SpriteFrameImage sPicTable_Mon_arctozolt[] = {
     overworld_frame(gObjectEventPic_Overworld_arctozolt, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_glimmet[] = {
+    overworld_frame(gObjectEventPic_Overworld_glimmet, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_glimmet, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_glimmet, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_glimmet, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_glimmet, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_glimmet, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_glimmet, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_glimmet, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_glimmet, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_dracovish[] = {
     overworld_frame(gObjectEventPic_Overworld_dracovish, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_dracovish, 4, 4, 1),
@@ -11876,6 +12716,18 @@ static const struct SpriteFrameImage sPicTable_Mon_dracovish[] = {
     overworld_frame(gObjectEventPic_Overworld_dracovish, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_dracovish, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_dracovish, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_glimmora[] = {
+    overworld_frame(gObjectEventPic_Overworld_glimmora, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_glimmora, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_glimmora, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_glimmora, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_glimmora, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_glimmora, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_glimmora, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_glimmora, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_glimmora, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_arctovish[] = {
@@ -11890,6 +12742,18 @@ static const struct SpriteFrameImage sPicTable_Mon_arctovish[] = {
     overworld_frame(gObjectEventPic_Overworld_arctovish, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_greavard[] = {
+    overworld_frame(gObjectEventPic_Overworld_greavard, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_greavard, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_greavard, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_greavard, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_greavard, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_greavard, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_greavard, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_greavard, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_greavard, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_duraludon[] = {
     overworld_frame(gObjectEventPic_Overworld_duraludon, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_duraludon, 4, 4, 1),
@@ -11900,6 +12764,18 @@ static const struct SpriteFrameImage sPicTable_Mon_duraludon[] = {
     overworld_frame(gObjectEventPic_Overworld_duraludon, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_duraludon, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_duraludon, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_houndstone[] = {
+    overworld_frame(gObjectEventPic_Overworld_houndstone, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_houndstone, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_houndstone, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_houndstone, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_houndstone, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_houndstone, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_houndstone, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_houndstone, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_houndstone, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_dreepy[] = {
@@ -11914,6 +12790,18 @@ static const struct SpriteFrameImage sPicTable_Mon_dreepy[] = {
     overworld_frame(gObjectEventPic_Overworld_dreepy, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_flamigo[] = {
+    overworld_frame(gObjectEventPic_Overworld_flamigo, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_flamigo, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_flamigo, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_flamigo, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_flamigo, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_flamigo, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_flamigo, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_flamigo, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_flamigo, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_drakloak[] = {
     overworld_frame(gObjectEventPic_Overworld_drakloak, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_drakloak, 4, 4, 1),
@@ -11924,6 +12812,18 @@ static const struct SpriteFrameImage sPicTable_Mon_drakloak[] = {
     overworld_frame(gObjectEventPic_Overworld_drakloak, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_drakloak, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_drakloak, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_cetoddle[] = {
+    overworld_frame(gObjectEventPic_Overworld_cetoddle, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_cetoddle, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_cetoddle, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_cetoddle, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_cetoddle, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_cetoddle, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_cetoddle, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_cetoddle, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_cetoddle, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_dragapult[] = {
@@ -11938,6 +12838,18 @@ static const struct SpriteFrameImage sPicTable_Mon_dragapult[] = {
     overworld_frame(gObjectEventPic_Overworld_dragapult, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_cetitan[] = {
+    overworld_frame(gObjectEventPic_Overworld_cetitan, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_cetitan, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_cetitan, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_cetitan, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_cetitan, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_cetitan, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_cetitan, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_cetitan, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_cetitan, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_zacian[] = {
     overworld_frame(gObjectEventPic_Overworld_zacian, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_zacian, 4, 4, 1),
@@ -11948,6 +12860,18 @@ static const struct SpriteFrameImage sPicTable_Mon_zacian[] = {
     overworld_frame(gObjectEventPic_Overworld_zacian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_zacian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_zacian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_veluza[] = {
+    overworld_frame(gObjectEventPic_Overworld_veluza, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_veluza, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_veluza, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_veluza, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_veluza, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_veluza, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_veluza, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_veluza, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_veluza, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_zacian_crowned_sword[] = {
@@ -11962,6 +12886,18 @@ static const struct SpriteFrameImage sPicTable_Mon_zacian_crowned_sword[] = {
     overworld_frame(gObjectEventPic_Overworld_zacian_crowned_sword, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_tatsugiri_curly[] = {
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_curly, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_curly, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_curly, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_curly, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_curly, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_curly, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_curly, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_curly, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_curly, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_zamazenta[] = {
     overworld_frame(gObjectEventPic_Overworld_zamazenta, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_zamazenta, 4, 4, 1),
@@ -11972,6 +12908,18 @@ static const struct SpriteFrameImage sPicTable_Mon_zamazenta[] = {
     overworld_frame(gObjectEventPic_Overworld_zamazenta, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_zamazenta, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_zamazenta, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_tatsugiri_droopy[] = {
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_droopy, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_droopy, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_droopy, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_droopy, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_droopy, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_droopy, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_droopy, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_droopy, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_droopy, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_zamazenta_crowned_shield[] = {
@@ -11986,6 +12934,18 @@ static const struct SpriteFrameImage sPicTable_Mon_zamazenta_crowned_shield[] = 
     overworld_frame(gObjectEventPic_Overworld_zamazenta_crowned_shield, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_tatsugiri_stretchy[] = {
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_stretchy, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_stretchy, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_stretchy, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_stretchy, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_stretchy, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_stretchy, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_stretchy, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_stretchy, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tatsugiri_stretchy, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_kubfu[] = {
     overworld_frame(gObjectEventPic_Overworld_kubfu, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_kubfu, 4, 4, 1),
@@ -11996,6 +12956,18 @@ static const struct SpriteFrameImage sPicTable_Mon_kubfu[] = {
     overworld_frame(gObjectEventPic_Overworld_kubfu, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_kubfu, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_kubfu, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_annihilape[] = {
+    overworld_frame(gObjectEventPic_Overworld_annihilape, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_annihilape, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_annihilape, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_annihilape, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_annihilape, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_annihilape, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_annihilape, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_annihilape, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_annihilape, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_urshifu[] = {
@@ -12010,6 +12982,18 @@ static const struct SpriteFrameImage sPicTable_Mon_urshifu[] = {
     overworld_frame(gObjectEventPic_Overworld_urshifu, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_clodsire[] = {
+    overworld_frame(gObjectEventPic_Overworld_clodsire, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_clodsire, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_clodsire, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_clodsire, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_clodsire, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_clodsire, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_clodsire, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_clodsire, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_clodsire, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_urshifu_rapid_strike_style[] = {
     overworld_frame(gObjectEventPic_Overworld_urshifu_rapid_strike_style, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_urshifu_rapid_strike_style, 4, 4, 1),
@@ -12020,6 +13004,18 @@ static const struct SpriteFrameImage sPicTable_Mon_urshifu_rapid_strike_style[] 
     overworld_frame(gObjectEventPic_Overworld_urshifu_rapid_strike_style, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_urshifu_rapid_strike_style, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_urshifu_rapid_strike_style, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_farigiraf[] = {
+    overworld_frame(gObjectEventPic_Overworld_farigiraf, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_farigiraf, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_farigiraf, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_farigiraf, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_farigiraf, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_farigiraf, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_farigiraf, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_farigiraf, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_farigiraf, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_zarude[] = {
@@ -12034,6 +13030,18 @@ static const struct SpriteFrameImage sPicTable_Mon_zarude[] = {
     overworld_frame(gObjectEventPic_Overworld_zarude, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_dudunsparce_two_segment[] = {
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_two_segment, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_two_segment, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_two_segment, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_two_segment, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_two_segment, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_two_segment, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_two_segment, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_two_segment, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_two_segment, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_regieleki[] = {
     overworld_frame(gObjectEventPic_Overworld_regieleki, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_regieleki, 4, 4, 1),
@@ -12044,6 +13052,18 @@ static const struct SpriteFrameImage sPicTable_Mon_regieleki[] = {
     overworld_frame(gObjectEventPic_Overworld_regieleki, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_regieleki, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_regieleki, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_great_tusk[] = {
+    overworld_frame(gObjectEventPic_Overworld_great_tusk, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_great_tusk, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_great_tusk, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_great_tusk, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_great_tusk, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_great_tusk, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_great_tusk, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_great_tusk, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_great_tusk, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_regidrago[] = {
@@ -12058,6 +13078,18 @@ static const struct SpriteFrameImage sPicTable_Mon_regidrago[] = {
     overworld_frame(gObjectEventPic_Overworld_regidrago, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_scream_tail[] = {
+    overworld_frame(gObjectEventPic_Overworld_scream_tail, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_scream_tail, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_scream_tail, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_scream_tail, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_scream_tail, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_scream_tail, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_scream_tail, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_scream_tail, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_scream_tail, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_glastrier[] = {
     overworld_frame(gObjectEventPic_Overworld_glastrier, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_glastrier, 4, 4, 1),
@@ -12068,6 +13100,18 @@ static const struct SpriteFrameImage sPicTable_Mon_glastrier[] = {
     overworld_frame(gObjectEventPic_Overworld_glastrier, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_glastrier, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_glastrier, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_brute_bonnet[] = {
+    overworld_frame(gObjectEventPic_Overworld_brute_bonnet, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_brute_bonnet, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_brute_bonnet, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_brute_bonnet, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_brute_bonnet, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_brute_bonnet, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_brute_bonnet, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_brute_bonnet, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_brute_bonnet, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_spectrier[] = {
@@ -12082,6 +13126,18 @@ static const struct SpriteFrameImage sPicTable_Mon_spectrier[] = {
     overworld_frame(gObjectEventPic_Overworld_spectrier, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_flutter_mane[] = {
+    overworld_frame(gObjectEventPic_Overworld_flutter_mane, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_flutter_mane, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_flutter_mane, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_flutter_mane, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_flutter_mane, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_flutter_mane, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_flutter_mane, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_flutter_mane, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_flutter_mane, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_calyrex[] = {
     overworld_frame(gObjectEventPic_Overworld_calyrex, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_calyrex, 4, 4, 1),
@@ -12092,6 +13148,18 @@ static const struct SpriteFrameImage sPicTable_Mon_calyrex[] = {
     overworld_frame(gObjectEventPic_Overworld_calyrex, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_calyrex, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_calyrex, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_slither_wing[] = {
+    overworld_frame(gObjectEventPic_Overworld_slither_wing, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_slither_wing, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_slither_wing, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_slither_wing, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_slither_wing, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_slither_wing, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_slither_wing, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_slither_wing, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_slither_wing, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_calyrex_ice_rider[] = {
@@ -12106,6 +13174,18 @@ static const struct SpriteFrameImage sPicTable_Mon_calyrex_ice_rider[] = {
     overworld_frame(gObjectEventPic_Overworld_calyrex_ice_rider, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_sandy_shocks[] = {
+    overworld_frame(gObjectEventPic_Overworld_sandy_shocks, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_sandy_shocks, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_sandy_shocks, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_sandy_shocks, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_sandy_shocks, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_sandy_shocks, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_sandy_shocks, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_sandy_shocks, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_sandy_shocks, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_calyrex_shadow_rider[] = {
     overworld_frame(gObjectEventPic_Overworld_calyrex_shadow_rider, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_calyrex_shadow_rider, 4, 4, 1),
@@ -12116,6 +13196,18 @@ static const struct SpriteFrameImage sPicTable_Mon_calyrex_shadow_rider[] = {
     overworld_frame(gObjectEventPic_Overworld_calyrex_shadow_rider, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_calyrex_shadow_rider, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_calyrex_shadow_rider, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_iron_treads[] = {
+    overworld_frame(gObjectEventPic_Overworld_iron_treads, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_treads, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_treads, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_treads, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_treads, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_iron_treads, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_treads, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_iron_treads, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_treads, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_meowth_galarian[] = {
@@ -12130,6 +13222,18 @@ static const struct SpriteFrameImage sPicTable_Mon_meowth_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_meowth_galarian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_iron_bundle[] = {
+    overworld_frame(gObjectEventPic_Overworld_iron_bundle, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_bundle, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_bundle, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_bundle, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_bundle, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_iron_bundle, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_bundle, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_iron_bundle, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_bundle, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_perrserker[] = {
     overworld_frame(gObjectEventPic_Overworld_perrserker, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_perrserker, 4, 4, 1),
@@ -12140,6 +13244,18 @@ static const struct SpriteFrameImage sPicTable_Mon_perrserker[] = {
     overworld_frame(gObjectEventPic_Overworld_perrserker, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_perrserker, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_perrserker, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_iron_hands[] = {
+    overworld_frame(gObjectEventPic_Overworld_iron_hands, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_hands, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_hands, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_hands, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_hands, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_iron_hands, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_hands, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_iron_hands, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_hands, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_ponyta_galarian[] = {
@@ -12154,6 +13270,18 @@ static const struct SpriteFrameImage sPicTable_Mon_ponyta_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_ponyta_galarian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_iron_jugulis[] = {
+    overworld_frame(gObjectEventPic_Overworld_iron_jugulis, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_jugulis, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_jugulis, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_jugulis, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_jugulis, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_iron_jugulis, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_jugulis, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_iron_jugulis, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_jugulis, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_rapidash_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_rapidash_galarian, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_rapidash_galarian, 4, 4, 1),
@@ -12164,6 +13292,18 @@ static const struct SpriteFrameImage sPicTable_Mon_rapidash_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_rapidash_galarian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_rapidash_galarian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_rapidash_galarian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_iron_moth[] = {
+    overworld_frame(gObjectEventPic_Overworld_iron_moth, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_moth, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_moth, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_moth, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_moth, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_iron_moth, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_moth, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_iron_moth, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_moth, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_farfetchd_galarian[] = {
@@ -12178,6 +13318,18 @@ static const struct SpriteFrameImage sPicTable_Mon_farfetchd_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_farfetchd_galarian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_iron_thorns[] = {
+    overworld_frame(gObjectEventPic_Overworld_iron_thorns, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_thorns, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_thorns, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_thorns, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_thorns, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_iron_thorns, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_thorns, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_iron_thorns, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_thorns, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_sirfetchd[] = {
     overworld_frame(gObjectEventPic_Overworld_sirfetchd, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_sirfetchd, 4, 4, 1),
@@ -12188,6 +13340,18 @@ static const struct SpriteFrameImage sPicTable_Mon_sirfetchd[] = {
     overworld_frame(gObjectEventPic_Overworld_sirfetchd, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_sirfetchd, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_sirfetchd, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_frigibax[] = {
+    overworld_frame(gObjectEventPic_Overworld_frigibax, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_frigibax, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_frigibax, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_frigibax, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_frigibax, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_frigibax, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_frigibax, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_frigibax, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_frigibax, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_weezing_galarian[] = {
@@ -12202,6 +13366,18 @@ static const struct SpriteFrameImage sPicTable_Mon_weezing_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_weezing_galarian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_arctibax[] = {
+    overworld_frame(gObjectEventPic_Overworld_arctibax, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_arctibax, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_arctibax, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_arctibax, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_arctibax, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_arctibax, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_arctibax, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_arctibax, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_arctibax, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_mr_mime_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_mr_mime_galarian, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_mr_mime_galarian, 4, 4, 1),
@@ -12212,6 +13388,18 @@ static const struct SpriteFrameImage sPicTable_Mon_mr_mime_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_mr_mime_galarian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_mr_mime_galarian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_mr_mime_galarian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_baxcalibur[] = {
+    overworld_frame(gObjectEventPic_Overworld_baxcalibur, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_baxcalibur, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_baxcalibur, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_baxcalibur, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_baxcalibur, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_baxcalibur, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_baxcalibur, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_baxcalibur, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_baxcalibur, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_mr_rime[] = {
@@ -12226,6 +13414,18 @@ static const struct SpriteFrameImage sPicTable_Mon_mr_rime[] = {
     overworld_frame(gObjectEventPic_Overworld_mr_rime, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_gimmighoul_chest[] = {
+    overworld_frame(gObjectEventPic_Overworld_gimmighoul_chest, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_gimmighoul_chest, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_gimmighoul_chest, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_gimmighoul_chest, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_gimmighoul_chest, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_gimmighoul_chest, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_gimmighoul_chest, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_gimmighoul_chest, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_gimmighoul_chest, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_corsola_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_corsola_galarian, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_corsola_galarian, 4, 4, 1),
@@ -12236,6 +13436,18 @@ static const struct SpriteFrameImage sPicTable_Mon_corsola_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_corsola_galarian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_corsola_galarian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_corsola_galarian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_gholdengo[] = {
+    overworld_frame(gObjectEventPic_Overworld_gholdengo, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_gholdengo, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_gholdengo, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_gholdengo, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_gholdengo, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_gholdengo, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_gholdengo, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_gholdengo, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_gholdengo, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_cursola[] = {
@@ -12250,6 +13462,18 @@ static const struct SpriteFrameImage sPicTable_Mon_cursola[] = {
     overworld_frame(gObjectEventPic_Overworld_cursola, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_wo_chien[] = {
+    overworld_frame(gObjectEventPic_Overworld_wo_chien, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_wo_chien, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_wo_chien, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_wo_chien, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_wo_chien, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_wo_chien, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_wo_chien, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_wo_chien, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_wo_chien, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_zigzagoon_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_zigzagoon_galarian, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_zigzagoon_galarian, 4, 4, 1),
@@ -12260,6 +13484,18 @@ static const struct SpriteFrameImage sPicTable_Mon_zigzagoon_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_zigzagoon_galarian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_zigzagoon_galarian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_zigzagoon_galarian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_chien_pao[] = {
+    overworld_frame(gObjectEventPic_Overworld_chien_pao, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_chien_pao, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_chien_pao, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_chien_pao, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_chien_pao, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_chien_pao, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_chien_pao, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_chien_pao, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_chien_pao, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_linoone_galarian[] = {
@@ -12274,6 +13510,18 @@ static const struct SpriteFrameImage sPicTable_Mon_linoone_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_linoone_galarian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_ting_lu[] = {
+    overworld_frame(gObjectEventPic_Overworld_ting_lu, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ting_lu, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ting_lu, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ting_lu, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ting_lu, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_ting_lu, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ting_lu, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_ting_lu, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ting_lu, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_obstagoon[] = {
     overworld_frame(gObjectEventPic_Overworld_obstagoon, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_obstagoon, 4, 4, 1),
@@ -12284,6 +13532,18 @@ static const struct SpriteFrameImage sPicTable_Mon_obstagoon[] = {
     overworld_frame(gObjectEventPic_Overworld_obstagoon, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_obstagoon, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_obstagoon, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_chi_yu[] = {
+    overworld_frame(gObjectEventPic_Overworld_chi_yu, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_chi_yu, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_chi_yu, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_chi_yu, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_chi_yu, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_chi_yu, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_chi_yu, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_chi_yu, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_chi_yu, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_darumaka_galarian[] = {
@@ -12298,6 +13558,18 @@ static const struct SpriteFrameImage sPicTable_Mon_darumaka_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_darumaka_galarian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_roaring_moon[] = {
+    overworld_frame(gObjectEventPic_Overworld_roaring_moon, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_roaring_moon, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_roaring_moon, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_roaring_moon, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_roaring_moon, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_roaring_moon, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_roaring_moon, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_roaring_moon, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_roaring_moon, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_darmanitan_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_darmanitan_galarian, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_darmanitan_galarian, 4, 4, 1),
@@ -12308,6 +13580,18 @@ static const struct SpriteFrameImage sPicTable_Mon_darmanitan_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_darmanitan_galarian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_darmanitan_galarian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_darmanitan_galarian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_iron_valiant[] = {
+    overworld_frame(gObjectEventPic_Overworld_iron_valiant, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_valiant, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_valiant, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_valiant, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_valiant, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_iron_valiant, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_valiant, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_iron_valiant, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_valiant, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_darmanitan_galarian_zen_mode[] = {
@@ -12322,6 +13606,18 @@ static const struct SpriteFrameImage sPicTable_Mon_darmanitan_galarian_zen_mode[
     overworld_frame(gObjectEventPic_Overworld_darmanitan_galarian_zen_mode, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_walking_wake[] = {
+    overworld_frame(gObjectEventPic_Overworld_walking_wake, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_walking_wake, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_walking_wake, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_walking_wake, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_walking_wake, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_walking_wake, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_walking_wake, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_walking_wake, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_walking_wake, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_yamask_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_yamask_galarian, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_yamask_galarian, 4, 4, 1),
@@ -12332,6 +13628,18 @@ static const struct SpriteFrameImage sPicTable_Mon_yamask_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_yamask_galarian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_yamask_galarian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_yamask_galarian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_iron_leaves[] = {
+    overworld_frame(gObjectEventPic_Overworld_iron_leaves, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_leaves, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_leaves, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_leaves, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_iron_leaves, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_iron_leaves, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_iron_leaves, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_iron_leaves, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_iron_leaves, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_runerigus[] = {
@@ -12346,6 +13654,18 @@ static const struct SpriteFrameImage sPicTable_Mon_runerigus[] = {
     overworld_frame(gObjectEventPic_Overworld_runerigus, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_dipplin[] = {
+    overworld_frame(gObjectEventPic_Overworld_dipplin, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_dipplin, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_dipplin, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_dipplin, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_dipplin, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_dipplin, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_dipplin, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_dipplin, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_dipplin, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_stunfisk_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_stunfisk_galarian, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_stunfisk_galarian, 4, 4, 1),
@@ -12356,6 +13676,18 @@ static const struct SpriteFrameImage sPicTable_Mon_stunfisk_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_stunfisk_galarian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_stunfisk_galarian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_stunfisk_galarian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_poltchageist[] = {
+    overworld_frame(gObjectEventPic_Overworld_poltchageist, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_poltchageist, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_poltchageist, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_poltchageist, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_poltchageist, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_poltchageist, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_poltchageist, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_poltchageist, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_poltchageist, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_slowpoke_galarian[] = {
@@ -12370,6 +13702,18 @@ static const struct SpriteFrameImage sPicTable_Mon_slowpoke_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_slowpoke_galarian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_sinistcha[] = {
+    overworld_frame(gObjectEventPic_Overworld_sinistcha, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_sinistcha, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_sinistcha, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_sinistcha, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_sinistcha, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_sinistcha, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_sinistcha, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_sinistcha, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_sinistcha, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_slowbro_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_slowbro_galarian, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_slowbro_galarian, 4, 4, 1),
@@ -12380,6 +13724,18 @@ static const struct SpriteFrameImage sPicTable_Mon_slowbro_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_slowbro_galarian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_slowbro_galarian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_slowbro_galarian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_okidogi[] = {
+    overworld_frame(gObjectEventPic_Overworld_okidogi, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_okidogi, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_okidogi, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_okidogi, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_okidogi, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_okidogi, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_okidogi, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_okidogi, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_okidogi, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_slowking_galarian[] = {
@@ -12394,6 +13750,18 @@ static const struct SpriteFrameImage sPicTable_Mon_slowking_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_slowking_galarian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_munkidori[] = {
+    overworld_frame(gObjectEventPic_Overworld_munkidori, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_munkidori, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_munkidori, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_munkidori, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_munkidori, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_munkidori, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_munkidori, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_munkidori, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_munkidori, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_articuno_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_articuno_galarian, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_articuno_galarian, 4, 4, 1),
@@ -12404,6 +13772,18 @@ static const struct SpriteFrameImage sPicTable_Mon_articuno_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_articuno_galarian, 4, 4, 4),
     overworld_frame(gObjectEventPic_Overworld_articuno_galarian, 4, 4, 2),
     overworld_frame(gObjectEventPic_Overworld_articuno_galarian, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_fezandipiti[] = {
+    overworld_frame(gObjectEventPic_Overworld_fezandipiti, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_fezandipiti, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_fezandipiti, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_fezandipiti, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_fezandipiti, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_fezandipiti, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_fezandipiti, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_fezandipiti, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_fezandipiti, 4, 4, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Mon_zapdos_galarian[] = {
@@ -12418,6 +13798,18 @@ static const struct SpriteFrameImage sPicTable_Mon_zapdos_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_zapdos_galarian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_ogerpon_teal_mask[] = {
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_teal_mask, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_teal_mask, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_teal_mask, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_teal_mask, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_teal_mask, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_teal_mask, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_teal_mask, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_teal_mask, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_teal_mask, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_moltres_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_moltres_galarian, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_moltres_galarian, 4, 4, 1),
@@ -12430,6 +13822,18 @@ static const struct SpriteFrameImage sPicTable_Mon_moltres_galarian[] = {
     overworld_frame(gObjectEventPic_Overworld_moltres_galarian, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_ogerpon_wellspring_mask[] = {
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_wellspring_mask, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_wellspring_mask, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_wellspring_mask, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_wellspring_mask, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_wellspring_mask, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_wellspring_mask, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_wellspring_mask, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_wellspring_mask, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_wellspring_mask, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_eternatus[] = {
     overworld_frame(gObjectEventPic_Overworld_eternatus, 8, 8, 0),
     overworld_frame(gObjectEventPic_Overworld_eternatus, 8, 8, 1),
@@ -12440,6 +13844,150 @@ static const struct SpriteFrameImage sPicTable_Mon_eternatus[] = {
     overworld_frame(gObjectEventPic_Overworld_eternatus, 8, 8, 4),
     overworld_frame(gObjectEventPic_Overworld_eternatus, 8, 8, 2),
     overworld_frame(gObjectEventPic_Overworld_eternatus, 8, 8, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_ogerpon_hearthflame_mask[] = {
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_hearthflame_mask, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_hearthflame_mask, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_hearthflame_mask, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_hearthflame_mask, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_hearthflame_mask, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_hearthflame_mask, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_hearthflame_mask, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_hearthflame_mask, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_hearthflame_mask, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_ogerpon_cornerstone_mask[] = {
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_cornerstone_mask, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_cornerstone_mask, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_cornerstone_mask, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_cornerstone_mask, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_cornerstone_mask, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_cornerstone_mask, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_cornerstone_mask, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_cornerstone_mask, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ogerpon_cornerstone_mask, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_tauros_paldean_combat_breed[] = {
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_combat_breed, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_combat_breed, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_combat_breed, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_combat_breed, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_combat_breed, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_combat_breed, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_combat_breed, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_combat_breed, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_combat_breed, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_tauros_paldean_blaze_breed[] = {
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_blaze_breed, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_blaze_breed, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_blaze_breed, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_blaze_breed, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_blaze_breed, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_blaze_breed, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_blaze_breed, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_blaze_breed, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_blaze_breed, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_tauros_paldean_aqua_breed[] = {
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_aqua_breed, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_aqua_breed, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_aqua_breed, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_aqua_breed, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_aqua_breed, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_aqua_breed, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_aqua_breed, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_aqua_breed, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_tauros_paldean_aqua_breed, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_wooper_paldean[] = {
+    overworld_frame(gObjectEventPic_Overworld_wooper_paldean, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_wooper_paldean, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_wooper_paldean, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_wooper_paldean, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_wooper_paldean, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_wooper_paldean, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_wooper_paldean, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_wooper_paldean, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_wooper_paldean, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_ursaluna_bloodmoon[] = {
+    overworld_frame(gObjectEventPic_Overworld_ursaluna_bloodmoon, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ursaluna_bloodmoon, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ursaluna_bloodmoon, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ursaluna_bloodmoon, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_ursaluna_bloodmoon, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_ursaluna_bloodmoon, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_ursaluna_bloodmoon, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_ursaluna_bloodmoon, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_ursaluna_bloodmoon, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_dondozo[] = {
+    overworld_frame(gObjectEventPic_Overworld_dondozo, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Overworld_dondozo, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Overworld_dondozo, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Overworld_dondozo, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Overworld_dondozo, 8, 8, 3),
+    overworld_frame(gObjectEventPic_Overworld_dondozo, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Overworld_dondozo, 8, 8, 4),
+    overworld_frame(gObjectEventPic_Overworld_dondozo, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Overworld_dondozo, 8, 8, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_dudunsparce_three_segment[] = {
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_three_segment, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_three_segment, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_three_segment, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_three_segment, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_three_segment, 8, 8, 3),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_three_segment, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_three_segment, 8, 8, 4),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_three_segment, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Overworld_dudunsparce_three_segment, 8, 8, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_kingambit[] = {
+    overworld_frame(gObjectEventPic_Overworld_kingambit, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Overworld_kingambit, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Overworld_kingambit, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Overworld_kingambit, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Overworld_kingambit, 8, 8, 3),
+    overworld_frame(gObjectEventPic_Overworld_kingambit, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Overworld_kingambit, 8, 8, 4),
+    overworld_frame(gObjectEventPic_Overworld_kingambit, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Overworld_kingambit, 8, 8, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_koraidon[] = {
+    overworld_frame(gObjectEventPic_Overworld_koraidon, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Overworld_koraidon, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Overworld_koraidon, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Overworld_koraidon, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Overworld_koraidon, 8, 8, 3),
+    overworld_frame(gObjectEventPic_Overworld_koraidon, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Overworld_koraidon, 8, 8, 4),
+    overworld_frame(gObjectEventPic_Overworld_koraidon, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Overworld_koraidon, 8, 8, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_miraidon[] = {
+    overworld_frame(gObjectEventPic_Overworld_miraidon, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Overworld_miraidon, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Overworld_miraidon, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Overworld_miraidon, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Overworld_miraidon, 8, 8, 3),
+    overworld_frame(gObjectEventPic_Overworld_miraidon, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Overworld_miraidon, 8, 8, 4),
+    overworld_frame(gObjectEventPic_Overworld_miraidon, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Overworld_miraidon, 8, 8, 5),
 };
 
 
@@ -13309,177 +14857,306 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_magearna = {TA
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_marshadow = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_marshadow, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_grookey = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_grookey, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_decidueye_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_decidueye_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sprigatito = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sprigatito, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_poipole = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_poipole, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_thwackey = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_thwackey, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_typhlosion_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_typhlosion_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_floragato = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_floragato, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_naganadel = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_naganadel, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_rillaboom = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_rillaboom, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_samurott_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_samurott_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_meowscarada = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_meowscarada, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_stakataka = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_stakataka, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_scorbunny = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_scorbunny, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_wyrdeer = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_wyrdeer, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_fuecoco = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_fuecoco, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_blacephalon = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_blacephalon, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_raboot = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_raboot, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_kleavor = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_kleavor, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_crocalor = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_crocalor, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zeraora = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zeraora, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_cinderace = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_cinderace, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_qwilfish_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_qwilfish_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_skeledirge = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_skeledirge, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_meltan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_meltan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sobble = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sobble, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_overqwil = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_overqwil, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_quaxly = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_quaxly, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_melmetal = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_melmetal, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_drizzile = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_drizzile, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_lilligant_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_lilligant_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_quaxwell = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_quaxwell, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_marowak_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_marowak_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_inteleon = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_inteleon, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_ursaluna = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_ursaluna, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_quaquaval = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_quaquaval, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_rattata_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_rattata_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_skwovet = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_skwovet, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sliggoo_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sliggoo_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_lechonk = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_lechonk, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_raticate_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_raticate_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_greedent = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_greedent, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_goodra_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_goodra_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_oinkologne_male = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_oinkologne_male, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_raichu_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_raichu_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_rookidee = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_rookidee, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_basculin_white_striped = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_basculin_white_striped, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_oinkologne_female = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_oinkologne_female, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sandshrew_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sandshrew_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_corvisquire = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_corvisquire, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_basculegion = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_basculegion, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tarountula = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tarountula, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sandslash_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sandslash_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_corviknight = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_corviknight, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_basculegion_female = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_basculegion_female, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_spidops = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_spidops, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_vulpix_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_vulpix_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_blipbug = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_blipbug, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_growlithe_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_growlithe_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_nymble = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_nymble, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_ninetales_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_ninetales_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dottler = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_dottler, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_arcanine_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_arcanine_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_lokix = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_lokix, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_diglett_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_diglett_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_orbeetle = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_orbeetle, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_voltorb_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_voltorb_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_pawmi = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_pawmi, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dugtrio_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_dugtrio_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_nickit = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_nickit, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_electrode_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_electrode_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_pawmo = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_pawmo, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_meowth_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_meowth_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_thievul = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_thievul, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sneasel_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sneasel_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_pawmot = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_pawmot, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_persian_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_persian_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_gossifleur = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_gossifleur, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sneasler = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sneasler, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tandemaus = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tandemaus, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_geodude_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_geodude_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_eldegoss = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_eldegoss, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_avalugg_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_avalugg_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_maushold_family_of_four = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_maushold_family_of_four, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_graveler_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_graveler_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_wooloo = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_wooloo, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zorua_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zorua_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_maushold_family_of_three = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_maushold_family_of_three, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_golem_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_golem_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dubwool = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_dubwool, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zoroark_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zoroark_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_fidough = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_fidough, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_grimer_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_grimer_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_chewtle = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_chewtle, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_braviary_hisuian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_braviary_hisuian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dachsbun = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_dachsbun, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_muk_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_muk_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_drednaw = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_drednaw, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_enamorus = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_enamorus, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_smoliv = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_smoliv, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zygarde_10 = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zygarde_10, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_yamper = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_yamper, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_enamorus_therian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_enamorus_therian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dolliv = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_dolliv, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zygarde_complete = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zygarde_complete, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_boltund = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_boltund, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dialga_origin = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_dialga_origin, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_arboliva = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_arboliva, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_exeggutor_alolan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_exeggutor_alolan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_rolycoly = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_rolycoly, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_palkia_origin = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_palkia_origin, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_squawkabilly_green_plumage = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_squawkabilly_green_plumage, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_carkol = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_carkol, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_squawkabilly_blue_plumage = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_squawkabilly_blue_plumage, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_coalossal = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_coalossal, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_squawkabilly_yellow_plumage = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_squawkabilly_yellow_plumage, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_applin = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_applin, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_squawkabilly_white_plumage = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_squawkabilly_white_plumage, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_flapple = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_flapple, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_nacli = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_nacli, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_appletun = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_appletun, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_naclstack = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_naclstack, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_silicobra = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_silicobra, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_garganacl = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_garganacl, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sandaconda = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sandaconda, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_charcadet = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_charcadet, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_cramorant = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_cramorant, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_armarouge = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_armarouge, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_arrokuda = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_arrokuda, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_ceruledge = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_ceruledge, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_barraskewda = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_barraskewda, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tadbulb = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tadbulb, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_toxel = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_toxel, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_bellibolt = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_bellibolt, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_toxtricity = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_toxtricity, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_wattrel = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_wattrel, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_toxtricity_low_key = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_toxtricity_low_key, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_kilowattrel = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_kilowattrel, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sizzlipede = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sizzlipede, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_maschiff = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_maschiff, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_centiskorch = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_centiskorch, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_mabosstiff = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_mabosstiff, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_clobbopus = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_clobbopus, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_shroodle = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_shroodle, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_grapploct = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_grapploct, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_grafaiai = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_grafaiai, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sinistea = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sinistea, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_bramblin = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_bramblin, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_polteageist = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_polteageist, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_brambleghast = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_brambleghast, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_hatenna = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_hatenna, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_toedscool = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_toedscool, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_hattrem = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_hattrem, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_toedscruel = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_toedscruel, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_hatterene = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_hatterene, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_klawf = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_klawf, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_impidimp = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_impidimp, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_capsakid = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_capsakid, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_morgrem = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_morgrem, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_scovillain = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_scovillain, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_grimmsnarl = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_grimmsnarl, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_rellor = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_rellor, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_milcery = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_milcery, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_rabsca = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_rabsca, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_alcremie = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_alcremie, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_flittle = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_flittle, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_falinks = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_falinks, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_espathra = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_espathra, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_pincurchin = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_pincurchin, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tinkatink = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tinkatink, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_snom = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_snom, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tinkatuff = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tinkatuff, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_frosmoth = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_frosmoth, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tinkaton = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tinkaton, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_stonjourner = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_stonjourner, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_wiglett = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_wiglett, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_eiscue = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_eiscue, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_wugtrio = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_wugtrio, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_eiscue_noice_face = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_eiscue_noice_face, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_bombirdier = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_bombirdier, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_indeedee_female = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_indeedee_female, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_finizen = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_finizen, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_indeedee = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_indeedee, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_palafin_zero = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_palafin_zero, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_morpeko = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_morpeko, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_palafin_hero = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_palafin_hero, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_morpeko_hangry = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_morpeko_hangry, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_varoom = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_varoom, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_cufant = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_cufant, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_revavroom = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_revavroom, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_copperajah = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_copperajah, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_cyclizar = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_cyclizar, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dracozolt = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_dracozolt, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_orthworm = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_orthworm, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_arctozolt = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_arctozolt, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_glimmet = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_glimmet, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dracovish = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_dracovish, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_glimmora = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_glimmora, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_arctovish = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_arctovish, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_greavard = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_greavard, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_duraludon = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_duraludon, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_houndstone = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_houndstone, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dreepy = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_dreepy, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_flamigo = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_flamigo, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_drakloak = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_drakloak, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_cetoddle = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_cetoddle, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dragapult = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_dragapult, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_cetitan = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_cetitan, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zacian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zacian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_veluza = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_veluza, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zacian_crowned_sword = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zacian_crowned_sword, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tatsugiri_curly = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tatsugiri_curly, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zamazenta = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zamazenta, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tatsugiri_droopy = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tatsugiri_droopy, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zamazenta_crowned_shield = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zamazenta_crowned_shield, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tatsugiri_stretchy = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tatsugiri_stretchy, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_kubfu = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_kubfu, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_annihilape = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_annihilape, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_urshifu = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_urshifu, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_clodsire = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_clodsire, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_urshifu_rapid_strike_style = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_urshifu_rapid_strike_style, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_farigiraf = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_farigiraf, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zarude = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zarude, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dudunsparce_two_segment = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_dudunsparce_two_segment, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_regieleki = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_regieleki, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_great_tusk = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_great_tusk, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_regidrago = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_regidrago, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_scream_tail = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_scream_tail, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_glastrier = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_glastrier, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_brute_bonnet = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_brute_bonnet, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_spectrier = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_spectrier, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_flutter_mane = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_flutter_mane, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_calyrex = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_calyrex, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_slither_wing = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_slither_wing, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_calyrex_ice_rider = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_calyrex_ice_rider, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sandy_shocks = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sandy_shocks, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_calyrex_shadow_rider = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_calyrex_shadow_rider, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_iron_treads = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_iron_treads, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_meowth_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_meowth_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_iron_bundle = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_iron_bundle, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_perrserker = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_perrserker, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_iron_hands = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_iron_hands, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_ponyta_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_ponyta_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_iron_jugulis = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_iron_jugulis, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_rapidash_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_rapidash_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_iron_moth = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_iron_moth, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_farfetchd_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_farfetchd_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_iron_thorns = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_iron_thorns, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sirfetchd = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sirfetchd, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_frigibax = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_frigibax, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_weezing_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_weezing_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_arctibax = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_arctibax, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_mr_mime_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_mr_mime_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_baxcalibur = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_baxcalibur, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_mr_rime = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_mr_rime, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_gimmighoul_chest = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_gimmighoul_chest, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_corsola_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_corsola_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_gholdengo = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_gholdengo, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_cursola = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_cursola, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_wo_chien = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_wo_chien, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zigzagoon_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zigzagoon_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_chien_pao = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_chien_pao, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_linoone_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_linoone_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_ting_lu = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_ting_lu, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_obstagoon = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_obstagoon, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_chi_yu = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_chi_yu, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_darumaka_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_darumaka_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_roaring_moon = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_roaring_moon, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_darmanitan_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_darmanitan_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_iron_valiant = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_iron_valiant, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_darmanitan_galarian_zen_mode = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_darmanitan_galarian_zen_mode, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_walking_wake = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_walking_wake, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_yamask_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_yamask_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_iron_leaves = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_iron_leaves, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_runerigus = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_runerigus, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dipplin = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_dipplin, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_stunfisk_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_stunfisk_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_poltchageist = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_poltchageist, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_slowpoke_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_slowpoke_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_sinistcha = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_sinistcha, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_slowbro_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_slowbro_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_okidogi = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_okidogi, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_slowking_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_slowking_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_munkidori = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_munkidori, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_articuno_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_articuno_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_fezandipiti = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_fezandipiti, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_zapdos_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_zapdos_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_ogerpon_teal_mask = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_ogerpon_teal_mask, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_moltres_galarian = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_moltres_galarian, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_ogerpon_wellspring_mask = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_ogerpon_wellspring_mask, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_eternatus = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_eternatus, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_ogerpon_hearthflame_mask = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_ogerpon_hearthflame_mask, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_ogerpon_cornerstone_mask = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_ogerpon_cornerstone_mask, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tauros_paldean_combat_breed = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tauros_paldean_combat_breed, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tauros_paldean_blaze_breed = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tauros_paldean_blaze_breed, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_tauros_paldean_aqua_breed = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_tauros_paldean_aqua_breed, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_wooper_paldean = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_wooper_paldean, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_ursaluna_bloodmoon = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_ursaluna_bloodmoon, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dondozo = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_dondozo, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_dudunsparce_three_segment = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_dudunsparce_three_segment, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_kingambit = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_kingambit, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_koraidon = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_koraidon, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_miraidon = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_miraidon, gDummySpriteAffineAnimTable};
 
 const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 	[SPECIES_NONE] =
@@ -18678,6 +20355,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_decidueye_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_decidueye_hisuian_shiny,
 	},
+	[SPECIES_SPRIGATITO] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_sprigatito,
+		.normalPal = gObjectEventPal_Overworld_sprigatito,
+		.shinyPal = gObjectEventPal_Overworld_sprigatito_shiny,
+	},
 	[SPECIES_POIPOLE] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_poipole,
@@ -18695,6 +20378,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_typhlosion_hisuian,
 		.normalPal = gObjectEventPal_Overworld_typhlosion_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_typhlosion_hisuian_shiny,
+	},
+	[SPECIES_FLORAGATO] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_floragato,
+		.normalPal = gObjectEventPal_Overworld_floragato,
+		.shinyPal = gObjectEventPal_Overworld_floragato_shiny,
 	},
 	[SPECIES_NAGANADEL] =
 	{
@@ -18714,6 +20403,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_samurott_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_samurott_hisuian_shiny,
 	},
+	[SPECIES_MEOWSCARADA] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_meowscarada,
+		.normalPal = gObjectEventPal_Overworld_meowscarada,
+		.shinyPal = gObjectEventPal_Overworld_meowscarada_shiny,
+	},
 	[SPECIES_STAKATAKA] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_stakataka,
@@ -18731,6 +20426,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_wyrdeer,
 		.normalPal = gObjectEventPal_Overworld_wyrdeer,
 		.shinyPal = gObjectEventPal_Overworld_wyrdeer_shiny,
+	},
+	[SPECIES_FUECOCO] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_fuecoco,
+		.normalPal = gObjectEventPal_Overworld_fuecoco,
+		.shinyPal = gObjectEventPal_Overworld_fuecoco_shiny,
 	},
 	[SPECIES_BLACEPHALON] =
 	{
@@ -18750,6 +20451,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_kleavor,
 		.shinyPal = gObjectEventPal_Overworld_kleavor_shiny,
 	},
+	[SPECIES_CROCALOR] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_crocalor,
+		.normalPal = gObjectEventPal_Overworld_crocalor,
+		.shinyPal = gObjectEventPal_Overworld_crocalor_shiny,
+	},
 	[SPECIES_ZERAORA] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_zeraora,
@@ -18767,6 +20474,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_qwilfish_hisuian,
 		.normalPal = gObjectEventPal_Overworld_qwilfish_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_qwilfish_hisuian_shiny,
+	},
+	[SPECIES_SKELEDIRGE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_skeledirge,
+		.normalPal = gObjectEventPal_Overworld_skeledirge,
+		.shinyPal = gObjectEventPal_Overworld_skeledirge_shiny,
 	},
 	[SPECIES_MELTAN] =
 	{
@@ -18786,6 +20499,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_overqwil,
 		.shinyPal = gObjectEventPal_Overworld_overqwil_shiny,
 	},
+	[SPECIES_QUAXLY] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_quaxly,
+		.normalPal = gObjectEventPal_Overworld_quaxly,
+		.shinyPal = gObjectEventPal_Overworld_quaxly_shiny,
+	},
 	[SPECIES_MELMETAL] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_melmetal,
@@ -18803,6 +20522,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_lilligant_hisuian,
 		.normalPal = gObjectEventPal_Overworld_lilligant_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_lilligant_hisuian_shiny,
+	},
+	[SPECIES_QUAXWELL] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_quaxwell,
+		.normalPal = gObjectEventPal_Overworld_quaxwell,
+		.shinyPal = gObjectEventPal_Overworld_quaxwell_shiny,
 	},
 	[SPECIES_MAROWAK_ALOLAN] =
 	{
@@ -18822,6 +20547,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_ursaluna,
 		.shinyPal = gObjectEventPal_Overworld_ursaluna_shiny,
 	},
+	[SPECIES_QUAQUAVAL] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_quaquaval,
+		.normalPal = gObjectEventPal_Overworld_quaquaval,
+		.shinyPal = gObjectEventPal_Overworld_quaquaval_shiny,
+	},
 	[SPECIES_RATTATA_ALOLAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_rattata_alolan,
@@ -18839,6 +20570,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_sliggoo_hisuian,
 		.normalPal = gObjectEventPal_Overworld_sliggoo_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_sliggoo_hisuian_shiny,
+	},
+	[SPECIES_LECHONK] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_lechonk,
+		.normalPal = gObjectEventPal_Overworld_lechonk,
+		.shinyPal = gObjectEventPal_Overworld_lechonk_shiny,
 	},
 	[SPECIES_RATICATE_ALOLAN] =
 	{
@@ -18858,6 +20595,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_goodra_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_goodra_hisuian_shiny,
 	},
+	[SPECIES_OINKOLOGNE_MALE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_oinkologne_male,
+		.normalPal = gObjectEventPal_Overworld_oinkologne_male,
+		.shinyPal = gObjectEventPal_Overworld_oinkologne_male_shiny,
+	},
 	[SPECIES_RAICHU_ALOLAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_raichu_alolan,
@@ -18875,6 +20618,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_basculin_white_striped,
 		.normalPal = gObjectEventPal_Overworld_basculin_white_striped,
 		.shinyPal = gObjectEventPal_Overworld_basculin_white_striped_shiny,
+	},
+	[SPECIES_OINKOLOGNE_FEMALE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_oinkologne_female,
+		.normalPal = gObjectEventPal_Overworld_oinkologne_female,
+		.shinyPal = gObjectEventPal_Overworld_oinkologne_female_shiny,
 	},
 	[SPECIES_SANDSHREW_ALOLAN] =
 	{
@@ -18894,6 +20643,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_basculegion,
 		.shinyPal = gObjectEventPal_Overworld_basculegion_shiny,
 	},
+	[SPECIES_TAROUNTULA] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tarountula,
+		.normalPal = gObjectEventPal_Overworld_tarountula,
+		.shinyPal = gObjectEventPal_Overworld_tarountula_shiny,
+	},
 	[SPECIES_SANDSLASH_ALOLAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_sandslash_alolan,
@@ -18911,6 +20666,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_basculegion_female,
 		.normalPal = gObjectEventPal_Overworld_basculegion_female,
 		.shinyPal = gObjectEventPal_Overworld_basculegion_female_shiny,
+	},
+	[SPECIES_SPIDOPS] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_spidops,
+		.normalPal = gObjectEventPal_Overworld_spidops,
+		.shinyPal = gObjectEventPal_Overworld_spidops_shiny,
 	},
 	[SPECIES_VULPIX_ALOLAN] =
 	{
@@ -18930,6 +20691,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_growlithe_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_growlithe_hisuian_shiny,
 	},
+	[SPECIES_NYMBLE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_nymble,
+		.normalPal = gObjectEventPal_Overworld_nymble,
+		.shinyPal = gObjectEventPal_Overworld_nymble_shiny,
+	},
 	[SPECIES_NINETALES_ALOLAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_ninetales_alolan,
@@ -18947,6 +20714,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_arcanine_hisuian,
 		.normalPal = gObjectEventPal_Overworld_arcanine_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_arcanine_hisuian_shiny,
+	},
+	[SPECIES_LOKIX] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_lokix,
+		.normalPal = gObjectEventPal_Overworld_lokix,
+		.shinyPal = gObjectEventPal_Overworld_lokix_shiny,
 	},
 	[SPECIES_DIGLETT_ALOLAN] =
 	{
@@ -18966,6 +20739,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_voltorb_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_voltorb_hisuian_shiny,
 	},
+	[SPECIES_PAWMI] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_pawmi,
+		.normalPal = gObjectEventPal_Overworld_pawmi,
+		.shinyPal = gObjectEventPal_Overworld_pawmi_shiny,
+	},
 	[SPECIES_DUGTRIO_ALOLAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_dugtrio_alolan,
@@ -18983,6 +20762,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_electrode_hisuian,
 		.normalPal = gObjectEventPal_Overworld_electrode_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_electrode_hisuian_shiny,
+	},
+	[SPECIES_PAWMO] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_pawmo,
+		.normalPal = gObjectEventPal_Overworld_pawmo,
+		.shinyPal = gObjectEventPal_Overworld_pawmo_shiny,
 	},
 	[SPECIES_MEOWTH_ALOLAN] =
 	{
@@ -19002,6 +20787,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_sneasel_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_sneasel_hisuian_shiny,
 	},
+	[SPECIES_PAWMOT] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_pawmot,
+		.normalPal = gObjectEventPal_Overworld_pawmot,
+		.shinyPal = gObjectEventPal_Overworld_pawmot_shiny,
+	},
 	[SPECIES_PERSIAN_ALOLAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_persian_alolan,
@@ -19019,6 +20810,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_sneasler,
 		.normalPal = gObjectEventPal_Overworld_sneasler,
 		.shinyPal = gObjectEventPal_Overworld_sneasler_shiny,
+	},
+	[SPECIES_TANDEMAUS] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tandemaus,
+		.normalPal = gObjectEventPal_Overworld_tandemaus,
+		.shinyPal = gObjectEventPal_Overworld_tandemaus_shiny,
 	},
 	[SPECIES_GEODUDE_ALOLAN] =
 	{
@@ -19038,6 +20835,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_avalugg_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_avalugg_hisuian_shiny,
 	},
+	[SPECIES_MAUSHOLD_FAMILY_OF_FOUR] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_maushold_family_of_four,
+		.normalPal = gObjectEventPal_Overworld_maushold_family_of_four,
+		.shinyPal = gObjectEventPal_Overworld_maushold_family_of_four_shiny,
+	},
 	[SPECIES_GRAVELER_ALOLAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_graveler_alolan,
@@ -19055,6 +20858,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_zorua_hisuian,
 		.normalPal = gObjectEventPal_Overworld_zorua_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_zorua_hisuian_shiny,
+	},
+	[SPECIES_MAUSHOLD_FAMILY_OF_THREE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_maushold_family_of_three,
+		.normalPal = gObjectEventPal_Overworld_maushold_family_of_three,
+		.shinyPal = gObjectEventPal_Overworld_maushold_family_of_three_shiny,
 	},
 	[SPECIES_GOLEM_ALOLAN] =
 	{
@@ -19074,6 +20883,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_zoroark_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_zoroark_hisuian_shiny,
 	},
+	[SPECIES_FIDOUGH] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_fidough,
+		.normalPal = gObjectEventPal_Overworld_fidough,
+		.shinyPal = gObjectEventPal_Overworld_fidough_shiny,
+	},
 	[SPECIES_GRIMER_ALOLAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_grimer_alolan,
@@ -19091,6 +20906,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_braviary_hisuian,
 		.normalPal = gObjectEventPal_Overworld_braviary_hisuian,
 		.shinyPal = gObjectEventPal_Overworld_braviary_hisuian_shiny,
+	},
+	[SPECIES_DACHSBUN] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_dachsbun,
+		.normalPal = gObjectEventPal_Overworld_dachsbun,
+		.shinyPal = gObjectEventPal_Overworld_dachsbun_shiny,
 	},
 	[SPECIES_MUK_ALOLAN] =
 	{
@@ -19110,6 +20931,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_enamorus,
 		.shinyPal = gObjectEventPal_Overworld_enamorus_shiny,
 	},
+	[SPECIES_SMOLIV] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_smoliv,
+		.normalPal = gObjectEventPal_Overworld_smoliv,
+		.shinyPal = gObjectEventPal_Overworld_smoliv_shiny,
+	},
 	[SPECIES_ZYGARDE_10] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_zygarde_10,
@@ -19127,6 +20954,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_enamorus_therian,
 		.normalPal = gObjectEventPal_Overworld_enamorus_therian,
 		.shinyPal = gObjectEventPal_Overworld_enamorus_therian_shiny,
+	},
+	[SPECIES_DOLLIV] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_dolliv,
+		.normalPal = gObjectEventPal_Overworld_dolliv,
+		.shinyPal = gObjectEventPal_Overworld_dolliv_shiny,
 	},
 	[SPECIES_ZYGARDE_COMPLETE] =
 	{
@@ -19146,6 +20979,12 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_dialga_origin,
 		.shinyPal = gObjectEventPal_Overworld_dialga_origin_shiny,
 	},
+	[SPECIES_ARBOLIVA] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_arboliva,
+		.normalPal = gObjectEventPal_Overworld_arboliva,
+		.shinyPal = gObjectEventPal_Overworld_arboliva_shiny,
+	},
 	[SPECIES_EXEGGUTOR_ALOLAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_exeggutor_alolan,
@@ -19164,11 +21003,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_palkia_origin,
 		.shinyPal = gObjectEventPal_Overworld_palkia_origin_shiny,
 	},
+	[SPECIES_SQUAWKABILLY_GREEN_PLUMAGE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_squawkabilly_green_plumage,
+		.normalPal = gObjectEventPal_Overworld_squawkabilly_green_plumage,
+		.shinyPal = gObjectEventPal_Overworld_squawkabilly_green_plumage_shiny,
+	},
 	[SPECIES_CARKOL] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_carkol,
 		.normalPal = gObjectEventPal_Overworld_carkol,
 		.shinyPal = gObjectEventPal_Overworld_carkol_shiny,
+	},
+	[SPECIES_SQUAWKABILLY_BLUE_PLUMAGE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_squawkabilly_blue_plumage,
+		.normalPal = gObjectEventPal_Overworld_squawkabilly_blue_plumage,
+		.shinyPal = gObjectEventPal_Overworld_squawkabilly_blue_plumage_shiny,
 	},
 	[SPECIES_COALOSSAL] =
 	{
@@ -19176,11 +21027,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_coalossal,
 		.shinyPal = gObjectEventPal_Overworld_coalossal_shiny,
 	},
+	[SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_squawkabilly_yellow_plumage,
+		.normalPal = gObjectEventPal_Overworld_squawkabilly_yellow_plumage,
+		.shinyPal = gObjectEventPal_Overworld_squawkabilly_yellow_plumage_shiny,
+	},
 	[SPECIES_APPLIN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_applin,
 		.normalPal = gObjectEventPal_Overworld_applin,
 		.shinyPal = gObjectEventPal_Overworld_applin_shiny,
+	},
+	[SPECIES_SQUAWKABILLY_WHITE_PLUMAGE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_squawkabilly_white_plumage,
+		.normalPal = gObjectEventPal_Overworld_squawkabilly_white_plumage,
+		.shinyPal = gObjectEventPal_Overworld_squawkabilly_white_plumage_shiny,
 	},
 	[SPECIES_FLAPPLE] =
 	{
@@ -19188,11 +21051,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_flapple,
 		.shinyPal = gObjectEventPal_Overworld_flapple_shiny,
 	},
+	[SPECIES_NACLI] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_nacli,
+		.normalPal = gObjectEventPal_Overworld_nacli,
+		.shinyPal = gObjectEventPal_Overworld_nacli_shiny,
+	},
 	[SPECIES_APPLETUN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_appletun,
 		.normalPal = gObjectEventPal_Overworld_appletun,
 		.shinyPal = gObjectEventPal_Overworld_appletun_shiny,
+	},
+	[SPECIES_NACLSTACK] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_naclstack,
+		.normalPal = gObjectEventPal_Overworld_naclstack,
+		.shinyPal = gObjectEventPal_Overworld_naclstack_shiny,
 	},
 	[SPECIES_SILICOBRA] =
 	{
@@ -19200,11 +21075,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_silicobra,
 		.shinyPal = gObjectEventPal_Overworld_silicobra_shiny,
 	},
+	[SPECIES_GARGANACL] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_garganacl,
+		.normalPal = gObjectEventPal_Overworld_garganacl,
+		.shinyPal = gObjectEventPal_Overworld_garganacl_shiny,
+	},
 	[SPECIES_SANDACONDA] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_sandaconda,
 		.normalPal = gObjectEventPal_Overworld_sandaconda,
 		.shinyPal = gObjectEventPal_Overworld_sandaconda_shiny,
+	},
+	[SPECIES_CHARCADET] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_charcadet,
+		.normalPal = gObjectEventPal_Overworld_charcadet,
+		.shinyPal = gObjectEventPal_Overworld_charcadet_shiny,
 	},
 	[SPECIES_CRAMORANT] =
 	{
@@ -19212,11 +21099,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_cramorant,
 		.shinyPal = gObjectEventPal_Overworld_cramorant_shiny,
 	},
+	[SPECIES_ARMAROUGE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_armarouge,
+		.normalPal = gObjectEventPal_Overworld_armarouge,
+		.shinyPal = gObjectEventPal_Overworld_armarouge_shiny,
+	},
 	[SPECIES_ARROKUDA] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_arrokuda,
 		.normalPal = gObjectEventPal_Overworld_arrokuda,
 		.shinyPal = gObjectEventPal_Overworld_arrokuda_shiny,
+	},
+	[SPECIES_CERULEDGE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_ceruledge,
+		.normalPal = gObjectEventPal_Overworld_ceruledge,
+		.shinyPal = gObjectEventPal_Overworld_ceruledge_shiny,
 	},
 	[SPECIES_BARRASKEWDA] =
 	{
@@ -19224,11 +21123,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_barraskewda,
 		.shinyPal = gObjectEventPal_Overworld_barraskewda_shiny,
 	},
+	[SPECIES_TADBULB] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tadbulb,
+		.normalPal = gObjectEventPal_Overworld_tadbulb,
+		.shinyPal = gObjectEventPal_Overworld_tadbulb_shiny,
+	},
 	[SPECIES_TOXEL] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_toxel,
 		.normalPal = gObjectEventPal_Overworld_toxel,
 		.shinyPal = gObjectEventPal_Overworld_toxel_shiny,
+	},
+	[SPECIES_BELLIBOLT] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_bellibolt,
+		.normalPal = gObjectEventPal_Overworld_bellibolt,
+		.shinyPal = gObjectEventPal_Overworld_bellibolt_shiny,
 	},
 	[SPECIES_TOXTRICITY] =
 	{
@@ -19236,11 +21147,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_toxtricity,
 		.shinyPal = gObjectEventPal_Overworld_toxtricity_shiny,
 	},
+	[SPECIES_WATTREL] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_wattrel,
+		.normalPal = gObjectEventPal_Overworld_wattrel,
+		.shinyPal = gObjectEventPal_Overworld_wattrel_shiny,
+	},
 	[SPECIES_TOXTRICITY_LOW_KEY] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_toxtricity_low_key,
 		.normalPal = gObjectEventPal_Overworld_toxtricity_low_key,
 		.shinyPal = gObjectEventPal_Overworld_toxtricity_low_key_shiny,
+	},
+	[SPECIES_KILOWATTREL] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_kilowattrel,
+		.normalPal = gObjectEventPal_Overworld_kilowattrel,
+		.shinyPal = gObjectEventPal_Overworld_kilowattrel_shiny,
 	},
 	[SPECIES_SIZZLIPEDE] =
 	{
@@ -19248,11 +21171,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_sizzlipede,
 		.shinyPal = gObjectEventPal_Overworld_sizzlipede_shiny,
 	},
+	[SPECIES_MASCHIFF] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_maschiff,
+		.normalPal = gObjectEventPal_Overworld_maschiff,
+		.shinyPal = gObjectEventPal_Overworld_maschiff_shiny,
+	},
 	[SPECIES_CENTISKORCH] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_centiskorch,
 		.normalPal = gObjectEventPal_Overworld_centiskorch,
 		.shinyPal = gObjectEventPal_Overworld_centiskorch_shiny,
+	},
+	[SPECIES_MABOSSTIFF] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_mabosstiff,
+		.normalPal = gObjectEventPal_Overworld_mabosstiff,
+		.shinyPal = gObjectEventPal_Overworld_mabosstiff_shiny,
 	},
 	[SPECIES_CLOBBOPUS] =
 	{
@@ -19260,11 +21195,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_clobbopus,
 		.shinyPal = gObjectEventPal_Overworld_clobbopus_shiny,
 	},
+	[SPECIES_SHROODLE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_shroodle,
+		.normalPal = gObjectEventPal_Overworld_shroodle,
+		.shinyPal = gObjectEventPal_Overworld_shroodle_shiny,
+	},
 	[SPECIES_GRAPPLOCT] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_grapploct,
 		.normalPal = gObjectEventPal_Overworld_grapploct,
 		.shinyPal = gObjectEventPal_Overworld_grapploct_shiny,
+	},
+	[SPECIES_GRAFAIAI] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_grafaiai,
+		.normalPal = gObjectEventPal_Overworld_grafaiai,
+		.shinyPal = gObjectEventPal_Overworld_grafaiai_shiny,
 	},
 	[SPECIES_SINISTEA] =
 	{
@@ -19272,11 +21219,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_sinistea,
 		.shinyPal = gObjectEventPal_Overworld_sinistea_shiny,
 	},
+	[SPECIES_BRAMBLIN] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_bramblin,
+		.normalPal = gObjectEventPal_Overworld_bramblin,
+		.shinyPal = gObjectEventPal_Overworld_bramblin_shiny,
+	},
 	[SPECIES_POLTEAGEIST] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_polteageist,
 		.normalPal = gObjectEventPal_Overworld_polteageist,
 		.shinyPal = gObjectEventPal_Overworld_polteageist_shiny,
+	},
+	[SPECIES_BRAMBLEGHAST] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_brambleghast,
+		.normalPal = gObjectEventPal_Overworld_brambleghast,
+		.shinyPal = gObjectEventPal_Overworld_brambleghast_shiny,
 	},
 	[SPECIES_HATENNA] =
 	{
@@ -19284,11 +21243,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_hatenna,
 		.shinyPal = gObjectEventPal_Overworld_hatenna_shiny,
 	},
+	[SPECIES_TOEDSCOOL] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_toedscool,
+		.normalPal = gObjectEventPal_Overworld_toedscool,
+		.shinyPal = gObjectEventPal_Overworld_toedscool_shiny,
+	},
 	[SPECIES_HATTREM] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_hattrem,
 		.normalPal = gObjectEventPal_Overworld_hattrem,
 		.shinyPal = gObjectEventPal_Overworld_hattrem_shiny,
+	},
+	[SPECIES_TOEDSCRUEL] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_toedscruel,
+		.normalPal = gObjectEventPal_Overworld_toedscruel,
+		.shinyPal = gObjectEventPal_Overworld_toedscruel_shiny,
 	},
 	[SPECIES_HATTERENE] =
 	{
@@ -19296,11 +21267,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_hatterene,
 		.shinyPal = gObjectEventPal_Overworld_hatterene_shiny,
 	},
+	[SPECIES_KLAWF] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_klawf,
+		.normalPal = gObjectEventPal_Overworld_klawf,
+		.shinyPal = gObjectEventPal_Overworld_klawf_shiny,
+	},
 	[SPECIES_IMPIDIMP] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_impidimp,
 		.normalPal = gObjectEventPal_Overworld_impidimp,
 		.shinyPal = gObjectEventPal_Overworld_impidimp_shiny,
+	},
+	[SPECIES_CAPSAKID] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_capsakid,
+		.normalPal = gObjectEventPal_Overworld_capsakid,
+		.shinyPal = gObjectEventPal_Overworld_capsakid_shiny,
 	},
 	[SPECIES_MORGREM] =
 	{
@@ -19308,11 +21291,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_morgrem,
 		.shinyPal = gObjectEventPal_Overworld_morgrem_shiny,
 	},
+	[SPECIES_SCOVILLAIN] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_scovillain,
+		.normalPal = gObjectEventPal_Overworld_scovillain,
+		.shinyPal = gObjectEventPal_Overworld_scovillain_shiny,
+	},
 	[SPECIES_GRIMMSNARL] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_grimmsnarl,
 		.normalPal = gObjectEventPal_Overworld_grimmsnarl,
 		.shinyPal = gObjectEventPal_Overworld_grimmsnarl_shiny,
+	},
+	[SPECIES_RELLOR] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_rellor,
+		.normalPal = gObjectEventPal_Overworld_rellor,
+		.shinyPal = gObjectEventPal_Overworld_rellor_shiny,
 	},
 	[SPECIES_MILCERY] =
 	{
@@ -19320,11 +21315,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_milcery,
 		.shinyPal = gObjectEventPal_Overworld_milcery_shiny,
 	},
+	[SPECIES_RABSCA] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_rabsca,
+		.normalPal = gObjectEventPal_Overworld_rabsca,
+		.shinyPal = gObjectEventPal_Overworld_rabsca_shiny,
+	},
 	[SPECIES_ALCREMIE] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_alcremie,
 		.normalPal = gObjectEventPal_Overworld_alcremie,
 		.shinyPal = gObjectEventPal_Overworld_alcremie_shiny,
+	},
+	[SPECIES_FLITTLE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_flittle,
+		.normalPal = gObjectEventPal_Overworld_flittle,
+		.shinyPal = gObjectEventPal_Overworld_flittle_shiny,
 	},
 	[SPECIES_FALINKS] =
 	{
@@ -19332,11 +21339,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_falinks,
 		.shinyPal = gObjectEventPal_Overworld_falinks_shiny,
 	},
+	[SPECIES_ESPATHRA] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_espathra,
+		.normalPal = gObjectEventPal_Overworld_espathra,
+		.shinyPal = gObjectEventPal_Overworld_espathra_shiny,
+	},
 	[SPECIES_PINCURCHIN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_pincurchin,
 		.normalPal = gObjectEventPal_Overworld_pincurchin,
 		.shinyPal = gObjectEventPal_Overworld_pincurchin_shiny,
+	},
+	[SPECIES_TINKATINK] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tinkatink,
+		.normalPal = gObjectEventPal_Overworld_tinkatink,
+		.shinyPal = gObjectEventPal_Overworld_tinkatink_shiny,
 	},
 	[SPECIES_SNOM] =
 	{
@@ -19344,11 +21363,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_snom,
 		.shinyPal = gObjectEventPal_Overworld_snom_shiny,
 	},
+	[SPECIES_TINKATUFF] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tinkatuff,
+		.normalPal = gObjectEventPal_Overworld_tinkatuff,
+		.shinyPal = gObjectEventPal_Overworld_tinkatuff_shiny,
+	},
 	[SPECIES_FROSMOTH] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_frosmoth,
 		.normalPal = gObjectEventPal_Overworld_frosmoth,
 		.shinyPal = gObjectEventPal_Overworld_frosmoth_shiny,
+	},
+	[SPECIES_TINKATON] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tinkaton,
+		.normalPal = gObjectEventPal_Overworld_tinkaton,
+		.shinyPal = gObjectEventPal_Overworld_tinkaton_shiny,
 	},
 	[SPECIES_STONJOURNER] =
 	{
@@ -19356,11 +21387,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_stonjourner,
 		.shinyPal = gObjectEventPal_Overworld_stonjourner_shiny,
 	},
+	[SPECIES_WIGLETT] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_wiglett,
+		.normalPal = gObjectEventPal_Overworld_wiglett,
+		.shinyPal = gObjectEventPal_Overworld_wiglett_shiny,
+	},
 	[SPECIES_EISCUE] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_eiscue,
 		.normalPal = gObjectEventPal_Overworld_eiscue,
 		.shinyPal = gObjectEventPal_Overworld_eiscue_shiny,
+	},
+	[SPECIES_WUGTRIO] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_wugtrio,
+		.normalPal = gObjectEventPal_Overworld_wugtrio,
+		.shinyPal = gObjectEventPal_Overworld_wugtrio_shiny,
 	},
 	[SPECIES_EISCUE_NOICE_FACE] =
 	{
@@ -19368,11 +21411,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_eiscue_noice_face,
 		.shinyPal = gObjectEventPal_Overworld_eiscue_noice_face_shiny,
 	},
+	[SPECIES_BOMBIRDIER] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_bombirdier,
+		.normalPal = gObjectEventPal_Overworld_bombirdier,
+		.shinyPal = gObjectEventPal_Overworld_bombirdier_shiny,
+	},
 	[SPECIES_INDEEDEE_FEMALE] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_indeedee_female,
 		.normalPal = gObjectEventPal_Overworld_indeedee_female,
 		.shinyPal = gObjectEventPal_Overworld_indeedee_female_shiny,
+	},
+	[SPECIES_FINIZEN] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_finizen,
+		.normalPal = gObjectEventPal_Overworld_finizen,
+		.shinyPal = gObjectEventPal_Overworld_finizen_shiny,
 	},
 	[SPECIES_INDEEDEE] =
 	{
@@ -19380,11 +21435,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_indeedee,
 		.shinyPal = gObjectEventPal_Overworld_indeedee_shiny,
 	},
+	[SPECIES_PALAFIN_ZERO] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_palafin_zero,
+		.normalPal = gObjectEventPal_Overworld_palafin_zero,
+		.shinyPal = gObjectEventPal_Overworld_palafin_zero_shiny,
+	},
 	[SPECIES_MORPEKO] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_morpeko,
 		.normalPal = gObjectEventPal_Overworld_morpeko,
 		.shinyPal = gObjectEventPal_Overworld_morpeko_shiny,
+	},
+	[SPECIES_PALAFIN_HERO] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_palafin_hero,
+		.normalPal = gObjectEventPal_Overworld_palafin_hero,
+		.shinyPal = gObjectEventPal_Overworld_palafin_hero_shiny,
 	},
 	[SPECIES_MORPEKO_HANGRY] =
 	{
@@ -19392,11 +21459,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_morpeko_hangry,
 		.shinyPal = gObjectEventPal_Overworld_morpeko_hangry_shiny,
 	},
+	[SPECIES_VAROOM] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_varoom,
+		.normalPal = gObjectEventPal_Overworld_varoom,
+		.shinyPal = gObjectEventPal_Overworld_varoom_shiny,
+	},
 	[SPECIES_CUFANT] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_cufant,
 		.normalPal = gObjectEventPal_Overworld_cufant,
 		.shinyPal = gObjectEventPal_Overworld_cufant_shiny,
+	},
+	[SPECIES_REVAVROOM] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_revavroom,
+		.normalPal = gObjectEventPal_Overworld_revavroom,
+		.shinyPal = gObjectEventPal_Overworld_revavroom_shiny,
 	},
 	[SPECIES_COPPERAJAH] =
 	{
@@ -19404,11 +21483,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_copperajah,
 		.shinyPal = gObjectEventPal_Overworld_copperajah_shiny,
 	},
+	[SPECIES_CYCLIZAR] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_cyclizar,
+		.normalPal = gObjectEventPal_Overworld_cyclizar,
+		.shinyPal = gObjectEventPal_Overworld_cyclizar_shiny,
+	},
 	[SPECIES_DRACOZOLT] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_dracozolt,
 		.normalPal = gObjectEventPal_Overworld_dracozolt,
 		.shinyPal = gObjectEventPal_Overworld_dracozolt_shiny,
+	},
+	[SPECIES_ORTHWORM] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_orthworm,
+		.normalPal = gObjectEventPal_Overworld_orthworm,
+		.shinyPal = gObjectEventPal_Overworld_orthworm_shiny,
 	},
 	[SPECIES_ARCTOZOLT] =
 	{
@@ -19416,11 +21507,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_arctozolt,
 		.shinyPal = gObjectEventPal_Overworld_arctozolt_shiny,
 	},
+	[SPECIES_GLIMMET] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_glimmet,
+		.normalPal = gObjectEventPal_Overworld_glimmet,
+		.shinyPal = gObjectEventPal_Overworld_glimmet_shiny,
+	},
 	[SPECIES_DRACOVISH] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_dracovish,
 		.normalPal = gObjectEventPal_Overworld_dracovish,
 		.shinyPal = gObjectEventPal_Overworld_dracovish_shiny,
+	},
+	[SPECIES_GLIMMORA] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_glimmora,
+		.normalPal = gObjectEventPal_Overworld_glimmora,
+		.shinyPal = gObjectEventPal_Overworld_glimmora_shiny,
 	},
 	[SPECIES_ARCTOVISH] =
 	{
@@ -19428,11 +21531,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_arctovish,
 		.shinyPal = gObjectEventPal_Overworld_arctovish_shiny,
 	},
+	[SPECIES_GREAVARD] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_greavard,
+		.normalPal = gObjectEventPal_Overworld_greavard,
+		.shinyPal = gObjectEventPal_Overworld_greavard_shiny,
+	},
 	[SPECIES_DURALUDON] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_duraludon,
 		.normalPal = gObjectEventPal_Overworld_duraludon,
 		.shinyPal = gObjectEventPal_Overworld_duraludon_shiny,
+	},
+	[SPECIES_HOUNDSTONE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_houndstone,
+		.normalPal = gObjectEventPal_Overworld_houndstone,
+		.shinyPal = gObjectEventPal_Overworld_houndstone_shiny,
 	},
 	[SPECIES_DREEPY] =
 	{
@@ -19440,11 +21555,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_dreepy,
 		.shinyPal = gObjectEventPal_Overworld_dreepy_shiny,
 	},
+	[SPECIES_FLAMIGO] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_flamigo,
+		.normalPal = gObjectEventPal_Overworld_flamigo,
+		.shinyPal = gObjectEventPal_Overworld_flamigo_shiny,
+	},
 	[SPECIES_DRAKLOAK] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_drakloak,
 		.normalPal = gObjectEventPal_Overworld_drakloak,
 		.shinyPal = gObjectEventPal_Overworld_drakloak_shiny,
+	},
+	[SPECIES_CETODDLE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_cetoddle,
+		.normalPal = gObjectEventPal_Overworld_cetoddle,
+		.shinyPal = gObjectEventPal_Overworld_cetoddle_shiny,
 	},
 	[SPECIES_DRAGAPULT] =
 	{
@@ -19452,11 +21579,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_dragapult,
 		.shinyPal = gObjectEventPal_Overworld_dragapult_shiny,
 	},
+	[SPECIES_CETITAN] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_cetitan,
+		.normalPal = gObjectEventPal_Overworld_cetitan,
+		.shinyPal = gObjectEventPal_Overworld_cetitan_shiny,
+	},
 	[SPECIES_ZACIAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_zacian,
 		.normalPal = gObjectEventPal_Overworld_zacian,
 		.shinyPal = gObjectEventPal_Overworld_zacian_shiny,
+	},
+	[SPECIES_VELUZA] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_veluza,
+		.normalPal = gObjectEventPal_Overworld_veluza,
+		.shinyPal = gObjectEventPal_Overworld_veluza_shiny,
 	},
 	[SPECIES_ZACIAN_CROWNED_SWORD] =
 	{
@@ -19464,11 +21603,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_zacian_crowned_sword,
 		.shinyPal = gObjectEventPal_Overworld_zacian_crowned_sword_shiny,
 	},
+	[SPECIES_TATSUGIRI_CURLY] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tatsugiri_curly,
+		.normalPal = gObjectEventPal_Overworld_tatsugiri_curly,
+		.shinyPal = gObjectEventPal_Overworld_tatsugiri_curly_shiny,
+	},
 	[SPECIES_ZAMAZENTA] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_zamazenta,
 		.normalPal = gObjectEventPal_Overworld_zamazenta,
 		.shinyPal = gObjectEventPal_Overworld_zamazenta_shiny,
+	},
+	[SPECIES_TATSUGIRI_DROOPY] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tatsugiri_droopy,
+		.normalPal = gObjectEventPal_Overworld_tatsugiri_droopy,
+		.shinyPal = gObjectEventPal_Overworld_tatsugiri_droopy_shiny,
 	},
 	[SPECIES_ZAMAZENTA_CROWNED_SHIELD] =
 	{
@@ -19476,11 +21627,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_zamazenta_crowned_shield,
 		.shinyPal = gObjectEventPal_Overworld_zamazenta_crowned_shield_shiny,
 	},
+	[SPECIES_TATSUGIRI_STRETCHY] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tatsugiri_stretchy,
+		.normalPal = gObjectEventPal_Overworld_tatsugiri_stretchy,
+		.shinyPal = gObjectEventPal_Overworld_tatsugiri_stretchy_shiny,
+	},
 	[SPECIES_KUBFU] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_kubfu,
 		.normalPal = gObjectEventPal_Overworld_kubfu,
 		.shinyPal = gObjectEventPal_Overworld_kubfu_shiny,
+	},
+	[SPECIES_ANNIHILAPE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_annihilape,
+		.normalPal = gObjectEventPal_Overworld_annihilape,
+		.shinyPal = gObjectEventPal_Overworld_annihilape_shiny,
 	},
 	[SPECIES_URSHIFU] =
 	{
@@ -19488,11 +21651,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_urshifu,
 		.shinyPal = gObjectEventPal_Overworld_urshifu_shiny,
 	},
+	[SPECIES_CLODSIRE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_clodsire,
+		.normalPal = gObjectEventPal_Overworld_clodsire,
+		.shinyPal = gObjectEventPal_Overworld_clodsire_shiny,
+	},
 	[SPECIES_URSHIFU_RAPID_STRIKE_STYLE] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_urshifu_rapid_strike_style,
 		.normalPal = gObjectEventPal_Overworld_urshifu_rapid_strike_style,
 		.shinyPal = gObjectEventPal_Overworld_urshifu_rapid_strike_style_shiny,
+	},
+	[SPECIES_FARIGIRAF] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_farigiraf,
+		.normalPal = gObjectEventPal_Overworld_farigiraf,
+		.shinyPal = gObjectEventPal_Overworld_farigiraf_shiny,
 	},
 	[SPECIES_ZARUDE] =
 	{
@@ -19500,11 +21675,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_zarude,
 		.shinyPal = gObjectEventPal_Overworld_zarude_shiny,
 	},
+	[SPECIES_DUDUNSPARCE_TWO_SEGMENT] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_dudunsparce_two_segment,
+		.normalPal = gObjectEventPal_Overworld_dudunsparce_two_segment,
+		.shinyPal = gObjectEventPal_Overworld_dudunsparce_two_segment_shiny,
+	},
 	[SPECIES_REGIELEKI] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_regieleki,
 		.normalPal = gObjectEventPal_Overworld_regieleki,
 		.shinyPal = gObjectEventPal_Overworld_regieleki_shiny,
+	},
+	[SPECIES_GREAT_TUSK] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_great_tusk,
+		.normalPal = gObjectEventPal_Overworld_great_tusk,
+		.shinyPal = gObjectEventPal_Overworld_great_tusk_shiny,
 	},
 	[SPECIES_REGIDRAGO] =
 	{
@@ -19512,11 +21699,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_regidrago,
 		.shinyPal = gObjectEventPal_Overworld_regidrago_shiny,
 	},
+	[SPECIES_SCREAM_TAIL] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_scream_tail,
+		.normalPal = gObjectEventPal_Overworld_scream_tail,
+		.shinyPal = gObjectEventPal_Overworld_scream_tail_shiny,
+	},
 	[SPECIES_GLASTRIER] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_glastrier,
 		.normalPal = gObjectEventPal_Overworld_glastrier,
 		.shinyPal = gObjectEventPal_Overworld_glastrier_shiny,
+	},
+	[SPECIES_BRUTE_BONNET] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_brute_bonnet,
+		.normalPal = gObjectEventPal_Overworld_brute_bonnet,
+		.shinyPal = gObjectEventPal_Overworld_brute_bonnet_shiny,
 	},
 	[SPECIES_SPECTRIER] =
 	{
@@ -19524,11 +21723,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_spectrier,
 		.shinyPal = gObjectEventPal_Overworld_spectrier_shiny,
 	},
+	[SPECIES_FLUTTER_MANE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_flutter_mane,
+		.normalPal = gObjectEventPal_Overworld_flutter_mane,
+		.shinyPal = gObjectEventPal_Overworld_flutter_mane_shiny,
+	},
 	[SPECIES_CALYREX] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_calyrex,
 		.normalPal = gObjectEventPal_Overworld_calyrex,
 		.shinyPal = gObjectEventPal_Overworld_calyrex_shiny,
+	},
+	[SPECIES_SLITHER_WING] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_slither_wing,
+		.normalPal = gObjectEventPal_Overworld_slither_wing,
+		.shinyPal = gObjectEventPal_Overworld_slither_wing_shiny,
 	},
 	[SPECIES_CALYREX_ICE_RIDER] =
 	{
@@ -19536,11 +21747,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_calyrex_ice_rider,
 		.shinyPal = gObjectEventPal_Overworld_calyrex_ice_rider_shiny,
 	},
+	[SPECIES_SANDY_SHOCKS] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_sandy_shocks,
+		.normalPal = gObjectEventPal_Overworld_sandy_shocks,
+		.shinyPal = gObjectEventPal_Overworld_sandy_shocks_shiny,
+	},
 	[SPECIES_CALYREX_SHADOW_RIDER] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_calyrex_shadow_rider,
 		.normalPal = gObjectEventPal_Overworld_calyrex_shadow_rider,
 		.shinyPal = gObjectEventPal_Overworld_calyrex_shadow_rider_shiny,
+	},
+	[SPECIES_IRON_TREADS] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_iron_treads,
+		.normalPal = gObjectEventPal_Overworld_iron_treads,
+		.shinyPal = gObjectEventPal_Overworld_iron_treads_shiny,
 	},
 	[SPECIES_MEOWTH_GALARIAN] =
 	{
@@ -19548,11 +21771,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_meowth_galarian,
 		.shinyPal = gObjectEventPal_Overworld_meowth_galarian_shiny,
 	},
+	[SPECIES_IRON_BUNDLE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_iron_bundle,
+		.normalPal = gObjectEventPal_Overworld_iron_bundle,
+		.shinyPal = gObjectEventPal_Overworld_iron_bundle_shiny,
+	},
 	[SPECIES_PERRSERKER] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_perrserker,
 		.normalPal = gObjectEventPal_Overworld_perrserker,
 		.shinyPal = gObjectEventPal_Overworld_perrserker_shiny,
+	},
+	[SPECIES_IRON_HANDS] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_iron_hands,
+		.normalPal = gObjectEventPal_Overworld_iron_hands,
+		.shinyPal = gObjectEventPal_Overworld_iron_hands_shiny,
 	},
 	[SPECIES_PONYTA_GALARIAN] =
 	{
@@ -19560,11 +21795,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_ponyta_galarian,
 		.shinyPal = gObjectEventPal_Overworld_ponyta_galarian_shiny,
 	},
+	[SPECIES_IRON_JUGULIS] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_iron_jugulis,
+		.normalPal = gObjectEventPal_Overworld_iron_jugulis,
+		.shinyPal = gObjectEventPal_Overworld_iron_jugulis_shiny,
+	},
 	[SPECIES_RAPIDASH_GALARIAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_rapidash_galarian,
 		.normalPal = gObjectEventPal_Overworld_rapidash_galarian,
 		.shinyPal = gObjectEventPal_Overworld_rapidash_galarian_shiny,
+	},
+	[SPECIES_IRON_MOTH] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_iron_moth,
+		.normalPal = gObjectEventPal_Overworld_iron_moth,
+		.shinyPal = gObjectEventPal_Overworld_iron_moth_shiny,
 	},
 	[SPECIES_FARFETCHD_GALARIAN] =
 	{
@@ -19572,11 +21819,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_farfetchd_galarian,
 		.shinyPal = gObjectEventPal_Overworld_farfetchd_galarian_shiny,
 	},
+	[SPECIES_IRON_THORNS] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_iron_thorns,
+		.normalPal = gObjectEventPal_Overworld_iron_thorns,
+		.shinyPal = gObjectEventPal_Overworld_iron_thorns_shiny,
+	},
 	[SPECIES_SIRFETCHD] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_sirfetchd,
 		.normalPal = gObjectEventPal_Overworld_sirfetchd,
 		.shinyPal = gObjectEventPal_Overworld_sirfetchd_shiny,
+	},
+	[SPECIES_FRIGIBAX] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_frigibax,
+		.normalPal = gObjectEventPal_Overworld_frigibax,
+		.shinyPal = gObjectEventPal_Overworld_frigibax_shiny,
 	},
 	[SPECIES_WEEZING_GALARIAN] =
 	{
@@ -19584,11 +21843,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_weezing_galarian,
 		.shinyPal = gObjectEventPal_Overworld_weezing_galarian_shiny,
 	},
+	[SPECIES_ARCTIBAX] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_arctibax,
+		.normalPal = gObjectEventPal_Overworld_arctibax,
+		.shinyPal = gObjectEventPal_Overworld_arctibax_shiny,
+	},
 	[SPECIES_MR_MIME_GALARIAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_mr_mime_galarian,
 		.normalPal = gObjectEventPal_Overworld_mr_mime_galarian,
 		.shinyPal = gObjectEventPal_Overworld_mr_mime_galarian_shiny,
+	},
+	[SPECIES_BAXCALIBUR] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_baxcalibur,
+		.normalPal = gObjectEventPal_Overworld_baxcalibur,
+		.shinyPal = gObjectEventPal_Overworld_baxcalibur_shiny,
 	},
 	[SPECIES_MR_RIME] =
 	{
@@ -19596,11 +21867,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_mr_rime,
 		.shinyPal = gObjectEventPal_Overworld_mr_rime_shiny,
 	},
+	[SPECIES_GIMMIGHOUL_CHEST] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_gimmighoul_chest,
+		.normalPal = gObjectEventPal_Overworld_gimmighoul_chest,
+		.shinyPal = gObjectEventPal_Overworld_gimmighoul_chest_shiny,
+	},
 	[SPECIES_CORSOLA_GALARIAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_corsola_galarian,
 		.normalPal = gObjectEventPal_Overworld_corsola_galarian,
 		.shinyPal = gObjectEventPal_Overworld_corsola_galarian_shiny,
+	},
+	[SPECIES_GHOLDENGO] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_gholdengo,
+		.normalPal = gObjectEventPal_Overworld_gholdengo,
+		.shinyPal = gObjectEventPal_Overworld_gholdengo_shiny,
 	},
 	[SPECIES_CURSOLA] =
 	{
@@ -19608,11 +21891,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_cursola,
 		.shinyPal = gObjectEventPal_Overworld_cursola_shiny,
 	},
+	[SPECIES_WO_CHIEN] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_wo_chien,
+		.normalPal = gObjectEventPal_Overworld_wo_chien,
+		.shinyPal = gObjectEventPal_Overworld_wo_chien_shiny,
+	},
 	[SPECIES_ZIGZAGOON_GALARIAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_zigzagoon_galarian,
 		.normalPal = gObjectEventPal_Overworld_zigzagoon_galarian,
 		.shinyPal = gObjectEventPal_Overworld_zigzagoon_galarian_shiny,
+	},
+	[SPECIES_CHIEN_PAO] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_chien_pao,
+		.normalPal = gObjectEventPal_Overworld_chien_pao,
+		.shinyPal = gObjectEventPal_Overworld_chien_pao_shiny,
 	},
 	[SPECIES_LINOONE_GALARIAN] =
 	{
@@ -19620,11 +21915,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_linoone_galarian,
 		.shinyPal = gObjectEventPal_Overworld_linoone_galarian_shiny,
 	},
+	[SPECIES_TING_LU] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_ting_lu,
+		.normalPal = gObjectEventPal_Overworld_ting_lu,
+		.shinyPal = gObjectEventPal_Overworld_ting_lu_shiny,
+	},
 	[SPECIES_OBSTAGOON] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_obstagoon,
 		.normalPal = gObjectEventPal_Overworld_obstagoon,
 		.shinyPal = gObjectEventPal_Overworld_obstagoon_shiny,
+	},
+	[SPECIES_CHI_YU] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_chi_yu,
+		.normalPal = gObjectEventPal_Overworld_chi_yu,
+		.shinyPal = gObjectEventPal_Overworld_chi_yu_shiny,
 	},
 	[SPECIES_DARUMAKA_GALARIAN] =
 	{
@@ -19632,11 +21939,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_darumaka_galarian,
 		.shinyPal = gObjectEventPal_Overworld_darumaka_galarian_shiny,
 	},
+	[SPECIES_ROARING_MOON] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_roaring_moon,
+		.normalPal = gObjectEventPal_Overworld_roaring_moon,
+		.shinyPal = gObjectEventPal_Overworld_roaring_moon_shiny,
+	},
 	[SPECIES_DARMANITAN_GALARIAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_darmanitan_galarian,
 		.normalPal = gObjectEventPal_Overworld_darmanitan_galarian,
 		.shinyPal = gObjectEventPal_Overworld_darmanitan_galarian_shiny,
+	},
+	[SPECIES_IRON_VALIANT] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_iron_valiant,
+		.normalPal = gObjectEventPal_Overworld_iron_valiant,
+		.shinyPal = gObjectEventPal_Overworld_iron_valiant_shiny,
 	},
 	[SPECIES_DARMANITAN_GALARIAN_ZEN_MODE] =
 	{
@@ -19644,11 +21963,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_darmanitan_galarian_zen_mode,
 		.shinyPal = gObjectEventPal_Overworld_darmanitan_galarian_zen_mode_shiny,
 	},
+	[SPECIES_WALKING_WAKE] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_walking_wake,
+		.normalPal = gObjectEventPal_Overworld_walking_wake,
+		.shinyPal = gObjectEventPal_Overworld_walking_wake_shiny,
+	},
 	[SPECIES_YAMASK_GALARIAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_yamask_galarian,
 		.normalPal = gObjectEventPal_Overworld_yamask_galarian,
 		.shinyPal = gObjectEventPal_Overworld_yamask_galarian_shiny,
+	},
+	[SPECIES_IRON_LEAVES] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_iron_leaves,
+		.normalPal = gObjectEventPal_Overworld_iron_leaves,
+		.shinyPal = gObjectEventPal_Overworld_iron_leaves_shiny,
 	},
 	[SPECIES_RUNERIGUS] =
 	{
@@ -19656,11 +21987,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_runerigus,
 		.shinyPal = gObjectEventPal_Overworld_runerigus_shiny,
 	},
+	[SPECIES_DIPPLIN] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_dipplin,
+		.normalPal = gObjectEventPal_Overworld_dipplin,
+		.shinyPal = gObjectEventPal_Overworld_dipplin_shiny,
+	},
 	[SPECIES_STUNFISK_GALARIAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_stunfisk_galarian,
 		.normalPal = gObjectEventPal_Overworld_stunfisk_galarian,
 		.shinyPal = gObjectEventPal_Overworld_stunfisk_galarian_shiny,
+	},
+	[SPECIES_POLTCHAGEIST] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_poltchageist,
+		.normalPal = gObjectEventPal_Overworld_poltchageist,
+		.shinyPal = gObjectEventPal_Overworld_poltchageist_shiny,
 	},
 	[SPECIES_SLOWPOKE_GALARIAN] =
 	{
@@ -19668,11 +22011,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_slowpoke_galarian,
 		.shinyPal = gObjectEventPal_Overworld_slowpoke_galarian_shiny,
 	},
+	[SPECIES_SINISTCHA] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_sinistcha,
+		.normalPal = gObjectEventPal_Overworld_sinistcha,
+		.shinyPal = gObjectEventPal_Overworld_sinistcha_shiny,
+	},
 	[SPECIES_SLOWBRO_GALARIAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_slowbro_galarian,
 		.normalPal = gObjectEventPal_Overworld_slowbro_galarian,
 		.shinyPal = gObjectEventPal_Overworld_slowbro_galarian_shiny,
+	},
+	[SPECIES_OKIDOGI] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_okidogi,
+		.normalPal = gObjectEventPal_Overworld_okidogi,
+		.shinyPal = gObjectEventPal_Overworld_okidogi_shiny,
 	},
 	[SPECIES_SLOWKING_GALARIAN] =
 	{
@@ -19680,11 +22035,23 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_slowking_galarian,
 		.shinyPal = gObjectEventPal_Overworld_slowking_galarian_shiny,
 	},
+	[SPECIES_MUNKIDORI] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_munkidori,
+		.normalPal = gObjectEventPal_Overworld_munkidori,
+		.shinyPal = gObjectEventPal_Overworld_munkidori_shiny,
+	},
 	[SPECIES_ARTICUNO_GALARIAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_articuno_galarian,
 		.normalPal = gObjectEventPal_Overworld_articuno_galarian,
 		.shinyPal = gObjectEventPal_Overworld_articuno_galarian_shiny,
+	},
+	[SPECIES_FEZANDIPITI] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_fezandipiti,
+		.normalPal = gObjectEventPal_Overworld_fezandipiti,
+		.shinyPal = gObjectEventPal_Overworld_fezandipiti_shiny,
 	},
 	[SPECIES_ZAPDOS_GALARIAN] =
 	{
@@ -19692,16 +22059,100 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.normalPal = gObjectEventPal_Overworld_zapdos_galarian,
 		.shinyPal = gObjectEventPal_Overworld_zapdos_galarian_shiny,
 	},
+	[SPECIES_OGERPON_TEAL_MASK] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_ogerpon_teal_mask,
+		.normalPal = gObjectEventPal_Overworld_ogerpon_teal_mask,
+		.shinyPal = gObjectEventPal_Overworld_ogerpon_teal_mask_shiny,
+	},
 	[SPECIES_MOLTRES_GALARIAN] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_moltres_galarian,
 		.normalPal = gObjectEventPal_Overworld_moltres_galarian,
 		.shinyPal = gObjectEventPal_Overworld_moltres_galarian_shiny,
 	},
+	[SPECIES_OGERPON_WELLSPRING_MASK] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_ogerpon_wellspring_mask,
+		.normalPal = gObjectEventPal_Overworld_ogerpon_wellspring_mask,
+		.shinyPal = gObjectEventPal_Overworld_ogerpon_wellspring_mask_shiny,
+	},
 	[SPECIES_ETERNATUS] =
 	{
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_eternatus,
 		.normalPal = gObjectEventPal_Overworld_eternatus,
 		.shinyPal = gObjectEventPal_Overworld_eternatus_shiny,
+	},
+	[SPECIES_OGERPON_HEARTHFLAME_MASK] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_ogerpon_hearthflame_mask,
+		.normalPal = gObjectEventPal_Overworld_ogerpon_hearthflame_mask,
+		.shinyPal = gObjectEventPal_Overworld_ogerpon_hearthflame_mask_shiny,
+	},
+	[SPECIES_OGERPON_CORNERSTONE_MASK] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_ogerpon_cornerstone_mask,
+		.normalPal = gObjectEventPal_Overworld_ogerpon_cornerstone_mask,
+		.shinyPal = gObjectEventPal_Overworld_ogerpon_cornerstone_mask_shiny,
+	},
+	[SPECIES_TAUROS_PALDEAN_COMBAT_BREED] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tauros_paldean_combat_breed,
+		.normalPal = gObjectEventPal_Overworld_tauros_paldean_combat_breed,
+		.shinyPal = gObjectEventPal_Overworld_tauros_paldean_combat_breed_shiny,
+	},
+	[SPECIES_TAUROS_PALDEAN_BLAZE_BREED] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tauros_paldean_blaze_breed,
+		.normalPal = gObjectEventPal_Overworld_tauros_paldean_blaze_breed,
+		.shinyPal = gObjectEventPal_Overworld_tauros_paldean_blaze_breed_shiny,
+	},
+	[SPECIES_TAUROS_PALDEAN_AQUA_BREED] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_tauros_paldean_aqua_breed,
+		.normalPal = gObjectEventPal_Overworld_tauros_paldean_aqua_breed,
+		.shinyPal = gObjectEventPal_Overworld_tauros_paldean_aqua_breed_shiny,
+	},
+	[SPECIES_WOOPER_PALDEAN] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_wooper_paldean,
+		.normalPal = gObjectEventPal_Overworld_wooper_paldean,
+		.shinyPal = gObjectEventPal_Overworld_wooper_paldean_shiny,
+	},
+	[SPECIES_URSALUNA_BLOODMOON] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_ursaluna_bloodmoon,
+		.normalPal = gObjectEventPal_Overworld_ursaluna_bloodmoon,
+		.shinyPal = gObjectEventPal_Overworld_ursaluna_bloodmoon_shiny,
+	},
+	[SPECIES_DONDOZO] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_dondozo,
+		.normalPal = gObjectEventPal_Overworld_dondozo,
+		.shinyPal = gObjectEventPal_Overworld_dondozo_shiny,
+	},
+	[SPECIES_DUDUNSPARCE_THREE_SEGMENT] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_dudunsparce_three_segment,
+		.normalPal = gObjectEventPal_Overworld_dudunsparce_three_segment,
+		.shinyPal = gObjectEventPal_Overworld_dudunsparce_three_segment_shiny,
+	},
+	[SPECIES_KINGAMBIT] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_kingambit,
+		.normalPal = gObjectEventPal_Overworld_kingambit,
+		.shinyPal = gObjectEventPal_Overworld_kingambit_shiny,
+	},
+	[SPECIES_KORAIDON] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_koraidon,
+		.normalPal = gObjectEventPal_Overworld_koraidon,
+		.shinyPal = gObjectEventPal_Overworld_koraidon_shiny,
+	},
+	[SPECIES_MIRAIDON] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_miraidon,
+		.normalPal = gObjectEventPal_Overworld_miraidon,
+		.shinyPal = gObjectEventPal_Overworld_miraidon_shiny,
 	},
 };
