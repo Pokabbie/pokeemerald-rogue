@@ -374,6 +374,7 @@
 #define MON_FLAGS_GEN3NU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3PU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3LC                    MON_FLAG_NONE
+#define MON_FLAGS_GEN3ZU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3DOUBLESOU             MON_FLAG_DOUBLES_STRONG
 #define MON_FLAGS_GEN31V1                   MON_FLAG_SINGLES_STRONG
 #endif

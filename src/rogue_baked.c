@@ -16,12 +16,6 @@
 #undef AGB_ASSERT
 #define AGB_ASSERT(...)
 
-#ifdef ROGUE_EXPANSION
-extern const struct SpeciesInfo gSpeciesInfo[];
-#else
-extern const struct BaseStats gBaseStats[];
-#endif
-
 #else
 #include "global.h"
 #include "data.h"
@@ -38,6 +32,15 @@ extern const struct BaseStats gBaseStats[];
 #include "rogue_charms.h"
 #include "rogue_pokedex.h"
 #include "rogue_trainers.h"
+#endif
+
+#ifdef ROGUE_EXPANSION
+extern const struct SpeciesInfo gSpeciesInfo[];
+#else
+#define EVOLUTIONS_END 0
+
+extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+extern const struct BaseStats gBaseStats[];
 #endif
 
 #include "rogue_baked.h"
@@ -58,7 +61,6 @@ extern const u8 gText_TrainerName_Leaf[];
 extern const u8 gText_TrainerName_Ethan[];
 extern const u8 gText_TrainerName_Lyra[];
 
-//extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 extern const struct RogueItem gRogueItems[];
 
 #ifdef ROGUE_BAKE_VALID
@@ -141,7 +143,11 @@ bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result)
 
 static const struct Evolution* GetBaseEvolution(u16 species, u8 evoIdx)
 {
+#ifdef ROGUE_EXPANSION
     return &gSpeciesInfo[species].evolutions[evoIdx];
+#else
+    return &gEvolutionTable[species][evoIdx];
+#endif
 }
 
 #ifndef ROGUE_BAKE_VALID
@@ -1314,6 +1320,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     {
         case ITEM_SACRED_ASH:
             outItem->pocket = POCKET_KEY_ITEMS;
+            break;
+
+        case ITEM_ESCAPE_ROPE:
+            outItem->pocket = POCKET_ITEMS;
             break;
 
         case ITEM_NUGGET:

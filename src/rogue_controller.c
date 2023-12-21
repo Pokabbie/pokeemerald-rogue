@@ -1834,6 +1834,7 @@ struct StarterSelectionData
 #define TYPE_x2     40
 #define TYPE_x4     80
 
+#ifdef ROGUE_EXPANSION
 uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk, u32 battlerDef, u32 defAbility, bool32 recordAbilities);
 
 int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode)
@@ -1857,6 +1858,10 @@ int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbili
         return TYPE_x0_50;
     }
 }
+#else
+// Declared elsewhere in Vanilla
+int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode);
+#endif
 
 static bool8 IsSpeciesGoodAgainstInternal(u16 atkSpecies, u16 defSpecies)
 {
@@ -4482,9 +4487,6 @@ bool8 Rogue_OverrideTrainerItems(u16* items)
 
     return TRUE;
 }
-
-extern const u16* const gRegionalDexSpecies[];
-extern u16 gRegionalDexSpeciesCount[];
 
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party)
 {

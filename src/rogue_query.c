@@ -23,8 +23,13 @@
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
 
-#define QUERY_BUFFER_COUNT          128
+#ifdef ROGUE_EXPANSION
 #define QUERY_NUM_SPECIES           PLACEHOLDER_START
+#else
+#define QUERY_NUM_SPECIES           NUM_SPECIES
+#endif
+
+#define QUERY_BUFFER_COUNT          128
 #define QUERY_NUM_ITEMS             ITEMS_COUNT
 #define QUERY_NUM_TRAINERS          256 // just a vague guess that needs to at least match gRogueTrainerCount
 #define QUERY_NUM_ADVENTURE_PATH    ROGUE_ADVPATH_ROOM_CAPACITY

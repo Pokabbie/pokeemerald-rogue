@@ -178,8 +178,8 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_BuildingSupplies,
         .pocket = POCKET_KEY_ITEMS,
         .registrability = FALSE,
-        .iconImage = gItemIcon_CGear,
-        .iconPalette = gItemIconPalette_CGear, // todo - need to fixup
+        .iconImage = gItemIcon_BuildResources,
+        .iconPalette = gItemIconPalette_BuildResources,
         //.iconImage = gItemIcon_OaksParcel,
         //.iconPalette = gItemIconPalette_OaksParcel,
     },

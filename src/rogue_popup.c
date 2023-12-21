@@ -852,7 +852,11 @@ void Rogue_PushPopup_NextPartyNotification()
             // Check for evolutions
             if(!gPlayerParty[i].rogueExtraData.hasPendingEvo)
             {
+#ifdef ROGUE_EXPANSION
                 u16 targetSpecies = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, ITEM_NONE, NULL);
+#else
+                u16 targetSpecies = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, ITEM_NONE);
+#endif
                 if(targetSpecies != SPECIES_NONE)
                 {
                     Rogue_PushPopup_NewEvos(i);

@@ -30,6 +30,10 @@
 #define _(str) (str)
 #define ARRAY_COUNT(array) (size_t)(sizeof(array) / sizeof((array)[0]))
 
+#define INCBIN_U8(...) { 0 }
+#define INCBIN_U16(...) { 0 }
+#define INCBIN_U32(...) { 0 }
+
 #ifdef ROGUE_EXPANSION
 #define COMPOUND_STRING(str) ""
 #define POKEDEX_DESC_STRING(str) ""
@@ -40,10 +44,6 @@
 #define MON_COORDS_SIZE(width, height)(DIV_ROUND_UP(width, 8) << 4 | DIV_ROUND_UP(height, 8))
 #define GET_MON_COORDS_WIDTH(size)((size >> 4) * 8)
 #define GET_MON_COORDS_HEIGHT(size)((size & 0xF) * 8)
-
-#define INCBIN_U8(...) { 0 }
-#define INCBIN_U16(...) { 0 }
-#define INCBIN_U32(...) { 0 }
 
 struct Fusion
 {

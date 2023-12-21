@@ -3214,10 +3214,8 @@ u8 const* RoguePokedex_GetSpeciesName(u16 species)
 {
 #ifdef ROGUE_EXPANSION
     return gSpeciesInfo[species].speciesName;
-#define gRogueSpeciesInfo  gSpeciesInfo
 #else
-    // fixme
-    return gSpeciesInfo[species].speciesName;
+    return gSpeciesNames[species];
 #endif
 }
 
