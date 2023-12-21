@@ -1,6 +1,7 @@
 #pragma once
 #include "gba/gba.h"
 #include "constants/global.h"
+#include "constants/rogue.h"
 
 #ifdef ROGUE_EXPANSION
 #include "config.h"
@@ -31,6 +32,7 @@
 
 #ifdef ROGUE_EXPANSION
 #define COMPOUND_STRING(str) ""
+#define POKEDEX_DESC_STRING(str) ""
 #define FORM_SPECIES_END (0xffff)
 
 #define DIV_ROUND_UP(val, roundBy)(((val) / (roundBy)) + (((val) % (roundBy)) ? 1 : 0))

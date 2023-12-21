@@ -233,7 +233,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .categoryName = _("Unknown"),
         .height = 0,
         .weight = 0,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This is a newly discovered Pokémon.\n"
             "It is currently under investigation.\n"
             "No detailed information is available\n"
@@ -306,7 +306,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .categoryName = _("Unknown"),
         .height = 0,
         .weight = 0,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This is a newly discovered Pokémon.\n"
             "It is currently under investigation.\n"
             "No detailed information is available\n"

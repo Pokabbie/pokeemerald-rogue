@@ -532,7 +532,9 @@
 #define WILD_ENCOUNTER_WATER_CAPACITY 3
 #define WILD_ENCOUNTER_TOTAL_CAPACITY (WILD_ENCOUNTER_GRASS_CAPACITY + WILD_ENCOUNTER_WATER_CAPACITY)
 
-#define MON_TYPE_VAL_TO_FLAGS(type)     ((u32)(type == TYPE_NONE ? 0U : ((u32)1 << (u32)type)))
+// don't waste a bit on mystery type (shift everything down)
+#define __MON_TYPE_VAL(type)     (type > TYPE_MYSTERY ? (type - 1) : type)
+#define MON_TYPE_VAL_TO_FLAGS(type)     ((u32)(type == TYPE_NONE || type == TYPE_MYSTERY ? 0U : ((u32)1 << (u32)__MON_TYPE_VAL(type))))
 
 #define RIDE_WHISTLE_BASIC      0
 #define RIDE_WHISTLE_GOLD       1

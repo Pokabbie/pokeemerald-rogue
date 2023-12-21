@@ -62,9 +62,7 @@ extern const u8 gText_TrainerName_Lyra[];
 extern const struct RogueItem gRogueItems[];
 
 #ifdef ROGUE_BAKE_VALID
-extern const u16 gRogueBake_EggSpecies[NUM_SPECIES];
-extern const u8 gRogueBake_EvolutionCount[NUM_SPECIES];
-extern const u32 gRogueBake_EvolutionChainTypeFlags[NUM_SPECIES];
+extern const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES];
 extern const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_BYTE_COUNT];
 #endif
 
@@ -1528,7 +1526,7 @@ u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level)
 u16 Rogue_GetEggSpecies(u16 species)
 {
 #ifdef ROGUE_BAKE_VALID
-    return gRogueBake_EggSpecies[species];
+    return gRogueBake_SpeciesData[species].eggSpecies;
 
 #else
     u16 e, s, spe;
@@ -1579,7 +1577,7 @@ u16 Rogue_GetEggSpecies(u16 species)
 u8 Rogue_GetMaxEvolutionCount(u16 species)
 {
 #ifdef ROGUE_BAKE_VALID
-    return gRogueBake_EvolutionCount[species];
+    return gRogueBake_SpeciesData[species].evolutionCount;
 #else
     return GetMaxEvolutionCountInternal(species);
 #endif
@@ -1646,7 +1644,7 @@ void Rogue_AppendSpeciesTypeFlags(u16 species, u32* outFlags)
 u32 Rogue_GetSpeciesEvolutionChainTypeFlags(u16 species)
 {
 #ifdef ROGUE_BAKE_VALID
-    return gRogueBake_EvolutionChainTypeFlags[species];
+    return gRogueBake_SpeciesData[species].evolutionChainTypeFlags;
 #elif defined(ROGUE_BAKING)
     return 0;
 #else

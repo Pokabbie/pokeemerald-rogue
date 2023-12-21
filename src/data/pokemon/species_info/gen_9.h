@@ -29,7 +29,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Grass Cat"),
         .height = 4,
         .weight = 41,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The sweet scent its body gives off\n"
             "mesmerizes those around it. The\n"
             "scent grows stronger when this\n"
@@ -77,7 +77,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Grass Cat"),
         .height = 9,
         .weight = 122,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Floragato deftly wields the vine\n"
             "hidden beneath its long fur, slamming\n"
             "the hard flower bud against its\n"
@@ -125,7 +125,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Magician"),
         .height = 15,
         .weight = 312,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon uses the reflective\n"
             "fur lining its cape to camouflage the\n"
             "stem of its flower, creating the\n"
@@ -174,7 +174,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Fire Croc"),
         .height = 4,
         .weight = 98,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Its flame sac is small, so energy is\n"
             "always leaking out. This energy is\n"
             "released from the dent atop\n"
@@ -222,7 +222,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Fire Croc"),
         .height = 10,
         .weight = 307,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The combination of Crocalor's fire\n"
             "energy and overflowing vitality has\n"
             "caused an egg-shaped fireball to\n"
@@ -270,7 +270,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Singer"),
         .height = 16,
         .weight = 3265,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Skeledirge's gentle singing\n"
             "soothes the souls of all that hear it. It\n"
             "burns its enemies to a crisp with\n"
@@ -319,7 +319,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Duckling"),
         .height = 5,
         .weight = 61,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Its strong legs let it easily swim\n"
             "around in even fast-flowing rivers.\n"
             "It likes to keep things tidy and is\n"
@@ -367,7 +367,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Practicing"),
         .height = 12,
         .weight = 215,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The hardworking Quaxwell observes\n"
             "people and Pokémon from various\n"
             "regions and incorporates their\n"
@@ -415,7 +415,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Dancer"),
         .height = 18,
         .weight = 619,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "A single kick from a Quaquaval can\n"
             "send a truck rolling. This Pokémon\n"
             "uses its powerful legs to perform\n"
@@ -464,7 +464,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Hog"),
         .height = 5,
         .weight = 102,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It searches for food all day. It\n"
             "possesses a keen sense of smell but\n"
             "doesn't use it for anything other\n"
@@ -521,7 +521,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .genderRatio = PERCENT_FEMALE(0),
         .abilities = { ABILITY_LINGERING_AROMA, ABILITY_GLUTTONY, ABILITY_THICK_FAT },
         .cryId = CRY_OINKOLOGNE_MALE,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Oinkologne is proud of its fine,\n"
             "glossy skin. It emits a concentrated\n"
             "scent from the tip of its tail."),
@@ -551,7 +551,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .genderRatio = PERCENT_FEMALE(100),
         .abilities = { ABILITY_AROMA_VEIL, ABILITY_GLUTTONY, ABILITY_THICK_FAT },
         .cryId = CRY_OINKOLOGNE_FEMALE,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This is a meticulous Pokémon that\n"
             "likes to keep things tidy. It\n"
             "shrouds itself in a floral aroma that\n"
@@ -596,7 +596,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("String Ball"),
         .height = 3,
         .weight = 40,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The thread it secretes from its\n"
             "rear is as strong as wire. The secret\n"
             "behind the thread's strength is the\n"
@@ -644,7 +644,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Trap"),
         .height = 10,
         .weight = 165,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It clings to branches and ceilings\n"
             "using its threads and moves without\n"
             "a sound. It takes out its prey\n"
@@ -693,7 +693,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Grasshopper"),
         .height = 2,
         .weight = 10,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It has its third set of legs folded\n"
             "up. When it's in a tough spot, this\n"
             "Pokémon jumps over 30 feet using the\n"
@@ -741,7 +741,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Grasshopper"),
         .height = 10,
         .weight = 175,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "When it decides to fight all out, it\n"
             "stands on its previously folded\n"
             "legs to enter Showdown Mode. It\n"
@@ -790,7 +790,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Mouse"),
         .height = 3,
         .weight = 25,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The pads of its paws are\n"
             "electricity-discharging organs. Pawmi fires\n"
             "electricity from its forepaws while\n"
@@ -838,7 +838,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Mouse"),
         .height = 4,
         .weight = 65,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "When its group is attacked, Pawmo\n"
             "is the first to leap into battle,\n"
             "defeating enemies with a fighting\n"
@@ -886,7 +886,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Hands-On"),
         .height = 9,
         .weight = 410,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon normally is slow to\n"
             "react, but once it enters battle, it\n"
             "will strike down its enemies with\n"
@@ -935,7 +935,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Couple"),
         .height = 3,
         .weight = 18,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Exhibiting great teamwork, they\n"
             "use their incisors to cut pieces out\n"
             "of any material that might be useful\n"
@@ -1000,7 +1000,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         MAUSHOLD_SPECIES_INFO,
         .cryId = CRY_MAUSHOLD_FAMILY_OF_THREE,
         .weight = 23,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The little one just appeared one\n"
             "day. They all live together like a\n"
             "family, but the relationship between\n"
@@ -1014,7 +1014,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         MAUSHOLD_SPECIES_INFO,
         .cryId = CRY_MAUSHOLD_FAMILY_OF_FOUR,
         .weight = 28,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The larger pair protects the little\n"
             "ones during battles. When facing\n"
             "strong opponents, the whole group\n"
@@ -1051,7 +1051,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Puppy"),
         .height = 3,
         .weight = 109,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon is smooth and moist\n"
             "to the touch. Yeast in Fidough's\n"
             "breath induces fermentation in the\n"
@@ -1099,7 +1099,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Dog"),
         .height = 5,
         .weight = 149,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The pleasant aroma that emanates\n"
             "from this Pokémon's body helps\n"
             "wheat grow, so Dachsbun has been\n"
@@ -1148,7 +1148,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Olive"),
         .height = 3,
         .weight = 65,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon converts nutrients\n"
             "into oil, which it stores in the fruit\n"
             "on its head. It can easily go a whole\n"
@@ -1196,7 +1196,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Olive"),
         .height = 6,
         .weight = 119,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Dolliv shares its tasty, fresh-\n"
             "scented oil with others. This species\n"
             "has coexisted with humans since\n"
@@ -1244,7 +1244,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Olive"),
         .height = 14,
         .weight = 482,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon drives back enemies\n"
             "by launching its rich, aromatic oil at\n"
             "them with enough force to smash a\n"
@@ -1310,7 +1310,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         SQUAWKABILLY_MISC_INFO,
         .abilities = { ABILITY_INTIMIDATE, ABILITY_HUSTLE, ABILITY_GUTS },
         .bodyColor = BODY_COLOR_GREEN,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Green-feathered flocks hold the\n"
             "most sway. When they're out\n"
             "searching for food in the mornings and\n"
@@ -1324,7 +1324,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         SQUAWKABILLY_MISC_INFO,
         .abilities = { ABILITY_INTIMIDATE, ABILITY_HUSTLE, ABILITY_GUTS },
         .bodyColor = BODY_COLOR_BLUE,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The largest of their flocks can\n"
             "contain more than 50 individuals. They\n"
             "fly around towns and forests,\n"
@@ -1338,7 +1338,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         SQUAWKABILLY_MISC_INFO,
         .abilities = { ABILITY_INTIMIDATE, ABILITY_HUSTLE, ABILITY_SHEER_FORCE },
         .bodyColor = BODY_COLOR_YELLOW,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "These Squawkabilly are hotheaded,\n"
             "and their fighting style is vicious.\n"
             "They'll leap within reach of their\n"
@@ -1352,7 +1352,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         SQUAWKABILLY_MISC_INFO,
         .abilities = { ABILITY_INTIMIDATE, ABILITY_HUSTLE, ABILITY_SHEER_FORCE },
         .bodyColor = BODY_COLOR_WHITE,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Though these Squawkabilly are the\n"
             "fewest in number, they have no\n"
             "trouble living in towns since they blend\n"
@@ -1388,7 +1388,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Rock Salt"),
         .height = 4,
         .weight = 160,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The ground scrapes its body as it\n"
             "travels, causing it to leave salt\n"
             "behind. Salt is constantly being created\n"
@@ -1436,7 +1436,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Rock Salt"),
         .height = 6,
         .weight = 1050,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It compresses rock salt inside its\n"
             "body and shoots out hardened salt\n"
             "pellets with enough force to\n"
@@ -1484,7 +1484,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Rock Salt"),
         .height = 23,
         .weight = 2400,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Garganacl will rub its fingertips\n"
             "together and sprinkle injured\n"
             "Pokémon with salt. Even severe wounds will\n"
@@ -1533,7 +1533,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Fire Child"),
         .height = 6,
         .weight = 105,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Burnt charcoal came to life and\n"
             "became a Pokémon. Possessing a fiery\n"
             "fighting spirit, Charcadet will\n"
@@ -1582,7 +1582,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Fire Warrior"),
         .height = 15,
         .weight = 850,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Armarouge evolved through the use\n"
             "of a set of armor that belonged to\n"
             "a distinguished warrior. This\n"
@@ -1629,7 +1629,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Fire Blades"),
         .height = 16,
         .weight = 620,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The fiery blades on its arms burn\n"
             "fiercely with the lingering\n"
             "resentment of a sword wielder who fell\n"
@@ -1678,7 +1678,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("EleTadpole"),
         .height = 3,
         .weight = 4,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Tadbulb shakes its tail to\n"
             "generate electricity. If it senses danger,\n"
             "it will make its head blink on and off\n"
@@ -1727,7 +1727,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("EleFrog"),
         .height = 12,
         .weight = 1130,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "When this Pokémon expands and\n"
             "contracts its wobbly body, the belly-\n"
             "button dynamo in its stomach\n"
@@ -1776,7 +1776,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Storm Petrel"),
         .height = 4,
         .weight = 36,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "When its wings catch the wind, the\n"
             "bones within produce electricity.\n"
             "This Pokémon dives into the ocean,\n"
@@ -1824,7 +1824,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Frigatebird"),
         .height = 14,
         .weight = 386,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It uses its throat sac to store\n"
             "electricity generated by its wings.\n"
             "There's hardly any oil in its feathers,\n"
@@ -1873,7 +1873,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Rascal"),
         .height = 5,
         .weight = 160,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Its well-developed jaw and fangs\n"
             "are strong enough to crunch through\n"
             "boulders, and its thick fat makes\n"
@@ -1921,7 +1921,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Boss"),
         .height = 11,
         .weight = 610,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Mabosstiff loves playing with\n"
             "children. Though usually gentle, it\n"
             "takes on an intimidating look when\n"
@@ -1970,7 +1970,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Toxic Mouse"),
         .height = 2,
         .weight = 7,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "To keep enemies away from its\n"
             "territory, it paints markings around its\n"
             "nest using a poisonous liquid that\n"
@@ -2018,7 +2018,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Toxic Monkey"),
         .height = 7,
         .weight = 272,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Each Grafaiai paints its own\n"
             "individual pattern, and it will paint that\n"
             "same pattern over and over again\n"
@@ -2067,7 +2067,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Tumbleweed"),
         .height = 6,
         .weight = 6,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "A soul unable to move on to the\n"
             "afterlife was blown around by the wind\n"
             "until it got tangled up with dried\n"
@@ -2115,7 +2115,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Tumbleweed"),
         .height = 12,
         .weight = 60,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It will open the branches of its\n"
             "head to envelop its prey. Once it\n"
             "absorbs all the life energy it needs, it\n"
@@ -2164,7 +2164,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Woodear"),
         .height = 9,
         .weight = 330,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Though it looks like Tentacool,\n"
             "Toedscool is a completely different\n"
             "species. Its legs may be thin, but it\n"
@@ -2212,7 +2212,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Woodear"),
         .height = 19,
         .weight = 580,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "These Pokémon gather into groups\n"
             "and form colonies deep within\n"
             "forests. They absolutely hate it when\n"
@@ -2261,7 +2261,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ambush"),
         .height = 13,
         .weight = 790,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Klawf hangs upside-down from\n"
             "cliffs, waiting for prey. But Klawf can't\n"
             "remain in this position for long\n"
@@ -2310,7 +2310,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Spicy Pepper"),
         .height = 3,
         .weight = 30,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The more sunlight this Pokémon\n"
             "bathes in, the more spicy chemicals are\n"
             "produced by its body, and thus the\n"
@@ -2358,7 +2358,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Spicy Pepper"),
         .height = 9,
         .weight = 150,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The green head has turned vicious\n"
             "due to the spicy chemicals\n"
             "stimulating its brain. Once it goes on a\n"
@@ -2407,7 +2407,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Rolling"),
         .height = 2,
         .weight = 10,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon creates a mud ball by\n"
             "mixing sand and dirt with psychic\n"
             "energy. It treasures its mud ball more\n"
@@ -2455,7 +2455,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Rolling"),
         .height = 3,
         .weight = 35,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The body that supports the ball\n"
             "barely moves. Therefore, it is thought\n"
             "that the true body of this Pokémon\n"
@@ -2504,7 +2504,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Frill"),
         .height = 2,
         .weight = 15,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Flittle's toes levitate about half\n"
             "an inch above the ground because of\n"
             "the psychic power emitted from the\n"
@@ -2552,7 +2552,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ostrich"),
         .height = 19,
         .weight = 900,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It immobilizes opponents by\n"
             "bathing them in psychic power from its\n"
             "large eyes. Despite its appearance, it\n"
@@ -2601,7 +2601,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Metalsmith"),
         .height = 4,
         .weight = 89,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon pounds iron scraps\n"
             "together to make a hammer. It will\n"
             "remake the hammer again and again until\n"
@@ -2649,7 +2649,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Hammer"),
         .height = 7,
         .weight = 591,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "These Pokémon make their homes in\n"
             "piles of scrap metal. They test the\n"
             "strength of each other's hammers by\n"
@@ -2697,7 +2697,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Hammer"),
         .height = 7,
         .weight = 1128,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The hammer tops 220 pounds, yet it\n"
             "gets swung around easily by\n"
             "Tinkaton as it steals whatever it pleases\n"
@@ -2746,7 +2746,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Garden Eel"),
         .height = 12,
         .weight = 18,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon can pick up the scent\n"
             "of a Veluza just over 65 feet away\n"
             "and will hide itself in the sand."),
@@ -2793,7 +2793,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Garden Eel"),
         .height = 12,
         .weight = 54,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "A variety of fish Pokémon, Wugtrio\n"
             "was once considered to be a\n"
             "regional form of Dugtrio."),
@@ -2841,7 +2841,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Item Drop"),
         .height = 15,
         .weight = 429,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Bombirdier uses the apron on its\n"
             "chest to bundle up food, which it\n"
             "carries back to its nest. It enjoys\n"
@@ -2891,7 +2891,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Dolphin"),
         .height = 13,
         .weight = 602,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Its water ring is made from\n"
             "seawater mixed with a sticky fluid that\n"
             "Finizen secretes from its blowhole."),
@@ -2951,7 +2951,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Dolphin"),
         .height = 13,
         .weight = 602,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon changes its\n"
             "appearance if it hears its allies calling for\n"
             "help. Palafin will never show\n"
@@ -2979,7 +2979,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Hero"),
         .height = 18,
         .weight = 974,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon's ancient genes have\n"
             "awakened. It is now so\n"
             "extraordinarily strong that it can easily lift a\n"
@@ -3020,7 +3020,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Single-Cyl"),
         .height = 10,
         .weight = 350,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The steel section is Varoom's\n"
             "actual body. This Pokémon clings to\n"
             "rocks and converts the minerals within\n"
@@ -3068,7 +3068,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Multi-Cyl"),
         .height = 18,
         .weight = 1200,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It creates a gas out of poison and\n"
             "minerals from rocks. It then\n"
             "detonates the gas in its cylinders- now\n"
@@ -3117,7 +3117,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Mount"),
         .height = 16,
         .weight = 630,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It can sprint at over 70 mph while\n"
             "carrying a human. The rider's body\n"
             "heat warms Cyclizar's back and lifts\n"
@@ -3166,7 +3166,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Earthworm"),
         .height = 25,
         .weight = 3100,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "When attacked, this Pokémon will\n"
             "wield the tendrils on its body like\n"
             "fists and pelt the opponent with a\n"
@@ -3215,7 +3215,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ore"),
         .height = 7,
         .weight = 80,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Glimmet's toxic mineral crystals\n"
             "look just like flower petals. This\n"
             "Pokémon scatters poisonous powder like\n"
@@ -3264,7 +3264,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ore"),
         .height = 15,
         .weight = 450,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Glimmora's petals are made of\n"
             "crystallized poison energy. It has\n"
             "recently become evident that these\n"
@@ -3314,7 +3314,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ghost Dog"),
         .height = 6,
         .weight = 350,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This friendly Pokémon doesn't like\n"
             "being alone. Pay it even the\n"
             "slightest bit of attention, and it will\n"
@@ -3362,7 +3362,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ghost Dog"),
         .height = 20,
         .weight = 150,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Houndstone spends most of its\n"
             "time sleeping in graveyards. Among all\n"
             "the dog Pokémon, this one is most\n"
@@ -3411,7 +3411,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Synchronize"),
         .height = 16,
         .weight = 370,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Thanks to a behavior of theirs\n"
             "known as “synchronizing,” an entire\n"
             "flock of these Pokémon can attack\n"
@@ -3460,7 +3460,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Terra Whale"),
         .height = 12,
         .weight = 450,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This species left the ocean and\n"
             "began living on land a very long time\n"
             "ago. It seems to be closely related\n"
@@ -3508,7 +3508,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Terra Whale"),
         .height = 45,
         .weight = 7000,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Ice energy builds up in the horn on\n"
             "its upper jaw, causing the horn to\n"
             "reach cryogenic temperatures that\n"
@@ -3557,7 +3557,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Jettison"),
         .height = 25,
         .weight = 900,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Veluza has excellent regenerative\n"
             "capabilities. It sheds spare flesh\n"
             "from its body to boost its agility,\n"
@@ -3607,7 +3607,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Big Catfish"),
         .height = 120,
         .weight = 2200,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It treats Tatsugiri like its boss\n"
             "and follows it loyally. Though\n"
             "powerful, Dondozo is apparently not very\n"
@@ -3672,7 +3672,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         TATSUGIRI_MISC_INFO,
         .bodyColor = BODY_COLOR_PINK,
         .cryId = CRY_TATSUGIRI_CURLY,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This is a small dragon Pokémon. It\n"
             "lives inside the mouth of Dondozo to\n"
             "protect itself from enemies on the\n"
@@ -3688,7 +3688,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         TATSUGIRI_MISC_INFO,
         .bodyColor = BODY_COLOR_RED,
         .cryId = CRY_TATSUGIRI_DROOPY,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon tricks its opponents\n"
             "by playing dead. It is small and\n"
             "weak, but it uses its smarts to survive."),
@@ -3703,7 +3703,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         TATSUGIRI_MISC_INFO,
         .bodyColor = BODY_COLOR_YELLOW,
         .cryId = CRY_TATSUGIRI_STRETCHY,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It's one of the most intelligent\n"
             "dragon Pokémon. It camouflages itself\n"
             "by inflating its throat sac."),
@@ -3741,7 +3741,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 22,
         .weight = 3200,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Sightings of this Pokémon have\n"
             "occurred in recent years. The name\n"
             "Great Tusk was taken from a creature\n"
@@ -3791,7 +3791,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 12,
         .weight = 80,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "There has been only one reported\n"
             "sighting of this Pokémon. It\n"
             "resembles a mysterious creature depicted\n"
@@ -3841,7 +3841,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 12,
         .weight = 210,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It bears a slight resemblance to a\n"
             "Pokémon described in a dubious\n"
             "magazine as a cross between a dinosaur\n"
@@ -3893,7 +3893,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 14,
         .weight = 40,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It has similar features to a\n"
             "ghostly pterosaur that was covered in a\n"
             "paranormal magazine, but the two\n"
@@ -3944,7 +3944,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 32,
         .weight = 920,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This mysterious Pokémon has some\n"
             "similarities to a creature that an\n"
             "old book introduced as Slither Wing."),
@@ -3993,7 +3993,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 23,
         .weight = 600,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It slightly resembles a Magneton\n"
             "that lived for 10,000 years and was\n"
             "featured in an article in a\n"
@@ -4043,7 +4043,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 9,
         .weight = 2400,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Sightings of this Pokémon have\n"
             "occurred in recent years. It resembles\n"
             "a mysterious object described in an\n"
@@ -4093,7 +4093,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 6,
         .weight = 110,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Its shape is similar to a robot\n"
             "featured in a paranormal magazine\n"
             "article. The robot was said to have been\n"
@@ -4143,7 +4143,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 18,
         .weight = 3807,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It is very similar to a cyborg\n"
             "covered exclusively by a paranormal\n"
             "magazine. The cyborg was said to be the\n"
@@ -4193,7 +4193,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 13,
         .weight = 1110,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It resembles a certain Pokémon\n"
             "introduced in a paranormal magazine,\n"
             "described as the offspring of a\n"
@@ -4244,7 +4244,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 12,
         .weight = 360,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "No records exist of this species\n"
             "being caught. Data is lacking, but\n"
             "the Pokémon's traits match up with an\n"
@@ -4295,7 +4295,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 16,
         .weight = 3030,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It has some similarities to a\n"
             "Pokémon introduced in a dubious magazine\n"
             "as a Tyranitar from one billion\n"
@@ -4344,7 +4344,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ice Fin"),
         .height = 5,
         .weight = 170,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon lives in forests and\n"
             "craggy areas. Using the power of its\n"
             "dorsal fin, it cools the inside of its\n"
@@ -4392,7 +4392,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ice Fin"),
         .height = 8,
         .weight = 300,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Arctibax freezes the air around it,\n"
             "protecting its face with an ice\n"
             "mask and turning its dorsal fin into a\n"
@@ -4440,7 +4440,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ice Dragon"),
         .height = 21,
         .weight = 2100,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It launches itself into battle by\n"
             "flipping upside down and spewing\n"
             "frigid air from its mouth. It finishes\n"
@@ -4499,7 +4499,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Coin Chest"),
         .height = 3,
         .weight = 50,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It lives inside an old treasure\n"
             "chest. Sometimes it gets left in shop\n"
             "corners since no one realizes it's\n"
@@ -4530,7 +4530,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Coin Hunter"),
         .height = 1,
         .weight = 1,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It wanders around, carrying an old\n"
             "coin on its back. It survives by\n"
             "draining the life-force from humans who\n"
@@ -4572,7 +4572,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Coin Entity"),
         .height = 12,
         .weight = 300,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It has a sturdy body made up of\n"
             "stacked coins. Gholdengo overwhelms\n"
             "its enemies by firing coin after coin\n"
@@ -4622,7 +4622,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ruinous"),
         .height = 15,
         .weight = 742,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The grudge of a person punished\n"
             "for writing the king's evil deeds upon\n"
             "wooden tablets has clad itself in\n"
@@ -4672,7 +4672,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ruinous"),
         .height = 19,
         .weight = 1522,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon can control 100 tons\n"
             "of fallen snow. It plays around\n"
             "innocently by leaping in and out of\n"
@@ -4722,7 +4722,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ruinous"),
         .height = 27,
         .weight = 6997,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It slowly brings its exceedingly\n"
             "heavy head down upon the ground,\n"
             "splitting the earth open with huge\n"
@@ -4772,7 +4772,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Ruinous"),
         .height = 4,
         .weight = 49,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It controls flames burning at over\n"
             "5,400 degrees Fahrenheit. It\n"
             "casually swims through the sea of lava it\n"
@@ -4823,7 +4823,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 20,
         .weight = 3800,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "According to an article in a\n"
             "dubious magazine, this Pokémon has some\n"
             "connection to Mega Evolution that\n"
@@ -4874,7 +4874,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 14,
         .weight = 350,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It has some similarities to a mad\n"
             "scientist's invention covered in a\n"
             "paranormal magazine."),
@@ -4924,7 +4924,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 25,
         .weight = 3030,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This Pokémon resembles Cyclizar,\n"
             "but it is far burlier and more\n"
             "ferocious. Nothing is known about its\n"
@@ -4975,7 +4975,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 35,
         .weight = 2400,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "This seems to be the Iron Serpent\n"
             "mentioned in an Violet Book. The\n"
             "Iron Serpent is said to have turned the\n"
@@ -5025,7 +5025,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 35,
         .weight = 2800,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Ecology under research."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
@@ -5072,7 +5072,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Paradox"),
         .height = 15,
         .weight = 1250,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Ecology under analysis."),
         .pokemonScale = 356,
         .pokemonOffset = 17,
@@ -5137,7 +5137,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
     [SPECIES_POLTCHAGEIST_COUNTERFEIT] =
     {
         POLTCHAGEIST_MISC_INFO,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Supposedly, the regrets of a tea\n"
             "ceremony master who died before\n"
             "perfecting his craft lingered in some\n"
@@ -5147,7 +5147,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
     [SPECIES_POLTCHAGEIST_ARTISAN] =
     {
         POLTCHAGEIST_MISC_INFO,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It has taken up residence in a very\n"
             "expensive tea caddy. It takes an\n"
             "expert to distinguish the expensive\n"
@@ -5199,7 +5199,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
     [SPECIES_SINISTCHA_UNREMARKABLE] =
     {
         SINISTCHA_MISC_INFO,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "It pretends to be tea, trying to fool\n"
             "people into drinking it so it can\n"
             "drain their life-force. Its ruse is\n"
@@ -5208,7 +5208,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
     [SPECIES_SINISTCHA_MASTERPIECE] =
     {
         SINISTCHA_MISC_INFO,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The more stirring it does with the\n"
             "tea whisk on its head, the more\n"
             "energy it builds up. It does this to\n"
@@ -5242,7 +5242,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Retainer"),
         .height = 18,
         .weight = 920,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "After all its muscles were stimulated\n"
             "by the toxic chain around its neck,\n"
             "Okidogi transformed and gained\n"
@@ -5293,7 +5293,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Retainer"),
         .height = 10,
         .weight = 122,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "The chain is made from toxins that\n"
             "enhance capabilities. It stimulated\n"
             "Munkidori's brain and caused the\n"
@@ -5343,7 +5343,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .categoryName = _("Retainer"),
         .height = 14,
         .weight = 301,
-        .description = COMPOUND_STRING(
+        .description = POKEDEX_DESC_STRING(
             "Fezandipiti owes its beautiful looks and\n"
             "lovely voice to the toxic stimulants\n"
             "emanating from the chain wrapped around\n"
