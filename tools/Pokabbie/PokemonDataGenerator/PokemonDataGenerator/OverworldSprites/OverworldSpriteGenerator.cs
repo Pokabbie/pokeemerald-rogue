@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PokemonDataGenerator.OverworldSprites;
+using PokemonDataGenerator.OverworldSprites.NPC;
 using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,9 @@ namespace PokemonDataGenerator
 			public int pokedexNumber;
 			public Bitmap collatedSpriteSheet;
 			public Bitmap collatedShinySpriteSheet;
+			public ImagePalette normalPalette;
+			public ImagePalette shinyPalette;
+
 			public Dictionary<ImagePalette, double> paletteScores = new Dictionary<ImagePalette, double>();
 			public Dictionary<ImagePalette, double> shinyPaletteScores = new Dictionary<ImagePalette, double>();
 			public int paletteIdx;
@@ -96,37 +100,31 @@ namespace PokemonDataGenerator
 			if(s_GenerateShinies)
 				SpriteSheetSplitter.AppendGenericMonSprites32("none", 0, "_shiny", "res://none_overworld_shiny.png");
 
-			if (s_TargettingDebugSet)
+			// Gather all of gens 3/4
+			foreach (var subpath in c_Subpaths)
 			{
-				if (!s_TargettingVanilla)
+				string fullUrl = c_BaseURL + "/" + subpath.path;
+				Console.WriteLine($"Gathering '{fullUrl}'");
+
+				string content = ContentCache.GetHttpContent(fullUrl);
+				AppendSpriteResults(content, subpath.key);
+			}
+
+
+			if (!s_TargettingVanilla)
+			{
+				if (s_TargettingDebugSet)
 				{
 					SpriteSheetSplitter_Gen9.AppendMonSprites();
 				}
-			}
-			else
-			{
-
-				//if (!s_TargettingDebugSet) // TEMP DON'T CHECK IN
-				//{
-				// Gather source paths
-				foreach (var subpath in c_Subpaths)
-				{
-					string fullUrl = c_BaseURL + "/" + subpath.path;
-					Console.WriteLine($"Gathering '{fullUrl}'");
-
-					string content = ContentCache.GetHttpContent(fullUrl);
-					AppendSpriteResults(content, subpath.key);
-				}
-				//}
-
-				if (!s_TargettingVanilla)
+				else
 				{
 					SpriteSheetSplitter_Gen5.AppendMonSprites();
 					SpriteSheetSplitter_Gen6.AppendMonSprites();
 					SpriteSheetSplitter_Gen7.AppendMonSprites();
 					SpriteSheetSplitter_Gen8.AppendMonSprites();
-					//SpriteSheetSplitter_Gen9.AppendMonSprites();
 					SpriteSheetSplitter_Hisui.AppendMonSprites();
+					//SpriteSheetSplitter_Gen9.AppendMonSprites();
 				}
 			}
 
@@ -159,13 +157,23 @@ namespace PokemonDataGenerator
 
 				Directory.CreateDirectory(outDir);
 
-				CollateSpriteSheets(Path.Combine(outDir, "raw"));
+				string finalOutputDir = Path.Combine(GameDataHelpers.RootDirectory, "graphics\\object_events\\pics\\pokemon_ow");
 
-				for (int i = 0; i < c_PaletteOptions.Length; ++i)
+				try
 				{
-					Console.WriteLine($"Generated paletted sprite for {i}:{c_PaletteOptions[i].Item1}");
-					GenerateSetForPalette(c_PaletteOptions[i].Item2, Path.Combine(outDir, "pal_" + i));
+					if (Directory.Exists(finalOutputDir))
+						Directory.Delete(finalOutputDir, true);
+
+					Directory.CreateDirectory(finalOutputDir);
 				}
+				catch (Exception e)
+				{
+					Console.WriteLine("Error caught when deleting dir (ignoring for now)");
+					Console.WriteLine(e.Message);
+				}
+
+				CollateSpriteSheets(finalOutputDir);
+				ExportGameCode(finalOutputDir);
 			}
 			else
 			{
@@ -251,26 +259,34 @@ namespace PokemonDataGenerator
 				var data = kvp.Value;
 
 				data.collatedSpriteSheet = CollateSpriteSheet(mon, "");
+				ConvertToIndexedImage(data.collatedSpriteSheet, out data.collatedSpriteSheet, out data.normalPalette);
 
 				data.spriteSize = data.collatedSpriteSheet.Height;
 				data.paletteIdx = -1;
 
 				Console.WriteLine($"\tCollated {mon} sprites");
-				string localPath = Path.Combine(outDir, mon + ".png");
-				data.collatedSpriteSheet.Save(localPath);
+				data.collatedSpriteSheet.Save(Path.Combine(outDir, mon + ".png"));
+				data.normalPalette.Save(Path.Combine(outDir, mon + ".pal"));
 
 				if (s_GenerateShinies)
 				{
 					data.collatedShinySpriteSheet = CollateSpriteSheet(mon, "_shiny");
+					ConvertToIndexedImage(data.collatedShinySpriteSheet, out data.collatedShinySpriteSheet, out data.shinyPalette);
 
 					data.shinySpriteSize = data.collatedShinySpriteSheet.Height;
 					data.shinyPaletteIdx = -1;
 
 					Console.WriteLine($"\tCollated {mon} sprites");
-					string shinyLocalPath = Path.Combine(outDir, mon + "_shiny.png");
-					data.collatedShinySpriteSheet.Save(shinyLocalPath);
+					//data.collatedShinySpriteSheet.Save(Path.Combine(outDir, mon + "_shiny.png"));
+					data.shinyPalette.Save(Path.Combine(outDir, mon + "_shiny.pal"));
 				}
 			}
+		}
+
+		private static void ConvertToIndexedImage(Bitmap sourceImage, out Bitmap indexImage, out ImagePalette indexPalette)
+		{
+			indexPalette = ImagePalette.CreateFromContent(sourceImage, 16, ImagePalette.DistanceMethod.HSL, OverworldSprites.NPC.NpcSpriteSplitter.c_BackgroundColour);
+			indexImage = indexPalette.CreateIndexedBitmap(sourceImage);
 		}
 
 		private static void GenerateSetForPalette(ImagePalette palette, string outDir)
@@ -296,6 +312,108 @@ namespace PokemonDataGenerator
 
 					data.shinyPaletteScores.Add(palette, palette.GetBitmapMatchScore(data.collatedSpriteSheet));
 				}
+			}
+		}
+
+		private static void ExportGameCode(string outDir)
+		{
+			// Output any boilerplate code to copy
+			//
+			string dataDir = Path.Combine(outDir, "include");
+			Directory.CreateDirectory(dataDir);
+
+			using (FileStream stream = new FileStream(Path.Combine(dataDir, "spritesheet_rules_gen.mk"), FileMode.Create))
+			using (StreamWriter writer = new StreamWriter(stream))
+			{
+				foreach (var kvp in s_MonToSpriteData.OrderBy((kvp) => kvp.Value.pokedexNumber))
+				{
+					var mon = kvp.Key;
+					var data = kvp.Value;
+					int dims = data.spriteSize / 8;
+
+					writer.WriteLine($"$(OBJEVENTGFXDIR)/pokemon_ow/{mon}.4bpp: %.4bpp: %.png");
+					writer.WriteLine($"	$(GFX) $< $@ -mwidth {dims} -mheight {dims}");
+					writer.WriteLine($"");
+				}
+			}
+
+			using (FileStream stream = new FileStream(Path.Combine(dataDir, "object_event_graphics_gen.h"), FileMode.Create))
+			using (StreamWriter writer = new StreamWriter(stream))
+			{
+				foreach (var kvp in s_MonToSpriteData.OrderBy((kvp) => kvp.Value.pokedexNumber))
+				{
+					var mon = kvp.Key;
+					var data = kvp.Value;
+
+					writer.WriteLine($"const u32 gObjectEventPic_Overworld_{mon}[] = INCBIN_U32(\"graphics/object_events/pics/pokemon_ow/{mon}.4bpp\");");
+					writer.WriteLine($"const u16 gObjectEventPal_Overworld_{mon}[] = INCBIN_U16(\"graphics/object_events/pics/pokemon_ow/{mon}.gbapal\");");
+
+					if (s_GenerateShinies)
+						writer.WriteLine($"const u16 gObjectEventPal_Overworld_{mon}_shiny[] = INCBIN_U16(\"graphics/object_events/pics/pokemon_ow/{mon}_shiny.gbapal\");");
+				}
+			}
+
+			using (FileStream stream = new FileStream(Path.Combine(dataDir, "object_event_graphics_info_gen.h"), FileMode.Create))
+			using (StreamWriter writer = new StreamWriter(stream))
+			{
+				foreach (var kvp in s_MonToSpriteData.OrderBy((kvp) => kvp.Value.pokedexNumber))
+				{
+					var mon = kvp.Key;
+					var data = kvp.Value;
+					int dims = data.spriteSize / 8;
+
+					writer.WriteLine($"static const struct SpriteFrameImage sPicTable_Mon_{mon}[] = {{");
+					writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}, {dims}, {dims}, 0),");
+					writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}, {dims}, {dims}, 1),");
+					writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}, {dims}, {dims}, 2),");
+					writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}, {dims}, {dims}, 0),");
+					writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}, {dims}, {dims}, 3),");
+					writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}, {dims}, {dims}, 1),");
+					writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}, {dims}, {dims}, 4),");
+					writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}, {dims}, {dims}, 2),");
+					writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}, {dims}, {dims}, 5),");
+					writer.WriteLine($"}};");
+
+					writer.WriteLine($"");
+				}
+
+				writer.WriteLine($"");
+
+				foreach (var kvp in s_MonToSpriteData.OrderBy((kvp) => kvp.Value.pokedexNumber))
+				{
+					var mon = kvp.Key;
+					var data = kvp.Value;
+					int dims = data.spriteSize / 8;
+
+					// todo
+					string paletteTag = "OBJ_EVENT_PAL_TAG_FOLLOW_MON_0";
+					int paletteNum = 10; // force to 10 to make the palette load semi dynamically
+
+					if (dims == 8) // 64x64
+						writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon} = {{TAG_NONE, {paletteTag}, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, {paletteNum}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}, gDummySpriteAffineAnimTable}};");
+					else
+						writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon} = {{TAG_NONE, {paletteTag}, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, {paletteNum}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}, gDummySpriteAffineAnimTable}};");
+				}
+
+				writer.WriteLine($"");
+				writer.WriteLine($"const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {{");
+
+				foreach (var kvp in s_MonToSpriteData.OrderBy((kvp) => kvp.Value.pokedexNumber))
+				{
+					var mon = kvp.Key;
+					var data = kvp.Value;
+					int dims = data.spriteSize / 8;
+					writer.WriteLine($"\t[SPECIES_{mon.ToUpper()}] =");
+					writer.WriteLine($"\t{{");
+					writer.WriteLine($"\t\t.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_{mon},");
+					writer.WriteLine($"\t\t.normalPal = gObjectEventPal_Overworld_{mon},");
+					if (s_GenerateShinies)
+						writer.WriteLine($"\t\t.shinyPal = gObjectEventPal_Overworld_{mon}_shiny,");
+					else
+						writer.WriteLine($"\t\t.shinyPal = NULL,");
+					writer.WriteLine($"\t}},");
+				}
+				writer.WriteLine($"}};");
 			}
 		}
 
@@ -585,9 +703,12 @@ namespace PokemonDataGenerator
 			using(StringReader reader = new StringReader(pageData))
 			{
 				string line;
-				while((line = reader.ReadLine()) != null)
+				int counter = 0;
+				int previousNum = -1;
+
+				while ((line = reader.ReadLine()) != null)
 				{
-					if(line.StartsWith("<img alt=\"#"))
+					if (line.StartsWith("<img alt=\"#"))
 					{
 						//<img alt="#001 Bulbasaur" src="../sprites/overworlds/o_hgss/o_hs_001_1.png" />
 
@@ -613,14 +734,24 @@ namespace PokemonDataGenerator
 							.Replace("?", "qmark")
 							.Replace("!", "emark");
 
+						if (s_TargettingDebugSet)
+						{
+							if (previousNum != pokedexNumber)
+							{
+								previousNum = pokedexNumber;
+								if (counter++ >= 20)
+								{
+									return;
+								}
+							}
+						}
+
 						if (formattedPath.EndsWith("1.png"))
 							AppendMonSpriteUri(formattedName, pokedexNumber, key + "_1", formattedPath);
 						else if (formattedPath.EndsWith("2.png"))
 							AppendMonSpriteUri(formattedName, pokedexNumber, key + "_2", formattedPath);
 						else
 							throw new Exception("Unknown suffix");
-
-						continue;
 					}
 				}
 			}
@@ -641,9 +772,16 @@ namespace PokemonDataGenerator
 
 			void BlitBitmap(Bitmap dst, Bitmap src, int offsetX, int offsetY)
 			{
-				for(int x = 0; x < src.Width; ++x)
-					for(int y = 0; y < src.Height; ++y)
-						dst.SetPixel(offsetX + x, offsetY + y, src.GetPixel(x, y));
+				for (int x = 0; x < src.Width; ++x)
+					for (int y = 0; y < src.Height; ++y)
+					{
+						Color col = src.GetPixel(x, y);
+
+						if (col.A == 0)
+							col = NpcSpriteSplitter.c_BackgroundColour;
+
+						dst.SetPixel(offsetX + x, offsetY + y, col);
+					}
 			}
 
 			Bitmap front1 = DownloadBitmap($"front{variant}_1");

@@ -3887,6 +3887,12 @@ extern const u16 gFrontierFactoryMenu_Gfx[34 * TILE_SIZE_4BPP / 2];
 extern const u16 gFrontierFactoryMenu_Tilemap[];
 extern const u16 gFrontierFactoryMenu_Pal[];
 
+extern const u16 gObjectEventPal_FollowMon0[];
+extern const u16 gObjectEventPal_FollowMon1[];
+extern const u16 gObjectEventPal_FollowMon2[];
+extern const u16 gObjectEventPal_FollowMon3[];
+extern const u16 gObjectEventPal_FollowMon4[];
+
 // Player
 extern const u16 gObjectEventPal_PlayerPlaceholder[];
 

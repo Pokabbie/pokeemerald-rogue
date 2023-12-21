@@ -602,6 +602,13 @@ struct RogueSpeciesBakedData
     u32 unused2 : 24;
 };
 
+struct RogueFollowMonGraphicsInfo
+{
+    struct ObjectEventGraphicsInfo const* objectEventGfxInfo;
+    u16 const* normalPal;
+    u16 const* shinyPal;
+};
+
 STATIC_ASSERT(sizeof(struct RogueSpeciesBakedData) == 8, SizeOfRogueSpeciesBakedData);
 
 extern const struct RogueRouteData gRogueRouteTable;

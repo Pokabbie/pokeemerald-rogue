@@ -526,7 +526,7 @@
 
 
 #define FOLLOWMON_SHINY_OFFSET              10000
-#define FOLLOWMON_MAX_SPAWN_SLOTS           6
+#define FOLLOWMON_MAX_SPAWN_SLOTS           4 // 4 reserved palette slots, 1 for the 10th pal slot (if not in use) and 1 for the follower (todo change to 6)
 #define FOLLOWMON_IDEAL_OBJECT_EVENT_COUNT  8
 
 #define WILD_ENCOUNTER_GRASS_CAPACITY 9

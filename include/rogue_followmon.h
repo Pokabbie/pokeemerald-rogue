@@ -11,6 +11,7 @@ u8 GetWildChainCount();
 
 void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny);
 u16 FollowMon_GetGraphics(u16 id);
+u16 const* FollowMon_GetGraphicsForPalSlot(u16 palSlot);
 
 bool8 FollowMon_IsPartnerMonActive();
 u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset);

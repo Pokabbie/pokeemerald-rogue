@@ -161,7 +161,7 @@ void StartWeather(void)
     {
         u8 index = AllocSpritePalette(PALTAG_WEATHER);
         CpuCopy32(gFogPalette, &gPlttBufferUnfaded[OBJ_PLTT_ID(index)], PLTT_SIZE_4BPP);
-        Rogue_ModifyOverworldPalette(0x100 + index * 16, 2);
+        Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
 
         BuildColorMaps();
         gWeatherPtr->contrastColorMapSpritePalIndex = index;
@@ -881,7 +881,7 @@ void LoadCustomWeatherSpritePalette(const u16 *palette)
 {
     LoadPalette(palette, OBJ_PLTT_ID(gWeatherPtr->weatherPicSpritePalIndex), PLTT_SIZE_4BPP);
     UpdateSpritePaletteWithWeather(gWeatherPtr->weatherPicSpritePalIndex);
-    Rogue_ModifyOverworldPalette(0x100 + gWeatherPtr->weatherPicSpritePalIndex * 16, 2);
+    Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(gWeatherPtr->weatherPicSpritePalIndex), PLTT_SIZE_4BPP);
 }
 
 static void LoadDroughtWeatherPalette(u8 *palsIndex, u8 *palsOffset)

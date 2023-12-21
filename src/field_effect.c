@@ -801,7 +801,7 @@ void FieldEffectScript_LoadFadedPalette(u8 **script)
 
     if(palIndex != 0xFF && freshLoad)
     {
-        Rogue_ModifyOverworldPalette(0x100 + palIndex * 16, 1);
+        Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(palIndex), PLTT_SIZE_4BPP);
     }
 
     UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(palette->tag));
@@ -818,7 +818,7 @@ void FieldEffectScript_LoadPalette(u8 **script)
 
     if(palIndex != 0xFF && freshLoad)
     {
-        Rogue_ModifyOverworldPalette(0x100 + palIndex * 16, 1);
+        Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(palIndex), PLTT_SIZE_4BPP);
     }
 
     (*script) += 4;

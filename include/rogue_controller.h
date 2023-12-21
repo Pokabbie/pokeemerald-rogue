@@ -50,6 +50,7 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount);
 
 const void* Rogue_ModifyPaletteLoad(const void* input);
 bool8 Rogue_ModifyPaletteDecompress(const u32* input, void* writeBuffer);
+bool8 Rogue_ModifyObjectPaletteSlot(u16 graphicsId, u8* palSlot);
 
 void Rogue_ModifyOverworldPalette(u16 offset, u16 count);
 void Rogue_ModifyBattlePalette(u16 offset, u16 count);
