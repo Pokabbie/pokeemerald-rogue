@@ -100,7 +100,7 @@ namespace PokemonDataGenerator
 			{
 				if (!s_TargettingVanilla)
 				{
-					SpriteSheetSplitter_Gen5.AppendMonSprites();
+					SpriteSheetSplitter_Gen9.AppendMonSprites();
 				}
 			}
 			else
@@ -125,6 +125,7 @@ namespace PokemonDataGenerator
 					SpriteSheetSplitter_Gen6.AppendMonSprites();
 					SpriteSheetSplitter_Gen7.AppendMonSprites();
 					SpriteSheetSplitter_Gen8.AppendMonSprites();
+					//SpriteSheetSplitter_Gen9.AppendMonSprites();
 					SpriteSheetSplitter_Hisui.AppendMonSprites();
 				}
 			}

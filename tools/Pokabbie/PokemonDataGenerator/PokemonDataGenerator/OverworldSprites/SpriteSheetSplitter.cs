@@ -29,6 +29,7 @@ namespace PokemonDataGenerator.OverworldSprites
 		{
 			int x = 0;
 			int y = 0;
+			mon = mon.ToLower();
 
 			Console.WriteLine($"\tSplitting {settings.CategoryName} {mon}..");
 
