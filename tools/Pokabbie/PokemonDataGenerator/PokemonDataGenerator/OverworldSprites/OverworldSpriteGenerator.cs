@@ -124,7 +124,7 @@ namespace PokemonDataGenerator
 					SpriteSheetSplitter_Gen7.AppendMonSprites();
 					SpriteSheetSplitter_Gen8.AppendMonSprites();
 					SpriteSheetSplitter_Hisui.AppendMonSprites();
-					//SpriteSheetSplitter_Gen9.AppendMonSprites();
+					SpriteSheetSplitter_Gen9.AppendMonSprites();
 				}
 			}
 
