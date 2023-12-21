@@ -1763,7 +1763,7 @@ void MegaIndicator_SetVisibilities(u32 healthboxId, bool32 invisible)
     u8 *spriteId = MegaIndicator_GetSpriteId(healthboxId);
     u32 battlerId = gSprites[healthboxId].hMain_Battler;
 
-    if (GetSafariZoneFlag())
+    if (GetSafariZoneFlag() || Rogue_InWildSafari())
         return;
 
     if (invisible == TRUE)
