@@ -87,7 +87,10 @@ namespace PokemonDataGenerator
 
 				for (int i = 0; i < 16; ++i)
 				{
-					writer.WriteLine($"{m_Colors[i].R} {m_Colors[i].G} {m_Colors[i].B}");
+					if (i < m_Colors.Length)
+						writer.WriteLine($"{m_Colors[i].R} {m_Colors[i].G} {m_Colors[i].B}");
+					else
+						writer.WriteLine("0 0 0");
 				}
 			}
 		}
@@ -336,7 +339,7 @@ namespace PokemonDataGenerator
 			}
 
 			// Make sure transparent colour is at the front always
-			int transparentIndex = remainingColours.IndexOf(transparentColour);
+			int transparentIndex = remainingColours.FindIndex(colour => transparentColour.ToArgb() == colour.ToArgb());
 			if(transparentIndex != 0)
 			{
 				remainingColours[transparentIndex] = remainingColours[0];

@@ -174,7 +174,7 @@ static u8 GetMaxEvolutionCountInternal(u16 species)
 
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
-    AGB_ASSERT(evoIdx < Rogue_GetMaxEvolutionCount(species));
+    //AGB_ASSERT(evoIdx < Rogue_GetMaxEvolutionCount(species));
     memcpy(outEvo, GetBaseEvolution(species, evoIdx), sizeof(*outEvo));
 
     // Any species alterations

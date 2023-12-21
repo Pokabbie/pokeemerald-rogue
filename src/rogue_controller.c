@@ -730,7 +730,43 @@ const void* Rogue_ModifyPaletteLoad(const void* input)
         return RoguePlayer_GetOverworldPalette();
     }
 
+    //if(input == &gObjectEventPal_FollowMon0[0])
+    //    return FollowMon_GetGraphicsForPalSlot(0);
+//
+    //if(input == &gObjectEventPal_FollowMon1[0])
+    //    return FollowMon_GetGraphicsForPalSlot(1);
+//
+    //if(input == &gObjectEventPal_FollowMon2[0])
+    //    return FollowMon_GetGraphicsForPalSlot(2);
+//
+    //if(input == &gObjectEventPal_FollowMon3[0])
+    //    return FollowMon_GetGraphicsForPalSlot(3);
+//
+    //if(input == &gObjectEventPal_FollowMon4[0])
+    //    return FollowMon_GetGraphicsForPalSlot(4);
+
     return input;
+}
+
+bool8 Rogue_ModifyObjectPaletteSlot(u16 graphicsId, u8* palSlot)
+{
+    if(graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_PARTNER)
+    {
+        *palSlot = 1;
+        LoadPalette(FollowMon_GetGraphicsForPalSlot(0), OBJ_PLTT_ID(*palSlot), PLTT_SIZE_4BPP);
+        Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(*palSlot), PLTT_SIZE_4BPP);
+        return TRUE;
+    }
+
+    if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_4)
+    {
+        *palSlot = 6 + (graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0);
+        LoadPalette(FollowMon_GetGraphicsForPalSlot(1 + graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0), OBJ_PLTT_ID(*palSlot), PLTT_SIZE_4BPP);
+        Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(*palSlot), PLTT_SIZE_4BPP);
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 bool8 Rogue_ModifyPaletteDecompress(const u32* input, void* buffer)

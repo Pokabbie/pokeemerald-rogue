@@ -326,6 +326,10 @@ static const union AnimCmd *const sAnimTable_JumpTallGrass[] =
 };
 
 // This is pretty hacky :3
+#define OBJ_EVENT_PAL_TAG_NPC_1                   0x1103
+#define OBJ_EVENT_PAL_TAG_NPC_2                   0x1104
+#define OBJ_EVENT_PAL_TAG_NPC_3                   0x1105
+#define OBJ_EVENT_PAL_TAG_NPC_4                   0x1106
 #define OBJ_EVENT_PAL_TAG_FOLLOW_MON_1            0x1107 // OBJ_EVENT_PAL_TAG_NPC_1_REFLECTION
 #define OBJ_EVENT_PAL_TAG_FOLLOW_MON_2            0x1108 // OBJ_EVENT_PAL_TAG_NPC_2_REFLECTION
 #define OBJ_EVENT_PAL_TAG_FOLLOW_MON_3            0x1109 // OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION
@@ -333,7 +337,7 @@ static const union AnimCmd *const sAnimTable_JumpTallGrass[] =
 
 const struct SpriteTemplate gFieldEffectObjectTemplate_JumpTallGrass = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_FOLLOW_MON_1, //FLDEFF_PAL_TAG_GENERAL_1,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_3, //FLDEFF_PAL_TAG_GENERAL_1,
     .oam = &gObjectEventBaseOam_16x8,
     .anims = sAnimTable_JumpTallGrass,
     .images = sPicTable_JumpTallGrass,

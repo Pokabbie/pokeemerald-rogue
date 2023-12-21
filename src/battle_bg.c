@@ -915,7 +915,7 @@ void DrawMainBattleBackground(void)
             break;
         }
 
-        Rogue_ModifyBattlePalette(0x20, 6);
+        Rogue_ModifyBattlePalette(0x20, 0x60);
     }
 }
 

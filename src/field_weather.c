@@ -164,8 +164,8 @@ void StartWeather(void)
     if (!FuncIsActiveTask(Task_WeatherMain))
     {
         u8 index = AllocSpritePalette(TAG_WEATHER_START);
-        CpuCopy32(gFogPalette, &gPlttBufferUnfaded[0x100 + index * 16], 32);
-        Rogue_ModifyOverworldPalette(0x100 + index * 16, 2);
+        CpuCopy32(gFogPalette, &gPlttBufferUnfaded[OBJ_PLTT_ID(index)], PLTT_SIZE_4BPP);
+        Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
 
         BuildGammaShiftTables();
         gWeatherPtr->altGammaSpritePalIndex = index;
@@ -872,9 +872,9 @@ static bool8 IsFirstFrameOfWeatherFadeIn(void)
 
 void LoadCustomWeatherSpritePalette(const u16 *palette)
 {
-    LoadPalette(palette, 0x100 + gWeatherPtr->weatherPicSpritePalIndex * 16, 32);
+    LoadPalette(palette, OBJ_PLTT_ID(gWeatherPtr->weatherPicSpritePalIndex), PLTT_SIZE_4BPP);
     UpdateSpritePaletteWithWeather(gWeatherPtr->weatherPicSpritePalIndex);
-    Rogue_ModifyOverworldPalette(0x100 + gWeatherPtr->weatherPicSpritePalIndex * 16, 2);
+    Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(gWeatherPtr->weatherPicSpritePalIndex), PLTT_SIZE_4BPP);
 }
 
 static void LoadDroughtWeatherPalette(u8 *palsIndex, u8 *palsOffset)

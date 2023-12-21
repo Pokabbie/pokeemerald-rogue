@@ -46,8 +46,7 @@ struct FollowMonData
 
 static EWRAM_DATA struct FollowMonData sFollowMonData = { 0 };
 
-extern const struct ObjectEventGraphicsInfo *const gObjectEventMonGraphicsInfoPointers[NUM_SPECIES];
-extern const struct ObjectEventGraphicsInfo *const gObjectEventShinyMonGraphicsInfoPointers[NUM_SPECIES];
+extern const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES];
 
 static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
 {
@@ -236,16 +235,16 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
         species -= FOLLOWMON_SHINY_OFFSET;
 
         // Return the shiny gfx if we have one
-        if(species < NUM_SPECIES && gObjectEventShinyMonGraphicsInfoPointers[species])
-            return gObjectEventShinyMonGraphicsInfoPointers[species];
+        //if(species < NUM_SPECIES && gObjectEventShinyMonGraphicsInfoPointers[species])
+        //    return gObjectEventShinyMonGraphicsInfoPointers[species];
     }
 
     // Return the normal gfx if we have one
-    if(species < NUM_SPECIES && gObjectEventMonGraphicsInfoPointers[species])
-        return gObjectEventMonGraphicsInfoPointers[species];
+    if(species < NUM_SPECIES && gFollowMonGraphicsInfo[species].objectEventGfxInfo)
+        return gFollowMonGraphicsInfo[species].objectEventGfxInfo;
 
     // Return a fallback sprite
-    return gObjectEventMonGraphicsInfoPointers[SPECIES_NONE];
+    return gFollowMonGraphicsInfo[SPECIES_NONE].objectEventGfxInfo;
 }
 
 void SetupFollowParterMonObjectEvent()
@@ -333,6 +332,32 @@ void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny)
 u16 FollowMon_GetGraphics(u16 id)
 {
     return VarGet(VAR_FOLLOW_MON_0 + id);
+}
+
+u16 const* FollowMon_GetGraphicsForPalSlot(u16 palSlot)
+{
+    u16 species = SPECIES_NONE;
+
+    if(palSlot == 0)
+    {
+        // Partner
+        species = FollowMon_GetPartnerFollowSpecies(TRUE);
+    }
+    else
+    {
+        // Base of graphics slot
+        species = FollowMon_GetGraphics(palSlot - 1);
+    }
+
+    if(species >= FOLLOWMON_SHINY_OFFSET)
+    {
+        species -= FOLLOWMON_SHINY_OFFSET;
+
+        if(gFollowMonGraphicsInfo[species].shinyPal != NULL)
+            return gFollowMonGraphicsInfo[species].shinyPal;
+    }
+
+    return gFollowMonGraphicsInfo[species].normalPal;
 }
 
 bool8 FollowMon_IsPartnerMonActive()

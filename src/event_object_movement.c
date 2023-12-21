@@ -415,7 +415,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 };
 
 #define OBJ_EVENT_PAL_TAG_BRENDAN                 0x1100
-#define OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION      0x1101
+#define OBJ_EVENT_PAL_TAG_FOLLOW_MON_0            0x1101
 #define OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION       0x1102
 #define OBJ_EVENT_PAL_TAG_NPC_1                   0x1103
 #define OBJ_EVENT_PAL_TAG_NPC_2                   0x1104
@@ -564,6 +564,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 //#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN       0x118A
 #define OBJ_EVENT_PAL_TAG_PLAYER                 0x118B
 
+#define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x118C
+
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -588,7 +590,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     //{gObjectEventPal_Npc3Reflection,        OBJ_EVENT_PAL_TAG_NPC_3_REFLECTION},
     //{gObjectEventPal_Npc4Reflection,        OBJ_EVENT_PAL_TAG_NPC_4_REFLECTION},
     {gObjectEventPal_PlayerBrendanBase,     OBJ_EVENT_PAL_TAG_BRENDAN},
-    {gObjectEventPal_PlayerBrendanBase,     OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION}, //gObjectEventPal_BrendanReflection
+    {gObjectEventPal_FollowMon0,            OBJ_EVENT_PAL_TAG_FOLLOW_MON_0}, //gObjectEventPal_BrendanReflection
     {gObjectEventPal_BridgeReflection,      OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION},
     {gObjectEventPal_PlayerUnderwater,      OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER},
     {gObjectEventPal_QuintyPlump,           OBJ_EVENT_PAL_TAG_QUINTY_PLUMP},
@@ -725,14 +727,16 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},
     //{gObjectEventPal_Glitch_NPC_Raven,      OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN},
     {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_PLAYER},
+
+    {gObjectEventPal_RouteExt,       OBJ_EVENT_PAL_TAG_ROUTE_EXT},
     {},
 };
 
 static const u16 sReflectionPaletteTags_Brendan[] = {
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION,
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION,
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION,
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0,
 };
 
 static const u16 sReflectionPaletteTags_May[] = {
@@ -851,8 +855,8 @@ static const struct PairedPalettes sSpecialObjectReflectionPaletteSets[] = {
 };
 
 static const u16 sObjectPaletteTags0[] = {
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION, //OBJ_EVENT_PAL_TAG_BRENDAN
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, //OBJ_EVENT_PAL_TAG_BRENDAN
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0,
     OBJ_EVENT_PAL_TAG_NPC_1,
     OBJ_EVENT_PAL_TAG_NPC_2,
     OBJ_EVENT_PAL_TAG_NPC_3,
@@ -864,8 +868,8 @@ static const u16 sObjectPaletteTags0[] = {
 };
 
 static const u16 sObjectPaletteTags1[] = {
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION, //OBJ_EVENT_PAL_TAG_BRENDAN
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, //OBJ_EVENT_PAL_TAG_BRENDAN
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0,
     OBJ_EVENT_PAL_TAG_NPC_1,
     OBJ_EVENT_PAL_TAG_NPC_2,
     OBJ_EVENT_PAL_TAG_NPC_3,
@@ -877,8 +881,8 @@ static const u16 sObjectPaletteTags1[] = {
 };
 
 static const u16 sObjectPaletteTags2[] = {
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION, //OBJ_EVENT_PAL_TAG_BRENDAN
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, //OBJ_EVENT_PAL_TAG_BRENDAN
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0,
     OBJ_EVENT_PAL_TAG_NPC_1,
     OBJ_EVENT_PAL_TAG_NPC_2,
     OBJ_EVENT_PAL_TAG_NPC_3,
@@ -890,8 +894,8 @@ static const u16 sObjectPaletteTags2[] = {
 };
 
 static const u16 sObjectPaletteTags3[] = {
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION, //OBJ_EVENT_PAL_TAG_BRENDAN
-    OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION,
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, //OBJ_EVENT_PAL_TAG_BRENDAN
+    OBJ_EVENT_PAL_TAG_FOLLOW_MON_0,
     OBJ_EVENT_PAL_TAG_NPC_1,
     OBJ_EVENT_PAL_TAG_NPC_2,
     OBJ_EVENT_PAL_TAG_NPC_3,
@@ -1727,7 +1731,12 @@ static u8 TrySetupObjectEventSprite(struct ObjectEventTemplate *objectEventTempl
     objectEvent = &gObjectEvents[objectEventId];
     graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
     paletteSlot = graphicsInfo->paletteSlot;
-    if (paletteSlot == 0)
+
+    if(Rogue_ModifyObjectPaletteSlot(objectEvent->graphicsId, &paletteSlot))
+    {
+        // assume we already handled this
+    }
+    else if (paletteSlot == 0)
     {
         LoadPlayerObjectReflectionPalette(graphicsInfo->paletteTag, 0);
     }
@@ -1911,7 +1920,10 @@ u8 CreateObjectGraphicsSpriteInObjectEventSpace(u16 graphicsId, void (*callback)
     if(spriteId != MAX_SPRITES)
     {
         s16 cameraX, cameraY;
+        u8 paletteSlot = graphicsInfo->paletteSlot;
         GetObjectEventMovingCameraOffset(&cameraX, &cameraY);
+
+        Rogue_ModifyObjectPaletteSlot(graphicsId, &paletteSlot);
 
         sprite = &gSprites[spriteId];
         
@@ -1921,7 +1933,7 @@ u8 CreateObjectGraphicsSpriteInObjectEventSpace(u16 graphicsId, void (*callback)
         sprite->x += 8;
         sprite->y += 16 + sprite->centerToCornerVecY;
         sprite->coordOffsetEnabled = TRUE;
-        sprite->oam.paletteNum = graphicsInfo->paletteSlot; // global palette
+        sprite->oam.paletteNum = paletteSlot; // global palette
     }
 
     return spriteId;
@@ -1952,21 +1964,27 @@ u8 CreateVirtualObject(u16 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevati
     spriteId = CreateSpriteAtEnd(&spriteTemplate, x, y, 0);
     if (spriteId != MAX_SPRITES)
     {
+        u8 paletteSlot = graphicsInfo->paletteSlot;
+
         sprite = &gSprites[spriteId];
         sprite->centerToCornerVecX = -(graphicsInfo->width >> 1);
         sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
         sprite->y += sprite->centerToCornerVecY;
-        sprite->oam.paletteNum = graphicsInfo->paletteSlot;
+        sprite->oam.paletteNum = paletteSlot;
         if (sprite->oam.paletteNum >= 16)
             sprite->oam.paletteNum -= 16;
 
         sprite->coordOffsetEnabled = TRUE;
         sprite->sVirtualObjId = virtualObjId;
         sprite->sVirtualObjElev = elevation;
-        if (graphicsInfo->paletteSlot == 10)
-            LoadSpecialObjectReflectionPalette(graphicsInfo->paletteTag, graphicsInfo->paletteSlot);
-        else if (graphicsInfo->paletteSlot >= 16)
-            _PatchObjectPalette(graphicsInfo->paletteTag, graphicsInfo->paletteSlot | 0xf0);
+        if(Rogue_ModifyObjectPaletteSlot(graphicsId, &paletteSlot))
+        {
+            // assume we already handled this
+        }
+        else if (paletteSlot == 10)
+            LoadSpecialObjectReflectionPalette(graphicsInfo->paletteTag, paletteSlot);
+        else if (paletteSlot >= 16)
+            _PatchObjectPalette(graphicsInfo->paletteTag, paletteSlot | 0xf0);
 
         if (subspriteTables != NULL)
         {
@@ -2089,13 +2107,18 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
 
     *(u16 *)&spriteTemplate.paletteTag = TAG_NONE;
     paletteSlot = graphicsInfo->paletteSlot;
-    if (paletteSlot == 0)
+
+    if(Rogue_ModifyObjectPaletteSlot(objectEvent->graphicsId, &paletteSlot))
     {
-        LoadPlayerObjectReflectionPalette(graphicsInfo->paletteTag, graphicsInfo->paletteSlot);
+        // assume we already handled this
+    }
+    else if (paletteSlot == 0)
+    {
+        LoadPlayerObjectReflectionPalette(graphicsInfo->paletteTag, paletteSlot);
     }
     else if (paletteSlot == 10)
     {
-        LoadSpecialObjectReflectionPalette(graphicsInfo->paletteTag, graphicsInfo->paletteSlot);
+        LoadSpecialObjectReflectionPalette(graphicsInfo->paletteTag, paletteSlot);
     }
     else if (paletteSlot >= 16)
     {
@@ -2165,13 +2188,18 @@ void ObjectEventSetGraphicsId(struct ObjectEvent *objectEvent, u16 graphicsId)
     graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
     sprite = &gSprites[objectEvent->spriteId];
     paletteSlot = graphicsInfo->paletteSlot;
-    if (paletteSlot == 0)
+
+    if(Rogue_ModifyObjectPaletteSlot(graphicsId, &paletteSlot))
     {
-        PatchObjectPalette(graphicsInfo->paletteTag, graphicsInfo->paletteSlot);
+        // assume we already handled this
+    }
+    else if (paletteSlot == 0)
+    {
+        PatchObjectPalette(graphicsInfo->paletteTag, paletteSlot);
     }
     else if (paletteSlot == 10)
     {
-        LoadSpecialObjectReflectionPalette(graphicsInfo->paletteTag, graphicsInfo->paletteSlot);
+        LoadSpecialObjectReflectionPalette(graphicsInfo->paletteTag, paletteSlot);
     }
     else if (paletteSlot >= 16)
     {
@@ -2442,9 +2470,9 @@ void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
 {
     u8 paletteIndex = FindObjectEventPaletteIndexByTag(paletteTag);
 
-    LoadPalette(sObjectEventSpritePalettes[paletteIndex].data, 16 * paletteSlot + 0x100, 0x20);
+    LoadPalette(sObjectEventSpritePalettes[paletteIndex].data, OBJ_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
 
-    Rogue_ModifyOverworldPalette(paletteSlot * 16 + 0x100, 2);
+    Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
 }
 
 void PatchObjectPaletteRange(const u16 *paletteTags, u8 minSlot, u8 maxSlot)
@@ -9432,11 +9460,14 @@ void SetVirtualObjectGraphics(u8 virtualObjId, u16 graphicsId)
     {
         struct Sprite *sprite = &gSprites[spriteId];
         const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
+        u8 paletteSlot = graphicsInfo->paletteSlot;
         u16 tileNum = sprite->oam.tileNum;
 
+        Rogue_ModifyObjectPaletteSlot(graphicsId, &paletteSlot);
+            
         sprite->oam = *graphicsInfo->oam;
         sprite->oam.tileNum = tileNum;
-        sprite->oam.paletteNum = graphicsInfo->paletteSlot;
+        sprite->oam.paletteNum = paletteSlot;
         sprite->images = graphicsInfo->images;
 
         if (graphicsInfo->subspriteTables == NULL)
