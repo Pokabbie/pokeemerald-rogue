@@ -44,11 +44,7 @@ namespace PokemonDataGenerator
 						OverworldSpriteGenerator.s_TargettingVanilla = isVanillaVersion;
 						OverworldSpriteGenerator.s_GenerateShinies = true;// ReadBool("Include Shinies?");
 
-						//Console.WriteLine("1 - Collate Sprites");
-						//Console.WriteLine("2 - Export Sprites");
-						bool isCollating = true;// ReadOption(1, 2) == 1;
-
-						OverworldSpriteGenerator.GenerateFromURL(isCollating);
+						OverworldSpriteGenerator.GenerateFromURL();
 						break;
 					}
 
@@ -59,11 +55,7 @@ namespace PokemonDataGenerator
 						OverworldSpriteGenerator.s_TargettingVanilla = isVanillaVersion;
 						OverworldSpriteGenerator.s_GenerateShinies = true;// ReadBool("Include Shinies?");
 
-						//Console.WriteLine("1 - Collate Sprites");
-						//Console.WriteLine("2 - Export Sprites");
-						bool isCollating = true;// ReadOption(1, 2) == 1;
-
-						OverworldSpriteGenerator.GenerateFromURL(isCollating);
+						OverworldSpriteGenerator.GenerateFromURL();
 						break;
 					}
 

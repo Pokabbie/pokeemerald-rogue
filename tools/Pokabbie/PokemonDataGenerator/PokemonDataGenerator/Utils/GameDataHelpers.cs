@@ -338,11 +338,28 @@ namespace PokemonDataGenerator.Utils
 			return new KeyValuePair<string, string>(key, value);
 		}
 
+		private static bool TryManualPalettePath(string mon, out string path)
+		{
+			switch(mon.ToLower())
+			{
+				case "mime_jr":
+					path = "mime_jr";
+					return true;
+			}
+
+			path = null;
+			return false;
+		}
+
 		private static string GetPokemonPalettePath(string mon, string pal)
 		{
 			string[] parts = mon.Split('_');
 
-			if (parts.Length > 1)
+			if(TryManualPalettePath(mon, out string path))
+			{
+				return Path.Combine(RootDirectory, $"graphics\\pokemon\\{path}\\{pal}.pal");
+			}
+			else if (parts.Length > 1)
 			{
 				string baseSpecies = parts[0];
 				string form = string.Join("_", parts.Skip(1).ToArray());
