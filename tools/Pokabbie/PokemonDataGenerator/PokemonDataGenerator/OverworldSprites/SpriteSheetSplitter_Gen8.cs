@@ -75,7 +75,7 @@ namespace PokemonDataGenerator.OverworldSprites
 				"rolycoly",
 				"carkol",
 				"coalossal",
-				"applin",
+				"_", // applin is the wrong way roung
 				"flapple",
 				"appletun",
 				"silicobra",
@@ -175,10 +175,12 @@ namespace PokemonDataGenerator.OverworldSprites
 			};
 			SpriteSheetSplitter.AppendMonBlockSprites(monNames, ref pokedexNumber, settings, ref originX, ref originY);
 
+			SpriteSheetSplitter.AppendMonSprites("applin", pokedexNumber++, settings, 192, 384);
+
 			// Special large format
 			//
 			settings.CellSize = 64;
-			SpriteSheetSplitter.AppendMonSprites("eternatus", pokedexNumber, settings, 448, 1152);
+			SpriteSheetSplitter.AppendMonSprites("eternatus", pokedexNumber++, settings, 448, 1152);
 		}
 	}
 }
