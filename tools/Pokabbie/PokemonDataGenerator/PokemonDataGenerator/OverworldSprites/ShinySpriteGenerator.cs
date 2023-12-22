@@ -28,7 +28,7 @@ namespace PokemonDataGenerator.OverworldSprites
 
 				if(!frameName.EndsWith("_shiny"))
 				{
-					var frameImg = new Bitmap(Bitmap.FromFile(framePath));
+					var frameImg = ContentCache.GetImageContent(framePath);
 
 					for (int y = 0; y < frameImg.Height; ++y)
 					{
@@ -62,6 +62,20 @@ namespace PokemonDataGenerator.OverworldSprites
 			}
 
 			return;
+		}
+
+		public static void ForcefullyRegenerateMonSprites(string species)
+		{
+			Console.WriteLine($"\tForcefully regenerating shiny for '{species}'");
+			var spriteData = OverworldSpriteGenerator.GetGatheredSpriteDataFor(species);
+
+			foreach (var key in spriteData.spriteUri.Keys.ToArray())
+			{
+				if (key.Contains("_shiny"))
+					spriteData.spriteUri.Remove(key);
+			}
+
+			GenerateMonSprites(species);
 		}
 
 		private static Color CalculateShinyColour(Color inColour, Color normalColour, Color shinyColour)
