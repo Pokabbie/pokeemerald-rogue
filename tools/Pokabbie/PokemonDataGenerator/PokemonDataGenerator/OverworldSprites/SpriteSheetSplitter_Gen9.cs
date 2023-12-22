@@ -205,8 +205,8 @@ namespace PokemonDataGenerator.OverworldSprites
 			settings.CellSize = 64;
 			settings.FrameNames = new string[]
 			{
-				$"front{groupKey}_1",   $"front{groupKey}_2", $"side{groupKey}_1",    $"side{groupKey}_2",
-				$"_",                  $"_", $"back{groupKey}_1",    $"back{groupKey}_2",
+				$"front{groupKey}_1",   $"front{groupKey}_2", $"_",    $"_",
+				$"side{groupKey}_1",    $"side{groupKey}_2", $"back{groupKey}_1",    $"back{groupKey}_2",
 			};
 			settings.FrameStride = 4;
 			SpriteSheetSplitter.AppendMonSprites("DONDOZO", pokedexNumber++, settings, 512, 640);
