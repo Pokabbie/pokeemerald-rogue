@@ -775,8 +775,23 @@ bool8 Query_IsSpeciesEnabled(u16 species)
     if(gRogueSpeciesInfo[species].baseHP != 0)
     {
 #ifdef ROGUE_EXPANSION
+        if(species > GEN9_START && species <= PLACEHOLDER_START)
+        {
+            // Gen 9 section is after the forms start
+            // Illegal species for either wild or trainers
+            switch (species)
+            {
+            //case SPECIES_MAUSHOLD_FAMILY_OF_FOUR:
+            case SPECIES_PALAFIN_HERO:
+            //case SPECIES_DUDUNSPARCE_THREE_SEGMENT:
+            case SPECIES_GIMMIGHOUL_ROAMING:
+                return FALSE;
+            
+            }
+        }
+
         // Include specific forms in these queries
-        if(species > FORMS_START)
+        else if(species > FORMS_START)
         {
             // Regional forms
             if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_STUNFISK_GALARIAN)
