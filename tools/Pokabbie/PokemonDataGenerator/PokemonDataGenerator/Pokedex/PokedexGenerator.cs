@@ -36,44 +36,58 @@ namespace PokemonDataGenerator.Pokedex
 				fullDexes.Add(GatherDexData("kanto_RBY", "Red/Blue/Yellow", 1, "kanto"));
 				fullDexes.Add(GatherDexData("johto_GSC", "Gold/Silver/Crystal", 2, "original-johto"));
 				fullDexes.Add(GatherDexData("hoenn_RSE", "Ruby/Sapphire/Emerald", 3, "hoenn"));
+
+				fullDexes.Add(GatherDexData("national_gen1", "Gen. 1", 1, "national"));
+				fullDexes.Add(GatherDexData("national_gen2", "Gen. 2", 2, "national"));
+				fullDexes.Add(GatherDexData("national_gen3", "Gen. 3", 3, "national"));
 			}
 			else
 			{
 				// Purposely order so the most recent regional dex is first
 				fullDexes.Add(GatherResourceDexData("rogue_main", "Emerald Rogue", 8, "Rogue Dex.csv"));
 
-				fullDexes.Add(GatherDexData("kanto_letsgo", "Let'sGo", 7, "letsgo-kanto"));
 				fullDexes.Add(GatherDexData("kanto_RBY", "Red/Blue/Yellow", 1, "kanto"));
+				fullDexes.Add(GatherDexData("kanto_letsgo", "Let'sGo", 7, "letsgo-kanto"));
 
-				fullDexes.Add(GatherDexData("johto_HGSS", "HeartGold/SoulSilver", 4, "updated-johto"));
 				fullDexes.Add(GatherDexData("johto_GSC", "Gold/Silver/Crystal", 2, "original-johto"));
+				fullDexes.Add(GatherDexData("johto_HGSS", "HeartGold/SoulSilver", 4, "updated-johto"));
 
-				fullDexes.Add(GatherDexData("hoenn_ORAS", "OmegaRuby/AlphaSapphire", 6, "updated-hoenn"));
 				fullDexes.Add(GatherDexData("hoenn_RSE", "Ruby/Sapphire/Emerald", 3, "hoenn"));
+				fullDexes.Add(GatherDexData("hoenn_ORAS", "OmegaRuby/AlphaSapphire", 6, "updated-hoenn"));
 
-				fullDexes.Add(GatherDexData("sinnoh_PL", "Platinum", 4, "extended-sinnoh"));
 				fullDexes.Add(GatherDexData("sinnoh_DP", "Diamond/Pearl", 4, "original-sinnoh"));
+				fullDexes.Add(GatherDexData("sinnoh_PL", "Platinum", 4, "extended-sinnoh"));
 
-				fullDexes.Add(GatherDexData("unova_BW2", "Black2/White2", 5, "updated-unova"));
 				fullDexes.Add(GatherDexData("unova_BW", "Black/White", 5, "original-unova"));
-				fullDexes.Add(GatherDexData("unova_conquest", "Conquest", 5, "conquest-gallery"));
+				fullDexes.Add(GatherDexData("unova_BW2", "Black2/White2", 5, "updated-unova"));
 
 				fullDexes.Add(GatherDexData("kalos", "X/Y", 6, "kalos-central", "kalos-coastal", "kalos-mountain"));
 
-				fullDexes.Add(GatherDexData("alola_USUM", "UltraSun/UltraMoon", 7, "updated-alola", "updated-melemele", "updated-akala", "updated-ulaula", "updated-poni"));
 				fullDexes.Add(GatherDexData("alola_SM", "Sun/Moon", 7, "original-alola", "original-melemele", "original-akala", "original-ulaula", "original-poni"));
+				fullDexes.Add(GatherDexData("alola_USUM", "UltraSun/UltraMoon", 7, "updated-alola", "updated-melemele", "updated-akala", "updated-ulaula", "updated-poni"));
 
-				fullDexes.Add(GatherDexData("galar_fulldlc", "Sword/Shield + DLC", 8, "galar", "isle-of-armor", "crown-tundra"));
-				fullDexes.Add(GatherDexData("galar_crowntundra", "CrownTundra", 8, "crown-tundra"));
-				fullDexes.Add(GatherDexData("galar_isleofarmor", "IsleOfArmor", 8, "isle-of-armor"));
 				fullDexes.Add(GatherDexData("galar_swsh", "Sword/Shield", 8, "galar"));
+				fullDexes.Add(GatherDexData("galar_isleofarmor", "IsleOfArmor", 8, "isle-of-armor"));
+				fullDexes.Add(GatherDexData("galar_crowntundra", "CrownTundra", 8, "crown-tundra"));
+				fullDexes.Add(GatherDexData("galar_fulldlc", "Sword/Shield + DLC", 8, "galar", "isle-of-armor", "crown-tundra"));
 
-				fullDexes.Add(GatherDexData("hisui_legendsarceus", "LegendsArceus", 8, "hisui"));
-
-				fullDexes.Add(GatherDexData("paldea_fulldlc", "Scarlet/Violet + DLC", 9, "paldea", "kitakami"));//, "blueberry"));
-				//fullDexes.Add(GatherDexData("paldea_blueberry", "Indigo Disk", 9, "blueberry"));
-				fullDexes.Add(GatherDexData("paldea_kitakami", "The Teal Mask", 9, "kitakami"));
 				fullDexes.Add(GatherDexData("paldea_scvi", "Scarlet/Violet", 9, "paldea"));
+				fullDexes.Add(GatherDexData("paldea_kitakami", "The Teal Mask", 9, "kitakami"));
+				//fullDexes.Add(GatherDexData("paldea_blueberry", "Indigo Disk", 9, "blueberry"));
+				fullDexes.Add(GatherDexData("paldea_fulldlc", "Scarlet/Violet + DLC", 9, "paldea", "kitakami"));//, "blueberry"));
+
+				fullDexes.Add(GatherDexData("extras_conquest", "Conquest", 5, "conquest-gallery"));
+				fullDexes.Add(GatherDexData("extras_legendsarceus", "LegendsArceus", 8, "hisui"));
+
+				fullDexes.Add(GatherDexData("national_gen1", "Gen. 1", 1, "national"));
+				fullDexes.Add(GatherDexData("national_gen2", "Gen. 2", 2, "national"));
+				fullDexes.Add(GatherDexData("national_gen3", "Gen. 3", 3, "national"));
+				fullDexes.Add(GatherDexData("national_gen4", "Gen. 4", 4, "national"));
+				fullDexes.Add(GatherDexData("national_gen5", "Gen. 5", 5, "national"));
+				fullDexes.Add(GatherDexData("national_gen6", "Gen. 6", 6, "national"));
+				fullDexes.Add(GatherDexData("national_gen7", "Gen. 7", 7, "national"));
+				fullDexes.Add(GatherDexData("national_gen8", "Gen. 8", 8, "national"));
+				fullDexes.Add(GatherDexData("national_gen9", "Gen. 9", 9, "national"));
 			}
 
 			Dictionary<string, List<PokedexData>> regionVariants = new Dictionary<string, List<PokedexData>>();
@@ -142,6 +156,33 @@ namespace PokemonDataGenerator.Pokedex
 			return data;
 		}
 
+		private static bool IsSpeciesIgnored(string species)
+		{
+			if (!GameDataHelpers.IsVanillaVersion)
+			{
+				switch (FormatKeyword(species))
+				{
+					case "ARCHALUDON":
+					case "HYDRAPPLE":
+					case "GOUGING_FIRE":
+					case "RAGING_BOLT":
+					case "IRON_BOULDER":
+					case "IRON_CROWN":
+					case "TERAPAGOS":
+					case "PECHARUNT":
+						return true;
+				}
+			}
+			else
+			{
+				// For vanilla just ignore any species we don't have
+				if (!GameDataHelpers.SpeciesDefines.ContainsKey($"SPECIES_{FormatKeyword(species)}"))
+					return true;
+			}
+
+			return false;
+		}
+
 		private static void AppendDexMons(string dexId, PokedexData target)
 		{
 			string uri = m_DexApiLinks[dexId];
@@ -152,6 +193,57 @@ namespace PokemonDataGenerator.Pokedex
 			foreach (JObject entry in dex["pokemon_entries"])
 			{
 				string species = entry["pokemon_species"]["name"].ToString();
+				string speciesDefine = $"SPECIES_{FormatKeyword(species)}";
+
+				if (IsSpeciesIgnored(species))
+					continue;
+
+				if (!GameDataHelpers.SpeciesDefines.ContainsKey(speciesDefine))
+					throw new InvalidDataException($"Failed to find define for {speciesDefine}");
+
+				// Exclude species here
+				if (dexId.StartsWith("national"))
+				{
+					if (target.GenLimit != 9)
+					{
+						// Ignore gen9
+						if (GameDataHelpers.SpeciesDefines[speciesDefine].StartsWith("GEN9_START"))
+							continue;
+					}
+
+					switch (target.GenLimit)
+					{
+						case 1:
+							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_MEW"))
+								continue;
+							break;
+						case 2:
+							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_CELEBI"))
+								continue;
+							break;
+						case 3:
+							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_DEOXYS"))
+								continue;
+							break;
+						case 4:
+							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_ARCEUS"))
+								continue;
+							break;
+						case 5:
+							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_MELOETTA"))
+								continue;
+							break;
+						case 7:
+							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_VOLCANION"))
+								continue;
+							break;
+						case 8:
+							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_ENAMORUS"))
+								continue;
+							break;
+					}
+				}
+
 				if (!target.Mons.Contains(species))
 				{
 					target.Mons.Add(species);
@@ -188,11 +280,11 @@ namespace PokemonDataGenerator.Pokedex
 		{
 			string csvContent = ContentCache.GetHttpContent("res://Pokedex/" + dexId);
 
-			using(StringReader reader = new StringReader(csvContent))
+			using (StringReader reader = new StringReader(csvContent))
 			{
 				string line;
 
-				while((line = reader.ReadLine()) != null)
+				while ((line = reader.ReadLine()) != null)
 				{
 					// Skip header
 					if (line.StartsWith("Name,"))
@@ -372,7 +464,7 @@ namespace PokemonDataGenerator.Pokedex
 				content.AppendLine($"const u16 sRogueDexVariant_{FormatKeyword(dex.InternalName)}[] = ");
 				content.AppendLine($"{{");
 
-				foreach(var mon in dex.Mons)
+				foreach (var mon in dex.Mons)
 				{
 					content.AppendLine($"	SPECIES_{FormatKeyword(mon)},");
 				}

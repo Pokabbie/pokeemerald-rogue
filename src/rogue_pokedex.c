@@ -682,23 +682,12 @@ static u16 GetDexCount(u8 caseID)
     u16 i = 0;
     u16 count = 0;
 
-    if(RoguePokedex_IsNationalDexActive())
+    u8 dexVariant = RoguePokedex_GetDexVariant();
+    
+    for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
     {
-        for (i = 0; i < RoguePokedex_GetNationalDexLimit(); i++)
-        {
-            if (GetSetPokedexSpeciesFlag(i, caseID))
-                count++;
-        }
-    }
-    else
-    {
-        u8 dexVariant = RoguePokedex_GetDexVariant();
-        
-        for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
-        {
-            if (GetSetPokedexSpeciesFlag(gPokedexVariants[dexVariant].speciesList[i], caseID))
-                count++;
-        }
+        if (GetSetPokedexSpeciesFlag(gPokedexVariants[dexVariant].speciesList[i], caseID))
+            count++;
     }
 
     return count;
@@ -708,23 +697,12 @@ static bool8 CheckDexCompletion(u8 caseID)
 {
     u16 i = 0;
 
-    if(RoguePokedex_IsNationalDexActive())
+    u8 dexVariant = RoguePokedex_GetDexVariant();
+    
+    for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
     {
-        for (i = 0; i < RoguePokedex_GetNationalDexLimit(); i++)
-        {
-            if (!GetSetPokedexSpeciesFlag(i, caseID))
-                return FALSE;
-        }
-    }
-    else
-    {
-        u8 dexVariant = RoguePokedex_GetDexVariant();
-        
-        for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
-        {
-            if (!GetSetPokedexSpeciesFlag(gPokedexVariants[dexVariant].speciesList[i], caseID))
-                return FALSE;
-        }
+        if (!GetSetPokedexSpeciesFlag(gPokedexVariants[dexVariant].speciesList[i], caseID))
+            return FALSE;
     }
 
     return TRUE;
@@ -733,17 +711,19 @@ static bool8 CheckDexCompletion(u8 caseID)
 static void DisplayTitleScreenCountersText(void)
 {
     u8 color[3] = {0, 2, 3};
+    u8 xCoords = RoguePokedex_GetCurrentDexLimit() > 999 ? 0 : 4;
+    u8 digits = RoguePokedex_GetCurrentDexLimit() > 999 ? 4 : 3;
 
     FillWindowPixelBuffer(WIN_TITLE_COUNTERS, PIXEL_FILL(0));
 
-    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_SEEN), STR_CONV_MODE_RIGHT_ALIGN, 3);
-    AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, 4, 0, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_SEEN), STR_CONV_MODE_RIGHT_ALIGN, digits);
+    AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, xCoords, 0, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
-    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_CAUGHT), STR_CONV_MODE_RIGHT_ALIGN, 3);
-    AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, 4, 24, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_CAUGHT), STR_CONV_MODE_RIGHT_ALIGN, digits);
+    AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, xCoords, 24, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
-    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_CAUGHT_SHINY), STR_CONV_MODE_RIGHT_ALIGN, 3);
-    AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, 4, 48, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_CAUGHT_SHINY), STR_CONV_MODE_RIGHT_ALIGN, digits);
+    AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, xCoords, 48, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
     PutWindowTilemap(WIN_TITLE_COUNTERS);
     CopyWindowToVram(WIN_TITLE_COUNTERS, COPYWIN_FULL);
@@ -751,30 +731,14 @@ static void DisplayTitleScreenCountersText(void)
 
 static const u8* GetDexRegionName()
 {
-    if(RoguePokedex_IsNationalDexActive())
-    {
-        return gText_National;
-    }
-    else
-    {
-        u8 region = RoguePokedex_GetDexRegion();
-        return gPokedexRegions[region].displayName;
-    }
+    u8 region = RoguePokedex_GetDexRegion();
+    return gPokedexRegions[region].displayName;
 }
 
 static const u8* GetDexVariantName()
 {
-    if(RoguePokedex_IsNationalDexActive())
-    {
-        ConvertUIntToDecimalStringN(gStringVar1, RoguePokedex_GetDexGenLimit(), STR_CONV_MODE_LEFT_ALIGN, 2);
-        StringExpandPlaceholders(gStringVar2, gText_GenStr1);
-        return gStringVar2;
-    }
-    else
-    {
-        u8 variant = RoguePokedex_GetDexVariant();
-        return gPokedexVariants[variant].displayName;
-    }
+    u8 variant = RoguePokedex_GetDexVariant();
+    return gPokedexVariants[variant].displayName;
 }
 
 static void DisplayTitleDexVariantText(void)
@@ -1355,8 +1319,6 @@ static void TitleScreen_HandleInput(u8 taskId)
                 PlaySE(SE_SELECT);
 
                 if(region == POKEDEX_REGION_START)
-                    region = POKEDEX_REGION_NONE;
-                else if(region == POKEDEX_REGION_NONE)
                     region = POKEDEX_REGION_END;
                 else
                     --region;
@@ -1372,6 +1334,7 @@ static void TitleScreen_HandleInput(u8 taskId)
                 {
                     u8 genLimit = RoguePokedex_GetDexGenLimit();
                     PlaySE(SE_SELECT);
+                    AGB_ASSERT(FALSE); // old code path
 
                     if(genLimit == 1)
                         RoguePokedex_SetDexGenLimit(DEX_GEN_LIMIT);
@@ -1427,8 +1390,8 @@ static void TitleScreen_HandleInput(u8 taskId)
                 PlaySE(SE_SELECT);
 
                 if(region == POKEDEX_REGION_END)
-                    region = POKEDEX_REGION_NONE;
-                else if(region == POKEDEX_REGION_NONE)
+                    region = POKEDEX_REGION_START;
+                else if(region == POKEDEX_REGION_END)
                     region = POKEDEX_REGION_START;
                 else
                     ++region;
@@ -1444,6 +1407,7 @@ static void TitleScreen_HandleInput(u8 taskId)
                 {
                     u8 genLimit = RoguePokedex_GetDexGenLimit();
                     PlaySE(SE_SELECT);
+                    AGB_ASSERT(FALSE); // old code path
 
                     if(genLimit == DEX_GEN_LIMIT)
                         RoguePokedex_SetDexGenLimit(1);
@@ -2237,12 +2201,6 @@ static void Overview_SelectSpeciesToDiplay()
 
         species = SPECIES_NONE;
 
-        if(RoguePokedex_IsNationalDexActive())
-        {
-            if(1 + num <= RoguePokedex_GetNationalDexLimit())
-                species = NationalPokedexNumToSpecies(1 + num);
-        }
-        else
         {
             u8 dexVariant = RoguePokedex_GetDexVariant();
             if(num < gPokedexVariants[dexVariant].speciesCount)
@@ -2270,13 +2228,8 @@ static u8 Overview_GetLastValidActiveIndex()
 
 static u8 Overview_GetMaxScrollAmount()
 {
-    if(RoguePokedex_IsNationalDexActive())
-        return (RoguePokedex_GetNationalDexLimit() / COLUMN_ENTRY_COUNT) - ROW_ENTRY_COUNT + 1;
-    else
-    {
-        u8 dexVariant = RoguePokedex_GetDexVariant();
-        return (gPokedexVariants[dexVariant].speciesCount / COLUMN_ENTRY_COUNT) - ROW_ENTRY_COUNT + 1;
-    }
+    u8 dexVariant = RoguePokedex_GetDexVariant();
+    return (gPokedexVariants[dexVariant].speciesCount / COLUMN_ENTRY_COUNT) - ROW_ENTRY_COUNT + 1;
 }
 
 // Mon info
@@ -2306,7 +2259,7 @@ static void MonInfo_CreateSprites(bool8 includeType)
         48, 66, 
         0,
 #ifdef ROGUE_EXPANSION
-        isShiny ? (sPokedexMenu->viewBaseSpecies + SPECIES_SHINY_TAG) : sPokedexMenu->viewBaseSpecies
+        sPokedexMenu->viewBaseSpecies
 #else
         isShiny ? gMonShinyPaletteTable[sPokedexMenu->viewBaseSpecies].tag : gMonPaletteTable[sPokedexMenu->viewBaseSpecies].tag
 #endif
@@ -2367,90 +2320,56 @@ static void MonInfo_DestroySprites()
 // Can lag out if too many
 #define MAX_NEIGHBOUR_CHECKS 100
 
-static u16 MonStats_GetMonNeighbour(u16 fromSpecies, s8 offset)
+static u16 MonStats_GetMonNeighbour(u16 currViewSpecies, s8 offset)
 {
     u16 i;
+    u16 currViewIdx = (u16)-1;
+    u8 dexVariant = RoguePokedex_GetDexVariant();
 
-    if(RoguePokedex_IsNationalDexActive())
+    for(i = 0; i < gPokedexVariants[dexVariant].speciesCount; ++i)
     {
-        // GetSetPokedexSpeciesFlag is slow so call it as little as possible
-        u16 checkNum;
-        u16 baseNum = SpeciesToNationalPokedexNum(fromSpecies);
-
-        for(i = 1; i < MAX_NEIGHBOUR_CHECKS; ++i)
+        if(gPokedexVariants[dexVariant].speciesList[i] == currViewSpecies)
         {
-            if(offset == 1)
-            {
-                checkNum = (baseNum + i - 1) % RoguePokedex_GetNationalDexLimit() + 1;
-            }
-            else // offset == 1
-            {
-                if(i >= baseNum)
-                    checkNum = RoguePokedex_GetNationalDexLimit() - (i - baseNum); // loop back round
-                else
-                    checkNum = baseNum - i;
-            }
-
-            if(checkNum == fromSpecies)
-                continue;
-
-            // Only allowed to jump to seen mons
-            if(!GetSetPokedexSpeciesFlag(NationalPokedexNumToSpecies(checkNum), FLAG_GET_SEEN))
-                continue;
-
-            return NationalPokedexNumToSpecies(checkNum);
+            currViewIdx = i;
+            break;
         }
     }
-    else
+
+    for(i = 0; i < MAX_NEIGHBOUR_CHECKS; ++i)
     {
-        u16 fromIdx = (u16)-1;
-        u8 dexVariant = RoguePokedex_GetDexVariant();
+        u16 checkIdx;
+        u16 checkSpecies;
 
-        for(i = 0; i < gPokedexVariants[dexVariant].speciesCount; ++i)
+        checkIdx = currViewIdx;
+
+        while(TRUE)
         {
-            if(gPokedexVariants[dexVariant].speciesList[i] == fromSpecies)
+            if(offset == 1)
+                checkIdx = (checkIdx + 1) % gPokedexVariants[dexVariant].speciesCount;
+            else // offset == -1
             {
-                fromIdx = i;
+                if(checkIdx == 0)
+                    checkIdx = gPokedexVariants[dexVariant].speciesCount - 1;
+                else
+                    --checkIdx;
+            }
+
+            // If we've done a full loop, we've failed to find next species we can view
+            if(checkIdx == currViewIdx)
                 break;
-            }
+
+            checkSpecies = gPokedexVariants[dexVariant].speciesList[checkIdx];
+
+            // Only allowed to jump to seen mons
+            if(!GetSetPokedexSpeciesFlag(checkSpecies, FLAG_GET_SEEN))
+                continue;
+
+            return checkSpecies;
         }
-
-        if(fromIdx != (u16)-1)
-        {
-            u16 checkIdx;
-            u16 checkSpecies;
-
-            for(i = 0; i < gPokedexVariants[dexVariant].speciesCount; ++i)
-            {
-                if(offset == 1)
-                {
-                    checkIdx = (fromIdx + i) % gPokedexVariants[dexVariant].speciesCount;
-                }
-                else // offset == -1
-                {
-                    if(i >= fromIdx)
-                        checkIdx = gPokedexVariants[dexVariant].speciesCount - (i - fromIdx); // loop back round
-                    else
-                        checkIdx = fromIdx - i;
-                }
-
-                if(checkIdx == fromIdx)
-                    continue;
-
-                checkSpecies = gPokedexVariants[dexVariant].speciesList[checkIdx];
-
-                // Only allowed to jump to seen mons
-                if(!GetSetPokedexSpeciesFlag(checkSpecies, FLAG_GET_SEEN))
-                    continue;
-
-                return checkSpecies;
-            }
-        }
-
     }
 
     // Failed fallback
-    return fromSpecies;
+    return currViewSpecies;
 }
 
 static bool8 MonInfo_HandleInput(u8 taskId)
@@ -2561,19 +2480,17 @@ static void MonMoves_HandleInput(u8 taskId)
     if(MonInfo_HandleInput(taskId))
         return;
 
-    if(JOY_REPEAT(DPAD_UP))
+    if(JOY_HELD(DPAD_UP))
     {
         if(sPokedexMenu->listScrollAmount == 0)
             sPokedexMenu->listScrollAmount = GetMaxMoveScrollOffset();
-        else if(sPokedexMenu->listScrollAmount <= MAX_LIST_DISPLAY_COUNT)
-            sPokedexMenu->listScrollAmount = 0;
         else
             sPokedexMenu->listScrollAmount -= 1;
 
         PlaySE(SE_DEX_SCROLL);
         DisplayMonMovesText();
     }
-    else if(JOY_REPEAT(DPAD_DOWN))
+    else if(JOY_HELD(DPAD_DOWN))
     {
         u16 maxScrollOffset = GetMaxMoveScrollOffset();
 
@@ -2687,31 +2604,27 @@ static void MonEvos_CreateSprites()
 
 u8 RoguePokedex_GetDexRegion()
 {
-    if(!RoguePokedex_IsNationalDexActive())
-    {
-        u8 i, j;
-        u8 dexVariant = RoguePokedex_GetDexVariant();
-        
+    u8 i, j;
+    u8 dexVariant = RoguePokedex_GetDexVariant();
 
-        for(i = POKEDEX_REGION_START; i <= POKEDEX_REGION_END; ++i)
+    for(i = POKEDEX_REGION_START; i <= POKEDEX_REGION_END; ++i)
+    {
+        for(j = 0; j < gPokedexRegions[i].variantCount; ++j)
         {
-            for(j = 0; j < gPokedexRegions[i].variantCount; ++j)
-            {
-                if(gPokedexRegions[i].variantList[j] == dexVariant)
-                    return i;
-            }
+            if(gPokedexRegions[i].variantList[j] == dexVariant)
+                return i;
         }
     }
 
-    return POKEDEX_REGION_NONE;
+    return 0;
 }
 
 void RoguePokedex_SetDexRegion(u8 region)
 {
     if(region < POKEDEX_REGION_COUNT)
-        RoguePokedex_SetDexVariant(gPokedexRegions[region].variantList[0]);
+        RoguePokedex_SetDexVariant(gPokedexRegions[region].variantList[gPokedexRegions[region].variantCount - 1]);
     else
-        RoguePokedex_SetDexVariant(POKEDEX_VARIANT_NONE);
+        RoguePokedex_SetDexVariant(POKEDEX_REGION_START);
 }
 
 u8 RoguePokedex_GetDexVariant()
@@ -2721,8 +2634,7 @@ u8 RoguePokedex_GetDexVariant()
     if(dexVariant < POKEDEX_VARIANT_COUNT)
         return dexVariant;
 
-    // Variant none is basically national dex mode
-    return POKEDEX_VARIANT_NONE;
+    return POKEDEX_VARIANT_DEFAULT;
 }
 
 void RoguePokedex_SetDexVariant(u8 variant)
@@ -2735,7 +2647,7 @@ void RoguePokedex_SetDexVariant(u8 variant)
     else
     {
         // Likely wanting to enter national dex mode
-        Rogue_SetConfigRange(CONFIG_RANGE_POKEDEX_VARIANT, POKEDEX_VARIANT_NATIONAL);
+        Rogue_SetConfigRange(CONFIG_RANGE_POKEDEX_VARIANT, POKEDEX_VARIANT_DEFAULT);
         RoguePokedex_SetDexGenLimit(DEX_GEN_LIMIT);
     }
 }
@@ -2758,62 +2670,10 @@ void RoguePokedex_SetDexGenLimit(u8 genLimit)
         Rogue_SetConfigRange(CONFIG_RANGE_POKEDEX_GEN, DEX_GEN_LIMIT);
 }
 
-bool8 RoguePokedex_IsNationalDexActive()
-{
-    // Variant none is treated national dex mode
-    return RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_NATIONAL;
-}
-
-u16 RoguePokedex_GetNationalDexLimit()
-{
-    switch (RoguePokedex_GetDexGenLimit())
-    {
-    case 1:
-        return NATIONAL_DEX_MEW;
-
-    case 2:
-        return NATIONAL_DEX_CELEBI;
-
-    case 3:
-        return NATIONAL_DEX_DEOXYS;
-
-#ifdef ROGUE_EXPANSION
-    case 4:
-        return NATIONAL_DEX_ARCEUS;
-
-    case 5:
-        return NATIONAL_DEX_GENESECT;
-
-    case 6:
-        return NATIONAL_DEX_VOLCANION;
-
-    case 7:
-        return NATIONAL_DEX_MELMETAL;
-
-    case 8:
-        return NATIONAL_DEX_ENAMORUS;
-
-    case 9:
-        return NATIONAL_DEX_OGERPON;
-#endif
-    
-    default:
-        AGB_ASSERT(FALSE); // This is unsafe given there could be placeholder species here
-        return NATIONAL_DEX_COUNT;
-    }
-}
-
 u16 RoguePokedex_GetCurrentDexLimit()
 {
-    if(RoguePokedex_IsNationalDexActive())
-    {
-        return RoguePokedex_GetNationalDexLimit();
-    }
-    else
-    {
-        u8 dexVariant = RoguePokedex_GetDexVariant();
-        return gPokedexVariants[dexVariant].speciesCount;
-    }
+    u8 dexVariant = RoguePokedex_GetDexVariant();
+    return gPokedexVariants[dexVariant].speciesCount;
 }
 
 bool8 RoguePokedex_IsVariantEditUnlocked()
@@ -2862,7 +2722,6 @@ bool8 RoguePokedex_IsSpeciesEnabled(u16 species)
     species = GET_BASE_SPECIES_ID(species);
 #endif
 
-    if(!RoguePokedex_IsNationalDexActive())
     {
         u8 variant = RoguePokedex_GetDexVariant();
 
@@ -2882,16 +2741,6 @@ u16 RoguePokedex_GetSpeciesCurrentNum(u16 species)
     species = GET_BASE_SPECIES_ID(species);
 #endif
 
-    if(RoguePokedex_IsNationalDexActive())
-    {
-        u16 num = SpeciesToNationalPokedexNum(species);
-
-        if(num <= RoguePokedex_GetNationalDexLimit())
-        {
-            return num;
-        }
-    }
-    else
     {
         u16 i;
         u8 variant = RoguePokedex_GetDexVariant();

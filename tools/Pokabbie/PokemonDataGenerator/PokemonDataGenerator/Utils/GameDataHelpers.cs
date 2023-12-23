@@ -163,6 +163,12 @@ namespace PokemonDataGenerator.Utils
 			return true;
 		}
 
+		public static int GetSpeciesNum(string define)
+		{
+			string value = SpeciesDefines[define];
+			return int.Parse(value);
+		}
+
 		public static Dictionary<string, string> ItemDefines
 		{
 			get
