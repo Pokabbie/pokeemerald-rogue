@@ -5,6 +5,7 @@
 #include "data.h"
 #include "daycare.h"
 #include "event_data.h"
+#include "international_string_util.h"
 #include "gpu_regs.h"
 #include "scanline_effect.h"
 #include "task.h"
@@ -78,8 +79,9 @@ enum
 
 enum
 {
-    WIN_MON_SPECIES,
-    WIN_MON_LIST,
+    WIN_MON_SPECIES_NAME_NO,
+    WIN_MON_PAGE_TITLE,
+    WIN_MON_PAGE_CONTENT,
     WIN_TITLE_COUNTERS,
     WIN_TITLE_VARIANT_SELECT,
     WIN_COUNT,
@@ -87,7 +89,7 @@ enum
 
 static const struct WindowTemplate sMonEntryWinTemplates[WIN_COUNT + 1] =
 {
-    [WIN_MON_SPECIES] = 
+    [WIN_MON_SPECIES_NAME_NO] = 
     {
         .bg = 0,
         .tilemapLeft = 2,
@@ -97,7 +99,17 @@ static const struct WindowTemplate sMonEntryWinTemplates[WIN_COUNT + 1] =
         .paletteNum = 15,
         .baseBlock = 1,
     },
-    [WIN_MON_LIST] = 
+    [WIN_MON_PAGE_TITLE] = 
+    {
+        .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 1,
+        .width = 11,
+        .height = 2,
+        .paletteNum = 15,
+        .baseBlock = 29,
+    },
+    [WIN_MON_PAGE_CONTENT] = 
     {
         .bg = 0,
         .tilemapLeft = 12,
@@ -105,8 +117,9 @@ static const struct WindowTemplate sMonEntryWinTemplates[WIN_COUNT + 1] =
         .width = 17,
         .height = 16,
         .paletteNum = 15,
-        .baseBlock = 29,
+        .baseBlock = 51,
     },
+
     [WIN_TITLE_COUNTERS] = 
     {
         .bg = 0,
@@ -115,7 +128,7 @@ static const struct WindowTemplate sMonEntryWinTemplates[WIN_COUNT + 1] =
         .width = 4,
         .height = 8,
         .paletteNum = 15,
-        .baseBlock = 301,
+        .baseBlock = 323,
     },
     [WIN_TITLE_VARIANT_SELECT] = 
     {
@@ -125,10 +138,44 @@ static const struct WindowTemplate sMonEntryWinTemplates[WIN_COUNT + 1] =
         .width = 15,
         .height = 5,
         .paletteNum = 15,
-        .baseBlock = 333,
+        .baseBlock = 355,
     },
+
     [WIN_COUNT] = DUMMY_WIN_TEMPLATE,
 };
+
+#ifdef ROGUE_EXPANSION
+static const u8 sTitle_Stats[] = _("Stats");
+static const u8 sTitle_Moves[] = _("Moves");
+static const u8 sTitle_Evolutions[] = _("Evolutions");
+
+static const u8 sText_Types[] = _("Types");
+static const u8 sText_Abilities[] = _("Abilities");
+
+static const u8 sText_Total[] = _("Total");
+
+static const u8 sText_HP[] = _("HP");
+static const u8 sText_Attack[] = _("Atk");
+static const u8 sText_Defence[] = _("Def");
+static const u8 sText_SpAttack[] = _("Sp Atk");
+static const u8 sText_SpDefence[] = _("Sp Def");
+static const u8 sText_Speed[] = _("Speed");
+#else
+static const u8 sTitle_Stats[] = _("STATS");
+static const u8 sTitle_Moves[] = _("MOVES");
+static const u8 sTitle_Evolutions[] = _("EVOLUTIONS");
+
+static const u8 sText_Types[] = _("TYPES");
+static const u8 sText_Abilities[] = _("ABILITIES");
+
+static const u8 sText_Total[] = _("TOTAL");
+static const u8 sText_HP[] = _("HP");
+static const u8 sText_Attack[] = _("ATK");
+static const u8 sText_Defence[] = _("DEF");
+static const u8 sText_SpAttack[] = _("SP ATK");
+static const u8 sText_SpDefence[] = _("SP DEF");
+static const u8 sText_Speed[] = _("SPEED");
+#endif
 
 extern const u8 gText_DexNational[];
 extern const u8 gText_DexHoenn[];
@@ -152,6 +199,8 @@ static void InitMonEntryWindows(void);
 static void DestroyMonEntryWindows(void);
 static void InitPageResources(u8 fromPage, u8 toPage);
 static void DestroyPageResources(u8 fromPage, u8 toPage);
+
+static void GatherSpeciesStatsArray(u16 species, u8* stats);
 
 // Title screen
 static void TitleScreen_HandleInput(u8);
@@ -236,11 +285,12 @@ static const u32 sTitleScreenTiles[] = INCBIN_U32("graphics/rogue_pokedex/front_
 static const u32 sOverviewTilemap[] = INCBIN_U32("graphics/rogue_pokedex/info_screen.bin.lz");
 static const u32 sOverviewTiles[] = INCBIN_U32("graphics/rogue_pokedex/info_screen.4bpp.lz");
 
-static const u32 sMonStatsTilemap[] = INCBIN_U32("graphics/rogue_pokedex/mon_stats.bin.lz");
-static const u32 sMonMovesTilemap[] = INCBIN_U32("graphics/rogue_pokedex/mon_moves.bin.lz");
-static const u32 sMonEvosTilemap[] = INCBIN_U32("graphics/rogue_pokedex/mon_evos.bin.lz");
-// 3 above share the same tilemap
-static const u32 sMonStatsTiles[] = INCBIN_U32("graphics/rogue_pokedex/mon_stats.4bpp.lz");
+static const u32 sPageSplitTableTilemap[] = INCBIN_U32("graphics/rogue_pokedex/page_split_table.bin.lz");
+static const u32 sPageListsTilemap[] = INCBIN_U32("graphics/rogue_pokedex/page_list.bin.lz");
+static const u32 sPageFormsTilemap[] = INCBIN_U32("graphics/rogue_pokedex/page_forms.bin.lz");
+
+// above share the same tilemap
+static const u32 sPageTiles[] = INCBIN_U32("graphics/rogue_pokedex/page_tiles.4bpp.lz");
 
 
 void Rogue_ShowPokedexFromMenu(void)
@@ -359,7 +409,7 @@ static void InitPageResources(u8 fromPage, u8 toPage)
         }
         else
         {
-            DecompressAndCopyTileDataToVram(1, &sMonStatsTiles, 0, 0, 0);
+            DecompressAndCopyTileDataToVram(1, &sPageTiles, 0, 0, 0);
             while (FreeTempTileDataBuffersIfPossible())
                 ;
         }
@@ -419,7 +469,7 @@ static void InitPageResources(u8 fromPage, u8 toPage)
 
     case PAGE_MON_STATS:
         {
-            LZDecompressWram(sMonStatsTilemap, sTilemapBufferPtr);
+            LZDecompressWram(sPageSplitTableTilemap, sTilemapBufferPtr);
             CopyBgTilemapBufferToVram(1);
 
             InitMonEntryWindows();
@@ -433,7 +483,7 @@ static void InitPageResources(u8 fromPage, u8 toPage)
 
     case PAGE_MON_MOVES:
         {
-            LZDecompressWram(sMonMovesTilemap, sTilemapBufferPtr);
+            LZDecompressWram(sPageListsTilemap, sTilemapBufferPtr);
             CopyBgTilemapBufferToVram(1);
 
             InitMonEntryWindows();
@@ -447,7 +497,7 @@ static void InitPageResources(u8 fromPage, u8 toPage)
 
     case PAGE_MON_EVOS:
         {
-            LZDecompressWram(sMonEvosTilemap, sTilemapBufferPtr);
+            LZDecompressWram(sPageFormsTilemap, sTilemapBufferPtr);
             CopyBgTilemapBufferToVram(1);
 
             InitMonEntryWindows();
@@ -710,7 +760,7 @@ static bool8 CheckDexCompletion(u8 caseID)
 
 static void DisplayTitleScreenCountersText(void)
 {
-    u8 color[3] = {0, 2, 3};
+    u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
     u8 xCoords = RoguePokedex_GetCurrentDexLimit() > 999 ? 0 : 4;
     u8 digits = RoguePokedex_GetCurrentDexLimit() > 999 ? 4 : 3;
 
@@ -741,11 +791,26 @@ static const u8* GetDexVariantName()
     return gPokedexVariants[variant].displayName;
 }
 
+static void AddTitleText(u8 const* title)
+{
+    u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY };
+    u16 offset;
+
+    FillWindowPixelBuffer(WIN_MON_PAGE_TITLE, PIXEL_FILL(0));
+    
+    offset = GetStringCenterAlignXOffset(FONT_NORMAL, title, sMonEntryWinTemplates[WIN_MON_PAGE_TITLE].width * 8);
+    AddTextPrinterParameterized4(WIN_MON_PAGE_TITLE, FONT_NORMAL, offset, 1, 0, 0, color, TEXT_SKIP_DRAW, title);
+
+    PutWindowTilemap(WIN_MON_PAGE_TITLE);
+    CopyWindowToVram(WIN_MON_PAGE_TITLE, COPYWIN_FULL);
+}
+
+
 static void DisplayTitleDexVariantText(void)
 {
     if(RoguePokedex_IsVariantEditUnlocked())
     {
-        u8 color[3] = {0, 2, 3};
+        u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
         bool8 arrowActive = sPokedexMenu->titleScreenInEditMode;
 
         FillWindowPixelBuffer(WIN_TITLE_VARIANT_SELECT, PIXEL_FILL(0));
@@ -766,31 +831,45 @@ static void DisplayTitleDexVariantText(void)
 
 static void DisplayMonEntryText(void)
 {
-    u8 color[3] = {0, 2, 3};
+    u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
     u16 speciesNum = RoguePokedex_GetSpeciesCurrentNum(sPokedexMenu->viewBaseSpecies);
     
     ConvertUIntToDecimalStringN(gStringVar1, speciesNum, STR_CONV_MODE_LEADING_ZEROS, speciesNum > 999 ? 4 : 3);
     StringExpandPlaceholders(gStringVar3, gText_NumberStr1);
 
-    AddTextPrinterParameterized4(WIN_MON_SPECIES, FONT_NARROW, 4, 1, 0, 0, color, TEXT_SKIP_DRAW, RoguePokedex_GetSpeciesName(sPokedexMenu->viewBaseSpecies));
-    AddTextPrinterParameterized4(WIN_MON_SPECIES, FONT_NARROW, 4, 17, 0, 0, color, TEXT_SKIP_DRAW, gStringVar3);
+    AddTextPrinterParameterized4(WIN_MON_SPECIES_NAME_NO, FONT_NARROW, 4, 1, 0, 0, color, TEXT_SKIP_DRAW, RoguePokedex_GetSpeciesName(sPokedexMenu->viewBaseSpecies));
+    AddTextPrinterParameterized4(WIN_MON_SPECIES_NAME_NO, FONT_NARROW, 4, 17, 0, 0, color, TEXT_SKIP_DRAW, gStringVar3);
 
-    PutWindowTilemap(WIN_MON_SPECIES);
-    CopyWindowToVram(WIN_MON_SPECIES, COPYWIN_FULL);
+    PutWindowTilemap(WIN_MON_SPECIES_NAME_NO);
+    CopyWindowToVram(WIN_MON_SPECIES_NAME_NO, COPYWIN_FULL);
 }
 
 extern const u8 gAbilityNames[][ABILITY_NAME_LENGTH + 1];
+
+#define GET_STAT_COLOUR(stat) GET_STAT_COLOUR_RANGE(stats[stat], bestStatValue, worstStatValue)
+#define GET_STAT_COLOUR_RANGE(value, bestValue, worstColor) (value >= bestValue ? bestStatColor : (value <= worstColor ? worstStatColor : statColor))
 
 static void DisplayMonStatsText(void)
 {
     u8 i;
     const u8 ySpacing = 16;
-    u8 color[3] = {0, 2, 3};
+    u8 headerColor[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
+    u8 statColor[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE, TEXT_COLOR_LIGHT_GRAY };
+
+    AddTitleText(sTitle_Stats);
+
+    FillWindowPixelBuffer(WIN_MON_PAGE_CONTENT, PIXEL_FILL(0));
+
+    // Print types (Sprites display types setup later)
+    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 4, 1, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_Types);
 
     // Print abilities
     {
         u16 prevAbility = ABILITY_NONE;
-        u8 j = 0;
+        u8 j = 1;
+
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 4, 1 + ySpacing * j, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_Abilities);
+        ++j;
 
         for(i = 0; i < ARRAY_COUNT(gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].abilities); ++i)
         {
@@ -798,7 +877,13 @@ static void DisplayMonStatsText(void)
 
             if(ability != ABILITY_NONE && ability != prevAbility)
             {
-                AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 4, 1 + ySpacing * (2 + j), 0, 0, color, TEXT_SKIP_DRAW, gAbilityNames[ability]);
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, 1 + ySpacing * j, 0, 0, statColor, TEXT_SKIP_DRAW, gAbilityNames[ability]);
+                prevAbility = ability;
+                ++j;
+            }
+            else
+            {
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, 1 + ySpacing * j, 0, 0, statColor, TEXT_SKIP_DRAW, gText_Dash);
                 prevAbility = ability;
                 ++j;
             }
@@ -807,47 +892,75 @@ static void DisplayMonStatsText(void)
 
     // Print stats
     {
-        u16 statTotal = 0;
+        u16 bst;
+        u8 stats[NUM_STATS];
+        u8 bestStatValue;
+        u8 worstStatValue;
+        u8 bestStatColor[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_GREEN, TEXT_COLOR_LIGHT_GRAY };
+        u8 worstStatColor[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_LIGHT_GRAY };
         i = 0;
 
-        // HP
-        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseHP;
-        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseHP, STR_CONV_MODE_RIGHT_ALIGN, 3);
-        AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
-
-        // Attack
-        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseAttack;
-        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseAttack, STR_CONV_MODE_RIGHT_ALIGN, 3);
-        AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
-
-        // Def
-        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseDefense;
-        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseDefense, STR_CONV_MODE_RIGHT_ALIGN, 3);
-        AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
-
-        // SpAttack
-        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpAttack;
-        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpAttack, STR_CONV_MODE_RIGHT_ALIGN, 3);
-        AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
-
-        // SpDef
-        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpDefense;
-        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpDefense, STR_CONV_MODE_RIGHT_ALIGN, 3);
-        AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
-
-        // Speed
-        statTotal += gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpeed;
-        ConvertUIntToDecimalStringN(gStringVar4, gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].baseSpeed, STR_CONV_MODE_RIGHT_ALIGN, 3);
-        AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+        GatherSpeciesStatsArray(sPokedexMenu->viewBaseSpecies, stats);
+        bestStatValue = stats[RoguePokedex_GetSpeciesBestStat(sPokedexMenu->viewBaseSpecies)];
+        worstStatValue = stats[RoguePokedex_GetSpeciesWorstStat(sPokedexMenu->viewBaseSpecies)];
+        bst = RoguePokedex_GetSpeciesBST(sPokedexMenu->viewBaseSpecies);
 
         // Total
-        ConvertUIntToDecimalStringN(gStringVar4, statTotal, STR_CONV_MODE_RIGHT_ALIGN, 3);
-        AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 115, 1 + ySpacing * (++i), 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+        ++i;
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 72, 1 + ySpacing * i, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_Total);
+
+        ConvertUIntToDecimalStringN(gStringVar4, bst, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 115, 1 + ySpacing * i, 0, 0, GET_STAT_COLOUR_RANGE(bst, 600, 299), TEXT_SKIP_DRAW, gStringVar4);
+
+        // HP
+        ++i;
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 72, 1 + ySpacing * i, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_HP);
+
+        ConvertUIntToDecimalStringN(gStringVar4, stats[STAT_HP], STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 115, 1 + ySpacing * i, 0, 0, GET_STAT_COLOUR(STAT_HP), TEXT_SKIP_DRAW, gStringVar4);
+
+        // Attack
+        ++i;
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 72, 1 + ySpacing * i, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_Attack);
+        
+        ConvertUIntToDecimalStringN(gStringVar4, stats[STAT_ATK], STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 115, 1 + ySpacing * i, 0, 0, GET_STAT_COLOUR(STAT_ATK), TEXT_SKIP_DRAW, gStringVar4);
+
+        // Def
+        ++i;
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 72, 1 + ySpacing * i, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_Defence);
+        
+        ConvertUIntToDecimalStringN(gStringVar4, stats[STAT_DEF], STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 115, 1 + ySpacing * i, 0, 0, GET_STAT_COLOUR(STAT_DEF), TEXT_SKIP_DRAW, gStringVar4);
+
+        // SpAttack
+        ++i;
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 72, 1 + ySpacing * i, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_SpAttack);
+        
+        ConvertUIntToDecimalStringN(gStringVar4, stats[STAT_SPATK], STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 115, 1 + ySpacing * i, 0, 0, GET_STAT_COLOUR(STAT_SPATK), TEXT_SKIP_DRAW, gStringVar4);
+
+        // SpDef
+        ++i;
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 72, 1 + ySpacing * i, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_SpDefence);
+        
+        ConvertUIntToDecimalStringN(gStringVar4, stats[STAT_SPDEF], STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 115, 1 + ySpacing * i, 0, 0, GET_STAT_COLOUR(STAT_SPDEF), TEXT_SKIP_DRAW, gStringVar4);
+
+        // Speed
+        ++i;
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 72, 1 + ySpacing * i, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_Speed);
+        
+        ConvertUIntToDecimalStringN(gStringVar4, stats[STAT_SPEED], STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 115, 1 + ySpacing * i, 0, 0, GET_STAT_COLOUR(STAT_SPEED), TEXT_SKIP_DRAW, gStringVar4);
     }
 
-    PutWindowTilemap(WIN_MON_LIST);
-    CopyWindowToVram(WIN_MON_LIST, COPYWIN_FULL);
+    PutWindowTilemap(WIN_MON_PAGE_CONTENT);
+    CopyWindowToVram(WIN_MON_PAGE_CONTENT, COPYWIN_FULL);
 }
+
+#undef GET_STAT_COLOUR
+#undef GET_STAT_COLOUR_RANGE
 
 #define MAX_LIST_DISPLAY_COUNT 8
 
@@ -882,10 +995,12 @@ static void DisplayMonMovesText()
     u8 listIndex = 0;
     u8 displayCount = 0;
     const u8 ySpacing = 16;
-    u8 color[3] = {0, 2, 3};
+    u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
     u16 species = sPokedexMenu->viewBaseSpecies;
 
-    FillWindowPixelBuffer(WIN_MON_LIST, PIXEL_FILL(0));
+    AddTitleText(sTitle_Moves);
+
+    FillWindowPixelBuffer(WIN_MON_PAGE_CONTENT, PIXEL_FILL(0));
 
     // Level moves
     {
@@ -909,7 +1024,7 @@ static void DisplayMonMovesText()
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
-                AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar3);
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar3);
                 ++displayCount;
             }
             ++listIndex;
@@ -942,7 +1057,7 @@ static void DisplayMonMovesText()
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
-                AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
                 ++displayCount;
             }
             ++listIndex;
@@ -975,7 +1090,7 @@ static void DisplayMonMovesText()
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
-                AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
                 ++displayCount;
             }
             ++listIndex;
@@ -1003,15 +1118,15 @@ static void DisplayMonMovesText()
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
-                AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
                 ++displayCount;
             }
             ++listIndex;
         }
     }
 
-    PutWindowTilemap(WIN_MON_LIST);
-    CopyWindowToVram(WIN_MON_LIST, COPYWIN_FULL);
+    PutWindowTilemap(WIN_MON_PAGE_CONTENT);
+    CopyWindowToVram(WIN_MON_PAGE_CONTENT, COPYWIN_FULL);
 }
 
 static u16 GetMaxEvoScrollOffset()
@@ -1021,7 +1136,7 @@ static u16 GetMaxEvoScrollOffset()
     struct Evolution evo;
     u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
-    FillWindowPixelBuffer(WIN_MON_LIST, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_MON_PAGE_CONTENT, PIXEL_FILL(0));
 
     for(i = 0; i < evoCount; ++i)
     {
@@ -1068,13 +1183,15 @@ static void DisplayMonEvosText()
 {
     u8 i;
     const u8 ySpacing = 16;
-    u8 color[3] = {0, 2, 3};
+    u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
     u8 listIndex = 0;
     u8 displayCount = 0;
     struct Evolution evo;
     u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
-    FillWindowPixelBuffer(WIN_MON_LIST, PIXEL_FILL(0));
+    AddTitleText(sTitle_Evolutions);
+
+    FillWindowPixelBuffer(WIN_MON_PAGE_CONTENT, PIXEL_FILL(0));
 
     for(i = 0; i < evoCount; ++i)
     {
@@ -1208,12 +1325,12 @@ static void DisplayMonEvosText()
 
             // Add arrow
             if(displayCount == 0)
-                AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gText_SelectorArrow);
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gText_SelectorArrow);
 
-            AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 35 + (displayCount == 0 ? 8 : 0), ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, RoguePokedex_GetSpeciesName(evo.targetSpecies));
+            AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35 + (displayCount == 0 ? 8 : 0), ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, RoguePokedex_GetSpeciesName(evo.targetSpecies));
             ++displayCount;
 
-            AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+            AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
             ++displayCount;
         }
         ++listIndex;
@@ -1221,11 +1338,11 @@ static void DisplayMonEvosText()
 
     if(displayCount == 0)
     {
-        AddTextPrinterParameterized4(WIN_MON_LIST, FONT_NARROW, 15, 0, 0, 0, color, TEXT_SKIP_DRAW, gText_PokedexEvoNoData);
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 15, 0, 0, 0, color, TEXT_SKIP_DRAW, gText_PokedexEvoNoData);
     }
 
-    PutWindowTilemap(WIN_MON_LIST);
-    CopyWindowToVram(WIN_MON_LIST, COPYWIN_FULL);
+    PutWindowTilemap(WIN_MON_PAGE_CONTENT);
+    CopyWindowToVram(WIN_MON_PAGE_CONTENT, COPYWIN_FULL);
 }
 
 static const struct BgTemplate sDiplomaBgTemplates[2] =
@@ -3100,6 +3217,16 @@ u16 RoguePokedex_GetSpeciesBST(u16 species)
     return statTotal;
 }
 
+static void GatherSpeciesStatsArray(u16 species, u8* stats)
+{
+    stats[STAT_HP] = gRogueSpeciesInfo[species].baseHP;
+    stats[STAT_ATK] = gRogueSpeciesInfo[species].baseAttack;
+    stats[STAT_DEF] = gRogueSpeciesInfo[species].baseDefense;
+    stats[STAT_SPATK] = gRogueSpeciesInfo[species].baseSpAttack;
+    stats[STAT_SPDEF] = gRogueSpeciesInfo[species].baseSpDefense;
+    stats[STAT_SPEED] = gRogueSpeciesInfo[species].baseSpeed;
+}
+
 static u8 SelectBestWorstStat(u16 species, bool8 selectLargest)
 {
     u8 i;
@@ -3107,12 +3234,7 @@ static u8 SelectBestWorstStat(u16 species, bool8 selectLargest)
     u8 statId = 0;
     u8 statScore = 0;
 
-    stats[STAT_HP] = gRogueSpeciesInfo[species].baseHP;
-    stats[STAT_ATK] = gRogueSpeciesInfo[species].baseAttack;
-    stats[STAT_DEF] = gRogueSpeciesInfo[species].baseDefense;
-    stats[STAT_SPATK] = gRogueSpeciesInfo[species].baseSpAttack;
-    stats[STAT_SPDEF] = gRogueSpeciesInfo[species].baseSpDefense;
-    stats[STAT_SPEED] = gRogueSpeciesInfo[species].baseSpeed;
+    GatherSpeciesStatsArray(species, stats);
 
     for(i = 0; i < NUM_STATS; ++i)
     {
