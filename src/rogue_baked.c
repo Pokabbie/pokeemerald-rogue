@@ -144,6 +144,7 @@ bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result)
 static const struct Evolution* GetBaseEvolution(u16 species, u8 evoIdx)
 {
 #ifdef ROGUE_EXPANSION
+    // Eq. to GetSpeciesEvolutions
     return &gSpeciesInfo[species].evolutions[evoIdx];
 #else
     return &gEvolutionTable[species][evoIdx];
@@ -484,7 +485,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
 #ifndef ROGUE_BAKING
-    if(outEvo->targetSpecies != SPECIES_NONE)
+    if(Rogue_IsRunActive() && outEvo->targetSpecies != SPECIES_NONE)
     {
         // Apply evo curse
         if(IsCurseActive(EFFECT_EVERSTONE_EVOS))

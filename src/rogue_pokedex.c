@@ -1026,6 +1026,7 @@ static u16 GetMaxEvoScrollOffset()
     for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
+        Rogue_ModifyEvolution_ApplyCurses(sPokedexMenu->viewBaseSpecies, i, &evo);
 
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
@@ -1047,6 +1048,7 @@ static u16 GetActiveEvoSpecies()
     for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
+        Rogue_ModifyEvolution_ApplyCurses(sPokedexMenu->viewBaseSpecies, i, &evo);
 
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
@@ -1077,6 +1079,7 @@ static void DisplayMonEvosText()
     for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
+        Rogue_ModifyEvolution_ApplyCurses(sPokedexMenu->viewBaseSpecies, i, &evo);
 
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
@@ -2589,6 +2592,7 @@ static void MonEvos_CreateSprites()
     for(i = 0; i < evoCount && displayCount < 4; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
+        Rogue_ModifyEvolution_ApplyCurses(sPokedexMenu->viewBaseSpecies, i, &evo);
 
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
