@@ -16,6 +16,7 @@
 #include "strings.h"
 #include "string_util.h"
 #include "text.h"
+#include "item.h"
 #include "overworld.h"
 #include "menu.h"
 #include "sound.h"
@@ -31,6 +32,7 @@
 
 #include "rogue_baked.h"
 #include "rogue_pokedex.h"
+#include "rogue_ridemon.h"
 #include "rogue_settings.h"
 
 #ifdef ROGUE_EXPANSION
@@ -57,7 +59,12 @@ enum
     PAGE_MON_STATS,
     PAGE_MON_MOVES,
     PAGE_MON_EVOS,
-    PAGE_MON_FORMS, // ? could just press A on stats screen to cycle forms
+    //PAGE_MON_FORMS,
+
+    PAGE_MON_RIDE_STATS,
+
+    PAGE_MON_FIRST = PAGE_MON_STATS,
+    PAGE_MON_LAST = PAGE_MON_RIDE_STATS,
 };
 
 enum
@@ -148,6 +155,7 @@ static const struct WindowTemplate sMonEntryWinTemplates[WIN_COUNT + 1] =
 static const u8 sTitle_Stats[] = _("Stats");
 static const u8 sTitle_Moves[] = _("Moves");
 static const u8 sTitle_Evolutions[] = _("Evolutions");
+static const u8 sTitle_Riding[] = _("Poké Ride");
 
 static const u8 sText_Types[] = _("Types");
 static const u8 sText_Abilities[] = _("Abilities");
@@ -160,10 +168,17 @@ static const u8 sText_Defence[] = _("Def");
 static const u8 sText_SpAttack[] = _("Sp Atk");
 static const u8 sText_SpDefence[] = _("Sp Def");
 static const u8 sText_Speed[] = _("Speed");
+
+static const u8 sText_Skills[] = _("Skills");
+static const u8 sText_SkillClimbing[] = _("Climbing");
+static const u8 sText_SkillSurf[] = _("Surfing");
+static const u8 sText_SkillFlying[] = _("Flying");
+static const u8 sText_SkillNone[] = _("None");
 #else
 static const u8 sTitle_Stats[] = _("STATS");
 static const u8 sTitle_Moves[] = _("MOVES");
 static const u8 sTitle_Evolutions[] = _("EVOLUTIONS");
+static const u8 sTitle_Riding[] = _("POKé RIDE");
 
 static const u8 sText_Types[] = _("TYPES");
 static const u8 sText_Abilities[] = _("ABILITIES");
@@ -175,7 +190,16 @@ static const u8 sText_Defence[] = _("DEF");
 static const u8 sText_SpAttack[] = _("SP ATK");
 static const u8 sText_SpDefence[] = _("SP DEF");
 static const u8 sText_Speed[] = _("SPEED");
+
+static const u8 sText_Skills[] = _("SKILLS");
+static const u8 sText_SkillClimbing[] = _("CLIMBING");
+static const u8 sText_SkillSurf[] = _("SURFING");
+static const u8 sText_SkillFlying[] = _("FLYING");
+static const u8 sText_SkillNone[] = _("NONE");
 #endif
+
+static const u8 sText_RideStar[] = _("{STAR_ICON}");
+static const u8 sText_NoDataFound[] = _("{COLOR RED}{SHADOW LIGHT_RED}No data found");
 
 extern const u8 gText_DexNational[];
 extern const u8 gText_DexHoenn[];
@@ -194,6 +218,7 @@ static void DisplayMonEntryText(void);
 static void DisplayMonStatsText(void);
 static void DisplayMonMovesText(void);
 static void DisplayMonEvosText(void);
+static void DisplayMonRideStatsText(void);
 static void InitOverviewBg(void);
 static void InitMonEntryWindows(void);
 static void DestroyMonEntryWindows(void);
@@ -231,6 +256,9 @@ static void MonMoves_HandleInput(u8);
 // Mon evos
 static void MonEvos_HandleInput(u8);
 static void MonEvos_CreateSprites();
+
+// Ride stats
+static void MonRideStats_HandleInput(u8);
 
 struct PokedexMenu
 {
@@ -401,9 +429,9 @@ static void InitPageResources(u8 fromPage, u8 toPage)
     ResetTempTileDataBuffers();
 
     // If we're swapping onto a mon page for the first tile load tiles
-    if(toPage >= PAGE_MON_STATS && toPage <= PAGE_MON_FORMS)
+    if(toPage >= PAGE_MON_FIRST && toPage <= PAGE_MON_LAST)
     {
-        if(fromPage >= PAGE_MON_STATS && fromPage <= PAGE_MON_FORMS)
+        if(fromPage >= PAGE_MON_FIRST && fromPage <= PAGE_MON_LAST)
         {
             // No need + causes VRAM issues
         }
@@ -510,6 +538,20 @@ static void InitPageResources(u8 fromPage, u8 toPage)
         }
         break;
 
+    case PAGE_MON_RIDE_STATS:
+        {
+            LZDecompressWram(sPageListsTilemap, sTilemapBufferPtr);
+            CopyBgTilemapBufferToVram(1);
+
+            InitMonEntryWindows();
+            // Text printed below
+
+            LoadMonIconPalettes();
+
+            MonInfo_CreateSprites(FALSE);
+        }
+        break;
+
     default:
         break;
     }
@@ -535,24 +577,9 @@ static void DestroyPageResources(u8 fromPage, u8 toPage)
         break;
 
     case PAGE_MON_STATS:
-        {
-            MonInfo_DestroySprites();
-            FreeMonIconPalettes();
-
-            DestroyMonEntryWindows();
-        }
-        break;
-
     case PAGE_MON_MOVES:
-        {
-            MonInfo_DestroySprites();
-            FreeMonIconPalettes();
-
-            DestroyMonEntryWindows();
-        }
-        break;
-
     case PAGE_MON_EVOS:
+    case PAGE_MON_RIDE_STATS:
         {
             MonInfo_DestroySprites();
             FreeMonIconPalettes();
@@ -594,8 +621,8 @@ static void Task_SwapToPage2(u8);
 static void Task_SwapToPage(u8 taskId)
 {
     // If we're moving between stats page for the same mon, don't bother doing a fade
-    if(sPokedexMenu->currentPage >= PAGE_MON_STATS && sPokedexMenu->currentPage <= PAGE_MON_FORMS && 
-        sPokedexMenu->desiredPage >= PAGE_MON_STATS && sPokedexMenu->desiredPage <= PAGE_MON_FORMS)
+    if(sPokedexMenu->currentPage >= PAGE_MON_FIRST && sPokedexMenu->currentPage <= PAGE_MON_LAST && 
+        sPokedexMenu->desiredPage >= PAGE_MON_FIRST && sPokedexMenu->desiredPage <= PAGE_MON_LAST)
     {
         gTasks[taskId].tDoFade = FALSE;//(sPokedexMenu->lastCrySpecies != sPokedexMenu->viewBaseSpecies);
     }
@@ -646,6 +673,11 @@ static void Task_PageFadeIn(u8 taskId)
         DisplayMonEvosText();
         break;
     
+    case PAGE_MON_RIDE_STATS:
+        DisplayMonEntryText();
+        DisplayMonRideStatsText();
+        break;
+
     default:
         break;
     }
@@ -657,7 +689,7 @@ static void Task_PageFadeIn2(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        if(sPokedexMenu->currentPage >= PAGE_MON_STATS && sPokedexMenu->currentPage <= PAGE_MON_FORMS)
+        if(sPokedexMenu->currentPage >= PAGE_MON_FIRST && sPokedexMenu->currentPage <= PAGE_MON_LAST)
         {
             if(sPokedexMenu->lastCrySpecies != sPokedexMenu->viewBaseSpecies)
             {
@@ -694,6 +726,10 @@ static void Task_PageWaitForKeyPress(u8 taskId)
 
     case PAGE_MON_EVOS:
         MonEvos_HandleInput(taskId);
+        break;
+
+    case PAGE_MON_RIDE_STATS:
+        MonRideStats_HandleInput(taskId);
         break;
     
     default:
@@ -1339,6 +1375,74 @@ static void DisplayMonEvosText()
     if(displayCount == 0)
     {
         AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 15, 0, 0, 0, color, TEXT_SKIP_DRAW, gText_PokedexEvoNoData);
+    }
+
+    PutWindowTilemap(WIN_MON_PAGE_CONTENT);
+    CopyWindowToVram(WIN_MON_PAGE_CONTENT, COPYWIN_FULL);
+}
+
+static void DisplayMonRideStatsText()
+{
+    const u8 ySpacing = 16;
+    u8 headerColor[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
+    u8 statColor[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE, TEXT_COLOR_LIGHT_GRAY };
+
+    AddTitleText(sTitle_Riding);
+
+    FillWindowPixelBuffer(WIN_MON_PAGE_CONTENT, PIXEL_FILL(0));
+
+    if(Rogue_IsValidRideSpecies(sPokedexMenu->viewBaseSpecies))
+    {
+        u16 i;
+        u16 y = 0;
+        u8 skillCount = 0;
+
+        // Speed
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 4, 1 + ySpacing * y, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_Speed);
+
+        StringCopy(gStringVar4, gText_EmptyString2);
+
+        for(i = 0; i < Rogue_GetRideSpeciesSpeedStars(sPokedexMenu->viewBaseSpecies); ++i)
+            StringAppend(gStringVar4, sText_RideStar);
+
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 40, 1 + ySpacing * y, 0, 0, statColor, TEXT_SKIP_DRAW, gStringVar4);
+        ++y;
+
+        // Skills
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 4, 1 + ySpacing * y, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_Skills);
+        ++y;
+
+        if(FlagGet(FLAG_SYS_RIDING_LEDGE_JUMP) && Rogue_IsValidRideClimbSpecies(sPokedexMenu->viewBaseSpecies))
+        {
+            AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, 1 + ySpacing * y, 0, 0, statColor, TEXT_SKIP_DRAW, sText_SkillClimbing);
+            ++y;
+            ++skillCount;
+        }
+
+        if(FlagGet(FLAG_SYS_RIDING_SURF) && Rogue_IsValidRideSwimSpecies(sPokedexMenu->viewBaseSpecies))
+        {
+            AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, 1 + ySpacing * y, 0, 0, statColor, TEXT_SKIP_DRAW, sText_SkillSurf);
+            ++y;
+            ++skillCount;
+        }
+
+        if(FlagGet(FLAG_SYS_RIDING_FLY) && Rogue_IsValidRideFlySpecies(sPokedexMenu->viewBaseSpecies))
+        {
+            AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, 1 + ySpacing * y, 0, 0, statColor, TEXT_SKIP_DRAW, sText_SkillFlying);
+            ++y;
+            ++skillCount;
+        }
+
+        if(skillCount == 0)
+        {
+            AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, 1 + ySpacing * y, 0, 0, statColor, TEXT_SKIP_DRAW, sText_SkillNone);
+            ++y;
+        }
+    }
+    else
+    {
+        u16 offset = GetStringCenterAlignXOffset(FONT_NARROW, sText_NoDataFound, sMonEntryWinTemplates[WIN_MON_PAGE_CONTENT].width * 8);
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, offset, 0, 0, 0, statColor, TEXT_SKIP_DRAW, sText_NoDataFound);
     }
 
     PutWindowTilemap(WIN_MON_PAGE_CONTENT);
@@ -2492,6 +2596,47 @@ static u16 MonStats_GetMonNeighbour(u16 currViewSpecies, s8 offset)
     return currViewSpecies;
 }
 
+static bool8 IsMonPageUnlocked(u8 page)
+{
+    switch (page)
+    {
+    case PAGE_MON_RIDE_STATS:
+        return CheckBagHasItem(ITEM_BASIC_RIDING_WHISTLE, 1);
+    }
+
+    return TRUE;
+}
+
+static u8 NavigateNextMonPage(u8 startPage, u8 dir)
+{
+    u8 currentPage = startPage;
+    while(TRUE)
+    {
+        if(dir == 1)
+        {
+            if(currentPage == PAGE_MON_LAST)
+                currentPage = PAGE_MON_FIRST;
+            else
+                ++currentPage;
+        }
+        else // if(dir == -1)
+        {
+            if(currentPage == PAGE_MON_FIRST)
+                currentPage = PAGE_MON_LAST;
+            else
+                --currentPage;
+        }
+
+        if(IsMonPageUnlocked(currentPage))
+            return currentPage;
+
+        if(currentPage == startPage)
+            return currentPage;
+    }
+
+    return startPage;
+}
+
 static bool8 MonInfo_HandleInput(u8 taskId)
 {
     u16 viewSpecies = sPokedexMenu->viewBaseSpecies;
@@ -2538,21 +2683,7 @@ static bool8 MonInfo_HandleInput(u8 taskId)
     {
         useInput = TRUE;
 
-        switch (sPokedexMenu->currentPage)
-        {
-        case PAGE_MON_STATS:
-            sPokedexMenu->desiredPage = PAGE_MON_EVOS;
-            break;
-
-        case PAGE_MON_MOVES:
-            sPokedexMenu->desiredPage = PAGE_MON_STATS;
-            break;
-
-        case PAGE_MON_EVOS:
-            sPokedexMenu->desiredPage = PAGE_MON_MOVES;
-            break;
-        }
-
+        sPokedexMenu->desiredPage = NavigateNextMonPage(sPokedexMenu->currentPage, -1);
         gTasks[taskId].func = Task_SwapToPage;
         PlaySE(SE_PIN);
     }
@@ -2560,21 +2691,7 @@ static bool8 MonInfo_HandleInput(u8 taskId)
     {
         useInput = TRUE;
 
-        switch (sPokedexMenu->currentPage)
-        {
-        case PAGE_MON_STATS:
-            sPokedexMenu->desiredPage = PAGE_MON_MOVES;
-            break;
-
-        case PAGE_MON_MOVES:
-            sPokedexMenu->desiredPage = PAGE_MON_EVOS;
-            break;
-
-        case PAGE_MON_EVOS:
-            sPokedexMenu->desiredPage = PAGE_MON_STATS;
-            break;
-        }
-
+        sPokedexMenu->desiredPage = NavigateNextMonPage(sPokedexMenu->currentPage, 1);
         gTasks[taskId].func = Task_SwapToPage;
         PlaySE(SE_PIN);
     }
@@ -2721,6 +2838,11 @@ static void MonEvos_CreateSprites()
         }
         ++listIndex;
     }
+}
+
+static void MonRideStats_HandleInput(u8 taskId)
+{
+    MonInfo_HandleInput(taskId);
 }
 
 u8 RoguePokedex_GetDexRegion()

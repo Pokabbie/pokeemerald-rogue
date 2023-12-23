@@ -458,6 +458,54 @@ static const struct RideMonInfo* GetRideMonInfoForSpecies(u16 species)
     return rideInfo;
 }
 
+bool8 Rogue_IsValidRideSpecies(u16 species)
+{
+    const struct RideMonInfo* rideInfo = GetRideMonInfoForSpecies(species);
+
+     if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_RIDE) != 0)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_IsValidRideClimbSpecies(u16 species)
+{
+    const struct RideMonInfo* rideInfo = GetRideMonInfoForSpecies(species);
+
+     if(rideInfo != NULL && Rogue_IsValidRideSpecies(species) && (rideInfo->flags & RIDE_MON_FLAG_CAN_CLIMB) != 0)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_IsValidRideSwimSpecies(u16 species)
+{
+    const struct RideMonInfo* rideInfo = GetRideMonInfoForSpecies(species);
+
+     if(rideInfo != NULL && Rogue_IsValidRideSpecies(species) && (rideInfo->flags & RIDE_MON_FLAG_CAN_SWIM) != 0)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_IsValidRideFlySpecies(u16 species)
+{
+    const struct RideMonInfo* rideInfo = GetRideMonInfoForSpecies(species);
+
+     if(rideInfo != NULL && Rogue_IsValidRideSpecies(species) && (rideInfo->flags & RIDE_MON_FLAG_CAN_FLY) != 0)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 static u8 UNUSED CalculateMovementModeForInternal(u16 species)
 {
     u8 speed = gRogueSpeciesInfo[species].baseSpeed;
@@ -489,6 +537,11 @@ static u8 CalculateMovementModeFor(u16 species)
 #endif
 
     return moveSpeed;
+}
+
+u8 Rogue_GetRideSpeciesSpeedStars(u16 species)
+{
+    return CalculateMovementModeFor(species) + 1;
 }
 
 static u16 GetCurrentRideMonSpecies()

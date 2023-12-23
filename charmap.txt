@@ -47,6 +47,7 @@ LV          = 34
 ';'         = 36
 SCREW_ICON  = 37
 WRENCH_ICON = 38
+STAR_ICON   = 39
 '¿'         = 51
 '¡'         = 52
 PK          = 53
