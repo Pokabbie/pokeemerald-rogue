@@ -144,6 +144,7 @@ bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result)
 static const struct Evolution* GetBaseEvolution(u16 species, u8 evoIdx)
 {
 #ifdef ROGUE_EXPANSION
+    // Eq. to GetSpeciesEvolutions
     return &gSpeciesInfo[species].evolutions[evoIdx];
 #else
     return &gEvolutionTable[species][evoIdx];

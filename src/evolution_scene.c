@@ -556,16 +556,19 @@ static void CB2_TradeEvolutionSceneUpdate(void)
 
 static void CreateShedinja(u16 preEvoSpecies, struct Pokemon *mon)
 {
+    struct Evolution evo;
     u32 data = 0;
     #if P_SHEDINJA_BALL >= GEN_4
         u16 ball = ITEM_POKE_BALL;
     #endif
-    const struct Evolution *evolutions = GetSpeciesEvolutions(preEvoSpecies);
+    u8 evoCount = Rogue_GetMaxEvolutionCount(preEvoSpecies);
 
-    if (evolutions == NULL)
+    if (evoCount >= 2)
         return;
 
-    if (evolutions[0].method == EVO_LEVEL_NINJASK && gPlayerPartyCount < PARTY_SIZE
+    Rogue_ModifyEvolution(preEvoSpecies, 0, &evo);
+
+    if (evo.method == EVO_LEVEL_NINJASK && gPlayerPartyCount < PARTY_SIZE
     #if P_SHEDINJA_BALL >= GEN_4
         && (CheckBagHasItem(ball, 1))
     #endif
@@ -574,9 +577,11 @@ static void CreateShedinja(u16 preEvoSpecies, struct Pokemon *mon)
         s32 i;
         struct Pokemon *shedinja = &gPlayerParty[gPlayerPartyCount];
 
+        Rogue_ModifyEvolution(preEvoSpecies, 1, &evo);
+
         CopyMon(&gPlayerParty[gPlayerPartyCount], mon, sizeof(struct Pokemon));
-        SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_SPECIES, &evolutions[1].targetSpecies);
-        SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_NICKNAME, GetSpeciesName(evolutions[1].targetSpecies));
+        SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_SPECIES, &evo.targetSpecies);
+        SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_NICKNAME, GetSpeciesName(evo.targetSpecies));
         SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_HELD_ITEM, &data);
         SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_MARKINGS, &data);
         SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_ENCRYPT_SEPARATOR, &data);
@@ -598,8 +603,8 @@ static void CreateShedinja(u16 preEvoSpecies, struct Pokemon *mon)
         CalculateMonStats(&gPlayerParty[gPlayerPartyCount]);
         CalculatePlayerPartyCount();
 
-        GetSetPokedexSpeciesFlag(evolutions[1].targetSpecies, FLAG_SET_SEEN);
-        GetSetPokedexSpeciesFlag(evolutions[1].targetSpecies, FLAG_SET_CAUGHT);
+        GetSetPokedexSpeciesFlag(evo.targetSpecies, FLAG_SET_SEEN);
+        GetSetPokedexSpeciesFlag(evo.targetSpecies, FLAG_SET_CAUGHT);
 
         if (GetMonData(shedinja, MON_DATA_SPECIES) == SPECIES_SHEDINJA
             && GetMonData(shedinja, MON_DATA_LANGUAGE) == LANGUAGE_JAPANESE

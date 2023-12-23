@@ -15018,13 +15018,15 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_MOON_BALL:
             {
-                const struct Evolution *evolutions = GetSpeciesEvolutions(gBattleMons[gBattlerTarget].species);
-                if (evolutions == NULL)
-                    break;
-                for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
+                struct Evolution evo;
+                u8 evoCount = Rogue_GetMaxEvolutionCount(gBattleMons[gBattlerTarget].species);
+                
+                for (i = 0; i < evoCount; i++)
                 {
-                    if (evolutions[i].method == EVO_ITEM
-                        && evolutions[i].param == ITEM_MOON_STONE)
+                    Rogue_ModifyEvolution(gBattleMons[gBattlerTarget].species, i, &evo);
+
+                    if (evo.method == EVO_ITEM
+                        && evo.param == ITEM_MOON_STONE)
                         ballMultiplier = 400;
                 }
             }

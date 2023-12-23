@@ -3954,9 +3954,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
     u8 beauty = GetMonData(mon, MON_DATA_BEAUTY, 0);
     u16 upperPersonality = personality >> 16;
     u32 holdEffect, currentMap, partnerSpecies, partnerHeldItem, partnerHoldEffect;
-    const struct Evolution *evolutions = GetSpeciesEvolutions(species);
+    struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(species);
 
-    if (evolutions == NULL)
+    if (evoCount == 0)
         return SPECIES_NONE;
 
     if (tradePartner != NULL)
@@ -3996,124 +3997,126 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         level = GetMonData(mon, MON_DATA_LEVEL, 0);
         friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
 
-        for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
+        for (i = 0; i < evoCount; i++)
         {
-            if (SanitizeSpeciesId(evolutions[i].targetSpecies) == SPECIES_NONE)
+            Rogue_ModifyEvolution(species, i, &evo);
+
+            if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
                 continue;
 
-            switch (evolutions[i].method)
+            switch (evo.method)
             {
             case EVO_FRIENDSHIP:
                 if (friendship >= FRIENDSHIP_EVO_THRESHOLD)
-                    targetSpecies = evolutions[i].targetSpecies;
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_FRIENDSHIP_DAY:
                 if (GetTimeOfDay() != TIME_NIGHT && friendship >= FRIENDSHIP_EVO_THRESHOLD)
-                    targetSpecies = evolutions[i].targetSpecies;
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_DAY:
-                if (GetTimeOfDay() != TIME_NIGHT && evolutions[i].param <= level)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (GetTimeOfDay() != TIME_NIGHT && evo.param <= level)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_FRIENDSHIP_NIGHT:
                 if (GetTimeOfDay() == TIME_NIGHT && friendship >= FRIENDSHIP_EVO_THRESHOLD)
-                    targetSpecies = evolutions[i].targetSpecies;
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_NIGHT:
-                if (GetTimeOfDay() == TIME_NIGHT && evolutions[i].param <= level)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (GetTimeOfDay() == TIME_NIGHT && evo.param <= level)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_ITEM_HOLD_NIGHT:
-                if (GetTimeOfDay() == TIME_NIGHT && heldItem == evolutions[i].param)
+                if (GetTimeOfDay() == TIME_NIGHT && heldItem == evo.param)
                 {
                     heldItem = ITEM_NONE;
                     SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
-                    targetSpecies = evolutions[i].targetSpecies;
+                    targetSpecies = evo.targetSpecies;
                 }
                 break;
             case EVO_ITEM_HOLD_DAY:
-                if (GetTimeOfDay() != TIME_NIGHT && heldItem == evolutions[i].param)
+                if (GetTimeOfDay() != TIME_NIGHT && heldItem == evo.param)
                 {
                     heldItem = ITEM_NONE;
                     SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
-                    targetSpecies = evolutions[i].targetSpecies;
+                    targetSpecies = evo.targetSpecies;
                 }
                 break;
             case EVO_LEVEL_DUSK:
-                if (GetTimeOfDay() == TIME_EVENING && evolutions[i].param <= level)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (GetTimeOfDay() == TIME_EVENING && evo.param <= level)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL:
-                if (evolutions[i].param <= level)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (evo.param <= level)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_FEMALE:
-                if (evolutions[i].param <= level && GetMonGender(mon) == MON_FEMALE)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (evo.param <= level && GetMonGender(mon) == MON_FEMALE)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_MALE:
-                if (evolutions[i].param <= level && GetMonGender(mon) == MON_MALE)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (evo.param <= level && GetMonGender(mon) == MON_MALE)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_ATK_GT_DEF:
-                if (evolutions[i].param <= level)
+                if (evo.param <= level)
                     if (GetMonData(mon, MON_DATA_ATK, 0) > GetMonData(mon, MON_DATA_DEF, 0))
-                        targetSpecies = evolutions[i].targetSpecies;
+                        targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_ATK_EQ_DEF:
-                if (evolutions[i].param <= level)
+                if (evo.param <= level)
                     if (GetMonData(mon, MON_DATA_ATK, 0) == GetMonData(mon, MON_DATA_DEF, 0))
-                        targetSpecies = evolutions[i].targetSpecies;
+                        targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_ATK_LT_DEF:
-                if (evolutions[i].param <= level)
+                if (evo.param <= level)
                     if (GetMonData(mon, MON_DATA_ATK, 0) < GetMonData(mon, MON_DATA_DEF, 0))
-                        targetSpecies = evolutions[i].targetSpecies;
+                        targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_SILCOON:
-                if (evolutions[i].param <= level && (upperPersonality % 10) <= 4)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (evo.param <= level && (upperPersonality % 10) <= 4)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_CASCOON:
-                if (evolutions[i].param <= level && (upperPersonality % 10) > 4)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (evo.param <= level && (upperPersonality % 10) > 4)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_NINJASK:
-                if (evolutions[i].param <= level)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (evo.param <= level)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_FAMILY_OF_FOUR:
-                if (evolutions[i].param <= level && (personality % 100) != 0)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (evo.param <= level && (personality % 100) != 0)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_FAMILY_OF_THREE:
-                if (evolutions[i].param <= level && (personality % 100) == 0)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (evo.param <= level && (personality % 100) == 0)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_BEAUTY:
-                if (evolutions[i].param <= beauty)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (evo.param <= beauty)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_MOVE:
-                if (MonKnowsMove(mon, evolutions[i].param))
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (MonKnowsMove(mon, evo.param))
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_MOVE_TWO_SEGMENT:
-                if (MonKnowsMove(mon, evolutions[i].param) && (personality % 100) != 0)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (MonKnowsMove(mon, evo.param) && (personality % 100) != 0)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_MOVE_THREE_SEGMENT:
-                if (MonKnowsMove(mon, evolutions[i].param) && (personality % 100) == 0)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (MonKnowsMove(mon, evo.param) && (personality % 100) == 0)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_FRIENDSHIP_MOVE_TYPE:
                 if (friendship >= FRIENDSHIP_EVO_THRESHOLD)
                 {
                     for (j = 0; j < MAX_MON_MOVES; j++)
                     {
-                        if (gBattleMoves[GetMonData(mon, MON_DATA_MOVE1 + j, NULL)].type == evolutions[i].param)
+                        if (gBattleMoves[GetMonData(mon, MON_DATA_MOVE1 + j, NULL)].type == evo.param)
                         {
-                            targetSpecies = evolutions[i].targetSpecies;
+                            targetSpecies = evo.targetSpecies;
                             break;
                         }
                     }
@@ -4122,15 +4125,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             case EVO_SPECIFIC_MON_IN_PARTY:
                 for (j = 0; j < PARTY_SIZE; j++)
                 {
-                    if (GetMonData(&gPlayerParty[j], MON_DATA_SPECIES, NULL) == evolutions[i].param)
+                    if (GetMonData(&gPlayerParty[j], MON_DATA_SPECIES, NULL) == evo.param)
                     {
-                        targetSpecies = evolutions[i].targetSpecies;
+                        targetSpecies = evo.targetSpecies;
                         break;
                     }
                 }
                 break;
             case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
-                if (evolutions[i].param <= level)
+                if (evo.param <= level)
                 {
                     for (j = 0; j < PARTY_SIZE; j++)
                     {
@@ -4138,7 +4141,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                         if (gSpeciesInfo[currSpecies].types[0] == TYPE_DARK
                          || gSpeciesInfo[currSpecies].types[1] == TYPE_DARK)
                         {
-                            targetSpecies = evolutions[i].targetSpecies;
+                            targetSpecies = evo.targetSpecies;
                             break;
                         }
                     }
@@ -4146,27 +4149,27 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 break;
             case EVO_LEVEL_RAIN:
                 j = GetCurrentWeather();
-                if (evolutions[i].param <= level
+                if (evo.param <= level
                  && (j == WEATHER_RAIN || j == WEATHER_RAIN_THUNDERSTORM || j == WEATHER_DOWNPOUR))
-                    targetSpecies = evolutions[i].targetSpecies;
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_FOG:
                 j = GetCurrentWeather();
-                if (evolutions[i].param <= level
+                if (evo.param <= level
                  && (j == WEATHER_FOG_HORIZONTAL || j == WEATHER_FOG_DIAGONAL))
-                    targetSpecies = evolutions[i].targetSpecies;
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_MAPSEC:
-                if (gMapHeader.regionMapSectionId == evolutions[i].param)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (gMapHeader.regionMapSectionId == evo.param)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_SPECIFIC_MAP:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
-                if (currentMap == evolutions[i].param)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (currentMap == evo.param)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_NATURE_AMPED:
-                if (evolutions[i].param <= level)
+                if (evo.param <= level)
                 {
                     u8 nature = GetNature(mon);
                     switch (nature)
@@ -4184,13 +4187,13 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     case NATURE_RASH:
                     case NATURE_SASSY:
                     case NATURE_QUIRKY:
-                        targetSpecies = evolutions[i].targetSpecies;
+                        targetSpecies = evo.targetSpecies;
                         break;
                     }
                 }
                 break;
             case EVO_LEVEL_NATURE_LOW_KEY:
-                if (evolutions[i].param <= level)
+                if (evo.param <= level)
                 {
                     u8 nature = GetNature(mon);
                     switch (nature)
@@ -4207,121 +4210,129 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     case NATURE_CALM:
                     case NATURE_GENTLE:
                     case NATURE_CAREFUL:
-                        targetSpecies = evolutions[i].targetSpecies;
+                        targetSpecies = evo.targetSpecies;
                         break;
                     }
                 }
                 break;
             case EVO_ITEM_HOLD:
-                if (heldItem == evolutions[i].param)
+                if (heldItem == evo.param)
                 {
                     heldItem = 0;
                     SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
-                    targetSpecies = evolutions[i].targetSpecies;
+                    targetSpecies = evo.targetSpecies;
                 }
                 break;
             }
         }
         break;
     case EVO_MODE_TRADE:
-        for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
+        for (i = 0; i < evoCount; i++)
         {
-            if (SanitizeSpeciesId(evolutions[i].targetSpecies) == SPECIES_NONE)
+            Rogue_ModifyEvolution(species, i, &evo);
+
+            if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
                 continue;
 
-            switch (evolutions[i].method)
+            switch (evo.method)
             {
             case EVO_TRADE:
-                targetSpecies = evolutions[i].targetSpecies;
+                targetSpecies = evo.targetSpecies;
                 break;
             case EVO_TRADE_ITEM:
-                if (evolutions[i].param == heldItem)
+                if (evo.param == heldItem)
                 {
                     heldItem = ITEM_NONE;
                     SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
-                    targetSpecies = evolutions[i].targetSpecies;
+                    targetSpecies = evo.targetSpecies;
                 }
                 break;
             case EVO_TRADE_SPECIFIC_MON:
-                if (evolutions[i].param == partnerSpecies && partnerHoldEffect != HOLD_EFFECT_PREVENT_EVOLVE)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (evo.param == partnerSpecies && partnerHoldEffect != HOLD_EFFECT_PREVENT_EVOLVE)
+                    targetSpecies = evo.targetSpecies;
                 break;
             }
         }
         break;
     case EVO_MODE_ITEM_USE:
     case EVO_MODE_ITEM_CHECK:
-        for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
+        for (i = 0; i < evoCount; i++)
         {
-            if (SanitizeSpeciesId(evolutions[i].targetSpecies) == SPECIES_NONE)
+            Rogue_ModifyEvolution(species, i, &evo);
+
+            if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
                 continue;
 
-            switch (evolutions[i].method)
+            switch (evo.method)
             {
             case EVO_ITEM:
-                if (evolutions[i].param == evolutionItem)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (evo.param == evolutionItem)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_ITEM_FEMALE:
-                if (GetMonGender(mon) == MON_FEMALE && evolutions[i].param == evolutionItem)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (GetMonGender(mon) == MON_FEMALE && evo.param == evolutionItem)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_ITEM_MALE:
-                if (GetMonGender(mon) == MON_MALE && evolutions[i].param == evolutionItem)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (GetMonGender(mon) == MON_MALE && evo.param == evolutionItem)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_ITEM_NIGHT:
-                if (GetTimeOfDay() == TIME_NIGHT && evolutions[i].param == evolutionItem)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (GetTimeOfDay() == TIME_NIGHT && evo.param == evolutionItem)
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_ITEM_DAY:
-                if (GetTimeOfDay() != TIME_NIGHT && evolutions[i].param == evolutionItem)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (GetTimeOfDay() != TIME_NIGHT && evo.param == evolutionItem)
+                    targetSpecies = evo.targetSpecies;
                 break;
             }
         }
         break;
     // Battle evolution without leveling; party slot is being passed into the evolutionItem arg.
     case EVO_MODE_BATTLE_SPECIAL:
-        for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
+        for (i = 0; i < evoCount; i++)
         {
-            if (SanitizeSpeciesId(evolutions[i].targetSpecies) == SPECIES_NONE)
+            Rogue_ModifyEvolution(species, i, &evo);
+
+            if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
                 continue;
 
-            switch (evolutions[i].method)
+            switch (evo.method)
             {
             case EVO_CRITICAL_HITS:
-                if (gPartyCriticalHits[evolutionItem] >= evolutions[i].param)
-                    targetSpecies = evolutions[i].targetSpecies;
+                if (gPartyCriticalHits[evolutionItem] >= evo.param)
+                    targetSpecies = evo.targetSpecies;
                 break;
             }
         }
         break;
     // Overworld evolution without leveling; evolution method is being passed into the evolutionItem arg.
     case EVO_MODE_OVERWORLD_SPECIAL:
-        for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
+        for (i = 0; i < evoCount; i++)
         {
-            if (SanitizeSpeciesId(evolutions[i].targetSpecies) == SPECIES_NONE)
+            Rogue_ModifyEvolution(species, i, &evo);
+
+            if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
                 continue;
 
-            switch (evolutions[i].method)
+            switch (evo.method)
             {
             case EVO_SCRIPT_TRIGGER_DMG:
             {
                 u16 currentHp = GetMonData(mon, MON_DATA_HP, NULL);
                 if (evolutionItem == EVO_SCRIPT_TRIGGER_DMG
                     && currentHp != 0
-                    && (GetMonData(mon, MON_DATA_MAX_HP, NULL) - currentHp >= evolutions[i].param))
-                    targetSpecies = evolutions[i].targetSpecies;
+                    && (GetMonData(mon, MON_DATA_MAX_HP, NULL) - currentHp >= evo.param))
+                    targetSpecies = evo.targetSpecies;
                 break;
             }
             case EVO_DARK_SCROLL:
                 if (evolutionItem == EVO_DARK_SCROLL)
-                    targetSpecies = evolutions[i].targetSpecies;
+                    targetSpecies = evo.targetSpecies;
                 break;
             case EVO_WATER_SCROLL:
                 if (evolutionItem == EVO_WATER_SCROLL)
-                    targetSpecies = evolutions[i].targetSpecies;
+                    targetSpecies = evo.targetSpecies;
                 break;
             }
         }
@@ -4336,20 +4347,23 @@ bool8 IsMonPastEvolutionLevel(struct Pokemon *mon)
     int i;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
-    const struct Evolution *evolutions = GetSpeciesEvolutions(species);
+    struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(species);
 
-    if (evolutions == NULL)
+    if (evoCount == 0)
         return FALSE;
 
-    for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
+    for (i = 0; i < evoCount; i++)
     {
-        if (SanitizeSpeciesId(evolutions[i].targetSpecies) == SPECIES_NONE)
+        Rogue_ModifyEvolution(species, i, &evo);
+
+        if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
             continue;
 
-        switch (evolutions[i].method)
+        switch (evo.method)
         {
         case EVO_LEVEL:
-            if (evolutions[i].param <= level)
+            if (evo.param <= level)
                 return TRUE;
             break;
         }

@@ -9459,17 +9459,18 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
 
 static bool32 CanEvolve(u32 species)
 {
-    u32 i;
-    const struct Evolution *evolutions = GetSpeciesEvolutions(species);
+    u32 i, evoCount;
+    struct Evolution evo;
 
-    if (evolutions != NULL)
+    evoCount = Rogue_GetMaxEvolutionCount(species);
+
+    for (i = 0; i < evoCount; i++)
     {
-        for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
-        {
-            if (evolutions[i].method
-             && SanitizeSpeciesId(evolutions[i].targetSpecies) != SPECIES_NONE)
-                return TRUE;
-        }
+        Rogue_ModifyEvolution(species, i, &evo);
+
+        if (evo.method
+            && SanitizeSpeciesId(evo.targetSpecies) != SPECIES_NONE)
+            return TRUE;
     }
     return FALSE;
 }
