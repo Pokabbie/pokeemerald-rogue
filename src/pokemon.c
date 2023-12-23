@@ -4000,6 +4000,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         for (i = 0; i < evoCount; i++)
         {
             Rogue_ModifyEvolution(species, i, &evo);
+            Rogue_ModifyEvolution_ApplyCurses(species, i, &evo);
 
             if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
                 continue;
@@ -4230,6 +4231,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         for (i = 0; i < evoCount; i++)
         {
             Rogue_ModifyEvolution(species, i, &evo);
+            Rogue_ModifyEvolution_ApplyCurses(species, i, &evo);
 
             if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
                 continue;
@@ -4259,6 +4261,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         for (i = 0; i < evoCount; i++)
         {
             Rogue_ModifyEvolution(species, i, &evo);
+            Rogue_ModifyEvolution_ApplyCurses(species, i, &evo);
 
             if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
                 continue;
@@ -4293,6 +4296,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         for (i = 0; i < evoCount; i++)
         {
             Rogue_ModifyEvolution(species, i, &evo);
+            Rogue_ModifyEvolution_ApplyCurses(species, i, &evo);
 
             if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
                 continue;
@@ -4311,6 +4315,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         for (i = 0; i < evoCount; i++)
         {
             Rogue_ModifyEvolution(species, i, &evo);
+            Rogue_ModifyEvolution_ApplyCurses(species, i, &evo);
 
             if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
                 continue;
@@ -4356,6 +4361,7 @@ bool8 IsMonPastEvolutionLevel(struct Pokemon *mon)
     for (i = 0; i < evoCount; i++)
     {
         Rogue_ModifyEvolution(species, i, &evo);
+        Rogue_ModifyEvolution_ApplyCurses(species, i, &evo);
 
         if (SanitizeSpeciesId(evo.targetSpecies) == SPECIES_NONE)
             continue;
