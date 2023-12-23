@@ -485,7 +485,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
 #ifndef ROGUE_BAKING
-    if(outEvo->targetSpecies != SPECIES_NONE)
+    if(Rogue_IsRunActive() && outEvo->targetSpecies != SPECIES_NONE)
     {
         // Apply evo curse
         if(IsCurseActive(EFFECT_EVERSTONE_EVOS))
