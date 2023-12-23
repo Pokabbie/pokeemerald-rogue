@@ -4360,17 +4360,21 @@ bool8 IsMonPastEvolutionLevel(struct Pokemon *mon)
 
 u16 NationalPokedexNumToSpecies(u16 nationalNum)
 {
+    u16 i;
     u16 species;
 
     if (!nationalNum)
         return 0;
 
-    species = 1;
+    i = 0;
+    species = nationalNum >= NATIONAL_DEX_SPRIGATITO ? SPECIES_SPRIGATITO : nationalNum; // going to assume that the species is pretty close to the nat number so start searching from here
 
-    while (species < (NUM_SPECIES) && gSpeciesInfo[species].natDexNum != nationalNum)
-        species++;
+    for(i = 0; i < NUM_SPECIES && gSpeciesInfo[species].natDexNum != nationalNum; ++i)
+    {
+        species = (species + 1) % NUM_SPECIES;
+    }
 
-    if (species == NUM_SPECIES)
+    if (i == NUM_SPECIES)
         return NATIONAL_DEX_NONE;
 
     return species;

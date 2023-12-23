@@ -4020,12 +4020,20 @@ static bool32 IsDomeLuckyMove(u32 move)
 static bool32 IsDomePopularMove(u32 move)
 {
     u8 i;
+#ifdef ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
     for (i = 0; i < NUM_TECHNICAL_MACHINES + NUM_HIDDEN_MACHINES; i++)
+#else
+    for (i = 0; i < NUM_TECHNICAL_MACHINES; i++)
+#endif
     {
         if (ItemIdToBattleMoveId(ITEM_TM01 + i) == move)
             return TRUE;
     }
+#ifdef ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
     if (i == NUM_TECHNICAL_MACHINES + NUM_HIDDEN_MACHINES)
+#else
+    if (i == NUM_TECHNICAL_MACHINES)
+#endif
         return FALSE;
     // Filter in TMs/HMs
     if (gBattleMoves[move].power >= 90)
