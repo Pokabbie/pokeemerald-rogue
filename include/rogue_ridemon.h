@@ -18,10 +18,18 @@ void Rogue_OnRideMonWarp();
 u8 Rogue_GetRideMonSprite(struct ObjectEvent* objectEvent);
 u16 Rogue_GetRideMonSpeciesGfx(u8 rideObject);
 
+bool8 Rogue_IsValidRideSpecies(u16 species);
+bool8 Rogue_IsValidRideClimbSpecies(u16 species);
+bool8 Rogue_IsValidRideSwimSpecies(u16 species);
+bool8 Rogue_IsValidRideFlySpecies(u16 species);
+
+u8 Rogue_GetRideSpeciesSpeedStars(u16 species);
+
 bool8 Rogue_CanRideMonInvJumpLedge();
 bool8 Rogue_CanRideMonSwim();
 bool8 Rogue_CanRideMonFly();
 
+bool8 Rogue_IsRideActive();
 bool8 Rogue_IsRideMonSwimming();
 bool8 Rogue_IsRideMonFlying();
 
