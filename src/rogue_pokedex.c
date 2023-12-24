@@ -893,7 +893,7 @@ static u16 GetDisplayedOverviewSpecies(u16 species)
     if(!GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
     {
         u8 i;
-        u16 const* formTable = GetSpeciesFormTable(sPokedexMenu->viewBaseSpecies);
+        u16 const* formTable = GetSpeciesFormTable(species);
 
         for(i = 0; formTable && formTable[i] != FORM_SPECIES_END; ++i)
         {
@@ -2708,6 +2708,7 @@ static void Overview_SelectSpeciesToDiplay()
     u8 i;
     u16 num;
     u16 species;
+    u8 dexVariant = RoguePokedex_GetDexVariant();
 
     for(i = 0; i < OVERVIEW_ENTRY_COUNT; ++i)
     {
@@ -2715,13 +2716,10 @@ static void Overview_SelectSpeciesToDiplay()
 
         species = SPECIES_NONE;
 
-        {
-            u8 dexVariant = RoguePokedex_GetDexVariant();
-            if(num < gPokedexVariants[dexVariant].speciesCount)
-                species = gPokedexVariants[dexVariant].speciesList[num];
-        }
+        if(num < gPokedexVariants[dexVariant].speciesCount)
+            species = GetDisplayedOverviewSpecies(gPokedexVariants[dexVariant].speciesList[num]);
 
-        sPokedexMenu->overviewPageSpecies[i] = GetDisplayedOverviewSpecies(species);
+        sPokedexMenu->overviewPageSpecies[i] = species;
         sPokedexMenu->overviewPageNumbers[i] = num + 1;
     }
 }
