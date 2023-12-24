@@ -21,6 +21,7 @@ bool8 RoguePokedex_IsVariantEditEnabled();
 
 bool8 RoguePokedex_IsSpeciesEnabled(u16 species);
 u16 RoguePokedex_GetSpeciesCurrentNum(u16 species);
+u16 RoguePokedex_RedirectSpeciesGetSetFlag(u16 species);
 
 bool8 RoguePokedex_IsSpeciesLegendary(u16 species);
 bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species);

@@ -59,7 +59,7 @@ enum
     PAGE_MON_STATS,
     PAGE_MON_MOVES,
     PAGE_MON_EVOS,
-    //PAGE_MON_FORMS,
+    PAGE_MON_FORMS,
 
     PAGE_MON_RIDE_STATS,
 
@@ -155,6 +155,7 @@ static const struct WindowTemplate sMonEntryWinTemplates[WIN_COUNT + 1] =
 static const u8 sTitle_Stats[] = _("Stats");
 static const u8 sTitle_Moves[] = _("Moves");
 static const u8 sTitle_Evolutions[] = _("Evolutions");
+static const u8 sTitle_Forms[] = _("Forms");
 static const u8 sTitle_Riding[] = _("Poké Ride");
 
 static const u8 sText_Types[] = _("Types");
@@ -174,10 +175,24 @@ static const u8 sText_SkillClimbing[] = _("Climbing");
 static const u8 sText_SkillSurf[] = _("Surfing");
 static const u8 sText_SkillFlying[] = _("Flying");
 static const u8 sText_SkillNone[] = _("None");
+
+static const u8 sText_Base[] = _("{COLOR RED}{SHADOW LIGHT_RED}Base");
+static const u8 sText_Alolan[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Alolan");
+static const u8 sText_Galarian[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Galarian");
+static const u8 sText_Paldean[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Paldean");
+static const u8 sText_Hisuian[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Hisuian");
+static const u8 sText_Mega[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Mega Evolution");
+static const u8 sText_Primal[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Primal Reversion");
+static const u8 sText_UltraBurst[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Ultra Burst");
+static const u8 sText_Gigantamax[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Gigantamax");
+static const u8 sText_Debug[] = _("{COLOR RED}{SHADOW LIGHT_RED}DEBUG VIEW ONLY");
+
+static const u8 sText_NoFormData[] = _("{COLOR RED}{SHADOW LIGHT_RED}No Form data found");
 #else
 static const u8 sTitle_Stats[] = _("STATS");
 static const u8 sTitle_Moves[] = _("MOVES");
 static const u8 sTitle_Evolutions[] = _("EVOLUTIONS");
+static const u8 sTitle_Forms[] = _("FORMS");
 static const u8 sTitle_Riding[] = _("POKé RIDE");
 
 static const u8 sText_Types[] = _("TYPES");
@@ -218,6 +233,7 @@ static void DisplayMonEntryText(void);
 static void DisplayMonStatsText(void);
 static void DisplayMonMovesText(void);
 static void DisplayMonEvosText(void);
+static void DisplayMonFormsText(void);
 static void DisplayMonRideStatsText(void);
 static void InitOverviewBg(void);
 static void InitMonEntryWindows(void);
@@ -256,6 +272,10 @@ static void MonMoves_HandleInput(u8);
 // Mon evos
 static void MonEvos_HandleInput(u8);
 static void MonEvos_CreateSprites();
+
+// Mon forms
+static void MonForms_HandleInput(u8);
+static void MonForms_CreateSprites();
 
 // Ride stats
 static void MonRideStats_HandleInput(u8);
@@ -538,6 +558,21 @@ static void InitPageResources(u8 fromPage, u8 toPage)
         }
         break;
 
+    case PAGE_MON_FORMS:
+        {
+            LZDecompressWram(sPageFormsTilemap, sTilemapBufferPtr);
+            CopyBgTilemapBufferToVram(1);
+
+            InitMonEntryWindows();
+            // Text printed below
+
+            LoadMonIconPalettes();
+
+            MonInfo_CreateSprites(FALSE);
+            MonForms_CreateSprites();
+        }
+        break;
+
     case PAGE_MON_RIDE_STATS:
         {
             LZDecompressWram(sPageListsTilemap, sTilemapBufferPtr);
@@ -579,6 +614,7 @@ static void DestroyPageResources(u8 fromPage, u8 toPage)
     case PAGE_MON_STATS:
     case PAGE_MON_MOVES:
     case PAGE_MON_EVOS:
+    case PAGE_MON_FORMS:
     case PAGE_MON_RIDE_STATS:
         {
             MonInfo_DestroySprites();
@@ -672,6 +708,11 @@ static void Task_PageFadeIn(u8 taskId)
         DisplayMonEntryText();
         DisplayMonEvosText();
         break;
+
+    case PAGE_MON_FORMS:
+        DisplayMonEntryText();
+        DisplayMonFormsText();
+        break;
     
     case PAGE_MON_RIDE_STATS:
         DisplayMonEntryText();
@@ -728,6 +769,10 @@ static void Task_PageWaitForKeyPress(u8 taskId)
         MonEvos_HandleInput(taskId);
         break;
 
+    case PAGE_MON_FORMS:
+        MonForms_HandleInput(taskId);
+        break;
+
     case PAGE_MON_RIDE_STATS:
         MonRideStats_HandleInput(taskId);
         break;
@@ -763,16 +808,120 @@ static void Task_PageFadeOutAndExit(u8 taskId)
     }
 }
 
+static bool8 IsDebugAltForm(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    // These forms will only be visible in the dex in debug builds
+    //
+    if(species >= SPECIES_UNOWN_B && species <= SPECIES_UNOWN_QMARK)
+        return TRUE;
+
+    if(species >= SPECIES_PIKACHU_COSPLAY && species <= SPECIES_PIKACHU_WORLD_CAP)
+        return TRUE;
+
+    if(species >= SPECIES_ARCEUS_FIGHTING && species <= SPECIES_ARCEUS_FAIRY)
+        return TRUE;
+
+    if(species >= SPECIES_GENESECT_DOUSE_DRIVE && species <= SPECIES_GENESECT_CHILL_DRIVE)
+        return TRUE;
+
+    if(species >= SPECIES_GRENINJA_BATTLE_BOND && species <= SPECIES_GRENINJA_ASH)
+        return TRUE;
+
+    if(species >= SPECIES_VIVILLON_POLAR && species <= SPECIES_VIVILLON_POKE_BALL)
+        return TRUE;
+
+    if(species >= SPECIES_PUMPKABOO_SMALL && species <= SPECIES_GOURGEIST_SUPER)
+        return TRUE;
+
+    if(species >= SPECIES_FURFROU_HEART_TRIM && species <= SPECIES_FURFROU_PHARAOH_TRIM)
+        return TRUE;
+
+    if(species >= SPECIES_SILVALLY_FIGHTING && species <= SPECIES_SILVALLY_FAIRY)
+        return TRUE;
+
+    if(species >= SPECIES_MINIOR_ORANGE && species <= SPECIES_MINIOR_CORE_VIOLET)
+        return TRUE;
+
+    if(species >= SPECIES_CRAMORANT_GULPING && species <= SPECIES_CRAMORANT_GORGING)
+        return TRUE;
+
+    if(species >= SPECIES_ALCREMIE_RUBY_CREAM && species <= SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL)
+        return TRUE;
+
+    if(species >= SPECIES_ALCREMIE_BERRY && species <= SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL)
+        return TRUE;
+
+    switch (species)
+    {
+    case SPECIES_PICHU_SPIKY_EARED:
+    case SPECIES_FLOETTE_ETERNAL_FLOWER:
+    case SPECIES_MIMIKYU_BUSTED:
+    case SPECIES_EISCUE_NOICE_FACE:
+    case SPECIES_MORPEKO_HANGRY:
+    case SPECIES_ETERNATUS_ETERNAMAX:
+    case SPECIES_ZARUDE_DADA:
+    case SPECIES_GIMMIGHOUL_ROAMING:
+        return TRUE;
+    }
+#endif
+
+    return FALSE;
+}
+
+static bool8 IsAltFormVisible(u16 baseForm, u16 altForm)
+{
+    if(baseForm == altForm)
+        return FALSE;
+    
+    if(IsDebugAltForm(altForm))
+    {
+#ifdef ROGUE_DEBUG
+        return TRUE;
+#else
+        return FALSE;
+#endif
+    }
+
+    return TRUE;
+}
+
+static u16 GetDisplayedOverviewSpecies(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    // If we haven't seen the base species check if we've seen any variants
+    if(!GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+    {
+        u8 i;
+        u16 const* formTable = GetSpeciesFormTable(sPokedexMenu->viewBaseSpecies);
+
+        for(i = 0; formTable && formTable[i] != FORM_SPECIES_END; ++i)
+        {
+            if(IsAltFormVisible(species, formTable[i]) && GetSetPokedexSpeciesFlag(formTable[i], FLAG_GET_SEEN))
+            {
+                species = formTable[i];
+                break;
+            }
+        }
+    }
+#endif
+
+    return species;
+}
+
 static u16 GetDexCount(u8 caseID)
 {
-    u16 i = 0;
+    u16 i;
+    u16 species;
     u16 count = 0;
 
     u8 dexVariant = RoguePokedex_GetDexVariant();
     
     for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
     {
-        if (GetSetPokedexSpeciesFlag(gPokedexVariants[dexVariant].speciesList[i], caseID))
+        species = GetDisplayedOverviewSpecies(gPokedexVariants[dexVariant].speciesList[i]);
+
+        if (GetSetPokedexSpeciesFlag(species, caseID))
             count++;
     }
 
@@ -781,13 +930,16 @@ static u16 GetDexCount(u8 caseID)
 
 static bool8 CheckDexCompletion(u8 caseID)
 {
-    u16 i = 0;
+    u16 i;
+    u16 species;
 
     u8 dexVariant = RoguePokedex_GetDexVariant();
     
     for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
     {
-        if (!GetSetPokedexSpeciesFlag(gPokedexVariants[dexVariant].speciesList[i], caseID))
+        species = GetDisplayedOverviewSpecies(gPokedexVariants[dexVariant].speciesList[i]);
+
+        if (!GetSetPokedexSpeciesFlag(species, caseID))
             return FALSE;
     }
 
@@ -985,8 +1137,9 @@ static void DisplayMonStatsText(void)
 
         // Speed
         ++i;
-        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 72, 1 + ySpacing * i, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_Speed);
-        
+        // Move 1 pixel higher
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 72, 0 + ySpacing * i, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_Speed);
+
         ConvertUIntToDecimalStringN(gStringVar4, stats[STAT_SPEED], STR_CONV_MODE_RIGHT_ALIGN, 3);
         AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 115, 1 + ySpacing * i, 0, 0, GET_STAT_COLOUR(STAT_SPEED), TEXT_SKIP_DRAW, gStringVar4);
     }
@@ -1172,8 +1325,6 @@ static u16 GetMaxEvoScrollOffset()
     struct Evolution evo;
     u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
-    FillWindowPixelBuffer(WIN_MON_PAGE_CONTENT, PIXEL_FILL(0));
-
     for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
@@ -1212,6 +1363,43 @@ static u16 GetActiveEvoSpecies()
 
     return SPECIES_NONE;
 }
+
+#ifdef ROGUE_EXPANSION
+static u16 GetMaxFormScrollOffset()
+{
+    u8 i;
+    u8 count = 0;
+    u16 const* formTable = GetSpeciesFormTable(sPokedexMenu->viewBaseSpecies);
+
+    for(i = 0; formTable && formTable[i] != FORM_SPECIES_END; ++i)
+    {
+        if(IsAltFormVisible(sPokedexMenu->viewBaseSpecies, formTable[i]))
+            ++count;
+    }
+
+    return count != 0 ? count - 1 : 0;
+}
+
+static u16 GetActiveFormSpecies()
+{
+    u8 i;
+    u8 listIndex = 0;
+    u16 const* formTable = GetSpeciesFormTable(sPokedexMenu->viewBaseSpecies);
+
+    for(i = 0; formTable && formTable[i] != FORM_SPECIES_END; ++i)
+    {
+        if(IsAltFormVisible(sPokedexMenu->viewBaseSpecies, formTable[i]))
+        {
+            if(listIndex >= sPokedexMenu->listScrollAmount)
+                return formTable[i];
+
+            ++listIndex;
+        }
+    }
+
+    return SPECIES_NONE;
+}
+#endif
 
 extern const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1];
 
@@ -1363,8 +1551,16 @@ static void DisplayMonEvosText()
             if(displayCount == 0)
                 AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gText_SelectorArrow);
 
-            AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35 + (displayCount == 0 ? 8 : 0), ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, RoguePokedex_GetSpeciesName(evo.targetSpecies));
-            ++displayCount;
+            if(GetSetPokedexSpeciesFlag(evo.targetSpecies, FLAG_GET_SEEN))
+            {
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35 + (displayCount == 0 ? 8 : 0), ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, RoguePokedex_GetSpeciesName(evo.targetSpecies));
+                ++displayCount;
+            }
+            else
+            {
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35 + (displayCount == 0 ? 8 : 0), ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gText_FiveMarks);
+                ++displayCount;
+            }
 
             AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
             ++displayCount;
@@ -1379,6 +1575,100 @@ static void DisplayMonEvosText()
 
     PutWindowTilemap(WIN_MON_PAGE_CONTENT);
     CopyWindowToVram(WIN_MON_PAGE_CONTENT, COPYWIN_FULL);
+}
+
+static void DisplayMonFormsText()
+{
+#ifdef ROGUE_EXPANSION
+    u8 i;
+    const u8 ySpacing = 16;
+    u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
+    u8 listIndex = 0;
+    u8 displayCount = 0;
+    u16 const* formTable = GetSpeciesFormTable(sPokedexMenu->viewBaseSpecies);
+
+    AddTitleText(sTitle_Forms);
+
+    FillWindowPixelBuffer(WIN_MON_PAGE_CONTENT, PIXEL_FILL(0));
+
+    for(i = 0; formTable && formTable[i] != FORM_SPECIES_END && displayCount < 8; ++i)
+    {
+        if(IsAltFormVisible(sPokedexMenu->viewBaseSpecies, formTable[i]))
+        {
+            if(listIndex >= sPokedexMenu->listScrollAmount)
+            {
+                // Add arrow
+                if(displayCount == 0)
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gText_SelectorArrow);
+
+                if(GetSetPokedexSpeciesFlag(formTable[i], FLAG_GET_SEEN))
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35 + (displayCount == 0 ? 8 : 0), ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, RoguePokedex_GetSpeciesName(formTable[i]));
+                    ++displayCount;
+                }
+                else
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35 + (displayCount == 0 ? 8 : 0), ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gText_FiveMarks);
+                    ++displayCount;
+                }
+
+                if(gSpeciesInfo[formTable[i]].isAlolanForm)
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_Alolan);
+                }
+                else if(gSpeciesInfo[formTable[i]].isGalarianForm)
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_Galarian);
+                }
+                else if(gSpeciesInfo[formTable[i]].isPaldeanForm)
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_Paldean);
+                }
+                else if(gSpeciesInfo[formTable[i]].isHisuianForm)
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_Hisuian);
+                }
+                else if(gSpeciesInfo[formTable[i]].isMegaEvolution)
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_Mega);
+                }
+                else if(gSpeciesInfo[formTable[i]].isPrimalReversion)
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_Primal);
+                }
+                else if(gSpeciesInfo[formTable[i]].isUltraBurst)
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_UltraBurst);
+                }
+                else if(gSpeciesInfo[formTable[i]].isGigantamax)
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_Gigantamax);
+                }
+                else if(GET_BASE_SPECIES_ID(sPokedexMenu->viewBaseSpecies) == formTable[i])
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_Base);
+                }
+                else if(IsDebugAltForm(formTable[i]))
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_Debug);
+                }
+
+                //AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+                ++displayCount;
+            }
+            ++listIndex;
+        }
+    }
+
+    if(displayCount == 0)
+    {
+        u16 offset = GetStringCenterAlignXOffset(FONT_NARROW, sText_NoFormData, sMonEntryWinTemplates[WIN_MON_PAGE_CONTENT].width * 8);
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, offset, 0, 0, 0, color, TEXT_SKIP_DRAW, sText_NoFormData);
+    }
+
+    PutWindowTilemap(WIN_MON_PAGE_CONTENT);
+    CopyWindowToVram(WIN_MON_PAGE_CONTENT, COPYWIN_FULL);
+#endif
 }
 
 static void DisplayMonRideStatsText()
@@ -2431,7 +2721,7 @@ static void Overview_SelectSpeciesToDiplay()
                 species = gPokedexVariants[dexVariant].speciesList[num];
         }
 
-        sPokedexMenu->overviewPageSpecies[i] = species;
+        sPokedexMenu->overviewPageSpecies[i] = GetDisplayedOverviewSpecies(species);
         sPokedexMenu->overviewPageNumbers[i] = num + 1;
     }
 }
@@ -2550,6 +2840,10 @@ static u16 MonStats_GetMonNeighbour(u16 currViewSpecies, s8 offset)
     u16 currViewIdx = (u16)-1;
     u8 dexVariant = RoguePokedex_GetDexVariant();
 
+#ifdef ROGUE_EXPANSION
+    currViewSpecies = GET_BASE_SPECIES_ID(currViewSpecies);
+#endif
+
     for(i = 0; i < gPokedexVariants[dexVariant].speciesCount; ++i)
     {
         if(gPokedexVariants[dexVariant].speciesList[i] == currViewSpecies)
@@ -2602,6 +2896,13 @@ static bool8 IsMonPageUnlocked(u8 page)
     {
     case PAGE_MON_RIDE_STATS:
         return CheckBagHasItem(ITEM_BASIC_RIDING_WHISTLE, 1);
+
+    case PAGE_MON_FORMS:
+#ifdef ROGUE_EXPANSION
+        return TRUE;
+#else
+        return FALSE;
+#endif
     }
 
     return TRUE;
@@ -2790,7 +3091,7 @@ static void MonEvos_HandleInput(u8 taskId)
     {
         u16 species = GetActiveEvoSpecies();
 
-        if(species == SPECIES_NONE)
+        if(species == SPECIES_NONE || !GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
         {
             PlaySE(SE_FAILURE);
         }
@@ -2833,11 +3134,117 @@ static void MonEvos_CreateSprites()
 
         if(listIndex >= sPokedexMenu->listScrollAmount)
         {
-            sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(evo.targetSpecies, SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, MON_MALE);
+            if(GetSetPokedexSpeciesFlag(evo.targetSpecies, FLAG_GET_SEEN))
+                sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(evo.targetSpecies, SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, MON_MALE);
+            else
+                sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMissingMonIcon(SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0);
             ++displayCount;
         }
         ++listIndex;
     }
+}
+
+static void MonForms_HandleInput(u8 taskId)
+{
+    if(MonInfo_HandleInput(taskId))
+        return;
+
+#ifdef ROGUE_EXPANSION
+    if(JOY_NEW(DPAD_UP))
+    {
+        u16 maxScrollOffset = GetMaxFormScrollOffset();
+
+        if(maxScrollOffset == 0)
+        {
+            PlaySE(SE_FAILURE);
+        }
+        else
+        {
+            if(sPokedexMenu->listScrollAmount == 0)
+                sPokedexMenu->listScrollAmount = maxScrollOffset;
+            else
+                --sPokedexMenu->listScrollAmount;
+
+            PlaySE(SE_DEX_SCROLL);
+            DisplayMonFormsText();
+            MonForms_CreateSprites();
+        }
+    }
+    else if(JOY_NEW(DPAD_DOWN))
+    {
+        u16 maxScrollOffset = GetMaxFormScrollOffset();
+
+        if(maxScrollOffset == 0)
+        {
+            PlaySE(SE_FAILURE);
+        }
+        else
+        {
+            if(sPokedexMenu->listScrollAmount == maxScrollOffset)
+                sPokedexMenu->listScrollAmount = 0;
+            else
+                ++sPokedexMenu->listScrollAmount;
+
+            PlaySE(SE_DEX_SCROLL);
+            DisplayMonFormsText();
+            MonForms_CreateSprites();
+        }
+    }
+    else if(JOY_NEW(A_BUTTON))
+    {
+        u16 species = GetActiveFormSpecies();
+
+        if(species == SPECIES_NONE || !GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+        {
+            PlaySE(SE_FAILURE);
+        }
+        else
+        {
+            sPokedexMenu->desiredPage = PAGE_MON_FORMS;
+            sPokedexMenu->viewBaseSpecies = species;
+            gTasks[taskId].func = Task_SwapToPage;
+
+            PlaySE(SE_PIN);
+        }
+    }
+#endif
+}
+
+static void MonForms_CreateSprites()
+{
+#ifdef ROGUE_EXPANSION
+    u8 i;
+    u8 listIndex = 0;
+    u8 displayCount = 0;
+    u16 const* formTable = GetSpeciesFormTable(sPokedexMenu->viewBaseSpecies);
+
+    // Destroy any previous sprites
+    for(i = 0; i < 4; ++i)
+    {
+        if(sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + i] != SPRITE_NONE)
+        {
+            FreeAndDestroyMonIconSprite(&gSprites[sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + i]]);
+            sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + i] = SPRITE_NONE;
+        }
+    }
+
+    for(i = 0; formTable && formTable[i] != FORM_SPECIES_END && displayCount < 4; ++i)
+    {
+        if(IsAltFormVisible(sPokedexMenu->viewBaseSpecies, formTable[i]))
+        {
+            if(listIndex >= sPokedexMenu->listScrollAmount)
+            {
+                if(GetSetPokedexSpeciesFlag(formTable[i], FLAG_GET_SEEN))
+                    sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(formTable[i], SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, MON_MALE);
+                else
+                    sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMissingMonIcon(SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0);
+
+                ++displayCount;
+            }
+            ++listIndex;
+        }
+    }
+#endif
 }
 
 static void MonRideStats_HandleInput(u8 taskId)
@@ -2996,6 +3403,72 @@ u16 RoguePokedex_GetSpeciesCurrentNum(u16 species)
     }
 
     return 0;
+}
+
+u16 RoguePokedex_RedirectSpeciesGetSetFlag(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    //if(species >= SPECIES_VENUSAUR_MEGA && species <= SPECIES_GROUDON_PRIMAL)
+    //    return GET_BASE_SPECIES_ID(species);
+
+    if(species >= SPECIES_PIKACHU_COSPLAY && species <= SPECIES_PIKACHU_WORLD_CAP)
+        return SPECIES_PIKACHU;
+
+    if(species >= SPECIES_UNOWN_B && species <= SPECIES_UNOWN_QMARK)
+        return SPECIES_UNOWN;
+
+    if(species >= SPECIES_ARCEUS_FIGHTING && species <= SPECIES_ARCEUS_FAIRY)
+        return SPECIES_ARCEUS;
+
+    if(species >= SPECIES_VIVILLON_POLAR && species <= SPECIES_VIVILLON_POKE_BALL)
+        return SPECIES_ARCEUS;
+
+    if(species >= SPECIES_FLABEBE_YELLOW_FLOWER && species <= SPECIES_FLORGES_WHITE_FLOWER)
+        return GET_BASE_SPECIES_ID(species);
+
+    if(species >= SPECIES_FURFROU_HEART_TRIM && species <= SPECIES_FURFROU_PHARAOH_TRIM)
+        return GET_BASE_SPECIES_ID(species);
+
+    if(species >= SPECIES_PUMPKABOO_SMALL && species <= SPECIES_XERNEAS_ACTIVE)
+        return GET_BASE_SPECIES_ID(species);
+
+    if(species >= SPECIES_SILVALLY_FIGHTING && species <= SPECIES_SILVALLY_FAIRY)
+        return SPECIES_SILVALLY;
+
+    if(species >= SPECIES_MINIOR_ORANGE && species <= SPECIES_MINIOR_CORE_VIOLET)
+        return SPECIES_MINIOR;
+
+    if(species >= SPECIES_CRAMORANT_GULPING && species <= SPECIES_MORPEKO_HANGRY)
+        return GET_BASE_SPECIES_ID(species);
+
+    if(species >= SPECIES_ALCREMIE_BERRY && species <= SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL)
+        return GET_BASE_SPECIES_ID(species);
+
+    if(species >= SPECIES_SQUAWKABILLY_GREEN_PLUMAGE && species <= SPECIES_SQUAWKABILLY_WHITE_PLUMAGE)
+        return SPECIES_SQUAWKABILLY;
+
+    if(species >= SPECIES_TATSUGIRI_CURLY && species <= SPECIES_TATSUGIRI_STRETCHY)
+        return SPECIES_TATSUGIRI;
+
+    switch (species)
+    {
+    case SPECIES_PICHU_SPIKY_EARED:
+    case SPECIES_GRENINJA_BATTLE_BOND:
+    case SPECIES_MEOWSTIC_FEMALE:
+    case SPECIES_AEGISLASH_BLADE:
+    case SPECIES_MIMIKYU_BUSTED:
+    case SPECIES_BASCULEGION_FEMALE:
+    case SPECIES_OINKOLOGNE_FEMALE:
+    case SPECIES_MAUSHOLD_FAMILY_OF_FOUR:
+    case SPECIES_PALAFIN_HERO:
+    case SPECIES_DUDUNSPARCE_THREE_SEGMENT:
+    case SPECIES_POLTCHAGEIST_ARTISAN:
+    case SPECIES_SINISTCHA_MASTERPIECE:
+        return GET_BASE_SPECIES_ID(species);
+    }
+#endif
+
+    return species;
 }
 
 bool8 RoguePokedex_IsSpeciesLegendary(u16 species)

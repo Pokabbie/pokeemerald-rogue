@@ -29,6 +29,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_pokedex.h"
+
 enum
 {
     PAGE_MAIN,
@@ -4205,9 +4207,14 @@ s8 GetSetPokedexSpeciesFlag(u16 species, u8 caseId)
     s8 retVal = 0;
     u16 dexNum = SpeciesToNationalPokedexNum(species);
 
+    species = RoguePokedex_RedirectSpeciesGetSetFlag(species);
+
     index = species / 8;
     bit = species % 8;
     mask = 1 << bit;
+
+    AGB_ASSERT(index < ARRAY_COUNT(gSaveBlock1Ptr->pokedexBitFlags1));
+    AGB_ASSERT(index < ARRAY_COUNT(gSaveBlock1Ptr->pokedexBitFlags2));
 
     dexState = 0;
 
