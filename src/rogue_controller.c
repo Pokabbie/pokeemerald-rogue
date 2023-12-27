@@ -1541,7 +1541,10 @@ bool8 IsZMovesEnabled(void)
 bool8 IsDynamaxEnabled(void)
 {
 #ifdef ROGUE_EXPANSION
-    return FALSE;
+    if(Rogue_IsRunActive())
+        return gRogueRun.dynamaxEnabled; // cached result
+    else
+        return CheckBagHasItem(ITEM_DYNAMAX_BAND, 1);
 #else
     return FALSE;
 #endif
@@ -2752,6 +2755,7 @@ static void BeginRogueRun(void)
     // Cache the results for the run (Must do before ActiveRun flag is set)
     gRogueRun.megasEnabled = IsMegaEvolutionEnabled();
     gRogueRun.zMovesEnabled = IsZMovesEnabled();
+    gRogueRun.dynamaxEnabled = IsDynamaxEnabled();
     // CheckBagHasItem(ITEM_DYNAMAX_BAND, 1)
 #endif
 

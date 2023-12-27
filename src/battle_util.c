@@ -10274,24 +10274,27 @@ bool32 IsPartnerMonFromSameTrainer(u32 battler)
 bool32 DoesSpeciesUseHoldItemToChangeForm(u16 species, u16 heldItemId)
 {
     u32 i;
-    const struct FormChange *formChanges = GetSpeciesFormChanges(species);
+    struct FormChange formChange;
 
-    if (formChanges != NULL)
+    for (i = 0; TRUE; i++)
     {
-        for (i = 0; formChanges[i].method != FORM_CHANGE_TERMINATOR; i++)
+        Rogue_ModifyFormChange(species, i, &formChange);
+
+        if(formChange.method == FORM_CHANGE_TERMINATOR)
+            break;
+
+        switch (formChange.method)
         {
-            switch (formChanges[i].method)
-            {
-            case FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM:
-            case FORM_CHANGE_BATTLE_PRIMAL_REVERSION:
-            case FORM_CHANGE_BATTLE_ULTRA_BURST:
-            case FORM_CHANGE_ITEM_HOLD:
-                if (formChanges[i].param1 == heldItemId)
-                    return TRUE;
-                break;
-            }
+        case FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM:
+        case FORM_CHANGE_BATTLE_PRIMAL_REVERSION:
+        case FORM_CHANGE_BATTLE_ULTRA_BURST:
+        case FORM_CHANGE_ITEM_HOLD:
+            if (formChange.param1 == heldItemId)
+                return TRUE;
+            break;
         }
     }
+
     return FALSE;
 }
 
@@ -10442,85 +10445,89 @@ u16 GetBattleFormChangeTargetSpecies(u32 battler, u16 method)
     u32 i;
     u16 targetSpecies = SPECIES_NONE;
     u16 species = gBattleMons[battler].species;
-    const struct FormChange *formChanges = GetSpeciesFormChanges(species);
+    struct FormChange formChange;
     u16 heldItem;
 
-    if (formChanges != NULL)
     {
         heldItem = gBattleMons[battler].item;
 
-        for (i = 0; formChanges[i].method != FORM_CHANGE_TERMINATOR; i++)
+        for (i = 0; TRUE; i++)
         {
-            if (method == formChanges[i].method && species != formChanges[i].targetSpecies)
+            Rogue_ModifyFormChange(species, i, &formChange);
+
+            if(formChange.method == FORM_CHANGE_TERMINATOR)
+                break;
+
+            if (method == formChange.method && species != formChange.targetSpecies)
             {
                 switch (method)
                 {
                 case FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM:
                 case FORM_CHANGE_BATTLE_PRIMAL_REVERSION:
                 case FORM_CHANGE_BATTLE_ULTRA_BURST:
-                    if (heldItem == formChanges[i].param1)
-                        targetSpecies = formChanges[i].targetSpecies;
+                    if (heldItem == formChange.param1)
+                        targetSpecies = formChange.targetSpecies;
                     break;
                 case FORM_CHANGE_BATTLE_MEGA_EVOLUTION_MOVE:
-                    if (gBattleMons[battler].moves[0] == formChanges[i].param1
-                     || gBattleMons[battler].moves[1] == formChanges[i].param1
-                     || gBattleMons[battler].moves[2] == formChanges[i].param1
-                     || gBattleMons[battler].moves[3] == formChanges[i].param1)
-                        targetSpecies = formChanges[i].targetSpecies;
+                    if (gBattleMons[battler].moves[0] == formChange.param1
+                     || gBattleMons[battler].moves[1] == formChange.param1
+                     || gBattleMons[battler].moves[2] == formChange.param1
+                     || gBattleMons[battler].moves[3] == formChange.param1)
+                        targetSpecies = formChange.targetSpecies;
                     break;
                 case FORM_CHANGE_BATTLE_SWITCH:
-                    targetSpecies = formChanges[i].targetSpecies;
+                    targetSpecies = formChange.targetSpecies;
                     break;
                 case FORM_CHANGE_BATTLE_HP_PERCENT:
-                    if (formChanges[i].param1 == GetBattlerAbility(battler))
+                    if (formChange.param1 == GetBattlerAbility(battler))
                     {
                         // We multiply by 100 to make sure that integer division doesn't mess with the health check.
                         u32 hpCheck = gBattleMons[battler].hp * 100 * 100 / gBattleMons[battler].maxHP;
-                        switch(formChanges[i].param2)
+                        switch(formChange.param2)
                         {
                         case HP_HIGHER_THAN:
-                            if (hpCheck > formChanges[i].param3 * 100)
-                                targetSpecies = formChanges[i].targetSpecies;
+                            if (hpCheck > formChange.param3 * 100)
+                                targetSpecies = formChange.targetSpecies;
                             break;
                         case HP_LOWER_EQ_THAN:
-                            if (hpCheck <= formChanges[i].param3 * 100)
-                                targetSpecies = formChanges[i].targetSpecies;
+                            if (hpCheck <= formChange.param3 * 100)
+                                targetSpecies = formChange.targetSpecies;
                             break;
                         }
                     }
                     break;
                 case FORM_CHANGE_BATTLE_GIGANTAMAX:
                     // TODO: check Gigantamax factor
-                    targetSpecies = formChanges[i].targetSpecies;
+                    targetSpecies = formChange.targetSpecies;
                     break;
                 case FORM_CHANGE_BATTLE_WEATHER:
                     // Check if there is a required ability and if the battler's ability does not match it
                     // or is suppressed. If so, revert to the no weather form.
-                    if (formChanges[i].param2
-                        && GetBattlerAbility(battler) != formChanges[i].param2
-                        && formChanges[i].param1 == B_WEATHER_NONE)
+                    if (formChange.param2
+                        && GetBattlerAbility(battler) != formChange.param2
+                        && formChange.param1 == B_WEATHER_NONE)
                     {
-                        targetSpecies = formChanges[i].targetSpecies;
+                        targetSpecies = formChange.targetSpecies;
                     }
                     // We need to revert the weather form if the field is under Air Lock, too.
-                    else if (!WEATHER_HAS_EFFECT && formChanges[i].param1 == B_WEATHER_NONE)
+                    else if (!WEATHER_HAS_EFFECT && formChange.param1 == B_WEATHER_NONE)
                     {
-                        targetSpecies = formChanges[i].targetSpecies;
+                        targetSpecies = formChange.targetSpecies;
                     }
                     // Otherwise, just check for a match between the weather and the form change table.
-                    else if (gBattleWeather & formChanges[i].param1
-                        || (gBattleWeather == B_WEATHER_NONE && formChanges[i].param1 == B_WEATHER_NONE))
+                    else if (gBattleWeather & formChange.param1
+                        || (gBattleWeather == B_WEATHER_NONE && formChange.param1 == B_WEATHER_NONE))
                     {
-                        targetSpecies = formChanges[i].targetSpecies;
+                        targetSpecies = formChange.targetSpecies;
                     }
                     break;
                 case FORM_CHANGE_BATTLE_TURN_END:
-                    if (formChanges[i].param1 == GetBattlerAbility(battler))
-                        targetSpecies = formChanges[i].targetSpecies;
+                    if (formChange.param1 == GetBattlerAbility(battler))
+                        targetSpecies = formChange.targetSpecies;
                     break;
                 case FORM_CHANGE_STATUS:
-                    if (gBattleMons[battler].status1 & formChanges[i].param1)
-                        targetSpecies = formChanges[i].targetSpecies;
+                    if (gBattleMons[battler].status1 & formChange.param1)
+                        targetSpecies = formChange.targetSpecies;
                     break;
                 }
             }

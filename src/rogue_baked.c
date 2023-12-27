@@ -35,6 +35,8 @@
 #endif
 
 #ifdef ROGUE_EXPANSION
+#include "constants/form_change_types.h"
+
 extern const struct SpeciesInfo gSpeciesInfo[];
 #else
 #define EVOLUTIONS_END 0
@@ -518,6 +520,39 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
         }
     }
 #endif
+}
+
+void Rogue_ModifyFormChange(u16 species, u8 changeIdx, struct FormChange* outFormChange)
+{
+    const struct FormChange *formChanges = GetSpeciesFormChanges(species);
+
+    if(formChanges != NULL)
+    {
+        memcpy(outFormChange, &formChanges[changeIdx], sizeof(*outFormChange));
+
+        if(!IsMegaEvolutionEnabled())
+        {
+            if(
+                outFormChange->method == FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM || 
+                outFormChange->method == FORM_CHANGE_BATTLE_MEGA_EVOLUTION_MOVE || 
+                outFormChange->method == FORM_CHANGE_BATTLE_PRIMAL_REVERSION)
+            {
+                outFormChange->method = FORM_CHANGE_DISABLED_STUB;
+            }
+        }
+
+        if(!IsDynamaxEnabled())
+        {
+            if(outFormChange->method == FORM_CHANGE_BATTLE_GIGANTAMAX)
+            {
+                outFormChange->method = FORM_CHANGE_DISABLED_STUB;
+            }
+        }
+    }
+    else
+    {
+        outFormChange->method = FORM_CHANGE_TERMINATOR;
+    }
 }
 
 const u8* Rogue_GetTrainerName(u16 trainerNum)

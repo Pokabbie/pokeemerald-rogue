@@ -26,6 +26,7 @@ bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result);
 
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo);
 void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution* outEvo);
+void Rogue_ModifyFormChange(u16 species, u8 changeIdx, struct FormChange* outFormChange);
 const u8* Rogue_GetItemName(u16 itemIdx);
 const u8* Rogue_GetItemDesc(u16 itemIdx);
 const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which);

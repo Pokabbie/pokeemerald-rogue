@@ -5900,80 +5900,84 @@ u16 GetFormChangeTargetSpeciesBoxMon(struct BoxPokemon *boxMon, u16 method, u32 
     u32 i;
     u16 targetSpecies = SPECIES_NONE;
     u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL);
-    const struct FormChange *formChanges = GetSpeciesFormChanges(species);
+    struct FormChange formChange;
     u16 heldItem;
     u32 ability;
 
-    if (formChanges != NULL)
     {
         heldItem = GetBoxMonData(boxMon, MON_DATA_HELD_ITEM, NULL);
         ability = GetAbilityBySpecies(species, GetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, NULL));
 
-        for (i = 0; formChanges[i].method != FORM_CHANGE_TERMINATOR; i++)
+        for (i = 0; TRUE; i++)
         {
-            if (method == formChanges[i].method && species != formChanges[i].targetSpecies)
+            Rogue_ModifyFormChange(species, i, &formChange);
+
+            if(formChange.method == FORM_CHANGE_TERMINATOR)
+                break;
+
+            if (method == formChange.method && species != formChange.targetSpecies)
             {
                 switch (method)
                 {
                 case FORM_CHANGE_ITEM_HOLD:
-                    if ((heldItem == formChanges[i].param1 || formChanges[i].param1 == ITEM_NONE)
-                     && (ability == formChanges[i].param2 || formChanges[i].param2 == ABILITY_NONE))
-                        targetSpecies = formChanges[i].targetSpecies;
+                    if ((heldItem == formChange.param1 || formChange.param1 == ITEM_NONE)
+                     && (ability == formChange.param2 || formChange.param2 == ABILITY_NONE))
+                        targetSpecies = formChange.targetSpecies;
                     break;
                 case FORM_CHANGE_ITEM_USE:
-                    if (arg == formChanges[i].param1)
+                    if (arg == formChange.param1)
                     {
-                        switch (formChanges[i].param2)
+                        switch (formChange.param2)
                         {
                         case DAY:
                             if (GetTimeOfDay() != TIME_NIGHT)
-                                targetSpecies = formChanges[i].targetSpecies;
+                                targetSpecies = formChange.targetSpecies;
                             break;
                         case NIGHT:
                             if (GetTimeOfDay() == TIME_NIGHT)
-                                targetSpecies = formChanges[i].targetSpecies;
+                                targetSpecies = formChange.targetSpecies;
                             break;
                         default:
-                            targetSpecies = formChanges[i].targetSpecies;
+                            targetSpecies = formChange.targetSpecies;
                             break;
                         }
                     }
                     break;
                 case FORM_CHANGE_ITEM_USE_MULTICHOICE:
-                    if (arg == formChanges[i].param1)
+                    if (arg == formChange.param1)
                     {
-                        if (formChanges[i].param2 == gSpecialVar_Result)
-                            targetSpecies = formChanges[i].targetSpecies;
+                        if (formChange.param2 == gSpecialVar_Result)
+                            targetSpecies = formChange.targetSpecies;
                     }
                     break;
                 case FORM_CHANGE_MOVE:
-                    if (BoxMonKnowsMove(boxMon, formChanges[i].param1) != formChanges[i].param2)
-                        targetSpecies = formChanges[i].targetSpecies;
+                    if (BoxMonKnowsMove(boxMon, formChange.param1) != formChange.param2)
+                        targetSpecies = formChange.targetSpecies;
                     break;
                 case FORM_CHANGE_BEGIN_BATTLE:
                 case FORM_CHANGE_END_BATTLE:
-                    if (heldItem == formChanges[i].param1 || formChanges[i].param1 == ITEM_NONE)
-                        targetSpecies = formChanges[i].targetSpecies;
+                    if (heldItem == formChange.param1 || formChange.param1 == ITEM_NONE)
+                        targetSpecies = formChange.targetSpecies;
                     break;
                 case FORM_CHANGE_END_BATTLE_TERRAIN:
-                    if (gBattleTerrain == formChanges[i].param1)
-                        targetSpecies = formChanges[i].targetSpecies;
+                    if (gBattleTerrain == formChange.param1)
+                        targetSpecies = formChange.targetSpecies;
                     break;
                 case FORM_CHANGE_WITHDRAW:
                 case FORM_CHANGE_FAINT:
                 case FORM_CHANGE_STATUS:
-                    targetSpecies = formChanges[i].targetSpecies;
+                    targetSpecies = formChange.targetSpecies;
                     break;
                 case FORM_CHANGE_TIME_OF_DAY:
-                    switch (formChanges[i].param1)
+                    switch (formChange.param1)
                     {
                     case DAY:
                         if (GetTimeOfDay() != TIME_NIGHT)
-                            targetSpecies = formChanges[i].targetSpecies;
+                            targetSpecies = formChange.targetSpecies;
                         break;
                     case NIGHT:
                         if (GetTimeOfDay() == TIME_NIGHT)
-                            targetSpecies = formChanges[i].targetSpecies;
+                            targetSpecies = formChange.targetSpecies;
                         break;
                     }
                     break;
@@ -5988,13 +5992,17 @@ u16 GetFormChangeTargetSpeciesBoxMon(struct BoxPokemon *boxMon, u16 method, u32 
 bool32 DoesSpeciesHaveFormChangeMethod(u16 species, u16 method)
 {
     u32 i;
-    const struct FormChange *formChanges = GetSpeciesFormChanges(species);
+    struct FormChange formChange;
 
-    if (formChanges != NULL)
     {
-        for (i = 0; formChanges[i].method != FORM_CHANGE_TERMINATOR; i++)
+        for (i = 0; TRUE; i++)
         {
-            if (method == formChanges[i].method && species != formChanges[i].targetSpecies)
+            Rogue_ModifyFormChange(species, i, &formChange);
+
+            if(formChange.method == FORM_CHANGE_TERMINATOR)
+                break;
+
+            if (method == formChange.method && species != formChange.targetSpecies)
                 return TRUE;
         }
     }
@@ -6131,21 +6139,25 @@ void TryToSetBattleFormChangeMoves(struct Pokemon *mon, u16 method)
 {
     int i, j;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-    const struct FormChange *formChanges = GetSpeciesFormChanges(species);
+    struct FormChange formChange;
 
-    if (formChanges == NULL
-        || (method != FORM_CHANGE_BEGIN_BATTLE && method != FORM_CHANGE_END_BATTLE))
+    if (method != FORM_CHANGE_BEGIN_BATTLE && method != FORM_CHANGE_END_BATTLE)
         return;
 
-    for (i = 0; formChanges[i].method != FORM_CHANGE_TERMINATOR; i++)
+    for (i = 0; TRUE; i++)
     {
-        if (formChanges[i].method == method
-            && formChanges[i].param2
-            && formChanges[i].param3
-            && formChanges[i].targetSpecies != species)
+        Rogue_ModifyFormChange(species, i, &formChange);
+
+        if(formChange.method == FORM_CHANGE_TERMINATOR)
+            break;
+
+        if (formChange.method == method
+            && formChange.param2
+            && formChange.param3
+            && formChange.targetSpecies != species)
         {
-            u16 originalMove = formChanges[i].param2;
-            u16 newMove = formChanges[i].param3;
+            u16 originalMove = formChange.param2;
+            u16 newMove = formChange.param3;
 
             for (j = 0; j < MAX_MON_MOVES; j++)
             {

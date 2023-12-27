@@ -120,4 +120,7 @@
 // param1: status
 #define FORM_CHANGE_STATUS                      20
 
+// Form dynamic disable stub
+#define FORM_CHANGE_DISABLED_STUB                        21
+
 #endif // GUARD_CONSTANTS_FORM_CHANGE_TYPES_H
