@@ -8,6 +8,7 @@
 #include "constants/songs.h"
 #include "constants/species.h"
 #include "constants/trainers.h"
+#include "constants/form_change_types.h"
 
 #ifdef ROGUE_BAKING
 // Manually reinclude this if regenerating
@@ -524,6 +525,7 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
 
 void Rogue_ModifyFormChange(u16 species, u8 changeIdx, struct FormChange* outFormChange)
 {
+#ifdef ROGUE_EXPANSION
     const struct FormChange *formChanges = GetSpeciesFormChanges(species);
 
     if(formChanges != NULL)
@@ -553,6 +555,7 @@ void Rogue_ModifyFormChange(u16 species, u8 changeIdx, struct FormChange* outFor
     {
         outFormChange->method = FORM_CHANGE_TERMINATOR;
     }
+#endif
 }
 
 const u8* Rogue_GetTrainerName(u16 trainerNum)

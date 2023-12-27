@@ -610,6 +610,16 @@ struct RogueFollowMonGraphicsInfo
     u16 const* shinyPal;
 };
 
+#ifndef ROGUE_EXPANSION
+// Dud structs not defined in vanilla
+//
+struct FormChange
+{
+    u32 dud;
+};
+
+#endif
+
 STATIC_ASSERT(sizeof(struct RogueSpeciesBakedData) == 8, SizeOfRogueSpeciesBakedData);
 
 extern const struct RogueRouteData gRogueRouteTable;
