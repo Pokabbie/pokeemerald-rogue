@@ -13,7 +13,6 @@ u8 RoguePokedex_GetDexVariant();
 void RoguePokedex_SetDexVariant(u8 variant);
 
 u8 RoguePokedex_GetDexGenLimit();
-void RoguePokedex_SetDexGenLimit(u8 gen);
 u16 RoguePokedex_GetCurrentDexLimit();
 
 bool8 RoguePokedex_IsVariantEditUnlocked();

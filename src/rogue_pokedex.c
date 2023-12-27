@@ -1876,11 +1876,6 @@ static void TitleScreen_HandleInput(u8 taskId)
                     u8 genLimit = RoguePokedex_GetDexGenLimit();
                     PlaySE(SE_SELECT);
                     AGB_ASSERT(FALSE); // old code path
-
-                    if(genLimit == 1)
-                        RoguePokedex_SetDexGenLimit(DEX_GEN_LIMIT);
-                    else
-                        RoguePokedex_SetDexGenLimit(genLimit - 1);
                 }
                 else if(gPokedexRegions[region].variantCount <= 1)
                 {
@@ -1949,11 +1944,6 @@ static void TitleScreen_HandleInput(u8 taskId)
                     u8 genLimit = RoguePokedex_GetDexGenLimit();
                     PlaySE(SE_SELECT);
                     AGB_ASSERT(FALSE); // old code path
-
-                    if(genLimit == DEX_GEN_LIMIT)
-                        RoguePokedex_SetDexGenLimit(1);
-                    else
-                        RoguePokedex_SetDexGenLimit(genLimit + 1);
                 }
                 else if(gPokedexRegions[region].variantCount <= 1)
                 {
@@ -3317,32 +3307,23 @@ void RoguePokedex_SetDexVariant(u8 variant)
     if(variant < POKEDEX_VARIANT_COUNT)
     {
         Rogue_SetConfigRange(CONFIG_RANGE_POKEDEX_VARIANT, variant);
-        RoguePokedex_SetDexGenLimit(gPokedexVariants[variant].genLimit);
     }
     else
     {
         // Likely wanting to enter national dex mode
         Rogue_SetConfigRange(CONFIG_RANGE_POKEDEX_VARIANT, POKEDEX_VARIANT_DEFAULT);
-        RoguePokedex_SetDexGenLimit(DEX_GEN_LIMIT);
     }
 }
 
 u8 RoguePokedex_GetDexGenLimit()
 {
-    u8 genLimit = Rogue_GetConfigRange(CONFIG_RANGE_POKEDEX_GEN);
+    u8 variant = RoguePokedex_GetDexVariant();
+    u8 genLimit = gPokedexVariants[variant].genLimit;
 
     if(genLimit != 0 && genLimit <= DEX_GEN_LIMIT)
         return genLimit;
 
     return DEX_GEN_LIMIT;
-}
-
-void RoguePokedex_SetDexGenLimit(u8 genLimit)
-{
-    if(genLimit != 0 && genLimit <= DEX_GEN_LIMIT)
-        Rogue_SetConfigRange(CONFIG_RANGE_POKEDEX_GEN, genLimit);
-    else
-        Rogue_SetConfigRange(CONFIG_RANGE_POKEDEX_GEN, DEX_GEN_LIMIT);
 }
 
 u16 RoguePokedex_GetCurrentDexLimit()
