@@ -8,6 +8,7 @@
 #include "constants/songs.h"
 #include "constants/species.h"
 #include "constants/trainers.h"
+#include "constants/form_change_types.h"
 
 #ifdef ROGUE_BAKING
 // Manually reinclude this if regenerating
@@ -516,6 +517,41 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
                 break;
             }
         }
+    }
+#endif
+}
+
+void Rogue_ModifyFormChange(u16 species, u8 changeIdx, struct FormChange* outFormChange)
+{
+#ifdef ROGUE_EXPANSION
+    const struct FormChange *formChanges = GetSpeciesFormChanges(species);
+
+    if(formChanges != NULL)
+    {
+        memcpy(outFormChange, &formChanges[changeIdx], sizeof(*outFormChange));
+
+        if(!IsMegaEvolutionEnabled())
+        {
+            if(
+                outFormChange->method == FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM || 
+                outFormChange->method == FORM_CHANGE_BATTLE_MEGA_EVOLUTION_MOVE || 
+                outFormChange->method == FORM_CHANGE_BATTLE_PRIMAL_REVERSION)
+            {
+                outFormChange->method = FORM_CHANGE_DISABLED_STUB;
+            }
+        }
+
+        if(!IsDynamaxEnabled())
+        {
+            if(outFormChange->method == FORM_CHANGE_BATTLE_GIGANTAMAX)
+            {
+                outFormChange->method = FORM_CHANGE_DISABLED_STUB;
+            }
+        }
+    }
+    else
+    {
+        outFormChange->method = FORM_CHANGE_TERMINATOR;
     }
 #endif
 }

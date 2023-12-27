@@ -254,6 +254,7 @@ struct RogueRunData
 #ifdef ROGUE_EXPANSION
     u8 megasEnabled : 1;
     u8 zMovesEnabled : 1;
+    u8 dynamaxEnabled : 1;
 #endif
     bool8 isQuickSaveValid : 1;
     bool8 hasPendingRivalBattle : 1;
@@ -608,6 +609,16 @@ struct RogueFollowMonGraphicsInfo
     u16 const* normalPal;
     u16 const* shinyPal;
 };
+
+#ifndef ROGUE_EXPANSION
+// Dud structs not defined in vanilla
+//
+struct FormChange
+{
+    u32 dud;
+};
+
+#endif
 
 STATIC_ASSERT(sizeof(struct RogueSpeciesBakedData) == 8, SizeOfRogueSpeciesBakedData);
 

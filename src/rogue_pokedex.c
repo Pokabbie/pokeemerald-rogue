@@ -29,8 +29,10 @@
 #include "constants/items.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/form_change_types.h"
 
 #include "rogue_baked.h"
+#include "rogue_controller.h"
 #include "rogue_pokedex.h"
 #include "rogue_ridemon.h"
 #include "rogue_settings.h"
@@ -873,6 +875,29 @@ static bool8 IsAltFormVisible(u16 baseForm, u16 altForm)
 {
     if(baseForm == altForm)
         return FALSE;
+
+#ifdef ROGUE_EXPANSION
+    {
+        u32 i;
+        struct FormChange formChange;
+
+        for (i = 0; TRUE; i++)
+        {
+            Rogue_ModifyFormChange(baseForm, i, &formChange);
+
+            if(formChange.method == FORM_CHANGE_TERMINATOR)
+                break;
+
+            if(formChange.targetSpecies == altForm)
+            {
+                if(formChange.method == FORM_CHANGE_DISABLED_STUB)
+                    return FALSE;
+                else
+                    break;
+            }
+        }
+    }
+#endif
     
     if(IsDebugAltForm(altForm))
     {
