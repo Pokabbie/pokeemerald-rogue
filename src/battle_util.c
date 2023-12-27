@@ -4305,22 +4305,40 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
             effect++;
         }
-        else if (B_THUNDERSTORM_TERRAIN == TRUE
-            && GetCurrentWeather() == WEATHER_RAIN_THUNDERSTORM
+        else if (//B_THUNDERSTORM_TERRAIN == TRUE
+            GetCurrentWeather() == WEATHER_RAIN_THUNDERSTORM
             && !(gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN))
         {
             // overworld weather started rain, so just do electric terrain anim
             gFieldStatuses = (STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_TERRAIN_PERMANENT);
-            gBattleCommunication[MULTISTRING_CHOOSER] = 2;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_ELECTRIC;
             BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
             effect++;
         }
-        else if (B_FOG_TERRAIN == TRUE
-            && (GetCurrentWeather() == WEATHER_FOG_HORIZONTAL || GetCurrentWeather() == WEATHER_FOG_DIAGONAL)
+        else if (//B_FOG_TERRAIN == TRUE
+            GetCurrentWeather() == WEATHER_MISTY_FOG
             && !(gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN))
         {
             gFieldStatuses = (STATUS_FIELD_MISTY_TERRAIN | STATUS_FIELD_TERRAIN_PERMANENT);
-            gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_MISTY;
+            BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
+            effect++;
+        }
+        else if (//B_FOG_TERRAIN == TRUE
+            GetCurrentWeather() == WEATHER_PSYCHIC_FOG
+            && !(gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN))
+        {
+            gFieldStatuses = (STATUS_FIELD_PSYCHIC_TERRAIN | STATUS_FIELD_TERRAIN_PERMANENT);
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_PSYCHIC;
+            BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
+            effect++;
+        }
+        else if (//B_FOG_TERRAIN == TRUE
+            GetCurrentWeather() == WEATHER_LEAVES
+            && !(gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN))
+        {
+            gFieldStatuses = (STATUS_FIELD_GRASSY_TERRAIN | STATUS_FIELD_TERRAIN_PERMANENT);
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_GRASSY;
             BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
             effect++;
         }
