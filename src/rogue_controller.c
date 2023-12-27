@@ -883,6 +883,39 @@ const u8* Rogue_ModifyBattleMessage(const u8* str)
     return overrideStr != NULL ? overrideStr : str;
 }
 
+// Base on Vanilla calcs
+static u32 CalculateBattleWinnings(u16 trainerNum)
+{
+    u32 i = 0;
+    u32 lastMonLevel = 0;
+    u32 moneyReward;
+
+    {
+        struct Trainer trainer;
+
+        Rogue_ModifyTrainer(trainerNum, &trainer);
+
+        // Base calcs of player current level cap
+        lastMonLevel = Rogue_CalculatePlayerMonLvl();
+        
+
+        for (; gTrainerMoneyTable[i].classId != 0xFF; i++)
+        {
+            if (gTrainerMoneyTable[i].classId == trainer.trainerClass)
+                break;
+        }
+
+        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+            moneyReward = 4 * lastMonLevel * gTrainerMoneyTable[i].value;
+        else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+            moneyReward = 4 * lastMonLevel * 2 * gTrainerMoneyTable[i].value;
+        else
+            moneyReward = 4 * lastMonLevel * gTrainerMoneyTable[i].value;
+    }
+
+    return moneyReward;
+}
+
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
 {
     if(Rogue_IsRunActive())
@@ -890,6 +923,8 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         // Once we've gotten champion we want to give a bit more money 
         u8 difficulty = Rogue_GetCurrentDifficulty();
         u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
+
+        *money = CalculateBattleWinnings(trainerNum);
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
