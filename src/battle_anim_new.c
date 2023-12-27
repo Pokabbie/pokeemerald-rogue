@@ -22,6 +22,8 @@
 #include "battle_util.h"
 #include "constants/songs.h"
 
+#include "rogue_timeofday.h"
+
 // function declarations
 static void AnimTask_DynamaxGrowthStep(u8 taskId);
 static void SpriteCB_SpriteToCentreOfSide(struct Sprite *sprite);
@@ -8437,9 +8439,9 @@ void AnimTask_GetTimeOfDay(u8 taskId)
     gBattleAnimArgs[0] = 0; //Daytime is default
 
     RtcCalcLocalTime();
-    if (gLocalTime.hours >= 20 || gLocalTime.hours < 4)
+    if (RogueToD_IsNight())
         gBattleAnimArgs[0] = 1;
-    else if (gLocalTime.hours >= 17 && gLocalTime.hours < 20)
+    else if (RogueToD_IsDusk())
         gBattleAnimArgs[0] = 2;
 
     DestroyAnimVisualTask(taskId);
