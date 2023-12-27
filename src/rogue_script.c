@@ -367,7 +367,7 @@ void RogueDebug_FillGenPC(void)
             GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
             GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
 
-            CreateMon(&mon, species, 5, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+            CreateMon(&mon, species, 95, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
             SetBoxMonAt(targetBox, boxIndex, &mon.box);
         }
