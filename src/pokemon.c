@@ -6083,6 +6083,8 @@ u16 ModifyStatByNature(u8 nature, u16 stat, u8 statIndex)
     && (trainer.trainerClass == TRAINER_CLASS_ELITE_FOUR    \
      || trainer.trainerClass == TRAINER_CLASS_LEADER        \
      || trainer.trainerClass == TRAINER_CLASS_TOTEM_LEADER  \
+     || trainer.trainerClass == TRAINER_CLASS_DEVELOPER_CHAMPION      \
+     || trainer.trainerClass == TRAINER_CLASS_COMMUNITY_MOD      \
      || trainer.trainerClass == TRAINER_CLASS_CHAMPION))    \
 
 void AdjustFriendship(struct Pokemon *mon, u8 event)
