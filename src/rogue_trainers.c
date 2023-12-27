@@ -2298,17 +2298,32 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     }
                 }
 
-                if(scratch->heldItems.hasMegaStone || !IsMegaEvolutionEnabled())
+                // Handle megas
+                if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
                 {
-                    if(currPreset->heldItem >= ITEM_VENUSAURITE && currPreset->heldItem <= ITEM_DIANCITE)
+                    if(IsMegaEvolutionEnabled())
+                    {
+                        if(!scratch->heldItems.hasMegaStone)
+                            currentScore *= 2;
+                        else
+                            currentScore /= 4;
+                    }
+                    else
                     {
                         currentScore /= 4;
                     }
                 }
 
-                if(scratch->heldItems.hasZCrystal || !IsZMovesEnabled())
+                if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
                 {
-                    if(currPreset->heldItem >= ITEM_NORMALIUM_Z && currPreset->heldItem <= ITEM_ULTRANECROZIUM_Z)
+                    if(IsZMovesEnabled())
+                    {
+                        if(!scratch->heldItems.hasZCrystal)
+                            currentScore *= 2;
+                        else
+                            currentScore /= 4;
+                    }
+                    else
                     {
                         currentScore /= 4;
                     }
@@ -2537,9 +2552,43 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
     u16 item = GetMonData(mon, MON_DATA_HELD_ITEM);
 
 #ifdef ROGUE_EXPANSION
-    if(((item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) || (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)))
+    if(item == ITEM_RED_ORB || item == ITEM_BLUE_ORB)
     {
+        // Try to push primals towards the end
+        score -= 15;
+    }
+
+    if(item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE)
+    {
+        // Try to push megas towards the end
         score -= 20;
+    }
+
+    if(item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)
+    {
+        // Try to push gigantimax forms to the end
+        score -= 15;
+    }
+
+    if(IsDynamaxEnabled())
+    {
+        u32 i;
+        struct FormChange formChange;
+
+        for (i = 0; TRUE; i++)
+        {
+            Rogue_ModifyFormChange(species, i, &formChange);
+
+            if(formChange.method == FORM_CHANGE_TERMINATOR)
+                break;
+
+            // Try to push gigantimax forms to the end
+            if(formChange.method == FORM_CHANGE_BATTLE_GIGANTAMAX)
+            {
+                score -= 20;
+                break;
+            }
+        }
     }
 #endif
 

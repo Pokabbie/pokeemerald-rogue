@@ -2811,6 +2811,7 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_FREE_HEAL_USED);
     FlagClear(FLAG_ROGUE_RUN_COMPLETED);
     FlagClear(FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP);
+    FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
 
     // Enable randoman trader at start
     if(IsQuestCollected(QUEST_MrRandoman))
@@ -3934,6 +3935,12 @@ void Rogue_Battle_StartTrainerBattle(void)
 {
     bool8 shouldDoubleBattle = FALSE;
 
+        // enable dyanmax for this fight
+    if(IsDynamaxEnabled() && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
+        FlagSet(FLAG_ROGUE_DYNAMAX_BATTLE);
+    else
+        FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
+
     switch(Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT))
     {
         case BATTLE_FORMAT_SINGLES:
@@ -4177,6 +4184,8 @@ static void EnableRivalEncounterIfRequired()
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     TryRestorePartyHeldItems(FALSE);
+    FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
+
     RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_END);
 
     if(Rogue_IsRunActive())
