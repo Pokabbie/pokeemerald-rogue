@@ -1873,7 +1873,6 @@ static void TitleScreen_HandleInput(u8 taskId)
 
                 if(region == POKEDEX_REGION_NONE)
                 {
-                    u8 genLimit = RoguePokedex_GetDexGenLimit();
                     PlaySE(SE_SELECT);
                     AGB_ASSERT(FALSE); // old code path
                 }
@@ -1941,7 +1940,6 @@ static void TitleScreen_HandleInput(u8 taskId)
 
                 if(region == POKEDEX_REGION_NONE)
                 {
-                    u8 genLimit = RoguePokedex_GetDexGenLimit();
                     PlaySE(SE_SELECT);
                     AGB_ASSERT(FALSE); // old code path
                 }
