@@ -416,7 +416,7 @@
 #define CONFIG_RANGE_LEGENDARY              2
 #define CONFIG_RANGE_BATTLE_FORMAT          3
 #define CONFIG_RANGE_POKEDEX_VARIANT        4
-#define CONFIG_RANGE_POKEDEX_GEN            5
+#define CONFIG_RANGE_UNUSED                 5
 #define CONFIG_RANGE_TRAINER_ORDER          6
 #define CONFIG_RANGE_COUNT                  7
 
