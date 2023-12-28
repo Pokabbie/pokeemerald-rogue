@@ -31,6 +31,7 @@
 #include "text.h"
 #include "util.h"
 #include "window.h"
+#include "constants/abilities.h"
 #include "constants/battle_anim.h"
 #include "constants/hold_effects.h"
 #include "constants/items.h"
@@ -1747,7 +1748,8 @@ static void MoveSelectionDisplayPpNumber(u32 battler)
 
 static u8 GetMoveDisplayTyping(u32 battler, u16 move)
 {
-    u8 moveType;
+    u8 moveType = gBattleMoves[move].type;
+
     if(move == MOVE_HIDDEN_POWER)
         return CalcMonHiddenPowerType(&gPlayerParty[gBattlerPartyIndexes[battler]]);
 
@@ -1764,10 +1766,10 @@ static u8 GetMoveDisplayTyping(u32 battler, u16 move)
         return moveType;
     }
 
-    SetTypeBeforeUsingMove(move, battler);
+    //SetTypeBeforeUsingMove(move, battler);
 #endif
     
-    GET_MOVE_TYPE(move, moveType);
+    //GET_MOVE_TYPE(move, moveType);
     
     return moveType;
 }
@@ -1792,6 +1794,13 @@ static void MoveSelectionDisplayMoveType(u32 battler)
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
     u16 move = moveInfo->moves[gMoveSelectionCursor[battler]];
     u8 displayType = GetMoveDisplayTyping(battler, move);
+    
+    if ((gBattleStruct->dynamax.playerSelect && CanDynamax(battler))
+        || IsDynamaxed(battler))
+    {
+        move = GetMaxMove(battler, move);
+        displayType = GetMoveDisplayTyping(battler, move);
+    }
 
     txtPtr = gDisplayedStringBattle;
     txtPtr = StringCopy(txtPtr, gTypeNames[displayType]);
@@ -1833,41 +1842,31 @@ static void MoveSelectionDisplayMoveType(u32 battler)
         //}
         //else
         {
-            u8 type1;
-            u8 type2;
-            int typeEffect;
+            uq4_12_t typeModifier;
             u16 ability = 0;
-            struct Pokemon *illusionMon = GetIllusionMonPtr(opposingBattler);
 
-            if(illusionMon != NULL)
+            if(ability != ABILITY_WONDER_GUARD)
             {
-                u16 species = GetMonData(illusionMon, MON_DATA_SPECIES);
-                type1 = gSpeciesInfo[species].types[0];
-                type2 = gSpeciesInfo[species].types[1];
-                //ability = GetMonAbility(illusionMon);
-            }
-            else
-            {
-                type1 = gBattleMons[opposingBattler].type1;
-                type2 = gBattleMons[opposingBattler].type2;
-                //ability = GetBattlerAbility(opposingBattler);
+                // Don't spoil the vast majority of abilities
+                ability = ABILITY_NONE;
             }
 
-            typeEffect = GetMovePower(move, displayType, type1, type2, ability, 0);
+            // Previously GetMovePower
+            typeModifier = CalcTypeEffectivenessMultiplier(move, displayType, battler, opposingBattler, ability, FALSE);
 
-            if(typeEffect == TYPE_x0)
+            if (typeModifier == UQ_4_12(0.0))
             {
                 txtPtr = StringCopy(txtPtr, gText_MoveNoEffect);
             }
-            else if(typeEffect == TYPE_x1)
-            {
-                txtPtr = StringCopy(txtPtr, gText_MoveEffective);
-            }
-            else if(typeEffect < TYPE_x1)
+            else if (typeModifier < UQ_4_12(1.0))
             {
                 txtPtr = StringCopy(txtPtr, gText_MoveNotVeryEffective);
             }
-            else //if(typeEffect > TYPE_x1)
+            else if (typeModifier == UQ_4_12(1.0))
+            {
+                txtPtr = StringCopy(txtPtr, gText_MoveEffective);
+            }
+            else // if (typeModifier > UQ_4_12(1.0))
             {
                 txtPtr = StringCopy(txtPtr, gText_MoveSuperEffective);
             }
