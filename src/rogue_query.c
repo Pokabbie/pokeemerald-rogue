@@ -1356,6 +1356,12 @@ static u16 Query_GetWeightArrayCount()
     }
 }
 
+bool8 RogueWeightQuery_IsOverSafeCapacity()
+{
+    ASSERT_ANY_QUERY;
+    return sRogueQuery.bitCount > ARRAY_COUNT(gRogueQueryBuffer) * sizeof(u16);
+}
+
 void RogueWeightQuery_Begin()
 {
     ASSERT_ANY_QUERY;
