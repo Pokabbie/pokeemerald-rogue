@@ -53,11 +53,11 @@ jobs:
       #    COMPARE: 0
       #  run: make -j${nproc} -O all
 
-      - name: Modern
-        env:
-          MODERN: 1
-          COMPARE: 0
-        run: make -j${nproc} -O all
+      - name: Make
+        # env:
+        #   MODERN: 1
+        #   COMPARE: 0
+        run: make -j${nproc} -O
 
       - name: Update Memory Stats
         uses: actions/upload-artifact@v3
