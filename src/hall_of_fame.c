@@ -51,8 +51,8 @@ struct HallofFameMon
 {
     u32 tid;
     u32 personality;
-    u16 species : 9;
-    u16 pad0 : 7;
+    u16 species : 11;
+    u16 pad0 : 5;
     u8 fainted : 1;
     u8 shiny : 1;
     u8 genderFlag : 1;
