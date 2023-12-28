@@ -1059,8 +1059,9 @@ static void UpdateLvlInHealthbox(u8 healthboxSpriteId, u8 lvl)
     // Don't print Lv char if mon is mega evolved or primal reverted or Dynamaxed.
     if (IsBattlerMegaEvolved(battler) || IsBattlerPrimalReverted(battler) || IsDynamaxed(battler))
     {
-        objVram = ConvertIntToDecimalStringN(text, lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
-        xPos = 5 * (3 - (objVram - (text + 2))) - 1;
+        textPtr = StringCopy(text, gText_HealthboxNickname);
+        objVram = ConvertIntToDecimalStringN(textPtr, lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
+        xPos = 5 * (3 - (objVram - (textPtr + 2))) - 1;
         MegaIndicator_UpdateLevel(healthboxSpriteId, lvl);
         MegaIndicator_SetVisibilities(healthboxSpriteId, FALSE);
     }
