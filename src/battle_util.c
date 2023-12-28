@@ -4888,7 +4888,25 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
     case ABILITYEFFECT_ENDTURN: // 1
         if (gBattleMons[battler].hp != 0)
         {
+            bool8 shedSkinAbilityActivate = FALSE;
+            bool8 shedSkinCharmActive = FALSE;
+            u8 extraShedSkinChance = 0;
+
             gBattlerAttacker = battler;
+            
+            if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+                extraShedSkinChance = GetCurseValue(EFFECT_SHED_SKIN_CHANCE);
+            else
+                extraShedSkinChance = GetCharmValue(EFFECT_SHED_SKIN_CHANCE);
+
+            if(extraShedSkinChance)
+            {
+                if ((gBattleMons[battler].status1 & STATUS1_ANY) && RandomPercentage(RNG_ROGUE_SHED_SKIN_CHARM, extraShedSkinChance))
+                {
+                    shedSkinCharmActive = TRUE;
+                }
+            }
+
             switch (gLastUsedAbility)
             {
             case ABILITY_HARVEST:
@@ -4923,31 +4941,13 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 if (IsBattlerWeatherAffected(battler, B_WEATHER_RAIN)
                  && gBattleMons[battler].status1 & STATUS1_ANY)
                 {
-                    goto ABILITY_HEAL_MON_STATUS;
+                    shedSkinAbilityActivate = TRUE;
                 }
                 break;
             case ABILITY_SHED_SKIN:
                 if ((gBattleMons[battler].status1 & STATUS1_ANY) && (Random() % 3) == 0)
                 {
-                ABILITY_HEAL_MON_STATUS:
-                    if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
-                        StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
-                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
-                        StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
-                    if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
-                        StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
-                    if (gBattleMons[battler].status1 & STATUS1_BURN)
-                        StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
-                    if (gBattleMons[battler].status1 & (STATUS1_FREEZE | STATUS1_FROSTBITE))
-                        StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
-
-                    gBattleMons[battler].status1 = 0;
-                    gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
-                    gBattleScripting.battler = battler;
-                    BattleScriptPushCursorAndCallback(BattleScript_ShedSkinActivates);
-                    BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
-                    MarkBattlerForControllerExec(battler);
-                    effect++;
+                    shedSkinAbilityActivate = TRUE;
                 }
                 break;
             case ABILITY_SPEED_BOOST:
@@ -5069,6 +5069,33 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect++;
                 }
                 break;
+            }
+
+            if(shedSkinAbilityActivate || shedSkinCharmActive)
+            {
+                if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
+                    StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
+                if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                    StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
+                if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+                    StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
+                if (gBattleMons[battler].status1 & STATUS1_BURN)
+                    StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
+                if (gBattleMons[battler].status1 & (STATUS1_FREEZE | STATUS1_FROSTBITE))
+                    StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+
+                gBattleMons[battler].status1 = 0;
+                gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
+                gBattleScripting.battler = battler;
+
+                if(shedSkinCharmActive)
+                    BattleScriptPushCursorAndCallback(BattleScript_ShedSkinCharmActivates);
+                else
+                    BattleScriptPushCursorAndCallback(BattleScript_ShedSkinActivates);
+
+                BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+                MarkBattlerForControllerExec(battler);
+                effect++;
             }
         }
         break;
@@ -7763,6 +7790,29 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         }
         break;
     case ITEMEFFECT_KINGSROCK:
+        bool8 shouldFlinch = FALSE;
+
+        if(gBattleMoveDamage != 0)
+        {
+            u16 extraFlinchChance = 0;
+
+            if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+                extraFlinchChance = GetCurseValue(EFFECT_FLINCH_CHANCE);
+            else
+                extraFlinchChance = GetCharmValue(EFFECT_FLINCH_CHANCE);
+
+            if(extraFlinchChance)
+            {
+                if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                    && TARGET_TURN_DAMAGED
+                    && RandomPercentage(RNG_ROGUE_FLINCH_CHARM, extraFlinchChance)
+                    && gBattleMons[gBattlerTarget].hp)
+                {
+                    shouldFlinch = TRUE;
+                }
+            }
+        }
+
         // Occur on each hit of a multi-strike move
         switch (atkHoldEffect)
         {
@@ -7781,10 +7831,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     && RandomPercentage(RNG_HOLD_EFFECT_FLINCH, atkHoldEffectParam)
                     && ability != ABILITY_STENCH)
                 {
-                    gBattleScripting.moveEffect = MOVE_EFFECT_FLINCH;
-                    BattleScriptPushCursor();
-                    SetMoveEffect(FALSE, 0);
-                    BattleScriptPop();
+                    shouldFlinch = TRUE;
                 }
             }
             break;
@@ -7801,6 +7848,14 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 gBattlescriptCurrInstr = BattleScript_AttackerItemStatRaise;
             }
             break;
+        }
+        
+        if(shouldFlinch)
+        {
+            gBattleScripting.moveEffect = MOVE_EFFECT_FLINCH;
+            BattleScriptPushCursor();
+            SetMoveEffect(FALSE, 0);
+            BattleScriptPop();
         }
         break;
     case ITEMEFFECT_LIFEORB_SHELLBELL:
@@ -11309,6 +11364,11 @@ u32 CalcSecondaryEffectChance(u32 battler, u8 secondaryEffectChance, u16 moveEff
         secondaryEffectChance *= 2;
     if (hasRainbow && moveEffect != EFFECT_SECRET_POWER)
         secondaryEffectChance *= 2;
+
+    if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        secondaryEffectChance += GetCurseValue(EFFECT_SERENE_GRACE_CHANCE);
+    else
+        secondaryEffectChance += GetCharmValue(EFFECT_SERENE_GRACE_CHANCE);
 
     return secondaryEffectChance;
 }

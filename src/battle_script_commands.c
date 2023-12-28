@@ -1901,6 +1901,11 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
 {
     s32 critChance = 0;
 
+    if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+        critChance += GetCurseValue(EFFECT_CRIT_CHANCE);
+    else
+        critChance += GetCharmValue(EFFECT_CRIT_CHANCE);
+
     if (gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT || gStatuses3[battlerAtk] & STATUS3_CANT_SCORE_A_CRIT
        || abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR)
     {
@@ -2022,11 +2027,11 @@ static bool8 ActivateEndureCharm(u32 battler)
     {
         if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
         {
-            return Random() % 100 < GetCurseValue(EFFECT_ENDURE_CHANCE);
+            return RandomPercentage(RNG_ROGUE_ENDURE_CHARM, GetCurseValue(EFFECT_ENDURE_CHANCE));
         }
         else // B_SIDE_PLAYER
         {
-            return Random() % 100 < GetCharmValue(EFFECT_ENDURE_CHANCE);
+            return RandomPercentage(RNG_ROGUE_ENDURE_CHARM, GetCharmValue(EFFECT_ENDURE_CHANCE));
         }
     }
 

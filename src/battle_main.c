@@ -4556,30 +4556,15 @@ void SwapTurnOrder(u8 id1, u8 id2)
     SWAP(gBattlerByTurnOrder[id1], gBattlerByTurnOrder[id2], temp);
 }
 
-static bool8 UNUSED ActivateMovePriorityCharm(u8 battler)
+static bool8 ActivateMovePriorityCharm(u8 battler)
 {
-    u8 rand = 0;
-
     if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
     {
-        AGB_ASSERT(FALSE); // fixme
-        //RandomPercentage(RNG_QUICK_CLAW, GetBattlerHoldEffectParam(battler1))
-        //rand = (gRandomTurnNumber & 0xFF);
-//
-        //if((battler / 2) != 0) // Flip for right side
-        //    rand = ~rand;
-
-        return rand % 100 < GetCurseValue(EFFECT_MOVE_PRIORITY_CHANCE);
+        return RandomPercentage(RNG_ROGUE_PRIORITY_CHARM, GetCurseValue(EFFECT_MOVE_PRIORITY_CHANCE));
     }
     else // B_SIDE_PLAYER
     {
-        AGB_ASSERT(FALSE); // fixme
-        //rand = ((gRandomTurnNumber & 0xFF00) >> 8);
-//
-        //if((battler / 2) != 0) // Flip for right side
-        //    rand = ~rand;
-
-        return rand % 100 < GetCharmValue(EFFECT_MOVE_PRIORITY_CHANCE);
+        return RandomPercentage(RNG_ROGUE_PRIORITY_CHARM, GetCharmValue(EFFECT_MOVE_PRIORITY_CHANCE));
     }
 }
 
@@ -5085,7 +5070,8 @@ static void TryChangingTurnOrderEffects(u32 battler1, u32 battler2)
     // Quick Claw and Custap Berry
     if (!gProtectStructs[battler1].quickDraw
      && ((holdEffectBattler1 == HOLD_EFFECT_QUICK_CLAW && RandomPercentage(RNG_QUICK_CLAW, GetBattlerHoldEffectParam(battler1)))
-     || (holdEffectBattler1 == HOLD_EFFECT_CUSTAP_BERRY && HasEnoughHpToEatBerry(battler1, 4, gBattleMons[battler1].item))))
+     || (holdEffectBattler1 == HOLD_EFFECT_CUSTAP_BERRY && HasEnoughHpToEatBerry(battler1, 4, gBattleMons[battler1].item))
+     || ActivateMovePriorityCharm(battler1)))
         gProtectStructs[battler1].usedCustapBerry = TRUE;
 
     // Battler 2
@@ -5095,7 +5081,8 @@ static void TryChangingTurnOrderEffects(u32 battler1, u32 battler2)
     // Quick Claw and Custap Berry
     if (!gProtectStructs[battler2].quickDraw
      && ((holdEffectBattler2 == HOLD_EFFECT_QUICK_CLAW && RandomPercentage(RNG_QUICK_CLAW, GetBattlerHoldEffectParam(battler2)))
-     || (holdEffectBattler2 == HOLD_EFFECT_CUSTAP_BERRY && HasEnoughHpToEatBerry(battler2, 4, gBattleMons[battler2].item))))
+     || (holdEffectBattler2 == HOLD_EFFECT_CUSTAP_BERRY && HasEnoughHpToEatBerry(battler2, 4, gBattleMons[battler2].item))
+     || ActivateMovePriorityCharm(battler2)))
         gProtectStructs[battler2].usedCustapBerry = TRUE;
 }
 
@@ -5125,10 +5112,14 @@ static void CheckChangingTurnOrderEffects(void)
                         // don't record berry since its gone now
                         BattleScriptExecute(BattleScript_CustapBerryActivation);
                     }
-                    else
+                    else if(GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_QUICK_CLAW)
                     {
                         RecordItemEffectBattle(battler, GetBattlerHoldEffect(battler, FALSE));
                         BattleScriptExecute(BattleScript_QuickClawActivation);
+                    }
+                    else
+                    {
+                        BattleScriptExecute(BattleScript_PriorityCharmActivation);
                     }
                 }
                 else if (gProtectStructs[battler].quickDraw)

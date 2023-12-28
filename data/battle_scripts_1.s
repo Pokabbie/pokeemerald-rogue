@@ -8708,6 +8708,12 @@ BattleScript_ShedSkinActivates::
 	updatestatusicon BS_ATTACKER
 	end3
 
+BattleScript_ShedSkinCharmActivates::
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	waitanimation
+	updatestatusicon BS_ATTACKER
+	end3
+
 BattleScript_ActivateWeatherAbilities:
 	savetarget
 	setbyte gBattlerTarget, 0
@@ -10150,6 +10156,13 @@ BattleScript_CustapBerryActivation::
 	printstring STRINGID_CANACTFASTERTHANKSTO
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_ATTACKER
+	end2
+
+BattleScript_PriorityCharmActivation::
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	waitanimation
 	end2
 
 BattleScript_MicleBerryActivateEnd2::
