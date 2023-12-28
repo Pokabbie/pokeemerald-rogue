@@ -16,16 +16,16 @@
 #include "trainer_hill.h"
 #include "constants/abilities.h"
 #include "constants/field_poison.h"
+#include "constants/form_change_types.h"
 #include "constants/party_menu.h"
 #include "constants/rogue.h"
 
 static bool32 IsMonValidSpecies(struct Pokemon *pokemon)
 {
-    u16 species = GetMonData(pokemon, MON_DATA_SPECIES2);
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES_OR_EGG);
     if (species == SPECIES_NONE || species == SPECIES_EGG)
-    {
         return FALSE;
-    }
+
     return TRUE;
 }
 
@@ -37,96 +37,84 @@ static bool32 AllMonsFainted(void)
     for (i = 0; i < PARTY_SIZE; i++, pokemon++)
     {
         if (IsMonValidSpecies(pokemon) && GetMonData(pokemon, MON_DATA_HP) != 0)
-        {
             return FALSE;
-        }
     }
     return TRUE;
 }
 
 static void FaintFromFieldPoison(u8 partyIdx)
 {
-    struct Pokemon *pokemon = gPlayerParty + partyIdx;
+    struct Pokemon *pokemon = &gPlayerParty[partyIdx];
     u32 status = STATUS1_NONE;
 
+#if OW_POISON_DAMAGE < GEN_4
     AdjustFriendship(pokemon, FRIENDSHIP_EVENT_FAINT_FIELD_PSN);
+#endif
     SetMonData(pokemon, MON_DATA_STATUS, &status);
     GetMonData(pokemon, MON_DATA_NICKNAME, gStringVar1);
     StringGet_Nickname(gStringVar1);
 }
 
-static bool8 MonIsCurrentlyAffectedByPoison(struct Pokemon *mon)
-{
-    // RogueNote: Disable field poison?
-    if(GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS)) == AILMENT_PSN)
-    {
-#ifdef ROGUE_EXPANSION
-        if(GetMonAbility(mon) != ABILITY_POISON_HEAL)
-#endif
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
 static bool32 MonFaintedFromPoison(u8 partyIdx)
 {
-    struct Pokemon *pokemon = gPlayerParty + partyIdx;
-    if (IsMonValidSpecies(pokemon) && GetMonData(pokemon, MON_DATA_HP) == 1 && MonIsCurrentlyAffectedByPoison(pokemon))
-    {
+    struct Pokemon *pokemon = &gPlayerParty[partyIdx];
+#if OW_POISON_DAMAGE < GEN_4
+    if (IsMonValidSpecies(pokemon) && GetMonData(pokemon, MON_DATA_HP) == 0 && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
+#else
+    if (IsMonValidSpecies(pokemon) && GetMonData(pokemon, MON_DATA_HP) == 1 && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
+#endif
         return TRUE;
-    }
+
     return FALSE;
 }
+
+#define tState    data[0]
+#define tPartyIdx data[1]
 
 static void Task_TryFieldPoisonWhiteOut(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    switch (data[0])
+    switch (tState)
     {
-        case 0:
-            for (; data[1] < PARTY_SIZE; data[1]++)
+    case 0:
+        for (; tPartyIdx < PARTY_SIZE; tPartyIdx++)
+        {
+            if (MonFaintedFromPoison(tPartyIdx))
             {
-                if (MonFaintedFromPoison(data[1]))
-                {
-                    u32 statusAilment = 0; // STATUS1_NONE
-                    SetMonData(&gPlayerParty[data[1]], MON_DATA_STATUS, &statusAilment);
-
-                    FaintFromFieldPoison(data[1]);
-                    ShowFieldMessage(gText_PkmnFainted3);
-                    data[0]++;
-                    return;
-                }
+                FaintFromFieldPoison(tPartyIdx);
+                ShowFieldMessage(gText_PkmnFainted_FldPsn);
+                tState++;
+                return;
             }
-            data[0] = 2;
-            break;
-        case 1:
-            if (IsFieldMessageBoxHidden())
-            {
-                data[0]--;
-            }
-            break;
-        case 2:
-            if (AllMonsFainted())
-            {
-                if (InBattlePyramid() | InBattlePike() || InTrainerHillChallenge())
-                {
-                    gSpecialVar_Result = FLDPSN_FRONTIER_WHITEOUT;
-                }
-                else
-                {
-                    gSpecialVar_Result = FLDPSN_WHITEOUT;
-                }
-            }
+        }
+        tState = 2; // Finished checking party
+        break;
+    case 1:
+        // Wait for "{mon} fainted" message, then return to party loop
+        if (IsFieldMessageBoxHidden())
+            tState--;
+        break;
+    case 2:
+        if (AllMonsFainted())
+        {
+            // Battle facilities have their own white out script to handle the challenge loss
+            if (InBattlePyramid() | InBattlePike() || InTrainerHillChallenge())
+                gSpecialVar_Result = FLDPSN_FRONTIER_WHITEOUT;
             else
-            {
-                gSpecialVar_Result = FLDPSN_NO_WHITEOUT;
-            }
-            ScriptContext_Enable();
-            DestroyTask(taskId);
-            break;
+                gSpecialVar_Result = FLDPSN_WHITEOUT;
+        }
+        else
+        {
+            gSpecialVar_Result = FLDPSN_NO_WHITEOUT;
+        }
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+        break;
     }
 }
+
+#undef tState
+#undef tPartyIdx
 
 void TryFieldPoisonWhiteOut(void)
 {
@@ -141,31 +129,39 @@ s32 DoPoisonFieldEffect(void)
     struct Pokemon *pokemon = gPlayerParty;
     u32 numPoisoned = 0;
     u32 numFainted = 0;
+
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && MonIsCurrentlyAffectedByPoison(pokemon))
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
         {
+            // Apply poison damage
             hp = GetMonData(pokemon, MON_DATA_HP);
-            if (hp <= 1 || --hp == 1)
+        #if OW_POISON_DAMAGE < GEN_4
+            if (hp == 0 || --hp == 0)
             {
+                TryFormChange(i, B_SIDE_PLAYER, FORM_CHANGE_FAINT);
                 numFainted++;
             }
+        #else
+            if (hp == 1 || --hp == 1)
+                numFainted++;
+        #endif
+
             SetMonData(pokemon, MON_DATA_HP, &hp);
             numPoisoned++;
         }
         pokemon++;
     }
+
+    // Do screen flash effect
     if (numFainted != 0 || numPoisoned != 0)
-    {
         FldEffPoison_Start();
-    }
+
     if (numFainted != 0)
-    {
         return FLDPSN_FNT;
-    }
+
     if (numPoisoned != 0)
-    {
         return FLDPSN_PSN;
-    }
+
     return FLDPSN_NONE;
 }

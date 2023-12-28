@@ -699,8 +699,7 @@ void StopUnionRoomLinkManager(void)
     gRfu.state = RFUSTATE_UR_STOP_MANAGER;
 }
 
-// Unused
-static void ReadySendDataForSlots(u8 slots)
+static void UNUSED ReadySendDataForSlots(u8 slots)
 {
     u8 i;
 
@@ -1918,7 +1917,8 @@ static void Task_PlayerExchangeUpdate(u8 taskId)
         for (i = 0; i < RFU_CHILD_MAX; i++)
             sio->linkPlayerIdx[i] = gRfu.linkPlayerIdx[i];
         memcpy(sio->linkPlayers, gLinkPlayers, sizeof(gLinkPlayers));
-        if (SendBlock(0, gBlockSendBuffer, 0xa0))
+        // Send SioInfo but exclude the 92 unused bytes at the end
+        if (SendBlock(0, gBlockSendBuffer, offsetof(struct SioInfo, filler)))
             gTasks[taskId].tState++;
         break;
     case 5:
@@ -2145,7 +2145,7 @@ void RfuSetErrorParams(u32 errorInfo)
     }
 }
 
-static void ResetErrorState(void)
+static void UNUSED ResetErrorState(void)
 {
     gRfu.errorState = RFU_ERROR_STATE_NONE;
 }
@@ -2525,9 +2525,8 @@ u8 RfuGetStatus(void)
 
 bool32 RfuHasErrored(void)
 {
-    // RFU_STATUS_OK will underflow here intentionally
-    u32 var = RfuGetStatus() - 1;
-    if (var < RFU_STATUS_CONNECTION_ERROR)
+    u32 status = RfuGetStatus();
+    if (status == RFU_STATUS_FATAL_ERROR || status == RFU_STATUS_CONNECTION_ERROR)
         return TRUE;
     else
         return FALSE;
@@ -2560,8 +2559,7 @@ static void VBlank_RfuIdle(void)
     TransferPlttBuffer();
 }
 
-// Unused
-static void Debug_RfuIdle(void)
+static void UNUSED Debug_RfuIdle(void)
 {
     s32 i;
 
@@ -2656,7 +2654,7 @@ static u8 GetPartnerIndexByNameAndTrainerID(const u8 *name, u16 id)
 
     for (i = 0; i < RFU_CHILD_MAX; i++)
     {
-        u16 trainerId = ReadU16(gRfuLinkStatus->partner[i].gname + 2);
+        u16 trainerId = ReadU16(((struct RfuGameData *)gRfuLinkStatus->partner[i].gname)->compatibility.playerTrainerId);
         if (IsRfuSerialNumberValid(gRfuLinkStatus->partner[i].serialNo)
             && !StringCompare(name, gRfuLinkStatus->partner[i].uname)
             && id == trainerId)
@@ -2682,9 +2680,9 @@ static void RfuReqDisconnectSlot(u32 slot)
 
 void RequestDisconnectSlotByTrainerNameAndId(const u8 *name, u16 id)
 {
-    u8 var = GetPartnerIndexByNameAndTrainerID(name, id);
-    if (var != 0xFF)
-        RfuReqDisconnectSlot(1 << var);
+    u8 index = GetPartnerIndexByNameAndTrainerID(name, id);
+    if (index != 0xFF)
+        RfuReqDisconnectSlot(1 << index);
 }
 
 void Rfu_DisconnectPlayerById(u32 playerIdx)
@@ -2934,7 +2932,7 @@ static void Debug_PrintEmpty(void)
         Debug_PrintString(sASCII_30Spaces, 0, i);
 }
 
-static void Debug_PrintStatus(void)
+static void UNUSED Debug_PrintStatus(void)
 {
     s32 i, j;
     Debug_PrintNum(GetBlockReceivedStatus(), 28, 19, 2);
@@ -2990,7 +2988,7 @@ static void Debug_PrintStatus(void)
     }
 }
 
-static u32 GetRfuSendQueueLength(void)
+static u32 UNUSED GetRfuSendQueueLength(void)
 {
     return gRfu.sendQueue.count;
 }

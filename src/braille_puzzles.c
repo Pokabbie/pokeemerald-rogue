@@ -81,11 +81,11 @@ bool8 CheckRelicanthWailord(void)
 {
     // Emerald change: why did they flip it?
     // First comes Wailord
-    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES2, 0) == SPECIES_WAILORD)
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_WAILORD)
     {
         CalculatePlayerPartyCount();
         // Last comes Relicanth
-        if (GetMonData(&gPlayerParty[gPlayerPartyCount - 1], MON_DATA_SPECIES2, 0) == SPECIES_RELICANTH)
+        if (GetMonData(&gPlayerParty[gPlayerPartyCount - 1], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_RELICANTH)
             return TRUE;
     }
     return FALSE;
@@ -215,7 +215,7 @@ static void DoBrailleRegisteelEffect(void)
 }
 
 // theory: another commented out DoBrailleWait and Task_BrailleWait.
-static void DoBrailleWait(void)
+static void UNUSED DoBrailleWait(void)
 {
 }
 
@@ -237,6 +237,8 @@ bool8 FldEff_UsePuzzleEffect(void)
     return FALSE;
 }
 
+// The puzzle to unlock Regice's cave requires the player to interact with the braille message on the back wall,
+// step on every space on the perimeter of the cave (and only those spaces) then return to the back wall.
 bool8 ShouldDoBrailleRegicePuzzle(void)
 {
     return FALSE;

@@ -232,8 +232,8 @@
 #define MOVEMENT_ACTION_WALK_SLOW_DIAGONAL_UP_RIGHT     0x91
 #define MOVEMENT_ACTION_WALK_SLOW_DIAGONAL_DOWN_LEFT    0x92
 #define MOVEMENT_ACTION_WALK_SLOW_DIAGONAL_DOWN_RIGHT   0x93
-#define MOVEMENT_ACTION_STORE_AND_LOCK_ANIM             0x94
-#define MOVEMENT_ACTION_FREE_AND_UNLOCK_ANIM            0x95
+#define MOVEMENT_ACTION_LOCK_ANIM                       0x94
+#define MOVEMENT_ACTION_UNLOCK_ANIM                     0x95
 #define MOVEMENT_ACTION_WALK_LEFT_AFFINE                0x96
 #define MOVEMENT_ACTION_WALK_RIGHT_AFFINE               0x97
 #define MOVEMENT_ACTION_LEVITATE                        0x98
@@ -242,11 +242,13 @@
 #define MOVEMENT_ACTION_FIGURE_8                        0x9B
 #define MOVEMENT_ACTION_FLY_UP                          0x9C
 #define MOVEMENT_ACTION_FLY_DOWN                        0x9D
+#define MOVEMENT_ACTION_EMOTE_X                         0x9E
+#define MOVEMENT_ACTION_EMOTE_DOUBLE_EXCL_MARK          0x9F
 // slow running
-#define MOVEMENT_ACTION_RUN_DOWN_SLOW                   0x9E
-#define MOVEMENT_ACTION_RUN_UP_SLOW                     0x9F
-#define MOVEMENT_ACTION_RUN_LEFT_SLOW                   0xA0
-#define MOVEMENT_ACTION_RUN_RIGHT_SLOW                  0xA1
+#define MOVEMENT_ACTION_RUN_DOWN_SLOW                   0xA0
+#define MOVEMENT_ACTION_RUN_UP_SLOW                     0xA1
+#define MOVEMENT_ACTION_RUN_LEFT_SLOW                   0xA2
+#define MOVEMENT_ACTION_RUN_RIGHT_SLOW                  0xA3
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 #define MOVEMENT_ACTION_NONE     0xFF
@@ -305,6 +307,7 @@
 #define ANIM_GET_ON_OFF_POKEMON_EAST  (ANIM_STD_COUNT + 3)
 
 #define ANIM_NURSE_BOW (ANIM_STD_COUNT + 0)
+#define ANIM_RAISE_HAND (ANIM_STD_COUNT + 0)
 
 #define ANIM_FIELD_MOVE 0
 

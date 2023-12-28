@@ -46,8 +46,7 @@ struct FollowMonData
 
 static EWRAM_DATA struct FollowMonData sFollowMonData = { 0 };
 
-extern const struct ObjectEventGraphicsInfo *const gObjectEventMonGraphicsInfoPointers[NUM_SPECIES];
-extern const struct ObjectEventGraphicsInfo *const gObjectEventShinyMonGraphicsInfoPointers[NUM_SPECIES];
+extern const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES];
 
 static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
 {
@@ -221,11 +220,6 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
         u16 varNo = graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
         species = VarGet(VAR_FOLLOW_MON_0 + varNo);
     }
-    else if(graphicsId >= OBJ_EVENT_GFX_RIDE_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_RIDE_MON_LAST)
-    {
-        u16 varNo = graphicsId - OBJ_EVENT_GFX_RIDE_MON_FIRST;
-        species = Rogue_GetRideMonSpeciesGfx(varNo);
-    }
     else // OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
     {
         species = FollowMon_GetPartnerFollowSpecies(TRUE);
@@ -236,16 +230,16 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
         species -= FOLLOWMON_SHINY_OFFSET;
 
         // Return the shiny gfx if we have one
-        if(species < NUM_SPECIES && gObjectEventShinyMonGraphicsInfoPointers[species])
-            return gObjectEventShinyMonGraphicsInfoPointers[species];
+        //if(species < NUM_SPECIES && gObjectEventShinyMonGraphicsInfoPointers[species])
+        //    return gObjectEventShinyMonGraphicsInfoPointers[species];
     }
 
     // Return the normal gfx if we have one
-    if(species < NUM_SPECIES && gObjectEventMonGraphicsInfoPointers[species])
-        return gObjectEventMonGraphicsInfoPointers[species];
+    if(species < NUM_SPECIES && gFollowMonGraphicsInfo[species].objectEventGfxInfo)
+        return gFollowMonGraphicsInfo[species].objectEventGfxInfo;
 
     // Return a fallback sprite
-    return gObjectEventMonGraphicsInfoPointers[SPECIES_NONE];
+    return gFollowMonGraphicsInfo[SPECIES_NONE].objectEventGfxInfo;
 }
 
 void SetupFollowParterMonObjectEvent()
@@ -267,7 +261,8 @@ void SetupFollowParterMonObjectEvent()
         if(!FollowMon_IsPartnerMonActive())
         {
             u16 localId = OBJ_EVENT_ID_FOLLOWER;
-            u8 objectEventId = SpawnSpecialObjectEventParameterized(
+            //u8 objectEventId = 
+            SpawnSpecialObjectEventParameterized(
                 OBJ_EVENT_GFX_FOLLOW_MON_PARTNER,
                 MOVEMENT_TYPE_FACE_DOWN,
                 localId,
@@ -334,6 +329,32 @@ u16 FollowMon_GetGraphics(u16 id)
     return VarGet(VAR_FOLLOW_MON_0 + id);
 }
 
+u16 const* FollowMon_GetGraphicsForPalSlot(u16 palSlot)
+{
+    u16 species = SPECIES_NONE;
+
+    if(palSlot == 0)
+    {
+        // Partner
+        species = FollowMon_GetPartnerFollowSpecies(TRUE);
+    }
+    else
+    {
+        // Base of graphics slot
+        species = FollowMon_GetGraphics(palSlot - 1);
+    }
+
+    if(species >= FOLLOWMON_SHINY_OFFSET)
+    {
+        species -= FOLLOWMON_SHINY_OFFSET;
+
+        if(gFollowMonGraphicsInfo[species].shinyPal != NULL)
+            return gFollowMonGraphicsInfo[species].shinyPal;
+    }
+
+    return gFollowMonGraphicsInfo[species].normalPal;
+}
+
 bool8 FollowMon_IsPartnerMonActive()
 {
     // TODO - If we use other partners, gonna have to check object too
@@ -342,7 +363,12 @@ bool8 FollowMon_IsPartnerMonActive()
 
 u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
 {
-    u16 species = FollowMon_GetMonGraphics(&gPlayerParty[0]);
+    u16 species;
+
+    if(Rogue_IsRideActive())
+        species = Rogue_GetRideMonSpeciesGfx(0);
+    else
+        species = FollowMon_GetMonGraphics(&gPlayerParty[0]);
 
     if(!includeShinyOffset && species >= FOLLOWMON_SHINY_OFFSET)
         species -= FOLLOWMON_SHINY_OFFSET;
@@ -827,8 +853,6 @@ void FollowMon_OverworldCB()
 
                 if(spawnSlot != INVALID_SPAWN_SLOT)
                 {
-                    u16 spawnRate;
-                    bool8 isShiny = (VarGet(VAR_FOLLOW_MON_0 + spawnSlot) >= FOLLOWMON_SHINY_OFFSET);
                     u8 localId = OBJ_EVENT_ID_FOLLOW_MON_FIRST + spawnSlot;
                     u8 objectEventId = SpawnSpecialObjectEventParameterized(
                         OBJ_EVENT_GFX_FOLLOW_MON_0 + spawnSlot,

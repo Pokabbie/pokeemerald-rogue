@@ -1,8 +1,11 @@
 ﻿using Newtonsoft.Json;
 using PokemonDataGenerator.OverworldSprites;
+using PokemonDataGenerator.OverworldSprites.NPC;
+using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -30,6 +33,9 @@ namespace PokemonDataGenerator
 			public int pokedexNumber;
 			public Bitmap collatedSpriteSheet;
 			public Bitmap collatedShinySpriteSheet;
+			public ImagePalette normalPalette;
+			public ImagePalette shinyPalette;
+
 			public Dictionary<ImagePalette, double> paletteScores = new Dictionary<ImagePalette, double>();
 			public Dictionary<ImagePalette, double> shinyPaletteScores = new Dictionary<ImagePalette, double>();
 			public int paletteIdx;
@@ -55,27 +61,6 @@ namespace PokemonDataGenerator
 			new Subpath { key="side_shiny", path="o-l_hgss_shiny" },
 		};
 
-		private static readonly Tuple<string, ImagePalette>[] c_PaletteOptions =
-		{
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_1", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_1.pal", false)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_2", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_2.pal", false)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_3", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_3.pal", false)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_4", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_4.pal", false)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_1", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_1.pal", false)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_2", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_2.pal", false)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_3", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_3.pal", false)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_4", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_4.pal", false)),
-
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_1", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_1.pal", true)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_2", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_2.pal", true)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_3", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_3.pal", true)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_NPC_4", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\npc_4.pal", true)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_1", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_1.pal", true)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_2", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_2.pal", true)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_3", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_3.pal", true)),
-				new Tuple<string, ImagePalette>("OBJ_EVENT_PAL_TAG_FOLLOW_MON_4", ImagePalette.FromFile(@"G:\SideProjects\Pokemon\pokeemerald-rogue\graphics\object_events\palettes\followmon_4.pal", true)),
-			};
-
 		private static Dictionary<string, MonSpriteData> s_MonToSpriteData = new Dictionary<string, MonSpriteData>();
 
 		public static bool IsValidSpriteKey(string key)
@@ -88,43 +73,38 @@ namespace PokemonDataGenerator
 			return s_MonToSpriteData[species];
 		}
 
-		public static void GenerateFromURL(bool isCollating)
+		public static void GenerateFromURL()
 		{
 			SpriteSheetSplitter.AppendGenericMonSprites32("none", 0, "", "res://none_overworld.png");
 
 			if(s_GenerateShinies)
 				SpriteSheetSplitter.AppendGenericMonSprites32("none", 0, "_shiny", "res://none_overworld_shiny.png");
 
-			if (s_TargettingDebugSet)
+			// Gather all of gens 3/4
+			foreach (var subpath in c_Subpaths)
 			{
-				if (!s_TargettingVanilla)
-				{
-					SpriteSheetSplitter_Gen5.AppendMonSprites();
-				}
+				string fullUrl = c_BaseURL + "/" + subpath.path;
+				Console.WriteLine($"Gathering '{fullUrl}'");
+
+				string content = ContentCache.GetHttpContent(fullUrl);
+				AppendSpriteResults(content, subpath.key);
 			}
-			else
+
+
+			if (!s_TargettingVanilla)
 			{
-
-				//if (!s_TargettingDebugSet) // TEMP DON'T CHECK IN
-				//{
-				// Gather source paths
-				foreach (var subpath in c_Subpaths)
+				if (s_TargettingDebugSet)
 				{
-					string fullUrl = c_BaseURL + "/" + subpath.path;
-					Console.WriteLine($"Gathering '{fullUrl}'");
-
-					string content = ContentCache.GetHttpContent(fullUrl);
-					AppendSpriteResults(content, subpath.key);
+					SpriteSheetSplitter_Hisui.AppendMonSprites();
 				}
-				//}
-
-				if (!s_TargettingVanilla)
+				else
 				{
 					SpriteSheetSplitter_Gen5.AppendMonSprites();
 					SpriteSheetSplitter_Gen6.AppendMonSprites();
 					SpriteSheetSplitter_Gen7.AppendMonSprites();
 					SpriteSheetSplitter_Gen8.AppendMonSprites();
 					SpriteSheetSplitter_Hisui.AppendMonSprites();
+					SpriteSheetSplitter_Gen9.AppendMonSprites();
 				}
 			}
 
@@ -133,7 +113,7 @@ namespace PokemonDataGenerator
 			{
 				Console.WriteLine($"Begining auto shiny pass..");
 
-				foreach(var kvp in s_MonToSpriteData.ToArray())
+				foreach (var kvp in s_MonToSpriteData.ToArray())
 				{
 					bool hasShinies = kvp.Value.spriteUri.Keys.Where(k => k.Contains("_shiny")).Any();
 
@@ -149,94 +129,28 @@ namespace PokemonDataGenerator
 			}
 
 			string outDir = Path.GetFullPath("sprite_out");
+			string finalOutputDir = Path.Combine(GameDataHelpers.RootDirectory, "graphics\\object_events\\pics\\pokemon_ow");
 
-			if (isCollating)
+			if (s_TargettingDebugSet)
 			{
-				if (Directory.Exists(outDir))
-					Directory.Delete(outDir, true);
-
-				Directory.CreateDirectory(outDir);
-
-				CollateSpriteSheets(Path.Combine(outDir, "raw"));
-
-				for (int i = 0; i < c_PaletteOptions.Length; ++i)
-				{
-					Console.WriteLine($"Generated paletted sprite for {i}:{c_PaletteOptions[i].Item1}");
-					GenerateSetForPalette(c_PaletteOptions[i].Item2, Path.Combine(outDir, "pal_" + i));
-				}
+				finalOutputDir = Path.Combine(outDir, "raw");
 			}
-			else
-			{
-				string finalOutputDir = Path.Combine(outDir, "output");
 
+			try
+			{
 				if (Directory.Exists(finalOutputDir))
 					Directory.Delete(finalOutputDir, true);
 
 				Directory.CreateDirectory(finalOutputDir);
-
-				// Import previously generated palette mapping (Manually reviewed based on generated sprites to get best option)
-				string paletteMappingPath = Path.GetFullPath(@"..\..\mon_palette_mapping.json");
-				string jsonData = File.ReadAllText(paletteMappingPath);
-				ImportData importData = JsonConvert.DeserializeObject<ImportData>(jsonData);
-
-				foreach (var kvp in s_MonToSpriteData)
-				{
-					var mon = kvp.Key;
-					var data = kvp.Value;
-
-					{
-						// Remove "pal_"
-						string mappedPallete = importData.monPaletteAssignment[mon];
-						data.paletteIdx = int.Parse(mappedPallete.Substring("pal_".Length));
-
-						string sourceFile = Path.Combine(outDir, mappedPallete, mon + ".png");
-						data.spriteSize = Bitmap.FromFile(sourceFile).Height;
-
-						File.Copy(sourceFile, Path.Combine(finalOutputDir, mon + ".png"));
-					}
-
-					if (s_GenerateShinies)
-					{
-						string mappedShinyPallete = importData.monPaletteAssignment[mon + "_shiny"];
-						data.shinyPaletteIdx = int.Parse(mappedShinyPallete.Substring("pal_".Length));
-
-						string sourceShinyFile = Path.Combine(outDir, mappedShinyPallete, mon + "_shiny.png");
-						data.shinySpriteSize = Bitmap.FromFile(sourceShinyFile).Height;
-
-						File.Copy(sourceShinyFile, Path.Combine(finalOutputDir, mon + "_shiny.png"));
-					}
-
-					Console.WriteLine($"\t{mon} using palletes normal:{data.paletteIdx} shiny:{data.shinyPaletteIdx}");
-				}
-
-				ExportPaletteAssignedSprites(c_PaletteOptions, finalOutputDir);
 			}
-		}
-
-		private static string GetPalSlotFromTag(string tagName)
-		{
-			switch(tagName)
+			catch (Exception e)
 			{
-				case "OBJ_EVENT_PAL_TAG_NPC_1":
-					return "2";
-				case "OBJ_EVENT_PAL_TAG_NPC_2":
-					return "3";
-				case "OBJ_EVENT_PAL_TAG_NPC_3":
-					return "4";
-				case "OBJ_EVENT_PAL_TAG_NPC_4":
-					return "5";
-
-				case "OBJ_EVENT_PAL_TAG_FOLLOW_MON_1":
-					return "6";
-				case "OBJ_EVENT_PAL_TAG_FOLLOW_MON_2":
-					return "7";
-				case "OBJ_EVENT_PAL_TAG_FOLLOW_MON_3":
-					return "8";
-				case "OBJ_EVENT_PAL_TAG_FOLLOW_MON_4":
-					return "9";
+				Console.WriteLine("Error caught when deleting dir (ignoring for now)");
+				Console.WriteLine(e.Message);
 			}
 
-			return "???";
+			CollateSpriteSheets(finalOutputDir);
+			ExportGameCode(finalOutputDir);
 		}
 
 		private static void CollateSpriteSheets(string outDir)
@@ -245,59 +159,218 @@ namespace PokemonDataGenerator
 
 			foreach (var kvp in s_MonToSpriteData)
 			{
-				var mon = kvp.Key;
-				var data = kvp.Value;
+				try
+				{
+					CollateSpriteSheet(outDir, kvp.Key, kvp.Value);
+				}
+				catch(InvalidDataException)
+				{
+					// try once more
+					CollateSpriteSheet(outDir, kvp.Key, kvp.Value);
+				}
+			}
+		}
 
-				data.collatedSpriteSheet = CollateSpriteSheet(mon, "");
+		private static void CollateSpriteSheet(string outDir, string mon, MonSpriteData data)
+		{
+			data.collatedSpriteSheet = CollateSpriteSheet(mon, "");
+			//ConvertToIndexedImage(data.collatedSpriteSheet, out data.collatedSpriteSheet, out data.normalPalette);
 
-				data.spriteSize = data.collatedSpriteSheet.Height;
-				data.paletteIdx = -1;
+			data.spriteSize = data.collatedSpriteSheet.Height;
+			data.paletteIdx = -1;
 
-				Console.WriteLine($"\tCollated {mon} sprites");
-				string localPath = Path.Combine(outDir, mon + ".png");
-				data.collatedSpriteSheet.Save(localPath);
+			Console.WriteLine($"\tCollated {mon} sprites");
+
+			if (s_GenerateShinies)
+			{
+				data.collatedShinySpriteSheet = CollateSpriteSheet(mon, "_shiny");
+				//ConvertToIndexedImage(data.collatedShinySpriteSheet, out data.collatedShinySpriteSheet, out data.shinyPalette);
+
+				data.shinySpriteSize = data.collatedShinySpriteSheet.Height;
+				data.shinyPaletteIdx = -1;
+
+				// Verify that we have the same silhouette
+				for (int y = 0; y < data.collatedSpriteSheet.Height; ++y)
+				{
+					for (int x = 0; x < data.collatedSpriteSheet.Width; ++x)
+					{
+						Color normalColour = data.collatedSpriteSheet.GetPixel(x, y);
+						Color shinyColour = data.collatedShinySpriteSheet.GetPixel(x, y);
+
+						if (normalColour.A != shinyColour.A)
+						{
+							// Force regen the shiny sprites then throw so we try again
+							ShinySpriteGenerator.ForcefullyRegenerateMonSprites(mon);
+							throw new InvalidDataException("Silhouette missmatch between normal and shiny sprite");
+						}
+					}
+				}
+			}
+
+			// Debug output
+			if (s_TargettingDebugSet)
+			{
+				data.collatedSpriteSheet.Save(Path.Combine(outDir, mon + "_raw.png"));
 
 				if (s_GenerateShinies)
-				{
-					data.collatedShinySpriteSheet = CollateSpriteSheet(mon, "_shiny");
-
-					data.shinySpriteSize = data.collatedShinySpriteSheet.Height;
-					data.shinyPaletteIdx = -1;
-
-					Console.WriteLine($"\tCollated {mon} sprites");
-					string shinyLocalPath = Path.Combine(outDir, mon + "_shiny.png");
-					data.collatedShinySpriteSheet.Save(shinyLocalPath);
-				}
+					data.collatedShinySpriteSheet.Save(Path.Combine(outDir, mon + "_shiny_raw.png"));
 			}
+
+			GenerateIndexedSpritesheets(ref data.collatedSpriteSheet, ref data.collatedShinySpriteSheet, out data.normalPalette, out data.shinyPalette);
+
+			data.collatedSpriteSheet.Save(Path.Combine(outDir, mon + ".png"));
+			data.normalPalette.Save(Path.Combine(outDir, mon + ".pal"));
+			if (s_GenerateShinies)
+				data.shinyPalette.Save(Path.Combine(outDir, mon + "_shiny.pal"));
 		}
 
-		private static void GenerateSetForPalette(ImagePalette palette, string outDir)
+		private struct ColourPoint
 		{
-			Directory.CreateDirectory(outDir);
+			public int index;
+			public Color normalColour;
+			public Color shinyColour;
 
-			foreach (var kvp in s_MonToSpriteData)
+			public ColourPoint(int index, Color normal, Color shiny)
 			{
-				var mon = kvp.Key;
-				var data = kvp.Value;
+				this.index = index;
+				this.normalColour = normal;
+				this.shinyColour = shiny;
+			}
+		};
 
-				Bitmap convertedSprite = palette.CreateIndexedBitmap(data.collatedSpriteSheet);
-				string localPath = Path.Combine(outDir, mon + ".png");
-				convertedSprite.Save(localPath);
+		private static void GenerateIndexedSpritesheets(ref Bitmap normalSheet, ref Bitmap shinySheet, out ImagePalette normalPalette, out ImagePalette shinyPalette)
+		{
 
-				data.paletteScores.Add(palette, palette.GetBitmapMatchScore(data.collatedSpriteSheet));
+			// We need to index both images at the same time as we may be reusing colours in one image but not in the other
+			// So what we're going to do is make a grey scale image for new unique colour combinations
 
-				if(s_GenerateShinies)
+			// Reduce to 16 colours
+			normalSheet = ImagePalette.CreateFromContent(normalSheet, 16, ImagePalette.DistanceMethod.HSL, NpcSpriteSplitter.c_BackgroundColour).CreateIndexedBitmap(normalSheet);
+			shinySheet = ImagePalette.CreateFromContent(shinySheet, 16, ImagePalette.DistanceMethod.HSL, NpcSpriteSplitter.c_BackgroundColour).CreateIndexedBitmap(shinySheet);
+
+			List<ColourPoint> colourPoints = new List<ColourPoint>();
+			Bitmap greyScaleImage = new Bitmap(normalSheet.Width, normalSheet.Height);
+
+			// Place background in first slot
+			colourPoints.Add(new ColourPoint(0, NpcSpriteSplitter.c_BackgroundColour, NpcSpriteSplitter.c_BackgroundColour));
+
+			for (int y = 0; y < normalSheet.Height; ++y)
+			{
+				for (int x = 0; x < normalSheet.Width; ++x)
 				{
-					Bitmap convertedShinySprite = palette.CreateIndexedBitmap(data.collatedShinySpriteSheet);
-					string localShinyPath = Path.Combine(outDir, mon + "_shiny.png");
-					convertedShinySprite.Save(localShinyPath);
+					Color normalColour = normalSheet.GetPixel(x, y);
+					Color shinyColour = shinySheet == null ? normalColour : shinySheet.GetPixel(x, y);
+					ColourPoint point = new ColourPoint(0, normalColour, shinyColour);
 
-					data.shinyPaletteScores.Add(palette, palette.GetBitmapMatchScore(data.collatedSpriteSheet));
+					if(normalColour.A != shinyColour.A)
+						throw new InvalidDataException("Silhouette missmatch between normal and shiny sprite");
+
+					point.index = colourPoints.FindIndex(p => p.normalColour.ToArgb() == point.normalColour.ToArgb() && p.shinyColour.ToArgb() == point.shinyColour.ToArgb());
+					if (point.index == -1)
+					{
+						point.index = colourPoints.Count;
+						colourPoints.Add(point);
+					}
+
+					greyScaleImage.SetPixel(x, y, Color.FromArgb(255, point.index * 1, 0, 0));
 				}
 			}
+
+			while (colourPoints.Count > 16)
+			{
+				RemoveSingleColour(greyScaleImage, colourPoints);
+			}
+
+			List<Color> normalColours = new List<Color>();
+			List<Color> shinyColours = new List<Color>();
+			List<Color> greyScaleColours = new List<Color>();
+
+			foreach (var point in colourPoints)
+			{
+				normalColours.Add(point.normalColour);
+				shinyColours.Add(point.shinyColour);
+				greyScaleColours.Add(Color.FromArgb(255, point.index * 1, 0, 0));
+			}
+
+			normalColours[0] = NpcSpriteSplitter.c_PrettyBackgroundColour;
+			shinyColours[0] = NpcSpriteSplitter.c_PrettyBackgroundColour;
+
+			normalPalette = new ImagePalette(normalColours.ToArray());
+			shinyPalette = new ImagePalette(shinyColours.ToArray());
+
+			ImagePalette greyScalePalette = new ImagePalette(greyScaleColours.ToArray());
+			normalSheet = greyScalePalette.CreateIndexedBitmap(greyScaleImage, 0);
+
+			// Repoint the greyscale palette to make debugging easier
+			ColorPalette pal = normalSheet.Palette;
+			for (int i = 0; i < 16; ++i)
+				pal.Entries[i] = i < normalColours.Count ? normalColours[i] : Color.FromArgb(255, 0, 0, 0);
+			normalSheet.Palette = pal;
 		}
 
-		private static void ExportPaletteAssignedSprites(Tuple<string, ImagePalette>[] palettes, string outDir)
+		private static Color MixColours(Color a, Color b)
+		{
+			return Color.FromArgb(
+				255,
+				((int)a.R + (int)b.R) / 2,
+				((int)a.G + (int)b.G) / 2,
+				((int)a.B + (int)b.B) / 2
+			);
+		}
+
+		private static void RemoveSingleColour(Bitmap greyScaleSheet, List<ColourPoint> colourPoints)
+		{
+			// Find the 2 closest colour points
+			int bestIndexA = -1;
+			int bestIndexB = -1;
+			double bestDistance = double.MaxValue;
+
+			for (int i = 1; i < colourPoints.Count; ++i)
+			{
+				for (int j = 1; j < colourPoints.Count; ++j)
+				{
+					if(i != j)
+					{
+						double normalDistance = ImagePalette.GetColorDistance(colourPoints[i].normalColour, colourPoints[j].normalColour, ImagePalette.DistanceMethod.YUV);
+						double shinyDistance = ImagePalette.GetColorDistance(colourPoints[i].shinyColour, colourPoints[j].shinyColour, ImagePalette.DistanceMethod.YUV);
+						double avgDistance = (normalDistance + shinyDistance) / 2.0;
+
+						if(avgDistance < bestDistance)
+						{
+							bestDistance = avgDistance;
+							bestIndexA = i;
+							bestIndexB = j;
+						}
+					}
+				}
+			}
+
+			ColourPoint replaceSource = colourPoints[bestIndexA];
+			ColourPoint replaceTarget = colourPoints[bestIndexB];
+
+			// Average 2 colours together
+			replaceSource.normalColour = MixColours(colourPoints[bestIndexA].normalColour, colourPoints[bestIndexB].normalColour);
+			replaceSource.shinyColour = MixColours(colourPoints[bestIndexA].shinyColour, colourPoints[bestIndexB].shinyColour);
+
+			colourPoints[bestIndexA] = replaceSource;
+
+			// Replace all references from 2nd point to first newly blended
+			for (int y = 0; y < greyScaleSheet.Height; ++y)
+			{
+				for (int x = 0; x < greyScaleSheet.Width; ++x)
+				{
+					Color pixel = greyScaleSheet.GetPixel(x, y);
+					if (pixel.R == replaceTarget.index)
+					{
+						greyScaleSheet.SetPixel(x, y, Color.FromArgb(255, replaceSource.index * 1, 0, 0));
+					}
+				}
+			}
+
+			colourPoints.RemoveAt(bestIndexB);
+		}
+
+		private static void ExportGameCode(string outDir)
 		{
 			// Output any boilerplate code to copy
 			//
@@ -316,15 +389,6 @@ namespace PokemonDataGenerator
 					writer.WriteLine($"$(OBJEVENTGFXDIR)/pokemon_ow/{mon}.4bpp: %.4bpp: %.png");
 					writer.WriteLine($"	$(GFX) $< $@ -mwidth {dims} -mheight {dims}");
 					writer.WriteLine($"");
-
-					if (s_GenerateShinies)
-					{
-						dims = data.shinySpriteSize / 8;
-
-						writer.WriteLine($"$(OBJEVENTGFXDIR)/pokemon_ow/{mon}_shiny.4bpp: %.4bpp: %.png");
-						writer.WriteLine($"	$(GFX) $< $@ -mwidth {dims} -mheight {dims}");
-						writer.WriteLine($"");
-					}
 				}
 			}
 
@@ -337,28 +401,11 @@ namespace PokemonDataGenerator
 					var data = kvp.Value;
 
 					writer.WriteLine($"const u32 gObjectEventPic_Overworld_{mon}[] = INCBIN_U32(\"graphics/object_events/pics/pokemon_ow/{mon}.4bpp\");");
+					writer.WriteLine($"const u16 gObjectEventPal_Overworld_{mon}[] = INCBIN_U16(\"graphics/object_events/pics/pokemon_ow/{mon}.gbapal\");");
 
 					if (s_GenerateShinies)
-						writer.WriteLine($"const u32 gObjectEventPic_Overworld_{mon}_shiny[] = INCBIN_U32(\"graphics/object_events/pics/pokemon_ow/{mon}_shiny.4bpp\");");
+						writer.WriteLine($"const u16 gObjectEventPal_Overworld_{mon}_shiny[] = INCBIN_U16(\"graphics/object_events/pics/pokemon_ow/{mon}_shiny.gbapal\");");
 				}
-
-				// If we want to dynamically build the object event gfx info table this can be useful, otherwise it doesn't matter
-				//writer.WriteLine($"");
-				//writer.WriteLine($"const struct PokemonObjectEventInfo gPokemonObjectEventInfo[NUM_SPECIES] = {{");
-				//
-				//foreach (var kvp in s_MonToSpriteData.OrderBy((kvp) => kvp.Value.pokedexNumber))
-				//{
-				//	var mon = kvp.Key;
-				//	var data = kvp.Value;
-				//	int dims = data.spriteSize / 8;
-				//
-				//	if (s_GenerateShinies)
-				//		writer.WriteLine($"	[SPECIES_{mon.ToUpper()}] = {{ .defaultPic = gObjectEventPic_Overworld_{mon}, .shinyPic = gObjectEventPic_Overworld_{mon}_shiny, .width={dims}, .height={dims}, .defaultPaletteOffset={data.paletteIdx}, .shinyPaletteOffset={data.shinyPaletteIdx} }},");
-				//	else
-				//		writer.WriteLine($"	[SPECIES_{mon.ToUpper()}] = {{ .defaultPic = gObjectEventPic_Overworld_{mon}, .shinyPic = NULL, .width={dims}, .height={dims}, .defaultPaletteOffset={data.paletteIdx}, .shinyPaletteOffset=0 }},");
-				//}
-				//
-				//writer.WriteLine($"}};");
 			}
 
 			using (FileStream stream = new FileStream(Path.Combine(dataDir, "object_event_graphics_info_gen.h"), FileMode.Create))
@@ -382,23 +429,6 @@ namespace PokemonDataGenerator
 					writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}, {dims}, {dims}, 5),");
 					writer.WriteLine($"}};");
 
-					if (s_GenerateShinies)
-					{
-						dims = data.shinySpriteSize / 8;
-
-						writer.WriteLine($"static const struct SpriteFrameImage sPicTable_Mon_{mon}_shiny[] = {{");
-						writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}_shiny, {dims}, {dims}, 0),");
-						writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}_shiny, {dims}, {dims}, 1),");
-						writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}_shiny, {dims}, {dims}, 2),");
-						writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}_shiny, {dims}, {dims}, 0),");
-						writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}_shiny, {dims}, {dims}, 3),");
-						writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}_shiny, {dims}, {dims}, 1),");
-						writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}_shiny, {dims}, {dims}, 4),");
-						writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}_shiny, {dims}, {dims}, 2),");
-						writer.WriteLine($"    overworld_frame(gObjectEventPic_Overworld_{mon}_shiny, {dims}, {dims}, 5),");
-						writer.WriteLine($"}};");
-					}
-
 					writer.WriteLine($"");
 				}
 
@@ -410,49 +440,33 @@ namespace PokemonDataGenerator
 					var data = kvp.Value;
 					int dims = data.spriteSize / 8;
 
+					// todo
+					string paletteTag = "OBJ_EVENT_PAL_TAG_FOLLOW_MON_0";
+					int paletteNum = 10; // force to 10 to make the palette load semi dynamically
+
 					if (dims == 8) // 64x64
-						writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon} = {{TAG_NONE, {palettes[data.paletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, {GetPalSlotFromTag(palettes[data.paletteIdx].Item1)}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}, gDummySpriteAffineAnimTable}};");
+						writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon} = {{TAG_NONE, {paletteTag}, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, {paletteNum}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}, gDummySpriteAffineAnimTable}};");
 					else
-						writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon} = {{TAG_NONE, {palettes[data.paletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, {GetPalSlotFromTag(palettes[data.paletteIdx].Item1)}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}, gDummySpriteAffineAnimTable}};");
-
-					if (s_GenerateShinies)
-					{
-						dims = data.shinySpriteSize / 8;
-
-						if (dims == 8) // 64x64
-							writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon}_shiny = {{TAG_NONE, {palettes[data.shinyPaletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 2048, 64, 64, {GetPalSlotFromTag(palettes[data.shinyPaletteIdx].Item1)}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_64x64, sOamTables_64x64, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}_shiny, gDummySpriteAffineAnimTable}};");
-						else
-							writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon}_shiny = {{TAG_NONE, {palettes[data.shinyPaletteIdx].Item1}, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, {GetPalSlotFromTag(palettes[data.shinyPaletteIdx].Item1)}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}_shiny, gDummySpriteAffineAnimTable}};");
-
-					}
+						writer.WriteLine($"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_{mon} = {{TAG_NONE, {paletteTag}, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, {paletteNum}, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_{mon}, gDummySpriteAffineAnimTable}};");
 				}
 
 				writer.WriteLine($"");
-				writer.WriteLine($"const struct ObjectEventGraphicsInfo *const gObjectEventMonGraphicsInfoPointers[NUM_SPECIES] = {{");
+				writer.WriteLine($"const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {{");
 
 				foreach (var kvp in s_MonToSpriteData.OrderBy((kvp) => kvp.Value.pokedexNumber))
 				{
 					var mon = kvp.Key;
 					var data = kvp.Value;
 					int dims = data.spriteSize / 8;
-
-					writer.WriteLine($"	[SPECIES_{mon.ToUpper()}] = &gObjectEventGraphicsInfo_Mon_{mon},");
-				}
-				writer.WriteLine($"}};");
-
-				writer.WriteLine($"");
-				writer.WriteLine($"const struct ObjectEventGraphicsInfo *const gObjectEventShinyMonGraphicsInfoPointers[NUM_SPECIES] = {{");
-
-				if (s_GenerateShinies)
-				{
-					foreach (var kvp in s_MonToSpriteData.OrderBy((kvp) => kvp.Value.pokedexNumber))
-					{
-						var mon = kvp.Key;
-						var data = kvp.Value;
-						int dims = data.shinySpriteSize / 8;
-
-						writer.WriteLine($"	[SPECIES_{mon.ToUpper()}] = &gObjectEventGraphicsInfo_Mon_{mon}_shiny,");
-					}
+					writer.WriteLine($"\t[SPECIES_{mon.ToUpper()}] =");
+					writer.WriteLine($"\t{{");
+					writer.WriteLine($"\t\t.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_{mon},");
+					writer.WriteLine($"\t\t.normalPal = gObjectEventPal_Overworld_{mon},");
+					if (s_GenerateShinies)
+						writer.WriteLine($"\t\t.shinyPal = gObjectEventPal_Overworld_{mon}_shiny,");
+					else
+						writer.WriteLine($"\t\t.shinyPal = NULL,");
+					writer.WriteLine($"\t}},");
 				}
 				writer.WriteLine($"}};");
 			}
@@ -583,9 +597,12 @@ namespace PokemonDataGenerator
 			using(StringReader reader = new StringReader(pageData))
 			{
 				string line;
-				while((line = reader.ReadLine()) != null)
+				int counter = 0;
+				int previousNum = -1;
+
+				while ((line = reader.ReadLine()) != null)
 				{
-					if(line.StartsWith("<img alt=\"#"))
+					if (line.StartsWith("<img alt=\"#"))
 					{
 						//<img alt="#001 Bulbasaur" src="../sprites/overworlds/o_hgss/o_hs_001_1.png" />
 
@@ -611,14 +628,24 @@ namespace PokemonDataGenerator
 							.Replace("?", "qmark")
 							.Replace("!", "emark");
 
+						if (s_TargettingDebugSet)
+						{
+							if (previousNum != pokedexNumber)
+							{
+								previousNum = pokedexNumber;
+								if (counter++ >= 20)
+								{
+									return;
+								}
+							}
+						}
+
 						if (formattedPath.EndsWith("1.png"))
 							AppendMonSpriteUri(formattedName, pokedexNumber, key + "_1", formattedPath);
 						else if (formattedPath.EndsWith("2.png"))
 							AppendMonSpriteUri(formattedName, pokedexNumber, key + "_2", formattedPath);
 						else
 							throw new Exception("Unknown suffix");
-
-						continue;
 					}
 				}
 			}
@@ -639,9 +666,16 @@ namespace PokemonDataGenerator
 
 			void BlitBitmap(Bitmap dst, Bitmap src, int offsetX, int offsetY)
 			{
-				for(int x = 0; x < src.Width; ++x)
-					for(int y = 0; y < src.Height; ++y)
-						dst.SetPixel(offsetX + x, offsetY + y, src.GetPixel(x, y));
+				for (int x = 0; x < src.Width; ++x)
+					for (int y = 0; y < src.Height; ++y)
+					{
+						Color col = src.GetPixel(x, y);
+
+						if (col.A != 255)
+							col = NpcSpriteSplitter.c_BackgroundColour;
+
+						dst.SetPixel(offsetX + x, offsetY + y, col);
+					}
 			}
 
 			Bitmap front1 = DownloadBitmap($"front{variant}_1");
@@ -670,26 +704,6 @@ namespace PokemonDataGenerator
 			//BlitBitmap(result, side1, front1.Width * i++, 0);
 			//BlitBitmap(result, side2, front1.Width * i++, 0);
 			return result;
-		}
-
-		private static int SelectBestPaletteOption(Tuple<string, ImagePalette>[] palettes, Bitmap source)
-		{
-			int palIdx = 0;
-			double palScore = double.MaxValue;
-
-			for (int p = 0; p < palettes.Length; ++p)
-			{
-				var pal = palettes[p];
-
-				double score = pal.Item2.GetBitmapMatchScore(source);
-				if (score < palScore)
-				{
-					palIdx = p;
-					palScore = score;
-				}
-			}
-
-			return palIdx;
 		}
 	}
 }

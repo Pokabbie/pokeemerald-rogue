@@ -524,6 +524,7 @@
 #define TRAINER_CLASS_DEVELOPER_CHAMPION 0x44
 #define TRAINER_CLASS_COMMUNITY_MOD  0x45
 
+#define TRAINER_CLASS_COUNT          0x46
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music
 #define TRAINER_ENCOUNTER_MUSIC_GIRL         2 // used for male Tubers and Young Couples too
@@ -541,10 +542,8 @@
 
 #define F_TRAINER_FEMALE (1 << 7)
 
-// All trainer parties specify the IV, level, and species for each Pokémon in the
-// party. Some trainer parties also specify held items and custom moves for each
-// Pokémon.
-#define F_TRAINER_PARTY_CUSTOM_MOVESET (1 << 0)
-#define F_TRAINER_PARTY_HELD_ITEM      (1 << 1)
+// Trainer party defines
+#define TRAINER_MON_MALE    1
+#define TRAINER_MON_FEMALE  2
 
 #endif  // GUARD_TRAINERS_H

@@ -104,7 +104,7 @@ static int CalcRecordMixingGiftChecksum(void)
 {
     unsigned int i;
     int sum = 0;
-    u8 *data = (u8*)(&gSaveBlock1Ptr->recordMixingGift.data);
+    u8 *data = (u8 *)(&gSaveBlock1Ptr->recordMixingGift.data);
 
     for (i = 0; i < sizeof(gSaveBlock1Ptr->recordMixingGift.data); i++)
         sum += data[i];
@@ -293,7 +293,7 @@ bool8 MEScrCmd_givenationaldex(struct ScriptContext *ctx)
 
 bool8 MEScrCmd_addrareword(struct ScriptContext *ctx)
 {
-    UnlockAdditionalPhrase(ScriptReadByte(ctx));
+    UnlockTrendySaying(ScriptReadByte(ctx));
     StringExpandPlaceholders(gStringVar4, gText_MysteryEventRareWord);
     ctx->mStatus = MEVENT_STATUS_SUCCESS;
     return FALSE;
@@ -319,7 +319,7 @@ bool8 MEScrCmd_givepokemon(struct ScriptContext *ctx)
     void *mailPtr = (void *)(data + sizeof(struct Pokemon));
 
     pokemon = *(struct Pokemon *)pokemonPtr;
-    species = GetMonData(&pokemon, MON_DATA_SPECIES2);
+    species = GetMonData(&pokemon, MON_DATA_SPECIES_OR_EGG);
 
     if (species == SPECIES_EGG)
         StringCopyN(gStringVar1, gText_EggNickname, POKEMON_NAME_LENGTH + 1);

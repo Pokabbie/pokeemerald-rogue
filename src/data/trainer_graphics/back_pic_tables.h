@@ -35,7 +35,6 @@ const struct CompressedSpriteSheet gTrainerBackPicTable[] =
     TRAINER_BACK_SPRITE(WALLY, gTrainerBackPic_Wally, 0x2000),
     TRAINER_BACK_SPRITE(STEVEN, gTrainerBackPic_Steven, 0x2000),
     TRAINER_BACK_SPRITE(LUCAS, gTrainerBackPic_Lucas, 0x2800),
-    TRAINER_BACK_SPRITE(DAWN, gTrainerBackPic_Dawn, 0x2800),
 };
 
 #define TRAINER_BACK_PAL(trainerPic, pal) [TRAINER_BACK_PIC_##trainerPic] = {pal, TRAINER_BACK_PIC_##trainerPic}

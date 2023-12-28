@@ -2,6 +2,7 @@
 #include "battle_anim.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "palette.h"
 #include "sound.h"
 #include "util.h"
 #include "task.h"
@@ -526,6 +527,18 @@ const struct SpriteTemplate gSpacialRendBladesTemplate2 =
     .callback = AnimFireSpread
 };
 
+// Sea of Fire
+const struct SpriteTemplate gTwisterEmberSpriteTemplate =
+{
+	.tileTag = ANIM_TAG_SMALL_EMBER,
+	.paletteTag = ANIM_TAG_SMALL_EMBER,
+	.oam = &gOamData_AffineOff_ObjNormal_32x32,
+	.anims = gAnims_BasicFire,
+	.images = NULL,
+	.affineAnims = gDummySpriteAffineAnimTable,
+	.callback = AnimMoveTwisterParticle,
+};
+
 static void AnimLavaPlumeOrbitScatter(struct Sprite *sprite)
 {
     sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, 2);
@@ -731,7 +744,7 @@ static void AnimBurnFlame(struct Sprite *sprite)
 //void AnimFireRing(struct Sprite *sprite)
 void AnimFireRing(struct Sprite *sprite)
 {
-    InitSpritePosToAnimAttacker(sprite, 1);
+    InitSpritePosToAnimAttacker(sprite, TRUE);
 
     sprite->data[7] = gBattleAnimArgs[2];
     sprite->data[0] = 0;
@@ -818,7 +831,7 @@ void AnimFireCross(struct Sprite *sprite)
 
 void AnimFireSpiralOutward(struct Sprite *sprite)
 {
-    InitSpritePosToAnimAttacker(sprite, 1);
+    InitSpritePosToAnimAttacker(sprite, TRUE);
 
     sprite->data[1] = gBattleAnimArgs[2];
     sprite->data[0] = gBattleAnimArgs[3];
@@ -1008,7 +1021,7 @@ static void CreateEruptionLaunchRocks(u8 spriteId, u8 taskId, u8 activeSpritesId
     u16 y = GetEruptionLaunchRockInitialYPos(spriteId);
     u16 x = gSprites[spriteId].x;
 
-    if(!GetBattlerSide(gBattleAnimAttacker))
+    if(GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
     {
         x -= 12;
         sign = 1;
@@ -1184,7 +1197,7 @@ void AnimWillOWispOrb(struct Sprite *sprite)
     switch (sprite->data[0])
     {
     case 0:
-        InitSpritePosToAnimAttacker(sprite, 0);
+        InitSpritePosToAnimAttacker(sprite, FALSE);
         StartSpriteAnim(sprite, gBattleAnimArgs[2]);
         sprite->data[7] = gBattleAnimArgs[2];
 
@@ -1309,8 +1322,8 @@ void AnimTask_MoveHeatWaveTargets(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
 
-    task->data[12] = !GetBattlerSide(gBattleAnimAttacker) ? 1 : -1;
-    task->data[13] = IsBattlerSpriteVisible(gBattleAnimTarget ^ 2) + 1;
+    task->data[12] = GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER ? 1 : -1;
+    task->data[13] = IsBattlerSpriteVisible(BATTLE_PARTNER(gBattleAnimTarget)) + 1;
     task->data[14] = GetAnimBattlerSpriteId(ANIM_TARGET);
     task->data[15] = GetAnimBattlerSpriteId(ANIM_DEF_PARTNER);
 
@@ -1411,7 +1424,7 @@ void AnimTask_BlendBackground(u8 taskId)
 {
     struct BattleAnimBgData animBg;
     GetBattleAnimBg1Data(&animBg);
-    BlendPalette(animBg.paletteId * 16, 16, gBattleAnimArgs[0], gBattleAnimArgs[1]);
+    BlendPalette(BG_PLTT_ID(animBg.paletteId), 16, gBattleAnimArgs[0], gBattleAnimArgs[1]);
     DestroyAnimVisualTask(taskId);
 }
 

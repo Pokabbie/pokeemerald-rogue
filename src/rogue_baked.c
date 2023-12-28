@@ -8,12 +8,15 @@
 #include "constants/songs.h"
 #include "constants/species.h"
 #include "constants/trainers.h"
+#include "constants/form_change_types.h"
 
 #ifdef ROGUE_BAKING
 // Manually reinclude this if regenerating
 #include "BakeHelpers.h"
 
-extern const struct BaseStats gBaseStats[];
+#undef AGB_ASSERT
+#define AGB_ASSERT(...)
+
 #else
 #include "global.h"
 #include "data.h"
@@ -30,6 +33,17 @@ extern const struct BaseStats gBaseStats[];
 #include "rogue_charms.h"
 #include "rogue_pokedex.h"
 #include "rogue_trainers.h"
+#endif
+
+#ifdef ROGUE_EXPANSION
+#include "constants/form_change_types.h"
+
+extern const struct SpeciesInfo gSpeciesInfo[];
+#else
+#define EVOLUTIONS_END 0
+
+extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+extern const struct BaseStats gBaseStats[];
 #endif
 
 #include "rogue_baked.h"
@@ -50,13 +64,10 @@ extern const u8 gText_TrainerName_Leaf[];
 extern const u8 gText_TrainerName_Ethan[];
 extern const u8 gText_TrainerName_Lyra[];
 
-extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 extern const struct RogueItem gRogueItems[];
 
 #ifdef ROGUE_BAKE_VALID
-extern const u16 gRogueBake_EggSpecies[NUM_SPECIES];
-extern const u8 gRogueBake_EvolutionCount[NUM_SPECIES];
-extern const u32 gRogueBake_EvolutionChainTypeFlags[NUM_SPECIES];
+extern const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES];
 extern const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_BYTE_COUNT];
 #endif
 
@@ -133,9 +144,42 @@ bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result)
     return FALSE;
 }
 
+static const struct Evolution* GetBaseEvolution(u16 species, u8 evoIdx)
+{
+#ifdef ROGUE_EXPANSION
+    // Eq. to GetSpeciesEvolutions
+    return &gSpeciesInfo[species].evolutions[evoIdx];
+#else
+    return &gEvolutionTable[species][evoIdx];
+#endif
+}
+
+#ifndef ROGUE_BAKE_VALID
+static u8 GetMaxEvolutionCountInternal(u16 species)
+{
+    //EVOS_PER_MON
+
+    u8 i;
+    const struct Evolution* evo;
+
+    evo = GetBaseEvolution(species, 0);
+
+    if(evo == NULL)
+        return 0;
+
+    for(i = 0; evo->method != EVOLUTIONS_END; ++i)
+    {
+        evo = GetBaseEvolution(species, i);
+    }
+
+    return i;
+}
+#endif
+
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
-    memcpy(outEvo, &gEvolutionTable[species][evoIdx], sizeof(struct Evolution));
+    //AGB_ASSERT(evoIdx < Rogue_GetMaxEvolutionCount(species));
+    memcpy(outEvo, GetBaseEvolution(species, evoIdx), sizeof(*outEvo));
 
     // Any species alterations
 #ifdef ROGUE_EXPANSION
@@ -254,21 +298,6 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         outEvo->targetSpecies = SPECIES_NONE;
         outEvo->method = 0;
         return;
-    }
-#endif
-
-#if defined(ROGUE_EXPANSION) && !defined(ROGUE_BAKING)
-    if(!IsMegaEvolutionEnabled())
-    {
-        switch(outEvo->method)
-        {
-            case(EVO_MEGA_EVOLUTION):
-            case(EVO_MOVE_MEGA_EVOLUTION):
-            case(EVO_PRIMAL_REVERSION):
-                outEvo->targetSpecies = SPECIES_NONE;
-                outEvo->method = 0;
-                break;
-        }
     }
 #endif
 
@@ -459,7 +488,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
 #ifndef ROGUE_BAKING
-    if(outEvo->targetSpecies != SPECIES_NONE)
+    if(Rogue_IsRunActive() && outEvo->targetSpecies != SPECIES_NONE)
     {
         // Apply evo curse
         if(IsCurseActive(EFFECT_EVERSTONE_EVOS))
@@ -490,6 +519,41 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
                 break;
             }
         }
+    }
+#endif
+}
+
+void Rogue_ModifyFormChange(u16 species, u8 changeIdx, struct FormChange* outFormChange)
+{
+#ifdef ROGUE_EXPANSION
+    const struct FormChange *formChanges = GetSpeciesFormChanges(species);
+
+    if(formChanges != NULL)
+    {
+        memcpy(outFormChange, &formChanges[changeIdx], sizeof(*outFormChange));
+
+        if(!IsMegaEvolutionEnabled())
+        {
+            if(
+                outFormChange->method == FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM || 
+                outFormChange->method == FORM_CHANGE_BATTLE_MEGA_EVOLUTION_MOVE || 
+                outFormChange->method == FORM_CHANGE_BATTLE_PRIMAL_REVERSION)
+            {
+                outFormChange->method = FORM_CHANGE_DISABLED_STUB;
+            }
+        }
+
+        if(!IsDynamaxEnabled())
+        {
+            if(outFormChange->method == FORM_CHANGE_BATTLE_GIGANTAMAX)
+            {
+                outFormChange->method = FORM_CHANGE_DISABLED_STUB;
+            }
+        }
+    }
+    else
+    {
+        outFormChange->method = FORM_CHANGE_TERMINATOR;
     }
 #endif
 }
@@ -596,10 +660,16 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         outTrainer->encounterMusic_gender = trainer->teamGenerator.preferredGender == MALE ? 0 : F_TRAINER_FEMALE; // not actually used for encounter music anymore
         outTrainer->trainerPic = trainer->trainerPic;
 
-        outTrainer->partyFlags = 0;
+        //outTrainer->partyFlags = 0;
         outTrainer->doubleBattle = FALSE;
 #ifdef ROGUE_EXPANSION
-        outTrainer->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE | AI_FLAG_HELP_PARTNER | AI_FLAG_SMART_SWITCHING;
+        outTrainer->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE | AI_FLAG_HELP_PARTNER | AI_FLAG_SMART_SWITCHING | AI_FLAG_SMART_MON_CHOICES;
+
+        if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
+        {
+            // Ensure we don't send out the dynamax mon too early
+            outTrainer->aiFlags |= AI_FLAG_ACE_POKEMON;
+        }
 #else
         outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN;
 #endif
@@ -634,7 +704,7 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
     u8 i;
     bool8 shouldRedirect;
     u16 trainerClass = 0;
-    u16 baseSpecies;
+    u16 baseSpecies = 0;
     struct RogueBattleMusic const* currMusic = NULL;
     const struct RogueTrainer* trainer = NULL;
 
@@ -915,7 +985,7 @@ u16 Rogue_GetPrice(u16 itemId)
 
 
     if(itemId == ITEM_NONE)
-        return;
+        return 0;
 
     // Range edits
     if(itemId >= ITEM_HP_UP && itemId <= ITEM_PP_MAX)
@@ -1171,10 +1241,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
         if(isValidItem)
         {
-            outItem->itemId = itemId;
+            //outItem->itemId = itemId;
             outItem->holdEffect = rogueItem->holdEffect;
             outItem->holdEffectParam = rogueItem->holdEffectParam;
-            outItem->registrability = rogueItem->registrability;
+            //outItem->registrability = rogueItem->registrability;
             outItem->pocket = rogueItem->pocket;
             outItem->type = rogueItem->type;
             outItem->fieldUseFunc = rogueItem->fieldUseFunc;
@@ -1297,6 +1367,10 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->pocket = POCKET_KEY_ITEMS;
             break;
 
+        case ITEM_ESCAPE_ROPE:
+            outItem->pocket = POCKET_ITEMS;
+            break;
+
         case ITEM_NUGGET:
         case ITEM_PEARL:
         case ITEM_BIG_PEARL:
@@ -1341,7 +1415,6 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         if(outItem->pocket != POCKET_POKE_BALLS && IsCurseActive(EFFECT_BATTLE_ITEM_BAN))
         {
             outItem->battleUsage = 0;
-            outItem->battleUseFunc = 0;
         }
     }
 }
@@ -1508,11 +1581,12 @@ u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level)
 u16 Rogue_GetEggSpecies(u16 species)
 {
 #ifdef ROGUE_BAKE_VALID
-    return gRogueBake_EggSpecies[species];
+    return gRogueBake_SpeciesData[species].eggSpecies;
 
 #else
-    u16 e, s, evo, spe;
+    u16 e, s, spe;
     bool8 found;
+    u8 evo, evoCount;
     struct Evolution evolution;
 
     // Working backwards up to 5 times seems arbitrary, since the maximum number
@@ -1529,23 +1603,17 @@ u16 Rogue_GetEggSpecies(u16 species)
                 // Start counting upwards now, as we've exhausted all of the before species
                 spe = s;
 
-            for (evo = 0; evo < EVOS_PER_MON; evo++)
+            evoCount = Rogue_GetMaxEvolutionCount(spe);
+
+            for (evo = 0; evo < evoCount; evo++)
             {
                 Rogue_ModifyEvolution(spe, evo, &evolution);
 
-#ifdef ROGUE_EXPANSION
-                if(evolution.method != EVO_MEGA_EVOLUTION &&
-                    evolution.method != EVO_MOVE_MEGA_EVOLUTION &&
-                    evolution.method != EVO_PRIMAL_REVERSION
-                )
-#endif
+                if (evolution.targetSpecies == species)
                 {
-                    if (evolution.targetSpecies == species)
-                    {
-                        species = spe;
-                        found = TRUE;
-                        break;
-                    }
+                    species = spe;
+                    found = TRUE;
+                    break;
                 }
             }
 
@@ -1564,35 +1632,28 @@ u16 Rogue_GetEggSpecies(u16 species)
 u8 Rogue_GetMaxEvolutionCount(u16 species)
 {
 #ifdef ROGUE_BAKE_VALID
-    return gRogueBake_EvolutionCount[species];
-    
+    return gRogueBake_SpeciesData[species].evolutionCount;
 #else
-    return Rogue_GetActiveEvolutionCount(species);
+    return GetMaxEvolutionCountInternal(species);
 #endif
 }
 
 u8 Rogue_GetActiveEvolutionCount(u16 species)
 {
-    u16 s, e;
+    u16 s;
+    u8 e;
     struct Evolution evo;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(species);
 
-    for (e = 0; e < EVOS_PER_MON; e++)
+    for (e = 0; e < evoCount; e++)
     {
         Rogue_ModifyEvolution(species, e, &evo);
 
         s = evo.targetSpecies;
 
-#ifdef ROGUE_EXPANSION
-        if(evo.method != EVO_MEGA_EVOLUTION &&
-            evo.method != EVO_MOVE_MEGA_EVOLUTION &&
-            evo.method != EVO_PRIMAL_REVERSION
-        )
-#endif
+        if (s != SPECIES_NONE)
         {
-            if (s != SPECIES_NONE)
-            {
-                return 1 + Rogue_GetActiveEvolutionCount(s);
-            }
+            return 1 + Rogue_GetActiveEvolutionCount(s);
         }
     }
 
@@ -1603,7 +1664,9 @@ bool8 Rogue_DoesEvolveInto(u16 fromSpecies, u16 toSpecies)
 {
     u8 i;
     struct Evolution currentEvo;
-    for (i = 0; i < EVOS_PER_MON; i++)
+    u8 evoCount = Rogue_GetMaxEvolutionCount(fromSpecies);
+
+    for (i = 0; i < evoCount; i++)
     {
         Rogue_ModifyEvolution(fromSpecies, i, &currentEvo);
 
@@ -1624,14 +1687,19 @@ bool8 Rogue_DoesEvolveInto(u16 fromSpecies, u16 toSpecies)
 
 void Rogue_AppendSpeciesTypeFlags(u16 species, u32* outFlags)
 {
-    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gBaseStats[species].type1);
-    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gBaseStats[species].type2);
+#ifdef ROGUE_EXPANSION
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gSpeciesInfo[species].types[0]);
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gSpeciesInfo[species].types[1]);
+#else
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gRogueSpeciesInfo[species].type1);
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gRogueSpeciesInfo[species].type2);
+#endif
 }
 
 u32 Rogue_GetSpeciesEvolutionChainTypeFlags(u16 species)
 {
 #ifdef ROGUE_BAKE_VALID
-    return gRogueBake_EvolutionChainTypeFlags[species];
+    return gRogueBake_SpeciesData[species].evolutionChainTypeFlags;
 #elif defined(ROGUE_BAKING)
     return 0;
 #else
@@ -1658,17 +1726,19 @@ u32 Rogue_GetTypeFlagsFromArray(const u8* types, u8 count)
 
 u32 Rogue_GetMonFlags(u16 species)
 {
-    u32 flags;
+    u32 flags = 0;
+#ifndef ROGUE_BAKING
 #ifdef ROGUE_EXPANSION
     //u16 species2;;
 #endif
-    
+
     flags = gRoguePokemonProfiles[species].monFlags;
 
 #ifdef ROGUE_EXPANSION
     //species2 = GET_BASE_SPECIES_ID(species);
     //if(species2 != species)
     //    flags |= gPresetMonTable[species2].flags;
+#endif
 #endif
 
     return flags;

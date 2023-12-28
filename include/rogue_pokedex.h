@@ -13,10 +13,6 @@ u8 RoguePokedex_GetDexVariant();
 void RoguePokedex_SetDexVariant(u8 variant);
 
 u8 RoguePokedex_GetDexGenLimit();
-void RoguePokedex_SetDexGenLimit(u8 gen);
-
-bool8 RoguePokedex_IsNationalDexActive();
-u16 RoguePokedex_GetNationalDexLimit();
 u16 RoguePokedex_GetCurrentDexLimit();
 
 bool8 RoguePokedex_IsVariantEditUnlocked();
@@ -24,10 +20,14 @@ bool8 RoguePokedex_IsVariantEditEnabled();
 
 bool8 RoguePokedex_IsSpeciesEnabled(u16 species);
 u16 RoguePokedex_GetSpeciesCurrentNum(u16 species);
+u16 RoguePokedex_RedirectSpeciesGetSetFlag(u16 species);
 
 bool8 RoguePokedex_IsSpeciesLegendary(u16 species);
 bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species);
 bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species);
+
+u8 const* RoguePokedex_GetSpeciesName(u16 species);
+u8 RoguePokedex_GetSpeciesType(u16 species, u8 typeIndex);
 u16 RoguePokedex_GetSpeciesBST(u16 species);
 u8 RoguePokedex_GetSpeciesBestStat(u16 species);
 u8 RoguePokedex_GetSpeciesWorstStat(u16 species);

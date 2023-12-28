@@ -17,7 +17,6 @@
 #include "constants/battle_frontier.h"
 #include "constants/frontier_util.h"
 #include "constants/abilities.h"
-#include "constants/battle_config.h"
 #include "constants/layouts.h"
 #include "constants/rgb.h"
 #include "constants/trainers.h"
@@ -711,7 +710,7 @@ static void ClearInWildMonRoom(void)
 static void SavePikeChallenge(void)
 {
     gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
-    VarSet(VAR_TEMP_0, 0);
+    VarSet(VAR_TEMP_CHALLENGE_STATUS, 0);
     gSaveBlock2Ptr->frontier.challengePaused = TRUE;
     SaveMapView();
     TrySavingData(SAVE_LINK);
@@ -732,6 +731,7 @@ static void GetRoomInflictedStatus(void)
     switch (sStatusFlags)
     {
     case STATUS1_FREEZE:
+    case STATUS1_FROSTBITE:
         gSpecialVar_Result = PIKE_STATUS_FREEZE;
         break;
     case STATUS1_BURN:
@@ -815,9 +815,13 @@ static bool8 DoesAbilityPreventStatus(struct Pokemon *mon, u32 status)
     u16 ability = GetMonAbility(mon);
     bool8 ret = FALSE;
 
+    if (ability == ABILITY_COMATOSE)
+        return TRUE;
+
     switch (status)
     {
     case STATUS1_FREEZE:
+    case STATUS1_FROSTBITE:
         if (ability == ABILITY_MAGMA_ARMOR)
             ret = TRUE;
         break;
@@ -834,7 +838,7 @@ static bool8 DoesAbilityPreventStatus(struct Pokemon *mon, u32 status)
             ret = TRUE;
         break;
     case STATUS1_TOXIC_POISON:
-        if (ability == ABILITY_IMMUNITY)
+        if (ability == ABILITY_IMMUNITY || ability == ABILITY_PASTEL_VEIL)
             ret = TRUE;
         break;
     }
@@ -848,22 +852,22 @@ static bool8 DoesTypePreventStatus(u16 species, u32 status)
     switch (status)
     {
     case STATUS1_TOXIC_POISON:
-        if (gBaseStats[species].type1 == TYPE_STEEL || gBaseStats[species].type1 == TYPE_POISON
-            || gBaseStats[species].type2 == TYPE_STEEL || gBaseStats[species].type2 == TYPE_POISON)
+        if (gSpeciesInfo[species].types[0] == TYPE_STEEL || gSpeciesInfo[species].types[0] == TYPE_POISON
+            || gSpeciesInfo[species].types[1] == TYPE_STEEL || gSpeciesInfo[species].types[1] == TYPE_POISON)
             ret = TRUE;
         break;
     case STATUS1_FREEZE:
-        if (gBaseStats[species].type1 == TYPE_ICE || gBaseStats[species].type2 == TYPE_ICE)
+    case STATUS1_FROSTBITE:
+        if (gSpeciesInfo[species].types[0] == TYPE_ICE || gSpeciesInfo[species].types[1] == TYPE_ICE)
             ret = TRUE;
         break;
     case STATUS1_PARALYSIS:
-        if (gBaseStats[species].type1 == TYPE_GROUND || gBaseStats[species].type2 == TYPE_GROUND
-            || (B_PARALYZE_ELECTRIC >= GEN_6 &&
-                (gBaseStats[species].type1 == TYPE_ELECTRIC || gBaseStats[species].type2 == TYPE_ELECTRIC)))
+        if (gSpeciesInfo[species].types[0] == TYPE_GROUND || gSpeciesInfo[species].types[1] == TYPE_GROUND
+            || (B_PARALYZE_ELECTRIC >= GEN_6 && (gSpeciesInfo[species].types[0] == TYPE_ELECTRIC || gSpeciesInfo[species].types[1] == TYPE_ELECTRIC)))
             ret = TRUE;
         break;
     case STATUS1_BURN:
-        if (gBaseStats[species].type1 == TYPE_FIRE || gBaseStats[species].type2 == TYPE_FIRE)
+        if (gSpeciesInfo[species].types[0] == TYPE_FIRE || gSpeciesInfo[species].types[1] == TYPE_FIRE)
             ret = TRUE;
         break;
     case STATUS1_SLEEP:
@@ -911,7 +915,7 @@ static bool8 TryInflictRandomStatus(void)
         if (rand < 35)
             sStatusFlags = STATUS1_TOXIC_POISON;
         else if (rand < 60)
-            sStatusFlags = STATUS1_FREEZE;
+            sStatusFlags = B_USE_FROSTBITE ? STATUS1_FROSTBITE : STATUS1_FREEZE;
         else if (rand < 80)
             sStatusFlags = STATUS1_PARALYSIS;
         else if (rand < 90)
@@ -948,6 +952,7 @@ static bool8 TryInflictRandomStatus(void)
     switch (sStatusFlags)
     {
     case STATUS1_FREEZE:
+    case STATUS1_FROSTBITE:
         sStatusMon = PIKE_STATUSMON_DUSCLOPS;
         break;
     case STATUS1_BURN:
@@ -1088,7 +1093,7 @@ static u8 GetNextRoomType(void)
     }
 
     nextRoomType = roomCandidates[Random() % numRoomCandidates];
-    free(roomCandidates);
+    Free(roomCandidates);
     if (nextRoomType == PIKE_ROOM_STATUS)
         TryInflictRandomStatus();
 
@@ -1101,8 +1106,7 @@ static u16 GetNPCRoomGraphicsId(void)
     return sNPCTable[sNpcId].graphicsId;
 }
 
-// Unused
-static u8 GetInWildMonRoom(void)
+static bool8 UNUSED GetInWildMonRoom(void)
 {
     return sInWildMonRoom;
 }
@@ -1141,13 +1145,13 @@ bool32 TryGenerateBattlePikeWildMon(bool8 checkKeenEyeIntimidate)
     if (checkKeenEyeIntimidate == TRUE && !CanEncounterWildMon(monLevel))
         return FALSE;
 
-    exp = Rogue_ModifyExperienceTables(gBaseStats[wildMons[headerId][pikeMonId].species].growthRate, monLevel);
+    exp = Rogue_ModifyExperienceTables(gSpeciesInfo[wildMons[headerId][pikeMonId].species].growthRate, monLevel);
 
     SetMonData(&gEnemyParty[0],
                MON_DATA_EXP,
                &exp);
 
-    if (gBaseStats[wildMons[headerId][pikeMonId].species].abilities[1])
+    if (gSpeciesInfo[wildMons[headerId][pikeMonId].species].abilities[1])
         abilityNum = Random() % 2;
     else
         abilityNum = 0;
@@ -1274,6 +1278,10 @@ static void TryHealMons(u8 healCount)
 
     for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
         indices[i] = i;
+
+    // Only 'healCount' number of pokemon will be healed.
+    // The order in which they're (attempted to be) healed is random,
+    // and determined by performing 10 random swaps to this index array.
     for (k = 0; k < 10; k++)
     {
         u8 temp;
@@ -1367,7 +1375,7 @@ static void SetHintedRoom(void)
         }
 
         gSaveBlock2Ptr->frontier.pikeHintedRoomType = roomCandidates[Random() % count];
-        free(roomCandidates);
+        Free(roomCandidates);
         if (gSaveBlock2Ptr->frontier.pikeHintedRoomType == PIKE_ROOM_STATUS && !AtLeastOneHealthyMon())
             gSaveBlock2Ptr->frontier.pikeHintedRoomType = PIKE_ROOM_NPC;
         if (gSaveBlock2Ptr->frontier.pikeHintedRoomType == PIKE_ROOM_DOUBLE_BATTLE && !AtLeastTwoAliveMons())
@@ -1427,6 +1435,7 @@ static void PrepareTwoTrainers(void)
     gFacilityTrainers = gBattleFrontierTrainers;
     do
     {
+        // Pick the 1st trainer, making sure it's not one that's been encountered yet in this challenge.
         trainerId = GetRandomScaledFrontierTrainerId(challengeNum, 1);
         for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1; i++)
         {
@@ -1442,6 +1451,7 @@ static void PrepareTwoTrainers(void)
 
     do
     {
+        // Pick the 2nd trainer, making sure it's not one that's been encountered yet in this challenge.
         trainerId = GetRandomScaledFrontierTrainerId(challengeNum, 1);
         for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum; i++)
         {

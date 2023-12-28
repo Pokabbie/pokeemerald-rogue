@@ -9,7 +9,7 @@
 #define VAR_TEMP_0                 (TEMP_VARS_START + 0x0)
 #define VAR_TEMP_1                 (TEMP_VARS_START + 0x1)
 #define VAR_TEMP_2                 (TEMP_VARS_START + 0x2)
-#define VAR_TEMP_3                 (TEMP_VARS_START + 0x3)
+#define VAR_TEMP_3                 (TEMP_VARS_START + 0x3) // Note: Used when the player checks a TV
 #define VAR_TEMP_4                 (TEMP_VARS_START + 0x4)
 #define VAR_TEMP_5                 (TEMP_VARS_START + 0x5)
 #define VAR_TEMP_6                 (TEMP_VARS_START + 0x6)
@@ -23,6 +23,7 @@
 #define VAR_TEMP_E                 (TEMP_VARS_START + 0xE)
 #define VAR_TEMP_F                 (TEMP_VARS_START + 0xF)
 #define TEMP_VARS_END              VAR_TEMP_F
+#define NUM_TEMP_VARS              (TEMP_VARS_END - TEMP_VARS_START + 1)
 
 // object gfx id vars
 // These 0x10 vars are used to dynamically control a map object's sprite.
@@ -46,21 +47,21 @@
 #define VAR_OBJ_GFX_ID_F           0x401F
 
 // general purpose vars
-#define VAR_RECYCLE_GOODS                    0x4020
-#define VAR_REPEL_STEP_COUNT                 0x4021
-#define VAR_ICE_STEP_COUNT                   0x4022
-#define VAR_STARTER_MON                      0x4023 // 0=Treecko, 1=Torchic, 2=Mudkip
-#define VAR_MIRAGE_RND_H                     0x4024
-#define VAR_MIRAGE_RND_L                     0x4025
-#define VAR_SECRET_BASE_MAP                  0x4026
-#define VAR_CYCLING_ROAD_RECORD_COLLISIONS   0x4027
-#define VAR_CYCLING_ROAD_RECORD_TIME_L       0x4028
-#define VAR_CYCLING_ROAD_RECORD_TIME_H       0x4029
-#define VAR_FRIENDSHIP_STEP_COUNTER          0x402A
-#define VAR_POISON_STEP_COUNTER              0x402B
-#define VAR_RESET_RTC_ENABLE                 0x402C
-#define VAR_ENIGMA_BERRY_AVAILABLE           0x402D
-#define VAR_WONDER_NEWS_COUNTER              0x402E
+#define VAR_RECYCLE_GOODS                                0x4020
+#define VAR_REPEL_STEP_COUNT                             0x4021
+#define VAR_ICE_STEP_COUNT                               0x4022
+#define VAR_STARTER_MON                                  0x4023 // 0=Treecko, 1=Torchic, 2=Mudkip
+#define VAR_MIRAGE_RND_H                                 0x4024
+#define VAR_MIRAGE_RND_L                                 0x4025
+#define VAR_SECRET_BASE_MAP                              0x4026
+#define VAR_CYCLING_ROAD_RECORD_COLLISIONS               0x4027
+#define VAR_CYCLING_ROAD_RECORD_TIME_L                   0x4028
+#define VAR_CYCLING_ROAD_RECORD_TIME_H                   0x4029
+#define VAR_FRIENDSHIP_STEP_COUNTER                      0x402A
+#define VAR_POISON_STEP_COUNTER                          0x402B
+#define VAR_RESET_RTC_ENABLE                             0x402C
+#define VAR_ENIGMA_BERRY_AVAILABLE                       0x402D
+#define VAR_WONDER_NEWS_STEP_COUNTER                     0x402E
 
 #define VAR_ROGUE_ACTIVE_POKEBLOCK           0x402F
 #define VAR_UNUSED_0x4030                    0x4030
@@ -308,5 +309,24 @@
 #define VAR_TRAINER_BATTLE_OPPONENT_A 0x8015 // Alias of gTrainerBattleOpponent_A
 
 #define SPECIAL_VARS_END              0x8015
+
+// If an overworld trigger uses this pseudo-variable as the trigger check,
+// then the script will be run using RunScriptImmediately instead of in the
+// global script context. This means it will run faster, but cannot do any
+// cutscenes nor call a wait command. Used for weather effects in vanilla.
+#define TRIGGER_RUN_IMMEDIATELY   0
+
+// Temp var aliases
+#define VAR_TEMP_CHALLENGE_STATUS  VAR_TEMP_0
+
+#define VAR_TEMP_MIXED_RECORDS         VAR_TEMP_0
+#define VAR_TEMP_RECORD_MIX_GIFT_ITEM  VAR_TEMP_1
+
+#define VAR_TEMP_PLAYING_PYRAMID_MUSIC  VAR_TEMP_E
+
+#define VAR_TEMP_FRONTIER_TUTOR_SELECTION  VAR_TEMP_D
+#define VAR_TEMP_FRONTIER_TUTOR_ID         VAR_TEMP_E
+
+#define VAR_TEMP_TRANSFERRED_SPECIES  VAR_TEMP_1
 
 #endif // GUARD_CONSTANTS_VARS_H

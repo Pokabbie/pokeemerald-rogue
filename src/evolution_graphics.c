@@ -10,7 +10,7 @@
 #include "palette.h"
 #include "constants/rgb.h"
 
-static void SpriteCB_Sparkle_Dummy(struct Sprite* sprite);
+static void SpriteCB_Sparkle_Dummy(struct Sprite *sprite);
 
 static void Task_Sparkles_SpiralUpward_Init(u8 taskId);
 static void Task_Sparkles_SpiralUpward(u8 taskId);
@@ -58,7 +58,7 @@ static const struct OamData sOamData_EvoSparkle =
     .y = DISPLAY_HEIGHT,
     .affineMode = ST_OAM_AFFINE_OFF,
     .objMode = ST_OAM_OBJ_NORMAL,
-    .mosaic = 0,
+    .mosaic = FALSE,
     .bpp = ST_OAM_4BPP,
     .shape = SPRITE_SHAPE(8x8),
     .x = 0,
@@ -127,7 +127,7 @@ static void SetEvoSparklesMatrices(void)
 #define sTrigIdx   data[6]
 #define sTimer     data[7]
 
-static void SpriteCB_Sparkle_SpiralUpward(struct Sprite* sprite)
+static void UNUSED SpriteCB_Sparkle_SpiralUpward(struct Sprite *sprite)
 {
     if (sprite->y > 8)
     {
@@ -153,21 +153,7 @@ static void SpriteCB_Sparkle_SpiralUpward(struct Sprite* sprite)
         DestroySprite(sprite);
 }
 
-static void CreateSparkle_SpiralUpward(u8 trigIdx)
-{
-    u8 spriteId = CreateSprite(&sEvoSparkleSpriteTemplate, DISPLAY_WIDTH / 2, 88, 0);
-    if (spriteId != MAX_SPRITES)
-    {
-        gSprites[spriteId].sAmplitude = 48;
-        gSprites[spriteId].sTrigIdx = trigIdx;
-        gSprites[spriteId].sTimer = 0;
-        gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
-        gSprites[spriteId].oam.matrixNum = 31;
-        gSprites[spriteId].callback = SpriteCB_Sparkle_SpiralUpward;
-    }
-}
-
-static void SpriteCB_Sparkle_ArcDown(struct Sprite* sprite)
+static void SpriteCB_Sparkle_ArcDown(struct Sprite *sprite)
 {
     if (sprite->y < 88)
     {
@@ -181,7 +167,7 @@ static void SpriteCB_Sparkle_ArcDown(struct Sprite* sprite)
         DestroySprite(sprite);
 }
 
-static void CreateSparkle_ArcDown(u8 trigIdx)
+static void CreateSparkle_SpiralUpward(u8 trigIdx)
 {
     u8 spriteId = CreateSprite(&sEvoSparkleSpriteTemplate, DISPLAY_WIDTH / 2, 8, 0);
     if (spriteId != MAX_SPRITES)
@@ -196,7 +182,7 @@ static void CreateSparkle_ArcDown(u8 trigIdx)
     }
 }
 
-static void SpriteCB_Sparkle_CircleInward(struct Sprite* sprite)
+static void SpriteCB_Sparkle_CircleInward(struct Sprite *sprite)
 {
     if (sprite->sAmplitude > 8)
     {
@@ -225,7 +211,7 @@ static void CreateSparkle_CircleInward(u8 trigIdx, u8 speed)
     }
 }
 
-static void SpriteCB_Sparkle_Spray(struct Sprite* sprite)
+static void SpriteCB_Sparkle_Spray(struct Sprite *sprite)
 {
     if (!(sprite->sTimer & 3))
         sprite->y++;
@@ -409,7 +395,7 @@ static void Task_Sparkles_SprayAndFlash_Init(u8 taskId)
 {
     SetEvoSparklesMatrices();
     gTasks[taskId].tTimer = 0;
-    CpuSet(&gPlttBufferFaded[0x20], &gPlttBufferUnfaded[0x20], 0x30);
+    CpuCopy16(&gPlttBufferFaded[BG_PLTT_ID(2)], &gPlttBufferUnfaded[BG_PLTT_ID(2)], 3 * PLTT_SIZE_4BPP);
     //BeginNormalPaletteFade(0xFFF9041C, 0, 0, 0x10, RGB_WHITE); // was 0xFFF9001C in R/S
     gTasks[taskId].func = Task_Sparkles_SprayAndFlash;
     PlaySE(SE_M_PETAL_DANCE);
@@ -419,7 +405,6 @@ static void Task_Sparkles_SprayAndFlash(u8 taskId)
 {
     if (gTasks[taskId].tTimer < 16)
     {
-        u8 i;
         switch (gTasks[taskId].tTimer)
         {
         //default:
@@ -459,7 +444,7 @@ static void Task_Sparkles_SprayAndFlashTrade_Init(u8 taskId)
 {
     SetEvoSparklesMatrices();
     gTasks[taskId].tTimer = 0;
-    CpuSet(&gPlttBufferFaded[0x20], &gPlttBufferUnfaded[0x20], 0x30);
+    CpuCopy16(&gPlttBufferFaded[BG_PLTT_ID(2)], &gPlttBufferUnfaded[BG_PLTT_ID(2)], 3 * PLTT_SIZE_4BPP);
     BeginNormalPaletteFade(0xFFF90400, 0, 0, 0x10, RGB_WHITE); // was 0xFFFF0001 in R/S
     gTasks[taskId].func = Task_Sparkles_SprayAndFlashTrade;
     PlaySE(SE_M_PETAL_DANCE);
@@ -493,7 +478,7 @@ static void Task_Sparkles_SprayAndFlashTrade(u8 taskId)
 #undef tTimer
 #undef tSpecies
 
-static void SpriteCB_EvolutionMonSprite(struct Sprite* sprite)
+static void SpriteCB_EvolutionMonSprite(struct Sprite *sprite)
 {
 
 }
@@ -537,13 +522,13 @@ u8 CycleEvolutionMonSprite(u8 preEvoSpriteId, u8 postEvoSpriteId)
     gSprites[preEvoSpriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
     gSprites[preEvoSpriteId].oam.matrixNum = MATRIX_PRE_EVO;
     gSprites[preEvoSpriteId].invisible = FALSE;
-    CpuSet(monPalette, &gPlttBufferFaded[0x100 + (gSprites[preEvoSpriteId].oam.paletteNum * 16)], 16);
+    CpuSet(monPalette, &gPlttBufferFaded[OBJ_PLTT_ID(gSprites[preEvoSpriteId].oam.paletteNum)], 16);
 
     gSprites[postEvoSpriteId].callback = SpriteCB_EvolutionMonSprite;
     gSprites[postEvoSpriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
     gSprites[postEvoSpriteId].oam.matrixNum = MATRIX_POST_EVO;
     gSprites[postEvoSpriteId].invisible = FALSE;
-    CpuSet(monPalette, &gPlttBufferFaded[0x100 + (gSprites[postEvoSpriteId].oam.paletteNum * 16)], 16);
+    CpuSet(monPalette, &gPlttBufferFaded[OBJ_PLTT_ID(gSprites[postEvoSpriteId].oam.paletteNum)], 16);
 
     gTasks[taskId].tEvoStopped = FALSE;
     return taskId;

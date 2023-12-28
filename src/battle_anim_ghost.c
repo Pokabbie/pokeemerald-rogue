@@ -233,7 +233,7 @@ static const union AnimCmd sAnim_GrudgeFlame[] =
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd *const sAnims_GrudgeFlame[] =
+const union AnimCmd *const gAnims_GrudgeFlame[] =
 {
     sAnim_GrudgeFlame,
 };
@@ -243,7 +243,7 @@ const struct SpriteTemplate gGrudgeFlameSpriteTemplate =
     .tileTag = ANIM_TAG_PURPLE_FLAME,
     .paletteTag = ANIM_TAG_PURPLE_FLAME,
     .oam = &gOamData_AffineOff_ObjBlend_16x32,
-    .anims = sAnims_GrudgeFlame,
+    .anims = gAnims_GrudgeFlame,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimGrudgeFlame,
@@ -693,7 +693,7 @@ static void AnimTask_SpiteTargetShadow_Step1(u8 taskId)
                 task->data[2] = 0;
                 task->data[3] = 16;
                 task->data[13] = GetAnimBattlerSpriteId(ANIM_TARGET);
-                task->data[4] = (gSprites[task->data[13]].oam.paletteNum + 16) * 16;
+                task->data[4] = OBJ_PLTT_ID2(gSprites[task->data[13]].oam.paletteNum);
                 if (position == 1) {
                     u16 mask = DISPCNT_BG1_ON;
                     mask2 = mask;
@@ -708,8 +708,8 @@ static void AnimTask_SpiteTargetShadow_Step1(u8 taskId)
         }
         break;
     case 1:
-        task->data[14] = (task->data[14] + 16) * 16;
-        CpuCopy32(&gPlttBufferUnfaded[task->data[4]], &gPlttBufferFaded[task->data[14]], 32);
+        task->data[14] = OBJ_PLTT_ID2(task->data[14]);
+        CpuCopy32(&gPlttBufferUnfaded[task->data[4]], &gPlttBufferFaded[task->data[14]], PLTT_SIZE_4BPP);
         BlendPalette(task->data[4], 16, 10, RGB(13, 0, 15));
         task->data[15]++;
         break;
@@ -880,7 +880,7 @@ void AnimTask_DestinyBondWhiteShadow(u8 taskId)
         for (battler = 0; battler < MAX_BATTLERS_COUNT; battler++)
         {
             if (battler != gBattleAnimAttacker
-             && battler != (gBattleAnimAttacker ^ 2)
+             && battler != BATTLE_PARTNER(gBattleAnimAttacker)
              && IsBattlerSpriteVisible(battler))
             {
                 if (gAnimMoveIndex == MOVE_DARK_VOID
@@ -888,7 +888,7 @@ void AnimTask_DestinyBondWhiteShadow(u8 taskId)
                     spriteId = CreateSprite(&gDarkVoidBlackHoleTemplate, baseX, baseY, 55);   //dark void
                 else
                     spriteId = CreateSprite(&gDestinyBondWhiteShadowSpriteTemplate, baseX, baseY, 55);   //destiny bond
-                
+
                 if (spriteId != MAX_SPRITES)
                 {
                     x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
@@ -914,7 +914,7 @@ void AnimTask_DestinyBondWhiteShadow(u8 taskId)
             spriteId = CreateSprite(&gDarkVoidBlackHoleTemplate, baseX, baseY, 55);   //dark void
         else
             spriteId = CreateSprite(&gDestinyBondWhiteShadowSpriteTemplate, baseX, baseY, 55);   //destiny bond
-        
+
         if (spriteId != MAX_SPRITES)
         {
             x = 48;
@@ -1080,7 +1080,7 @@ static void AnimTask_CurseStretchingBlackBg_Step1(u8 taskId)
         top = 0;
         bottom = 112;
         selectedPalettes = GetBattlePalettesMask(TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE);
-        BeginNormalPaletteFade(selectedPalettes, 0, 16, 16, RGB(0, 0, 0));
+        BeginNormalPaletteFade(selectedPalettes, 0, 16, 16, RGB_BLACK);
         gTasks[taskId].func = AnimTask_CurseStretchingBlackBg_Step2;
     }
 
@@ -1109,7 +1109,7 @@ static void AnimCurseNail(struct Sprite *sprite)
     s16 xDelta;
     s16 xDelta2;
 
-    InitSpritePosToAnimAttacker(sprite, 1);
+    InitSpritePosToAnimAttacker(sprite, TRUE);
     if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
     {
         xDelta = 24;
@@ -1447,7 +1447,6 @@ static void AnimPoltergeistItem(struct Sprite *sprite)
 void AnimTask_PulverizingPancakeWhiteShadow(u8 taskId)
 {
     struct Task *task;
-    s16 battler;
     u8 spriteId;
     s16 baseX, baseY;
     s16 x, y;

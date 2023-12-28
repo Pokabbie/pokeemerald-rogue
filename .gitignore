@@ -21,7 +21,6 @@ sound/**/*.bin
 sound/songs/midi/*.s
 tools/agbcc
 *.map
-*.ld
 *.bat
 *.dump
 *.sa*
@@ -31,12 +30,15 @@ build/
 *.ddump
 .idea/
 porymap.*.cfg
+prefabs.json
+.vscode/
 *.a
 .fuse_hidden*
 *.sna
 *.diff
 *.sym
 *.js
+src/data/map_group_count.h
 *.ups
 !scripts/*
 pokeemerald_memorystats.csv

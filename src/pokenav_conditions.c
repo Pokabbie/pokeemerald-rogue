@@ -348,7 +348,7 @@ static u8 *CopyConditionMonNameGender(u8 *str, u16 listId, bool8 skipPadding)
     *(str++) = TEXT_COLOR_LIGHT_BLUE;
 
     if (GetBoxOrPartyMonData(boxId, monId, MON_DATA_IS_EGG, NULL))
-        return StringCopyPadded(str, gText_EggNickname, CHAR_SPACE, 12);
+        return StringCopyPadded(str, gText_EggNickname, CHAR_SPACE, POKEMON_NAME_LENGTH + 2);
 
     GetBoxOrPartyMonData(boxId, monId, MON_DATA_NICKNAME, str);
     StringGet_Nickname(str);
@@ -365,7 +365,7 @@ static u8 *CopyConditionMonNameGender(u8 *str, u16 listId, bool8 skipPadding)
         level = GetLevelFromBoxMonExp(boxMon);
     }
 
-    if ((species == SPECIES_NIDORAN_F || species == SPECIES_NIDORAN_M) && !StringCompare(str, gSpeciesNames[species]))
+    if ((species == SPECIES_NIDORAN_F || species == SPECIES_NIDORAN_M) && !StringCompare(str, GetSpeciesName(species)))
         gender = MON_GENDERLESS;
 
     str_ = str; // For some reason, a variable is needed to match.
@@ -445,7 +445,7 @@ static void CopyMonNameGenderLocation(s16 listId, u8 loadId)
     }
     else
     {
-        for (i = 0; i < 12; i++)
+        for (i = 0; i < POKEMON_NAME_LENGTH + 2; i++)
             menu->nameText[loadId][i] = CHAR_SPACE;
         menu->nameText[loadId][i] = EOS;
 
@@ -522,9 +522,9 @@ static void GetMonConditionGraphData(s16 listId, u8 loadId)
 static void ConditionGraphDrawMonPic(s16 listId, u8 loadId)
 {
     u16 boxId, monId, species;
-    u32 personality, tid;
+    u32 personality;
     bool8 isShiny;
-    u8 gender;
+    u8 genderFlag;
     struct Pokenav_ConditionMenu *menu = GetSubstructPtr(POKENAV_SUBSTRUCT_CONDITION_GRAPH_MENU);
     struct PokenavMonList *monListPtr = GetSubstructPtr(POKENAV_SUBSTRUCT_MON_LIST);
 
@@ -533,13 +533,12 @@ static void ConditionGraphDrawMonPic(s16 listId, u8 loadId)
 
     boxId = monListPtr->monData[listId].boxId;
     monId = monListPtr->monData[listId].monId;
-    species = GetBoxOrPartyMonData(boxId, monId, MON_DATA_SPECIES2, NULL);
+    species = GetBoxOrPartyMonData(boxId, monId, MON_DATA_SPECIES_OR_EGG, NULL);
     isShiny = GetBoxOrPartyMonData(boxId, monId, MON_DATA_IS_SHINY, NULL);
-    gender = GetGenderForSpecies(species, GetBoxOrPartyMonData(boxId, monId, MON_DATA_GENDER_FLAG, NULL));
-    tid = GetBoxOrPartyMonData(boxId, monId, MON_DATA_OT_ID, NULL);
+    genderFlag = GetGenderForSpecies(species, GetBoxOrPartyMonData(boxId, monId, MON_DATA_GENDER_FLAG, NULL));
     personality = GetBoxOrPartyMonData(boxId, monId, MON_DATA_PERSONALITY, NULL);
-    LoadSpecialPokePic(&gMonFrontPicTable[species], menu->monPicGfx[loadId], species, personality, gender, TRUE);
-    LZ77UnCompWram(GetMonSpritePalFromSpecies(species, GetGenderForSpecies(species, gender), isShiny), menu->monPal[loadId]);
+    LoadSpecialPokePic(menu->monPicGfx[loadId], species, personality, GetGenderForSpecies(species, genderFlag), TRUE);
+    LZ77UnCompWram(GetMonSpritePalFromSpecies(species, GetGenderForSpecies(species, genderFlag), isShiny), menu->monPal[loadId]);
 }
 
 u16 GetMonListCount(void)

@@ -144,7 +144,7 @@ static u8 GetPathGenerationDifficulty()
 static void GeneratePath(struct AdvPathSettings* pathSettings)
 {
     struct AdvPathRoomSettings* bossRoom = &pathSettings->roomScratch[0];
-    memset(bossRoom, 0, sizeof(bossRoom));
+    memset(bossRoom, 0, sizeof(*bossRoom));
 
     AGB_ASSERT(pathSettings->generator != NULL);
 
@@ -568,8 +568,9 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             break;
 
         case ADVPATH_ROOM_MINIBOSS:
+            AGB_ASSERT(FALSE);
             gRogueAdvPath.rooms[roomId].roomParams.roomIdx = 0;
-            gRogueAdvPath.rooms[roomId].roomParams.perType.miniboss.trainerNum = Rogue_NextMinibossTrainerId();
+            gRogueAdvPath.rooms[roomId].roomParams.perType.miniboss.trainerNum = 0;
             break;
 
         case ADVPATH_ROOM_WILD_DEN:
@@ -622,7 +623,7 @@ static u8 CountRoomConnections(u8 mask)
 
 static u8 GenerateRoomConnectionMask(struct Coords8 coords, struct AdvPathSettings* pathSettings)
 {
-    u8 mask, i;
+    u8 mask;
     u8 connCount;
     u8 minConnCount = pathSettings->generator->connectionsSettingsPerColumn[min(coords.x, MAX_CONNECTION_GENERATOR_COLUMNS - 1)].minCount;
     u8 maxConnCount = pathSettings->generator->connectionsSettingsPerColumn[min(coords.x, MAX_CONNECTION_GENERATOR_COLUMNS - 1)].maxCount;
@@ -817,7 +818,6 @@ void RogueAdv_ApplyAdventureMetatiles()
     u16 treeCount;
     u8 i, j;
     bool8 isValid;
-    u8 totalHeight;
 
     // Detect trees, as we will likely need to remove them later
     treeCount = 0;
@@ -836,9 +836,6 @@ void RogueAdv_ApplyAdventureMetatiles()
             AGB_ASSERT(treeCount < ARRAY_COUNT(treesCoords));
         }
     }
-
-
-    totalHeight = gRogueAdvPath.pathMaxY - gRogueAdvPath.pathMinY + 1;
 
     // Draw room path
     for(i = 0; i < gRogueAdvPath.roomCount; ++i)
@@ -1042,6 +1039,9 @@ u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
             u8 minY = (u8)-1;
             u8 maxY = 0;
 
+            x = 0;
+            y = 0;
+
             for(i = 0; i < gRogueAdvPath.roomCount; ++i)
             {
                 // Count if in first column
@@ -1083,10 +1083,8 @@ void RogueAdv_ModifyObjectEvents(struct MapHeader *mapHeader, struct ObjectEvent
     u8 i;
     u8 writeIdx;
     u8 x, y;
-    u8 totalHeight;
 
     writeIdx = 0;
-    totalHeight = gRogueAdvPath.pathMaxY - gRogueAdvPath.pathMinY + 1;
 
     // Draw room path
     for(i = 0; i < gRogueAdvPath.roomCount; ++i)

@@ -23,6 +23,7 @@
 #include "field_message_box.h"
 #include "tv.h"
 #include "battle_factory.h"
+#include "constants/abilities.h"
 #include "constants/apprentice.h"
 #include "constants/battle_dome.h"
 #include "constants/battle_frontier.h"
@@ -78,72 +79,71 @@ static void FillPartnerParty(u16 trainerId);
 static void SetEReaderTrainerChecksum(struct BattleTowerEReaderTrainer *ereaderTrainer);
 static u8 SetTentPtrsGetLevel(void);
 
-// Const rom data.
 const u16 gBattleFrontierHeldItems[] =
 {
-    ITEM_NONE,
-    ITEM_KINGS_ROCK,
-    ITEM_SITRUS_BERRY,
-    ITEM_ORAN_BERRY,
-    ITEM_CHESTO_BERRY,
-    ITEM_HARD_STONE,
-    ITEM_FOCUS_BAND,
-    ITEM_PERSIM_BERRY,
-    ITEM_MIRACLE_SEED,
-    ITEM_BERRY_JUICE,
-    ITEM_MACHO_BRACE,
-    ITEM_SILVER_POWDER,
-    ITEM_CHERI_BERRY,
-    ITEM_BLACK_GLASSES,
-    ITEM_BLACK_BELT,
-    ITEM_SOUL_DEW,
-    ITEM_CHOICE_BAND,
-    ITEM_MAGNET,
-    ITEM_SILK_SCARF,
-    ITEM_WHITE_HERB,
-    ITEM_DEEP_SEA_SCALE,
-    ITEM_DEEP_SEA_TOOTH,
-    ITEM_MYSTIC_WATER,
-    ITEM_SHARP_BEAK,
-    ITEM_QUICK_CLAW,
-    ITEM_LEFTOVERS,
-    ITEM_RAWST_BERRY,
-    ITEM_LIGHT_BALL,
-    ITEM_POISON_BARB,
-    ITEM_NEVER_MELT_ICE,
-    ITEM_ASPEAR_BERRY,
-    ITEM_SPELL_TAG,
-    ITEM_BRIGHT_POWDER,
-    ITEM_LEPPA_BERRY,
-    ITEM_SCOPE_LENS,
-    ITEM_TWISTED_SPOON,
-    ITEM_METAL_COAT,
-    ITEM_MENTAL_HERB,
-    ITEM_CHARCOAL,
-    ITEM_PECHA_BERRY,
-    ITEM_SOFT_SAND,
-    ITEM_LUM_BERRY,
-    ITEM_DRAGON_SCALE,
-    ITEM_DRAGON_FANG,
-    ITEM_IAPAPA_BERRY,
-    ITEM_WIKI_BERRY,
-    ITEM_SEA_INCENSE,
-    ITEM_SHELL_BELL,
-    ITEM_SALAC_BERRY,
-    ITEM_LANSAT_BERRY,
-    ITEM_APICOT_BERRY,
-    ITEM_STARF_BERRY,
-    ITEM_LIECHI_BERRY,
-    ITEM_LEEK,
-    ITEM_LAX_INCENSE,
-    ITEM_AGUAV_BERRY,
-    ITEM_FIGY_BERRY,
-    ITEM_THICK_CLUB,
-    ITEM_MAGO_BERRY,
-    ITEM_METAL_POWDER,
-    ITEM_PETAYA_BERRY,
-    ITEM_LUCKY_PUNCH,
-    ITEM_GANLON_BERRY
+    [BATTLE_FRONTIER_ITEM_NONE]           = ITEM_NONE,
+    [BATTLE_FRONTIER_ITEM_KINGS_ROCK]     = ITEM_KINGS_ROCK,
+    [BATTLE_FRONTIER_ITEM_SITRUS_BERRY]   = ITEM_SITRUS_BERRY,
+    [BATTLE_FRONTIER_ITEM_ORAN_BERRY]     = ITEM_ORAN_BERRY,
+    [BATTLE_FRONTIER_ITEM_CHESTO_BERRY]   = ITEM_CHESTO_BERRY,
+    [BATTLE_FRONTIER_ITEM_HARD_STONE]     = ITEM_HARD_STONE,
+    [BATTLE_FRONTIER_ITEM_FOCUS_BAND]     = ITEM_FOCUS_BAND,
+    [BATTLE_FRONTIER_ITEM_PERSIM_BERRY]   = ITEM_PERSIM_BERRY,
+    [BATTLE_FRONTIER_ITEM_MIRACLE_SEED]   = ITEM_MIRACLE_SEED,
+    [BATTLE_FRONTIER_ITEM_BERRY_JUICE]    = ITEM_BERRY_JUICE,
+    [BATTLE_FRONTIER_ITEM_MACHO_BRACE]    = ITEM_MACHO_BRACE,
+    [BATTLE_FRONTIER_ITEM_SILVER_POWDER]  = ITEM_SILVER_POWDER,
+    [BATTLE_FRONTIER_ITEM_CHERI_BERRY]    = ITEM_CHERI_BERRY,
+    [BATTLE_FRONTIER_ITEM_BLACK_GLASSES]  = ITEM_BLACK_GLASSES,
+    [BATTLE_FRONTIER_ITEM_BLACK_BELT]     = ITEM_BLACK_BELT,
+    [BATTLE_FRONTIER_ITEM_SOUL_DEW]       = ITEM_SOUL_DEW,
+    [BATTLE_FRONTIER_ITEM_CHOICE_BAND]    = ITEM_CHOICE_BAND,
+    [BATTLE_FRONTIER_ITEM_MAGNET]         = ITEM_MAGNET,
+    [BATTLE_FRONTIER_ITEM_SILK_SCARF]     = ITEM_SILK_SCARF,
+    [BATTLE_FRONTIER_ITEM_WHITE_HERB]     = ITEM_WHITE_HERB,
+    [BATTLE_FRONTIER_ITEM_DEEP_SEA_SCALE] = ITEM_DEEP_SEA_SCALE,
+    [BATTLE_FRONTIER_ITEM_DEEP_SEA_TOOTH] = ITEM_DEEP_SEA_TOOTH,
+    [BATTLE_FRONTIER_ITEM_MYSTIC_WATER]   = ITEM_MYSTIC_WATER,
+    [BATTLE_FRONTIER_ITEM_SHARP_BEAK]     = ITEM_SHARP_BEAK,
+    [BATTLE_FRONTIER_ITEM_QUICK_CLAW]     = ITEM_QUICK_CLAW,
+    [BATTLE_FRONTIER_ITEM_LEFTOVERS]      = ITEM_LEFTOVERS,
+    [BATTLE_FRONTIER_ITEM_RAWST_BERRY]    = ITEM_RAWST_BERRY,
+    [BATTLE_FRONTIER_ITEM_LIGHT_BALL]     = ITEM_LIGHT_BALL,
+    [BATTLE_FRONTIER_ITEM_POISON_BARB]    = ITEM_POISON_BARB,
+    [BATTLE_FRONTIER_ITEM_NEVER_MELT_ICE] = ITEM_NEVER_MELT_ICE,
+    [BATTLE_FRONTIER_ITEM_ASPEAR_BERRY]   = ITEM_ASPEAR_BERRY,
+    [BATTLE_FRONTIER_ITEM_SPELL_TAG]      = ITEM_SPELL_TAG,
+    [BATTLE_FRONTIER_ITEM_BRIGHT_POWDER]  = ITEM_BRIGHT_POWDER,
+    [BATTLE_FRONTIER_ITEM_LEPPA_BERRY]    = ITEM_LEPPA_BERRY,
+    [BATTLE_FRONTIER_ITEM_SCOPE_LENS]     = ITEM_SCOPE_LENS,
+    [BATTLE_FRONTIER_ITEM_TWISTED_SPOON]  = ITEM_TWISTED_SPOON,
+    [BATTLE_FRONTIER_ITEM_METAL_COAT]     = ITEM_METAL_COAT,
+    [BATTLE_FRONTIER_ITEM_MENTAL_HERB]    = ITEM_MENTAL_HERB,
+    [BATTLE_FRONTIER_ITEM_CHARCOAL]       = ITEM_CHARCOAL,
+    [BATTLE_FRONTIER_ITEM_PECHA_BERRY]    = ITEM_PECHA_BERRY,
+    [BATTLE_FRONTIER_ITEM_SOFT_SAND]      = ITEM_SOFT_SAND,
+    [BATTLE_FRONTIER_ITEM_LUM_BERRY]      = ITEM_LUM_BERRY,
+    [BATTLE_FRONTIER_ITEM_DRAGON_SCALE]   = ITEM_DRAGON_SCALE,
+    [BATTLE_FRONTIER_ITEM_DRAGON_FANG]    = ITEM_DRAGON_FANG,
+    [BATTLE_FRONTIER_ITEM_IAPAPA_BERRY]   = ITEM_IAPAPA_BERRY,
+    [BATTLE_FRONTIER_ITEM_WIKI_BERRY]     = ITEM_WIKI_BERRY,
+    [BATTLE_FRONTIER_ITEM_SEA_INCENSE]    = ITEM_SEA_INCENSE,
+    [BATTLE_FRONTIER_ITEM_SHELL_BELL]     = ITEM_SHELL_BELL,
+    [BATTLE_FRONTIER_ITEM_SALAC_BERRY]    = ITEM_SALAC_BERRY,
+    [BATTLE_FRONTIER_ITEM_LANSAT_BERRY]   = ITEM_LANSAT_BERRY,
+    [BATTLE_FRONTIER_ITEM_APICOT_BERRY]   = ITEM_APICOT_BERRY,
+    [BATTLE_FRONTIER_ITEM_STARF_BERRY]    = ITEM_STARF_BERRY,
+    [BATTLE_FRONTIER_ITEM_LIECHI_BERRY]   = ITEM_LIECHI_BERRY,
+    [BATTLE_FRONTIER_ITEM_LEEK]           = ITEM_LEEK,
+    [BATTLE_FRONTIER_ITEM_LAX_INCENSE]    = ITEM_LAX_INCENSE,
+    [BATTLE_FRONTIER_ITEM_AGUAV_BERRY]    = ITEM_AGUAV_BERRY,
+    [BATTLE_FRONTIER_ITEM_FIGY_BERRY]     = ITEM_FIGY_BERRY,
+    [BATTLE_FRONTIER_ITEM_THICK_CLUB]     = ITEM_THICK_CLUB,
+    [BATTLE_FRONTIER_ITEM_MAGO_BERRY]     = ITEM_MAGO_BERRY,
+    [BATTLE_FRONTIER_ITEM_METAL_POWDER]   = ITEM_METAL_POWDER,
+    [BATTLE_FRONTIER_ITEM_PETAYA_BERRY]   = ITEM_PETAYA_BERRY,
+    [BATTLE_FRONTIER_ITEM_LUCKY_PUNCH]    = ITEM_LUCKY_PUNCH,
+    [BATTLE_FRONTIER_ITEM_GANLON_BERRY]   = ITEM_GANLON_BERRY,
 };
 
 #include "data/battle_frontier/battle_frontier_trainer_mons.h"
@@ -995,7 +995,7 @@ static bool8 ChooseSpecialBattleTowerTrainer(void)
     winStreak = GetCurrentBattleTowerWinStreak(lvlMode, battleMode);
     for (i = 0; i < BATTLE_TOWER_RECORD_COUNT; i++)
     {
-        u32 *record = (u32*)(&gSaveBlock2Ptr->frontier.towerRecords[i]);
+        u32 *record = (u32 *)(&gSaveBlock2Ptr->frontier.towerRecords[i]);
         u32 recordHasData = 0;
         u32 checksum = 0;
         for (j = 0; j < (sizeof(struct EmeraldBattleTowerRecord) - 4) / 4; j++) // - 4, because of the last field being the checksum itself.
@@ -1129,8 +1129,7 @@ u16 GetRandomScaledFrontierTrainerId(u8 challengeNum, u8 battleNum)
     return trainerId;
 }
 
-// Unused
-static void GetRandomScaledFrontierTrainerIdRange(u8 challengeNum, u8 battleNum, u16 *trainerIdPtr, u8 *rangePtr)
+static void UNUSED GetRandomScaledFrontierTrainerIdRange(u8 challengeNum, u8 battleNum, u16 *trainerIdPtr, u8 *rangePtr)
 {
     u16 trainerId, range;
 
@@ -1458,6 +1457,7 @@ u8 GetFrontierOpponentClass(u16 trainerId)
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
         struct Trainer trainer;
+        AGB_ASSERT(FALSE); // fixme
 
         Rogue_ModifyTrainer(trainerId - TRAINER_CUSTOM_PARTNER, &trainer);
 
@@ -1549,6 +1549,7 @@ void GetFrontierTrainerName(u8 *dst, u16 trainerId)
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
         const u8* trainerName = Rogue_GetTrainerName(trainerId - TRAINER_CUSTOM_PARTNER);
+        AGB_ASSERT(FALSE); // fixme
 
         for (i = 0; trainerName[i] != EOS; i++)
             dst[i] = trainerName[i];
@@ -1777,7 +1778,7 @@ static void FillTrainerParty(u16 trainerId, u8 firstMonId, u8 monCount)
 }
 
 // Probably an early draft before the 'CreateApprenticeMon' was written.
-static void Unused_CreateApprenticeMons(u16 trainerId, u8 firstMonId)
+static void UNUSED Unused_CreateApprenticeMons(u16 trainerId, u8 firstMonId)
 {
     s32 i, j;
     u8 friendship = MAX_FRIENDSHIP;
@@ -1853,12 +1854,14 @@ static void FillFactoryFrontierTrainerParty(u16 trainerId, u8 firstMonId)
 
     if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
-        u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
-        u8 battleMode = VarGet(VAR_FRONTIER_BATTLE_MODE);
     // By mistake Battle Tower's Level 50 challenge number is used to determine the IVs for Battle Factory.
     #ifdef BUGFIX
+        u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+        u8 battleMode = VarGet(VAR_FRONTIER_BATTLE_MODE);
         u8 challengeNum = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] / FRONTIER_STAGES_PER_CHALLENGE;
     #else
+        u8 UNUSED lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+        u8 battleMode = VarGet(VAR_FRONTIER_BATTLE_MODE);
         u8 challengeNum = gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][FRONTIER_LVL_50] / FRONTIER_STAGES_PER_CHALLENGE;
     #endif
         if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < FRONTIER_STAGES_PER_CHALLENGE - 1)
@@ -2154,6 +2157,16 @@ void DoSpecialTrainerBattle(void)
         PlayMapChosenOrBattleBGM(0);
         BattleTransition_StartOnField(B_TRANSITION_MAGMA);
         break;
+    case SPECIAL_BATTLE_AUTOMATION:
+        gBattleTypeFlags = BATTLE_TYPE_TRAINER;
+
+        // Manual BattleSetup_ConfigureTrainerBattle
+        BattleSetup_ConfigureAutomationTrainerBattle();
+
+        CreateTask(Task_StartBattleAfterTransition, 1);
+        PlayMapChosenOrBattleBGM(0);
+        BattleTransition_StartOnField(B_TRANSITION_BIG_POKEBALL);
+        break;
     case SPECIAL_BATTLE_MULTI:
         if (gSpecialVar_0x8005 & MULTI_BATTLE_2_VS_WILD) // Player + AI against wild mon
         {
@@ -2181,16 +2194,6 @@ void DoSpecialTrainerBattle(void)
 
         if (gSpecialVar_0x8005 & MULTI_BATTLE_CHOOSE_MONS) // Skip mons restoring(done in the script)
             gBattleScripting.specialTrainerBattleType = 0xFF;
-        break;
-    case SPECIAL_BATTLE_AUTOMATION:
-        gBattleTypeFlags = BATTLE_TYPE_TRAINER;
-
-        // Manual BattleSetup_ConfigureTrainerBattle
-        BattleSetup_ConfigureAutomationTrainerBattle();
-
-        CreateTask(Task_StartBattleAfterTransition, 1);
-        PlayMapChosenOrBattleBGM(0);
-        BattleTransition_StartOnField(B_TRANSITION_BIG_POKEBALL);
         break;
     }
 }
@@ -2262,7 +2265,7 @@ static void SaveTowerChallenge(void)
         SaveBattleTowerRecord();
 
     gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
-    VarSet(VAR_TEMP_0, 0);
+    VarSet(VAR_TEMP_CHALLENGE_STATUS, 0);
     gSaveBlock2Ptr->frontier.challengePaused = TRUE;
     SaveGameFrontier();
 }
@@ -2340,7 +2343,7 @@ static void LoadMultiPartnerCandidatesData(void)
     u32 lvlMode, battleMode;
     s32 challengeNum;
     u32 species1, species2;
-    u32 level;
+    u32 UNUSED level;
     struct ObjectEventTemplate *objEventTemplates;
 
     objEventTemplates = gSaveBlock1Ptr->objectEventTemplates;
@@ -2435,7 +2438,7 @@ static void LoadMultiPartnerCandidatesData(void)
     r10 = 0;
     for (i = 0; i < BATTLE_TOWER_RECORD_COUNT; i++)
     {
-        u32 *record = (u32*)(&gSaveBlock2Ptr->frontier.towerRecords[i]);
+        u32 *record = (u32 *)(&gSaveBlock2Ptr->frontier.towerRecords[i]);
         u32 recordHasData = 0;
         u32 checksum = 0;
         for (j = 0; j < (sizeof(struct EmeraldBattleTowerRecord) - 4) / 4; j++) // - 4, because of the last field being the checksum itself.
@@ -2508,7 +2511,7 @@ static void GetPotentialPartnerMoveAndSpecies(u16 trainerId, u16 monId)
     }
 
     StringCopy(gStringVar1, gMoveNames[move]);
-    StringCopy(gStringVar2, gSpeciesNames[species]);
+    StringCopy(gStringVar2, GetSpeciesName(species));
 }
 
 // For multi battles in the Battle Tower, the player may choose a partner by talking to them
@@ -2523,7 +2526,7 @@ static void ShowPartnerCandidateMessage(void)
 {
     s32 i, j, partnerId;
     s32 monId;
-    s32 level = SetFacilityPtrsGetLevel();
+    s32 UNUSED level = SetFacilityPtrsGetLevel();
     u16 winStreak = GetCurrentFacilityWinStreak();
     s32 challengeNum = winStreak / FRONTIER_STAGES_PER_CHALLENGE;
     s32 k = gSpecialVar_LastTalked - 2;
@@ -2696,7 +2699,7 @@ static void LoadLinkMultiOpponentsData(void)
             gTrainerBattleOpponent_B = gSaveBlock2Ptr->frontier.trainerIds[battleNum * 2 + 1];
             SetBattleFacilityTrainerGfxId(gTrainerBattleOpponent_A, 0);
             SetBattleFacilityTrainerGfxId(gTrainerBattleOpponent_B, 1);
-            if (gReceivedRemoteLinkPlayers != 0 && gWirelessCommType == 0)
+            if (gReceivedRemoteLinkPlayers && gWirelessCommType == 0)
                 gSpecialVar_Result = 4;
             else
                 gSpecialVar_Result = 6;
@@ -2751,7 +2754,7 @@ static void SetTowerInterviewData(void)
 static void ValidateBattleTowerRecordChecksums(void)
 {
     s32 i, j;
-    u32 *record = (u32*)(&gSaveBlock2Ptr->frontier.towerPlayer);
+    u32 *record = (u32 *)(&gSaveBlock2Ptr->frontier.towerPlayer);
     u32 checksum = 0;
 
     for (j = 0; j < (sizeof(struct EmeraldBattleTowerRecord) - 4) / 4; j++) // - 4, because of the last field being the checksum itself.
@@ -2763,7 +2766,7 @@ static void ValidateBattleTowerRecordChecksums(void)
 
     for (i = 0; i < BATTLE_TOWER_RECORD_COUNT; i++)
     {
-        record = (u32*)(&gSaveBlock2Ptr->frontier.towerRecords[i]);
+        record = (u32 *)(&gSaveBlock2Ptr->frontier.towerRecords[i]);
         checksum = 0;
         for (j = 0; j < (sizeof(struct EmeraldBattleTowerRecord) - 4) / 4; j++) // - 4, because of the last field being the checksum itself.
         {
@@ -2885,7 +2888,7 @@ static void AwardBattleTowerRibbons(void)
 
 // This is a leftover debugging function that is used to populate the E-Reader
 // trainer with the player's current data.
-static void FillEReaderTrainerWithPlayerData(void)
+static void UNUSED FillEReaderTrainerWithPlayerData(void)
 {
     struct BattleTowerEReaderTrainer *ereaderTrainer = &gSaveBlock2Ptr->frontier.ereaderTrainer;
     s32 i, j;
@@ -3060,70 +3063,7 @@ static void FillPartnerParty(u16 trainerId)
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
     {
-        struct Trainer trainer;
-
-        Rogue_ModifyTrainer(trainerId - TRAINER_CUSTOM_PARTNER, &trainer);
-
-        otID = Random32();
-
-        for (i = 0; i < 3; i++)
-            ZeroMonData(&gPlayerParty[i + 3]);
-
-        for (i = 0; i < 3 && i < trainer.partySize; i++)
-        {
-            j = Random32();
-
-            switch (trainer.partyFlags)
-            {
-            case 0:
-            {
-                const struct TrainerMonNoItemDefaultMoves *partyData = trainer.party.NoItemDefaultMoves;
-
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
-                break;
-            }
-            case F_TRAINER_PARTY_CUSTOM_MOVESET:
-            {
-                const struct TrainerMonNoItemCustomMoves *partyData = trainer.party.NoItemCustomMoves;
-
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
-
-                for (j = 0; j < 4; j++)
-                {
-                    SetMonData(&gPlayerParty[i + 3], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
-                    SetMonData(&gPlayerParty[i + 3], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
-                }
-                break;
-            }
-            case F_TRAINER_PARTY_HELD_ITEM:
-            {
-                const struct TrainerMonItemDefaultMoves *partyData = trainer.party.ItemDefaultMoves;
-
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
-
-                SetMonData(&gPlayerParty[i + 3], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
-                break;
-            }
-            case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
-            {
-                const struct TrainerMonItemCustomMoves *partyData = trainer.party.ItemCustomMoves;
-
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
-
-                SetMonData(&gPlayerParty[i + 3], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
-
-                for (j = 0; j < 4; j++)
-                {
-                    SetMonData(&gPlayerParty[i + 3], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
-                    SetMonData(&gPlayerParty[i + 3], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
-                }
-                break;
-            }
-            }
-
-            StringCopy(trainerName, Rogue_GetTrainerName(trainerId - TRAINER_CUSTOM_PARTNER));
-            SetMonData(&gPlayerParty[i + 3], MON_DATA_OT_NAME, trainerName);
-        }
+        AGB_ASSERT(FALSE); // fixme
     }
     else if (trainerId == TRAINER_EREADER)
     {
@@ -3306,7 +3246,7 @@ void CalcApprenticeChecksum(struct Apprentice *apprentice)
     s32 i;
 
     apprentice->checksum = 0;
-    for (i = 0; i < (sizeof(struct Apprentice) - 4) / 4; i++)
+    for (i = 0; i < offsetof(struct Apprentice, checksum) / sizeof(u32); i++)
         apprentice->checksum += ((u32 *)apprentice)[i];
 }
 
@@ -3314,7 +3254,7 @@ static void ClearApprentice(struct Apprentice *apprentice)
 {
     s32 i;
 
-    for (i = 0; i < (sizeof(struct Apprentice)) / 4; i++)
+    for (i = 0; i < sizeof(struct Apprentice) / sizeof(u32); i++)
         ((u32 *)apprentice)[i] = 0;
     ResetApprenticeStruct(apprentice);
 }
@@ -3325,9 +3265,9 @@ static void ValidateApprenticesChecksums(void)
 
     for (i = 0; i < APPRENTICE_COUNT; i++)
     {
-        u32 *data = (u32*) &gSaveBlock2Ptr->apprentices[i];
+        u32 *data = (u32 *) &gSaveBlock2Ptr->apprentices[i];
         u32 checksum = 0;
-        for (j = 0; j < (sizeof(struct Apprentice) - 4) / 4; j++)
+        for (j = 0; j < offsetof(struct Apprentice, checksum) / sizeof(u32); j++)
             checksum += data[j];
         if (gSaveBlock2Ptr->apprentices[i].checksum != checksum)
             ClearApprentice(&gSaveBlock2Ptr->apprentices[i]);
@@ -3402,7 +3342,7 @@ s32 GetHighestLevelInPlayerParty(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)
-            && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, NULL) != SPECIES_EGG)
+            && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) != SPECIES_EGG)
         {
             s32 level = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL, NULL);
             if (level > highestLevel)
@@ -3634,10 +3574,10 @@ u16 FacilityClassToGraphicsId(u8 facilityClass)
 bool32 ValidateBattleTowerRecord(u8 recordId) // unused
 {
     s32 i;
-    u32 *record = (u32*)(&gSaveBlock2Ptr->frontier.towerRecords[recordId]);
+    u32 *record = (u32 *)(&gSaveBlock2Ptr->frontier.towerRecords[recordId]);
     u32 checksum = 0;
     u32 hasData = 0;
-    for (i = 0; i < (sizeof(struct EmeraldBattleTowerRecord) - 4) / 4; i++) // - 4, because of the last fjeld bejng the checksum jtself.
+    for (i = 0; i < offsetof(struct EmeraldBattleTowerRecord, checksum) / sizeof(u32); i++)
     {
         checksum += record[i];
         hasData |= record[i];
@@ -3671,7 +3611,7 @@ void TrySetLinkBattleTowerEnemyPartyLevel(void)
             u32 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES, NULL);
             if (species)
             {
-                exp = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, enemyLevel);
+                exp = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, enemyLevel);
 
                 SetMonData(&gEnemyParty[i], MON_DATA_EXP, &exp);
                 CalculateMonStats(&gEnemyParty[i]);

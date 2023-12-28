@@ -23,8 +23,13 @@
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
 
-#define QUERY_BUFFER_COUNT          128
+#ifdef ROGUE_EXPANSION
+#define QUERY_NUM_SPECIES           PLACEHOLDER_START
+#else
 #define QUERY_NUM_SPECIES           NUM_SPECIES
+#endif
+
+#define QUERY_BUFFER_COUNT          128
 #define QUERY_NUM_ITEMS             ITEMS_COUNT
 #define QUERY_NUM_TRAINERS          256 // just a vague guess that needs to at least match gRogueTrainerCount
 #define QUERY_NUM_ADVENTURE_PATH    ROGUE_ADVPATH_ROOM_CAPACITY
@@ -305,14 +310,12 @@ void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8
 static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 removeWhenEvo)
 {
     u8 i;
-    bool8 hasEvolved;
     struct Evolution evo;
-
-    hasEvolved = FALSE;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(species);
 
     ASSERT_MON_QUERY;
     
-    for(i = 0; i < EVOS_PER_MON; ++i)
+    for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(species, i, &evo);
 
@@ -368,7 +371,6 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
         }
 
         // If we reach here we're allowed to evolve
-        hasEvolved = TRUE;
         SetQueryBitFlag(evo.targetSpecies, TRUE);
 
         if(removeWhenEvo)
@@ -387,7 +389,6 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
 
 void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
 {
-    u8 i;
     u16 species;
     u32 speciesFlags;
 
@@ -424,7 +425,6 @@ void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
 
 void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags)
 {
-    u8 i;
     bool8 containsAnyType;
     u16 species;
 
@@ -460,7 +460,6 @@ void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags)
 
 void RogueMonQuery_ContainsPresetFlags(u8 func, u32 presetflags)
 {
-    u8 i;
     u16 species;
     u32 speciesFlags;
 
@@ -511,7 +510,6 @@ void RogueMonQuery_IsLegendary(u8 func)
 
 void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 presetflags)
 {
-    u8 i;
     u16 species;
     u32 speciesFlags;
 
@@ -547,7 +545,6 @@ void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 presetflags)
 
 void RogueMonQuery_IsBoxLegendary(u8 func)
 {
-    u8 i;
     bool8 valid;
     u16 species;
 
@@ -579,7 +576,6 @@ void RogueMonQuery_IsBoxLegendary(u8 func)
 
 void RogueMonQuery_IsRoamerLegendary(u8 func)
 {
-    u8 i;
     bool8 valid;
     u16 species;
 
@@ -609,11 +605,12 @@ void RogueMonQuery_IsRoamerLegendary(u8 func)
     }
 }
 
-void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
+void RogueMonQuery_AnyActiveEvos(u8 func)
 {
     bool8 hasValidEvo;
     u16 species, i;
     struct Evolution evo;
+    u8 evoCount;
 
     ASSERT_MON_QUERY;
     
@@ -622,24 +619,14 @@ void RogueMonQuery_AnyActiveEvos(u8 func, bool8 includeMegas)
         if(GetQueryBitFlag(species))
         {
             hasValidEvo = FALSE;
+            evoCount = Rogue_GetMaxEvolutionCount(species);
 
-            for (i = 0; i < EVOS_PER_MON; i++)
+            for (i = 0; i < evoCount; i++)
             {
                 Rogue_ModifyEvolution(species, i, &evo);
 
                 if (evo.targetSpecies != SPECIES_NONE && evo.method != 0)
                 {
-                    if(!includeMegas)
-                    {
-                        switch (evo.method)
-                        {
-                            case EVO_MEGA_EVOLUTION:
-                            case EVO_MOVE_MEGA_EVOLUTION:
-                            case EVO_PRIMAL_REVERSION:
-                                continue;
-                        }
-                    }
-
                     hasValidEvo = TRUE;
                     break;
                 }
@@ -785,11 +772,26 @@ bool8 Query_IsSpeciesEnabledInternal(u16 species)
 bool8 Query_IsSpeciesEnabled(u16 species)
 {
     // Check if mon has valid data
-    if(gBaseStats[species].abilities[0] != ABILITY_NONE && gBaseStats[species].catchRate != 0)
+    if(gRogueSpeciesInfo[species].baseHP != 0)
     {
 #ifdef ROGUE_EXPANSION
+        if(species > GEN9_START && species <= PLACEHOLDER_START)
+        {
+            // Gen 9 section is after the forms start
+            // Illegal species for either wild or trainers
+            switch (species)
+            {
+            //case SPECIES_MAUSHOLD_FAMILY_OF_FOUR:
+            case SPECIES_PALAFIN_HERO:
+            //case SPECIES_DUDUNSPARCE_THREE_SEGMENT:
+            case SPECIES_GIMMIGHOUL_ROAMING:
+                return FALSE;
+            
+            }
+        }
+
         // Include specific forms in these queries
-        if(species > FORMS_START)
+        else if(species > FORMS_START)
         {
             // Regional forms
             if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_STUNFISK_GALARIAN)
@@ -1284,8 +1286,6 @@ void RogueMoveQuery_IsTM(u8 func)
 
 void RogueMoveQuery_IsHM(u8 func)
 {
-    u16 i, move;
-
     ASSERT_MOVES_QUERY;
 
     if(func == QUERY_FUNC_INCLUDE)
@@ -1296,6 +1296,9 @@ void RogueMoveQuery_IsHM(u8 func)
     else if(func == QUERY_FUNC_EXCLUDE)
     {
 #ifndef ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
+        u16 move;
+        u16 i;
+
         for(i = 0; i < NUM_HIDDEN_MACHINES; ++i)
         {
             move = ItemIdToBattleMoveId(ITEM_HM01 + i);

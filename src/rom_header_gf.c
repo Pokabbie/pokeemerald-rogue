@@ -7,6 +7,15 @@
 #include "pokeball.h"
 #include "rogue.h"
 
+// The purpose of this struct is for outside applications to be
+// able to access parts of the ROM or its save file, like a public API.
+// In vanilla, it was used by Colosseum and XD to access pokemon graphics.
+//
+// If this struct is rearranged in any way, it defeats the purpose of
+// having it at all. Applications like PKHex or streaming HUDs may find
+// these values useful, so there's some potential benefit to keeping it.
+// If there's a compilation problem below, just comment out the assignment
+// instead of changing this struct.
 struct GFRomHeader
 {
     u32 version;
@@ -16,8 +25,8 @@ struct GFRomHeader
     const struct CompressedSpriteSheet * monBackPics;
     const struct CompressedSpritePalette * monNormalPalettes;
     const struct CompressedSpritePalette * monShinyPalettes;
-    const u8 * const * monIcons;
-    const u8 * monIconPaletteIds;
+    const u8 *const * monIcons;
+    const u8 *monIconPaletteIds;
     const struct SpritePalette * monIconPalettes;
     const u8 (* monSpeciesNames)[];
     const u8 (* moveNames)[];
@@ -32,7 +41,7 @@ struct GFRomHeader
     u32 mysteryEventFlag;
     u32 pokedexCount;
     u8 playerNameLength;
-    u8 unk2;
+    u8 trainerNameLength;
     u8 pokemonNameLength1;
     u8 pokemonNameLength2;
 #if 1
@@ -70,9 +79,9 @@ struct GFRomHeader
     u32 externalEventFlagsOffset;
     u32 externalEventDataOffset;
     u32 unk18;
-    const struct BaseStats * baseStats;
+    const struct SpeciesInfo * speciesInfo;
     const u8 (* abilityNames)[];
-    const u8 * const * abilityDescriptions;
+    const u8 *const * abilityDescriptions;
     const struct Item * items;
     const struct BattleMove * moves;
     const struct CompressedSpriteSheet * ballGfx;
@@ -90,7 +99,7 @@ struct GFRomHeader
     u32 giftRibbonsOffset;
     u32 enigmaBerryOffset;
     u32 enigmaBerrySize;
-    const u8 * moveDescriptions;
+    const u8 *moveDescriptions;
     u32 unk20;
 };
 
@@ -101,14 +110,14 @@ static const struct GFRomHeader sGFRomHeader = {
     .version = GAME_VERSION,
     .language = GAME_LANGUAGE,
     .gameName = "pokemon emerald rogue version",
-    .monFrontPics = gMonFrontPicTable,
-    .monBackPics = gMonBackPicTable,
-    .monNormalPalettes = gMonPaletteTable,
-    .monShinyPalettes = gMonShinyPaletteTable,
-    .monIcons = gMonIconTable,
-    .monIconPaletteIds = gMonIconPaletteIndices,
+    //.monFrontPics = gMonFrontPicTable, // Handled in gSpeciesInfo
+    //.monBackPics = gMonBackPicTable, // Handled in gSpeciesInfo
+    //.monNormalPalettes = gMonPaletteTable, // Handled in gSpeciesInfo
+    //.monShinyPalettes = gMonShinyPaletteTable, // Handled in gSpeciesInfo
+    //.monIcons = gMonIconTable,
+    //.monIconPaletteIds = gMonIconPaletteIndices,
     .monIconPalettes = gMonIconPaletteTable,
-    .monSpeciesNames = gSpeciesNames,
+    //.monSpeciesNames = gSpeciesNames, // Handled in gSpeciesInfo
     .moveNames = gMoveNames,
     .decorations = gDecorations,
     .flagsOffset = offsetof(struct SaveBlock1, flags),
@@ -121,7 +130,7 @@ static const struct GFRomHeader sGFRomHeader = {
     .mysteryEventFlag = FLAG_SYS_MYSTERY_EVENT_ENABLE,
     .pokedexCount = NATIONAL_DEX_COUNT,
     .playerNameLength = PLAYER_NAME_LENGTH,
-    .unk2 = 10,
+    .trainerNameLength = TRAINER_NAME_LENGTH,
     .pokemonNameLength1 = POKEMON_NAME_LENGTH,
     .pokemonNameLength2 = POKEMON_NAME_LENGTH,
 #if 1
@@ -157,7 +166,7 @@ static const struct GFRomHeader sGFRomHeader = {
     .externalEventFlagsOffset = 0,
     .externalEventDataOffset = 0,
     .unk18 = 0x00000000,
-    .baseStats = gBaseStats,
+    .speciesInfo = gSpeciesInfo,
     .abilityNames = gAbilityNames,
     .abilityDescriptions = gAbilityDescriptionPointers,
     .items = gItems,

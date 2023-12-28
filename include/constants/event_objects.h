@@ -523,10 +523,7 @@
 #define OBJ_EVENT_GFX_FOLLOW_MON_FIRST           OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
 #define OBJ_EVENT_GFX_FOLLOW_MON_LAST            OBJ_EVENT_GFX_FOLLOW_MON_F
 
-#define OBJ_EVENT_GFX_RIDE_MON_FIRST             (OBJ_EVENT_GFX_FOLLOW_MON_LAST + 1)
-#define OBJ_EVENT_GFX_RIDE_MON_LAST              (OBJ_EVENT_GFX_RIDE_MON_FIRST + 10)
-
-#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_RIDE_MON_LAST + 1)
+#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_FOLLOW_MON_LAST + 1)
 
 #define OBJ_EVENT_GFX_PLAYER_AVATAR             (0xFF00)
 #define OBJ_EVENT_GFX_PLAYER_RIVAL              (0xFF01)
@@ -570,6 +567,9 @@
 #define TRACKS_BIKE_TIRE  2
 
 #define FIRST_DECORATION_SPRITE_GFX OBJ_EVENT_GFX_PICHU_DOLL
+
+#define OBJ_KIND_NORMAL 0
+#define OBJ_KIND_CLONE  255 // Exclusive to FRLG
 
 // Special object event local ids
 #define OBJ_EVENT_ID_PLAYER 0xFF

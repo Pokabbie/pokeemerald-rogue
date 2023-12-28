@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PokemonDataGenerator.Pokedex
@@ -490,40 +491,40 @@ namespace PokemonDataGenerator.Pokedex
 
 		private static bool IsBannedMove(string moveName)
 		{
-			switch(moveName)
-			{
-				case "MOVE_TERA_BLAST":
-				case "MOVE_PSYSHIELD_BASH":
-				case "MOVE_TRAILBLAZE":
-				case "MOVE_STONE_AXE":
-				case "MOVE_POUNCE":
-				case "MOVE_HEADLONG_RUSH":
-				case "MOVE_WAVE_CRASH":
-				case "MOVE_LAST_RESPECTS":
-				case "MOVE_SNOWSCAPE":
-				case "MOVE_CHILLING_WATER":
-				case "MOVE_DIRE_CLAW":
-				case "MOVE_BARB_BARRAGE":
-				case "MOVE_SPRINGTIDE_STORM":
-				case "MOVE_RAGING_FURY":
-				case "MOVE_CHLOROBLAST":
-				case "MOVE_INFERNAL_PARADE":
-				case "MOVE_CEASELESS_EDGE":
-				case "MOVE_VICTORY_DANCE":
-				case "MOVE_AXE_KICK":
-				case "MOVE_ICE_SPINNER":
-				case "MOVE_BITTER_MALICE":
-				case "MOVE_COMEUPPANCE":
-				case "MOVE_ESPER_WING":
-				case "MOVE_SHELTER":
-				case "MOVE_MOUNTAIN_GALE":
-				case "MOVE_TRIPLE_ARROWS":
-
-					// Sanity check as, when these moves are added they need to be removed from the banned list
-					if (GameDataHelpers.MoveDefines.ContainsKey(moveName))
-						throw new InvalidDataException();
-					return true;
-			}
+			//switch(moveName)
+			//{
+			//	case "MOVE_TERA_BLAST":
+			//	case "MOVE_PSYSHIELD_BASH":
+			//	case "MOVE_TRAILBLAZE":
+			//	case "MOVE_STONE_AXE":
+			//	case "MOVE_POUNCE":
+			//	case "MOVE_HEADLONG_RUSH":
+			//	case "MOVE_WAVE_CRASH":
+			//	case "MOVE_LAST_RESPECTS":
+			//	case "MOVE_SNOWSCAPE":
+			//	case "MOVE_CHILLING_WATER":
+			//	case "MOVE_DIRE_CLAW":
+			//	case "MOVE_BARB_BARRAGE":
+			//	case "MOVE_SPRINGTIDE_STORM":
+			//	case "MOVE_RAGING_FURY":
+			//	case "MOVE_CHLOROBLAST":
+			//	case "MOVE_INFERNAL_PARADE":
+			//	case "MOVE_CEASELESS_EDGE":
+			//	case "MOVE_VICTORY_DANCE":
+			//	case "MOVE_AXE_KICK":
+			//	case "MOVE_ICE_SPINNER":
+			//	case "MOVE_BITTER_MALICE":
+			//	case "MOVE_COMEUPPANCE":
+			//	case "MOVE_ESPER_WING":
+			//	case "MOVE_SHELTER":
+			//	case "MOVE_MOUNTAIN_GALE":
+			//	case "MOVE_TRIPLE_ARROWS":
+			//
+			//		// Sanity check as, when these moves are added they need to be removed from the banned list
+			//		if (GameDataHelpers.MoveDefines.ContainsKey(moveName))
+			//			throw new InvalidDataException();
+			//		return true;
+			//}
 
 			return false;
 		}
@@ -532,15 +533,20 @@ namespace PokemonDataGenerator.Pokedex
 		{
 			List<PokemonProfile> profiles = new List<PokemonProfile>();
 			Dictionary<string, string> redirectedSpecies = new Dictionary<string, string>();
+			int exceptionHitCount = 0;
 
-			foreach (var kvp in GameDataHelpers.SpeciesDefines)
+			Stack<string> speciesToProcess = new Stack<string>();
+			foreach (var kvp in GameDataHelpers.SpeciesDefines.Reverse())
 			{
-				string speciesName;
+				speciesToProcess.Push(kvp.Key);
+			}
+
+			while(speciesToProcess.Count != 0)
+			{
+				string speciesName = speciesToProcess.Pop();
 
 				try
 				{
-					speciesName = kvp.Key;
-
 					if (!GameDataHelpers.IsUniqueSpeciesDefine(speciesName))
 						continue;
 
@@ -578,6 +584,23 @@ namespace PokemonDataGenerator.Pokedex
 							else if (speciesName.EndsWith("_PRIMAL"))
 							{
 								redirectSpecies = speciesName.Substring(0, speciesName.Length - "_PRIMAL".Length);
+							}
+							else if (speciesName.EndsWith("_GIGANTAMAX"))
+							{
+								switch (speciesName)
+								{
+									case "SPECIES_TOXTRICITY_AMPED_GIGANTAMAX":
+										redirectSpecies = "SPECIES_TOXTRICITY";
+										break;
+
+									case "SPECIES_URSHIFU_SINGLE_STRIKE_STYLE_GIGANTAMAX":
+										redirectSpecies = "SPECIES_URSHIFU";
+										break;
+
+									default:
+										redirectSpecies = speciesName.Substring(0, speciesName.Length - "_GIGANTAMAX".Length);
+										break;
+								}
 							}
 							else if (speciesName.StartsWith("SPECIES_BURMY_"))
 							{
@@ -642,6 +665,10 @@ namespace PokemonDataGenerator.Pokedex
 							else if (speciesName.StartsWith("SPECIES_ALCREMIE_"))
 							{
 								redirectSpecies = "SPECIES_ALCREMIE";
+							}
+							else if (speciesName.StartsWith("SPECIES_SQUAWKABILLY_"))
+							{
+								redirectSpecies = "SPECIES_SQUAWKABILLY";
 							}
 							else
 							{
@@ -722,6 +749,22 @@ namespace PokemonDataGenerator.Pokedex
 										redirectSpecies = "SPECIES_ZARUDE";
 										break;
 
+									case "SPECIES_OGERPON_TEAL_MASK_TERA":
+										redirectSpecies = "SPECIES_OGERPON";
+										break;
+
+									case "SPECIES_OGERPON_WELLSPRING_MASK_TERA":
+										redirectSpecies = "SPECIES_OGERPON_WELLSPRING_MASK";
+										break;
+
+									case "SPECIES_OGERPON_HEARTHFLAME_MASK_TERA":
+										redirectSpecies = "SPECIES_OGERPON_HEARTHFLAME_MASK";
+										break;
+
+									case "SPECIES_OGERPON_CORNERSTONE_MASK_TERA":
+										redirectSpecies = "SPECIES_OGERPON_CORNERSTONE_MASK";
+										break;
+
 									case "SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING":
 										redirectSpecies = "SPECIES_WOBBUFFET_ROGUEIAN";
 										break;
@@ -743,12 +786,22 @@ namespace PokemonDataGenerator.Pokedex
 					PokemonProfile profile = GatherProfileFor(speciesName);
 					profiles.Add(profile);
 				}
-				catch(AggregateException e)
+				catch (AggregateException e)
 				{
 					if (e.InnerException is HttpRequestException)
 						Console.WriteLine($"\tCaught Http Exception '{e.InnerException.Message}'");
-					//else
-					throw e;
+
+					if (++exceptionHitCount < 5)
+					{
+						speciesToProcess.Push(speciesName);
+
+						Console.WriteLine($"\tSleeping (assuming just rapid access error)");
+						Thread.Sleep(5000);
+					}
+					{
+						// Gone over threshold
+						throw e;
+					}
 				}
 			}
 

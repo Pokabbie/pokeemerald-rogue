@@ -244,7 +244,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
 };
 
 #define TRAINER_SPRITE_CUSTOM(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
-#define TRAINER_SPRITE(trainerPic, sprite) TRAINER_SPRITE_CUSTOM(trainerPic, sprite, 0x800)
+#define TRAINER_SPRITE(trainerPic, sprite) TRAINER_SPRITE_CUSTOM(trainerPic, sprite, TRAINER_PIC_SIZE)
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
 {
@@ -298,13 +298,13 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(LEADER_JUAN, gTrainerFrontPic_LeaderJuan),
     TRAINER_SPRITE(SCHOOL_KID_M, gTrainerFrontPic_SchoolKidM),
     TRAINER_SPRITE(SCHOOL_KID_F, gTrainerFrontPic_SchoolKidF),
-    TRAINER_SPRITE_CUSTOM(SR_AND_JR, gTrainerFrontPic_SrAndJr, 0x1000),
-    TRAINER_SPRITE_CUSTOM(POKEFAN_M, gTrainerFrontPic_PokefanM, 0x1000),
+    TRAINER_SPRITE_CUSTOM(SR_AND_JR, gTrainerFrontPic_SrAndJr, TRAINER_PIC_SIZE * 2),
+    TRAINER_SPRITE_CUSTOM(POKEFAN_M, gTrainerFrontPic_PokefanM, TRAINER_PIC_SIZE * 2),
     TRAINER_SPRITE(POKEFAN_F, gTrainerFrontPic_PokefanF),
     TRAINER_SPRITE(YOUNGSTER, gTrainerFrontPic_Youngster),
-    TRAINER_SPRITE_CUSTOM(CHAMPION_WALLACE, gTrainerFrontPic_ChampionWallace, 0x1000),
+    TRAINER_SPRITE_CUSTOM(CHAMPION_WALLACE, gTrainerFrontPic_ChampionWallace, TRAINER_PIC_SIZE * 2),
     TRAINER_SPRITE(FISHERMAN, gTrainerFrontPic_Fisherman),
-    TRAINER_SPRITE_CUSTOM(CYCLING_TRIATHLETE_M, gTrainerFrontPic_CyclingTriathleteM, 0x1000),
+    TRAINER_SPRITE_CUSTOM(CYCLING_TRIATHLETE_M, gTrainerFrontPic_CyclingTriathleteM, TRAINER_PIC_SIZE * 2),
     TRAINER_SPRITE(CYCLING_TRIATHLETE_F, gTrainerFrontPic_CyclingTriathleteF),
     TRAINER_SPRITE(RUNNING_TRIATHLETE_M, gTrainerFrontPic_RunningTriathleteM),
     TRAINER_SPRITE(RUNNING_TRIATHLETE_F, gTrainerFrontPic_RunningTriathleteF),
@@ -312,7 +312,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(SWIMMING_TRIATHLETE_F, gTrainerFrontPic_SwimmingTriathleteF),
     TRAINER_SPRITE(DRAGON_TAMER, gTrainerFrontPic_DragonTamer),
     TRAINER_SPRITE(NINJA_BOY, gTrainerFrontPic_NinjaBoy),
-    TRAINER_SPRITE_CUSTOM(BATTLE_GIRL, gTrainerFrontPic_BattleGirl, 0x1000),
+    TRAINER_SPRITE_CUSTOM(BATTLE_GIRL, gTrainerFrontPic_BattleGirl, TRAINER_PIC_SIZE * 2),
     TRAINER_SPRITE(PARASOL_LADY, gTrainerFrontPic_ParasolLady),
     TRAINER_SPRITE(SWIMMER_F, gTrainerFrontPic_SwimmerF),
     TRAINER_SPRITE(TWINS, gTrainerFrontPic_Twins),
@@ -333,7 +333,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(SALON_MAIDEN_ANABEL, gTrainerFrontPic_SalonMaidenAnabel),
     TRAINER_SPRITE(DOME_ACE_TUCKER, gTrainerFrontPic_DomeAceTucker),
     TRAINER_SPRITE(PALACE_MAVEN_SPENSER, gTrainerFrontPic_PalaceMavenSpenser),
-    TRAINER_SPRITE_CUSTOM(ARENA_TYCOON_GRETA, gTrainerFrontPic_ArenaTycoonGreta, 0x1000),
+    TRAINER_SPRITE_CUSTOM(ARENA_TYCOON_GRETA, gTrainerFrontPic_ArenaTycoonGreta, TRAINER_PIC_SIZE * 2),
     TRAINER_SPRITE(FACTORY_HEAD_NOLAND, gTrainerFrontPic_FactoryHeadNoland),
     TRAINER_SPRITE(PIKE_QUEEN_LUCY, gTrainerFrontPic_PikeQueenLucy),
     TRAINER_SPRITE(PYRAMID_KING_BRANDON, gTrainerFrontPic_PyramidKingBrandon),

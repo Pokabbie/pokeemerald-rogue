@@ -19,13 +19,13 @@
 	.4byte \script
 	.endm
 
-	@ Defines an object event template for map data. Mirrors the struct layout of ObjectEventTemplate in include/global.fieldmap.h
-	.macro object_event index:req, gfx:req, inConnection:req, x:req, y:req, elevation:req, movement_type:req, x_radius:req, y_radius:req, trainer_type:req, sight_radius_tree_etc:req, script:req, event_flag:req
-	.byte \index, \inConnection
+	@ Defines an object event template for map data, to be used by a normal object. Mirrors the struct layout of ObjectEventTemplate in include/global.fieldmap.h
+	.macro object_event index:req, gfx:req, x:req, y:req, elevation:req, movement_type:req, x_radius:req, y_radius:req, trainer_type:req, sight_radius_tree_etc:req, script:req, event_flag:req
+	.byte \index,
 	.2byte \gfx
 	.2byte \x, \y
 	.byte \elevation, \movement_type, ((\y_radius << 4) | \x_radius), 0
-    .2byte \trainer_type, \sight_radius_tree_etc
+	.2byte \trainer_type, \sight_radius_tree_etc
 	.4byte \script
 	.2byte \event_flag
 	.space 2  @ Padding
@@ -43,12 +43,12 @@
 	.endm
 
 	@ Defines a coord event for map data. Mirrors the struct layout of CoordEvent in include/global.fieldmap.h
-	.macro coord_event x:req, y:req, elevation:req, trigger:req, index:req, script:req
+	.macro coord_event x:req, y:req, elevation:req, var:req, varValue:req, script:req
 	.2byte \x, \y
 	.byte \elevation
 	.space 1  @ Padding
-	.2byte \trigger
-	.2byte \index
+	.2byte \var
+	.2byte \varValue
 	.space 2  @ Padding
 	.4byte \script
 	inc _num_traps

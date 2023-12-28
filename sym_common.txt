@@ -3,39 +3,40 @@
 	@ ../gflib/bg.o
 	.align 2
 gWindowTileAutoAllocEnabled:
-    .space 4
+	.space 4
     @ ../gflib/window.o
-    .align 4
+	.align 4
 gTransparentTileNumber:
-    .space 1
-    .align 4
+	.space 1
+	.align 4
 gWindowBgTilemapBuffers:
-    .space 16
+	.space 16
     @ ../gflib/text.o
-    .align 4
+	.align 4
 gFonts:
-    .space 4
-    .align 2
+	.space 4
+	.align 2
 gDisableTextPrinters:
-    .space 1
-    .align 4
+	.space 1
+	.align 4
 gCurGlyph:
-    .space 132
-    .align 2
+	.space 132
+	.align 2
 gTextFlags:
-    .space 4
+	.space 4
     @ ../gflib/sprite.o
-    .align 2
+	.align 2
 gOamMatrixAllocBitmap:
-    .space 4
-    .align 2
+	.space 4
+	.align 2
 gReservedSpritePaletteCount:
-    .space 1
-    .align 4
+	.space 1
+	.align 4
 	.include "link.o"
 	.include "AgbRfu_LinkManager.o"
 	.include "rtc.o"
 	.include "battle_main.o"
+	.include "battle_controllers.o"
 	.include "random.o"
 	.include "load_save.o"
 	.include "berry_blender.o"
@@ -51,9 +52,9 @@ gReservedSpritePaletteCount:
 	.include "contest.o"
 	.include "tv.o"
 	.include "image_processing_effects.o"
-	
+
 	.space 0x4
-	
+
 	.include "contest_painting.o"
 	.include "field_specials.o"
 	.include "evolution_scene.o"
@@ -64,12 +65,12 @@ gReservedSpritePaletteCount:
 	.include "battle_anim_throw.o"
 	.include "battle_factory_screen.o"
 	.include "apprentice.o"
-	
+
 	.space 0x8
-	
+
 	.include "list_menu.o"
 	.include "party_menu.o"
-	
+
 	.space 0x44
 
 	.include "ereader_screen.o"

@@ -4,15 +4,10 @@
 #include "bg.h"
 #include "blit.h"
 
-u32 gUnusedWindowVar1;
-u32 gUnusedWindowVar2;
 // This global is set to 0 and never changed.
 u8 gTransparentTileNumber;
-u32 gUnusedWindowVar3;
 void *gWindowBgTilemapBuffers[NUM_BACKGROUNDS];
 extern u32 gWindowTileAutoAllocEnabled;
-
-#define WINDOWS_MAX  32
 
 EWRAM_DATA struct Window gWindows[WINDOWS_MAX] = {0};
 EWRAM_DATA static struct Window* sWindowPtr = NULL;
@@ -35,7 +30,7 @@ bool16 InitWindows(const struct WindowTemplate *templates)
     int j;
     u8 bgLayer;
     u16 attrib;
-    u8* allocatedTilemapBuffer;
+    u8 *allocatedTilemapBuffer;
     int allocatedBaseBlock;
 
     for (i = 0; i < NUM_BACKGROUNDS; ++i)
@@ -405,7 +400,7 @@ void BlitBitmapRectToWindow(u8 windowId, const u8 *pixels, u16 srcX, u16 srcY, u
     struct Bitmap sourceRect;
     struct Bitmap destRect;
 
-    sourceRect.pixels = (u8*)pixels;
+    sourceRect.pixels = (u8 *)pixels;
     sourceRect.width = srcWidth;
     sourceRect.height = srcHeight;
 
@@ -416,12 +411,12 @@ void BlitBitmapRectToWindow(u8 windowId, const u8 *pixels, u16 srcX, u16 srcY, u
     BlitBitmapRect4Bit(&sourceRect, &destRect, srcX, srcY, destX, destY, rectWidth, rectHeight, 0);
 }
 
-static void BlitBitmapRectToWindowWithColorKey(u8 windowId, const u8 *pixels, u16 srcX, u16 srcY, u16 srcWidth, int srcHeight, u16 destX, u16 destY, u16 rectWidth, u16 rectHeight, u8 colorKey)
+static void UNUSED BlitBitmapRectToWindowWithColorKey(u8 windowId, const u8 *pixels, u16 srcX, u16 srcY, u16 srcWidth, int srcHeight, u16 destX, u16 destY, u16 rectWidth, u16 rectHeight, u8 colorKey)
 {
     struct Bitmap sourceRect;
     struct Bitmap destRect;
 
-    sourceRect.pixels = (u8*)pixels;
+    sourceRect.pixels = (u8 *)pixels;
     sourceRect.width = srcWidth;
     sourceRect.height = srcHeight;
 
@@ -463,9 +458,9 @@ void FillWindowPixelBuffer(u8 windowId, u8 fillValue)
     destOffset = i + (a);                                                       \
     srcOffset = i + (((width * (distanceLoop & ~7)) | (distanceLoop & 7)) * 4); \
     if (srcOffset < size)                                                       \
-        *(u32*)(tileData + destOffset) = *(u32*)(tileData + srcOffset);         \
+        *(u32 *)(tileData + destOffset) = *(u32 *)(tileData + srcOffset);         \
     else                                                                        \
-        *(u32*)(tileData + destOffset) = fillValue32;                           \
+        *(u32 *)(tileData + destOffset) = fillValue32;                           \
     distanceLoop++;                                                             \
 }
 
@@ -474,9 +469,9 @@ void FillWindowPixelBuffer(u8 windowId, u8 fillValue)
     destOffset = i + (a);                                                       \
     srcOffset = i + (((width * (distanceLoop & ~7)) | (distanceLoop & 7)) * 4); \
     if (srcOffset < size)                                                       \
-        *(u32*)(tileData - destOffset) = *(u32*)(tileData - srcOffset);         \
+        *(u32 *)(tileData - destOffset) = *(u32 *)(tileData - srcOffset);         \
     else                                                                        \
-        *(u32*)(tileData - destOffset) = fillValue32;                           \
+        *(u32 *)(tileData - destOffset) = fillValue32;                           \
     distanceLoop++;                                                             \
 }
 
@@ -550,7 +545,7 @@ bool8 SetWindowAttribute(u8 windowId, u8 attributeId, u32 value)
         gWindows[windowId].window.baseBlock = value;
         return FALSE;
     case WINDOW_TILE_DATA:
-        gWindows[windowId].tileData = (u8*)(value);
+        gWindows[windowId].tileData = (u8 *)(value);
         return TRUE;
     case WINDOW_BG:
     case WINDOW_WIDTH:
@@ -605,7 +600,7 @@ static void DummyWindowBgTilemap8Bit(void)
 u16 AddWindow8Bit(const struct WindowTemplate *template)
 {
     u16 windowId;
-    u8* memAddress;
+    u8 *memAddress;
     u8 bgLayer;
 
     for (windowId = 0; windowId < WINDOWS_MAX; windowId++)
@@ -675,7 +670,7 @@ void BlitBitmapRectToWindow4BitTo8Bit(u8 windowId, const u8 *pixels, u16 srcX, u
     struct Bitmap sourceRect;
     struct Bitmap destRect;
 
-    sourceRect.pixels = (u8*) pixels;
+    sourceRect.pixels = (u8 *) pixels;
     sourceRect.width = srcWidth;
     sourceRect.height = srcHeight;
 

@@ -91,7 +91,7 @@ static void ApplyAffineAnimFrame(u8 matrixNum, struct AffineAnimFrameCmd *frameC
 static u8 IndexOfSpriteTileTag(u16 tag);
 static void AllocSpriteTileRange(u16 tag, u16 start, u16 count);
 static void DoLoadSpritePalette(const u16 *src, u16 paletteOffset);
-static void UpdateSpriteMatrixAnchorPos(struct Sprite*, s32, s32);
+static void UpdateSpriteMatrixAnchorPos(struct Sprite *, s32, s32);
 
 typedef void (*AnimFunc)(struct Sprite *);
 typedef void (*AnimCmdFunc)(struct Sprite *);
@@ -282,7 +282,7 @@ EWRAM_DATA static bool8 sShouldProcessSpriteCopyRequests = 0;
 EWRAM_DATA static u8 sSpriteCopyRequestCount = 0;
 EWRAM_DATA static struct SpriteCopyRequest sSpriteCopyRequests[MAX_SPRITES] = {0};
 EWRAM_DATA u8 gOamLimit = 0;
-static EWRAM_DATA u8 gOamDummyIndex = 0;
+static EWRAM_DATA u8 sOamDummyIndex = 0;
 EWRAM_DATA u16 gReservedSpriteTileCount = 0;
 EWRAM_DATA static u8 sSpriteTileAllocBitmap[128] = {0};
 EWRAM_DATA s16 gSpriteCoordOffsetX = 0;
@@ -293,7 +293,7 @@ EWRAM_DATA bool8 gAffineAnimsDisabled = FALSE;
 void ResetSpriteData(void)
 {
     ResetOamRange(0, 128);
-    gOamDummyIndex = 0;
+    sOamDummyIndex = 0;
     ResetAllSprites();
     ClearSpriteCopyRequests();
     ResetAffineAnimData();
@@ -325,7 +325,7 @@ void AnimateSprites(void)
 void BuildOamBuffer(void)
 {
     bool32 oamLoadDisabled;
-    u32 i, stride;
+    u32 i;
     u8 oamIndex;
 
     // All attributes which affect sorting packed into a single u32:
@@ -406,9 +406,9 @@ void BuildOamBuffer(void)
             break;
     }
 
-    for (i = oamIndex; i < gOamDummyIndex; i++)
+    for (i = oamIndex; i < sOamDummyIndex; i++)
         gMain.oamBuffer[i] = gDummyOamData;
-    gOamDummyIndex = oamIndex;
+    sOamDummyIndex = oamIndex;
 
     for (i = 0; matrices != 0; i++, matrices >>= 1)
     {
@@ -1150,7 +1150,7 @@ u8 GetSpriteMatrixNum(struct Sprite *sprite)
 
 // Used to shift a sprite's position as it scales.
 // Only used by the minigame countdown, so that for instance the numbers don't slide up as they squish down before jumping.
-void SetSpriteMatrixAnchor(struct Sprite* sprite, s16 x, s16 y)
+void SetSpriteMatrixAnchor(struct Sprite *sprite, s16 x, s16 y)
 {
     sprite->sAnchorX = x;
     sprite->sAnchorY = y;

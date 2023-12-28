@@ -12,7 +12,7 @@
 
 // (uncomment to enable)
 #ifdef ROGUE_DEBUG
-#define DEBUG_FEATURE_MEMORY_STOMP_TRACKING
+//#define DEBUG_FEATURE_MEMORY_STOMP_TRACKING
 #endif
 
 

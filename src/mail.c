@@ -69,8 +69,8 @@ struct MailRead
     /*0x021c*/ u8 monIconSpriteId;
     /*0x021d*/ u8 language;
     /*0x021e*/ bool8 international;
-    /*0x0220*/ u8 * (*parserSingle)(u8 *dest, u16 word);
-    /*0x0224*/ u8 * (*parserMultiple)(u8 *dest, const u16 *src, u16 length1, u16 length2);
+    /*0x0220*/ u8 *(*parserSingle)(u8 *dest, u16 word);
+    /*0x0224*/ u8 *(*parserMultiple)(u8 *dest, const u16 *src, u16 length1, u16 length2);
     /*0x0228*/ const struct MailLayout *layout;
     /*0x022c*/ u8 bg1TilemapBuffer[0x1000];
     /*0x122c*/ u8 bg2TilemapBuffer[0x1000];
@@ -452,7 +452,7 @@ void ReadMail(struct Mail *mail, void (*exitCallback)(void), bool8 hasText)
     u16 buffer[2];
     u16 species;
 
-    sMailRead = calloc(1, sizeof(*sMailRead));
+    sMailRead = AllocZeroed(sizeof(*sMailRead));
     sMailRead->language = GAME_LANGUAGE;
     sMailRead->international = TRUE;
     sMailRead->parserSingle = CopyEasyChatWord;
@@ -555,13 +555,11 @@ static bool8 MailReadBuildGraphics(void)
             break;
         case 9:
             if (FreeTempTileDataBuffersIfPossible())
-            {
                 return FALSE;
-            }
             break;
         case 10:
-            FillBgTilemapBufferRect_Palette0(0, 0, 0, 0, 30, 20);
-            FillBgTilemapBufferRect_Palette0(2, 1, 0, 0, 30, 20);
+            FillBgTilemapBufferRect_Palette0(0, 0, 0, 0, DISPLAY_TILE_WIDTH, DISPLAY_TILE_HEIGHT);
+            FillBgTilemapBufferRect_Palette0(2, 1, 0, 0, DISPLAY_TILE_WIDTH, DISPLAY_TILE_HEIGHT);
             CopyToBgTilemapBuffer(1, sMailGraphics[sMailRead->mailType].tileMap, 0, 0);
             break;
         case 11:
@@ -570,24 +568,21 @@ static bool8 MailReadBuildGraphics(void)
             CopyBgTilemapBufferToVram(2);
             break;
         case 12:
-            LoadPalette(GetOverworldTextboxPalettePtr(), 240, 32);
+            LoadPalette(GetOverworldTextboxPalettePtr(), BG_PLTT_ID(15), PLTT_SIZE_4BPP);
+            gPlttBufferUnfaded[BG_PLTT_ID(15) + 10] = sMailGraphics[sMailRead->mailType].textColor;
+            gPlttBufferFaded[BG_PLTT_ID(15) + 10] = sMailGraphics[sMailRead->mailType].textColor;
+            gPlttBufferUnfaded[BG_PLTT_ID(15) + 11] = sMailGraphics[sMailRead->mailType].textShadow;
+            gPlttBufferFaded[BG_PLTT_ID(15) + 11] = sMailGraphics[sMailRead->mailType].textShadow;
 
-            gPlttBufferUnfaded[250] = sMailGraphics[sMailRead->mailType].textColor;
-            gPlttBufferFaded[250] = sMailGraphics[sMailRead->mailType].textColor;
-            gPlttBufferUnfaded[251] = sMailGraphics[sMailRead->mailType].textShadow;
-            gPlttBufferFaded[251] = sMailGraphics[sMailRead->mailType].textShadow;
-            LoadPalette(sMailGraphics[sMailRead->mailType].palette, 0, 32);
-
-            gPlttBufferUnfaded[10] = sBgColors[gSaveBlock2Ptr->playerGender][0];
-            gPlttBufferFaded[10] = sBgColors[gSaveBlock2Ptr->playerGender][0];
-            gPlttBufferUnfaded[11] = sBgColors[gSaveBlock2Ptr->playerGender][1];
-            gPlttBufferFaded[11] = sBgColors[gSaveBlock2Ptr->playerGender][1];
+            LoadPalette(sMailGraphics[sMailRead->mailType].palette, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+            gPlttBufferUnfaded[BG_PLTT_ID(0) + 10] = sBgColors[gSaveBlock2Ptr->playerGender][0];
+            gPlttBufferFaded[BG_PLTT_ID(0) + 10] = sBgColors[gSaveBlock2Ptr->playerGender][0];
+            gPlttBufferUnfaded[BG_PLTT_ID(0) + 11] = sBgColors[gSaveBlock2Ptr->playerGender][1];
+            gPlttBufferFaded[BG_PLTT_ID(0) + 11] = sBgColors[gSaveBlock2Ptr->playerGender][1];
             break;
         case 13:
             if (sMailRead->hasText)
-            {
                 BufferMailText();
-            }
             break;
         case 14:
             if (sMailRead->hasText)

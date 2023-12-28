@@ -52,12 +52,10 @@
 #define TRAINER_HILL_PLAYER_STATUS_ECARD_SCANNED 1
 #define TRAINER_HILL_PLAYER_STATUS_NORMAL 2
 
-#define HILL_TRAINER_NAME_LENGTH 11
-
 #define TRAINER_HILL_OTID 0x10000000
 
 // The full map of each Trainer Hill floor is 16x21.
-// The first 5x21 at the top is the entrance/exit area,
+// The first 16x5 at the top is the entrance/exit area,
 // and the remaining 16x16 is the randomized portion of
 // the room where the trainers are.
 #define HILL_FLOOR_WIDTH         16

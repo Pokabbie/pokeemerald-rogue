@@ -1,7 +1,11 @@
 #ifndef GUARD_CONSTANTS_GLOBAL_H
 #define GUARD_CONSTANTS_GLOBAL_H
 
-#include "constants/battle_config.h"
+#include "config/battle.h"
+#include "config/debug.h"
+#include "config/item.h"
+#include "config/pokemon.h"
+#include "config/overworld.h"
 
 // Invalid Versions show as "----------" in Gen 4 and Gen 5's summary screen.
 // In Gens 6 and 7, invalid versions instead show "a distant land" in the summary screen.
@@ -38,7 +42,9 @@
 #define FRONTIER_PARTY_SIZE         3
 #define FRONTIER_DOUBLES_PARTY_SIZE 4
 #define FRONTIER_MULTI_PARTY_SIZE   2
-#define MAX_FRONTIER_PARTY_SIZE     FRONTIER_DOUBLES_PARTY_SIZE
+#define MAX_FRONTIER_PARTY_SIZE    (max(FRONTIER_PARTY_SIZE,        \
+                                    max(FRONTIER_DOUBLES_PARTY_SIZE,\
+                                        FRONTIER_MULTI_PARTY_SIZE)))
 #define UNION_ROOM_PARTY_SIZE       2
 
 // capacities of various saveblock objects
@@ -46,7 +52,6 @@
 #define OBJECT_EVENTS_COUNT 16
 #define MAIL_COUNT (10 + PARTY_SIZE)
 #define SECRET_BASES_COUNT 5 // Originally 20 (5 is likely more than enough for rogue)
-#define TV_SHOWS_COUNT 25
 #define POKE_NEWS_COUNT 16
 
 #define PC_ITEMS_COUNT 50
@@ -67,7 +72,7 @@
 #define DECOR_MAX_PLAYERS_HOUSE 12
 #define APPRENTICE_COUNT 4
 #define APPRENTICE_MAX_QUESTIONS 9
-#define MAX_REMATCH_ENTRIES 92 // only REMATCH_TABLE_ENTRIES (78) are used
+#define MAX_REMATCH_ENTRIES 100 // only REMATCH_TABLE_ENTRIES (78) are used
 #define NUM_CONTEST_WINNERS 13
 #define UNION_ROOM_KB_ROW_COUNT 10
 #define GIFT_RIBBONS_COUNT 11
@@ -90,6 +95,7 @@
 
 #define TRAINER_ID_LENGTH 4
 #define MAX_MON_MOVES 4
+#define ALL_MOVES_MASK ((1 << MAX_MON_MOVES) - 1)
 
 #define CONTESTANT_COUNT 4
 #define CONTEST_CATEGORY_COOL     0
@@ -104,6 +110,7 @@
 #define ROGUE_ITEM_NAME_LENGTH 16
 #define ROGUE_ITEM_DESC_LENGTH 64
 #define POKEMON_NAME_LENGTH 10
+#define POKEMON_NAME_BUFFER_SIZE max(20, POKEMON_NAME_LENGTH + 1) // Frequently used buffer size. Larger than necessary
 #define PLAYER_NAME_LENGTH 7
 #define MAIL_WORDS_COUNT 9
 #define EASY_CHAT_BATTLE_WORDS_COUNT 6
@@ -119,6 +126,12 @@
 #define WONDER_CARD_BODY_TEXT_LINES 4
 #define WONDER_NEWS_BODY_TEXT_LINES 10
 #define TYPE_NAME_LENGTH 6
+#if B_EXPANDED_ABILITY_NAMES == TRUE
+#define ABILITY_NAME_LENGTH 16
+#else
+#define ABILITY_NAME_LENGTH 12
+#endif
+#define TRAINER_NAME_LENGTH 10
 #define POKEMON_HUB_NAME_LENGTH 15
 
 #define MAX_STAMP_CARD_STAMPS 7

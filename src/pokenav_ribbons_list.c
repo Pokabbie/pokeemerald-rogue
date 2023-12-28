@@ -2,6 +2,7 @@
 #include "pokenav.h"
 #include "bg.h"
 #include "menu.h"
+#include "palette.h"
 #include "window.h"
 #include "sound.h"
 #include "string_util.h"
@@ -22,7 +23,7 @@ enum
 
 struct Pokenav_RibbonsMonList
 {
-    u32 (*callback)(struct Pokenav_RibbonsMonList*);
+    u32 (*callback)(struct Pokenav_RibbonsMonList *);
     u32 loopedTaskId;
     u16 winid;
     s32 boxId;
@@ -226,8 +227,7 @@ static s32 GetRibbonsMonListCount(void)
     return list->monList->listCount;
 }
 
-//unused
-static s32 GetMonRibbonSelectedMonData(void)
+static s32 UNUSED GetMonRibbonSelectedMonData(void)
 {
     struct Pokenav_RibbonsMonList * list = GetSubstructPtr(POKENAV_SUBSTRUCT_RIBBONS_MON_LIST);
     s32 idx = PokenavList_GetSelectedIndex();
@@ -256,7 +256,7 @@ static u32 BuildPartyMonRibbonList(s32 state)
     item.boxId = TOTAL_BOXES_COUNT;
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        struct Pokemon * pokemon = &gPlayerParty[i];
+        struct Pokemon *pokemon = &gPlayerParty[i];
         if (!GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES))
             return LT_INC_AND_CONTINUE;
         if (!GetMonData(pokemon, MON_DATA_SANITY_IS_EGG) && !GetMonData(pokemon, MON_DATA_SANITY_IS_BAD_EGG))
@@ -342,8 +342,7 @@ static void InsertMonListItem(struct Pokenav_RibbonsMonList *list, struct Pokena
     list->monList->listCount++;
 }
 
-// Unused
-static bool32 PlayerHasRibbonsMon(void)
+static bool32 UNUSED PlayerHasRibbonsMon(void)
 {
     s32 i, j;
 
@@ -431,7 +430,7 @@ static u32 LoopedTask_OpenRibbonsMonList(s32 state)
         DecompressAndCopyTileDataToVram(1, sMonRibbonListFrameTiles, 0, 0, 0);
         SetBgTilemapBuffer(1, menu->buff);
         CopyToBgTilemapBuffer(1, sMonRibbonListFrameTilemap, 0, 0);
-        CopyPaletteIntoBufferUnfaded(sMonRibbonListFramePal, 0x10, 0x20);
+        CopyPaletteIntoBufferUnfaded(sMonRibbonListFramePal, BG_PLTT_ID(1), sizeof(sMonRibbonListFramePal));
         CopyBgTilemapBufferToVram(1);
         return LT_INC_AND_PAUSE;
     case 1:
@@ -446,7 +445,7 @@ static u32 LoopedTask_OpenRibbonsMonList(s32 state)
     case 2:
         if (FreeTempTileDataBuffersIfPossible())
             return LT_PAUSE;
-        CopyPaletteIntoBufferUnfaded(sMonRibbonListUi_Pal, 0x20, 0x20);
+        CopyPaletteIntoBufferUnfaded(sMonRibbonListUi_Pal, BG_PLTT_ID(2), sizeof(sMonRibbonListUi_Pal));
         CreateRibbonMonsList();
         return LT_INC_AND_PAUSE;
     case 3:
@@ -464,7 +463,7 @@ static u32 LoopedTask_OpenRibbonsMonList(s32 state)
         if (!menu->fromSummary)
         {
             LoadLeftHeaderGfxForIndex(POKENAV_GFX_RIBBONS_MENU);
-            ShowLeftHeaderGfx(POKENAV_GFX_RIBBONS_MENU, 1, 0);
+            ShowLeftHeaderGfx(POKENAV_GFX_RIBBONS_MENU, TRUE, FALSE);
         }
         return LT_INC_AND_PAUSE;
     case 5:
@@ -669,7 +668,7 @@ static void DrawListIndexNumber(s32 windowId, s32 index, s32 max)
     u8 strbuf[16];
     u32 x;
 
-    u8 * ptr = strbuf;
+    u8 *ptr = strbuf;
     ptr = ConvertIntToDecimalStringN(ptr, index, STR_CONV_MODE_RIGHT_ALIGN, 3);
     *ptr++ = CHAR_SLASH;
     ConvertIntToDecimalStringN(ptr, max, STR_CONV_MODE_RIGHT_ALIGN, 3);
@@ -696,18 +695,18 @@ static void CreateRibbonMonsList(void)
 }
 
 // Buffers the "Nickname gender/level" text for the ribbon mon list
-static void BufferRibbonMonInfoText(struct PokenavListItem * listItem, u8 * dest)
+static void BufferRibbonMonInfoText(struct PokenavListItem * listItem, u8 *dest)
 {
     u8 gender;
     u8 level;
-    u8 * s;
-    const u8 * genderStr;
+    u8 *s;
+    const u8 *genderStr;
     struct PokenavMonListItem * item = (struct PokenavMonListItem *)listItem;
 
     // Mon is in party
     if (item->boxId == TOTAL_BOXES_COUNT)
     {
-        struct Pokemon * mon = &gPlayerParty[item->monId];
+        struct Pokemon *mon = &gPlayerParty[item->monId];
         gender = GetMonGender(mon);
         level = GetLevelFromMonExp(mon);
         GetMonData(mon, MON_DATA_NICKNAME, gStringVar3);

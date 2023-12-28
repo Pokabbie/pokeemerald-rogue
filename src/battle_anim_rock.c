@@ -13,7 +13,6 @@ static void AnimTask_Rollout_Step(u8 taskId);
 static void AnimRolloutParticle(struct Sprite *);
 static void AnimRockTomb(struct Sprite *);
 static void AnimRockTomb_Step(struct Sprite *sprite);
-static void AnimRockBlastRock(struct Sprite *);
 static void AnimRockScatter(struct Sprite *);
 static void AnimRockScatter_Step(struct Sprite *sprite);
 static void AnimParticleInVortex_Step(struct Sprite *sprite);
@@ -331,7 +330,7 @@ static const union AffineAnimCmd* const sSpriteAffineAnimTable_CrushGripHand[] =
 const struct SpriteTemplate gCrushGripHandTemplate =
 {
     .tileTag = ANIM_TAG_PURPLE_HAND_OUTLINE,
-    .paletteTag = ANIM_TAG_ACCUPRESSURE,
+    .paletteTag = ANIM_TAG_ACUPRESSURE,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = sAnims_BasicRock,
     .images = NULL,
@@ -352,8 +351,7 @@ const struct SpriteTemplate gSeedFlareGreenWavesTemplate =
 
 static void AnimStealthRock(struct Sprite *sprite)
 {
-    u16 x;
-    u16 y;
+    s16 x, y;
 
     InitSpritePosToAnimAttacker(sprite, TRUE);
     SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &x, &y);
@@ -393,7 +391,7 @@ static void AnimStealthRockStep2(struct Sprite *sprite)
 void AnimFallingRock(struct Sprite *sprite)
 {
     if (gBattleAnimArgs[3] != 0)
-        SetAverageBattlerPositions(gBattleAnimTarget, 0, &sprite->x, &sprite->y);
+        SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &sprite->x, &sprite->y);
 
     sprite->x += gBattleAnimArgs[0];
     sprite->y += 14;
@@ -459,7 +457,7 @@ void AnimRockFragment(struct Sprite *sprite)
 void AnimParticleInVortex(struct Sprite *sprite)
 {
     if (gBattleAnimArgs[6] == ANIM_ATTACKER)
-        InitSpritePosToAnimAttacker(sprite, 0);
+        InitSpritePosToAnimAttacker(sprite, FALSE);
     else
         InitSpritePosToAnimTarget(sprite, FALSE);
 
@@ -506,7 +504,7 @@ void AnimTask_LoadSandstormBackground(u8 taskId)
     GetBattleAnimBg1Data(&animBg);
     AnimLoadCompressedBgGfx(animBg.bgId, gBattleAnimBgImage_Sandstorm, animBg.tilesOffset);
     AnimLoadCompressedBgTilemapHandleContest(&animBg, gBattleAnimBgTilemap_Sandstorm, FALSE);
-    LoadCompressedPalette(gBattleAnimSpritePal_FlyingDirt, animBg.paletteId * 16, 32);
+    LoadCompressedPalette(gBattleAnimSpritePal_FlyingDirt, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
 
     if (gBattleAnimArgs[0] && GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
         var0 = 1;
@@ -640,7 +638,7 @@ void AnimFlyingSandCrescent(struct Sprite *sprite)
 void AnimRaiseSprite(struct Sprite *sprite)
 {
     StartSpriteAnim(sprite, gBattleAnimArgs[4]);
-    InitSpritePosToAnimAttacker(sprite, 0);
+    InitSpritePosToAnimAttacker(sprite, FALSE);
 
     sprite->data[0] = gBattleAnimArgs[3];
     sprite->data[2] = sprite->x;
@@ -692,8 +690,8 @@ void AnimTask_Rollout(u8 taskId)
     task->data[6] = 0;
     task->data[7] = 0;
 
-    pan1 = BattleAnimAdjustPanning(-64);
-    pan2 = BattleAnimAdjustPanning(63);
+    pan1 = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
+    pan2 = BattleAnimAdjustPanning(SOUND_PAN_TARGET);
 
     task->data[13] = pan1;
     task->data[14] = (pan2 - pan1) / task->data[8];
@@ -921,7 +919,7 @@ static void AnimRockTomb_Step(struct Sprite *sprite)
     }
 }
 
-static void AnimRockBlastRock(struct Sprite *sprite)
+void AnimRockBlastRock(struct Sprite *sprite)
 {
     if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
         StartSpriteAffineAnim(sprite, 1);

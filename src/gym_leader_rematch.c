@@ -44,7 +44,7 @@ static void UpdateGymLeaderRematchFromArray(const u16 *data, size_t size, u32 ma
 {
 }
 
-static s32 GetRematchIndex(u32 trainerIdx)
+static s32 UNUSED GetRematchIndex(u32 trainerIdx)
 {
     return 5;
 }

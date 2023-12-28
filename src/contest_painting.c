@@ -216,7 +216,7 @@ static void ShowContestPainting(void)
         break;
     case 4:
         PrintContestPaintingCaption(gCurContestWinnerSaveIdx, gCurContestWinnerIsForArtist);
-        LoadPalette(sBgPalette, 0, 1 * 2);
+        SetBackdropFromPalette(sBgPalette);
         DmaClear32(3, PLTT, PLTT_SIZE);
         BeginFastPaletteFade(2);
         SetVBlankCallback(VBlankCB_ContestPainting);
@@ -241,7 +241,7 @@ static void HoldContestPainting(void)
         if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
         {
             sHoldState++;
-            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB(0, 0, 0));
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         }
 
         if (sVarsInitialized)
@@ -334,11 +334,11 @@ static void VBlankCB_ContestPainting(void)
     TransferPlttBuffer();
 }
 
-static void InitContestMonPixels(u16 species, bool8 backPic)
+static void UNUSED InitContestMonPixels(u16 species, bool8 backPic)
 {
 }
 
-static void _InitContestMonPixels(u8 *spriteGfx, u16 *palette, u16 (*destPixels)[64][64])
+static void UNUSED _InitContestMonPixels(u8 *spriteGfx, u16 *palette, u16 (*destPixels)[64][64])
 {
     u16 tileY, tileX, pixelY, pixelX;
     u8 colorIndex;
@@ -369,13 +369,13 @@ static void _InitContestMonPixels(u8 *spriteGfx, u16 *palette, u16 (*destPixels)
 
 #define VRAM_PICTURE_DATA(x, y) (((u16 *)(BG_SCREEN_ADDR(12)))[(y) * 32 + (x)])
 
-static void LoadContestPaintingFrame(u8 contestWinnerId, bool8 isForArtist)
+static void UNUSED LoadContestPaintingFrame(u8 contestWinnerId, bool8 isForArtist)
 {
 }
 
 #undef VRAM_PICTURE_DATA
 
-static void InitPaintingMonOamData(u8 contestWinnerId)
+static void UNUSED InitPaintingMonOamData(u8 contestWinnerId)
 {
     gMain.oamBuffer[0] = sContestPaintingMonOamData;
     gMain.oamBuffer[0].tileNum = 0;
@@ -392,18 +392,18 @@ static void InitPaintingMonOamData(u8 contestWinnerId)
     }
 }
 
-static u8 GetImageEffectForContestWinner(u8 contestWinnerId)
+static u8 UNUSED GetImageEffectForContestWinner(u8 contestWinnerId)
 {
     return 0;
 }
 
-static void AllocPaintingResources(void)
+static void UNUSED AllocPaintingResources(void)
 {
     gContestPaintingMonPalette = AllocZeroed(OBJ_PLTT_SIZE);
     gContestMonPixels = AllocZeroed(0x2000);
 }
 
-static void DoContestPaintingImageProcessing(u8 imageEffect)
+static void UNUSED DoContestPaintingImageProcessing(u8 imageEffect)
 {
 }
 

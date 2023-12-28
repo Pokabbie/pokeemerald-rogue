@@ -14,18 +14,12 @@
 #include "malloc.h"
 #include "util.h"
 #include "task.h"
+#include "test_runner.h"
 #include "text.h"
 #include "battle_setup.h"
 #include "frontier_util.h"
 #include "constants/trainers.h"
 #include "constants/rgb.h"
-
-#define BATTLER_RECORD_SIZE 664
-#define ILLEGAL_BATTLE_TYPES ((BATTLE_TYPE_LINK | BATTLE_TYPE_SAFARI | BATTLE_TYPE_FIRST_BATTLE                  \
-                              | BATTLE_TYPE_WALLY_TUTORIAL | BATTLE_TYPE_ROAMER | BATTLE_TYPE_EREADER_TRAINER    \
-                              | BATTLE_TYPE_ALPHA_MON | BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_REGI            \
-                              | BATTLE_TYPE_RECORDED | BATTLE_TYPE_TRAINER_HILL | BATTLE_TYPE_SECRET_BASE        \
-                              | BATTLE_TYPE_GROUDON | BATTLE_TYPE_KYOGRE | BATTLE_TYPE_RAYQUAZA))
 
 struct PlayerInfo
 {
@@ -36,38 +30,8 @@ struct PlayerInfo
     u16 language;
 };
 
-struct RecordedBattleSave
-{
-    struct Pokemon playerParty[PARTY_SIZE];
-    struct Pokemon opponentParty[PARTY_SIZE];
-    u8 playersName[MAX_BATTLERS_COUNT][PLAYER_NAME_LENGTH + 1];
-    u8 playersGender[MAX_BATTLERS_COUNT];
-    u32 playersTrainerId[MAX_BATTLERS_COUNT];
-    u8 playersLanguage[MAX_BATTLERS_COUNT];
-    u32 rngSeed;
-    u32 battleFlags;
-    u8 playersBattlers[MAX_BATTLERS_COUNT];
-    u16 opponentA;
-    u16 opponentB;
-    u16 partnerId;
-    u16 multiplayerId;
-    u8 lvlMode;
-    u8 frontierFacility;
-    u8 frontierBrainSymbol;
-    u8 battleScene:1;
-    u8 textSpeed:3;
-    u32 AI_scripts;
-    u8 recordMixFriendName[PLAYER_NAME_LENGTH + 1];
-    u8 recordMixFriendClass;
-    u8 apprenticeId;
-    u16 easyChatSpeech[EASY_CHAT_BATTLE_WORDS_COUNT];
-    u8 recordMixFriendLanguage;
-    u8 apprenticeLanguage;
-    u8 battleRecord[MAX_BATTLERS_COUNT][BATTLER_RECORD_SIZE];
-    u32 checksum;
-};
-
-STATIC_ASSERT(sizeof(struct RecordedBattleSave) <= SECTOR_DATA_SIZE, RecordedBattleSaveFreeSpace);
+// Save data using TryWriteSpecialSaveSector is allowed to exceed SECTOR_DATA_SIZE (up to the counter field)
+STATIC_ASSERT(sizeof(struct RecordedBattleSave) <= SECTOR_COUNTER_OFFSET, RecordedBattleSaveFreeSpace);
 
 EWRAM_DATA u32 gRecordedBattleRngSeed = 0;
 EWRAM_DATA u32 gBattlePalaceMoveSelectionRngValue = 0;
@@ -209,8 +173,11 @@ void RecordedBattle_ClearBattlerAction(u8 battlerId, u8 bytesToClear)
     }
 }
 
-u8 RecordedBattle_GetBattlerAction(u8 battlerId)
+u8 RecordedBattle_GetBattlerAction(u32 actionType, u8 battlerId)
 {
+    if (gTestRunnerEnabled)
+        TestRunner_Battle_CheckBattleRecordActionType(battlerId, sBattlerRecordSizes[battlerId], actionType);
+
     // Trying to read past array or invalid action byte, battle is over.
     if (sBattlerRecordSizes[battlerId] >= BATTLER_RECORD_SIZE || sBattleRecords[battlerId][sBattlerRecordSizes[battlerId]] == 0xFF)
     {
@@ -226,8 +193,7 @@ u8 RecordedBattle_GetBattlerAction(u8 battlerId)
     }
 }
 
-// Unused
-static u8 GetRecordedBattleMode(void)
+static u8 UNUSED GetRecordedBattleMode(void)
 {
     return sRecordMode;
 }
@@ -300,9 +266,9 @@ static bool32 IsRecordedBattleSaveValid(struct RecordedBattleSave *save)
 {
     if (save->battleFlags == 0)
         return FALSE;
-    if (save->battleFlags & ILLEGAL_BATTLE_TYPES)
+    if (save->battleFlags & BATTLE_TYPE_RECORDED_INVALID)
         return FALSE;
-    if (CalcByteArraySum((void*)(save), sizeof(*save) - 4) != save->checksum)
+    if (CalcByteArraySum((void *)(save), sizeof(*save) - 4) != save->checksum)
         return FALSE;
 
     return TRUE;
@@ -313,9 +279,9 @@ static bool32 RecordedBattleToSave(struct RecordedBattleSave *battleSave, struct
     memset(saveSector, 0, SECTOR_SIZE);
     memcpy(saveSector, battleSave, sizeof(*battleSave));
 
-    saveSector->checksum = CalcByteArraySum((void*)(saveSector), sizeof(*saveSector) - 4);
+    saveSector->checksum = CalcByteArraySum((void *)(saveSector), sizeof(*saveSector) - 4);
 
-    if (TryWriteSpecialSaveSector(SECTOR_ID_RECORDED_BATTLE, (void*)(saveSector)) != SAVE_STATUS_OK)
+    if (TryWriteSpecialSaveSector(SECTOR_ID_RECORDED_BATTLE, (void *)(saveSector)) != SAVE_STATUS_OK)
         return FALSE;
     else
         return TRUE;
@@ -474,14 +440,14 @@ bool32 MoveRecordedBattleToSaveData(void)
             break;
     }
 
-    free(battleSave);
-    free(savSection);
+    Free(battleSave);
+    Free(savSection);
     return ret;
 }
 
 static bool32 TryCopyRecordedBattleSaveData(struct RecordedBattleSave *dst, struct SaveSector *saveBuffer)
 {
-    if (TryReadSpecialSaveSector(SECTOR_ID_RECORDED_BATTLE, (void*)(saveBuffer)) != SAVE_STATUS_OK)
+    if (TryReadSpecialSaveSector(SECTOR_ID_RECORDED_BATTLE, (void *)(saveBuffer)) != SAVE_STATUS_OK)
         return FALSE;
 
     memcpy(dst, saveBuffer, sizeof(struct RecordedBattleSave));
@@ -526,20 +492,25 @@ static void Task_StartAfterCountdown(u8 taskId)
     }
 }
 
-static void SetVariablesForRecordedBattle(struct RecordedBattleSave *src)
+void SetPartiesFromRecordedSave(struct RecordedBattleSave *src)
 {
-    bool8 var;
-    s32 i, j;
+    s32 i;
 
     ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
-
     for (i = 0; i < PARTY_SIZE; i++)
     {
         gPlayerParty[i] = src->playerParty[i];
         gEnemyParty[i] = src->opponentParty[i];
     }
+}
 
+void SetVariablesForRecordedBattle(struct RecordedBattleSave *src)
+{
+    bool8 var;
+    s32 i, j;
+
+    SetPartiesFromRecordedSave(src);
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
     {
         for (var = FALSE, j = 0; j < PLAYER_NAME_LENGTH + 1; j++)
@@ -649,13 +620,13 @@ static void RecordedBattle_RestoreSavedParties(void)
     }
 }
 
-u8 GetActiveBattlerLinkPlayerGender(void)
+u8 GetBattlerLinkPlayerGender(u32 battler)
 {
     s32 i;
 
     for (i = 0; i < MAX_LINK_PLAYERS; i++)
     {
-        if (gLinkPlayers[i].id == gActiveBattler)
+        if (gLinkPlayers[i].id == battler)
             break;
     }
 
@@ -691,11 +662,11 @@ u8 GetTextSpeedInRecordedBattle(void)
     return sTextSpeed;
 }
 
-void RecordedBattle_CopyBattlerMoves(void)
+void RecordedBattle_CopyBattlerMoves(u32 battler)
 {
     s32 i;
 
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
+    if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
         return;
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
         return;
@@ -703,7 +674,7 @@ void RecordedBattle_CopyBattlerMoves(void)
         return;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
-        sPlayerMonMoves[gActiveBattler / 2][i] = gBattleMons[gActiveBattler].moves[i];
+        sPlayerMonMoves[battler / 2][i] = gBattleMons[battler].moves[i];
 }
 
 // This is a special battle action only used by this function
@@ -759,14 +730,14 @@ void RecordedBattle_CheckMovesetChanges(u8 mode)
 
                     // We know the current action is ACTION_MOVE_CHANGE, retrieve
                     // it without saving it to move on to the next action.
-                    RecordedBattle_GetBattlerAction(battlerId);
+                    RecordedBattle_GetBattlerAction(RECORDED_BYTE, battlerId);
 
                     for (j = 0; j < MAX_MON_MOVES; j++)
                         ppBonuses[j] = ((gBattleMons[battlerId].ppBonuses & (3 << (j << 1))) >> (j << 1));
 
                     for (j = 0; j < MAX_MON_MOVES; j++)
                     {
-                        moveSlots[j] = RecordedBattle_GetBattlerAction(battlerId);
+                        moveSlots[j] = RecordedBattle_GetBattlerAction(RECORDED_BYTE, battlerId);
                         movePp.moves[j] = gBattleMons[battlerId].moves[moveSlots[j]];
                         movePp.currentPp[j] = gBattleMons[battlerId].pp[moveSlots[j]];
                         movePp.maxPp[j] = ppBonuses[moveSlots[j]];

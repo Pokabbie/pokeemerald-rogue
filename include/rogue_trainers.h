@@ -33,7 +33,6 @@ void Rogue_ChooseBossTrainersForNewAdventure();
 void Rogue_ChooseRivalTrainerForNewAdventure();
 void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity);
 
-u16 Rogue_NextMinibossTrainerId();
 void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum);
 
 u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacity, bool8 firstTrainer);

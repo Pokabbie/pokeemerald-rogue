@@ -446,7 +446,6 @@ void CB2_InitOptionMenu(void)
         break;
     case 10:
     {
-        u8 i;
         u8 taskId = CreateTask(Task_OptionMenuFadeIn, 0);
 
         gTasks[taskId].data[TD_MENUSELECTION] = 0;
@@ -646,7 +645,6 @@ static u8 TextSpeed_ProcessInput(u8 menuOffset, u8 selection)
 static void TextSpeed_DrawChoices(u8 menuOffset, u8 selection)
 {
     u8 styles[3];
-    u8 height;
     s32 widthSlow, widthMid, widthFast, xMid;
 
     styles[0] = 0;
@@ -739,7 +737,6 @@ static u8 NicknameMode_ProcessInput(u8 menuOffset, u8 selection)
 static void NicknameMode_DrawChoices(u8 menuOffset, u8 selection)
 {
     u8 styles[3];
-    u8 height;
     s32 widthAsk, widthAlways, widthNever, xMid;
 
     styles[0] = 0;
@@ -989,7 +986,7 @@ static void ButtonMode_DrawChoices(u8 menuOffset, u8 selection)
 
 static u8 Empty_ProcessInput(u8 menuOffset, u8 selection)
 {
-
+    return 0;
 }
 
 static void Empty_DrawChoices(u8 menuOffset, u8 selection)

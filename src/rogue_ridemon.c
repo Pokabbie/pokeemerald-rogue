@@ -13,6 +13,7 @@
 #include "metatile_behavior.h"
 #include "sound.h"
 
+#include "rogue_baked.h"
 #include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
 #include "rogue_ridemon.h"
@@ -270,7 +271,7 @@ static bool8 CanCycleRideMons()
 
 bool8 Rogue_HandleRideMonInput()
 {
-    if(TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING))
+    if(Rogue_IsRideActive())
     {
         // Cycle through mons, when pressing L or R
         if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_BASIC)
@@ -306,7 +307,7 @@ bool8 Rogue_HandleRideMonInput()
 
 static bool8 ShouldRideMonBeVisible()
 {
-    return TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING) && !gObjectEvents[gPlayerAvatar.objectEventId].invisible;
+    return Rogue_IsRideActive() && !gObjectEvents[gPlayerAvatar.objectEventId].invisible;
 }
 
 static void UpdatePlayerRideState()
@@ -457,17 +458,65 @@ static const struct RideMonInfo* GetRideMonInfoForSpecies(u16 species)
     return rideInfo;
 }
 
-static u8 CalculateMovementModeForInternal(u16 species)
+bool8 Rogue_IsValidRideSpecies(u16 species)
 {
-    u8 speed = gBaseStats[species].baseSpeed;
+    const struct RideMonInfo* rideInfo = GetRideMonInfoForSpecies(species);
+
+     if(rideInfo != NULL && (rideInfo->flags & RIDE_MON_FLAG_CAN_RIDE) != 0)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_IsValidRideClimbSpecies(u16 species)
+{
+    const struct RideMonInfo* rideInfo = GetRideMonInfoForSpecies(species);
+
+     if(rideInfo != NULL && Rogue_IsValidRideSpecies(species) && (rideInfo->flags & RIDE_MON_FLAG_CAN_CLIMB) != 0)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_IsValidRideSwimSpecies(u16 species)
+{
+    const struct RideMonInfo* rideInfo = GetRideMonInfoForSpecies(species);
+
+     if(rideInfo != NULL && Rogue_IsValidRideSpecies(species) && (rideInfo->flags & RIDE_MON_FLAG_CAN_SWIM) != 0)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_IsValidRideFlySpecies(u16 species)
+{
+    const struct RideMonInfo* rideInfo = GetRideMonInfoForSpecies(species);
+
+     if(rideInfo != NULL && Rogue_IsValidRideSpecies(species) && (rideInfo->flags & RIDE_MON_FLAG_CAN_FLY) != 0)
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static u8 UNUSED CalculateMovementModeForInternal(u16 species)
+{
+    u8 speed = gRogueSpeciesInfo[species].baseSpeed;
     
-    if(speed <= 30)
+    if(speed <= 70)
         return RIDE_MOVEMENT_SLOW;
 
-    if(speed <= 50)
+    if(speed <= 90)
         return RIDE_MOVEMENT_ACCELERATE_AVERAGE;
     
-    if(speed <= 90)
+    if(speed <= 100)
         return RIDE_MOVEMENT_AVERAGE;
 
     if(speed <= 110)
@@ -488,6 +537,11 @@ static u8 CalculateMovementModeFor(u16 species)
 #endif
 
     return moveSpeed;
+}
+
+u8 Rogue_GetRideSpeciesSpeedStars(u16 species)
+{
+    return CalculateMovementModeFor(species) + 1;
 }
 
 static u16 GetCurrentRideMonSpecies()
@@ -545,7 +599,26 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
 
             rideObject->state.monGfx = rideObject->state.desiredRideSpecies;
 
-            rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_RIDE_MON_FIRST + rideObjectId, SpriteCallbackDummy, spriteX, spriteY, 0);
+            if(rideObjectId)
+            {
+                rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_PARTNER, SpriteCallbackDummy, spriteX, spriteY, 0);
+            }
+            else
+            {
+                u16 gfxId = rideObjectId - 1;
+                u16 species = rideObject->state.monGfx;
+                bool8 isShiny = FALSE;
+
+                if(species >= FOLLOWMON_SHINY_OFFSET)
+                {
+                    species -= FOLLOWMON_SHINY_OFFSET;
+                    isShiny = TRUE;
+                }
+                
+                FollowMon_SetGraphics(gfxId, species, isShiny);
+                rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_0 + gfxId, SpriteCallbackDummy, spriteX, spriteY, 0);
+            }
+
             gSprites[rideObject->monSpriteId].oam.priority = 2;
             StartSpriteAnim(&gSprites[rideObject->monSpriteId], ANIM_STD_GO_SOUTH);
             
@@ -683,9 +756,14 @@ bool8 Rogue_CanRideMonFly()
     return FALSE;
 }
 
+bool8 Rogue_IsRideActive()
+{
+    return TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING);
+}
+
 bool8 Rogue_IsRideMonSwimming()
 {
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
+    if (Rogue_IsRideActive())
     {
         s16 x, y;
         u16 tileBehavior;
@@ -707,7 +785,7 @@ bool8 Rogue_IsRideMonSwimming()
 
 bool8 Rogue_IsRideMonFlying()
 {
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
+    if (Rogue_IsRideActive())
     {
         return IsRideObjectFlying(&sRideMonData.rideObjects[RIDE_OBJECT_PLAYER]);
     }
@@ -977,38 +1055,47 @@ static void PlayerOnRideMonMoving(u8 direction, u16 newKeys, u16 heldKeys)
             return;
         }
 
+        // RogueNote
+        //MOVE_SPEED_NORMAL, // walking                                     PlayerWalkNormal
+        //MOVE_SPEED_FAST_1, // running / surfing / sliding (ice tile)      PlayerWalkFast
+        //MOVE_SPEED_FAST_2, // water current / acro bike                   PlayerRideWaterCurrent
+        //MOVE_SPEED_FASTER, // mach bike's max speed                       PlayerWalkFaster
+        //MOVE_SPEED_FASTEST,                                               ??
+
         switch (CalculateMovementModeFor(GetCurrentRideMonSpecies()))
         {
         case RIDE_MOVEMENT_SLOW:
-            PlayerWalkNormal(direction);
-            break;
-
-        case RIDE_MOVEMENT_AVERAGE:
             PlayerWalkFast(direction);
-            break;
-
-        case RIDE_MOVEMENT_FAST:
-            PlayerWalkFaster(direction);
             break;
 
         case RIDE_MOVEMENT_ACCELERATE_AVERAGE:
             frameIdx = sRideMonData.rideFrameCounter / 4;
-
-            if(frameIdx == 0)
-                PlayerWalkNormal(direction);
-            else
-                PlayerWalkFast(direction);
-            break;
-
-        case RIDE_MOVEMENT_ACCELERATE_FAST:
-            frameIdx = (sRideMonData.rideFrameCounter - 1) / 3;
 
             if(sRideMonData.rideFrameCounter == 0)
                 PlayerWalkNormal(direction);
             else if(frameIdx == 0)
                 PlayerWalkFast(direction);
             else
+                PlayerRideWaterCurrent(direction);
+            break;
+
+        case RIDE_MOVEMENT_AVERAGE:
+            PlayerRideWaterCurrent(direction);
+            break;
+
+        case RIDE_MOVEMENT_ACCELERATE_FAST:
+            frameIdx = (sRideMonData.rideFrameCounter - 1) / 3;
+
+            if(sRideMonData.rideFrameCounter == 0)
+                PlayerWalkFast(direction);
+            else if(frameIdx == 0)
+                PlayerRideWaterCurrent(direction);
+            else
                 PlayerWalkFaster(direction);
+            break;
+
+        case RIDE_MOVEMENT_FAST:
+            PlayerWalkFaster(direction);
             break;
 
         default:

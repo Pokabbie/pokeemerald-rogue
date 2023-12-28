@@ -23,7 +23,7 @@ static const struct OamData sOamData_ItemIcon =
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,
     .objMode = ST_OAM_OBJ_NORMAL,
-    .mosaic = 0,
+    .mosaic = FALSE,
     .bpp = ST_OAM_4BPP,
     .shape = SPRITE_SHAPE(32x32),
     .x = 0,
@@ -169,8 +169,7 @@ u8 BlitPokemonIconToWindow(u16 species, u8 windowId, u16 x, u16 y, void * palett
     //LZDecompressWram(GetMonIconTiles(species, FALSE), gItemIconDecompressionBuffer);
     //CopyItemIconPicTo4x4Buffer(GetMonIconTiles(species, FALSE), gItemIcon4x4Buffer);
     
-    // TODO - Support personality + gender
-    BlitBitmapToWindow(windowId, GetMonIconTiles(species, 0, 0), x, y, 32, 32);
+    BlitBitmapToWindow(windowId, GetMonIconTiles(species, FALSE, MON_MALE), x, y, 32, 32);
 
     //gMonIconPaletteTable
 
@@ -251,8 +250,8 @@ u8 AddCustomItemIconSprite(const struct SpriteTemplate *customSpriteTemplate, u1
 
 const void *GetItemIconPicOrPalette(u16 itemId, u8 which)
 {
-    if (itemId == 0xFFFF)
-        itemId = ITEM_FIELD_ARROW;
+    if (itemId == ITEM_LIST_END)
+        itemId = ITEMS_COUNT; // Use last icon, the "return to field" arrow
     else if (itemId >= ITEMS_COUNT)
         itemId = 0;
 

@@ -29,7 +29,6 @@ static void Storyteller_ResetFlag(void);
 
 static u8 sSelectedStory;
 
-static EWRAM_DATA u16 sUnknownBardRelated = 0;
 static EWRAM_DATA struct MauvilleManStoryteller * sStorytellerPtr = NULL;
 static EWRAM_DATA u8 sStorytellerWindowId = 0;
 
@@ -42,7 +41,7 @@ static const u16 sDefaultBardSongLyrics[BARD_SONG_LENGTH] = {
     EC_WORD_DANCE
 };
 
-static const u8 * const sGiddyAdjectives[] = {
+static const u8 *const sGiddyAdjectives[] = {
     GiddyText_SoPretty,
     GiddyText_SoDarling,
     GiddyText_SoRelaxed,
@@ -56,7 +55,7 @@ static const u8 * const sGiddyAdjectives[] = {
 // Non-random lines Giddy can say. Not all are strictly
 // questions, but most are, and the player will receive
 // a Yes/No prompt afterwards regardless.
-static const u8 * const sGiddyQuestions[GIDDY_MAX_QUESTIONS] = {
+static const u8 *const sGiddyQuestions[GIDDY_MAX_QUESTIONS] = {
     GiddyText_ISoWantToGoOnAVacation,
     GiddyText_IBoughtCrayonsWith120Colors,
     GiddyText_WouldntItBeNiceIfWeCouldFloat,
@@ -84,7 +83,7 @@ static void SetupHipster(void)
     struct MauvilleManHipster *hipster = &gSaveBlock1Ptr->oldMan.hipster;
 
     hipster->id = MAUVILLE_MAN_HIPSTER;
-    hipster->alreadySpoken = FALSE;
+    hipster->taughtWord = FALSE;
     hipster->language = gGameLanguage;
 }
 
@@ -166,12 +165,12 @@ void SaveBardSongLyrics(void)
 }
 
 // Copies lyrics into gStringVar4
-static void PrepareSongText(void)
+static void UNUSED PrepareSongText(void)
 {
     struct MauvilleManBard *bard = &gSaveBlock1Ptr->oldMan.bard;
     u16 * lyrics = gSpecialVar_0x8004 == 0 ? bard->songLyrics : bard->temporaryLyrics;
-    u8 * wordEnd = gStringVar4;
-    u8 * str = wordEnd;
+    u8 *wordEnd = gStringVar4;
+    u8 *str = wordEnd;
     u16 lineNum;
 
     // Put three words on each line
@@ -221,27 +220,28 @@ void PlayBardSong(void)
     ScriptContext_Stop();
 }
 
-void GetHipsterSpokenFlag(void)
+void HasHipsterTaughtWord(void)
 {
-    gSpecialVar_Result = (&gSaveBlock1Ptr->oldMan.hipster)->alreadySpoken;
+    gSpecialVar_Result = (&gSaveBlock1Ptr->oldMan.hipster)->taughtWord;
 }
 
-void SetHipsterSpokenFlag(void)
+void SetHipsterTaughtWord(void)
 {
-    (&gSaveBlock1Ptr->oldMan.hipster)->alreadySpoken = TRUE;
+    (&gSaveBlock1Ptr->oldMan.hipster)->taughtWord = TRUE;
 }
 
 void HipsterTryTeachWord(void)
 {
-    u16 phrase = GetNewHipsterPhraseToTeach();
+    u16 word = UnlockRandomTrendySaying();
 
-    if (phrase == EC_EMPTY_WORD)
+    if (word == EC_EMPTY_WORD)
     {
+        // All words already unlocked
         gSpecialVar_Result = FALSE;
     }
     else
     {
-        CopyEasyChatWord(gStringVar1, phrase);
+        CopyEasyChatWord(gStringVar1, word);
         gSpecialVar_Result = TRUE;
     }
 }
@@ -365,7 +365,7 @@ static void ResetBardFlag(void)
 
 static void ResetHipsterFlag(void)
 {
-    (&gSaveBlock1Ptr->oldMan.hipster)->alreadySpoken = FALSE;
+    (&gSaveBlock1Ptr->oldMan.hipster)->taughtWord = FALSE;
 }
 
 static void ResetTraderFlag(void)
@@ -429,7 +429,7 @@ static void StartBardSong(bool8 useTemporaryLyrics)
     //gTasks[taskId].tUseTemporaryLyrics = useTemporaryLyrics;
 }
 
-static void EnableTextPrinters(void)
+static void UNUSED EnableTextPrinters(void)
 {
     gDisableTextPrinters = FALSE;
 }
@@ -439,7 +439,7 @@ static void DisableTextPrinters(struct TextPrinterTemplate * printer, u16 render
     gDisableTextPrinters = TRUE;
 }
 
-static void DrawSongTextWindow(const u8 * str)
+static void UNUSED DrawSongTextWindow(const u8 *str)
 {
     DrawDialogueFrame(0, FALSE);
     AddTextPrinterParameterized(0, FONT_NORMAL, str, 0, 1, 1, DisableTextPrinters);
@@ -494,8 +494,7 @@ void SanitizeMauvilleOldManForRuby(union OldMan * oldMan)
     }
 }
 
-// Unused
-static void SetMauvilleOldManLanguage(union OldMan * oldMan, u32 language1, u32 language2, u32 language3)
+static void UNUSED SetMauvilleOldManLanguage(union OldMan * oldMan, u32 language1, u32 language2, u32 language3)
 {
     s32 i;
 
@@ -598,7 +597,7 @@ void SanitizeReceivedRubyOldMan(union OldMan * oldMan, u32 version, u32 language
         {
             for (i = 0; i < NUM_TRADER_ITEMS; i++)
             {
-                u8 * str = trader->playerNames[i];
+                u8 *str = trader->playerNames[i];
                 if (str[0] == EXT_CTRL_CODE_BEGIN && str[1] == EXT_CTRL_CODE_JPN)
                 {
                     StripExtCtrlCodes(str);
@@ -723,7 +722,7 @@ static const struct Story sStorytellerStories[] = {
         MauvilleCity_PokemonCenter_1F_Text_PokemonCaughtStory
     },
     {
-        GAME_STAT_FISHING_CAPTURES, 1,
+        GAME_STAT_FISHING_ENCOUNTERS, 1,
         MauvilleCity_PokemonCenter_1F_Text_FishingPokemonCaughtTitle,
         MauvilleCity_PokemonCenter_1F_Text_FishingPokemonCaughtAction,
         MauvilleCity_PokemonCenter_1F_Text_FishingPokemonCaughtStory
@@ -1002,9 +1001,9 @@ static void GetStoryByStattellerPlayerName(u32 player, void *dst)
     memcpy(dst, name, PLAYER_NAME_LENGTH);
 }
 
-static void StorytellerSetPlayerName(u32 player, const u8 * src)
+static void StorytellerSetPlayerName(u32 player, const u8 *src)
 {
-    u8 * name = sStorytellerPtr->trainerNames[player];
+    u8 *name = sStorytellerPtr->trainerNames[player];
     memset(name, EOS, PLAYER_NAME_LENGTH);
     memcpy(name, src, PLAYER_NAME_LENGTH);
 }
@@ -1020,7 +1019,7 @@ static void StorytellerRecordNewStat(u32 player, u32 stat)
     sStorytellerPtr->language[player] = gGameLanguage;
 }
 
-static void ScrambleStatList(u8 * arr, s32 count)
+static void ScrambleStatList(u8 *arr, s32 count)
 {
     s32 i;
 
@@ -1091,7 +1090,7 @@ static void PrintStoryList(void)
             width = curWidth;
     }
     sStorytellerWindowId = CreateWindowFromRect(0, 0, ConvertPixelWidthToTileWidth(width), GetFreeStorySlot() * 2 + 2);
-    SetStandardWindowBorderStyle(sStorytellerWindowId, 0);
+    SetStandardWindowBorderStyle(sStorytellerWindowId, FALSE);
     for (i = 0; i < NUM_STORYTELLER_TALES; i++)
     {
         u16 gameStatID = sStorytellerPtr->gameStatIDs[i];

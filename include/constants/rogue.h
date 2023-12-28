@@ -355,10 +355,14 @@
 #define MON_FLAGS_GEN9RU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN9NU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN9PU                    MON_FLAG_NONE
+#define MON_FLAGS_GEN9ZU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN91V1                   MON_FLAG_NONE
 #define MON_FLAGS_GEN9LC                    MON_FLAG_NONE
 #define MON_FLAGS_GEN9NATIONALDEX           MON_FLAG_NONE
 #define MON_FLAGS_GEN9NATIONALDEXMONOTYPE   MON_FLAG_NONE
+#define MON_FLAGS_GEN9ANYTHINGGOES          MON_FLAG_NONE
+#define MON_FLAGS_GEN9NATIONALDEXAG         MON_FLAG_NONE
+#define MON_FLAGS_GEN9VGC2023REGULATIONE    MON_FLAG_SINGLES_STRONG | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN9DOUBLESOU             MON_FLAG_DOUBLES_STRONG | MON_FLAG_STRONG_WILD
 #define MON_FLAGS_GEN9MONOTYPE              MON_FLAG_SINGLES_STRONG | MON_FLAG_STRONG_WILD
 
@@ -370,6 +374,7 @@
 #define MON_FLAGS_GEN3NU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3PU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3LC                    MON_FLAG_NONE
+#define MON_FLAGS_GEN3ZU                    MON_FLAG_NONE
 #define MON_FLAGS_GEN3DOUBLESOU             MON_FLAG_DOUBLES_STRONG
 #define MON_FLAGS_GEN31V1                   MON_FLAG_SINGLES_STRONG
 #endif
@@ -411,7 +416,7 @@
 #define CONFIG_RANGE_LEGENDARY              2
 #define CONFIG_RANGE_BATTLE_FORMAT          3
 #define CONFIG_RANGE_POKEDEX_VARIANT        4
-#define CONFIG_RANGE_POKEDEX_GEN            5
+#define CONFIG_RANGE_UNUSED                 5
 #define CONFIG_RANGE_TRAINER_ORDER          6
 #define CONFIG_RANGE_COUNT                  7
 
@@ -511,24 +516,24 @@
 
 #define STARTER_MON_LEVEL 5
 
-#define POKEDEX_VARIANT_NATIONAL    POKEDEX_VARIANT_NONE
-
 #ifdef ROGUE_EXPANSION
 #define POKEDEX_VARIANT_DEFAULT     POKEDEX_VARIANT_ROGUE_MAIN
 #else
-#define POKEDEX_VARIANT_DEFAULT     POKEDEX_VARIANT_NATIONAL
+#define POKEDEX_VARIANT_DEFAULT     POKEDEX_VARIANT_NATIONAL_GEN3
 #endif
 
 
 #define FOLLOWMON_SHINY_OFFSET              10000
-#define FOLLOWMON_MAX_SPAWN_SLOTS           6
+#define FOLLOWMON_MAX_SPAWN_SLOTS           4 // 4 reserved palette slots, 1 for the 10th pal slot (if not in use) and 1 for the follower (todo change to 6)
 #define FOLLOWMON_IDEAL_OBJECT_EVENT_COUNT  8
 
 #define WILD_ENCOUNTER_GRASS_CAPACITY 9
 #define WILD_ENCOUNTER_WATER_CAPACITY 3
 #define WILD_ENCOUNTER_TOTAL_CAPACITY (WILD_ENCOUNTER_GRASS_CAPACITY + WILD_ENCOUNTER_WATER_CAPACITY)
 
-#define MON_TYPE_VAL_TO_FLAGS(type)     ((u32)(type == TYPE_NONE ? 0U : ((u32)1 << (u32)type)))
+// don't waste a bit on mystery type (shift everything down)
+#define __MON_TYPE_VAL(type)     (type > TYPE_MYSTERY ? (type - 1) : type)
+#define MON_TYPE_VAL_TO_FLAGS(type)     ((u32)(type == TYPE_NONE || type == TYPE_MYSTERY ? 0U : ((u32)1 << (u32)__MON_TYPE_VAL(type))))
 
 #define RIDE_WHISTLE_BASIC      0
 #define RIDE_WHISTLE_GOLD       1

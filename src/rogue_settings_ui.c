@@ -850,7 +850,6 @@ void CB2_InitDifficultyConfigMenu(void)
         break;
     case 10:
     {
-        u8 i;
         u8 taskId = CreateTask(Task_OptionMenuFadeIn, 0);
 
         gTasks[taskId].data[TD_MENUSELECTION] = 0;
@@ -1063,7 +1062,7 @@ static void ArrowRight_DrawChoices(u8 menuOffset, u8 selection)
     DrawOptionMenuChoice(gText_DifficultyArrowRight, 104, menuOffset * YPOS_SPACING, 0);
 }
 
-static void ArrowLeft_DrawChoices(u8 menuOffset, u8 selection)
+static void UNUSED ArrowLeft_DrawChoices(u8 menuOffset, u8 selection)
 {
     DrawOptionMenuChoice(gText_DifficultyArrowLeft, 104, menuOffset * YPOS_SPACING, 0);
 }
@@ -1197,7 +1196,7 @@ static u8 BattleFormat_ProcessInput(u8 menuOffset, u8 selection)
 
 static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection)
 {
-    const u8* text;
+    const u8* text = NULL;
     u8 style = 0;
 
     // Hack to wipe tiles????
@@ -1228,7 +1227,7 @@ static u8 TrainerOrder_ProcessInput(u8 menuOffset, u8 selection)
 
 static void TrainerOrder_DrawChoices(u8 menuOffset, u8 selection)
 {
-    const u8* text;
+    const u8* text = NULL;
     u8 style = 0;
 
     // Hack to wipe tiles????
@@ -1349,7 +1348,7 @@ static u8 DebugRange_ForcedRouteProcessInput(u8 menuOffset, u8 selection)
 
 static u8 Empty_ProcessInput(u8 menuOffset, u8 selection)
 {
-
+    return 0;
 }
 
 static void Empty_DrawChoices(u8 menuOffset, u8 selection)
@@ -1723,7 +1722,7 @@ static void DrawBgWindowFrames(void)
         leftValid = left <= 29 && left <= right;
         rightValid = right <= 29 && right >= left;
         topValid = top <= 19 && top <= bottom;
-        bottomValid = bottom <= 19 && bottom >= bottom;
+        bottomValid = bottom <= 19; // && bottom >= bottom;
 
         //                     bg, tile,              x, y, width, height, palNum
         // Draw title window frame

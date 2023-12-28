@@ -50,6 +50,7 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount);
 
 const void* Rogue_ModifyPaletteLoad(const void* input);
 bool8 Rogue_ModifyPaletteDecompress(const u32* input, void* writeBuffer);
+bool8 Rogue_ModifyObjectPaletteSlot(u16 graphicsId, u8* palSlot);
 
 void Rogue_ModifyOverworldPalette(u16 offset, u16 count);
 void Rogue_ModifyBattlePalette(u16 offset, u16 count);
@@ -95,7 +96,7 @@ void Rogue_OnResumeMap();
 void Rogue_OnObjectEventsInit();
 void Rogue_OnResetAllSprites();
 
-u16 Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
+void Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
 
 void Rogue_OnLoadMap(void);
 void Rogue_OnWarpIntoMap(void);

@@ -69,6 +69,7 @@ const u16 gObjectEventPal_Npc1Reflection[] = INCBIN_U16("graphics/object_events/
 const u16 gObjectEventPal_Npc2Reflection[] = INCBIN_U16("graphics/object_events/palettes/npc_2_reflection.gbapal");
 const u16 gObjectEventPal_Npc3Reflection[] = INCBIN_U16("graphics/object_events/palettes/npc_3_reflection.gbapal");
 const u16 gObjectEventPal_Npc4Reflection[] = INCBIN_U16("graphics/object_events/palettes/npc_4_reflection.gbapal");
+const u16 gObjectEventPal_FollowMon0[] = INCBIN_U16("graphics/object_events/palettes/followmon_0.gbapal");
 const u16 gObjectEventPal_FollowMon1[] = INCBIN_U16("graphics/object_events/palettes/followmon_1.gbapal");
 const u16 gObjectEventPal_FollowMon2[] = INCBIN_U16("graphics/object_events/palettes/followmon_2.gbapal");
 const u16 gObjectEventPal_FollowMon3[] = INCBIN_U16("graphics/object_events/palettes/followmon_3.gbapal");
@@ -763,6 +764,8 @@ const u32 gObjectEventPic_Glitch_RavenRiding[] = INCBIN_U32("graphics/object_eve
 const u16 gObjectEventPal_Glitch_NPC_Kate[] = INCBIN_U16("graphics/object_events/pics/people/glitch/kate.gbapal");
 const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events/pics/people/glitch/erma.gbapal");
 //const u16 gObjectEventPal_Glitch_NPC_Raven[] = INCBIN_U16("graphics/object_events/pics/people/glitch/raven.gbapal");
+
+const u16 gObjectEventPal_RouteExt[] = INCBIN_U16("graphics/object_events/palettes/route_ext.gbapal");
 
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");
 const u32 gObjectEventPic_PCStand[] = INCBIN_U32("graphics/object_events/pics/rogue/pc_stand.4bpp");

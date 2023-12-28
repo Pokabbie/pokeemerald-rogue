@@ -562,4 +562,9 @@ extern const u8 EventScript_RecordCenter_Spot2[];
 extern const u8 EventScript_RecordCenter_Spot3[];
 extern const u8 EventScript_TerminateLink[];
 
+extern const u8 VSSeeker_Text_BatteryNotChargedNeedXSteps[];
+extern const u8 VSSeeker_Text_NoTrainersWithinRange[];
+extern const u8 VSSeeker_Text_TrainersNotReady[];
+extern const u8 EventScript_VsSeekerChargingDone[];
+
 #endif // GUARD_EVENT_SCRIPTS_H

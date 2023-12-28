@@ -29,6 +29,7 @@
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_pokedex.h"
 #include "rogue_popup.h"
 #include "rogue_quest.h"
 
@@ -276,7 +277,6 @@ static void HideQuestPopUpWindow(void);
 
 static void Task_QuestPopUpWindow(u8 taskId);
 static void ShowQuestPopUpWindow(void);
-static void LoadQuestPopUpWindowBg(void);
 
 static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8);
 
@@ -575,92 +575,92 @@ static void HideQuestPopUpWindow(void)
     }
 }
 
-static u8* AppendTypeName(u8* strPointer, u8 type)
-{
-    const u8 gText_AdjNormal[] = _("NORMAL");
-    const u8 gText_AdjFighting[] = _("FIGHT"); // Shortened for convienience
-    const u8 gText_AdjFlying[] = _("FLYING");
-    const u8 gText_AdjPoison[] = _("POISON");
-    const u8 gText_AdjGround[] = _("GROUND");
-    const u8 gText_AdjRock[] = _("ROCK");
-    const u8 gText_AdjBug[] = _("BUG");
-    const u8 gText_AdjGhost[] = _("GHOST");
-    const u8 gText_AdjSteel[] = _("STEEL");
-    const u8 gText_AdjFire[] = _("FIRE");
-    const u8 gText_AdjWater[] = _("WATER");
-    const u8 gText_AdjGrass[] = _("GRASS");
-    const u8 gText_AdjElectric[] = _("ELEC"); // Shortened for convienience
-    const u8 gText_AdjPsychic[] = _("PSYCHIC");
-    const u8 gText_AdjIce[] = _("ICE");
-    const u8 gText_AdjDragon[] = _("DRAGON");
-    const u8 gText_AdjDark[] = _("DARK");
-#ifdef ROGUE_EXPANSION
-    const u8 gText_AdjFairy[] = _("FAIRY");
-#endif
-    const u8 gText_AdjNone[] = _("???");
-
-    switch(type)
-    {
-        case TYPE_NORMAL:
-            return StringAppend(strPointer, gText_AdjNormal);
-
-        case TYPE_FIGHTING:
-            return StringAppend(strPointer, gText_AdjFighting);
-
-        case TYPE_FLYING:
-            return StringAppend(strPointer, gText_AdjFlying);
-
-        case TYPE_POISON:
-            return StringAppend(strPointer, gText_AdjPoison);
-
-        case TYPE_GROUND:
-            return StringAppend(strPointer, gText_AdjGround);
-
-        case TYPE_ROCK:
-            return StringAppend(strPointer, gText_AdjRock);
-
-        case TYPE_BUG:
-            return StringAppend(strPointer, gText_AdjBug);
-
-        case TYPE_GHOST:
-            return StringAppend(strPointer, gText_AdjGhost);
-
-        case TYPE_STEEL:
-            return StringAppend(strPointer, gText_AdjSteel);
-
-        case TYPE_FIRE:
-            return StringAppend(strPointer, gText_AdjFire);
-
-        case TYPE_WATER:
-            return StringAppend(strPointer, gText_AdjWater);
-
-        case TYPE_GRASS:
-            return StringAppend(strPointer, gText_AdjGrass);
-
-        case TYPE_ELECTRIC:
-            return StringAppend(strPointer, gText_AdjElectric);
-
-        case TYPE_PSYCHIC:
-            return StringAppend(strPointer, gText_AdjPsychic);
-
-        case TYPE_ICE:
-            return StringAppend(strPointer, gText_AdjIce);
-
-        case TYPE_DRAGON:
-            return StringAppend(strPointer, gText_AdjDragon);
-
-        case TYPE_DARK:
-            return StringAppend(strPointer, gText_AdjDark);
-
-#ifdef ROGUE_EXPANSION
-        case TYPE_FAIRY:
-            return StringAppend(strPointer, gText_AdjFairy);
-#endif
-
-        default:
-            return StringAppend(strPointer, gText_AdjNone);
-    }
-}
+//static u8* AppendTypeName(u8* strPointer, u8 type)
+//{
+//    const u8 gText_AdjNormal[] = _("NORMAL");
+//    const u8 gText_AdjFighting[] = _("FIGHT"); // Shortened for convienience
+//    const u8 gText_AdjFlying[] = _("FLYING");
+//    const u8 gText_AdjPoison[] = _("POISON");
+//    const u8 gText_AdjGround[] = _("GROUND");
+//    const u8 gText_AdjRock[] = _("ROCK");
+//    const u8 gText_AdjBug[] = _("BUG");
+//    const u8 gText_AdjGhost[] = _("GHOST");
+//    const u8 gText_AdjSteel[] = _("STEEL");
+//    const u8 gText_AdjFire[] = _("FIRE");
+//    const u8 gText_AdjWater[] = _("WATER");
+//    const u8 gText_AdjGrass[] = _("GRASS");
+//    const u8 gText_AdjElectric[] = _("ELEC"); // Shortened for convienience
+//    const u8 gText_AdjPsychic[] = _("PSYCHIC");
+//    const u8 gText_AdjIce[] = _("ICE");
+//    const u8 gText_AdjDragon[] = _("DRAGON");
+//    const u8 gText_AdjDark[] = _("DARK");
+//#ifdef ROGUE_EXPANSION
+//    const u8 gText_AdjFairy[] = _("FAIRY");
+//#endif
+//    const u8 gText_AdjNone[] = _("???");
+//
+//    switch(type)
+//    {
+//        case TYPE_NORMAL:
+//            return StringAppend(strPointer, gText_AdjNormal);
+//
+//        case TYPE_FIGHTING:
+//            return StringAppend(strPointer, gText_AdjFighting);
+//
+//        case TYPE_FLYING:
+//            return StringAppend(strPointer, gText_AdjFlying);
+//
+//        case TYPE_POISON:
+//            return StringAppend(strPointer, gText_AdjPoison);
+//
+//        case TYPE_GROUND:
+//            return StringAppend(strPointer, gText_AdjGround);
+//
+//        case TYPE_ROCK:
+//            return StringAppend(strPointer, gText_AdjRock);
+//
+//        case TYPE_BUG:
+//            return StringAppend(strPointer, gText_AdjBug);
+//
+//        case TYPE_GHOST:
+//            return StringAppend(strPointer, gText_AdjGhost);
+//
+//        case TYPE_STEEL:
+//            return StringAppend(strPointer, gText_AdjSteel);
+//
+//        case TYPE_FIRE:
+//            return StringAppend(strPointer, gText_AdjFire);
+//
+//        case TYPE_WATER:
+//            return StringAppend(strPointer, gText_AdjWater);
+//
+//        case TYPE_GRASS:
+//            return StringAppend(strPointer, gText_AdjGrass);
+//
+//        case TYPE_ELECTRIC:
+//            return StringAppend(strPointer, gText_AdjElectric);
+//
+//        case TYPE_PSYCHIC:
+//            return StringAppend(strPointer, gText_AdjPsychic);
+//
+//        case TYPE_ICE:
+//            return StringAppend(strPointer, gText_AdjIce);
+//
+//        case TYPE_DRAGON:
+//            return StringAppend(strPointer, gText_AdjDragon);
+//
+//        case TYPE_DARK:
+//            return StringAppend(strPointer, gText_AdjDark);
+//
+//#ifdef ROGUE_EXPANSION
+//        case TYPE_FAIRY:
+//            return StringAppend(strPointer, gText_AdjFairy);
+//#endif
+//
+//        default:
+//            return StringAppend(strPointer, gText_AdjNone);
+//    }
+//}
 
 static void PrintPopupText( struct PopupRequest* popupRequest, u8 font, u8 const* text, u8 textCapacity, u8 x, u8 y)
 {
@@ -720,7 +720,7 @@ static void ExpandPopupText(struct PopupRequest* popup)
             switch(popup->expandTextType[i])
             {
                 case TEXT_EXPAND_SPECIES_NAME:
-                    StringCopy(textDest[i], gSpeciesNames[data]);
+                    StringCopy(textDest[i], RoguePokedex_GetSpeciesName(data));
                     break;
 
                 case TEXT_EXPAND_PARTY_NICKNAME:
@@ -852,7 +852,11 @@ void Rogue_PushPopup_NextPartyNotification()
             // Check for evolutions
             if(!gPlayerParty[i].rogueExtraData.hasPendingEvo)
             {
+#ifdef ROGUE_EXPANSION
                 u16 targetSpecies = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, ITEM_NONE, NULL);
+#else
+                u16 targetSpecies = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, ITEM_NONE);
+#endif
                 if(targetSpecies != SPECIES_NONE)
                 {
                     Rogue_PushPopup_NewEvos(i);
@@ -957,7 +961,7 @@ void Rogue_PushPopup_PokemonChain(u16 species, u16 chainSize)
     popup->iconId = species;
     popup->soundEffect = 0;
     
-    popup->titleText = gSpeciesNames[species];
+    popup->titleText = RoguePokedex_GetSpeciesName(species);
     popup->subtitleText = gText_Popup_PokemonChain;
 
     popup->expandTextData[0] = chainSize;
@@ -972,7 +976,7 @@ void Rogue_PushPopup_PokemonChainBroke(u16 species)
     popup->iconId = species;
     popup->soundEffect = SE_NOT_EFFECTIVE;
     
-    popup->titleText = gSpeciesNames[species];
+    popup->titleText = RoguePokedex_GetSpeciesName(species);
     popup->subtitleText = gText_Popup_PokemonChainBroke;
 }
 
@@ -1009,7 +1013,7 @@ void Rogue_PushPopup_RoamerPokemonActivated(u16 species)
     popup->iconId = species;
     popup->soundEffect = SE_BALL_OPEN;
     
-    popup->titleText = gSpeciesNames[species];
+    popup->titleText = RoguePokedex_GetSpeciesName(species);
     popup->subtitleText = gText_Popup_RoamerLegendary;
 }
 

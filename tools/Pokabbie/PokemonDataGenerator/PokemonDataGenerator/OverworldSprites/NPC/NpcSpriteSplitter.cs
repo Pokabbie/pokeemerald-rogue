@@ -60,7 +60,8 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 		private const int c_TotalWidth = c_FrameWidth * 9;
 		private const int c_TotalHeight = c_FrameHeight;
 
-		private static readonly Color c_BackgroundColour = Color.FromArgb(115, 196, 163);
+		public static readonly Color c_BackgroundColour = Color.FromArgb(0, 0, 0, 0);
+		public static readonly Color c_PrettyBackgroundColour = Color.FromArgb(255, 115, 197, 164);
 
 		private struct FrameInfo
 		{

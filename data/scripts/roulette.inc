@@ -8,7 +8,7 @@ Roulette_EventScript_Play::
 	special PlayRoulette
 	waitstate
 	end
-	
+
 Roulette_Text_PlayMinimumWagerIsX::
 	.string "The minimum wager at this table\n"
 	.string "is {STR_VAR_1}. Do you want to play?$"

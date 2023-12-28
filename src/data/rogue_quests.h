@@ -65,7 +65,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PECHA_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM01_CUT, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM01, 1 } },
         }
     },
     [QUEST_Gym2] = 
@@ -77,7 +77,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PERSIM_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM05_FLASH, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM05, 1 } },
         }
     },
     [QUEST_Gym3] = 
@@ -89,7 +89,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RAWST_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM06_ROCK_SMASH, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM06, 1 } },
         }
     },
     [QUEST_Gym4] = 
@@ -101,7 +101,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHERI_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM04_STRENGTH, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM04, 1 } },
         }
     },
     [QUEST_Gym5] = 
@@ -113,7 +113,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ASPEAR_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM08_DIVE, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM08, 1 } },
         }
     },
     [QUEST_Gym6] = 
@@ -125,7 +125,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHESTO_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM02_FLY, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM02, 1 } },
         }
     },
     [QUEST_Gym7] = 
@@ -137,7 +137,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LEPPA_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM07_WATERFALL, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM07, 1 } },
         }
     },
     [QUEST_Gym8] = 
@@ -149,7 +149,7 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .rewards = { 
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
             { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SITRUS_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM03_SURF, 1 } },
+            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM03, 1 } },
         }
     },
 

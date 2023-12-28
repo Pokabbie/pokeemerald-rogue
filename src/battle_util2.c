@@ -19,6 +19,10 @@ void AllocateBattleResources(void)
 
     gBattleStruct = AllocZeroed(sizeof(*gBattleStruct));
 
+#if B_FLAG_SKY_BATTLE
+    gBattleStruct->isSkyBattle = FlagGet(B_FLAG_SKY_BATTLE);
+#endif
+
     gBattleResources = AllocZeroed(sizeof(*gBattleResources));
     gBattleResources->secretBase = AllocZeroed(sizeof(*gBattleResources->secretBase));
     gBattleResources->flags = AllocZeroed(sizeof(*gBattleResources->flags));
@@ -27,6 +31,7 @@ void AllocateBattleResources(void)
     gBattleResources->beforeLvlUp = AllocZeroed(sizeof(*gBattleResources->beforeLvlUp));
     gBattleResources->ai = AllocZeroed(sizeof(*gBattleResources->ai));
     gBattleResources->aiData = AllocZeroed(sizeof(*gBattleResources->aiData));
+    gBattleResources->aiParty = AllocZeroed(sizeof(*gBattleResources->aiParty));
     gBattleResources->battleHistory = AllocZeroed(sizeof(*gBattleResources->battleHistory));
 
     gLinkBattleSendBuffer = AllocZeroed(BATTLE_BUFFER_LINK_SIZE);
@@ -53,6 +58,7 @@ void FreeBattleResources(void)
         FREE_AND_SET_NULL(gBattleResources->beforeLvlUp);
         FREE_AND_SET_NULL(gBattleResources->ai);
         FREE_AND_SET_NULL(gBattleResources->aiData);
+        FREE_AND_SET_NULL(gBattleResources->aiParty);
         FREE_AND_SET_NULL(gBattleResources->battleHistory);
         FREE_AND_SET_NULL(gBattleResources);
 
@@ -64,7 +70,7 @@ void FreeBattleResources(void)
     }
 }
 
-void AdjustFriendshipOnBattleFaint(u8 battlerId)
+void AdjustFriendshipOnBattleFaint(u8 battler)
 {
     u8 opposingBattlerId;
 
@@ -83,37 +89,37 @@ void AdjustFriendshipOnBattleFaint(u8 battlerId)
         opposingBattlerId = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
     }
 
-    if (gBattleMons[opposingBattlerId].level > gBattleMons[battlerId].level)
+    if (gBattleMons[opposingBattlerId].level > gBattleMons[battler].level)
     {
-        if (gBattleMons[opposingBattlerId].level - gBattleMons[battlerId].level > 29)
-            AdjustFriendship(&gPlayerParty[gBattlerPartyIndexes[battlerId]], FRIENDSHIP_EVENT_FAINT_LARGE);
+        if (gBattleMons[opposingBattlerId].level - gBattleMons[battler].level > 29)
+            AdjustFriendship(&gPlayerParty[gBattlerPartyIndexes[battler]], FRIENDSHIP_EVENT_FAINT_LARGE);
         else
-            AdjustFriendship(&gPlayerParty[gBattlerPartyIndexes[battlerId]], FRIENDSHIP_EVENT_FAINT_SMALL);
+            AdjustFriendship(&gPlayerParty[gBattlerPartyIndexes[battler]], FRIENDSHIP_EVENT_FAINT_SMALL);
     }
     else
     {
-        AdjustFriendship(&gPlayerParty[gBattlerPartyIndexes[battlerId]], FRIENDSHIP_EVENT_FAINT_SMALL);
+        AdjustFriendship(&gPlayerParty[gBattlerPartyIndexes[battler]], FRIENDSHIP_EVENT_FAINT_SMALL);
     }
 }
 
-void SwitchPartyOrderInGameMulti(u8 battlerId, u8 arg1)
+void SwitchPartyOrderInGameMulti(u8 battler, u8 arg1)
 {
-    if (GetBattlerSide(battlerId) != B_SIDE_OPPONENT)
+    if (GetBattlerSide(battler) != B_SIDE_OPPONENT)
     {
         s32 i;
         for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
-            gBattlePartyCurrentOrder[i] = *(0 * 3 + i + (u8*)(gBattleStruct->battlerPartyOrders));
+            gBattlePartyCurrentOrder[i] = *(0 * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders));
 
-        SwitchPartyMonSlots(GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battlerId]), GetPartyIdFromBattlePartyId(arg1));
+        SwitchPartyMonSlots(GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battler]), GetPartyIdFromBattlePartyId(arg1));
 
         for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
-            *(0 * 3 + i + (u8*)(gBattleStruct->battlerPartyOrders)) = gBattlePartyCurrentOrder[i];
+            *(0 * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders)) = gBattlePartyCurrentOrder[i];
     }
 }
 
 // Called when a Pokémon is unable to attack during a Battle Palace battle.
 // Check if it was because they are frozen/asleep, and if so try to cure the status.
-u32 BattlePalace_TryEscapeStatus(u8 battlerId)
+u32 BattlePalace_TryEscapeStatus(u8 battler)
 {
     u32 effect = 0;
 
@@ -122,13 +128,13 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
         switch (gBattleCommunication[MULTIUSE_STATE])
         {
         case 0:
-            if (gBattleMons[battlerId].status1 & STATUS1_SLEEP)
+            if (gBattleMons[battler].status1 & STATUS1_SLEEP)
             {
-                if (UproarWakeUpCheck(battlerId))
+                if (UproarWakeUpCheck(battler))
                 {
                     // Wake up from Uproar
-                    gBattleMons[battlerId].status1 &= ~(STATUS1_SLEEP);
-                    gBattleMons[battlerId].status2 &= ~(STATUS2_NIGHTMARE);
+                    gBattleMons[battler].status1 &= ~(STATUS1_SLEEP);
+                    gBattleMons[battler].status2 &= ~(STATUS2_NIGHTMARE);
                     BattleScriptPushCursor();
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WOKE_UP_UPROAR;
                     gBattlescriptCurrInstr = BattleScript_MoveUsedWokeUp;
@@ -138,18 +144,18 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
                 {
                     u32 toSub;
 
-                    if (GetBattlerAbility(battlerId) == ABILITY_EARLY_BIRD)
+                    if (GetBattlerAbility(battler) == ABILITY_EARLY_BIRD)
                         toSub = 2;
                     else
                         toSub = 1;
 
                     // Reduce number of sleep turns
-                    if ((gBattleMons[battlerId].status1 & STATUS1_SLEEP) < toSub)
-                        gBattleMons[battlerId].status1 &= ~(STATUS1_SLEEP);
+                    if ((gBattleMons[battler].status1 & STATUS1_SLEEP) < toSub)
+                        gBattleMons[battler].status1 &= ~(STATUS1_SLEEP);
                     else
-                        gBattleMons[battlerId].status1 -= toSub;
+                        gBattleMons[battler].status1 -= toSub;
 
-                    if (gBattleMons[battlerId].status1 & STATUS1_SLEEP)
+                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
                     {
                         // Still asleep
                         gBattlescriptCurrInstr = BattleScript_MoveUsedIsAsleep;
@@ -158,7 +164,7 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
                     else
                     {
                         // Wake up
-                        gBattleMons[battlerId].status2 &= ~(STATUS2_NIGHTMARE);
+                        gBattleMons[battler].status2 &= ~(STATUS2_NIGHTMARE);
                         BattleScriptPushCursor();
                         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WOKE_UP;
                         gBattlescriptCurrInstr = BattleScript_MoveUsedWokeUp;
@@ -169,7 +175,7 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
             gBattleCommunication[MULTIUSE_STATE]++;
             break;
         case 1:
-            if (gBattleMons[battlerId].status1 & STATUS1_FREEZE)
+            if (gBattleMons[battler].status1 & STATUS1_FREEZE)
             {
                 if (Random() % 5 != 0)
                 {
@@ -179,7 +185,7 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
                 else
                 {
                     // Unfreeze
-                    gBattleMons[battlerId].status1 &= ~(STATUS1_FREEZE);
+                    gBattleMons[battler].status1 &= ~(STATUS1_FREEZE);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveUsedUnfroze;
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DEFROSTED;
@@ -196,9 +202,8 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
 
     if (effect == 2)
     {
-        gActiveBattler = battlerId;
-        BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gActiveBattler].status1);
-        MarkBattlerForControllerExec(gActiveBattler);
+        BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+        MarkBattlerForControllerExec(battler);
     }
 
     return effect;

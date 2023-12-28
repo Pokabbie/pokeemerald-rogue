@@ -47,6 +47,7 @@ LV          = 34
 ';'         = 36
 SCREW_ICON  = 37
 WRENCH_ICON = 38
+STAR_ICON   = 39
 '¿'         = 51
 '¡'         = 52
 PK          = 53
@@ -81,6 +82,7 @@ SUPER_RE    = A0
 '?'         = AC
 '.'         = AD
 '-'         = AE
+'_'         = AE @ For autogenerating strings based on label names. Not using {UNDERSCORE} on purpose due to how bad it looks.
 '·'         = AF
 '…'         = B0
 '“'         = B1
@@ -154,6 +156,7 @@ SUPER_RE    = A0
 'ä'         = F4
 'ö'         = F5
 'ü'         = F6
+EMOJI_DIZZYEGG = F7
 TALL_PLUS   = FC 0C FB
 '$'         = FF
 
@@ -369,7 +372,7 @@ B_ATK_PARTNER_NAME = FD 0E
 B_ATK_NAME_WITH_PREFIX = FD 0F
 B_DEF_NAME_WITH_PREFIX = FD 10
 B_EFF_NAME_WITH_PREFIX = FD 11 @ EFF = short for gEffectBattler
-B_ACTIVE_NAME_WITH_PREFIX = FD 12
+@ FD 12 - preiously gActiveBattler with prefix
 B_SCR_ACTIVE_NAME_WITH_PREFIX = FD 13
 B_CURRENT_MOVE = FD 14
 B_LAST_MOVE = FD 15
@@ -411,8 +414,8 @@ B_ATK_TEAM2 = FD 38
 B_DEF_NAME = FD 39
 B_DEF_TEAM1 = FD 3A
 B_DEF_TEAM2 = FD 3B
-B_ACTIVE_NAME = FD 3C
-B_ACTIVE_NAME2 = FD 3D @ no Illusion check
+@ FD 3C - preiously gActiveBattler
+@ FD 3D - preiously gActiveBattler without Illusion Check
 
 @ indicates the end of a town/city name (before " TOWN" or " CITY")
 NAME_END = FC 00
@@ -428,13 +431,13 @@ SHADOW = FC 03 @ same as fc 01
 COLOR_HIGHLIGHT_SHADOW = FC 04 @ takes 3 bytes
 PALETTE = FC 05 @ used in credits
 FONT = FC 06 @ Given a font id, or use font constants below instead
-RESET_SIZE = FC 07
+RESET_FONT = FC 07
 PAUSE = FC 08 @ manually print the wait byte after this, havent mapped them
 PAUSE_UNTIL_PRESS = FC 09
 WAIT_SE = FC 0A
 PLAY_BGM = FC 0B
 ESCAPE = FC 0C
-SHIFT_TEXT = FC 0D
+SHIFT_RIGHT = FC 0D
 SHIFT_DOWN = FC 0E
 FILL_WINDOW = FC 0F
 PLAY_SE = FC 10

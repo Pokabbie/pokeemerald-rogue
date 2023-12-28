@@ -48,17 +48,14 @@ static void AnimTask_SurfWaveScanlineEffect(u8);
 static void AnimTask_WaterSpoutLaunch_Step(u8);
 static void AnimTask_WaterSpoutRain_Step(u8);
 static u8 GetWaterSpoutPowerForAnim(void);
-static void CreateWaterSpoutLaunchDroplets(struct Task*, u8);
-static void CreateWaterSpoutRainDroplet(struct Task*, u8);
+static void CreateWaterSpoutLaunchDroplets(struct Task *, u8);
+static void CreateWaterSpoutRainDroplet(struct Task *, u8);
 static void AnimTask_WaterSport_Step(u8);
-static void CreateWaterSportDroplet(struct Task*);
-static void CreateWaterPulseRingBubbles(struct Sprite*, int, int);
+static void CreateWaterSportDroplet(struct Task *);
+static void CreateWaterPulseRingBubbles(struct Sprite *, int, int);
 static void AnimAquaTail(struct Sprite *sprite);
 static void AnimKnockOffAquaTail(struct Sprite *sprite);
 static void AnimKnockOffAquaTailStep(struct Sprite *sprite);
-
-static const u8 sUnusedWater_Gfx[] = INCBIN_U8("graphics/battle_anims/unused/water_gfx.4bpp");
-static const u8 sUnusedWater[] = INCBIN_U8("graphics/battle_anims/unused/water.bin");
 
 static const union AnimCmd sAnim_RainDrop[] =
 {
@@ -587,6 +584,28 @@ const struct SpriteTemplate gAquaTailHitSpriteTemplate =
     .callback = AnimAquaTail,
 };
 
+static const union AnimCmd sAnimCmdAnimatedSpark2[] = {
+	ANIMCMD_FRAME((8 * 8) / (16 * 16) * 0, 8),
+	ANIMCMD_FRAME((8 * 8) / (16 * 16) * 1, 8),
+	ANIMCMD_FRAME((8 * 8) / (16 * 16) * 2, 8),
+	ANIMCMD_JUMP(0)
+};
+
+static const union AnimCmd *const sAnimCmdTable_AnimatedSpark2[] = {
+	sAnimCmdAnimatedSpark2,
+};
+
+const struct SpriteTemplate gSparkBeamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPARK_2,
+    .paletteTag = ANIM_TAG_SPARK_2,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sAnimCmdTable_AnimatedSpark2,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
 static void AnimAquaTail(struct Sprite *sprite)
 {
     StartSpriteAffineAnim(sprite, gBattleAnimArgs[3]);
@@ -778,7 +797,7 @@ static void AnimAuroraBeamRings_Step(struct Sprite *sprite)
 void AnimTask_RotateAuroraRingColors(u8 taskId)
 {
     gTasks[taskId].data[0] = gBattleAnimArgs[0];
-    gTasks[taskId].data[2] = IndexOfSpritePaletteTag(ANIM_TAG_RAINBOW_RINGS) * 16 + 256;
+    gTasks[taskId].data[2] = OBJ_PLTT_ID(IndexOfSpritePaletteTag(ANIM_TAG_RAINBOW_RINGS));
     gTasks[taskId].func = AnimTask_RotateAuroraRingColors_Step;
 }
 
@@ -1009,15 +1028,15 @@ void AnimTask_CreateSurfWave(u8 taskId)
     case ANIM_SURF_PAL_SURF:
     default:
         if (B_NEW_SURF_PARTICLE_PALETTE == TRUE)
-            LoadCompressedPalette(gBattleAnimSpritePal_NewSurf, animBg.paletteId * 16, 32);
+            LoadCompressedPalette(gBattleAnimSpritePal_NewSurf, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
         else
-            LoadCompressedPalette(gBattleAnimBgPalette_Surf, animBg.paletteId * 16, 32);
+            LoadCompressedPalette(gBattleAnimBgPalette_Surf, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
         break;
     case ANIM_SURF_PAL_MUDDY_WATER:
-        LoadCompressedPalette(gBattleAnimBackgroundImageMuddyWater_Pal, animBg.paletteId * 16, 32);
+        LoadCompressedPalette(gBattleAnimBackgroundImageMuddyWater_Pal, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
         break;
     case ANIM_SURF_PAL_SLUDGE_WAVE:
-        LoadCompressedPalette(gBattleAnimBgPalette_SludgeWave, animBg.paletteId * 16, 32);
+        LoadCompressedPalette(gBattleAnimBgPalette_SludgeWave, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
         break;
     }
 
@@ -1080,12 +1099,12 @@ static void AnimTask_CreateSurfWave_Step1(u8 taskId)
     gTasks[taskId].data[2] += gTasks[taskId].data[1];
     if (++gTasks[taskId].data[5] == 4)
     {
-        rgbBuffer = gPlttBufferFaded[animBg.paletteId * 16 + 7];
+        rgbBuffer = gPlttBufferFaded[BG_PLTT_ID(animBg.paletteId) + 7];
         for (i = 6; i != 0; i--)
         {
-            gPlttBufferFaded[animBg.paletteId * 16 + 1 + i] = gPlttBufferFaded[animBg.paletteId * 16 + 1 + i - 1]; // 1 + i - 1 is needed to match for some bizarre reason
+            gPlttBufferFaded[BG_PLTT_ID(animBg.paletteId) + 1 + i] = gPlttBufferFaded[BG_PLTT_ID(animBg.paletteId) + 1 + i - 1]; // 1 + i - 1 is needed to match for some bizarre reason
         }
-        gPlttBufferFaded[animBg.paletteId * 16 + 1] = rgbBuffer;
+        gPlttBufferFaded[BG_PLTT_ID(animBg.paletteId) + 1] = rgbBuffer;
         gTasks[taskId].data[5] = 0;
     }
     if (++gTasks[taskId].data[6] > 1)
