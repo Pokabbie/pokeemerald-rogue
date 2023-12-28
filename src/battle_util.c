@@ -624,6 +624,8 @@ bool32 TryRunFromBattle(u32 battler)
     }
     else
     {
+        u8 runningFromBattler;
+
         if(Rogue_IsRunActive())
         {
             if(Rogue_GetCurrentDifficulty() == 0)
@@ -633,7 +635,7 @@ bool32 TryRunFromBattle(u32 battler)
             }
         }
 
-        u8 runningFromBattler = BATTLE_OPPOSITE(battler);
+        runningFromBattler = BATTLE_OPPOSITE(battler);
         if (!IsBattlerAlive(runningFromBattler))
             runningFromBattler |= BIT_FLANK;
 
@@ -7790,72 +7792,74 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         }
         break;
     case ITEMEFFECT_KINGSROCK:
-        bool8 shouldFlinch = FALSE;
-
-        if(gBattleMoveDamage != 0)
         {
-            u16 extraFlinchChance = 0;
+            bool8 shouldFlinch = FALSE;
 
-            if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
-                extraFlinchChance = GetCurseValue(EFFECT_FLINCH_CHANCE);
-            else
-                extraFlinchChance = GetCharmValue(EFFECT_FLINCH_CHANCE);
-
-            if(extraFlinchChance)
+            if(gBattleMoveDamage != 0)
             {
-                if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-                    && TARGET_TURN_DAMAGED
-                    && RandomPercentage(RNG_ROGUE_FLINCH_CHARM, extraFlinchChance)
-                    && gBattleMons[gBattlerTarget].hp)
+                u16 extraFlinchChance = 0;
+
+                if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+                    extraFlinchChance = GetCurseValue(EFFECT_FLINCH_CHANCE);
+                else
+                    extraFlinchChance = GetCharmValue(EFFECT_FLINCH_CHANCE);
+
+                if(extraFlinchChance)
                 {
-                    shouldFlinch = TRUE;
+                    if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                        && TARGET_TURN_DAMAGED
+                        && RandomPercentage(RNG_ROGUE_FLINCH_CHARM, extraFlinchChance)
+                        && gBattleMons[gBattlerTarget].hp)
+                    {
+                        shouldFlinch = TRUE;
+                    }
                 }
             }
-        }
 
-        // Occur on each hit of a multi-strike move
-        switch (atkHoldEffect)
-        {
-        case HOLD_EFFECT_FLINCH:
+            // Occur on each hit of a multi-strike move
+            switch (atkHoldEffect)
             {
-                u16 ability = GetBattlerAbility(gBattlerAttacker);
-                if (B_SERENE_GRACE_BOOST >= GEN_5 && ability == ABILITY_SERENE_GRACE)
-                    atkHoldEffectParam *= 2;
-                if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_RAINBOW && gCurrentMove != MOVE_SECRET_POWER)
-                    atkHoldEffectParam *= 2;
-                if (gBattleMoveDamage != 0  // Need to have done damage
-                    && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-                    && TARGET_TURN_DAMAGED
-                    && !gBattleMoves[gCurrentMove].ignoresKingsRock
-                    && gBattleMons[gBattlerTarget].hp
-                    && RandomPercentage(RNG_HOLD_EFFECT_FLINCH, atkHoldEffectParam)
-                    && ability != ABILITY_STENCH)
+            case HOLD_EFFECT_FLINCH:
                 {
-                    shouldFlinch = TRUE;
+                    u16 ability = GetBattlerAbility(gBattlerAttacker);
+                    if (B_SERENE_GRACE_BOOST >= GEN_5 && ability == ABILITY_SERENE_GRACE)
+                        atkHoldEffectParam *= 2;
+                    if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_RAINBOW && gCurrentMove != MOVE_SECRET_POWER)
+                        atkHoldEffectParam *= 2;
+                    if (gBattleMoveDamage != 0  // Need to have done damage
+                        && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                        && TARGET_TURN_DAMAGED
+                        && !gBattleMoves[gCurrentMove].ignoresKingsRock
+                        && gBattleMons[gBattlerTarget].hp
+                        && RandomPercentage(RNG_HOLD_EFFECT_FLINCH, atkHoldEffectParam)
+                        && ability != ABILITY_STENCH)
+                    {
+                        shouldFlinch = TRUE;
+                    }
                 }
+                break;
+            case HOLD_EFFECT_BLUNDER_POLICY:
+                if (gBattleStruct->blunderPolicy
+                && gBattleMons[gBattlerAttacker].hp != 0
+                && CompareStat(gBattlerAttacker, STAT_SPEED, MAX_STAT_STAGE, CMP_LESS_THAN))
+                {
+                    gBattleStruct->blunderPolicy = FALSE;
+                    gLastUsedItem = atkItem;
+                    SET_STATCHANGER(STAT_SPEED, 2, FALSE);
+                    effect = ITEM_STATS_CHANGE;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_AttackerItemStatRaise;
+                }
+                break;
             }
-            break;
-        case HOLD_EFFECT_BLUNDER_POLICY:
-            if (gBattleStruct->blunderPolicy
-             && gBattleMons[gBattlerAttacker].hp != 0
-             && CompareStat(gBattlerAttacker, STAT_SPEED, MAX_STAT_STAGE, CMP_LESS_THAN))
+            
+            if(shouldFlinch)
             {
-                gBattleStruct->blunderPolicy = FALSE;
-                gLastUsedItem = atkItem;
-                SET_STATCHANGER(STAT_SPEED, 2, FALSE);
-                effect = ITEM_STATS_CHANGE;
+                gBattleScripting.moveEffect = MOVE_EFFECT_FLINCH;
                 BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_AttackerItemStatRaise;
+                SetMoveEffect(FALSE, 0);
+                BattleScriptPop();
             }
-            break;
-        }
-        
-        if(shouldFlinch)
-        {
-            gBattleScripting.moveEffect = MOVE_EFFECT_FLINCH;
-            BattleScriptPushCursor();
-            SetMoveEffect(FALSE, 0);
-            BattleScriptPop();
         }
         break;
     case ITEMEFFECT_LIFEORB_SHELLBELL:
