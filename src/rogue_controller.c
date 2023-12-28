@@ -3188,6 +3188,7 @@ static u8 UNUSED RandomMonType(u16 seedFlag)
 u16 Rogue_SelectWildDenEncounterRoom(void)
 {
     u16 species;
+
     RogueMonQuery_Begin();
 
     RogueMonQuery_IsSpeciesActive();
@@ -3195,14 +3196,19 @@ u16 Rogue_SelectWildDenEncounterRoom(void)
     RogueMonQuery_TransformIntoEggSpecies();
     RogueMonQuery_TransformIntoEvos(Rogue_CalculatePlayerMonLvl(), TRUE, FALSE);
 
+    // Remove random entries until we can safely calcualte weights without going over
+    while(RogueWeightQuery_IsOverSafeCapacity())
     {
-        RogueWeightQuery_Begin();
+        RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, 50);
+    }
+
+    RogueWeightQuery_Begin();
+    {
         RogueWeightQuery_FillWeights(1);
 
         species = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
-
-        RogueWeightQuery_End();
     }
+    RogueWeightQuery_End();
 
     RogueMonQuery_End();
 
@@ -5676,7 +5682,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
             }
 
             if(chance < 100)
-                RogueMiscQuery_FilterByChance(gRngRogueValue, QUERY_FUNC_INCLUDE, chance);
+                RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, chance);
         }
     }
 }
@@ -5824,9 +5830,16 @@ static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* 
     default:
         break;
     }
+
+    if((species >= SPECIES_GREAT_TUSK && species <= SPECIES_IRON_THORNS) || species == SPECIES_ROARING_MOON || species == SPECIES_IRON_VALIANT)
+    {
+        // Much less likely to encounter than other mons
+        return 1;
+    }
+
 #endif
 
-    return 1;
+    return 10;
 }
 
 static u8 RandomiseWildEncounters_CalculateInitialWeight(u16 index, u16 species, void* data)
@@ -5863,6 +5876,12 @@ static void BeginWildEncounterQuery()
 
     // Now we've evolved we're only caring about mons of this type
     RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
+
+    // Remove random entries until we can safely calcualte weights without going over
+    while(RogueWeightQuery_IsOverSafeCapacity())
+    {
+        RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, 50);
+    }
 }
 
 static void EndWildEncounterQuery()

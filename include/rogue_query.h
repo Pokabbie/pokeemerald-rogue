@@ -81,6 +81,7 @@ void RogueMoveQuery_IsHM(u8 func);
 void RogueMoveQuery_End();
 
 // Weight selection
+bool8 RogueWeightQuery_IsOverSafeCapacity();
 void RogueWeightQuery_Begin();
 void RogueWeightQuery_End();
 bool8 RogueWeightQuery_HasAnyWeights();
