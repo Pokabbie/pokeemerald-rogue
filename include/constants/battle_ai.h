@@ -56,6 +56,4 @@
 
 #define AI_SCORE_DEFAULT 100 // Default score for all AI moves.
 
-#define AI_FLAG_COUNT           9
-
 #endif // GUARD_CONSTANTS_BATTLE_AI_H
