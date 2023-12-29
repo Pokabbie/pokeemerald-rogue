@@ -5,18 +5,21 @@
             "name": "Just Build",
             "type": "node",
             "request": "launch",
+            "program": "${workspaceFolder}/scripts/launch_stub.js",
             "preLaunchTask": "build",
         },
         {
             "name": "Just Rebuild",
             "type": "node",
             "request": "launch",
+            "program": "${workspaceFolder}/scripts/launch_stub.js",
             "preLaunchTask": "rebuild",
         },
         {
             "name": "Just Clean",
             "type": "node",
             "request": "launch",
+            "program": "${workspaceFolder}/scripts/launch_stub.js",
             "preLaunchTask": "clean",
         },
 
@@ -64,6 +67,7 @@
             "name": "Build & Launch",
             "type": "node",
             "request": "launch",
+            "program": "${workspaceFolder}/scripts/launch_stub.js",
             "preLaunchTask": "build & launch"
         },
     ]
