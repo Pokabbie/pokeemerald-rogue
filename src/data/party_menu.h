@@ -638,6 +638,33 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_ALREADY_HOLDING_ONE]    = gText_AlreadyHoldingOne,
 };
 
+static const u8 sText_NatureStatsNeutral[] = _("{FONT_SMALL_NARROW}- -");
+
+static const u8 sText_NatureStatsLonely[] = _("{FONT_SMALL_NARROW}+Atk -Def");
+static const u8 sText_NatureStatsBrave[] = _("{FONT_SMALL_NARROW}+Atk -Speed");
+static const u8 sText_NatureStatsAdamant[] = _("{FONT_SMALL_NARROW}+Atk -SpAtk");
+static const u8 sText_NatureStatsNaughty[] = _("{FONT_SMALL_NARROW}+Atk -SpDef");
+
+static const u8 sText_NatureStatsBold[] = _("{FONT_SMALL_NARROW}+Def -Atk");
+static const u8 sText_NatureStatsRelaxed[] = _("{FONT_SMALL_NARROW}+Def -Speed");
+static const u8 sText_NatureStatsImpish[] = _("{FONT_SMALL_NARROW}+Def -SpAtk");
+static const u8 sText_NatureStatsLax[] = _("{FONT_SMALL_NARROW}+Def -SpDef");
+
+static const u8 sText_NatureStatsTimid[] = _("{FONT_SMALL_NARROW}+Speed -Atk");
+static const u8 sText_NatureStatsHasty[] = _("{FONT_SMALL_NARROW}+Speed -Def");
+static const u8 sText_NatureStatsJolly[] = _("{FONT_SMALL_NARROW}+Speed -SpAtk");
+static const u8 sText_NatureStatsNaive[] = _("{FONT_SMALL_NARROW}+Speed -SpDef");
+
+static const u8 sText_NatureStatsModest[] = _("{FONT_SMALL_NARROW}+SpAtk -Atk");
+static const u8 sText_NatureStatsMild[] = _("{FONT_SMALL_NARROW}+SpAtk -Def");
+static const u8 sText_NatureStatsQuiet[] = _("{FONT_SMALL_NARROW}+SpAtk -Speed");
+static const u8 sText_NatureStatsRash[] = _("{FONT_SMALL_NARROW}+SpAtk -SpDef");
+
+static const u8 sText_NatureStatsCalm[] = _("{FONT_SMALL_NARROW}+SpDef -Atk");
+static const u8 sText_NatureStatsGentle[] = _("{FONT_SMALL_NARROW}+SpDef -Def");
+static const u8 sText_NatureStatsSassy[] = _("{FONT_SMALL_NARROW}+SpDef -Speed");
+static const u8 sText_NatureStatsCareful[] = _("{FONT_SMALL_NARROW}+SpDef -SpAtk");
+
 static const u8 *const sDescriptionStringTable[] =
 {
     [PARTYBOX_DESC_NO_USE]     = gText_NoUse,
@@ -653,6 +680,33 @@ static const u8 *const sDescriptionStringTable[] =
     [PARTYBOX_DESC_LEARNED]    = gText_Learned,
     [PARTYBOX_DESC_HAVE]       = gText_Have,
     [PARTYBOX_DESC_DONT_HAVE]  = gText_DontHave,
+
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_HARDY]     = sText_NatureStatsNeutral,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_LONELY]    = sText_NatureStatsLonely,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_BRAVE]     = sText_NatureStatsBrave,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_ADAMANT]   = sText_NatureStatsAdamant,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_NAUGHTY]   = sText_NatureStatsNaughty,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_BOLD]      = sText_NatureStatsBold,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_DOCILE]    = sText_NatureStatsNeutral,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_RELAXED]   = sText_NatureStatsRelaxed,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_IMPISH]    = sText_NatureStatsImpish,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_LAX]       = sText_NatureStatsLax,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_TIMID]     = sText_NatureStatsTimid,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_HASTY]     = sText_NatureStatsHasty,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_SERIOUS]   = sText_NatureStatsNeutral,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_JOLLY]     = sText_NatureStatsJolly,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_NAIVE]     = sText_NatureStatsNaive,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_MODEST]    = sText_NatureStatsModest,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_MILD]      = sText_NatureStatsMild,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_QUIET]     = sText_NatureStatsQuiet,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_BASHFUL]   = sText_NatureStatsNeutral,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_RASH]      = sText_NatureStatsRash,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_CALM]      = sText_NatureStatsCalm,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_GENTLE]    = sText_NatureStatsGentle,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_SASSY]     = sText_NatureStatsSassy,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_CAREFUL]   = sText_NatureStatsCareful,
+    [PARTYBOX_DESC_FIRST_NATURE + NATURE_QUIRKY]    = sText_NatureStatsNeutral,
+
 };
 
 static const u16 sUnusedData[] =

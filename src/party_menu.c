@@ -190,6 +190,7 @@ static void DisplayPartyPokemonDataForChooseHalf(u8);
 static void DisplayPartyPokemonDataForWirelessMinigame(u8);
 static void DisplayPartyPokemonDataForBattlePyramidHeldItem(u8);
 static bool8 DisplayPartyPokemonDataForMoveTutorOrEvolutionItem(u8);
+static void DisplayPartyPokemonDataForNatureMint(u8);
 static void DisplayPartyPokemonData(u8);
 static void DisplayPartyPokemonNickname(struct Pokemon *, struct PartyMenuBox *, u8);
 static void DisplayPartyPokemonLevelCheck(struct Pokemon *, struct PartyMenuBox *, u8);
@@ -203,6 +204,7 @@ static void DisplayPartyPokemonDataToTeachMove(u8, u16, u8);
 static u8 CanMonLearnTMTutor(struct Pokemon *, u16, u8);
 static void DisplayPartyPokemonBarDetail(u8, const u8*, u8, const u8*);
 static void DisplayPartyPokemonLevel(u8, struct PartyMenuBox *);
+static void DisplayPartyPokemonNature(u8, struct PartyMenuBox *);
 static void DisplayPartyPokemonGender(u8, u16, u8*, struct PartyMenuBox *);
 static void DisplayPartyPokemonHP(u16, struct PartyMenuBox *);
 static void DisplayPartyPokemonMaxHP(u16, struct PartyMenuBox *);
@@ -339,6 +341,7 @@ static void Task_HandleStopLearningMoveYesNoInput(u8);
 static void Task_TryLearningNextMoveAfterText(u8);
 static void BufferMonStatsToTaskData(struct Pokemon*, s16*);
 static void UpdateMonDisplayInfoAfterRareCandy(u8, struct Pokemon*);
+static void UpdateMonDisplayInfoAfterNatureMint(u8);
 static void Task_DisplayLevelUpStatsPg1(u8);
 static void DisplayLevelUpStatsPg1(u8);
 static void Task_DisplayLevelUpStatsPg2(u8);
@@ -792,6 +795,8 @@ static void RenderPartyMenuBox(u8 slot)
                 DisplayPartyPokemonDataForWirelessMinigame(slot);
             else if (gPartyMenu.menuType == PARTY_MENU_TYPE_STORE_PYRAMID_HELD_ITEMS)
                 DisplayPartyPokemonDataForBattlePyramidHeldItem(slot);
+            else if (gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT)
+                DisplayPartyPokemonDataForNatureMint(slot);
             else if (!DisplayPartyPokemonDataForMoveTutorOrEvolutionItem(slot))
                 DisplayPartyPokemonData(slot);
 
@@ -936,6 +941,12 @@ static bool8 DisplayPartyPokemonDataForMoveTutorOrEvolutionItem(u8 slot)
         }
     }
     return TRUE;
+}
+
+static void DisplayPartyPokemonDataForNatureMint(u8 slot)
+{
+    struct Pokemon *currentPokemon = &gPlayerParty[slot];
+    DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_FIRST_NATURE + GetNature(currentPokemon));
 }
 
 static void DisplayPartyPokemonDataToTeachMove(u8 slot, u16 item, u8 tutor)
@@ -2274,7 +2285,13 @@ static void DisplayPartyPokemonLevelCheck(struct Pokemon *mon, struct PartyMenuB
             if (c != 0)
                 menuBox->infoRects->blitFunc(menuBox->windowId, menuBox->infoRects->dimensions[4] >> 3, (menuBox->infoRects->dimensions[5] >> 3) + 1, menuBox->infoRects->dimensions[6] >> 3, menuBox->infoRects->dimensions[7] >> 3, FALSE);
             if (c != 2)
-                DisplayPartyPokemonLevel(GetMonData(mon, MON_DATA_LEVEL), menuBox);
+            {
+                if(gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT)
+                    // Display nature here instead
+                    DisplayPartyPokemonNature(GetNature(mon), menuBox);
+                else
+                    DisplayPartyPokemonLevel(GetMonData(mon, MON_DATA_LEVEL), menuBox);
+            }
         }
     }
 }
@@ -2285,6 +2302,11 @@ static void DisplayPartyPokemonLevel(u8 level, struct PartyMenuBox *menuBox)
     StringCopy(gStringVar1, gText_LevelSymbol);
     StringAppend(gStringVar1, gStringVar2);
     DisplayPartyPokemonBarDetail(menuBox->windowId, gStringVar1, 0, &menuBox->infoRects->dimensions[4]);
+}
+
+static void DisplayPartyPokemonNature(u8 nature, struct PartyMenuBox *menuBox)
+{
+    DisplayPartyPokemonBarDetail(menuBox->windowId, gNatureNamePointers[nature], 0, &menuBox->infoRects->dimensions[4]);
 }
 
 static void DisplayPartyPokemonGenderNidoranCheck(struct Pokemon *mon, struct PartyMenuBox *menuBox, u8 c)
@@ -2300,6 +2322,10 @@ static void DisplayPartyPokemonGenderNidoranCheck(struct Pokemon *mon, struct Pa
 static void DisplayPartyPokemonGender(u8 gender, u16 species, u8 *nickname, struct PartyMenuBox *menuBox)
 {
     u8 palNum = GetWindowAttribute(menuBox->windowId, WINDOW_PALETTE_NUM) * 16;
+
+    // Don't display gender on this screen
+    if(gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT)
+        return;
 
     if (species == SPECIES_NONE)
         return;
@@ -2662,6 +2688,7 @@ static u8 GetPartyMenuActionsType(struct Pokemon *mon)
     switch (gPartyMenu.menuType)
     {
     case PARTY_MENU_TYPE_FIELD:
+    case PARTY_MENU_TYPE_USE_NATURE_MINT:
         if (InMultiPartnerRoom() == TRUE || GetMonData(mon, MON_DATA_IS_EGG))
             actionType = ACTIONS_SWITCH;
         else
@@ -2762,7 +2789,7 @@ static void Task_HandleSelectionMenuInput(u8 taskId)
     {
         if(JOY_NEW(DPAD_RIGHT | DPAD_LEFT))
         {
-            if(gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
+            if(gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD || gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT)
             {
                 sCursorOptions[MENU_CYCLE_SUBMENU].func(taskId);
             }
@@ -4463,7 +4490,11 @@ void CB2_ShowPartyMenuForItemUse(void)
     }
     else
     {
-        menuType = PARTY_MENU_TYPE_FIELD;
+        if(ItemId_GetFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_NatureMint)
+            menuType = PARTY_MENU_TYPE_USE_NATURE_MINT;
+        else
+            menuType = PARTY_MENU_TYPE_FIELD;
+
         partyLayout = PARTY_LAYOUT_SINGLE;
     }
 
@@ -4659,7 +4690,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
 
         ScheduleBgCopyTilemapToVram(2);
 
-        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(item, 1))
+        if ((gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD || gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT) && CheckBagHasItem(item, 1))
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         else
             gTasks[taskId].func = task;
@@ -4709,7 +4740,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
                 GetMedicineItemEffectMessage(item);
                 DisplayPartyMenuMessage(gStringVar4, TRUE);
                 ScheduleBgCopyTilemapToVram(2);
-                if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(item, 1))
+                if ((gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD || gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT) && CheckBagHasItem(item, 1))
                     gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
                 else
                     gTasks[taskId].func = task;
@@ -4726,7 +4757,7 @@ static void Task_DisplayHPRestoredMessage(u8 taskId)
     ScheduleBgCopyTilemapToVram(2);
     HandleBattleLowHpMusicChange();
 
-    if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+    if ((gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD || gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT) && CheckBagHasItem(gSpecialVar_ItemId, 1))
         gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
     else
         gTasks[taskId].func = Task_ClosePartyMenuAfterText;
@@ -4865,21 +4896,34 @@ void Task_NatureMint(u8 taskId)
         break;
     case 3:
         PlaySE(SE_USE_ITEM);
+        SetNature(mon, nature);
+        RemoveBagItem(gSpecialVar_ItemId, 1);
+        UpdateMonDisplayInfoAfterNatureMint(tMonId);
+        tState++;
+        break;
+    case 4:
+        SetNature(mon, nature);
+        RemoveBagItem(gSpecialVar_ItemId, 1);
         StringExpandPlaceholders(gStringVar4, doneText);
         DisplayPartyMenuMessage(gStringVar4, 1);
         ScheduleBgCopyTilemapToVram(2);
         tState++;
         break;
-    case 4:
+    case 5:
         if (!IsPartyMenuTextPrinterActive())
             tState++;
         break;
-    case 5:
-        SetNature(mon, nature);
-        RemoveBagItem(gSpecialVar_ItemId, 1);
+    case 6:
         gTasks[taskId].func = Task_ClosePartyMenu;
         break;
     }
+}
+
+static void UpdateMonDisplayInfoAfterNatureMint(u8 slot)
+{
+    DisplayPartyPokemonDataForNatureMint(slot);
+    AnimatePartySlot(slot, 1);
+    ScheduleBgCopyTilemapToVram(0);
 }
 
 void ItemUseCB_NatureMint(u8 taskId, TaskFunc task)
@@ -5432,7 +5476,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
         ScheduleBgCopyTilemapToVram(2);
 
-        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
+        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD || gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT)
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         else
             gTasks[taskId].func = task;
@@ -5583,7 +5627,7 @@ static void PartyMenuTryEvolution(u8 taskId)
     }
     else
     {
-        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        if ((gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD || gPartyMenu.menuType == PARTY_MENU_TYPE_USE_NATURE_MINT) && CheckBagHasItem(gSpecialVar_ItemId, 1))
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         else
             gTasks[taskId].func = Task_ClosePartyMenuAfterText;
