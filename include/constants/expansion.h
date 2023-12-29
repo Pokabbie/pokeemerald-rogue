@@ -1,0 +1,1 @@
+// vanilla placeholder stub

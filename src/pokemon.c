@@ -67,7 +67,6 @@ static void Task_PlayMapChosenOrBattleBGM(u8 taskId);
 static bool8 ShouldGetStatBadgeBoost(u16 flagId, u8 battlerId);
 static u16 GiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
 static bool8 ShouldSkipFriendshipChange(void);
-static u8 SendMonToPC(struct Pokemon* mon);
 static u8 CalcGenderFromSpeciesAndPersonality(u16 species, u32 personality);
 
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
@@ -4553,7 +4552,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     }
 
     if (i >= PARTY_SIZE)
-        return SendMonToPC(mon);
+        return CopyMonToPC(mon);
 
     CopyMon(&gPlayerParty[i], mon, sizeof(*mon));
 
@@ -4568,7 +4567,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     return MON_GIVEN_TO_PARTY;
 }
 
-static u8 SendMonToPC(struct Pokemon* mon)
+u8 CopyMonToPC(struct Pokemon* mon)
 {
     s32 boxNo, boxPos;
 

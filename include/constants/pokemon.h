@@ -378,4 +378,6 @@
 
 #define SKIP_FRONT_ANIM (1 << 7)
 
+#define NUM_ABILITY_SLOTS 2
+
 #endif // GUARD_CONSTANTS_POKEMON_H

@@ -330,6 +330,7 @@ SECTIONS {
         src/battle_transition_frontier.o(.text);
         src/international_string_util.o(.text);
         src/follow_me.o(.text);
+        src/debug.o(.text);
         src/rogue_adventure.o(.text);
         src/rogue_automation.o(.text);
         src/rogue_assistant.o(.text);
@@ -720,6 +721,7 @@ SECTIONS {
         src/m4a_tables.o(.rodata);
         data/sound_data.o(.rodata);
         src/follow_me.o(.rodata);
+        src/debug.o(.rodata);
         src/rogue_adventure.o(.rodata);
         src/rogue_automation.o(.rodata);
         src/rogue_assistant.o(.rodata);
@@ -1440,6 +1442,8 @@ SECTIONS {
     {
         src/graphics.o(.rodata);
     } =0
+
+    __rom_end = .;
 
     /* DWARF debug sections.
        Symbols in the DWARF debugging sections are relative to the beginning
