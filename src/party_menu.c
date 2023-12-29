@@ -5260,6 +5260,7 @@ void ItemUseCB_AbilityPatch(u8 taskId, TaskFunc task)
 
 static u8 MintItemToNature(u16 item)
 {
+#ifdef ROGUE_EXPANSION
     switch (item)
     {
     case ITEM_LONELY_MINT:
@@ -5305,6 +5306,7 @@ static u8 MintItemToNature(u16 item)
     case ITEM_SERIOUS_MINT:
         return NATURE_SERIOUS;
     }
+#endif
 
     return NATURE_HARDY;
 }
