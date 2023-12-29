@@ -1102,4 +1102,33 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .iconImage = gItemIcon_TM,
         .iconPalette = gItemIconPalette_FightingTMHM,
     },
+
+#ifdef ROGUE_DEBUG
+    [ITEM_DEBUG_MINT_HARDY - ITEM_ROGUE_ITEM_FIRST] =
+    {
+        .name = _("DEBUG H MINT"),
+        .itemId = ITEM_DEBUG_MINT_HARDY,
+        .price = 0,
+        .description = gText_DexEmptyString,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .registrability = FALSE,
+        .fieldUseFunc = ItemUseOutOfBattle_NatureMint,
+        .iconImage = gItemIcon_EnigmaBerry,
+        .iconPalette = gItemIconPalette_EnigmaBerry,
+    },
+    [ITEM_DEBUG_MINT_ADAMANT - ITEM_ROGUE_ITEM_FIRST] =
+    {
+        .name = _("DEBUG A MINT"),
+        .itemId = ITEM_DEBUG_MINT_ADAMANT,
+        .price = 0,
+        .description = gText_DexEmptyString,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .registrability = FALSE,
+        .fieldUseFunc = ItemUseOutOfBattle_NatureMint,
+        .iconImage = gItemIcon_EnigmaBerry,
+        .iconPalette = gItemIconPalette_EnigmaBerry,
+    },
+#endif
 };

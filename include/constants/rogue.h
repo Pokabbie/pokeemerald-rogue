@@ -96,7 +96,13 @@
 #define FIRST_ITEM_POKEBLOCK            ITEM_POKEBLOCK_NORMAL
 #define LAST_ITEM_POKEBLOCK             ITEM_POKEBLOCK_SPDEF
 
-// Free 45 - 49
+#ifdef ROGUE_DEBUG
+#define ITEM_DEBUG_MINT_HARDY           (ITEM_ROGUE_ITEM_FIRST + 46)
+#define ITEM_DEBUG_MINT_ADAMANT         (ITEM_ROGUE_ITEM_FIRST + 47)
+#define ITEM_DEBUG_UNUSED0              (ITEM_ROGUE_ITEM_FIRST + 48)
+#define ITEM_DEBUG_UNUSED1              (ITEM_ROGUE_ITEM_FIRST + 49)
+#endif
+
 
 // TODO - Classify these as dynamic items, to be wiped every patch (Allows easily moving them around)
 // Reserved 30 charms then 30 items
