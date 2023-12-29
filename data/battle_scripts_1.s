@@ -524,7 +524,7 @@ BattleScript_MoveSwitch:
 	switchoutabilities BS_ATTACKER
 	waitstate
 	switchhandleorder BS_ATTACKER, 2
-	returntoball BS_ATTACKER
+	returntoball BS_ATTACKER, FALSE
 	getswitchedmondata BS_ATTACKER
 	switchindataupdate BS_ATTACKER
 	hpthresholds BS_ATTACKER
@@ -5173,7 +5173,7 @@ BattleScript_EffectBatonPass::
 	switchoutabilities BS_ATTACKER
 	waitstate
 	switchhandleorder BS_ATTACKER, 2
-	returntoball BS_ATTACKER
+	returntoball BS_ATTACKER, FALSE
 	getswitchedmondata BS_ATTACKER
 	switchindataupdate BS_ATTACKER
 	hpthresholds BS_ATTACKER
@@ -7097,7 +7097,7 @@ BattleScript_RoarSuccessRet:
 	waitanimation
 BattleScript_RoarSuccessRet_Ret:
 	switchoutabilities BS_TARGET
-	returntoball BS_TARGET
+	returntoball BS_TARGET, FALSE
 	waitstate
 	return
 
@@ -8576,7 +8576,7 @@ BattleScript_EmergencyExitNoPopUp::
 	switchoutabilities BS_TARGET
 	waitstate
 	switchhandleorder BS_TARGET, 2
-	returntoball BS_TARGET
+	returntoball BS_TARGET, FALSE
 	getswitchedmondata BS_TARGET
 	switchindataupdate BS_TARGET
 	hpthresholds BS_TARGET
@@ -10396,7 +10396,7 @@ BattleScript_EjectButtonActivates::
 	switchoutabilities BS_SCRIPTING
 	waitstate
 	switchhandleorder BS_SCRIPTING 0x2
-	returntoball BS_SCRIPTING
+	returntoball BS_SCRIPTING, FALSE
 	getswitchedmondata BS_SCRIPTING
 	switchindataupdate BS_SCRIPTING
 	hpthresholds BS_SCRIPTING
@@ -10782,7 +10782,7 @@ BattleScript_DynamaxBegins::
 	trytrainerslidedynamaxmsg
 	returnatktoball
 	pause B_WAIT_TIME_SHORT
-	returntoball BS_SCRIPTING
+	returntoball BS_SCRIPTING, TRUE
 	switchinanim BS_SCRIPTING, TRUE
 	updatedynamax
 	playanimation BS_SCRIPTING, B_ANIM_DYNAMAX_GROWTH
