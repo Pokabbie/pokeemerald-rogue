@@ -15,6 +15,7 @@ void ItemUseOutOfBattle_PowderJar(u8);
 void ItemUseOutOfBattle_SSTicket(u8);
 void ItemUseOutOfBattle_WailmerPail(u8);
 void ItemUseOutOfBattle_Medicine(u8);
+void ItemUseOutOfBattle_NatureMint(u8);
 void ItemUseOutOfBattle_ReduceEV(u8);
 void ItemUseOutOfBattle_SacredAsh(u8);
 void ItemUseOutOfBattle_PPRecovery(u8);
