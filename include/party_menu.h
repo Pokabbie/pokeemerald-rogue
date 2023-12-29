@@ -54,6 +54,7 @@ void ItemUseCB_BattleChooseMove(u8 taskId, TaskFunc task);
 void ItemUseCB_Medicine(u8 taskId, TaskFunc task);
 void ItemUseCB_AbilityCapsule(u8 taskId, TaskFunc task);
 void ItemUseCB_AbilityPatch(u8 taskId, TaskFunc task);
+void ItemUseCB_NatureMint(u8 taskId, TaskFunc task);
 void ItemUseCB_ResetEVs(u8 taskId, TaskFunc task);
 void ItemUseCB_ReduceEV(u8 taskId, TaskFunc task);
 void ItemUseCB_PPRecovery(u8 taskId, TaskFunc task);

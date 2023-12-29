@@ -69,7 +69,7 @@
 
 #include "rogue_pokedex.h"
 
-#ifndef MON_DATA_SPECIES_OR_EGG
+#ifndef ROGUE_EXPANSION
 #define MON_DATA_SPECIES_OR_EGG MON_DATA_SPECIES2
 #endif
 
