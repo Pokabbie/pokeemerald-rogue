@@ -4741,11 +4741,18 @@ static void Task_ClosePartyMenuAfterText(u8 taskId)
         Task_ClosePartyMenu(taskId);
     }
 }
+
+#define tState      data[0]
+#define tSpecies    data[1]
+#define tAbilityNum data[2]
+#define tMonId      data[3]
+#define tOldFunc    4
+
 static u8 MintItemToNature(u16 item)
 {
-#ifdef ROGUE_EXPANSION
     switch (item)
     {
+#ifdef ROGUE_EXPANSION
     case ITEM_LONELY_MINT:
         return NATURE_LONELY;
     case ITEM_ADAMANT_MINT:
@@ -4788,8 +4795,13 @@ static u8 MintItemToNature(u16 item)
         return NATURE_NAIVE;
     case ITEM_SERIOUS_MINT:
         return NATURE_SERIOUS;
-    }
 #endif
+
+#ifdef ROGUE_DEBUG
+    case ITEM_DEBUG_MINT_ADAMANT:
+        return NATURE_ADAMANT;
+#endif
+    }
 
     return NATURE_HARDY;
 }
@@ -4922,6 +4934,12 @@ void ItemUseCB_ReduceEV(u8 taskId, TaskFunc task)
         gTasks[taskId].func = task;
     }
 }
+
+#undef tState
+#undef tSpecies
+#undef tAbilityNum
+#undef tMonId
+#undef tOldFunc
 
 static u16 ItemEffectToMonEv(struct Pokemon *mon, u8 effectType)
 {
