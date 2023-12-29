@@ -50,6 +50,7 @@
 #include "strings.h"
 #include "string_util.h"
 #include "task.h"
+#include "pokemon.h"
 #include "pokemon_summary_screen.h"
 #include "wild_encounter.h"
 #include "constants/abilities.h"
@@ -65,6 +66,12 @@
 #include "constants/species.h"
 #include "constants/weather.h"
 #include "save.h"
+
+#include "rogue_pokedex.h"
+
+#ifndef MON_DATA_SPECIES_OR_EGG
+#define MON_DATA_SPECIES_OR_EGG MON_DATA_SPECIES2
+#endif
 
 #if DEBUG_OVERWORLD_MENU == TRUE
 // *******************************
@@ -1269,7 +1276,7 @@ static void Debug_RefreshListMenu(u8 taskId)
             else if (GetMonData(&gEnemyParty[i], MON_DATA_SANITY_HAS_SPECIES))
             {
                 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES);
-                StringCopy(gStringVar1, GetSpeciesName(species));
+                StringCopy(gStringVar1, RoguePokedex_GetSpeciesName(species));
                 StringCopy(&sDebugMenuListData->itemNames[i][0], gStringVar1);
             }
             else
@@ -1600,8 +1607,12 @@ static void Debug_InitializeBattle(u8 taskId)
     }
 
     gIsDebugBattle = TRUE;
-    BattleSetup_StartTrainerBattle_Debug();
 
+#ifdef ROGUE_EXPANSION
+    BattleSetup_StartTrainerBattle_Debug();
+#else
+    AGB_ASSERT(FALSE); // todo
+#endif
 
     Debug_DestroyMenu_Full(taskId);
 }
@@ -2163,6 +2174,7 @@ static void DebugAction_Util_ExpansionVersion(u8 taskId)
 
 void BufferExpansionVersion(struct ScriptContext *ctx)
 {
+#ifdef ROGUE_EXPANSION
     static const u8 sText_Released[] = _("\nRelease Build");
     static const u8 sText_Unreleased[] = _("\nDevelopment Build");
     u8 *string = gStringVar1;
@@ -2176,6 +2188,10 @@ void BufferExpansionVersion(struct ScriptContext *ctx)
         string = StringCopy(string, sText_Released);
     else
         string = StringCopy(string, sText_Unreleased);
+#else
+    static const u8 sText_VanillaBuild[] = _("Vanilla Build");
+    StringCopy(gStringVar1, sText_VanillaBuild);
+#endif
 }
 
 // *******************************
@@ -2970,7 +2986,7 @@ static void DebugAction_Give_PokemonSimple(u8 taskId)
     // Display initial Pokémon
     StringCopy(gStringVar2, gText_DigitIndicator[0]);
     ConvertIntToDecimalStringN(gStringVar3, sDebugMonData->species, STR_CONV_MODE_LEADING_ZEROS, 3);
-    StringCopy(gStringVar1, GetSpeciesName(sDebugMonData->species));
+    StringCopy(gStringVar1, RoguePokedex_GetSpeciesName(sDebugMonData->species));
     StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
     StringExpandPlaceholders(gStringVar4, sDebugText_PokemonID);
     AddTextPrinterParameterized(windowId, DEBUG_MENU_FONT, gStringVar4, 1, 1, 0, NULL);
@@ -3010,7 +3026,7 @@ static void DebugAction_Give_PokemonComplex(u8 taskId)
     // Display initial Pokémon
     StringCopy(gStringVar2, gText_DigitIndicator[0]);
     ConvertIntToDecimalStringN(gStringVar3, sDebugMonData->species, STR_CONV_MODE_LEADING_ZEROS, 4);
-    StringCopy(gStringVar1, GetSpeciesName(sDebugMonData->species));
+    StringCopy(gStringVar1, RoguePokedex_GetSpeciesName(sDebugMonData->species));
     StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
     StringExpandPlaceholders(gStringVar4, sDebugText_PokemonID);
     AddTextPrinterParameterized(windowId, DEBUG_MENU_FONT, gStringVar4, 1, 1, 0, NULL);
@@ -3058,7 +3074,7 @@ static void DebugAction_Give_Pokemon_SelectId(u8 taskId)
         }
 
         StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
-        StringCopy(gStringVar1, GetSpeciesName(gTasks[taskId].tInput)); //CopyItemName(gTasks[taskId].tInput, gStringVar1);
+        StringCopy(gStringVar1, RoguePokedex_GetSpeciesName(gTasks[taskId].tInput)); //CopyItemName(gTasks[taskId].tInput, gStringVar1);
         StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
         ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 4);
         StringExpandPlaceholders(gStringVar4, sDebugText_PokemonID);
@@ -3726,15 +3742,16 @@ static void DebugAction_Give_MaxBattlePoints(u8 taskId)
 
 static void DebugAction_Give_DayCareEgg(u8 taskId)
 {
-    s32 emptySlot = Daycare_FindEmptySpot(&gSaveBlock1Ptr->daycare);
-    if (emptySlot == 0) // no daycare mons
-        Debug_DestroyMenu_Full_Script(taskId, DebugScript_ZeroDaycareMons);
-    else if (emptySlot == 1) // 1 daycare mon
-        Debug_DestroyMenu_Full_Script(taskId, DebugScript_OneDaycareMons);
-    else if (GetDaycareCompatibilityScore(&gSaveBlock1Ptr->daycare) == PARENTS_INCOMPATIBLE) // not compatible parents
-        Debug_DestroyMenu_Full_Script(taskId, DebugScript_DaycareMonsNotCompatible);
-    else // 2 pokemon which can have a pokemon baby together
-        TriggerPendingDaycareEgg();
+    AGB_ASSERT(FALSE); // todo
+    //s32 emptySlot = Daycare_FindEmptySpot(&gSaveBlock1Ptr->daycare);
+    //if (emptySlot == 0) // no daycare mons
+    //    Debug_DestroyMenu_Full_Script(taskId, DebugScript_ZeroDaycareMons);
+    //else if (emptySlot == 1) // 1 daycare mon
+    //    Debug_DestroyMenu_Full_Script(taskId, DebugScript_OneDaycareMons);
+    //else if (GetDaycareCompatibilityScore(&gSaveBlock1Ptr->daycare) == PARENTS_INCOMPATIBLE) // not compatible parents
+    //    Debug_DestroyMenu_Full_Script(taskId, DebugScript_DaycareMonsNotCompatible);
+    //else // 2 pokemon which can have a pokemon baby together
+    //    TriggerPendingDaycareEgg();
 }
 
 // *******************************
@@ -3757,10 +3774,14 @@ static void DebugAction_Fill_PCBoxes_Fast(u8 taskId) //Credit: Sierraffinity
         {
             if (!GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
             {
-                StringCopy(speciesName, GetSpeciesName(species));
+                StringCopy(speciesName, RoguePokedex_GetSpeciesName(species));
                 SetBoxMonData(&boxMon, MON_DATA_NICKNAME, &speciesName);
                 SetBoxMonData(&boxMon, MON_DATA_SPECIES, &species);
+#ifdef ROGUE_EXPANSION
                 GiveBoxMonInitialMoveset_Fast(&boxMon);
+#else
+                GiveBoxMonInitialMoveset(&boxMon);
+#endif
                 gPokemonStoragePtr->boxes[boxId][boxPosition] = boxMon;
             }
         }
