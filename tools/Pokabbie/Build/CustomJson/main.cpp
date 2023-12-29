@@ -3,7 +3,7 @@
 #include <functional>
 #include <unordered_map>
 
-typedef std::function<void(std::ofstream&, json const&)> ExporterFunc;
+typedef std::function<void(std::ofstream&, std::string const&, json const&)> ExporterFunc;
 
 static std::string readTextFile(std::string const& filepath) 
 {
@@ -25,12 +25,13 @@ static std::string readTextFile(std::string const& filepath)
     return text;
 }
 
-void ExportTrainerData_C(std::ofstream& fileStream, json const& jsonData);
-void ExportTrainerData_Pory(std::ofstream& fileStream, json const& jsonData);
-void ExportBattleMusicData_C(std::ofstream& fileStream, json const& jsonData);
-void ExportQuestData_C(std::ofstream& fileStream, json const& jsonData);
-void ExportQuestData_H(std::ofstream& fileStream, json const& jsonData);
-void ExportQuestData_Pory(std::ofstream& fileStream, json const& jsonData);
+void ExportTrainerData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
+void ExportTrainerData_Pory(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
+void ExportBattleMusicData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
+void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
+void ExportQuestData_H(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
+void ExportQuestData_Pory(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
+void ExportNicknameData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 
 
 static std::map<std::string, ExporterFunc> CreateExportMap()
@@ -43,11 +44,12 @@ static std::map<std::string, ExporterFunc> CreateExportMap()
     mapping["quests_c"] = ExportQuestData_C;
     mapping["quests_h"] = ExportQuestData_H;
     mapping["quests_pory"] = ExportQuestData_Pory;
+    mapping["nicknames_c"] = ExportNicknameData_C;
 
     return mapping;
 }
 
-int main(int argc, char* argv[]) 
+int main(int argc, char* argv[])
 {
     std::string inputArgs = "customjson ";
     for (int i = 1; i < argc; ++i)
@@ -55,6 +57,7 @@ int main(int argc, char* argv[])
         inputArgs += " ";
         inputArgs += argv[i];
     }
+
     LOG_MSG("%s", inputArgs.c_str());
 
     if (argc != 4)
@@ -70,18 +73,35 @@ int main(int argc, char* argv[])
 
     if (exporterIt == validExporters.end())
     {
-        FATAL_ERROR("Invalid exporter.\nUSAGE: mapjson <exporter> <input path> <output path>\n");
+        LOG_MSG("Invalid exporter '%s'", exporter.c_str());
+        LOG_MSG("Valid exporters:");
+
+        for (auto it = validExporters.begin(); it != validExporters.end(); ++it)
+        {
+            std::string const& str = it->first;
+            LOG_MSG("\t'%s'", str.c_str());
+        }
+
+
+        FATAL_ERROR("USAGE: mapjson <exporter> <input path> <output path>\n");
     }
 
     json jsonData;
 
-    try
+    if (strutil::ends_with(sourceFilePath, ".txt"))
     {
-        jsonData = json::parse(readTextFile(sourceFilePath));
+        LOG_MSG("Skipping json parsing (Assuming alternative format)");
     }
-    catch (json::exception const& e)
+    else
     {
-        FATAL_ERROR("Json Error: %s\n", e.what());
+        try
+        {
+            jsonData = json::parse(readTextFile(sourceFilePath));
+        }
+        catch (json::exception const& e)
+        {
+            FATAL_ERROR("Json Error: %s\n", e.what());
+        }
     }
 
     std::ofstream writeStream(exportFilePath, std::ofstream::binary);
@@ -97,8 +117,9 @@ int main(int argc, char* argv[])
     writeStream << "\n";
 
     // Run the exporter
-    exporterIt->second(writeStream, jsonData);
+    exporterIt->second(writeStream, sourceFilePath, jsonData);
 
+    writeStream.flush();
     writeStream.close();
 
     return 0;

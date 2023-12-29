@@ -9,6 +9,9 @@ $(DATA_SRC_SUBDIR)/rogue/trainers.h: $(DATA_SRC_SUBDIR)/rogue/trainers.json
 $(DATA_SRC_SUBDIR)/rogue/quests.h: $(DATA_SRC_SUBDIR)/rogue/quests.json
 	$(CUSTOMJSON) quests_c $^ $@
 
+$(DATA_SRC_SUBDIR)/rogue/pokemon_nicknames.h: $(DATA_SRC_SUBDIR)/rogue/pokemon_nicknames.txt
+	$(CUSTOMJSON) nicknames_c $^ $@
+
 include/constants/generated/quests.h: $(DATA_SRC_SUBDIR)/rogue/quests.json
 	$(CUSTOMJSON) quests_h $^ $@
 

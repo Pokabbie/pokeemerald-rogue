@@ -58,6 +58,7 @@
 #include "rogue_charms.h"
 #include "rogue_popup.h"
 #include "rogue_script.h"
+#include "rogue_settings.h"
 
 extern const u8* const gBattleScriptsForMoveEffects[];
 
@@ -10390,7 +10391,7 @@ void BattleDestroyYesNoCursorAt(u8 cursorPosition)
 static void Cmd_trygivecaughtmonnick(void)
 {
     // Never ask for nicknames in wild safari (unless in tutorial)
-    if(gMapHeader.mapLayoutId != LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL && (gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_NEVER || Rogue_InWildSafari()))
+    if(Rogue_ShouldSkipAssignNickname(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]))
     {
         if (CalculatePlayerPartyCount() == PARTY_SIZE)
             gBattlescriptCurrInstr += 5;
@@ -10404,7 +10405,7 @@ static void Cmd_trygivecaughtmonnick(void)
     case 0:
         HandleBattleWindow(24, 8, 29, 13, 0);
         
-        if(gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_ALWAYS)
+        if(Rogue_ShouldSkipAssignNicknameYesNoMessage())
         {
             gBattleCommunication[MULTIUSE_STATE] = 2;
             BeginFastPaletteFade(3);

@@ -24,6 +24,9 @@
     <ClCompile Include="QuestExporter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NicknameExporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StringUtils.h">

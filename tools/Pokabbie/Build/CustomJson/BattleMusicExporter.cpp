@@ -2,7 +2,7 @@
 
 #include <sstream>
 
-void ExportBattleMusicData_C(std::ofstream& fileStream, json const& jsonData)
+void ExportBattleMusicData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
 	json musicPlayers = jsonData["music_players"];
 
