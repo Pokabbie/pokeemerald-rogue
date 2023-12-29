@@ -529,21 +529,20 @@ struct SaveBlock2
     /*0x11*/ u8 playTimeSeconds;
     /*0x12*/ u8 playTimeVBlanks;
     /*0x13*/ u8 optionsButtonMode;  // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
-    /*0x14*/ u16 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
-             u16 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
-             u16 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
-             u16 optionsPopupSoundOff:1;
-             u16 optionsSoundChannelBGM:4;
-             u16 optionsSoundChannelSE:4;
-             u16 options_Unused0:4;
-             u16 optionsSoundChannelBattleSE:4;
-             u16 optionsNicknameMode:2; // //OPTIONS_NICKNAME_MODE_[ASK/ALWAYS/NEVER]
-             u16 optionsDefaultBattleSceneOff:1; // whether battle animations are disabled
-             u16 optionsBossBattleSceneOff:1; // whether battle animations are disabled
-             u16 optionsAutoRunToggle:1; // whether running is trigger by a B toggle or a hold
-             u16 timeOfDayVisuals:1;
-             u16 seasonVisuals:1;
-             u16 regionMapZoom:1; // whether the map is zoomed in
+    /*0x14*/ u32 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
+             u32 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
+             u32 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
+             u32 optionsPopupSoundOff:1;
+             u32 optionsSoundChannelBGM:4;
+             u32 optionsSoundChannelSE:4;
+             u32 optionsSoundChannelBattleSE:4;
+             u32 optionsNicknameMode:3; // //OPTIONS_NICKNAME_MODE_[ASK/ALWAYS/NEVER/RANDOM]
+             u32 optionsDefaultBattleSceneOff:1; // whether battle animations are disabled
+             u32 optionsBossBattleSceneOff:1; // whether battle animations are disabled
+             u32 optionsAutoRunToggle:1; // whether running is trigger by a B toggle or a hold
+             u32 timeOfDayVisuals:1;
+             u32 seasonVisuals:1;
+             u32 regionMapZoom:1; // whether the map is zoomed in
     /*0x18*/ struct Pokedex pokedex;
              s8 playerStyles[8];
              u32 playerOutfitUnlockFlags;

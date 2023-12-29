@@ -20,7 +20,7 @@ static void ExportQueryScriptData_C(TrainerDataExport_C& exporter, std::string c
 static TrainerStrings ExtractTrainerStrings(json const& trainers);
 static void ExportTrainerStringsData_C(TrainerDataExport_C& exporter, json const& trainers);
 
-void ExportTrainerData_C(std::ofstream& fileStream, json const& jsonData)
+void ExportTrainerData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
 	TrainerDataExport_C exporter;
 
@@ -328,7 +328,7 @@ static void ExportQueryScriptData_C(TrainerDataExport_C& exporter, std::string c
 	exporter.earlyBlock << c_TabSpacing << "QUERY_SCRIPT_END\n};\n";
 }
 
-void ExportTrainerData_Pory(std::ofstream& fileStream, json const& jsonData)
+void ExportTrainerData_Pory(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
 	TrainerStrings trainerStrings = ExtractTrainerStrings(jsonData["trainers"]);
 

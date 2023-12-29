@@ -1041,10 +1041,10 @@ static void HighlightOptionMenuItem(u8 index, u8 topIndex)
 
 static void DrawOptionMenuChoice(const u8 *text, u8 x, u8 y, u8 style)
 {
-    u8 dst[16];
+    u8 dst[32];
     u16 i;
 
-    for (i = 0; *text != EOS && i <= 14; i++)
+    for (i = 0; *text != EOS && i <= (ARRAY_COUNT(dst) - 2); i++)
         dst[i] = *(text++);
 
     if (style != 0)

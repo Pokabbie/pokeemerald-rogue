@@ -24,6 +24,9 @@ u8 Rogue_GetDifficultyRewardLevel();
 
 u8 Rogue_GetStartingMonCapacity();
 
+bool8 Rogue_ShouldSkipAssignNickname(struct Pokemon* mon);
+bool8 Rogue_ShouldSkipAssignNicknameYesNoMessage();
+
 // UI
 void Rogue_OpenDifficultyConfigMenu(RogueDifficultyMenuCallback callback);
 void CB2_InitDifficultyConfigMenu(void);

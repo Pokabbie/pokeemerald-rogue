@@ -30,7 +30,7 @@ enum
 enum
 {
     MENUITEM_MENU_GAME,
-    MENUITEM_MENU_CONTROLS,
+    MENUITEM_MENU_GRAPHICS,
     MENUITEM_MENU_UI,
     MENUITEM_MENU_AUDIO,
     MENUITEM_TEXTSPEED,
@@ -54,7 +54,7 @@ enum
 {
     SUBMENUITEM_NONE,
     SUBMENUITEM_GAME,
-    SUBMENUITEM_CONTROLS,
+    SUBMENUITEM_GRAPHICS,
     SUBMENUITEM_UI,
     SUBMENUITEM_AUDIO,
     SUBMENUITEM_COUNT,
@@ -69,6 +69,9 @@ enum
 
 #define MAX_MENUITEM_COUNT 7
 #define YPOS_SPACING      16
+
+extern const u8 gText_16Spaces[];
+extern const u8 gText_32Spaces[];
 
 // this file's functions
 static void Task_OptionMenuFadeIn(u8 taskId);
@@ -135,9 +138,9 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = Empty_ProcessInput,
         .drawChoices = Empty_DrawChoices
     },
-    [MENUITEM_MENU_CONTROLS] = 
+    [MENUITEM_MENU_GRAPHICS] = 
     {
-        .itemName = gText_OptionControls,
+        .itemName = gText_OptionGraphics,
         .processInput = Empty_ProcessInput,
         .drawChoices = Empty_DrawChoices
     },
@@ -253,7 +256,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         .menuOptions = 
         {
             MENUITEM_MENU_GAME,
-            MENUITEM_MENU_CONTROLS,
+            MENUITEM_MENU_GRAPHICS,
             MENUITEM_MENU_UI,
             MENUITEM_MENU_AUDIO,
             MENUITEM_CANCEL
@@ -264,21 +267,21 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         .titleName = gText_OptionGame,
         .menuOptions = 
         {
+            MENUITEM_NICKNAME_MODE,
+            MENUITEM_AUTORUN_TOGGLE,
+            MENUITEM_BUTTONMODE,
+            MENUITEM_CANCEL
+        }
+    },
+    [SUBMENUITEM_GRAPHICS] = 
+    {
+        .titleName = gText_OptionGraphics,
+        .menuOptions = 
+        {
             MENUITEM_TIME_OF_DAY,
             MENUITEM_SEASON,
             MENUITEM_BATTLESCENE_DEFAULT,
             MENUITEM_BATTLESCENE_KEY_BATTLES,
-            MENUITEM_CANCEL
-        }
-    },
-    [SUBMENUITEM_CONTROLS] = 
-    {
-        .titleName = gText_OptionControls,
-        .menuOptions = 
-        {
-            MENUITEM_AUTORUN_TOGGLE,
-            MENUITEM_NICKNAME_MODE,
-            MENUITEM_BUTTONMODE,
             MENUITEM_CANCEL
         }
     },
@@ -499,8 +502,8 @@ static void Task_OptionMenuProcessInput(u8 taskId)
             submenuChanged = TRUE;
             break;
 
-        case MENUITEM_MENU_CONTROLS:
-            submenuSelection = SUBMENUITEM_CONTROLS;
+        case MENUITEM_MENU_GRAPHICS:
+            submenuSelection = SUBMENUITEM_GRAPHICS;
             submenuChanged = TRUE;
             break;
 
@@ -603,10 +606,10 @@ static void HighlightOptionMenuItem(u8 index)
 
 static void DrawOptionMenuChoice(const u8 *text, u8 x, u8 y, u8 style)
 {
-    u8 dst[16];
+    u8 dst[32];
     u16 i;
 
-    for (i = 0; *text != EOS && i <= 14; i++)
+    for (i = 0; *text != EOS && i <= (ARRAY_COUNT(dst) - 2); i++)
         dst[i] = *(text++);
 
     if (style != 0)
@@ -715,7 +718,7 @@ static u8 NicknameMode_ProcessInput(u8 menuOffset, u8 selection)
 {
     if (JOY_NEW(DPAD_RIGHT))
     {
-        if (selection <= 1)
+        if (selection < OPTIONS_NICKNAME_COUNT - 1)
             selection++;
         else
             selection = 0;
@@ -727,7 +730,7 @@ static u8 NicknameMode_ProcessInput(u8 menuOffset, u8 selection)
         if (selection != 0)
             selection--;
         else
-            selection = 2;
+            selection = OPTIONS_NICKNAME_COUNT - 1;
 
         sArrowPressed = TRUE;
     }
@@ -736,25 +739,32 @@ static u8 NicknameMode_ProcessInput(u8 menuOffset, u8 selection)
 
 static void NicknameMode_DrawChoices(u8 menuOffset, u8 selection)
 {
-    u8 styles[3];
-    s32 widthAsk, widthAlways, widthNever, xMid;
+    const u8* text = NULL;
+    u8 style = 1;
 
-    styles[0] = 0;
-    styles[1] = 0;
-    styles[2] = 0;
-    styles[selection] = 1;
+    // Hack to wipe tiles????
+    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
 
-    DrawOptionMenuChoice(gText_TextNicknameAsk, 104, menuOffset* YPOS_SPACING, styles[0]);
+    switch (selection)
+    {
+    case OPTIONS_NICKNAME_MODE_ASK:
+        text = gText_TextNicknameAsk;
+        break;
 
-    widthAsk = GetStringWidth(FONT_NORMAL, gText_TextNicknameAsk, 0);
-    widthAlways = GetStringWidth(FONT_NORMAL, gText_TextNicknameAlways, 0);
-    widthNever = GetStringWidth(FONT_NORMAL, gText_TextNicknameNever, 0);
+    case OPTIONS_NICKNAME_MODE_ALWAYS:
+        text = gText_TextNicknameAlways;
+        break;
 
-    widthAlways -= 94;
-    xMid = (widthAsk - widthAlways - widthNever) / 2 + 104;
-    DrawOptionMenuChoice(gText_TextNicknameAlways, xMid, menuOffset* YPOS_SPACING, styles[1]);
+    case OPTIONS_NICKNAME_MODE_NEVER:
+        text = gText_TextNicknameNever;
+        break;
 
-    DrawOptionMenuChoice(gText_TextNicknameNever, GetStringRightAlignXOffset(FONT_NORMAL, gText_TextNicknameNever, 198), menuOffset* YPOS_SPACING, styles[2]);
+    case OPTIONS_NICKNAME_RANDOM:
+        text = gText_TextNicknameRandom;
+        break;
+    }
+
+    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, style);
 }
 
 static u8 TimeOfDaySeason_ProcessInput(u8 menuOffset, u8 selection)

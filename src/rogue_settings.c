@@ -1,22 +1,16 @@
 #include "global.h"
-//#include "constants/abilities.h"
-//#include "constants/battle.h"
-//#include "constants/event_objects.h"
-//#include "constants/heal_locations.h"
-//#include "constants/hold_effects.h"
-//#include "constants/items.h"
-//#include "constants/layouts.h"
-//#include "constants/rogue.h"
-//#include "constants/rgb.h"
-//#include "constants/trainer_types.h"
-//#include "constants/weather.h"
-//#include "data.h"
+#include "constants/layouts.h"
 #include "gba/isagbprint.h"
+#include "random.h"
 
 #include "rogue_controller.h"
 #include "rogue_multiplayer.h"
 #include "rogue_save.h"
 #include "rogue_settings.h"
+
+#include "data/rogue/pokemon_nicknames.h"
+
+STATIC_ASSERT(ARRAY_COUNT(sNicknameTable_Global) != 0, sNicknameTable_Global_IsntEmpty);
 
 struct RogueDifficultyLocal
 {
@@ -515,4 +509,44 @@ u8 Rogue_GetStartingMonCapacity()
         return 2;
     else
         return 1;
+}
+
+static u16 GetCurrentNicknameMode()
+{
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL)
+        return gSaveBlock2Ptr->optionsNicknameMode;
+
+    if(Rogue_InWildSafari())
+        return OPTIONS_NICKNAME_MODE_NEVER;
+
+    return gSaveBlock2Ptr->optionsNicknameMode;
+}
+
+bool8 Rogue_ShouldSkipAssignNickname(struct Pokemon* mon)
+{
+    switch (GetCurrentNicknameMode())
+    {
+    case OPTIONS_NICKNAME_MODE_NEVER:
+        return TRUE;
+
+    case OPTIONS_NICKNAME_RANDOM:
+        {
+            u16 nicknameIdx = Random2() % ARRAY_COUNT(sNicknameTable_Global);
+            SetMonData(mon, MON_DATA_NICKNAME, sNicknameTable_Global[nicknameIdx]);
+            return TRUE;
+        }
+    }
+    
+    return FALSE;
+}
+
+bool8 Rogue_ShouldSkipAssignNicknameYesNoMessage(struct Pokemon* mon)
+{
+    switch (GetCurrentNicknameMode())
+    {
+    case OPTIONS_NICKNAME_MODE_ASK:
+        return FALSE;
+    }
+
+    return TRUE;
 }

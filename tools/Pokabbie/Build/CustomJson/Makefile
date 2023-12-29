@@ -4,7 +4,7 @@ CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch -Werror
 
 INCLUDES := -I .
 
-SRCS := main.cpp TrainerExporter.cpp BattleMusicExporter.cpp QuestExporter.cpp
+SRCS := main.cpp TrainerExporter.cpp BattleMusicExporter.cpp QuestExporter.cpp NicknameExporter.cpp
 
 HEADERS := main.h StringUtils.h nlohmann/json.hpp
 

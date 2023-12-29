@@ -81,7 +81,7 @@ static std::string FlagsToString(std::string const& prefix, std::vector<std::str
 	return output;
 }
 
-void ExportQuestData_C(std::ofstream& fileStream, json const& jsonData)
+void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
 	std::vector<QuestInfo> questInfo;
 	GatherQuests(jsonData, questInfo);
@@ -252,7 +252,7 @@ void ExportQuestData_C(std::ofstream& fileStream, json const& jsonData)
 	fileStream << "};\n\n";
 }
 
-void ExportQuestData_H(std::ofstream& fileStream, json const& jsonData)
+void ExportQuestData_H(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
 	std::vector<QuestInfo> questInfo;
 	GatherQuests(jsonData, questInfo);
@@ -275,7 +275,7 @@ void ExportQuestData_H(std::ofstream& fileStream, json const& jsonData)
 	fileStream << "};\n\n";
 }
 
-void ExportQuestData_Pory(std::ofstream& fileStream, json const& jsonData)
+void ExportQuestData_Pory(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
 	std::vector<QuestInfo> questInfo;
 	GatherQuests(jsonData, questInfo);

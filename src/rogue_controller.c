@@ -873,7 +873,7 @@ const u8* Rogue_ModifyBattleMessage(const u8* str)
 {
     const u8* overrideStr = NULL;
 
-    if(gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_NEVER)
+    if(Rogue_ShouldSkipAssignNicknameYesNoMessage())
     {
         // Don't display "Would you like to nickname" msg
         if(str == gBattleStringsTable[STRINGID_GIVENICKNAMECAPTURED - BATTLESTRINGS_TABLE_START])

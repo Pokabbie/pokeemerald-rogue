@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClCompile Include="BattleMusicExporter.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NicknameExporter.cpp" />
     <ClCompile Include="QuestExporter.cpp" />
     <ClCompile Include="TrainerExporter.cpp" />
   </ItemGroup>

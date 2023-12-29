@@ -69,6 +69,8 @@
 #include "rogue_charms.h"
 #include "rogue_popup.h"
 #include "rogue_script.h"
+#include "rogue_settings.h"
+
 // Helper for accessing command arguments and advancing gBattlescriptCurrInstr.
 //
 // For example accuracycheck is defined as:
@@ -15424,7 +15426,7 @@ static void Cmd_trygivecaughtmonnick(void)
     CMD_ARGS(const u8 *successInstr);
 
     // Never ask for nicknames in wild safari (unless in tutorial)
-    if(gMapHeader.mapLayoutId != LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL && (gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_NEVER || Rogue_InWildSafari()))
+    if(Rogue_ShouldSkipAssignNickname(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]]))
     {
         if (CalculatePlayerPartyCount() == PARTY_SIZE)
             gBattlescriptCurrInstr = cmd->nextInstr;
@@ -15438,7 +15440,7 @@ static void Cmd_trygivecaughtmonnick(void)
     case 0:
         HandleBattleWindow(YESNOBOX_X_Y, 0);
         
-        if(gSaveBlock2Ptr->optionsNicknameMode == OPTIONS_NICKNAME_MODE_ALWAYS)
+        if(Rogue_ShouldSkipAssignNicknameYesNoMessage())
         {
             gBattleCommunication[MULTIUSE_STATE] = 2;
             BeginFastPaletteFade(3);
