@@ -26,6 +26,7 @@
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 #include "rogue_ridemon.h"
+#include "rogue_multiplayer.h"
 #include "rogue_popup.h"
 #include "rogue_safari.h"
 
@@ -215,7 +216,7 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
 {
     u16 species;
 
-    if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_F)
+    if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
     {
         u16 varNo = graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
         species = VarGet(VAR_FOLLOW_MON_0 + varNo);
@@ -649,10 +650,16 @@ static bool8 IsSpawnSlotValid(u16 slot)
 
     // 1 : normal pal index 2
     // 2 : normal pal index 3
-    // 3 : normal pal index 4
-    if(slot >=1 && slot <= 3)
+    if(slot >= 1 && slot <= 2)
     {
         return TRUE;
+    }
+    
+    // 3 : normal pal index 4 (Shared for the multiplayer follower palette)
+    if(slot == 3)
+    {
+        if(!RogueMP_IsActive())
+            return TRUE;
     }
 
     // 4 : normal pal index 10

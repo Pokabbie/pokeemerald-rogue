@@ -498,7 +498,7 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
         syncInfo.pos.y = player->partnerPos.y;
         syncInfo.elevation = player->currentElevation;
         syncInfo.facingDirection = player->partnerFacingDirection;
-        syncInfo.gfxId = OBJ_EVENT_GFX_FOLLOW_MON_A + playerId;
+        syncInfo.gfxId = OBJ_EVENT_GFX_FOLLOW_MON_3; // ++ playerId
         syncInfo.mapGroup = player->mapGroup;
         syncInfo.mapNum = player->mapNum;
         syncInfo.adventureTileNum = player->adventureTileNum;

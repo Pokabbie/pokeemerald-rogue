@@ -14,7 +14,6 @@ const OBJ_LOCAL_ID_FOLLOWMON_FLYMON1 = 5
 const OBJ_LOCAL_ID_FOLLOWMON_FIGHTMON0 = 6
 const OBJ_LOCAL_ID_FOLLOWMON_FIGHTMON1 = 7
 const OBJ_LOCAL_ID_FOLLOWMON_ROAMER = 8
-const OBJ_LOCAL_ID_FOLLOWMON7 = 9
 
 mapscripts Rogue_Intro_MapScripts 
 {
@@ -43,15 +42,12 @@ script Rogue_Intro_MapScripts_OnLoad
             {
                 case 0:
                     setvar(VAR_FOLLOW_MON_2, SPECIES_PIDGEOTTO)
-                    setvar(VAR_FOLLOW_MON_3, SPECIES_PIDGEOTTO)
 
                 case 1:
                     setvar(VAR_FOLLOW_MON_2, SPECIES_NOCTOWL)
-                    setvar(VAR_FOLLOW_MON_3, SPECIES_NOCTOWL)
 
                 case 2:
                     setvar(VAR_FOLLOW_MON_2, SPECIES_SWELLOW)
-                    setvar(VAR_FOLLOW_MON_3, SPECIES_SWELLOW)
             }
         }
         ROGUE_VERSION_EXPANSION
@@ -62,35 +58,27 @@ script Rogue_Intro_MapScripts_OnLoad
             {
                 case 0:
                     setvar(VAR_FOLLOW_MON_2, SPECIES_PIDGEOTTO)
-                    setvar(VAR_FOLLOW_MON_3, SPECIES_PIDGEOTTO)
 
                 case 1:
                     setvar(VAR_FOLLOW_MON_2, SPECIES_NOCTOWL)
-                    setvar(VAR_FOLLOW_MON_3, SPECIES_NOCTOWL)
 
                 case 2:
                     setvar(VAR_FOLLOW_MON_2, SPECIES_SWELLOW)
-                    setvar(VAR_FOLLOW_MON_3, SPECIES_SWELLOW)
 
                 case 3:
                     setvar(VAR_FOLLOW_MON_2, SPECIES_STARAVIA)
-                    setvar(VAR_FOLLOW_MON_3, SPECIES_STARAVIA)
 
                 case 4:
                     setvar(VAR_FOLLOW_MON_2, SPECIES_TRANQUILL)
-                    setvar(VAR_FOLLOW_MON_3, SPECIES_TRANQUILL)
 
                 case 5:
                     setvar(VAR_FOLLOW_MON_2, SPECIES_TALONFLAME)
-                    setvar(VAR_FOLLOW_MON_3, SPECIES_TALONFLAME)
 
                 case 6:
                     setvar(VAR_FOLLOW_MON_2, SPECIES_TRUMBEAK)
-                    setvar(VAR_FOLLOW_MON_3, SPECIES_TRUMBEAK)
 
                 case 7:
                     setvar(VAR_FOLLOW_MON_2, SPECIES_CORVISQUIRE)
-                    setvar(VAR_FOLLOW_MON_3, SPECIES_CORVISQUIRE)
             }
         }
     }
@@ -197,13 +185,13 @@ script Rogue_Intro_MapScripts_OnLoad
     switch(var(VAR_RESULT))
     {
         case 0:
-            setvar(VAR_FOLLOW_MON_6, SPECIES_RAIKOU)
+            setvar(VAR_FOLLOW_MON_3, SPECIES_RAIKOU)
 
         case 1:
-            setvar(VAR_FOLLOW_MON_6, SPECIES_ENTEI)
+            setvar(VAR_FOLLOW_MON_3, SPECIES_ENTEI)
 
         case 2:
-            setvar(VAR_FOLLOW_MON_6, SPECIES_SUICUNE)
+            setvar(VAR_FOLLOW_MON_3, SPECIES_SUICUNE)
     }
 }
 

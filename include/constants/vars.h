@@ -227,16 +227,16 @@
 #define VAR_FOLLOW_MON_3                     0x40CB
 #define VAR_FOLLOW_MON_4                     0x40CC
 #define VAR_FOLLOW_MON_5                     0x40CD
-#define VAR_FOLLOW_MON_6                     0x40CE
-#define VAR_FOLLOW_MON_7                     0x40CF
-#define VAR_FOLLOW_MON_8                     0x40D0
-#define VAR_FOLLOW_MON_9                     0x40D1
-#define VAR_FOLLOW_MON_A                     0x40D2
-#define VAR_FOLLOW_MON_B                     0x40D3
-#define VAR_FOLLOW_MON_C                     0x40D4
-#define VAR_FOLLOW_MON_D                     0x40D5
-#define VAR_FOLLOW_MON_E                     0x40D6
-#define VAR_FOLLOW_MON_F                     0x40D7
+#define VAR_UNUSED_0x40CE                    0x40CE // unused
+#define VAR_UNUSED_0x40CF                    0x40CF // unused
+#define VAR_UNUSED_0x40D0                    0x40D0 // unused
+#define VAR_UNUSED_0x40D1                    0x40D1 // unused
+#define VAR_UNUSED_0x40D2                    0x40D2 // unused
+#define VAR_UNUSED_0x40D3                    0x40D3 // unused
+#define VAR_UNUSED_0x40D4                    0x40D4 // unused
+#define VAR_UNUSED_0x40D5                    0x40D5 // unused
+#define VAR_UNUSED_0x40D6                    0x40D6 // unused
+#define VAR_UNUSED_0x40D7                    0x40D7 // unused
 #define VAR_SKY_PILLAR_STATE                 0x40D8
 #define VAR_FRONTIER_BATTLE_MODE             0x40D9
 #define VAR_FRONTIER_FACILITY                0x40DA
