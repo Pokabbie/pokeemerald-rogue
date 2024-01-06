@@ -1,0 +1,11 @@
+const FLAG_HIDE_WILD_MON = FLAG_TEMP_1
+
+mapscripts Rogue_Encounter_HoneyTree_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Encounter_HoneyTree_OnLoad
+}
+
+script Rogue_Encounter_HoneyTree_OnLoad
+{
+    //setflag(FLAG_HIDE_WILD_MON)
+}

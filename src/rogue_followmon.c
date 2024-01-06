@@ -628,6 +628,63 @@ static u8 CountActiveObjectEvents()
     return count;
 }
 
+static bool8 IsSpawnSlotValid(u16 slot)
+{
+    // 0 : normal pal index 1
+    if(slot == 0)
+    {
+        // Slot 0 is used for static encounters
+        if(Rogue_IsRunActive())
+        {
+            if(
+                gRogueAdvPath.currentRoomType != ADVPATH_ROOM_LEGENDARY &&
+                gRogueAdvPath.currentRoomType != ADVPATH_ROOM_WILD_DEN &&
+                gRogueAdvPath.currentRoomType != ADVPATH_ROOM_HONEY_TREE
+            )
+                return TRUE;
+        }
+        else
+            return TRUE;
+    }
+
+    // 1 : normal pal index 2
+    // 2 : normal pal index 3
+    // 3 : normal pal index 4
+    if(slot >=1 && slot <= 3)
+    {
+        return TRUE;
+    }
+
+    // 4 : normal pal index 10
+    if(slot == 4)
+    {
+        // TODO - Only enable this in routes where rival isn't active
+        return FALSE;
+    }
+
+    // 5 : normal pal index 1 (partner slot)
+    if(slot == 5)
+    {
+        return !FollowMon_IsPartnerMonActive();
+    }
+
+    return FALSE;
+}
+
+static u16 ActiveSpawnSlotCount()
+{
+    u16 slot;
+    u16 count = 0;
+
+    for(slot = 0; slot < FOLLOWMON_MAX_SPAWN_SLOTS; ++slot)
+    {
+        if(IsSpawnSlotValid(slot))
+            ++count;
+    }
+
+    return count;
+}
+
 static u16 NextSpawnMonSlot()
 {
     u16 slot;
@@ -640,7 +697,7 @@ static u16 NextSpawnMonSlot()
     // Attempt to find a free slot first
     for(slot = 0; slot < FOLLOWMON_MAX_SPAWN_SLOTS; ++slot)
     {
-        if(FindObjectEventForGfx(OBJ_EVENT_GFX_FOLLOW_MON_0 + slot) == OBJECT_EVENTS_COUNT)
+        if(IsSpawnSlotValid(slot) && FindObjectEventForGfx(OBJ_EVENT_GFX_FOLLOW_MON_0 + slot) == OBJECT_EVENTS_COUNT)
             break;
     }
 
@@ -651,6 +708,9 @@ static u16 NextSpawnMonSlot()
         sFollowMonData.spawnSlot = (sFollowMonData.spawnSlot + 1) % FOLLOWMON_MAX_SPAWN_SLOTS;
         slot = sFollowMonData.spawnSlot;
     }
+
+    if(!IsSpawnSlotValid(slot))
+        return INVALID_SPAWN_SLOT;
 
     // Remove any existing id by this slot
     RemoveObjectEventByLocalIdAndMap(OBJ_EVENT_ID_FOLLOW_MON_FIRST + slot, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
@@ -837,7 +897,7 @@ void FollowMon_OverworldCB()
             // Super fast spawn for new things on screen
             sFollowMonData.spawnCountdown = min(sFollowMonData.spawnCountdown, 15);
         }
-        else if(sFollowMonData.activeCount <= (FOLLOWMON_MAX_SPAWN_SLOTS - 1))
+        else if(sFollowMonData.activeCount <= (ActiveSpawnSlotCount() - 1))
         {
             // Fast spawn to reach capacity
             sFollowMonData.spawnCountdown = min(sFollowMonData.spawnCountdown, 60);

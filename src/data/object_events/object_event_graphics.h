@@ -766,6 +766,7 @@ const u32 gObjectEventPic_ItemHeldItem[] = INCBIN_U32("graphics/object_events/pi
 const u32 gObjectEventPic_ItemEvoStone[] = INCBIN_U32("graphics/object_events/pics/rogue/item_evo_stone.4bpp");
 const u32 gObjectEventPic_ItemMegaStone[] = INCBIN_U32("graphics/object_events/pics/rogue/item_mega_stone.4bpp");
 const u32 gObjectEventPic_ItemZCrystal[] = INCBIN_U32("graphics/object_events/pics/rogue/item_z_crystal.4bpp");
+const u32 gObjectEventPic_GoldGrass[] = INCBIN_U32("graphics/object_events/pics/rogue/grass_golden.4bpp");
 
 const u32 gObjectEventPic_Route_Bug[] = INCBIN_U32("graphics/object_events/pics/rogue/route/bug.4bpp");
 const u32 gObjectEventPic_Route_Dark[] = INCBIN_U32("graphics/object_events/pics/rogue/route/dark.4bpp");

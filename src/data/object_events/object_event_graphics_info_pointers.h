@@ -437,6 +437,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemHoldItem;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemEvoStone;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemMegaStone;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemZCrystal;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GoldGrass;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAlt;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAlt;
@@ -907,6 +908,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ITEM_EVO_STONE] =           &gObjectEventGraphicsInfo_ItemEvoStone,
     [OBJ_EVENT_GFX_ITEM_MEGA_STONE] =          &gObjectEventGraphicsInfo_ItemMegaStone,
     [OBJ_EVENT_GFX_ITEM_Z_CRYSTAL] =           &gObjectEventGraphicsInfo_ItemZCrystal,
+    [OBJ_EVENT_GFX_GOLD_GRASS] =           &gObjectEventGraphicsInfo_GoldGrass,
 
     [OBJ_EVENT_GFX_BRENDAN_ALT] =              &gObjectEventGraphicsInfo_BrendanAlt,
     [OBJ_EVENT_GFX_MAY_ALT] =                  &gObjectEventGraphicsInfo_MayAlt,

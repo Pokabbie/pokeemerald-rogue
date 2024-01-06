@@ -1,11 +1,11 @@
 {
-  "id": "MAP_ROGUE_ENCOUNTER_DEN",
-  "name": "Rogue_Encounter_Den",
-  "layout": "LAYOUT_ROGUE_ENCOUNTER_DEN",
-  "music": "MUS_PETALBURG_WOODS",
+  "id": "MAP_ROGUE_ENCOUNTER_HONEY_TREE",
+  "name": "Rogue_Encounter_HoneyTree",
+  "layout": "LAYOUT_ROGUE_ENCOUNTER_HONEY_TREE",
+  "music": "MUS_DP_ETERNA_FOREST",
   "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
-  "weather": "WEATHER_SHADE",
+  "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_FOLLOW_MON_0",
-      "x": 5,
-      "y": 4,
+      "x": 7,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -30,10 +30,17 @@
   ],
   "warp_events": [
     {
-      "x": 5,
+      "x": 7,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_ENCOUNTER_DEN",
+      "dest_map": "MAP_ROGUE_ENCOUNTER_HONEY_TREE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_ENCOUNTER_HONEY_TREE",
       "dest_warp_id": "0"
     }
   ],

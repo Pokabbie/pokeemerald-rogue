@@ -1770,6 +1770,16 @@
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/Rogue_Special_Arceus/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Special_Arceus/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_HONEY_TREE",
+      "name": "Rogue_Encounter_HoneyTree_Layout",
+      "width": 16,
+      "height": 20,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/Rogue_Encounter_HoneyTree/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_HoneyTree/map.bin"
     }
   ]
 }

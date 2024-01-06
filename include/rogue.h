@@ -82,6 +82,11 @@ struct RogueAdvPathRoomParams
         } wildDen;
         struct
         {
+            u16 species;
+            bool8 shinyState;
+        } honeyTree;
+        struct
+        {
             bool8 shinyState;
         } legendary;
         struct 

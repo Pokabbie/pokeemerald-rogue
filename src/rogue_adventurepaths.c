@@ -306,6 +306,94 @@ static bool8 IsProceededByRoomType(struct RogueAdvPathRoom* room, u8 roomType)
     return FALSE;
 }
 
+static u8 CountRoomType(u16 roomType)
+{
+    u8 i;
+    u8 count = 0;
+
+    for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+    {
+        if(gRogueAdvPath.rooms[i].roomType == roomType)
+            ++count;
+    }
+
+    return count;
+}
+
+static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* data)
+{
+    u8 count;
+
+    switch (roomType)
+    {
+    case ADVPATH_ROOM_RESTSTOP:
+        count = CountRoomType(roomType);
+
+        // Always want at least 1 rest stop
+        if(count == 0)
+            return 100;
+        // Prefer a 2nd rest stop
+        else if(count == 1)
+            return 4;
+        break;
+
+    // Only allow 1 but we really want to place it
+    case ADVPATH_ROOM_LEGENDARY:
+        count = CountRoomType(roomType);
+        if(count == 0)
+            return 100;
+        else
+            return 0;
+        break;
+
+    // Only allow 1 but we prefer it over others
+    case ADVPATH_ROOM_HONEY_TREE:
+        count = CountRoomType(roomType);
+        if(count == 0)
+            return 2;
+        else
+            return 0;
+        break;
+
+    // Only allow 1 of this type at once
+    case ADVPATH_ROOM_GAMESHOW:
+    case ADVPATH_ROOM_DARK_DEAL:
+    case ADVPATH_ROOM_LAB:
+        count = CountRoomType(roomType);
+        if(count != 0)
+            return 0;
+        break;
+
+    default:
+        AGB_ASSERT(FALSE);
+        break;
+    }
+
+    return 1;
+}
+
+static u16 SelectRoomType(u16* activeTypeBuffer, u16 activeTypeCount)
+{
+    u16 i;
+    u16 result;
+
+    RogueCustomQuery_Begin();
+
+    for(i = 0; i < activeTypeCount; ++i)
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, activeTypeBuffer[i]);
+
+    RogueWeightQuery_Begin();
+    {
+        RogueWeightQuery_CalculateWeights(SelectRoomType_CalculateWeight, NULL);
+        result = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+    }
+    RogueWeightQuery_End();
+
+    RogueCustomQuery_End();
+
+    return result;
+}
+
 static u8 ReplaceRoomEncounters_CalculateWeight(u16 weightIndex, u16 roomId, void* data)
 {
     s16 weight = 10;
@@ -356,10 +444,10 @@ static u8 ReplaceRoomEncounters_CalculateWeight(u16 weightIndex, u16 roomId, voi
     return (u8)(min(255, max(0, weight)));
 }
 
-static void ReplaceRoomEncounters(u8 fromRoomType, u8 toRoomType, u8 placeCount)
+static void ReplaceRoomEncounter(u8 fromRoomType, u8 toRoomType)
 {
-    if(placeCount == 0)
-        return;
+    u16 replaceIndex = (u16)-1;
+    u8 replaceRoomType = 0;
 
     RoguePathsQuery_Begin();
     RoguePathsQuery_Reset(QUERY_FUNC_INCLUDE);
@@ -370,28 +458,36 @@ static void ReplaceRoomEncounters(u8 fromRoomType, u8 toRoomType, u8 placeCount)
         u8 i;
         u16 index;
 
-        for(i = 0; i < placeCount; ++i)
-        {
-            RogueWeightQuery_CalculateWeights(ReplaceRoomEncounters_CalculateWeight, &toRoomType);
+        RogueWeightQuery_CalculateWeights(ReplaceRoomEncounters_CalculateWeight, &toRoomType);
 
-            if(!RogueWeightQuery_HasAnyWeights())
-                break;
-            
+        if(RogueWeightQuery_HasAnyWeights())
+        {
             index = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
             RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, index);
 
-            GenerateRoomInstance(index, toRoomType);
+            replaceIndex = index;
+            replaceRoomType = toRoomType;
         }
     }
     RogueWeightQuery_End();
 
     RoguePathsQuery_End();
+
+    // Now replace after the query has been freed, as we may use Query API internally
+    if(replaceIndex != (u16)-1)
+    {
+        GenerateRoomInstance(replaceIndex, replaceRoomType);
+    }
 }
 
 static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
 {
     u8 i;
     u8 amount;
+    u8 freeRoomCount = 0;
+    u8 validEncounterCount = 0;
+    u16 validEncounterList[ADVPATH_ROOM_COUNT];
+
     bool8 isSmallFloor = gRogueAdvPath.roomCount <= 9;
 
     // Place gym at very end
@@ -402,7 +498,10 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     {
         // Don't place them immediately before the gym
         if(gRogueAdvPath.rooms[i].coords.x > 1)
+        {
             GenerateRoomInstance(i, ADVPATH_ROOM_ROUTE);
+            ++freeRoomCount;
+        }
     }
 
     // Now we're going to replace the routes based on the ideal placement
@@ -415,91 +514,77 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         for(i = 0; i < gRogueAdvPath.roomCount; ++i)
         {
             if(gRogueAdvPath.rooms[i].roomType == ADVPATH_ROOM_ROUTE && RogueRandomChance(chance, 0))
+            {
                 GenerateRoomInstance(i, ADVPATH_ROOM_NONE);
+                --freeRoomCount;
+            }
         }
     }
+
+    // Populate special encounters into a single list
+    //
+    validEncounterList[validEncounterCount++] = ADVPATH_ROOM_RESTSTOP;
 
     // Legends
-    // TODO - Legendary points
+    for(i = 0; i < ADVPATH_LEGEND_COUNT; ++i)
     {
-        amount = 1;
-
-        for(i = 0; i < ADVPATH_LEGEND_COUNT; ++i)
+        if(gRogueRun.legendarySpecies[i] != SPECIES_NONE && gRogueRun.legendaryDifficulties[i] == GetPathGenerationDifficulty())
         {
-            if(gRogueRun.legendarySpecies[i] != SPECIES_NONE && gRogueRun.legendaryDifficulties[i] == GetPathGenerationDifficulty())
-            {
-                ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_LEGENDARY, amount);
-                break;
-            }
+            validEncounterList[validEncounterCount++] = ADVPATH_ROOM_LEGENDARY;
+            break;
         }
     }
 
-    // Rest stops
-    // Place a max of 3 rest stops
-    amount = isSmallFloor ? (0 + RogueRandom() % 2) : (2 + RogueRandom() % 2);
-    ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_RESTSTOP, amount);
-
+    // Honey tree
+    if(GetPathGenerationDifficulty() >= 1)
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_HONEY_TREE;
+    
     // Lab
-    amount = 0;
     if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1 && RogueRandomChance(10, 0))
-        amount = 1;
-    ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_LAB, amount);
-
-
-    // Miniboss
-    // REMOVED
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_LAB;
 
     // Dark deal / Game show
-    if(!isSmallFloor)
+    if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 2)
     {
-        bool8 allowDarkDeal = FALSE;
-        bool8 allowGameShow = FALSE;
+        // Only dark deals
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_DARK_DEAL;
+    }
+    else if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 2)
+    {
+        // Mix of both
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_DARK_DEAL;
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_GAMESHOW;
+    }
+    else
+    {
+        // Only game show
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_GAMESHOW;
+    }
 
-        if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 2)
-        {
-            // Only dark deals
-            allowDarkDeal = TRUE;
-        }
-        else if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 2)
-        {
-            // Mix of both
-            allowDarkDeal = TRUE;
-            allowGameShow = TRUE;
-        }
-        else
-        {
-            // Only game show
-            allowGameShow = TRUE;
-        }
+    // Replace % of route with special encounters
+    {
+        u16 replacePerc = 0;
+        u16 replaceCount = freeRoomCount;
 
-        if(allowDarkDeal)
+        switch (RogueRandom() % 3)
         {
-            u8 chance = 5;
-
-            // Every 3rd difficulty have a chance
-            if((GetPathGenerationDifficulty() % 3) == 0)
-                chance = 50;
-
-            if(RogueRandomChance(chance, 0))
-            {
-                amount = 1;
-                ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_DARK_DEAL, amount);
-            }
+        case 0:
+            replacePerc = 25;
+            break;
+        case 1:
+            replacePerc = 33;
+            break;
+        case 2:
+            replacePerc = 50;
+            break;
         }
 
-        if(allowGameShow)
+        replaceCount = (replaceCount * replacePerc) / 100;
+
+        for(i = 0; i < (u8)replaceCount; ++i)
         {
-            u8 chance = 50;
-
-            // Inverted chance of dark deal
-            if((GetPathGenerationDifficulty() % 3) == 0)
-                chance = 10;
-
-            if(RogueRandomChance(chance, 0))
-            {
-                amount = 1;
-                ReplaceRoomEncounters(ADVPATH_ROOM_ROUTE, ADVPATH_ROOM_GAMESHOW, amount);
-            }
+            u16 encounterType = SelectRoomType(validEncounterList, validEncounterCount);
+            ReplaceRoomEncounter(ADVPATH_ROOM_ROUTE, encounterType);
         }
     }
 
@@ -577,6 +662,12 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             gRogueAdvPath.rooms[roomId].roomParams.roomIdx = 0;
             gRogueAdvPath.rooms[roomId].roomParams.perType.wildDen.species = Rogue_SelectWildDenEncounterRoom();
             gRogueAdvPath.rooms[roomId].roomParams.perType.wildDen.shinyState = RogueRandomRange(Rogue_GetShinyOdds(), OVERWORLD_FLAG) == 0;
+            break;
+
+        case ADVPATH_ROOM_HONEY_TREE:
+            gRogueAdvPath.rooms[roomId].roomParams.roomIdx = 0;
+            gRogueAdvPath.rooms[roomId].roomParams.perType.honeyTree.species = Rogue_SelectWildDenEncounterRoom();
+            gRogueAdvPath.rooms[roomId].roomParams.perType.honeyTree.shinyState = RogueRandomRange(Rogue_GetShinyOdds(), OVERWORLD_FLAG) == 0;
             break;
 
         case ADVPATH_ROOM_ROUTE:
@@ -1002,6 +1093,11 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
             warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_DEN);
             break;
 
+        case ADVPATH_ROOM_HONEY_TREE:
+            warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_HONEY_TREE);
+            warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_HONEY_TREE);
+            break;
+
         case ADVPATH_ROOM_GAMESHOW:
             warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_GAME_SHOW);
             warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_GAME_SHOW);
@@ -1214,6 +1310,9 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
 
         case ADVPATH_ROOM_WILD_DEN:
             return OBJ_EVENT_GFX_GRASS_CUSHION;
+
+        case ADVPATH_ROOM_HONEY_TREE:
+            return OBJ_EVENT_GFX_GOLD_GRASS;
 
         case ADVPATH_ROOM_GAMESHOW:
             return OBJ_EVENT_GFX_CONTEST_JUDGE;

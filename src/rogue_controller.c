@@ -758,9 +758,25 @@ bool8 Rogue_ModifyObjectPaletteSlot(u16 graphicsId, u8* palSlot)
         return TRUE;
     }
 
-    if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_4)
+    if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_3)
     {
         *palSlot = 6 + (graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0);
+        LoadPalette(FollowMon_GetGraphicsForPalSlot(1 + graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0), OBJ_PLTT_ID(*palSlot), PLTT_SIZE_4BPP);
+        Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(*palSlot), PLTT_SIZE_4BPP);
+        return TRUE;
+    }
+
+    if(graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_4)
+    {
+        *palSlot = 10;
+        LoadPalette(FollowMon_GetGraphicsForPalSlot(1 + graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0), OBJ_PLTT_ID(*palSlot), PLTT_SIZE_4BPP);
+        Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(*palSlot), PLTT_SIZE_4BPP);
+        return TRUE;
+    }
+
+    if(graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_5)
+    {
+        *palSlot = 1;
         LoadPalette(FollowMon_GetGraphicsForPalSlot(1 + graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0), OBJ_PLTT_ID(*palSlot), PLTT_SIZE_4BPP);
         Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(*palSlot), PLTT_SIZE_4BPP);
         return TRUE;
@@ -3590,6 +3606,21 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     break;
                 }
 
+                case ADVPATH_ROOM_HONEY_TREE:
+                {
+                    ResetSpecialEncounterStates();
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, gRogueAdvPath.currentRoomParams.perType.honeyTree.species);
+
+                    RandomiseWildEncounters();
+                    
+                    FollowMon_SetGraphics(
+                        0, 
+                        gRogueAdvPath.currentRoomParams.perType.honeyTree.species, 
+                        gRogueAdvPath.currentRoomParams.perType.honeyTree.shinyState
+                    );
+                    break;
+                }
+
                 case ADVPATH_ROOM_LAB:
                 {
                     RandomiseCharmItems();
@@ -4881,20 +4912,31 @@ static u8 GetCurrentWildEncounterCount()
     {
         count = 6;
     }
-    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+    else
     {
-        u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
-        count = 4;
-
-        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard route
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_HONEY_TREE)
         {
-            // Less encounters
-            count = 2;
+            count = 1;
         }
-        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_AVERAGE) // Avg route
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
         {
-            // Slightly less encounters
-            count = 3;
+            u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
+            count = 4;
+
+            if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard route
+            {
+                // Less encounters
+                count = 2;
+            }
+            else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_AVERAGE) // Avg route
+            {
+                // Slightly less encounters
+                count = 3;
+            }
+        }
+        else
+        {
+            return 0;
         }
 
         // Apply charms
@@ -5858,10 +5900,29 @@ static void BeginWildEncounterQuery()
     u8 maxlevel = CalculateWildLevel(0);
     u32 typeFlags;
 
-    typeFlags = Rogue_GetTypeFlagsFromArray(
-        &gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[0], 
-        ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable)
-    );
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+    {
+        typeFlags = Rogue_GetTypeFlagsFromArray(
+            &gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable[0], 
+            ARRAY_COUNT(gRogueRouteTable.routes[gRogueRun.currentRouteIndex].wildTypeTable)
+        );
+    }
+    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_HONEY_TREE)
+    {
+        u8 type;
+
+        do
+        {
+            type = RogueRandom() % NUMBER_OF_MON_TYPES;
+        }
+        while(type == TYPE_MYSTERY || type == TYPE_NONE);
+
+        typeFlags = MON_TYPE_VAL_TO_FLAGS(type);
+    }
+    else
+    {
+        AGB_ASSERT(FALSE);
+    }
 
     RogueMonQuery_Begin();
 
