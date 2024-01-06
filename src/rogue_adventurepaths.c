@@ -334,7 +334,7 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
             return 100;
         // Prefer a 2nd rest stop
         else if(count == 1)
-            return 4;
+            return 20;
         break;
 
     // Only allow 1 but we really want to place it
@@ -350,7 +350,13 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
     case ADVPATH_ROOM_HONEY_TREE:
         count = CountRoomType(roomType);
         if(count == 0)
-            return 2;
+        {
+            // Every other badge we want to increase weight otherwise decrease weight but not impossible
+            if((GetPathGenerationDifficulty() - 1) % 2 == 0)
+                return 15;
+            else
+                return 1;
+        }
         else
             return 0;
         break;
@@ -369,7 +375,7 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
         break;
     }
 
-    return 1;
+    return 5;
 }
 
 static u16 SelectRoomType(u16* activeTypeBuffer, u16 activeTypeCount)
@@ -666,7 +672,7 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
 
         case ADVPATH_ROOM_HONEY_TREE:
             gRogueAdvPath.rooms[roomId].roomParams.roomIdx = 0;
-            gRogueAdvPath.rooms[roomId].roomParams.perType.honeyTree.species = Rogue_SelectWildDenEncounterRoom();
+            gRogueAdvPath.rooms[roomId].roomParams.perType.honeyTree.species = Rogue_SelectHoneyTreeEncounterRoom();
             gRogueAdvPath.rooms[roomId].roomParams.perType.honeyTree.shinyState = RogueRandomRange(Rogue_GetShinyOdds(), OVERWORLD_FLAG) == 0;
             break;
 

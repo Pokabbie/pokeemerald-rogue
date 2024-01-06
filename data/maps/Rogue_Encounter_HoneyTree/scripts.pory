@@ -7,5 +7,15 @@ mapscripts Rogue_Encounter_HoneyTree_MapScripts
 
 script Rogue_Encounter_HoneyTree_OnLoad
 {
-    //setflag(FLAG_HIDE_WILD_MON)
+    if(var(VAR_FOLLOW_MON_0) == SPECIES_NONE)
+    {
+        setflag(FLAG_HIDE_WILD_MON)
+    }
+}
+
+script Rogue_Encounter_HoneyTree_ScatterPokeblock
+{
+    lock
+    msgbox(format("It's a Honey Tree!\pPokémon are known to gather and eat fruit and berries scattered at the base of these trees."), MSGBOX_DEFAULT)
+    release
 }

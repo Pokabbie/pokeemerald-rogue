@@ -1035,7 +1035,7 @@ void ItemUseOutOfBattle_Pokeblock(u8 taskId)
         // Some pokeblock can't be scattered
         DisplayItemMessage(taskId, FONT_NORMAL, gText_PokeblockHasNoEffect, CloseItemMessage);
     }
-    else if(Rogue_CanRerollSingleWildSpecies())
+    else if(Rogue_CanScatterPokeblock(gSpecialVar_ItemId))
     {
         // Scatter this pokeblock
         sItemUseOnFieldCB = ItemUseOnFieldCB_Pokeblock;

@@ -185,26 +185,56 @@ script Rogue_EventScript_ItemUseHealingFlask
     release
 }
 
-script Rogue_EventScript_UsePokeblockItem
+script Rogue_EventScript_ScatterPokeblockItem
 {
-    lock
-
+    removeitem(VAR_ITEM_ID)
     bufferitemname(STR_VAR_1, VAR_ITEM_ID)
     copyvar(VAR_ROGUE_ACTIVE_POKEBLOCK, VAR_ITEM_ID)
 
-    playse(SE_REPEL)
-    special(Rogue_ScatterPokeblockItem)
-    waitse
+    special(Rogue_TryScatterPokeblockNearHoneyTree)
 
     if(var(VAR_RESULT) == YES)
     {
-        msgbox(format("The {STR_VAR_1} was scattered…\pThe Pokémon seem to enjoy it!"))
+        while(var(VAR_RESULT) == YES)
+        {
+            playse(SE_REPEL)
+            waitse
+
+            msgbox(format("The {STR_VAR_1} was scattered by the Honey Tree…"))
+
+            checkitem(VAR_ROGUE_ACTIVE_POKEBLOCK)
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("Would you like to scatter another?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    removeitem(VAR_ROGUE_ACTIVE_POKEBLOCK)
+                    special(Rogue_TryScatterPokeblockNearHoneyTree)
+                }
+            }
+        }
     }
     else
     {
-        msgbox(format("The {STR_VAR_1} was scattered…\pThe Pokémon don't seem interested in it…"))
-    }
+        playse(SE_REPEL)
+        special(Rogue_ScatterPokeblockItem)
+        waitse
 
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("The {STR_VAR_1} was scattered…\pThe Pokémon seem to enjoy it!"))
+        }
+        else
+        {
+            msgbox(format("The {STR_VAR_1} was scattered…\pThe Pokémon don't seem interested in it…"))
+        }
+    }
+}
+
+script Rogue_EventScript_UsePokeblockItem
+{
+    lock
+    call(Rogue_EventScript_ScatterPokeblockItem)
     release
 }
 

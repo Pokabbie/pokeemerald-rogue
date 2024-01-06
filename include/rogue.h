@@ -244,6 +244,7 @@ struct RogueRunData
     u8 legendaryDifficulties[ADVPATH_LEGEND_COUNT];
     u8 rivalEncounterDifficulties[ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
+    u8 honeyTreePokeblock[POKEBLOCK_ITEM_COUNT];
     union
     {
         struct RogueCampaignData_Generic generic;
