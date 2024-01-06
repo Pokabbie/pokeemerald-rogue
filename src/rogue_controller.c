@@ -213,6 +213,13 @@ u16 Rogue_GetShinyOdds(void)
     return baseOdds;
 }
 
+bool8 Rogue_RollShinyState(void)
+{
+    // Intentionally don't see shiny state
+    return (Random() % Rogue_GetShinyOdds()) == 0;
+}
+
+
 static u16 GetEncounterChainShinyOdds(u8 count)
 {
     u16 baseOdds = Rogue_GetShinyOdds();
@@ -3319,6 +3326,10 @@ static u8 HoneyTree_CalculateWeight(u16 weightIndex, u16 species, void* data)
 
 u16 Rogue_SelectHoneyTreeEncounterRoom(void)
 {
+    // Intentionally use Random instead of RogueRandom as this may be conditionally rerolled per player
+    // so could break with sacred ash
+    //
+
     u16 i;
     u16 species;
     u32 typeFlags;
@@ -3345,14 +3356,14 @@ u16 Rogue_SelectHoneyTreeEncounterRoom(void)
     // Remove random entries until we can safely calcualte weights without going over
     while(RogueWeightQuery_IsOverSafeCapacity())
     {
-        RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, 50);
+        RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50);
     }
 
     RogueWeightQuery_Begin();
     {
         RogueWeightQuery_CalculateWeights(HoneyTree_CalculateWeight, NULL);
 
-        species = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+        species = RogueWeightQuery_SelectRandomFromWeights(Random());
     }
     RogueWeightQuery_End();
 
