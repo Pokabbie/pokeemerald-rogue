@@ -1101,3 +1101,8 @@ void Rogue_ScatterPokeblockItem()
         gSpecialVar_Result = Rogue_RerollSingleWildSpecies(type);
     }
 }
+
+void Rogue_CanPlantBerries()
+{
+    gSpecialVar_Result = !Rogue_IsRunActive() || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_RESTSTOP;
+}

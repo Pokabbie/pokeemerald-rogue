@@ -625,8 +625,18 @@
 #define MUS_DP_VICTORY_GALACTIC         (MUS_DP_TITLE + 33)
 #define MUS_DP_VICTORY_ELITE_FOUR       (MUS_DP_TITLE + 34)
 #define MUS_DP_HALL_OF_ORIGIN           (MUS_DP_TITLE + 35)
+#define MUS_DP_FLOAROMA_DAY             (MUS_DP_TITLE + 36)
+#define MUS_DP_HALL_OF_FAME             (MUS_DP_TITLE + 37)
+#define MUS_DP_HEAL                     (MUS_DP_TITLE + 38)
+#define MUS_DP_FIGHT_AREA_DAY           (MUS_DP_TITLE + 39)
+#define MUS_DP_INSIDE_POKEMON_LEAGUE    (MUS_DP_TITLE + 40)
+#define MUS_DP_SANDGEM_DAY              (MUS_DP_TITLE + 41)
+#define MUS_DP_SNOWPOINT_DAY            (MUS_DP_TITLE + 42)
+#define MUS_DP_SOLACEON_DAY             (MUS_DP_TITLE + 43)
+#define MUS_DP_UNDERGROUND              (MUS_DP_TITLE + 44)
 
-#define MUS_PL_VS_GIRATINA              (MUS_DP_TITLE + 36)
+#define MUS_PL_VS_GIRATINA              (MUS_DP_TITLE + 45)
+
 #define END_MUS                     MUS_PL_VS_GIRATINA
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().

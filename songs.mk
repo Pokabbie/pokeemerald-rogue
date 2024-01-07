@@ -1032,6 +1032,33 @@ $(MID_SUBDIR)/mus_dp_victory_elite_four.s: %.s: %.mid
 $(MID_SUBDIR)/mus_dp_hall_of_origin.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V127
 
+$(MID_SUBDIR)/mus_dp_floaroma_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V110
+
+$(MID_SUBDIR)/mus_dp_hall_of_fame.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V088
+
+$(MID_SUBDIR)/mus_dp_heal.s: %.s: %.mid
+	$(MID) $< $@ -E -G191 -V100 -P5
+
+$(MID_SUBDIR)/mus_dp_fight_area_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V080
+
+$(MID_SUBDIR)/mus_dp_inside_pokemon_league.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V100
+
+$(MID_SUBDIR)/mus_dp_sandgem_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
+
+$(MID_SUBDIR)/mus_dp_snowpoint_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V100
+
+$(MID_SUBDIR)/mus_dp_solaceon_day.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V110
+
+$(MID_SUBDIR)/mus_dp_underground.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V100
+
 $(MID_SUBDIR)/mus_pl_vs_giratina.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V105
 
