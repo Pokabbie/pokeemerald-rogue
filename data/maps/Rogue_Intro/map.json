@@ -67,7 +67,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FOLLOW_MON_3",
+      "graphics_id": "OBJ_EVENT_GFX_FOLLOW_MON_2",
       "x": -1,
       "y": -1,
       "elevation": 4,
@@ -106,20 +106,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FOLLOW_MON_6",
-      "x": -1,
-      "y": -1,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_FOLLOW_MON_7",
+      "graphics_id": "OBJ_EVENT_GFX_FOLLOW_MON_3",
       "x": -1,
       "y": -1,
       "elevation": 3,

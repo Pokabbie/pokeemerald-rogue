@@ -1544,6 +1544,14 @@ void ClearBerryTrees(void)
         gSaveBlock1Ptr->berryTrees[i] = gBlankBerryTree;
 }
 
+void ClearBerryTreeRange(u16 from, u16 to)
+{
+    int i;
+
+    for (i = from; i <= to; i++)
+        gSaveBlock1Ptr->berryTrees[i] = gBlankBerryTree;
+}
+
 static bool32 BerryTreeGrow(struct BerryTree *tree)
 {
     if (tree->stopGrowth)

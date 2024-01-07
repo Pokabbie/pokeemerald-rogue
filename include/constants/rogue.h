@@ -38,8 +38,6 @@
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
-#define ROGUE_HUB_BERRY_TREE_COUNT 20
-
 
 // Items
 //
@@ -95,6 +93,7 @@
 
 #define FIRST_ITEM_POKEBLOCK            ITEM_POKEBLOCK_NORMAL
 #define LAST_ITEM_POKEBLOCK             ITEM_POKEBLOCK_SPDEF
+#define POKEBLOCK_ITEM_COUNT            (LAST_ITEM_POKEBLOCK - FIRST_ITEM_POKEBLOCK + 1)
 
 #ifdef ROGUE_DEBUG
 #define ITEM_DEBUG_MINT_HARDY           (ITEM_ROGUE_ITEM_FIRST + 46)
@@ -184,13 +183,14 @@
 #define ADVPATH_ROOM_LEGENDARY  3
 #define ADVPATH_ROOM_MINIBOSS   4
 #define ADVPATH_ROOM_WILD_DEN   5
-#define ADVPATH_ROOM_GAMESHOW   6
-#define ADVPATH_ROOM_DARK_DEAL  7
-#define ADVPATH_ROOM_LAB        8
+#define ADVPATH_ROOM_HONEY_TREE 6
+#define ADVPATH_ROOM_GAMESHOW   7
+#define ADVPATH_ROOM_DARK_DEAL  8
+#define ADVPATH_ROOM_LAB        9
 
-#define ADVPATH_ROOM_BOSS       9
+#define ADVPATH_ROOM_BOSS       10
 
-#define ADVPATH_ROOM_COUNT      10
+#define ADVPATH_ROOM_COUNT      11
 
 
 #define ADVPATH_SUBROOM_ROUTE_CALM          0
@@ -530,7 +530,7 @@
 
 
 #define FOLLOWMON_SHINY_OFFSET              10000
-#define FOLLOWMON_MAX_SPAWN_SLOTS           4 // 4 reserved palette slots, 1 for the 10th pal slot (if not in use) and 1 for the follower (todo change to 6)
+#define FOLLOWMON_MAX_SPAWN_SLOTS           6 // 4 reserved palette slots, 1 for the 10th pal slot (if not in use) and 1 for the follower (todo change to 6)
 #define FOLLOWMON_IDEAL_OBJECT_EVENT_COUNT  8
 
 #define WILD_ENCOUNTER_GRASS_CAPACITY 9

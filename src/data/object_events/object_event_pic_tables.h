@@ -4638,6 +4638,10 @@ static const struct SpriteFrameImage sPicTable_ItemZCrystal[] = {
     obj_frame_tiles(gObjectEventPic_ItemZCrystal),
 };
 
+static const struct SpriteFrameImage sPicTable_GoldGrass[] = {
+    obj_frame_tiles(gObjectEventPic_GoldGrass),
+};
+
 
 static const struct SpriteFrameImage sPicTable_Route_Bug[] = {
     overworld_frame(gObjectEventPic_Route_Bug, 2, 2, 0),

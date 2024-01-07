@@ -1076,6 +1076,18 @@ void Rogue_IsFinalQuestActive()
     gSpecialVar_Result = Rogue_UseFinalQuestEffects() != 0;
 }
 
+void Rogue_TryScatterPokeblockNearHoneyTree()
+{
+    if(Rogue_IsRunActive() && gRogueAdvPath.currentRoomType == ADVPATH_ROOM_HONEY_TREE)
+    {
+        gSpecialVar_Result = Rogue_TryAddHoneyTreePokeblock(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK));
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
+}
+
 void Rogue_ScatterPokeblockItem()
 {
     if(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK) == ITEM_POKEBLOCK_SHINY)

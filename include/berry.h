@@ -10,6 +10,7 @@ bool32 ObjectEventInteractionWaterBerryTree(void);
 bool8 IsPlayerFacingEmptyBerryTreePatch(void);
 bool8 TryToWaterBerryTree(void);
 void ClearBerryTrees(void);
+void ClearBerryTreeRange(u16 from, u16 to);
 void BerryTreeTimeUpdate(s32 minutes);
 void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 sparkle);
 void RemoveBerryTree(u8 id);

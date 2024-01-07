@@ -18,6 +18,7 @@ u16 RogueRandomRange(u16 range, u8 seedFlag);
 bool8 RogueRandomChance(u8 chance, u16 seedFlag);
 
 u16 Rogue_GetShinyOdds(void);
+bool8 Rogue_RollShinyState(void);
 
 void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty, bool8 canSendToLab);
 void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab);
@@ -114,6 +115,7 @@ u16 Rogue_GetLegendaryRoomForSpecies(u16 species);
 bool8 Rogue_IsBattleAlphaMon(u16 species);
 bool8 Rogue_IsBattleRoamerMon(u16 species);
 u16 Rogue_SelectWildDenEncounterRoom(void);
+u16 Rogue_SelectHoneyTreeEncounterRoom(void);
 
 void Rogue_SelectMiniBossRewardMons();
 
@@ -140,8 +142,9 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny);
 u16 Rogue_SelectRandomWildMon(void);
 bool8 Rogue_PreferTraditionalWildMons(void);
 bool8 Rogue_AreWildMonEnabled(void);
-bool8 Rogue_CanRerollSingleWildSpecies();
+bool8 Rogue_CanScatterPokeblock(u16 itemId);
 bool8 Rogue_RerollSingleWildSpecies(u8 type);
+bool8 Rogue_TryAddHoneyTreePokeblock(u16 itemId);
 void Rogue_CreateEventMon(u16* species, u8* level, u16* itemId);
 void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize);
 void Rogue_ModifyWildMon(struct Pokemon* mon);

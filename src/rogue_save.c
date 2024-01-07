@@ -45,7 +45,6 @@ struct RogueRunRestoreBlock
 {
     struct Pokemon playerParty[PARTY_SIZE];
     struct ItemSlot bagItems[BAG_ITEM_CAPACITY];
-    struct BerryTree berryTrees[ROGUE_HUB_BERRY_TREE_COUNT];
     u32 money;
     u32 playTime;
 };
@@ -358,8 +357,6 @@ void RogueSave_SaveHubStates()
     {
         ZeroMonData(&sRunRestoreBlock.playerParty[i]);
     }
-
-    memcpy(&sRunRestoreBlock.berryTrees[0], GetBerryTreeInfo(1), sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
     
     // Put all items into a single big list
     bagItemIdx = 0;
@@ -418,8 +415,6 @@ void RogueSave_LoadHubStates()
             break;
     }
     gPlayerPartyCount = i;
-
-    memcpy(GetBerryTreeInfo(1), &sRunRestoreBlock.berryTrees[0], sizeof(struct BerryTree) * ROGUE_HUB_BERRY_TREE_COUNT);
 
     // Restore the bag by just clearing and adding everything back to it
     ClearBag();

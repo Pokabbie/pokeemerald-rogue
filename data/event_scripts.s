@@ -836,3 +836,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Special_LakeGuardian/scripts.inc"
 
 	.include "data/maps/Rogue_Special_Arceus/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_HoneyTree/scripts.inc"

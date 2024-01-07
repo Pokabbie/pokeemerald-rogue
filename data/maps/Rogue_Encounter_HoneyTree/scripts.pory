@@ -1,0 +1,21 @@
+const FLAG_HIDE_WILD_MON = FLAG_TEMP_1
+
+mapscripts Rogue_Encounter_HoneyTree_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Encounter_HoneyTree_OnLoad
+}
+
+script Rogue_Encounter_HoneyTree_OnLoad
+{
+    if(var(VAR_FOLLOW_MON_0) == SPECIES_NONE)
+    {
+        setflag(FLAG_HIDE_WILD_MON)
+    }
+}
+
+script Rogue_Encounter_HoneyTree_ScatterPokeblock
+{
+    lock
+    msgbox(format("It's a Honey Tree!\pPokémon are known to gather and eat fruit and berries scattered at the base of these trees."), MSGBOX_DEFAULT)
+    release
+}
