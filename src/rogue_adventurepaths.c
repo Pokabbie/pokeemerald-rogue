@@ -642,8 +642,9 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             break;
 
         case ADVPATH_ROOM_RESTSTOP:
-            weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 4;
-            weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 4;
+            weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 8;
+            weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 8;
+            weights[ADVPATH_SUBROOM_RESTSTOP_DAYCARE] = 8;
             weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 1;
 
             gRogueAdvPath.rooms[roomId].roomParams.roomIdx = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());

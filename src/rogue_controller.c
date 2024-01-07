@@ -2861,6 +2861,8 @@ static void BeginRogueRun(void)
     RogueSave_SaveHubStates();
 
     ClearBerryTreeRange(BERRY_TREE_ROUTE_FIRST, BERRY_TREE_ROUTE_LAST);
+    ClearBerryTreeRange(BERRY_TREE_DAYCARE_FIRST, BERRY_TREE_DAYCARE_LAST);
+
     RandomiseFishingEncounters();
     RandomiseTRMoves();
     InitialiseFaintedLabMons();

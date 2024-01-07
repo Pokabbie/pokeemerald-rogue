@@ -1780,6 +1780,16 @@
       "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/Rogue_Encounter_HoneyTree/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_HoneyTree/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_DAY_CARE",
+      "name": "Rogue_Encounter_DayCare_Layout",
+      "width": 34,
+      "height": 28,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Rogue_Encounter_DayCare/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_DayCare/map.bin"
     }
   ]
 }

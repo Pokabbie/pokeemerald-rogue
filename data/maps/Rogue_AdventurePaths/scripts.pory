@@ -63,14 +63,17 @@ script Rogue_AdventurePaths_InteractRoom
         case ADVPATH_ROOM_RESTSTOP:
             switch(var(VAR_NODE_PARAM1))
             {
-                case 0:
+                case ADVPATH_SUBROOM_RESTSTOP_FULL:
                     msgbox(format("It's a Full Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
 
-                case 1:
+                case ADVPATH_SUBROOM_RESTSTOP_SHOP:
                     msgbox(format("It's a Mart Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
 
-                case 2:
+                case ADVPATH_SUBROOM_RESTSTOP_BATTLE:
                     msgbox(format("It's a Battle Prep. Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
+                
+                case ADVPATH_SUBROOM_RESTSTOP_DAYCARE:
+                    msgbox(format("It's a Day Care Rest Stop.\nEnter this encounter?"), MSGBOX_YESNO)
 
                 default:
                     msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
