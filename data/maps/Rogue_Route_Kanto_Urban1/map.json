@@ -413,7 +413,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_CHERI_2",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_1",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -426,7 +426,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_114_PERSIM_2",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_2",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -439,7 +439,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_114_PERSIM_3",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_3",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -452,7 +452,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_SOIL_1",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_6",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -465,7 +465,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_ORAN_1",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_7",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -478,7 +478,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_SOIL_4",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_4",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -491,7 +491,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_104_ORAN_2",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_5",
       "script": "BerryTreeScript",
       "flag": "0"
     },

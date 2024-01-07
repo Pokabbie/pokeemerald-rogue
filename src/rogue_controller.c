@@ -2860,7 +2860,7 @@ static void BeginRogueRun(void)
 
     RogueSave_SaveHubStates();
 
-    ClearBerryTrees();
+    ClearBerryTreeRange(BERRY_TREE_ROUTE_FIRST, BERRY_TREE_ROUTE_LAST);
     RandomiseFishingEncounters();
     RandomiseTRMoves();
     InitialiseFaintedLabMons();
@@ -2953,9 +2953,6 @@ static void EndRogueRun(void)
     }
 
     RogueSave_LoadHubStates();
-
-    // Grow berries based on progress in runs
-    BerryTreeTimeUpdate(90 * gRogueRun.enteredRoomCounter);
 
     // Trigger before and after as we may have hub/run only quests which are interested in this trigger
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_END);
@@ -3640,6 +3637,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         else if(warpType == ROGUE_WARP_TO_ROOM)
         {
             ++gRogueRun.enteredRoomCounter;
+
+            // Grow berries based on progress in runs (This will grow in run berries and hub berries)
+            BerryTreeTimeUpdate(90);
 
             VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
@@ -6674,7 +6674,7 @@ static void RandomiseBerryTrees(void)
             // The higher this number the less likely a berry repeats
             RogueWeightQuery_FillWeights(4);
 
-            for(i = 0; i < BERRY_TREES_COUNT; ++i)
+            for(i = BERRY_TREE_ROUTE_FIRST; i <= BERRY_TREE_ROUTE_LAST; ++i)
             {
                 if(RogueRandomChanceBerry())
                 {
