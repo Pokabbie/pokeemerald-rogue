@@ -109,10 +109,9 @@
     method(5902, "DarkusShadow", 0) \
     method(5903, "Anarlaurendil", 0) \
     method(5904, "Lasse00", 0) \
-    method(5905, "DarkusShadow", 0) \
-    method(5906, "shaderr31", 0) \
-    method(5907, "CarmaNekko", 0) \
-    method(5908, "EduarPokeN", 0) \
+    method(5905, "shaderr31", 0) \
+    method(5906, "CarmaNekko", 0) \
+    method(5907, "EduarPokeN", 0) \
     method(60, "", CREDITS_FLAG_BREAK) \
     \
     method(64, "Special Thanks to", CREDITS_FLAG_TITLE) \
