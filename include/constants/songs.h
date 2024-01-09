@@ -637,7 +637,9 @@
 
 #define MUS_PL_VS_GIRATINA              (MUS_DP_TITLE + 45)
 
-#define END_MUS                     MUS_PL_VS_GIRATINA
+#define MUS_MOVE_DELETED_SLOW           (MUS_PL_VS_GIRATINA + 1)
+
+#define END_MUS                     MUS_MOVE_DELETED_SLOW
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

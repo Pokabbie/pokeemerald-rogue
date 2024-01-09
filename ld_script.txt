@@ -1055,6 +1055,7 @@ SECTIONS {
         sound/songs/midi/mus_evolution_intro.o(.rodata);
         sound/songs/midi/mus_evolution.o(.rodata);
         sound/songs/midi/mus_move_deleted.o(.rodata);
+        sound/songs/midi/mus_move_deleted_slow.o(.rodata);
         sound/songs/midi/mus_encounter_girl.o(.rodata);
         sound/songs/midi/mus_encounter_male.o(.rodata);
         sound/songs/midi/mus_abandoned_ship.o(.rodata);

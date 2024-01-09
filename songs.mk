@@ -285,6 +285,9 @@ $(MID_SUBDIR)/mus_register_match_call.s: %.s: %.mid
 $(MID_SUBDIR)/mus_move_deleted.s: %.s: %.mid
 	$(MID) $< $@ -E -G012 -V090 -P5
 
+$(MID_SUBDIR)/mus_move_deleted_slow.s: %.s: %.mid
+	$(MID) $< $@ -E -G012 -V090 -P5
+
 $(MID_SUBDIR)/mus_obtain_tmhm.s: %.s: %.mid
 	$(MID) $< $@ -E -G012 -V090 -P5
 
