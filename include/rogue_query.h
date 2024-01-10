@@ -64,6 +64,7 @@ void RogueItemQuery_InPriceRange(u8 func, u16 minPrice, u16 maxPrice);
 void RogueTrainerQuery_Begin();
 void RogueTrainerQuery_End();
 void RogueTrainerQuery_Reset(u8 func);
+void RogueTrainerQuery_ContainsClassFlag(u8 func, u32 trainerFlags);
 void RogueTrainerQuery_ContainsTrainerFlag(u8 func, u32 trainerFlags);
 void RogueTrainerQuery_IsOfTypeGroup(u8 func, u16 typeGroup);
 

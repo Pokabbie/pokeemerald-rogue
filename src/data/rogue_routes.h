@@ -335,7 +335,7 @@ const struct RogueEncounterData gRogueLegendaryEncounterInfo =
 static const struct RogueEncounterMap sRogueTeamEncounters[] = 
 {
     // TODO - Specify the team flags?
-    ENCOUNTER_MAP(0, ROGUE_ENCOUNTER_ROCKET_HIDEOUT),
+    ENCOUNTER_MAP(TEAM_NUM_ROCKET, ROGUE_ENCOUNTER_ROCKET_HIDEOUT),
 };
 
 const struct RogueEncounterData gRogueTeamEncounterInfo = 

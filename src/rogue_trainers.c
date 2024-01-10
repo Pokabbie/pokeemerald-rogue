@@ -68,7 +68,7 @@ static bool8 IsChoiceItem(u16 itemId);
 bool8 Rogue_IsBossTrainer(u16 trainerNum)
 {
     const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
-    return (trainer->trainerFlags & TRAINER_FLAG_CLASS_ANY_MAIN_BOSS) != 0;
+    return (trainer->trainerFlags & TRAINER_FLAG_CLASS_BOSS) != 0;
 }
 
 bool8 Rogue_IsRivalTrainer(u16 trainerNum)
@@ -486,58 +486,80 @@ bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum)
     return TRUE;
 }
 
-static void GetGlobalFilterFlags(u32* includeFlags, u32* excludeFlags)
+struct TrainerFliter
 {
-    *includeFlags = TRAINER_FLAG_NONE;
-    *excludeFlags = TRAINER_FLAG_NONE;
+    u32 trainerFlagsInclude;
+    u32 trainerFlagsExclude;
+    u32 classFlagsInclude;
+    u32 classFlagsExclude;
+};
+
+static void GetDefaultFilter(struct TrainerFliter* filter)
+{
+    filter->trainerFlagsInclude = TRAINER_FLAG_NONE;
+    filter->trainerFlagsExclude = TRAINER_FLAG_NONE;
+
+    filter->classFlagsInclude = CLASS_FLAG_NONE;
+    filter->classFlagsExclude = CLASS_FLAG_NONE;
+}
+
+static void GetGlobalFilter(struct TrainerFliter* filter)
+{
+    filter->trainerFlagsInclude = TRAINER_FLAG_NONE;
+    filter->trainerFlagsExclude = TRAINER_FLAG_NONE;
+
+    filter->classFlagsInclude = CLASS_FLAG_NONE;
+    filter->classFlagsExclude = CLASS_FLAG_NONE;
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE))
-        *includeFlags |= TRAINER_FLAG_REGION_ROGUE;
+        filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_ROGUE;
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KANTO))
-        *includeFlags |= TRAINER_FLAG_REGION_KANTO;
+        filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_KANTO;
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_JOHTO))
-        *includeFlags |= TRAINER_FLAG_REGION_JOHTO;
+        filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_JOHTO;
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_HOENN))
-        *includeFlags |= TRAINER_FLAG_REGION_HOENN;
+        filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_HOENN;
 
 #ifdef ROGUE_EXPANSION
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH))
-        *includeFlags |= TRAINER_FLAG_REGION_SINNOH;
+        filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_SINNOH;
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA))
-        *includeFlags |= TRAINER_FLAG_REGION_UNOVA;
+        filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_UNOVA;
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS))
-        *includeFlags |= TRAINER_FLAG_REGION_KALOS;
+        filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_KALOS;
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ALOLA))
-        *includeFlags |= TRAINER_FLAG_REGION_ALOLA;
+        filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_ALOLA;
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR))
-        *includeFlags |= TRAINER_FLAG_REGION_GALAR;
+        filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_GALAR;
 #endif
 
     // TODO - Rework this flag
     if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER) == TRAINER_ORDER_RAINBOW)
-        *excludeFlags |= TRAINER_FLAG_MISC_RAINBOW_EXCLUDE;
+        filter->trainerFlagsExclude |= TRAINER_FLAG_MISC_RAINBOW_EXCLUDE;
     else
-        *excludeFlags |= TRAINER_FLAG_MISC_RAINBOW_ONLY;
+        filter->trainerFlagsExclude |= TRAINER_FLAG_MISC_RAINBOW_ONLY;
 
-    if(*includeFlags == TRAINER_FLAG_NONE)
+    if(filter->trainerFlagsInclude == TRAINER_FLAG_NONE)
     {
         // Safety fallback (Should never reach here)
         AGB_ASSERT(FALSE);
-        *includeFlags = TRAINER_FLAG_REGION_DEFAULT;
+        filter->trainerFlagsInclude = TRAINER_FLAG_REGION_DEFAULT;
     }
 }
 
-static u16 Rogue_ChooseTrainerId(u32 includeFlags, u32 excludeFlags, u16* historyBuffer, u16 historyBufferCapacity)
+static u16 Rogue_ChooseTrainerId(struct TrainerFliter* filter, u16* historyBuffer, u16 historyBufferCapacity)
 {
     u8 i;
     u16 trainerNum = gRogueTrainerCount;
+    struct TrainerFliter globalFilter;
+    GetGlobalFilter(&globalFilter);
 
     RogueTrainerQuery_Begin();
 
@@ -548,12 +570,19 @@ static u16 Rogue_ChooseTrainerId(u32 includeFlags, u32 excludeFlags, u16* histor
         RogueTrainerQuery_Reset(QUERY_FUNC_INCLUDE);
 
         // Only include trainers we want
-        RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_INCLUDE, includeFlags);
-        RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_EXCLUDE, excludeFlags);
+        // global filter
+        RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_INCLUDE, globalFilter.trainerFlagsInclude);
+        RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_EXCLUDE, globalFilter.trainerFlagsExclude);
+    
+        RogueTrainerQuery_ContainsClassFlag(QUERY_FUNC_INCLUDE, globalFilter.classFlagsInclude);
+        RogueTrainerQuery_ContainsClassFlag(QUERY_FUNC_EXCLUDE, globalFilter.classFlagsExclude);
 
-        GetGlobalFilterFlags(&includeFlags, &excludeFlags);
-        RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_INCLUDE, includeFlags);
-        RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_EXCLUDE, excludeFlags);
+        // current filter
+        RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_INCLUDE, filter->trainerFlagsInclude);
+        RogueTrainerQuery_ContainsTrainerFlag(QUERY_FUNC_EXCLUDE, filter->trainerFlagsExclude);
+    
+        RogueTrainerQuery_ContainsClassFlag(QUERY_FUNC_INCLUDE, filter->classFlagsInclude);
+        RogueTrainerQuery_ContainsClassFlag(QUERY_FUNC_EXCLUDE, filter->classFlagsExclude);
 
         // Exclude any types we've already encountered
         for(i = 0; i < historyBufferCapacity; ++i)
@@ -596,26 +625,27 @@ static u16 Rogue_ChooseTrainerId(u32 includeFlags, u32 excludeFlags, u16* histor
 
 static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 historyBufferCapacity)
 {
-    u32 includeFlags = 0;
-    u32 excludeFlags = 0;
+    struct TrainerFliter filter;
+    GetDefaultFilter(&filter);
+    filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_BOSS;
 
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER))
     {
     case TRAINER_ORDER_DEFAULT:
         {
             // Only include trainers we want
-            includeFlags = TRAINER_FLAG_NONE;
+            filter.classFlagsInclude = TRAINER_FLAG_NONE;
             if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
-                includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_CHAMP;
             else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
-                includeFlags |= TRAINER_FLAG_CLASS_ANY_ELITE;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_ANY_ELITE;
             else
-                includeFlags |= TRAINER_FLAG_CLASS_ANY_GYM;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_ANY_GYM;
         }
         break;
     
     case TRAINER_ORDER_RAINBOW:
-        includeFlags = TRAINER_FLAG_CLASS_ANY_MAIN_BOSS;
+        filter.classFlagsInclude = CLASS_FLAG_BOSS_ANY_GYM;
         break;
     
     case TRAINER_ORDER_OFFICIAL:
@@ -623,46 +653,46 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
             switch (difficulty)
             {
             case ROGUE_GYM_START_DIFFICULTY + 0:
-                includeFlags |= TRAINER_FLAG_CLASS_GYM_1;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_GYM_1;
                 break;
             case ROGUE_GYM_START_DIFFICULTY + 1:
-                includeFlags |= TRAINER_FLAG_CLASS_GYM_2;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_GYM_2;
                 break;
             case ROGUE_GYM_START_DIFFICULTY + 2:
-                includeFlags |= TRAINER_FLAG_CLASS_GYM_3;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_GYM_3;
                 break;
             case ROGUE_GYM_START_DIFFICULTY + 3:
-                includeFlags |= TRAINER_FLAG_CLASS_GYM_4;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_GYM_4;
                 break;
             case ROGUE_GYM_START_DIFFICULTY + 4:
-                includeFlags |= TRAINER_FLAG_CLASS_GYM_5;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_GYM_5;
                 break;
             case ROGUE_GYM_START_DIFFICULTY + 5:
-                includeFlags |= TRAINER_FLAG_CLASS_GYM_6;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_GYM_6;
                 break;
             case ROGUE_GYM_START_DIFFICULTY + 6:
-                includeFlags |= TRAINER_FLAG_CLASS_GYM_7;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_GYM_7;
                 break;
             case ROGUE_GYM_START_DIFFICULTY + 7:
-                includeFlags |= TRAINER_FLAG_CLASS_GYM_8;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_GYM_8;
                 break;
 
             case ROGUE_ELITE_START_DIFFICULTY + 0:
-                includeFlags |= TRAINER_FLAG_CLASS_ELITE_1;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_ELITE_1;
                 break;
             case ROGUE_ELITE_START_DIFFICULTY + 1:
-                includeFlags |= TRAINER_FLAG_CLASS_ELITE_2;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_ELITE_2;
                 break;
             case ROGUE_ELITE_START_DIFFICULTY + 2:
-                includeFlags |= TRAINER_FLAG_CLASS_ELITE_3;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_ELITE_3;
                 break;
             case ROGUE_ELITE_START_DIFFICULTY + 3:
-                includeFlags |= TRAINER_FLAG_CLASS_ELITE_4;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_ELITE_4;
                 break;
 
             case ROGUE_CHAMP_START_DIFFICULTY + 0:
             case ROGUE_CHAMP_START_DIFFICULTY + 1:
-                includeFlags |= TRAINER_FLAG_CLASS_CHAMP;
+                filter.classFlagsInclude |= CLASS_FLAG_BOSS_CHAMP;
                 break;
 
             default:
@@ -674,11 +704,11 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
 
     default:
         AGB_ASSERT(FALSE);
-        includeFlags = TRAINER_FLAG_CLASS_ANY_MAIN_BOSS;
+        filter.classFlagsInclude = CLASS_FLAG_BOSS_ANY;
         break;
     }
 
-    return Rogue_ChooseTrainerId(includeFlags, excludeFlags, historyBuffer, historyBufferCapacity);
+    return Rogue_ChooseTrainerId(&filter, historyBuffer, historyBufferCapacity);
 }
 
 void Rogue_ChooseBossTrainersForNewAdventure()
@@ -739,14 +769,11 @@ void Rogue_ChooseBossTrainersForNewAdventure()
 
 static u16 Rogue_ChooseRivalTrainerId()
 {
-    u32 includeFlags;
-    u32 excludeFlags;
+    struct TrainerFliter filter;
+    GetDefaultFilter(&filter);
+    filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_RIVAL;
 
-    // Only include trainers we want
-    includeFlags = TRAINER_FLAG_CLASS_RIVAL;
-    excludeFlags = 0;
-
-    return Rogue_ChooseTrainerId(includeFlags, excludeFlags, NULL, 0);
+    return Rogue_ChooseTrainerId(&filter, NULL, 0);
 }
 
 static u8 SelectRivalWeakestMon(u16* speciesBuffer, u8 partySize)
@@ -1007,11 +1034,11 @@ static u16 Rogue_RouteTrainerId(u16* historyBuffer, u16 historyBufferCapacity)
     u32 includeFlags;
     u32 excludeFlags;
 
-    // Only include trainers we want
-    includeFlags = TRAINER_FLAG_CLASS_ROUTE;
-    excludeFlags = TRAINER_FLAG_NONE;
+    struct TrainerFliter filter;
+    GetDefaultFilter(&filter);
+    filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_ROUTE;
 
-    return Rogue_ChooseTrainerId(includeFlags, excludeFlags, historyBuffer, historyBufferCapacity);
+    return Rogue_ChooseTrainerId(&filter, historyBuffer, historyBufferCapacity);
 }
 
 void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity)
@@ -1030,10 +1057,32 @@ void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity)
     }
 }
 
+static u16 Rogue_TeamHideoutTrainerId(u16* historyBuffer, u16 historyBufferCapacity)
+{
+    u32 includeFlags;
+    u32 excludeFlags;
+
+    struct TrainerFliter filter;
+    GetDefaultFilter(&filter);
+    filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_ROUTE;
+
+    return Rogue_ChooseTrainerId(&filter, historyBuffer, historyBufferCapacity);
+}
+
 void Rogue_ChooseTeamHideoutTrainers(u16* writeBuffer, u16 bufferCapacity)
 {
-    // TODO
-    Rogue_ChooseRouteTrainers(writeBuffer, bufferCapacity);
+    u8 i;
+    u16 trainerNum;
+    u16 historyBuffer[ROGUE_MAX_BOSS_COUNT];
+
+    memset(writeBuffer, TRAINER_NONE, sizeof(u16) * bufferCapacity);
+    memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
+
+    for(i = 0; i < bufferCapacity; ++i)
+    {
+        trainerNum = Rogue_TeamHideoutTrainerId(historyBuffer, ARRAY_COUNT(historyBuffer));
+        writeBuffer[i] = trainerNum;
+    }
 }
 
 void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum)

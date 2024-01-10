@@ -3098,7 +3098,7 @@ static void ChooseTeamEncountersForNewAdventure()
     memset(&gRogueRun.teamEncounterDifficulties, ROGUE_MAX_BOSS_COUNT, sizeof(gRogueRun.teamEncounterDifficulties));
 
     // TODO - Select the team ID
-    gRogueRun.teamEncounterNum = 0;
+    gRogueRun.teamEncounterNum = TEAM_NUM_ROCKET;
 
     // TODO 
     gRogueRun.teamEncounterRooms[ADVPATH_TEAM_ENCOUNTER_EARLY] = 0;

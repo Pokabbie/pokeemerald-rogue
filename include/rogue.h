@@ -367,6 +367,7 @@ struct RogueTrainer
 {
     u8 const* trainerName;
     u8 const* const* encounterText; // TRAINER_STRING_COUNT * N
+    u32 classFlags;
     u32 trainerFlags;
     u16 objectEventGfx;
     u16 typeAssignment;
