@@ -98,6 +98,9 @@ script Rogue_AdventurePaths_InteractRoom
         case ADVPATH_ROOM_LEGENDARY:
             msgbox(format("It's a Powerful Pokémon!\nEnter this encounter?"), MSGBOX_YESNO)
 
+        case ADVPATH_ROOM_TEAM_HIDEOUT:
+            msgbox(format("It's a Team Hideout!\nEnter this encounter?"), MSGBOX_YESNO)
+
         default:
             msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
     }

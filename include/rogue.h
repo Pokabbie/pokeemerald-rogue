@@ -239,9 +239,11 @@ struct RogueRunData
     u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
     u16 rivalSpecies[ROGUE_RIVAL_TOTAL_MON_COUNT];
     u16 legendarySpecies[ADVPATH_LEGEND_COUNT];
+    u16 teamEncounterRooms[ADVPATH_TEAM_ENCOUNTER_COUNT];
     u16 dynamicTRMoves[NUM_TECHNICAL_RECORDS];
     u16 partyHeldItems[PARTY_SIZE];
     u8 legendaryDifficulties[ADVPATH_LEGEND_COUNT];
+    u8 teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_COUNT];
     u8 rivalEncounterDifficulties[ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     u8 honeyTreePokeblock[POKEBLOCK_ITEM_COUNT];
@@ -252,6 +254,7 @@ struct RogueRunData
     } campaignData;
     u16 baseSeed;
     u16 rivalTrainerNum;
+    u16 teamEncounterNum;
     u8 adventureRoomId;
     u16 enteredRoomCounter;
     u16 currentDifficulty;
@@ -630,6 +633,7 @@ STATIC_ASSERT(sizeof(struct RogueSpeciesBakedData) == 8, SizeOfRogueSpeciesBaked
 
 extern const struct RogueRouteData gRogueRouteTable;
 extern const struct RogueEncounterData gRogueLegendaryEncounterInfo;
+extern const struct RogueEncounterData gRogueTeamEncounterInfo;
 extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 
 extern const struct RogueTrainer gRogueTrainers[];

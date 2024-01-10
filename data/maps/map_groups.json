@@ -118,7 +118,8 @@
     "Rogue_Boss_10",
     "Rogue_Boss_11",
     "Rogue_Boss_12",
-    "Rogue_Boss_13"
+    "Rogue_Boss_13",
+    "Rogue_Encounter_RocketHideout"
   ],
   "gMapGroup_RogueAdventureMonEncounters": [
     "Rogue_SouthernIsland_Latios",

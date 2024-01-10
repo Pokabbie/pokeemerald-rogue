@@ -177,20 +177,21 @@
 
 // AdvPath
 //
-#define ADVPATH_ROOM_NONE       0
-#define ADVPATH_ROOM_ROUTE      1
-#define ADVPATH_ROOM_RESTSTOP   2
-#define ADVPATH_ROOM_LEGENDARY  3
-#define ADVPATH_ROOM_MINIBOSS   4
-#define ADVPATH_ROOM_WILD_DEN   5
-#define ADVPATH_ROOM_HONEY_TREE 6
-#define ADVPATH_ROOM_GAMESHOW   7
-#define ADVPATH_ROOM_DARK_DEAL  8
-#define ADVPATH_ROOM_LAB        9
+#define ADVPATH_ROOM_NONE           0
+#define ADVPATH_ROOM_ROUTE          1
+#define ADVPATH_ROOM_RESTSTOP       2
+#define ADVPATH_ROOM_LEGENDARY      3
+#define ADVPATH_ROOM_MINIBOSS       4 // unused
+#define ADVPATH_ROOM_TEAM_HIDEOUT   5
+#define ADVPATH_ROOM_WILD_DEN       6
+#define ADVPATH_ROOM_HONEY_TREE     7
+#define ADVPATH_ROOM_GAMESHOW       8
+#define ADVPATH_ROOM_DARK_DEAL      9
+#define ADVPATH_ROOM_LAB            10
 
-#define ADVPATH_ROOM_BOSS       10
+#define ADVPATH_ROOM_BOSS           11
 
-#define ADVPATH_ROOM_COUNT      11
+#define ADVPATH_ROOM_COUNT          12
 
 
 #define ADVPATH_SUBROOM_ROUTE_CALM          0
@@ -210,6 +211,10 @@
 #define ADVPATH_LEGEND_MINOR            1
 #define ADVPATH_LEGEND_BOX              2
 #define ADVPATH_LEGEND_COUNT            3
+
+#define ADVPATH_TEAM_ENCOUNTER_EARLY        0
+#define ADVPATH_TEAM_ENCOUNTER_PRE_LEGEND   1
+#define ADVPATH_TEAM_ENCOUNTER_COUNT        2
 
 #define ADVPATH_INVALID_ROOM_ID (0)
 

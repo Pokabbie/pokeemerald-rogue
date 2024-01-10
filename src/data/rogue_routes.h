@@ -184,7 +184,7 @@ const struct RogueRouteData gRogueRouteTable =
     .routes = sRogueRouteTable,
 };
 
-static const struct RogueEncounterMap sRouteMapsSpecial[] = 
+static const struct RogueEncounterMap sRogueLegendaryEncounters[] = 
 {
     ENCOUNTER_MAP(SPECIES_ARTICUNO, ROGUE_SPECIAL_ARTICUNO),
     ENCOUNTER_MAP(SPECIES_ZAPDOS, ROGUE_SPECIAL_ZAPDOS),
@@ -328,8 +328,20 @@ static const struct RogueEncounterMap sRouteMapsSpecial[] =
 
 const struct RogueEncounterData gRogueLegendaryEncounterInfo = 
 {
-    .mapCount = ARRAY_COUNT(sRouteMapsSpecial),
-    .mapTable = sRouteMapsSpecial
+    .mapCount = ARRAY_COUNT(sRogueLegendaryEncounters),
+    .mapTable = sRogueLegendaryEncounters
+};
+
+static const struct RogueEncounterMap sRogueTeamEncounters[] = 
+{
+    // TODO - Specify the team flags?
+    ENCOUNTER_MAP(0, ROGUE_ENCOUNTER_ROCKET_HIDEOUT),
+};
+
+const struct RogueEncounterData gRogueTeamEncounterInfo = 
+{
+    .mapCount = ARRAY_COUNT(sRogueTeamEncounters),
+    .mapTable = sRogueTeamEncounters
 };
 
 static const struct RogueEncounterMap sRouteMapsRestStop[] = 

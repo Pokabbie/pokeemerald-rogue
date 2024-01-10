@@ -1672,3 +1672,20 @@ const u16 gTilesetPalettes_EternaForest[][16] =
 };
 
 const u32 gTilesetTiles_EternaForest[] = INCBIN_U32("data/tilesets/secondary/eternaforest/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_FacilityRocket[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_rocket/palettes/12.gbapal"),
+};

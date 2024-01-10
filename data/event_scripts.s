@@ -830,3 +830,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Encounter_HoneyTree/scripts.inc"
 
 	.include "data/maps/Rogue_Encounter_DayCare/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_RocketHideout/scripts.inc"

@@ -1366,8 +1366,8 @@
       "name": "Rogue_Tile_Test3_Layout",
       "width": 80,
       "height": 80,
-      "primary_tileset": "gTileset_GeneralHub",
-      "secondary_tileset": "gTileset_Petalburg",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_FacilityRocket",
       "border_filepath": "data/layouts/Rogue_Tile_Test3/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Tile_Test3/map.bin"
     },
@@ -1790,6 +1790,16 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Rogue_Encounter_DayCare/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_DayCare/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_ROCKET_HIDEOUT",
+      "name": "Rogue_Encounter_RocketHideout_Layout",
+      "width": 59,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_FacilityRocket",
+      "border_filepath": "data/layouts/Rogue_Encounter_RocketHideout/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_RocketHideout/map.bin"
     }
   ]
 }
