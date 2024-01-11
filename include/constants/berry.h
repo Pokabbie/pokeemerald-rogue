@@ -86,6 +86,32 @@
 #define BERRY_TREE_ROUTE_LAST           BERRY_TREE_ROUTE_20
 #define BERRY_TREE_ROUTE_COUNT          (BERRY_TREE_ROUTE_LAST - BERRY_TREE_ROUTE_FIRST + 1)
 
+
+#define BERRY_TREE_DAYCARE_1            41
+#define BERRY_TREE_DAYCARE_2            42
+#define BERRY_TREE_DAYCARE_3            43
+#define BERRY_TREE_DAYCARE_4            44
+#define BERRY_TREE_DAYCARE_5            45
+#define BERRY_TREE_DAYCARE_6            46
+#define BERRY_TREE_DAYCARE_7            47
+#define BERRY_TREE_DAYCARE_8            48
+#define BERRY_TREE_DAYCARE_9            49
+#define BERRY_TREE_DAYCARE_10           50
+#define BERRY_TREE_DAYCARE_11           51
+#define BERRY_TREE_DAYCARE_12           52
+#define BERRY_TREE_DAYCARE_13           53
+#define BERRY_TREE_DAYCARE_14           54
+#define BERRY_TREE_DAYCARE_15           55
+#define BERRY_TREE_DAYCARE_16           56
+#define BERRY_TREE_DAYCARE_17           57
+#define BERRY_TREE_DAYCARE_18           58
+#define BERRY_TREE_DAYCARE_19           59
+#define BERRY_TREE_DAYCARE_20           60
+
+#define BERRY_TREE_DAYCARE_FIRST        BERRY_TREE_DAYCARE_1
+#define BERRY_TREE_DAYCARE_LAST         BERRY_TREE_DAYCARE_20
+#define BERRY_TREE_DAYCARE_COUNT        (BERRY_TREE_DAYCARE_LAST - BERRY_TREE_DAYCARE_FIRST + 1)
+
 // Remainder are unused
 
 #define BERRY_TREES_COUNT 128

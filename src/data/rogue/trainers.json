@@ -32,6 +32,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_KANTO", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_EEVEE",
                 "encounter_text":
                 [
@@ -82,6 +83,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_JOHTO", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_ZUBAT",
                 "encounter_text":
                 [
@@ -132,6 +134,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "weather": "PSYCHIC_FOG",
                 "shiny_species": "SPECIES_RALTS",
                 "team_generator":
@@ -159,6 +162,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_MUDKIP",
                 "team_generator":
                 {
@@ -186,6 +190,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_TORCHIC",
                 "team_generator":
                 {
@@ -213,6 +218,7 @@
                 "trainer_class": "TRAINER_CLASS_DEVELOPER",
                 "music_player": "rogue_boss",
                 "trainer_flags": [ "REGION_ROGUE", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_MAREEP",
                 "pokeball": "POKABBIE_POKEBALL",
                 "encounter_text":
@@ -271,6 +277,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_MUNCHLAX",
                 "team_generator":
                 {
@@ -298,6 +305,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_LILLIPUP",
                 "team_generator":
                 {
@@ -323,6 +331,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_MUNNA",
                 "team_generator":
                 {
@@ -348,6 +357,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_ZORUA",
                 "team_generator":
                 {
@@ -373,6 +383,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_BOUFFALANT",
                 "team_generator":
                 {
@@ -399,6 +410,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_GOOMY",
                 "team_generator":
                 {
@@ -424,6 +436,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_CORPHISH",
                 "team_generator":
                 {
@@ -449,6 +462,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_FLABEBE",
                 "team_generator":
                 {
@@ -475,6 +489,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_PICHU",
                 "team_generator":
                 {
@@ -500,6 +515,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_TYPE_NULL",
                 "team_generator":
                 {
@@ -526,6 +542,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_WOOLOO",
                 "team_generator":
                 {
@@ -551,6 +568,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_HATENNA",
                 "team_generator":
                 {
@@ -588,6 +606,7 @@
                 "trainer_class": "TRAINER_CLASS_RIVAL",
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "class_flags": [],
                 "shiny_species": "SPECIES_MORPEKO",
                 "team_generator":
                 {
@@ -621,7 +640,8 @@
                 "gfx_suffix": "KANTO_BROCK",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_GYM_1" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_GEODUDE",
                 "encounter_text":
                 [
@@ -661,7 +681,8 @@
                 "gfx_suffix": "KANTO_MISTY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_GYM_2" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_STARYU",
                 "encounter_text":
                 [
@@ -697,7 +718,8 @@
                 "gfx_suffix": "KANTO_LTSURGE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_GYM_3" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_VOLTORB",
                 "encounter_text":
                 [
@@ -736,7 +758,8 @@
                 "gfx_suffix": "KANTO_ERIKA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_GYM_4" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_4" ],
                 "shiny_species": "SPECIES_ODDISH",
                 "encounter_text":
                 [
@@ -775,7 +798,8 @@
                 "gfx_suffix": "KANTO_KOGA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_GYM_5" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_GRIMER",
                 "encounter_text":
                 [
@@ -814,7 +838,8 @@
                 "gfx_suffix": "KANTO_SABRINA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_GYM_6" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_ABRA",
                 "encounter_text":
                 [
@@ -857,7 +882,8 @@
                 "gfx_suffix": "KANTO_BLAINE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_GYM_7" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_GROWLITHE",
                 "encounter_text":
                 [
@@ -896,7 +922,8 @@
                 "gfx_suffix": "KANTO_GIOVANNI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_GYM_8" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_RHYHORN",
                 "encounter_text":
                 [
@@ -947,7 +974,8 @@
                 "gfx_suffix": "KANTO_LORELEI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE_1" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_1" ],
                 "shiny_species": "SPECIES_LAPRAS",
                 "encounter_text":
                 [
@@ -987,7 +1015,8 @@
                 "gfx_suffix": "KANTO_BRUNO",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE_2" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_2" ],
                 "shiny_species": "SPECIES_MACHOP",
                 "encounter_text":
                 [
@@ -1031,7 +1060,8 @@
                 "gfx_suffix": "KANTO_AGATHA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE_3" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_3" ],
                 "shiny_species": "SPECIES_GASTLY",
                 "encounter_text":
                 [
@@ -1076,7 +1106,8 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
                 "weather": "NONE",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_ELITE_4" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_4" ],
                 "shiny_species": "SPECIES_DRATINI",
                 "encounter_text":
                 [
@@ -1126,7 +1157,8 @@
                 "gfx_suffix": "KANTO_PROFOAK",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kanto_boss",
-                "trainer_flags": [ "REGION_KANTO", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_KANTO", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_MEW",
                 "encounter_text":
                 [
@@ -1166,7 +1198,8 @@
                 "gfx_suffix": "JOHTO_FALKNER",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM_1" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_PIDGEY",
                 "encounter_text":
                 [
@@ -1201,7 +1234,8 @@
                 "gfx_suffix": "JOHTO_BUGSY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM_2" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_SCYTHER",
                 "encounter_text":
                 [
@@ -1236,7 +1270,8 @@
                 "gfx_suffix": "JOHTO_WHITNEY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM_3" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_MILTANK",
                 "encounter_text":
                 [
@@ -1272,7 +1307,8 @@
                 "gfx_suffix": "JOHTO_MORTY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM_4" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_4" ],
                 "shiny_species": "SPECIES_MISDREAVUS",
                 "encounter_text":
                 [
@@ -1312,7 +1348,8 @@
                 "gfx_suffix": "JOHTO_CHUCK",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM_5" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_POLIWAG",
                 "encounter_text":
                 [
@@ -1348,7 +1385,8 @@
                 "gfx_suffix": "JOHTO_JASMINE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM_6" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_ONIX",
                 "encounter_text":
                 [
@@ -1383,7 +1421,8 @@
                 "gfx_suffix": "JOHTO_PRYCE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM_7" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_SWINUB",
                 "encounter_text":
                 [
@@ -1423,7 +1462,8 @@
                 "gfx_suffix": "JOHTO_CLAIR",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_GYM_8" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_8" ],
                 "weather": "RAIN",
                 "shiny_species": "SPECIES_HORSEA",
                 "encounter_text":
@@ -1468,7 +1508,8 @@
                 "gfx_suffix": "JOHTO_WILL",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE_1" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_1" ],
                 "shiny_species": "SPECIES_NATU",
                 "encounter_text":
                 [
@@ -1507,7 +1548,8 @@
                 "gfx_suffix": "KANTO_KOGA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE_2" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_2" ],
                 "shiny_species": "SPECIES_ZUBAT",
                 "encounter_text":
                 [
@@ -1546,7 +1588,8 @@
                 "gfx_suffix": "KANTO_BRUNO",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE_3" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_3" ],
                 "shiny_species": "SPECIES_ONIX",
                 "encounter_text":
                 [
@@ -1594,7 +1637,8 @@
                 "gfx_suffix": "JOHTO_KAREN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_ELITE_4" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_4" ],
                 "shiny_species": "SPECIES_EEVEE",
                 "encounter_text":
                 [
@@ -1637,7 +1681,8 @@
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "johto_boss",
                 "weather": "NONE",
-                "trainer_flags": [ "REGION_JOHTO", "CLASS_CHAMP" ],
+                "trainer_flags": [ "REGION_JOHTO", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_MAGIKARP",
                 "encounter_text":
                 [
@@ -1693,7 +1738,8 @@
                 "trainer_pic": "TRAINER_PIC_LEADER_ROXANNE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_GYM_1" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_NOSEPASS",
                 "encounter_text":
                 [
@@ -1730,7 +1776,8 @@
                 "trainer_pic": "TRAINER_PIC_LEADER_BRAWLY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_GYM_2" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_MEDITITE",
                 "encounter_text":
                 [
@@ -1767,7 +1814,8 @@
                 "trainer_pic": "TRAINER_PIC_LEADER_WATTSON",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_GYM_3" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_ELECTRIKE",
                 "encounter_text":
                 [
@@ -1803,7 +1851,8 @@
                 "trainer_pic": "TRAINER_PIC_LEADER_FLANNERY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_GYM_4" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_4" ],
                 "shiny_species": "SPECIES_NUMEL",
                 "encounter_text":
                 [
@@ -1844,7 +1893,8 @@
                 "trainer_pic": "TRAINER_PIC_LEADER_NORMAN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_GYM_5" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_SLAKOTH",
                 "encounter_text":
                 [
@@ -1884,7 +1934,8 @@
                 "trainer_pic": "TRAINER_PIC_LEADER_WINONA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_GYM_6" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_SWABLU",
                 "encounter_text":
                 [
@@ -1925,7 +1976,8 @@
                 "trainer_pic": "TRAINER_PIC_LEADER_TATE_AND_LIZA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_GYM_7" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_LUNATONE",
                 "encounter_text":
                 [
@@ -1966,7 +2018,8 @@
                 "trainer_pic": "TRAINER_PIC_LEADER_JUAN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_GYM_8" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_CORPHISH",
                 "encounter_text":
                 [
@@ -2006,7 +2059,8 @@
                 "trainer_pic": "TRAINER_PIC_ELITE_FOUR_SIDNEY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE_1" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_1" ],
                 "shiny_species": "SPECIES_ABSOL",
                 "encounter_text":
                 [
@@ -2047,7 +2101,8 @@
                 "trainer_pic": "TRAINER_PIC_ELITE_FOUR_PHOEBE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE_2" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_2" ],
                 "shiny_species": "SPECIES_DUSKULL",
                 "encounter_text":
                 [
@@ -2092,7 +2147,8 @@
                 "trainer_pic": "TRAINER_PIC_ELITE_FOUR_GLACIA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE_3" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_3" ],
                 "shiny_species": "SPECIES_SNORUNT",
                 "encounter_text":
                 [
@@ -2133,7 +2189,8 @@
                 "trainer_pic": "TRAINER_PIC_ELITE_FOUR_DRAKE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ELITE_4" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_4" ],
                 "weather": "DROUGHT",
                 "shiny_species": "SPECIES_BAGON",
                 "encounter_text":
@@ -2192,7 +2249,8 @@
                 "trainer_pic": "TRAINER_PIC_CHAMPION_WALLACE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_CHAMP" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_FEEBAS",
                 "encounter_text":
                 [
@@ -2227,7 +2285,8 @@
                 "gfx_suffix": "STEVEN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "hoenn_boss",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_CHAMP" ],
+                "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_BELDUM",
                 "encounter_text":
                 [
@@ -2279,7 +2338,8 @@
                 "gfx_suffix": "SINNOH_ROARK",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM_1" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_CRANIDOS",
                 "encounter_text":
                 [
@@ -2323,7 +2383,8 @@
                 "gfx_suffix": "SINNOH_GARDENIA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM_2" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_BUDEW",
                 "encounter_text":
                 [
@@ -2363,7 +2424,8 @@
                 "gfx_suffix": "SINNOH_MAYLENE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM_3" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_RIOLU",
                 "encounter_text":
                 [
@@ -2403,7 +2465,8 @@
                 "gfx_suffix": "SINNOH_CRASHER_WAKE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM_4" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_4" ],
                 "shiny_species": "SPECIES_BUIZEL",
                 "encounter_text":
                 [
@@ -2439,7 +2502,8 @@
                 "gfx_suffix": "SINNOH_FANTINA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM_5" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_DRIFLOON",
                 "encounter_text":
                 [
@@ -2486,7 +2550,8 @@
                 "gfx_suffix": "SINNOH_BYRON",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM_6" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_SHIELDON",
                 "encounter_text":
                 [
@@ -2530,7 +2595,8 @@
                 "gfx_suffix": "SINNOH_CANDICE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM_7" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_SNOVER",
                 "encounter_text":
                 [
@@ -2573,7 +2639,8 @@
                 "gfx_suffix": "SINNOH_VOLKNER",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_GYM_8" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_SHINX",
                 "encounter_text":
                 [
@@ -2629,7 +2696,8 @@
                 "gfx_suffix": "SINNOH_AARON",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE_1" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_1" ],
                 "weather": "RAIN",
                 "shiny_species": "SPECIES_SKORUPI",
                 "encounter_text":
@@ -2670,7 +2738,8 @@
                 "gfx_suffix": "SINNOH_BERTHA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE_3" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_3" ],
                 "shiny_species": "SPECIES_HIPPOPOTAS",
                 "encounter_text":
                 [
@@ -2709,7 +2778,8 @@
                 "gfx_suffix": "SINNOH_FLINT",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE_3" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_3" ],
                 "shiny_species": "SPECIES_CHIMCHAR",
                 "encounter_text":
                 [
@@ -2756,7 +2826,8 @@
                 "gfx_suffix": "SINNOH_LUCIAN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_ELITE_4" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ELITE_4" ],
                 "shiny_species": "SPECIES_BRONZOR",
                 "encounter_text":
                 [
@@ -2803,7 +2874,8 @@
                 "gfx_suffix": "SINNOH_CYNTHIA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "sinnoh_boss",
-                "trainer_flags": [ "REGION_SINNOH", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_SINNOH", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_GIBLE",
                 "encounter_text":
                 [
@@ -2851,7 +2923,8 @@
                 "gfx_suffix": "UNOVA_CRESS",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_1", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_PANPOUR",
                 "encounter_text":
                 [
@@ -2891,7 +2964,8 @@
                 "gfx_suffix": "UNOVA_CHILI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_1", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_PANSEAR",
                 "encounter_text":
                 [
@@ -2931,7 +3005,8 @@
                 "gfx_suffix": "UNOVA_CILAN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_1" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_PANSAGE",
                 "encounter_text":
                 [
@@ -2970,7 +3045,8 @@
                 "gfx_suffix": "UNOVA_LENORA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_2" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_LILLIPUP",
                 "encounter_text":
                 [
@@ -3009,7 +3085,8 @@
                 "gfx_suffix": "UNOVA_BURGH",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_3" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_SEWADDLE",
                 "encounter_text":
                 [
@@ -3048,7 +3125,8 @@
                 "gfx_suffix": "UNOVA_ELESA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_4" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_4" ],
                 "shiny_species": "SPECIES_EMOLGA",
                 "encounter_text":
                 [
@@ -3087,7 +3165,8 @@
                 "gfx_suffix": "UNOVA_CLAY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_5" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_DRILBUR",
                 "encounter_text":
                 [
@@ -3126,7 +3205,8 @@
                 "gfx_suffix": "UNOVA_SKYLA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_6" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_WOOBAT",
                 "encounter_text":
                 [
@@ -3166,7 +3246,8 @@
                 "gfx_suffix": "UNOVA_BRYCEN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_7" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_CUBCHOO",
                 "encounter_text":
                 [
@@ -3206,7 +3287,8 @@
                 "gfx_suffix": "UNOVA_DRAYDEN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_8" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_DRUDDIGON",
                 "encounter_text":
                 [
@@ -3245,7 +3327,8 @@
                 "gfx_suffix": "UNOVA_ROXIE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_2" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_VENIPEDE",
                 "encounter_text":
                 [
@@ -3284,7 +3367,8 @@
                 "gfx_suffix": "UNOVA_MARLON",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_GYM_8" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_FRILLISH",
                 "encounter_text":
                 [
@@ -3323,7 +3407,8 @@
                 "gfx_suffix": "UNOVA_SHAUNTAL",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_LITWICK",
                 "encounter_text":
                 [
@@ -3359,7 +3444,8 @@
                 "gfx_suffix": "UNOVA_MARSHAL",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_TIMBURR",
                 "encounter_text":
                 [
@@ -3394,7 +3480,8 @@
                 "gfx_suffix": "UNOVA_GRIMSLEY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_PAWNIARD",
                 "encounter_text":
                 [
@@ -3434,7 +3521,8 @@
                 "gfx_suffix": "UNOVA_CAITLIN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_MUNNA",
                 "encounter_text":
                 [
@@ -3473,7 +3561,8 @@
                 "gfx_suffix": "UNOVA_ALDER",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_LARVESTA",
                 "encounter_text":
                 [
@@ -3507,7 +3596,8 @@
                 "gfx_suffix": "UNOVA_IRIS",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "unova_boss",
-                "trainer_flags": [ "REGION_UNOVA", "CLASS_CHAMP" ],
+                "trainer_flags": [ "REGION_UNOVA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_CHAMP" ],
                 "weather": "NONE",
                 "shiny_species": "SPECIES_AXEW",
                 "encounter_text":
@@ -3551,7 +3641,8 @@
                 "gfx_suffix": "KALOS_VIOLA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM_1" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_SCATTERBUG",
                 "team_generator":
                 {
@@ -3577,7 +3668,8 @@
                 "gfx_suffix": "KALOS_GRANT",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM_2" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_TYRUNT",
                 "team_generator":
                 {
@@ -3604,7 +3696,8 @@
                 "gfx_suffix": "KALOS_KORRINA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM_3" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_RIOLU",
                 "team_generator":
                 {
@@ -3629,7 +3722,8 @@
                 "gfx_suffix": "KALOS_RAMOS",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM_4" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_4" ],
                 "shiny_species": "SPECIES_SKIDDO",
                 "team_generator":
                 {
@@ -3660,7 +3754,8 @@
                 "gfx_suffix": "KALOS_CLEMONT",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM_5" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_HELIOPTILE",
                 "team_generator":
                 {
@@ -3686,7 +3781,8 @@
                 "gfx_suffix": "KALOS_VALERIE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM_6" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_EEVEE",
                 "team_generator":
                 {
@@ -3712,7 +3808,8 @@
                 "gfx_suffix": "KALOS_OLYMPIA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM_7" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_ESPURR",
                 "team_generator":
                 {
@@ -3738,7 +3835,8 @@
                 "gfx_suffix": "KALOS_WULFRIC",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_GYM_8" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_BERGMITE",
                 "team_generator":
                 {
@@ -3773,7 +3871,8 @@
                 "gfx_suffix": "KALOS_MALVA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_FLETCHINDER",
                 "team_generator":
                 {
@@ -3799,7 +3898,8 @@
                 "gfx_suffix": "KALOS_SIEBOLD",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CLAUNCHER",
                 "team_generator":
                 {
@@ -3826,7 +3926,8 @@
                 "gfx_suffix": "KALOS_WIKSTROM",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_HONEDGE",
                 "team_generator":
                 {
@@ -3852,7 +3953,8 @@
                 "gfx_suffix": "KALOS_DRASNA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "weather": "NONE",
                 "shiny_species": "SPECIES_NOIBAT",
                 "team_generator":
@@ -3888,7 +3990,8 @@
                 "gfx_suffix": "KALOS_DIANTHA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "kalos_boss",
-                "trainer_flags": [ "REGION_KALOS", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_RALTS",
                 "team_generator":
                 {
@@ -3917,7 +4020,8 @@
                 "gfx_suffix": "ALOLA_HALA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM_2", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_2", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CRABRAWLER",
                 "team_generator":
                 {
@@ -3943,7 +4047,8 @@
                 "gfx_suffix": "ALOLA_OLIVIA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM_4", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_4", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ROCKRUFF",
                 "team_generator":
                 {
@@ -3969,7 +4074,8 @@
                 "gfx_suffix": "ALOLA_NANU",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM_6" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_MEOWTH_ALOLAN",
                 "team_generator":
                 {
@@ -3995,7 +4101,8 @@
                 "gfx_suffix": "ALOLA_HAPU",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM_8" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_MUDBRAY",
                 "team_generator":
                 {
@@ -4022,7 +4129,8 @@
                 "gfx_suffix": "ALOLA_ILIMA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM_1" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_YUNGOOS",
                 "team_generator":
                 {
@@ -4048,7 +4156,8 @@
                 "gfx_suffix": "ALOLA_LANA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM_3" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_DEWPIDER",
                 "team_generator":
                 {
@@ -4074,7 +4183,8 @@
                 "gfx_suffix": "ALOLA_KIAWE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM_3" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_CUBONE",
                 "team_generator":
                 {
@@ -4100,7 +4210,8 @@
                 "gfx_suffix": "ALOLA_MALLOW",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM_3" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_BOUNSWEET",
                 "team_generator":
                 {
@@ -4126,7 +4237,8 @@
                 "gfx_suffix": "ALOLA_SOPHOCLES",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM_5" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_GEODUDE_ALOLAN",
                 "team_generator":
                 {
@@ -4152,7 +4264,8 @@
                 "gfx_suffix": "ALOLA_ACEROLA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM_5", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_5", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_SANDYGAST",
                 "team_generator":
                 {
@@ -4179,7 +4292,8 @@
                 "gfx_suffix": "ALOLA_MINA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_GYM_7", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_7", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CUTIEFLY",
                 "team_generator":
                 {
@@ -4209,7 +4323,8 @@
                 "gfx_suffix": "ALOLA_KAHILI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ORICORIO",
                 "team_generator":
                 {
@@ -4236,7 +4351,8 @@
                 "gfx_suffix": "ALOLA_MOLAYNE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_DIGLETT_ALOLAN",
                 "team_generator":
                 {
@@ -4266,7 +4382,8 @@
                 "gfx_suffix": "ALOLA_KUKUI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "alola_boss",
-                "trainer_flags": [ "REGION_ALOLA", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_ROWLET",
                 "team_generator":
                 {
@@ -4297,7 +4414,8 @@
                 "gfx_suffix": "GALAR_MILO",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_GYM_1", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_1", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_GOSSIFLEUR",
                 "team_generator":
                 {
@@ -4323,7 +4441,8 @@
                 "gfx_suffix": "GALAR_NESSA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_GYM_2", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_2", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CHEWTLE",
                 "team_generator":
                 {
@@ -4349,7 +4468,8 @@
                 "gfx_suffix": "GALAR_KABU",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_GYM_3", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_3", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_SIZZLIPEDE",
                 "team_generator":
                 {
@@ -4375,7 +4495,8 @@
                 "gfx_suffix": "GALAR_BEA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_GYM_4", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_4", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_FARFETCHD_GALARIAN",
                 "team_generator":
                 {
@@ -4401,7 +4522,8 @@
                 "gfx_suffix": "GALAR_ALLISTER",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_GYM_4", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_4", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CORSOLA_GALARIAN",
                 "team_generator":
                 {
@@ -4427,7 +4549,8 @@
                 "gfx_suffix": "GALAR_OPAL",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_GYM_5", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_5", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_MILCERY",
                 "team_generator":
                 {
@@ -4453,7 +4576,8 @@
                 "gfx_suffix": "GALAR_GORDIE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_GYM_6", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_6", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ROLYCOLY",
                 "team_generator":
                 {
@@ -4479,7 +4603,8 @@
                 "gfx_suffix": "GALAR_MELONY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_GYM_6", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_6", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_DARUMAKA_GALARIAN",
                 "team_generator":
                 {
@@ -4505,7 +4630,8 @@
                 "gfx_suffix": "GALAR_PIERS",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_GYM_7", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_7", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ZIGZAGOON_GALARIAN",
                 "team_generator":
                 {
@@ -4531,7 +4657,8 @@
                 "gfx_suffix": "GALAR_RAIHAN",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_GYM_8", "CLASS_ANY_ELITE" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_8", "BOSS_ANY_ELITE" ],
                 "weather": "SANDSTORM",
                 "shiny_species": "SPECIES_DURALUDON",
                 "team_generator":
@@ -4569,7 +4696,8 @@
                 "gfx_suffix": "GALAR_LEON",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "galar_boss",
-                "trainer_flags": [ "REGION_GALAR", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_CHARMANDER",
                 "team_generator":
                 {
@@ -4598,7 +4726,8 @@
                 "gfx_suffix": "KANTO_BROCK",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_GYM_1" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_GEODUDE",
                 "team_generator":
                 {
@@ -4629,7 +4758,8 @@
                 "gfx_suffix": "KANTO_MISTY",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_GYM_2" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_STARYU",
                 "team_generator":
                 {
@@ -4656,7 +4786,8 @@
                 "gfx_suffix": "KANTO_LTSURGE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_GYM_3" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_VOLTORB",
                 "team_generator":
                 {
@@ -4686,7 +4817,8 @@
                 "gfx_suffix": "KANTO_ERIKA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_GYM_4" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_4" ],
                 "shiny_species": "SPECIES_ODDISH",
                 "team_generator":
                 {
@@ -4716,7 +4848,8 @@
                 "gfx_suffix": "KANTO_KOGA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_GYM_5" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_GRIMER",
                 "team_generator":
                 {
@@ -4746,7 +4879,8 @@
                 "gfx_suffix": "KANTO_SABRINA",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_GYM_6" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_ABRA",
                 "team_generator":
                 {
@@ -4780,7 +4914,8 @@
                 "gfx_suffix": "KANTO_BLAINE",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_GYM_7" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_GROWLITHE",
                 "team_generator":
                 {
@@ -4810,7 +4945,8 @@
                 "gfx_suffix": "KANTO_GIOVANNI",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_GYM_8" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS" ],
+                "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_RHYHORN",
                 "team_generator":
                 {
@@ -4853,7 +4989,8 @@
                 "trainer_pic": "TRAINER_PIC_GLITCH_KATE",
                 "trainer_class": "TRAINER_CLASS_COMMUNITY_MOD",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_ANY_ELITE", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "weather": "VOLCANIC_ASH",
                 "shiny_species": "SPECIES_GASTLY",
                 "pokeball": "LUXURY_BALL",
@@ -4977,7 +5114,8 @@
                 "trainer_pic": "TRAINER_PIC_GLITCH_ERMA",
                 "trainer_class": "TRAINER_CLASS_COMMUNITY_MOD",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_ANY_ELITE", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "weather": "SANDSTORM",
                 "shiny_species": "SPECIES_ERMA_ACE",
                 "encounter_text":
@@ -5134,7 +5272,8 @@
                 "trainer_pic": "TRAINER_PIC_GLITCH_TAILS",
                 "trainer_class": "TRAINER_CLASS_COMMUNITY_MOD",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_ANY_ELITE", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "weather": "PSYCHIC_FOG",
                 "shiny_species": "SPECIES_AZURILL",
                 "encounter_text":
@@ -5292,7 +5431,8 @@
                 "trainer_pic": "TRAINER_PIC_GLITCH_RAVEN",
                 "trainer_class": "TRAINER_CLASS_COMMUNITY_MOD",
                 "music_player": "rogue_boss",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_ANY_ELITE", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_ANY_ELITE" ],
                 "weather": "MISTY_FOG",
                 "shiny_species": "SPECIES_RAVEN_ACE",
                 "team_generator":
@@ -5378,7 +5518,8 @@
                 "gfx_suffix": "KANTO_PROFOAK",
                 "trainer_class": "TRAINER_CLASS_LEADER",
                 "music_player": "rogue_final_champion",
-                "trainer_flags": [ "REGION_ROGUE", "CLASS_CHAMP", "MISC_RAINBOW_EXCLUDE" ],
+                "trainer_flags": [ "REGION_ROGUE", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_MEW",
                 "pokeball": "FINAL_BOSS_POKEBALL",
                 "team_generator":
@@ -5413,6 +5554,7 @@
                 "trainer_class": "TRAINER_CLASS_POKEFAN",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5432,6 +5574,919 @@
             }
         ],
 
+        "team_rocket // route":
+        [
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Team Rocket ain't stopping!",
+                        "POST_BATTLE_TAUNT": "Too fast!",
+                        "POST_BATTLE_CLOSER": "I thought this was a sweet gig…\\pI guess not…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "Whaa!",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Science is the future!",
+                        "POST_BATTLE_TAUNT": "The future is now!",
+                        "POST_BATTLE_CLOSER": "You can't stop me!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "team_rocket // hideout":
+        [
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Team Rocket ain't stopping!",
+                        "POST_BATTLE_TAUNT": "Too fast!",
+                        "POST_BATTLE_CLOSER": "I thought this was a sweet gig…\\pI guess not…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "What do you think you're doing snooping around!?",
+                        "POST_BATTLE_TAUNT": "Err…\\nYou still shouldn't be here…",
+                        "POST_BATTLE_CLOSER": "You still shouldn't be here…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You'll give up your Pokémon now if you know what's good for you!",
+                        "POST_BATTLE_TAUNT": "Too strong!",
+                        "POST_BATTLE_CLOSER": "It would be way easier to steal trainer's Pokémon if the boss gave us stronger Pokémon in the first place."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "It's rude to break into Secret Hideouts you know!",
+                        "POST_BATTLE_TAUNT": "Baah?!",
+                        "POST_BATTLE_CLOSER": "You're so rude sneaking in here."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Time to test my latest haul!",
+                        "POST_BATTLE_TAUNT": "What!?\\nThese are all just weak!",
+                        "POST_BATTLE_CLOSER": "I stole from the wrong trainer!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "This is a really comfortable outfit, you know!",
+                        "POST_BATTLE_TAUNT": "Wait?\\nWere we suppose to be battling?",
+                        "POST_BATTLE_CLOSER": "I'm far to comfortable to battle at full strength."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "Whaa!",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "What are you doing here!?\\pDid the guards fall asleep or something!?",
+                        "POST_BATTLE_TAUNT": "Oh…\\nThat was unexpected…",
+                        "POST_BATTLE_CLOSER": "That was unexpected…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I only joined Team Rocket recently so I've got to prove myself now!",
+                        "POST_BATTLE_TAUNT": "Read the room…",
+                        "POST_BATTLE_CLOSER": "You could've just let me win."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I'll beat you to a pulp!",
+                        "POST_BATTLE_TAUNT": "Redo…?",
+                        "POST_BATTLE_CLOSER": "That was disappointing…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "These outfits are in need of a glow up.",
+                        "POST_BATTLE_TAUNT": "That gives me some ideas!",
+                        "POST_BATTLE_CLOSER": "I bet if we added some colour the outfits would look way better!\\pWhat about some Rainbow colours instead of Red?\\pHmm\\pI'll have to have a good think."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Another kid breaking in?",
+                        "POST_BATTLE_TAUNT": "Why are there so many today?!",
+                        "POST_BATTLE_CLOSER": "Another kid came through here not to long ago.\\pI thought this was suppose to be a Secret Hideout…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Science is the future!",
+                        "POST_BATTLE_TAUNT": "The future is now!",
+                        "POST_BATTLE_CLOSER": "You can't stop me!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've used the power of science to train my Pokémon!",
+                        "POST_BATTLE_TAUNT": "Why have you failed me science!?",
+                        "POST_BATTLE_CLOSER": "Why have you failed me science!?"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Do you think this lab coat makes me look cool?",
+                        "POST_BATTLE_TAUNT": "Ouch…",
+                        "POST_BATTLE_CLOSER": "You could have just said no!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Team Rocket knows science is the way forward!",
+                        "POST_BATTLE_TAUNT": "I feel like I'm going backwards…",
+                        "POST_BATTLE_CLOSER": "I feel like I'm going backwards…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Dihydrogen Monoxide is too dangerous!",
+                        "POST_BATTLE_TAUNT": "Splash!",
+                        "POST_BATTLE_CLOSER": "It's just water.\\pGosh you didn't even know that ku ku ku\\pKids these days ku ku ku"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You shouldn't eavesdrop!",
+                        "POST_BATTLE_TAUNT": "Now it's all over…",
+                        "POST_BATTLE_CLOSER": "I guess you know all our secrets now…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
         "team_aqua":
         [
             {
@@ -5441,7 +6496,8 @@
                 "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
                 "trainer_class": "TRAINER_CLASS_TEAM_AQUA",
                 "music_player": "team_aqua",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5481,7 +6537,8 @@
                 "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
                 "trainer_class": "TRAINER_CLASS_TEAM_AQUA",
                 "music_player": "team_aqua",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5517,7 +6574,7 @@
                 }
             }
         ],
-        
+
         "team_magma":
         [
             {
@@ -5527,7 +6584,8 @@
                 "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
                 "trainer_class": "TRAINER_CLASS_TEAM_MAGMA",
                 "music_player": "team_magma",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5569,7 +6627,8 @@
                 "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
                 "trainer_class": "TRAINER_CLASS_TEAM_MAGMA",
                 "music_player": "team_magma",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5616,6 +6675,7 @@
                 "trainer_class": "TRAINER_CLASS_PKMN_BREEDER",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5638,6 +6698,7 @@
                 "trainer_class": "TRAINER_CLASS_PKMN_BREEDER",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5660,6 +6721,7 @@
                 "trainer_class": "TRAINER_CLASS_COOLTRAINER",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5682,6 +6744,7 @@
                 "trainer_class": "TRAINER_CLASS_COOLTRAINER",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5704,6 +6767,7 @@
                 "trainer_class": "TRAINER_CLASS_PSYCHIC",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5732,6 +6796,7 @@
                 "trainer_class": "TRAINER_CLASS_TUBER_M",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5754,6 +6819,7 @@
                 "trainer_class": "TRAINER_CLASS_TUBER_F",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5776,6 +6842,7 @@
                 "trainer_class": "TRAINER_CLASS_EXPERT",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5798,6 +6865,7 @@
                 "trainer_class": "TRAINER_CLASS_EXPERT",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5820,6 +6888,7 @@
                 "trainer_class": "TRAINER_CLASS_TRIATHLETE",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5842,6 +6911,7 @@
                 "trainer_class": "TRAINER_CLASS_TRIATHLETE",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5864,6 +6934,7 @@
                 "trainer_class": "TRAINER_CLASS_SCHOOL_KID",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5886,6 +6957,7 @@
                 "trainer_class": "TRAINER_CLASS_SCHOOL_KID",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5908,6 +6980,7 @@
                 "trainer_class": "TRAINER_CLASS_HIKER",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5936,6 +7009,7 @@
                 "trainer_class": "TRAINER_CLASS_BIRD_KEEPER",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5964,6 +7038,7 @@
                 "trainer_class": "TRAINER_CLASS_COLLECTOR",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -5986,6 +7061,7 @@
                 "trainer_class": "TRAINER_CLASS_BLACK_BELT",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -6014,6 +7090,7 @@
                 "trainer_class": "TRAINER_CLASS_HEX_MANIAC",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -6042,6 +7119,7 @@
                 "trainer_class": "TRAINER_CLASS_RUIN_MANIAC",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -6070,6 +7148,7 @@
                 "trainer_class": "TRAINER_CLASS_BEAUTY",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -6092,6 +7171,7 @@
                 "trainer_class": "TRAINER_CLASS_RICH_BOY",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -6114,6 +7194,7 @@
                 "trainer_class": "TRAINER_CLASS_BUG_CATCHER",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -6142,6 +7223,7 @@
                 "trainer_class": "TRAINER_CLASS_GENTLEMAN",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -6164,6 +7246,7 @@
                 "trainer_class": "TRAINER_CLASS_FISHERMAN",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {
@@ -6192,6 +7275,7 @@
                 "trainer_class": "TRAINER_CLASS_DRAGON_TAMER",
                 "music_player": "route_trainer",
                 "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
                 "encounter_text":
                 [
                     {

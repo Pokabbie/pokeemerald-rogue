@@ -263,7 +263,7 @@ Common_EventScript_PlayGymBadgeFanfare::
 
 Common_EventScript_OutOfCenterPartyHeal::
 	fadescreen FADE_TO_BLACK
-	playfanfare MUS_HEAL
+	playfanfare MUS_DP_HEAL
 	waitfanfare
 	special HealPlayerParty
 	fadescreen FADE_FROM_BLACK
@@ -838,3 +838,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Special_Arceus/scripts.inc"
 
 	.include "data/maps/Rogue_Encounter_HoneyTree/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_DayCare/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_RocketHideout/scripts.inc"

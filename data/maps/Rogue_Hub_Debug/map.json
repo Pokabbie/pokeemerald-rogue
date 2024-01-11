@@ -171,7 +171,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
       "x": 19,
       "y": 18,
       "elevation": 3,
@@ -197,7 +197,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 17,
       "y": 16,
       "elevation": 3,
@@ -223,7 +223,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
       "x": 3,
       "y": 16,
       "elevation": 3,
@@ -262,7 +262,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
+      "graphics_id": "OBJ_EVENT_GFX_BIKER",
       "x": 5,
       "y": 16,
       "elevation": 3,
@@ -404,7 +404,7 @@
       "x": 20,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_SPECIAL_ARCEUS",
+      "dest_map": "MAP_ROGUE_ENCOUNTER_ROCKET_HIDEOUT",
       "dest_warp_id": "0"
     }
   ],

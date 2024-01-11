@@ -164,6 +164,7 @@ static u16 GetWildEncounterIndexFor(u16 species);
 
 static void EnableRivalEncounterIfRequired();
 static void ChooseLegendarysForNewAdventure();
+static void ChooseTeamEncountersForNewAdventure();
 static void RememberPartyHeldItems();
 static void TryRestorePartyHeldItems(bool8 allowThief);
 
@@ -173,6 +174,7 @@ static void RandomiseSafariWildEncounters(void);
 static void RandomiseWildEncounters(void);
 static void RandomiseFishingEncounters(void);
 static void ResetTrainerBattles(void);
+static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
 static void RandomiseBerryTrees(void);
 static void RandomiseTRMoves();
@@ -667,7 +669,7 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
 {
     if(Rogue_IsRunActive())
     {
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
         {
             u8 pocket = ItemId_GetPocket(itemId);
             amount = 1;
@@ -2861,6 +2863,8 @@ static void BeginRogueRun(void)
     RogueSave_SaveHubStates();
 
     ClearBerryTreeRange(BERRY_TREE_ROUTE_FIRST, BERRY_TREE_ROUTE_LAST);
+    ClearBerryTreeRange(BERRY_TREE_DAYCARE_FIRST, BERRY_TREE_DAYCARE_LAST);
+
     RandomiseFishingEncounters();
     RandomiseTRMoves();
     InitialiseFaintedLabMons();
@@ -2911,6 +2915,7 @@ static void BeginRogueRun(void)
 
     // Choose legendaries before trainers so rival can avoid these legends
     ChooseLegendarysForNewAdventure();
+    ChooseTeamEncountersForNewAdventure();
 
     // Choose bosses last
     Rogue_ChooseRivalTrainerForNewAdventure();
@@ -3087,6 +3092,36 @@ static void ChooseLegendarysForNewAdventure()
         ++gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX];
 }
 
+static void ChooseTeamEncountersForNewAdventure()
+{
+    // Reset
+    memset(&gRogueRun.teamEncounterRooms, 0, sizeof(gRogueRun.teamEncounterRooms));
+    memset(&gRogueRun.teamEncounterDifficulties, ROGUE_MAX_BOSS_COUNT, sizeof(gRogueRun.teamEncounterDifficulties));
+
+    // TODO - Select the team ID
+    gRogueRun.teamEncounterNum = TEAM_NUM_ROCKET;
+
+    // TODO 
+    gRogueRun.teamEncounterRooms[ADVPATH_TEAM_ENCOUNTER_EARLY] = 0;
+    gRogueRun.teamEncounterRooms[ADVPATH_TEAM_ENCOUNTER_PRE_LEGEND] = 0;
+
+    // Pre legend matches the difficulty
+    gRogueRun.teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_PRE_LEGEND] = gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX];
+
+    // Early can be anytime from badge 2 to badge 5 (provided there is no legend)
+    while(TRUE)
+    {
+        gRogueRun.teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_EARLY] = 2 + RogueRandomRange(3, 0);
+
+        if(gRogueRun.teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_EARLY] == gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR])
+            continue;
+        if(gRogueRun.teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_EARLY] == gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER])
+            continue;
+
+        break;
+    };
+}
+
 u8 Rogue_GetCurrentLegendaryEncounterId()
 {
     u8 i;
@@ -3108,6 +3143,20 @@ u16 Rogue_GetLegendaryRoomForSpecies(u16 species)
     for(i = 0; i < gRogueLegendaryEncounterInfo.mapCount; ++i)
     {
         if(gRogueLegendaryEncounterInfo.mapTable[i].encounterId == species)
+            return i;
+    }
+
+    AGB_ASSERT(FALSE);
+    return 0;
+}
+
+u8 Rogue_GetCurrentTeamHideoutEncounterId(void)
+{
+    u8 i;
+
+    for(i = 0; i < ADVPATH_TEAM_ENCOUNTER_COUNT; ++i)
+    {
+        if(gRogueRun.teamEncounterDifficulties[i] == Rogue_GetCurrentDifficulty())
             return i;
     }
 
@@ -3621,6 +3670,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             BeginRogueRun();
         }
     }
+    else if(warp->warpId != 0 && warp->mapGroup == gSaveBlock1Ptr->location.mapGroup && warp->mapNum == gSaveBlock1Ptr->location.mapNum)
+    {
+        // Allow warping to non-0 warps within the same ID
+        return;
+    }
 
     // Reset preview data
     memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
@@ -3676,6 +3730,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                     RandomiseWildEncounters();
                     ResetTrainerBattles();
+                    RandomiseEnabledTrainers();
                     RandomiseEnabledItems();
                     RandomiseBerryTrees();
 
@@ -3687,6 +3742,18 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                         VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
                     }
+                    break;
+                }
+
+                case ADVPATH_ROOM_TEAM_HIDEOUT:
+                {
+                    gRogueRun.currentRouteIndex = gRogueAdvPath.currentRoomParams.roomIdx;
+
+                    ResetTrainerBattles();
+                    RandomiseEnabledTrainers();
+                    RandomiseEnabledItems();
+
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
                     break;
                 }
 
@@ -3819,6 +3886,11 @@ static bool8 IsHubMapGroup()
 
 static bool8 RogueRandomChanceTrainer();
 
+static bool8 ShouldAdjustRouteObjectEvents()
+{
+    return gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT;
+}
+
 void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
 {
     // If we're in run and not trying to exit (gRogueAdvPath.currentRoomType isn't wiped at this point)
@@ -3830,18 +3902,12 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         {
             RogueAdv_ModifyObjectEvents(mapHeader, objectEvents, objectEventCount, objectEventCapacity);
         }
-        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE && !loadingFromSave)
+        else if(ShouldAdjustRouteObjectEvents() && !loadingFromSave)
         {
             u8 write, read;
-            u16 trainerBuffer[ROGUE_TRAINER_COUNT];
+            u16 trainerCounter;
 
-            u8 trainerIndex;
-            u16 trainerNum;
-            const struct RogueTrainer* trainer;
-
-            Rogue_ChooseRouteTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
-
-            trainerIndex = 0;
+            trainerCounter = 0;
             write = 0;
             read = 0;
 
@@ -3856,21 +3922,17 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                 //
                 if(objectEvents[write].trainerType == TRAINER_TYPE_NORMAL && objectEvents[write].trainerRange_berryTreeId != 0)
                 {
-                    // Don't increment write, if we're not accepting the trainer
-                    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && RogueRandomChanceTrainer())
+                    u16 trainerIndex = trainerCounter++;
+                    u16 trainerNum = Rogue_GetDynamicTrainer(trainerIndex);
+
+                    // Don't increment write, if we're not accepting the trainer // RogueRandomChanceTrainer
+                    if(trainerNum != TRAINER_NONE)
                     {
-                        AGB_ASSERT(trainerIndex < ARRAY_COUNT(trainerBuffer));
-                        trainerNum = trainerBuffer[trainerIndex++];
-                        trainer = Rogue_GetTrainer(trainerNum);
+                        objectEvents[write].graphicsId = OBJ_EVENT_GFX_DYNAMIC_TRAINER_FIRST + trainerIndex;
+                        objectEvents[write].flagId = 0;//FLAG_ROGUE_TRAINER0 + ;
 
-                        if(trainer != NULL)
-                        {
-                            objectEvents[write].graphicsId = trainer->objectEventGfx;
-                            objectEvents[write].flagId = 0;//FLAG_ROGUE_TRAINER0 + ;
-
-                            // Accept this trainer
-                            write++;
-                        }
+                        // Accept this trainer
+                        write++;
                     }
                 }
                 // Adjust items
@@ -6339,6 +6401,29 @@ static void ResetTrainerBattles(void)
     }
 }
 
+static void RandomiseEnabledTrainers()
+{
+    u16 i;
+    u16 trainerBuffer[ROGUE_TRAINER_COUNT];
+
+    u8 trainerCounter;
+    u16 trainerNum;
+    const struct RogueTrainer* trainer;
+
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
+        Rogue_ChooseTeamHideoutTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
+    else
+        Rogue_ChooseRouteTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
+        
+    for(i = 0; i < ROGUE_MAX_ACTIVE_TRAINER_COUNT; ++i)
+    {
+        if(RogueRandomChanceTrainer())
+            Rogue_SetDynamicTrainer(i, trainerBuffer[i]);
+        else
+            Rogue_SetDynamicTrainer(i, TRAINER_NONE);
+    }
+}
+
 u8 GetLeadMonLevel(void);
 
 static u8 CalculateWildLevel(u8 variation)
@@ -6381,7 +6466,16 @@ static u8 CalculateWildLevel(u8 variation)
 
 u8 Rogue_GetEncounterDifficultyModifier()
 {
-    return (gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE ? gRogueAdvPath.currentRoomParams.perType.route.difficulty : ADVPATH_SUBROOM_ROUTE_AVERAGE);
+    switch (gRogueAdvPath.currentRoomType)
+    {
+    case ADVPATH_ROOM_ROUTE:
+        return gRogueAdvPath.currentRoomParams.perType.route.difficulty;
+    
+    case ADVPATH_ROOM_TEAM_HIDEOUT:
+        return ADVPATH_SUBROOM_ROUTE_TOUGH;
+    }
+
+    return ADVPATH_SUBROOM_ROUTE_AVERAGE;
 }
 
 u16 Rogue_GetTRMove(u16 trNumber)
@@ -6445,10 +6539,18 @@ static bool8 RogueRandomChanceTrainer()
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     s32 chance = 4 * (difficultyLevel + 1);
 
-    if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM)
-        chance = max(5, chance - 20); // Trainers are fewer
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
+    {
+        // We want a good number of trainers i nthe hideout
+        chance = max(25, chance);
+    }
     else
-        chance = max(10, chance); // Trainers are harder on tough routes
+    {
+        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM)
+            chance = max(5, chance - 20); // Trainers are fewer
+        else
+            chance = max(15, chance); // Trainers are harder on tough routes
+    }
 
     return RogueRandomChance(chance, FLAG_SET_SEED_TRAINERS);
 }
@@ -6545,10 +6647,24 @@ static u8 RouteItems_CalculateWeight(u16 index, u16 itemId, void* data)
     return weight;
 }
 
+u8 GetCurrentDropRarity()
+{
+    switch (gRogueAdvPath.currentRoomType)
+    {
+    case ADVPATH_ROOM_ROUTE:
+        return gRogueRouteTable.routes[gRogueRun.currentRouteIndex].dropRarity;
+    
+    case ADVPATH_ROOM_TEAM_HIDEOUT:
+        return 3;
+    }
+
+    return 0;
+}
+
 static void RandomiseItemContent(u8 difficultyLevel)
 {
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
-    u8 dropRarity = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].dropRarity;
+    u8 dropRarity = GetCurrentDropRarity();
 
     if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
     {

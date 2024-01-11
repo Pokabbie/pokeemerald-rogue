@@ -105,6 +105,7 @@
     "Rogue_Encounter_Healing",
     "Rogue_Encounter_Shops",
     "Rogue_Encounter_Tutors",
+    "Rogue_Encounter_DayCare",
     "Rogue_Encounter_MiniBoss",
     "Rogue_Encounter_Den",
     "Rogue_Encounter_GameShow",
@@ -117,7 +118,8 @@
     "Rogue_Boss_10",
     "Rogue_Boss_11",
     "Rogue_Boss_12",
-    "Rogue_Boss_13"
+    "Rogue_Boss_13",
+    "Rogue_Encounter_RocketHideout"
   ],
   "gMapGroup_RogueAdventureMonEncounters": [
     "Rogue_SouthernIsland_Latios",

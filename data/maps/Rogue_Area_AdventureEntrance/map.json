@@ -14,19 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "left",
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
       "offset": 8,
-      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+      "direction": "left"
     },
     {
-      "direction": "down",
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
       "offset": 6,
-      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
+      "direction": "down"
     },
     {
-      "direction": "right",
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
       "offset": 8,
-      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -102,42 +102,42 @@
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 0,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 9,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 10,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 19,
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 19,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_ADVENTURE_ENTRANCE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

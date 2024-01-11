@@ -1098,6 +1098,41 @@ void RogueTrainerQuery_Reset(u8 func)
     }
 }
 
+void RogueTrainerQuery_ContainsClassFlag(u8 func, u32 classFlags)
+{
+    u16 trainerNum;
+    bool8 containsAnyFlags;
+
+    ASSERT_TRAINER_QUERY;
+
+    // Skip and accept all if empty
+    if(classFlags == 0)
+        return;
+
+    for(trainerNum = 0; trainerNum < gRogueTrainerCount; ++trainerNum)
+    {
+        if(GetQueryBitFlag(trainerNum))
+        {
+            containsAnyFlags = (Rogue_GetTrainer(trainerNum)->classFlags & classFlags) != 0;
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!containsAnyFlags)
+                {
+                    SetQueryBitFlag(trainerNum, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(containsAnyFlags)
+                {
+                    SetQueryBitFlag(trainerNum, FALSE);
+                }
+            }
+        }
+    }
+}
+
 void RogueTrainerQuery_ContainsTrainerFlag(u8 func, u32 trainerFlags)
 {
     u16 trainerNum;

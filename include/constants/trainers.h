@@ -263,6 +263,10 @@
 
 #define TRAINER_PIC_COMMUNITY_ZEFA        236
 
+#define TRAINER_PIC_ROCKET_GRUNT_M        237
+#define TRAINER_PIC_ROCKET_GRUNT_F        238
+#define TRAINER_PIC_SCIENTIST             239
+
 
 // Special cases
 #define TRAINER_PIC_PLAYER_AVATAR           254
@@ -523,6 +527,9 @@
 #define TRAINER_CLASS_DEVELOPER      0x43
 #define TRAINER_CLASS_DEVELOPER_CHAMPION 0x44
 #define TRAINER_CLASS_COMMUNITY_MOD  0x45
+#define TRAINER_CLASS_TEAM_ROCKET   0x46
+#define TRAINER_CLASS_TEAM_ROCKET_LEADER   0x47
+
 
 #define TRAINER_CLASS_COUNT          0x46
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music

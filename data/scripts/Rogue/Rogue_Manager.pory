@@ -671,9 +671,11 @@ script Rogue_Tutor_MoveDeleteCancel
     release
 }
 
-script Rogue_BerryTree_CheckBerry
+script Rogue_BerryTree_CheckSoil
 {
-    if(!flag(FLAG_ROGUE_RUN_ACTIVE))
+    special(Rogue_CanPlantBerries)
+
+    if(var(VAR_RESULT) == TRUE)
     {
         goto(BerryTree_EventScript_CheckSoil)
     }

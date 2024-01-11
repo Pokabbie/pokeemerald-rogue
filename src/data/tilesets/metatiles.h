@@ -213,3 +213,5 @@ const u16 gMetatileAttributes_GeneralHub[] = INCBIN_U16("data/tilesets/primary/g
 
 const u16 gMetatiles_EternaForest[] = INCBIN_U16("data/tilesets/secondary/eternaforest/metatiles.bin");
 const u16 gMetatileAttributes_EternaForest[] = INCBIN_U16("data/tilesets/secondary/eternaforest/metatile_attributes.bin");
+const u16 gMetatiles_FacilityRocket[] = INCBIN_U16("data/tilesets/secondary/facility_rocket/metatiles.bin");
+const u16 gMetatileAttributes_FacilityRocket[] = INCBIN_U16("data/tilesets/secondary/facility_rocket/metatile_attributes.bin");

@@ -184,7 +184,7 @@ const struct RogueRouteData gRogueRouteTable =
     .routes = sRogueRouteTable,
 };
 
-static const struct RogueEncounterMap sRouteMapsSpecial[] = 
+static const struct RogueEncounterMap sRogueLegendaryEncounters[] = 
 {
     ENCOUNTER_MAP(SPECIES_ARTICUNO, ROGUE_SPECIAL_ARTICUNO),
     ENCOUNTER_MAP(SPECIES_ZAPDOS, ROGUE_SPECIAL_ZAPDOS),
@@ -328,14 +328,27 @@ static const struct RogueEncounterMap sRouteMapsSpecial[] =
 
 const struct RogueEncounterData gRogueLegendaryEncounterInfo = 
 {
-    .mapCount = ARRAY_COUNT(sRouteMapsSpecial),
-    .mapTable = sRouteMapsSpecial
+    .mapCount = ARRAY_COUNT(sRogueLegendaryEncounters),
+    .mapTable = sRogueLegendaryEncounters
+};
+
+static const struct RogueEncounterMap sRogueTeamEncounters[] = 
+{
+    // TODO - Specify the team flags?
+    ENCOUNTER_MAP(TEAM_NUM_ROCKET, ROGUE_ENCOUNTER_ROCKET_HIDEOUT),
+};
+
+const struct RogueEncounterData gRogueTeamEncounterInfo = 
+{
+    .mapCount = ARRAY_COUNT(sRogueTeamEncounters),
+    .mapTable = sRogueTeamEncounters
 };
 
 static const struct RogueEncounterMap sRouteMapsRestStop[] = 
 {
     [ADVPATH_SUBROOM_RESTSTOP_FULL] = ENCOUNTER_MAP(OBJ_EVENT_GFX_NURSE, ROGUE_ENCOUNTER_REST_STOP),
     [ADVPATH_SUBROOM_RESTSTOP_SHOP] = ENCOUNTER_MAP(OBJ_EVENT_GFX_MART_EMPLOYEE, ROGUE_ENCOUNTER_SHOPS),
+    [ADVPATH_SUBROOM_RESTSTOP_DAYCARE] = ENCOUNTER_MAP(OBJ_EVENT_GFX_LINK_RECEPTIONIST, ROGUE_ENCOUNTER_DAY_CARE),
     [ADVPATH_SUBROOM_RESTSTOP_BATTLE] = ENCOUNTER_MAP(OBJ_EVENT_GFX_MYSTERY_GIFT_MAN, ROGUE_ENCOUNTER_TUTORS),
 };
 

@@ -40,6 +40,7 @@
 #include "rogue_followmon.h"
 #include "rogue_player_customisation.h"
 #include "rogue_ridemon.h"
+#include "rogue_trainers.h"
 
 // this file was known as evobjmv.c in Game Freak's original source
 
@@ -2305,6 +2306,13 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
 
     if (graphicsId >= OBJ_EVENT_GFX_VAR_FIRST && graphicsId <= OBJ_EVENT_GFX_VAR_LAST)
         graphicsId = VarGetObjectEventGraphicsId(graphicsId - OBJ_EVENT_GFX_VAR_FIRST);
+
+    if (graphicsId >= OBJ_EVENT_GFX_DYNAMIC_TRAINER_FIRST && graphicsId <= OBJ_EVENT_GFX_DYNAMIC_TRAINER_LAST)
+    {
+        u16 index = graphicsId - OBJ_EVENT_GFX_DYNAMIC_TRAINER_FIRST;
+        u16 trainerNum = Rogue_GetDynamicTrainer(index);
+        graphicsId = Rogue_GetTrainerObjectEventGfx(trainerNum);
+    }
 
     // Handle mon gfx
     if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)

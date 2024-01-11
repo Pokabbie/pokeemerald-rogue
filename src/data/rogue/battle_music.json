@@ -364,6 +364,12 @@
             "victory": "MUS_VICTORY_TRAINER"
         },
 
+        "team_rocket":
+        {
+            "encounter": "MUS_RG_ENCOUNTER_ROCKET",
+            "battle": "MUS_RG_VS_TRAINER",
+            "victory": "MUS_RG_VICTORY_TRAINER"
+        },
         "team_aqua":
         {
             "encounter": "MUS_ENCOUNTER_AQUA",

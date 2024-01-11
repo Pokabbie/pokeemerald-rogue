@@ -39,7 +39,7 @@
 #include "rogue_player_customisation.h"
 #include "rogue_quest.h"
 
-#define NUM_DISPLAY_BADGES NUM_BADGES
+#define NUM_DISPLAY_BADGES 12
 #define NUM_TYPED_BADGES 19
 
 enum {
@@ -187,18 +187,13 @@ static const u16 sHoennTrainerCardSilver_Pal[]   = INCBIN_U16("graphics/trainer_
 static const u16 sKantoTrainerCardSilver_Pal[]   = INCBIN_U16("graphics/trainer_card/frlg/silver.gbapal");
 static const u16 sHoennTrainerCardGold_Pal[]     = INCBIN_U16("graphics/trainer_card/gold.gbapal");
 static const u16 sKantoTrainerCardGold_Pal[]     = INCBIN_U16("graphics/trainer_card/frlg/gold.gbapal");
-static const u16 sHoennTrainerCardFemaleBg_Pal[] = INCBIN_U16("graphics/trainer_card/female_bg.gbapal");
 static const u16 sKantoTrainerCardFemaleBg_Pal[] = INCBIN_U16("graphics/trainer_card/frlg/female_bg.gbapal");
-static const u16 sHoennTrainerCardBadges_Pal[]   = INCBIN_U16("graphics/trainer_card/badges.gbapal");
-static const u16 sKantoTrainerCardBadges_Pal[]   = INCBIN_U16("graphics/trainer_card/frlg/badges.gbapal");
 static const u16 sTypedTrainerCardBadges_Pal[]   = INCBIN_U16("graphics/trainer_card/badges_types.gbapal");
 static const u16 sTrainerCardStar_Pal[]          = INCBIN_U16("graphics/trainer_card/star.gbapal");
 static const u16 sTrainerCardSticker1_Pal[]      = INCBIN_U16("graphics/trainer_card/frlg/stickers1.gbapal");
 static const u16 sTrainerCardSticker2_Pal[]      = INCBIN_U16("graphics/trainer_card/frlg/stickers2.gbapal");
 static const u16 sTrainerCardSticker3_Pal[]      = INCBIN_U16("graphics/trainer_card/frlg/stickers3.gbapal");
 static const u16 sTrainerCardSticker4_Pal[]      = INCBIN_U16("graphics/trainer_card/frlg/stickers4.gbapal");
-static const u32 sHoennTrainerCardBadges_Gfx[]   = INCBIN_U32("graphics/trainer_card/badges.4bpp.lz");
-static const u32 sKantoTrainerCardBadges_Gfx[]   = INCBIN_U32("graphics/trainer_card/frlg/badges.4bpp.lz");
 static const u32 sTypedTrainerCardBadges_Gfx[]   = INCBIN_U32("graphics/trainer_card/badges_types.4bpp.lz");
 
 static const struct BgTemplate sTrainerCardBgTemplates[4] =
@@ -585,11 +580,7 @@ static bool8 LoadCardGfx(void)
         }
         break;
     case 3:
-        if (sData->cardType != CARD_TYPE_FRLG)
-            //LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sData->badgeTiles);
-            LZ77UnCompWram(sTypedTrainerCardBadges_Gfx, sData->badgeTiles);
-        else
-            LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sData->badgeTiles);
+        LZ77UnCompWram(sTypedTrainerCardBadges_Gfx, sData->badgeTiles);
         break;
     case 4:
         if (sData->cardType != CARD_TYPE_FRLG)
@@ -720,6 +711,18 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard)
 {
     u32 playTime;
     u8 i;
+
+    //{
+    //    case STYLE_RED:
+    //    case STYLE_LEAF:
+    //    case STYLE_ETHAN:
+    //    case STYLE_LYRA:
+    //        cardType = CARD_TYPE_FRLG;
+    //        break;
+//
+        //case STYLE_EMR_BRENDAN:
+        //case STYLE_EMR_MAY:
+
 
     trainerCard->gender = gSaveBlock2Ptr->playerGender;
     trainerCard->playTimeHours = gSaveBlock2Ptr->playTimeHours;
@@ -866,8 +869,8 @@ static void SetDataFromTrainerCard(void)
 
     for (i = 0; i < NUM_DISPLAY_BADGES; i++)
     {
-        u8 offset = Rogue_GetCurrentDifficulty() > 8 ? (i + Rogue_GetCurrentDifficulty() - 8) : i;
-        sData->badgeCount[i] = gRogueRun.completedBadges[offset];
+        //u8 offset = Rogue_GetCurrentDifficulty() > 8 ? (i + Rogue_GetCurrentDifficulty() - 8) : i;
+        sData->badgeCount[i] = gRogueRun.completedBadges[i];
     }
 }
 
@@ -1454,18 +1457,9 @@ static u8 SetCardBgsAndPals(void)
         LoadBgTiles(0, sData->cardTiles, 0x1800, 0);
         break;
     case 2:
-        if (sData->cardType != CARD_TYPE_FRLG)
         {
-            LoadPalette(sHoennTrainerCardPals[sData->trainerCard.stars], 0, 96);
-            //LoadPalette(sHoennTrainerCardBadges_Pal, 48, 32);
+            LoadPalette(sKantoTrainerCardStarPals[sData->trainerCard.stars], 0, 96);
             LoadPalette(sTypedTrainerCardBadges_Pal, 48, 32);
-            if (sData->trainerCard.gender % 2 != MALE)
-                LoadPalette(sHoennTrainerCardFemaleBg_Pal, 16, 32);
-        }
-        else
-        {
-            LoadPalette(sKantoTrainerCardPals[sData->trainerCard.stars], 0, 96);
-            LoadPalette(sKantoTrainerCardBadges_Pal, 48, 32);
             if (sData->trainerCard.gender % 2 != MALE)
                 LoadPalette(sKantoTrainerCardFemaleBg_Pal, 16, 32);
         }
@@ -1526,25 +1520,31 @@ static void DrawStarsAndBadgesOnCard(void)
 {
     static const u8 yOffsets[] = {7, 7};
 
-    s16 i, x;
+    s16 i, x, y;
     u16 tileNum = 192;
     u8 palNum = 3;
+
+    y = 17;
 
     FillBgTilemapBufferRect(3, 143, 15, yOffsets[sData->isHoenn], sData->trainerCard.stars, 1, 4);
     if (!sData->isLink)
     {
-        x = 4;
-        for (i = 0; i < NUM_DISPLAY_BADGES; i++, x += 3)
+        x = 2;
+        for (i = 0; i < NUM_DISPLAY_BADGES; i++, x += 2)
         {
             if (sData->badgeCount[i] != TYPE_NONE)
             {
                 tileNum = 192 + sData->badgeCount[i] * 2;
 
-                FillBgTilemapBufferRect(3, tileNum, x, 15, 1, 1, palNum);
-                FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 15, 1, 1, palNum);
-                FillBgTilemapBufferRect(3, tileNum + NUM_TYPED_BADGES * 2, x, 16, 1, 1, palNum);
-                FillBgTilemapBufferRect(3, tileNum + NUM_TYPED_BADGES * 2 + 1, x + 1, 16, 1, 1, palNum);
+                FillBgTilemapBufferRect(3, tileNum, x, y - 1, 1, 1, palNum);
+                FillBgTilemapBufferRect(3, tileNum + 1, x + 1, y - 1, 1, 1, palNum);
+                FillBgTilemapBufferRect(3, tileNum + NUM_TYPED_BADGES * 2, x, y, 1, 1, palNum);
+                FillBgTilemapBufferRect(3, tileNum + NUM_TYPED_BADGES * 2 + 1, x + 1, y, 1, 1, palNum);
             }
+
+            // Leave gap before for E4 badges
+            if(i == 7)
+                x += 2;
         }
     }
     CopyBgTilemapBufferToVram(3);
@@ -1870,30 +1870,35 @@ static u8 GetSetCardType(void)
 {
     if (sData == NULL)
     {
-        if (gGameVersion == VERSION_FIRE_RED || gGameVersion == VERSION_LEAF_GREEN)
-            return CARD_TYPE_FRLG;
-        else if (gGameVersion == VERSION_EMERALD)
-            return CARD_TYPE_EMERALD;
-        else
-            return CARD_TYPE_RS;
+        return CARD_TYPE_FRLG;
+
+        //if (gGameVersion == VERSION_FIRE_RED || gGameVersion == VERSION_LEAF_GREEN)
+        //    return CARD_TYPE_FRLG;
+        //else if (gGameVersion == VERSION_EMERALD)
+        //    return CARD_TYPE_EMERALD;
+        //else
+        //    return CARD_TYPE_RS;
     }
     else
     {
-        if (sData->trainerCard.version == VERSION_FIRE_RED || sData->trainerCard.version == VERSION_LEAF_GREEN)
-        {
-            sData->isHoenn = FALSE;
-            return CARD_TYPE_FRLG;
-        }
-        else if (sData->trainerCard.version == VERSION_EMERALD)
-        {
-            sData->isHoenn = TRUE;
-            return CARD_TYPE_EMERALD;
-        }
-        else
-        {
-            sData->isHoenn = TRUE;
-            return CARD_TYPE_RS;
-        }
+        sData->isHoenn = FALSE;
+        return CARD_TYPE_FRLG;
+
+        //if (sData->trainerCard.version == VERSION_FIRE_RED || sData->trainerCard.version == VERSION_LEAF_GREEN)
+        //{
+        //    sData->isHoenn = FALSE;
+        //    return CARD_TYPE_FRLG;
+        //}
+        //else if (sData->trainerCard.version == VERSION_EMERALD)
+        //{
+        //    sData->isHoenn = TRUE;
+        //    return CARD_TYPE_EMERALD;
+        //}
+        //else
+        //{
+        //    sData->isHoenn = TRUE;
+        //    return CARD_TYPE_RS;
+        //}
     }
 }
 

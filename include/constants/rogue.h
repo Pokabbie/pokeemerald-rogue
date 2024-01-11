@@ -177,20 +177,21 @@
 
 // AdvPath
 //
-#define ADVPATH_ROOM_NONE       0
-#define ADVPATH_ROOM_ROUTE      1
-#define ADVPATH_ROOM_RESTSTOP   2
-#define ADVPATH_ROOM_LEGENDARY  3
-#define ADVPATH_ROOM_MINIBOSS   4
-#define ADVPATH_ROOM_WILD_DEN   5
-#define ADVPATH_ROOM_HONEY_TREE 6
-#define ADVPATH_ROOM_GAMESHOW   7
-#define ADVPATH_ROOM_DARK_DEAL  8
-#define ADVPATH_ROOM_LAB        9
+#define ADVPATH_ROOM_NONE           0
+#define ADVPATH_ROOM_ROUTE          1
+#define ADVPATH_ROOM_RESTSTOP       2
+#define ADVPATH_ROOM_LEGENDARY      3
+#define ADVPATH_ROOM_MINIBOSS       4 // unused
+#define ADVPATH_ROOM_TEAM_HIDEOUT   5
+#define ADVPATH_ROOM_WILD_DEN       6
+#define ADVPATH_ROOM_HONEY_TREE     7
+#define ADVPATH_ROOM_GAMESHOW       8
+#define ADVPATH_ROOM_DARK_DEAL      9
+#define ADVPATH_ROOM_LAB            10
 
-#define ADVPATH_ROOM_BOSS       10
+#define ADVPATH_ROOM_BOSS           11
 
-#define ADVPATH_ROOM_COUNT      11
+#define ADVPATH_ROOM_COUNT          12
 
 
 #define ADVPATH_SUBROOM_ROUTE_CALM          0
@@ -199,7 +200,8 @@
 
 #define ADVPATH_SUBROOM_RESTSTOP_BATTLE     0
 #define ADVPATH_SUBROOM_RESTSTOP_SHOP       1
-#define ADVPATH_SUBROOM_RESTSTOP_FULL       2
+#define ADVPATH_SUBROOM_RESTSTOP_DAYCARE    2
+#define ADVPATH_SUBROOM_RESTSTOP_FULL       3
 
 
 #define ADVPATH_ROOM_WEIGHT_COUNT       (ADVPATH_ROOM_LAB + 1) // Ignore boss room
@@ -210,50 +212,71 @@
 #define ADVPATH_LEGEND_BOX              2
 #define ADVPATH_LEGEND_COUNT            3
 
+#define ADVPATH_TEAM_ENCOUNTER_EARLY        0
+#define ADVPATH_TEAM_ENCOUNTER_PRE_LEGEND   1
+#define ADVPATH_TEAM_ENCOUNTER_COUNT        2
+
 #define ADVPATH_INVALID_ROOM_ID (0)
 
 // Trainers
 //
 #define TRAINER_FLAG_NONE                       0
 
-// Classes
-#define TRAINER_FLAG_CLASS_GYM_1                (1 << 0)
-#define TRAINER_FLAG_CLASS_GYM_2                (1 << 1)
-#define TRAINER_FLAG_CLASS_GYM_3                (1 << 2)
-#define TRAINER_FLAG_CLASS_GYM_4                (1 << 3)
-#define TRAINER_FLAG_CLASS_GYM_5                (1 << 4)
-#define TRAINER_FLAG_CLASS_GYM_6                (1 << 5)
-#define TRAINER_FLAG_CLASS_GYM_7                (1 << 6)
-#define TRAINER_FLAG_CLASS_GYM_8                (1 << 7)
-#define TRAINER_FLAG_CLASS_ELITE_1              (1 << 8)
-#define TRAINER_FLAG_CLASS_ELITE_2              (1 << 9)
-#define TRAINER_FLAG_CLASS_ELITE_3              (1 << 10)
-#define TRAINER_FLAG_CLASS_ELITE_4              (1 << 11)
-#define TRAINER_FLAG_CLASS_CHAMP                (1 << 12)
-#define TRAINER_FLAG_CLASS_RIVAL                (1 << 13)
-#define TRAINER_FLAG_CLASS_ROUTE                (1 << 14)
+#define TRAINER_FLAG_CLASS_BOSS                 (1 << 0) // gym, elite 4 or champion
+#define TRAINER_FLAG_CLASS_RIVAL                (1 << 1)
+#define TRAINER_FLAG_CLASS_ROUTE                (1 << 2)
+#define TRAINER_FLAG_CLASS_TEAM                 (1 << 3)
+#define TRAINER_FLAG_CLASS_TEAM_BOSS            (1 << 4)
 
-#define TRAINER_FLAG_REGION_KANTO               (1 << 15)
-#define TRAINER_FLAG_REGION_JOHTO               (1 << 16)
-#define TRAINER_FLAG_REGION_HOENN               (1 << 17)
-#define TRAINER_FLAG_REGION_SINNOH              (1 << 18)
-#define TRAINER_FLAG_REGION_UNOVA               (1 << 19)
-#define TRAINER_FLAG_REGION_KALOS               (1 << 20)
-#define TRAINER_FLAG_REGION_ALOLA               (1 << 21)
-#define TRAINER_FLAG_REGION_GALAR               (1 << 22)
-#define TRAINER_FLAG_REGION_ROGUE               (1 << 23)
+#define TRAINER_FLAG_REGION_KANTO               (1 << 5)
+#define TRAINER_FLAG_REGION_JOHTO               (1 << 6)
+#define TRAINER_FLAG_REGION_HOENN               (1 << 7)
+#define TRAINER_FLAG_REGION_SINNOH              (1 << 8)
+#define TRAINER_FLAG_REGION_UNOVA               (1 << 9)
+#define TRAINER_FLAG_REGION_KALOS               (1 << 10)
+#define TRAINER_FLAG_REGION_ALOLA               (1 << 11)
+#define TRAINER_FLAG_REGION_GALAR               (1 << 12)
+#define TRAINER_FLAG_REGION_ROGUE               (1 << 13)
 
-#define TRAINER_FLAG_MISC_RAINBOW_ONLY          (1 << 24)
-#define TRAINER_FLAG_MISC_RAINBOW_EXCLUDE       (1 << 25)
+#define TRAINER_FLAG_MISC_RAINBOW_ONLY          (1 << 14)
+#define TRAINER_FLAG_MISC_RAINBOW_EXCLUDE       (1 << 15)
 
-#define TRAINER_FLAG_CLASS_ANY_GYM              (TRAINER_FLAG_CLASS_GYM_1 | TRAINER_FLAG_CLASS_GYM_2 | TRAINER_FLAG_CLASS_GYM_3 | TRAINER_FLAG_CLASS_GYM_4 | TRAINER_FLAG_CLASS_GYM_5 | TRAINER_FLAG_CLASS_GYM_6 | TRAINER_FLAG_CLASS_GYM_7 | TRAINER_FLAG_CLASS_GYM_8)
-#define TRAINER_FLAG_CLASS_ANY_ELITE            (TRAINER_FLAG_CLASS_ELITE_1 | TRAINER_FLAG_CLASS_ELITE_2 | TRAINER_FLAG_CLASS_ELITE_3 | TRAINER_FLAG_CLASS_ELITE_4)
-
-#define TRAINER_FLAG_CLASS_ANY_MAIN_BOSS        (TRAINER_FLAG_CLASS_ANY_GYM | TRAINER_FLAG_CLASS_ANY_ELITE | TRAINER_FLAG_CLASS_CHAMP)
-#define TRAINER_FLAG_CLASS_ANY                  (TRAINER_FLAG_CLASS_ANY_MAIN_BOSS | TRAINER_FLAG_CLASS_RIVAL | TRAINER_FLAG_CLASS_ROUTE)
-
+#define TRAINER_FLAG_CLASS_ANY                  (TRAINER_FLAG_CLASS_BOSS | TRAINER_FLAG_CLASS_RIVAL | TRAINER_FLAG_CLASS_ROUTE | TRAINER_FLAG_CLASS_TEAM)
 #define TRAINER_FLAG_REGION_ANY                 (TRAINER_FLAG_REGION_KANTO | TRAINER_FLAG_REGION_JOHTO | TRAINER_FLAG_REGION_HOENN | TRAINER_FLAG_REGION_SINNOH | TRAINER_FLAG_REGION_UNOVA | TRAINER_FLAG_REGION_KALOS | TRAINER_FLAG_REGION_ALOLA | TRAINER_FLAG_REGION_GALAR | TRAINER_FLAG_REGION_ROGUE)
 #define TRAINER_FLAG_REGION_DEFAULT             (TRAINER_FLAG_REGION_ANY & ~TRAINER_FLAG_REGION_ROGUE)
+
+
+// Class specific flags
+#define CLASS_FLAG_NONE                       0
+
+// CLASS_FLAG_BOSS
+//
+#define CLASS_FLAG_BOSS_GYM_1                   (1 << 0)
+#define CLASS_FLAG_BOSS_GYM_2                   (1 << 1)
+#define CLASS_FLAG_BOSS_GYM_3                   (1 << 2)
+#define CLASS_FLAG_BOSS_GYM_4                   (1 << 3)
+#define CLASS_FLAG_BOSS_GYM_5                   (1 << 4)
+#define CLASS_FLAG_BOSS_GYM_6                   (1 << 5)
+#define CLASS_FLAG_BOSS_GYM_7                   (1 << 6)
+#define CLASS_FLAG_BOSS_GYM_8                   (1 << 7)
+#define CLASS_FLAG_BOSS_ELITE_1                 (1 << 8)
+#define CLASS_FLAG_BOSS_ELITE_2                 (1 << 9)
+#define CLASS_FLAG_BOSS_ELITE_3                 (1 << 10)
+#define CLASS_FLAG_BOSS_ELITE_4                 (1 << 11)
+#define CLASS_FLAG_BOSS_CHAMP                   (1 << 12)
+
+#define CLASS_FLAG_BOSS_ANY_GYM                 (CLASS_FLAG_BOSS_GYM_1 | CLASS_FLAG_BOSS_GYM_2 | CLASS_FLAG_BOSS_GYM_3 | CLASS_FLAG_BOSS_GYM_4 | CLASS_FLAG_BOSS_GYM_5 | CLASS_FLAG_BOSS_GYM_6 | CLASS_FLAG_BOSS_GYM_7 | CLASS_FLAG_BOSS_GYM_8)
+#define CLASS_FLAG_BOSS_ANY_ELITE               (CLASS_FLAG_BOSS_ELITE_1 | CLASS_FLAG_BOSS_ELITE_2 | CLASS_FLAG_BOSS_ELITE_3 | CLASS_FLAG_BOSS_ELITE_4)
+#define CLASS_FLAG_BOSS_ANY                     (CLASS_FLAG_BOSS_ANY_GYM | CLASS_FLAG_BOSS_ANY_ELITE | CLASS_FLAG_BOSS_CHAMP)
+
+// TRAINER_FLAG_CLASS_TEAM
+//
+#define CLASS_FLAG_TEAM_ROCKET                  (1 << 0)
+#define CLASS_FLAG_TEAM_AQUA                    (1 << 1)
+#define CLASS_FLAG_TEAM_MAGMA                   (1 << 2)
+
+#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA)
+
 
 // Strings
 #define TRAINER_STRING_PRE_BATTLE_OPENNING      0 // before encounter music (Only supported for gyms)
@@ -268,6 +291,12 @@
 #define TRAINER_ORDER_OFFICIAL                  2
 #define TRAINER_ORDER_COUNT                     3
 
+// Teams
+#define TEAM_NUM_ROCKET         0
+#define TEAM_NUM_AQUA           1
+#define TEAM_NUM_MAGMA          2
+#define TEAM_NUM_COUNT          3
+
 
 // 8 badges, 4 elite, 2 champion
 #define ROGUE_MAX_BOSS_COUNT 14
@@ -279,6 +308,8 @@
 
 #define ROGUE_RIVAL_TOTAL_MON_COUNT 9
 #define ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS 4
+
+#define ROGUE_MAX_ACTIVE_TRAINER_COUNT 18
 
 // Some defines to use in trainer setup just to make the EX/Vanilla versioning easier ;)
 #ifdef ROGUE_EXPANSION

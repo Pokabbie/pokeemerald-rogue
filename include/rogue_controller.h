@@ -112,6 +112,7 @@ void Rogue_ResetAdventurePathBuffers();
 u8 Rogue_SelectRouteRoom(void);
 u8 Rogue_GetCurrentLegendaryEncounterId(void);
 u16 Rogue_GetLegendaryRoomForSpecies(u16 species);
+u8 Rogue_GetCurrentTeamHideoutEncounterId(void);
 bool8 Rogue_IsBattleAlphaMon(u16 species);
 bool8 Rogue_IsBattleRoamerMon(u16 species);
 u16 Rogue_SelectWildDenEncounterRoom(void);

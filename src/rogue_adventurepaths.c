@@ -341,7 +341,16 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
     case ADVPATH_ROOM_LEGENDARY:
         count = CountRoomType(roomType);
         if(count == 0)
-            return 100;
+            return 200;
+        else
+            return 0;
+        break;
+
+    // Only allow 1 but we really want to place it (less so than other encounters)
+    case ADVPATH_ROOM_TEAM_HIDEOUT:
+        count = CountRoomType(roomType);
+        if(count == 0)
+            return 50;
         else
             return 0;
         break;
@@ -437,6 +446,27 @@ static u8 ReplaceRoomEncounters_CalculateWeight(u16 weightIndex, u16 roomId, voi
         // Prefer route where we are locked into this path
         if(CountRoomConnections(existingRoom->connectionMask) == 1)
             weight += 40;
+
+        // We like having the legend be behind the team hideout
+        if(IsPrecededByRoomType(existingRoom, ADVPATH_ROOM_TEAM_HIDEOUT))
+            weight += 160;
+        break;
+
+    case ADVPATH_ROOM_TEAM_HIDEOUT:
+        // Don't want to place in first column
+        if(existingRoom->coords.x + 1 == gRogueAdvPath.pathLength)
+            weight -= 40;
+        // Like being placed in the middle columns but can occasionally end up in other one
+        else if(existingRoom->coords.x > 2)
+            weight += 80;
+
+        // Prefer route where we are locked into this path
+        if(CountRoomConnections(existingRoom->connectionMask) == 1)
+            weight += 40;
+
+        // We like having the legend be behind the team hideout
+        if(IsProceededByRoomType(existingRoom, ADVPATH_ROOM_LEGENDARY))
+            weight += 160;
         break;
     }
 
@@ -541,6 +571,16 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         }
     }
 
+    // Team Encounters
+    for(i = 0; i < ADVPATH_TEAM_ENCOUNTER_COUNT; ++i)
+    {
+        if(gRogueRun.teamEncounterDifficulties[i] == GetPathGenerationDifficulty())
+        {
+            validEncounterList[validEncounterCount++] = ADVPATH_ROOM_TEAM_HIDEOUT;
+            break;
+        }
+    }
+
     // Honey tree
     if(GetPathGenerationDifficulty() >= 1)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_HONEY_TREE;
@@ -586,6 +626,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         }
 
         replaceCount = (replaceCount * replacePerc) / 100;
+        replaceCount = max(replaceCount, 3);
 
         for(i = 0; i < (u8)replaceCount; ++i)
         {
@@ -642,8 +683,9 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             break;
 
         case ADVPATH_ROOM_RESTSTOP:
-            weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 4;
-            weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 4;
+            weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 8;
+            weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 8;
+            weights[ADVPATH_SUBROOM_RESTSTOP_DAYCARE] = 8;
             weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 1;
 
             gRogueAdvPath.rooms[roomId].roomParams.roomIdx = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
@@ -655,6 +697,13 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
                 u16 species = gRogueRun.legendarySpecies[legendId];
                 gRogueAdvPath.rooms[roomId].roomParams.roomIdx = Rogue_GetLegendaryRoomForSpecies(species);
                 gRogueAdvPath.rooms[roomId].roomParams.perType.legendary.shinyState = Rogue_RollShinyState();
+            }
+            break;
+
+        case ADVPATH_ROOM_TEAM_HIDEOUT:
+            {
+                u8 encounterId = Rogue_GetCurrentTeamHideoutEncounterId();
+                gRogueAdvPath.rooms[roomId].roomParams.roomIdx = gRogueRun.teamEncounterRooms[encounterId];
             }
             break;
 
@@ -1089,6 +1138,11 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
             warp->mapNum = gRogueLegendaryEncounterInfo.mapTable[room->roomParams.roomIdx].num;
             break;
 
+        case ADVPATH_ROOM_TEAM_HIDEOUT:
+            warp->mapGroup = gRogueTeamEncounterInfo.mapTable[room->roomParams.roomIdx].group;
+            warp->mapNum = gRogueTeamEncounterInfo.mapTable[room->roomParams.roomIdx].num;
+            break;
+
         case ADVPATH_ROOM_MINIBOSS:
             warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_MINI_BOSS);
             warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_MINI_BOSS);
@@ -1310,6 +1364,10 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
 
         case ADVPATH_ROOM_LEGENDARY:
             return OBJ_EVENT_GFX_TRICK_HOUSE_STATUE;
+
+        case ADVPATH_ROOM_TEAM_HIDEOUT:
+            // TODO - (Also random grunt variant?)
+            return OBJ_EVENT_GFX_ROCKET_M;
 
         case ADVPATH_ROOM_MINIBOSS:
             return OBJ_EVENT_GFX_NOLAND;

@@ -231,6 +231,13 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 			exporter.trainerStructsBlock << c_TabSpacing << ".preferredPokeballItem = ITEM_NONE,\n";
 
 		// Flags
+		exporter.trainerStructsBlock << c_TabSpacing << ".classFlags = CLASS_FLAG_NONE";
+		for (auto flag : trainer["class_flags"])
+		{
+			exporter.trainerStructsBlock << " | CLASS_FLAG_" << strutil::to_upper(flag.get<std::string>());
+		}
+		exporter.trainerStructsBlock << ",\n";
+
 		exporter.trainerStructsBlock << c_TabSpacing << ".trainerFlags = TRAINER_FLAG_NONE";
 		for (auto flag : trainer["trainer_flags"])
 		{
