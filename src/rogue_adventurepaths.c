@@ -491,7 +491,6 @@ static void ReplaceRoomEncounter(u8 fromRoomType, u8 toRoomType)
 
     RogueWeightQuery_Begin();
     {
-        u8 i;
         u16 index;
 
         RogueWeightQuery_CalculateWeights(ReplaceRoomEncounters_CalculateWeight, &toRoomType);
@@ -519,12 +518,9 @@ static void ReplaceRoomEncounter(u8 fromRoomType, u8 toRoomType)
 static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
 {
     u8 i;
-    u8 amount;
     u8 freeRoomCount = 0;
     u8 validEncounterCount = 0;
     u16 validEncounterList[ADVPATH_ROOM_COUNT];
-
-    bool8 isSmallFloor = gRogueAdvPath.roomCount <= 9;
 
     // Place gym at very end
     GenerateRoomInstance(0, ADVPATH_ROOM_BOSS);

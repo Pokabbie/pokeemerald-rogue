@@ -1067,9 +1067,6 @@ static u32 GetActiveTeamFlag()
 
 static u16 Rogue_RouteTrainerId(u16* historyBuffer, u16 historyBufferCapacity)
 {
-    u32 includeFlags;
-    u32 excludeFlags;
-
     struct TrainerFliter filter;
     GetDefaultFilter(&filter);
     filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_ROUTE;
@@ -1098,9 +1095,6 @@ void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity)
 
 static u16 Rogue_TeamHideoutTrainerId(u16* historyBuffer, u16 historyBufferCapacity)
 {
-    u32 includeFlags;
-    u32 excludeFlags;
-
     struct TrainerFliter filter;
     GetDefaultFilter(&filter);
     filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_TEAM;
