@@ -3375,8 +3375,6 @@ u16 Rogue_SelectHoneyTreeEncounterRoom(void)
     // Intentionally use Random instead of RogueRandom as this may be conditionally rerolled per player
     // so could break with sacred ash
     //
-
-    u16 i;
     u16 species;
     u32 typeFlags;
 
@@ -6110,7 +6108,7 @@ static u8 RandomiseWildEncounters_CalculateInitialWeight(u16 index, u16 species,
 static void BeginWildEncounterQuery()
 {
     u8 maxlevel = CalculateWildLevel(0);
-    u32 typeFlags;
+    u32 typeFlags = 0;
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
     {
@@ -6405,10 +6403,6 @@ static void RandomiseEnabledTrainers()
 {
     u16 i;
     u16 trainerBuffer[ROGUE_TRAINER_COUNT];
-
-    u8 trainerCounter;
-    u16 trainerNum;
-    const struct RogueTrainer* trainer;
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
         Rogue_ChooseTeamHideoutTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));

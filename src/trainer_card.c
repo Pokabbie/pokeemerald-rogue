@@ -1458,7 +1458,7 @@ static u8 SetCardBgsAndPals(void)
         break;
     case 2:
         {
-            LoadPalette(sKantoTrainerCardStarPals[sData->trainerCard.stars], 0, 96);
+            LoadPalette(sKantoTrainerCardPals[sData->trainerCard.stars], 0, 96);
             LoadPalette(sTypedTrainerCardBadges_Pal, 48, 32);
             if (sData->trainerCard.gender % 2 != MALE)
                 LoadPalette(sKantoTrainerCardFemaleBg_Pal, 16, 32);
