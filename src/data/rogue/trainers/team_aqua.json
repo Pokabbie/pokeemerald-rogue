@@ -1,0 +1,96 @@
+{
+    "condition": "",
+    "defaults":
+    {
+    },
+    "trainers":
+    {
+        "route":
+        [
+            {
+                "name": "GRUNT",
+                "type_assignment": "WATER",
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_AQUA",
+                "music_player": "team_aqua",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "DARK" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER", "DARK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "WATER",
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_AQUA",
+                "music_player": "team_aqua",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "WATER" ],
+                            "exclude_types": [ "FIRE" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "DARK" ],
+                            "exclude_types": [ "FIRE" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER", "DARK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ]
+    }
+}

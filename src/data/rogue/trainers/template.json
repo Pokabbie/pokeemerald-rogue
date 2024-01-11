@@ -1,0 +1,12 @@
+{
+    "condition": "",
+    "defaults":
+    {
+    },
+    "trainers":
+    {
+        "default_group":
+        [
+        ]
+    }
+}

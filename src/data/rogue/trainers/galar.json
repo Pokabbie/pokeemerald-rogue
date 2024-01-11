@@ -1,0 +1,390 @@
+{
+    "condition": "defined(ROGUE_EXPANSION)",
+    "defaults":
+    {
+        "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS" ],
+        "trainer_class": "TRAINER_CLASS_LEADER",
+        "music_player": "galar_boss"
+    },
+    "trainers":
+    {
+        "rivals":
+        [
+            {
+                "name": "HOP",
+                "type_assignment": "NONE",
+                "gfx_suffix": "RIVAL_HOP",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "sinnoh_boss",
+                "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "class_flags": [],
+                "shiny_species": "SPECIES_WOOLOO",
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_WOOLOO", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BEDE",
+                "type_assignment": "FAIRY",
+                "gfx_suffix": "RIVAL_BEDE",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "kanto_boss",
+                "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "class_flags": [],
+                "shiny_species": "SPECIES_HATENNA",
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "PSYCHIC" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FAIRY" ]
+                        },
+                        {
+                            "max_samples": 12,
+                            "include_types": [ "FAIRY", "PSYCHIC" ]
+                        },
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_HATENNA", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "MARNIE",
+                "type_assignment": "DARK",
+                "gfx_suffix": "RIVAL_MARNIE",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "hoenn_boss",
+                "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
+                "class_flags": [],
+                "shiny_species": "SPECIES_MORPEKO",
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12,
+                            "include_types": [ "DARK" ]
+                        },
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MORPEKO", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_IMPIDIMP", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "gyms/elite":
+        [
+            {
+                "name": "MILO",
+                "type_assignment": "GRASS",
+                "gfx_suffix": "GALAR_MILO",
+                "class_flags": [ "BOSS_GYM_1", "BOSS_ANY_ELITE" ],
+                "shiny_species": "SPECIES_GOSSIFLEUR",
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GRASS" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GOSSIFLEUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "NESSA",
+                "type_assignment": "WATER",
+                "gfx_suffix": "GALAR_NESSA",
+                "class_flags": [ "BOSS_GYM_2", "BOSS_ANY_ELITE" ],
+                "shiny_species": "SPECIES_CHEWTLE",
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CHEWTLE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "KABU",
+                "type_assignment": "FIRE",
+                "gfx_suffix": "GALAR_KABU",
+                "class_flags": [ "BOSS_GYM_3", "BOSS_ANY_ELITE" ],
+                "shiny_species": "SPECIES_SIZZLIPEDE",
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIRE" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SIZZLIPEDE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BEA",
+                "type_assignment": "FIGHTING",
+                "gfx_suffix": "GALAR_BEA",
+                "class_flags": [ "BOSS_GYM_4", "BOSS_ANY_ELITE" ],
+                "shiny_species": "SPECIES_FARFETCHD_GALARIAN",
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIGHTING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FARFETCHD_GALARIAN", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "ALLISTER",
+                "type_assignment": "GHOST",
+                "gfx_suffix": "GALAR_ALLISTER",
+                "class_flags": [ "BOSS_GYM_4", "BOSS_ANY_ELITE" ],
+                "shiny_species": "SPECIES_CORSOLA_GALARIAN",
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GHOST" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CORSOLA_GALARIAN", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "OPAL",
+                "type_assignment": "FAIRY",
+                "gfx_suffix": "GALAR_OPAL",
+                "class_flags": [ "BOSS_GYM_5", "BOSS_ANY_ELITE" ],
+                "shiny_species": "SPECIES_MILCERY",
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FAIRY" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MILCERY", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GORDIE",
+                "type_assignment": "ROCK",
+                "gfx_suffix": "GALAR_GORDIE",
+                "class_flags": [ "BOSS_GYM_6", "BOSS_ANY_ELITE" ],
+                "shiny_species": "SPECIES_ROLYCOLY",
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ROCK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ROLYCOLY", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "MELONY",
+                "type_assignment": "ICE",
+                "gfx_suffix": "GALAR_MELONY",
+                "class_flags": [ "BOSS_GYM_6", "BOSS_ANY_ELITE" ],
+                "shiny_species": "SPECIES_DARUMAKA_GALARIAN",
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ICE" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_DARUMAKA_GALARIAN", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "PIERS",
+                "type_assignment": "DARK",
+                "gfx_suffix": "GALAR_PIERS",
+                "class_flags": [ "BOSS_GYM_7", "BOSS_ANY_ELITE" ],
+                "shiny_species": "SPECIES_ZIGZAGOON_GALARIAN",
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DARK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ZIGZAGOON_GALARIAN", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "RAIHAN",
+                "type_assignment": "DRAGON",
+                "gfx_suffix": "GALAR_RAIHAN",
+                "class_flags": [ "BOSS_GYM_8", "BOSS_ANY_ELITE" ],
+                "weather": "SANDSTORM",
+                "shiny_species": "SPECIES_DURALUDON",
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DRAGON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "STEEL", "GROUND", "ROCK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_DURALUDON", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_TYPE", "TYPE_STEEL", "INC_FAVOUR",
+                        "HAS_TYPE", "TYPE_GROUND", "INC_FAVOUR",
+                        "HAS_TYPE", "TYPE_ROCK", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+        
+        "champ":
+        [
+            {
+                "name": "LEON",
+                "type_assignment": "NONE",
+                "gfx_suffix": "GALAR_LEON",
+                "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_CHAMP" ],
+                "shiny_species": "SPECIES_CHARMANDER",
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CHARMANDER", "INC_FAVOUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ]
+    }
+}

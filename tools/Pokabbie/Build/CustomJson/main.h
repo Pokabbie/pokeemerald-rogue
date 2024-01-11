@@ -14,6 +14,7 @@ std::string const c_TabSpacing = "    ";
 std::string const c_TabSpacing2 = "        ";
 std::string const c_TabSpacing3 = "            ";
 
+json ReadJsonFile(std::string const& filepath);
 void FatalExit();
 
 #ifdef _MSC_VER
