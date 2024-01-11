@@ -242,6 +242,7 @@ struct RogueRunData
     u16 teamEncounterRooms[ADVPATH_TEAM_ENCOUNTER_COUNT];
     u16 dynamicTRMoves[NUM_TECHNICAL_RECORDS];
     u16 partyHeldItems[PARTY_SIZE];
+    u16 dynamicTrainerNums[ROGUE_MAX_ACTIVE_TRAINER_COUNT];
     u8 legendaryDifficulties[ADVPATH_LEGEND_COUNT];
     u8 teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_COUNT];
     u8 rivalEncounterDifficulties[ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS];

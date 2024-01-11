@@ -341,7 +341,7 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
     case ADVPATH_ROOM_LEGENDARY:
         count = CountRoomType(roomType);
         if(count == 0)
-            return 100;
+            return 200;
         else
             return 0;
         break;
@@ -626,7 +626,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         }
 
         replaceCount = (replaceCount * replacePerc) / 100;
-        replaceCount = max(replaceCount, 2);
+        replaceCount = max(replaceCount, 3);
 
         for(i = 0; i < (u8)replaceCount; ++i)
         {

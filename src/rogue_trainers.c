@@ -65,6 +65,18 @@ static void ModifyTrainerMonPreset(u16 trainerNum, struct RoguePokemonCompetitiv
 static void ReorderPartyMons(u16 trainerNum, struct Pokemon *party, u8 monCount);
 static bool8 IsChoiceItem(u16 itemId);
 
+u16 Rogue_GetDynamicTrainer(u16 i)
+{
+    AGB_ASSERT(i < ARRAY_COUNT(gRogueRun.dynamicTrainerNums));
+    return gRogueRun.dynamicTrainerNums[i];
+}
+
+void Rogue_SetDynamicTrainer(u16 i, u16 trainerNum)
+{
+    AGB_ASSERT(i < ARRAY_COUNT(gRogueRun.dynamicTrainerNums));
+    gRogueRun.dynamicTrainerNums[i] = trainerNum;
+}
+
 bool8 Rogue_IsBossTrainer(u16 trainerNum)
 {
     const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
@@ -201,7 +213,13 @@ u16 Rogue_GetTrainerObjectEventGfx(u16 trainerNum)
 
 u16 Rogue_GetTrainerNumFromObjectEvent(struct ObjectEvent *curObject)
 {
-    u8 i;
+    u16 i;
+
+    if(curObject->graphicsId >= OBJ_EVENT_GFX_DYNAMIC_TRAINER_FIRST && curObject->graphicsId <= OBJ_EVENT_GFX_DYNAMIC_TRAINER_LAST)
+    {
+        i = curObject->graphicsId - OBJ_EVENT_GFX_DYNAMIC_TRAINER_FIRST;
+        return Rogue_GetDynamicTrainer(i);
+    }
 
     // TODO - Could check the script?? (Was having issues though)
 
@@ -1029,6 +1047,24 @@ void Rogue_GenerateRivalSwapTeamIfNeeded()
     }
 }
 
+static u32 GetActiveTeamFlag()
+{
+    switch(gRogueRun.teamEncounterNum)
+    {
+        case TEAM_NUM_ROCKET:
+            return CLASS_FLAG_TEAM_ROCKET;
+
+        case TEAM_NUM_AQUA:
+            return CLASS_FLAG_TEAM_AQUA;
+
+        case TEAM_NUM_MAGMA:
+            return CLASS_FLAG_TEAM_MAGMA;
+    }
+
+    AGB_ASSERT(FALSE);
+    return CLASS_FLAG_TEAM_ROCKET;
+}
+
 static u16 Rogue_RouteTrainerId(u16* historyBuffer, u16 historyBufferCapacity)
 {
     u32 includeFlags;
@@ -1037,6 +1073,9 @@ static u16 Rogue_RouteTrainerId(u16* historyBuffer, u16 historyBufferCapacity)
     struct TrainerFliter filter;
     GetDefaultFilter(&filter);
     filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_ROUTE;
+
+    // Exclude the teams which aren't enabled so we can scatter some team trainers on routes
+    filter.classFlagsExclude |= CLASS_FLAG_ANY_TEAM & ~GetActiveTeamFlag();
 
     return Rogue_ChooseTrainerId(&filter, historyBuffer, historyBufferCapacity);
 }
@@ -1064,7 +1103,8 @@ static u16 Rogue_TeamHideoutTrainerId(u16* historyBuffer, u16 historyBufferCapac
 
     struct TrainerFliter filter;
     GetDefaultFilter(&filter);
-    filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_ROUTE;
+    filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_TEAM;
+    filter.classFlagsInclude |= GetActiveTeamFlag();
 
     return Rogue_ChooseTrainerId(&filter, historyBuffer, historyBufferCapacity);
 }

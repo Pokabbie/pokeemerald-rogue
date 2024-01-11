@@ -30,7 +30,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
       "x": 51,
-      "y": 10,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT",
       "movement_range_x": 4,
@@ -171,7 +171,7 @@
       "flag": "FLAG_ROGUE_TRAINER16"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_MISC_SCIENTIST",
       "x": 13,
       "y": 14,
       "elevation": 3,
@@ -211,8 +211,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 53,
-      "y": 6,
+      "x": 54,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

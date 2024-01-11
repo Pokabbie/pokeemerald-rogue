@@ -293,15 +293,20 @@ void MgbaPrintf(const char* ptr, ...)
 
 void DebugForceReadKeys();
 
+static EWRAM_DATA u8 sDebug_AssertsMuted = FALSE;
+
 void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nStopProgram)
 {
+    if (sDebug_AssertsMuted)
+        return;
+
     //if (nStopProgram)
     {
         MgbaPrintfBounded(MGBA_LOG_ERROR, "ASSERTION FAILED  FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
         DebugPrint("A - Skip");
         DebugPrint("B - Break Message");
         DebugPrint("START - Crash Out");
-        DebugPrint("SELECT - Quick Skip");
+        DebugPrint("SELECT - Mute Asserts");
 
         PlaySE(SE_LOW_HEALTH);
 
@@ -310,6 +315,7 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
             if(JOY_NEW(A_BUTTON))
             {
                 m4aSongNumStop(SE_LOW_HEALTH);
+                MgbaPrintfBounded(MGBA_LOG_ERROR, "SKIPPED");
                 break;
             }
             else if(JOY_NEW(B_BUTTON))
@@ -326,6 +332,7 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
             {
                 m4aSongNumStop(SE_LOW_HEALTH);
                 MgbaPrintfBounded(MGBA_LOG_ERROR, "QUICK SKIP");
+                sDebug_AssertsMuted = TRUE;
                 break;
             }
 

@@ -174,6 +174,7 @@ static void RandomiseSafariWildEncounters(void);
 static void RandomiseWildEncounters(void);
 static void RandomiseFishingEncounters(void);
 static void ResetTrainerBattles(void);
+static void RandomiseEnabledTrainers(void);
 static void RandomiseEnabledItems(void);
 static void RandomiseBerryTrees(void);
 static void RandomiseTRMoves();
@@ -3729,6 +3730,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                     RandomiseWildEncounters();
                     ResetTrainerBattles();
+                    RandomiseEnabledTrainers();
                     RandomiseEnabledItems();
                     RandomiseBerryTrees();
 
@@ -3748,6 +3750,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     gRogueRun.currentRouteIndex = gRogueAdvPath.currentRoomParams.roomIdx;
 
                     ResetTrainerBattles();
+                    RandomiseEnabledTrainers();
                     RandomiseEnabledItems();
 
                     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
@@ -3902,18 +3905,9 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         else if(ShouldAdjustRouteObjectEvents() && !loadingFromSave)
         {
             u8 write, read;
-            u16 trainerBuffer[ROGUE_TRAINER_COUNT];
+            u16 trainerCounter;
 
-            u8 trainerIndex;
-            u16 trainerNum;
-            const struct RogueTrainer* trainer;
-
-            if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
-                Rogue_ChooseTeamHideoutTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
-            else
-                Rogue_ChooseRouteTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
-
-            trainerIndex = 0;
+            trainerCounter = 0;
             write = 0;
             read = 0;
 
@@ -3928,21 +3922,17 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                 //
                 if(objectEvents[write].trainerType == TRAINER_TYPE_NORMAL && objectEvents[write].trainerRange_berryTreeId != 0)
                 {
-                    // Don't increment write, if we're not accepting the trainer
-                    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && RogueRandomChanceTrainer())
+                    u16 trainerIndex = trainerCounter++;
+                    u16 trainerNum = Rogue_GetDynamicTrainer(trainerIndex);
+
+                    // Don't increment write, if we're not accepting the trainer // RogueRandomChanceTrainer
+                    if(trainerNum != TRAINER_NONE)
                     {
-                        AGB_ASSERT(trainerIndex < ARRAY_COUNT(trainerBuffer));
-                        trainerNum = trainerBuffer[trainerIndex++];
-                        trainer = Rogue_GetTrainer(trainerNum);
+                        objectEvents[write].graphicsId = OBJ_EVENT_GFX_DYNAMIC_TRAINER_FIRST + trainerIndex;
+                        objectEvents[write].flagId = 0;//FLAG_ROGUE_TRAINER0 + ;
 
-                        if(trainer != NULL)
-                        {
-                            objectEvents[write].graphicsId = trainer->objectEventGfx;
-                            objectEvents[write].flagId = 0;//FLAG_ROGUE_TRAINER0 + ;
-
-                            // Accept this trainer
-                            write++;
-                        }
+                        // Accept this trainer
+                        write++;
                     }
                 }
                 // Adjust items
@@ -6408,6 +6398,29 @@ static void ResetTrainerBattles(void)
     for(i = 0; i < TRAINERS_COUNT; ++i)
     {
         ClearTrainerFlag(i);
+    }
+}
+
+static void RandomiseEnabledTrainers()
+{
+    u16 i;
+    u16 trainerBuffer[ROGUE_TRAINER_COUNT];
+
+    u8 trainerCounter;
+    u16 trainerNum;
+    const struct RogueTrainer* trainer;
+
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
+        Rogue_ChooseTeamHideoutTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
+    else
+        Rogue_ChooseRouteTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
+        
+    for(i = 0; i < ROGUE_MAX_ACTIVE_TRAINER_COUNT; ++i)
+    {
+        if(RogueRandomChanceTrainer())
+            Rogue_SetDynamicTrainer(i, trainerBuffer[i]);
+        else
+            Rogue_SetDynamicTrainer(i, TRAINER_NONE);
     }
 }
 

@@ -5574,6 +5574,919 @@
             }
         ],
 
+        "team_rocket // route":
+        [
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Team Rocket ain't stopping!",
+                        "POST_BATTLE_TAUNT": "Too fast!",
+                        "POST_BATTLE_CLOSER": "I thought this was a sweet gig…\\pI guess not…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "Whaa!",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Science is the future!",
+                        "POST_BATTLE_TAUNT": "The future is now!",
+                        "POST_BATTLE_CLOSER": "You can't stop me!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "team_rocket // hideout":
+        [
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Team Rocket ain't stopping!",
+                        "POST_BATTLE_TAUNT": "Too fast!",
+                        "POST_BATTLE_CLOSER": "I thought this was a sweet gig…\\pI guess not…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "What do you think you're doing snooping around!?",
+                        "POST_BATTLE_TAUNT": "Err…\\nYou still shouldn't be here…",
+                        "POST_BATTLE_CLOSER": "You still shouldn't be here…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You'll give up your Pokémon now if you know what's good for you!",
+                        "POST_BATTLE_TAUNT": "Too strong!",
+                        "POST_BATTLE_CLOSER": "It would be way easier to steal trainer's Pokémon if the boss gave us stronger Pokémon in the first place."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "It's rude to break into Secret Hideouts you know!",
+                        "POST_BATTLE_TAUNT": "Baah?!",
+                        "POST_BATTLE_CLOSER": "You're so rude sneaking in here."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Time to test my latest haul!",
+                        "POST_BATTLE_TAUNT": "What!?\\nThese are all just weak!",
+                        "POST_BATTLE_CLOSER": "I stole from the wrong trainer!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_M",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "This is a really comfortable outfit, you know!",
+                        "POST_BATTLE_TAUNT": "Wait?\\nWere we suppose to be battling?",
+                        "POST_BATTLE_CLOSER": "I'm far to comfortable to battle at full strength."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "Whaa!",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "What are you doing here!?\\pDid the guards fall asleep or something!?",
+                        "POST_BATTLE_TAUNT": "Oh…\\nThat was unexpected…",
+                        "POST_BATTLE_CLOSER": "That was unexpected…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I only joined Team Rocket recently so I've got to prove myself now!",
+                        "POST_BATTLE_TAUNT": "Read the room…",
+                        "POST_BATTLE_CLOSER": "You could've just let me win."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I'll beat you to a pulp!",
+                        "POST_BATTLE_TAUNT": "Redo…?",
+                        "POST_BATTLE_CLOSER": "That was disappointing…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "These outfits are in need of a glow up.",
+                        "POST_BATTLE_TAUNT": "That gives me some ideas!",
+                        "POST_BATTLE_CLOSER": "I bet if we added some colour the outfits would look way better!\\pWhat about some Rainbow colours instead of Red?\\pHmm\\pI'll have to have a good think."
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUNT",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_ROCKET_F",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Another kid breaking in?",
+                        "POST_BATTLE_TAUNT": "Why are there so many today?!",
+                        "POST_BATTLE_CLOSER": "Another kid came through here not to long ago.\\pI thought this was suppose to be a Secret Hideout…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "FEMALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "POISON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Science is the future!",
+                        "POST_BATTLE_TAUNT": "The future is now!",
+                        "POST_BATTLE_CLOSER": "You can't stop me!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've used the power of science to train my Pokémon!",
+                        "POST_BATTLE_TAUNT": "Why have you failed me science!?",
+                        "POST_BATTLE_CLOSER": "Why have you failed me science!?"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Do you think this lab coat makes me look cool?",
+                        "POST_BATTLE_TAUNT": "Ouch…",
+                        "POST_BATTLE_CLOSER": "You could have just said no!"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Team Rocket knows science is the way forward!",
+                        "POST_BATTLE_TAUNT": "I feel like I'm going backwards…",
+                        "POST_BATTLE_CLOSER": "I feel like I'm going backwards…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Dihydrogen Monoxide is too dangerous!",
+                        "POST_BATTLE_TAUNT": "Splash!",
+                        "POST_BATTLE_CLOSER": "It's just water.\\pGosh you didn't even know that ku ku ku\\pKids these days ku ku ku"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "SCIENTIST",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_MISC_SCIENTIST",
+                "trainer_pic": "TRAINER_PIC_SCIENTIST",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
+                "music_player": "team_rocket",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+                "class_flags": [ "TEAM_ROCKET" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You shouldn't eavesdrop!",
+                        "POST_BATTLE_TAUNT": "Now it's all over…",
+                        "POST_BATTLE_CLOSER": "I guess you know all our secrets now…"
+                    }
+                ],
+                "team_generator":
+                {
+                    "preferredGender": "MALE",
+                    "subsets": 
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "ELECTRIC" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
         "team_aqua":
         [
             {
@@ -5583,7 +6496,7 @@
                 "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
                 "trainer_class": "TRAINER_CLASS_TEAM_AQUA",
                 "music_player": "team_aqua",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "class_flags": [],
                 "encounter_text":
                 [
@@ -5624,7 +6537,7 @@
                 "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
                 "trainer_class": "TRAINER_CLASS_TEAM_AQUA",
                 "music_player": "team_aqua",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "class_flags": [],
                 "encounter_text":
                 [
@@ -5661,7 +6574,7 @@
                 }
             }
         ],
-        
+
         "team_magma":
         [
             {
@@ -5671,7 +6584,7 @@
                 "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
                 "trainer_class": "TRAINER_CLASS_TEAM_MAGMA",
                 "music_player": "team_magma",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "class_flags": [],
                 "encounter_text":
                 [
@@ -5714,7 +6627,7 @@
                 "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
                 "trainer_class": "TRAINER_CLASS_TEAM_MAGMA",
                 "music_player": "team_magma",
-                "trainer_flags": [ "REGION_HOENN", "CLASS_ROUTE" ],
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
                 "class_flags": [],
                 "encounter_text":
                 [

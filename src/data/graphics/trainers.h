@@ -659,3 +659,12 @@ const u32 gTrainerPalette_RivalMarnie[] = INCBIN_U32("graphics/trainers/front_pi
 
 const u32 gTrainerFrontPic_RivalBede[] = INCBIN_U32("graphics/trainers/front_pics/rival/bede.4bpp.lz");
 const u32 gTrainerPalette_RivalBede[] = INCBIN_U32("graphics/trainers/front_pics/rival/bede.gbapal.lz");
+
+const u32 gTrainerFrontPic_RocketGruntF[] = INCBIN_U32("graphics/trainers/front_pics/rocket_grunt_f_front_pic.4bpp.lz");
+const u32 gTrainerPalette_RocketGruntF[] = INCBIN_U32("graphics/trainers/front_pics/rocket_grunt_f_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_RocketGruntM[] = INCBIN_U32("graphics/trainers/front_pics/rocket_grunt_m_front_pic.4bpp.lz");
+const u32 gTrainerPalette_RocketGruntM[] = INCBIN_U32("graphics/trainers/front_pics/rocket_grunt_m_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_Scientist[] = INCBIN_U32("graphics/trainers/front_pics/scientist_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Scientist[] = INCBIN_U32("graphics/trainers/front_pics/scientist_front_pic.gbapal.lz");

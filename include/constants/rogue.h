@@ -275,6 +275,8 @@
 #define CLASS_FLAG_TEAM_AQUA                    (1 << 1)
 #define CLASS_FLAG_TEAM_MAGMA                   (1 << 2)
 
+#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA)
+
 
 // Strings
 #define TRAINER_STRING_PRE_BATTLE_OPENNING      0 // before encounter music (Only supported for gyms)
@@ -306,6 +308,8 @@
 
 #define ROGUE_RIVAL_TOTAL_MON_COUNT 9
 #define ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS 4
+
+#define ROGUE_MAX_ACTIVE_TRAINER_COUNT 18
 
 // Some defines to use in trainer setup just to make the EX/Vanilla versioning easier ;)
 #ifdef ROGUE_EXPANSION

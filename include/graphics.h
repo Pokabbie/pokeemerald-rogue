@@ -3359,6 +3359,14 @@ extern const u32 gTrainerPalette_GlitchErma[];
 extern const u32 gTrainerFrontPic_CommunityZefa[];
 extern const u32 gTrainerPalette_CommunityZefa[];
 
+extern const u32 gTrainerFrontPic_RocketGruntF[];
+extern const u32 gTrainerPalette_RocketGruntF[];
+extern const u32 gTrainerFrontPic_RocketGruntM[];
+extern const u32 gTrainerPalette_RocketGruntM[];
+
+extern const u32 gTrainerFrontPic_Scientist[];
+extern const u32 gTrainerPalette_Scientist[];
+
 extern const u32 gTrainerFrontPic_RivalSilver[];
 extern const u32 gTrainerPalette_RivalSilver[];
 extern const u32 gTrainerFrontPic_RivalBarry[];

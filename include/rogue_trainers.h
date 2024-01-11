@@ -7,6 +7,9 @@ bool8 Rogue_IsAnyBossTrainer(u16 trainerNum);
 bool8 Rogue_IsKeyTrainer(u16 trainerNum);
 bool8 Rogue_GetTrainerFlag(u16 trainerNum);
 
+u16 Rogue_GetDynamicTrainer(u16 i);
+void Rogue_SetDynamicTrainer(u16 i, u16 trainerNum);
+
 const struct RogueTrainer* Rogue_GetTrainer(u16 trainerNum);
 struct RogueBattleMusic const* Rogue_GetTrainerMusic(u16 trainerNum);
 const u8* Rogue_GetTrainerString(u16 trainerNum, u8 textId);
