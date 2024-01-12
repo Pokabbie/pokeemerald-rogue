@@ -5053,10 +5053,18 @@ void Rogue_ApplyMonCompetitiveSet(struct Pokemon* mon, u8 level, struct RoguePok
 
     if(!rules->skipHiddenPowerType)
     {
-        if(preset->hiddenPowerType != TYPE_NONE)
+        u8 hiddenPowerType = preset->hiddenPowerType;
+
+        if(hiddenPowerType != TYPE_NONE)
         {
             u16 value;
             bool8 ivStatsOdd[6];
+
+            if(hiddenPowerType == TYPE_MYSTERY)
+            {
+                // Source data didn't provide type so just default to primary type
+                hiddenPowerType = RoguePokedex_GetSpeciesType(species, 0);
+            }
 
             #define oddHP ivStatsOdd[0]
             #define oddAtk ivStatsOdd[1]
@@ -5072,7 +5080,7 @@ void Rogue_ApplyMonCompetitiveSet(struct Pokemon* mon, u8 level, struct RoguePok
             oddSpAtk = TRUE;
             oddSpDef = TRUE;
 
-            switch(preset->hiddenPowerType)
+            switch(hiddenPowerType)
             {
                 case TYPE_FIGHTING:
                     oddDef = FALSE;
