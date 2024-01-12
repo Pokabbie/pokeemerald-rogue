@@ -5927,6 +5927,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 
         *minSalePrice = 500;
         maxPriceRange = 10000;
+        applyRandomChance = TRUE;
         break;
 
     case ROGUE_SHOP_CHARMS:
