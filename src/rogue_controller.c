@@ -1401,6 +1401,10 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         // No dynamax
         if(itemId >= ITEM_EXP_CANDY_XS && itemId <= ITEM_DYNAMAX_CANDY)
             return FALSE;
+
+        // No mochi
+        if(itemId >= ITEM_HEALTH_MOCHI && itemId <= ITEM_FRESH_START_MOCHI)
+            return FALSE;
 #endif
 
         if(Rogue_IsRunActive())
@@ -1466,6 +1470,14 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         case ITEM_SWEET_HEART:
         case ITEM_POKE_TOY:
 
+        case ITEM_BIG_BAMBOO_SHOOT:
+        case ITEM_TINY_BAMBOO_SHOOT:
+        case ITEM_GIMMIGHOUL_COIN: // ?
+
+        // Not implemented yet?
+        case ITEM_814:
+        case ITEM_815:
+
         // Link cable is Rogue's item
         case ITEM_LINKING_CORD:
 
@@ -1481,7 +1493,6 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
 
         // Ignore these, as mons/form swaps currently not enabled
         case ITEM_PIKASHUNIUM_Z:
-        case ITEM_ULTRANECROZIUM_Z:
 #endif
             return FALSE;
         }
@@ -5850,6 +5861,11 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 
     case ROGUE_SHOP_BATTLE_ENHANCERS:
         RogueItemQuery_IsGeneralShopItem(QUERY_FUNC_EXCLUDE);
+
+#ifdef ROGUE_EXPANSION
+        // Mints are in treat shop
+        RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_LONELY_MINT, ITEM_SERIOUS_MINT);
+#endif
         {
             u8 pocket;
             for(pocket = POCKET_NONE + 1; pocket <= POCKET_KEY_ITEMS; ++pocket)
@@ -5891,6 +5907,26 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     case ROGUE_SHOP_BERRIES:
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_BERRIES);
         *minSalePrice = 5000;
+        break;
+
+    case ROGUE_SHOP_TREATS:
+        // Pokeblock and mints
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_POKEBLOCK);
+
+        if(!Rogue_IsRunActive())
+        {
+            // Cannot buy pokeblock in hub, must make
+            RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKEBLOCK);
+        }
+
+        RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_POKEBLOCK_HP, ITEM_POKEBLOCK_SPDEF);
+
+#ifdef ROGUE_EXPANSION
+        RogueMiscQuery_EditRange(QUERY_FUNC_INCLUDE, ITEM_LONELY_MINT, ITEM_SERIOUS_MINT);
+#endif
+
+        *minSalePrice = 500;
+        maxPriceRange = 10000;
         break;
 
     case ROGUE_SHOP_CHARMS:
@@ -5984,9 +6020,14 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_ZINC);
         RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_CARBOS);
 #ifdef ROGUE_EXPANSION
-        RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_HEALTH_FEATHER, ITEM_SWIFT_FEATHER);
+        RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_HP_UP, ITEM_CARBOS);
 #endif
     }
+
+#ifdef ROGUE_EXPANSION
+    //Always exclude feathers from shop
+    RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_HEALTH_FEATHER, ITEM_SWIFT_FEATHER);
+#endif
 
     // Remove EV held items
     if(!Rogue_IsRunActive() || !Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
@@ -6778,6 +6819,7 @@ static void RandomiseItemContent(u8 difficultyLevel)
 
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_KEY_ITEMS);
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
+        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKEBLOCK);
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKE_BALLS);
 
         RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
