@@ -548,6 +548,40 @@
                         }
                     ]
                 }
+            },
+            {
+                "name": "CUE",
+                "type_assignment": "POISON",
+                "object_event": "OBJ_EVENT_GFX_BIKER",
+                "trainer_pic": "TRAINER_PIC_BIKER",
+                "trainer_class": "TRAINER_CLASS_BIKER",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Me and my crew own these routes!",
+                        "POST_BATTLE_TAUNT": "I guess we can share them…",
+                        "POST_BATTLE_CLOSER": "You can use the routes too I guess…"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "POISON" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "POISON", "NORMAL" ]
+                        }
+                    ]
+                }
             }
         ]
     }

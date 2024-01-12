@@ -318,6 +318,10 @@
                 {
                     "trainer_class": "GENTLEMAN",
                     "music_player": "route_trainer_rich"
+                },
+                {
+                    "trainer_class": "BIKER",
+                    "music_player": "route_trainer_intense"
                 }
             ]
         },

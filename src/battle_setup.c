@@ -872,9 +872,9 @@ static u8 GetTrainerBattleTransition(void)
         return B_TRANSITION_AQUA;
     
     // TODO
-    if (trainer.trainerClass == TRAINER_CLASS_TEAM_ROCKET
-        || trainer.trainerClass == TRAINER_CLASS_TEAM_ROCKET_LEADER)
-        return B_TRANSITION_POKEBALLS_TRAIL;
+    //if (trainer.trainerClass == TRAINER_CLASS_TEAM_ROCKET
+    //    || trainer.trainerClass == TRAINER_CLASS_TEAM_ROCKET_LEADER)
+    //    return B_TRANSITION_POKEBALLS_TRAIL;
 
     if(Rogue_IsRunActive())
     {

@@ -3367,6 +3367,9 @@ extern const u32 gTrainerPalette_RocketGruntM[];
 extern const u32 gTrainerFrontPic_Scientist[];
 extern const u32 gTrainerPalette_Scientist[];
 
+extern const u32 gTrainerFrontPic_Biker[];
+extern const u32 gTrainerPalette_Biker[];
+
 extern const u32 gTrainerFrontPic_RivalSilver[];
 extern const u32 gTrainerPalette_RivalSilver[];
 extern const u32 gTrainerFrontPic_RivalBarry[];

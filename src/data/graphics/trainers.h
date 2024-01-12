@@ -668,3 +668,6 @@ const u32 gTrainerPalette_RocketGruntM[] = INCBIN_U32("graphics/trainers/front_p
 
 const u32 gTrainerFrontPic_Scientist[] = INCBIN_U32("graphics/trainers/front_pics/scientist_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Scientist[] = INCBIN_U32("graphics/trainers/front_pics/scientist_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_Biker[] = INCBIN_U32("graphics/trainers/front_pics/biker_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Biker[] = INCBIN_U32("graphics/trainers/front_pics/biker_front_pic.gbapal.lz");
