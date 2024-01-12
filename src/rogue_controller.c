@@ -890,10 +890,6 @@ const u8* Rogue_ModifyFieldMessage(const u8* str)
             u16 trainerNum = Rogue_GetTrainerNumFromLastInteracted();
             overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
         }
-
-        // Intentionally skip empty strings
-        if(overrideStr != NULL && overrideStr[0] == 0xFF)
-            return NULL;
     }
 
     return overrideStr != NULL ? overrideStr : str;

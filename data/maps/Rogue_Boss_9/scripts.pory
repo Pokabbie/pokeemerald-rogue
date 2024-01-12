@@ -15,7 +15,11 @@ script Rogue_Battle_Boss9
     waitmovement(0)
 
     buffertrainername(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
-    msgbox(gPlaceholder_Gym_PreBattleOpenning)
+    special(Rogue_ShouldSkipTrainerOpenningMsg)
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(gPlaceholder_Gym_PreBattleOpenning)
+    }
 
     call(Rogue_SetDesiredWeather)
 

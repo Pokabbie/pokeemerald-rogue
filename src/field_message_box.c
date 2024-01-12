@@ -68,9 +68,6 @@ bool8 ShowFieldMessage(const u8 *str)
 
     str = Rogue_ModifyFieldMessage(str);
 
-    if(str == NULL)
-        return FALSE;
-
     ExpandStringAndStartDrawFieldMessage(str, TRUE);
     sFieldMessageBoxMode = FIELD_MESSAGE_BOX_NORMAL;
     return TRUE;
