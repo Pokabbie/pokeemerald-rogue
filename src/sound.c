@@ -40,7 +40,7 @@ static const struct Fanfare sFanfares[] = {
     [FANFARE_OBTAIN_ITEM]         = { MUS_OBTAIN_ITEM,         160 },
     [FANFARE_EVOLVED]             = { MUS_EVOLVED,             220 },
     [FANFARE_OBTAIN_TMHM]         = { MUS_OBTAIN_TMHM,         220 },
-    [FANFARE_HEAL]                = { MUS_DP_HEAL,             160 },
+    [FANFARE_HEAL]                = { MUS_HEAL,                160 },
     [FANFARE_OBTAIN_BADGE]        = { MUS_OBTAIN_BADGE,        340 },
     [FANFARE_MOVE_DELETED]        = { MUS_MOVE_DELETED,        180 },
     [FANFARE_OBTAIN_BERRY]        = { MUS_OBTAIN_BERRY,        120 },
@@ -216,7 +216,6 @@ void StopFanfareByFanfareNum(u8 fanfareNum)
 void PlayFanfare(u16 songNum)
 {
     s32 i;
-    songNum = Rogue_ModifyPlayFanfare(songNum);
     for (i = 0; (u32)i < ARRAY_COUNT(sFanfares); i++)
     {
         if (sFanfares[i].songNum == songNum)

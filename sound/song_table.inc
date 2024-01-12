@@ -695,7 +695,7 @@ gSongTable::
 	song mus_dp_hall_of_origin, 0, 0
 	song mus_dp_floaroma_day, 0, 0
 	song mus_dp_hall_of_fame, 0, 0
-	song mus_dp_heal, 0, 0
+	song mus_dp_heal, 2, 2
 	song mus_dp_fight_area_day, 0, 0
 	song mus_dp_inside_pokemon_league, 0, 0
 	song mus_dp_sandgem_day, 0, 0

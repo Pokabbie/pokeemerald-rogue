@@ -381,6 +381,12 @@ u16 Rogue_ModifyPlaySE(u16 songNum)
 
 u16 Rogue_ModifyPlayFanfare(u16 songNum)
 {
+    switch (songNum)
+    {
+    case MUS_HEAL:
+        return MUS_DP_HEAL;
+    }
+
     return songNum;
 }
 
