@@ -1416,6 +1416,12 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         case ITEM_RUSTED_SHIELD:
             outItem->pocket = POCKET_STONES;
             break;
+
+        case ITEM_CORNERSTONE_MASK:
+        case ITEM_WELLSPRING_MASK:
+        case ITEM_HEARTHFLAME_MASK:
+            outItem->pocket = POCKET_STONES;
+            break;
 #endif
     }
 
