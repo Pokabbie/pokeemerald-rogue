@@ -19,9 +19,9 @@
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_GOOMY",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -45,9 +45,9 @@
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_CORPHISH",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -71,9 +71,9 @@
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_FLABEBE",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -98,9 +98,9 @@
                 "gfx_suffix": "KALOS_VIOLA",
                 "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_SCATTERBUG",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -122,9 +122,9 @@
                 "gfx_suffix": "KALOS_GRANT",
                 "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_TYRUNT",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -147,9 +147,9 @@
                 "gfx_suffix": "KALOS_KORRINA",
                 "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_RIOLU",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -170,9 +170,9 @@
                 "gfx_suffix": "KALOS_RAMOS",
                 "class_flags": [ "BOSS_GYM_4" ],
                 "shiny_species": "SPECIES_SKIDDO",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -199,9 +199,9 @@
                 "gfx_suffix": "KALOS_CLEMONT",
                 "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_HELIOPTILE",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -223,9 +223,9 @@
                 "gfx_suffix": "KALOS_VALERIE",
                 "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_EEVEE",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -247,9 +247,9 @@
                 "gfx_suffix": "KALOS_OLYMPIA",
                 "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_ESPURR",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -271,9 +271,9 @@
                 "gfx_suffix": "KALOS_WULFRIC",
                 "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_BERGMITE",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -304,9 +304,9 @@
                 "gfx_suffix": "KALOS_MALVA",
                 "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_FLETCHINDER",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -328,9 +328,9 @@
                 "gfx_suffix": "KALOS_SIEBOLD",
                 "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CLAUNCHER",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -353,9 +353,9 @@
                 "gfx_suffix": "KALOS_WIKSTROM",
                 "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_HONEDGE",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -378,9 +378,9 @@
                 "class_flags": [ "BOSS_ANY_ELITE" ],
                 "weather": "NONE",
                 "shiny_species": "SPECIES_NOIBAT",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -412,9 +412,9 @@
                 "trainer_flags": [ "REGION_KALOS", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
                 "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_RALTS",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {

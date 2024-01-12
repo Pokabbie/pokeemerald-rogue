@@ -19,9 +19,9 @@
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_WOOLOO",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -45,9 +45,9 @@
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_HATENNA",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -83,9 +83,9 @@
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_MORPEKO",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -115,9 +115,9 @@
                 "gfx_suffix": "GALAR_MILO",
                 "class_flags": [ "BOSS_GYM_1", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_GOSSIFLEUR",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -139,9 +139,9 @@
                 "gfx_suffix": "GALAR_NESSA",
                 "class_flags": [ "BOSS_GYM_2", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CHEWTLE",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -163,9 +163,9 @@
                 "gfx_suffix": "GALAR_KABU",
                 "class_flags": [ "BOSS_GYM_3", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_SIZZLIPEDE",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -187,9 +187,9 @@
                 "gfx_suffix": "GALAR_BEA",
                 "class_flags": [ "BOSS_GYM_4", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_FARFETCHD_GALARIAN",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -211,9 +211,9 @@
                 "gfx_suffix": "GALAR_ALLISTER",
                 "class_flags": [ "BOSS_GYM_4", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CORSOLA_GALARIAN",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -235,9 +235,9 @@
                 "gfx_suffix": "GALAR_OPAL",
                 "class_flags": [ "BOSS_GYM_5", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_MILCERY",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -259,9 +259,9 @@
                 "gfx_suffix": "GALAR_GORDIE",
                 "class_flags": [ "BOSS_GYM_6", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ROLYCOLY",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -283,9 +283,9 @@
                 "gfx_suffix": "GALAR_MELONY",
                 "class_flags": [ "BOSS_GYM_6", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_DARUMAKA_GALARIAN",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -307,9 +307,9 @@
                 "gfx_suffix": "GALAR_PIERS",
                 "class_flags": [ "BOSS_GYM_7", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ZIGZAGOON_GALARIAN",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -332,9 +332,9 @@
                 "class_flags": [ "BOSS_GYM_8", "BOSS_ANY_ELITE" ],
                 "weather": "SANDSTORM",
                 "shiny_species": "SPECIES_DURALUDON",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -368,9 +368,9 @@
                 "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
                 "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_CHARMANDER",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {

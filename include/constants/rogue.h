@@ -292,10 +292,13 @@
 #define TRAINER_ORDER_COUNT                     3
 
 // Teams
-#define TEAM_NUM_ROCKET         0
-#define TEAM_NUM_AQUA           1
-#define TEAM_NUM_MAGMA          2
-#define TEAM_NUM_COUNT          3
+#define TEAM_NUM_KANTO_ROCKET   0
+#define TEAM_NUM_JOHTO_ROCKET   1
+#define TEAM_NUM_AQUA           2
+#define TEAM_NUM_MAGMA          3
+#define TEAM_NUM_COUNT          4
+
+#define TEAM_PRE_LEGEND_MAP_OFFSET 100
 
 
 // 8 badges, 4 elite, 2 champion

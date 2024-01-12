@@ -19,9 +19,9 @@
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_LILLIPUP",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -45,9 +45,9 @@
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_MUNNA",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -71,9 +71,9 @@
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_ZORUA",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -97,9 +97,9 @@
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_BOUFFALANT",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -135,9 +135,9 @@
                         "POST_BATTLE_CLOSER": "Why, you're quite remarkable.\\pYou're sure to go far!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -174,9 +174,9 @@
                         "POST_BATTLE_CLOSER": "Whoa ho! You're on fire!\\pYou've for sure got this!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -212,9 +212,9 @@
                         "POST_BATTLE_CLOSER": "…What a surprise.\\pYou… are very strong.\\pI wish the best of luck to you in your Adventure."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -249,9 +249,9 @@
                         "POST_BATTLE_CLOSER": "You're more than just talented…\\pYou're motivated! I salute you!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -286,9 +286,9 @@
                         "POST_BATTLE_CLOSER": "Aww… I lost.\\pWhatever! Losing to you doesn't bug me because you are a-MAZ-ingly strong!\\pI'm certain you'll reach your goal!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -323,9 +323,9 @@
                         "POST_BATTLE_CLOSER": "My, oh my…\\nYou have a sweet fighting style.\\pBest of luck with the rest of your Adventure!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -360,9 +360,9 @@
                         "POST_BATTLE_CLOSER": "Mrrrmph. I see. But I sure don't like it!\\pFer such a young 'un, ya have an imposin' battle style.\\pYou gotta live up to yer pontential now, yer hear!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -397,9 +397,9 @@
                         "POST_BATTLE_CLOSER": "My Pokémon and I are happy because for the first time in a while, we could fight with our full strength.\\pYou're an amazing Pokémon Trainer!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -435,9 +435,9 @@
                         "POST_BATTLE_CLOSER": "You possess an honorable and stout heart\\pI wish you the best of luck in your Adventure!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -473,9 +473,9 @@
                         "POST_BATTLE_CLOSER": "Wonderful.\\pI'm grateful we had a chance to meet and battle.\\pGood luck to you in your upcoming battles."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -510,9 +510,9 @@
                         "POST_BATTLE_CLOSER": "Sigh!\\nWhat are you doing losing, Roxie?!\\pWell…\\nI guess that means you're strong!\\pYou better not lose any of your other battles!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -547,9 +547,9 @@
                         "POST_BATTLE_CLOSER": "You're raising some wicked Pokémon.\\pYou got this Trainer thing down!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -584,9 +584,9 @@
                         "POST_BATTLE_CLOSER": "I know a lot of words, but right now I can't figure out how to say this.\\pPerhaps, if the feeling I'm having now is put into words, it will be trapped there.\\pSo let me say this…\\nMy feeling is you're a great Trainer!\\pI'm sure you'll go far!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -618,9 +618,9 @@
                         "POST_BATTLE_CLOSER": "I think a heart that desires strength and strives to grow stronger is a precious ideal.\\pThat is why I respect you-- because you have these things.\\pYou are destined to go far!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -651,9 +651,9 @@
                         "POST_BATTLE_CLOSER": "Whether or not you get to fight at full strength, whether or not luck smiles on you-- none of that matters.\\pOnly results matter. And a loss is a loss.\\pIt would be wise to remember that in your upcoming battles."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -689,9 +689,9 @@
                         "POST_BATTLE_CLOSER": "I am very pleased to have battled you.\\pYou'll certainly go far."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -727,9 +727,9 @@
                         "POST_BATTLE_CLOSER": "Use the battle with me as a stepping stone and move forward!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -760,9 +760,9 @@
                         "POST_BATTLE_CLOSER": "I'm upset I couldn't win!\\pBut you know what? More than that, I'm happy!\\pI mean, come on.\\nBy having a serious battle, you and your Pokémon, and me and my Pokémon, we all got to know one another better than before!\\pWhich is why I know you'll succeed in your future battles!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {

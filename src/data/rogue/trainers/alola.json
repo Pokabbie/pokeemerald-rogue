@@ -19,9 +19,9 @@
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_PICHU",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -45,9 +45,9 @@
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_TYPE_NULL",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -72,9 +72,9 @@
                 "gfx_suffix": "ALOLA_HALA",
                 "class_flags": [ "BOSS_GYM_2", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CRABRAWLER",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -96,9 +96,9 @@
                 "gfx_suffix": "ALOLA_OLIVIA",
                 "class_flags": [ "BOSS_GYM_4", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ROCKRUFF",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -120,9 +120,9 @@
                 "gfx_suffix": "ALOLA_NANU",
                 "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_MEOWTH_ALOLAN",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -144,9 +144,9 @@
                 "gfx_suffix": "ALOLA_HAPU",
                 "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_MUDBRAY",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -169,9 +169,9 @@
                 "gfx_suffix": "ALOLA_ILIMA",
                 "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_YUNGOOS",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -193,9 +193,9 @@
                 "gfx_suffix": "ALOLA_LANA",
                 "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_DEWPIDER",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -217,9 +217,9 @@
                 "gfx_suffix": "ALOLA_KIAWE",
                 "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_CUBONE",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -241,9 +241,9 @@
                 "gfx_suffix": "ALOLA_MALLOW",
                 "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_BOUNSWEET",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -265,9 +265,9 @@
                 "gfx_suffix": "ALOLA_SOPHOCLES",
                 "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_GEODUDE_ALOLAN",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -289,9 +289,9 @@
                 "gfx_suffix": "ALOLA_ACEROLA",
                 "class_flags": [ "BOSS_GYM_5", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_SANDYGAST",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -314,9 +314,9 @@
                 "gfx_suffix": "ALOLA_MINA",
                 "class_flags": [ "BOSS_GYM_7", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CUTIEFLY",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -342,9 +342,9 @@
                 "gfx_suffix": "ALOLA_KAHILI",
                 "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ORICORIO",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -367,9 +367,9 @@
                 "gfx_suffix": "ALOLA_MOLAYNE",
                 "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_DIGLETT_ALOLAN",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -396,9 +396,9 @@
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
                 "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_ROWLET",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {

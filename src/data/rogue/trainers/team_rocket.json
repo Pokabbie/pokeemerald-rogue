@@ -6,7 +6,29 @@
         "trainer_class": "TRAINER_CLASS_TEAM_ROCKET",
         "music_player": "team_rocket",
         "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
-        "class_flags": [ "TEAM_ROCKET" ]
+        "class_flags": [ "TEAM_ROCKET" ],
+        "team_generator":
+        {
+            "subsets": 
+            [
+                {
+                    "max_samples": 1,
+                    "include_types": [ "NORMAL" ]
+                },
+                {
+                    "max_samples": 1,
+                    "include_types": [ "POISON" ]
+                },
+                {
+                    "max_samples": 6,
+                    "include_types": [ "NORMAL", "POISON" ]
+                }
+            ],
+            "weight_script":
+            [
+                "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+            ]
+        }
     },
     "trainers":
     {
@@ -25,29 +47,7 @@
                         "POST_BATTLE_CLOSER": "I thought this was a sweet gig…\\pI guess not…"
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "MALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "MALE"
             },
             {
                 "name": "GRUNT",
@@ -62,29 +62,7 @@
                         "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "FEMALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "FEMALE"
             },
             {
                 "name": "SCIENTIST",
@@ -99,9 +77,9 @@
                         "POST_BATTLE_CLOSER": "You can't stop me!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {
@@ -139,29 +117,7 @@
                         "POST_BATTLE_CLOSER": "I thought this was a sweet gig…\\pI guess not…"
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "MALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "MALE"
             },
             {
                 "name": "GRUNT",
@@ -175,29 +131,7 @@
                         "POST_BATTLE_CLOSER": "You still shouldn't be here…"
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "MALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "MALE"
             },
             {
                 "name": "GRUNT",
@@ -211,29 +145,7 @@
                         "POST_BATTLE_CLOSER": "It would be way easier to steal trainer's Pokémon if the boss gave us stronger Pokémon in the first place."
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "MALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "MALE"
             },
             {
                 "name": "GRUNT",
@@ -247,29 +159,7 @@
                         "POST_BATTLE_CLOSER": "You're so rude sneaking in here."
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "MALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "MALE"
             },
             {
                 "name": "GRUNT",
@@ -283,29 +173,7 @@
                         "POST_BATTLE_CLOSER": "I stole from the wrong trainer!"
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "MALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "MALE"
             },
             {
                 "name": "GRUNT",
@@ -319,29 +187,7 @@
                         "POST_BATTLE_CLOSER": "I'm far to comfortable to battle at full strength."
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "MALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "MALE"
             },
 
             {
@@ -356,29 +202,7 @@
                         "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "FEMALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "FEMALE"
             },
             {
                 "name": "GRUNT",
@@ -392,29 +216,7 @@
                         "POST_BATTLE_CLOSER": "That was unexpected…"
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "FEMALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "FEMALE"
             },
             {
                 "name": "GRUNT",
@@ -428,29 +230,7 @@
                         "POST_BATTLE_CLOSER": "You could've just let me win."
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "FEMALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "FEMALE"
             },
             {
                 "name": "GRUNT",
@@ -464,29 +244,7 @@
                         "POST_BATTLE_CLOSER": "That was disappointing…"
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "FEMALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "FEMALE"
             },
             {
                 "name": "GRUNT",
@@ -500,29 +258,7 @@
                         "POST_BATTLE_CLOSER": "I bet if we added some colour the outfits would look way better!\\pWhat about some Rainbow colours instead of Red?\\pHmm\\pI'll have to have a good think."
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "FEMALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "FEMALE"
             },
             {
                 "name": "GRUNT",
@@ -536,29 +272,7 @@
                         "POST_BATTLE_CLOSER": "Another kid came through here not to long ago.\\pI thought this was suppose to be a Secret Hideout…"
                     }
                 ],
-                "team_generator":
-                {
-                    "preferredGender": "FEMALE",
-                    "subsets": 
-                    [
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "NORMAL" ]
-                        },
-                        {
-                            "max_samples": 1,
-                            "include_types": [ "POISON" ]
-                        },
-                        {
-                            "max_samples": 6,
-                            "include_types": [ "NORMAL", "POISON" ]
-                        }
-                    ],
-                    "weight_script":
-                    [
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
-                    ]
-                }
+                "preferred_mon_gender": "FEMALE"
             },
 
             {
@@ -573,9 +287,9 @@
                         "POST_BATTLE_CLOSER": "You can't stop me!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {
@@ -609,9 +323,9 @@
                         "POST_BATTLE_CLOSER": "Why have you failed me science!?"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {
@@ -645,9 +359,9 @@
                         "POST_BATTLE_CLOSER": "You could have just said no!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {
@@ -681,9 +395,9 @@
                         "POST_BATTLE_CLOSER": "I feel like I'm going backwards…"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {
@@ -717,9 +431,9 @@
                         "POST_BATTLE_CLOSER": "It's just water.\\pGosh you didn't even know that ku ku ku\\pKids these days ku ku ku"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {
@@ -753,9 +467,9 @@
                         "POST_BATTLE_CLOSER": "I guess you know all our secrets now…"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {

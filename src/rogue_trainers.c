@@ -1051,7 +1051,8 @@ static u32 GetActiveTeamFlag()
 {
     switch(gRogueRun.teamEncounterNum)
     {
-        case TEAM_NUM_ROCKET:
+        case TEAM_NUM_KANTO_ROCKET:
+        case TEAM_NUM_JOHTO_ROCKET:
             return CLASS_FLAG_TEAM_ROCKET;
 
         case TEAM_NUM_AQUA:

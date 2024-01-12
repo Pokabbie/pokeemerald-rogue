@@ -356,6 +356,8 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 		{
 			json generator = trainer["team_generator"];
 
+			exporter.trainerStructsBlock << c_TabSpacing << c_TabSpacing << ".preferredGender = " << trainer["preferred_mon_gender"].get <std::string>() << ",\n";
+
 			if (generator.contains("query_script_override"))
 				exporter.trainerStructsBlock << c_TabSpacing << c_TabSpacing << ".queryScriptOverride = " << "sTrainerQueryScriptOverride_" << trainerSuffix << ",\n";
 			else

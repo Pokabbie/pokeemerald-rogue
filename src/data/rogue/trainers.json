@@ -33,9 +33,9 @@
                 "trainer_class": "TRAINER_CLASS_COOLTRAINER",
                 "music_player": "kanto_boss",
                 "trainer_flags": [],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -64,9 +64,9 @@
                         "POST_BATTLE_TAUNT": "I hope that helped!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": [],
                     "query_script_override": 
                     [

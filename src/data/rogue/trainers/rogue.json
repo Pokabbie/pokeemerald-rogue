@@ -44,9 +44,9 @@
                         "POST_BATTLE_CLOSER": "…"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -74,9 +74,9 @@
                 "gfx_suffix": "KANTO_BROCK",
                 "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_GEODUDE",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -103,9 +103,9 @@
                 "gfx_suffix": "KANTO_MISTY",
                 "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_STARYU",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -128,9 +128,9 @@
                 "gfx_suffix": "KANTO_LTSURGE",
                 "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_VOLTORB",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -156,9 +156,9 @@
                 "gfx_suffix": "KANTO_ERIKA",
                 "class_flags": [ "BOSS_GYM_4" ],
                 "shiny_species": "SPECIES_ODDISH",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -184,9 +184,9 @@
                 "gfx_suffix": "KANTO_KOGA",
                 "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_GRIMER",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -212,9 +212,9 @@
                 "gfx_suffix": "KANTO_SABRINA",
                 "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_ABRA",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -244,9 +244,9 @@
                 "gfx_suffix": "KANTO_BLAINE",
                 "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_GROWLITHE",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -272,9 +272,9 @@
                 "gfx_suffix": "KANTO_GIOVANNI",
                 "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_RHYHORN",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -326,9 +326,9 @@
                         "POST_BATTLE_CLOSER": "Todo"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -448,9 +448,9 @@
                         "POST_BATTLE_CLOSER": "It's not going to get easier from here on out.\\pI'll be rooting for you!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -604,9 +604,9 @@
                         "POST_BATTLE_CLOSER": "This Pokémon League is always unpredictable.\\pGood luck!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -752,9 +752,9 @@
                 "class_flags": [ "BOSS_ANY_ELITE" ],
                 "weather": "MISTY_FOG",
                 "shiny_species": "SPECIES_RAVEN_ACE",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -838,9 +838,9 @@
                 "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_MEW",
                 "pokeball": "FINAL_BOSS_POKEBALL",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {

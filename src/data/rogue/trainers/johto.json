@@ -42,9 +42,9 @@
                         "POST_BATTLE_CLOSER": "…"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -78,9 +78,9 @@
                         "POST_BATTLE_CLOSER": "A defeat is a defeat.\\pI hope you go far, {PLAYER}."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -111,9 +111,9 @@
                         "POST_BATTLE_CLOSER": "You're an expert on Pokémon!\\pI hope you're next battles are just as fun!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -144,9 +144,9 @@
                         "POST_BATTLE_CLOSER": "You shouldn't be so serious!\\pYou're mean!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -178,9 +178,9 @@
                         "POST_BATTLE_CLOSER": "You seem to have something more than I have…\\pSo be it."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -216,9 +216,9 @@
                         "POST_BATTLE_CLOSER": "All right.\\nYou're worthy!\\pCarry that strength forward!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -250,9 +250,9 @@
                         "POST_BATTLE_CLOSER": "You show both skill and kindness.\\pI wish you the best of luck with your journey."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -283,9 +283,9 @@
                         "POST_BATTLE_CLOSER": "With your strong will, I know you will overcome all life’s obstacles.\\pKeep your head high as you move forward."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -322,9 +322,9 @@
                         "POST_BATTLE_CLOSER": "I might have lost, but you're still not as strong as me.\\pYou'd be wise to remember that, going forward."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -365,9 +365,9 @@
                         "POST_BATTLE_CLOSER": "Even though I was defeated, I won't change my course.\\pI advise you to remain cautious for your upcoming fights."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -402,9 +402,9 @@
                         "POST_BATTLE_CLOSER": "You have proven your worth!\\pLet's just see how long you can last…"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -439,9 +439,9 @@
                         "POST_BATTLE_CLOSER": "My job is done.\\pGo face your next challenge."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -485,9 +485,9 @@
                         "POST_BATTLE_CLOSER": "Strong Pokémon.\\pWeak Pokémon.\\pThat is only the selfish perception of people.\\pYou understand there's more to Pokémon than that.\\pDon't lose your way as you climb to the top."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -527,9 +527,9 @@
                         "POST_BATTLE_CLOSER": "I hate to admit it, but you have bested me.\\pI shall eagerly watch your path forward."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {

@@ -18,9 +18,9 @@
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_MUNCHLAX",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -55,9 +55,9 @@
                         "POST_BATTLE_CLOSER": "This is embarrassing…\\pBut that's the story. You were strong, and I was weak. That's all there is.\\pI hope you go far, {PLAYER}!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -97,9 +97,9 @@
                         "POST_BATTLE_CLOSER": "You're really tough!\\pWasn't it hard for you to raise your Pokémon to be so good?\\pAnyway, I won't keep you any longer.\\pGood luck, {PLAYER}!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -135,9 +135,9 @@
                         "POST_BATTLE_CLOSER": "OK you win!\\pThat was a tough loss. I learned a lot from it.\\pStay strong!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -173,9 +173,9 @@
                         "POST_BATTLE_CLOSER": "It seems the undertow pulled me under… But I had a great time battling with you!\\pI look forward to seeing how far you can go!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -207,9 +207,9 @@
                         "POST_BATTLE_CLOSER": "I am dumbfounded!\\pSo very, very strong! You, your Pokémon, so strong!\\pI'm sure you shall go far!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -252,9 +252,9 @@
                         "POST_BATTLE_CLOSER": "You were strong enough to take down my prized team of Pokémon.\\pHold your head up, as you go onward!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -294,9 +294,9 @@
                         "POST_BATTLE_CLOSER": "Wow! You're great! You've earned my respect! I think your focus and will bowled us over totally.\\pI hope your Adventure goes well!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -335,9 +335,9 @@
                         "POST_BATTLE_CLOSER": "I even felt thrilled during our match.\\pThat was a very good battle.\\pI'm sure you're gonna go far!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -390,9 +390,9 @@
                         "POST_BATTLE_CLOSER": "I hope you came to see how great Bug-type Pokémon can be.\\pAlthough, battling is a deep and complex affair…\\pMake sure to battle carefully, as you move forward."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -428,9 +428,9 @@
                         "POST_BATTLE_CLOSER": "Your Pokémon believed in you and did their best to earn you the win.\\pEven though I've lost, I find myself with this silly grin!\\pI wish you the best of luck, child."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -465,9 +465,9 @@
                         "POST_BATTLE_CLOSER": "I wasn't looking down on you, but I didn't think for a second that I'd lose!\\pThis is fantastic! You and your Pokémon are inspiring!\\pKeep up that energy in your upcoming battles!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -510,9 +510,9 @@
                         "POST_BATTLE_CLOSER": "I should warn you that there are far stronger battles that await you than I.\\pRemain cautious."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -556,9 +556,9 @@
                         "POST_BATTLE_CLOSER": "That was excellent. Truly, an outstanding battle.\\pYou gave the support your Pokémon needed to maximize their power, and you guided them with certainty to secure victory.\\pI'm certain that your battle prowess will take you far in your Adventure!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {

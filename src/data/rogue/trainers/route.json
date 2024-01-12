@@ -24,9 +24,9 @@
                         "POST_BATTLE_CLOSER": "My breeding technique still needs work I guess…"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": []
                 }
             },
@@ -43,9 +43,9 @@
                         "POST_BATTLE_CLOSER": "You've done a great job raising your Pokémon!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": []
                 }
             },
@@ -62,9 +62,9 @@
                         "POST_BATTLE_CLOSER": "It's rude to stare!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": []
                 }
             },
@@ -81,9 +81,9 @@
                         "POST_BATTLE_CLOSER": "Can you just not…"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": []
                 }
             },
@@ -101,9 +101,9 @@
                         "POST_BATTLE_CLOSER": "How did you train your Pokémon I wonder?\\pLet me read you mind to find out!\\p… … …\\pThat makes no sense…\\nYou're crazy."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {
@@ -126,9 +126,9 @@
                         "POST_BATTLE_CLOSER": "You're a party pooper!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": []
                 }
             },
@@ -145,9 +145,9 @@
                         "POST_BATTLE_CLOSER": "Can we play another game?"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": []
                 }
             },
@@ -164,9 +164,9 @@
                         "POST_BATTLE_CLOSER": "Yes you are strong.\\pNot at strong as I was in my prime."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": []
                 }
             },
@@ -183,9 +183,9 @@
                         "POST_BATTLE_CLOSER": "IT'S RUDE TO STARE!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": []
                 }
             },
@@ -202,9 +202,9 @@
                         "POST_BATTLE_CLOSER": "Back to training for me, I guess."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": []
                 }
             },
@@ -221,9 +221,9 @@
                         "POST_BATTLE_CLOSER": "Watch where you're going next time."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": []
                 }
             },
@@ -240,9 +240,9 @@
                         "POST_BATTLE_CLOSER": "Why don't they teach us useful techniques in school."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": []
                 }
             },
@@ -259,9 +259,9 @@
                         "POST_BATTLE_CLOSER": "Why do I keep losing?"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": []
                 }
             },
@@ -279,9 +279,9 @@
                         "POST_BATTLE_CLOSER": "Your Bag may be cool, but it's not even close to mine."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {
@@ -305,9 +305,9 @@
                         "POST_BATTLE_CLOSER": "Bird Pokémon are super cool, don't you think?!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {
@@ -330,9 +330,9 @@
                         "POST_BATTLE_CLOSER": "I'll be honest… I'm not entirely sure how I spy works.\\pDid I do it right?"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": []
                 }
             },
@@ -350,9 +350,9 @@
                         "POST_BATTLE_CLOSER": "You made me drop all the logs I picked up."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {
@@ -376,9 +376,9 @@
                         "POST_BATTLE_CLOSER": "Maybe we can battle again sometime?\\pFufufu."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": 
                     [
                         {
@@ -402,9 +402,9 @@
                         "POST_BATTLE_CLOSER": "My bad, I thought that was a precious sample."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": 
                     [
                         {
@@ -427,9 +427,9 @@
                         "POST_BATTLE_CLOSER": "Time to build it up from scratch again, I guess."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": []
                 }
             },
@@ -446,9 +446,9 @@
                         "POST_BATTLE_CLOSER": "I spent so much on these useless Pokémon too."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": []
                 }
             },
@@ -466,9 +466,9 @@
                         "POST_BATTLE_CLOSER": "I love Bug Pokémon with all my heart!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets": 
                     [
                         {
@@ -491,9 +491,9 @@
                         "POST_BATTLE_CLOSER": "You have done a remarkable job raising up your Pokémon!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets": []
                 }
             },
@@ -511,9 +511,9 @@
                         "POST_BATTLE_CLOSER": "I should've just taken my haul and gone home."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -537,9 +537,9 @@
                         "POST_BATTLE_CLOSER": "Why?\\pI've been grinding this out for like 6 months…"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {

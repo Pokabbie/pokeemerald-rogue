@@ -19,9 +19,9 @@
                 "class_flags": [],
                 "weather": "PSYCHIC_FOG",
                 "shiny_species": "SPECIES_RALTS",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -45,9 +45,9 @@
                 "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_MUDKIP",
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -72,9 +72,9 @@
                 "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_TORCHIC",
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -110,9 +110,9 @@
                         "POST_BATTLE_CLOSER": "It seems that I still have much more to learn…\\pI wish you the best of luck in your Adventure!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -146,9 +146,9 @@
                         "POST_BATTLE_CLOSER": "You swamped me!\\pI'm certain you're gonna go far!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -182,9 +182,9 @@
                         "POST_BATTLE_CLOSER": "You ended up giving me a thrill!\\pI hope your future battles are just as exciting!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -217,9 +217,9 @@
                         "POST_BATTLE_CLOSER": "I tried too hard to be someone I'm not.\\pI have to do things my natural way.\\pThanks for teaching me that."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -257,9 +257,9 @@
                         "POST_BATTLE_CLOSER": "I'm truely shocked.\\pYou definitely have the strength to go far."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -296,9 +296,9 @@
                         "POST_BATTLE_CLOSER": "I recognise your prowess.\\pGood luck with your Adventure."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -336,9 +336,9 @@
                         "POST_BATTLE_CLOSER": "You were more in sync with your Pokémon than I was.\\pKeep that up, as your Adventure will be harder from here on out!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -376,9 +376,9 @@
                         "POST_BATTLE_CLOSER": "From you, I sense the brilliant shine of skill that will overcome all.\\pGood luck with your journey!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -416,9 +416,9 @@
                         "POST_BATTLE_CLOSER": "You've got what it takes to go far.\\pGood luck!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -456,9 +456,9 @@
                         "POST_BATTLE_CLOSER": "There's a definite bond between you and your Pokémon, too.\\pCarry that bond forward, {PLAYER}."
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -500,9 +500,9 @@
                         "POST_BATTLE_CLOSER": "Finally!\\pYou have posed a good challenge for my Pokémon and I.\\pCarry that strength onward!"
                     }
                 ],
+                "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
-                    "preferredGender": "FEMALE",
                     "subsets":
                     [
                         {
@@ -541,9 +541,9 @@
                         "POST_BATTLE_CLOSER": "You deserve every credit for coming this far as a TRAINER of Pokémon.\\pI look forward to seeing how your bond with your Pokémon blossoms, going forward."
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -599,9 +599,9 @@
                         "POST_BATTLE_CLOSER": "Kudos to you, {PLAYER}!\\pYou share a bond with your Pokémon that will surely only assist you in your future battles!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
@@ -633,9 +633,9 @@
                         "POST_BATTLE_CLOSER": "{PLAYER}, you are truly an excellent TRAINER\\pYou share a bond with your Pokémon that will surely only assist you in your future battles!"
                     }
                 ],
+                "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "preferredGender": "MALE",
                     "subsets":
                     [
                         {
