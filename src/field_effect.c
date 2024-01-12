@@ -1260,7 +1260,7 @@ static void PokeballGlowEffect_TryPlaySe(struct Sprite *sprite)
         sprite->data[3] = 0;
         if (sprite->sPlayHealSe)
         {
-            PlayFanfare(MUS_DP_HEAL);
+            PlayFanfare(MUS_HEAL);
         }
     }
 }

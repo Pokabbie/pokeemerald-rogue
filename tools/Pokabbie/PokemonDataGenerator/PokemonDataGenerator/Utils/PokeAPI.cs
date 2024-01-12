@@ -514,6 +514,9 @@ namespace PokemonDataGenerator.Utils
 					{
 						foreach (var speciesSetGroupKvp in upperGroupingKvp.Value.Value<JObject>())
 						{
+							if (IsSpeciesIgnored(speciesSetGroupKvp.Key))
+								continue;
+
 							// Verify that the mons we're examining are correctly handled or have an equivilant species in game
 							VerifyCompetitiveSpecies(speciesSetGroupKvp.Key);
 
@@ -679,6 +682,25 @@ namespace PokemonDataGenerator.Utils
 
 
 			return "SPECIES_" + GameDataHelpers.FormatKeyword(apiName);
+		}
+
+		private static bool IsSpeciesIgnored(string apiName)
+		{
+			string speciesName = CompetitiveApiNameToSpeciesName(apiName);
+
+			switch(speciesName)
+			{
+				// Currently not implemented species
+				case "SPECIES_ARCHALUDON":
+				case "SPECIES_HYDRAPPLE":
+				case "SPECIES_GOUGING_FIRE":
+				case "SPECIES_RAGING_BOLT":
+				case "SPECIES_IRON_BOULDER":
+				case "SPECIES_IRON_CROWN":
+					return true;
+			}
+
+			return false;
 		}
 	}
 }

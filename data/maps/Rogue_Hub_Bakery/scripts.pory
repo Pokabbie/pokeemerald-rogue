@@ -27,7 +27,7 @@ script RogueHub_Bakery_SpeakChef_ApplyTreat
         msgbox(format("Coming right up!"))
 
         fadescreen(FADE_TO_BLACK)
-        playfanfare(MUS_DP_HEAL)
+        playfanfare(MUS_HEAL)
         waitfanfare
         fadescreen(FADE_FROM_BLACK)
 

@@ -381,6 +381,12 @@ u16 Rogue_ModifyPlaySE(u16 songNum)
 
 u16 Rogue_ModifyPlayFanfare(u16 songNum)
 {
+    switch (songNum)
+    {
+    case MUS_HEAL:
+        return MUS_DP_HEAL;
+    }
+
     return songNum;
 }
 
@@ -700,6 +706,10 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
             case ITEM_MASTER_BALL:
             case ITEM_ESCAPE_ROPE:
                 amount = 1;
+                break;
+
+            case ITEM_RARE_CANDY:
+                amount = 5;
                 break;
 
 #ifdef ROGUE_EXPANSION
@@ -4007,12 +4017,23 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                         // Default to a greyed out pokeball
                         objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_POKE_BALL;
 
-                        if(Rogue_IsEvolutionItem(itemId))
+                        if(itemId == ITEM_RARE_CANDY)
+                        {
+                            objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_RARE_CANDY;
+                        }
+#ifdef ROGUE_EXPANSION
+                        else if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
+                        {
+                            objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_MINT;
+                        }
+#endif
+                        else if(Rogue_IsEvolutionItem(itemId))
                         {
                             objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_EVO_STONE;
                         }
                         else
                         {
+                            
                             switch (ItemId_GetPocket(itemId))
                             {
                             case POCKET_HELD_ITEMS:
@@ -5032,10 +5053,18 @@ void Rogue_ApplyMonCompetitiveSet(struct Pokemon* mon, u8 level, struct RoguePok
 
     if(!rules->skipHiddenPowerType)
     {
-        if(preset->hiddenPowerType != TYPE_NONE)
+        u8 hiddenPowerType = preset->hiddenPowerType;
+
+        if(hiddenPowerType != TYPE_NONE)
         {
             u16 value;
             bool8 ivStatsOdd[6];
+
+            if(hiddenPowerType == TYPE_MYSTERY)
+            {
+                // Source data didn't provide type so just default to primary type
+                hiddenPowerType = RoguePokedex_GetSpeciesType(species, 0);
+            }
 
             #define oddHP ivStatsOdd[0]
             #define oddAtk ivStatsOdd[1]
@@ -5051,7 +5080,7 @@ void Rogue_ApplyMonCompetitiveSet(struct Pokemon* mon, u8 level, struct RoguePok
             oddSpAtk = TRUE;
             oddSpDef = TRUE;
 
-            switch(preset->hiddenPowerType)
+            switch(hiddenPowerType)
             {
                 case TYPE_FIGHTING:
                     oddDef = FALSE;
@@ -6764,6 +6793,12 @@ static void RandomiseItemContent(u8 difficultyLevel)
             {
                 RogueItemQuery_IsHeldItem(QUERY_FUNC_EXCLUDE);
             }
+        }
+
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
+        {
+            // Allow rare candies in hideouts
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_RARE_CANDY);
         }
 
         RogueWeightQuery_Begin();

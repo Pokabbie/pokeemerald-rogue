@@ -64,15 +64,15 @@ namespace PokemonDataGenerator.Pokedex
 
 						// Priority order list of level up moves
 						s_ExSettings.levelUpPreference.Add("rogue");
+						s_ExSettings.levelUpPreference.Add("scarlet-violet");
 						s_ExSettings.levelUpPreference.Add("sword-shield");
 						s_ExSettings.levelUpPreference.Add("ultra-sun-ultra-moon");
-						s_ExSettings.levelUpPreference.Add("scarlet-violet");
 
 						// Orderless versions we will base tutor moves off
-						s_ExSettings.allowedTutorMoves.Add("rogue", new[] { "rogue", "sword-shield", "ultra-sun-ultra-moon" });
+						s_ExSettings.allowedTutorMoves.Add("rogue", new[] { "rogue", "scarlet-violet", "sword-shield", "ultra-sun-ultra-moon" });
+						s_ExSettings.allowedTutorMoves.Add("scarlet-violet", new[] { "rogue", "scarlet-violet" });
 						s_ExSettings.allowedTutorMoves.Add("sword-shield", new[] { "rogue", "sword-shield" });
 						s_ExSettings.allowedTutorMoves.Add("ultra-sun-ultra-moon", new[] { "rogue", "ultra-sun-ultra-moon" });
-						s_ExSettings.allowedTutorMoves.Add("scarlet-violet", new[] { "rogue", "scarlet-violet" });
 
 						// Just needed for cosplay pikachu
 						s_ExSettings.levelUpPreference.Add("omega-ruby-alpha-sapphire");
@@ -82,12 +82,12 @@ namespace PokemonDataGenerator.Pokedex
 				}
 			}
 
-			public void RemoveInvalidMoves(List<MoveInfo> moves)
+			public void RemoveInvalidMoves(PokemonProfile source)
 			{
 				// Find out which game we're going to base the level up moveset off
 				int levelUpIndex = int.MaxValue;
 
-				foreach(var move in moves)
+				foreach(var move in source.Moves)
 				{
 					int versionIndex = levelUpPreference.IndexOf(move.versionName);
 					if(versionIndex != -1 && versionIndex < levelUpIndex)
@@ -105,7 +105,7 @@ namespace PokemonDataGenerator.Pokedex
 
 				string moveGroupName = levelUpPreference[levelUpIndex];
 
-				moves.RemoveAll((move) =>
+				source.Moves.RemoveAll((move) =>
 				{
 					if (move.originMethod == MoveInfo.LearnMethod.LevelUp)
 					{
@@ -122,7 +122,7 @@ namespace PokemonDataGenerator.Pokedex
 		}
 
 
-		private struct MoveInfo
+		private class MoveInfo
 		{
 			public enum LearnMethod
 			{
@@ -180,7 +180,7 @@ namespace PokemonDataGenerator.Pokedex
 				//Moves.RemoveAll((m) => PokemonMoveHelpers.IsMoveUnsupported(m.moveName));
 
 				var movesetPreferences = (GameDataHelpers.IsVanillaVersion ? MovesetSettings.VanillaSettings : MovesetSettings.ExSettings);
-				movesetPreferences.RemoveInvalidMoves(Moves);
+				movesetPreferences.RemoveInvalidMoves(this);
 
 				// Simplify the definitions now and then we'll remove any duplicates
 				List<MoveInfo> newMoves = new List<MoveInfo>();
@@ -202,7 +202,7 @@ namespace PokemonDataGenerator.Pokedex
 						var existingLevelUpMove = newMoves.Where(m => m.moveName == newMove.moveName && m.originMethod == MoveInfo.LearnMethod.LevelUp).FirstOrDefault();
 
 						// If we already have the same level up move only take it at the lowest learn level
-						if (existingLevelUpMove.moveName == newMove.moveName)
+						if (existingLevelUpMove != null)
 						{
 							existingLevelUpMove.learnLevel = Math.Min(existingLevelUpMove.learnLevel, newMove.learnLevel);
 							continue;
@@ -213,7 +213,7 @@ namespace PokemonDataGenerator.Pokedex
 						newMove.originMethod = MoveInfo.LearnMethod.Tutor;
 
 						var anyLevelUpMove = Moves.Where(m => m.moveName == newMove.moveName && m.originMethod == MoveInfo.LearnMethod.LevelUp).FirstOrDefault();
-						if (anyLevelUpMove.moveName == newMove.moveName)
+						if (anyLevelUpMove != null)
 						{
 							// If we learn this as a level up move, don't include an entry as a tutor move
 							continue;
@@ -253,7 +253,78 @@ namespace PokemonDataGenerator.Pokedex
 					}
 				}
 
+				// Now we have the complete moves so perform any post-processing
+				{
+					Moves.RemoveAll((move) =>
+					{
+						return IsBannedMove(move.moveName);
+					});
+
+					if(!GameDataHelpers.IsVanillaVersion)
+					{
+						// For now teach hidden power over tera blast
+						var hiddenPower = Moves.Where((move) => move.moveName == "MOVE_HIDDEN_POWER").FirstOrDefault();
+						var teraBlast = Moves.Where((move) => move.moveName == "MOVE_TERA_BLAST").FirstOrDefault();
+						
+						if(teraBlast != null)
+						{
+							if(hiddenPower == null)
+								teraBlast.moveName = "MOVE_HIDDEN_POWER";
+							else
+								Moves.Remove(teraBlast);
+						}
+
+						// Replace all instances of hail with snowscape
+						foreach(var hailMove in Moves.Where((move) => move.moveName == "MOVE_HAIL"))
+						{
+							hailMove.moveName = "MOVE_SNOWSCAPE";
+						}
+
+						if (Species == "SPECIES_RAYQUAZA")
+						{
+							// Make gragon ascent a late level learn
+							var dragonAscent = Moves.Where((move) => move.moveName == "MOVE_DRAGON_ASCENT").First();
+							dragonAscent.learnLevel = 90;
+						}
+					}
+
+					// Verify the move is recognised in game here
+					foreach (var move in Moves)
+					{
+						if (!GameDataHelpers.MoveDefines.ContainsKey(move.moveName))
+							throw new InvalidDataException();
+					}
+				}
+
+				// Now sort them before we export
 				Moves = Moves.OrderBy((m) => m.originMethod == MoveInfo.LearnMethod.LevelUp ? m.learnLevel.ToString("000") : "999" + m.moveName).ToList();
+
+
+				// Now apply same move rename/removal to competitive sets
+				foreach(var compSet in CompetitiveSets)
+				{
+					for(int m = 0; m < compSet.Moves.Count; ++m)
+					{
+						string moveName = compSet.Moves[m];
+						if (IsBannedMove(moveName))
+						{
+							compSet.Moves.RemoveAt(m--);
+						}
+						else
+						{
+							switch (moveName)
+							{
+								case "MOVE_TERA_BLAST":
+									compSet.Moves[m] = "MOVE_HIDDEN_POWER";
+									break;
+								case "MOVE_HAIL":
+									compSet.Moves[m] = "MOVE_SNOWSCAPE";
+									break;
+							}
+						}
+
+					}
+				}
 			}
 
 			public HashSet<string> GetMoveSourceVerions()
@@ -397,16 +468,35 @@ namespace PokemonDataGenerator.Pokedex
 						if (!GameDataHelpers.TypesDefines.ContainsKey(output.HiddenPower))
 							throw new InvalidDataException();
 					}
+					// As we are replacing tera blast with hidden power for now, pull out the hidden power here
+					else if (moveName.StartsWith("Tera Blast", StringComparison.CurrentCultureIgnoreCase))
+					{
+						moveName = "Hidden Power";
+
+						if (json.ContainsKey("teraType"))
+						{
+							output.HiddenPower = json["teraType"].Value<string>().Trim();
+							output.HiddenPower = "TYPE_" + GameDataHelpers.FormatKeyword(output.HiddenPower);
+
+							if(output.HiddenPower == "TYPE_STELLAR")
+							{
+								// Not provided by data so expect runtime to just chose the primary type
+								output.HiddenPower = "TYPE_MYSTERY";
+							}
+						}
+						else
+						{
+							// Not provided by data so expect runtime to just chose the primary type
+							output.HiddenPower = "TYPE_MYSTERY";
+						}
+
+						if (!GameDataHelpers.TypesDefines.ContainsKey(output.HiddenPower))
+							throw new InvalidDataException();
+					}
 
 					moveName = FormatMoveName(moveName, false);
 
-					if (!IsBannedMove(moveName))
-					{
-						output.Moves.Add(moveName);
-
-						if (!GameDataHelpers.MoveDefines.ContainsKey(moveName))
-							throw new InvalidDataException();
-					}
+					output.Moves.Add(moveName);
 				}
 
 				return output;
@@ -491,40 +581,31 @@ namespace PokemonDataGenerator.Pokedex
 
 		private static bool IsBannedMove(string moveName)
 		{
-			//switch(moveName)
-			//{
-			//	case "MOVE_TERA_BLAST":
-			//	case "MOVE_PSYSHIELD_BASH":
-			//	case "MOVE_TRAILBLAZE":
-			//	case "MOVE_STONE_AXE":
-			//	case "MOVE_POUNCE":
-			//	case "MOVE_HEADLONG_RUSH":
-			//	case "MOVE_WAVE_CRASH":
-			//	case "MOVE_LAST_RESPECTS":
-			//	case "MOVE_SNOWSCAPE":
-			//	case "MOVE_CHILLING_WATER":
-			//	case "MOVE_DIRE_CLAW":
-			//	case "MOVE_BARB_BARRAGE":
-			//	case "MOVE_SPRINGTIDE_STORM":
-			//	case "MOVE_RAGING_FURY":
-			//	case "MOVE_CHLOROBLAST":
-			//	case "MOVE_INFERNAL_PARADE":
-			//	case "MOVE_CEASELESS_EDGE":
-			//	case "MOVE_VICTORY_DANCE":
-			//	case "MOVE_AXE_KICK":
-			//	case "MOVE_ICE_SPINNER":
-			//	case "MOVE_BITTER_MALICE":
-			//	case "MOVE_COMEUPPANCE":
-			//	case "MOVE_ESPER_WING":
-			//	case "MOVE_SHELTER":
-			//	case "MOVE_MOUNTAIN_GALE":
-			//	case "MOVE_TRIPLE_ARROWS":
-			//
-			//		// Sanity check as, when these moves are added they need to be removed from the banned list
-			//		if (GameDataHelpers.MoveDefines.ContainsKey(moveName))
-			//			throw new InvalidDataException();
-			//		return true;
-			//}
+			switch(moveName)
+			{
+				// Intentionally banned moves
+				case "MOVE_REVIVAL_BLESSING":
+					return true;
+
+				// Moves that aren't currently implemented fully
+				//case "MOVE_TERA_BLAST": <- is replaced by hidden power
+				case "MOVE_LAST_RESPECTS":
+				case "MOVE_ORDER_UP":
+				case "MOVE_SPICY_EXTRACT":
+				case "MOVE_DOODLE":
+				case "MOVE_FILLET_AWAY":
+				case "MOVE_SHED_TAIL":
+				case "MOVE_TIDY_UP":
+				case "MOVE_ELECTRO_SHOT":
+				case "MOVE_TERA_STARSTORM":
+				case "MOVE_FICKLE_BEAM":
+				case "MOVE_BURNING_BULWARK":
+				case "MOVE_DRAGON_CHEER":
+				case "MOVE_ALLURING_VOICE":
+				case "MOVE_PSYCHIC_NOISE":
+				case "MOVE_UPPER_HAND":
+					return true;
+			}
 
 			return false;
 		}
