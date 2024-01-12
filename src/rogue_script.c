@@ -848,6 +848,15 @@ void Rogue_PlayRivalTrainerEncounterBGM(void)
     //playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
 }
 
+extern const u8 gPlaceholder_Gym_PreBattleOpenning[];
+
+void Rogue_ShouldSkipTrainerOpenningMsg(void)
+{
+    // Skip openning text if the message is empty
+    const u8* str = Rogue_ModifyFieldMessage(gPlaceholder_Gym_PreBattleOpenning);
+    gSpecialVar_Result = (str[0] == 0xFF);
+}
+
 void Rogue_EnterPartnerMonCapacity()
 {
     gSpecialVar_Result = Rogue_GetStartingMonCapacity();
