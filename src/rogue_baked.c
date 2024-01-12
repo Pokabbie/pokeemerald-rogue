@@ -1103,6 +1103,12 @@ u16 Rogue_GetPrice(u16 itemId)
         price = HELD_ITEM_HIGH_PRICE;
     }
 
+    if(itemId >= ITEM_CORNERSTONE_MASK && itemId <= ITEM_HEARTHFLAME_MASK)
+    {
+        applyDefaultHubIncrease = TRUE;
+        price = HELD_ITEM_HIGH_PRICE;
+    }
+
 #endif
 
     // Individual items
@@ -1367,6 +1373,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->pocket = POCKET_STONES;
     }
 
+    if(itemId >= ITEM_CORNERSTONE_MASK && itemId <= ITEM_HEARTHFLAME_MASK)
+    {
+        outItem->pocket = POCKET_STONES;
+    }
+
 #endif
 
     // Individual items
@@ -1414,12 +1425,6 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
         case ITEM_RUSTED_SWORD:
         case ITEM_RUSTED_SHIELD:
-            outItem->pocket = POCKET_STONES;
-            break;
-
-        case ITEM_CORNERSTONE_MASK:
-        case ITEM_WELLSPRING_MASK:
-        case ITEM_HEARTHFLAME_MASK:
             outItem->pocket = POCKET_STONES;
             break;
 #endif
