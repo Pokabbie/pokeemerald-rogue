@@ -146,7 +146,7 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 
 	// Ensure trainerGroup is safe to use as a codeToken
 	strutil::replace_all(trainerGroup, " ", "_");
-	strutil::replace_all(trainerGroup, "//", "_");
+	strutil::replace_all(trainerGroup, "/", "_");
 	strutil::replace_all(trainerGroup, "\\", "_");
 	strutil::replace_all(trainerGroup, "(", "_");
 	strutil::replace_all(trainerGroup, ")", "_");
