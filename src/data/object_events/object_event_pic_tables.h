@@ -4678,6 +4678,14 @@ static const struct SpriteFrameImage sPicTable_ItemEvoStone[] = {
     obj_frame_tiles(gObjectEventPic_ItemEvoStone),
 };
 
+static const struct SpriteFrameImage sPicTable_ItemRareCandy[] = {
+    obj_frame_tiles(gObjectEventPic_ItemRareCandy),
+};
+
+static const struct SpriteFrameImage sPicTable_ItemMint[] = {
+    obj_frame_tiles(gObjectEventPic_ItemMint),
+};
+
 static const struct SpriteFrameImage sPicTable_ItemMegaStone[] = {
     obj_frame_tiles(gObjectEventPic_ItemMegaStone),
 };

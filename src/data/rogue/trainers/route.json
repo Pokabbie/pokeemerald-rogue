@@ -461,7 +461,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "Me and my precious Bug Pokémon are on our way to fight a GYM!",
+                        "PRE_BATTLE_TAUNT": "Me and my precious Bug Pokémon are on our way to fight a Gym!",
                         "POST_BATTLE_TAUNT": "I guess we're not quite ready yet.",
                         "POST_BATTLE_CLOSER": "I love Bug Pokémon with all my heart!"
                     }

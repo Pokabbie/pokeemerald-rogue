@@ -708,6 +708,10 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
                 amount = 1;
                 break;
 
+            case ITEM_RARE_CANDY:
+                amount = 5;
+                break;
+
 #ifdef ROGUE_EXPANSION
             case ITEM_ABILITY_CAPSULE:
             case ITEM_ABILITY_PATCH:
@@ -4013,12 +4017,23 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                         // Default to a greyed out pokeball
                         objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_POKE_BALL;
 
-                        if(Rogue_IsEvolutionItem(itemId))
+                        if(itemId == ITEM_RARE_CANDY)
+                        {
+                            objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_RARE_CANDY;
+                        }
+#ifdef ROGUE_EXPANSION
+                        else if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
+                        {
+                            objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_MINT;
+                        }
+#endif
+                        else if(Rogue_IsEvolutionItem(itemId))
                         {
                             objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_EVO_STONE;
                         }
                         else
                         {
+                            
                             switch (ItemId_GetPocket(itemId))
                             {
                             case POCKET_HELD_ITEMS:
@@ -6770,6 +6785,12 @@ static void RandomiseItemContent(u8 difficultyLevel)
             {
                 RogueItemQuery_IsHeldItem(QUERY_FUNC_EXCLUDE);
             }
+        }
+
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
+        {
+            // Allow rare candies in hideouts
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_RARE_CANDY);
         }
 
         RogueWeightQuery_Begin();

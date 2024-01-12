@@ -441,6 +441,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemPokeBall;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemMedicine;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemHoldItem;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemEvoStone;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemRareCandy;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemMint;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemMegaStone;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemZCrystal;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GoldGrass;
@@ -917,9 +919,11 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ITEM_MEDICINE] =            &gObjectEventGraphicsInfo_ItemMedicine,
     [OBJ_EVENT_GFX_ITEM_HOLD_ITEM] =           &gObjectEventGraphicsInfo_ItemHoldItem,
     [OBJ_EVENT_GFX_ITEM_EVO_STONE] =           &gObjectEventGraphicsInfo_ItemEvoStone,
+    [OBJ_EVENT_GFX_ITEM_RARE_CANDY] =          &gObjectEventGraphicsInfo_ItemRareCandy,
+    [OBJ_EVENT_GFX_ITEM_MINT] =                &gObjectEventGraphicsInfo_ItemMint,
     [OBJ_EVENT_GFX_ITEM_MEGA_STONE] =          &gObjectEventGraphicsInfo_ItemMegaStone,
     [OBJ_EVENT_GFX_ITEM_Z_CRYSTAL] =           &gObjectEventGraphicsInfo_ItemZCrystal,
-    [OBJ_EVENT_GFX_GOLD_GRASS] =           &gObjectEventGraphicsInfo_GoldGrass,
+    [OBJ_EVENT_GFX_GOLD_GRASS] =               &gObjectEventGraphicsInfo_GoldGrass,
 
     [OBJ_EVENT_GFX_BRENDAN_ALT] =              &gObjectEventGraphicsInfo_BrendanAlt,
     [OBJ_EVENT_GFX_MAY_ALT] =                  &gObjectEventGraphicsInfo_MayAlt,
