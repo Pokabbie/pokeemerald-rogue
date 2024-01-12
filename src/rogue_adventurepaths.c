@@ -1362,8 +1362,26 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
             return OBJ_EVENT_GFX_TRICK_HOUSE_STATUE;
 
         case ADVPATH_ROOM_TEAM_HIDEOUT:
-            // TODO - (Also random grunt variant?)
-            return OBJ_EVENT_GFX_ROCKET_M;
+        {
+            u8 gender = (room->coords.x + room->coords.y) % 2;
+
+            switch (gRogueRun.teamEncounterNum)
+            {
+            case TEAM_NUM_KANTO_ROCKET:
+            case TEAM_NUM_JOHTO_ROCKET:
+                return gender ? OBJ_EVENT_GFX_ROCKET_M : OBJ_EVENT_GFX_ROCKET_F;
+
+            case TEAM_NUM_AQUA:
+                return gender ? OBJ_EVENT_GFX_AQUA_MEMBER_M : OBJ_EVENT_GFX_AQUA_MEMBER_F;
+
+            case TEAM_NUM_MAGMA:
+                return gender ? OBJ_EVENT_GFX_MAGMA_MEMBER_M : OBJ_EVENT_GFX_MAGMA_MEMBER_F;
+
+            default:
+                AGB_ASSERT(FALSE);
+                return OBJ_EVENT_GFX_ROCKET_M;
+            }
+        }
 
         case ADVPATH_ROOM_MINIBOSS:
             return OBJ_EVENT_GFX_NOLAND;

@@ -1,0 +1,669 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "trainer_flags": [ "REGION_HOENN", "CLASS_BOSS" ],
+        "trainer_class": "TRAINER_CLASS_LEADER",
+        "music_player": "hoenn_boss"
+    },
+    "trainers":
+    {
+        "rivals":
+        [
+            {
+                "name": "WALLY",
+                "type_assignment": "NONE",
+                "gfx_suffix": "WALLY",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
+                "class_flags": [],
+                "weather": "PSYCHIC_FOG",
+                "shiny_species": "SPECIES_RALTS",
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_RALTS", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BRENDAN",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_LINK_RS_BRENDAN",
+                "trainer_pic": "TRAINER_PIC_RS_BRENDAN",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
+                "class_flags": [],
+                "shiny_species": "SPECIES_MUDKIP",
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MUDKIP", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TREECKO", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "MAY",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_LINK_RS_MAY",
+                "trainer_pic": "TRAINER_PIC_RS_MAY",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
+                "class_flags": [],
+                "shiny_species": "SPECIES_TORCHIC",
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TORCHIC", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "gyms":
+        [
+            {
+                "name": "ROXANNE",
+                "type_assignment": "ROCK",
+                "object_event": "OBJ_EVENT_GFX_ROXANNE",
+                "trainer_pic": "TRAINER_PIC_LEADER_ROXANNE",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_GYM_1" ],
+                "shiny_species": "SPECIES_NOSEPASS",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I became a GYM LEADER so that I might apply what I learned at the TRAINER SCHOOL.",
+                        "PRE_BATTLE_TAUNT": "Would you kindly demonstrate how you battle?",
+                        "POST_BATTLE_TAUNT": "So… I lost…",
+                        "POST_BATTLE_CLOSER": "It seems that I still have much more to learn…\\pI wish you the best of luck in your Adventure!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ROCK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NOSEPASS", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BRAWLY",
+                "type_assignment": "FIGHTING",
+                "object_event": "OBJ_EVENT_GFX_BRAWLY",
+                "trainer_pic": "TRAINER_PIC_LEADER_BRAWLY",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_GYM_2" ],
+                "shiny_species": "SPECIES_MEDITITE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: So you wanted to challenge me?",
+                        "PRE_BATTLE_TAUNT": "Let me see what you're made of!",
+                        "POST_BATTLE_TAUNT": "Whoah, wow! You made a much bigger splash than I expected!",
+                        "POST_BATTLE_CLOSER": "You swamped me!\\pI'm certain you're gonna go far!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIGHTING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MEDITITE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "WATTSON",
+                "type_assignment": "ELECTRIC",
+                "object_event": "OBJ_EVENT_GFX_WATTSON",
+                "trainer_pic": "TRAINER_PIC_LEADER_WATTSON",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_GYM_3" ],
+                "shiny_species": "SPECIES_ELECTRIKE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You want to battle?\\pWahahahah!",
+                        "PRE_BATTLE_TAUNT": "I shall electrify you!",
+                        "POST_BATTLE_TAUNT": "Wahahahah!\\nI lost!",
+                        "POST_BATTLE_CLOSER": "You ended up giving me a thrill!\\pI hope your future battles are just as exciting!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ELECTRIKE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "FLANNERY",
+                "type_assignment": "FIRE",
+                "object_event": "OBJ_EVENT_GFX_FLANNERY",
+                "trainer_pic": "TRAINER_PIC_LEADER_FLANNERY",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_GYM_4" ],
+                "shiny_species": "SPECIES_NUMEL",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Puny TRAINER, how good to see you've made it here!\\pI shall, uh…",
+                        "PRE_BATTLE_TAUNT": "demonstrate the hot moves we have honed on this land!",
+                        "POST_BATTLE_TAUNT": "I guess I was trying too hard…",
+                        "POST_BATTLE_CLOSER": "I tried too hard to be someone I'm not.\\pI have to do things my natural way.\\pThanks for teaching me that."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIRE" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GROUND" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NUMEL", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "NORMAN",
+                "type_assignment": "NORMAL",
+                "object_event": "OBJ_EVENT_GFX_NORMAN",
+                "trainer_pic": "TRAINER_PIC_LEADER_NORMAN",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_GYM_5" ],
+                "shiny_species": "SPECIES_SLAKOTH",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I will do everything in my power to win.",
+                        "PRE_BATTLE_TAUNT": "You'd better give it your best shot, too!",
+                        "POST_BATTLE_TAUNT": "I… I can't…\\nI can't believe it.",
+                        "POST_BATTLE_CLOSER": "I'm truely shocked.\\pYou definitely have the strength to go far."
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "FLYING" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SLAKOTH", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "WINONA",
+                "type_assignment": "FLYING",
+                "object_event": "OBJ_EVENT_GFX_WINONA",
+                "trainer_pic": "TRAINER_PIC_LEADER_WINONA",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_GYM_6" ],
+                "shiny_species": "SPECIES_SWABLU",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I have become one with BIRD Pokémon and have soared the skies…",
+                        "PRE_BATTLE_TAUNT": "Witness the elegant choreography of BIRD Pokémon and I!",
+                        "POST_BATTLE_TAUNT": "Never before have I seen a TRAINER command Pokémon with more grace.",
+                        "POST_BATTLE_CLOSER": "I recognise your prowess.\\pGood luck with your Adventure."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FLYING" ],
+                            "exclude_types": [ "NORMAL" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FLYING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SWABLU", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "LIZA",
+                "type_assignment": "PSYCHIC",
+                "object_event": "OBJ_EVENT_GFX_LIZA",
+                "trainer_pic": "TRAINER_PIC_LEADER_TATE_AND_LIZA",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_GYM_7" ],
+                "shiny_species": "SPECIES_LUNATONE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My mind is in sync with my Pokémon!",
+                        "PRE_BATTLE_TAUNT": "Can you and your Pokémon beat us?",
+                        "POST_BATTLE_TAUNT": "What?!\\nMy Pokémon…",
+                        "POST_BATTLE_CLOSER": "You were more in sync with your Pokémon than I was.\\pKeep that up, as your Adventure will be harder from here on out!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "PSYCHIC" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ROCK" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_LUNATONE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "JUAN",
+                "type_assignment": "WATER",
+                "object_event": "OBJ_EVENT_GFX_JUAN",
+                "trainer_pic": "TRAINER_PIC_LEADER_JUAN",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_GYM_8" ],
+                "shiny_species": "SPECIES_CORPHISH",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Please, you shall bear witness to our artistry.",
+                        "PRE_BATTLE_TAUNT": "A grand illusion of water sculpted by Pokémon and myself!",
+                        "POST_BATTLE_TAUNT": "Ahahaha, excellent!",
+                        "POST_BATTLE_CLOSER": "From you, I sense the brilliant shine of skill that will overcome all.\\pGood luck with your journey!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CORPHISH", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "elite":
+        [
+            {
+                "name": "SIDNEY",
+                "type_assignment": "DARK",
+                "object_event": "OBJ_EVENT_GFX_SIDNEY",
+                "trainer_pic": "TRAINER_PIC_ELITE_FOUR_SIDNEY",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_ELITE_1" ],
+                "shiny_species": "SPECIES_ABSOL",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I like the look you're giving me. I guess you'll give me a good match.",
+                        "PRE_BATTLE_TAUNT": "All right! You and me, let's enjoy a battle for the ages!",
+                        "POST_BATTLE_TAUNT": "Well, how do you like that? I lost!",
+                        "POST_BATTLE_CLOSER": "You've got what it takes to go far.\\pGood luck!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DARK" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ABSOL", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "PHOEBE",
+                "type_assignment": "GHOST",
+                "object_event": "OBJ_EVENT_GFX_PHOEBE",
+                "trainer_pic": "TRAINER_PIC_ELITE_FOUR_PHOEBE",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_ELITE_2" ],
+                "shiny_species": "SPECIES_DUSKULL",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: While I trained, I gained the ability to commune with GHOST-type Pokémon.",
+                        "PRE_BATTLE_TAUNT": "So, come on, just try and see if you can even inflict damage on my Pokémon!",
+                        "POST_BATTLE_TAUNT": "Oh, darn.\\nI've gone and lost.",
+                        "POST_BATTLE_CLOSER": "There's a definite bond between you and your Pokémon, too.\\pCarry that bond forward, {PLAYER}."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GHOST" ],
+                            "exclude_types": [ "POISON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GHOST" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "BUG" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_DUSKULL", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "IS_MONO_TYPE", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GLACIA",
+                "type_assignment": "ICE",
+                "object_event": "OBJ_EVENT_GFX_GLACIA",
+                "trainer_pic": "TRAINER_PIC_ELITE_FOUR_GLACIA",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_ELITE_3" ],
+                "shiny_species": "SPECIES_SNORUNT",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: All I have seen are challenges by weak TRAINERS and their Pokémon.",
+                        "PRE_BATTLE_TAUNT": "I wonder.\\nHow will you do?",
+                        "POST_BATTLE_TAUNT": "You and your Pokémon…\\nHow hot your spirits burn!",
+                        "POST_BATTLE_CLOSER": "Finally!\\pYou have posed a good challenge for my Pokémon and I.\\pCarry that strength onward!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ICE" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "HAS_TYPE", "TYPE_WATER", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SNORUNT", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "DRAKE",
+                "type_assignment": "DRAGON",
+                "object_event": "OBJ_EVENT_GFX_DRAKE",
+                "trainer_pic": "TRAINER_PIC_ELITE_FOUR_DRAKE",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_ELITE_4" ],
+                "weather": "DROUGHT",
+                "shiny_species": "SPECIES_BAGON",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: For us to battle with Pokémon as partners, do you know what it takes?\\pIf you don't…",
+                        "PRE_BATTLE_TAUNT": "Then you will never prevail over me!",
+                        "POST_BATTLE_TAUNT": "Superb, it should be said.",
+                        "POST_BATTLE_CLOSER": "You deserve every credit for coming this far as a TRAINER of Pokémon.\\pI look forward to seeing how your bond with your Pokémon blossoms, going forward."
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "DRAGON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "FIRE" ]
+                        },
+                        {
+                            "max_samples": 4,
+                            "include_types": [ "DRAGON" ],
+                            "exclude_types": [ "WATER" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DRAGON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "FIRE" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "HAS_TYPE", "TYPE_FIRE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BAGON", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "champ":
+        [
+            {
+                "name": "WALLACE",
+                "type_assignment": "WATER",
+                "object_event": "OBJ_EVENT_GFX_WALLACE",
+                "trainer_pic": "TRAINER_PIC_CHAMPION_WALLACE",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_CHAMP" ],
+                "shiny_species": "SPECIES_FEEBAS",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Who can most elegantly dance with their Pokémon?\\pYou?\\nOr I?",
+                        "PRE_BATTLE_TAUNT": "Show me right here and now!",
+                        "POST_BATTLE_TAUNT": "You were elegant, infuriatingly so.\\nAnd yet it was utterly glorious!",
+                        "POST_BATTLE_CLOSER": "Kudos to you, {PLAYER}!\\pYou share a bond with your Pokémon that will surely only assist you in your future battles!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FEEBAS", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "STEVEN",
+                "type_assignment": "STEEL",
+                "gfx_suffix": "STEVEN",
+                "trainer_class": "TRAINER_CLASS_LEADER",
+                "class_flags": [ "BOSS_CHAMP" ],
+                "shiny_species": "SPECIES_BELDUM",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Tell me…\\pWhat have you seen on your journey with your Pokémon?",
+                        "PRE_BATTLE_TAUNT": "Come at me with all that you've learned!",
+                        "POST_BATTLE_TAUNT": "So I…\\nFall in defeat.",
+                        "POST_BATTLE_CLOSER": "{PLAYER}, you are truly an excellent TRAINER\\pYou share a bond with your Pokémon that will surely only assist you in your future battles!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "STEEL" ]
+                        },
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "PSYCHIC" ]
+                        },
+                        {
+                            "max_samples": 4,
+                            "include_types": [ "STEEL" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "PSYCHIC" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BELDUM", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                    ]
+                }
+            }
+        ]
+    }
+}

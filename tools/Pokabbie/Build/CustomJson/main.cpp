@@ -5,7 +5,7 @@
 
 typedef std::function<void(std::ofstream&, std::string const&, json const&)> ExporterFunc;
 
-static std::string readTextFile(std::string const& filepath) 
+static std::string ReadTextFile(std::string const& filepath) 
 {
     std::ifstream fileStream(filepath);
 
@@ -23,6 +23,21 @@ static std::string readTextFile(std::string const& filepath)
     fileStream.close();
 
     return text;
+}
+
+json ReadJsonFile(std::string const& filepath)
+{
+    json jsonData;
+    try
+    {
+        jsonData = json::parse(ReadTextFile(filepath));
+    }
+    catch (json::exception const& e)
+    {
+        FATAL_ERROR("Json Error: \n@ %s\n%s", filepath.c_str(), e.what());
+    }
+
+    return jsonData;
 }
 
 void ExportTrainerData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
@@ -94,14 +109,7 @@ int main(int argc, char* argv[])
     }
     else
     {
-        try
-        {
-            jsonData = json::parse(readTextFile(sourceFilePath));
-        }
-        catch (json::exception const& e)
-        {
-            FATAL_ERROR("Json Error: %s\n", e.what());
-        }
+        jsonData = ReadJsonFile(sourceFilePath);
     }
 
     std::ofstream writeStream(exportFilePath, std::ofstream::binary);

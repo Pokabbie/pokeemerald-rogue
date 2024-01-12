@@ -20,9 +20,95 @@ static void ExportQueryScriptData_C(TrainerDataExport_C& exporter, std::string c
 static TrainerStrings ExtractTrainerStrings(json const& trainers);
 static void ExportTrainerStringsData_C(TrainerDataExport_C& exporter, json const& trainers);
 
-void ExportTrainerData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
+static std::string GetSourceDirectory(std::string path)
+{
+	strutil::replace_all(path, "/", "\\");
+	size_t index = path.find_last_of('\\');
+	path = path.substr(0, index);
+	return path + '\\';
+}
+
+static json ExpandTrainersJson(std::string const& sourcePath, json const& rawData)
+{
+	json outputData;
+	json& outputTrainers = outputData["trainers"] = json::object();
+
+	std::string condition = "";
+
+	if (rawData.contains("condition"))
+		condition = rawData["condition"].get<std::string>();
+
+	// Expand trainers into output
+	json trainerGroups = rawData["trainers"];
+
+	for (auto trainerGroupId = trainerGroups.begin(); trainerGroupId != trainerGroups.end(); ++trainerGroupId)
+	{
+		std::string groupName = trainerGroupId.key();
+		json const& sourceTrainers = trainerGroupId.value();
+
+		if (!condition.empty())
+		{
+			groupName = "#if " + condition + " // " + groupName;
+		}
+
+		json& outputTrainerGroup = outputTrainers[groupName] = json::array();
+
+		for (auto trainerId = sourceTrainers.begin(); trainerId != sourceTrainers.end(); ++trainerId)
+		{
+			json destTrainer;
+			json const& sourceTrainer = trainerId.value();
+
+			if (rawData.contains("defaults"))
+			{
+				json defaults = rawData["defaults"];
+
+				destTrainer = defaults;
+			}
+
+			for (auto kvpIt = sourceTrainer.begin(); kvpIt != sourceTrainer.end(); ++kvpIt)
+			{
+				destTrainer[kvpIt.key()] = kvpIt.value();
+			}
+
+			outputTrainerGroup.push_back(destTrainer);
+		}
+	}
+
+	// Process includes
+	if (rawData.contains("includes"))
+	{
+		json includes = rawData["includes"];
+		std::string sourceDir = GetSourceDirectory(sourcePath);
+
+		for (auto it = includes.begin(); it != includes.end(); ++it)
+		{
+			std::string fullPath = sourceDir + it.value().get<std::string>();
+			strutil::replace_all(fullPath, "/", "\\");
+
+			json parsedInclude = ExpandTrainersJson(fullPath, ReadJsonFile(fullPath));
+			json parsedTrainers = parsedInclude["trainers"];
+
+			for (auto trainerGroupId = parsedTrainers.begin(); trainerGroupId != parsedTrainers.end(); ++trainerGroupId)
+			{
+				std::string sourceName = trainerGroupId.key();
+				json const& sourceTrainers = trainerGroupId.value();
+
+				outputTrainers[sourceName + " // [" + fullPath + "]"] = sourceTrainers;
+			}
+		}
+	}
+
+	return outputData;
+}
+
+void ExportTrainerData_C(std::ofstream& fileStream, std::string const& dataPath, json const& rawJsonData)
 {
 	TrainerDataExport_C exporter;
+
+	json jsonData = ExpandTrainersJson(dataPath, rawJsonData);
+
+	// Recomment to debug
+	//std::string expandedFile = jsonData.dump();
 
 	json trainers = jsonData["trainers"];
 	ExportTrainerStringsData_C(exporter, trainers);
@@ -61,6 +147,13 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 	// Ensure trainerGroup is safe to use as a codeToken
 	strutil::replace_all(trainerGroup, " ", "_");
 	strutil::replace_all(trainerGroup, "//", "_");
+	strutil::replace_all(trainerGroup, "\\", "_");
+	strutil::replace_all(trainerGroup, "(", "_");
+	strutil::replace_all(trainerGroup, ")", "_");
+	strutil::replace_all(trainerGroup, "[", "_");
+	strutil::replace_all(trainerGroup, "]", "_");
+	strutil::replace_all(trainerGroup, ".", "_");
+	strutil::replace_all(trainerGroup, "#", "_");
 
 	exporter.earlyBlock << trainerGroupPrefix;
 	exporter.trainerStructsBlock << trainerGroupPrefix;
@@ -263,6 +356,8 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 		{
 			json generator = trainer["team_generator"];
 
+			exporter.trainerStructsBlock << c_TabSpacing << c_TabSpacing << ".preferredGender = " << trainer["preferred_mon_gender"].get <std::string>() << ",\n";
+
 			if (generator.contains("query_script_override"))
 				exporter.trainerStructsBlock << c_TabSpacing << c_TabSpacing << ".queryScriptOverride = " << "sTrainerQueryScriptOverride_" << trainerSuffix << ",\n";
 			else
@@ -335,8 +430,10 @@ static void ExportQueryScriptData_C(TrainerDataExport_C& exporter, std::string c
 	exporter.earlyBlock << c_TabSpacing << "QUERY_SCRIPT_END\n};\n";
 }
 
-void ExportTrainerData_Pory(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
+void ExportTrainerData_Pory(std::ofstream& fileStream, std::string const& dataPath, json const& rawJsonData)
 {
+	json jsonData = ExpandTrainersJson(dataPath, rawJsonData);
+
 	TrainerStrings trainerStrings = ExtractTrainerStrings(jsonData["trainers"]);
 
 	for (size_t i = 0; i < trainerStrings.text.size(); ++i)

@@ -1,0 +1,314 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "name": "GRUNT",
+        "type_assignment": "NONE",
+        "trainer_class": "TRAINER_CLASS_TEAM_AQUA",
+        "music_player": "team_aqua",
+        "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+        "class_flags": [ "TEAM_AQUA" ],
+        "team_generator":
+        {
+            "subsets": 
+            [
+                {
+                    "max_samples": 1,
+                    "include_types": [ "DARK" ],
+                    "exclude_types": [ "FIRE" ]
+                },
+                {
+                    "max_samples": 1,
+                    "include_types": [ "WATER" ],
+                    "exclude_types": [ "FIRE" ]
+                },
+                {
+                    "max_samples": 3,
+                    "include_types": [ "WATER", "DARK" ],
+                    "exclude_types": [ "FIRE" ]
+                },
+                {
+                    "max_samples": 6,
+                    "include_types": [ "WATER", "DARK" ]
+                }
+            ],
+            "weight_script":
+            [
+                "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+            ]
+        }
+    },
+    "trainers":
+    {
+        "route":
+        [
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            }
+        ],
+        
+        "hideout":
+        [
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
+                        "POST_BATTLE_TAUNT": "There's no way!",
+                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_AQUA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
+                        "POST_BATTLE_TAUNT": "So strong…",
+                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            }
+        ]
+    }
+}

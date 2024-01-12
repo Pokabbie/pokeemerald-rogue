@@ -3092,23 +3092,84 @@ static void ChooseLegendarysForNewAdventure()
         ++gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX];
 }
 
+static u16 ChooseTeamEncounterNum()
+{
+    u16 i;
+    RogueCustomQuery_Begin();
+
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KANTO))
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_KANTO_ROCKET);
+
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_JOHTO))
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_JOHTO_ROCKET);
+
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_HOENN))
+    {
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_AQUA);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_MAGMA);
+    }
+
+#ifdef ROGUE_EXPANSION
+    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH))
+    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_SINNOH;
+//
+    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA))
+    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_UNOVA;
+//
+    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS))
+    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_KALOS;
+//
+    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ALOLA))
+    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_ALOLA;
+//
+    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR))
+    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_GALAR;
+#endif
+
+    if(!RogueMiscQuery_AnyActiveElements())
+    {
+        // Enable all teams if we wouldn't have one active now
+        for(i = 0; i < TEAM_NUM_COUNT; ++i)
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
+    }
+
+    RogueWeightQuery_Begin();
+    {
+        RogueWeightQuery_FillWeights(1);
+
+        i = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+    }
+    RogueWeightQuery_End();
+
+    RogueCustomQuery_End();
+
+    return i;
+}
+
 static void ChooseTeamEncountersForNewAdventure()
 {
+    u16 i;
+
     // Reset
     memset(&gRogueRun.teamEncounterRooms, 0, sizeof(gRogueRun.teamEncounterRooms));
     memset(&gRogueRun.teamEncounterDifficulties, ROGUE_MAX_BOSS_COUNT, sizeof(gRogueRun.teamEncounterDifficulties));
 
-    // TODO - Select the team ID
-    gRogueRun.teamEncounterNum = TEAM_NUM_ROCKET;
+    // Select a random active team to encounter this run
+    gRogueRun.teamEncounterNum = ChooseTeamEncounterNum();
 
-    // TODO 
-    gRogueRun.teamEncounterRooms[ADVPATH_TEAM_ENCOUNTER_EARLY] = 0;
-    gRogueRun.teamEncounterRooms[ADVPATH_TEAM_ENCOUNTER_PRE_LEGEND] = 0;
+    // Setup maps (There's only 1 per each currently)
+    for(i = 0; i < gRogueTeamEncounterInfo.mapCount; ++i)
+    {
+        if(gRogueTeamEncounterInfo.mapTable[i].encounterId == gRogueRun.teamEncounterNum)
+            gRogueRun.teamEncounterRooms[ADVPATH_TEAM_ENCOUNTER_EARLY] = i;
+        else if(gRogueTeamEncounterInfo.mapTable[i].encounterId == gRogueRun.teamEncounterNum + TEAM_PRE_LEGEND_MAP_OFFSET)
+            gRogueRun.teamEncounterRooms[ADVPATH_TEAM_ENCOUNTER_PRE_LEGEND] = i;
+    }
 
     // Pre legend matches the difficulty
     gRogueRun.teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_PRE_LEGEND] = gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX];
 
-    // Early can be anytime from badge 2 to badge 5 (provided there is no legend)
+    // Early can be anytime from badge 2 to badge 5 (provided there is no legend at that time)
     while(TRUE)
     {
         gRogueRun.teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_EARLY] = 2 + RogueRandomRange(3, 0);

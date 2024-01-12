@@ -1,0 +1,314 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "name": "GRUNT",
+        "type_assignment": "NONE",
+        "trainer_class": "TRAINER_CLASS_TEAM_MAGMA",
+        "music_player": "team_magma",
+        "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+        "class_flags": [ "TEAM_MAGMA" ],
+        "team_generator":
+        {
+            "subsets": 
+            [
+                {
+                    "max_samples": 1,
+                    "include_types": [ "DARK" ],
+                    "exclude_types": [ "WATER" ]
+                },
+                {
+                    "max_samples": 1,
+                    "include_types": [ "FIRE" ],
+                    "exclude_types": [ "WATER" ]
+                },
+                {
+                    "max_samples": 3,
+                    "include_types": [ "FIRE", "DARK" ],
+                    "exclude_types": [ "WATER" ]
+                },
+                {
+                    "max_samples": 6,
+                    "include_types": [ "FIRE", "DARK" ]
+                }
+            ],
+            "weight_script":
+            [
+                "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+            ]
+        }
+    },
+    "trainers":
+    {
+        "route":
+        [
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            }
+        ],
+        
+        "hideout":
+        [
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The world needs more land!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+                "trainer_pic": "TRAINER_PIC_MAGMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            }
+        ]
+    }
+}

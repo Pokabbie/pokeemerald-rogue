@@ -190,6 +190,8 @@ void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance)
     u16 count = Query_MaxBitCount();
     u32 startSeed = gRngRogueValue;
 
+    ASSERT_ANY_QUERY;
+
     SeedRogueRng(rngSeed);
 
     for(elem = 1; elem < count; ++elem)
@@ -214,6 +216,12 @@ void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance)
     }
 
     gRngRogueValue = startSeed;
+}
+
+bool8 RogueMiscQuery_AnyActiveElements()
+{
+    ASSERT_ANY_QUERY;
+    return sRogueQuery.bitCount != 0;
 }
 
 void RogueCustomQuery_Begin()

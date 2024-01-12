@@ -1,0 +1,30 @@
+{
+    "condition": "defined(ROGUE_DEBUG)",
+    "defaults":
+    {
+    },
+    "trainers":
+    {
+        "default_group":
+        [
+            {
+                "name": "DEBUG",
+                "type_assignment": "NONE",
+                "gfx_suffix": "DEBUG_NPC",
+                "trainer_class": "TRAINER_CLASS_COOLTRAINER",
+                "music_player": "kanto_boss",
+                "trainer_flags": [],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
