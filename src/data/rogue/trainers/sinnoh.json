@@ -550,8 +550,8 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Together, you and your Pokémon overcame all the challenges you faced, however difficult.\\pIt means you've triumphed over any personal weaknesses, too.\\pBut that's enough talk. Let's get on with why you're here.",
-                        "PRE_BATTLE_TAUNT": "I, {STR_VAR_1}, accept your challenge!",
+                        "PRE_BATTLE_OPENNING": "",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Together, you and your Pokémon overcame all the challenges you faced, however difficult.\\pIt means you've triumphed over any personal weaknesses, too.\\pBut that's enough talk. Let's get on with why you're here.\\pI, {STR_VAR_1}, accept your challenge!",
                         "POST_BATTLE_TAUNT": "Just a few minutes ago, you were the most powerful challenger.\\pNow you have proven yourself as a much more powerful trainer than I.",
                         "POST_BATTLE_CLOSER": "That was excellent. Truly, an outstanding battle.\\pYou gave the support your Pokémon needed to maximize their power, and you guided them with certainty to secure victory.\\pI'm certain that your battle prowess will take you far in your Adventure!"
                     }
