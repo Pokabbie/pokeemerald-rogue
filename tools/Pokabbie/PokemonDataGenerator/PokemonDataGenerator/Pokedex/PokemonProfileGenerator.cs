@@ -298,6 +298,33 @@ namespace PokemonDataGenerator.Pokedex
 
 				// Now sort them before we export
 				Moves = Moves.OrderBy((m) => m.originMethod == MoveInfo.LearnMethod.LevelUp ? m.learnLevel.ToString("000") : "999" + m.moveName).ToList();
+
+
+				// Now apply same move rename/removal to competitive sets
+				foreach(var compSet in CompetitiveSets)
+				{
+					for(int m = 0; m < compSet.Moves.Count; ++m)
+					{
+						string moveName = compSet.Moves[m];
+						if (IsBannedMove(moveName))
+						{
+							compSet.Moves.RemoveAt(m--);
+						}
+						else
+						{
+							switch (moveName)
+							{
+								case "MOVE_TERA_BLAST":
+									compSet.Moves[m] = "MOVE_HIDDEN_POWER";
+									break;
+								case "MOVE_HAIL":
+									compSet.Moves[m] = "MOVE_SNOWSCAPE";
+									break;
+							}
+						}
+
+					}
+				}
 			}
 
 			public HashSet<string> GetMoveSourceVerions()
