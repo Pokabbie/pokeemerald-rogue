@@ -1032,6 +1032,11 @@ u16 Rogue_GetPrice(u16 itemId)
         price = 50;
     }
 
+    if((itemId >= FIRST_ITEM_POKEBLOCK && itemId <= LAST_ITEM_POKEBLOCK))
+    {
+        price = 50;
+    }
+
     // Don't move evo items into held item pocket
     if(Rogue_IsEvolutionItem(itemId))
     {
@@ -1184,6 +1189,10 @@ u16 Rogue_GetPrice(u16 itemId)
         case ITEM_HEAVY_BALL:
         case ITEM_DREAM_BALL:
             price = 1500;
+            break;
+    
+        case ITEM_BERSERK_GENE:
+            price = 10000;
             break;
 #endif
 
@@ -1475,6 +1484,13 @@ bool8 Rogue_IsEvolutionItem(u16 itemIdx)
     case ITEM_BLACK_AUGURITE:
     case ITEM_LINKING_CORD:
     case ITEM_PEAT_BLOCK:
+
+    case ITEM_LEADERS_CREST:
+    case ITEM_AUSPICIOUS_ARMOR:
+    case ITEM_MALICIOUS_ARMOR:
+    case ITEM_SYRUPY_APPLE:
+    case ITEM_UNREMARKABLE_TEACUP:
+    case ITEM_MASTERPIECE_TEACUP:
 #endif
         return TRUE;
     }

@@ -444,7 +444,20 @@ script Rogue_Shop_Berries
 
     rogue_dynamicpokemart(ROGUE_SHOP_BERRIES)
 
-    msgbox("Come again soon!")
+    msgbox("Please come again!")
+    release
+}
+
+script Rogue_Shop_Treats
+{    
+    lock
+    faceplayer
+    message("Hi there!\nWould you like to buy some treats?")
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_TREATS)
+
+    msgbox("Please come again!")
     release
 }
 
