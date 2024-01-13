@@ -581,6 +581,17 @@
                             "SPECIES_DURALUDON",
                             "SPECIES_DRAGAPULT",
                             "SPECIES_REGIELEKI",
+
+                            "SPECIES_MEOWSCARADA",
+                            "SPECIES_ARBOLIVA",
+                            "SPECIES_GARGANACL",
+                            "SPECIES_BELLIBOLT",
+                            "SPECIES_KLAWF",
+                            "SPECIES_GLIMMORA",
+                            "SPECIES_HOUNDSTONE",
+                            "SPECIES_KINGAMBIT",
+                            "SPECIES_FLUTTER_MANE",
+                            "SPECIES_TING_LU",
                         "#endif",
                         "SPECIES_NONE"
                     ]
@@ -737,6 +748,13 @@
                             "SPECIES_ZACIAN",
                             "SPECIES_ZAMAZENTA",
                             "SPECIES_ETERNATUS",
+
+                            "SPECIES_GREAT_TUSK",
+                            "SPECIES_FLUTTER_MANE",
+                            "SPECIES_WALKING_WAKE",
+                            "SPECIES_IRON_HANDS",
+                            "SPECIES_IRON_VALIANT",
+                            "SPECIES_IRON_LEAVES",
                         "#endif",
                         "SPECIES_NONE"
                     ]
