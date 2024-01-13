@@ -144,9 +144,25 @@ bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result)
     return FALSE;
 }
 
+#ifdef ROGUE_EXPANSION
+// For species where we want to override the source evos as this is preferred to editing source data that may change :/
+//
+static const struct Evolution sMeltanEvolutions[] =
+{
+    {EVO_NONE, 0, SPECIES_MELMETAL},
+    {EVOLUTIONS_END, 0, 0},
+};
+#endif
+
 static const struct Evolution* GetBaseEvolution(u16 species, u8 evoIdx)
 {
 #ifdef ROGUE_EXPANSION
+    switch (species)
+    {
+    case SPECIES_MELTAN:
+        return &sMeltanEvolutions[evoIdx];
+    }
+    
     // Eq. to GetSpeciesEvolutions
     return &gSpeciesInfo[species].evolutions[evoIdx];
 #else
@@ -176,6 +192,10 @@ static u8 GetMaxEvolutionCountInternal(u16 species)
 }
 #endif
 
+#define ITEM_ALOLA_PLACEHOLDER      ITEM_BURN_HEAL
+#define ITEM_GALAR_PLACEHOLDER      ITEM_PARLYZ_HEAL
+#define ITEM_HISUI_PLACEHOLDER      ITEM_ICE_HEAL
+
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
     //AGB_ASSERT(evoIdx < Rogue_GetMaxEvolutionCount(species));
@@ -183,111 +203,109 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
     // Any species alterations
 #ifdef ROGUE_EXPANSION
-    if(species == SPECIES_KOFFING && evoIdx == 1)
+    if(species == SPECIES_YAMASK_GALARIAN && evoIdx == 0)
     {
-        outEvo->targetSpecies = SPECIES_WEEZING_GALARIAN;
-    }
-
-    if(species == SPECIES_MIME_JR && evoIdx == 1)
-    {
-        outEvo->targetSpecies = SPECIES_MR_MIME_GALARIAN;
-    }
-
-
-    if(species == SPECIES_STANTLER && evoIdx == 0)
-    {
-        // TODO - Make know psyshield bash?
-        outEvo->targetSpecies = SPECIES_WYRDEER;
         outEvo->method = EVO_LEVEL;
-        outEvo->param = 30;
+        outEvo->param = 34;
     }
 
-    if(species == SPECIES_SCYTHER && evoIdx == 1)
+    if(species == SPECIES_MELTAN && evoIdx == 0)
     {
-        outEvo->targetSpecies = SPECIES_KLEAVOR;
         outEvo->method = EVO_ITEM;
-        outEvo->param = ITEM_BLACK_AUGURITE;
+        outEvo->param = ITEM_METAL_COAT;
+    }
+
+    if(species == SPECIES_SLIGGOO && evoIdx == 0)
+    {
+        outEvo->method = EVO_LEVEL;
+    }
+    if(species == SPECIES_SLIGGOO && evoIdx == 1)
+    {
+        outEvo->targetSpecies = SPECIES_NONE;
+        outEvo->method = EVO_NONE;
+    }
+
+    if(species == SPECIES_KUBFU && (evoIdx == 1 || evoIdx == 3))
+    {
+        outEvo->targetSpecies = SPECIES_NONE;
+        outEvo->method = EVO_NONE;
+    }
+
+    // Alola evos
+    if(
+        (species == SPECIES_PIKACHU && evoIdx == 1) ||
+        (species == SPECIES_EXEGGCUTE && evoIdx == 1) ||
+        (species == SPECIES_CUBONE && evoIdx == 1)
+    )
+    {
+        outEvo->method = EVO_ITEM;
+        outEvo->param = ITEM_ALOLA_PLACEHOLDER;
+    }
+
+    // Galar evos
+    if(
+        (species == SPECIES_KOFFING && evoIdx == 1) ||
+        (species == SPECIES_MIME_JR && evoIdx == 1)
+    )
+    {
+        outEvo->method = EVO_ITEM;
+        outEvo->param = ITEM_GALAR_PLACEHOLDER;
+    }
+
+    // Hisui evos
+    if(
+        (species == SPECIES_QUILAVA && evoIdx == 1) ||
+        (species == SPECIES_DEWOTT && evoIdx == 1) ||
+        (species == SPECIES_PETILIL && evoIdx == 1) ||
+        (species == SPECIES_RUFFLET && evoIdx == 1) ||
+        (species == SPECIES_GOOMY && evoIdx == 1) ||
+        (species == SPECIES_BERGMITE && evoIdx == 1) ||
+        (species == SPECIES_DARTRIX && evoIdx == 1)
+    )
+    {
+        outEvo->method = EVO_ITEM;
+        outEvo->param = ITEM_HISUI_PLACEHOLDER;
     }
 
     if(species == SPECIES_URSARING && evoIdx == 0)
     {
-        outEvo->targetSpecies = SPECIES_URSALUNA;
         outEvo->method = EVO_ITEM;
         outEvo->param = ITEM_PEAT_BLOCK;
     }
-
-    if(species == SPECIES_BASCULIN || species == SPECIES_BASCULIN_WHITE_STRIPED || species == SPECIES_BASCULIN_BLUE_STRIPED)
+    if(species == SPECIES_URSARING && evoIdx == 1)
     {
-        if(evoIdx == 0)
-        {
-            outEvo->targetSpecies = SPECIES_BASCULEGION;
-            outEvo->method = EVO_LEVEL_MALE;
-            outEvo->param = 30;
-        }
-        else if(evoIdx == 1)
-        {
-            outEvo->targetSpecies = SPECIES_BASCULEGION_FEMALE;
-            outEvo->method = EVO_LEVEL_FEMALE;
-            outEvo->param = 30;
-        }
-    }
-    if(species == SPECIES_SNEASEL_HISUIAN && evoIdx == 0)
-    {
-        outEvo->targetSpecies = SPECIES_SNEASLER;
         outEvo->method = EVO_ITEM;
-        outEvo->param = ITEM_RAZOR_CLAW;
+        outEvo->param = ITEM_MOON_STONE;
     }
 
-    if(species == SPECIES_QWILFISH_HISUIAN && evoIdx == 0)
+    if(species == SPECIES_BISHARP && evoIdx == 0)
     {
-        // TODO - Make know barb barrage?
-        outEvo->targetSpecies = SPECIES_OVERQWIL;
+        outEvo->method = EVO_ITEM;
+        outEvo->param = ITEM_LEADERS_CREST;
+    }
+
+    // Walking evos
+    if(species == SPECIES_PAWMO && evoIdx == 0)
+    {
+        outEvo->method = EVO_LEVEL;
+        outEvo->param = 30;
+    }
+    if(species == SPECIES_BRAMBLIN && evoIdx == 0)
+    {
+        outEvo->method = EVO_LEVEL;
+        outEvo->param = 30;
+    }
+    if(species == SPECIES_RELLOR && evoIdx == 0)
+    {
         outEvo->method = EVO_LEVEL;
         outEvo->param = 30;
     }
 
-    if(species == SPECIES_GROWLITHE_HISUIAN && evoIdx == 0)
+    if(species == SPECIES_GIMMIGHOUL && evoIdx == 0)
     {
-        outEvo->targetSpecies = SPECIES_ARCANINE_HISUIAN;
         outEvo->method = EVO_ITEM;
-        outEvo->param = ITEM_FIRE_STONE;
+        outEvo->param = ITEM_KINGS_ROCK;
     }
-    
-    if(species == SPECIES_GROWLITHE_HISUIAN && evoIdx == 0)
-    {
-        outEvo->targetSpecies = SPECIES_ARCANINE_HISUIAN;
-        outEvo->method = EVO_ITEM;
-        outEvo->param = ITEM_FIRE_STONE;
-    }
-    
-    if(species == SPECIES_VOLTORB_HISUIAN && evoIdx == 0)
-    {
-        outEvo->targetSpecies = SPECIES_ELECTRODE_HISUIAN;
-        outEvo->method = EVO_ITEM;
-        outEvo->param = ITEM_LEAF_STONE;
-    }
-
-    if(species == SPECIES_ZORUA_HISUIAN && evoIdx == 0)
-    {
-        outEvo->targetSpecies = SPECIES_ZOROARK_HISUIAN;
-        outEvo->method = EVO_LEVEL;
-        outEvo->param = 30;
-    }
-
-    if(species == SPECIES_SLIGGOO_HISUIAN && evoIdx == 0)
-    {
-        outEvo->targetSpecies = SPECIES_GOODRA_HISUIAN;
-        outEvo->method = EVO_LEVEL_RAIN;
-        outEvo->param = 50;
-    }
-
-    // TODO - SPECIES_TYPHLOSION_HISUIAN (lvl 36)
-    // TODO - SPECIES_SAMUROTT_HISUIAN (lvl 36)
-    // TODO - SPECIES_LILLIGANT_HISUIAN (Sun stone)
-    // TODO - SPECIES_BRAVIARY_HISUIAN (lvl 54)
-    // TODO - SPECIES_SLIGGOO_HISUIAN (lvl 40)
-    // TODO - SPECIES_AVALUGG_HISUIAN (lvl 37)
-    // TODO - SPECIES_DECIDUEYE_HISUIAN (lvl 36)
 
 #endif
 
@@ -355,57 +373,59 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
                 default:
                     outEvo->targetSpecies = SPECIES_NONE;
-                    outEvo->method = 0;
+                    outEvo->method = EVO_NONE;
                     break;
             }
         }
-
-        if(species == SPECIES_YAMASK_GALARIAN && evoIdx == 0)
-        {
-            outEvo->method = EVO_LEVEL;
-            outEvo->param = 34;
-        }
-
-        if(species == SPECIES_MELTAN && evoIdx == 0)
-        {
-            outEvo->method = EVO_ITEM;
-            outEvo->param = ITEM_METAL_COAT;
-        }
-
-        if(species == SPECIES_EXEGGCUTE && evoIdx == 1)
-        {
-            outEvo->method = EVO_ITEM;
-            outEvo->param = ITEM_DRAGON_SCALE;
-        }
-
-        if(species == SPECIES_MIME_JR && evoIdx == 1)
-        {
-            outEvo->method = EVO_ITEM;
-            outEvo->param = ITEM_ICE_STONE;
-        }
-
-        if(species == SPECIES_KOFFING && evoIdx == 1)
-        {
-            outEvo->method = EVO_ITEM;
-            outEvo->param = ITEM_GALARICA_CUFF;
-        }
-
-        if (species == SPECIES_MIME_JR && evoIdx == 1)
-        {
-            outEvo->method = EVO_LEVEL;
-            outEvo->param = 42;
-        }
-
-        if(species == SPECIES_PIKACHU && evoIdx == 1)
-        {
-            outEvo->method = EVO_ITEM;
-            outEvo->param = ITEM_SHINY_STONE;
-        }
 #endif
+
+        if(outEvo->method == EVO_MOVE)
+        {
+            u16 i;
+
+            for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+            {
+                if(gRoguePokemonProfiles[species].levelUpMoves[i].move == outEvo->param)
+                {
+                    outEvo->method = EVO_LEVEL;
+                    outEvo->param = max(30, gRoguePokemonProfiles[species].levelUpMoves[i].level);
+                    break;
+                }
+            }
+
+            if(outEvo->method == EVO_MOVE)
+            {
+                // Assume this was a tutor move
+                    outEvo->method = EVO_LEVEL;
+                    outEvo->param = 30;
+            }
+        }
 
         switch(outEvo->method)
         {
+            case(EVO_ITEM):
+#ifdef ROGUE_EXPANSION
+                if(outEvo->param == ITEM_LINKING_CORD)
+                {
+                    // We already have different evos via link cable
+                    outEvo->method = EVO_NONE;
+                    outEvo->targetSpecies = SPECIES_NONE;
+                }
+#endif
+                break;
+
             case(EVO_BEAUTY):
+#ifdef ROGUE_EXPANSION
+                // Use prism scale evo
+                outEvo->method = EVO_NONE;
+                outEvo->targetSpecies = SPECIES_NONE;
+#else 
+                // Make level evo
+                outEvo->method = EVO_LEVEL;
+                outEvo->param = 30;
+#endif
+                break;
+
             case(EVO_FRIENDSHIP):
                 outEvo->method = EVO_LEVEL;
                 outEvo->param = 30;
@@ -415,7 +435,6 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 outEvo->method = EVO_ITEM;
                 outEvo->param = ITEM_LINK_CABLE;
                 break;
-            case(EVO_TRADE_ITEM):
             case(EVO_LEVEL_ITEM):
             case(EVO_ITEM_HOLD_DAY):
             case(EVO_ITEM_HOLD_NIGHT):
@@ -429,6 +448,16 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
             case(EVO_FRIENDSHIP_NIGHT):
                 outEvo->method = EVO_LEVEL_NIGHT;
                 outEvo->param = 30;
+                break;
+
+            case(EVO_TRADE_ITEM):
+#ifdef ROGUE_EXPANSION
+                // These methods aren't needed now as Emerald Expansion has use item by default now
+                outEvo->method = EVO_NONE;
+                outEvo->targetSpecies = SPECIES_NONE;
+#else
+                outEvo->method = EVO_ITEM;
+#endif
                 break;
 
 #ifdef ROGUE_EXPANSION
@@ -458,27 +487,21 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 outEvo->method = EVO_LEVEL;
                 break;
 
+            case(EVO_FRIENDSHIP_MOVE_TYPE):
+                outEvo->method = EVO_MOVE_TYPE;
+                break;
+
             case(EVO_SPECIFIC_MAP):
-                if(species == SPECIES_EEVEE)
-                {
-                    outEvo->targetSpecies = 0;
-                    outEvo->method = 0;
-                    outEvo->param = 0;
-                }
-                else
-                {
-                    // Crabrawler
-                    outEvo->method = EVO_ITEM;
-                    outEvo->param = ITEM_WATER_STONE;
-                }
+            case(EVO_ITEM_NIGHT):
+            case(EVO_ITEM_DAY):
+                    outEvo->method = EVO_NONE;
+                    outEvo->targetSpecies = SPECIES_NONE;
                 break;
 
             case(EVO_MAPSEC):
-                // All these were MAPSEC_NEW_MAUVILLE
-                //outEvo->method = EVO_SPECIFIC_MAP;
-                //outEvo->param = MAP_ROGUE_ROUTE_URBAN0;
-                outEvo->method = EVO_ITEM;
-                outEvo->param = ITEM_THUNDER_STONE;
+                // These methods aren't needed now as Emerald Expansion has use item by default now
+                outEvo->method = EVO_NONE;
+                outEvo->targetSpecies = SPECIES_NONE;
                 break;
 #endif
         }
@@ -1686,6 +1709,30 @@ u8 Rogue_GetActiveEvolutionCount(u16 species)
     }
 
     return 0;
+}
+
+u8 Rogue_GetActiveFormChangeCount(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    u32 i;
+    struct FormChange formChange;
+    u8 count = 0;
+
+    for (i = 0; TRUE; i++)
+    {
+        Rogue_ModifyFormChange(baseForm, i, &formChange);
+
+        if(formChange.method == FORM_CHANGE_TERMINATOR)
+            break;
+
+        if(formChange.method != FORM_CHANGE_DISABLED_STUB)
+            ++count;
+    }
+
+    return count;
+#else
+    return 0;
+#endif
 }
 
 bool8 Rogue_DoesEvolveInto(u16 fromSpecies, u16 toSpecies)

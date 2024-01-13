@@ -1513,9 +1513,6 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         // Link cable is Rogue's item
         case ITEM_LINKING_CORD:
 
-        // Not needed as is not a lvl up evo
-        case ITEM_PRISM_SCALE:
-
         // Exclude all treasures then turn on the ones we want to use
         //case ITEM_NUGGET:
         //case ITEM_PEARL:
