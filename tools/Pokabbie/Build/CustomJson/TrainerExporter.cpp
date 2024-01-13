@@ -83,7 +83,7 @@ static json ExpandTrainersJson(std::string const& sourcePath, json const& rawDat
 		for (auto it = includes.begin(); it != includes.end(); ++it)
 		{
 			std::string fullPath = sourceDir + it.value().get<std::string>();
-			strutil::replace_all(fullPath, "/", "\\");
+			strutil::replace_all(fullPath, "\\", "/");
 
 			json parsedInclude = ExpandTrainersJson(fullPath, ReadJsonFile(fullPath));
 			json parsedTrainers = parsedInclude["trainers"];
