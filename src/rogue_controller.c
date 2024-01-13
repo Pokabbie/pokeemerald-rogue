@@ -3784,6 +3784,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         return;
     }
 
+    FlagClear(FLAG_ROGUE_MAP_EVENT);
+
     // Reset preview data
     memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
 
