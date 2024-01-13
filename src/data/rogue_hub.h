@@ -83,8 +83,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
         },
-        .iconImage = gBerryPic_Cheri,
-        .iconPalette = gBerryPalette_Cheri,
+        .iconImage = gItemIcon_CheriBerry,
+        .iconPalette = gItemIconPalette_CheriBerry,
     },
     [HUB_AREA_SAFARI_ZONE] = 
     {
@@ -194,7 +194,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     },
     [HUB_UPGRADE_HOME_BERRY_FIELD2] = 
     {
-        .upgradeName = _("Berry Field (2)"),
+        .upgradeName = _("Berry Field 2"),
         .targetArea = HUB_AREA_HOME,
         .buildCost = 1,
         .descText = gHubUpgradeDesc_Home_BerryField2,
@@ -232,7 +232,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     },
     [HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD1] = 
     {
-        .upgradeName = _("Increase yield"),
+        .upgradeName = _("Berry Yield"),
         .targetArea = HUB_AREA_BERRY_FIELD,
         .buildCost = 1,
         .descText = gHubUpgradeDesc_BerryField_HigherYeild,
@@ -240,7 +240,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     },
     [HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD2] = 
     {
-        .upgradeName = _("Increased yield (2)"),
+        .upgradeName = _("Berry Yield 2"),
         .targetArea = HUB_AREA_BERRY_FIELD,
         .buildCost = 1,
         .descText = gHubUpgradeDesc_BerryField_HigherYeild,
@@ -252,7 +252,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     //
     [HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE] = 
     {
-        .upgradeName = _("Cave of Legends"),
+        .upgradeName = _("."),
         .targetArea = HUB_AREA_SAFARI_ZONE,
         .buildCost = 1,
         .requiredUpgrades = { HUB_UPGRADE_NONE }

@@ -521,6 +521,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     u8 freeRoomCount = 0;
     u8 validEncounterCount = 0;
     u16 validEncounterList[ADVPATH_ROOM_COUNT];
+    u16 minReplaceCount = 1;
 
     // Place gym at very end
     GenerateRoomInstance(0, ADVPATH_ROOM_BOSS);
@@ -556,6 +557,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     // Populate special encounters into a single list
     //
     validEncounterList[validEncounterCount++] = ADVPATH_ROOM_RESTSTOP;
+    ++minReplaceCount;
 
     // Legends
     for(i = 0; i < ADVPATH_LEGEND_COUNT; ++i)
@@ -563,6 +565,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         if(gRogueRun.legendarySpecies[i] != SPECIES_NONE && gRogueRun.legendaryDifficulties[i] == GetPathGenerationDifficulty())
         {
             validEncounterList[validEncounterCount++] = ADVPATH_ROOM_LEGENDARY;
+            ++minReplaceCount;
             break;
         }
     }
@@ -573,6 +576,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         if(gRogueRun.teamEncounterDifficulties[i] == GetPathGenerationDifficulty())
         {
             validEncounterList[validEncounterCount++] = ADVPATH_ROOM_TEAM_HIDEOUT;
+            ++minReplaceCount;
             break;
         }
     }
@@ -622,12 +626,14 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         }
 
         replaceCount = (replaceCount * replacePerc) / 100;
-        replaceCount = max(replaceCount, 3);
+        replaceCount = max(replaceCount, minReplaceCount);
+        replaceCount = max(replaceCount, freeRoomCount);
 
         for(i = 0; i < (u8)replaceCount; ++i)
         {
             u16 encounterType = SelectRoomType(validEncounterList, validEncounterCount);
             ReplaceRoomEncounter(ADVPATH_ROOM_ROUTE, encounterType);
+            --freeRoomCount;
         }
     }
 
@@ -649,10 +655,14 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
             chance = 10;
         }
 
-        for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+        // Always make sure there is at least 1 regular route which can be chosen
+        for(i = 0; i < gRogueAdvPath.roomCount && freeRoomCount > 1; ++i)
         {
             if(gRogueAdvPath.rooms[i].roomType == ADVPATH_ROOM_ROUTE && RogueRandomChance(chance, 0))
+            {
                 GenerateRoomInstance(i, ADVPATH_ROOM_WILD_DEN);
+                --freeRoomCount;
+            }
         }
     }
 }

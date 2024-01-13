@@ -184,6 +184,7 @@ static void CopyShopItemName(u16 item, u8* name);
 static const u8* GetShopItemDescription(u16 item);
 static bool8 BuyShopItem(u16 item, u16 count);
 static u32 GetShopItemPrice(u16 item);
+static bool8 IsZeroPriceMarkedAsFree();
 
 static u32 GetShopCurrencyAmount();
 static void RemoveShopCurrencyAmount(u16 amount);
@@ -677,13 +678,10 @@ static void BuyMenuBuildListMenuTemplate(void)
     // Generate lists
     sListMenuItems = Alloc((sMartInfo.itemCount + 1) * sizeof(*sListMenuItems));
     sItemNames = Alloc((sMartInfo.itemCount + 1) * sizeof(*sItemNames));
-
-    for(i = 0; TRUE; ++i)
+    for(i = 0; i < sMartInfo.itemCount; ++i)
     {
         itemId = sMartInfo.listItemCallback(i);
-
-        if(itemId == sMartInfo.listItemTerminator)
-            break;
+        AGB_ASSERT(itemId != sMartInfo.listItemTerminator);
 
         BuyMenuSetListEntry(&sListMenuItems[i], itemId, sItemNames[i]);
     }
@@ -777,8 +775,16 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
 
         if(price == 0)
         {
-            x = GetStringRightAlignXOffset(FONT_NARROW, gText_PokedollarFree, 0x78);
-            AddTextPrinterParameterized4(windowId, FONT_NARROW, x, y, 0, 0, sShopBuyMenuTextColors[1], TEXT_SKIP_DRAW, gText_PokedollarFree);
+            if(IsZeroPriceMarkedAsFree())
+            {
+                x = GetStringRightAlignXOffset(FONT_NARROW, gText_PokedollarFree, 0x78);
+                AddTextPrinterParameterized4(windowId, FONT_NARROW, x, y, 0, 0, sShopBuyMenuTextColors[1], TEXT_SKIP_DRAW, gText_PokedollarFree);
+            }
+            else
+            {
+                x = GetStringRightAlignXOffset(FONT_NARROW, gText_PokedollarAlreadyOwned, 0x78);
+                AddTextPrinterParameterized4(windowId, FONT_NARROW, x, y, 0, 0, sShopBuyMenuTextColors[1], TEXT_SKIP_DRAW, gText_PokedollarAlreadyOwned);
+            }
         }
         else
         {
@@ -847,37 +853,23 @@ static void BuyMenuAddItemIcon(u16 item, u8 iconSlot)
             gSprites[spriteId].y2 = 88;
         }
     }
-    else if (sMartInfo.martType == MART_TYPE_HUB_AREAS)
+    else if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
-        const u32* image = gRogueHubAreas[item].iconImage;
-        const u32* palette = gRogueHubAreas[item].iconPalette;
+        u16 targetArea = sMartInfo.martType == MART_TYPE_HUB_UPGRADES ? gRogueHubUpgrades[item].targetArea : item;
+        const u32* image = gRogueHubAreas[targetArea].iconImage;
+        const u32* palette = gRogueHubAreas[targetArea].iconPalette;
 
-        spriteId = AddIconSprite(iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE, image, palette);
-        if (spriteId != MAX_SPRITES)
-        {
-            *spriteIdPtr = spriteId;
-            gSprites[spriteId].x2 = 24;
-            gSprites[spriteId].y2 = 88;
-        }
-    }
-    else if (sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
-    {
-        const u32* image = gRogueHubUpgrades[item].iconImage;
-        const u32* palette = gRogueHubUpgrades[item].iconPalette;
+        AGB_ASSERT(targetArea < HUB_AREA_COUNT);
 
-        if(image == NULL || palette == NULL)
+        if(image != NULL && palette != NULL)
         {
-            // Use area palette as no specific icon provided
-            image = gRogueHubAreas[gRogueHubUpgrades[item].targetArea].iconImage;
-            palette = gRogueHubAreas[gRogueHubUpgrades[item].targetArea].iconPalette;
-        }
-
-        spriteId = AddIconSprite(iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE, image, palette);
-        if (spriteId != MAX_SPRITES)
-        {
-            *spriteIdPtr = spriteId;
-            gSprites[spriteId].x2 = 24;
-            gSprites[spriteId].y2 = 88;
+            spriteId = AddIconSprite(iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE, image, palette);
+            if (spriteId != MAX_SPRITES)
+            {
+                *spriteIdPtr = spriteId;
+                gSprites[spriteId].x2 = 24;
+                gSprites[spriteId].y2 = 88;
+            }
         }
     }
     else
@@ -1184,7 +1176,11 @@ static void Task_BuyMenu(u8 taskId)
 
             sShopData->totalCost = GetShopItemPrice(itemId);
 
-            if (GetShopCurrencyAmount() < sShopData->totalCost)
+            if(sShopData->totalCost == 0 && !IsZeroPriceMarkedAsFree())
+            {
+                BuyMenuDisplayMessage(taskId, gText_AlreadyOwnThis, BuyMenuReturnToItemList);
+            }
+            else if (GetShopCurrencyAmount() < sShopData->totalCost)
             {
                 BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
             }
@@ -1527,8 +1523,8 @@ static void BuyMenuReturnToItemList(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
-    // Recontruct if shop content is dynamic
-    if(sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
+    // Recontruct if shop content is dynamic (Force always on after purchase?)
+    //if(sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
         BuyMenuBuildListMenuTemplate();
         DestroyListMenuTask(tListTaskId, &sShopData->scrollOffset, &sShopData->selectedRow);
@@ -1874,7 +1870,7 @@ static void CopyShopItemName(u16 item, u8* name)
         return;
     }
 
-    StringCopyN(name, gText_EmptyString7, ITEM_NAME_LENGTH + 4);
+    //StringCopyN(name, gText_EmptyString7, ITEM_NAME_LENGTH + 4);
 }
 
 static const u8* GetShopItemDescription(u16 item)
@@ -1906,7 +1902,16 @@ static u32 GetShopItemPrice(u16 item)
 {
     if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
     {
-        return Mart_GetItemPrice(item) >> IsPokeNewsActive(POKENEWS_SLATEPORT);
+        u32 price = Mart_GetItemPrice(item) >> IsPokeNewsActive(POKENEWS_SLATEPORT);
+
+        if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+        {
+            // Override TMs/HMs price if we have them
+            if(item >= ITEM_TM01 && item <= ITEM_HM08 && CheckBagHasItem(item, 1))
+                price = 0;
+        }
+
+        return price;
     }
     else if (sMartInfo.martType == MART_TYPE_HUB_AREAS)
     {
@@ -1922,6 +1927,21 @@ static u32 GetShopItemPrice(u16 item)
     }
 
     return 0;
+}
+
+static bool8 IsZeroPriceMarkedAsFree()
+{
+    if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
+    {
+        if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
+        {
+            // Theses aren't free just mark as already bought
+            return FALSE;
+        }
+    }
+
+    // Assume 0 is free by default
+    return TRUE;
 }
 
 static bool8 BuyShopItem(u16 item, u16 count)
@@ -1962,6 +1982,8 @@ static void RemoveShopCurrencyAmount(u16 amount)
     {
         RemoveBagItem(ITEM_BUILDING_SUPPLIES, amount);
     }
-
-    RemoveMoney(&gSaveBlock1Ptr->money, amount);
+    else
+    {
+        RemoveMoney(&gSaveBlock1Ptr->money, amount);
+    }
 }
