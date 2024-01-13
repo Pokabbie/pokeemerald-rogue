@@ -6646,21 +6646,20 @@ static u8 TRMove_CalculateWeight(u16 index, u16 move, void* data)
 {
     u16 usage = gRoguePokemonMoveUsages[move];
 
-    // If we don't have comp usage, the chance is 10 lower
-    // so it still could happen but it's really not very likely
+    // If we don't have comp usage, the chance is impossible
     if(usage == 0)
-        return 1;
+        return 0;
 
     if(usage >= 300)
-        return 50;
+        return 5;
     if(usage >= 200)
-        return 40;
+        return 4;
     if(usage >= 100)
-        return 30;
+        return 3;
     if(usage >= 50)
-        return 20;
+        return 2;
 
-    return 10;
+    return 1;
 }
 
 static void RandomiseTRMoves()
