@@ -2893,6 +2893,26 @@ static u16 MonStats_GetMonNeighbour(u16 currViewSpecies, s8 offset)
             if(!GetSetPokedexSpeciesFlag(checkSpecies, FLAG_GET_SEEN))
                 continue;
 
+#ifdef ROGUE_DEBUG
+            // Debug behaviour for evo and forms page to make it easier to cycle through and debug
+            //
+            if(JOY_HELD(SELECT_BUTTON))
+            {
+                if(sPokedexMenu->currentPage == PAGE_MON_EVOS)
+                {
+                    if(Rogue_GetMaxEvolutionCount(checkSpecies) == 0)
+                        continue;
+                }
+#ifdef ROGUE_EXPANSION
+                else if(sPokedexMenu->currentPage == PAGE_MON_FORMS)
+                {
+                    if(GetSpeciesFormChanges(checkSpecies)[0].method == FORM_CHANGE_TERMINATOR)
+                        continue;
+                }
+#endif
+            }
+#endif
+
             return checkSpecies;
         }
     }
