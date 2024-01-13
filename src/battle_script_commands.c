@@ -6759,7 +6759,10 @@ static void Cmd_openpartyscreen(void)
     }
     else
     {
-        if (cmd->partyScreenOptional)
+        // RogueNote: Special case to open release mode
+        if(gBattlescriptCurrInstr[1] == (BS_PLAYER1 | PARTY_SCREEN_OPTIONAL))
+            hitmarkerFaintBits = PARTY_ACTION_CHOOSE_RELEASE;
+        else if (cmd->partyScreenOptional)
             hitmarkerFaintBits = PARTY_ACTION_CHOOSE_MON; // Used here as the caseId for the EmitChoose function.
         else
             hitmarkerFaintBits = PARTY_ACTION_SEND_OUT;
