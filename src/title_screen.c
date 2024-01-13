@@ -25,6 +25,7 @@
 #include "constants/species.h"
 
 #include "rogue_assistant.h"
+#include "rogue_controller.h"
 
 #define VERSION_BANNER_RIGHT_TILEOFFSET 64
 #define VERSION_BANNER_LEFT_X 98
@@ -511,7 +512,7 @@ static void StartPokemonLogoShine(u8 flashBg)
 
 static void VBlankCB(void)
 {
-    ScanlineEffect_InitHBlankDmaTransfer();
+    //ScanlineEffect_InitHBlankDmaTransfer();
     LoadOam();
     ProcessSpriteCopyRequests();
     TransferPlttBuffer();
@@ -554,14 +555,22 @@ void CB2_InitTitleScreen(void)
         // bg2
         LZ77UnCompVram(gTitleScreenPokemonLogoGfx, (void *)(BG_CHAR_ADDR(0)));
         LZ77UnCompVram(gTitleScreenPokemonLogoTilemap, (void *)(BG_SCREEN_ADDR(9)));
-        LoadPalette(gTitleScreenBgPalettes, 0, 0x1E0);
+        
+        // RogueNote: Adjust palette base on progress
+        if(Rogue_Use200PercEffects())
+            LoadPalette(gTitleScreenBgPalettes_Gold, 0, 0x1E0);
+        else if(Rogue_Use100PercEffects())
+            LoadPalette(gTitleScreenBgPalettes_Green, 0, 0x1E0);
+        else
+            LoadPalette(gTitleScreenBgPalettes_Default, 0, 0x1E0);
+
         // bg3
         LZ77UnCompVram(sTitleScreenRayquazaGfx, (void *)(BG_CHAR_ADDR(2)));
         LZ77UnCompVram(sTitleScreenRayquazaTilemap, (void *)(BG_SCREEN_ADDR(26)));
         // bg1
         LZ77UnCompVram(sTitleScreenCloudsGfx, (void *)(BG_CHAR_ADDR(3)));
         LZ77UnCompVram(gTitleScreenCloudsTilemap, (void *)(BG_SCREEN_ADDR(27)));
-        ScanlineEffect_Stop();
+        //ScanlineEffect_Stop();
         ResetTasks();
         ResetSpriteData();
         FreeAllSpritePalettes();
@@ -621,7 +630,7 @@ void CB2_InitTitleScreen(void)
         if (!UpdatePaletteFade())
         {
             StartPokemonLogoShine(0);
-            ScanlineEffect_InitWave(0, DISPLAY_HEIGHT, 4, 4, 0, SCANLINE_EFFECT_REG_BG1HOFS, TRUE);
+            //ScanlineEffect_InitWave(0, DISPLAY_HEIGHT, 4, 4, 0, SCANLINE_EFFECT_REG_BG1HOFS, TRUE);
             SetMainCallback2(MainCB2);
         }
         break;
@@ -701,7 +710,9 @@ static void Task_TitleScreenPhase2(u8 taskId)
     {
         gTasks[taskId].tSkipToNext = TRUE;
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG0 | BLDCNT_TGT2_BD);
-        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(6, 15));
+
+        // RogueNote: Cloud opacity here default BLDALPHA_BLEND(6, 15) 
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(10, 16));
         SetGpuReg(REG_OFFSET_BLDY, 0);
         SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_1
                                     | DISPCNT_OBJ_1D_MAP
@@ -818,12 +829,12 @@ static void UpdateLegendaryMarkingColor(u8 frameNum)
 {
     if ((frameNum % 4) == 0) // Change color every 4th frame
     {
+        u16 baseColour = gPlttBufferUnfaded[BG_PLTT_ID(14) + 11];
         s32 intensity = Cos(frameNum, 128) + 128;
-        // 0, 4, 9
 
-        s32 r = ColLerp(0, 31, intensity);
-        s32 g = ColLerp(3, 31, intensity);
-        s32 b = ColLerp(9, 31, intensity);
+        s32 r = ColLerp(GET_R(baseColour), 31, intensity);
+        s32 g = ColLerp(GET_G(baseColour), 31, intensity);
+        s32 b = ColLerp(GET_B(baseColour), 31, intensity);
 
         //s32 r = 31 - (intensity);
         //s32 g = 31 - (intensity * 22 / 256);

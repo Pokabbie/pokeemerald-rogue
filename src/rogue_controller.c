@@ -309,6 +309,20 @@ bool8 Rogue_AssumeFinalQuestFakeChamp(void)
     return Rogue_UseFinalQuestEffects() && (Rogue_GetCurrentDifficulty() == ROGUE_CHAMP_START_DIFFICULTY && FlagGet(FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP));
 }
 
+bool8 Rogue_Use100PercEffects(void)
+{
+    // In NG+ or 100% quests
+    // TODO
+    return FALSE;
+}
+
+bool8 Rogue_Use200PercEffects(void)
+{
+    // 100% quests and 100% challenges
+    // TODO
+    return FALSE;
+}
+
 extern const struct Song gSongTable[];
 
 u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 soundType)
@@ -1361,11 +1375,20 @@ static u8 ItemToGen(u16 item)
     return 1;
 }
 
+extern const struct RogueItem gRogueItems[];
+
 bool8 Rogue_IsItemEnabled(u16 itemId)
 {
     // Handle perma banned entries
     // (There is no scenario in which we will allow these)
     {
+        if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
+        {
+            // Item isn't enabled in this build config / doesn't have any data associated with this ID
+            if(gRogueItems[itemId - ITEM_ROGUE_ITEM_FIRST].itemId != itemId)
+                return FALSE;
+        }
+
         if(itemId >= FIRST_MAIL_INDEX && itemId <= LAST_MAIL_INDEX)
             return FALSE;
 
@@ -1427,11 +1450,6 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
 
         switch (itemId)
         {
-#ifndef ROGUE_EXPANSION
-        // Not active in vanilla
-        case ITEM_POKEBLOCK_FAIRY:
-#endif
-
         case ITEM_SACRED_ASH:
         case ITEM_REVIVAL_HERB:
         case ITEM_REVIVE:
