@@ -1427,6 +1427,11 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
 
         switch (itemId)
         {
+#ifndef ROGUE_EXPANSION
+        // Not active in vanilla
+        case ITEM_POKEBLOCK_FAIRY:
+#endif
+
         case ITEM_SACRED_ASH:
         case ITEM_REVIVAL_HERB:
         case ITEM_REVIVE:

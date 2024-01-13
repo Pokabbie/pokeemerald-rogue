@@ -865,6 +865,10 @@ const u8* Rogue_GetItemDesc(u16 itemId)
 
     if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
     {
+        // Uncomment if strange item are appearing due to ID gaps
+        //DebugPrintf("itemId:%u", (u32)itemId);
+        //DebugPrintf("rogueId:%u", (u32)(itemId - ITEM_ROGUE_ITEM_FIRST));
+
         return gRogueItems[itemId - ITEM_ROGUE_ITEM_FIRST].description;
     }
     
