@@ -1457,11 +1457,11 @@ static void ClearVramOamPltt_LoadHofPal(void)
 
     ResetPaletteFade();
     if(Rogue_Use200PercEffects())
-        LoadPalette(sHallOfFame_Pal_Gold, BG_PLTT_ID(0), sizeof(sHallOfFame_Pal));
+        LoadPalette(sHallOfFame_Pal_Gold, BG_PLTT_ID(0), sizeof(sHallOfFame_Pal_Gold));
     else if(Rogue_Use100PercEffects())
-        LoadPalette(sHallOfFame_Pal_Green, BG_PLTT_ID(0), sizeof(sHallOfFame_Pal));
+        LoadPalette(sHallOfFame_Pal_Green, BG_PLTT_ID(0), sizeof(sHallOfFame_Pal_Green));
     else
-        LoadPalette(sHallOfFame_Pal_Default, BG_PLTT_ID(0), sizeof(sHallOfFame_Pal));
+        LoadPalette(sHallOfFame_Pal_Default, BG_PLTT_ID(0), sizeof(sHallOfFame_Pal_Default));
 }
 
 static void LoadHofGfx(void)
