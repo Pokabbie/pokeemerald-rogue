@@ -1038,10 +1038,10 @@ u16 Rogue_GetPrice(u16 itemId)
         price = 50;
     }
 
-    // Don't move evo items into held item pocket
     if(Rogue_IsEvolutionItem(itemId))
     {
         price = 2100;
+        applyDefaultHubIncrease = FALSE;
     }
 
 #ifdef ROGUE_EXPANSION
