@@ -44,8 +44,8 @@
 #define TAG_CONFETTI 1001
 
 #define RGB_FOCUS_FAINTED RGB(18, 20, 22)
-#define RGB_BACKGROUND RGB(4, 10, 24) 
-#define RGB_BACKGROUND_FAINTED RGB(3, 0, 15)
+#define RGB_BACKGROUND ( Rogue_Use200PercEffects() ? RGB(24, 19, 2) : ( Rogue_Use100PercEffects() ? RGB(4, 25, 10) : RGB(4, 10, 24) ) )
+#define RGB_BACKGROUND_FAINTED ( Rogue_Use200PercEffects() ? RGB(16, 13, 1) : ( Rogue_Use100PercEffects() ? RGB(3, 15, 0) : RGB(3, 0, 15) ) )
 
 struct HallofFameMon
 {
@@ -362,7 +362,9 @@ static const u32 sHallOfFame_TileMap_Average[] = INCBIN_U32("graphics/misc/rogue
 static const u32 sHallOfFame_TileMap_Hard[] = INCBIN_U32("graphics/misc/rogue_hof_hard.bin.lz");
 static const u32 sHallOfFame_TileMap_Brutal[] = INCBIN_U32("graphics/misc/rogue_hof_brutal.bin.lz");
 
-static const u16 sHallOfFame_Pal[] = INCBIN_U16("graphics/misc/japanese_hof.gbapal");
+static const u16 sHallOfFame_Pal_Default[] = INCBIN_U16("graphics/misc/hof_default.gbapal");
+static const u16 sHallOfFame_Pal_Green[] = INCBIN_U16("graphics/misc/hof_green.gbapal");
+static const u16 sHallOfFame_Pal_Gold[] = INCBIN_U16("graphics/misc/hof_gold.gbapal");
 
 static const u32 sHallOfFame_Gfx[] = INCBIN_U32("graphics/misc/japanese_hof.4bpp.lz");
 
@@ -1454,7 +1456,12 @@ static void ClearVramOamPltt_LoadHofPal(void)
     DmaFill16(3, 0, plttOffset, plttSize);
 
     ResetPaletteFade();
-    LoadPalette(sHallOfFame_Pal, BG_PLTT_ID(0), sizeof(sHallOfFame_Pal));
+    if(Rogue_Use200PercEffects())
+        LoadPalette(sHallOfFame_Pal_Gold, BG_PLTT_ID(0), sizeof(sHallOfFame_Pal));
+    else if(Rogue_Use100PercEffects())
+        LoadPalette(sHallOfFame_Pal_Green, BG_PLTT_ID(0), sizeof(sHallOfFame_Pal));
+    else
+        LoadPalette(sHallOfFame_Pal_Default, BG_PLTT_ID(0), sizeof(sHallOfFame_Pal));
 }
 
 static void LoadHofGfx(void)
