@@ -19,6 +19,30 @@
                 "class_flags": [],
                 "weather": "PSYCHIC_FOG",
                 "shiny_species": "SPECIES_RALTS",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Oh…\\nHi there.\\pYou look like a really strong Trainer!\\pI want to get stronger so that I can challenge Gyms.\\pPlease, will you help by battling with me?",
+                        "POST_BATTLE_TAUNT": "… … … … … … …\\pI lost…",
+                        "POST_BATTLE_CLOSER": "{PLAYER}, thank you.\\nBeing a Trainer is tough, isn't it?\\pI'll train harder along with my Pokémon to see if I can become strong enough to beat you!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: I lost to you last time, {PLAYER}.\\pBut I've been training really hard!\\pI'm sure my Pokémon and I can put up a better fight now!",
+                        "POST_BATTLE_TAUNT": "So strong!",
+                        "POST_BATTLE_CLOSER": "I'm going to Challenge Pokémon Gyms and become a great Trainer!\\pPlease watch me, {PLAYER}.\\nI'm going to be even stronger than you."
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Hi, {PLAYER}!\\pI've been training really hard!\\pPlease, will you battle me again so I can show you!",
+                        "POST_BATTLE_TAUNT": "I still need to get stronger…",
+                        "POST_BATTLE_CLOSER": "My Pokémon and I have such a strong connection now.\\pI'm certain we can get stronger with one final push!\\pWhen we next meet, I'm going to challenge you to another battle and win for sure!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Hi! {PLAYER}!\\pI bet you're surprised to see me here!I made it all the way here, and it's all thanks to you!\\pI'm not going to lose this time…\\pI'm going to win! For the Pokémon who gave me courage and strength!",
+                        "POST_BATTLE_TAUNT": "Wow!\\n{PLAYER}, you are strong, after all!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -45,6 +69,30 @@
                 "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_MUDKIP",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Hey!\\pWho might you be?\\p{PLAYER}, is it?\\pI see you're a Pokémon Trainer.\\nYou look really strong!\\pSince we're here, let's have a little battle!",
+                        "POST_BATTLE_TAUNT": "Huh, {PLAYER}, you're not too shabby.",
+                        "POST_BATTLE_CLOSER": "Your Pokémon were so strong!\\pI get the feeling that you're able to befriend any kind of Pokémon with ease.\\pI'm looking forward to the next time we'll get to battle!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Hey, {PLAYER}.\\nSo this is where you were.\\nHow's it going?\\pHave you been raising your Pokémon?\\nI'll check for you.",
+                        "POST_BATTLE_TAUNT": "Hmm…\\nYou're pretty good.",
+                        "POST_BATTLE_CLOSER": "{PLAYER}, you've trained without me noticing…\\pYou're so in sync with your Pokémon!\\pAnyway, I'm off to look for new Pokémon."
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}! So this is where you've been looking for Pokémon?\\pLet me see how good you got.\\nI'll test you!\\pNow!\\nIt's a battle, so battle!",
+                        "POST_BATTLE_TAUNT": "Hmm…\\nYou've gotten pretty darn decent.",
+                        "POST_BATTLE_CLOSER": "I'd say you're good enough to search for Pokémon anywhere.\\pYou're a real natural!\\pAnyway, I have to move along."
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}!\\nIt's been a while!\\pWant to have a battle to see who's been raising Pokémon better?\\pWho am I kidding?\\nOf course you do!\\pBut you know I'm not going to lose to no {PLAYER}!",
+                        "POST_BATTLE_TAUNT": "Humph…\\nYou've gotten so strong.",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -72,6 +120,30 @@
                 "trainer_flags": [ "REGION_HOENN", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_TORCHIC",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Oh, hi!\\pWho might you be?\\p{PLAYER}, is it?\\pI see you're a Pokémon Trainer.\\nYou look really strong!\\pSince we're here, let's have a quick battle!",
+                        "POST_BATTLE_TAUNT": "Wow! That's great!\\n{PLAYER}, you're pretty good!",
+                        "POST_BATTLE_CLOSER": "Your Pokémon were so strong!\\pI bet you're able to befriend any kind of Pokémon easily.\\pI hope we'll get to battle again some time!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Hi, {PLAYER}, long time no see!\\pWhile I was searching for other Pokémon, my Pokémon grew stronger.\\pSo…\\nHow about a little battle?",
+                        "POST_BATTLE_TAUNT": "Yikes!\\nYou're better than I expected!",
+                        "POST_BATTLE_CLOSER": "{PLAYER}, you've been busy training, too, haven't you?\\pI can tell by how in sync you are with your Pokémon!\\pOkay, {PLAYER}, let's meet again soon!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}!\\nWhere were you? I was looking for you!\\pHow much stronger have you gotten?\\nLet me check for you!\\pReady with your Pokémon?\\nOf course you are! Go!",
+                        "POST_BATTLE_TAUNT": "Achah!\\n{PLAYER}, you're strong!",
+                        "POST_BATTLE_CLOSER": "I was worried that you might be struggling with your training.\\pBut I had absolutely nothing to worry about! Keep it up!\\pWell, let's meet again somewhere!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}!\\nYou made it!\\pI've caught a whole lot of Pokémon, and I'm raising them properly, too.\\pActually, I'm more worried if you're raising Pokémon properly, {PLAYER}.\\pSo…\\nFor one last time…\\pI'll battle with you, so you can show me the strength of your Pokémon!",
+                        "POST_BATTLE_TAUNT": "Wow!\\nYou've become this strong, {PLAYER}!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
