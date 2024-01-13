@@ -1444,6 +1444,7 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         case ITEM_SHOAL_SHELL:
         case ITEM_FLUFFY_TAIL:
         case ITEM_SOOTHE_BELL:
+        case ITEM_EVERSTONE:
 
         case ITEM_PINAP_BERRY:
         case ITEM_NANAB_BERRY:
