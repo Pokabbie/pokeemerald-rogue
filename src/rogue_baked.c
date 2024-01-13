@@ -968,8 +968,8 @@ const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which)
     return gItemIconTable[itemId][which];
 }
 
-#define HELD_ITEM_HIGH_PRICE 16000
-#define HELD_ITEM_MID_PRICE  10000
+#define HELD_ITEM_HIGH_PRICE 8000
+#define HELD_ITEM_MID_PRICE  5000
 
 u16 Rogue_GetPrice(u16 itemId)
 {
@@ -1006,20 +1006,17 @@ u16 Rogue_GetPrice(u16 itemId)
     if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
     {
         u16 move = ItemIdToBattleMoveId(itemId);
-        price = Rogue_CalculateMovePrice(move);
 
         // increase as these are re-usable
-        if(Rogue_IsRunActive())
-            price *= 5;
-        else
-            price *= 10;
+        price = Rogue_CalculateMovePrice(move) * 4;
+        applyDefaultHubIncrease = TRUE;
     }
 
     // Set hold items price based on usage and override specifics below
     if(item.holdEffect != 0 && item.pocket != POCKET_BERRIES)
     {
         applyDefaultHubIncrease = TRUE;
-        price = 2000 + (min(gRoguePokemonHeldItemUsages[itemId], 280) / 4) * 200;
+        price = 1000 + (min(gRoguePokemonHeldItemUsages[itemId], 280) / 4) * 100;
     }
 
 #ifdef ROGUE_EXPANSION
@@ -1041,10 +1038,10 @@ u16 Rogue_GetPrice(u16 itemId)
         price = 50;
     }
 
-    // Don't move evo items into held item pocket
     if(Rogue_IsEvolutionItem(itemId))
     {
         price = 2100;
+        applyDefaultHubIncrease = FALSE;
     }
 
 #ifdef ROGUE_EXPANSION

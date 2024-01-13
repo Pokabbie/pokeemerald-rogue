@@ -113,6 +113,7 @@ struct RouteMonPreview
 struct RogueLocalData
 {
     struct RouteMonPreview encounterPreview[WILD_ENCOUNTER_GRASS_CAPACITY];
+    u32 rngSeedToRestore;
     u16 wildEncounterHistoryBuffer[3];
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
@@ -5248,7 +5249,7 @@ static u8 GetCurrentWildEncounterCount()
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
         {
             u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
-            count = 4;
+            count = 5;
 
             if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard route
             {
@@ -5825,6 +5826,8 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     bool8 applyRandomChance = FALSE;
     u16 maxPriceRange = 65000;
 
+    gRogueLocal.rngSeedToRestore = gRngRogueValue;
+
     RogueItemQuery_Begin();
     RogueItemQuery_IsItemActive();
 
@@ -5931,6 +5934,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     case ROGUE_SHOP_BERRIES:
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_BERRIES);
         *minSalePrice = 5000;
+        applyRandomChance = TRUE;
         break;
 
     case ROGUE_SHOP_TREATS:
@@ -6090,6 +6094,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 void Rogue_CloseMartQuery()
 {
     RogueItemQuery_End();
+    gRngRogueValue = gRogueLocal.rngSeedToRestore;
 }
 
 static void ApplyTutorMoveCapacity(u8* count, u16* moves, u16 capacity)
@@ -6641,21 +6646,20 @@ static u8 TRMove_CalculateWeight(u16 index, u16 move, void* data)
 {
     u16 usage = gRoguePokemonMoveUsages[move];
 
-    // If we don't have comp usage, the chance is 10 lower
-    // so it still could happen but it's really not very likely
+    // If we don't have comp usage, the chance is impossible
     if(usage == 0)
-        return 1;
+        return 0;
 
     if(usage >= 300)
-        return 50;
+        return 5;
     if(usage >= 200)
-        return 40;
+        return 4;
     if(usage >= 100)
-        return 30;
+        return 3;
     if(usage >= 50)
-        return 20;
+        return 2;
 
-    return 10;
+    return 1;
 }
 
 static void RandomiseTRMoves()
