@@ -210,7 +210,7 @@
       "flag": "FLAG_ROGUE_ITEM2"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_RARE_CANDY",
       "x": 53,
       "y": 6,
       "elevation": 3,
@@ -219,8 +219,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Give_Item3",
-      "flag": "FLAG_ROGUE_ITEM3"
+      "script": "Rogue_Give_RareCandy",
+      "flag": "FLAG_ROGUE_MAP_EVENT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",

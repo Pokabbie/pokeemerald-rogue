@@ -971,6 +971,18 @@ script Rogue_Battle_Rival
 
 // Item Blocks
 //
+script Rogue_Give_RareCandy
+{
+    setvar(VAR_ITEM_ID_VAL, ITEM_RARE_CANDY)
+    call(Rogue_GiveItem_Internal)
+}
+
+script Rogue_Give_MasterBall
+{
+    setvar(VAR_ITEM_ID_VAL, ITEM_MASTER_BALL)
+    call(Rogue_GiveItem_Internal)
+}
+
 script Rogue_Give_Item0
 {
     setvar(VAR_ITEM_INDEX, 0)

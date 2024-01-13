@@ -1388,8 +1388,12 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
     {
         if(itemId >= ITEM_ROGUE_ITEM_FIRST && itemId <= ITEM_ROGUE_ITEM_LAST)
         {
+            if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
+            {
+                // do nothing, the ID is never set on these and that's intentional as they copy from a template
+            }
             // Item isn't enabled in this build config / doesn't have any data associated with this ID
-            if(gRogueItems[itemId - ITEM_ROGUE_ITEM_FIRST].itemId != itemId)
+            else if(gRogueItems[itemId - ITEM_ROGUE_ITEM_FIRST].itemId != itemId)
                 return FALSE;
         }
 
@@ -3783,6 +3787,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         // Allow warping to non-0 warps within the same ID
         return;
     }
+
+    FlagClear(FLAG_ROGUE_MAP_EVENT);
 
     // Reset preview data
     memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
