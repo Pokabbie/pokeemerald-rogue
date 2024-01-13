@@ -741,6 +741,9 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
 #ifdef ROGUE_EXPANSION
             if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
                 amount = 1;
+
+            if(itemId >= ITEM_RED_NECTAR && itemId <= ITEM_PURPLE_NECTAR)
+                amount = 1;
 #endif
         }
     }
@@ -959,11 +962,11 @@ static u32 CalculateBattleWinnings(u16 trainerNum)
         }
 
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-            moneyReward = 4 * lastMonLevel * gTrainerMoneyTable[i].value;
+            moneyReward = 8 * lastMonLevel * gTrainerMoneyTable[i].value;
         else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
-            moneyReward = 4 * lastMonLevel * 2 * gTrainerMoneyTable[i].value;
+            moneyReward = 8 * lastMonLevel * 2 * gTrainerMoneyTable[i].value;
         else
-            moneyReward = 4 * lastMonLevel * gTrainerMoneyTable[i].value;
+            moneyReward = 8 * lastMonLevel * gTrainerMoneyTable[i].value;
     }
 
     return moneyReward;
@@ -984,7 +987,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
             if(Rogue_IsKeyTrainer(trainerNum))
             {
                 u8 difficulty = Rogue_GetCurrentDifficulty();
-                *money = (difficulty + 1) * 500;
+                *money = (difficulty + 1) * 1000;
             }
             else
             {

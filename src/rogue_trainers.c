@@ -262,12 +262,12 @@ u8 Rogue_GetTrainerWeather(u16 trainerNum)
             break;
         
         case DIFFICULTY_LEVEL_MEDIUM:
-            if(Rogue_GetCurrentDifficulty() > 2)
+            if(Rogue_GetCurrentDifficulty() >= 4)
                 weatherType = trainer->preferredWeather;
             break;
         
         case DIFFICULTY_LEVEL_HARD:
-            if(Rogue_GetCurrentDifficulty() > 0)
+            if(Rogue_GetCurrentDifficulty() >= 2)
                 weatherType = trainer->preferredWeather;
             break;
         
