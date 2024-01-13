@@ -113,6 +113,7 @@ struct RouteMonPreview
 struct RogueLocalData
 {
     struct RouteMonPreview encounterPreview[WILD_ENCOUNTER_GRASS_CAPACITY];
+    u32 rngSeedToRestore;
     u16 wildEncounterHistoryBuffer[3];
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
@@ -5248,7 +5249,7 @@ static u8 GetCurrentWildEncounterCount()
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
         {
             u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
-            count = 4;
+            count = 5;
 
             if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard route
             {
@@ -5825,6 +5826,8 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     bool8 applyRandomChance = FALSE;
     u16 maxPriceRange = 65000;
 
+    gRogueLocal.rngSeedToRestore = gRngRogueValue;
+
     RogueItemQuery_Begin();
     RogueItemQuery_IsItemActive();
 
@@ -5931,6 +5934,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     case ROGUE_SHOP_BERRIES:
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_BERRIES);
         *minSalePrice = 5000;
+        applyRandomChance = TRUE;
         break;
 
     case ROGUE_SHOP_TREATS:
@@ -6090,6 +6094,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 void Rogue_CloseMartQuery()
 {
     RogueItemQuery_End();
+    gRngRogueValue = gRogueLocal.rngSeedToRestore;
 }
 
 static void ApplyTutorMoveCapacity(u8* count, u16* moves, u16 capacity)
