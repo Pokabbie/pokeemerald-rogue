@@ -345,36 +345,44 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
             case EVO_LEVEL_FEMALE:
             case EVO_LEVEL_MALE:
             case EVO_LEVEL_DAY:
+            case EVO_LEVEL_NIGHT:
             case EVO_LEVEL_DUSK:
             case EVO_LEVEL_NATURE_AMPED:
             case EVO_LEVEL_NATURE_LOW_KEY:
-            case EVO_CRITICAL_HITS:
+
+            case EVO_LEVEL_FAMILY_OF_THREE:
+            case EVO_LEVEL_FAMILY_OF_FOUR:
+            case EVO_LEVEL_TWO_SEGMENT:
+            case EVO_LEVEL_THREE_SEGMENT:
+            case EVO_LEVEL_30_NATURE:
 #endif
-            if (evo.param > level)
-                continue; // not the correct level to evolve
+                if (evo.param > level)
+                    continue; // not the correct level to evolve
             break;
                 
+#ifdef ROGUE_EXPANSION
+            case EVO_MOVE_TYPE:
+            if (30 > level)
+                continue; // assume we have a move of this type by this level
+            break;
+
+            case EVOLUTIONS_END:
+            case EVO_NONE:
+                // Ignore these
+                continue;
+            break;
+#endif
+
             // Item evos
             case EVO_ITEM:
-            case EVO_LEVEL_ITEM:
 #ifdef ROGUE_EXPANSION
-            case EVO_ITEM_HOLD_DAY:
-            case EVO_ITEM_HOLD_NIGHT:
-            case EVO_MOVE:
-            case EVO_MOVE_TYPE:
-            case EVO_MAPSEC:
+            //case EVO_ITEM_DAY:
+            //case EVO_ITEM_NIGHT:
             case EVO_ITEM_MALE:
             case EVO_ITEM_FEMALE:
-            case EVO_LEVEL_RAIN:
-            case EVO_SPECIFIC_MON_IN_PARTY:
-            case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
-            case EVO_SPECIFIC_MAP:
-            case EVO_SCRIPT_TRIGGER_DMG:
-            case EVO_DARK_SCROLL:
-            case EVO_WATER_SCROLL:
 #endif
-            if (!items)
-                continue; // not accepting item evos
+                if (!items)
+                    continue; // not accepting item evos
             break;
 
             default:
