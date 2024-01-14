@@ -341,6 +341,8 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
             case EVO_LEVEL_CASCOON:
             case EVO_LEVEL_NINJASK:
             case EVO_LEVEL_SHEDINJA:
+            case EVO_LEVEL_DAY:
+            case EVO_LEVEL_NIGHT:
 #ifdef ROGUE_EXPANSION
             case EVO_LEVEL_FEMALE:
             case EVO_LEVEL_MALE:
