@@ -1707,7 +1707,7 @@ gCryTable::
 	cry Cry_Goodra
 .endif @ P_FAMILY_GOOMY
 .if P_FAMILY_KLEFKI == TRUE
-	cry Cry_Klefki
+	cry_uncomp Cry_Klefki
 .endif @ P_FAMILY_KLEFKI
 .if P_FAMILY_PHANTUMP == TRUE
 	cry Cry_Phantump
@@ -1786,7 +1786,7 @@ gCryTable::
 .endif @ P_FAMILY_CRABRAWLER
 .if P_FAMILY_ORICORIO == TRUE
 	cry Cry_OricorioBaile
-	cry Cry_OricorioPomPom
+	cry_uncomp Cry_OricorioPomPom
 	cry Cry_OricorioPau
 	cry Cry_OricorioSensu
 .endif @ P_FAMILY_ORICORIO
@@ -4111,7 +4111,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Goodra
 .endif @ P_FAMILY_GOOMY
 .if P_FAMILY_KLEFKI == TRUE
-	cry_reverse Cry_Klefki
+	cry_reverse_uncomp  Cry_Klefki
 .endif @ P_FAMILY_KLEFKI
 .if P_FAMILY_PHANTUMP == TRUE
 	cry_reverse Cry_Phantump
@@ -4190,7 +4190,7 @@ gCryTable_Reverse::
 .endif @ P_FAMILY_CRABRAWLER
 .if P_FAMILY_ORICORIO == TRUE
 	cry_reverse Cry_OricorioBaile
-	cry_reverse Cry_OricorioPomPom
+	cry_reverse_uncomp Cry_OricorioPomPom
 	cry_reverse Cry_OricorioPau
 	cry_reverse Cry_OricorioSensu
 .endif @ P_FAMILY_ORICORIO
