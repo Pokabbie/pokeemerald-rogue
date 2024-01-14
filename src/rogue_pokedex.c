@@ -279,6 +279,7 @@ static void MonEvos_OpenMoveQuery();
 static void MonEvos_CloseMoveQuery();
 static bool8 MonEvos_IsTutorMoveTM(u16 moveIdx);
 static bool8 MonEvos_IsTutorMoveTR(u16 moveIdx);
+static bool8 MonEvos_IsTutorMove(u16 moveIdx);
 static void MonEvos_HandleInput(u8);
 static void MonEvos_CreateSprites();
 
@@ -1330,8 +1331,7 @@ static void DisplayMonMovesText()
             if(moveId == MOVE_NONE)
                 break;
 
-
-            if(!MonEvos_IsTutorMoveTM(i) && !MonEvos_IsTutorMoveTR(i))
+            if(!MonEvos_IsTutorMove(i))
                 continue;
 
             if(listIndex >= sPokedexMenu->listScrollAmount)
@@ -3155,6 +3155,11 @@ static bool8 MonEvos_IsTutorMoveTM(u16 moveIdx)
 static bool8 MonEvos_IsTutorMoveTR(u16 moveIdx)
 {
     return RogueMiscQuery_CheckState(moveIdx + MOVE_QUERY_OFFSET);
+}
+
+static bool8 MonEvos_IsTutorMove(u16 moveIdx)
+{
+    return !(MonEvos_IsTutorMoveTM(moveIdx) || MonEvos_IsTutorMoveTR(moveIdx));
 }
 
 static void MonEvos_HandleInput(u8 taskId)
