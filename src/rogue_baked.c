@@ -381,6 +381,8 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
         if(outEvo->method == EVO_MOVE)
         {
+            // While baking just assume everything is lvl 30 evo
+#ifndef ROGUE_BAKING
             u16 i;
 
             for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
@@ -392,6 +394,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                     break;
                 }
             }
+#endif
 
             if(outEvo->method == EVO_MOVE)
             {
