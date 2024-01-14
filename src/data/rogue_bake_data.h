@@ -13,13 +13,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1] =
 	{
 		.eggSpecies = 1,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
 	},
 	[2] =
 	{
 		.eggSpecies = 1,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
 	},
 	[3] =
@@ -31,13 +31,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[4] =
 	{
 		.eggSpecies = 4,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 516,
 	},
 	[5] =
 	{
 		.eggSpecies = 4,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 516,
 	},
 	[6] =
@@ -49,13 +49,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[7] =
 	{
 		.eggSpecies = 7,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[8] =
 	{
 		.eggSpecies = 7,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[9] =
@@ -67,13 +67,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[10] =
 	{
 		.eggSpecies = 10,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
 	},
 	[11] =
 	{
 		.eggSpecies = 10,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
 	},
 	[12] =
@@ -85,13 +85,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[13] =
 	{
 		.eggSpecies = 13,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
 	},
 	[14] =
 	{
 		.eggSpecies = 13,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
 	},
 	[15] =
@@ -103,13 +103,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[16] =
 	{
 		.eggSpecies = 16,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[17] =
 	{
 		.eggSpecies = 16,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[18] =
@@ -121,7 +121,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[19] =
 	{
 		.eggSpecies = 19,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[20] =
@@ -133,7 +133,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[21] =
 	{
 		.eggSpecies = 21,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[22] =
@@ -145,7 +145,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[23] =
 	{
 		.eggSpecies = 23,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8,
 	},
 	[24] =
@@ -157,7 +157,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[25] =
 	{
 		.eggSpecies = 172,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 12288,
 	},
 	[26] =
@@ -169,7 +169,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[27] =
 	{
 		.eggSpecies = 27,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
 	},
 	[28] =
@@ -181,13 +181,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[29] =
 	{
 		.eggSpecies = 29,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24,
 	},
 	[30] =
 	{
 		.eggSpecies = 29,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24,
 	},
 	[31] =
@@ -199,13 +199,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[32] =
 	{
 		.eggSpecies = 32,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24,
 	},
 	[33] =
 	{
 		.eggSpecies = 32,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24,
 	},
 	[34] =
@@ -217,7 +217,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[35] =
 	{
 		.eggSpecies = 173,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[36] =
@@ -229,7 +229,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[37] =
 	{
 		.eggSpecies = 37,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
 	},
 	[38] =
@@ -241,7 +241,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[39] =
 	{
 		.eggSpecies = 174,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131073,
 	},
 	[40] =
@@ -253,25 +253,25 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[41] =
 	{
 		.eggSpecies = 41,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 12,
 	},
 	[42] =
 	{
 		.eggSpecies = 41,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 12,
 	},
 	[43] =
 	{
 		.eggSpecies = 43,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
 	},
 	[44] =
 	{
 		.eggSpecies = 43,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2056,
 	},
 	[45] =
@@ -283,7 +283,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[46] =
 	{
 		.eggSpecies = 46,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2112,
 	},
 	[47] =
@@ -295,7 +295,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[48] =
 	{
 		.eggSpecies = 48,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
 	},
 	[49] =
@@ -307,7 +307,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[50] =
 	{
 		.eggSpecies = 50,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
 	},
 	[51] =
@@ -319,7 +319,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[52] =
 	{
 		.eggSpecies = 52,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[53] =
@@ -331,7 +331,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[54] =
 	{
 		.eggSpecies = 54,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[55] =
@@ -343,19 +343,19 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[56] =
 	{
 		.eggSpecies = 56,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 130,
 	},
 	[57] =
 	{
 		.eggSpecies = 56,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 130,
 	},
 	[58] =
 	{
 		.eggSpecies = 58,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
 	},
 	[59] =
@@ -367,13 +367,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[60] =
 	{
 		.eggSpecies = 60,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1026,
 	},
 	[61] =
 	{
 		.eggSpecies = 60,
-		.evolutionCount = 4,
+		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 1026,
 	},
 	[62] =
@@ -385,13 +385,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[63] =
 	{
 		.eggSpecies = 63,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[64] =
 	{
 		.eggSpecies = 63,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[65] =
@@ -403,13 +403,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[66] =
 	{
 		.eggSpecies = 66,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
 	},
 	[67] =
 	{
 		.eggSpecies = 66,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2,
 	},
 	[68] =
@@ -421,13 +421,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[69] =
 	{
 		.eggSpecies = 69,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
 	},
 	[70] =
 	{
 		.eggSpecies = 69,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
 	},
 	[71] =
@@ -439,7 +439,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[72] =
 	{
 		.eggSpecies = 72,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1032,
 	},
 	[73] =
@@ -451,13 +451,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[74] =
 	{
 		.eggSpecies = 74,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 48,
 	},
 	[75] =
 	{
 		.eggSpecies = 74,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 48,
 	},
 	[76] =
@@ -469,7 +469,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[77] =
 	{
 		.eggSpecies = 77,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
 	},
 	[78] =
@@ -481,7 +481,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[79] =
 	{
 		.eggSpecies = 79,
-		.evolutionCount = 4,
+		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 9216,
 	},
 	[80] =
@@ -493,13 +493,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[81] =
 	{
 		.eggSpecies = 81,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4352,
 	},
 	[82] =
 	{
 		.eggSpecies = 81,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 4352,
 	},
 	[83] =
@@ -511,7 +511,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[84] =
 	{
 		.eggSpecies = 84,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[85] =
@@ -523,7 +523,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[86] =
 	{
 		.eggSpecies = 86,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17408,
 	},
 	[87] =
@@ -535,7 +535,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[88] =
 	{
 		.eggSpecies = 88,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8,
 	},
 	[89] =
@@ -547,7 +547,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[90] =
 	{
 		.eggSpecies = 90,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17408,
 	},
 	[91] =
@@ -559,13 +559,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[92] =
 	{
 		.eggSpecies = 92,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 136,
 	},
 	[93] =
 	{
 		.eggSpecies = 92,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 136,
 	},
 	[94] =
@@ -577,13 +577,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[95] =
 	{
 		.eggSpecies = 95,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 304,
 	},
 	[96] =
 	{
 		.eggSpecies = 96,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[97] =
@@ -595,7 +595,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[98] =
 	{
 		.eggSpecies = 98,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[99] =
@@ -607,7 +607,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[100] =
 	{
 		.eggSpecies = 100,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[101] =
@@ -619,7 +619,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[102] =
 	{
 		.eggSpecies = 102,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 43008,
 	},
 	[103] =
@@ -631,7 +631,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[104] =
 	{
 		.eggSpecies = 104,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 656,
 	},
 	[105] =
@@ -655,13 +655,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[108] =
 	{
 		.eggSpecies = 108,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[109] =
 	{
 		.eggSpecies = 109,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 131080,
 	},
 	[110] =
@@ -673,25 +673,25 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[111] =
 	{
 		.eggSpecies = 111,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 48,
 	},
 	[112] =
 	{
 		.eggSpecies = 111,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 48,
 	},
 	[113] =
 	{
 		.eggSpecies = 440,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[114] =
 	{
 		.eggSpecies = 114,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[115] =
@@ -703,19 +703,19 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[116] =
 	{
 		.eggSpecies = 116,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 33792,
 	},
 	[117] =
 	{
 		.eggSpecies = 116,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 33792,
 	},
 	[118] =
 	{
 		.eggSpecies = 118,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[119] =
@@ -727,7 +727,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[120] =
 	{
 		.eggSpecies = 120,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 9216,
 	},
 	[121] =
@@ -745,7 +745,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[123] =
 	{
 		.eggSpecies = 123,
-		.evolutionCount = 4,
+		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 356,
 	},
 	[124] =
@@ -757,13 +757,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[125] =
 	{
 		.eggSpecies = 239,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[126] =
 	{
 		.eggSpecies = 240,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 512,
 	},
 	[127] =
@@ -781,7 +781,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[129] =
 	{
 		.eggSpecies = 129,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1028,
 	},
 	[130] =
@@ -805,7 +805,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[133] =
 	{
 		.eggSpecies = 133,
-		.evolutionCount = 11,
+		.evolutionCount = 10,
 		.evolutionChainTypeFlags = 228865,
 	},
 	[134] =
@@ -829,13 +829,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[137] =
 	{
 		.eggSpecies = 137,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
 	},
 	[138] =
 	{
 		.eggSpecies = 138,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1056,
 	},
 	[139] =
@@ -847,7 +847,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[140] =
 	{
 		.eggSpecies = 140,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1056,
 	},
 	[141] =
@@ -889,13 +889,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[147] =
 	{
 		.eggSpecies = 147,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32772,
 	},
 	[148] =
 	{
 		.eggSpecies = 147,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32772,
 	},
 	[149] =
@@ -919,13 +919,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[152] =
 	{
 		.eggSpecies = 152,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[153] =
 	{
 		.eggSpecies = 152,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[154] =
@@ -937,13 +937,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[155] =
 	{
 		.eggSpecies = 155,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 640,
 	},
 	[156] =
 	{
 		.eggSpecies = 155,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 640,
 	},
 	[157] =
@@ -955,13 +955,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[158] =
 	{
 		.eggSpecies = 158,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[159] =
 	{
 		.eggSpecies = 158,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[160] =
@@ -973,7 +973,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[161] =
 	{
 		.eggSpecies = 161,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[162] =
@@ -985,7 +985,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[163] =
 	{
 		.eggSpecies = 163,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[164] =
@@ -997,7 +997,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[165] =
 	{
 		.eggSpecies = 165,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
 	},
 	[166] =
@@ -1009,7 +1009,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[167] =
 	{
 		.eggSpecies = 167,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
 	},
 	[168] =
@@ -1027,7 +1027,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[170] =
 	{
 		.eggSpecies = 170,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5120,
 	},
 	[171] =
@@ -1039,37 +1039,37 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[172] =
 	{
 		.eggSpecies = 172,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 12288,
 	},
 	[173] =
 	{
 		.eggSpecies = 173,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[174] =
 	{
 		.eggSpecies = 174,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131073,
 	},
 	[175] =
 	{
 		.eggSpecies = 175,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131076,
 	},
 	[176] =
 	{
 		.eggSpecies = 175,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131076,
 	},
 	[177] =
 	{
 		.eggSpecies = 177,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8196,
 	},
 	[178] =
@@ -1081,13 +1081,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[179] =
 	{
 		.eggSpecies = 179,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[180] =
 	{
 		.eggSpecies = 179,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[181] =
@@ -1105,7 +1105,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[183] =
 	{
 		.eggSpecies = 298,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 132097,
 	},
 	[184] =
@@ -1129,13 +1129,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[187] =
 	{
 		.eggSpecies = 187,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2052,
 	},
 	[188] =
 	{
 		.eggSpecies = 187,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2052,
 	},
 	[189] =
@@ -1147,13 +1147,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[190] =
 	{
 		.eggSpecies = 190,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[191] =
 	{
 		.eggSpecies = 191,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[192] =
@@ -1165,13 +1165,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[193] =
 	{
 		.eggSpecies = 193,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
 	},
 	[194] =
 	{
 		.eggSpecies = 194,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
 	},
 	[195] =
@@ -1195,7 +1195,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[198] =
 	{
 		.eggSpecies = 198,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65540,
 	},
 	[199] =
@@ -1207,7 +1207,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[200] =
 	{
 		.eggSpecies = 200,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
 	},
 	[201] =
@@ -1225,13 +1225,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[203] =
 	{
 		.eggSpecies = 203,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8193,
 	},
 	[204] =
 	{
 		.eggSpecies = 204,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 320,
 	},
 	[205] =
@@ -1243,13 +1243,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[206] =
 	{
 		.eggSpecies = 206,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
 	},
 	[207] =
 	{
 		.eggSpecies = 207,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 20,
 	},
 	[208] =
@@ -1261,7 +1261,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[209] =
 	{
 		.eggSpecies = 209,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[210] =
@@ -1297,25 +1297,25 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[215] =
 	{
 		.eggSpecies = 215,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 81920,
 	},
 	[216] =
 	{
 		.eggSpecies = 216,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17,
 	},
 	[217] =
 	{
 		.eggSpecies = 216,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 17,
 	},
 	[218] =
 	{
 		.eggSpecies = 218,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 544,
 	},
 	[219] =
@@ -1327,13 +1327,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[220] =
 	{
 		.eggSpecies = 220,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16400,
 	},
 	[221] =
 	{
 		.eggSpecies = 220,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16400,
 	},
 	[222] =
@@ -1345,7 +1345,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[223] =
 	{
 		.eggSpecies = 223,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[224] =
@@ -1375,7 +1375,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[228] =
 	{
 		.eggSpecies = 228,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66048,
 	},
 	[229] =
@@ -1393,7 +1393,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[231] =
 	{
 		.eggSpecies = 231,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
 	},
 	[232] =
@@ -1405,13 +1405,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[233] =
 	{
 		.eggSpecies = 137,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
 	},
 	[234] =
 	{
 		.eggSpecies = 234,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8193,
 	},
 	[235] =
@@ -1423,7 +1423,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[236] =
 	{
 		.eggSpecies = 236,
-		.evolutionCount = 4,
+		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 2,
 	},
 	[237] =
@@ -1435,19 +1435,19 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[238] =
 	{
 		.eggSpecies = 238,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24576,
 	},
 	[239] =
 	{
 		.eggSpecies = 239,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[240] =
 	{
 		.eggSpecies = 240,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
 	},
 	[241] =
@@ -1483,13 +1483,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[246] =
 	{
 		.eggSpecies = 246,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65584,
 	},
 	[247] =
 	{
 		.eggSpecies = 246,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65584,
 	},
 	[248] =
@@ -1519,13 +1519,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[252] =
 	{
 		.eggSpecies = 252,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[253] =
 	{
 		.eggSpecies = 252,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[254] =
@@ -1537,13 +1537,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[255] =
 	{
 		.eggSpecies = 255,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
 	},
 	[256] =
 	{
 		.eggSpecies = 255,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
 	},
 	[257] =
@@ -1555,13 +1555,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[258] =
 	{
 		.eggSpecies = 258,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
 	},
 	[259] =
 	{
 		.eggSpecies = 258,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
 	},
 	[260] =
@@ -1573,7 +1573,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[261] =
 	{
 		.eggSpecies = 261,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
 	},
 	[262] =
@@ -1585,7 +1585,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[263] =
 	{
 		.eggSpecies = 263,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[264] =
@@ -1597,13 +1597,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[265] =
 	{
 		.eggSpecies = 265,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 76,
 	},
 	[266] =
 	{
 		.eggSpecies = 265,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 76,
 	},
 	[267] =
@@ -1615,7 +1615,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[268] =
 	{
 		.eggSpecies = 265,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 76,
 	},
 	[269] =
@@ -1627,13 +1627,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[270] =
 	{
 		.eggSpecies = 270,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 3072,
 	},
 	[271] =
 	{
 		.eggSpecies = 270,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 3072,
 	},
 	[272] =
@@ -1645,13 +1645,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[273] =
 	{
 		.eggSpecies = 273,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 67584,
 	},
 	[274] =
 	{
 		.eggSpecies = 273,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 67584,
 	},
 	[275] =
@@ -1663,7 +1663,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[276] =
 	{
 		.eggSpecies = 276,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[277] =
@@ -1675,7 +1675,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[278] =
 	{
 		.eggSpecies = 278,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1028,
 	},
 	[279] =
@@ -1687,13 +1687,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[280] =
 	{
 		.eggSpecies = 280,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 139266,
 	},
 	[281] =
 	{
 		.eggSpecies = 280,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 139266,
 	},
 	[282] =
@@ -1705,7 +1705,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[283] =
 	{
 		.eggSpecies = 283,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1092,
 	},
 	[284] =
@@ -1717,7 +1717,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[285] =
 	{
 		.eggSpecies = 285,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2050,
 	},
 	[286] =
@@ -1729,13 +1729,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[287] =
 	{
 		.eggSpecies = 287,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[288] =
 	{
 		.eggSpecies = 287,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[289] =
@@ -1747,7 +1747,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[290] =
 	{
 		.eggSpecies = 290,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 212,
 	},
 	[291] =
@@ -1765,13 +1765,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[293] =
 	{
 		.eggSpecies = 293,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[294] =
 	{
 		.eggSpecies = 293,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[295] =
@@ -1783,7 +1783,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[296] =
 	{
 		.eggSpecies = 296,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
 	},
 	[297] =
@@ -1795,19 +1795,19 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[298] =
 	{
 		.eggSpecies = 298,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 132097,
 	},
 	[299] =
 	{
 		.eggSpecies = 299,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 288,
 	},
 	[300] =
 	{
 		.eggSpecies = 300,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[301] =
@@ -1831,13 +1831,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[304] =
 	{
 		.eggSpecies = 304,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 288,
 	},
 	[305] =
 	{
 		.eggSpecies = 304,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 288,
 	},
 	[306] =
@@ -1849,7 +1849,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[307] =
 	{
 		.eggSpecies = 307,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8194,
 	},
 	[308] =
@@ -1861,7 +1861,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[309] =
 	{
 		.eggSpecies = 309,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[310] =
@@ -1897,13 +1897,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[315] =
 	{
 		.eggSpecies = 406,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
 	},
 	[316] =
 	{
 		.eggSpecies = 316,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8,
 	},
 	[317] =
@@ -1915,7 +1915,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[318] =
 	{
 		.eggSpecies = 318,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66560,
 	},
 	[319] =
@@ -1927,7 +1927,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[320] =
 	{
 		.eggSpecies = 320,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[321] =
@@ -1939,7 +1939,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[322] =
 	{
 		.eggSpecies = 322,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 528,
 	},
 	[323] =
@@ -1957,7 +1957,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[325] =
 	{
 		.eggSpecies = 325,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[326] =
@@ -1975,13 +1975,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[328] =
 	{
 		.eggSpecies = 328,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32784,
 	},
 	[329] =
 	{
 		.eggSpecies = 328,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32784,
 	},
 	[330] =
@@ -1993,7 +1993,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[331] =
 	{
 		.eggSpecies = 331,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 67584,
 	},
 	[332] =
@@ -2005,7 +2005,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[333] =
 	{
 		.eggSpecies = 333,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32773,
 	},
 	[334] =
@@ -2041,7 +2041,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[339] =
 	{
 		.eggSpecies = 339,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
 	},
 	[340] =
@@ -2053,7 +2053,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[341] =
 	{
 		.eggSpecies = 341,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66560,
 	},
 	[342] =
@@ -2065,7 +2065,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[343] =
 	{
 		.eggSpecies = 343,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8208,
 	},
 	[344] =
@@ -2077,7 +2077,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[345] =
 	{
 		.eggSpecies = 345,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2080,
 	},
 	[346] =
@@ -2089,7 +2089,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[347] =
 	{
 		.eggSpecies = 347,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 96,
 	},
 	[348] =
@@ -2101,7 +2101,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[349] =
 	{
 		.eggSpecies = 349,
-		.evolutionCount = 4,
+		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[350] =
@@ -2125,7 +2125,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[353] =
 	{
 		.eggSpecies = 353,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
 	},
 	[354] =
@@ -2137,13 +2137,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[355] =
 	{
 		.eggSpecies = 355,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
 	},
 	[356] =
 	{
 		.eggSpecies = 355,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 128,
 	},
 	[357] =
@@ -2167,13 +2167,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[360] =
 	{
 		.eggSpecies = 360,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[361] =
 	{
 		.eggSpecies = 361,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 16512,
 	},
 	[362] =
@@ -2185,13 +2185,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[363] =
 	{
 		.eggSpecies = 363,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17408,
 	},
 	[364] =
 	{
 		.eggSpecies = 363,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17408,
 	},
 	[365] =
@@ -2203,7 +2203,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[366] =
 	{
 		.eggSpecies = 366,
-		.evolutionCount = 5,
+		.evolutionCount = 4,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[367] =
@@ -2233,13 +2233,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[371] =
 	{
 		.eggSpecies = 371,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32772,
 	},
 	[372] =
 	{
 		.eggSpecies = 371,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32772,
 	},
 	[373] =
@@ -2251,13 +2251,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[374] =
 	{
 		.eggSpecies = 374,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8448,
 	},
 	[375] =
 	{
 		.eggSpecies = 374,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8448,
 	},
 	[376] =
@@ -2329,13 +2329,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[387] =
 	{
 		.eggSpecies = 387,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2064,
 	},
 	[388] =
 	{
 		.eggSpecies = 387,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2064,
 	},
 	[389] =
@@ -2347,13 +2347,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[390] =
 	{
 		.eggSpecies = 390,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
 	},
 	[391] =
 	{
 		.eggSpecies = 390,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
 	},
 	[392] =
@@ -2365,13 +2365,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[393] =
 	{
 		.eggSpecies = 393,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1280,
 	},
 	[394] =
 	{
 		.eggSpecies = 393,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1280,
 	},
 	[395] =
@@ -2383,13 +2383,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[396] =
 	{
 		.eggSpecies = 396,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[397] =
 	{
 		.eggSpecies = 396,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[398] =
@@ -2401,7 +2401,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[399] =
 	{
 		.eggSpecies = 399,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1025,
 	},
 	[400] =
@@ -2413,7 +2413,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[401] =
 	{
 		.eggSpecies = 401,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 64,
 	},
 	[402] =
@@ -2425,13 +2425,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[403] =
 	{
 		.eggSpecies = 403,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[404] =
 	{
 		.eggSpecies = 403,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[405] =
@@ -2443,7 +2443,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[406] =
 	{
 		.eggSpecies = 406,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
 	},
 	[407] =
@@ -2455,7 +2455,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[408] =
 	{
 		.eggSpecies = 408,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
 	},
 	[409] =
@@ -2467,7 +2467,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[410] =
 	{
 		.eggSpecies = 410,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 288,
 	},
 	[411] =
@@ -2479,7 +2479,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[412] =
 	{
 		.eggSpecies = 412,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2116,
 	},
 	[413] =
@@ -2497,7 +2497,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[415] =
 	{
 		.eggSpecies = 415,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
 	},
 	[416] =
@@ -2515,7 +2515,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[418] =
 	{
 		.eggSpecies = 418,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[419] =
@@ -2527,7 +2527,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[420] =
 	{
 		.eggSpecies = 420,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[421] =
@@ -2539,7 +2539,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[422] =
 	{
 		.eggSpecies = 422,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
 	},
 	[423] =
@@ -2557,7 +2557,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[425] =
 	{
 		.eggSpecies = 425,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 132,
 	},
 	[426] =
@@ -2569,7 +2569,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[427] =
 	{
 		.eggSpecies = 427,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[428] =
@@ -2593,7 +2593,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[431] =
 	{
 		.eggSpecies = 431,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[432] =
@@ -2605,13 +2605,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[433] =
 	{
 		.eggSpecies = 433,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[434] =
 	{
 		.eggSpecies = 434,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65544,
 	},
 	[435] =
@@ -2623,7 +2623,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[436] =
 	{
 		.eggSpecies = 436,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8448,
 	},
 	[437] =
@@ -2635,19 +2635,19 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[438] =
 	{
 		.eggSpecies = 438,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
 	},
 	[439] =
 	{
 		.eggSpecies = 439,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 155648,
 	},
 	[440] =
 	{
 		.eggSpecies = 440,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
 	},
 	[441] =
@@ -2665,13 +2665,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[443] =
 	{
 		.eggSpecies = 443,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32784,
 	},
 	[444] =
 	{
 		.eggSpecies = 443,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32784,
 	},
 	[445] =
@@ -2683,13 +2683,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[446] =
 	{
 		.eggSpecies = 446,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[447] =
 	{
 		.eggSpecies = 447,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 258,
 	},
 	[448] =
@@ -2701,7 +2701,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[449] =
 	{
 		.eggSpecies = 449,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
 	},
 	[450] =
@@ -2713,7 +2713,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[451] =
 	{
 		.eggSpecies = 451,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65608,
 	},
 	[452] =
@@ -2725,7 +2725,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[453] =
 	{
 		.eggSpecies = 453,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 10,
 	},
 	[454] =
@@ -2743,7 +2743,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[456] =
 	{
 		.eggSpecies = 456,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[457] =
@@ -2755,13 +2755,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[458] =
 	{
 		.eggSpecies = 458,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1028,
 	},
 	[459] =
 	{
 		.eggSpecies = 459,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 18432,
 	},
 	[460] =
@@ -2977,13 +2977,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[495] =
 	{
 		.eggSpecies = 495,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[496] =
 	{
 		.eggSpecies = 495,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[497] =
@@ -2995,13 +2995,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[498] =
 	{
 		.eggSpecies = 498,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
 	},
 	[499] =
 	{
 		.eggSpecies = 498,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 514,
 	},
 	[500] =
@@ -3013,13 +3013,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[501] =
 	{
 		.eggSpecies = 501,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66560,
 	},
 	[502] =
 	{
 		.eggSpecies = 501,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 66560,
 	},
 	[503] =
@@ -3031,7 +3031,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[504] =
 	{
 		.eggSpecies = 504,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[505] =
@@ -3043,13 +3043,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[506] =
 	{
 		.eggSpecies = 506,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[507] =
 	{
 		.eggSpecies = 506,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[508] =
@@ -3061,7 +3061,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[509] =
 	{
 		.eggSpecies = 509,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
 	},
 	[510] =
@@ -3073,7 +3073,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[511] =
 	{
 		.eggSpecies = 511,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[512] =
@@ -3085,7 +3085,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[513] =
 	{
 		.eggSpecies = 513,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
 	},
 	[514] =
@@ -3097,7 +3097,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[515] =
 	{
 		.eggSpecies = 515,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[516] =
@@ -3109,7 +3109,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[517] =
 	{
 		.eggSpecies = 517,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[518] =
@@ -3121,13 +3121,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[519] =
 	{
 		.eggSpecies = 519,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[520] =
 	{
 		.eggSpecies = 519,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[521] =
@@ -3139,7 +3139,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[522] =
 	{
 		.eggSpecies = 522,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[523] =
@@ -3151,13 +3151,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[524] =
 	{
 		.eggSpecies = 524,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
 	},
 	[525] =
 	{
 		.eggSpecies = 524,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 32,
 	},
 	[526] =
@@ -3169,7 +3169,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[527] =
 	{
 		.eggSpecies = 527,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8196,
 	},
 	[528] =
@@ -3181,7 +3181,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[529] =
 	{
 		.eggSpecies = 529,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 272,
 	},
 	[530] =
@@ -3199,13 +3199,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[532] =
 	{
 		.eggSpecies = 532,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
 	},
 	[533] =
 	{
 		.eggSpecies = 532,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2,
 	},
 	[534] =
@@ -3217,13 +3217,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[535] =
 	{
 		.eggSpecies = 535,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
 	},
 	[536] =
 	{
 		.eggSpecies = 535,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
 	},
 	[537] =
@@ -3247,13 +3247,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[540] =
 	{
 		.eggSpecies = 540,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2112,
 	},
 	[541] =
 	{
 		.eggSpecies = 540,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2112,
 	},
 	[542] =
@@ -3265,13 +3265,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[543] =
 	{
 		.eggSpecies = 543,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
 	},
 	[544] =
 	{
 		.eggSpecies = 543,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 72,
 	},
 	[545] =
@@ -3283,7 +3283,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[546] =
 	{
 		.eggSpecies = 546,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 133120,
 	},
 	[547] =
@@ -3295,7 +3295,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[548] =
 	{
 		.eggSpecies = 548,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2050,
 	},
 	[549] =
@@ -3313,13 +3313,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[551] =
 	{
 		.eggSpecies = 551,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65552,
 	},
 	[552] =
 	{
 		.eggSpecies = 551,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65552,
 	},
 	[553] =
@@ -3331,7 +3331,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[554] =
 	{
 		.eggSpecies = 554,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
 	},
 	[555] =
@@ -3349,7 +3349,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[557] =
 	{
 		.eggSpecies = 557,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 96,
 	},
 	[558] =
@@ -3361,7 +3361,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[559] =
 	{
 		.eggSpecies = 559,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65538,
 	},
 	[560] =
@@ -3379,7 +3379,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[562] =
 	{
 		.eggSpecies = 562,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
 	},
 	[563] =
@@ -3391,7 +3391,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[564] =
 	{
 		.eggSpecies = 564,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1056,
 	},
 	[565] =
@@ -3403,7 +3403,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[566] =
 	{
 		.eggSpecies = 566,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 36,
 	},
 	[567] =
@@ -3415,7 +3415,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[568] =
 	{
 		.eggSpecies = 568,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8,
 	},
 	[569] =
@@ -3427,7 +3427,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[570] =
 	{
 		.eggSpecies = 570,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
 	},
 	[571] =
@@ -3439,7 +3439,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[572] =
 	{
 		.eggSpecies = 572,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[573] =
@@ -3451,13 +3451,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[574] =
 	{
 		.eggSpecies = 574,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[575] =
 	{
 		.eggSpecies = 574,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[576] =
@@ -3469,13 +3469,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[577] =
 	{
 		.eggSpecies = 577,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[578] =
 	{
 		.eggSpecies = 577,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[579] =
@@ -3487,7 +3487,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[580] =
 	{
 		.eggSpecies = 580,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1028,
 	},
 	[581] =
@@ -3499,13 +3499,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[582] =
 	{
 		.eggSpecies = 582,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16384,
 	},
 	[583] =
 	{
 		.eggSpecies = 582,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16384,
 	},
 	[584] =
@@ -3517,7 +3517,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[585] =
 	{
 		.eggSpecies = 585,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
 	},
 	[586] =
@@ -3535,7 +3535,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[588] =
 	{
 		.eggSpecies = 588,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 320,
 	},
 	[589] =
@@ -3547,7 +3547,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[590] =
 	{
 		.eggSpecies = 590,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2056,
 	},
 	[591] =
@@ -3559,7 +3559,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[592] =
 	{
 		.eggSpecies = 592,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1152,
 	},
 	[593] =
@@ -3577,7 +3577,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[595] =
 	{
 		.eggSpecies = 595,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4160,
 	},
 	[596] =
@@ -3589,7 +3589,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[597] =
 	{
 		.eggSpecies = 597,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2304,
 	},
 	[598] =
@@ -3601,13 +3601,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[599] =
 	{
 		.eggSpecies = 599,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 256,
 	},
 	[600] =
 	{
 		.eggSpecies = 599,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 256,
 	},
 	[601] =
@@ -3619,13 +3619,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[602] =
 	{
 		.eggSpecies = 602,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[603] =
 	{
 		.eggSpecies = 602,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[604] =
@@ -3637,7 +3637,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[605] =
 	{
 		.eggSpecies = 605,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[606] =
@@ -3649,13 +3649,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[607] =
 	{
 		.eggSpecies = 607,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 640,
 	},
 	[608] =
 	{
 		.eggSpecies = 607,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 640,
 	},
 	[609] =
@@ -3667,13 +3667,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[610] =
 	{
 		.eggSpecies = 610,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32768,
 	},
 	[611] =
 	{
 		.eggSpecies = 610,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32768,
 	},
 	[612] =
@@ -3685,7 +3685,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[613] =
 	{
 		.eggSpecies = 613,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16384,
 	},
 	[614] =
@@ -3703,7 +3703,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[616] =
 	{
 		.eggSpecies = 616,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 64,
 	},
 	[617] =
@@ -3721,7 +3721,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[619] =
 	{
 		.eggSpecies = 619,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
 	},
 	[620] =
@@ -3739,7 +3739,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[622] =
 	{
 		.eggSpecies = 622,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 144,
 	},
 	[623] =
@@ -3751,13 +3751,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[624] =
 	{
 		.eggSpecies = 624,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65792,
 	},
 	[625] =
 	{
 		.eggSpecies = 624,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65792,
 	},
 	[626] =
@@ -3769,7 +3769,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[627] =
 	{
 		.eggSpecies = 627,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8197,
 	},
 	[628] =
@@ -3781,7 +3781,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[629] =
 	{
 		.eggSpecies = 629,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65540,
 	},
 	[630] =
@@ -3805,13 +3805,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[633] =
 	{
 		.eggSpecies = 633,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 98304,
 	},
 	[634] =
 	{
 		.eggSpecies = 633,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 98304,
 	},
 	[635] =
@@ -3823,7 +3823,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[636] =
 	{
 		.eggSpecies = 636,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 576,
 	},
 	[637] =
@@ -3907,13 +3907,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[650] =
 	{
 		.eggSpecies = 650,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2050,
 	},
 	[651] =
 	{
 		.eggSpecies = 650,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2050,
 	},
 	[652] =
@@ -3925,13 +3925,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[653] =
 	{
 		.eggSpecies = 653,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8704,
 	},
 	[654] =
 	{
 		.eggSpecies = 653,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8704,
 	},
 	[655] =
@@ -3943,13 +3943,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[656] =
 	{
 		.eggSpecies = 656,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66560,
 	},
 	[657] =
 	{
 		.eggSpecies = 656,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66560,
 	},
 	[658] =
@@ -3961,7 +3961,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[659] =
 	{
 		.eggSpecies = 659,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 17,
 	},
 	[660] =
@@ -3973,13 +3973,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[661] =
 	{
 		.eggSpecies = 661,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 517,
 	},
 	[662] =
 	{
 		.eggSpecies = 661,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 517,
 	},
 	[663] =
@@ -3991,13 +3991,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[664] =
 	{
 		.eggSpecies = 664,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
 	},
 	[665] =
 	{
 		.eggSpecies = 664,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 68,
 	},
 	[666] =
@@ -4009,7 +4009,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[667] =
 	{
 		.eggSpecies = 667,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 513,
 	},
 	[668] =
@@ -4021,13 +4021,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[669] =
 	{
 		.eggSpecies = 669,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[670] =
 	{
 		.eggSpecies = 669,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[671] =
@@ -4039,7 +4039,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[672] =
 	{
 		.eggSpecies = 672,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[673] =
@@ -4051,7 +4051,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[674] =
 	{
 		.eggSpecies = 674,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65538,
 	},
 	[675] =
@@ -4069,7 +4069,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[677] =
 	{
 		.eggSpecies = 677,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[678] =
@@ -4081,13 +4081,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[679] =
 	{
 		.eggSpecies = 679,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 384,
 	},
 	[680] =
 	{
 		.eggSpecies = 679,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 384,
 	},
 	[681] =
@@ -4099,7 +4099,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[682] =
 	{
 		.eggSpecies = 682,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[683] =
@@ -4111,7 +4111,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[684] =
 	{
 		.eggSpecies = 684,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[685] =
@@ -4123,7 +4123,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[686] =
 	{
 		.eggSpecies = 686,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 73728,
 	},
 	[687] =
@@ -4135,7 +4135,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[688] =
 	{
 		.eggSpecies = 688,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1056,
 	},
 	[689] =
@@ -4147,7 +4147,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[690] =
 	{
 		.eggSpecies = 690,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 33800,
 	},
 	[691] =
@@ -4159,7 +4159,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[692] =
 	{
 		.eggSpecies = 692,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[693] =
@@ -4171,7 +4171,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[694] =
 	{
 		.eggSpecies = 694,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4097,
 	},
 	[695] =
@@ -4183,7 +4183,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[696] =
 	{
 		.eggSpecies = 696,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32800,
 	},
 	[697] =
@@ -4195,7 +4195,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[698] =
 	{
 		.eggSpecies = 698,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16416,
 	},
 	[699] =
@@ -4231,13 +4231,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[704] =
 	{
 		.eggSpecies = 704,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 33024,
 	},
 	[705] =
 	{
 		.eggSpecies = 704,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 33024,
 	},
 	[706] =
@@ -4255,7 +4255,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[708] =
 	{
 		.eggSpecies = 708,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2176,
 	},
 	[709] =
@@ -4267,7 +4267,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[710] =
 	{
 		.eggSpecies = 710,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2176,
 	},
 	[711] =
@@ -4279,7 +4279,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[712] =
 	{
 		.eggSpecies = 712,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 16416,
 	},
 	[713] =
@@ -4291,7 +4291,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[714] =
 	{
 		.eggSpecies = 714,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32772,
 	},
 	[715] =
@@ -4339,13 +4339,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[722] =
 	{
 		.eggSpecies = 722,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2182,
 	},
 	[723] =
 	{
 		.eggSpecies = 722,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2182,
 	},
 	[724] =
@@ -4357,13 +4357,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[725] =
 	{
 		.eggSpecies = 725,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66048,
 	},
 	[726] =
 	{
 		.eggSpecies = 725,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 66048,
 	},
 	[727] =
@@ -4375,13 +4375,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[728] =
 	{
 		.eggSpecies = 728,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 132096,
 	},
 	[729] =
 	{
 		.eggSpecies = 728,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 132096,
 	},
 	[730] =
@@ -4393,13 +4393,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[731] =
 	{
 		.eggSpecies = 731,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[732] =
 	{
 		.eggSpecies = 731,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 5,
 	},
 	[733] =
@@ -4411,7 +4411,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[734] =
 	{
 		.eggSpecies = 734,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[735] =
@@ -4423,13 +4423,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[736] =
 	{
 		.eggSpecies = 736,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4160,
 	},
 	[737] =
 	{
 		.eggSpecies = 736,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 4160,
 	},
 	[738] =
@@ -4441,7 +4441,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[739] =
 	{
 		.eggSpecies = 739,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 16386,
 	},
 	[740] =
@@ -4459,7 +4459,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[742] =
 	{
 		.eggSpecies = 742,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131136,
 	},
 	[743] =
@@ -4471,7 +4471,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[744] =
 	{
 		.eggSpecies = 744,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 32,
 	},
 	[745] =
@@ -4489,7 +4489,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[747] =
 	{
 		.eggSpecies = 747,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1032,
 	},
 	[748] =
@@ -4501,7 +4501,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[749] =
 	{
 		.eggSpecies = 749,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
 	},
 	[750] =
@@ -4513,7 +4513,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[751] =
 	{
 		.eggSpecies = 751,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1088,
 	},
 	[752] =
@@ -4525,7 +4525,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[753] =
 	{
 		.eggSpecies = 753,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[754] =
@@ -4537,7 +4537,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[755] =
 	{
 		.eggSpecies = 755,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 133120,
 	},
 	[756] =
@@ -4549,7 +4549,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[757] =
 	{
 		.eggSpecies = 757,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 520,
 	},
 	[758] =
@@ -4561,7 +4561,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[759] =
 	{
 		.eggSpecies = 759,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 3,
 	},
 	[760] =
@@ -4573,13 +4573,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[761] =
 	{
 		.eggSpecies = 761,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[762] =
 	{
 		.eggSpecies = 761,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[763] =
@@ -4609,7 +4609,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[767] =
 	{
 		.eggSpecies = 767,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1088,
 	},
 	[768] =
@@ -4621,7 +4621,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[769] =
 	{
 		.eggSpecies = 769,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 144,
 	},
 	[770] =
@@ -4639,7 +4639,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[772] =
 	{
 		.eggSpecies = 772,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[773] =
@@ -4699,13 +4699,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[782] =
 	{
 		.eggSpecies = 782,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32770,
 	},
 	[783] =
 	{
 		.eggSpecies = 782,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32770,
 	},
 	[784] =
@@ -4741,13 +4741,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[789] =
 	{
 		.eggSpecies = 789,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8576,
 	},
 	[790] =
 	{
 		.eggSpecies = 789,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8576,
 	},
 	[791] =
@@ -4825,7 +4825,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[803] =
 	{
 		.eggSpecies = 803,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32776,
 	},
 	[804] =
@@ -4855,7 +4855,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[808] =
 	{
 		.eggSpecies = 808,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 256,
 	},
 	[809] =
@@ -4867,13 +4867,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[810] =
 	{
 		.eggSpecies = 810,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[811] =
 	{
 		.eggSpecies = 810,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[812] =
@@ -4885,13 +4885,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[813] =
 	{
 		.eggSpecies = 813,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
 	},
 	[814] =
 	{
 		.eggSpecies = 813,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 512,
 	},
 	[815] =
@@ -4903,13 +4903,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[816] =
 	{
 		.eggSpecies = 816,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[817] =
 	{
 		.eggSpecies = 816,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[818] =
@@ -4921,7 +4921,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[819] =
 	{
 		.eggSpecies = 819,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[820] =
@@ -4933,13 +4933,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[821] =
 	{
 		.eggSpecies = 821,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 260,
 	},
 	[822] =
 	{
 		.eggSpecies = 821,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 260,
 	},
 	[823] =
@@ -4951,13 +4951,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[824] =
 	{
 		.eggSpecies = 824,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8256,
 	},
 	[825] =
 	{
 		.eggSpecies = 824,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8256,
 	},
 	[826] =
@@ -4969,7 +4969,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[827] =
 	{
 		.eggSpecies = 827,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
 	},
 	[828] =
@@ -4981,7 +4981,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[829] =
 	{
 		.eggSpecies = 829,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2048,
 	},
 	[830] =
@@ -4993,7 +4993,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[831] =
 	{
 		.eggSpecies = 831,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[832] =
@@ -5005,7 +5005,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[833] =
 	{
 		.eggSpecies = 833,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1056,
 	},
 	[834] =
@@ -5017,7 +5017,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[835] =
 	{
 		.eggSpecies = 835,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[836] =
@@ -5029,13 +5029,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[837] =
 	{
 		.eggSpecies = 837,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 544,
 	},
 	[838] =
 	{
 		.eggSpecies = 837,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 544,
 	},
 	[839] =
@@ -5047,7 +5047,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[840] =
 	{
 		.eggSpecies = 840,
-		.evolutionCount = 4,
+		.evolutionCount = 3,
 		.evolutionChainTypeFlags = 34816,
 	},
 	[841] =
@@ -5065,7 +5065,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[843] =
 	{
 		.eggSpecies = 843,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16,
 	},
 	[844] =
@@ -5083,7 +5083,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[846] =
 	{
 		.eggSpecies = 846,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[847] =
@@ -5095,7 +5095,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[848] =
 	{
 		.eggSpecies = 848,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 4104,
 	},
 	[849] =
@@ -5107,7 +5107,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[850] =
 	{
 		.eggSpecies = 850,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 576,
 	},
 	[851] =
@@ -5119,7 +5119,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[852] =
 	{
 		.eggSpecies = 852,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
 	},
 	[853] =
@@ -5131,7 +5131,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[854] =
 	{
 		.eggSpecies = 854,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
 	},
 	[855] =
@@ -5143,13 +5143,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[856] =
 	{
 		.eggSpecies = 856,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 139264,
 	},
 	[857] =
 	{
 		.eggSpecies = 856,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 139264,
 	},
 	[858] =
@@ -5161,13 +5161,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[859] =
 	{
 		.eggSpecies = 859,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 196608,
 	},
 	[860] =
 	{
 		.eggSpecies = 859,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 196608,
 	},
 	[861] =
@@ -5215,7 +5215,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[868] =
 	{
 		.eggSpecies = 868,
-		.evolutionCount = 10,
+		.evolutionCount = 9,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[869] =
@@ -5239,7 +5239,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[872] =
 	{
 		.eggSpecies = 872,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16448,
 	},
 	[873] =
@@ -5275,7 +5275,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[878] =
 	{
 		.eggSpecies = 878,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 256,
 	},
 	[879] =
@@ -5317,13 +5317,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[885] =
 	{
 		.eggSpecies = 885,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32896,
 	},
 	[886] =
 	{
 		.eggSpecies = 885,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32896,
 	},
 	[887] =
@@ -5353,7 +5353,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[891] =
 	{
 		.eggSpecies = 891,
-		.evolutionCount = 5,
+		.evolutionCount = 4,
 		.evolutionChainTypeFlags = 66562,
 	},
 	[892] =
@@ -5743,7 +5743,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[956] =
 	{
 		.eggSpecies = 956,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65537,
 	},
 	[957] =
@@ -5761,7 +5761,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[959] =
 	{
 		.eggSpecies = 959,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16640,
 	},
 	[960] =
@@ -5773,7 +5773,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[961] =
 	{
 		.eggSpecies = 961,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 147456,
 	},
 	[962] =
@@ -5785,7 +5785,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[963] =
 	{
 		.eggSpecies = 963,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 272,
 	},
 	[964] =
@@ -5797,7 +5797,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[965] =
 	{
 		.eggSpecies = 965,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
 	},
 	[966] =
@@ -5809,13 +5809,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[967] =
 	{
 		.eggSpecies = 967,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4128,
 	},
 	[968] =
 	{
 		.eggSpecies = 967,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 4128,
 	},
 	[969] =
@@ -5827,7 +5827,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[970] =
 	{
 		.eggSpecies = 970,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65544,
 	},
 	[971] =
@@ -5851,13 +5851,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[974] =
 	{
 		.eggSpecies = 974,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 256,
 	},
 	[975] =
 	{
 		.eggSpecies = 975,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 139264,
 	},
 	[976] =
@@ -5869,7 +5869,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[977] =
 	{
 		.eggSpecies = 977,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8200,
 	},
 	[978] =
@@ -5881,7 +5881,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[979] =
 	{
 		.eggSpecies = 979,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2,
 	},
 	[980] =
@@ -5893,7 +5893,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[981] =
 	{
 		.eggSpecies = 439,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 155648,
 	},
 	[982] =
@@ -5923,25 +5923,25 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[986] =
 	{
 		.eggSpecies = 986,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
 	},
 	[987] =
 	{
 		.eggSpecies = 987,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65537,
 	},
 	[988] =
 	{
 		.eggSpecies = 987,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65537,
 	},
 	[989] =
 	{
 		.eggSpecies = 989,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16384,
 	},
 	[990] =
@@ -5953,7 +5953,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[991] =
 	{
 		.eggSpecies = 991,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 144,
 	},
 	[992] =
@@ -5965,7 +5965,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[993] =
 	{
 		.eggSpecies = 993,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 544,
 	},
 	[994] =
@@ -5977,7 +5977,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[995] =
 	{
 		.eggSpecies = 995,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 6144,
 	},
 	[996] =
@@ -5995,13 +5995,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[998] =
 	{
 		.eggSpecies = 998,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65544,
 	},
 	[999] =
 	{
 		.eggSpecies = 999,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 10,
 	},
 	[1000] =
@@ -6019,7 +6019,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1002] =
 	{
 		.eggSpecies = 1002,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 129,
 	},
 	[1003] =
@@ -6037,7 +6037,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1005] =
 	{
 		.eggSpecies = 704,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 33024,
 	},
 	[1006] =
@@ -6349,13 +6349,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1057] =
 	{
 		.eggSpecies = 1057,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 80,
 	},
 	[1058] =
 	{
 		.eggSpecies = 1058,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 320,
 	},
 	[1059] =
@@ -6379,7 +6379,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1062] =
 	{
 		.eggSpecies = 1062,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1040,
 	},
 	[1063] =
@@ -6553,7 +6553,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1091] =
 	{
 		.eggSpecies = 1091,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1152,
 	},
 	[1092] =
@@ -6571,19 +6571,19 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1094] =
 	{
 		.eggSpecies = 1094,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
 	},
 	[1095] =
 	{
 		.eggSpecies = 1095,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
 	},
 	[1096] =
 	{
 		.eggSpecies = 1096,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
 	},
 	[1097] =
@@ -6805,49 +6805,49 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1133] =
 	{
 		.eggSpecies = 1133,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[1134] =
 	{
 		.eggSpecies = 1134,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[1135] =
 	{
 		.eggSpecies = 1135,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[1136] =
 	{
 		.eggSpecies = 1136,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[1137] =
 	{
 		.eggSpecies = 1133,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[1138] =
 	{
 		.eggSpecies = 1134,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[1139] =
 	{
 		.eggSpecies = 1135,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[1140] =
 	{
 		.eggSpecies = 1136,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[1141] =
@@ -6949,19 +6949,19 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1157] =
 	{
 		.eggSpecies = 1157,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2176,
 	},
 	[1158] =
 	{
 		.eggSpecies = 1158,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2176,
 	},
 	[1159] =
 	{
 		.eggSpecies = 1159,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 2176,
 	},
 	[1160] =
@@ -7039,7 +7039,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1172] =
 	{
 		.eggSpecies = 1172,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
 	},
 	[1173] =
@@ -7291,7 +7291,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1214] =
 	{
 		.eggSpecies = 1214,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
 	},
 	[1215] =
@@ -7741,13 +7741,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1289] =
 	{
 		.eggSpecies = 1289,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 67584,
 	},
 	[1290] =
 	{
 		.eggSpecies = 1289,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 67584,
 	},
 	[1291] =
@@ -7759,13 +7759,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1292] =
 	{
 		.eggSpecies = 1292,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 640,
 	},
 	[1293] =
 	{
 		.eggSpecies = 1292,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 640,
 	},
 	[1294] =
@@ -7777,13 +7777,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1295] =
 	{
 		.eggSpecies = 1295,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1026,
 	},
 	[1296] =
 	{
 		.eggSpecies = 1295,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1026,
 	},
 	[1297] =
@@ -7795,7 +7795,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1298] =
 	{
 		.eggSpecies = 1298,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
 	},
 	[1299] =
@@ -7813,7 +7813,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1301] =
 	{
 		.eggSpecies = 1301,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 64,
 	},
 	[1302] =
@@ -7825,7 +7825,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1303] =
 	{
 		.eggSpecies = 1303,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65600,
 	},
 	[1304] =
@@ -7837,13 +7837,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1305] =
 	{
 		.eggSpecies = 1305,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4098,
 	},
 	[1306] =
 	{
 		.eggSpecies = 1305,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4098,
 	},
 	[1307] =
@@ -7855,7 +7855,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1308] =
 	{
 		.eggSpecies = 1308,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 1,
 	},
 	[1309] =
@@ -7873,7 +7873,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1311] =
 	{
 		.eggSpecies = 1311,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131072,
 	},
 	[1312] =
@@ -7885,13 +7885,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1313] =
 	{
 		.eggSpecies = 1313,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
 	},
 	[1314] =
 	{
 		.eggSpecies = 1313,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2049,
 	},
 	[1315] =
@@ -7927,13 +7927,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1320] =
 	{
 		.eggSpecies = 1320,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
 	},
 	[1321] =
 	{
 		.eggSpecies = 1320,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 32,
 	},
 	[1322] =
@@ -7945,7 +7945,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1323] =
 	{
 		.eggSpecies = 1323,
-		.evolutionCount = 3,
+		.evolutionCount = 2,
 		.evolutionChainTypeFlags = 8832,
 	},
 	[1324] =
@@ -7963,7 +7963,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1326] =
 	{
 		.eggSpecies = 1326,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4096,
 	},
 	[1327] =
@@ -7975,7 +7975,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1328] =
 	{
 		.eggSpecies = 1328,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 4100,
 	},
 	[1329] =
@@ -7987,7 +7987,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1330] =
 	{
 		.eggSpecies = 1330,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 65536,
 	},
 	[1331] =
@@ -7999,7 +7999,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1332] =
 	{
 		.eggSpecies = 1332,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 9,
 	},
 	[1333] =
@@ -8011,7 +8011,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1334] =
 	{
 		.eggSpecies = 1334,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2176,
 	},
 	[1335] =
@@ -8023,7 +8023,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1336] =
 	{
 		.eggSpecies = 1336,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2064,
 	},
 	[1337] =
@@ -8041,7 +8041,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1339] =
 	{
 		.eggSpecies = 1339,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2560,
 	},
 	[1340] =
@@ -8053,7 +8053,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1341] =
 	{
 		.eggSpecies = 1341,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8256,
 	},
 	[1342] =
@@ -8065,7 +8065,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1343] =
 	{
 		.eggSpecies = 1343,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
 	},
 	[1344] =
@@ -8077,13 +8077,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1345] =
 	{
 		.eggSpecies = 1345,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131328,
 	},
 	[1346] =
 	{
 		.eggSpecies = 1345,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 131328,
 	},
 	[1347] =
@@ -8095,7 +8095,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1348] =
 	{
 		.eggSpecies = 1348,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[1349] =
@@ -8113,7 +8113,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1351] =
 	{
 		.eggSpecies = 1351,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1024,
 	},
 	[1352] =
@@ -8131,7 +8131,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1354] =
 	{
 		.eggSpecies = 1354,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 264,
 	},
 	[1355] =
@@ -8155,7 +8155,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1358] =
 	{
 		.eggSpecies = 1358,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 40,
 	},
 	[1359] =
@@ -8167,7 +8167,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1360] =
 	{
 		.eggSpecies = 1360,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
 	},
 	[1361] =
@@ -8185,7 +8185,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1363] =
 	{
 		.eggSpecies = 1363,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 16384,
 	},
 	[1364] =
@@ -8335,13 +8335,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1388] =
 	{
 		.eggSpecies = 1388,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 49152,
 	},
 	[1389] =
 	{
 		.eggSpecies = 1388,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 49152,
 	},
 	[1390] =
@@ -8353,13 +8353,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1391] =
 	{
 		.eggSpecies = 1391,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 128,
 	},
 	[1392] =
 	{
 		.eggSpecies = 1392,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 384,
 	},
 	[1393] =
@@ -8437,7 +8437,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1405] =
 	{
 		.eggSpecies = 1405,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 24,
 	},
 	[1406] =
@@ -8461,13 +8461,13 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[1409] =
 	{
 		.eggSpecies = 1409,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2176,
 	},
 	[1410] =
 	{
 		.eggSpecies = 1410,
-		.evolutionCount = 2,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 2176,
 	},
 	[1411] =
