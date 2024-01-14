@@ -1,6 +1,6 @@
-text gItemDesc_LinkCable
+text gItemDesc_EvolutionItem
 {
-    format("Makes certain species of Pokémon evolve when held.")
+    format("Makes certain species of Pokémon evolve.")
 }
 
 text gItemDesc_QuestLog
@@ -41,12 +41,6 @@ text gItemDesc_TM
 text gItemDesc_TR
 {
     format("Single use machine for teaching {PKMN} one specific move.")
-}
-
-
-text gItemDesc_PokeblockDispenser
-{
-    format("Device that uses {POKEBLOCK} to attract wild {PKMN}.")
 }
 
 text gItemDesc_NormalPokeblock
