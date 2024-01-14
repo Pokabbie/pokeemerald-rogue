@@ -38,6 +38,7 @@
 #include "rogue_pokedex.h"
 #include "rogue_ridemon.h"
 #include "rogue_settings.h"
+#include "rogue_query.h"
 
 #ifdef ROGUE_EXPANSION
 #define DEX_GEN_LIMIT 9
@@ -274,6 +275,10 @@ static void MonStats_HandleInput(u8);
 static void MonMoves_HandleInput(u8);
 
 // Mon evos
+static void MonEvos_OpenMoveQuery();
+static void MonEvos_CloseMoveQuery();
+static bool8 MonEvos_IsTutorMoveTM(u16 moveIdx);
+static bool8 MonEvos_IsTutorMoveTR(u16 moveIdx);
 static void MonEvos_HandleInput(u8);
 static void MonEvos_CreateSprites();
 
@@ -538,6 +543,8 @@ static void InitPageResources(u8 fromPage, u8 toPage)
             LZDecompressWram(sPageListsTilemap, sTilemapBufferPtr);
             CopyBgTilemapBufferToVram(1);
 
+            MonEvos_OpenMoveQuery();
+
             InitMonEntryWindows();
             // Text printed below
 
@@ -616,11 +623,21 @@ static void DestroyPageResources(u8 fromPage, u8 toPage)
         break;
 
     case PAGE_MON_STATS:
-    case PAGE_MON_MOVES:
     case PAGE_MON_EVOS:
     case PAGE_MON_FORMS:
     case PAGE_MON_RIDE_STATS:
         {
+            MonInfo_DestroySprites();
+            FreeMonIconPalettes();
+
+            DestroyMonEntryWindows();
+        }
+        break;
+
+    case PAGE_MON_MOVES:
+        {
+            MonEvos_CloseMoveQuery();
+
             MonInfo_DestroySprites();
             FreeMonIconPalettes();
 
@@ -1250,7 +1267,7 @@ static void DisplayMonMovesText()
     // TR moves
     if(displayCount < MAX_LIST_DISPLAY_COUNT)
     {
-        u16 moveId, itemId;
+        u16 moveId;
 
         for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
@@ -1259,20 +1276,14 @@ static void DisplayMonMovesText()
             if(moveId == MOVE_NONE)
                 break;
 
-            itemId = BattleMoveIdToItemId(moveId);
-            
-            // This is not a TR
-            if(itemId == ITEM_NONE)
+            if(!MonEvos_IsTutorMoveTR(i))
                 continue;
 
-            if(!(itemId >= ITEM_TR01 && itemId <= ITEM_TR50))
-                continue;
-
-            StringCopy(gStringVar1, gMoveNames[moveId]);
-            StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTR);
-            
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
+                StringCopy(gStringVar1, gMoveNames[moveId]);
+                StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTR);
+
                 AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
                 ++displayCount;
             }
@@ -1283,7 +1294,7 @@ static void DisplayMonMovesText()
     // TM moves
     if(displayCount < MAX_LIST_DISPLAY_COUNT)
     {
-        u16 moveId, itemId;
+        u16 moveId;
 
         for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
@@ -1292,20 +1303,14 @@ static void DisplayMonMovesText()
             if(moveId == MOVE_NONE)
                 break;
 
-            itemId = BattleMoveIdToItemId(moveId);
-
-            // This is not a TM/HM
-            if(itemId == ITEM_NONE)
+            if(!MonEvos_IsTutorMoveTM(i))
                 continue;
-
-            if(!(itemId >= ITEM_TM01 && itemId <= ITEM_HM08))
-                continue;
-
-            StringCopy(gStringVar1, gMoveNames[moveId]);
-            StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTM);
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
+                StringCopy(gStringVar1, gMoveNames[moveId]);
+                StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTM);
+
                 AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
                 ++displayCount;
             }
@@ -1325,15 +1330,15 @@ static void DisplayMonMovesText()
             if(moveId == MOVE_NONE)
                 break;
 
-            // This is a TM
-            if(BattleMoveIdToItemId(moveId) != ITEM_NONE)
+
+            if(!MonEvos_IsTutorMoveTM(i) && !MonEvos_IsTutorMoveTR(i))
                 continue;
 
-            StringCopy(gStringVar1, gMoveNames[moveId]);
-            StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTutor);
-            
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
+                StringCopy(gStringVar1, gMoveNames[moveId]);
+                StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTutor);
+
                 AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
                 ++displayCount;
             }
@@ -3087,6 +3092,69 @@ static void MonMoves_HandleInput(u8 taskId)
         PlaySE(SE_DEX_SCROLL);
         DisplayMonMovesText();
     }
+}
+
+// Just needs to be large enough to cover all tutor move indices
+#define MOVE_QUERY_OFFSET 300
+
+static void MonEvos_OpenMoveQuery()
+{
+    u8 i;
+    u16 moveId, itemId;
+    u16 species = sPokedexMenu->viewBaseSpecies;
+
+    // To help speed up viewing we're going to precalculate whether a special move is TM, TR or Tutor
+    // (This isn't really a proper query, we're just reusing the bit field checking mostly)
+    RogueCustomQuery_Begin();
+
+
+    // Tutor/TM moves
+    for (i = 0; TRUE; i++)
+    {
+        u16 tmIndex = i;
+        u16 trIndex = i + MOVE_QUERY_OFFSET;
+
+        moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+
+        if(moveId == MOVE_NONE)
+            break;
+
+        itemId = BattleMoveIdToItemId(moveId);
+
+        if(itemId == ITEM_NONE)
+        {
+            RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, tmIndex);
+            RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, trIndex);
+        }
+        else if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
+        {
+            // Is TM move
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, tmIndex);
+            RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, trIndex);
+        }
+        else
+        {
+            // Is TR move
+            RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, tmIndex);
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, trIndex);
+        }
+    }
+
+}
+
+static void MonEvos_CloseMoveQuery()
+{
+    RogueCustomQuery_End();
+}
+
+static bool8 MonEvos_IsTutorMoveTM(u16 moveIdx)
+{
+    return RogueMiscQuery_CheckState(moveIdx);
+}
+
+static bool8 MonEvos_IsTutorMoveTR(u16 moveIdx)
+{
+    return RogueMiscQuery_CheckState(moveIdx + MOVE_QUERY_OFFSET);
 }
 
 static void MonEvos_HandleInput(u8 taskId)
