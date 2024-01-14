@@ -4110,6 +4110,18 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 if (MonKnowsMove(mon, evo.param) && (personality % 100) == 0)
                     targetSpecies = evo.targetSpecies;
                 break;
+            case EVO_LEVEL_TWO_SEGMENT:
+                if (evo.param <= level && (personality % 100) != 0)
+                    targetSpecies = evo.targetSpecies;
+                break;
+            case EVO_LEVEL_THREE_SEGMENT:
+                if (evo.param <= level && (personality % 100) == 0)
+                    targetSpecies = evo.targetSpecies;
+                break;
+            case EVO_LEVEL_30_NATURE:
+                if (30 <= level && GetNatureFromPersonality(personality) == evo.param)
+                    targetSpecies = evo.targetSpecies;
+                break;
             case EVO_FRIENDSHIP_MOVE_TYPE:
                 if (friendship >= FRIENDSHIP_EVO_THRESHOLD)
                 {

@@ -301,10 +301,13 @@
 #define EVO_MOVE_THREE_SEGMENT            44     // Pokémon levels up, knows specified move, has a personality value with a modulus of 1-99
 #define EVO_LEVEL_FAMILY_OF_THREE         45     // Pokémon reaches the specified level with a personality value with a modulus of 0
 #define EVO_LEVEL_FAMILY_OF_FOUR          46     // Pokémon reaches the specified level with a personality value with a modulus of 1-99
+#define EVO_LEVEL_TWO_SEGMENT             47     // Pokémon levels up, knows specified move, has a personality value with a modulus of 0
+#define EVO_LEVEL_THREE_SEGMENT           48     // Pokémon levels up, knows specified move, has a personality value with a modulus of 1-99
+#define EVO_LEVEL_30_NATURE               49     // Pokémon levels up to 30 has specific nature
 
 // rogue note hookup
-#define EVO_LEVEL_ITEM                    47     // Pokémon levels up whilst holding item
-#define EVO_MOVE_TYPE                     48     // Pokémon levels up, knows move with specified type
+#define EVO_LEVEL_ITEM                    50     // Pokémon levels up whilst holding item
+#define EVO_MOVE_TYPE                     51     // Pokémon levels up, knows move with specified type
 
 // Evolution 'modes,' for GetEvolutionTargetSpecies
 #define EVO_MODE_NORMAL            0
