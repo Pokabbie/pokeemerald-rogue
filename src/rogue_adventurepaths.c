@@ -370,10 +370,27 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
             return 0;
         break;
 
+    // Only allow 1 and cycle weighting every third difficulty
+    case ADVPATH_ROOM_DARK_DEAL:
+        count = CountRoomType(roomType);
+        if(count != 0)
+            return 0;
+        else if((GetPathGenerationDifficulty() % 3) != 0)
+            return 1;
+        break;
+
+    // Only allow 1 and cycle weighting every third difficulty (offset from dark deal rates)
+    case ADVPATH_ROOM_LAB:
+        count = CountRoomType(roomType);
+        if(count != 0)
+            return 0;
+        else if(((GetPathGenerationDifficulty() + 1) % 3) != 0)
+            return 1;
+        break;
+
+
     // Only allow 1 of this type at once
     case ADVPATH_ROOM_GAMESHOW:
-    case ADVPATH_ROOM_DARK_DEAL:
-    case ADVPATH_ROOM_LAB:
         count = CountRoomType(roomType);
         if(count != 0)
             return 0;
@@ -595,7 +612,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         // Only dark deals
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_DARK_DEAL;
     }
-    else if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 2)
+    else if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
     {
         // Mix of both
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_DARK_DEAL;
