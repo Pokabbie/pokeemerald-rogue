@@ -1,0 +1,103 @@
+{
+  "Species": "SPECIES_PHIONE",
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DIVE",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 69
+    },
+    {
+      "Move": "MOVE_TAKE_HEART",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_HEAL_BELL",
+    "MOVE_ICE_BEAM",
+    "MOVE_REST",
+    "MOVE_SCALD",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_REST",
+        "MOVE_SCALD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_HEAL_BELL",
+        "MOVE_SCALD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAKE_HEART",
+        "MOVE_SCALD",
+        "MOVE_REST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}

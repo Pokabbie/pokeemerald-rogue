@@ -1,0 +1,405 @@
+{
+  "Species": "SPECIES_MANAPHY",
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HEART_SWAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_GLOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 39
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_AQUA_RING",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DIVE",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 69
+    },
+    {
+      "Move": "MOVE_TAKE_HEART",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CALM_MIND",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_SCALD",
+    "MOVE_STORED_POWER",
+    "MOVE_SURF"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_RAIN_DANCE",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_ICE_BEAM",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_TAIL_GLOW",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_SAFETY_GOGGLES",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ACID_ARMOR",
+        "MOVE_CALM_MIND",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_ENDURE",
+        "MOVE_SURF",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_REST",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ICY_WIND",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_RAIN_DANCE",
+        "MOVE_SURF",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_PSYCHIC",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAKE_HEART",
+        "MOVE_ACID_ARMOR",
+        "MOVE_SCALD",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_TAIL_GLOW",
+        "MOVE_TAKE_HEART",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ENERGY_BALL",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ENERGY_BALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAKE_HEART",
+        "MOVE_SCALD",
+        "MOVE_STORED_POWER",
+        "MOVE_ACID_ARMOR"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_REST",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SCALD",
+        "MOVE_PSYCHIC",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ]
+}

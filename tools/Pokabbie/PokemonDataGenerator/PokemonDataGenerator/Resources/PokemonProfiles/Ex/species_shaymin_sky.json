@@ -1,0 +1,244 @@
+{
+  "Species": "SPECIES_SHAYMIN_SKY",
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 73
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 82
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 91
+    },
+    {
+      "Move": "MOVE_SEED_FLARE",
+      "Level": 100
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AIR_SLASH",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_EARTH_POWER",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_PROTECT",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TAILWIND"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEECH_SEED",
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ]
+}

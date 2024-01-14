@@ -1,0 +1,304 @@
+{
+  "Species": "SPECIES_SHAYMIN",
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 55
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 73
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 82
+    },
+    {
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 91
+    },
+    {
+      "Move": "MOVE_SEED_FLARE",
+      "Level": 100
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AIR_SLASH",
+    "MOVE_CELEBRATE",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_EARTH_POWER",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_PSYCHIC",
+    "MOVE_SUBSTITUTE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_PSYCHIC",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PSYCHIC",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SEED_FLARE",
+        "MOVE_PSYCHIC",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_SYNTHESIS",
+        "MOVE_EARTH_POWER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_SEED_FLARE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN7UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_HEALING_WISH",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEECH_SEED",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CELEBRATE",
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_LEECH_SEED",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_LEECH_SEED",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_EARTH_POWER",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_AIR_SLASH"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_NATURAL_CURE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    }
+  ]
+}
