@@ -196,6 +196,34 @@ static u8 GetMaxEvolutionCountInternal(u16 species)
 }
 #endif
 
+static void ModifyKnowMoveEvo(u16 species, struct Evolution* outEvo, u16 fromMethod, u16 toMethod)
+{
+    if(outEvo->method == fromMethod)
+    {
+        // While baking just assume everything is lvl 30 evo
+#ifndef ROGUE_BAKING
+        u16 i;
+
+        for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+        {
+            if(gRoguePokemonProfiles[species].levelUpMoves[i].move == outEvo->param)
+            {
+                outEvo->method = toMethod;
+                outEvo->param = max(30, gRoguePokemonProfiles[species].levelUpMoves[i].level);
+                break;
+            }
+        }
+#endif
+
+        if(outEvo->method == EVO_MOVE)
+        {
+            // Assume this was a tutor move
+                outEvo->method = toMethod;
+                outEvo->param = 30;
+        }
+    }
+}
+
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
     //AGB_ASSERT(evoIdx < Rogue_GetMaxEvolutionCount(species));
@@ -219,7 +247,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     {
         outEvo->method = EVO_LEVEL;
     }
-    if(species == SPECIES_SLIGGOO && evoIdx == 1)
+    if((species == SPECIES_SLIGGOO || species == SPECIES_SLIGGOO_HISUIAN) && evoIdx == 1)
     {
         outEvo->targetSpecies = SPECIES_NONE;
         outEvo->method = EVO_NONE;
@@ -324,85 +352,48 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 #ifdef ROGUE_EXPANSION
         if(species == SPECIES_MILCERY)
         {
-            switch(outEvo->targetSpecies)
+            if(evoIdx == 0)
             {
-                case SPECIES_ALCREMIE:
-                    outEvo->method = EVO_LEVEL_ITEM;
-                    outEvo->param = ITEM_PECHA_BERRY;
-                    break;
-
-                case SPECIES_ALCREMIE_RUBY_CREAM:
-                    outEvo->method = EVO_LEVEL_ITEM;
-                    outEvo->param = ITEM_PERSIM_BERRY;
-                    break;
-
-                case SPECIES_ALCREMIE_MATCHA_CREAM:
-                    outEvo->method = EVO_LEVEL_ITEM;
-                    outEvo->param = ITEM_RAWST_BERRY;
-                    break;
-
-                case SPECIES_ALCREMIE_MINT_CREAM:
-                    outEvo->method = EVO_LEVEL_ITEM;
-                    outEvo->param = ITEM_CHERI_BERRY;
-                    break;
-
-                case SPECIES_ALCREMIE_LEMON_CREAM:
-                    outEvo->method = EVO_LEVEL_ITEM;
-                    outEvo->param = ITEM_ASPEAR_BERRY;
-                    break;
-
-                case SPECIES_ALCREMIE_SALTED_CREAM:
-                    outEvo->method = EVO_LEVEL_ITEM;
-                    outEvo->param = ITEM_CHESTO_BERRY;
-                    break;
-
-                case SPECIES_ALCREMIE_RUBY_SWIRL:
-                    outEvo->method = EVO_LEVEL_ITEM;
-                    outEvo->param = ITEM_LEPPA_BERRY;
-                    break;
-
-                case SPECIES_ALCREMIE_CARAMEL_SWIRL:
-                    outEvo->method = EVO_LEVEL_ITEM;
-                    outEvo->param = ITEM_SITRUS_BERRY;
-                    break;
-
-                case SPECIES_ALCREMIE_RAINBOW_SWIRL:
-                    outEvo->method = EVO_LEVEL_ITEM;
-                    outEvo->param = ITEM_SALAC_BERRY;
-                    break;
-
-                default:
-                    outEvo->targetSpecies = SPECIES_NONE;
-                    outEvo->method = EVO_NONE;
-                    break;
+                outEvo->method = EVO_LEVEL;
+                outEvo->param = 30;
             }
-        }
-#endif
-
-        if(outEvo->method == EVO_MOVE)
-        {
-            // While baking just assume everything is lvl 30 evo
-#ifndef ROGUE_BAKING
-            u16 i;
-
-            for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+            else
             {
-                if(gRoguePokemonProfiles[species].levelUpMoves[i].move == outEvo->param)
+                u8 const supportedNatures[] = 
                 {
-                    outEvo->method = EVO_LEVEL;
-                    outEvo->param = max(30, gRoguePokemonProfiles[species].levelUpMoves[i].level);
-                    break;
-                }
-            }
-#endif
+                    NATURE_LONELY,
+                    NATURE_BRAVE,
+                    NATURE_ADAMANT,
+                    NATURE_NAUGHTY,
+                    NATURE_BOLD,
+                    NATURE_RELAXED,
+                    NATURE_IMPISH,
+                    NATURE_LAX,
+                    NATURE_TIMID,
+                    NATURE_HASTY,
+                    NATURE_JOLLY,
+                    NATURE_NAIVE,
+                    NATURE_MODEST,
+                    NATURE_MILD,
+                    NATURE_QUIET,
+                    NATURE_RASH,
+                    NATURE_CALM,
+                    NATURE_GENTLE,
+                    NATURE_SASSY,
+                    NATURE_CAREFUL,
+                };
 
-            if(outEvo->method == EVO_MOVE)
-            {
-                // Assume this was a tutor move
-                    outEvo->method = EVO_LEVEL;
-                    outEvo->param = 30;
+                outEvo->method = EVO_LEVEL_30_NATURE;
+                outEvo->param = supportedNatures[(evoIdx - 1) % ARRAY_COUNT(supportedNatures)];
             }
         }
+#endif
+
+        ModifyKnowMoveEvo(species, outEvo, EVO_MOVE, EVO_LEVEL);
+#ifdef ROGUE_EXPANSION
+        ModifyKnowMoveEvo(species, outEvo, EVO_MOVE_TWO_SEGMENT, EVO_LEVEL_TWO_SEGMENT);
+        ModifyKnowMoveEvo(species, outEvo, EVO_MOVE_THREE_SEGMENT, EVO_LEVEL_THREE_SEGMENT);
+#endif
 
         switch(outEvo->method)
         {

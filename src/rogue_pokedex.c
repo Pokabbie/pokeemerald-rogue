@@ -1427,6 +1427,7 @@ static u16 GetActiveFormSpecies()
 #endif
 
 extern const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1];
+extern const u8 *const gNatureNamePointers[];
 
 static void DisplayMonEvosText()
 {
@@ -1442,7 +1443,7 @@ static void DisplayMonEvosText()
 
     FillWindowPixelBuffer(WIN_MON_PAGE_CONTENT, PIXEL_FILL(0));
 
-    for(i = 0; i < evoCount; ++i)
+    for(i = 0; i < evoCount && displayCount < 8; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
         Rogue_ModifyEvolution_ApplyCurses(sPokedexMenu->viewBaseSpecies, i, &evo);
@@ -1565,6 +1566,19 @@ static void DisplayMonEvosText()
                 case EVO_LEVEL_NATURE_LOW_KEY:
                     ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
                     StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevel);
+                    break;
+
+                case EVO_LEVEL_TWO_SEGMENT:
+                case EVO_LEVEL_THREE_SEGMENT:
+                case EVO_LEVEL_FAMILY_OF_THREE:
+                case EVO_LEVEL_FAMILY_OF_FOUR:
+                    ConvertUIntToDecimalStringN(gStringVar1, evo.param, STR_CONV_MODE_LEFT_ALIGN, 2);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevel);
+                    break;
+
+                case EVO_LEVEL_30_NATURE:
+                    StringCopy(gStringVar1, gNatureNamePointers[evo.param]);
+                    StringExpandPlaceholders(gStringVar4, gText_PokedexEvoLevel30Nature);
                     break;
 #endif
                 default:

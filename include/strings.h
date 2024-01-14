@@ -1208,6 +1208,7 @@ extern const u8 gText_PokedexEvoMoveType[];
 extern const u8 gText_PokedexEvoItemMale[];
 extern const u8 gText_PokedexEvoItemFemale[];
 extern const u8 gText_PokedexEvoLevelRain[];
+extern const u8 gText_PokedexEvoLevel30Nature[];
 
 extern const u8 gText_PokedexEvoTODO[];
 extern const u8 gText_PokedexEvoNoData[];
