@@ -3,15 +3,6 @@ mapscripts Rogue_Area_TownSquare_MapScripts {}
 
 script Rogue_Area_TownSquare_BlendPokeblock_Internal
 {
-    checkitem(ITEM_POKEBLOCK_DISPENSER)
-    if(var(VAR_RESULT) == NO)
-    {
-        giveitem(ITEM_POKEBLOCK_DISPENSER)
-        giveitem(ITEM_SITRUS_BERRY, 40)
-        giveitem(ITEM_CHERI_BERRY, 40)
-        giveitem(ITEM_CHESTO_BERRY, 40)
-    }
-
     //goto(BerryBlender_EventScript_BerryBlender1)
     
     lockall

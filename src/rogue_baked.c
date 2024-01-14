@@ -196,10 +196,6 @@ static u8 GetMaxEvolutionCountInternal(u16 species)
 }
 #endif
 
-#define ITEM_ALOLA_PLACEHOLDER      ITEM_BURN_HEAL
-#define ITEM_GALAR_PLACEHOLDER      ITEM_PARLYZ_HEAL
-#define ITEM_HISUI_PLACEHOLDER      ITEM_ICE_HEAL
-
 void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 {
     //AGB_ASSERT(evoIdx < Rogue_GetMaxEvolutionCount(species));
@@ -243,7 +239,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     )
     {
         outEvo->method = EVO_ITEM;
-        outEvo->param = ITEM_ALOLA_PLACEHOLDER;
+        outEvo->param = ITEM_ALOLA_STONE;
     }
 
     // Galar evos
@@ -253,7 +249,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     )
     {
         outEvo->method = EVO_ITEM;
-        outEvo->param = ITEM_GALAR_PLACEHOLDER;
+        outEvo->param = ITEM_GALAR_STONE;
     }
 
     // Hisui evos
@@ -268,7 +264,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     )
     {
         outEvo->method = EVO_ITEM;
-        outEvo->param = ITEM_HISUI_PLACEHOLDER;
+        outEvo->param = ITEM_HISUI_STONE;
     }
 
     if(species == SPECIES_URSARING && evoIdx == 0)

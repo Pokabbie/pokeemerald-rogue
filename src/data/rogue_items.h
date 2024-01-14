@@ -1,13 +1,12 @@
 #include "graphics.h"
 
-extern const u8 gItemDesc_LinkCable[];
+extern const u8 gItemDesc_EvolutionItem[];
 extern const u8 gItemDesc_QuestLog[];
 extern const u8 gItemDesc_HealingFlask[];
 extern const u8 gItemDesc_RidingWhistle[];
 extern const u8 gItemDesc_GoldRidingWhistle[];
 extern const u8 gItemDesc_CGear[];
 extern const u8 gItemDesc_BuildingSupplies[];
-extern const u8 gItemDesc_PokeblockDispenser[];
 
 extern const u8 gItemDesc_NormalPokeblock[];
 extern const u8 gItemDesc_FightingPokeblock[];
@@ -67,7 +66,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
 #endif
         .itemId = ITEM_LINK_CABLE,
         .price = 2100,
-        .description = gItemDesc_LinkCable,
+        .description = gItemDesc_EvolutionItem,
         .pocket = POCKET_HELD_ITEMS,
         .iconImage = gItemIcon_ExpShare,
         .iconPalette = gItemIconPalette_ExpShare,
@@ -183,22 +182,39 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         //.iconImage = gItemIcon_OaksParcel,
         //.iconPalette = gItemIconPalette_OaksParcel,
     },
-    [ITEM_POKEBLOCK_DISPENSER - ITEM_ROGUE_ITEM_FIRST] =
-    {
+
 #ifdef ROGUE_EXPANSION
-        .name = _("{POKEBLOCK} Spray"),
-#else
-        .name = _("{POKEBLOCK} SPRAY"),
-#endif
-        .itemId = ITEM_POKEBLOCK_DISPENSER,
-        .price = 0,
-        .description = gItemDesc_PokeblockDispenser,
-        .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_FIELD,
-        .registrability = TRUE,
-        .iconImage = gItemIcon_PokeblockCase,
+    [ITEM_ALOLA_STONE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+        .name = _("Alola Artefact"),
+        .itemId = ITEM_ALOLA_STONE,
+        .price = 2100,
+        .description = gItemDesc_EvolutionItem,
+        .pocket = POCKET_ITEMS,
+        .iconImage = gItemIcon_MoonStone,
         .iconPalette = gItemIconPalette_PokeblockCase,
     },
+    [ITEM_GALAR_STONE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+        .name = _("Galar Artefact"),
+        .itemId = ITEM_GALAR_STONE,
+        .price = 2100,
+        .description = gItemDesc_EvolutionItem,
+        .pocket = POCKET_ITEMS,
+        .iconImage = gItemIcon_MoonStone,
+        .iconPalette = gItemIconPalette_PokeblockCase,
+    },
+    [ITEM_HISUI_STONE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+        .name = _("Hisui Artefact"),
+        .itemId = ITEM_HISUI_STONE,
+        .price = 2100,
+        .description = gItemDesc_EvolutionItem,
+        .pocket = POCKET_ITEMS,
+        .iconImage = gItemIcon_MoonStone,
+        .iconPalette = gItemIconPalette_PokeblockCase,
+    },
+#endif
 
     // Pokeblock
     //
