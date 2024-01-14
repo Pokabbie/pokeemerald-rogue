@@ -176,6 +176,7 @@ static u8 GetMaxEvolutionCountInternal(u16 species)
     //EVOS_PER_MON
 
     u8 i;
+    u8 count = 0;
     const struct Evolution* evo;
 
     evo = GetBaseEvolution(species, 0);
@@ -186,9 +187,12 @@ static u8 GetMaxEvolutionCountInternal(u16 species)
     for(i = 0; evo->method != EVOLUTIONS_END; ++i)
     {
         evo = GetBaseEvolution(species, i);
+
+        if(evo->method != EVOLUTIONS_END)
+            ++count;
     }
 
-    return i;
+    return count;
 }
 #endif
 
