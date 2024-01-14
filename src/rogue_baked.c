@@ -551,7 +551,7 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
 
 void Rogue_ModifyFormChange(u16 species, u8 changeIdx, struct FormChange* outFormChange)
 {
-#ifdef ROGUE_EXPANSION
+#if defined(ROGUE_EXPANSION) && !defined(ROGUE_BAKING)
     const struct FormChange *formChanges = GetSpeciesFormChanges(species);
 
     if(formChanges != NULL)
@@ -1723,7 +1723,7 @@ u8 Rogue_GetActiveFormChangeCount(u16 species)
 
     for (i = 0; TRUE; i++)
     {
-        Rogue_ModifyFormChange(baseForm, i, &formChange);
+        Rogue_ModifyFormChange(species, i, &formChange);
 
         if(formChange.method == FORM_CHANGE_TERMINATOR)
             break;
