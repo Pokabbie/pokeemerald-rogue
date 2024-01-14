@@ -315,11 +315,12 @@ static u8 PickWildMonNature(void)
 static void CreateWildMon(u16 species, u8 level, bool8 isShiny)
 {
     bool32 checkCuteCharm;
+    u8 genderRatio = Rogue_ModifyGenderRatio(gBaseStats[species].genderRatio);
 
     ZeroEnemyPartyMons();
     checkCuteCharm = TRUE;
 
-    switch (gBaseStats[species].genderRatio)
+    switch (genderRatio)
     {
     case MON_MALE:
     case MON_FEMALE:

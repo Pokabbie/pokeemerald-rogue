@@ -3556,13 +3556,15 @@ u8 GetBoxMonGender(struct BoxPokemon *boxMon)
 
 u8 GetGenderForSpecies(u16 species, u8 genderFlag)
 {
+    u8 genderRatio = Rogue_ModifyGenderRatio(gBaseStats[species].genderRatio);
+
     // Ignore gender flag for 100% 
-    switch (gBaseStats[species].genderRatio)
+    switch (genderRatio)
     {
     case MON_MALE:
     case MON_FEMALE:
     case MON_GENDERLESS:
-        return gBaseStats[species].genderRatio;
+        return genderRatio;
     }
 
     if(genderFlag == 0)
@@ -3573,15 +3575,17 @@ u8 GetGenderForSpecies(u16 species, u8 genderFlag)
 
 static u8 CalcGenderFromSpeciesAndPersonality(u16 species, u32 personality)
 {
-    switch (gBaseStats[species].genderRatio)
+    u8 genderRatio = Rogue_ModifyGenderRatio(gBaseStats[species].genderRatio);
+
+    switch (genderRatio)
     {
     case MON_MALE:
     case MON_FEMALE:
     case MON_GENDERLESS:
-        return gBaseStats[species].genderRatio;
+        return genderRatio;
     }
 
-    if (gBaseStats[species].genderRatio > (personality & 0xFF))
+    if (genderRatio > (personality & 0xFF))
         return MON_FEMALE;
     else
         return MON_MALE;
