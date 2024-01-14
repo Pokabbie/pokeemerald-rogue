@@ -376,6 +376,11 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
             if (!items)
                 continue; // not accepting item evos
             break;
+
+            default:
+                // If we get here it means we've not considered this evo so make sure to add it to this switch statement or fix the source data
+                AGB_ASSERT(FALSE);
+                break;
         }
 
         // If we reach here we're allowed to evolve

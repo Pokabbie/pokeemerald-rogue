@@ -2908,7 +2908,7 @@ static u16 MonStats_GetMonNeighbour(u16 currViewSpecies, s8 offset)
 #ifdef ROGUE_EXPANSION
                 else if(sPokedexMenu->currentPage == PAGE_MON_FORMS)
                 {
-                    if(GetSpeciesFormChanges(checkSpecies)[0].method == FORM_CHANGE_TERMINATOR)
+                    if(Rogue_GetActiveFormChangeCount(checkSpecies) == 0)
                         continue;
                 }
 #endif
