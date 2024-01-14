@@ -1352,6 +1352,14 @@ static u8 ItemToGen(u16 item)
         case ITEM_ADAMANT_CRYSTAL:
         case ITEM_LUSTROUS_GLOBE:
             return 8;
+
+        // Custom items
+        case ITEM_ALOLA_STONE:
+            return 7;
+        case ITEM_GALAR_STONE:
+            return 8;
+        case ITEM_HISUI_STONE:
+            return 8;
     };
 
 #else
