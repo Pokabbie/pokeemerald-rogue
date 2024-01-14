@@ -14,7 +14,7 @@
       "Level": 19
     },
     {
-      "Move": "MOVE_SYNTHESIS",
+      "Move": "MOVE_QUICK_ATTACK",
       "Level": 28
     },
     {
@@ -30,7 +30,7 @@
       "Level": 55
     },
     {
-      "Move": "MOVE_GRASSY_TERRAIN",
+      "Move": "MOVE_AIR_SLASH",
       "Level": 64
     },
     {
@@ -42,7 +42,7 @@
       "Level": 82
     },
     {
-      "Move": "MOVE_HEALING_WISH",
+      "Move": "MOVE_LEAF_STORM",
       "Level": 91
     },
     {
@@ -51,13 +51,40 @@
     }
   ],
   "TutorMoves": [
-    "MOVE_AIR_SLASH",
-    "MOVE_DAZZLING_GLEAM",
-    "MOVE_EARTH_POWER",
-    "MOVE_HIDDEN_POWER",
+    "MOVE_TAKE_DOWN",
     "MOVE_PROTECT",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_TRAILBLAZE",
+    "MOVE_FACADE",
+    "MOVE_SWIFT",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_AIR_CUTTER",
+    "MOVE_ENDURE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_BULLET_SEED",
+    "MOVE_ZEN_HEADBUTT",
+    "MOVE_AIR_SLASH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SEED_BOMB",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_GRASS_KNOT",
+    "MOVE_REST",
+    "MOVE_SWORDS_DANCE",
     "MOVE_SUBSTITUTE",
-    "MOVE_TAILWIND"
+    "MOVE_GIGA_DRAIN",
+    "MOVE_TAILWIND",
+    "MOVE_ENERGY_BALL",
+    "MOVE_PSYCHIC",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_BATON_PASS",
+    "MOVE_EARTH_POWER",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_LEAF_STORM",
+    "MOVE_HYPER_BEAM",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_TERA_BLAST",
+    "MOVE_GRASSY_GLIDE"
   ],
   "CompetitiveSets": [
     {

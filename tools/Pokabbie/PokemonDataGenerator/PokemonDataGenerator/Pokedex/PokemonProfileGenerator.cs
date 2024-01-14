@@ -1061,6 +1061,44 @@ namespace PokemonDataGenerator.Pokedex
 			upperBlock.AppendLine("//");
 			upperBlock.AppendLine();
 
+
+			// Gather some usage info to slap at the top
+			//
+			{
+				PokemonProfile mostLevelMoves = null;
+				PokemonProfile mostTutorMoves = null;
+				HashSet<string> competitiveFormats = new HashSet<string>();
+
+				foreach (var profile in profiles)
+				{
+					if (mostLevelMoves == null || profile.LevelUpMoves.Count > mostLevelMoves.LevelUpMoves.Count)
+						mostLevelMoves = profile;
+
+					if (mostTutorMoves == null || profile.TutorMoves.Count > mostTutorMoves.TutorMoves.Count)
+						mostTutorMoves = profile;
+
+					foreach (var compSet in profile.CompetitiveSets)
+					{
+						foreach (var tier in compSet.SourceTiers)
+							competitiveFormats.Add(tier);
+					}
+				}
+
+				upperBlock.AppendLine("// == INFO ==");
+				upperBlock.AppendLine("//");
+				upperBlock.AppendLine("// Highest Move Count");
+				upperBlock.AppendLine($"// Level Up: {mostLevelMoves.Species} ({mostLevelMoves.LevelUpMoves.Count})");
+				upperBlock.AppendLine($"// Tutor: {mostTutorMoves.Species} ({mostTutorMoves.TutorMoves.Count})");
+
+				upperBlock.AppendLine("//");
+				upperBlock.AppendLine("// Source Tiers:");
+				foreach (var tier in competitiveFormats.OrderBy(s => s.ToLower()))
+				{
+					upperBlock.AppendLine($"// {tier}");
+				}
+				upperBlock.AppendLine("//");
+			}
+
 			// Move/Item usages
 			//
 			Dictionary<string, int> moveCount = new Dictionary<string, int>();
