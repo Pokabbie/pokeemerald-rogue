@@ -137,3 +137,87 @@ void FatalExit()
 {
     std::exit(1);
 }
+
+// Helpers
+//
+
+static std::string GetSourceDirectory(std::string path)
+{
+    strutil::replace_all(path, "/", "\\");
+    size_t index = path.find_last_of('\\');
+    path = path.substr(0, index);
+    return path + '\\';
+}
+
+json ExpandCommonArrayGroup(std::string const& sourcePath, json const& rawData, std::string const& groupName)
+{
+    json outputData;
+    json& outputGroup = outputData[groupName] = json::object();
+
+    std::string condition = "";
+
+    if (rawData.contains("condition"))
+        condition = rawData["condition"].get<std::string>();
+
+    // Expand source into output
+    json inputGroups = rawData[groupName];
+
+    for (auto inputGroupIt = inputGroups.begin(); inputGroupIt != inputGroups.end(); ++inputGroupIt)
+    {
+        std::string groupName = inputGroupIt.key();
+        json const& sourceGroups = inputGroupIt.value();
+
+        if (!condition.empty())
+        {
+            groupName = "#if " + condition + " // " + groupName;
+        }
+
+        json& currentOutputGroup = outputGroup[groupName] = json::array();
+
+        for (auto groupIt = sourceGroups.begin(); groupIt != sourceGroups.end(); ++groupIt)
+        {
+            json destGroup;
+            json const& sourceGroup = groupIt.value();
+
+            if (rawData.contains("defaults"))
+            {
+                json defaults = rawData["defaults"];
+
+                destGroup = defaults;
+            }
+
+            for (auto kvpIt = sourceGroup.begin(); kvpIt != sourceGroup.end(); ++kvpIt)
+            {
+                destGroup[kvpIt.key()] = kvpIt.value();
+            }
+
+            currentOutputGroup.push_back(destGroup);
+        }
+    }
+
+    // Process includes
+    if (rawData.contains("includes"))
+    {
+        json includes = rawData["includes"];
+        std::string sourceDir = GetSourceDirectory(sourcePath);
+
+        for (auto it = includes.begin(); it != includes.end(); ++it)
+        {
+            std::string fullPath = sourceDir + it.value().get<std::string>();
+            strutil::replace_all(fullPath, "\\", "/");
+
+            json parsedInclude = ExpandCommonArrayGroup(fullPath, ReadJsonFile(fullPath), groupName);
+            json parsedInnerGroups = parsedInclude[groupName];
+
+            for (auto inputGroupIt = parsedInnerGroups.begin(); inputGroupIt != parsedInnerGroups.end(); ++inputGroupIt)
+            {
+                std::string sourceName = inputGroupIt.key();
+                json const& sourceGroups = inputGroupIt.value();
+
+                outputGroup[sourceName + " // [" + fullPath + "]"] = sourceGroups;
+            }
+        }
+    }
+
+    return outputData;
+}

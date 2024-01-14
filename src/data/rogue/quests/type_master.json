@@ -1,0 +1,340 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "display_order": 2000,
+        "flags": 
+        [
+            "CHALLENGE_DEFAULT",
+            "ACTIVE_IN_RUN"
+        ],
+        "triggers":
+        [
+            {
+                "on": [ "TRAINER_BATTLE_START" ],
+                "condition": "PartyOnlyContainsType",
+                "fail": "FAIL",
+                "template_params": [ "MONO_TYPE" ]
+            },
+            {
+                "on": [ "ENTER_HALL_OF_FAME" ],
+                "condition": "Always",
+                "pass": "SUCCESS"
+            }
+        ]
+    },
+    "quest_groups":
+    {
+        "default_group":
+        [
+            {
+                "name": "Normal Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Normal type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_NORMAL"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "item": "ITEM_SILK_SCARF" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_NORMALIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CHILAN_BERRY" }
+                ]
+            },
+            {
+                "name": "Fighting Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Fighting type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_FIGHTING"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_BLACK_BELT" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIST_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIGHTING_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIGHTINIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CHOPLE_BERRY" }
+                ]
+            },
+            {
+                "name": "Flying Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Flying type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_FLYING"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SHARP_BEAK" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SKY_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FLYING_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FLYINIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_COBA_BERRY" }
+                ]
+            },
+            {
+                "name": "Poison Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Poison type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_POISON"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_POISON_BARB" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_TOXIC_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_POISON_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_POISONIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_KEBIA_BERRY" }
+                ]
+            },
+            {
+                "name": "Ground Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Ground type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_GROUND"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SOFT_SAND" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_EARTH_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GROUND_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GROUNDIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SHUCA_BERRY" }
+                ]
+            },
+            {
+                "name": "Rock Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Rock type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_ROCK"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_HARD_STONE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_STONE_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ROCK_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ROCKIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CHARTI_BERRY" }
+                ]
+            },
+            {
+                "name": "Bug Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Bug type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_BUG"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SILVER_POWDER" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_INSECT_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BUG_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BUGINIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_TANGA_BERRY" }
+                ]
+            },
+            {
+                "name": "Ghost Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Ghost type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_GHOST"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SPELL_TAG" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SPOOKY_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GHOST_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GHOSTIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_KASIB_BERRY" }
+                ]
+            },
+            {
+                "name": "Steel Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Steel type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_STEEL"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_METAL_COAT" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_IRON_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_STEEL_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_STEELIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BABIRI_BERRY" }
+                ]
+            },
+            {
+                "name": "Fire Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Fire type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_FIRE"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_CHARCOAL" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FLAME_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIRE_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BURN_DRIVE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIRIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_OCCA_BERRY" }
+                ]
+            },
+            {
+                "name": "Water Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Water type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_WATER"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_MYSTIC_WATER" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SPLASH_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_WATER_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DOUSE_DRIVE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_WATERIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PASSHO_BERRY" }
+                ]
+            },
+            {
+                "name": "Grass Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Grass type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_GRASS"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_MIRACLE_SEED" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MEADOW_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GRASS_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GRASSIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_RINDO_BERRY" }
+                ]
+            },
+            {
+                "name": "Electric Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Electric type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_ELECTRIC"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_MAGNET" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ZAP_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ELECTRIC_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SHOCK_DRIVE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ELECTRIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_WACAN_BERRY" }
+                ]
+            },
+            {
+                "name": "Psychic Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Psychic type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_PSYCHIC"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_TWISTED_SPOON" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MIND_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PSYCHIC_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PSYCHIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PAYAPA_BERRY" }
+                ]
+            },
+            {
+                "name": "Ice Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Ice type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_ICE"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_NEVER_MELT_ICE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ICICLE_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ICE_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CHILL_DRIVE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ICIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_YACHE_BERRY" }
+                ]
+            },
+            {
+                "name": "Dragon Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Dragon type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_DRAGON"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_DRAGON_FANG" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DRACO_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DRAGON_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DRAGONIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_HABAN_BERRY" }
+                ]
+            },
+            {
+                "name": "Dark Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Dark type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_DARK"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_BLACK_GLASSES" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DREAD_PLATE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DARK_MEMORY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DARKINIUM_Z" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_COLBUR_BERRY" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Fairy Master",
+                "description": "Win a full Run, only ever entering Trainer battles with Fairy type Pokémon in your party.",
+                "template_params":
+                {
+                    "MONO_TYPE": "TYPE_FAIRY"
+                },
+                "rewards":
+                [
+                    { "money": 5000 },
+                    { "shop_item": "ITEM_PIXIE_PLATE" },
+                    { "shop_item": "ITEM_FAIRY_MEMORY" },
+                    { "shop_item": "ITEM_FAIRIUM_Z" },
+                    { "shop_item": "ITEM_ROSELI_BERRY" }
+                ]
+            }
+        ]
+    }
+}

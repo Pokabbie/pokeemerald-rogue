@@ -61,7 +61,7 @@ struct QuestInfo
 	json questObj;
 	std::string questId;
 	std::string preprocessorCondition;
-	int sortOrder;
+	int displayOrder;
 	bool isUnlockedViaReward;
 	std::vector<std::string> flags;
 	std::vector<QuestTrigger> triggers;
@@ -69,7 +69,7 @@ struct QuestInfo
 	std::vector<QuestReward> rewards;
 };
 
-static void GatherQuests(json const& jsonData, std::vector<QuestInfo>& outQuestInfo);
+static void GatherQuests(std::string const& dataPath, json const& jsonData, std::vector<QuestInfo>& outQuestInfo);
 
 static std::string FlagsToString(std::string const& prefix, std::vector<std::string> const flags)
 {
@@ -84,7 +84,7 @@ static std::string FlagsToString(std::string const& prefix, std::vector<std::str
 void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
 	std::vector<QuestInfo> questInfo;
-	GatherQuests(jsonData, questInfo);
+	GatherQuests(dataPath, jsonData, questInfo);
 
 	// Populate lookup
 	std::unordered_map<std::string, QuestInfo*> questLookup;
@@ -250,12 +250,79 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 			fileStream << "#endif\n";
 	}
 	fileStream << "};\n\n";
+
+	// Sorted Quest Order
+	//
+	// Display order
+	std::sort(questInfo.begin(), questInfo.end(),
+		[](QuestInfo const& a, QuestInfo const& b) -> bool
+		{
+			if (a.displayOrder == b.displayOrder)
+			{
+				// Sort alphabetically in same display order index
+				int compare = a.questId.compare(b.questId);
+
+				if (compare <= 0)
+					return true;
+
+				return false;
+			}
+			else if (a.displayOrder < b.displayOrder)
+				return true;
+	
+			return false;
+		}
+	);
+
+	fileStream << "static u16 const sQuestDisplayOrder[] =\n{\n";
+	for (auto it = questInfo.begin(); it != questInfo.end(); ++it)
+	{
+		auto const& quest = *it;
+
+		if (!quest.preprocessorCondition.empty())
+			fileStream << "#if " << quest.preprocessorCondition << "\n";
+
+		fileStream << c_TabSpacing << "QUEST_ID_" << quest.questId << ",\n";
+
+		if (!quest.preprocessorCondition.empty())
+			fileStream << "#endif\n";
+	}
+	fileStream << "};\n\n";
+
+	// Alphabetical order
+	std::sort(questInfo.begin(), questInfo.end(),
+		[](QuestInfo const& a, QuestInfo const& b) -> bool
+		{
+			int compare = a.questId.compare(b.questId);
+
+			if (compare <= 0)
+				return true;
+
+			return false;
+		}
+	);
+
+	fileStream << "static u16 const sQuestAlphabeticalOrder[] =\n{\n";
+	for (auto it = questInfo.begin(); it != questInfo.end(); ++it)
+	{
+		auto const& quest = *it;
+
+		if (!quest.preprocessorCondition.empty())
+			fileStream << "#if " << quest.preprocessorCondition << "\n";
+
+		fileStream << c_TabSpacing << "QUEST_ID_" << quest.questId << ",\n";
+
+		if (!quest.preprocessorCondition.empty())
+			fileStream << "#endif\n";
+	}
+	fileStream << "};\n\n";
+
 }
 
 void ExportQuestData_H(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
 	std::vector<QuestInfo> questInfo;
-	GatherQuests(jsonData, questInfo);
+	GatherQuests(dataPath, jsonData, questInfo);
 
 	// Enum define
 	fileStream << "enum\n{\n";
@@ -278,7 +345,7 @@ void ExportQuestData_H(std::ofstream& fileStream, std::string const& dataPath, j
 void ExportQuestData_Pory(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
 	std::vector<QuestInfo> questInfo;
-	GatherQuests(jsonData, questInfo);
+	GatherQuests(dataPath, jsonData, questInfo);
 
 	for (auto it = questInfo.begin(); it != questInfo.end(); ++it)
 	{
@@ -371,13 +438,14 @@ static QuestReward ParseQuestReward(json const& jsonData)
 	return reward;
 }
 
-static void GatherQuests(json const& jsonData, std::vector<QuestInfo>& outQuestInfo)
+static void GatherQuests(std::string const& dataPath, json const& rawJsonData, std::vector<QuestInfo>& outQuestInfo)
 {
+	json jsonData = ExpandCommonArrayGroup(dataPath, rawJsonData, "quest_groups");
 	json questGroups = jsonData["quest_groups"];
 
 	for (auto groupIt = questGroups.begin(); groupIt != questGroups.end(); ++groupIt)
 	{
-		json quests = groupIt.value()["quests"];
+		json quests = groupIt.value();
 
 		for (auto questIt : quests)
 		{
@@ -387,14 +455,14 @@ static void GatherQuests(json const& jsonData, std::vector<QuestInfo>& outQuestI
 			quest.questId = FormatQuestId(quest.questObj["name"].get<std::string>());
 
 			// Sort order
-			if (quest.groupObj.contains("sort_order"))
+			if (quest.groupObj.contains("display_order"))
 			{
-				quest.sortOrder += quest.groupObj["sort_order"].get<int>() * 10000;
+				quest.displayOrder += quest.groupObj["display_order"].get<int>() * 10000;
 			}
 
-			if (quest.questObj.contains("sort_order"))
+			if (quest.questObj.contains("display_order"))
 			{
-				quest.sortOrder += quest.questObj["sort_order"].get<int>();
+				quest.displayOrder += quest.questObj["display_order"].get<int>();
 			}
 
 			// Preprocessor condition
@@ -412,17 +480,9 @@ static void GatherQuests(json const& jsonData, std::vector<QuestInfo>& outQuestI
 			}
 
 			// Quest flags
-			if (quest.groupObj.contains("group_flags"))
+			if (quest.questObj.contains("flags"))
 			{
-				for (auto flagObj : quest.groupObj["group_flags"])
-				{
-					quest.flags.push_back(flagObj.get<std::string>());
-				}
-			}
-
-			if (quest.questObj.contains("group_flags"))
-			{
-				for (auto flagObj : quest.questObj["group_flags"])
+				for (auto flagObj : quest.questObj["flags"])
 				{
 					quest.flags.push_back(flagObj.get<std::string>());
 				}
@@ -470,6 +530,24 @@ static void GatherQuests(json const& jsonData, std::vector<QuestInfo>& outQuestI
 						}
 					}
 
+					// Allow redirecting so can prevent duplicate source data
+					if (triggerInfo.contains("template_params"))
+					{
+						json templateParams = quest.questObj["template_params"];
+
+						for (auto sourceParam : triggerInfo["params"])
+						{
+							json actualParam = templateParams[sourceParam.get<std::string>()];
+
+							if (actualParam.is_number_integer())
+								trigger.params.push_back(std::to_string(actualParam.get<int>()));
+							else if (actualParam.is_number_float())
+								trigger.params.push_back(std::to_string(actualParam.get<double>()));
+							else
+								trigger.params.push_back(actualParam.get<std::string>());
+						}
+					}
+
 					quest.triggers.push_back(std::move(trigger));
 				}
 			}
@@ -487,22 +565,6 @@ static void GatherQuests(json const& jsonData, std::vector<QuestInfo>& outQuestI
 			outQuestInfo.push_back(quest);
 		}
 	}
-
-	// Sort quests
-	std::sort(outQuestInfo.begin(), outQuestInfo.end(), 
-		[](QuestInfo const& a, QuestInfo const& b) -> bool
-		{
-			if (a.sortOrder == b.sortOrder)
-			{
-				if (a.questId.compare(b.questId) < 0)
-					return true;
-			}
-			else if (a.sortOrder < b.sortOrder)
-				return true;
-
-			return false;
-		}
-	);
 
 	// Populate prerequisite quests based on rewards
 	std::unordered_map<std::string, QuestInfo*> questLookup;

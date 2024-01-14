@@ -1,0 +1,41 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "display_order": 0,
+        "flags": 
+        [
+            "MAIN_QUEST_DEFAULT",
+            "ACTIVE_IN_RUN"
+        ]
+    },
+    "quest_groups":
+    {
+        "default_group":
+        [
+            {
+                "name": "To Adventure!",
+                "description": "Embark on your first Adventure!",
+                "state_bytes": 4,
+                "flags": 
+                [
+                    "MAIN_QUEST_DEFAULT",
+                    "ACTIVE_ALWAYS"
+                ],
+                "triggers":
+                [
+                    {
+                        "on": [ "RUN_END" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "species": "SPECIES_WOBBUFFET" },
+                    { "quest": "Challenger Approaches!" }
+                ]
+            }
+        ]
+    }
+}
