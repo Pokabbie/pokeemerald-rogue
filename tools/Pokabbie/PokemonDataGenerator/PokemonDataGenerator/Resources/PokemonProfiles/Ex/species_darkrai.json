@@ -1,175 +1,59 @@
 {
   "Species": "SPECIES_DARKRAI",
-  "Moves": [
+  "LevelUpMoves": [
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 1,
-      "moveName": "MOVE_DISABLE",
-      "versionName": "rogue"
+      "Move": "MOVE_DISABLE",
+      "Level": 1
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 11,
-      "moveName": "MOVE_QUICK_ATTACK",
-      "versionName": "rogue"
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 11
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 20,
-      "moveName": "MOVE_HYPNOSIS",
-      "versionName": "rogue"
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 20
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 29,
-      "moveName": "MOVE_SUCKER_PUNCH",
-      "versionName": "rogue"
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 29
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 38,
-      "moveName": "MOVE_NIGHT_SHADE",
-      "versionName": "rogue"
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 38
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 47,
-      "moveName": "MOVE_DOUBLE_TEAM",
-      "versionName": "rogue"
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 47
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 57,
-      "moveName": "MOVE_HAZE",
-      "versionName": "rogue"
+      "Move": "MOVE_HAZE",
+      "Level": 57
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 66,
-      "moveName": "MOVE_DARK_VOID",
-      "versionName": "rogue"
+      "Move": "MOVE_DARK_VOID",
+      "Level": 66
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 75,
-      "moveName": "MOVE_NASTY_PLOT",
-      "versionName": "rogue"
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 75
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 84,
-      "moveName": "MOVE_DREAM_EATER",
-      "versionName": "rogue"
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 84
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 93,
-      "moveName": "MOVE_DARK_PULSE",
-      "versionName": "rogue"
-    },
-
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_DARK_PULSE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_DARK_VOID",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_DREAM_EATER",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_FOCUS_BLAST",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_FOCUS_PUNCH",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_HAZE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_HYPNOSIS",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_ICE_BEAM",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_KNOCK_OFF",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_LASH_OUT",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_NASTY_PLOT",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_PSYCHIC",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_SLUDGE_BOMB",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_SPITE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_SUBSTITUTE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_THUNDER",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_TRICK",
-      "versionName": "rogue"
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 93
     }
+  ],
+  "TutorMoves": [
+    "MOVE_FOCUS_BLAST",
+    "MOVE_ICE_BEAM",
+    "MOVE_PSYCHIC",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SUBSTITUTE",
+    "MOVE_THUNDER",
+    "MOVE_TRICK"
   ],
   "CompetitiveSets": [
     {
@@ -413,15 +297,5 @@
         "GEN9MONOTYPE"
       ]
     }
-  ],
-  "Types": [
-    "dark",
-    "none"
-  ],
-  "Abilities": [
-    "bad-dreams",
-    "none",
-    "none"
-  ],
-  "PrettySpeciesName": "Darkrai"
+  ]
 }

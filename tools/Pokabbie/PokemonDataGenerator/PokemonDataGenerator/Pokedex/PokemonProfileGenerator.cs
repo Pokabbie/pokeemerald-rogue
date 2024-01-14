@@ -82,7 +82,7 @@ namespace PokemonDataGenerator.Pokedex
 				}
 			}
 
-			public void RemoveInvalidMoves(PokemonProfile source)
+			public void RemoveInvalidMoves(SourcePokemonProfile source)
 			{
 				// Find out which game we're going to base the level up moveset off
 				int levelUpIndex = int.MaxValue;
@@ -107,7 +107,7 @@ namespace PokemonDataGenerator.Pokedex
 
 				source.Moves.RemoveAll((move) =>
 				{
-					if (move.originMethod == MoveInfo.LearnMethod.LevelUp)
+					if (move.originMethod == SourceMoveInfo.LearnMethod.LevelUp)
 					{
 						return move.versionName != moveGroupName;
 					}
@@ -122,7 +122,7 @@ namespace PokemonDataGenerator.Pokedex
 		}
 
 
-		private class MoveInfo
+		private class SourceMoveInfo
 		{
 			public enum LearnMethod
 			{
@@ -137,20 +137,28 @@ namespace PokemonDataGenerator.Pokedex
 			public int learnLevel;
 			public string moveName;
 			public string versionName;
+
+			public override string ToString()
+			{
+				if(originMethod == LearnMethod.LevelUp)
+					return originMethod.ToString() + "@" + learnLevel + " : " + moveName + " (" + versionName + ")";
+				else
+					return originMethod.ToString() + " : " + moveName + " (" + versionName + ")";
+			}
 		}
 
-		private class PokemonProfile
+		private class SourcePokemonProfile
 		{
 			public string Species;
-			public List<MoveInfo> Moves;
+			public List<SourceMoveInfo> Moves;
 			public List<PokemonCompetitiveSet> CompetitiveSets;
 			public string[] Types = new string[2];
 			public string[] Abilities = new string[3];
 
-			public PokemonProfile(string name)
+			public SourcePokemonProfile(string name)
 			{
 				Species = name;
-				Moves = new List<MoveInfo>();
+				Moves = new List<SourceMoveInfo>();
 				CompetitiveSets = new List<PokemonCompetitiveSet>();
 
 				for (int i = 0; i < Types.Length; ++i)
@@ -160,22 +168,7 @@ namespace PokemonDataGenerator.Pokedex
 					Abilities[i] = "none";
 			}
 
-			public string PrettySpeciesName
-			{ 
-				get
-				{
-					string name = "";
-					foreach(var word in Species.Split('_').Skip(1))
-					{
-						name += word.Substring(0, 1).ToUpper();
-						name += word.Substring(1).ToLower();
-					}
-
-					return name;
-				}
-			}
-
-			public void CollapseForExport()
+			public void CollapseMovesets()
 			{
 				//Moves.RemoveAll((m) => PokemonMoveHelpers.IsMoveUnsupported(m.moveName));
 
@@ -183,11 +176,11 @@ namespace PokemonDataGenerator.Pokedex
 				movesetPreferences.RemoveInvalidMoves(this);
 
 				// Simplify the definitions now and then we'll remove any duplicates
-				List<MoveInfo> newMoves = new List<MoveInfo>();
+				List<SourceMoveInfo> newMoves = new List<SourceMoveInfo>();
 
 				foreach(var oldMove in Moves)
 				{
-					MoveInfo newMove = oldMove;
+					SourceMoveInfo newMove = oldMove;
 					newMove.moveName = FormatMoveName(newMove.moveName, true);
 					newMove.versionName = "rogue";
 
@@ -197,9 +190,9 @@ namespace PokemonDataGenerator.Pokedex
 					if (!GameDataHelpers.MoveDefines.ContainsKey(newMove.moveName))
 						throw new InvalidDataException();
 
-					if (newMove.originMethod == MoveInfo.LearnMethod.LevelUp)
+					if (newMove.originMethod == SourceMoveInfo.LearnMethod.LevelUp)
 					{
-						var existingLevelUpMove = newMoves.Where(m => m.moveName == newMove.moveName && m.originMethod == MoveInfo.LearnMethod.LevelUp).FirstOrDefault();
+						var existingLevelUpMove = newMoves.Where(m => m.moveName == newMove.moveName && m.originMethod == SourceMoveInfo.LearnMethod.LevelUp).FirstOrDefault();
 
 						// If we already have the same level up move only take it at the lowest learn level
 						if (existingLevelUpMove != null)
@@ -210,14 +203,14 @@ namespace PokemonDataGenerator.Pokedex
 					}
 					else
 					{
-						newMove.originMethod = MoveInfo.LearnMethod.Tutor;
+						newMove.originMethod = SourceMoveInfo.LearnMethod.Tutor;
 
-						var anyLevelUpMove = Moves.Where(m => m.moveName == newMove.moveName && m.originMethod == MoveInfo.LearnMethod.LevelUp).FirstOrDefault();
-						if (anyLevelUpMove != null)
-						{
-							// If we learn this as a level up move, don't include an entry as a tutor move
-							continue;
-						}
+						//var anyLevelUpMove = Moves.Where(m => m.moveName == newMove.moveName && m.originMethod == SourceMoveInfo.LearnMethod.LevelUp).FirstOrDefault();
+						//if (anyLevelUpMove != null)
+						//{
+						//	// If we learn this as a level up move, don't include an entry as a tutor move
+						//	continue;
+						//}
 					}
 
 					if (!newMoves.Contains(newMove))
@@ -225,169 +218,199 @@ namespace PokemonDataGenerator.Pokedex
 				}
 
 				Moves = newMoves;
-
-				FinaliseForExport();
 			}
+		}
 
-			public void CollapseFromImport()
+		private class LevelUpMove
+		{
+			public string Move;
+			public int Level;
+
+			public override string ToString()
 			{
-				FinaliseForExport();
-				ValidateContents();
+				return Move + " @ Lv" + Level;
+			}
+		}
+
+		private class PokemonProfile
+		{
+			public string Species;
+			public List<LevelUpMove> LevelUpMoves;
+			public List<string> TutorMoves;
+			public List<PokemonCompetitiveSet> CompetitiveSets;
+
+			public static PokemonProfile FromSource(SourcePokemonProfile sourceProfile)
+			{
+				PokemonProfile profile = new PokemonProfile();
+				profile.Species = sourceProfile.Species;
+				profile.CompetitiveSets = new List<PokemonCompetitiveSet>(sourceProfile.CompetitiveSets);
+				profile.LevelUpMoves = new List<LevelUpMove>();
+				profile.TutorMoves = new List<string>();
+
+				foreach (var move in sourceProfile.Moves)
+				{
+					if (move.originMethod == SourceMoveInfo.LearnMethod.LevelUp)
+					{
+						var existingLevelUpMove = profile.LevelUpMoves.Where(m => m.Move == move.moveName).FirstOrDefault();
+
+						// Take the lowest level if we already had an entry for this
+						if (existingLevelUpMove != null)
+							existingLevelUpMove.Level = Math.Min(existingLevelUpMove.Level, move.learnLevel);
+						else
+							profile.LevelUpMoves.Add(new LevelUpMove { Move = move.moveName, Level = move.learnLevel });
+					}
+					else
+					{
+						if(!profile.TutorMoves.Contains(move.moveName))
+							profile.TutorMoves.Add(move.moveName);
+					}
+				}
+
+				return profile;
 			}
 
-			private void FinaliseForExport()
+			public bool HasLevelUpMove(string move)
+			{
+				return LevelUpMoves.Where(m => m.Move == move).Any();
+			}
+
+			public bool HasTutorMove(string move)
+			{
+				return TutorMoves.Where(m => m == move).Any();
+			}
+
+			public bool CanLearnMove(string move)
+			{
+				return HasLevelUpMove(move) || HasTutorMove(move);
+			}
+
+			private void EraseMove(string move)
+			{
+				LevelUpMoves.RemoveAll(m => m.Move == move);
+				TutorMoves.RemoveAll(m => m == move);
+			}
+
+			private void ReplaceMove(string fromMove, string toMove, int levelOverride = -1)
+			{
+				for(int i = 0; i < LevelUpMoves.Count; ++i)
+				{
+					if (LevelUpMoves[i].Move == fromMove)
+					{
+						LevelUpMoves[i].Move = toMove;
+						if(levelOverride >= 0)
+							LevelUpMoves[i].Level = levelOverride;
+					}
+				}
+
+				for (int i = 0; i < TutorMoves.Count; ++i)
+				{
+					if (TutorMoves[i] == fromMove)
+						TutorMoves[i] = toMove;
+				}
+			}
+
+			public void FormatDataForGame()
 			{
 				// Now we've added the sets, add any moves that we can't currently learn as tutor moves
 				foreach (var set in CompetitiveSets)
 				{
 					foreach (var move in set.Moves)
 					{
-						bool canLearnMove = Moves.Where(m => m.moveName == move).Any();
+						bool canLearnMove = CanLearnMove(move);
 						if (!canLearnMove)
 						{
-							MoveInfo newMove = new MoveInfo();
-							newMove.moveName = move;
-							newMove.versionName = "rogue";
-							newMove.originMethod = MoveInfo.LearnMethod.Tutor;
-							Moves.Add(newMove);
+							TutorMoves.Add(move);
 						}
 					}
 				}
 
 				// Now we have the complete moves so perform any post-processing
 				{
-					Moves.RemoveAll((move) =>
+					LevelUpMoves.RemoveAll((move) =>
 					{
-						return IsBannedMove(move.moveName);
+						return IsBannedMove(move.Move);
+					});
+					TutorMoves.RemoveAll((move) =>
+					{
+						return IsBannedMove(move);
 					});
 
-					if(!GameDataHelpers.IsVanillaVersion)
+					if (!GameDataHelpers.IsVanillaVersion)
 					{
 						// For now teach hidden power over tera blast
-						var hiddenPower = Moves.Where((move) => move.moveName == "MOVE_HIDDEN_POWER").FirstOrDefault();
-						var teraBlast = Moves.Where((move) => move.moveName == "MOVE_TERA_BLAST").FirstOrDefault();
-						
-						if(teraBlast != null)
+						if (CanLearnMove("MOVE_TERA_BLAST"))
 						{
-							if(hiddenPower == null)
-								teraBlast.moveName = "MOVE_HIDDEN_POWER";
+							if(CanLearnMove("MOVE_HIDDEN_POWER"))
+							{
+								// Already have hidden power so just erase tera blast
+								EraseMove("MOVE_TERA_BLAST");
+							}
 							else
-								Moves.Remove(teraBlast);
+							{
+								// Replace tera with hidden power
+								ReplaceMove("MOVE_TERA_BLAST", "MOVE_HIDDEN_POWER");
+							}
 						}
 
 						// Replace all instances of hail with snowscape
-						foreach(var hailMove in Moves.Where((move) => move.moveName == "MOVE_HAIL"))
-						{
-							hailMove.moveName = "MOVE_SNOWSCAPE";
-						}
+						ReplaceMove("MOVE_HAIL", "MOVE_SNOWSCAPE");
 
 						if (Species == "SPECIES_RAYQUAZA")
 						{
-							// Make gragon ascent a late level learn
-							var dragonAscent = Moves.Where((move) => move.moveName == "MOVE_DRAGON_ASCENT").First();
-							dragonAscent.learnLevel = 90;
+							// Make dragon ascent a late level learn
+							ReplaceMove("MOVE_DRAGON_ASCENT", "MOVE_DRAGON_ASCENT", 90);
 						}
 					}
 				}
 
 				// Now sort them before we export
-				Moves = Moves.OrderBy((m) => m.originMethod == MoveInfo.LearnMethod.LevelUp ? m.learnLevel.ToString("000") : "999" + m.moveName).ToList();
+				LevelUpMoves = LevelUpMoves.OrderBy(m => m.Level).ToList();
+				TutorMoves = TutorMoves.OrderBy(m => m).ToList();
 
 
-				// Now apply same move rename/removal to competitive sets
-				foreach(var compSet in CompetitiveSets)
+				if (!GameDataHelpers.IsVanillaVersion)
 				{
-					for(int m = 0; m < compSet.Moves.Count; ++m)
+					// Now apply same move rename/removal to competitive sets
+					foreach (var compSet in CompetitiveSets)
 					{
-						string moveName = compSet.Moves[m];
-						if (IsBannedMove(moveName))
+						for (int m = 0; m < compSet.Moves.Count; ++m)
 						{
-							compSet.Moves.RemoveAt(m--);
-						}
-						else
-						{
-							switch (moveName)
+							string moveName = compSet.Moves[m];
+							if (IsBannedMove(moveName))
 							{
-								case "MOVE_TERA_BLAST":
-									compSet.Moves[m] = "MOVE_HIDDEN_POWER";
-									break;
-								case "MOVE_HAIL":
-									compSet.Moves[m] = "MOVE_SNOWSCAPE";
-									break;
+								compSet.Moves.RemoveAt(m--);
 							}
-						}
+							else
+							{
+								switch (moveName)
+								{
+									case "MOVE_TERA_BLAST":
+										compSet.Moves[m] = "MOVE_HIDDEN_POWER";
+										break;
+									case "MOVE_HAIL":
+										compSet.Moves[m] = "MOVE_SNOWSCAPE";
+										break;
+								}
+							}
 
+						}
 					}
 				}
 			}
 
 			public void ValidateContents()
 			{
-				if (!Moves.Where((m) => m.originMethod == MoveInfo.LearnMethod.LevelUp).Any())
+				if (!LevelUpMoves.Any())
 					throw new InvalidDataException($"'{Species}' missing level up moves");
 
 				// Verify the move is recognised in game here
-				foreach (var move in Moves)
+				foreach (var move in LevelUpMoves.Select(m => m.Move).Union(TutorMoves))
 				{
-					if (!GameDataHelpers.MoveDefines.ContainsKey(move.moveName))
-						throw new InvalidDataException($"'{Species}' has unsupported move '{move.moveName}'");
+					if (!GameDataHelpers.MoveDefines.ContainsKey(move))
+						throw new InvalidDataException($"'{Species}' has unsupported move '{move}'");
 				}
 			}
 
-			public HashSet<string> GetMoveSourceVerions()
-			{
-				HashSet<string> versions = new HashSet<string>();
-				foreach(var move in Moves)
-				{
-					versions.Add(move.versionName);
-				}
-
-				return versions;
-			}
-
-			private static IEnumerable<MoveInfo> EnsureMovesUnique(IEnumerable<MoveInfo> moves)
-			{
-				HashSet<string> visitedMoves = new HashSet<string>();
-
-				foreach(var move in moves)
-				{
-					if(!visitedMoves.Contains(move.moveName))
-					{
-						visitedMoves.Add(move.moveName);
-						yield return move;
-					}
-				}
-			}
-
-			public IEnumerable<MoveInfo> GetLevelUpMoves()
-			{
-				return EnsureMovesUnique(Moves.Where((m) => m.originMethod == MoveInfo.LearnMethod.LevelUp).OrderBy((m) => m.learnLevel));
-			}
-
-			public IEnumerable<MoveInfo> GetEggMoves()
-			{
-				return EnsureMovesUnique(Moves.Where((m) => m.originMethod == MoveInfo.LearnMethod.Egg));
-			}
-
-			public IEnumerable<MoveInfo> GetTMHMMoves()
-			{
-				return EnsureMovesUnique(Moves.Where((m) => GameDataHelpers.MoveToTMHMItem.ContainsKey(GameDataHelpers.FormatKeyword(m.moveName))));
-			}
-
-			public IEnumerable<MoveInfo> GetTutorMoves()
-			{
-				return EnsureMovesUnique(Moves.Where((m) => GameDataHelpers.TutorMoveDefines.ContainsKey(GameDataHelpers.FormatKeyword(m.moveName))));
-			}
-
-			public IEnumerable<MoveInfo> GetLeftoverMoves()
-			{
-				return EnsureMovesUnique(Moves.Where((m) =>
-					m.originMethod != MoveInfo.LearnMethod.LevelUp &&
-					m.originMethod != MoveInfo.LearnMethod.Egg &&
-					GameDataHelpers.MoveToTMHMItem.ContainsKey(GameDataHelpers.FormatKeyword(m.moveName)) &&
-					GameDataHelpers.TutorMoveDefines.ContainsKey(GameDataHelpers.FormatKeyword(m.moveName)))
-				);
-			}
 		}
 
 		private class PokemonCompetitiveSet
@@ -900,29 +923,27 @@ namespace PokemonDataGenerator.Pokedex
 		{
 			string manualPath = ContentCache.GetWriteableCachePath($"res://PokemonProfiles//{(GameDataHelpers.IsVanillaVersion ? "Vanilla" : "EX")}/{speciesName}.json");
 			string cachePath = ContentCache.GetWriteableCachePath($"pokemon_profiles/{(GameDataHelpers.IsVanillaVersion ? "Vanilla" : "EX")}/{speciesName}.json");
-			PokemonProfile profile;
+			PokemonProfile outputProfile;
 
 			if (File.Exists(manualPath))
 			{
 				Console.WriteLine($"Found '{speciesName}' profile manual override");
 
 				string jsonProfile = File.ReadAllText(manualPath);
-				profile = JsonConvert.DeserializeObject<PokemonProfile>(jsonProfile, c_JsonSettings);
-				profile.CollapseFromImport();
+				outputProfile = JsonConvert.DeserializeObject<PokemonProfile>(jsonProfile, c_JsonSettings);
 			}
 			else if (File.Exists(cachePath))
 			{
 				Console.WriteLine($"Found '{speciesName}' profile in cache");
 
 				string jsonProfile = File.ReadAllText(cachePath);
-				profile = JsonConvert.DeserializeObject<PokemonProfile>(jsonProfile, c_JsonSettings);
-				profile.CollapseFromImport();
+				outputProfile = JsonConvert.DeserializeObject<PokemonProfile>(jsonProfile, c_JsonSettings);
 			}
 			else
 			{
 				Console.WriteLine($"Gathering '{speciesName}' profile from source");
 
-				profile = new PokemonProfile(speciesName);
+				SourcePokemonProfile sourceProfile = new SourcePokemonProfile(speciesName);
 
 				JObject monEntry = PokeAPI.GetPokemonSpeciesEntry(speciesName);
 
@@ -931,7 +952,7 @@ namespace PokemonDataGenerator.Pokedex
 					string abilityName = obj["ability"]["name"].ToString();
 					string rawSlot = obj["slot"].ToString();
 
-					profile.Abilities[int.Parse(rawSlot) - 1] = abilityName;
+					sourceProfile.Abilities[int.Parse(rawSlot) - 1] = abilityName;
 				}
 
 				foreach (var obj in monEntry["types"])
@@ -939,14 +960,14 @@ namespace PokemonDataGenerator.Pokedex
 					string name = obj["type"]["name"].ToString();
 					string rawSlot = obj["slot"].ToString();
 
-					profile.Types[int.Parse(rawSlot) - 1] = name;
+					sourceProfile.Types[int.Parse(rawSlot) - 1] = name;
 				}
 
 				foreach (var moveObj in monEntry["moves"])
 				{
 					foreach (var versionObj in moveObj["version_group_details"])
 					{
-						MoveInfo moveInfo = new MoveInfo();
+						SourceMoveInfo moveInfo = new SourceMoveInfo();
 						moveInfo.moveName = moveObj["move"]["name"].ToString();
 						moveInfo.versionName = versionObj["version_group"]["name"].ToString();
 
@@ -954,16 +975,16 @@ namespace PokemonDataGenerator.Pokedex
 						switch (method)
 						{
 							case "egg":
-								moveInfo.originMethod = MoveInfo.LearnMethod.Egg;
+								moveInfo.originMethod = SourceMoveInfo.LearnMethod.Egg;
 								break;
 							case "machine":
-								moveInfo.originMethod = MoveInfo.LearnMethod.TM;
+								moveInfo.originMethod = SourceMoveInfo.LearnMethod.TM;
 								break;
 							case "tutor":
-								moveInfo.originMethod = MoveInfo.LearnMethod.Tutor;
+								moveInfo.originMethod = SourceMoveInfo.LearnMethod.Tutor;
 								break;
 							case "level-up":
-								moveInfo.originMethod = MoveInfo.LearnMethod.LevelUp;
+								moveInfo.originMethod = SourceMoveInfo.LearnMethod.LevelUp;
 								moveInfo.learnLevel = int.Parse(versionObj["level_learned_at"].ToString());
 								break;
 
@@ -971,14 +992,14 @@ namespace PokemonDataGenerator.Pokedex
 							//case "stadium-surfing-pikachu":
 							//case "light-ball-egg":
 							default:
-								moveInfo.originMethod = MoveInfo.LearnMethod.Tutor;
+								moveInfo.originMethod = SourceMoveInfo.LearnMethod.Tutor;
 								break;
 
 								//default:
 								//	throw new NotImplementedException();
 						}
 
-						profile.Moves.Add(moveInfo);
+						sourceProfile.Moves.Add(moveInfo);
 					}
 				}
 
@@ -993,7 +1014,7 @@ namespace PokemonDataGenerator.Pokedex
 
 						bool hasMerged = false;
 
-						foreach (var existingSet in profile.CompetitiveSets)
+						foreach (var existingSet in sourceProfile.CompetitiveSets)
 						{
 							// No need to contain duplicate sets
 							if (existingSet.IsCompatibleWith(compSet))
@@ -1005,23 +1026,26 @@ namespace PokemonDataGenerator.Pokedex
 						}
 
 						if (!hasMerged)
-							profile.CompetitiveSets.Add(compSet);
+							sourceProfile.CompetitiveSets.Add(compSet);
 					}
 				}
 
-				profile.CollapseForExport();
+				sourceProfile.CollapseMovesets();
+
+				outputProfile = PokemonProfile.FromSource(sourceProfile);
+				outputProfile.FormatDataForGame(); // collapse initially so we can easily inspect the cache file
 
 				string cacheDir = Path.GetDirectoryName(cachePath);
 				Directory.CreateDirectory(cacheDir);
 
-				string profileJson = JsonConvert.SerializeObject(profile, c_JsonSettings);
+				string profileJson = JsonConvert.SerializeObject(outputProfile, c_JsonSettings);
 				File.WriteAllText(cachePath, profileJson);
-
-				// Validate after export so we can check the file
-				profile.ValidateContents();
 			}
 
-			return profile;
+			outputProfile.FormatDataForGame();
+			outputProfile.ValidateContents();
+
+			return outputProfile;
 		}
 
 		private static void ExportProfiles(List<PokemonProfile> profiles, Dictionary<string, string> redirectedSpecies, string filePath)
@@ -1121,9 +1145,9 @@ namespace PokemonDataGenerator.Pokedex
 
 				// Level moves
 				upperBlock.AppendLine($"static struct LevelUpMove const sLevelUpMoves_{profile.Species}[] = \n{{");
-				foreach(var move in profile.Moves.Where(m => m.originMethod == MoveInfo.LearnMethod.LevelUp))
+				foreach(var move in profile.LevelUpMoves)
 				{
-					upperBlock.AppendLine($"\t{{ .move={move.moveName}, .level={move.learnLevel} }},");
+					upperBlock.AppendLine($"\t{{ .move={move.Move}, .level={move.Level} }},");
 				}
 				upperBlock.AppendLine($"\t{{ .move=MOVE_NONE, .level=0 }},");
 				upperBlock.AppendLine($"}};");
@@ -1131,9 +1155,9 @@ namespace PokemonDataGenerator.Pokedex
 
 				// Tutor moves
 				upperBlock.AppendLine($"static u16 const sTutorMoves_{profile.Species}[] = \n{{");
-				foreach (var move in profile.Moves.Where(m => m.originMethod != MoveInfo.LearnMethod.LevelUp))
+				foreach (var move in profile.TutorMoves)
 				{
-					upperBlock.AppendLine($"\t{move.moveName},");
+					upperBlock.AppendLine($"\t{move},");
 				}
 				upperBlock.AppendLine($"\tMOVE_NONE,");
 				upperBlock.AppendLine($"}};");

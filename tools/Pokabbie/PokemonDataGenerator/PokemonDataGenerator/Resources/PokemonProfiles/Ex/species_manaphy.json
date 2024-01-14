@@ -1,211 +1,73 @@
 {
   "Species": "SPECIES_MANAPHY",
-  "Moves": [
+  "LevelUpMoves": [
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 1,
-      "moveName": "MOVE_HEART_SWAP",
-      "versionName": "rogue"
+      "Move": "MOVE_HEART_SWAP",
+      "Level": 1
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 1,
-      "moveName": "MOVE_TAIL_GLOW",
-      "versionName": "rogue"
+      "Move": "MOVE_TAIL_GLOW",
+      "Level": 1
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 1,
-      "moveName": "MOVE_WATER_GUN",
-      "versionName": "rogue"
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 9,
-      "moveName": "MOVE_CHARM",
-      "versionName": "rogue"
+      "Move": "MOVE_CHARM",
+      "Level": 9
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 16,
-      "moveName": "MOVE_SUPERSONIC",
-      "versionName": "rogue"
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 16
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 24,
-      "moveName": "MOVE_BUBBLE_BEAM",
-      "versionName": "rogue"
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 24
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 31,
-      "moveName": "MOVE_ACID_ARMOR",
-      "versionName": "rogue"
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 31
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 39,
-      "moveName": "MOVE_WHIRLPOOL",
-      "versionName": "rogue"
+      "Move": "MOVE_WHIRLPOOL",
+      "Level": 39
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 46,
-      "moveName": "MOVE_WATER_PULSE",
-      "versionName": "rogue"
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 46
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 54,
-      "moveName": "MOVE_AQUA_RING",
-      "versionName": "rogue"
+      "Move": "MOVE_AQUA_RING",
+      "Level": 54
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 61,
-      "moveName": "MOVE_DIVE",
-      "versionName": "rogue"
+      "Move": "MOVE_DIVE",
+      "Level": 61
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 69,
-      "moveName": "MOVE_RAIN_DANCE",
-      "versionName": "rogue"
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 69
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 75,
-      "moveName": "MOVE_TAKE_HEART",
-      "versionName": "rogue"
-    },
-
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_ACID_ARMOR",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_CALM_MIND",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_DAZZLING_GLEAM",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_ENDURE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_ENERGY_BALL",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_FLIP_TURN",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_HAZE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_HYPER_BEAM",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_ICE_BEAM",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_ICY_WIND",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_KNOCK_OFF",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_PROTECT",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_PSYCHIC",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_RAIN_DANCE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_REST",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_SCALD",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_STORED_POWER",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_SURF",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_TAIL_GLOW",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_TAKE_HEART",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_WEATHER_BALL",
-      "versionName": "rogue"
+      "Move": "MOVE_TAKE_HEART",
+      "Level": 75
     }
+  ],
+  "TutorMoves": [
+    "MOVE_CALM_MIND",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_SCALD",
+    "MOVE_STORED_POWER",
+    "MOVE_SURF"
   ],
   "CompetitiveSets": [
     {
@@ -539,15 +401,5 @@
         "GEN9MONOTYPE"
       ]
     }
-  ],
-  "Types": [
-    "water",
-    "none"
-  ],
-  "Abilities": [
-    "hydration",
-    "none",
-    "none"
-  ],
-  "PrettySpeciesName": "Manaphy"
+  ]
 }

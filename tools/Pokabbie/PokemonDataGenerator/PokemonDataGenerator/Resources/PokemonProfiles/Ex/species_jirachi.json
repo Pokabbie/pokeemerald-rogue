@@ -1,259 +1,90 @@
 {
   "Species": "SPECIES_JIRACHI",
-  "Moves": [
+  "LevelUpMoves": [
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 1,
-      "moveName": "MOVE_CONFUSION",
-      "versionName": "rogue"
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 1,
-      "moveName": "MOVE_WISH",
-      "versionName": "rogue"
+      "Move": "MOVE_WISH",
+      "Level": 1
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 1,
-      "moveName": "MOVE_SWIFT",
-      "versionName": "rogue"
+      "Move": "MOVE_SWIFT",
+      "Level": 1
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 21,
-      "moveName": "MOVE_LIFE_DEW",
-      "versionName": "rogue"
+      "Move": "MOVE_LIFE_DEW",
+      "Level": 21
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 28,
-      "moveName": "MOVE_ZEN_HEADBUTT",
-      "versionName": "rogue"
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 28
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 35,
-      "moveName": "MOVE_GRAVITY",
-      "versionName": "rogue"
+      "Move": "MOVE_GRAVITY",
+      "Level": 35
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 42,
-      "moveName": "MOVE_PSYCHIC",
-      "versionName": "rogue"
+      "Move": "MOVE_PSYCHIC",
+      "Level": 42
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 49,
-      "moveName": "MOVE_METEOR_MASH",
-      "versionName": "rogue"
+      "Move": "MOVE_METEOR_MASH",
+      "Level": 49
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 56,
-      "moveName": "MOVE_HEALING_WISH",
-      "versionName": "rogue"
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 56
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 63,
-      "moveName": "MOVE_REST",
-      "versionName": "rogue"
+      "Move": "MOVE_REST",
+      "Level": 63
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 70,
-      "moveName": "MOVE_FUTURE_SIGHT",
-      "versionName": "rogue"
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 70
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 77,
-      "moveName": "MOVE_DOUBLE_EDGE",
-      "versionName": "rogue"
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 77
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 84,
-      "moveName": "MOVE_COSMIC_POWER",
-      "versionName": "rogue"
+      "Move": "MOVE_COSMIC_POWER",
+      "Level": 84
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 91,
-      "moveName": "MOVE_LAST_RESORT",
-      "versionName": "rogue"
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 91
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 98,
-      "moveName": "MOVE_DOOM_DESIRE",
-      "versionName": "rogue"
-    },
-
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_AURA_SPHERE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_BODY_SLAM",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_CALM_MIND",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_ENERGY_BALL",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_FIRE_PUNCH",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_GRAVITY",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_HAPPY_HOUR",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_HEALING_WISH",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_HEART_STAMP",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_HIDDEN_POWER",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_ICE_PUNCH",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_ICY_WIND",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_IRON_HEAD",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_MOONBLAST",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_PROTECT",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_PSYCHIC",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_STEALTH_ROCK",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_STORED_POWER",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_SUBSTITUTE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_THUNDER",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_THUNDER_WAVE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_THUNDERBOLT",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_TOXIC",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_TRICK",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_U_TURN",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_WISH",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_ZEN_HEADBUTT",
-      "versionName": "rogue"
+      "Move": "MOVE_DOOM_DESIRE",
+      "Level": 98
     }
+  ],
+  "TutorMoves": [
+    "MOVE_AURA_SPHERE",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_HAPPY_HOUR",
+    "MOVE_HEART_STAMP",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_HEAD",
+    "MOVE_MOONBLAST",
+    "MOVE_PROTECT",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_TRICK",
+    "MOVE_U_TURN"
   ],
   "CompetitiveSets": [
     {
@@ -907,15 +738,5 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ],
-  "Types": [
-    "steel",
-    "psychic"
-  ],
-  "Abilities": [
-    "serene-grace",
-    "none",
-    "none"
-  ],
-  "PrettySpeciesName": "Jirachi"
+  ]
 }

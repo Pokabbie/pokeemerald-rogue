@@ -1,145 +1,63 @@
 {
   "Species": "SPECIES_SHAYMIN_SKY",
-  "Moves": [
+  "LevelUpMoves": [
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 1,
-      "moveName": "MOVE_GROWTH",
-      "versionName": "rogue"
+      "Move": "MOVE_GROWTH",
+      "Level": 1
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 10,
-      "moveName": "MOVE_MAGICAL_LEAF",
-      "versionName": "rogue"
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 10
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 19,
-      "moveName": "MOVE_LEECH_SEED",
-      "versionName": "rogue"
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 19
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 28,
-      "moveName": "MOVE_SYNTHESIS",
-      "versionName": "rogue"
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 28
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 37,
-      "moveName": "MOVE_SWEET_SCENT",
-      "versionName": "rogue"
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 37
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 46,
-      "moveName": "MOVE_PLAY_ROUGH",
-      "versionName": "rogue"
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 46
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 55,
-      "moveName": "MOVE_WORRY_SEED",
-      "versionName": "rogue"
+      "Move": "MOVE_WORRY_SEED",
+      "Level": 55
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 64,
-      "moveName": "MOVE_GRASSY_TERRAIN",
-      "versionName": "rogue"
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 64
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 73,
-      "moveName": "MOVE_ENERGY_BALL",
-      "versionName": "rogue"
+      "Move": "MOVE_ENERGY_BALL",
+      "Level": 73
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 82,
-      "moveName": "MOVE_SWEET_KISS",
-      "versionName": "rogue"
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 82
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 91,
-      "moveName": "MOVE_HEALING_WISH",
-      "versionName": "rogue"
+      "Move": "MOVE_HEALING_WISH",
+      "Level": 91
     },
     {
-      "originMethod": "LevelUp",
-      "learnLevel": 100,
-      "moveName": "MOVE_SEED_FLARE",
-      "versionName": "rogue"
-    },
-
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_AIR_SLASH",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_DAZZLING_GLEAM",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_EARTH_POWER",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_GRASSY_GLIDE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_HEALING_WISH",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_HIDDEN_POWER",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_LEECH_SEED",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_PROTECT",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_SEED_FLARE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_SUBSTITUTE",
-      "versionName": "rogue"
-    },
-    {
-      "originMethod": "Tutor",
-      "learnLevel": 0,
-      "moveName": "MOVE_TAILWIND",
-      "versionName": "rogue"
+      "Move": "MOVE_SEED_FLARE",
+      "Level": 100
     }
+  ],
+  "TutorMoves": [
+    "MOVE_AIR_SLASH",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_EARTH_POWER",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_PROTECT",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TAILWIND"
   ],
   "CompetitiveSets": [
     {
@@ -322,15 +240,5 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ],
-  "Types": [
-    "grass",
-    "flying"
-  ],
-  "Abilities": [
-    "serene-grace",
-    "none",
-    "none"
-  ],
-  "PrettySpeciesName": "ShayminSky"
+  ]
 }
