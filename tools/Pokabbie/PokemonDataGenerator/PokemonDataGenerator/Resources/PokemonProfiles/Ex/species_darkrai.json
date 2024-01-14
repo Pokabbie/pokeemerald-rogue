@@ -1,0 +1,427 @@
+{
+  "Species": "SPECIES_DARKRAI",
+  "Moves": [
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 1,
+      "moveName": "MOVE_DISABLE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 11,
+      "moveName": "MOVE_QUICK_ATTACK",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 20,
+      "moveName": "MOVE_HYPNOSIS",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 29,
+      "moveName": "MOVE_SUCKER_PUNCH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 38,
+      "moveName": "MOVE_NIGHT_SHADE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 47,
+      "moveName": "MOVE_DOUBLE_TEAM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 57,
+      "moveName": "MOVE_HAZE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 66,
+      "moveName": "MOVE_DARK_VOID",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 75,
+      "moveName": "MOVE_NASTY_PLOT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 84,
+      "moveName": "MOVE_DREAM_EATER",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 93,
+      "moveName": "MOVE_DARK_PULSE",
+      "versionName": "rogue"
+    },
+
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_DARK_PULSE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_DARK_VOID",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_DREAM_EATER",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_FOCUS_BLAST",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_FOCUS_PUNCH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HAZE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HYPNOSIS",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_ICE_BEAM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_KNOCK_OFF",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_LASH_OUT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_NASTY_PLOT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_PSYCHIC",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_SLUDGE_BOMB",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_SPITE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_SUBSTITUTE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_THUNDER",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_TRICK",
+      "versionName": "rogue"
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DARK_VOID",
+        "MOVE_DARK_PULSE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_DARK_VOID",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_VOID",
+        "MOVE_DARK_PULSE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_VOID",
+        "MOVE_DARK_PULSE",
+        "MOVE_NASTY_PLOT",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYPNOSIS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_HYPNOSIS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_VOID"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_HYPNOSIS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_DREAM_EATER"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7ANYTHINGGOES",
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_TRICK",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_NASTY_PLOT",
+        "MOVE_DARK_PULSE",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_ICE_BEAM",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_FOCUS_BLAST"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_HYPNOSIS",
+        "MOVE_NASTY_PLOT",
+        "MOVE_DREAM_EATER"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_WIDE_LENS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PSYCHIC",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_PSYCHIC",
+        "MOVE_NASTY_PLOT",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DARK_PULSE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_PSYCHIC",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_BAD_DREAMS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ],
+  "Types": [
+    "dark",
+    "none"
+  ],
+  "Abilities": [
+    "bad-dreams",
+    "none",
+    "none"
+  ],
+  "PrettySpeciesName": "Darkrai"
+}

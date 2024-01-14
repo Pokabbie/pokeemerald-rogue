@@ -1,0 +1,336 @@
+{
+  "Species": "SPECIES_SHAYMIN_SKY",
+  "Moves": [
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 1,
+      "moveName": "MOVE_GROWTH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 10,
+      "moveName": "MOVE_MAGICAL_LEAF",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 19,
+      "moveName": "MOVE_LEECH_SEED",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 28,
+      "moveName": "MOVE_SYNTHESIS",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 37,
+      "moveName": "MOVE_SWEET_SCENT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 46,
+      "moveName": "MOVE_PLAY_ROUGH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 55,
+      "moveName": "MOVE_WORRY_SEED",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 64,
+      "moveName": "MOVE_GRASSY_TERRAIN",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 73,
+      "moveName": "MOVE_ENERGY_BALL",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 82,
+      "moveName": "MOVE_SWEET_KISS",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 91,
+      "moveName": "MOVE_HEALING_WISH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 100,
+      "moveName": "MOVE_SEED_FLARE",
+      "versionName": "rogue"
+    },
+
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_AIR_SLASH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_DAZZLING_GLEAM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_EARTH_POWER",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_GRASSY_GLIDE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HEALING_WISH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HIDDEN_POWER",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_LEECH_SEED",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_PROTECT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_SEED_FLARE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_SUBSTITUTE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_TAILWIND",
+      "versionName": "rogue"
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ROCK",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_LEECH_SEED",
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_TAILWIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SEED_FLARE",
+        "MOVE_AIR_SLASH",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_DAZZLING_GLEAM"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9ANYTHINGGOES"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_AIR_SLASH",
+        "MOVE_SEED_FLARE",
+        "MOVE_EARTH_POWER",
+        "MOVE_LEECH_SEED"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXAG"
+      ]
+    }
+  ],
+  "Types": [
+    "grass",
+    "flying"
+  ],
+  "Abilities": [
+    "serene-grace",
+    "none",
+    "none"
+  ],
+  "PrettySpeciesName": "ShayminSky"
+}

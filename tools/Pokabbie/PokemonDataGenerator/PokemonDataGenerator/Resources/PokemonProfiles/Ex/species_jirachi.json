@@ -1,0 +1,921 @@
+{
+  "Species": "SPECIES_JIRACHI",
+  "Moves": [
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 1,
+      "moveName": "MOVE_CONFUSION",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 1,
+      "moveName": "MOVE_WISH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 1,
+      "moveName": "MOVE_SWIFT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 21,
+      "moveName": "MOVE_LIFE_DEW",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 28,
+      "moveName": "MOVE_ZEN_HEADBUTT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 35,
+      "moveName": "MOVE_GRAVITY",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 42,
+      "moveName": "MOVE_PSYCHIC",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 49,
+      "moveName": "MOVE_METEOR_MASH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 56,
+      "moveName": "MOVE_HEALING_WISH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 63,
+      "moveName": "MOVE_REST",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 70,
+      "moveName": "MOVE_FUTURE_SIGHT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 77,
+      "moveName": "MOVE_DOUBLE_EDGE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 84,
+      "moveName": "MOVE_COSMIC_POWER",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 91,
+      "moveName": "MOVE_LAST_RESORT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 98,
+      "moveName": "MOVE_DOOM_DESIRE",
+      "versionName": "rogue"
+    },
+
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_AURA_SPHERE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_BODY_SLAM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_CALM_MIND",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_ENERGY_BALL",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_FIRE_PUNCH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_GRAVITY",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HAPPY_HOUR",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HEALING_WISH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HEART_STAMP",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HIDDEN_POWER",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_ICE_PUNCH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_ICY_WIND",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_IRON_HEAD",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_MOONBLAST",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_PROTECT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_PSYCHIC",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_STEALTH_ROCK",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_STORED_POWER",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_SUBSTITUTE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_THUNDER",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_THUNDER_WAVE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_THUNDERBOLT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_TOXIC",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_TRICK",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_U_TURN",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_WISH",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_ZEN_HEADBUTT",
+      "versionName": "rogue"
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_IRON_HEAD",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_TOXIC",
+        "MOVE_SUBSTITUTE",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ICY_WIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_EXPERT_BELT",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": "TYPE_GROUND",
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_TOXIC",
+        "MOVE_WISH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEART_STAMP"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH",
+        "MOVE_FIRE_PUNCH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HEART_STAMP",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_ICE_PUNCH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_TOXIC",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HAPPY_HOUR",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT",
+        "MOVE_IRON_HEAD"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_U_TURN",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_IRON_HEAD",
+        "MOVE_BODY_SLAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_TRICK",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_TRICK",
+        "MOVE_HEALING_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8UU",
+        "GEN8MONOTYPE",
+        "GEN9UU",
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_IRON_HEAD",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_WISH",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_HEALING_WISH",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HAPPY_HOUR",
+        "MOVE_STORED_POWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STEALTH_ROCK",
+        "MOVE_IRON_HEAD",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE",
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_MOONBLAST",
+        "MOVE_THUNDER",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HAPPY_HOUR",
+        "MOVE_U_TURN",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN8NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_AURA_SPHERE",
+        "MOVE_WISH"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_COLBUR_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_WISH",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HAPPY_HOUR",
+        "MOVE_STORED_POWER",
+        "MOVE_IRON_HEAD",
+        "MOVE_AURA_SPHERE"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HAPPY_HOUR",
+        "MOVE_STORED_POWER",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_BODY_SLAM",
+        "MOVE_WISH",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_ICE_PUNCH",
+        "MOVE_TRICK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE",
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_U_TURN",
+        "MOVE_ZEN_HEADBUTT",
+        "MOVE_STEALTH_ROCK"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_STORED_POWER",
+        "MOVE_IRON_HEAD",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HAPPY_HOUR"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_NAIVE",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_IRON_HEAD",
+        "MOVE_HAPPY_HOUR",
+        "MOVE_U_TURN",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_SERENE_GRACE",
+      "Item": "ITEM_NORMALIUM_Z",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEXMONOTYPE"
+      ]
+    }
+  ],
+  "Types": [
+    "steel",
+    "psychic"
+  ],
+  "Abilities": [
+    "serene-grace",
+    "none",
+    "none"
+  ],
+  "PrettySpeciesName": "Jirachi"
+}

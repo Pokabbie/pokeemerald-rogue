@@ -90,7 +90,7 @@ namespace PokemonDataGenerator.Pokedex
 				foreach(var move in source.Moves)
 				{
 					int versionIndex = levelUpPreference.IndexOf(move.versionName);
-					if(versionIndex != -1 && versionIndex < levelUpIndex)
+					if (versionIndex != -1 && versionIndex < levelUpIndex)
 					{
 						levelUpIndex = versionIndex;
 
@@ -232,6 +232,7 @@ namespace PokemonDataGenerator.Pokedex
 			public void CollapseFromImport()
 			{
 				FinaliseForExport();
+				ValidateContents();
 			}
 
 			private void FinaliseForExport()
@@ -287,13 +288,6 @@ namespace PokemonDataGenerator.Pokedex
 							dragonAscent.learnLevel = 90;
 						}
 					}
-
-					// Verify the move is recognised in game here
-					foreach (var move in Moves)
-					{
-						if (!GameDataHelpers.MoveDefines.ContainsKey(move.moveName))
-							throw new InvalidDataException();
-					}
 				}
 
 				// Now sort them before we export
@@ -324,6 +318,19 @@ namespace PokemonDataGenerator.Pokedex
 						}
 
 					}
+				}
+			}
+
+			public void ValidateContents()
+			{
+				if (!Moves.Where((m) => m.originMethod == MoveInfo.LearnMethod.LevelUp).Any())
+					throw new InvalidDataException($"'{Species}' missing level up moves");
+
+				// Verify the move is recognised in game here
+				foreach (var move in Moves)
+				{
+					if (!GameDataHelpers.MoveDefines.ContainsKey(move.moveName))
+						throw new InvalidDataException($"'{Species}' has unsupported move '{move.moveName}'");
 				}
 			}
 
@@ -1009,6 +1016,9 @@ namespace PokemonDataGenerator.Pokedex
 
 				string profileJson = JsonConvert.SerializeObject(profile, c_JsonSettings);
 				File.WriteAllText(cachePath, profileJson);
+
+				// Validate after export so we can check the file
+				profile.ValidateContents();
 			}
 
 			return profile;

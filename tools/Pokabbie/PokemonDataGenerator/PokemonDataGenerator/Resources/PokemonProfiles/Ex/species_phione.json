@@ -1,0 +1,195 @@
+{
+  "Species": "SPECIES_PHIONE",
+  "Moves": [
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 1,
+      "moveName": "MOVE_WATER_GUN",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 9,
+      "moveName": "MOVE_CHARM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 16,
+      "moveName": "MOVE_SUPERSONIC",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 24,
+      "moveName": "MOVE_BUBBLE_BEAM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 31,
+      "moveName": "MOVE_ACID_ARMOR",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 39,
+      "moveName": "MOVE_WHIRLPOOL",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 46,
+      "moveName": "MOVE_WATER_PULSE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 54,
+      "moveName": "MOVE_AQUA_RING",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 61,
+      "moveName": "MOVE_DIVE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 69,
+      "moveName": "MOVE_RAIN_DANCE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 75,
+      "moveName": "MOVE_TAKE_HEART",
+      "versionName": "rogue"
+    },
+    
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_FLIP_TURN",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HAZE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HEAL_BELL",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_ICE_BEAM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_KNOCK_OFF",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_RAIN_DANCE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_REST",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_SCALD",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_TAKE_HEART",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_U_TURN",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_WEATHER_BALL",
+      "versionName": "rogue"
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_REST",
+        "MOVE_SCALD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_HEAL_BELL",
+        "MOVE_SCALD",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_DAMP_ROCK",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAKE_HEART",
+        "MOVE_SCALD",
+        "MOVE_REST",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ],
+  "Types": [
+    "water",
+    "none"
+  ],
+  "Abilities": [
+    "hydration",
+    "none",
+    "none"
+  ],
+  "PrettySpeciesName": "Phione"
+}

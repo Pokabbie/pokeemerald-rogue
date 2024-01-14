@@ -1,0 +1,553 @@
+{
+  "Species": "SPECIES_MANAPHY",
+  "Moves": [
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 1,
+      "moveName": "MOVE_HEART_SWAP",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 1,
+      "moveName": "MOVE_TAIL_GLOW",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 1,
+      "moveName": "MOVE_WATER_GUN",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 9,
+      "moveName": "MOVE_CHARM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 16,
+      "moveName": "MOVE_SUPERSONIC",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 24,
+      "moveName": "MOVE_BUBBLE_BEAM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 31,
+      "moveName": "MOVE_ACID_ARMOR",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 39,
+      "moveName": "MOVE_WHIRLPOOL",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 46,
+      "moveName": "MOVE_WATER_PULSE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 54,
+      "moveName": "MOVE_AQUA_RING",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 61,
+      "moveName": "MOVE_DIVE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 69,
+      "moveName": "MOVE_RAIN_DANCE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "LevelUp",
+      "learnLevel": 75,
+      "moveName": "MOVE_TAKE_HEART",
+      "versionName": "rogue"
+    },
+
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_ACID_ARMOR",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_CALM_MIND",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_DAZZLING_GLEAM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_ENDURE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_ENERGY_BALL",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_FLIP_TURN",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HAZE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_HYPER_BEAM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_ICE_BEAM",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_ICY_WIND",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_KNOCK_OFF",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_PROTECT",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_PSYCHIC",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_RAIN_DANCE",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_REST",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_SCALD",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_STORED_POWER",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_SURF",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_TAIL_GLOW",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_TAKE_HEART",
+      "versionName": "rogue"
+    },
+    {
+      "originMethod": "Tutor",
+      "learnLevel": 0,
+      "moveName": "MOVE_WEATHER_BALL",
+      "versionName": "rogue"
+    }
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_RAIN_DANCE",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_ICE_BEAM",
+        "MOVE_ENERGY_BALL",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_TAIL_GLOW",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_SAFETY_GOGGLES",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_ACID_ARMOR",
+        "MOVE_CALM_MIND",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_ENDURE",
+        "MOVE_SURF",
+        "MOVE_HYPER_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN61V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN6MONOTYPE",
+        "GEN9MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_REST",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ICY_WIND",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN71V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_RAIN_DANCE",
+        "MOVE_SURF",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_PSYCHIC",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN7MONOTYPE"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAKE_HEART",
+        "MOVE_ACID_ARMOR",
+        "MOVE_SCALD",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SCALD",
+        "MOVE_TAIL_GLOW",
+        "MOVE_TAKE_HEART",
+        "MOVE_STORED_POWER"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ENERGY_BALL",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_WATERIUM_Z",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_ENERGY_BALL",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAKE_HEART",
+        "MOVE_SCALD",
+        "MOVE_STORED_POWER",
+        "MOVE_ACID_ARMOR"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_REST",
+        "MOVE_SCALD"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9NATIONALDEX"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SURF",
+        "MOVE_SCALD",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_CUSTAP_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN91V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TAIL_GLOW",
+        "MOVE_SCALD",
+        "MOVE_PSYCHIC",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_HYDRATION",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "SourceTiers": [
+        "GEN9MONOTYPE"
+      ]
+    }
+  ],
+  "Types": [
+    "water",
+    "none"
+  ],
+  "Abilities": [
+    "hydration",
+    "none",
+    "none"
+  ],
+  "PrettySpeciesName": "Manaphy"
+}
