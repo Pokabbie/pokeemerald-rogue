@@ -69,6 +69,12 @@ bool8 RogueQuest_GetConstFlag(u16 questId, u32 flag)
     return (entry->flags & flag) != 0;
 }
 
+u16 RogueQuest_GetOrderedQuest(u16 index)
+{
+    AGB_ASSERT(index < ARRAY_COUNT(sQuestDisplayOrder));
+    return sQuestDisplayOrder[index];
+}
+
 bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag)
 {
     struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);

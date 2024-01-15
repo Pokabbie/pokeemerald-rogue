@@ -370,11 +370,12 @@ u8 PickWildMonNature(void)
 static void CreateWildMon(u16 species, u8 level, bool8 isShiny)
 {
     bool32 checkCuteCharm;
+    u8 genderRatio = Rogue_ModifyGenderRatio(gSpeciesInfo[species].genderRatio);
 
     ZeroEnemyPartyMons();
     checkCuteCharm = OW_CUTE_CHARM < GEN_9;
 
-    switch (gSpeciesInfo[species].genderRatio)
+    switch (genderRatio)
     {
     case MON_MALE:
     case MON_FEMALE:

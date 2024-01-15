@@ -15,6 +15,7 @@ std::string const c_TabSpacing2 = "        ";
 std::string const c_TabSpacing3 = "            ";
 
 json ReadJsonFile(std::string const& filepath);
+json ExpandCommonArrayGroup(std::string const& sourcePath, json const& rawData, std::string const& groupName);
 void FatalExit();
 
 #ifdef _MSC_VER

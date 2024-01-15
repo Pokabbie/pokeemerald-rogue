@@ -20,85 +20,10 @@ static void ExportQueryScriptData_C(TrainerDataExport_C& exporter, std::string c
 static TrainerStrings ExtractTrainerStrings(json const& trainers);
 static void ExportTrainerStringsData_C(TrainerDataExport_C& exporter, json const& trainers);
 
-static std::string GetSourceDirectory(std::string path)
-{
-	strutil::replace_all(path, "/", "\\");
-	size_t index = path.find_last_of('\\');
-	path = path.substr(0, index);
-	return path + '\\';
-}
 
 static json ExpandTrainersJson(std::string const& sourcePath, json const& rawData)
 {
-	json outputData;
-	json& outputTrainers = outputData["trainers"] = json::object();
-
-	std::string condition = "";
-
-	if (rawData.contains("condition"))
-		condition = rawData["condition"].get<std::string>();
-
-	// Expand trainers into output
-	json trainerGroups = rawData["trainers"];
-
-	for (auto trainerGroupId = trainerGroups.begin(); trainerGroupId != trainerGroups.end(); ++trainerGroupId)
-	{
-		std::string groupName = trainerGroupId.key();
-		json const& sourceTrainers = trainerGroupId.value();
-
-		if (!condition.empty())
-		{
-			groupName = "#if " + condition + " // " + groupName;
-		}
-
-		json& outputTrainerGroup = outputTrainers[groupName] = json::array();
-
-		for (auto trainerId = sourceTrainers.begin(); trainerId != sourceTrainers.end(); ++trainerId)
-		{
-			json destTrainer;
-			json const& sourceTrainer = trainerId.value();
-
-			if (rawData.contains("defaults"))
-			{
-				json defaults = rawData["defaults"];
-
-				destTrainer = defaults;
-			}
-
-			for (auto kvpIt = sourceTrainer.begin(); kvpIt != sourceTrainer.end(); ++kvpIt)
-			{
-				destTrainer[kvpIt.key()] = kvpIt.value();
-			}
-
-			outputTrainerGroup.push_back(destTrainer);
-		}
-	}
-
-	// Process includes
-	if (rawData.contains("includes"))
-	{
-		json includes = rawData["includes"];
-		std::string sourceDir = GetSourceDirectory(sourcePath);
-
-		for (auto it = includes.begin(); it != includes.end(); ++it)
-		{
-			std::string fullPath = sourceDir + it.value().get<std::string>();
-			strutil::replace_all(fullPath, "\\", "/");
-
-			json parsedInclude = ExpandTrainersJson(fullPath, ReadJsonFile(fullPath));
-			json parsedTrainers = parsedInclude["trainers"];
-
-			for (auto trainerGroupId = parsedTrainers.begin(); trainerGroupId != parsedTrainers.end(); ++trainerGroupId)
-			{
-				std::string sourceName = trainerGroupId.key();
-				json const& sourceTrainers = trainerGroupId.value();
-
-				outputTrainers[sourceName + " // [" + fullPath + "]"] = sourceTrainers;
-			}
-		}
-	}
-
-	return outputData;
+	return ExpandCommonArrayGroup(sourcePath, rawData, "trainers");
 }
 
 void ExportTrainerData_C(std::ofstream& fileStream, std::string const& dataPath, json const& rawJsonData)

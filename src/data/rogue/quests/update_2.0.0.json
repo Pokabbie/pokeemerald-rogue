@@ -1,0 +1,10 @@
+{
+    "includes":
+    [
+        "default_quests.json",
+        "default_challenges.json"
+    ],
+    "quest_groups":
+    {
+    }
+}

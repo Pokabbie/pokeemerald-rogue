@@ -1914,10 +1914,12 @@ void ModifyPersonalityForNature(u32 *personality, u32 newNature)
 u32 GeneratePersonalityForGender(u32 gender, u32 species)
 {
     const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[species];
+    u8 genderRatio = Rogue_ModifyGenderRatio(speciesInfo->genderRatio);
+
     if (gender == MON_MALE)
-        return ((255 - speciesInfo->genderRatio) / 2) + speciesInfo->genderRatio;
+        return ((255 - genderRatio) / 2) + genderRatio;
     else
-        return speciesInfo->genderRatio / 2;
+        return genderRatio / 2;
 }
 
 void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon *partyEntry)

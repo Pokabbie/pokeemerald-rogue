@@ -507,8 +507,10 @@ static u16 GetCurrentListIndex()
     return sQuestMenuData->scrollListHead + sQuestMenuData->scrollListOffset;
 }
 
-static bool8 IsQuestVisible(u16 questId)
+static bool8 IsQuestIndexVisible(u16 questIndex)
 {
+    u16 questId = RogueQuest_GetOrderedQuest(questIndex);
+
     if(!RogueQuest_IsQuestUnlocked(questId))
         return FALSE;
 
@@ -539,52 +541,52 @@ static bool8 IsQuestVisible(u16 questId)
     return TRUE;
 }
 
-static void IterateNextVisibleQuest(u16* questId)
+static void IterateNextVisibleQuestIndex(u16* questIndex)
 {
-    while(*questId < QUEST_ID_COUNT)
+    while(*questIndex < QUEST_ID_COUNT)
     {
-        ++*questId;
+        ++*questIndex;
 
-        if(*questId == QUEST_ID_COUNT || IsQuestVisible(*questId))
+        if(*questIndex == QUEST_ID_COUNT || IsQuestIndexVisible(*questIndex))
             return;
     }
 }
 
-static u16 GetFirstVisibleQuest()
+static u16 GetFirstVisibleQuestIndex()
 {
-    u16 questId = 0;
+    u16 questIndex = 0;
 
-    if(IsQuestVisible(questId))
-        return questId;
+    if(IsQuestIndexVisible(questIndex))
+        return questIndex;
 
-    IterateNextVisibleQuest(&questId);
-    return questId;
+    IterateNextVisibleQuestIndex(&questIndex);
+    return questIndex;
 }
 
 static u16 CalculateVisibleQuestCount()
 {
     u16 count = 0;
-    u16 questId = GetFirstVisibleQuest();
+    u16 questIndex = GetFirstVisibleQuestIndex();
 
-    while(questId != QUEST_ID_COUNT)
+    while(questIndex != QUEST_ID_COUNT)
     {
         ++count;
-        IterateNextVisibleQuest(&questId);
+        IterateNextVisibleQuestIndex(&questIndex);
     }
 
     return count;
 }
 
-static u16 GetCurrentListQuestId()
+static u16 GetCurrentListQuestIndex()
 {
     u16 i;
-    u16 questId = GetFirstVisibleQuest();
+    u16 questIndex = GetFirstVisibleQuestIndex();
     u16 selectedIndex = GetCurrentListIndex();
 
     for(i = 0; i < selectedIndex; ++i)
-        IterateNextVisibleQuest(&questId);
+        IterateNextVisibleQuestIndex(&questIndex);
 
-    return questId;
+    return questIndex;
 }
 
 static bool8 HandleScrollBehaviour()
@@ -678,18 +680,18 @@ static void DrawGenericScrollList(struct MenuOption const* options, u16 count)
 
 static void DrawQuestScrollList()
 {
-    u16 questId;
+    u16 questIndex;
     u16 i;
     u8 const color[3] = {0, 2, 3};
 
     FillWindowPixelBuffer(WIN_RIGHT_PAGE, PIXEL_FILL(0));
 
     i = 0;
-    questId = GetFirstVisibleQuest();
+    questIndex = GetFirstVisibleQuestIndex();
 
     // Skip to head of list
     for(i = 0; i < sQuestMenuData->scrollListHead; ++i)
-        IterateNextVisibleQuest(&questId);
+        IterateNextVisibleQuestIndex(&questIndex);
 
     // draw elements in view
     for(i = 0; i < SCROLL_ITEMS_IN_VIEW; ++i)
@@ -700,16 +702,17 @@ static void DrawQuestScrollList()
             AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_NARROW, 0, 4 + 16 * i, 0, 0, color, TEXT_SKIP_DRAW, gText_SelectorArrow);
         }
 
-        if(questId == QUEST_ID_COUNT)
+        if(questIndex == QUEST_ID_COUNT)
         {
             AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_NARROW, 8, 4 + 16 * i, 0, 0, color, TEXT_SKIP_DRAW, sText_Back);
             break;
         }
         else
         {
+            u16 questId = RogueQuest_GetOrderedQuest(questIndex);
             AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_NARROW, 8, 4 + 16 * i, 0, 0, color, TEXT_SKIP_DRAW, RogueQuest_GetTitle(questId));
 
-            IterateNextVisibleQuest(&questId);
+            IterateNextVisibleQuestIndex(&questIndex);
         }
     }
 
@@ -938,9 +941,9 @@ static void HandleInput_QuestPage(u8 taskId)
 
     if (JOY_NEW(A_BUTTON))
     {
-        u16 questId = GetCurrentListQuestId();
+        u16 questIndex = GetCurrentListQuestIndex();
 
-        if(questId == QUEST_ID_COUNT)
+        if(questIndex == QUEST_ID_COUNT)
         {
             // Exit
             if(sQuestMenuData->currentPage == PAGE_QUEST_BOARD)
@@ -955,6 +958,7 @@ static void HandleInput_QuestPage(u8 taskId)
         else
         {
             // Toggle pinned
+            u16 questId = RogueQuest_GetOrderedQuest(questIndex);
             RogueQuest_SetStateFlag(questId, QUEST_STATE_PINNED, !RogueQuest_GetStateFlag(questId, QUEST_STATE_PINNED));
             Draw_QuestPage();
         }
@@ -981,7 +985,7 @@ static void Draw_QuestPage()
 {
     u8 i;
     u8 const color[3] = {0, 2, 3};
-    u16 questId = GetCurrentListQuestId();
+    u16 questIndex = GetCurrentListQuestIndex();
 
     // Draw current quest info
     FillWindowPixelBuffer(WIN_LEFT_PAGE, PIXEL_FILL(0));
@@ -990,8 +994,10 @@ static void Draw_QuestPage()
     FreeAllSpritePalettes();
     ResetSpriteData();
 
-    if(questId != QUEST_ID_COUNT)
+    if(questIndex != QUEST_ID_COUNT)
     {
+        u16 questId = RogueQuest_GetOrderedQuest(questIndex);
+
         // Place desc/tracking text
         AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_NORMAL, 0, 1, 0, 0, color, TEXT_SKIP_DRAW, RogueQuest_GetTitle(questId));
         AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16, 0, 0, color, TEXT_SKIP_DRAW, RogueQuest_GetDesc(questId));
@@ -1101,14 +1107,14 @@ static void Draw_QuestPage()
     {
         u16 i, tileNum;
 
-        questId = GetFirstVisibleQuest();
+        questIndex = GetFirstVisibleQuestIndex();
 
         for(i = 0; i < sQuestMenuData->scrollListHead; ++i)
-            IterateNextVisibleQuest(&questId);
+            IterateNextVisibleQuestIndex(&questIndex);
 
         for(i = 0 ; i < SCROLL_ITEMS_IN_VIEW; ++i)
         {
-            if(questId != QUEST_ID_COUNT && RogueQuest_GetStateFlag(questId, QUEST_STATE_PINNED))
+            if(questIndex != QUEST_ID_COUNT && RogueQuest_GetStateFlag(RogueQuest_GetOrderedQuest(questIndex), QUEST_STATE_PINNED))
             {
                 tileNum = sQuestMenuData->currentPage == PAGE_QUEST_BOARD ? TILE_BOARD_PIN_ACTIVE : TILE_BOOK_PIN_ACTIVE;
             }
@@ -1124,7 +1130,7 @@ static void Draw_QuestPage()
                 1, 1
             );
 
-            IterateNextVisibleQuest(&questId);
+            IterateNextVisibleQuestIndex(&questIndex);
         }
     }
 

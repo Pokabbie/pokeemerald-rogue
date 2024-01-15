@@ -763,6 +763,20 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
     return amount;
 }
 
+#define PERCENT_FEMALE(percent) min(254, ((percent * 255) / 100))
+
+u8 Rogue_ModifyGenderRatio(u8 genderRatio)
+{
+    if(genderRatio == MON_MALE || genderRatio == MON_FEMALE || genderRatio == MON_GENDERLESS)
+    {
+        return genderRatio;
+    }
+
+    return PERCENT_FEMALE(50.0);
+}
+
+#undef PERCENT_FEMALE
+
 const void* Rogue_ModifyPaletteLoad(const void* input)
 {
     if(input == &gObjectEventPal_PlayerPlaceholder[0])
