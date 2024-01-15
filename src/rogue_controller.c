@@ -4652,7 +4652,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         // Adjust this after the boss reset
         if(gRogueRun.currentLevelOffset)
         {
-            u8 levelOffsetDelta = 3;
+            u8 levelOffsetDelta = 4;
             
             if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
             {
@@ -4715,7 +4715,7 @@ void Rogue_Battle_EndWildBattle(void)
     {
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
-            u8 levelOffsetDelta = 3;
+            u8 levelOffsetDelta = 4;
             
             if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
             {
