@@ -72,7 +72,9 @@ static bool8 TryStartWarpEventScript(struct MapPosition *, u16);
 static bool8 TryStartMiscWalkingScripts(u16);
 static bool8 TryStartStepCountScript(u16);
 static void UpdateFriendshipStepCounter(void);
+#if 0 // RogueNote: overworld poison damage
 static bool8 UpdatePoisonStepCounter(void);
+#endif
 
 void FieldClearPlayerInput(struct FieldInput *input)
 {
@@ -595,11 +597,13 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED_MOVE) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior))
     {
+    #if 0 // RogueNote: overworld poison damage
         if (UpdatePoisonStepCounter() == TRUE)
         {
             ScriptContext_SetupScript(EventScript_FieldPoison);
             return TRUE;
         }
+    #endif
         if (ShouldEggHatch())
         {
             IncrementGameStat(GAME_STAT_HATCHED_EGGS);
@@ -645,6 +649,7 @@ void ClearPoisonStepCounter(void)
     VarSet(VAR_POISON_STEP_COUNTER, 0);
 }
 
+#if 0 // RogueNote: overworld poison damage
 static bool8 UpdatePoisonStepCounter(void)
 {
     u16 *ptr;
@@ -669,6 +674,7 @@ static bool8 UpdatePoisonStepCounter(void)
     }
     return FALSE;
 }
+#endif
 
 void RestartWildEncounterImmunitySteps(void)
 {
