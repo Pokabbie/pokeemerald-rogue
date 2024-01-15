@@ -20,13 +20,13 @@ struct QuestReward
 	struct
 	{
 		std::string species;
-		bool isShiny;
+		std::string isShiny;
 	} 
 	pokemonParams;
 	struct
 	{
 		std::string item;
-		int count;
+		std::string count;
 	} 
 	itemParams;
 	struct
@@ -36,7 +36,7 @@ struct QuestReward
 	shopItemParams;
 	struct
 	{
-		int amount;
+		std::string amount;
 	} 
 	moneyParams;
 	struct
@@ -121,7 +121,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 				fileStream << c_TabSpacing2 << ".perType = {\n";
 				fileStream << c_TabSpacing3 << ".pokemon = {\n";
 				fileStream << c_TabSpacing3 << ".species = " << rewardInfo.pokemonParams.species << ",\n";
-				fileStream << c_TabSpacing3 << ".isShiny = " << (rewardInfo.pokemonParams.isShiny ? "TRUE" : "FALSE") << ",\n";
+				fileStream << c_TabSpacing3 << ".isShiny = " << rewardInfo.pokemonParams.isShiny << ",\n";
 				fileStream << c_TabSpacing3 << "}\n";
 				fileStream << c_TabSpacing2 << "}\n";
 				break;
@@ -368,6 +368,23 @@ static std::string FormatQuestId(std::string const& prettyName)
 	return questId;
 }
 
+static std::string GetAsString(json const& jsonValue)
+{
+	if (jsonValue.is_boolean())
+		return jsonValue.get<bool>() ? "TRUE" : "FALSE";
+
+	if (jsonValue.is_number_integer())
+		return std::to_string(jsonValue.get<int>());
+
+	if (jsonValue.is_number_unsigned())
+		return std::to_string(jsonValue.get<unsigned int>());
+
+	if (jsonValue.is_number_float())
+		return std::to_string(jsonValue.get<float>());
+
+	return jsonValue.get<std::string>();
+}
+
 static QuestReward ParseQuestReward(json const& jsonData)
 {
 	QuestReward reward;
@@ -386,9 +403,9 @@ static QuestReward ParseQuestReward(json const& jsonData)
 		reward.pokemonParams.species = jsonData["species"].get<std::string>();
 
 		if (jsonData.contains("shiny"))
-			reward.pokemonParams.isShiny = jsonData["shiny"].get<bool>();
+			reward.pokemonParams.isShiny = GetAsString(jsonData["shiny"]);
 		else
-			reward.pokemonParams.isShiny = false;
+			reward.pokemonParams.isShiny = "FALSE";
 
 		return reward;
 	}
@@ -400,9 +417,9 @@ static QuestReward ParseQuestReward(json const& jsonData)
 		reward.itemParams.item = jsonData["item"].get<std::string>();
 
 		if (jsonData.contains("count"))
-			reward.itemParams.count = jsonData["count"].get<int>();
+			reward.itemParams.count = GetAsString(jsonData["count"]);
 		else
-			reward.itemParams.count = 1;
+			reward.itemParams.count = "1";
 
 		return reward;
 	}
@@ -420,7 +437,7 @@ static QuestReward ParseQuestReward(json const& jsonData)
 	{
 		reward.type = QuestRewardType::Money;
 
-		reward.moneyParams.amount = jsonData["money"].get<int>();
+		reward.moneyParams.amount = GetAsString(jsonData["money"]);
 
 		return reward;
 	}

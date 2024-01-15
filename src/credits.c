@@ -378,10 +378,16 @@ static void CB2_Credits(void)
      && gHasHallOfFameRecords
      && gTasks[sSavedTaskId].func == Task_CreditsMain)
     {
-        // Speed up credits
-        VBlankCB_Credits();
-        RunTasks();
-        AnimateSprites();
+        u8 i;
+
+        for(i = 1; i < 8; ++i)
+        {
+            // Speed up credits
+            VBlankCB_Credits();
+            RunTasks();
+            AnimateSprites();
+        }
+
         sUsedSpeedUp = TRUE;
     }
     BuildOamBuffer();

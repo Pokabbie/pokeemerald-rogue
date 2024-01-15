@@ -4632,6 +4632,8 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             // Increment difficulty
             Rogue_SetCurrentDifficulty(Rogue_GetCurrentDifficulty() + 1);
             nextLevel = Rogue_CalculateBossMonLvl();
+            
+            RogueQuest_OnTrigger(QUEST_TRIGGER_EARN_BADGE);
 
             gRogueRun.currentLevelOffset = nextLevel - prevLevel;
             gRogueRun.wildEncounters.roamerActiveThisPath = TRUE;

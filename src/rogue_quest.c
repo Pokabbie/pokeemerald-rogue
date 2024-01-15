@@ -21,6 +21,7 @@
 // new quests
 
 static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_DifficultyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 
@@ -280,6 +281,12 @@ void RogueQuest_OnTrigger(u16 triggerFlag)
 static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     return TRUE;
+}
+
+static bool8 QuestCondition_DifficultyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 threshold = trigger->params[0];
+    return Rogue_GetCurrentDifficulty() > threshold;
 }
 
 static bool8 UNUSED QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger)

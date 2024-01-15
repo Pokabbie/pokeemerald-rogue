@@ -16,7 +16,7 @@
             {
                 "name": "To Adventure!",
                 "description": "Embark on your first Adventure!",
-                "state_bytes": 4,
+                "display_order": -100,
                 "flags": 
                 [
                     "MAIN_QUEST_DEFAULT",
@@ -32,10 +32,203 @@
                 ],
                 "rewards":
                 [
-                    { "species": "SPECIES_WOBBUFFET" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
                     { "quest": "Challenger Approaches!" }
                 ]
+            },
+            
+            {
+                "name": "Gym Badge 1",
+                "display_order": -99,
+                "description": "Defeat a Strong Trainer and collect your 1st Gym Badge",
+                "triggers":
+                [
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_GYM_START_DIFFICULTY + 0" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Gym Badge 2",
+                "display_order": -99,
+                "description": "Defeat a Strong Trainer and collect your 2nd Gym Badge",
+                "triggers":
+                [
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_GYM_START_DIFFICULTY + 1" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Gym Badge 3",
+                "display_order": -99,
+                "description": "Defeat a Strong Trainer and collect your 3rd Gym Badge",
+                "triggers":
+                [
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_GYM_START_DIFFICULTY + 2" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Gym Badge 4",
+                "display_order": -99,
+                "description": "Defeat a Strong Trainer and collect your 4th Gym Badge",
+                "triggers":
+                [
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_GYM_START_DIFFICULTY + 3" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Gym Badge 5",
+                "display_order": -99,
+                "description": "Defeat a Strong Trainer and collect your 5th Gym Badge",
+                "triggers":
+                [
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_GYM_START_DIFFICULTY + 4" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Gym Badge 6",
+                "display_order": -99,
+                "description": "Defeat a Strong Trainer and collect your 6th Gym Badge",
+                "triggers":
+                [
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_GYM_START_DIFFICULTY + 5" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Gym Badge 7",
+                "display_order": -99,
+                "description": "Defeat a Strong Trainer and collect your 7th Gym Badge",
+                "triggers":
+                [
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_GYM_START_DIFFICULTY + 6" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Gym Badge 8",
+                "display_order": -99,
+                "description": "Defeat a Strong Trainer and collect your 8th Gym Badge",
+                "triggers":
+                [
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_GYM_START_DIFFICULTY + 7" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "name": "Elite Master",
+                "display_order": -98,
+                "description": "Defeat all Trainers of the Elite Four.",
+                "triggers":
+                [
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY + 3" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Champion",
+                "display_order": -97,
+                "description": "Defeat the final Champion and enter the Hall of Fame.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
             }
+
         ]
     }
 }

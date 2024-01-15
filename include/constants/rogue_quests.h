@@ -1,7 +1,7 @@
 #ifdef ROGUE_EXPANSION
-#define QUEST_SAVE_COUNT 20
+#define QUEST_SAVE_COUNT 30
 #else
-#define QUEST_SAVE_COUNT 20
+#define QUEST_SAVE_COUNT 30
 #endif
 
 // Constant flags
@@ -42,7 +42,8 @@
 #define QUEST_TRIGGER_WILD_BATTLE_END       (1 << 4)
 #define QUEST_TRIGGER_TRAINER_BATTLE_START  (1 << 5)
 #define QUEST_TRIGGER_TRAINER_BATTLE_END    (1 << 6)
-#define QUEST_TRIGGER_ENTER_HALL_OF_FAME    (1 << 7)
+#define QUEST_TRIGGER_EARN_BADGE            (1 << 7)
+#define QUEST_TRIGGER_ENTER_HALL_OF_FAME    (1 << 8)
 
 #define QUEST_TRIGGER_ANY_BATTLE_START      (QUEST_TRIGGER_WILD_BATTLE_START | QUEST_TRIGGER_TRAINER_BATTLE_START)
 
@@ -51,6 +52,17 @@
 #define QUEST_STATUS_PENDING                0
 #define QUEST_STATUS_SUCCESS                1
 #define QUEST_STATUS_FAIL                   2
+
+// Values
+//
+#define QUEST_REWARD_SMALL_MONEY            1000
+#define QUEST_REWARD_MEDIUM_MONEY           2000
+#define QUEST_REWARD_LARGE_MONEY            5000
+
+#define QUEST_REWARD_SMALL_BUILD_AMOUNT     1
+#define QUEST_REWARD_MEDIUM_BUILD_AMOUNT    2
+#define QUEST_REWARD_LARGE_BUILD_AMOUNT     5
+
 
 // old
 #define QUEST_FLAGS_NONE                  0
