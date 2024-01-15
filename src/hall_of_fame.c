@@ -38,6 +38,7 @@
 #include "rogue_controller.h"
 #include "rogue_campaign.h"
 #include "rogue_player_customisation.h"
+#include "rogue_popup.h"
 #include "rogue_settings.h"
 
 #define HALL_OF_FAME_MAX_TEAMS 30
@@ -102,6 +103,9 @@ static void Task_Hof_PaletteFadeAndPrintWelcomeText(u8 taskId);
 static void Task_Hof_DoConfetti(u8 taskId);
 static void Task_Hof_WaitToDisplayPlayer(u8 taskId);
 static void Task_Hof_DisplayPlayer(u8 taskId);
+static void Task_Hof_DisplayPlayer2(u8 taskId);
+static void Task_Hof_DoQuestNotifications(u8 taskId);
+static void Task_Hof_WaitForQuestNotifications(u8 taskId);
 static void Task_Hof_WaitAndPrintPlayerInfo(u8 taskId);
 static void Task_Hof_ExitOnKeyPressed(u8 taskId);
 static void Task_Hof_HandlePaletteOnExit(u8 taskId);
@@ -738,25 +742,26 @@ static void Task_Hof_DoConfetti(u8 taskId)
         u32 faintedBackgroundPalettes = sHofBackgroundPalettes & sHofFaintedPalettes;
         u32 aliveBackgroundPalettes = sHofBackgroundPalettes & ~sHofFaintedPalettes;
 
+        // Put sprites behind
         for (i = 0; i < PARTY_SIZE; i++)
         {
             if (gTasks[taskId].tMonSpriteId(i) != SPRITE_NONE)
                 gSprites[gTasks[taskId].tMonSpriteId(i)].oam.priority = 1;
         }
-
+        
+        // Fade sprites into background
         BeginNormalPaletteFade(aliveBackgroundPalettes, 0, 12, 12, RGB_BACKGROUND);
         BlendPalettes(faintedBackgroundPalettes, 0xC, RGB_BACKGROUND_FAINTED);
-
+    
         FillWindowPixelBuffer(0, PIXEL_FILL(0));
         CopyWindowToVram(0, COPYWIN_FULL);
-        gTasks[taskId].tFrameCount = 7;
         gTasks[taskId].func = Task_Hof_WaitToDisplayPlayer;
     }
 }
 
 static void Task_Hof_WaitToDisplayPlayer(u8 taskId)
 {
-    if (gTasks[taskId].tFrameCount >= 16)
+    if (gTasks[taskId].tFrameCount >= 9)
     {
         gTasks[taskId].func = Task_Hof_DisplayPlayer;
     }
@@ -776,6 +781,28 @@ static void Task_Hof_DisplayPlayer(u8 taskId)
 
     gTasks[taskId].tPlayerSpriteID = CreateTrainerPicSprite(RoguePlayer_GetTrainerFrontPic(), 1, 120, 72, 6, TAG_NONE);
 
+    gTasks[taskId].func = Task_Hof_DoQuestNotifications;
+}
+
+static void Task_Hof_DoQuestNotifications(u8 taskId)
+{
+    Rogue_ForceEnablePopups(FALSE);
+    gTasks[taskId].func = Task_Hof_WaitForQuestNotifications;
+}
+
+static void Task_Hof_WaitForQuestNotifications(u8 taskId)
+{
+    Rogue_UpdatePopups(FALSE, FALSE);
+
+    if(!Rogue_HasPendingPopups())
+    {
+        gTasks[taskId].tFrameCount = 0;
+        gTasks[taskId].func = Task_Hof_DisplayPlayer2;
+    }
+}
+
+static void Task_Hof_DisplayPlayer2(u8 taskId)
+{
     if(Rogue_IsActiveCampaignScored())
         AddWindow(&sHof_WindowTemplate_CampaignRun);
     else

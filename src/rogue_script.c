@@ -387,8 +387,7 @@ void RogueDebug_FillGenPC(void)
 void RogueDebug_ClearQuests(void)
 {
 #ifdef ROGUE_DEBUG
-    ResetQuestStateAfter(0);
-    Rogue_ResetCampaignAfter(0);
+    RogueQuest_OnNewGame();
 #endif
 }
 

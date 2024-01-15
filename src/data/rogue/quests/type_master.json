@@ -36,7 +36,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "item": "ITEM_SILK_SCARF" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_NORMALIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CHILAN_BERRY" }
@@ -51,7 +51,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_BLACK_BELT" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIST_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIGHTING_MEMORY" },
@@ -68,7 +68,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SHARP_BEAK" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SKY_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FLYING_MEMORY" },
@@ -85,7 +85,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_POISON_BARB" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_TOXIC_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_POISON_MEMORY" },
@@ -102,7 +102,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SOFT_SAND" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_EARTH_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GROUND_MEMORY" },
@@ -119,7 +119,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_HARD_STONE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_STONE_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ROCK_MEMORY" },
@@ -136,7 +136,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SILVER_POWDER" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_INSECT_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BUG_MEMORY" },
@@ -153,7 +153,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SPELL_TAG" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SPOOKY_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GHOST_MEMORY" },
@@ -170,7 +170,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_METAL_COAT" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_IRON_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_STEEL_MEMORY" },
@@ -187,7 +187,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_CHARCOAL" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FLAME_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIRE_MEMORY" },
@@ -205,7 +205,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_MYSTIC_WATER" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SPLASH_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_WATER_MEMORY" },
@@ -223,7 +223,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_MIRACLE_SEED" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MEADOW_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GRASS_MEMORY" },
@@ -240,7 +240,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_MAGNET" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ZAP_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ELECTRIC_MEMORY" },
@@ -258,7 +258,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_TWISTED_SPOON" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MIND_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PSYCHIC_MEMORY" },
@@ -275,7 +275,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_NEVER_MELT_ICE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ICICLE_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ICE_MEMORY" },
@@ -293,7 +293,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_DRAGON_FANG" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DRACO_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DRAGON_MEMORY" },
@@ -310,7 +310,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_BLACK_GLASSES" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DREAD_PLATE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DARK_MEMORY" },
@@ -328,7 +328,7 @@
                 },
                 "rewards":
                 [
-                    { "money": 5000 },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "shop_item": "ITEM_PIXIE_PLATE" },
                     { "shop_item": "ITEM_FAIRY_MEMORY" },
                     { "shop_item": "ITEM_FAIRIUM_Z" },

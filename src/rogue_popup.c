@@ -106,7 +106,9 @@ struct PopupManager
     u8 queuedId;
     u8 partyNotificationCounter;
     bool8 wasEnabled : 1;
-    bool8 scriptEnabled : 1;
+    bool8 forceEnabled : 1;
+    bool8 forceEnabledMuteAudio : 1;
+    bool8 forceEnabledFromScript : 1;
 };
 
 struct CustomIcon
@@ -381,7 +383,7 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 {
     bool8 enabled = inOverworld && inputEnabled; // May need to check this too? GetStartMenuWindowId
 
-    if(sRoguePopups.scriptEnabled)
+    if(sRoguePopups.forceEnabled)
     {
         enabled = TRUE;
     }
@@ -397,11 +399,14 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
             if (!FuncIsActiveTask(Task_QuestPopUpWindow))
                 ShowQuestPopup();
         }
-        else if(sRoguePopups.scriptEnabled)
+        else if(sRoguePopups.forceEnabled)
         {
             // Disable script enabled mode now, as we've reached end of queue
-            sRoguePopups.scriptEnabled = FALSE;
-            ScriptContext_Enable();
+            if(sRoguePopups.forceEnabledFromScript)
+                ScriptContext_Enable();
+
+            sRoguePopups.forceEnabled = FALSE;
+            sRoguePopups.forceEnabledFromScript = FALSE;
         }
         else
         {
@@ -410,7 +415,7 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
         }
         
         // If you press a button during a script, it will skip this notification
-        if(sRoguePopups.scriptEnabled)
+        if(sRoguePopups.forceEnabled)
         {
             if(JOY_NEW(A_BUTTON | B_BUTTON | START_BUTTON))
             {
@@ -428,10 +433,24 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
     sRoguePopups.wasEnabled = enabled;
 }
 
+void Rogue_ForceEnablePopups(bool8 allowAudio)
+{
+    sRoguePopups.forceEnabled = TRUE;
+    sRoguePopups.forceEnabledMuteAudio = !allowAudio;
+    sRoguePopups.forceEnabledFromScript = TRUE;
+}
+
+bool8 Rogue_HasPendingPopups()
+{
+    return sRoguePopups.wasEnabled || sRoguePopups.forceEnabled;
+}
+
 void Rogue_DisplayPopupsFromScript()
 {
     ScriptContext_Stop();
-    sRoguePopups.scriptEnabled = TRUE;
+    sRoguePopups.forceEnabled = TRUE;
+    sRoguePopups.forceEnabledMuteAudio = FALSE;
+    sRoguePopups.forceEnabledFromScript = TRUE;
 }
 
 static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 useEnterAnim)
@@ -792,7 +811,12 @@ static void ShowQuestPopUpWindow(void)
 
     if(!gSaveBlock2Ptr->optionsPopupSoundOff)
     {
-        if(!popupRequest->scriptAudioOnly || sRoguePopups.scriptEnabled)
+        bool8 playAudio = !popupRequest->scriptAudioOnly || sRoguePopups.forceEnabled;
+
+        if(sRoguePopups.forceEnabled && sRoguePopups.forceEnabledMuteAudio)
+            playAudio = FALSE;
+
+        if(playAudio)
         {
             if(popupRequest->soundEffect)
                 PlaySE(popupRequest->soundEffect);
