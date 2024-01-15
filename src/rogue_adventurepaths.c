@@ -320,6 +320,20 @@ static u8 CountRoomType(u16 roomType)
     return count;
 }
 
+static u8 CountSubRoomType(u16 roomType, u16 roomIndex)
+{
+    u8 i;
+    u8 count = 0;
+
+    for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+    {
+        if(gRogueAdvPath.rooms[i].roomType == roomType && gRogueAdvPath.rooms[i].roomParams.roomIdx == roomIndex)
+            ++count;
+    }
+
+    return count;
+}
+
 static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* data)
 {
     u8 count;
@@ -561,6 +575,9 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     {
         u8 chance = 5;
 
+        if(GetPathGenerationDifficulty() == 0)
+            chance = 0;
+
         for(i = 0; i < gRogueAdvPath.roomCount; ++i)
         {
             if(gRogueAdvPath.rooms[i].roomType == ADVPATH_ROOM_ROUTE && RogueRandomChance(chance, 0))
@@ -706,10 +723,24 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             break;
 
         case ADVPATH_ROOM_RESTSTOP:
-            weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 8;
-            weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 8;
-            weights[ADVPATH_SUBROOM_RESTSTOP_DAYCARE] = 8;
+            weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 15;
+            weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 15;
+            weights[ADVPATH_SUBROOM_RESTSTOP_DAYCARE] = 15;
             weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 1;
+
+            // Prefer showing each rest stop type before having duplicates
+            if(CountSubRoomType(ADVPATH_ROOM_RESTSTOP, ADVPATH_SUBROOM_RESTSTOP_BATTLE) != 0)
+                weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 3;
+
+            if(CountSubRoomType(ADVPATH_ROOM_RESTSTOP, ADVPATH_SUBROOM_RESTSTOP_SHOP) != 0)
+                weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 3;
+
+            if(CountSubRoomType(ADVPATH_ROOM_RESTSTOP, ADVPATH_SUBROOM_RESTSTOP_DAYCARE) != 0)
+                weights[ADVPATH_SUBROOM_RESTSTOP_DAYCARE] = 3;
+
+            // If we have a full rest stop, make it only appear once
+            if(CountSubRoomType(ADVPATH_ROOM_RESTSTOP, ADVPATH_SUBROOM_RESTSTOP_FULL) != 0)
+                weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 0;
 
             gRogueAdvPath.rooms[roomId].roomParams.roomIdx = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
             break;

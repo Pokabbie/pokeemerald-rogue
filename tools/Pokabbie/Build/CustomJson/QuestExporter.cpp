@@ -535,7 +535,7 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, s
 					{
 						json templateParams = quest.questObj["template_params"];
 
-						for (auto sourceParam : triggerInfo["params"])
+						for (auto sourceParam : triggerInfo["template_params"])
 						{
 							json actualParam = templateParams[sourceParam.get<std::string>()];
 
