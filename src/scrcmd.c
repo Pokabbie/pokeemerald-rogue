@@ -2530,10 +2530,10 @@ bool8 ScrCmd_completequest(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_deactivatequest(struct ScriptContext *ctx)
+bool8 ScrCmd_quest_trigger(struct ScriptContext *ctx)
 {
-    u16 index = ScriptReadHalfword(ctx);
-    gSpecialVar_Result = TryDeactivateQuest(index);
+    u16 triggerId = ScriptReadHalfword(ctx);
+    RogueQuest_OnTrigger(triggerId);
     return FALSE;
 }
 

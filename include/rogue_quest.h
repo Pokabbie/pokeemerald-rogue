@@ -88,6 +88,7 @@ void RogueQuest_ClearNewUnlockQuests();
 bool8 RogueQuest_HasCollectedRewards(u16 questId);
 
 void RogueQuest_ActivateQuestsFor(u32 flags);
+bool8 RogueQuest_IsQuestActive(u16 questId);
 
 void RogueQuest_OnNewGame();
 void RogueQuest_OnLoadGame();

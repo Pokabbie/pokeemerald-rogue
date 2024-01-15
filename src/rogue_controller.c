@@ -300,8 +300,7 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
 
 bool8 Rogue_UseFinalQuestEffects(void)
 {
-    // TODO - Swap out with other mechanism?
-    return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE);
+    return RogueQuest_IsQuestActive(QUEST_ID_THE_FINAL_RUN);
 }
 
 bool8 Rogue_AssumeFinalQuestFakeChamp(void)
@@ -2366,6 +2365,8 @@ void Rogue_NotifySaveLoaded(void)
     {
         gRogueLocal.hasQuickLoadPending = TRUE;
     }
+
+    RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
 }
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)
@@ -3033,8 +3034,10 @@ static void EndRogueRun(void)
 
     // Trigger before and after as we may have hub/run only quests which are interested in this trigger
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_END);
+    RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
     RogueQuest_ActivateQuestsFor(QUEST_CONST_ACTIVE_IN_HUB);
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_END);
+    RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
 }
 
 static u16 SelectLegendarySpecies(u8 legendId)
