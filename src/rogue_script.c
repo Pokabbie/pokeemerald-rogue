@@ -39,6 +39,7 @@
 #include "rogue_popup.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
+#include "rogue_questmenu.h"
 #include "rogue_settings.h"
 
 void DoSpecialTrainerBattle(void);
@@ -466,6 +467,33 @@ void RogueDebug_StartBattle(void)
     gSpecialVar_0x8004 = SPECIAL_BATTLE_AUTOMATION;
     DoSpecialTrainerBattle();
 #endif
+}
+
+void Rogue_ShowNewQuests()
+{
+    Rogue_OpenQuestMenu(CB2_ReturnToFieldContinueScript, FALSE);
+}
+
+void Rogue_QuestCollectNextReward()
+{
+    // 0 - Nothing to collect
+    // 1 - Success
+    // 2 - Cannot give reward
+    u16 questId;
+
+    for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
+    {
+        if(RogueQuest_HasPendingRewards(questId))
+        {
+            if(RogueQuest_TryCollectRewards(questId))
+                gSpecialVar_Result = 1;
+            else
+                gSpecialVar_Result = 2;
+            return;
+        }
+    }
+
+    gSpecialVar_Result = 0;
 }
 
 void Rogue_DetermineItemPickupCount()

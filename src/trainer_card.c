@@ -673,7 +673,7 @@ u32 CountPlayerTrainerStars(void)
 
     if (GetGameStat(GAME_STAT_ENTERED_HOF))
         stars++;
-    if (GetCompletedQuestPerc() == 100)
+    if (RogueQuest_GetDisplayCompletePerc() == 100)
         stars++;
     if (IsQuestCollected(QUEST_GlitchMode))
         stars++;

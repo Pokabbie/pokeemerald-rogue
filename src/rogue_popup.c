@@ -132,6 +132,7 @@ extern const u8 gText_Space[];
 
 extern const u8 gText_Popup_QuestComplete[];
 extern const u8 gText_Popup_QuestFail[];
+extern const u8 gText_Popup_QuestUnlocked[];
 extern const u8 gText_Popup_LegendaryClause[];
 extern const u8 gText_Popup_RoamerLegendary[];
 extern const u8 gText_Popup_None[];
@@ -975,6 +976,18 @@ void Rogue_PushPopup_QuestFail(u16 questId)
     
     popup->titleText = RogueQuest_GetTitle(questId);
     popup->subtitleText = gText_Popup_QuestFail;
+}
+
+void Rogue_PushPopup_QuestUnlocked(u16 questId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = ITEM_QUEST_LOG;
+    popup->soundEffect = SE_EXP_MAX;
+    
+    popup->titleText = RogueQuest_GetTitle(questId);
+    popup->subtitleText = gText_Popup_QuestComplete;
 }
 
 void Rogue_PushPopup_PokemonChain(u16 species, u16 chainSize)

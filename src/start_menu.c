@@ -768,7 +768,7 @@ static bool8 StartMenuQuestsCallback(void)
         CleanupOverworldWindowsAndTilemaps();
         //SetMainCallback2(CB2_PartyMenuFromStartMenu); // Display party menu
 
-        Rogue_OpenQuestMenu(CB2_ReturnToFieldWithOpenMenu);
+        Rogue_OpenQuestMenu(CB2_ReturnToFieldWithOpenMenu, TRUE);
         return TRUE;
     }
 

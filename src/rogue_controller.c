@@ -298,9 +298,19 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
     return !(Rogue_UseKeyBattleAnims() ? gSaveBlock2Ptr->optionsBossBattleSceneOff : gSaveBlock2Ptr->optionsDefaultBattleSceneOff);
 }
 
+bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck);
+
 bool8 Rogue_UseFinalQuestEffects(void)
 {
-    return RogueQuest_IsQuestActive(QUEST_ID_THE_FINAL_RUN);
+    if(RogueQuest_IsQuestUnlocked(QUEST_ID_THE_FINAL_RUN))
+    {
+        if(!CheckOnlyTheseTrainersEnabled(CONFIG_TOGGLE_TRAINER_ROGUE))
+            return FALSE;
+
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 bool8 Rogue_AssumeFinalQuestFakeChamp(void)
@@ -311,15 +321,26 @@ bool8 Rogue_AssumeFinalQuestFakeChamp(void)
 
 bool8 Rogue_Use100PercEffects(void)
 {
-    // In NG+ or 100% quests
-    // TODO
+    u16 completionPerc = RogueQuest_GetDisplayCompletePerc();
+
+    // TODO - Also consider NG+
+    if(completionPerc != 200 && completionPerc >= 100)
+    {
+        return TRUE;
+    }
+
     return FALSE;
 }
 
 bool8 Rogue_Use200PercEffects(void)
 {
-    // 100% quests and 100% challenges
-    // TODO
+    u16 completionPerc = RogueQuest_GetDisplayCompletePerc();
+
+    if(completionPerc == 200)
+    {
+        return TRUE;
+    }
+
     return FALSE;
 }
 

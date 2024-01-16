@@ -309,16 +309,30 @@ static void VBlankCB(void)
     TransferPlttBuffer();
 }
 
-void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback)
+static void OpenQuestMenu(RogueQuestMenuCallback callback, u8 page)
 {
+    RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
+
     gMain.savedCallback = callback;
     LockPlayerFieldControls();
+
+    
+    sQuestMenuData = Alloc(sizeof(struct QuestMenuData));
+    sQuestMenuData->currentPage = page;
+
     SetMainCallback2(CB2_InitQuestMenu);
     gFieldCallback = FieldCB_ContinueScriptHandleMusic;
 }
 
+void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback, bool8 viewQuestBook)
+{
+    OpenQuestMenu(CB2_ReturnToFieldContinueScript, viewQuestBook ? PAGE_BOOK_FRONT : PAGE_QUEST_BOARD);
+}
+
 static void CB2_InitQuestMenu(void)
 {
+    AGB_ASSERT(sQuestMenuData != NULL);
+
     SetVBlankCallback(NULL);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0);
     SetGpuReg(REG_OFFSET_BG3CNT, 0);
@@ -343,8 +357,6 @@ static void CB2_InitQuestMenu(void)
     ResetPaletteFade();
     FreeAllSpritePalettes();
 
-    sQuestMenuData = Alloc(sizeof(struct QuestMenuData));
-
     // TODO - Init quest menu data
 
     InitQuestBg();
@@ -356,7 +368,7 @@ static void CB2_InitQuestMenu(void)
     while (FreeTempTileDataBuffersIfPossible())
         ;
 
-    SetupPage(PAGE_BOOK_FRONT);
+    SetupPage(sQuestMenuData->currentPage);
 
     BlendPalettes(PALETTES_ALL, 16, RGB_BLACK);
     BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
@@ -737,11 +749,6 @@ static void HandleInput_FrontPage(u8 taskId)
 
     if (JOY_NEW(B_BUTTON))
         StartFadeAndExit(taskId);
-
-#ifdef ROGUE_DEBUG
-    if (JOY_NEW(SELECT_BUTTON))
-        SetupPage(PAGE_QUEST_BOARD);
-#endif
 }
 
 static void Draw_FrontPage()

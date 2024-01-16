@@ -1,6 +1,8 @@
 const BOSS_NPC = 1
 const DITTO_NPC = 2
 
+const VAR_APPLY_FINAL_QUEST_FAKE_OUT = VAR_TEMP_A
+
 mapscripts Rogue_Boss_13_MapScripts
 {
 }
@@ -8,6 +10,20 @@ mapscripts Rogue_Boss_13_MapScripts
 script Rogue_Battle_Boss13
 {
     lockall()
+
+    special(Rogue_IsFinalQuestActive)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        // TEMP - remove this once we have a new map
+        if(var(VAR_ROGUE_DIFFICULTY) >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+        {
+            setvar(VAR_RESULT, FALSE)
+        }
+    }
+
+    // Calculate value here before difficulty increments
+    copyvar(VAR_APPLY_FINAL_QUEST_FAKE_OUT, VAR_RESULT)
 
     special(SpawnCameraObject)
     applymovement(OBJ_EVENT_ID_CAMERA, CameraToBattleFieldBoss13)
@@ -36,9 +52,7 @@ script Rogue_Battle_Boss13
 
 script Rogue_BattleDefeated_Boss13
 {
-
-    special(Rogue_IsFinalQuestActive)
-    if(var(VAR_RESULT) == TRUE)
+    if(var(VAR_APPLY_FINAL_QUEST_FAKE_OUT) == TRUE)
     {
         // Fake out the game clear
         fadescreen(FADE_TO_BLACK)
