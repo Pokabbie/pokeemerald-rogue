@@ -85,9 +85,17 @@ u16 RogueQuest_GetRewardCount(u16 questId);
 bool8 RogueQuest_IsQuestUnlocked(u16 questId);
 bool8 RogueQuest_TryUnlockQuest(u16 questId);
 void RogueQuest_ClearNewUnlockQuests();
+
 bool8 RogueQuest_HasCollectedRewards(u16 questId);
+bool8 RogueQuest_HasPendingRewards(u16 questId);
+bool8 RogueQuest_TryCollectRewards(u16 questId);
 
 void RogueQuest_ActivateQuestsFor(u32 flags);
+bool8 RogueQuest_IsQuestActive(u16 questId);
+
+u16 RogueQuest_GetQuestCompletePerc();
+u16 RogueQuest_GetChallengeCompletePerc();
+u16 RogueQuest_GetDisplayCompletePerc();
 
 void RogueQuest_OnNewGame();
 void RogueQuest_OnLoadGame();

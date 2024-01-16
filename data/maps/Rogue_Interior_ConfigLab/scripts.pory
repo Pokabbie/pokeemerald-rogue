@@ -93,5 +93,8 @@ script Rogue_Interior_ConfigLab_TalkPokabbie
 
     // give dex here
     setflag(FLAG_SYS_POKEDEX_GET)
+    
+    quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
+
     release
 }

@@ -384,6 +384,8 @@ static TrainerStrings ExtractTrainerStrings(json const& trainers)
 					for (auto entryIt = encounterText.begin(); entryIt != encounterText.end(); ++entryIt)
 					{
 						std::string text = entryIt.value().get<std::string>();
+						strutil::replace_all(text, "...", c_Elipsies);
+
 						auto findIt = trainerStrings.textToIndex.find(text);
 
 						if (findIt == trainerStrings.textToIndex.end())

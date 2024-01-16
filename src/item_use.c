@@ -761,7 +761,7 @@ static void Task_OpenRegisteredPokeblockCase(u8 taskId)
 
 static void CB2_OpenQuestLogFromBag(void)
 {
-    Rogue_OpenQuestMenu(CB2_ReturnToBagMenuPocket);
+    Rogue_OpenQuestMenu(CB2_ReturnToBagMenuPocket, TRUE);
 }
 
 static void Task_OpenRegisteredQuestLog(u8 taskId)
@@ -769,7 +769,7 @@ static void Task_OpenRegisteredQuestLog(u8 taskId)
     if (!gPaletteFade.active)
     {
         CleanupOverworldWindowsAndTilemaps();
-        Rogue_OpenQuestMenu(CB2_ReturnToField);
+        Rogue_OpenQuestMenu(CB2_ReturnToField, TRUE);
         DestroyTask(taskId);
     }
 }

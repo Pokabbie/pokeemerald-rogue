@@ -24,6 +24,9 @@ static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* 
 static bool8 QuestCondition_DifficultyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
 
 #include "data/rogue/quests.h"
 
@@ -130,6 +133,13 @@ bool8 RogueQuest_TryUnlockQuest(u16 questId)
     {
         RogueQuest_SetStateFlag(questId, QUEST_STATE_UNLOCKED, TRUE);
         RogueQuest_SetStateFlag(questId, QUEST_STATE_NEW_UNLOCK, TRUE);
+
+        // Activate quest now if we can/should (Assuming we only ever call this from within the hub)
+        if(RogueQuest_GetConstFlag(questId, QUEST_CONST_ACTIVE_IN_HUB))
+        {
+            RogueQuest_SetStateFlag(questId, QUEST_STATE_ACTIVE, TRUE);
+        }
+
         return TRUE;
     }
 
@@ -158,6 +168,66 @@ bool8 RogueQuest_HasCollectedRewards(u16 questId)
     return FALSE;
 }
 
+bool8 RogueQuest_HasPendingRewards(u16 questId)
+{
+    if(RogueQuest_IsQuestUnlocked(questId))
+    {
+        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 RogueQuest_TryCollectRewards(u16 questId)
+{
+    u16 i;
+    struct RogueQuestRewardNEW const* rewardInfo;
+    u16 rewardCount = RogueQuest_GetRewardCount(questId);
+
+    AGB_ASSERT(RogueQuest_HasPendingRewards(questId));
+
+    // TODO - Check free bag slots and pokemon slots
+
+    for(i = 0; i < rewardCount; ++i)
+    {
+        rewardInfo = RogueQuest_GetReward(questId, i);
+
+        switch (rewardInfo->type)
+        {
+        case QUEST_REWARD_POKEMON:
+            // TODO
+            break;
+
+        case QUEST_REWARD_ITEM:
+            // TODO
+            break;
+
+        case QUEST_REWARD_SHOP_ITEM:
+            // TODO
+            break;
+
+        case QUEST_REWARD_MONEY:
+            // TODO
+            break;
+
+        case QUEST_REWARD_QUEST_UNLOCK:
+            RogueQuest_TryUnlockQuest(rewardInfo->perType.questUnlock.questId);
+            //Rogue_PushPopup_QuestUnlocked(rewardInfo->perType.questUnlock.questId);
+            break;
+        
+        default:
+            AGB_ASSERT(FALSE);
+            break;
+        }
+    }
+
+    // Clear pending rewards
+    RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, FALSE);
+
+    return TRUE;
+}
+
 void RogueQuest_ActivateQuestsFor(u32 flags)
 {
     u16 i;
@@ -178,6 +248,67 @@ void RogueQuest_ActivateQuestsFor(u32 flags)
     }
 }
 
+bool8 RogueQuest_IsQuestActive(u16 questId)
+{
+    return RogueQuest_IsQuestUnlocked(questId) && RogueQuest_GetStateFlag(questId, QUEST_STATE_ACTIVE);
+}
+
+u16 RogueQuest_GetQuestCompletePerc()
+{
+    u16 i;
+    u16 complete = 0;
+    u16 total = 0;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_GetConstFlag(i, QUEST_CONST_MAIN_QUEST_DEFAULT))
+        {
+            ++total;
+
+            if(RogueQuest_GetStateFlag(i, QUEST_STATE_ANY_COMPLETE))
+            {
+                ++complete;
+            }
+        }
+    }
+
+    return (complete * 100) / total;
+}
+
+u16 RogueQuest_GetChallengeCompletePerc()
+{
+    u16 i;
+    u16 complete = 0;
+    u16 total = 0;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_GetConstFlag(i, QUEST_CONST_CHALLENGE_DEFAULT))
+        {
+            ++total;
+
+            if(RogueQuest_GetStateFlag(i, QUEST_STATE_ANY_COMPLETE))
+            {
+                ++complete;
+            }
+        }
+    }
+
+    return (complete * 100) / total;
+}
+
+u16 RogueQuest_GetDisplayCompletePerc()
+{
+    u16 questCompletion = RogueQuest_GetQuestCompletePerc();
+
+    if(questCompletion == 100)
+    {
+        return questCompletion + RogueQuest_GetChallengeCompletePerc();
+    }
+
+    return questCompletion;
+}
+
 static void EnsureUnlockedDefaultQuests()
 {
     u16 i;
@@ -187,6 +318,8 @@ static void EnsureUnlockedDefaultQuests()
         if(RogueQuest_GetConstFlag(i, QUEST_CONST_UNLOCKED_BY_DEFAULT))
             RogueQuest_TryUnlockQuest(i);
     }
+
+    RogueQuest_ClearNewUnlockQuests();
 }
 
 void RogueQuest_OnNewGame()
@@ -331,10 +464,80 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
     return TRUE;
 }
 
+static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 mapId = trigger->params[0];
+    u16 mapGroup = (mapId >> 8); // equiv to MAP_GROUP
+    u16 mapNum = (mapId & 0xFF); // equiv to MAP_NUM
 
+    return gSaveBlock1Ptr->location.mapNum == mapNum || gSaveBlock1Ptr->location.mapGroup == mapGroup;
+}
 
+static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
 
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        // Check all other main quests except these 2 have been completed
+        if(i == QUEST_ID_ONE_LAST_QUEST || i == QUEST_ID_THE_FINAL_RUN)
+            continue;
 
+        if(RogueQuest_GetConstFlag(i, QUEST_CONST_IS_MAIN_QUEST))
+        {
+            if(!(RogueQuest_IsQuestUnlocked(i) && RogueQuest_HasCollectedRewards(i)))
+                return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+static bool8 CheckSingleTrainerConfigValid(u32 toggleToCheck, u32 currentToggle)
+{
+    if(toggleToCheck == currentToggle)
+        return Rogue_GetConfigToggle(currentToggle) == TRUE;
+    else
+        return Rogue_GetConfigToggle(currentToggle) == FALSE;
+}
+
+bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck)
+{
+    if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_ROGUE))
+        return FALSE;
+
+    if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_KANTO))
+        return FALSE;
+
+    if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_JOHTO))
+        return FALSE;
+
+    if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_HOENN))
+        return FALSE;
+
+#ifdef ROGUE_EXPANSION
+    if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_SINNOH))
+        return FALSE;
+
+    if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_UNOVA))
+        return FALSE;
+
+    if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_KALOS))
+        return FALSE;
+
+    if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_ALOLA))
+        return FALSE;
+
+    if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_GALAR))
+        return FALSE;
+#endif
+    return TRUE;
+}
+
+static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    return Rogue_UseFinalQuestEffects();
+}
 
 
 // old

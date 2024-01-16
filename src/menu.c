@@ -2158,7 +2158,7 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
             string = ConvertIntToDecimalStringN(string, Rogue_IsRunActive() ? Rogue_GetCurrentDifficulty() : 0, STR_CONV_MODE_RIGHT_ALIGN, 2);
             break;
         case SAVE_MENU_QUESTS:
-            string = ConvertIntToDecimalStringN(string, GetCompletedQuestPerc(), STR_CONV_MODE_LEFT_ALIGN, 3);
+            string = ConvertIntToDecimalStringN(string, RogueQuest_GetDisplayCompletePerc(), STR_CONV_MODE_LEFT_ALIGN, 3);
             string[0] = 0x5B; // %
             string[1] = EOS;
             break;

@@ -142,6 +142,42 @@ script Rogue_ReturnToHub
     return
 }
 
+script Rogue_InteractWithQuestBoard
+{
+    lockall
+
+    msgbox(format("TODO - Quest Board"))
+
+    setvar(VAR_0x8004, 0)
+    setvar(VAR_RESULT, 1)
+
+    while(var(VAR_RESULT) == 1)
+    {
+        special(Rogue_QuestCollectNextReward)
+        call(Rogue_Common_DisplayPopups)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0:
+                msgbox(format("nothing to collect."))
+
+            case 1:
+                setvar(VAR_0x8004, 1) // flag that we've collected some results
+
+            case 2:
+                msgbox(format("cannot collect next!"))
+        }
+    }
+
+    if(var(VAR_0x8004) == 1)
+    {
+        msgbox(format("all collected!"))
+        special(Rogue_ShowNewQuests)
+    }
+
+    releaseall
+}
+
 script Rogue_EventScript_ItemUseHealingFlask
 {
     lock

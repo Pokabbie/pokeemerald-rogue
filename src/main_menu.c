@@ -2513,7 +2513,7 @@ static void MainMenu_FormatSavegameBadges(void)
 {
     // RogueNote: Display Quests% instead of badges 
     u8 str[0x20];
-    u16 questPercentage = GetCompletedQuestPerc();
+    u16 questPercentage = RogueQuest_GetDisplayCompletePerc();
 
     StringExpandPlaceholders(gStringVar4, gText_ContinueMenuQuests);
     AddTextPrinterParameterized3(2, FONT_NORMAL, 0x6C, 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);

@@ -14,6 +14,7 @@ void Rogue_PushPopup_UnableToEvolve(u8 slotId);
 
 void Rogue_PushPopup_QuestComplete(u16 questId);
 void Rogue_PushPopup_QuestFail(u16 questId);
+void Rogue_PushPopup_QuestUnlocked(u16 questId);
 
 void Rogue_PushPopup_PokemonChain(u16 species, u16 chainSize);
 void Rogue_PushPopup_PokemonChainBroke(u16 species);

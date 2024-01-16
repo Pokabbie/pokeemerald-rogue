@@ -2121,9 +2121,9 @@
 	.endm
 
 	@ Attempts to deactive the given quest and returns the result
-	.macro deactivatequest questId:req
+	.macro quest_trigger trigger:req
 	.byte 0xef
-	.2byte \questId
+	.2byte \trigger
 	.endm
 	
 	@ Attempts to deactive the given quest and returns the result

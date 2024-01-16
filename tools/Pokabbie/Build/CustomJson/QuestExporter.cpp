@@ -365,6 +365,7 @@ static std::string FormatQuestId(std::string const& prettyName)
 	strutil::replace_all(questId, "?", "");
 	strutil::replace_all(questId, ",", "");
 	strutil::replace_all(questId, ".", "");
+	strutil::replace_all(questId, c_Elipsies, "");
 	return questId;
 }
 

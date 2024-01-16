@@ -1064,7 +1064,7 @@ static void UNUSED QuestMenuOverview(u8 windowId)
     str = gText_QuestLogOverviewCompleted;
     AddTextPrinterParameterized(windowId, FONT_NARROW, str, 2, 20, 0, NULL);
 
-    ConvertUIntToDecimalStringN(gStringVar1, GetCompletedQuestPerc(), STR_CONV_MODE_RIGHT_ALIGN, 6);
+    ConvertUIntToDecimalStringN(gStringVar1, RogueQuest_GetDisplayCompletePerc(), STR_CONV_MODE_RIGHT_ALIGN, 6);
     StringExpandPlaceholders(gStringVar2, gText_Var1Percent);
     str = gStringVar2;
     AddTextPrinterParameterized(windowId, FONT_NARROW, str, 50, 20, 0, NULL);

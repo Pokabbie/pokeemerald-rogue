@@ -64,7 +64,7 @@ script Rogue_Encounter_RestStop_RandomMan
                     waitmovement(0)
 
                     completequest(QUEST_MrRandoman)
-                    deactivatequest(QUEST_ChaosChampion) // We have to trade entire team for this to be valid
+                    //deactivatequest(QUEST_ChaosChampion) // We have to trade entire team for this to be valid
                     setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
                     removeobject(NPC_RANDOM_MAN)
                 }
