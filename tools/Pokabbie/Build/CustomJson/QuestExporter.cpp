@@ -202,7 +202,12 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 			fileStream << "{\n";
 
 			for (auto const& triggerParam : trigger.params)
-				fileStream << c_TabSpacing << triggerParam << ",\n";
+			{
+				if(strutil::starts_with(triggerParam, "#"))
+					fileStream << c_TabSpacing << triggerParam << "\n";
+				else
+					fileStream << c_TabSpacing << triggerParam << ",\n";
+			}
 
 			fileStream << "};\n";
 		}

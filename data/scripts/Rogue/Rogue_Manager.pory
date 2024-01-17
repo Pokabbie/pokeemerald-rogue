@@ -146,8 +146,6 @@ script Rogue_InteractWithQuestBoard
 {
     lockall
 
-    msgbox(format("TODO - Quest Board"))
-
     setvar(VAR_0x8004, 0)
     setvar(VAR_RESULT, 1)
 
@@ -158,21 +156,30 @@ script Rogue_InteractWithQuestBoard
 
         switch(var(VAR_RESULT))
         {
-            case 0:
-                msgbox(format("nothing to collect."))
+            //case 0:
+            //    msgbox(format("finished."))
 
             case 1:
                 setvar(VAR_0x8004, 1) // flag that we've collected some results
 
             case 2:
-                msgbox(format("cannot collect next!"))
+                msgbox(format("Unable to collect the remaining rewards."))
         }
     }
 
-    if(var(VAR_0x8004) == 1)
+    special(Rogue_HasAnyNewQuests)
+    if(var(VAR_RESULT) == 1)
     {
-        msgbox(format("all collected!"))
+        msgbox(format("New Quests have been posted!"))
         special(Rogue_ShowNewQuests)
+    }
+    elif (var(VAR_0x8004) == 1)
+    {
+        msgbox(format("All rewards have been collected!"))
+    }
+    else
+    {
+        msgbox(format("There are no New Quests or Rewards to collect."))
     }
 
     releaseall

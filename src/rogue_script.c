@@ -496,6 +496,11 @@ void Rogue_QuestCollectNextReward()
     gSpecialVar_Result = 0;
 }
 
+void Rogue_HasAnyNewQuests()
+{
+    gSpecialVar_Result = RogueQuest_HasPendingNewQuests();
+}
+
 void Rogue_DetermineItemPickupCount()
 {
     u16 itemId = gSpecialVar_0x8001;

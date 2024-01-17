@@ -86,6 +86,7 @@ u8 RogueQuest_GetHighestCompleteDifficulty(u16 questId);
 
 bool8 RogueQuest_IsQuestUnlocked(u16 questId);
 bool8 RogueQuest_TryUnlockQuest(u16 questId);
+bool8 RogueQuest_HasPendingNewQuests();
 void RogueQuest_ClearNewUnlockQuests();
 
 bool8 RogueQuest_HasCollectedRewards(u16 questId);

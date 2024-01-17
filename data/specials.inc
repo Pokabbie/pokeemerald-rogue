@@ -194,6 +194,7 @@ gSpecials::
 	def_special RogueDebug_CollectAllQuests
 	def_special RogueDebug_StartBattle
 	def_special Rogue_QuestCollectNextReward
+	def_special Rogue_HasAnyNewQuests
 	def_special Rogue_ShowNewQuests
 	def_special Rogue_DetermineItemPickupCount
 	def_special Rogue_CheckBerryTreat

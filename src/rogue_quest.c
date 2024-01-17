@@ -184,6 +184,19 @@ bool8 RogueQuest_TryUnlockQuest(u16 questId)
     return FALSE;
 }
 
+bool8 RogueQuest_HasPendingNewQuests()
+{
+    u16 i;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_IsQuestUnlocked(i) && RogueQuest_GetStateFlag(i, QUEST_STATE_NEW_UNLOCK))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void RogueQuest_ClearNewUnlockQuests()
 {
     u16 i;
@@ -235,24 +248,34 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
         switch (rewardInfo->type)
         {
         case QUEST_REWARD_POKEMON:
-            // TODO
+            {
+                u32 temp = 0;
+                CreateMon(&gEnemyParty[0], rewardInfo->perType.pokemon.species, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+                temp = rewardInfo->perType.pokemon.isShiny ? 1 : 0;
+                SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &temp);
+
+                GiveMonToPlayer(&gEnemyParty[0]);
+                Rogue_PushPopup_AddPokemon(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES), IsMonShiny(&gEnemyParty[0]));
+            }
             break;
 
         case QUEST_REWARD_ITEM:
-            // TODO
+            AddBagItem(rewardInfo->perType.item.item, rewardInfo->perType.item.count);
+            Rogue_PushPopup_AddItem(rewardInfo->perType.item.item, rewardInfo->perType.item.count);
             break;
 
         case QUEST_REWARD_SHOP_ITEM:
-            // TODO
+            Rogue_PushPopup_UnlockedShopItem(rewardInfo->perType.shopItem.item);
             break;
 
         case QUEST_REWARD_MONEY:
-            // TODO
+            AddMoney(&gSaveBlock1Ptr->money, rewardInfo->perType.money.amount);
+            Rogue_PushPopup_AddMoney(rewardInfo->perType.money.amount);
             break;
 
         case QUEST_REWARD_QUEST_UNLOCK:
             RogueQuest_TryUnlockQuest(rewardInfo->perType.questUnlock.questId);
-            //Rogue_PushPopup_QuestUnlocked(rewardInfo->perType.questUnlock.questId);
             break;
         
         default:

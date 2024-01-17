@@ -222,59 +222,6 @@ const u8 gText_Campaign_LaterManner[] = _("LaterManner Mode");
 const u8 gText_Campaign_PokeballLimit[] = _("Limited Capture");
 const u8 gText_Campaign_OneHp[] = _("One Hit Mode");
 
-// Popups
-//
-const u8 gText_Popup_QuestComplete[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Quest Completed!");
-const u8 gText_Popup_QuestFail[] = _("{COLOR LIGHT_RED}{SHADOW RED}Quest Failed");
-const u8 gText_Popup_QuestUnlocked[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Quest Unlocked!");
-const u8 gText_Popup_LegendaryClause[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Clause Activated!");
-const u8 gText_Popup_RoamerLegendary[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Started Roaming!");
-const u8 gText_Popup_None[] = _("");
-
-const u8 gText_Popup_NewMoves[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}New Moves!");
-const u8 gText_Popup_NewEvolution[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}New Evolution!");
-
-const u8 gText_Popup_PokemonChain[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}{STR_VAR_1} Chain");
-const u8 gText_Popup_PokemonChainBroke[] = _("{COLOR LIGHT_RED}{SHADOW RED}Broken Chain");
-
-const u8 gText_Popup_BagFull[] = _("{COLOR LIGHT_RED}{SHADOW RED}Bag too full.");
-const u8 gText_Popup_SingleItem[] = _("{STR_VAR_1}");
-const u8 gText_Popup_MultipleItem[] = _("{STR_VAR_1} {COLOR LIGHT_GREEN}{SHADOW GREEN}x{STR_VAR_2}");
-
-const u8 gText_Popup_BerriesRequipSuccess[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Re-equipped");
-const u8 gText_Popup_BerriesRequipSuccessSubtitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Taken from Bag");
-
-const u8 gText_Popup_BerriesRequipFail[] = _("Re-equip Fail");
-const u8 gText_Popup_BerriesRequipFailSubtitle[] = _("{COLOR LIGHT_RED}{SHADOW RED}None in Bag");
-
-const u8 gPopupText_WeakLegendaryClause[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Basic Legendary");
-const u8 gPopupText_StrongLegendaryClause[] = _("{COLOR LIGHT_RED}{SHADOW RED}Strong Legendary");
-
-const u8 gPopupText_CampaignNoneScore[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Campaign Active!");
-const u8 gPopupText_CampaignHighScore[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Aim for High Score!");
-const u8 gPopupText_CampaignLowScore[] = _("{COLOR RED}{SHADOW LIGHT_RED}Aim for Low Score!");
-
-const u8 gPopupText_SafariArea[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Safari Area");
-
-const u8 gPopupText_StarterWarning[] = _("{COLOR LIGHT_RED}{SHADOW RED}Evos. Disabled");
-
-const u8 gPopupText_EncounterChain[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Encounter Chain");
-const u8 gPopupText_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RED}Chain Lost");
-
-const u8 gText_Popup_PokedexUnlock[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Recieved Pokedex!");
-const u8 gText_Popup_PokedexUpgrade[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Pokedex Upgraded!");
-
-
-const u8 gText_Popup_RogueAssistant[] = _("Rogue Assistant");
-const u8 gText_Popup_Connected[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Connected!");
-const u8 gText_Popup_Disconnected[] = _("{COLOR RED}{SHADOW LIGHT_RED}Disconnected.");
-
-const u8 gText_Popup_OutfitUnlocked[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Outfit Unlocked!");
-const u8 gText_Popup_ItsASecret[] = _("Shh… its a secret");
-
-const u8 gText_Popup_ExtraLifeTitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Extra Life!");
-const u8 gText_Popup_ExtraLifeSubtitle[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Sacred Ash used");
-
 // Debug
 //
 #ifdef ROGUE_DEBUG
