@@ -261,7 +261,7 @@ u8 Rogue_GetTrainerWeather(u16 trainerNum)
             weatherType = WEATHER_NONE;
             break;
         
-        case DIFFICULTY_LEVEL_MEDIUM:
+        case DIFFICULTY_LEVEL_AVERAGE:
             if(Rogue_GetCurrentDifficulty() >= 4)
                 weatherType = trainer->preferredWeather;
             break;
@@ -1140,7 +1140,7 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
         }
         break;
 
-    case DIFFICULTY_LEVEL_MEDIUM:
+    case DIFFICULTY_LEVEL_AVERAGE:
         if(Rogue_GetCurrentDifficulty() >= 8)
         {
             scratch->allowStrongLegends = TRUE;
@@ -1194,7 +1194,7 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
         fixedIV = 0;
         break;
 
-    case DIFFICULTY_LEVEL_MEDIUM:
+    case DIFFICULTY_LEVEL_AVERAGE:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
             if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
@@ -1278,7 +1278,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
     case DIFFICULTY_LEVEL_EASY:
         return FALSE;
 
-    case DIFFICULTY_LEVEL_MEDIUM:
+    case DIFFICULTY_LEVEL_AVERAGE:
         if(Rogue_IsRivalTrainer(trainerNum))
             return TRUE;
         else if(Rogue_IsKeyTrainer(trainerNum))
@@ -1339,7 +1339,7 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
             switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
             {
             case DIFFICULTY_LEVEL_EASY:
-            case DIFFICULTY_LEVEL_MEDIUM:
+            case DIFFICULTY_LEVEL_AVERAGE:
                 if(Rogue_GetCurrentDifficulty() == 0)
                     monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
                 else if(Rogue_GetCurrentDifficulty() <= 1)
@@ -1418,7 +1418,7 @@ static bool8 ShouldTrainerUseValidNatures(u16 trainerNum)
     case DIFFICULTY_LEVEL_EASY:
         return FALSE;
 
-    case DIFFICULTY_LEVEL_MEDIUM:
+    case DIFFICULTY_LEVEL_AVERAGE:
         if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
             return TRUE;
         return FALSE;
@@ -2271,7 +2271,7 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
     case DIFFICULTY_LEVEL_EASY:
         return FALSE;
 
-    case DIFFICULTY_LEVEL_MEDIUM:
+    case DIFFICULTY_LEVEL_AVERAGE:
         // Start using competitive movesets on 3rd gym
         if(difficultyLevel == 0) // Last mon has competitive set
             return FALSE;

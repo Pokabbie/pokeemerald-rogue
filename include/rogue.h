@@ -198,7 +198,10 @@ struct OLDRogueQuestState
 
 struct RogueQuestStateNEW
 {
-    u16 stateFlags;
+    u32 stateFlags : 16;
+    u32 highestCompleteDifficulty : 3;
+    u32 highestCollectedRewardDifficulty : 3;
+    u32 unused : 12;
 };
 
 struct RogueCampaignState

@@ -2735,7 +2735,7 @@ u16 Rogue_PostRunRewardMoney()
             amount = i * 200;
             break;
 
-        case DIFFICULTY_LEVEL_MEDIUM:
+        case DIFFICULTY_LEVEL_AVERAGE:
             amount = i * 250;
             break;
 

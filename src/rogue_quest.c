@@ -113,15 +113,45 @@ u16 RogueQuest_GetRewardCount(u16 questId)
     return entry->rewardCount;
 }
 
+u8 RogueQuest_GetHighestCompleteDifficulty(u16 questId)
+{
+    if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+    {
+        struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+        return questState->highestCompleteDifficulty;
+    }
+
+    return DIFFICULTY_LEVEL_NONE;
+}
+
 static bool8 CanActivateQuest(u16 questId)
 {
     if(!RogueQuest_IsQuestUnlocked(questId))
         return FALSE;
 
+    // Cannot start quests we have rewards for
     if(RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
         return FALSE;
 
-    // TODO - Check if complete and is repeatable + check completion state for current difficulty
+    // Challenges can be run again at a higher difficulty
+    if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_CHALLENGE))
+    {
+        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+        {
+            u8 difficultyLevel = Rogue_GetDifficultyRewardLevel();
+            struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+
+            if(questState->highestCompleteDifficulty != DIFFICULTY_LEVEL_NONE && difficultyLevel <= questState->highestCompleteDifficulty)
+                return FALSE;
+        }
+    }
+    else
+    {
+        // Can't repeat main quests
+        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+            return FALSE;
+    }
+
     return TRUE;
 }
 
@@ -164,7 +194,7 @@ bool8 RogueQuest_HasCollectedRewards(u16 questId)
 {
     if(RogueQuest_IsQuestUnlocked(questId))
     {
-        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_ANY_COMPLETE) && !RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
+        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE) && !RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
             return TRUE;
     }
 
@@ -186,6 +216,7 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
 {
     u16 i;
     struct RogueQuestRewardNEW const* rewardInfo;
+    struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
     u16 rewardCount = RogueQuest_GetRewardCount(questId);
 
     AGB_ASSERT(RogueQuest_HasPendingRewards(questId));
@@ -228,6 +259,8 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
     // Clear pending rewards
     RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, FALSE);
 
+    questState->highestCollectedRewardDifficulty = questState->highestCompleteDifficulty;
+
     return TRUE;
 }
 
@@ -242,11 +275,7 @@ void RogueQuest_ActivateQuestsFor(u32 flags)
         if(RogueQuest_GetStateFlag(i, QUEST_STATE_ACTIVE) != desiredState)
         {
             RogueQuest_SetStateFlag(i, QUEST_STATE_ACTIVE, desiredState);
-
-            if(desiredState)
-            {
-                // TODO - Reset tracking
-            }
+            // TODO - Trigger for state on activate?
         }
     }
 }
@@ -268,7 +297,7 @@ u16 RogueQuest_GetQuestCompletePerc()
         {
             ++total;
 
-            if(RogueQuest_GetStateFlag(i, QUEST_STATE_ANY_COMPLETE))
+            if(RogueQuest_GetStateFlag(i, QUEST_STATE_HAS_COMPLETE))
             {
                 ++complete;
             }
@@ -290,7 +319,7 @@ u16 RogueQuest_GetChallengeCompletePerc()
         {
             ++total;
 
-            if(RogueQuest_GetStateFlag(i, QUEST_STATE_ANY_COMPLETE))
+            if(RogueQuest_GetStateFlag(i, QUEST_STATE_HAS_COMPLETE))
             {
                 ++complete;
             }
@@ -336,17 +365,20 @@ void RogueQuest_OnLoadGame()
     EnsureUnlockedDefaultQuests();
 }
 
-static u16 GetCurrentCompletionDifficultyFlag()
-{
-    // TODO
-    return QUEST_STATE_COMPLETE_AVERAGE;
-}
-
 static void CompleteQuest(u16 questId)
 {
+    u8 currentDifficulty = Rogue_GetDifficultyRewardLevel();
+    struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+
+    questState->highestCompleteDifficulty = currentDifficulty;
+    if(!RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+    {
+        questState->highestCollectedRewardDifficulty = DIFFICULTY_LEVEL_NONE;
+    }
+
     RogueQuest_SetStateFlag(questId, QUEST_STATE_ACTIVE, FALSE);
-    RogueQuest_SetStateFlag(questId, GetCurrentCompletionDifficultyFlag(), TRUE);
     RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
+    RogueQuest_SetStateFlag(questId, QUEST_STATE_HAS_COMPLETE, TRUE);
 
     Rogue_PushPopup_QuestComplete(questId);
 }

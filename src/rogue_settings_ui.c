@@ -1118,7 +1118,7 @@ static void Slider_DrawChoices(u8 menuOffset, u8 selection)
         text = gText_DifficultyPresetEasy;
         break;
 
-    case DIFFICULTY_LEVEL_MEDIUM:
+    case DIFFICULTY_LEVEL_AVERAGE:
         text = gText_DifficultyPresetMedium;
         break;
 
@@ -1380,7 +1380,7 @@ static void DrawDescriptionOptionMenuText(u8 submenu, u8 selection)
         str = StringAppend(str, gText_DifficultyPresetEasy);
         break;
 
-    case DIFFICULTY_LEVEL_MEDIUM:
+    case DIFFICULTY_LEVEL_AVERAGE:
         str = StringAppend(str, gText_DifficultyPresetMedium);
         break;
 

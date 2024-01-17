@@ -25,13 +25,7 @@
 #define QUEST_STATE_PINNED                  (1 << 2)
 #define QUEST_STATE_PENDING_REWARDS         (1 << 3)
 #define QUEST_STATE_NEW_UNLOCK              (1 << 4)
-#define QUEST_STATE_COMPLETE_EASY           (1 << 5)
-#define QUEST_STATE_COMPLETE_AVERAGE        (1 << 6)
-#define QUEST_STATE_COMPLETE_HARD           (1 << 7)
-#define QUEST_STATE_COMPLETE_BRUTAL         (1 << 8)
-
-#define QUEST_STATE_ANY_COMPLETE            (QUEST_STATE_COMPLETE_EASY | QUEST_STATE_COMPLETE_AVERAGE | QUEST_STATE_COMPLETE_HARD | QUEST_STATE_COMPLETE_BRUTAL)
-
+#define QUEST_STATE_HAS_COMPLETE            (1 << 5)
 
 // Triggers
 //

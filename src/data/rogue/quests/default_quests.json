@@ -17,11 +17,6 @@
                 "name": "To Adventure!",
                 "description": "Embark on your first Adventure!",
                 "display_order": -100,
-                "flags": 
-                [
-                    "MAIN_QUEST_DEFAULT",
-                    "ACTIVE_ALWAYS"
-                ],
                 "triggers":
                 [
                     {
