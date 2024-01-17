@@ -2,6 +2,7 @@
     "condition": "",
     "includes":
     [
+        "region_style.json",
         "type_master.json"
     ],
     "defaults":

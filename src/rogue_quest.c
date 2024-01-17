@@ -22,9 +22,14 @@
 
 static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_DifficultyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_IsStandardRunActive(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_HasCompletedQuestAND(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_HasCompletedQuestOR(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
 
@@ -457,6 +462,40 @@ static bool8 QuestCondition_DifficultyGreaterThan(u16 questId, struct RogueQuest
     return Rogue_GetCurrentDifficulty() > threshold;
 }
 
+static bool8 QuestCondition_IsStandardRunActive(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    // TODO
+    return TRUE;
+}
+
+static bool8 QuestCondition_HasCompletedQuestAND(u16 triggerQuestId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i, questId;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        questId = trigger->params[i];
+        if(!RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+static bool8 QuestCondition_HasCompletedQuestOR(u16 triggerQuestId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i, questId;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        questId = trigger->params[i];
+        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 static bool8 UNUSED QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     u8 i;
@@ -499,34 +538,6 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
     return TRUE;
 }
 
-static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger)
-{
-    u16 mapId = trigger->params[0];
-    u16 mapGroup = (mapId >> 8); // equiv to MAP_GROUP
-    u16 mapNum = (mapId & 0xFF); // equiv to MAP_NUM
-
-    return gSaveBlock1Ptr->location.mapNum == mapNum || gSaveBlock1Ptr->location.mapGroup == mapGroup;
-}
-
-static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger)
-{
-    u16 i;
-
-    for(i = 0; i < QUEST_ID_COUNT; ++i)
-    {
-        // Check all other main quests except these 2 have been completed
-        if(i == QUEST_ID_ONE_LAST_QUEST || i == QUEST_ID_THE_FINAL_RUN)
-            continue;
-
-        if(RogueQuest_GetConstFlag(i, QUEST_CONST_IS_MAIN_QUEST))
-        {
-            if(!(RogueQuest_IsQuestUnlocked(i) && RogueQuest_HasCollectedRewards(i)))
-                return FALSE;
-        }
-    }
-
-    return TRUE;
-}
 
 static bool8 CheckSingleTrainerConfigValid(u32 toggleToCheck, u32 currentToggle)
 {
@@ -566,6 +577,47 @@ bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck)
     if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_GALAR))
         return FALSE;
 #endif
+    return TRUE;
+}
+
+static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 trainerConfigToggle = trigger->params[0];
+    return CheckOnlyTheseTrainersEnabled(trainerConfigToggle);
+}
+
+static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 region = trigger->params[0];
+    return RoguePokedex_GetDexRegion() == region;
+}
+
+static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 mapId = trigger->params[0];
+    u16 mapGroup = (mapId >> 8); // equiv to MAP_GROUP
+    u16 mapNum = (mapId & 0xFF); // equiv to MAP_NUM
+
+    return gSaveBlock1Ptr->location.mapNum == mapNum || gSaveBlock1Ptr->location.mapGroup == mapGroup;
+}
+
+static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        // Check all other main quests except these 2 have been completed
+        if(i == QUEST_ID_ONE_LAST_QUEST || i == QUEST_ID_THE_FINAL_RUN)
+            continue;
+
+        if(RogueQuest_GetConstFlag(i, QUEST_CONST_IS_MAIN_QUEST))
+        {
+            if(!(RogueQuest_IsQuestUnlocked(i) && RogueQuest_HasCollectedRewards(i)))
+                return FALSE;
+        }
+    }
+
     return TRUE;
 }
 

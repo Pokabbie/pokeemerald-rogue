@@ -4667,6 +4667,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                 FlagSet(FLAG_IS_CHAMPION);
                 FlagSet(FLAG_ROGUE_RUN_COMPLETED);
                 RogueQuest_OnTrigger(QUEST_TRIGGER_ENTER_HALL_OF_FAME);
+                RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
             }
 
             VarSet(VAR_ROGUE_DIFFICULTY, Rogue_GetCurrentDifficulty());

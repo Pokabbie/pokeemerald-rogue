@@ -18,6 +18,10 @@
             "sort_alphabetically": false
         },
         {
+            "id": "region_challenges",
+            "sort_alphabetically": false
+        },
+        {
             "id": "default_challenges",
             "sort_alphabetically": true
         },
