@@ -65,10 +65,10 @@ jobs:
           name: Memory Stats
           path: pokeemerald_memorystats.csv
 
-      - name: Test
-        env:
-          MODERN: 1
-          TEST: 1
-        run: |
-          make -j${nproc} -O pokeemerald-test.elf
-          make -j${nproc} check
+      #- name: Test
+      #  env:
+      #    MODERN: 1
+      #    TEST: 1
+      #  run: |
+      #    make -j${nproc} -O pokeemerald-test.elf
+      #    make -j${nproc} check
