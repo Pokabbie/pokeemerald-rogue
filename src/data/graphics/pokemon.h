@@ -3018,7 +3018,7 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonPalette_UrsalunaBloodmoon[] = INCBIN_U32("graphics/pokemon/ursaluna/bloodmoon/normal.gbapal.lz");
     const u32 gMonBackPic_UrsalunaBloodmoon[] = INCBIN_U32("graphics/pokemon/ursaluna/bloodmoon/back.4bpp.lz");
     const u32 gMonShinyPalette_UrsalunaBloodmoon[] = INCBIN_U32("graphics/pokemon/ursaluna/bloodmoon/shiny.gbapal.lz");
-    // const u8 gMonIcon_UrsalunaBloodmoon[] = INCBIN_U8("graphics/pokemon/ursaluna/bloodmoon/icon.4bpp");
+    const u8 gMonIcon_UrsalunaBloodmoon[] = INCBIN_U8("graphics/pokemon/ursaluna/bloodmoon/icon.4bpp");
 #endif //P_GEN_8_CROSS_EVOS
 #endif //P_FAMILY_TEDDIURSA
 
