@@ -3,6 +3,29 @@
     [
         "quests/update_2.0.0.json"
     ],
+    "display_groups":
+    [
+        {
+            "id": "starter_quests",
+            "sort_alphabetically": false
+        },
+        {
+            "id": "default_quests",
+            "sort_alphabetically": true
+        },
+        {
+            "id": "starter_challenges",
+            "sort_alphabetically": false
+        },
+        {
+            "id": "default_challenges",
+            "sort_alphabetically": true
+        },
+        {
+            "id": "type_challenges",
+            "sort_alphabetically": true
+        }
+    ],
     "quest_groups":
     {
     }

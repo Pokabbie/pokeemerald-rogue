@@ -59,9 +59,10 @@ struct QuestInfo
 {
 	json groupObj;
 	json questObj;
+	int importIndex;
 	std::string questId;
 	std::string preprocessorCondition;
-	int displayOrder;
+	std::string displayGroup;
 	bool isUnlockedViaReward;
 	std::vector<std::string> flags;
 	std::vector<QuestTrigger> triggers;
@@ -69,7 +70,19 @@ struct QuestInfo
 	std::vector<QuestReward> rewards;
 };
 
-static void GatherQuests(std::string const& dataPath, json const& jsonData, std::vector<QuestInfo>& outQuestInfo);
+struct DisplayGroup
+{
+	int m_GroupIndex;
+	bool m_SortAlphabetically;
+};
+
+struct QuestData
+{
+	std::vector<QuestInfo> questInfo;
+	std::map<std::string, DisplayGroup> displayGroups;
+};
+
+static void GatherQuests(std::string const& dataPath, json const& jsonData, QuestData& outQuestData);
 
 static std::string FlagsToString(std::string const& prefix, std::vector<std::string> const flags)
 {
@@ -83,17 +96,17 @@ static std::string FlagsToString(std::string const& prefix, std::vector<std::str
 
 void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
-	std::vector<QuestInfo> questInfo;
-	GatherQuests(dataPath, jsonData, questInfo);
+	QuestData questData;
+	GatherQuests(dataPath, jsonData, questData);
 
 	// Populate lookup
 	std::unordered_map<std::string, QuestInfo*> questLookup;
 
-	for (auto& quest : questInfo)
+	for (auto& quest : questData.questInfo)
 		questLookup[quest.questId] = &quest;
 
 	// Required data
-	for (auto it = questInfo.begin(); it != questInfo.end(); ++it)
+	for (auto it = questData.questInfo.begin(); it != questData.questInfo.end(); ++it)
 	{
 		auto const& quest = *it;
 
@@ -222,7 +235,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 
 	// Quest array
 	fileStream << "static struct RogueQuestEntry const sQuestEntries[] =\n{\n";
-	for (auto it = questInfo.begin(); it != questInfo.end(); ++it)
+	for (auto it = questData.questInfo.begin(); it != questData.questInfo.end(); ++it)
 	{
 		auto const& quest = *it;
 
@@ -254,28 +267,39 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 	// Sorted Quest Order
 	//
 	// Display order
-	std::sort(questInfo.begin(), questInfo.end(),
-		[](QuestInfo const& a, QuestInfo const& b) -> bool
+	std::sort(questData.questInfo.begin(), questData.questInfo.end(),
+		[&](QuestInfo const& a, QuestInfo const& b) -> bool
 		{
-			if (a.displayOrder == b.displayOrder)
+			auto const& groupA = questData.displayGroups[a.displayGroup];
+			auto const& groupB = questData.displayGroups[a.displayGroup];
+
+			if (groupA.m_GroupIndex != groupB.m_GroupIndex)
 			{
-				// Sort alphabetically in same display order index
-				int compare = a.questId.compare(b.questId);
-
-				if (compare <= 0)
-					return true;
-
-				return false;
+				return groupA.m_GroupIndex < groupB.m_GroupIndex;
 			}
-			else if (a.displayOrder < b.displayOrder)
-				return true;
-	
-			return false;
+			else
+			{
+				// In same group
+				if (groupA.m_SortAlphabetically)
+				{
+					// Sort alphabetically in same display order index
+					int compare = a.questId.compare(b.questId);
+
+					if (compare <= 0)
+						return true;
+
+					return false;
+				}
+				else
+				{
+					return a.importIndex < b.importIndex;
+				}
+			}
 		}
 	);
 
 	fileStream << "static u16 const sQuestDisplayOrder[] =\n{\n";
-	for (auto it = questInfo.begin(); it != questInfo.end(); ++it)
+	for (auto it = questData.questInfo.begin(); it != questData.questInfo.end(); ++it)
 	{
 		auto const& quest = *it;
 
@@ -290,7 +314,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 	fileStream << "};\n\n";
 
 	// Alphabetical order
-	std::sort(questInfo.begin(), questInfo.end(),
+	std::sort(questData.questInfo.begin(), questData.questInfo.end(),
 		[](QuestInfo const& a, QuestInfo const& b) -> bool
 		{
 			int compare = a.questId.compare(b.questId);
@@ -303,7 +327,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 	);
 
 	fileStream << "static u16 const sQuestAlphabeticalOrder[] =\n{\n";
-	for (auto it = questInfo.begin(); it != questInfo.end(); ++it)
+	for (auto it = questData.questInfo.begin(); it != questData.questInfo.end(); ++it)
 	{
 		auto const& quest = *it;
 
@@ -321,12 +345,12 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 
 void ExportQuestData_H(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
-	std::vector<QuestInfo> questInfo;
-	GatherQuests(dataPath, jsonData, questInfo);
+	QuestData questData;
+	GatherQuests(dataPath, jsonData, questData);
 
 	// Enum define
 	fileStream << "enum\n{\n";
-	for (auto it = questInfo.begin(); it != questInfo.end(); ++it)
+	for (auto it = questData.questInfo.begin(); it != questData.questInfo.end(); ++it)
 	{
 		auto const& quest = *it;
 
@@ -344,10 +368,10 @@ void ExportQuestData_H(std::ofstream& fileStream, std::string const& dataPath, j
 
 void ExportQuestData_Pory(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
-	std::vector<QuestInfo> questInfo;
-	GatherQuests(dataPath, jsonData, questInfo);
+	QuestData questData;
+	GatherQuests(dataPath, jsonData, questData);
 
-	for (auto it = questInfo.begin(); it != questInfo.end(); ++it)
+	for (auto it = questData.questInfo.begin(); it != questData.questInfo.end(); ++it)
 	{
 		auto const& quest = *it;
 
@@ -456,10 +480,11 @@ static QuestReward ParseQuestReward(json const& jsonData)
 	return reward;
 }
 
-static void GatherQuests(std::string const& dataPath, json const& rawJsonData, std::vector<QuestInfo>& outQuestInfo)
+static void GatherQuests(std::string const& dataPath, json const& rawJsonData, QuestData& outQuestData)
 {
 	json jsonData = ExpandCommonArrayGroup(dataPath, rawJsonData, "quest_groups");
 	json questGroups = jsonData["quest_groups"];
+	int counter = 0;
 
 	for (auto groupIt = questGroups.begin(); groupIt != questGroups.end(); ++groupIt)
 	{
@@ -471,16 +496,12 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, s
 
 			// Quest ID
 			quest.questId = FormatQuestId(quest.questObj["name"].get<std::string>());
+			quest.importIndex = counter++;
 
-			// Sort order
-			if (quest.groupObj.contains("display_order"))
+			// Display Group Name
+			if (quest.questObj.contains("display_group"))
 			{
-				quest.displayOrder += quest.groupObj["display_order"].get<int>() * 10000;
-			}
-
-			if (quest.questObj.contains("display_order"))
-			{
-				quest.displayOrder += quest.questObj["display_order"].get<int>();
+				quest.displayGroup = quest.questObj["display_group"].get<std::string>();
 			}
 
 			// Preprocessor condition
@@ -580,19 +601,38 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, s
 				}
 			}
 
-			outQuestInfo.push_back(quest);
+			outQuestData.questInfo.push_back(quest);
 		}
+	}
+
+	// Figure out the display order here based on the groups
+	json displayGroups = jsonData["display_groups"];
+	counter = 0;
+
+	for (auto displayIt = displayGroups.begin(); displayIt != displayGroups.end(); ++displayIt)
+	{
+		json groupObj = displayGroups;
+		DisplayGroup group;
+
+		std::string id = groupObj["id"].get<std::string>();
+		group.m_GroupIndex = counter++;
+		group.m_SortAlphabetically = false;
+
+		if (groupObj.contains("sort_alphabetically"))
+			group.m_SortAlphabetically = groupObj.get<bool>();
+
+		outQuestData.displayGroups[id] = group;
 	}
 
 	// Populate prerequisite quests based on rewards
 	std::unordered_map<std::string, QuestInfo*> questLookup;
 
-	for (auto& quest : outQuestInfo)
+	for (auto& quest : outQuestData.questInfo)
 	{
 		questLookup[quest.questId] = &quest;
 	}
 
-	for (auto& quest : outQuestInfo)
+	for (auto& quest : outQuestData.questInfo)
 	{
 		for (auto& reward : quest.rewards)
 		{
@@ -604,7 +644,7 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, s
 		}
 	}
 
-	for (auto& quest : outQuestInfo)
+	for (auto& quest : outQuestData.questInfo)
 	{
 		if (!quest.isUnlockedViaReward)
 		{

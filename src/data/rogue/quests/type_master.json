@@ -2,7 +2,7 @@
     "condition": "",
     "defaults":
     {
-        "display_order": 2000,
+        "display_group": "type_challenges",
         "flags": 
         [
             "CHALLENGE_DEFAULT",

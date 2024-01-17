@@ -2,7 +2,7 @@
     "condition": "",
     "defaults":
     {
-        "display_order": 0,
+        "display_group": "default_quests",
         "flags": 
         [
             "MAIN_QUEST_DEFAULT",
@@ -16,7 +16,7 @@
             {
                 "name": "To Adventure!",
                 "description": "Embark on your first Adventure!",
-                "display_order": -100,
+                "display_group": "starter_quests",
                 "triggers":
                 [
                     {
@@ -35,7 +35,7 @@
             
             {
                 "name": "Gym Badge 1",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 1st Gym Badge",
                 "triggers":
                 [
@@ -54,7 +54,7 @@
             },
             {
                 "name": "Gym Badge 2",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 2nd Gym Badge",
                 "triggers":
                 [
@@ -73,7 +73,7 @@
             },
             {
                 "name": "Gym Badge 3",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 3rd Gym Badge",
                 "triggers":
                 [
@@ -92,7 +92,7 @@
             },
             {
                 "name": "Gym Badge 4",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 4th Gym Badge",
                 "triggers":
                 [
@@ -111,7 +111,7 @@
             },
             {
                 "name": "Gym Badge 5",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 5th Gym Badge",
                 "triggers":
                 [
@@ -130,7 +130,7 @@
             },
             {
                 "name": "Gym Badge 6",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 6th Gym Badge",
                 "triggers":
                 [
@@ -149,7 +149,7 @@
             },
             {
                 "name": "Gym Badge 7",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 7th Gym Badge",
                 "triggers":
                 [
@@ -168,7 +168,7 @@
             },
             {
                 "name": "Gym Badge 8",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 8th Gym Badge",
                 "triggers":
                 [
@@ -188,7 +188,7 @@
 
             {
                 "name": "Elite Master",
-                "display_order": -98,
+                "display_group": "starter_quests",
                 "description": "Defeat all Trainers of the Elite Four.",
                 "triggers":
                 [
@@ -207,7 +207,7 @@
             },
             {
                 "name": "Champion",
-                "display_order": -97,
+                "display_group": "starter_quests",
                 "description": "Defeat the final Champion and enter the Hall of Fame.",
                 "triggers":
                 [
@@ -226,7 +226,7 @@
 
             {
                 "name": "Post Game?",
-                "display_order": -96,
+                "display_group": "starter_quests",
                 "description": "Meet ??? in ??? to active post-game content.",
                 "flags": 
                 [
@@ -251,7 +251,7 @@
             },
             {
                 "name": "One Last Quest…",
-                "display_order": -95,
+                "display_group": "starter_quests",
                 "description": "Complete all other Quests in order to unlock the 'Final Quest'",
                 "flags": 
                 [
@@ -275,7 +275,7 @@
             },
             {
                 "name": "The Final Run.",
-                "display_order": -94,
+                "display_group": "starter_quests",
                 "description": "todo - desc",
                 "triggers":
                 [
