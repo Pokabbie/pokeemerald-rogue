@@ -303,6 +303,11 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
     //if (nStopProgram)
     {
         MgbaPrintfBounded(MGBA_LOG_ERROR, "ASSERTION FAILED  FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
+
+#if TESTING
+        DebugPrint("Testing so Killing..");
+        asm(".hword 0xEFFF");
+#else
         DebugPrint("A - Skip");
         DebugPrint("B - Break Message");
         DebugPrint("START - Crash Out");
@@ -338,6 +343,7 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
 
             DebugForceReadKeys();
         }
+#endif
     }
     //else
     //{
