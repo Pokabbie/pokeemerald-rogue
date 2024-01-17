@@ -397,7 +397,8 @@ struct SpeciesInfo /*0x8C*/
             u32 isPaldeanForm:1;
             u32 cannotBeTraded:1;
             u32 allPerfectIVs:1;
-            u32 padding4:18;
+            u32 dexForceRequired:1; // This species will be taken into account for Pokédex ratings even if they have the "isMythical" flag set.
+            u32 padding4:17;
             // Move Data
  /* 0x88 */ const struct Evolution *evolutions;
  /* 0x84 */ const u16 *formSpeciesIdTable;
@@ -630,7 +631,7 @@ void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst);
 void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex);
 bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex);
 bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex, u8 e);
-bool8 HealStatusConditions(struct Pokemon *mon, u32 battlePartyId, u32 healMask, u8 battlerId);
+bool8 HealStatusConditions(struct Pokemon *mon, u32 healMask, u8 battlerId);
 u8 GetItemEffectParamOffset(u32 battler, u16 itemId, u8 effectByte, u8 effectBit);
 u8 *UseStatIncreaseItem(u16 itemId);
 u8 GetNature(struct Pokemon *mon);

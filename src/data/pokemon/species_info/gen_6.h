@@ -2860,7 +2860,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .frontAnimFrames = sAnims_Tyrantrum,
         .frontAnimId = ANIM_V_SHAKE,
         BACK_PIC(Tyrantrum, 64, 56),
-        .backPicYOffset = 11,
+        .backPicYOffset = 5,
         .backAnimId = BACK_ANIM_V_SHAKE_H_SLIDE,
         PALETTES(Tyrantrum),
         ICON(Tyrantrum, 0),
@@ -4332,7 +4332,10 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .height = 11,
         .weight = 278,
         .description = POKEDEX_DESC_STRING(
-            ""),
+            "The impurities upon its body's surface\n"
+            "have fallen away, sparkling so brilliantly\n"
+            "that cannot be observed directly.\n"
+            "It is known as “the Royal Pink Princess”."),
         .pokemonScale = 365,
         .pokemonOffset = 12,
         .trainerScale = 256,
@@ -4422,7 +4425,10 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .height = 65,
         .weight = 490,
         .description = POKEDEX_DESC_STRING(
-            ""),
+            "It is the true form of Hoopa, which has had\n"
+            "its power sealed away. The rings it carries\n"
+            "have the power to bend dimensions and are\n"
+            "able to seize anything in the world."),
         .pokemonScale = 432,
         .pokemonOffset = 13,
         .trainerScale = 256,

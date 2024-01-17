@@ -24,6 +24,7 @@
 #include "intro.h"
 #include "main.h"
 #include "trainer_hill.h"
+#include "test_runner.h"
 #include "constants/rgb.h"
 
 #include "rogue_controller.h"
@@ -398,7 +399,7 @@ static void VBlankIntr(void)
     m4aSoundMain();
     TryReceiveLinkBattleData();
 
-    if (!gMain.inBattle || !(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_RECORDED)))
+    if (!gTestRunnerEnabled && (!gMain.inBattle || !(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_RECORDED))))
         Random();
 
     UpdateWirelessStatusIndicatorSprite();

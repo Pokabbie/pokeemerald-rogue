@@ -1484,7 +1484,6 @@ BattleScript_JungleHealingTryRestoreAlly:
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectAttackerDefenseDownHit:
-	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect
 	setmoveeffect MOVE_EFFECT_DEF_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 BattleScript_NoMoveEffect:
@@ -1613,14 +1612,27 @@ BattleScript_StrengthSapTryHp:
 	attackanimation
 	waitanimation
 BattleScript_StrengthSapHp:
+	jumpifability BS_TARGET, ABILITY_LIQUID_OOZE, BattleScript_StrengthSapManipulateDmg
 	jumpifstatus3 BS_ATTACKER, STATUS3_HEAL_BLOCK, BattleScript_MoveEnd
 	jumpiffullhp BS_ATTACKER, BattleScript_MoveEnd
+BattleScript_StrengthSapManipulateDmg:
 	manipulatedamage DMG_BIG_ROOT
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	jumpifability BS_TARGET, ABILITY_LIQUID_OOZE, BattleScript_StrengthSapLiquidOoze
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	printstring STRINGID_PKMNENERGYDRAINED
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_StrengthSapLiquidOoze:
+	call BattleScript_AbilityPopUpTarget
+	manipulatedamage DMG_CHANGE_SIGN
+	setbyte cMULTISTRING_CHOOSER, B_MSG_ABSORB_OOZE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printfromtable gAbsorbDrainStringIds
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
 BattleScript_StrengthSapMustLower:
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_MoveEnd
@@ -5335,6 +5347,8 @@ BattleScript_EffectSpecialAttackUpHit::
 	goto BattleScript_EffectHit
 
 BattleScript_EffectAllStatsUpHit::
+	@ Handle clangorous soulblaze boosting itself twice in doubles
+	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect
 	setmoveeffect MOVE_EFFECT_ALL_STATS_UP | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
 
