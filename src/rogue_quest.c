@@ -43,7 +43,10 @@ STATIC_ASSERT(QUEST_SAVE_COUNT >= QUEST_ID_COUNT, saveQuestCountMissmatch);
 static struct RogueQuestEntry const* RogueQuest_GetEntry(u16 questId)
 {
     AGB_ASSERT(questId < QUEST_ID_COUNT);
-    return &sQuestEntries[questId];
+    if(questId < ARRAY_COUNT(sQuestEntries))
+        return &sQuestEntries[questId];
+    else
+        return NULL;
 }
 
 static struct RogueQuestStateNEW* RogueQuest_GetState(u16 questId)
