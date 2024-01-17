@@ -1,5 +1,5 @@
 #ifdef ROGUE_EXPANSION
-#define QUEST_SAVE_COUNT 30
+#define QUEST_SAVE_COUNT 64
 #else
 #define QUEST_SAVE_COUNT 64
 #endif
