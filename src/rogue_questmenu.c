@@ -29,11 +29,12 @@
 #include "rogue_questmenu.h"
 
 #define SCROLL_ITEMS_IN_VIEW 8
-#define QUEST_SPRITE_CAPACITY 8
+#define QUEST_SPRITE_CAPACITY 32
 
 enum {
-    TAG_REWARD_ICON = 100,
-    TAG_REWARD_ICON_ALT,
+    TAG_REWARD_ICON_POKEMON_SHINY = 100,
+    TAG_REWARD_ICON_POKEMON_CUSTOM,
+    TAG_REWARD_ICON_ITEM,
 };
 
 typedef void (*QuestMenuCallback)();
@@ -988,6 +989,10 @@ static void HandleInput_QuestPage(u8 taskId)
 #define TILE_BOARD_PIN_ACTIVE   0x60
 #define TILE_BOARD_PIN_NONE     0x51
 
+extern const u32 gItemIcon_RogueStatusStar[];
+extern const u32 gItemIcon_RogueStatusCustom[];
+extern const u32 gItemIconPalette_RogueStatusStarCustom[];
+
 static void Draw_QuestPage()
 {
     u8 i;
@@ -1052,8 +1057,12 @@ static void Draw_QuestPage()
         // Place sprites
         {
             u8 spriteIdx, count;
+            u16 currentTag;
             struct RogueQuestRewardNEW const* reward;
             u16 const rewardCount = RogueQuest_GetRewardCount(questId);
+            u8 groupedSpriteIndex[QUEST_SPRITE_CAPACITY];
+            u8 currentSpriteGroup;
+            bool8 hasDisplayedQuestUnlock = FALSE;
 
             spriteIdx = 0;
 
@@ -1064,23 +1073,103 @@ static void Draw_QuestPage()
                     break;
 
                 reward = RogueQuest_GetReward(questId, i);
+                
+                // Reset to ignore invalid groups
+                if(spriteIdx != 0)
+                    currentSpriteGroup = groupedSpriteIndex[spriteIdx - 1] + 1;
+                else
+                    currentSpriteGroup = 0;
 
                 switch (reward->type)
                 {
                 case QUEST_REWARD_ITEM:
-                    sQuestMenuData->sprites[spriteIdx++] = AddItemIconSprite(i + TAG_REWARD_ICON, i + TAG_REWARD_ICON, reward->perType.item.item);
+                    currentTag = TAG_REWARD_ICON_ITEM + reward->perType.item.item;
+
+                    sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.item.item);
+                    groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                    ++spriteIdx;
+
+                    if(reward->perType.item.count >= QUEST_REWARD_MEDIUM_BUILD_AMOUNT)
+                    {
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.item.item);
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 3;
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 1;
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        ++spriteIdx;
+                    }
+                    if(reward->perType.item.count >= QUEST_REWARD_LARGE_BUILD_AMOUNT)
+                    {
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.item.item);
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 6;
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 2;
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        ++spriteIdx;
+                    }
                     break;
 
                 case QUEST_REWARD_SHOP_ITEM:
-                    sQuestMenuData->sprites[spriteIdx++] = AddItemIconSprite(i + TAG_REWARD_ICON, i + TAG_REWARD_ICON, reward->perType.shopItem.item);
+                    currentTag = TAG_REWARD_ICON_ITEM + reward->perType.shopItem.item;
+                    
+                    sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.shopItem.item);
+                    groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                    ++spriteIdx;
                     break;
 
                 case QUEST_REWARD_MONEY:
                     // TODO - Actual icon for money
-                    sQuestMenuData->sprites[spriteIdx++] = AddItemIconSprite(i + TAG_REWARD_ICON, i + TAG_REWARD_ICON, ITEM_COIN_CASE);
+                    currentTag = TAG_REWARD_ICON_ITEM + ITEM_COIN_CASE;
+
+                    sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                    groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                    ++spriteIdx;
+
+                    if(reward->perType.money.amount >= QUEST_REWARD_MEDIUM_MONEY)
+                    {
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 3;
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 1;
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        ++spriteIdx;
+                    }
+                    if(reward->perType.money.amount >= QUEST_REWARD_LARGE_MONEY)
+                    {
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 6;
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 2;
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        ++spriteIdx;
+                    }
+                    break;
+
+                case QUEST_REWARD_QUEST_UNLOCK:
+                    if(!hasDisplayedQuestUnlock)
+                    {
+                        currentTag = TAG_REWARD_ICON_ITEM + ITEM_QUEST_LOG;
+
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_QUEST_LOG);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        ++spriteIdx;
+
+                        // Don't display multiple quest unlock entries (one is enough)
+                        hasDisplayedQuestUnlock = TRUE;
+                    }
                     break;
 
                 case QUEST_REWARD_POKEMON:
+
+                    if(reward->perType.pokemon.isShiny)
+                    {
+                        sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_POKEMON_SHINY, TAG_REWARD_ICON_POKEMON_SHINY, gItemIcon_RogueStatusStar, gItemIconPalette_RogueStatusStarCustom);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        ++spriteIdx;
+                    }
+                    if(reward->perType.pokemon.customOt)
+                    {
+                        sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_POKEMON_CUSTOM, TAG_REWARD_ICON_POKEMON_SHINY, gItemIcon_RogueStatusCustom, gItemIconPalette_RogueStatusStarCustom);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        ++spriteIdx;
+                    }
+
                     LoadMonIconPalette(reward->perType.pokemon.species);
                     sQuestMenuData->sprites[spriteIdx] = CreateMonIcon(
                         reward->perType.pokemon.species,
@@ -1091,25 +1180,28 @@ static void Draw_QuestPage()
                         MON_MALE
                     );
 
-                    gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 0;
+                    gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = -4;
                     gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = -8;
+
+                    groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
                     ++spriteIdx;
                     break;
                 }
             }
 
-            count = spriteIdx;
-
-            if(count != 0)
+            if(spriteIdx != 0)
             {
+                currentSpriteGroup = groupedSpriteIndex[spriteIdx - 1] + 1;
+
                 for(i = 0; i < QUEST_SPRITE_CAPACITY; ++i)
                 {
                     spriteIdx = sQuestMenuData->sprites[i];
                     if(spriteIdx != SPRITE_NONE)
                     {
                         u16 const boxWidth = 74;
+                        u8 groupIdx = groupedSpriteIndex[i];
 
-                        gSprites[spriteIdx].x = 24 + 4 + (i * boxWidth) / count + boxWidth / (2 * count);
+                        gSprites[spriteIdx].x = 24 + 4 + (groupIdx * boxWidth) / currentSpriteGroup + boxWidth / (2 * currentSpriteGroup);
                         gSprites[spriteIdx].y = 8 * 17;
                         gSprites[spriteIdx].subpriority = i;
                     }

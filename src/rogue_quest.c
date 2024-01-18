@@ -22,17 +22,27 @@
 
 static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_DifficultyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_DifficultyLessThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsStandardRunActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_HasCompletedQuestAND(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_HasCompletedQuestOR(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsLegendary(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PokedexEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+
+struct CustomMonPreset
+{
+    u32 otId;
+    u16 moves[MAX_MON_MOVES];
+    u16 species;
+};
 
 #define COMPOUND_STRING(str) (const u8[]) _(str)
 
@@ -282,6 +292,19 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
                     SetMonData(mon, MON_DATA_OT_NAME, Rogue_GetTrainerNameFromOT(fixedOtId));
                     SetMonData(mon, MON_DATA_OT_GENDER, &temp);
                     isCustom = TRUE;
+
+                    // Set pokeball
+                    if(rewardInfo->perType.pokemon.customOt == POKABBIE_OTID)
+                    {
+                        temp = ITEM_POKABBIE_POKEBALL;
+                        SetMonData(mon, MON_DATA_POKEBALL, &temp);
+                    }
+                    else
+                    {
+                        // Fallback
+                        temp = ITEM_FINAL_BOSS_POKEBALL;
+                        SetMonData(mon, MON_DATA_POKEBALL, &temp);
+                    }
                 }
 
                 // Populate moves
@@ -360,6 +383,40 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
     questState->highestCollectedRewardDifficulty = questState->highestCompleteDifficulty;
 
     return TRUE;
+}
+
+u16 RogueQuest_GetCustomRewardMonId(struct Pokemon* mon)
+{
+    u16 i;
+    u32 otId;
+
+    GetMonData(mon, MON_DATA_OT_ID, &otId);
+
+    if(!IsOtherTrainer(otId))
+        return 0;
+
+    for(i = 0; i < ARRAY_COUNT(sCustomRewardMonPresets); ++i)
+    {
+        if(sCustomRewardMonPresets[i].otId)
+        {
+            u16 species = GetMonData(mon, MON_DATA_SPECIES);
+            if(Rogue_GetEggSpecies(species) == Rogue_GetEggSpecies(sCustomRewardMonPresets[i].species))
+            {
+                return i + 1;
+            }
+        }
+    }
+
+    return 0;
+}
+
+u16 const* RogueQuest_GetCustomRewardMonMoves(u16 id)
+{
+    if(id == 0)
+        return NULL;
+    
+    --id;
+    return sCustomRewardMonPresets[id].moves;
 }
 
 void RogueQuest_ActivateQuestsFor(u32 flags)
@@ -520,6 +577,11 @@ static void ExecuteQuestTriggers(u16 questId, u16 triggerFlag)
                 FailQuest(questId);
                 return;
                 break;
+
+            case QUEST_STATUS_BREAK:
+                // Don't execute any more callbacks for this quest here
+                return;
+                break;
             
             default:
                 AGB_ASSERT(FALSE);
@@ -544,6 +606,11 @@ void RogueQuest_OnTrigger(u16 triggerFlag)
     }
 }
 
+// QuestCondition
+//
+
+#define ASSERT_PARAM_COUNT(count) AGB_ASSERT(trigger->paramCount == count)
+
 static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     return TRUE;
@@ -552,7 +619,15 @@ static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* 
 static bool8 QuestCondition_DifficultyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     u16 threshold = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
     return Rogue_GetCurrentDifficulty() > threshold;
+}
+
+static bool8 QuestCondition_DifficultyLessThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 threshold = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
+    return Rogue_GetCurrentDifficulty() < threshold;
 }
 
 static bool8 QuestCondition_IsStandardRunActive(u16 questId, struct RogueQuestTrigger const* trigger)
@@ -594,7 +669,7 @@ static bool8 UNUSED QuestCondition_PartyContainsType(u16 questId, struct RogueQu
     u8 i;
     u16 species, targetType;
 
-    AGB_ASSERT(trigger->paramCount == 1);
+    ASSERT_PARAM_COUNT(1);
     targetType = trigger->params[0];
 
     for(i = 0; i < gPlayerPartyCount; ++i)
@@ -615,7 +690,7 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
     u8 i;
     u16 species, targetType;
 
-    AGB_ASSERT(trigger->paramCount == 1);
+    ASSERT_PARAM_COUNT(1);
     targetType = trigger->params[0];
 
     for(i = 0; i < gPlayerPartyCount; ++i)
@@ -629,6 +704,22 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
     }
 
     return TRUE;
+}
+
+static bool8 QuestCondition_PartyContainsLegendary(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u8 i;
+    u16 species;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        if(RoguePokedex_IsSpeciesLegendary(species))
+            return TRUE;
+    }
+
+    return FALSE;
 }
 
 
@@ -676,18 +767,21 @@ bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck)
 static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     u16 trainerConfigToggle = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
     return CheckOnlyTheseTrainersEnabled(trainerConfigToggle);
 }
 
 static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     u16 region = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
     return RoguePokedex_GetDexRegion() == region;
 }
 
 static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     u16 variant = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
     return RoguePokedex_GetDexVariant() == variant;
 }
 
@@ -697,6 +791,7 @@ static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger
     u16 mapGroup = (mapId >> 8); // equiv to MAP_GROUP
     u16 mapNum = (mapId & 0xFF); // equiv to MAP_NUM
 
+    ASSERT_PARAM_COUNT(1);
     return gSaveBlock1Ptr->location.mapNum == mapNum || gSaveBlock1Ptr->location.mapGroup == mapGroup;
 }
 
@@ -724,6 +819,15 @@ static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQu
 {
     return Rogue_UseFinalQuestEffects();
 }
+
+static bool8 QuestCondition_PokedexEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 count = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
+    return RoguePokedex_CountNationalCaughtMons(FLAG_GET_CAUGHT) > count;
+}
+
+
 
 
 // old

@@ -31,6 +31,7 @@
 #include "constants/songs.h"
 
 #include "rogue_pokedex.h"
+#include "rogue_quest.h"
 
 enum
 {
@@ -4241,7 +4242,7 @@ s8 GetSetPokedexFlag(u16 nationalDexNo, u8 caseID)
 s8 GetSetPokedexSpeciesFlag(u16 species, u8 caseId)
 {
     u32 index, bit, mask;
-    u8 dexState;
+    u8 prevDexStat, dexState;
     s8 retVal = 0;
     //u16 dexNum = SpeciesToNationalPokedexNum(species);
 
@@ -4260,6 +4261,8 @@ s8 GetSetPokedexSpeciesFlag(u16 species, u8 caseId)
         dexState |= 1;
     if((gSaveBlock1Ptr->pokedexBitFlags2[index] & mask) != 0)
         dexState |= 2;
+
+    prevDexStat = dexState;
 
     if(caseId <= FLAG_GET_CAUGHT_SHINY) // && caseId >= FLAG_GET_SEEN
     {
@@ -4301,6 +4304,9 @@ s8 GetSetPokedexSpeciesFlag(u16 species, u8 caseId)
 
         if((dexState & 2) != 0)
             gSaveBlock1Ptr->pokedexBitFlags2[index] |= mask;
+
+        if(prevDexStat != dexState)
+            RogueQuest_OnTrigger(QUEST_TRIGGER_POKEDEX_UPDATE);
     }
 
     return retVal;

@@ -40,6 +40,7 @@
 #define QUEST_TRIGGER_EARN_BADGE            (1 << 8)
 #define QUEST_TRIGGER_ENTER_HALL_OF_FAME    (1 << 9)
 #define QUEST_TRIGGER_MAP_SPECIFIC_EVENT    (1 << 10) // expected to be called from script so can check for specific map in quest conditions
+#define QUEST_TRIGGER_POKEDEX_UPDATE        (1 << 11) 
 
 #define QUEST_TRIGGER_ANY_BATTLE_START      (QUEST_TRIGGER_WILD_BATTLE_START | QUEST_TRIGGER_TRAINER_BATTLE_START)
 
@@ -48,6 +49,7 @@
 #define QUEST_STATUS_PENDING                0
 #define QUEST_STATUS_SUCCESS                1
 #define QUEST_STATUS_FAIL                   2
+#define QUEST_STATUS_BREAK                  3 // skip any remaining triggers queued for this quest
 
 // Values
 //

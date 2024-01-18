@@ -96,6 +96,9 @@ bool8 RogueQuest_HasCollectedRewards(u16 questId);
 bool8 RogueQuest_HasPendingRewards(u16 questId);
 bool8 RogueQuest_TryCollectRewards(u16 questId);
 
+u16 RogueQuest_GetCustomRewardMonId(struct Pokemon* mon);
+u16 const* RogueQuest_GetCustomRewardMonMoves(u16 id);
+
 void RogueQuest_ActivateQuestsFor(u32 flags);
 bool8 RogueQuest_IsQuestActive(u16 questId);
 
