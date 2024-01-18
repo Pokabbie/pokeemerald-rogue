@@ -304,6 +304,14 @@ bool8 Rogue_UseFinalQuestEffects(void)
 {
     if(RogueQuest_IsQuestUnlocked(QUEST_ID_THE_FINAL_RUN))
     {
+#ifdef ROGUE_EXPANSION
+        if(RoguePokedex_GetDexVariant() != POKEDEX_VARIANT_NATIONAL_GEN9)
+            return FALSE;
+#else
+        if(RoguePokedex_GetDexVariant() != POKEDEX_VARIANT_NATIONAL_GEN3)
+            return FALSE;
+#endif
+
         if(!CheckOnlyTheseTrainersEnabled(CONFIG_TOGGLE_TRAINER_ROGUE))
             return FALSE;
 
@@ -2735,7 +2743,7 @@ u16 Rogue_PostRunRewardMoney()
             amount = i * 200;
             break;
 
-        case DIFFICULTY_LEVEL_MEDIUM:
+        case DIFFICULTY_LEVEL_AVERAGE:
             amount = i * 250;
             break;
 
@@ -4667,6 +4675,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                 FlagSet(FLAG_IS_CHAMPION);
                 FlagSet(FLAG_ROGUE_RUN_COMPLETED);
                 RogueQuest_OnTrigger(QUEST_TRIGGER_ENTER_HALL_OF_FAME);
+                RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
             }
 
             VarSet(VAR_ROGUE_DIFFICULTY, Rogue_GetCurrentDifficulty());
@@ -5848,8 +5857,6 @@ void Rogue_ModifyScriptMon(struct Pokemon* mon)
         }
     }
 }
-
-#define CLOWN_OTID 33414
 
 void Rogue_ModifyGiveMon(struct Pokemon* mon)
 {

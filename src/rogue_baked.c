@@ -1983,3 +1983,31 @@ u16 Rogue_BerryToPokeblock(u16 berryItem)
         return ITEM_NONE;
     }
 }
+
+
+#ifdef ROGUE_EXPANSION
+static const u8 sText_OtName_Unknown[PLAYER_NAME_LENGTH + 1] = _("???");
+static const u8 sText_OtName_Clown[PLAYER_NAME_LENGTH + 1] = _("Clown");
+static const u8 sText_OtName_Pokabbie[PLAYER_NAME_LENGTH + 1] = _("Abbie");
+static const u8 sText_OtName_Red[PLAYER_NAME_LENGTH + 1] = _("Red");
+#else
+static const u8 sText_OtName_Unknown[PLAYER_NAME_LENGTH + 1] = _("???");
+static const u8 sText_OtName_Clown[PLAYER_NAME_LENGTH + 1] = _("CLOWN");
+static const u8 sText_OtName_Pokabbie[PLAYER_NAME_LENGTH + 1] = _("ABBIE");
+static const u8 sText_OtName_Red[PLAYER_NAME_LENGTH + 1] = _("RED");
+#endif
+
+u8 const* Rogue_GetTrainerNameFromOT(u32 ot)
+{
+    switch (ot)
+    {
+    case CLOWN_OTID:
+        return sText_OtName_Clown;
+    case POKABBIE_OTID:
+        return sText_OtName_Pokabbie;
+    case RED_OTID:
+        return sText_OtName_Red;
+    default:
+        return sText_OtName_Unknown;
+    }
+}

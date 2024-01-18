@@ -1,0 +1,266 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "display_group": "region_challenges",
+        "flags": 
+        [
+            "CHALLENGE_DEFAULT",
+            "ACTIVE_IN_RUN"
+        ],
+        "triggers":
+        [
+            {
+                "on": [ "RUN_START" ],
+                "condition": "IsStandardRunActive",
+                "fail": "FAIL"
+            },
+            {
+                "on": [ "RUN_START" ],
+                "condition": "IsPokedexRegion",
+                "fail": "FAIL",
+                "template_params": [ "POKEDEX_REGION" ]
+            },
+            {
+                "on": [ "RUN_START" ],
+                "condition": "AreOnlyTheseTrainersActive",
+                "fail": "FAIL",
+                "template_params": [ "TRAINER_TOGGLE" ]
+            },
+            {
+                "on": [ "ENTER_HALL_OF_FAME" ],
+                "condition": "Always",
+                "pass": "SUCCESS"
+            }
+        ]
+    },
+    "quest_groups":
+    {
+        "default_group":
+        [
+            {
+                "name": "Regional Style",
+                "description": "Complete any of the 'Region Style' challenges.\\ne.g. Kanto Style, Johto Style etc.",
+                "flags": 
+                [
+                    "MAIN_QUEST_DEFAULT",
+                    "ACTIVE_IN_HUB"
+                ],
+                "triggers":
+                [
+                    {
+                        "on": [ "MISC_UPDATE" ],
+                        "condition": "HasCompletedQuestOR",
+                        "params": 
+                        [ 
+                            "QUEST_ID_KANTO_STYLE",
+                            "QUEST_ID_JOHTO_STYLE",
+                            "QUEST_ID_HOENN_STYLE",
+                            "#ifdef ROGUE_EXPANSION",
+                                "QUEST_ID_SINNOH_STYLE",
+                                "QUEST_ID_UNOVA_STYLE",
+                                "QUEST_ID_KALOS_STYLE",
+                                "QUEST_ID_ALOLA_STYLE",
+                                "QUEST_ID_GALAR_STYLE",
+                                "QUEST_ID_PALDEA_STYLE",
+                            "#endif"
+                        ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" }
+                ]
+            },
+            {
+                "name": "Kanto Style",
+                "description": "Win a full Standard Run, with the Pokédex set to any Kanto variant and only Kanto Trainers enabled.",
+                "template_params":
+                {
+                    "POKEDEX_REGION": "POKEDEX_REGION_KANTO",
+                    "TRAINER_TOGGLE": "CONFIG_TOGGLE_TRAINER_KANTO"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { 
+                        "species": "SPECIES_PIKACHU",
+                        "shiny": true,
+                        "custom_ot": "RED_OTID",
+                        "nickname": "Sparky",
+                        "moves":
+                        [
+                            "MOVE_VOLT_TACKLE",
+                            "MOVE_THUNDER"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Johto Style",
+                "description": "Win a full Standard Run, with the Pokédex set to any Johto variant and only Johto Trainers enabled.",
+                "template_params":
+                {
+                    "POKEDEX_REGION": "POKEDEX_REGION_JOHTO",
+                    "TRAINER_TOGGLE": "CONFIG_TOGGLE_TRAINER_JOHTO"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { 
+                        "species": "SPECIES_PIKACHU",
+                        "shiny": true,
+                        "trainer": "Red"
+                    }
+                ]
+            },
+            {
+                "name": "Hoenn Style",
+                "description": "Win a full Standard Run, with the Pokédex set to any Hoenn variant and only Hoenn Trainers enabled.",
+                "template_params":
+                {
+                    "POKEDEX_REGION": "POKEDEX_REGION_HOENN",
+                    "TRAINER_TOGGLE": "CONFIG_TOGGLE_TRAINER_HOENN"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { 
+                        "species": "SPECIES_PIKACHU",
+                        "shiny": true,
+                        "trainer": "Red"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Sinnoh Style",
+                "description": "Win a full Standard Run, with the Pokédex set to any Sinnoh variant and only Sinnoh Trainers enabled.",
+                "template_params":
+                {
+                    "POKEDEX_REGION": "POKEDEX_REGION_SINNOH",
+                    "TRAINER_TOGGLE": "CONFIG_TOGGLE_TRAINER_SINNOH"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { 
+                        "species": "SPECIES_PIKACHU",
+                        "shiny": true,
+                        "trainer": "Red"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Unova Style",
+                "description": "Win a full Standard Run, with the Pokédex set to any Unova variant and only Unova Trainers enabled.",
+                "template_params":
+                {
+                    "POKEDEX_REGION": "POKEDEX_REGION_UNOVA",
+                    "TRAINER_TOGGLE": "CONFIG_TOGGLE_TRAINER_UNOVA"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { 
+                        "species": "SPECIES_PIKACHU",
+                        "shiny": true,
+                        "trainer": "Red"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Kalos Style",
+                "description": "Win a full Standard Run, with the Pokédex set to any Kalos variant and only Kalos Trainers enabled.",
+                "template_params":
+                {
+                    "POKEDEX_REGION": "POKEDEX_REGION_KALOS",
+                    "TRAINER_TOGGLE": "CONFIG_TOGGLE_TRAINER_KALOS"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { 
+                        "species": "SPECIES_PIKACHU",
+                        "shiny": true,
+                        "trainer": "Red"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Alola Style",
+                "description": "Win a full Standard Run, with the Pokédex set to any Alola variant and only Alola Trainers enabled.",
+                "template_params":
+                {
+                    "POKEDEX_REGION": "POKEDEX_REGION_ALOLA",
+                    "TRAINER_TOGGLE": "CONFIG_TOGGLE_TRAINER_ALOLA"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { 
+                        "species": "SPECIES_PIKACHU",
+                        "shiny": true,
+                        "trainer": "Red"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Galar Style",
+                "description": "Win a full Standard Run, with the Pokédex set to any Galar variant and only Galar Trainers enabled.",
+                "template_params":
+                {
+                    "POKEDEX_REGION": "POKEDEX_REGION_GALAR",
+                    "TRAINER_TOGGLE": "CONFIG_TOGGLE_TRAINER_GALAR"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { 
+                        "species": "SPECIES_PIKACHU",
+                        "shiny": true,
+                        "trainer": "Red"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Paldea Style",
+                "description": "Win a full Standard Run, with the Pokédex set to any Paldea variant.",
+                "triggers":
+                [
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsStandardRunActive",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsPokedexRegion",
+                        "fail": "FAIL",
+                        "params": [ "POKEDEX_REGION_GALAR" ]
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { 
+                        "species": "SPECIES_PIKACHU",
+                        "shiny": true,
+                        "trainer": "Red"
+                    }
+                ]
+            }
+        ]
+    }
+}

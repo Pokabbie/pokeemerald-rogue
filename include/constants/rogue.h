@@ -425,12 +425,15 @@
 // Difficulty/Config lab settings
 //
 #define DIFFICULTY_LEVEL_EASY       0
-#define DIFFICULTY_LEVEL_MEDIUM     1
+#define DIFFICULTY_LEVEL_AVERAGE    1
 #define DIFFICULTY_LEVEL_HARD       2
 #define DIFFICULTY_LEVEL_BRUTAL     3
 #define DIFFICULTY_LEVEL_CUSTOM     4
 
 #define DIFFICULTY_PRESET_COUNT     4 // ignore custom
+
+#define DIFFICULTY_LEVEL_NONE       DIFFICULTY_PRESET_COUNT
+
 
 // CONFIG_TOGGLE_
 #define CONFIG_TOGGLE_EXP_ALL               0
@@ -549,6 +552,12 @@
 #define ROGUE_INTRO_STATE_GO_ON_ADVENTURE       4
 #define ROGUE_INTRO_STATE_LEARN_TO_BUILD        5
 #define ROGUE_INTRO_STATE_COMPLETE              6
+
+// Trainer OTs
+//
+#define CLOWN_OTID          33414
+#define POKABBIE_OTID       181
+#define RED_OTID            61226
 
 // Misc.
 //

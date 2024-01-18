@@ -2,11 +2,12 @@
     "condition": "",
     "includes":
     [
+        "region_style.json",
         "type_master.json"
     ],
     "defaults":
     {
-        "display_order": 1000,
+        "display_group": "default_challenges",
         "flags": 
         [
             "CHALLENGE_DEFAULT",

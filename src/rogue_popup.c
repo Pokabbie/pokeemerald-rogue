@@ -130,53 +130,61 @@ static EWRAM_DATA struct PopupManager sRoguePopups = { 0 };
 
 extern const u8 gText_Space[];
 
-extern const u8 gText_Popup_QuestComplete[];
-extern const u8 gText_Popup_QuestFail[];
-extern const u8 gText_Popup_QuestUnlocked[];
-extern const u8 gText_Popup_LegendaryClause[];
-extern const u8 gText_Popup_RoamerLegendary[];
-extern const u8 gText_Popup_None[];
+static const u8 sText_Popup_QuestComplete[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Quest Completed!");
+static const u8 sText_Popup_QuestFail[] = _("{COLOR LIGHT_RED}{SHADOW RED}Quest Failed");
+static const u8 sText_Popup_QuestUnlocked[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Quest Unlocked!");
+static const u8 sText_Popup_LegendaryClause[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Clause Activated!");
+static const u8 sText_Popup_RoamerLegendary[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Started Roaming!");
+static const u8 sText_Popup_GiftPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gift Pokémon!");
+static const u8 sText_Popup_GiftShinyPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gift Shiny {PKMN}!");
+static const u8 sText_Popup_GiftCustomPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gift Custom {PKMN}!");
+static const u8 sText_Popup_None[] = _("");
 
-extern const u8 gText_Popup_NewMoves[];
-extern const u8 gText_Popup_NewEvolution[];
+static const u8 sText_Popup_NewMoves[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}New Moves!");
+static const u8 sText_Popup_NewEvolution[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}New Evolution!");
 
-extern const u8 gText_Popup_PokemonChain[];
-extern const u8 gText_Popup_PokemonChainBroke[];
+static const u8 sText_Popup_PokemonChain[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}{STR_VAR_1} Chain");
+static const u8 sText_Popup_PokemonChainBroke[] = _("{COLOR LIGHT_RED}{SHADOW RED}Broken Chain");
 
-extern const u8 gPopupText_WeakLegendaryClause[];
-extern const u8 gPopupText_StrongLegendaryClause[];
+static const u8 sText_Popup_BagFull[] = _("{COLOR LIGHT_RED}{SHADOW RED}Bag too full.");
+static const u8 sText_Popup_SingleItem[] = _("{STR_VAR_1}");
+static const u8 sText_Popup_MultipleItem[] = _("{STR_VAR_1} {COLOR LIGHT_GREEN}{SHADOW GREEN}x{STR_VAR_2}");
+static const u8 sText_Popup_Money[] = _("¥{STR_VAR_1}");
+static const u8 sText_Popup_UnlockedInShops[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Can now be bought!");
 
-extern const u8 gText_Popup_BagFull[];
-extern const u8 gText_Popup_SingleItem[];
-extern const u8 gText_Popup_MultipleItem[];
+static const u8 sText_Popup_BerriesRequipSuccess[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Re-equipped");
+static const u8 sText_Popup_BerriesRequipSuccessSubtitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Taken from Bag");
 
-extern const u8 gText_Popup_BerriesRequipSuccess[];
-extern const u8 gText_Popup_BerriesRequipSuccessSubtitle[];
-extern const u8 gText_Popup_BerriesRequipFail[];
-extern const u8 gText_Popup_BerriesRequipFailSubtitle[];
+static const u8 sText_Popup_BerriesRequipFail[] = _("Re-equip Fail");
+static const u8 sText_Popup_BerriesRequipFailSubtitle[] = _("{COLOR LIGHT_RED}{SHADOW RED}None in Bag");
 
-extern const u8 gPopupText_CampaignNoneScore[];
-extern const u8 gPopupText_CampaignHighScore[];
-extern const u8 gPopupText_CampaignLowScore[];
+static const u8 sText_Popup_WeakLegendaryClause[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Basic Legendary");
+static const u8 sText_Popup_StrongLegendaryClause[] = _("{COLOR LIGHT_RED}{SHADOW RED}Strong Legendary");
 
-extern const u8 gPopupText_SafariArea[];
-extern const u8 gPopupText_StarterWarning[];
+static const u8 sText_Popup_CampaignNoneScore[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Campaign Active!");
+static const u8 sText_Popup_CampaignHighScore[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Aim for High Score!");
+static const u8 sText_Popup_CampaignLowScore[] = _("{COLOR RED}{SHADOW LIGHT_RED}Aim for Low Score!");
 
-extern const u8 gPopupText_EncounterChain[];
-extern const u8 gPopupText_EncounterChainEnd[];
+static const u8 sText_Popup_SafariArea[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Safari Area");
 
-extern const u8 gText_Popup_PokedexUnlock[];
-extern const u8 gText_Popup_PokedexUpgrade[];
+static const u8 sText_Popup_StarterWarning[] = _("{COLOR LIGHT_RED}{SHADOW RED}Evos. Disabled");
 
-extern const u8 gText_Popup_RogueAssistant[];
-extern const u8 gText_Popup_Connected[];
-extern const u8 gText_Popup_Disconnected[];
+static const u8 sText_Popup_EncounterChain[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Encounter Chain");
+static const u8 sText_Popup_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RED}Chain Lost");
 
-extern const u8 gText_Popup_OutfitUnlocked[];
-extern const u8 gText_Popup_ItsASecret[];
+static const u8 sText_Popup_PokedexUnlock[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Recieved Pokedex!");
+static const u8 sText_Popup_PokedexUpgrade[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Pokedex Upgraded!");
 
-extern const u8 gText_Popup_ExtraLifeTitle[];
-extern const u8 gText_Popup_ExtraLifeSubtitle[];
+
+static const u8 sText_Popup_RogueAssistant[] = _("Rogue Assistant");
+static const u8 sText_Popup_Connected[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Connected!");
+static const u8 sText_Popup_Disconnected[] = _("{COLOR RED}{SHADOW LIGHT_RED}Disconnected.");
+
+static const u8 sText_Popup_OutfitUnlocked[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Outfit Unlocked!");
+static const u8 sText_Popup_ItsASecret[] = _("Shh… its a secret");
+
+static const u8 sText_Popup_ExtraLifeTitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Extra Life!");
+static const u8 sText_Popup_ExtraLifeSubtitle[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Sacred Ash used");
 
 
 enum
@@ -185,6 +193,7 @@ enum
     POPUP_COMMON_ITEM_TEXT,
     POPUP_COMMON_FIND_ITEM,
     POPUP_COMMON_POKEMON_TEXT,
+    POPUP_COMMON_INSTANT_POKEMON_TEXT,
     POPUP_COMMON_CUSTOM_ICON_TEXT,
 };
 
@@ -238,6 +247,23 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     [POPUP_COMMON_POKEMON_TEXT] = 
     {
         .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .generateBorder = FALSE,
+        .transparentText = TRUE,
+        .left = 10,
+        .down = 0,
+        .width = 10,
+        .height = 4,
+
+        .iconMode = POPUP_ICON_MODE_POKEMON,
+        .iconLeft = 6,
+        .iconDown = 0,
+        .iconWidth = 4,
+        .iconHeight = 4,
+    },
+    [POPUP_COMMON_INSTANT_POKEMON_TEXT] = 
+    {
+        .enterAnim = POPUP_ANIM_NONE,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
         .generateBorder = FALSE,
         .transparentText = TRUE,
@@ -748,7 +774,7 @@ static void ExpandPopupText(struct PopupRequest* popup)
                     break;
 
                 case TEXT_EXPAND_UNSIGNED_NUMBER:
-                    ConvertIntToDecimalStringN(textDest[i], data, STR_CONV_MODE_LEFT_ALIGN, 3);
+                    ConvertIntToDecimalStringN(textDest[i], data, STR_CONV_MODE_LEFT_ALIGN, 5);
                     break;
 
                 case TEXT_EXPAND_ITEM_NAME:
@@ -921,7 +947,7 @@ void Rogue_PushPopup_NewMoves(u8 slotId)
     popup->soundEffect = 0;
     
     popup->titleText = gPlayerParty[slotId].box.nickname;
-    popup->subtitleText = gText_Popup_NewMoves;
+    popup->subtitleText = sText_Popup_NewMoves;
     popup->titleTextCapacity = POKEMON_NAME_LENGTH;
 }
 
@@ -935,7 +961,7 @@ void Rogue_PushPopup_NewEvos(u8 slotId)
     popup->soundEffect = 0;
     
     popup->titleText = gPlayerParty[slotId].box.nickname;
-    popup->subtitleText = gText_Popup_NewEvolution;
+    popup->subtitleText = sText_Popup_NewEvolution;
     popup->titleTextCapacity = POKEMON_NAME_LENGTH;
 }
 
@@ -949,7 +975,7 @@ void Rogue_PushPopup_UnableToEvolve(u8 slotId)
     popup->soundEffect = SE_NOT_EFFECTIVE;
     
     popup->titleText = gPlayerParty[slotId].box.nickname;
-    popup->subtitleText = gPopupText_StarterWarning;
+    popup->subtitleText = sText_Popup_StarterWarning;
     popup->titleTextCapacity = POKEMON_NAME_LENGTH;
 }
 
@@ -963,7 +989,7 @@ void Rogue_PushPopup_QuestComplete(u16 questId)
     popup->soundEffect = SE_EXP_MAX;
     
     popup->titleText = RogueQuest_GetTitle(questId);
-    popup->subtitleText = gText_Popup_QuestComplete;
+    popup->subtitleText = sText_Popup_QuestComplete;
 }
 
 void Rogue_PushPopup_QuestFail(u16 questId)
@@ -975,7 +1001,7 @@ void Rogue_PushPopup_QuestFail(u16 questId)
     popup->soundEffect = SE_NOT_EFFECTIVE;
     
     popup->titleText = RogueQuest_GetTitle(questId);
-    popup->subtitleText = gText_Popup_QuestFail;
+    popup->subtitleText = sText_Popup_QuestFail;
 }
 
 void Rogue_PushPopup_QuestUnlocked(u16 questId)
@@ -987,7 +1013,7 @@ void Rogue_PushPopup_QuestUnlocked(u16 questId)
     popup->soundEffect = SE_EXP_MAX;
     
     popup->titleText = RogueQuest_GetTitle(questId);
-    popup->subtitleText = gText_Popup_QuestComplete;
+    popup->subtitleText = sText_Popup_QuestComplete;
 }
 
 void Rogue_PushPopup_PokemonChain(u16 species, u16 chainSize)
@@ -999,7 +1025,7 @@ void Rogue_PushPopup_PokemonChain(u16 species, u16 chainSize)
     popup->soundEffect = 0;
     
     popup->titleText = RoguePokedex_GetSpeciesName(species);
-    popup->subtitleText = gText_Popup_PokemonChain;
+    popup->subtitleText = sText_Popup_PokemonChain;
 
     popup->expandTextData[0] = chainSize;
     popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
@@ -1014,7 +1040,7 @@ void Rogue_PushPopup_PokemonChainBroke(u16 species)
     popup->soundEffect = SE_NOT_EFFECTIVE;
     
     popup->titleText = RoguePokedex_GetSpeciesName(species);
-    popup->subtitleText = gText_Popup_PokemonChainBroke;
+    popup->subtitleText = sText_Popup_PokemonChainBroke;
 }
 
 
@@ -1026,8 +1052,8 @@ void Rogue_PushPopup_WeakPokemonClause(u16 species)
     popup->iconId = species;
     popup->soundEffect = SE_BALL_OPEN;
     
-    popup->titleText = gPopupText_WeakLegendaryClause;
-    popup->subtitleText = gText_Popup_LegendaryClause;
+    popup->titleText = sText_Popup_WeakLegendaryClause;
+    popup->subtitleText = sText_Popup_LegendaryClause;
 }
 
 void Rogue_PushPopup_StrongPokemonClause(u16 species)
@@ -1038,8 +1064,8 @@ void Rogue_PushPopup_StrongPokemonClause(u16 species)
     popup->iconId = species;
     popup->soundEffect = SE_BALL_OPEN;
     
-    popup->titleText = gPopupText_StrongLegendaryClause;
-    popup->subtitleText = gText_Popup_LegendaryClause;
+    popup->titleText = sText_Popup_StrongLegendaryClause;
+    popup->subtitleText = sText_Popup_LegendaryClause;
 }
 
 void Rogue_PushPopup_RoamerPokemonActivated(u16 species)
@@ -1051,7 +1077,7 @@ void Rogue_PushPopup_RoamerPokemonActivated(u16 species)
     popup->soundEffect = SE_BALL_OPEN;
     
     popup->titleText = RoguePokedex_GetSpeciesName(species);
-    popup->subtitleText = gText_Popup_RoamerLegendary;
+    popup->subtitleText = sText_Popup_RoamerLegendary;
 }
 
 void Rogue_PushPopup_AddItem(u16 itemId, u16 amount)
@@ -1066,12 +1092,12 @@ void Rogue_PushPopup_AddItem(u16 itemId, u16 amount)
 
     if(amount == 1)
     {
-        popup->titleText = gText_Popup_SingleItem;
+        popup->titleText = sText_Popup_SingleItem;
         popup->subtitleText = NULL;
     }
     else
     {
-        popup->titleText = gText_Popup_MultipleItem;
+        popup->titleText = sText_Popup_MultipleItem;
         popup->subtitleText = NULL;
     }
 
@@ -1094,12 +1120,12 @@ void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount)
 
     if(amount == 1)
     {
-        popup->titleText = gText_Popup_SingleItem;
+        popup->titleText = sText_Popup_SingleItem;
         popup->subtitleText = NULL;
     }
     else
     {
-        popup->titleText = gText_Popup_MultipleItem;
+        popup->titleText = sText_Popup_MultipleItem;
         popup->subtitleText = NULL;
     }
 
@@ -1108,6 +1134,23 @@ void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount)
 
     popup->expandTextData[1] = amount;
     popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_AddMoney(u32 amount)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = ITEM_COIN_CASE;
+
+    popup->fanfare = MUS_OBTAIN_ITEM;
+    popup->scriptAudioOnly = TRUE;
+
+    popup->titleText = sText_Popup_Money;
+    popup->subtitleText = NULL;
+
+    popup->expandTextData[0] = amount;
+    popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
 }
 
 void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount)
@@ -1120,13 +1163,13 @@ void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount)
 
     if(amount == 1)
     {
-        popup->titleText = gText_Popup_BagFull;
-        popup->subtitleText = gText_Popup_SingleItem;
+        popup->titleText = sText_Popup_BagFull;
+        popup->subtitleText = sText_Popup_SingleItem;
     }
     else
     {
-        popup->titleText = gText_Popup_BagFull;
-        popup->subtitleText = gText_Popup_MultipleItem;
+        popup->titleText = sText_Popup_BagFull;
+        popup->subtitleText = sText_Popup_MultipleItem;
     }
 
     popup->expandTextData[0] = itemId;
@@ -1136,6 +1179,39 @@ void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount)
     popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
 }
 
+void Rogue_PushPopup_UnlockedShopItem(u16 itemId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = itemId;
+    popup->fanfare = MUS_OBTAIN_ITEM;
+
+    popup->titleText = sText_Popup_SingleItem;
+    popup->subtitleText = sText_Popup_UnlockedInShops;
+
+    popup->expandTextData[0] = itemId;
+    popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+}
+
+void Rogue_PushPopup_AddPokemon(u16 species, bool8 isCustom, bool8 isShiny)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_INSTANT_POKEMON_TEXT;
+    popup->iconId = species;
+    popup->fanfare = MUS_OBTAIN_TMHM;
+    
+    popup->titleText = RoguePokedex_GetSpeciesName(species);
+
+    if(isCustom)
+        popup->subtitleText = sText_Popup_GiftCustomPokemon;
+    else if(isShiny)
+        popup->subtitleText = sText_Popup_GiftShinyPokemon;
+    else
+        popup->subtitleText = sText_Popup_GiftPokemon;
+}
+
 void Rogue_PushPopup_RequipBerrySuccess(u16 itemId)
 {
     struct PopupRequest* popup = CreateNewPopup();
@@ -1143,8 +1219,8 @@ void Rogue_PushPopup_RequipBerrySuccess(u16 itemId)
     popup->templateId = POPUP_COMMON_FIND_ITEM;
     popup->iconId = itemId;
 
-    popup->titleText = gText_Popup_BerriesRequipSuccess;
-    popup->subtitleText = gText_Popup_BerriesRequipSuccessSubtitle;
+    popup->titleText = sText_Popup_BerriesRequipSuccess;
+    popup->subtitleText = sText_Popup_BerriesRequipSuccessSubtitle;
 }
 
 void Rogue_PushPopup_RequipBerryFail(u16 itemId)
@@ -1155,8 +1231,8 @@ void Rogue_PushPopup_RequipBerryFail(u16 itemId)
     popup->iconId = itemId;
     popup->soundEffect = SE_NOT_EFFECTIVE;
 
-    popup->titleText = gText_Popup_BerriesRequipFail;
-    popup->subtitleText = gText_Popup_BerriesRequipFailSubtitle;
+    popup->titleText = sText_Popup_BerriesRequipFail;
+    popup->subtitleText = sText_Popup_BerriesRequipFailSubtitle;
 }
 
 void Rogue_PushPopup_TriggerExtraLife()
@@ -1167,8 +1243,8 @@ void Rogue_PushPopup_TriggerExtraLife()
     popup->iconId = ITEM_SACRED_ASH;
     popup->fanfare = FANFARE_HEAL;
     
-    popup->titleText = gText_Popup_ExtraLifeTitle;
-    popup->subtitleText = gText_Popup_ExtraLifeSubtitle;
+    popup->titleText = sText_Popup_ExtraLifeTitle;
+    popup->subtitleText = sText_Popup_ExtraLifeSubtitle;
 }
 
 void Rogue_PushPopup_UnlockPokedex()
@@ -1179,7 +1255,7 @@ void Rogue_PushPopup_UnlockPokedex()
     popup->iconId = POPUP_CUSTOM_ICON_POKEDEX;
     popup->fanfare = FANFARE_RG_OBTAIN_KEY_ITEM;
 
-    popup->titleText = gText_Popup_PokedexUnlock;
+    popup->titleText = sText_Popup_PokedexUnlock;
 }
 
 void Rogue_PushPopup_UpgradePokedex()
@@ -1190,7 +1266,7 @@ void Rogue_PushPopup_UpgradePokedex()
     popup->iconId = POPUP_CUSTOM_ICON_POKEDEX;
     popup->fanfare = FANFARE_RG_OBTAIN_KEY_ITEM;
 
-    popup->titleText = gText_Popup_PokedexUpgrade;
+    popup->titleText = sText_Popup_PokedexUpgrade;
 }
 
 void Rogue_PushPopup_AssistantConnected()
@@ -1200,8 +1276,8 @@ void Rogue_PushPopup_AssistantConnected()
     popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
     popup->iconId = POPUP_CUSTOM_ICON_POKEDEX;
 
-    popup->titleText = gText_Popup_RogueAssistant;
-    popup->subtitleText = gText_Popup_Connected;
+    popup->titleText = sText_Popup_RogueAssistant;
+    popup->subtitleText = sText_Popup_Connected;
 }
 
 void Rogue_PushPopup_AssistantDisconnected()
@@ -1212,8 +1288,8 @@ void Rogue_PushPopup_AssistantDisconnected()
     popup->iconId = POPUP_CUSTOM_ICON_POKEDEX;
 
 
-    popup->titleText = gText_Popup_RogueAssistant;
-    popup->subtitleText = gText_Popup_Disconnected;
+    popup->titleText = sText_Popup_RogueAssistant;
+    popup->subtitleText = sText_Popup_Disconnected;
 }
 
 void Rogue_PushPopup_OutfitUnlocked()
@@ -1224,6 +1300,6 @@ void Rogue_PushPopup_OutfitUnlocked()
     popup->iconId = ITEM_GREEN_SCARF;
     popup->fanfare = FANFARE_RG_OBTAIN_KEY_ITEM;
 
-    popup->titleText = gText_Popup_OutfitUnlocked;
-    popup->subtitleText = gText_Popup_ItsASecret;
+    popup->titleText = sText_Popup_OutfitUnlocked;
+    popup->subtitleText = sText_Popup_ItsASecret;
 }

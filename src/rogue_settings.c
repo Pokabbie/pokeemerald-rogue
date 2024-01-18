@@ -62,7 +62,7 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
             { .id=CONFIG_RANGE_COUNT },
         }
     },
-    [DIFFICULTY_LEVEL_MEDIUM] = 
+    [DIFFICULTY_LEVEL_AVERAGE] = 
     {
         .toggles = 
         {
@@ -71,9 +71,9 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
         },
         .ranges = 
         {
-            { .id=CONFIG_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_MEDIUM },
-            { .id=CONFIG_RANGE_ITEM, .value=DIFFICULTY_LEVEL_MEDIUM },
-            { .id=CONFIG_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_MEDIUM },
+            { .id=CONFIG_RANGE_TRAINER, .value=DIFFICULTY_LEVEL_AVERAGE },
+            { .id=CONFIG_RANGE_ITEM, .value=DIFFICULTY_LEVEL_AVERAGE },
+            { .id=CONFIG_RANGE_LEGENDARY, .value=DIFFICULTY_LEVEL_AVERAGE },
             { .id=CONFIG_RANGE_COUNT },
         }
     },
@@ -447,7 +447,7 @@ static u8 Rogue_CalcRewardDifficultyPreset()
 void Rogue_ResetSettingsToDefaults()
 {
     Rogue_ResetToDefaults(FALSE);
-    Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_MEDIUM);
+    Rogue_SetDifficultyPreset(DIFFICULTY_LEVEL_AVERAGE);
 
     // Clear all here (Expect to be set later, if not will assert)
     Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_KANTO,  FALSE);

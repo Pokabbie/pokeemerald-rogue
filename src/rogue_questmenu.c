@@ -293,11 +293,11 @@ static u8 const sText_AButtonPin[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}{A_B
 static u8 const sText_MarkerInProgress[] = _("{COLOR BLUE}·In Progress·");
 static u8 const sText_MarkerInactive[] = _("{COLOR RED}·Inactive·");
 static u8 const sText_MarkerPendingRewards[] = _("{COLOR GREEN}·Ready to Collect!·");
-static u8 const sText_MarkerComplete[] = _("{COLOR GREEN}·Complete!·");
-static u8 const sText_MarkerCompleteEasy[] = _("{COLOR GREEN}·Complete! <Easy>·");
-static u8 const sText_MarkerCompleteAverage[] = _("{COLOR GREEN}·Complete! <Average>·");
-static u8 const sText_MarkerCompleteHard[] = _("{COLOR GREEN}·Complete! <Hard>·");
-static u8 const sText_MarkerCompleteBrutal[] = _("{COLOR GREEN}·Complete! <Brutal>·");
+static u8 const sText_MarkerComplete[] = _("{COLOR GREEN}·Complete·");
+static u8 const sText_MarkerCompleteEasy[] = _("{COLOR GREEN}·Complete Easy·");
+static u8 const sText_MarkerCompleteAverage[] = _("{COLOR GREEN}·Complete Average·");
+static u8 const sText_MarkerCompleteHard[] = _("{COLOR GREEN}·Complete Hard·");
+static u8 const sText_MarkerCompleteBrutal[] = _("{COLOR GREEN}·Complete Brutal·");
 static u8 const sText_MarkerRewards[] = _("{COLOR DARK_GRAY}Rewards");
 
 EWRAM_DATA static struct QuestMenuData* sQuestMenuData = NULL;
@@ -893,13 +893,13 @@ static void Setup_QuestPage()
         sQuestMenuData->questListStateExcludeFlags = QUEST_STATE_ACTIVE;
         break;
     case PAGE_BOOK_ALL_COMPLETE:
-        sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_ANY_COMPLETE;
+        sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_HAS_COMPLETE;
         break;
 
 
     case PAGE_BOOK_MAIN_TODO:
         sQuestMenuData->questListConstExcludeFlags = QUEST_CONST_CHALLENGE_DEFAULT;
-        sQuestMenuData->questListStateExcludeFlags = QUEST_STATE_ANY_COMPLETE;
+        sQuestMenuData->questListStateExcludeFlags = QUEST_STATE_HAS_COMPLETE;
         break;
 
     case PAGE_BOOK_MAIN_ACTIVE:
@@ -909,12 +909,12 @@ static void Setup_QuestPage()
 
     case PAGE_BOOK_MAIN_COMPLETE:
         sQuestMenuData->questListConstExcludeFlags = QUEST_CONST_CHALLENGE_DEFAULT;
-        sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_ANY_COMPLETE;
+        sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_HAS_COMPLETE;
         break;
 
     case PAGE_BOOK_CHALLENGE_TODO:
         sQuestMenuData->questListConstExcludeFlags = QUEST_CONST_MAIN_QUEST_DEFAULT;
-        sQuestMenuData->questListStateExcludeFlags = QUEST_STATE_ANY_COMPLETE;
+        sQuestMenuData->questListStateExcludeFlags = QUEST_STATE_HAS_COMPLETE;
         break;
 
     case PAGE_BOOK_CHALLENGE_ACTIVE:
@@ -924,7 +924,7 @@ static void Setup_QuestPage()
 
     case PAGE_BOOK_CHALLENGE_COMPLETE:
         sQuestMenuData->questListConstExcludeFlags = QUEST_CONST_MAIN_QUEST_DEFAULT;
-        sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_ANY_COMPLETE;
+        sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_HAS_COMPLETE;
         break;
     
     default:
@@ -1016,18 +1016,34 @@ static void Draw_QuestPage()
         else if(RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
             AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerPendingRewards);
 
-        else if(RogueQuest_GetStateFlag(questId, QUEST_STATE_COMPLETE_EASY))
-            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerCompleteEasy);
-
-        else if(RogueQuest_GetStateFlag(questId, QUEST_STATE_COMPLETE_AVERAGE))
-            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerCompleteAverage);
-
-        else if(RogueQuest_GetStateFlag(questId, QUEST_STATE_COMPLETE_HARD))
-            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerCompleteHard);
-
-        else if(RogueQuest_GetStateFlag(questId, QUEST_STATE_COMPLETE_BRUTAL))
-            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerCompleteBrutal);
-
+        else if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+        {
+            if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_CHALLENGE))
+            {
+                switch (RogueQuest_GetHighestCompleteDifficulty(questId))
+                {
+                case DIFFICULTY_LEVEL_EASY:
+                    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerCompleteEasy);
+                    break;
+                case DIFFICULTY_LEVEL_AVERAGE:
+                    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerCompleteAverage);
+                    break;
+                case DIFFICULTY_LEVEL_HARD:
+                    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerCompleteHard);
+                    break;
+                case DIFFICULTY_LEVEL_BRUTAL:
+                    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerCompleteBrutal);
+                    break;
+                default:
+                    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerComplete);
+                    break;
+                }
+            }
+            else
+            {
+                AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerComplete);
+            }
+        }
         else if(Rogue_IsRunActive())
             AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 16 + 8 * 9, 0, 0, color, TEXT_SKIP_DRAW, sText_MarkerInactive);
 

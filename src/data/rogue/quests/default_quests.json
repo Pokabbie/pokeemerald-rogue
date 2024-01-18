@@ -2,7 +2,7 @@
     "condition": "",
     "defaults":
     {
-        "display_order": 0,
+        "display_group": "default_quests",
         "flags": 
         [
             "MAIN_QUEST_DEFAULT",
@@ -16,12 +16,7 @@
             {
                 "name": "To Adventure!",
                 "description": "Embark on your first Adventure!",
-                "display_order": -100,
-                "flags": 
-                [
-                    "MAIN_QUEST_DEFAULT",
-                    "ACTIVE_ALWAYS"
-                ],
+                "display_group": "starter_quests",
                 "triggers":
                 [
                     {
@@ -40,7 +35,7 @@
             
             {
                 "name": "Gym Badge 1",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 1st Gym Badge",
                 "triggers":
                 [
@@ -59,7 +54,7 @@
             },
             {
                 "name": "Gym Badge 2",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 2nd Gym Badge",
                 "triggers":
                 [
@@ -78,7 +73,7 @@
             },
             {
                 "name": "Gym Badge 3",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 3rd Gym Badge",
                 "triggers":
                 [
@@ -97,7 +92,7 @@
             },
             {
                 "name": "Gym Badge 4",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 4th Gym Badge",
                 "triggers":
                 [
@@ -116,7 +111,7 @@
             },
             {
                 "name": "Gym Badge 5",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 5th Gym Badge",
                 "triggers":
                 [
@@ -135,7 +130,7 @@
             },
             {
                 "name": "Gym Badge 6",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 6th Gym Badge",
                 "triggers":
                 [
@@ -154,7 +149,7 @@
             },
             {
                 "name": "Gym Badge 7",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 7th Gym Badge",
                 "triggers":
                 [
@@ -173,7 +168,7 @@
             },
             {
                 "name": "Gym Badge 8",
-                "display_order": -99,
+                "display_group": "starter_quests",
                 "description": "Defeat a Strong Trainer and collect your 8th Gym Badge",
                 "triggers":
                 [
@@ -193,7 +188,7 @@
 
             {
                 "name": "Elite Master",
-                "display_order": -98,
+                "display_group": "starter_quests",
                 "description": "Defeat all Trainers of the Elite Four.",
                 "triggers":
                 [
@@ -212,7 +207,7 @@
             },
             {
                 "name": "Champion",
-                "display_order": -97,
+                "display_group": "starter_quests",
                 "description": "Defeat the final Champion and enter the Hall of Fame.",
                 "triggers":
                 [
@@ -231,7 +226,7 @@
 
             {
                 "name": "Post Game?",
-                "display_order": -96,
+                "display_group": "starter_quests",
                 "description": "Meet ??? in ??? to active post-game content.",
                 "flags": 
                 [
@@ -256,7 +251,7 @@
             },
             {
                 "name": "One Last Quest…",
-                "display_order": -95,
+                "display_group": "starter_quests",
                 "description": "Complete all other Quests in order to unlock the 'Final Quest'",
                 "flags": 
                 [
@@ -279,9 +274,10 @@
                 ]
             },
             {
+                "#if": "!defined(ROGUE_EXPANSION)",
                 "name": "The Final Run.",
-                "display_order": -94,
-                "description": "todo - desc",
+                "display_group": "starter_quests",
+                "description": "Win a full Standard Run, with the Pokédex set to National Gen3 and only Rogue Trainers enabled.",
                 "triggers":
                 [
                     {
@@ -299,7 +295,56 @@
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
-                    { "species": "SPECIES_MAREEP", "shiny":true }
+                    {
+                        "species": "SPECIES_MAREEP",
+                        "shiny": true,
+                        "custom_ot": "POKABBIE_OTID",
+                        "nickname": "Pikin",
+                        "moves":
+                        [
+                            "MOVE_DRAGON_BREATH",
+                            "MOVE_MAGIC_COAT",
+                            "MOVE_THUNDER",
+                            "MOVE_TAIL_GLOW"
+                        ]
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "The Final Run.",
+                "display_group": "starter_quests",
+                "description": "Win a full Standard Run, with the Pokédex set to National Gen9 and only Rogue Trainers enabled.",
+                "triggers":
+                [
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsFinalQuestConditionMet",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    {
+                        "species": "SPECIES_MAREEP",
+                        "shiny": true,
+                        "custom_ot": "POKABBIE_OTID",
+                        "nickname": "Pikin",
+                        "moves":
+                        [
+                            "MOVE_METEOR_BEAM",
+                            "MOVE_MAGIC_COAT",
+                            "MOVE_DISCHARGE",
+                            "MOVE_TAIL_GLOW"
+                        ]
+                    }
                 ]
             }
 

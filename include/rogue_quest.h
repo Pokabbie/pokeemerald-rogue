@@ -23,6 +23,9 @@ struct RogueQuestRewardNEW
     {
         struct
         {
+            u8 const* nickname;
+            u16 moves[MAX_MON_MOVES];
+            u32 customOt;
             u16 species;
             u8 isShiny : 1;
         } pokemon;
@@ -82,8 +85,11 @@ void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state);
 struct RogueQuestRewardNEW const* RogueQuest_GetReward(u16 questId, u16 i);
 u16 RogueQuest_GetRewardCount(u16 questId);
 
+u8 RogueQuest_GetHighestCompleteDifficulty(u16 questId);
+
 bool8 RogueQuest_IsQuestUnlocked(u16 questId);
 bool8 RogueQuest_TryUnlockQuest(u16 questId);
+bool8 RogueQuest_HasPendingNewQuests();
 void RogueQuest_ClearNewUnlockQuests();
 
 bool8 RogueQuest_HasCollectedRewards(u16 questId);

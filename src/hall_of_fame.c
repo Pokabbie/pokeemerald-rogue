@@ -1548,7 +1548,7 @@ static void CopyBgTilemapBufferForDifficulty(u8 rewardDifficulty)
         CopyToBgTilemapBuffer(3, sHallOfFame_TileMap_Easy, 0, 0);
         break;
     
-    case DIFFICULTY_LEVEL_MEDIUM:
+    case DIFFICULTY_LEVEL_AVERAGE:
         CopyToBgTilemapBuffer(3, sHallOfFame_TileMap_Average, 0, 0);
         break;
 

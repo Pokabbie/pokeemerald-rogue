@@ -22,13 +22,23 @@
 
 static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_DifficultyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_IsStandardRunActive(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_HasCompletedQuestAND(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_HasCompletedQuestOR(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
 
+#define COMPOUND_STRING(str) (const u8[]) _(str)
+
 #include "data/rogue/quests.h"
+
+#undef COMPOUND_STRING
 
 // ensure we are serializing the correct amount
 STATIC_ASSERT(QUEST_SAVE_COUNT >= QUEST_ID_COUNT, saveQuestCountMissmatch);
@@ -113,15 +123,45 @@ u16 RogueQuest_GetRewardCount(u16 questId)
     return entry->rewardCount;
 }
 
+u8 RogueQuest_GetHighestCompleteDifficulty(u16 questId)
+{
+    if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+    {
+        struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+        return questState->highestCompleteDifficulty;
+    }
+
+    return DIFFICULTY_LEVEL_NONE;
+}
+
 static bool8 CanActivateQuest(u16 questId)
 {
     if(!RogueQuest_IsQuestUnlocked(questId))
         return FALSE;
 
+    // Cannot start quests we have rewards for
     if(RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
         return FALSE;
 
-    // TODO - Check if complete and is repeatable + check completion state for current difficulty
+    // Challenges can be run again at a higher difficulty
+    if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_CHALLENGE))
+    {
+        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+        {
+            u8 difficultyLevel = Rogue_GetDifficultyRewardLevel();
+            struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+
+            if(questState->highestCompleteDifficulty != DIFFICULTY_LEVEL_NONE && difficultyLevel <= questState->highestCompleteDifficulty)
+                return FALSE;
+        }
+    }
+    else
+    {
+        // Can't repeat main quests
+        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+            return FALSE;
+    }
+
     return TRUE;
 }
 
@@ -149,6 +189,19 @@ bool8 RogueQuest_TryUnlockQuest(u16 questId)
     return FALSE;
 }
 
+bool8 RogueQuest_HasPendingNewQuests()
+{
+    u16 i;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_IsQuestUnlocked(i) && RogueQuest_GetStateFlag(i, QUEST_STATE_NEW_UNLOCK))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void RogueQuest_ClearNewUnlockQuests()
 {
     u16 i;
@@ -164,7 +217,7 @@ bool8 RogueQuest_HasCollectedRewards(u16 questId)
 {
     if(RogueQuest_IsQuestUnlocked(questId))
     {
-        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_ANY_COMPLETE) && !RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
+        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE) && !RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
             return TRUE;
     }
 
@@ -186,6 +239,7 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
 {
     u16 i;
     struct RogueQuestRewardNEW const* rewardInfo;
+    struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
     u16 rewardCount = RogueQuest_GetRewardCount(questId);
 
     AGB_ASSERT(RogueQuest_HasPendingRewards(questId));
@@ -199,24 +253,99 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
         switch (rewardInfo->type)
         {
         case QUEST_REWARD_POKEMON:
-            // TODO
+            {
+                struct Pokemon* mon = &gEnemyParty[0];
+                u32 temp = 0;
+                u8 otIdType = OT_ID_PLAYER_ID;
+                u32 fixedOtId = 0;
+                bool8 isCustom = FALSE;
+
+                if(rewardInfo->perType.pokemon.customOt)
+                {
+                    otIdType = OT_ID_PRESET;
+                    fixedOtId = rewardInfo->perType.pokemon.customOt;
+                }
+
+                ZeroMonData(mon);
+                CreateMon(mon, rewardInfo->perType.pokemon.species, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, otIdType, fixedOtId);
+
+                // Update nickname
+                if(rewardInfo->perType.pokemon.nickname != NULL)
+                {
+                    SetMonData(mon, MON_DATA_NICKNAME, rewardInfo->perType.pokemon.nickname);
+                }
+
+                // Update OT name
+                if(rewardInfo->perType.pokemon.customOt)
+                {
+                    temp = fixedOtId % 2;
+                    SetMonData(mon, MON_DATA_OT_NAME, Rogue_GetTrainerNameFromOT(fixedOtId));
+                    SetMonData(mon, MON_DATA_OT_GENDER, &temp);
+                    isCustom = TRUE;
+                }
+
+                // Populate moves
+                {
+                    u8 i, j;
+                    u16 moves[MAX_MON_MOVES];
+
+                    for(i = 0; i < MAX_MON_MOVES; ++i)
+                    {
+                        moves[i] = rewardInfo->perType.pokemon.moves[i];
+                        if(moves[i] == MOVE_NONE)
+                            break;
+
+                        isCustom = TRUE;
+                    }
+
+                    // Fill the rest of the moves with default moves
+                    for(j = 0; i < MAX_MON_MOVES; ++i, ++j)
+                    {
+                        moves[i] = GetMonData(mon, MON_DATA_MOVE1 + j);
+                    }
+
+                    // Give back moves
+                    for(i = 0; i < MAX_MON_MOVES; ++i)
+                    {
+                        temp = moves[i];
+                        SetMonData(mon, MON_DATA_MOVE1 + i, &temp);
+                        SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[temp].pp);
+                    }
+                }
+
+                // Set shiny state
+                temp = rewardInfo->perType.pokemon.isShiny ? 1 : 0;
+                SetMonData(mon, MON_DATA_IS_SHINY, &temp);
+
+                // Give mon
+                if(rewardInfo->perType.pokemon.customOt)
+                    GiveTradedMonToPlayer(mon);
+                else
+                    GiveMonToPlayer(mon);
+
+                // Set pokedex flag
+                GetSetPokedexSpeciesFlag(rewardInfo->perType.pokemon.species, rewardInfo->perType.pokemon.isShiny ? FLAG_SET_CAUGHT_SHINY : FLAG_SET_CAUGHT);
+
+                Rogue_PushPopup_AddPokemon(rewardInfo->perType.pokemon.species, isCustom, rewardInfo->perType.pokemon.isShiny);
+            }
             break;
 
         case QUEST_REWARD_ITEM:
-            // TODO
+            AddBagItem(rewardInfo->perType.item.item, rewardInfo->perType.item.count);
+            Rogue_PushPopup_AddItem(rewardInfo->perType.item.item, rewardInfo->perType.item.count);
             break;
 
         case QUEST_REWARD_SHOP_ITEM:
-            // TODO
+            Rogue_PushPopup_UnlockedShopItem(rewardInfo->perType.shopItem.item);
             break;
 
         case QUEST_REWARD_MONEY:
-            // TODO
+            AddMoney(&gSaveBlock1Ptr->money, rewardInfo->perType.money.amount);
+            Rogue_PushPopup_AddMoney(rewardInfo->perType.money.amount);
             break;
 
         case QUEST_REWARD_QUEST_UNLOCK:
             RogueQuest_TryUnlockQuest(rewardInfo->perType.questUnlock.questId);
-            //Rogue_PushPopup_QuestUnlocked(rewardInfo->perType.questUnlock.questId);
             break;
         
         default:
@@ -227,6 +356,8 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
 
     // Clear pending rewards
     RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, FALSE);
+
+    questState->highestCollectedRewardDifficulty = questState->highestCompleteDifficulty;
 
     return TRUE;
 }
@@ -242,11 +373,7 @@ void RogueQuest_ActivateQuestsFor(u32 flags)
         if(RogueQuest_GetStateFlag(i, QUEST_STATE_ACTIVE) != desiredState)
         {
             RogueQuest_SetStateFlag(i, QUEST_STATE_ACTIVE, desiredState);
-
-            if(desiredState)
-            {
-                // TODO - Reset tracking
-            }
+            // TODO - Trigger for state on activate?
         }
     }
 }
@@ -268,7 +395,7 @@ u16 RogueQuest_GetQuestCompletePerc()
         {
             ++total;
 
-            if(RogueQuest_GetStateFlag(i, QUEST_STATE_ANY_COMPLETE))
+            if(RogueQuest_GetStateFlag(i, QUEST_STATE_HAS_COMPLETE))
             {
                 ++complete;
             }
@@ -290,7 +417,7 @@ u16 RogueQuest_GetChallengeCompletePerc()
         {
             ++total;
 
-            if(RogueQuest_GetStateFlag(i, QUEST_STATE_ANY_COMPLETE))
+            if(RogueQuest_GetStateFlag(i, QUEST_STATE_HAS_COMPLETE))
             {
                 ++complete;
             }
@@ -336,17 +463,20 @@ void RogueQuest_OnLoadGame()
     EnsureUnlockedDefaultQuests();
 }
 
-static u16 GetCurrentCompletionDifficultyFlag()
-{
-    // TODO
-    return QUEST_STATE_COMPLETE_AVERAGE;
-}
-
 static void CompleteQuest(u16 questId)
 {
+    u8 currentDifficulty = Rogue_GetDifficultyRewardLevel();
+    struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+
+    questState->highestCompleteDifficulty = currentDifficulty;
+    if(!RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+    {
+        questState->highestCollectedRewardDifficulty = DIFFICULTY_LEVEL_NONE;
+    }
+
     RogueQuest_SetStateFlag(questId, QUEST_STATE_ACTIVE, FALSE);
-    RogueQuest_SetStateFlag(questId, GetCurrentCompletionDifficultyFlag(), TRUE);
     RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
+    RogueQuest_SetStateFlag(questId, QUEST_STATE_HAS_COMPLETE, TRUE);
 
     Rogue_PushPopup_QuestComplete(questId);
 }
@@ -425,6 +555,40 @@ static bool8 QuestCondition_DifficultyGreaterThan(u16 questId, struct RogueQuest
     return Rogue_GetCurrentDifficulty() > threshold;
 }
 
+static bool8 QuestCondition_IsStandardRunActive(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    // TODO
+    return TRUE;
+}
+
+static bool8 QuestCondition_HasCompletedQuestAND(u16 triggerQuestId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i, questId;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        questId = trigger->params[i];
+        if(!RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+static bool8 QuestCondition_HasCompletedQuestOR(u16 triggerQuestId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i, questId;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        questId = trigger->params[i];
+        if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 static bool8 UNUSED QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     u8 i;
@@ -467,34 +631,6 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
     return TRUE;
 }
 
-static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger)
-{
-    u16 mapId = trigger->params[0];
-    u16 mapGroup = (mapId >> 8); // equiv to MAP_GROUP
-    u16 mapNum = (mapId & 0xFF); // equiv to MAP_NUM
-
-    return gSaveBlock1Ptr->location.mapNum == mapNum || gSaveBlock1Ptr->location.mapGroup == mapGroup;
-}
-
-static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger)
-{
-    u16 i;
-
-    for(i = 0; i < QUEST_ID_COUNT; ++i)
-    {
-        // Check all other main quests except these 2 have been completed
-        if(i == QUEST_ID_ONE_LAST_QUEST || i == QUEST_ID_THE_FINAL_RUN)
-            continue;
-
-        if(RogueQuest_GetConstFlag(i, QUEST_CONST_IS_MAIN_QUEST))
-        {
-            if(!(RogueQuest_IsQuestUnlocked(i) && RogueQuest_HasCollectedRewards(i)))
-                return FALSE;
-        }
-    }
-
-    return TRUE;
-}
 
 static bool8 CheckSingleTrainerConfigValid(u32 toggleToCheck, u32 currentToggle)
 {
@@ -534,6 +670,53 @@ bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck)
     if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_GALAR))
         return FALSE;
 #endif
+    return TRUE;
+}
+
+static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 trainerConfigToggle = trigger->params[0];
+    return CheckOnlyTheseTrainersEnabled(trainerConfigToggle);
+}
+
+static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 region = trigger->params[0];
+    return RoguePokedex_GetDexRegion() == region;
+}
+
+static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 variant = trigger->params[0];
+    return RoguePokedex_GetDexVariant() == variant;
+}
+
+static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 mapId = trigger->params[0];
+    u16 mapGroup = (mapId >> 8); // equiv to MAP_GROUP
+    u16 mapNum = (mapId & 0xFF); // equiv to MAP_NUM
+
+    return gSaveBlock1Ptr->location.mapNum == mapNum || gSaveBlock1Ptr->location.mapGroup == mapGroup;
+}
+
+static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        // Check all other main quests except these 2 have been completed
+        if(i == QUEST_ID_ONE_LAST_QUEST || i == QUEST_ID_THE_FINAL_RUN)
+            continue;
+
+        if(RogueQuest_GetConstFlag(i, QUEST_CONST_IS_MAIN_QUEST))
+        {
+            if(!(RogueQuest_IsQuestUnlocked(i) && RogueQuest_HasCollectedRewards(i)))
+                return FALSE;
+        }
+    }
+
     return TRUE;
 }
 
