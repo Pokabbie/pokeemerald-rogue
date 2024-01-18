@@ -346,8 +346,86 @@
                         ]
                     }
                 ]
-            }
+            },
 
+            {
+                "name": "Collector",
+                "description": "Collect data for 15 Pokémon in the Pokédex.",
+                "flags": 
+                [
+                    "MAIN_QUEST_DEFAULT",
+                    "ACTIVE_ALWAYS"
+                ],
+                "triggers":
+                [
+                    {
+                        "on": [ "POKEDEX_UPDATE" ],
+                        "condition": "PokedexEntryCountGreaterThan",
+                        "pass": "SUCCESS",
+                        "params": [ 15 ]
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "quest": "Collector +" },
+                    { "quest": "Collector X" }
+                ]
+            },
+            {
+                "name": "Collector +",
+                "description": "Collect data for 100 Pokémon in the Pokédex.",
+                "flags": 
+                [
+                    "MAIN_QUEST_DEFAULT",
+                    "ACTIVE_ALWAYS"
+                ],
+                "triggers":
+                [
+                    {
+                        "on": [ "POKEDEX_UPDATE" ],
+                        "condition": "PokedexEntryCountGreaterThan",
+                        "pass": "SUCCESS",
+                        "params": [ 100 ]
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Collector X",
+                "description": "Defeat any Elite Four Trainer with a Pokémon of Legends in you party.",
+                "triggers":
+                [
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyLessThan",
+                        "params": [ "ROGUE_CHAMP_START_DIFFICULTY + 1" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "PartyContainsLegendary",
+                        "pass": "SUCCESS",
+                        "fail": "FAIL"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
+                ]
+            }
         ]
     }
 }

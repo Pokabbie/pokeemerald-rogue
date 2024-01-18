@@ -952,25 +952,6 @@ static u16 GetDisplayedOverviewSpecies(u16 species)
     return species;
 }
 
-static u16 GetDexCount(u8 caseID)
-{
-    u16 i;
-    u16 species;
-    u16 count = 0;
-
-    u8 dexVariant = RoguePokedex_GetDexVariant();
-    
-    for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
-    {
-        species = GetDisplayedOverviewSpecies(gPokedexVariants[dexVariant].speciesList[i]);
-
-        if (GetSetPokedexSpeciesFlag(species, caseID))
-            count++;
-    }
-
-    return count;
-}
-
 static bool8 CheckDexCompletion(u8 caseID)
 {
     u16 i;
@@ -989,6 +970,37 @@ static bool8 CheckDexCompletion(u8 caseID)
     return TRUE;
 }
 
+u16 RoguePokedex_CountCaughtMonsForVariant(u16 dexVariant, u8 caseID)
+{
+    u16 i;
+    u16 species;
+    u16 count = 0;
+    
+    for (i = 0; i < gPokedexVariants[dexVariant].speciesCount; i++)
+    {
+        species = GetDisplayedOverviewSpecies(gPokedexVariants[dexVariant].speciesList[i]);
+
+        if (GetSetPokedexSpeciesFlag(species, caseID))
+            count++;
+    }
+
+    return count;
+}
+
+u16 RoguePokedex_CountCurrentCaughtMons(u8 caseID)
+{
+    return RoguePokedex_CountCaughtMonsForVariant(RoguePokedex_GetDexVariant(), caseID);
+}
+
+u16 RoguePokedex_CountNationalCaughtMons(u8 caseID)
+{
+#ifdef ROGUE_EXPANSION
+    return RoguePokedex_CountCaughtMonsForVariant(POKEDEX_VARIANT_NATIONAL_GEN9, caseID);
+#else
+    return RoguePokedex_CountCaughtMonsForVariant(POKEDEX_VARIANT_NATIONAL_GEN3, caseID);
+#endif
+}
+
 static void DisplayTitleScreenCountersText(void)
 {
     u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
@@ -997,13 +1009,13 @@ static void DisplayTitleScreenCountersText(void)
 
     FillWindowPixelBuffer(WIN_TITLE_COUNTERS, PIXEL_FILL(0));
 
-    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_SEEN), STR_CONV_MODE_RIGHT_ALIGN, digits);
+    ConvertUIntToDecimalStringN(gStringVar4, RoguePokedex_CountCurrentCaughtMons(FLAG_GET_SEEN), STR_CONV_MODE_RIGHT_ALIGN, digits);
     AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, xCoords, 0, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
-    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_CAUGHT), STR_CONV_MODE_RIGHT_ALIGN, digits);
+    ConvertUIntToDecimalStringN(gStringVar4, RoguePokedex_CountCurrentCaughtMons(FLAG_GET_CAUGHT), STR_CONV_MODE_RIGHT_ALIGN, digits);
     AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, xCoords, 24, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
-    ConvertUIntToDecimalStringN(gStringVar4, GetDexCount(FLAG_GET_CAUGHT_SHINY), STR_CONV_MODE_RIGHT_ALIGN, digits);
+    ConvertUIntToDecimalStringN(gStringVar4, RoguePokedex_CountCurrentCaughtMons(FLAG_GET_CAUGHT_SHINY), STR_CONV_MODE_RIGHT_ALIGN, digits);
     AddTextPrinterParameterized4(WIN_TITLE_COUNTERS, FONT_NARROW, xCoords, 48, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
 
     PutWindowTilemap(WIN_TITLE_COUNTERS);
