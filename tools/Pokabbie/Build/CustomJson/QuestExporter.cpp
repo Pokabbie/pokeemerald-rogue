@@ -473,10 +473,13 @@ static std::string FormatQuestId(std::string const& prettyName)
 {
 	std::string questId = strutil::to_upper(prettyName);
 	strutil::replace_all(questId, " ", "_");
-	strutil::replace_all(questId, "!", "");
-	strutil::replace_all(questId, "?", "");
+	strutil::replace_all(questId, "!", "EMARK");
+	strutil::replace_all(questId, "?", "QMARK");
 	strutil::replace_all(questId, ",", "");
 	strutil::replace_all(questId, ".", "");
+	strutil::replace_all(questId, "\"", "");
+	strutil::replace_all(questId, "'", "");
+	strutil::replace_all(questId, "+", "PLUS");
 	strutil::replace_all(questId, c_Elipsies, "");
 	return questId;
 }
@@ -732,11 +735,12 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, Q
 	}
 
 	// Populate prerequisite quests based on rewards
-	std::unordered_map<std::string, QuestInfo*> questLookup;
+	// (We can point to multiple quests if we have Vanilla/EX versions of the same quest)
+	std::unordered_map<std::string, std::vector<QuestInfo*>> questLookup;
 
 	for (auto& quest : outQuestData.questInfo)
 	{
-		questLookup[quest.questId] = &quest;
+		questLookup[quest.questId].push_back(&quest);
 	}
 
 	for (auto& quest : outQuestData.questInfo)
@@ -745,8 +749,10 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, Q
 		{
 			if (reward.type == QuestRewardType::QuestUnlock)
 			{
-				auto& unlockedQuest = *questLookup[reward.questUnlockParams.questId];
-				unlockedQuest.isUnlockedViaReward = true;
+				for (auto* otherQuest : questLookup[reward.questUnlockParams.questId])
+				{
+					otherQuest->isUnlockedViaReward = true;
+				}
 			}
 		}
 	}
