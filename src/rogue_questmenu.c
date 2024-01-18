@@ -1061,6 +1061,7 @@ static void Draw_QuestPage()
             struct RogueQuestRewardNEW const* reward;
             u16 const rewardCount = RogueQuest_GetRewardCount(questId);
             u8 groupedSpriteIndex[QUEST_SPRITE_CAPACITY];
+            u8 spriteLayering[QUEST_SPRITE_CAPACITY];
             u8 currentSpriteGroup;
             bool8 hasDisplayedQuestUnlock = FALSE;
 
@@ -1087,6 +1088,7 @@ static void Draw_QuestPage()
 
                     sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.item.item);
                     groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                    spriteLayering[spriteIdx] = 0;
                     ++spriteIdx;
 
                     if(reward->perType.item.count >= QUEST_REWARD_MEDIUM_BUILD_AMOUNT)
@@ -1095,6 +1097,7 @@ static void Draw_QuestPage()
                         gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 3;
                         gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 1;
                         groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 1;
                         ++spriteIdx;
                     }
                     if(reward->perType.item.count >= QUEST_REWARD_LARGE_BUILD_AMOUNT)
@@ -1103,6 +1106,7 @@ static void Draw_QuestPage()
                         gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 6;
                         gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 2;
                         groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 1;
                         ++spriteIdx;
                     }
                     break;
@@ -1112,6 +1116,7 @@ static void Draw_QuestPage()
                     
                     sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.shopItem.item);
                     groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                    spriteLayering[spriteIdx] = 0;
                     ++spriteIdx;
                     break;
 
@@ -1121,6 +1126,7 @@ static void Draw_QuestPage()
 
                     sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
                     groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                    spriteLayering[spriteIdx] = 0;
                     ++spriteIdx;
 
                     if(reward->perType.money.amount >= QUEST_REWARD_MEDIUM_MONEY)
@@ -1129,6 +1135,7 @@ static void Draw_QuestPage()
                         gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 3;
                         gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 1;
                         groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 1;
                         ++spriteIdx;
                     }
                     if(reward->perType.money.amount >= QUEST_REWARD_LARGE_MONEY)
@@ -1137,6 +1144,7 @@ static void Draw_QuestPage()
                         gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 6;
                         gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 2;
                         groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 1;
                         ++spriteIdx;
                     }
                     break;
@@ -1148,6 +1156,7 @@ static void Draw_QuestPage()
 
                         sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_QUEST_LOG);
                         groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
                         ++spriteIdx;
 
                         // Don't display multiple quest unlock entries (one is enough)
@@ -1161,12 +1170,14 @@ static void Draw_QuestPage()
                     {
                         sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_POKEMON_SHINY, TAG_REWARD_ICON_POKEMON_SHINY, gItemIcon_RogueStatusStar, gItemIconPalette_RogueStatusStarCustom);
                         groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
                         ++spriteIdx;
                     }
                     if(reward->perType.pokemon.customOt)
                     {
                         sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_POKEMON_CUSTOM, TAG_REWARD_ICON_POKEMON_SHINY, gItemIcon_RogueStatusCustom, gItemIconPalette_RogueStatusStarCustom);
                         groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
                         ++spriteIdx;
                     }
 
@@ -1184,6 +1195,7 @@ static void Draw_QuestPage()
                     gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = -8;
 
                     groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                    spriteLayering[spriteIdx] = 0;
                     ++spriteIdx;
                     break;
                 }
@@ -1203,7 +1215,7 @@ static void Draw_QuestPage()
 
                         gSprites[spriteIdx].x = 24 + 4 + (groupIdx * boxWidth) / currentSpriteGroup + boxWidth / (2 * currentSpriteGroup);
                         gSprites[spriteIdx].y = 8 * 17;
-                        gSprites[spriteIdx].subpriority = i;
+                        gSprites[spriteIdx].subpriority = spriteLayering[i] * QUEST_SPRITE_CAPACITY + i;
                     }
                 }
             }
