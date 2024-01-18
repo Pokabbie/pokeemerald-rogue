@@ -390,7 +390,7 @@ u16 RogueQuest_GetCustomRewardMonId(struct Pokemon* mon)
     u16 i;
     u32 otId;
 
-    GetMonData(mon, MON_DATA_OT_ID, &otId);
+    otId = GetMonData(mon, MON_DATA_OT_ID);
 
     if(!IsOtherTrainer(otId))
         return 0;
@@ -636,7 +636,7 @@ static bool8 QuestCondition_IsStandardRunActive(u16 questId, struct RogueQuestTr
     return TRUE;
 }
 
-static bool8 QuestCondition_HasCompletedQuestAND(u16 triggerQuestId, struct RogueQuestTrigger const* trigger)
+static bool8 UNUSED QuestCondition_HasCompletedQuestAND(u16 triggerQuestId, struct RogueQuestTrigger const* trigger)
 {
     u16 i, questId;
 
@@ -778,7 +778,7 @@ static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigge
     return RoguePokedex_GetDexRegion() == region;
 }
 
-static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger)
+static bool8 UNUSED QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     u16 variant = trigger->params[0];
     ASSERT_PARAM_COUNT(1);
