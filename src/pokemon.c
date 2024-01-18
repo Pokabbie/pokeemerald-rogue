@@ -4539,13 +4539,16 @@ void CopyMon(void *dest, void *src, size_t size)
     memcpy(dest, src, size);
 }
 
-u8 GiveMonToPlayer(struct Pokemon *mon)
+static u8 GiveMonToPlayerInternal(struct Pokemon *mon, bool8 isTraded)
 {
     s32 i;
 
-    SetMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
-    SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
-    SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
+    if(!isTraded)
+    {
+        SetMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
+        SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+        SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
+    }
 
     Rogue_ModifyGiveMon(mon);
 
@@ -4569,6 +4572,16 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     }
 
     return MON_GIVEN_TO_PARTY;
+}
+
+u8 GiveMonToPlayer(struct Pokemon *mon)
+{
+    return GiveMonToPlayerInternal(mon, FALSE);
+}
+
+u8 GiveTradedMonToPlayer(struct Pokemon *mon)
+{
+    return GiveMonToPlayerInternal(mon, TRUE);
 }
 
 u8 CopyMonToPC(struct Pokemon* mon)

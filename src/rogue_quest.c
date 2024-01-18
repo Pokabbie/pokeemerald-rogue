@@ -30,10 +30,15 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
 
+#define COMPOUND_STRING(str) (const u8[]) _(str)
+
 #include "data/rogue/quests.h"
+
+#undef COMPOUND_STRING
 
 // ensure we are serializing the correct amount
 STATIC_ASSERT(QUEST_SAVE_COUNT >= QUEST_ID_COUNT, saveQuestCountMissmatch);
@@ -249,14 +254,79 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
         {
         case QUEST_REWARD_POKEMON:
             {
+                struct Pokemon* mon = &gEnemyParty[0];
                 u32 temp = 0;
-                CreateMon(&gEnemyParty[0], rewardInfo->perType.pokemon.species, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+                u8 otIdType = OT_ID_PLAYER_ID;
+                u32 fixedOtId = 0;
+                bool8 isCustom = FALSE;
 
+                if(rewardInfo->perType.pokemon.customOt)
+                {
+                    otIdType = OT_ID_PRESET;
+                    fixedOtId = rewardInfo->perType.pokemon.customOt;
+                }
+
+                ZeroMonData(mon);
+                CreateMon(mon, rewardInfo->perType.pokemon.species, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, otIdType, fixedOtId);
+
+                // Update nickname
+                if(rewardInfo->perType.pokemon.nickname != NULL)
+                {
+                    SetMonData(mon, MON_DATA_NICKNAME, rewardInfo->perType.pokemon.nickname);
+                }
+
+                // Update OT name
+                if(rewardInfo->perType.pokemon.customOt)
+                {
+                    temp = fixedOtId % 2;
+                    SetMonData(mon, MON_DATA_OT_NAME, Rogue_GetTrainerNameFromOT(fixedOtId));
+                    SetMonData(mon, MON_DATA_OT_GENDER, &temp);
+                    isCustom = TRUE;
+                }
+
+                // Populate moves
+                {
+                    u8 i, j;
+                    u16 moves[MAX_MON_MOVES];
+
+                    for(i = 0; i < MAX_MON_MOVES; ++i)
+                    {
+                        moves[i] = rewardInfo->perType.pokemon.moves[i];
+                        if(moves[i] == MOVE_NONE)
+                            break;
+
+                        isCustom = TRUE;
+                    }
+
+                    // Fill the rest of the moves with default moves
+                    for(j = 0; i < MAX_MON_MOVES; ++i, ++j)
+                    {
+                        moves[i] = GetMonData(mon, MON_DATA_MOVE1 + j);
+                    }
+
+                    // Give back moves
+                    for(i = 0; i < MAX_MON_MOVES; ++i)
+                    {
+                        temp = moves[i];
+                        SetMonData(mon, MON_DATA_MOVE1 + i, &temp);
+                        SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[temp].pp);
+                    }
+                }
+
+                // Set shiny state
                 temp = rewardInfo->perType.pokemon.isShiny ? 1 : 0;
-                SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &temp);
+                SetMonData(mon, MON_DATA_IS_SHINY, &temp);
 
-                GiveMonToPlayer(&gEnemyParty[0]);
-                Rogue_PushPopup_AddPokemon(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES), IsMonShiny(&gEnemyParty[0]));
+                // Give mon
+                if(rewardInfo->perType.pokemon.customOt)
+                    GiveTradedMonToPlayer(mon);
+                else
+                    GiveMonToPlayer(mon);
+
+                // Set pokedex flag
+                GetSetPokedexSpeciesFlag(rewardInfo->perType.pokemon.species, rewardInfo->perType.pokemon.isShiny ? FLAG_SET_CAUGHT_SHINY : FLAG_SET_CAUGHT);
+
+                Rogue_PushPopup_AddPokemon(rewardInfo->perType.pokemon.species, isCustom, rewardInfo->perType.pokemon.isShiny);
             }
             break;
 
@@ -613,6 +683,12 @@ static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigge
 {
     u16 region = trigger->params[0];
     return RoguePokedex_GetDexRegion() == region;
+}
+
+static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 variant = trigger->params[0];
+    return RoguePokedex_GetDexVariant() == variant;
 }
 
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger)

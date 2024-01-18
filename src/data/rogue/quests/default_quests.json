@@ -274,9 +274,10 @@
                 ]
             },
             {
+                "#if": "!defined(ROGUE_EXPANSION)",
                 "name": "The Final Run.",
                 "display_group": "starter_quests",
-                "description": "todo - desc",
+                "description": "Win a full Standard Run, with the Pokédex set to National Gen3 and only Rogue Trainers enabled.",
                 "triggers":
                 [
                     {
@@ -294,7 +295,56 @@
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
-                    { "species": "SPECIES_MAREEP", "shiny":true }
+                    {
+                        "species": "SPECIES_MAREEP",
+                        "shiny": true,
+                        "custom_ot": "POKABBIE_OTID",
+                        "nickname": "Pikin",
+                        "moves":
+                        [
+                            "MOVE_DRAGON_BREATH",
+                            "MOVE_MAGIC_COAT",
+                            "MOVE_THUNDER",
+                            "MOVE_TAIL_GLOW"
+                        ]
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "The Final Run.",
+                "display_group": "starter_quests",
+                "description": "Win a full Standard Run, with the Pokédex set to National Gen9 and only Rogue Trainers enabled.",
+                "triggers":
+                [
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsFinalQuestConditionMet",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    {
+                        "species": "SPECIES_MAREEP",
+                        "shiny": true,
+                        "custom_ot": "POKABBIE_OTID",
+                        "nickname": "Pikin",
+                        "moves":
+                        [
+                            "MOVE_METEOR_BEAM",
+                            "MOVE_MAGIC_COAT",
+                            "MOVE_DISCHARGE",
+                            "MOVE_TAIL_GLOW"
+                        ]
+                    }
                 ]
             }
 

@@ -2638,7 +2638,10 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     {
         AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_POKEDEX);
 
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RENAME);
+        if(!IsOtherTrainer(GetMonData(&mons[slotId], MON_DATA_OT_ID)))
+        {
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RENAME);
+        }
 
         // Add field moves to action list
         for (i = 0; i < MAX_MON_MOVES; i++)

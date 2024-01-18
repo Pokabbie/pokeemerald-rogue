@@ -304,6 +304,14 @@ bool8 Rogue_UseFinalQuestEffects(void)
 {
     if(RogueQuest_IsQuestUnlocked(QUEST_ID_THE_FINAL_RUN))
     {
+#ifdef ROGUE_EXPANSION
+        if(RoguePokedex_GetDexVariant() != POKEDEX_VARIANT_NATIONAL_GEN9)
+            return FALSE;
+#else
+        if(RoguePokedex_GetDexVariant() != POKEDEX_VARIANT_NATIONAL_GEN3)
+            return FALSE;
+#endif
+
         if(!CheckOnlyTheseTrainersEnabled(CONFIG_TOGGLE_TRAINER_ROGUE))
             return FALSE;
 
@@ -5849,8 +5857,6 @@ void Rogue_ModifyScriptMon(struct Pokemon* mon)
         }
     }
 }
-
-#define CLOWN_OTID 33414
 
 void Rogue_ModifyGiveMon(struct Pokemon* mon)
 {

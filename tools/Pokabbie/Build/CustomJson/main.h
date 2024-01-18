@@ -13,6 +13,8 @@ using json = nlohmann::json;
 std::string const c_TabSpacing = "    ";
 std::string const c_TabSpacing2 = "        ";
 std::string const c_TabSpacing3 = "            ";
+std::string const c_TabSpacing4 = "                ";
+std::string const c_TabSpacing5 = "                    ";
 
 // elipsies in incorrect charset
 std::string const c_Elipsies = "…";

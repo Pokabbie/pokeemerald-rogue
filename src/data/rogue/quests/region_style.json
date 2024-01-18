@@ -87,7 +87,13 @@
                     { 
                         "species": "SPECIES_PIKACHU",
                         "shiny": true,
-                        "trainer": "Red"
+                        "custom_ot": "RED_OTID",
+                        "nickname": "Sparky",
+                        "moves":
+                        [
+                            "MOVE_VOLT_TACKLE",
+                            "MOVE_THUNDER"
+                        ]
                     }
                 ]
             },

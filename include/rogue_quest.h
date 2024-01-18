@@ -23,6 +23,9 @@ struct RogueQuestRewardNEW
     {
         struct
         {
+            u8 const* nickname;
+            u16 moves[MAX_MON_MOVES];
+            u32 customOt;
             u16 species;
             u8 isShiny : 1;
         } pokemon;

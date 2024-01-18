@@ -137,6 +137,7 @@ static const u8 sText_Popup_LegendaryClause[] = _("{COLOR LIGHT_GREEN}{SHADOW GR
 static const u8 sText_Popup_RoamerLegendary[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Started Roaming!");
 static const u8 sText_Popup_GiftPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gift Pokémon!");
 static const u8 sText_Popup_GiftShinyPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gift Shiny {PKMN}!");
+static const u8 sText_Popup_GiftCustomPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gift Custom {PKMN}!");
 static const u8 sText_Popup_None[] = _("");
 
 static const u8 sText_Popup_NewMoves[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}New Moves!");
@@ -192,6 +193,7 @@ enum
     POPUP_COMMON_ITEM_TEXT,
     POPUP_COMMON_FIND_ITEM,
     POPUP_COMMON_POKEMON_TEXT,
+    POPUP_COMMON_INSTANT_POKEMON_TEXT,
     POPUP_COMMON_CUSTOM_ICON_TEXT,
 };
 
@@ -245,6 +247,23 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     [POPUP_COMMON_POKEMON_TEXT] = 
     {
         .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .generateBorder = FALSE,
+        .transparentText = TRUE,
+        .left = 10,
+        .down = 0,
+        .width = 10,
+        .height = 4,
+
+        .iconMode = POPUP_ICON_MODE_POKEMON,
+        .iconLeft = 6,
+        .iconDown = 0,
+        .iconWidth = 4,
+        .iconHeight = 4,
+    },
+    [POPUP_COMMON_INSTANT_POKEMON_TEXT] = 
+    {
+        .enterAnim = POPUP_ANIM_NONE,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
         .generateBorder = FALSE,
         .transparentText = TRUE,
@@ -1175,16 +1194,22 @@ void Rogue_PushPopup_UnlockedShopItem(u16 itemId)
     popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
 }
 
-void Rogue_PushPopup_AddPokemon(u16 species, bool8 isShiny)
+void Rogue_PushPopup_AddPokemon(u16 species, bool8 isCustom, bool8 isShiny)
 {
     struct PopupRequest* popup = CreateNewPopup();
 
-    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->templateId = POPUP_COMMON_INSTANT_POKEMON_TEXT;
     popup->iconId = species;
     popup->fanfare = MUS_OBTAIN_TMHM;
     
     popup->titleText = RoguePokedex_GetSpeciesName(species);
-    popup->subtitleText = isShiny ? sText_Popup_GiftShinyPokemon : sText_Popup_GiftPokemon;
+
+    if(isCustom)
+        popup->subtitleText = sText_Popup_GiftCustomPokemon;
+    else if(isShiny)
+        popup->subtitleText = sText_Popup_GiftShinyPokemon;
+    else
+        popup->subtitleText = sText_Popup_GiftPokemon;
 }
 
 void Rogue_PushPopup_RequipBerrySuccess(u16 itemId)

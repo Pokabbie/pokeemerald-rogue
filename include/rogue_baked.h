@@ -56,4 +56,6 @@ bool8 Rogue_CheckMonFlags(u16 species, u32 flag);
 
 u16 Rogue_BerryToPokeblock(u16 berryItem);
 
+u8 const* Rogue_GetTrainerNameFromOT(u32 ot);
+
 #endif
