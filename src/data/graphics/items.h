@@ -739,6 +739,9 @@ const u32 gItemIconPalette_MagmaEmblem[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_OldSeaMap[] = INCBIN_U32("graphics/items/icons/old_sea_map.4bpp.lz");
 const u32 gItemIconPalette_OldSeaMap[] = INCBIN_U32("graphics/items/icon_palettes/old_sea_map.gbapal.lz");
 
+const u32 gItemIcon_RogueStatusStar[] = INCBIN_U32("graphics/items/icons/rogue_status_star.4bpp.lz");
+const u32 gItemIcon_RogueStatusCustom[] = INCBIN_U32("graphics/items/icons/rogue_status_custom.4bpp.lz");
+const u32 gItemIconPalette_RogueStatusStarCustom[] = INCBIN_U32("graphics/items/icon_palettes/rogue_status_star_custom.gbapal.lz");
 
 const u32 gItemIcon_RogueCharm[] = INCBIN_U32("graphics/items/icons/rogue_charm.4bpp.lz");
 const u32 gItemIconPalette_RogueCharm[] = INCBIN_U32("graphics/items/icon_palettes/rogue_charm.gbapal.lz");

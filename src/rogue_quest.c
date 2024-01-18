@@ -292,6 +292,19 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
                     SetMonData(mon, MON_DATA_OT_NAME, Rogue_GetTrainerNameFromOT(fixedOtId));
                     SetMonData(mon, MON_DATA_OT_GENDER, &temp);
                     isCustom = TRUE;
+
+                    // Set pokeball
+                    if(rewardInfo->perType.pokemon.customOt == POKABBIE_OTID)
+                    {
+                        temp = ITEM_POKABBIE_POKEBALL;
+                        SetMonData(mon, MON_DATA_POKEBALL, &temp);
+                    }
+                    else
+                    {
+                        // Fallback
+                        temp = ITEM_FINAL_BOSS_POKEBALL;
+                        SetMonData(mon, MON_DATA_POKEBALL, &temp);
+                    }
                 }
 
                 // Populate moves
