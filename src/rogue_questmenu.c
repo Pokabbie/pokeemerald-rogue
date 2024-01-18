@@ -1056,7 +1056,7 @@ static void Draw_QuestPage()
 
         // Place sprites
         {
-            u8 spriteIdx, count;
+            u8 spriteIdx;
             u16 currentTag;
             struct RogueQuestRewardNEW const* reward;
             u16 const rewardCount = RogueQuest_GetRewardCount(questId);
