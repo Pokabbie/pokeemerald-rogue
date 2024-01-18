@@ -337,6 +337,52 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 		}
 	);
 
+	// Export any custom mons here, so we can hookup relearning base moves
+	fileStream << "static struct CustomMonPreset const sCustomRewardMonPresets[] =\n{\n";
+	for (auto it = questData.questInfo.begin(); it != questData.questInfo.end(); ++it)
+	{
+		auto const& quest = *it;
+
+		for (auto const& rewardInfo : quest.rewards)
+		{
+			if (rewardInfo.type != QuestRewardType::Pokemon || rewardInfo.pokemonParams.customOt.empty() || rewardInfo.pokemonParams.moves[0].empty())
+				continue;
+
+			if (!quest.preprocessorCondition.empty())
+				fileStream << "#if " << quest.preprocessorCondition << "\n";
+
+			if (!rewardInfo.preprocessorCondition.empty())
+				fileStream << "#if " << rewardInfo.preprocessorCondition << "\n";
+
+			fileStream << c_TabSpacing << "{\n";
+			fileStream << c_TabSpacing2 << ".otId = " << rewardInfo.pokemonParams.customOt << ",\n";
+			fileStream << c_TabSpacing2 << ".species = " << rewardInfo.pokemonParams.species << ",\n";
+			fileStream << c_TabSpacing2 << ".moves = {\n";
+
+			for (int i = 0; i < 4; ++i)
+			{
+				if(rewardInfo.pokemonParams.moves[i].empty())
+					fileStream << c_TabSpacing3 << "MOVE_NONE,\n";
+				else
+					fileStream << c_TabSpacing3 << rewardInfo.pokemonParams.moves[i] << ",\n";
+			}
+			fileStream << c_TabSpacing2 << "},\n";
+
+
+			fileStream << c_TabSpacing << "},\n";
+
+			if (!rewardInfo.preprocessorCondition.empty())
+				fileStream << "#endif\n";
+
+			if (!quest.preprocessorCondition.empty())
+				fileStream << "#endif\n";
+
+		}
+	}
+	fileStream << "};\n\n";
+
+
+	// Quest UI order
 	fileStream << "static u16 const sQuestDisplayOrder[] =\n{\n";
 	for (auto it = questData.questInfo.begin(); it != questData.questInfo.end(); ++it)
 	{

@@ -52,6 +52,7 @@
 #include "rogue_controller.h"
 #include "rogue_player_customisation.h"
 #include "rogue_timeofday.h"
+#include "rogue_quest.h"
 
 struct SpeciesItem
 {
@@ -6505,10 +6506,31 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
+    u16 rewardMonId = RogueQuest_GetCustomRewardMonId(mon);
     int i, j, k;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
         learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
+
+    if(rewardMonId != 0)
+    {
+        // This is a custom mon so make sure it can relearn it's special moves
+        u16 const* customMoves = RogueQuest_GetCustomRewardMonMoves(rewardMonId);
+        for(i = 0; i < MAX_MON_MOVES; ++i)
+        {
+            if(customMoves[i] == MOVE_NONE)
+                break;
+
+            for(j = 0; j < MAX_MON_MOVES; ++j)
+            {
+                if(customMoves[i] == learnedMoves[j])
+                    break;
+            }
+
+            if(j == MAX_MON_MOVES)
+                moves[numMoves++] = customMoves[i];
+        }
+    }
 
     for (i = 0; TRUE; i++)
     {

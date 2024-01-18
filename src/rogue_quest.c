@@ -34,6 +34,13 @@ static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigg
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
 
+struct CustomMonPreset
+{
+    u32 otId;
+    u16 moves[MAX_MON_MOVES];
+    u16 species;
+};
+
 #define COMPOUND_STRING(str) (const u8[]) _(str)
 
 #include "data/rogue/quests.h"
@@ -360,6 +367,40 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
     questState->highestCollectedRewardDifficulty = questState->highestCompleteDifficulty;
 
     return TRUE;
+}
+
+u16 RogueQuest_GetCustomRewardMonId(struct Pokemon* mon)
+{
+    u16 i;
+    u32 otId;
+
+    GetMonData(mon, MON_DATA_OT_ID, &otId);
+
+    if(!IsOtherTrainer(otId))
+        return 0;
+
+    for(i = 0; i < ARRAY_COUNT(sCustomRewardMonPresets); ++i)
+    {
+        if(sCustomRewardMonPresets[i].otId)
+        {
+            u16 species = GetMonData(mon, MON_DATA_SPECIES);
+            if(Rogue_GetEggSpecies(species) == Rogue_GetEggSpecies(sCustomRewardMonPresets[i].species))
+            {
+                return i + 1;
+            }
+        }
+    }
+
+    return 0;
+}
+
+u16 const* RogueQuest_GetCustomRewardMonMoves(u16 id)
+{
+    if(id == 0)
+        return NULL;
+    
+    --id;
+    return sCustomRewardMonPresets[id].moves;
 }
 
 void RogueQuest_ActivateQuestsFor(u32 flags)
