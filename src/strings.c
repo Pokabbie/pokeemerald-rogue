@@ -18,7 +18,11 @@ const u8 gText_ExpandedPlaceholder_Kyogre[] = _("KYOGRE");
 const u8 gText_ExpandedPlaceholder_Groudon[] = _("GROUDON");
 const u8 gText_ExpandedPlaceholder_Brendan[] = _("BRENDAN");
 const u8 gText_ExpandedPlaceholder_May[] = _("MAY");
+#ifdef ROGUE_EXPANSION
+const u8 gText_ExpandedPlaceholder_PokemonHub[] = _("Pokémon Hub");
+#else
 const u8 gText_ExpandedPlaceholder_PokemonHub[] = _("POKéMON HUB");
+#endif
 const u8 gText_EggNickname[] = _("EGG");
 const u8 gText_Pokemon[] = _("POKéMON");
 const u8 gText_ProfBirchMatchCallName[] = _("PROF. BIRCH");
