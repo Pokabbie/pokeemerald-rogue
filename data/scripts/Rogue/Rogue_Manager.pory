@@ -146,43 +146,64 @@ script Rogue_InteractWithQuestBoard
 {
     lockall
 
-    setvar(VAR_0x8004, 0)
-    setvar(VAR_RESULT, 1)
-
-    while(var(VAR_RESULT) == 1)
+    if(var(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_COLLECT_QUEST_LOG)
     {
-        special(Rogue_QuestCollectNextReward)
-        call(Rogue_Common_DisplayPopups)
-
-        switch(var(VAR_RESULT))
-        {
-            //case 0:
-            //    msgbox(format("finished."))
-
-            case 1:
-                setvar(VAR_0x8004, 1) // flag that we've collected some results
-
-            case 2:
-                msgbox(format("Unable to collect the remaining rewards."))
-        }
-    }
-
-    special(Rogue_HasAnyNewQuests)
-    if(var(VAR_RESULT) == 1)
-    {
-        msgbox(format("New Quests have been posted!"))
-        special(Rogue_ShowNewQuests)
-    }
-    elif (var(VAR_0x8004) == 1)
-    {
-        msgbox(format("All rewards have been collected!"))
+        msgbox(format("It's a board filled with all sort of requests!"))
     }
     else
     {
-        msgbox(format("There are no New Quests or Rewards to collect."))
+        setvar(VAR_0x8004, 0)
+        setvar(VAR_RESULT, 1)
+
+        while(var(VAR_RESULT) == 1)
+        {
+            special(Rogue_QuestCollectNextReward)
+            call(Rogue_Common_DisplayPopups)
+
+            switch(var(VAR_RESULT))
+            {
+                //case 0:
+                //    msgbox(format("finished."))
+
+                case 1:
+                    setvar(VAR_0x8004, 1) // flag that we've collected some results
+
+                case 2:
+                    msgbox(format("Unable to collect the remaining rewards."))
+            }
+        }
+
+        special(Rogue_HasAnyNewQuests)
+        if(var(VAR_RESULT) == 1)
+        {
+            msgbox(format("New Quests have been posted!"))
+            special(Rogue_ShowNewQuests)
+        }
+        elif (var(VAR_0x8004) == 1)
+        {
+            msgbox(format("All rewards have been collected!"))
+        }
+        else
+        {
+            msgbox(format("There are no New Quests or Rewards to collect."))
+        }
     }
 
     releaseall
+}
+
+script Rogue_InteractWithPC
+{
+    if(flag(FLAG_SYS_POKEMON_GET))
+    {
+        goto(EventScript_PC)
+    }
+    else
+    {
+        lock
+        msgbox(format("It's a PC!\pProbably best not to touch it for now…"))
+        release
+    }
 }
 
 script Rogue_EventScript_ItemUseHealingFlask

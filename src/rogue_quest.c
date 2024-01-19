@@ -505,8 +505,6 @@ static void EnsureUnlockedDefaultQuests()
         if(RogueQuest_GetConstFlag(i, QUEST_CONST_UNLOCKED_BY_DEFAULT))
             RogueQuest_TryUnlockQuest(i);
     }
-
-    RogueQuest_ClearNewUnlockQuests();
 }
 
 void RogueQuest_OnNewGame()
