@@ -245,7 +245,7 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
 
 void SetupFollowParterMonObjectEvent()
 {
-    bool8 shouldFollowMonBeVisible = FlagGet(FLAG_SYS_SHOW_POKE_FOLLOWER);
+    bool8 shouldFollowMonBeVisible = FlagGet(FLAG_SYS_SHOW_POKE_FOLLOWER) && !FlagGet(FLAG_SCRIPT_HIDE_FOLLOWER);
 
     if(shouldFollowMonBeVisible && FollowMon_GetPartnerFollowSpecies(TRUE) == SPECIES_NONE)
         shouldFollowMonBeVisible = FALSE;

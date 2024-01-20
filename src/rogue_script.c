@@ -89,64 +89,73 @@ static u8 Calc_RandomTradeLevel(struct Pokemon* mon)
 void Rogue_RandomisePartyMon(void)
 {
     u16 species;
-    u16 heldItem;
+    u32 temp;
     u8 monIdx = gSpecialVar_0x8004;
     u8 targetlevel = Calc_RandomTradeLevel(&gPlayerParty[0]);
 
     RogueMonQuery_Begin();
     RogueMonQuery_Reset(QUERY_FUNC_INCLUDE);
-    RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 20); // filter down
 
-    if(Rogue_GetCurrentDifficulty() < 2)
+    if(Rogue_GetCurrentDifficulty() < ROGUE_GYM_MID_DIFFICULTY)
         RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
 
     RogueMonQuery_TransformIntoEggSpecies();
     RogueMonQuery_TransformIntoEvos(targetlevel, TRUE, TRUE);
 
-    if(monIdx == 255)
+    // Remove random entries until we can safely calcualte weights without going over
+    while(RogueWeightQuery_IsOverSafeCapacity())
     {
-        // Entire team
-        u8 i;
+        RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50);
+    }
 
-        RogueWeightQuery_Begin();
-        
-        for(i = 0; i < gPlayerPartyCount; ++i)
+    RogueWeightQuery_Begin();
+    {
+        // we can have dupes but just not as common
+        RogueWeightQuery_FillWeights(20);
+
+        if(monIdx == 255)
         {
-            // we can only have dupes if somehow we have used all avaliable mons
-            if(!RogueWeightQuery_HasAnyWeights())
-                RogueWeightQuery_FillWeights(1);
+            // Entire team
+            u8 i;
 
-            targetlevel = Calc_RandomTradeLevel(&gPlayerParty[i]);
-            heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+            for(i = 0; i < gPlayerPartyCount; ++i)
+            {
+                targetlevel = Calc_RandomTradeLevel(&gPlayerParty[i]);
+                temp = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
-            species = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(Random(), 0);
+                species = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(Random(), 1);
 
-            ZeroMonData(&gPlayerParty[i]);
-            CreateMon(&gPlayerParty[i], species, targetlevel, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+                ZeroMonData(&gPlayerParty[i]);
+                CreateMon(&gPlayerParty[i], species, targetlevel, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
 
-            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
+                SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &temp);
+
+                temp = ITEM_SAFARI_BALL;
+                SetMonData(&gPlayerParty[i], MON_DATA_POKEBALL, &temp);
+
+                GetSetPokedexSpeciesFlag(species, IsMonShiny(&gPlayerParty[i]) ? FLAG_GET_CAUGHT_SHINY : FLAG_GET_CAUGHT);
+            }
         }
+        else
+        {
+            // Single mon in team
+            targetlevel = Calc_RandomTradeLevel(&gPlayerParty[monIdx]);
+            temp = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
 
-        RogueWeightQuery_End();
+            species = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(Random(), 1);
+
+            ZeroMonData(&gPlayerParty[monIdx]);
+            CreateMon(&gPlayerParty[monIdx], species, targetlevel, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+            SetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM, &temp);
+
+            temp = ITEM_SAFARI_BALL;
+            SetMonData(&gPlayerParty[monIdx], MON_DATA_POKEBALL, &temp);
+
+            GetSetPokedexSpeciesFlag(species, IsMonShiny(&gPlayerParty[monIdx]) ? FLAG_GET_CAUGHT_SHINY : FLAG_GET_CAUGHT);
+        }
     }
-    else
-    {
-        // Single mon in team
-        RogueWeightQuery_Begin();
-        RogueWeightQuery_FillWeights(1);
-
-        targetlevel = Calc_RandomTradeLevel(&gPlayerParty[monIdx]);
-        heldItem = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
-
-        species = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(Random(), 0);
-
-        ZeroMonData(&gPlayerParty[monIdx]);
-        CreateMon(&gPlayerParty[monIdx], species, targetlevel, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
-
-        SetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM, &heldItem);
-
-        RogueWeightQuery_End();
-    }
+    RogueWeightQuery_End();
 
     RogueMonQuery_End();
 }

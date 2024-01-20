@@ -3428,7 +3428,7 @@ static u8 WildDenEncounter_CalculateWeight(u16 index, u16 species, void* data)
     if(IsRareWeightedSpecies(species))
         return 1;
 
-    return 10;
+    return 3;
 }
 
 u16 Rogue_SelectWildDenEncounterRoom(void)
@@ -6313,7 +6313,7 @@ static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* 
     if(IsRareWeightedSpecies(species))
         return 1;
 
-    return 10;
+    return 3;
 }
 
 static u8 RandomiseWildEncounters_CalculateInitialWeight(u16 index, u16 species, void* data)
@@ -6517,7 +6517,7 @@ static u8 RandomiseFishingEncounters_CalculateWeight(u16 index, u16 species, voi
     if(IsRareWeightedSpecies(species))
         return 1;
 
-    return 15;
+    return 10;
 }
 
 static void RandomiseFishingEncounters(void)

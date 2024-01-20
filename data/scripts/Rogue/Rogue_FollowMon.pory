@@ -85,3 +85,15 @@ script Rogue_InteractWithWildLegendMon
     //    release
     //}
 }
+
+script Rogue_ScriptHideFollower
+{
+    setflag(FLAG_SCRIPT_HIDE_FOLLOWER) 
+    special(Rogue_SetupFollowParterMonObjectEvent)
+}
+
+script Rogue_ScriptShowFollower
+{
+    clearflag(FLAG_SCRIPT_HIDE_FOLLOWER) 
+    special(Rogue_SetupFollowParterMonObjectEvent)
+}
