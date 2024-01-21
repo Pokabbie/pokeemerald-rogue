@@ -88,6 +88,7 @@ struct PopupRequestTemplate
 {
     u8 enterAnim;
     u8 exitAnim;
+    u8 animDuration;
     u8 iconMode;
     u8 left;
     u8 down;
@@ -308,12 +309,20 @@ static const u8 sText_Popup_ChampBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}C
 static const u8 sText_Popup_EarnBadge[] = _("Recieved badge!");
 
 
+#define DEFAULT_ANIM_DURATION 15
+#define DEFAULT_DISPLAY_DURATION 90
+#define sStateNum           data[0]
+#define tOnscreenTimer      data[1]
+#define sDisplayTimer       data[2]
+#define tIncomingPopUp      data[3]
+
 enum
 {
     POPUP_COMMON_CLASSIC,
     POPUP_COMMON_ITEM_TEXT,
     POPUP_COMMON_FIND_ITEM,
     POPUP_COMMON_POKEMON_TEXT,
+    POPUP_COMMON_PARTY_INFO,
     POPUP_COMMON_INSTANT_POKEMON_TEXT,
     POPUP_COMMON_CUSTOM_ICON_TEXT,
 };
@@ -324,6 +333,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .left = 1,
         .down = 1,
         .width = 10,
@@ -335,6 +345,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .generateBorder = FALSE,
         .transparentText = TRUE,
         .left = 10,
@@ -352,6 +363,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_NONE,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .generateBorder = FALSE,
         .transparentText = TRUE,
         .left = 10,
@@ -369,6 +381,25 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
+        .generateBorder = FALSE,
+        .transparentText = TRUE,
+        .left = 10,
+        .down = 0,
+        .width = 10,
+        .height = 4,
+
+        .iconMode = POPUP_ICON_MODE_POKEMON,
+        .iconLeft = 6,
+        .iconDown = 0,
+        .iconWidth = 4,
+        .iconHeight = 4,
+    },
+    [POPUP_COMMON_PARTY_INFO] = 
+    {
+        .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .generateBorder = FALSE,
         .transparentText = TRUE,
         .left = 10,
@@ -386,6 +417,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_NONE,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .generateBorder = FALSE,
         .transparentText = TRUE,
         .left = 10,
@@ -403,6 +435,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_NONE,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .generateBorder = FALSE,
         .transparentText = TRUE,
         .left = 10,
@@ -417,13 +450,6 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
         .iconHeight = 3,
     },
 };
-
-#define SLIDE_ANIM_DURATION 15
-#define DEFAULT_DISPLAY_DURATION 90
-#define sStateNum           data[0]
-#define tOnscreenTimer      data[1]
-#define sDisplayTimer       data[2]
-#define tIncomingPopUp      data[3]
 
 static void ShowQuestPopup(void);
 static void HideQuestPopUpWindow(void);
@@ -507,11 +533,14 @@ static void ShowQuestPopup(void)
 {
     if (!FuncIsActiveTask(Task_QuestPopUpWindow))
     {
+        struct PopupRequest* popupRequest = GetCurrentPopup();
+        struct PopupRequestTemplate const* template = &sPopupRequestTemplates[popupRequest->templateId];
+        
         sRoguePopups.taskId = CreateTask(Task_QuestPopUpWindow, 90);
-        ApplyPopupAnimation(GetCurrentPopup(), 0, FALSE);
+        ApplyPopupAnimation(popupRequest, 0, FALSE);
 
         gTasks[sRoguePopups.taskId].sStateNum = 6;
-        gTasks[sRoguePopups.taskId].sDisplayTimer = SLIDE_ANIM_DURATION;
+        gTasks[sRoguePopups.taskId].sDisplayTimer = template->animDuration;
     }
     else
     {
@@ -612,7 +641,7 @@ static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 u
     u16 xStart, xEnd, yStart, yEnd;
     u16 invTimer;
 
-    invTimer = SLIDE_ANIM_DURATION - timer;
+    invTimer = template->animDuration - timer;
     xStart = 0;
     xEnd = 0;
     yStart = 0;
@@ -635,7 +664,7 @@ static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 u
         SetGpuReg(REG_OFFSET_BG0HOFS, xStart);
     else
     {
-        value = (invTimer * xEnd) / SLIDE_ANIM_DURATION + (timer * xStart) / SLIDE_ANIM_DURATION;
+        value = (invTimer * xEnd) / template->animDuration + (timer * xStart) / template->animDuration;
         SetGpuReg(REG_OFFSET_BG0HOFS, value);
     }
 
@@ -643,7 +672,7 @@ static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 u
         SetGpuReg(REG_OFFSET_BG0VOFS, yStart);
     else
     {
-        value = (invTimer * yEnd) / SLIDE_ANIM_DURATION + (timer * yStart) / SLIDE_ANIM_DURATION;
+        value = (invTimer * yEnd) / template->animDuration + (timer * yStart) / template->animDuration;
         SetGpuReg(REG_OFFSET_BG0VOFS, value);
     }
 }
@@ -652,6 +681,7 @@ static void Task_QuestPopUpWindow(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
     struct PopupRequest* popupRequest = GetCurrentPopup();
+    struct PopupRequestTemplate const* template = &sPopupRequestTemplates[popupRequest->templateId];
     bool8 useEnterAnim = FALSE;
 
     switch (task->sStateNum)
@@ -685,9 +715,9 @@ static void Task_QuestPopUpWindow(u8 taskId)
         break;
     case 2:
         task->sDisplayTimer++;
-        if (task->sDisplayTimer >= SLIDE_ANIM_DURATION)
+        if (task->sDisplayTimer >= template->animDuration)
         {
-            task->sDisplayTimer = SLIDE_ANIM_DURATION;
+            task->sDisplayTimer = template->animDuration;
             if (task->tIncomingPopUp)
             {
                 task->sStateNum = 6;
@@ -1067,9 +1097,10 @@ void Rogue_PushPopup_NewMoves(u8 slotId)
     struct PopupRequest* popup = CreateNewPopup();
     u16 species = GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES);
 
-    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->templateId = POPUP_COMMON_PARTY_INFO;
     popup->iconId = species;
     popup->soundEffect = 0;
+    popup->displayDuration = 60 - DEFAULT_ANIM_DURATION;
     
     popup->titleText = gPlayerParty[slotId].box.nickname;
     popup->subtitleText = sText_Popup_NewMoves;
@@ -1081,9 +1112,10 @@ void Rogue_PushPopup_NewEvos(u8 slotId)
     struct PopupRequest* popup = CreateNewPopup();
     u16 species = GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES);
 
-    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->templateId = POPUP_COMMON_PARTY_INFO;
     popup->iconId = species;
     popup->soundEffect = 0;
+    popup->displayDuration = 60 - DEFAULT_ANIM_DURATION;
     
     popup->titleText = gPlayerParty[slotId].box.nickname;
     popup->subtitleText = sText_Popup_NewEvolution;
