@@ -994,6 +994,11 @@ void Popup_CannotTakeItem()
     Rogue_PushPopup_CannotTakeItem(itemId, quantity);
 }
 
+void Popup_NewBadgeGet()
+{
+    Rogue_PushPopup_NewBadgeGet(Rogue_GetCurrentDifficulty() - 1);
+}
+
 u16 Rogue_GetBagCapacityUpgradeLevel()
 {
     return gSaveBlock1Ptr->bagCapacityUpgrades;

@@ -172,7 +172,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I will become a truly powerful TRAINER, in order to make the Rainbow-hued Pokémon appear!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I will become a truly powerful Trainer, in order to make the Rainbow-hued Pokémon appear!",
                         "PRE_BATTLE_TAUNT": "You're going to help me reach that level!",
                         "POST_BATTLE_TAUNT": "I didn't think our potentials would be so different.",
                         "POST_BATTLE_CLOSER": "You seem to have something more than I have…\\pSo be it."
@@ -246,7 +246,7 @@
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Do you know about the Steel type?\\pThey are very hard, cold, sharp, and really strong!",
                         "PRE_BATTLE_TAUNT": "Um… I’m not lying.",
-                        "POST_BATTLE_TAUNT": "You are a better TRAINER than me.",
+                        "POST_BATTLE_TAUNT": "You are a better Trainer than me.",
                         "POST_BATTLE_CLOSER": "You show both skill and kindness.\\pI wish you the best of luck with your journey."
                     }
                 ],
@@ -397,7 +397,7 @@
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Fwahahaha!\\pA mere child like you dares to challenge me?",
-                        "PRE_BATTLE_TAUNT": "Despair to the creeping horror of POISON-type Pokémon!",
+                        "PRE_BATTLE_TAUNT": "Despair to the creeping horror of Poison-type Pokémon!",
                         "POST_BATTLE_TAUNT": "Humph!",
                         "POST_BATTLE_CLOSER": "You have proven your worth!\\pLet's just see how long you can last…"
                     }
@@ -481,7 +481,7 @@
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You're {PLAYER}? How amusing.\\pI love Dark-type Pokémon.\\pThink you can take them?",
                         "PRE_BATTLE_TAUNT": "Just try to entertain me.",
-                        "POST_BATTLE_TAUNT": "Well, aren't you good.\\nI like that in a TRAINER.",
+                        "POST_BATTLE_TAUNT": "Well, aren't you good.\\nI like that in a Trainer.",
                         "POST_BATTLE_CLOSER": "Strong Pokémon.\\pWeak Pokémon.\\pThat is only the selfish perception of people.\\pYou understand there's more to Pokémon than that.\\pDon't lose your way as you climb to the top."
                     }
                 ],

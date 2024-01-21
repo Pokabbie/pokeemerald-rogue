@@ -111,8 +111,8 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Only those TRAINERS who have a policy about Pokémon can turn pro.",
-                        "PRE_BATTLE_TAUNT": "Can you handle my all-out offensive of WATER-type Pokémon?",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Only those Trainers who have a policy about Pokémon can turn pro.",
+                        "PRE_BATTLE_TAUNT": "Can you handle my all-out offensive of Water-type Pokémon?",
                         "POST_BATTLE_TAUNT": "Wow!\\nYou're too much!",
                         "POST_BATTLE_CLOSER": "There's plenty strong of TRAINERS still ahead of you.\\pStay strong!"
                     }
@@ -220,7 +220,7 @@
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Fwahahaha!\\pA mere child like you dares to challenge me?",
-                        "PRE_BATTLE_TAUNT": "Despair to the creeping horror of POISON-type Pokémon!",
+                        "PRE_BATTLE_TAUNT": "Despair to the creeping horror of Poison-type Pokémon!",
                         "POST_BATTLE_TAUNT": "Humph!",
                         "POST_BATTLE_CLOSER": "You have proven your worth!\\pLet's just see how long you can last…"
                     }
@@ -298,7 +298,7 @@
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My fiery Pokémon are all rough and ready with intense heat!",
-                        "PRE_BATTLE_TAUNT": "You better have a BURN HEAL!",
+                        "PRE_BATTLE_TAUNT": "You better have a Burn Heal!",
                         "POST_BATTLE_TAUNT": "I have burned down to nothing!",
                         "POST_BATTLE_CLOSER": "Not even ashes remain!\\pI like your style, kid!"
                     }
@@ -337,7 +337,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Fwahahaha!\\pMy Pokémon shall bring me glory!",
                         "PRE_BATTLE_TAUNT": "I'm not holding back!",
                         "POST_BATTLE_TAUNT": "That was a truly intense fight.",
-                        "POST_BATTLE_CLOSER": "You have won."
+                        "POST_BATTLE_CLOSER": "You have won.\\pThat is all I have to say."
                     }
                 ],
                 "preferred_mon_gender": "MALE",
@@ -465,7 +465,7 @@
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Pokémon are for battling!",
-                        "PRE_BATTLE_TAUNT": "I'll show you how a real TRAINER battles!",
+                        "PRE_BATTLE_TAUNT": "I'll show you how a real Trainer battles!",
                         "POST_BATTLE_TAUNT": "Oh, my!\\nYou're something special, child",
                         "POST_BATTLE_CLOSER": "I have nothing else to say.\\pRun along now, child!"
                     }
@@ -558,7 +558,7 @@
                 [
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I am usually a man of research.\\pBut at this moment in time…",
-                        "PRE_BATTLE_TAUNT": "I shall battle, with no mercy!",
+                        "PRE_BATTLE_TAUNT": "I shall battle, as I did in my youth!",
                         "POST_BATTLE_TAUNT": "That was marvelous, {PLAYER}!",
                         "POST_BATTLE_CLOSER": "You were truely astounding, battling alongside your Pokémon.\\pI wish you the best of luck moving forward!"
                     }

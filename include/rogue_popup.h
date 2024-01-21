@@ -43,4 +43,6 @@ void Rogue_PushPopup_AssistantDisconnected();
 
 void Rogue_PushPopup_OutfitUnlocked();
 
+void Rogue_PushPopup_NewBadgeGet(u8 difficulty);
+
 #endif //QUEST_POPUP_H

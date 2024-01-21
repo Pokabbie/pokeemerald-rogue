@@ -21,6 +21,15 @@ script Rogue_Common_DisplayPopups
     return
 }
 
+script Rogue_Common_DisplayNewBadgePopup
+{
+    call(Rogue_Common_DisplayPopups)
+    
+    special(Popup_NewBadgeGet)
+    call(Rogue_Common_DisplayPopups)
+    return
+}
+
 script Rogue_Common_WaitForRogueAssistant
 {
     special(Rogue_IsRogueAssistantConnected)
@@ -387,7 +396,7 @@ script Rogue_Shop_Balls
 {    
     lock
     faceplayer
-    message("Welcome to the POKéBALL Shop!")
+    message("Welcome to the Poké Ball Shop!")
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_BALLS)
@@ -400,7 +409,7 @@ script Rogue_Shop_Medicine
 {    
     lock
     faceplayer
-    message("Welcome to the GENERAL Shop!")
+    message("Welcome to the General Shop!")
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_GENERAL)
@@ -426,7 +435,7 @@ script Rogue_Shop_BattleEnhancers
 {
     lock
     faceplayer
-    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock ENHANCEMENT ITEMS.")
+    message("Welcome to the Travelling Battle Shop!\nI stock Enhancement Items.")
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_BATTLE_ENHANCERS)
@@ -439,7 +448,7 @@ script Rogue_Shop_HeldItems
 {
     lock
     faceplayer
-    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock HELD ITEMS.")
+    message("Welcome to the Travelling Battle Shop!\nI stock Held Items.")
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_HELD_ITEMS)
@@ -452,7 +461,7 @@ script Rogue_Shop_RareHeldItems
 {
     lock
     faceplayer
-    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock RARE HELD ITEMS.")
+    message("Welcome to the Travelling Battle Shop!\nI stock Special Held Items.")
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_RARE_HELD_ITEMS)
@@ -465,7 +474,7 @@ script Rogue_Shop_RarePlates
 {
     lock
     faceplayer
-    message("Welcome to the TRAVELLING BATTLE Shop!\nI stock QUEST REWARD ITEMS.")
+    message("Welcome to the Travelling Battle Shop!\nI stock Quest Reward Items.")
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_QUEST_REWARDS)

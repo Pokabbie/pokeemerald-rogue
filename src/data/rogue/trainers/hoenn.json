@@ -176,7 +176,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I became a GYM LEADER so that I might apply what I learned at the TRAINER SCHOOL.",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I became a Gym Leader so that I might apply what I learned at the Trainer School.",
                         "PRE_BATTLE_TAUNT": "Would you kindly demonstrate how you battle?",
                         "POST_BATTLE_TAUNT": "So… I lost…",
                         "POST_BATTLE_CLOSER": "It seems that I still have much more to learn…\\pI wish you the best of luck in your Adventure!"
@@ -283,7 +283,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Puny TRAINER, how good to see you've made it here!\\pI shall, uh…",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Puny Trainer, how good to see you've made it here!\\pI shall, uh…",
                         "PRE_BATTLE_TAUNT": "demonstrate the hot moves we have honed on this land!",
                         "POST_BATTLE_TAUNT": "I guess I was trying too hard…",
                         "POST_BATTLE_CLOSER": "I tried too hard to be someone I'm not.\\pI have to do things my natural way.\\pThanks for teaching me that."
@@ -362,9 +362,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I have become one with BIRD Pokémon and have soared the skies…",
-                        "PRE_BATTLE_TAUNT": "Witness the elegant choreography of BIRD Pokémon and I!",
-                        "POST_BATTLE_TAUNT": "Never before have I seen a TRAINER command Pokémon with more grace.",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I have become one with Bird Pokémon and have soared the skies…",
+                        "PRE_BATTLE_TAUNT": "Witness the elegant choreography of Bird Pokémon and I!",
+                        "POST_BATTLE_TAUNT": "Never before have I seen a Trainer command Pokémon with more grace.",
                         "POST_BATTLE_CLOSER": "I recognise your prowess.\\pGood luck with your Adventure."
                     }
                 ],
@@ -522,7 +522,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: While I trained, I gained the ability to commune with GHOST-type Pokémon.",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: While I trained, I gained the ability to commune with Ghost-type Pokémon.",
                         "PRE_BATTLE_TAUNT": "So, come on, just try and see if you can even inflict damage on my Pokémon!",
                         "POST_BATTLE_TAUNT": "Oh, darn.\\nI've gone and lost.",
                         "POST_BATTLE_CLOSER": "There's a definite bond between you and your Pokémon, too.\\pCarry that bond forward, {PLAYER}."
@@ -566,7 +566,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: All I have seen are challenges by weak TRAINERS and their Pokémon.",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: All I have seen are challenges by weak Trainers and their Pokémon.",
                         "PRE_BATTLE_TAUNT": "I wonder.\\nHow will you do?",
                         "POST_BATTLE_TAUNT": "You and your Pokémon…\\nHow hot your spirits burn!",
                         "POST_BATTLE_CLOSER": "Finally!\\pYou have posed a good challenge for my Pokémon and I.\\pCarry that strength onward!"
@@ -610,7 +610,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: For us to battle with Pokémon as partners, do you know what it takes?\\pIf you don't…",
                         "PRE_BATTLE_TAUNT": "Then you will never prevail over me!",
                         "POST_BATTLE_TAUNT": "Superb, it should be said.",
-                        "POST_BATTLE_CLOSER": "You deserve every credit for coming this far as a TRAINER of Pokémon.\\pI look forward to seeing how your bond with your Pokémon blossoms, going forward."
+                        "POST_BATTLE_CLOSER": "You deserve every credit for coming this far as a Trainer of Pokémon.\\pI look forward to seeing how your bond with your Pokémon blossoms, going forward."
                     }
                 ],
                 "preferred_mon_gender": "MALE",
@@ -702,7 +702,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Tell me…\\pWhat have you seen on your journey with your Pokémon?",
                         "PRE_BATTLE_TAUNT": "Come at me with all that you've learned!",
                         "POST_BATTLE_TAUNT": "So I…\\nFall in defeat.",
-                        "POST_BATTLE_CLOSER": "{PLAYER}, you are truly an excellent TRAINER\\pYou share a bond with your Pokémon that will surely only assist you in your future battles!"
+                        "POST_BATTLE_CLOSER": "{PLAYER}, you are truly an excellent Trainer\\pYou share a bond with your Pokémon that will surely only assist you in your future battles!"
                     }
                 ],
                 "preferred_mon_gender": "MALE",
