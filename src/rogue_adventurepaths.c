@@ -678,7 +678,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         // If players get encounters they basically have to get lucky with wild den
         if(GetPathGenerationDifficulty() >=  ROGUE_CHAMP_START_DIFFICULTY)
         {
-            chance = 90;
+            chance = 95;
         }
         else if(GetPathGenerationDifficulty() >=  ROGUE_ELITE_START_DIFFICULTY)
         {
@@ -781,7 +781,8 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
 
         case ADVPATH_ROOM_ROUTE:
         {
-            gRogueAdvPath.rooms[roomId].roomParams.roomIdx = Rogue_SelectRouteRoom();
+            gRogueAdvPath.rooms[roomId].roomParams.roomIdx = Rogue_SelectRouteRoom(GetPathGenerationDifficulty());
+            DebugPrintf("Route [%d] = %d", roomId, gRogueAdvPath.rooms[roomId].roomParams.roomIdx);
 
             if(GetPathGenerationDifficulty() > ROGUE_ELITE_START_DIFFICULTY)
             {

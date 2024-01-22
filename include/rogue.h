@@ -121,9 +121,7 @@ struct RogueAdvPath
 {
     struct RogueAdvPathRoomParams currentRoomParams;
     struct RogueAdvPathRoom rooms[ROGUE_ADVPATH_ROOM_CAPACITY];
-    u16 routeHistoryBuffer[12]; // TODO - Remove these
-    u16 legendaryHistoryBuffer[6];
-    u16 miniBossHistoryBuffer[6];
+    u16 routeHistoryBuffer[18];
     u8 currentRoomType;
     u8 roomCount;
     u8 pathLength;

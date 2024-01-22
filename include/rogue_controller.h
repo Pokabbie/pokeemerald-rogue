@@ -112,7 +112,7 @@ bool8 Rogue_AcceptMapConnection(struct MapHeader *mapHeader, const struct MapCon
 void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity);
 
 void Rogue_ResetAdventurePathBuffers();
-u8 Rogue_SelectRouteRoom(void);
+u8 Rogue_SelectRouteRoom(u8 difficulty);
 u8 Rogue_GetCurrentLegendaryEncounterId(void);
 u16 Rogue_GetLegendaryRoomForSpecies(u16 species);
 u8 Rogue_GetCurrentTeamHideoutEncounterId(void);

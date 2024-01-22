@@ -295,14 +295,16 @@ static u8 CalculateLvlFor(u8 difficulty)
     // Gym leaders lvs 10 -> 80
     if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
     {
-        return 10 * (difficulty + 1);
-
-        return min(100, 15 + 10 * difficulty);
+        return GYM_FIRST_LEVEL_CAP + GYM_LEVEL_CAP_JUMP * difficulty;
     }
     else if(difficulty < ROGUE_CHAMP_START_DIFFICULTY)
     {
+        const u8 gymLastLvlCap = GYM_FIRST_LEVEL_CAP + GYM_LEVEL_CAP_JUMP * 7;
+        const u8 eliteLvlRange = MAX_LEVEL - gymLastLvlCap;
+        const u8 eliteLvlJump = eliteLvlRange / 5; // Elite 4 + Champion
+
         difficulty -= ROGUE_ELITE_START_DIFFICULTY;
-        return 80 + 4 * (difficulty + 1);
+        return gymLastLvlCap + eliteLvlJump * (difficulty + 1);
     }
     else
     {
