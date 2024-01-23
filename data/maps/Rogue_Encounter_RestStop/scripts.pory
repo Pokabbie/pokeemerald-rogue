@@ -54,10 +54,12 @@ script Rogue_Encounter_RestStop_RandomMan
                     updatemoneybox
 
                     fadescreen(FADE_TO_BLACK)
+                    call(Rogue_ScriptHideFollower)
                     playfanfare(MUS_MOVE_DELETED)
                     special(Rogue_RandomisePartyMon)
                     waitfanfare
                     fadescreen(FADE_FROM_BLACK)
+                    call(Rogue_ScriptShowFollower)
 
                     msgbox(format("Ke ke ke!\pEnjoy!"))
                     applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_RunAway)
@@ -78,10 +80,12 @@ script Rogue_Encounter_RestStop_RandomMan
             setvar(VAR_0x8004, 255)
 
             fadescreen(FADE_TO_BLACK)
+            call(Rogue_ScriptHideFollower)
             playfanfare(MUS_MOVE_DELETED)
             special(Rogue_RandomisePartyMon)
             waitfanfare
             fadescreen(FADE_FROM_BLACK)
+            call(Rogue_ScriptShowFollower)
             
             msgbox(format("Ke ke ke!\pEnjoy!"))
             applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_RunAway)

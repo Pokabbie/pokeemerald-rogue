@@ -1,6 +1,7 @@
 #include "global.h"
 #include "constants/game_stat.h"
 #include "constants/items.h"
+#include "constants/region_map_sections.h"
 
 #include "battle.h"
 #include "event_data.h"
@@ -279,6 +280,9 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
                 ZeroMonData(mon);
                 CreateMon(mon, rewardInfo->perType.pokemon.species, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, otIdType, fixedOtId);
 
+                temp = METLOC_FATEFUL_ENCOUNTER;
+                SetMonData(mon, MON_DATA_MET_LOCATION, &temp);
+
                 // Update nickname
                 if(rewardInfo->perType.pokemon.nickname != NULL)
                 {
@@ -505,8 +509,6 @@ static void EnsureUnlockedDefaultQuests()
         if(RogueQuest_GetConstFlag(i, QUEST_CONST_UNLOCKED_BY_DEFAULT))
             RogueQuest_TryUnlockQuest(i);
     }
-
-    RogueQuest_ClearNewUnlockQuests();
 }
 
 void RogueQuest_OnNewGame()

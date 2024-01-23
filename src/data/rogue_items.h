@@ -191,8 +191,8 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .price = 2100,
         .description = gItemDesc_EvolutionItem,
         .pocket = POCKET_ITEMS,
-        .iconImage = gItemIcon_MoonStone,
-        .iconPalette = gItemIconPalette_PokeblockCase,
+        .iconImage = gItemIcon_AlolaStone,
+        .iconPalette = gItemIconPalette_AlolaStone,
     },
     [ITEM_GALAR_STONE - ITEM_ROGUE_ITEM_FIRST] =
     {
@@ -201,8 +201,8 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .price = 2100,
         .description = gItemDesc_EvolutionItem,
         .pocket = POCKET_ITEMS,
-        .iconImage = gItemIcon_MoonStone,
-        .iconPalette = gItemIconPalette_PokeblockCase,
+        .iconImage = gItemIcon_GalarStone,
+        .iconPalette = gItemIconPalette_GalarStone,
     },
     [ITEM_HISUI_STONE - ITEM_ROGUE_ITEM_FIRST] =
     {
@@ -211,8 +211,8 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .price = 2100,
         .description = gItemDesc_EvolutionItem,
         .pocket = POCKET_ITEMS,
-        .iconImage = gItemIcon_MoonStone,
-        .iconPalette = gItemIconPalette_PokeblockCase,
+        .iconImage = gItemIcon_HisuiStone,
+        .iconPalette = gItemIconPalette_HisuiStone,
     },
 #endif
 

@@ -618,6 +618,9 @@ const u32 gTrainerPalette_GlitchErma[] = INCBIN_U32("graphics/trainers/palettes/
 const u32 gTrainerFrontPic_CommunityZefa[] = INCBIN_U32("graphics/trainers/front_pics/community/zefa_front_pic.4bpp.lz");
 const u32 gTrainerPalette_CommunityZefa[] = INCBIN_U32("graphics/trainers/front_pics/community/zefa_front_pic.gbapal.lz");
 
+const u32 gTrainerFrontPic_CommunityLightningStrike7[] = INCBIN_U32("graphics/trainers/front_pics/community/lightningstrike7_front_pic.4bpp.lz");
+const u32 gTrainerPalette_CommunityLightningStrike7[] = INCBIN_U32("graphics/trainers/front_pics/community/lightningstrike7_front_pic.gbapal.lz");
+
 const u32 gTrainerFrontPic_RivalSilver[] = INCBIN_U32("graphics/trainers/front_pics/rival/silver.4bpp.lz");
 const u32 gTrainerPalette_RivalSilver[] = INCBIN_U32("graphics/trainers/front_pics/rival/silver.gbapal.lz");
 

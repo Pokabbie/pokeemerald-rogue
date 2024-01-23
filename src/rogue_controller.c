@@ -1003,12 +1003,13 @@ static u32 CalculateBattleWinnings(u16 trainerNum)
                 break;
         }
 
+        // Default multiplier is 4
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-            moneyReward = 8 * lastMonLevel * gTrainerMoneyTable[i].value;
+            moneyReward = 6 * lastMonLevel * gTrainerMoneyTable[i].value;
         else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
-            moneyReward = 8 * lastMonLevel * 2 * gTrainerMoneyTable[i].value;
+            moneyReward = 6 * lastMonLevel * 2 * gTrainerMoneyTable[i].value;
         else
-            moneyReward = 8 * lastMonLevel * gTrainerMoneyTable[i].value;
+            moneyReward = 6 * lastMonLevel * gTrainerMoneyTable[i].value;
     }
 
     return moneyReward;
@@ -3428,7 +3429,7 @@ static u8 WildDenEncounter_CalculateWeight(u16 index, u16 species, void* data)
     if(IsRareWeightedSpecies(species))
         return 1;
 
-    return 10;
+    return 3;
 }
 
 u16 Rogue_SelectWildDenEncounterRoom(void)
@@ -3582,77 +3583,60 @@ u16 Rogue_SelectHoneyTreeEncounterRoom(void)
     return species;
 }
 
-static bool8 IsRouteEnabled(u16 routeId)
-{
-    const struct RogueRouteEncounter* route = &gRogueRouteTable.routes[routeId];
-    u16 includeFlags = ROUTE_FLAG_NONE;
-    u16 excludeFlags = ROUTE_FLAG_NONE;
-
-    // Force all route flags now
-    includeFlags |= ROUTE_FLAG_ANY;
-
-    if(excludeFlags != ROUTE_FLAG_NONE && (route->mapFlags & excludeFlags) != 0)
-    {
-        return FALSE;
-    }
-
-    if(includeFlags == ROUTE_FLAG_NONE || (route->mapFlags & includeFlags) != 0)
-    {
-        if(!HistoryBufferContains(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId))
-        {
-            return TRUE;
-        }
-    }
-
-    return FALSE;
-}
-
-static u16 NextRouteId()
-{
-    u16 i;
-    u16 randIdx;
-    u16 enabledRoutesCount = 0;
-
-    for(i = 0; i < gRogueRouteTable.routeCount; ++i)
-    {
-        if(IsRouteEnabled(i))
-            ++enabledRoutesCount;
-    }
-
-    if(enabledRoutesCount == 0)
-    {
-        // We've exhausted all enabled route options, so we're going to wipe the buffer and try again
-        memset(&gRogueAdvPath.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer));
-        return NextRouteId();
-    }
-
-    randIdx = RogueRandomRange(enabledRoutesCount, OVERWORLD_FLAG);
-    enabledRoutesCount = 0;
-
-    for(i = 0; i < gRogueRouteTable.routeCount; ++i)
-    {
-        if(IsRouteEnabled(i))
-        {
-            if(enabledRoutesCount == randIdx)
-                return i;
-            else
-                ++enabledRoutesCount;
-        }
-    }
-
-    return gRogueRouteTable.routeCount - 1;
-}
-
 void Rogue_ResetAdventurePathBuffers()
 {
     memset(&gRogueAdvPath.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer));
-    memset(&gRogueAdvPath.legendaryHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.legendaryHistoryBuffer));
-    memset(&gRogueAdvPath.miniBossHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.miniBossHistoryBuffer));
 }
 
-u8 Rogue_SelectRouteRoom(void)
+static u8 SelectRouteRoom_CalculateWeight(u16 index, u16 routeId, void* data)
 {
-    u16 routeId = NextRouteId();
+    u8 const roomDelay = 4;
+    u8 difficulty = *((u8*)data);
+    u16 roomSeed = (gRogueRun.baseSeed * 2135 ^ 13890 *routeId);
+
+    if(HistoryBufferContains(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId))
+    {
+        // Don't repeat routes on same screen
+        return 0;
+    }
+
+    if((roomSeed % roomDelay) == (difficulty % roomDelay))
+        return 255;
+    else
+        // Don't place routes we've recently seend
+        return 0;
+}
+
+u8 Rogue_SelectRouteRoom(u8 difficulty)
+{
+    u32 seedToRestore = gRngRogueValue;
+    u16 routeId;
+
+    RogueCustomQuery_Begin();
+    {
+        u16 i;
+        
+        for(i = 0; i < gRogueRouteTable.routeCount; ++i)
+        {
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
+        }
+
+        RogueWeightQuery_Begin();
+        {
+            RogueWeightQuery_CalculateWeights(SelectRouteRoom_CalculateWeight, &difficulty);
+
+            if(!RogueWeightQuery_HasAnyWeights())
+            {
+                // Fallback and include all routes
+                RogueWeightQuery_FillWeights(1);
+            }
+
+            routeId = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+        }
+        RogueWeightQuery_End();
+    }
+    RogueCustomQuery_End();
+
 
     HistoryBufferPush(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId);
 
@@ -6313,7 +6297,7 @@ static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* 
     if(IsRareWeightedSpecies(species))
         return 1;
 
-    return 10;
+    return 3;
 }
 
 static u8 RandomiseWildEncounters_CalculateInitialWeight(u16 index, u16 species, void* data)
@@ -6517,7 +6501,7 @@ static u8 RandomiseFishingEncounters_CalculateWeight(u16 index, u16 species, voi
     if(IsRareWeightedSpecies(species))
         return 1;
 
-    return 15;
+    return 10;
 }
 
 static void RandomiseFishingEncounters(void)

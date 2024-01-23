@@ -233,6 +233,7 @@ gSpecials::
 	def_special Rogue_RunRewardMoney
 	def_special Rogue_SetTimeAndSeason
 	def_special Popup_CannotTakeItem
+	def_special Popup_NewBadgeGet
 	def_special Rogue_GetBagCapacityUpgradeLevel
 	def_special Rogue_IncreaseBagCapacityUpgradeLevel
 	def_special Rogue_BufferBagUpgradeCost

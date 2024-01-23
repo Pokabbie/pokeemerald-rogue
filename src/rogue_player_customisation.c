@@ -91,6 +91,7 @@ enum
 
     // Community secret unlocks
     PLAYER_OUTFIT_ZEFA,
+    PLAYER_OUTFIT_LIGHTNINGSTRIKE7,
 
     PLAYER_OUTFIT_COUNT,
 };
@@ -110,6 +111,7 @@ enum
     OUTFIT_UNLOCK_TAILS,
 
     OUTFIT_UNLOCK_ZEFA,
+    OUTFIT_UNLOCK_LIGHTNINGSTRIKE7,
 
     OUTFIT_UNLOCK_COUNT,
 };
@@ -179,6 +181,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TailsRiding
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZefaNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZefaRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LightningStrike7Normal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LightningStrike7Riding;
 
 extern const u16 gObjectEventPal_Npc1[];
 extern const u16 gObjectEventPal_Npc2[];
@@ -792,6 +796,26 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
     },
+    [PLAYER_OUTFIT_LIGHTNINGSTRIKE7] =
+    {
+        .name = _("LS7"),
+        .trainerFrontPic = TRAINER_PIC_COMMUNITY_LIGHTNINGSTRIKE7,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_MAY,
+        .outfitUnlockId = OUTFIT_UNLOCK_LIGHTNINGSTRIKE7,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_LightningStrike7Normal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_LightningStrike7Riding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerLightningStrike7Base,
+        .objectEventLayerPal = NULL,
+        .trainerFrontBasePal = NULL,
+        .trainerFrontLayerPal = NULL,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+    },
 };
 
 static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] = 
@@ -873,6 +897,18 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             {
                 .name = _("ZEFA"),
                 .eggSpecies = SPECIES_TRAPINCH,
+            }
+        }
+    },
+    [OUTFIT_UNLOCK_LIGHTNINGSTRIKE7] = 
+    {
+        .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
+        .params = 
+        {
+            .easterEgg = 
+            {
+                .name = _("LS7"),
+                .eggSpecies = SPECIES_MAGNEMITE,
             }
         }
     },

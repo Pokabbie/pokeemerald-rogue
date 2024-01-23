@@ -62,6 +62,25 @@ enum
 enum
 {
     POPUP_CUSTOM_ICON_POKEDEX,
+    POPUP_CUSTOM_ICON_TYPE_NORMAL,
+    POPUP_CUSTOM_ICON_TYPE_FIGHTING,
+    POPUP_CUSTOM_ICON_TYPE_FLYING,
+    POPUP_CUSTOM_ICON_TYPE_POISON,
+    POPUP_CUSTOM_ICON_TYPE_GROUND,
+    POPUP_CUSTOM_ICON_TYPE_ROCK,
+    POPUP_CUSTOM_ICON_TYPE_BUG,
+    POPUP_CUSTOM_ICON_TYPE_GHOST,
+    POPUP_CUSTOM_ICON_TYPE_STEEL,
+    POPUP_CUSTOM_ICON_TYPE_MYSTERY,
+    POPUP_CUSTOM_ICON_TYPE_FIRE,
+    POPUP_CUSTOM_ICON_TYPE_WATER,
+    POPUP_CUSTOM_ICON_TYPE_GRASS,
+    POPUP_CUSTOM_ICON_TYPE_ELECTRIC,
+    POPUP_CUSTOM_ICON_TYPE_PSYCHIC,
+    POPUP_CUSTOM_ICON_TYPE_ICE,
+    POPUP_CUSTOM_ICON_TYPE_DRAGON,
+    POPUP_CUSTOM_ICON_TYPE_DARK,
+    POPUP_CUSTOM_ICON_TYPE_FAIRY,
     POPUP_CUSTOM_ICON_COUNT,
 };
 
@@ -69,6 +88,7 @@ struct PopupRequestTemplate
 {
     u8 enterAnim;
     u8 exitAnim;
+    u8 animDuration;
     u8 iconMode;
     u8 left;
     u8 down;
@@ -91,9 +111,11 @@ struct PopupRequest
     u8 titleTextCapacity;
     u8 templateId;
     u16 iconId;
+    u16 displayDuration;
     u16 soundEffect;
     u16 fanfare;
     bool8 scriptAudioOnly : 1;
+    bool8 cantBeSkipped : 1;
 };
 
 struct PopupManager
@@ -123,6 +145,101 @@ static struct CustomIcon const sRoguePopupCustomIcons[POPUP_CUSTOM_ICON_COUNT] =
     {
         .icon = gItemIcon_Pokedex,
         .palette = gItemIconPalette_Pokedex
+    },
+    [POPUP_CUSTOM_ICON_TYPE_NORMAL] = 
+    {
+        .icon = gItemIcon_TypeNormal,
+        .palette = gItemIconPalette_TypeNormal
+    },
+    [POPUP_CUSTOM_ICON_TYPE_FIGHTING] = 
+    {
+        .icon = gItemIcon_TypeFighting,
+        .palette = gItemIconPalette_TypeFighting
+    },
+    [POPUP_CUSTOM_ICON_TYPE_FLYING] = 
+    {
+        .icon = gItemIcon_TypeFlying,
+        .palette = gItemIconPalette_TypeFlying
+    },
+    [POPUP_CUSTOM_ICON_TYPE_POISON] = 
+    {
+        .icon = gItemIcon_TypePoison,
+        .palette = gItemIconPalette_TypePoison
+    },
+    [POPUP_CUSTOM_ICON_TYPE_GROUND] = 
+    {
+        .icon = gItemIcon_TypeGround,
+        .palette = gItemIconPalette_TypeGround
+    },
+    [POPUP_CUSTOM_ICON_TYPE_ROCK] = 
+    {
+        .icon = gItemIcon_TypeRock,
+        .palette = gItemIconPalette_TypeRock
+    },
+    [POPUP_CUSTOM_ICON_TYPE_BUG] = 
+    {
+        .icon = gItemIcon_TypeBug,
+        .palette = gItemIconPalette_TypeBug
+    },
+    [POPUP_CUSTOM_ICON_TYPE_GHOST] = 
+    {
+        .icon = gItemIcon_TypeGhost,
+        .palette = gItemIconPalette_TypeGhost
+    },
+    [POPUP_CUSTOM_ICON_TYPE_STEEL] = 
+    {
+        .icon = gItemIcon_TypeSteel,
+        .palette = gItemIconPalette_TypeSteel
+    },
+    [POPUP_CUSTOM_ICON_TYPE_MYSTERY] = 
+    {
+        .icon = gItemIcon_TypeMystery,
+        .palette = gItemIconPalette_TypeMystery
+    },
+    [POPUP_CUSTOM_ICON_TYPE_FIRE] = 
+    {
+        .icon = gItemIcon_TypeFire,
+        .palette = gItemIconPalette_TypeFire
+    },
+    [POPUP_CUSTOM_ICON_TYPE_WATER] = 
+    {
+        .icon = gItemIcon_TypeWater,
+        .palette = gItemIconPalette_TypeWater
+    },
+    [POPUP_CUSTOM_ICON_TYPE_GRASS] = 
+    {
+        .icon = gItemIcon_TypeGrass,
+        .palette = gItemIconPalette_TypeGrass
+    },
+    [POPUP_CUSTOM_ICON_TYPE_ELECTRIC] = 
+    {
+        .icon = gItemIcon_TypeElectric,
+        .palette = gItemIconPalette_TypeElectric
+    },
+    [POPUP_CUSTOM_ICON_TYPE_PSYCHIC] = 
+    {
+        .icon = gItemIcon_TypePsychic,
+        .palette = gItemIconPalette_TypePsychic
+    },
+    [POPUP_CUSTOM_ICON_TYPE_ICE] = 
+    {
+        .icon = gItemIcon_TypeIce,
+        .palette = gItemIconPalette_TypeIce
+    },
+    [POPUP_CUSTOM_ICON_TYPE_DRAGON] = 
+    {
+        .icon = gItemIcon_TypeDragon,
+        .palette = gItemIconPalette_TypeDragon
+    },
+    [POPUP_CUSTOM_ICON_TYPE_DARK] = 
+    {
+        .icon = gItemIcon_TypeDark,
+        .palette = gItemIconPalette_TypeDark
+    },
+    [POPUP_CUSTOM_ICON_TYPE_FAIRY] = 
+    {
+        .icon = gItemIcon_TypeFairy,
+        .palette = gItemIconPalette_TypeFairy
     }
 };
 
@@ -186,6 +303,18 @@ static const u8 sText_Popup_ItsASecret[] = _("Shh… its a secret");
 static const u8 sText_Popup_ExtraLifeTitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Extra Life!");
 static const u8 sText_Popup_ExtraLifeSubtitle[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Sacred Ash used");
 
+static const u8 sText_Popup_GymBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gym Badge {STR_VAR_1}");
+static const u8 sText_Popup_EliteBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Elite Badge {STR_VAR_1}");
+static const u8 sText_Popup_ChampBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Champion Badge");
+static const u8 sText_Popup_EarnBadge[] = _("Recieved badge!");
+
+
+#define DEFAULT_ANIM_DURATION 15
+#define DEFAULT_DISPLAY_DURATION 90
+#define sStateNum           data[0]
+#define tOnscreenTimer      data[1]
+#define sDisplayTimer       data[2]
+#define tIncomingPopUp      data[3]
 
 enum
 {
@@ -193,6 +322,7 @@ enum
     POPUP_COMMON_ITEM_TEXT,
     POPUP_COMMON_FIND_ITEM,
     POPUP_COMMON_POKEMON_TEXT,
+    POPUP_COMMON_PARTY_INFO,
     POPUP_COMMON_INSTANT_POKEMON_TEXT,
     POPUP_COMMON_CUSTOM_ICON_TEXT,
 };
@@ -203,6 +333,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .left = 1,
         .down = 1,
         .width = 10,
@@ -214,6 +345,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .generateBorder = FALSE,
         .transparentText = TRUE,
         .left = 10,
@@ -231,6 +363,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_NONE,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .generateBorder = FALSE,
         .transparentText = TRUE,
         .left = 10,
@@ -248,6 +381,25 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
+        .generateBorder = FALSE,
+        .transparentText = TRUE,
+        .left = 10,
+        .down = 0,
+        .width = 10,
+        .height = 4,
+
+        .iconMode = POPUP_ICON_MODE_POKEMON,
+        .iconLeft = 6,
+        .iconDown = 0,
+        .iconWidth = 4,
+        .iconHeight = 4,
+    },
+    [POPUP_COMMON_PARTY_INFO] = 
+    {
+        .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .generateBorder = FALSE,
         .transparentText = TRUE,
         .left = 10,
@@ -265,6 +417,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_NONE,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .generateBorder = FALSE,
         .transparentText = TRUE,
         .left = 10,
@@ -282,6 +435,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     {
         .enterAnim = POPUP_ANIM_NONE,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
         .generateBorder = FALSE,
         .transparentText = TRUE,
         .left = 10,
@@ -296,10 +450,6 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
         .iconHeight = 3,
     },
 };
-
-#define SLIDE_ANIM_DURATION 20
-#define sStateNum data[0]
-#define sDisplayTimer data[2]
 
 static void ShowQuestPopup(void);
 static void HideQuestPopUpWindow(void);
@@ -383,17 +533,20 @@ static void ShowQuestPopup(void)
 {
     if (!FuncIsActiveTask(Task_QuestPopUpWindow))
     {
+        struct PopupRequest* popupRequest = GetCurrentPopup();
+        struct PopupRequestTemplate const* template = &sPopupRequestTemplates[popupRequest->templateId];
+        
         sRoguePopups.taskId = CreateTask(Task_QuestPopUpWindow, 90);
-        ApplyPopupAnimation(GetCurrentPopup(), 0, FALSE);
+        ApplyPopupAnimation(popupRequest, 0, FALSE);
 
         gTasks[sRoguePopups.taskId].sStateNum = 6;
-        gTasks[sRoguePopups.taskId].sDisplayTimer = SLIDE_ANIM_DURATION;
+        gTasks[sRoguePopups.taskId].sDisplayTimer = template->animDuration;
     }
     else
     {
         if (gTasks[sRoguePopups.taskId].sStateNum != 2)
             gTasks[sRoguePopups.taskId].sStateNum = 2;
-        gTasks[sRoguePopups.taskId].data[3] = 1;
+        gTasks[sRoguePopups.taskId].tIncomingPopUp = 1;
     }
 }
 
@@ -442,7 +595,7 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
         }
         
         // If you press a button during a script, it will skip this notification
-        if(sRoguePopups.forceEnabled)
+        if(sRoguePopups.forceEnabled && !GetCurrentPopup()->cantBeSkipped)
         {
             if(JOY_NEW(A_BUTTON | B_BUTTON | START_BUTTON))
             {
@@ -488,7 +641,7 @@ static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 u
     u16 xStart, xEnd, yStart, yEnd;
     u16 invTimer;
 
-    invTimer = SLIDE_ANIM_DURATION - timer;
+    invTimer = template->animDuration - timer;
     xStart = 0;
     xEnd = 0;
     yStart = 0;
@@ -511,7 +664,7 @@ static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 u
         SetGpuReg(REG_OFFSET_BG0HOFS, xStart);
     else
     {
-        value = (invTimer * xEnd) / SLIDE_ANIM_DURATION + (timer * xStart) / SLIDE_ANIM_DURATION;
+        value = (invTimer * xEnd) / template->animDuration + (timer * xStart) / template->animDuration;
         SetGpuReg(REG_OFFSET_BG0HOFS, value);
     }
 
@@ -519,7 +672,7 @@ static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 u
         SetGpuReg(REG_OFFSET_BG0VOFS, yStart);
     else
     {
-        value = (invTimer * yEnd) / SLIDE_ANIM_DURATION + (timer * yStart) / SLIDE_ANIM_DURATION;
+        value = (invTimer * yEnd) / template->animDuration + (timer * yStart) / template->animDuration;
         SetGpuReg(REG_OFFSET_BG0VOFS, value);
     }
 }
@@ -528,6 +681,7 @@ static void Task_QuestPopUpWindow(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
     struct PopupRequest* popupRequest = GetCurrentPopup();
+    struct PopupRequestTemplate const* template = &sPopupRequestTemplates[popupRequest->templateId];
     bool8 useEnterAnim = FALSE;
 
     switch (task->sStateNum)
@@ -548,27 +702,27 @@ static void Task_QuestPopUpWindow(u8 taskId)
         {
             task->sDisplayTimer = 0;
             task->sStateNum = 1;
-            gTasks[sRoguePopups.taskId].data[1] = 0;
+            gTasks[sRoguePopups.taskId].tOnscreenTimer = 0;
         }
         break;
     case 1:
-        task->data[1]++;
-        if (task->data[1] > 120 )
+        task->tOnscreenTimer++;
+        if (task->tOnscreenTimer > popupRequest->displayDuration )
         {
-            task->data[1] = 0;
+            task->tOnscreenTimer = 0;
             task->sStateNum = 2;
         }
         break;
     case 2:
         task->sDisplayTimer++;
-        if (task->sDisplayTimer >= SLIDE_ANIM_DURATION)
+        if (task->sDisplayTimer >= template->animDuration)
         {
-            task->sDisplayTimer = SLIDE_ANIM_DURATION;
-            if (task->data[3])
+            task->sDisplayTimer = template->animDuration;
+            if (task->tIncomingPopUp)
             {
                 task->sStateNum = 6;
                 task->data[4] = 0;
-                task->data[3] = 0;
+                task->tIncomingPopUp = 0;
             }
             else
             {
@@ -863,6 +1017,7 @@ static struct PopupRequest* CreateNewPopup()
         sRoguePopups.lastShownId = (sRoguePopups.lastShownId + 1) % POPUP_QUEUE_CAPACITY;
 
     memset(&sRoguePopups.requestQueue[popupId], 0, sizeof(sRoguePopups.requestQueue[popupId]));
+    sRoguePopups.requestQueue[popupId].displayDuration = DEFAULT_DISPLAY_DURATION;
     return &sRoguePopups.requestQueue[popupId];
 }
 
@@ -942,9 +1097,10 @@ void Rogue_PushPopup_NewMoves(u8 slotId)
     struct PopupRequest* popup = CreateNewPopup();
     u16 species = GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES);
 
-    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->templateId = POPUP_COMMON_PARTY_INFO;
     popup->iconId = species;
     popup->soundEffect = 0;
+    popup->displayDuration = 60 - DEFAULT_ANIM_DURATION;
     
     popup->titleText = gPlayerParty[slotId].box.nickname;
     popup->subtitleText = sText_Popup_NewMoves;
@@ -956,9 +1112,10 @@ void Rogue_PushPopup_NewEvos(u8 slotId)
     struct PopupRequest* popup = CreateNewPopup();
     u16 species = GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES);
 
-    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->templateId = POPUP_COMMON_PARTY_INFO;
     popup->iconId = species;
     popup->soundEffect = 0;
+    popup->displayDuration = 60 - DEFAULT_ANIM_DURATION;
     
     popup->titleText = gPlayerParty[slotId].box.nickname;
     popup->subtitleText = sText_Popup_NewEvolution;
@@ -1241,7 +1398,7 @@ void Rogue_PushPopup_TriggerExtraLife()
 
     popup->templateId = POPUP_COMMON_ITEM_TEXT;
     popup->iconId = ITEM_SACRED_ASH;
-    popup->fanfare = FANFARE_HEAL;
+    popup->fanfare = MUS_HEAL;
     
     popup->titleText = sText_Popup_ExtraLifeTitle;
     popup->subtitleText = sText_Popup_ExtraLifeSubtitle;
@@ -1253,7 +1410,7 @@ void Rogue_PushPopup_UnlockPokedex()
 
     popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
     popup->iconId = POPUP_CUSTOM_ICON_POKEDEX;
-    popup->fanfare = FANFARE_RG_OBTAIN_KEY_ITEM;
+    popup->fanfare = MUS_RG_OBTAIN_KEY_ITEM;
 
     popup->titleText = sText_Popup_PokedexUnlock;
 }
@@ -1264,7 +1421,7 @@ void Rogue_PushPopup_UpgradePokedex()
 
     popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
     popup->iconId = POPUP_CUSTOM_ICON_POKEDEX;
-    popup->fanfare = FANFARE_RG_OBTAIN_KEY_ITEM;
+    popup->fanfare = MUS_RG_OBTAIN_KEY_ITEM;
 
     popup->titleText = sText_Popup_PokedexUpgrade;
 }
@@ -1298,8 +1455,49 @@ void Rogue_PushPopup_OutfitUnlocked()
 
     popup->templateId = POPUP_COMMON_ITEM_TEXT;
     popup->iconId = ITEM_GREEN_SCARF;
-    popup->fanfare = FANFARE_RG_OBTAIN_KEY_ITEM;
+    popup->fanfare = MUS_RG_OBTAIN_KEY_ITEM;
 
     popup->titleText = sText_Popup_OutfitUnlocked;
     popup->subtitleText = sText_Popup_ItsASecret;
+}
+
+void Rogue_PushPopup_NewBadgeGet(u8 difficulty)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+    u8 type = gRogueRun.completedBadges[difficulty];
+
+    AGB_ASSERT(type != TYPE_NONE);
+    if(type == TYPE_NONE)
+        type = TYPE_MYSTERY;
+
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_TYPE_NORMAL + type;
+    popup->displayDuration = 330;
+    popup->cantBeSkipped = TRUE;
+
+    if(difficulty >= ROGUE_CHAMP_START_DIFFICULTY)
+    {
+        popup->fanfare = MUS_OBTAIN_SYMBOL;
+        popup->titleText = sText_Popup_ChampBadge;
+        popup->subtitleText = sText_Popup_EarnBadge;
+    }
+    else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
+    {
+        popup->fanfare = MUS_OBTAIN_BADGE;
+        popup->titleText = sText_Popup_EliteBadge;
+        popup->subtitleText = sText_Popup_EarnBadge;
+
+        popup->expandTextData[0] = difficulty + 1 - ROGUE_ELITE_START_DIFFICULTY;
+        popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
+    }
+    else
+    {
+        popup->fanfare = MUS_OBTAIN_BADGE;
+        popup->titleText = sText_Popup_GymBadge;
+        popup->subtitleText = sText_Popup_EarnBadge;
+
+        popup->expandTextData[0] = difficulty + 1;
+        popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
+    }
+
 }

@@ -678,7 +678,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         // If players get encounters they basically have to get lucky with wild den
         if(GetPathGenerationDifficulty() >=  ROGUE_CHAMP_START_DIFFICULTY)
         {
-            chance = 90;
+            chance = 95;
         }
         else if(GetPathGenerationDifficulty() >=  ROGUE_ELITE_START_DIFFICULTY)
         {
@@ -781,7 +781,8 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
 
         case ADVPATH_ROOM_ROUTE:
         {
-            gRogueAdvPath.rooms[roomId].roomParams.roomIdx = Rogue_SelectRouteRoom();
+            gRogueAdvPath.rooms[roomId].roomParams.roomIdx = Rogue_SelectRouteRoom(GetPathGenerationDifficulty());
+            DebugPrintf("Route [%d] = %d", roomId, gRogueAdvPath.rooms[roomId].roomParams.roomIdx);
 
             if(GetPathGenerationDifficulty() > ROGUE_ELITE_START_DIFFICULTY)
             {
@@ -1519,25 +1520,25 @@ static bool8 ShouldBlockObjectEvent(struct RogueAdvPathRoom* room)
 
 static void BufferTypeAdjective(u8 type)
 {
-    const u8 gText_AdjNormal[] = _("TYPICAL");
-    const u8 gText_AdjFighting[] = _("MIGHTY");
-    const u8 gText_AdjFlying[] = _("BREEZY");
-    const u8 gText_AdjPoison[] = _("CORROSIVE");
-    const u8 gText_AdjGround[] = _("COARSE");
-    const u8 gText_AdjRock[] = _("RUGGED");
-    const u8 gText_AdjBug[] = _("SWARMING");
-    const u8 gText_AdjGhost[] = _("SPOOKY");
-    const u8 gText_AdjSteel[] = _("SHARP");
-    const u8 gText_AdjFire[] = _("WARM");
-    const u8 gText_AdjWater[] = _("WET");
-    const u8 gText_AdjGrass[] = _("VERDANT");
-    const u8 gText_AdjElectric[] = _("ENERGETIC");
-    const u8 gText_AdjPsychic[] = _("CONFUSING");
-    const u8 gText_AdjIce[] = _("CHILLY");
-    const u8 gText_AdjDragon[] = _("FIERCE");
-    const u8 gText_AdjDark[] = _("GLOOMY");
+    const u8 gText_AdjNormal[] = _("Typical");
+    const u8 gText_AdjFighting[] = _("Mighty");
+    const u8 gText_AdjFlying[] = _("Breezy");
+    const u8 gText_AdjPoison[] = _("Corrosive");
+    const u8 gText_AdjGround[] = _("Coarse");
+    const u8 gText_AdjRock[] = _("Rugged");
+    const u8 gText_AdjBug[] = _("Swarming");
+    const u8 gText_AdjGhost[] = _("Spooky");
+    const u8 gText_AdjSteel[] = _("Sharp");
+    const u8 gText_AdjFire[] = _("Warm");
+    const u8 gText_AdjWater[] = _("Wet");
+    const u8 gText_AdjGrass[] = _("Verdant");
+    const u8 gText_AdjElectric[] = _("Energetic");
+    const u8 gText_AdjPsychic[] = _("Confusing");
+    const u8 gText_AdjIce[] = _("Chilly");
+    const u8 gText_AdjDragon[] = _("Fierce");
+    const u8 gText_AdjDark[] = _("Gloomy");
 #ifdef ROGUE_EXPANSION
-    const u8 gText_AdjFairy[] = _("MAGICAL");
+    const u8 gText_AdjFairy[] = _("Magical");
 #endif
     const u8 gText_AdjNone[] = _("???");
 

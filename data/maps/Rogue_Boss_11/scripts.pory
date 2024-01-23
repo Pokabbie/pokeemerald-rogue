@@ -37,10 +37,8 @@ script Rogue_Battle_Boss11
 script Rogue_BattleDefeated_Boss11
 {
     call(Rogue_ClearWeather)
-    
-    message(format("{PLAYER} received a ELITE BADGE!"))
-    waitmessage()
-    call(Common_EventScript_PlayGymBadgeFanfare)
+    call(Rogue_Common_DisplayNewBadgePopup)
+
     msgbox(gPlaceholder_Gym_PostBattleCloser)
     waitmessage()
     call(Rogue_EventScript_AttemptPostGymHeal)

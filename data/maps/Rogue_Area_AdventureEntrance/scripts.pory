@@ -165,26 +165,72 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
     lockall
     faceplayer
 
-    message(format("Hi {PLAYER}!\pWould you like to set off on an Adventure?"))
-    waitmessage
-
-    multichoice(20, 6, MULTI_YESNOINFO, NO)
-
-    switch(var(VAR_RESULT))
+    if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
     {
-        case 0: // Yes
-            call(Rogue_ResetAdventureVars)
-            call(Rogue_StartAdventureInternal)
+        msgbox(format("{PLAYER}!\pThere's some strange noises coming from the clearing!\pYou must go help the Professor!"))
+    }
+    elif (var(VAR_ROGUE_INTRO_STATE) < ROGUE_INTRO_STATE_COLLECT_QUEST_LOG)
+    {
+        msgbox(format("Hi {PLAYER}!\pI'm afraid I can't let you past here without a Pokémon of your own.\pMaybe Professor Birch would be able to help with that?"))
+    }
+    elif (var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_COLLECT_QUEST_LOG)
+    {
+        msgbox(format("Hi {PLAYER}!\pIt looks like you're almost ready to set off on an Adventure!\pBefore you set off, please take this."))
 
-        case 1: // No
-        case MULTI_B_PRESSED:
-            msgbox(format("No worries!\pCome and talk to me, once you're ready."), MSGBOX_DEFAULT)
+        giveitem(ITEM_QUEST_LOG)
+        bufferitemname(STR_VAR_1, ITEM_QUEST_LOG)
+        msgbox(format("You can use that {STR_VAR_1} to accept Quests and Challenges to complete during Adventures.\pIf you would please make your way over to the Quest Board to your left, there should be some initial Quests to get you started!"))
 
-        case 2: // Info
-            msgbox(format("todo"), MSGBOX_DEFAULT)
+        closemessage
+        playbgm(MUS_RG_FOLLOW_ME, FALSE)
+
+        applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Adventure_QuestTutorial_Player1)
+        waitmovement(0)
+
+        msgbox(format("The board has some Quests posted on it!"))
+        fadedefaultbgm()
+
+        special(Rogue_ShowNewQuests)
+
+        addvar(VAR_ROGUE_INTRO_STATE, 1)
+    }
+    else
+    {
+        if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_GO_ON_ADVENTURE)
+        {
+            msgbox(format("Now you seem all ready to go!"))
+            message(format("Would you like to set off on an Adventure?"))
+        }
+        else
+        {
+            message(format("Hi {PLAYER}!\pWould you like to set off on an Adventure?"))
+        }
+        waitmessage
+
+        multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // Yes
+                call(Rogue_ResetAdventureVars)
+                call(Rogue_StartAdventureInternal)
+
+            case 1: // No
+            case MULTI_B_PRESSED:
+                msgbox(format("No worries!\pCome and talk to me, once you're ready."), MSGBOX_DEFAULT)
+
+            case 2: // Info
+                msgbox(format("todo"), MSGBOX_DEFAULT)
+        }
     }
 
     releaseall
+}
+
+movement Rogue_Adventure_QuestTutorial_Player1
+{
+    walk_left * 5
+    face_up
 }
 
 script Rogue_ResetAdventureVars

@@ -115,10 +115,7 @@ script Rogue_Battle_Boss0
 script Rogue_BattleDefeated_Boss0
 {
     call(Rogue_ClearWeather)
-    
-    message(format("{PLAYER} received a GYM BADGE!"))
-    waitmessage()
-    call(Common_EventScript_PlayGymBadgeFanfare)
+    call(Rogue_Common_DisplayNewBadgePopup)
 
     if(flag(FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE) == FALSE && flag(FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE))
     {
