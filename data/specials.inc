@@ -245,6 +245,9 @@ gSpecials::
 	def_special Rogue_TryScatterPokeblockNearHoneyTree
 	def_special Rogue_ScatterPokeblockItem
 	def_special Rogue_CanPlantBerries
+	def_special Rogue_CheckDaycareCount
+	def_special Rogue_IsDaycareSlotEmpty
+	def_special Rogue_SwapDaycareMon
 	def_special Rogue_DisplayPopupsFromScript
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueAdv_ApplyAdventureMetatiles

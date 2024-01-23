@@ -72,6 +72,7 @@
 #include "rogue_timeofday.h"
 #include "rogue_trainers.h"
 
+STATIC_ASSERT(sizeof(struct BoxPokemon) == sizeof(struct RogueBoxPokemonFacade), SizeOfRogueBoxPokemonFacade);
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
@@ -5863,6 +5864,86 @@ void Rogue_ModifyGiveMon(struct Pokemon* mon)
             }
         }
     }
+}
+
+struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot)
+{
+    AGB_ASSERT(slot < DAYCARE_SLOT_COUNT);
+    return (struct BoxPokemon*)&gRogueRun.daycarePokemon[slot];
+}
+
+void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycareMon)
+{
+    u16 species;
+    struct BoxPokemon temp = *daycareMon;
+    *daycareMon = partyMon->box;
+    BoxMonRestorePP(daycareMon);
+
+    ZeroMonData(partyMon);
+    BoxMonToMon(&temp, partyMon);
+
+    species = GetMonData(partyMon, MON_DATA_SPECIES);
+
+    if(Rogue_IsRunActive() && species != SPECIES_NONE)
+    {
+        // Scale level so it just lags behind the player
+        u8 level = GetMonData(partyMon, MON_DATA_LEVEL);
+        u8 targetLevel = Rogue_CalculatePlayerMonLvl();
+
+        if(targetLevel < 5)
+            targetLevel = 1;
+        else
+            targetLevel -= 5;
+
+        if(level < targetLevel)
+        {
+            u32 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[species].growthRate, targetLevel);
+            SetMonData(partyMon, MON_DATA_EXP, &temp);
+            CalculateMonStats(partyMon);
+        }
+    }
+
+    CompactPartySlots();
+    CalculatePlayerPartyCount();
+}
+
+static const u8 sText_EmptyDaycareSlot[] = _("Empty / -");
+static const u8 sText_DaycareSlotSpacing[] = _(" / ");
+
+void Rogue_DaycareMultichoiceCallback(struct MenuAction* outList, u8* outCount, u8 listCapacity)
+{
+    u8 i;
+    u16 species;
+    struct BoxPokemon* mon;
+    u8* str;
+    u8* stringVars[] =
+    {
+        gStringVar1,
+        gStringVar2,
+        gStringVar3
+    };
+
+    for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+    {
+        mon = Rogue_GetDaycareBoxMon(i);
+        species = GetBoxMonData(mon, MON_DATA_SPECIES);
+
+        if(species == SPECIES_NONE)
+        {
+            outList[i].text = sText_EmptyDaycareSlot;
+        }
+        else
+        {
+            GetBoxMonData(mon, MON_DATA_NICKNAME, stringVars[i]);
+
+            str = StringAppend(stringVars[i], sText_DaycareSlotSpacing);
+            str = StringAppend(str, RoguePokedex_GetSpeciesName(species));
+
+            outList[i].text = stringVars[i];
+        }
+    }
+
+    *outCount = i;
 }
 
 void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)

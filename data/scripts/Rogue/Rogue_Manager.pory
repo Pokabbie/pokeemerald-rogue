@@ -739,6 +739,75 @@ script Rogue_Tutor_MoveDelete
     release
 }
 
+script Rogue_SpeakDaycareLady
+{
+    lock
+    faceplayer
+    msgbox(format("Why hello dear!\nI'm the Daycare Lady.\pI have enough capacity to look after 2 Pokémon currently."), MSGBOX_DEFAULT)
+
+    message(format("Which daycare slot are you interested in?"))
+    waitmessage
+
+    multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case MULTI_B_PRESSED:
+            setvar(VAR_RESULT, NO)
+
+        default:
+            copyvar(VAR_0x8005, VAR_RESULT)
+            call(Rogue_SpeakDaycareLady_TrySwapMon)
+    }
+
+    release
+}
+
+script Rogue_SpeakDaycareLady_TrySwapMon
+{
+    special(Rogue_IsDaycareSlotEmpty)
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Which Pokémon would you like to leave with me?"), MSGBOX_DEFAULT)
+        fadescreen(FADE_TO_BLACK)
+        special(ChooseSendDaycareMon)
+        waitstate
+
+        if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
+        {
+            special(Rogue_SwapDaycareMon)
+            msgbox(format("I'll make sure to take good care of them!\pTake care!"), MSGBOX_DEFAULT)
+        }
+    }
+    else
+    {
+        msgbox(format("So you would like to withdraw your Pokémon?\nI see, that's no problem at all!"), MSGBOX_DEFAULT)
+
+        specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
+        specialvar(VAR_TEMP_1, Rogue_CalcMaxPartySize)
+        
+        if(var(VAR_TEMP_0) >= VAR_TEMP_1)
+        {
+            msgbox(format("It looks like your party is full!\pYou'll need to leave a member of your party with me, in order to withdraw any Pokémon."))
+            fadescreen(FADE_TO_BLACK)
+            special(ChooseSendDaycareMon)
+            waitstate
+
+            if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
+            {
+                special(Rogue_SwapDaycareMon)
+                msgbox(format("I'll make sure to take good care of them!\pTake care!"), MSGBOX_DEFAULT)
+            }
+        }
+        else
+        {
+            setvar(VAR_0x8004, 5)
+            special(Rogue_SwapDaycareMon)
+            msgbox(format("There you are!\pTake care!"), MSGBOX_DEFAULT)
+        }
+    }
+}
+
 script Rogue_Tutor_MoveDeleteNoMoves
 {
     msgbox(format("This Pokémon needs move moves before I can make it forget any."), MSGBOX_DEFAULT)

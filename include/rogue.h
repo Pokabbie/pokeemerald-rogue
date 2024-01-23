@@ -234,9 +234,16 @@ struct RogueWildEncounters
     u8 roamerActiveThisPath : 1;
 };
 
+// We just want this to be the same size as box pokemon so we can reserve the memory and cast later
+struct RogueBoxPokemonFacade
+{
+    u8 data[80];
+};
+
 struct RogueRunData
 {
     struct RogueWildEncounters wildEncounters;
+    struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
     u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
     u16 rivalSpecies[ROGUE_RIVAL_TOTAL_MON_COUNT];
     u16 legendarySpecies[ADVPATH_LEGEND_COUNT];

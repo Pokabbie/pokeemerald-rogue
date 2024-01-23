@@ -1023,6 +1023,7 @@ static const MultichoiceList_Callback sMultichoiceCallback[] =
     [MULTI_HUB_AREA_BUILDS] = NULL,
     [MULTI_HUB_AREA_BUILD_DIRECTION] = NULL, 
     [MULTI_HUB_AREA_UPGRADES] = NULL,
+    [MULTI_ROGUE_DAYCARE] = Rogue_DaycareMultichoiceCallback,
 };
 
 const u8 *const gStdStrings[] =
