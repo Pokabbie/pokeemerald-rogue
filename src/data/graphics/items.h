@@ -755,6 +755,15 @@ const u32 gItemIconPalette_CGear[] = INCBIN_U32("graphics/items/icons/c_gear.gba
 const u32 gItemIcon_BuildResources[] = INCBIN_U32("graphics/items/icons/build_resources.4bpp.lz");
 const u32 gItemIconPalette_BuildResources[] = INCBIN_U32("graphics/items/icons/build_resources.gbapal.lz");
 
+const u32 gItemIcon_AlolaStone[] = INCBIN_U32("graphics/items/icons/rogue_alola_stone.4bpp.lz");
+const u32 gItemIconPalette_AlolaStone[] = INCBIN_U32("graphics/items/icons/rogue_alola_stone.gbapal.lz");
+
+const u32 gItemIcon_GalarStone[] = INCBIN_U32("graphics/items/icons/rogue_galar_stone.4bpp.lz");
+const u32 gItemIconPalette_GalarStone[] = INCBIN_U32("graphics/items/icons/rogue_galar_stone.gbapal.lz");
+
+const u32 gItemIcon_HisuiStone[] = INCBIN_U32("graphics/items/icons/rogue_hisui_stone.4bpp.lz");
+const u32 gItemIconPalette_HisuiStone[] = INCBIN_U32("graphics/items/icons/rogue_hisui_stone.gbapal.lz");
+
 const u32 gItemIcon_Pokedex[] = INCBIN_U32("graphics/items/icons/pokedex.4bpp.lz");
 const u32 gItemIconPalette_Pokedex[] = INCBIN_U32("graphics/items/icons/pokedex.gbapal.lz");
 
