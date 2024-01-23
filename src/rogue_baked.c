@@ -1482,6 +1482,10 @@ bool8 Rogue_IsEvolutionItem(u16 itemIdx)
 #endif
 
 #ifdef ROGUE_EXPANSION
+    case ITEM_ALOLA_STONE:
+    case ITEM_GALAR_STONE:
+    case ITEM_HISUI_STONE:
+
     case ITEM_RAZOR_FANG:
     case ITEM_RAZOR_CLAW:
     case ITEM_ICE_STONE:

@@ -3609,7 +3609,6 @@ static u8 SelectRouteRoom_CalculateWeight(u16 index, u16 routeId, void* data)
 
 u8 Rogue_SelectRouteRoom(u8 difficulty)
 {
-    u32 seedToRestore = gRngRogueValue;
     u16 routeId;
 
     RogueCustomQuery_Begin();
