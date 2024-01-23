@@ -598,6 +598,7 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_GLITCH_ERMA] = sAnims_Kanto,
 
     [TRAINER_PIC_COMMUNITY_ZEFA] = sAnims_Kanto,
+    [TRAINER_PIC_COMMUNITY_LIGHTNINGSTRIKE7] = sAnims_Kanto,
 
     [TRAINER_PIC_RIVAL_BRENDAN] = sAnims_Kanto,
     [TRAINER_PIC_RIVAL_MAY] = sAnims_Kanto,

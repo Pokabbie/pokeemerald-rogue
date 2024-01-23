@@ -3358,6 +3358,8 @@ extern const u32 gTrainerPalette_GlitchErma[];
 
 extern const u32 gTrainerFrontPic_CommunityZefa[];
 extern const u32 gTrainerPalette_CommunityZefa[];
+extern const u32 gTrainerFrontPic_CommunityLightningStrike7[];
+extern const u32 gTrainerPalette_CommunityLightningStrike7[];
 
 extern const u32 gTrainerFrontPic_RocketGruntF[];
 extern const u32 gTrainerPalette_RocketGruntF[];
@@ -5512,6 +5514,7 @@ extern const u16 gObjectEventPal_PlayerGloriaBase[];
 extern const u16 gObjectEventPal_PlayerGloriaLayers[];
 
 extern const u16 gObjectEventPal_PlayerZefaBase[];
+extern const u16 gObjectEventPal_PlayerLightningStrike7Base[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];
