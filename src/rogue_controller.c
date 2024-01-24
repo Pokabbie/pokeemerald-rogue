@@ -5898,7 +5898,7 @@ void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycare
         if(level < targetLevel)
         {
             u32 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[species].growthRate, targetLevel);
-            SetMonData(partyMon, MON_DATA_EXP, &temp);
+            SetMonData(partyMon, MON_DATA_EXP, &exp);
             CalculateMonStats(partyMon);
         }
     }
