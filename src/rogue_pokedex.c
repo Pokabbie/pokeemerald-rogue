@@ -3875,6 +3875,11 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
 
         case SPECIES_ENAMORUS:
 
+        case SPECIES_WO_CHIEN:
+        case SPECIES_CHIEN_PAO:
+        case SPECIES_TING_LU:
+        case SPECIES_CHI_YU:
+
         case SPECIES_WALKING_WAKE:
         case SPECIES_IRON_LEAVES:
         

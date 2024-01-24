@@ -171,7 +171,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Time for Lady Korrina's big appearance!\\pHaha, I'm just messing around with you!",
                         "PRE_BATTLE_TAUNT": "I already know you're a strong Trainer, so let's get this show on the road!",
                         "POST_BATTLE_TAUNT": "How could it be?!",
-                        "POST_BATTLE_CLOSER": "Oh! I have been defeated! Alack, alay!\\nLady Korrina gave a terrible display!\\pThis is it. I must give up my title and admit that your strength far exceeds--\\pJust teasing!\\pGood luck with your Adventure!"
+                        "POST_BATTLE_CLOSER": "Oh! I have been defeated! Alack, alay!\\nLady Korrina gave a terrible display!\\pThis is it. I must give up my title and admit that your strength far--\\pJust teasing!\\pGood luck with your Adventure!"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE",
