@@ -18,6 +18,7 @@
 #include "constants/script_menu.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
 #include "rogue_hub.h"
 
 #include "data/script_menu.h"

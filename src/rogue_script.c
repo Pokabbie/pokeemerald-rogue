@@ -1161,3 +1161,33 @@ void Rogue_CanPlantBerries()
 {
     gSpecialVar_Result = !Rogue_IsRunActive() || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_RESTSTOP;
 }
+
+void Rogue_CheckDaycareCount()
+{
+    u8 i = 0;
+    u8 count = 0;
+    struct BoxPokemon* mon;
+
+    for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+    {
+        mon = Rogue_GetDaycareBoxMon(i);
+        if(GetBoxMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
+            ++count;
+    }
+
+    gSpecialVar_Result = count;
+}
+
+void Rogue_IsDaycareSlotEmpty()
+{
+    u8 daycareSlot = gSpecialVar_0x8005;
+    struct BoxPokemon* mon = Rogue_GetDaycareBoxMon(daycareSlot);
+    gSpecialVar_Result = (GetBoxMonData(mon, MON_DATA_SPECIES) == SPECIES_NONE);
+}
+
+void Rogue_SwapDaycareMon()
+{
+    u16 partySlot = gSpecialVar_0x8004;
+    u8 daycareSlot = gSpecialVar_0x8005;
+    Rogue_SwapMonInDaycare(&gPlayerParty[partySlot], Rogue_GetDaycareBoxMon(daycareSlot));
+}

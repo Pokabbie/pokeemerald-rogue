@@ -3,6 +3,7 @@
 
 #include "rogue_baked.h"
 
+struct MenuAction;
 struct MusicPlayerInfo;
 
 extern struct RogueSaveBlock* gRogueSaveBlock;
@@ -154,6 +155,9 @@ void Rogue_SafariTypeForMap(u8* outArray, u8 arraySize);
 void Rogue_ModifyWildMon(struct Pokemon* mon);
 void Rogue_ModifyScriptMon(struct Pokemon* mon);
 void Rogue_ModifyGiveMon(struct Pokemon* mon);
+struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot);
+void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycareMon);
+void Rogue_DaycareMultichoiceCallback(struct MenuAction* outList, u8* outCount, u8 listCapacity);
 
 u8 Rogue_GetEncounterDifficultyModifier();
 u16 Rogue_GetTRMove(u16 trNumber);
