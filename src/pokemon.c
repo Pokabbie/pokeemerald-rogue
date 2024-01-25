@@ -4684,12 +4684,37 @@ u8 GetMonsStateToDoubles_2(void)
     return (aliveCount > 1) ? PLAYER_HAS_TWO_USABLE_MONS : PLAYER_HAS_ONE_USABLE_MON;
 }
 
-u8 GetAbilityBySpecies(u16 species, u8 abilityNum)
+u8 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 {
+#ifdef ROGUE_EXPANSION
+    u16 const* abilities =  gBaseStats[species].abilities;
+#else
+    u16 abilities[2] =
+    {
+        gBaseStats[species].abilities[0],
+        gBaseStats[species].abilities[1]
+    };
+#endif
+
+    if(IsOtherTrainer(otId))
+    {
+        u16 customMonId = RogueQuest_GetCustomRewardMonIdBySpecies(species, otId);
+        u16 const* customAbilities = RogueQuest_GetCustomRewardMonAbilites(customMonId);
+        if(customAbilities != NULL)
+        {
+#ifdef ROGUE_EXPANSION
+            abilities = customAbilities;
+#else
+            abilities[0] = customAbilities[0];
+            abilities[1] = customAbilities[1];
+#endif
+        }
+    }
+
     if (abilityNum)
-        gLastUsedAbility = gBaseStats[species].abilities[1];
+        gLastUsedAbility = abilities[1];
     else
-        gLastUsedAbility = gBaseStats[species].abilities[0];
+        gLastUsedAbility = abilities[0];
 
     return gLastUsedAbility;
 }
@@ -4697,8 +4722,9 @@ u8 GetAbilityBySpecies(u16 species, u8 abilityNum)
 u8 GetMonAbility(struct Pokemon *mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    u32 otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
     u8 abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM, NULL);
-    return GetAbilityBySpecies(species, abilityNum);
+    return GetAbilityBySpecies(species, otId, abilityNum);
 }
 
 void CreateSecretBaseEnemyParty(struct SecretBase *secretBaseRecord)
@@ -4847,7 +4873,7 @@ void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
     gBattleMons[battlerId].otId = GetMonData(&gPlayerParty[partyIndex], MON_DATA_OT_ID, NULL);
     gBattleMons[battlerId].type1 = gBaseStats[gBattleMons[battlerId].species].type1;
     gBattleMons[battlerId].type2 = gBaseStats[gBattleMons[battlerId].species].type2;
-    gBattleMons[battlerId].ability = GetAbilityBySpecies(gBattleMons[battlerId].species, gBattleMons[battlerId].abilityNum);
+    gBattleMons[battlerId].ability = GetAbilityBySpecies(gBattleMons[battlerId].species, gBattleMons[battlerId].abilityNum, gBattleMons[battlerId].otId);
     GetMonData(&gPlayerParty[partyIndex], MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(gBattleMons[battlerId].nickname, nickname);
     GetMonData(&gPlayerParty[partyIndex], MON_DATA_OT_NAME, gBattleMons[battlerId].otName);
@@ -6516,19 +6542,23 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     {
         // This is a custom mon so make sure it can relearn it's special moves
         u16 const* customMoves = RogueQuest_GetCustomRewardMonMoves(rewardMonId);
-        for(i = 0; i < MAX_MON_MOVES; ++i)
+
+        if(customMoves != NULL)
         {
-            if(customMoves[i] == MOVE_NONE)
-                break;
-
-            for(j = 0; j < MAX_MON_MOVES; ++j)
+            for(i = 0; i < MAX_MON_MOVES; ++i)
             {
-                if(customMoves[i] == learnedMoves[j])
+                if(customMoves[i] == MOVE_NONE)
                     break;
-            }
 
-            if(j == MAX_MON_MOVES)
-                moves[numMoves++] = customMoves[i];
+                for(j = 0; j < MAX_MON_MOVES; ++j)
+                {
+                    if(customMoves[i] == learnedMoves[j])
+                        break;
+                }
+
+                if(j == MAX_MON_MOVES)
+                    moves[numMoves++] = customMoves[i];
+            }
         }
     }
 

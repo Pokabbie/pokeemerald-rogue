@@ -3531,13 +3531,12 @@ static void Task_ExitPartyMenuToPokedex(u8 taskId)
     if (!gPaletteFade.active)
     {
         u8 slot = GetCursorSelectionMonId();
-        u16 species = GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES);
 
         ResetSpriteData();
         FreePartyPointers();
 
         DestroyTask(taskId);
-        Rogue_ShowPokedexForSpecies(species);
+        Rogue_ShowPokedexForMon(&gPlayerParty[slot]);
     }
 }
 

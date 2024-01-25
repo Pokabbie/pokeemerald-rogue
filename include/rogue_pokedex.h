@@ -4,7 +4,7 @@
 // New UI/UX for Rogue pokedex
 void Rogue_ShowPokedexFromMenu(void);
 void Rogue_ShowPokedexFromScript(void);
-void Rogue_ShowPokedexForSpecies(u16 species);
+void Rogue_ShowPokedexForMon(struct Pokemon* mon);
 
 u8 RoguePokedex_GetDexRegion();
 void RoguePokedex_SetDexRegion(u8 region);
