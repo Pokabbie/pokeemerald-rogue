@@ -401,25 +401,19 @@ void RogueDebug_ClearQuests(void)
 #endif
 }
 
+void Debug_RogueQuest_CompleteQuest(u16 questId);
+
 void RogueDebug_CompleteAvaliableQuests(void)
 {
 #ifdef ROGUE_DEBUG
     u16 i;
-    u16 questId;
-    struct OLDRogueQuestState* state;
 
-    for(i = 0; i < QUEST_CAPACITY; ++i)
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
     {
-        // Work backwards to avoid completing new collected quests (Assuming unlocks always go forward in ID)
-        questId = QUEST_CAPACITY - i - 1;
-
-        state = &gRogueSaveBlock->questStates[questId];
-
-        if(state->isUnlocked && !state->isCompleted)
+        if(RogueQuest_IsQuestUnlocked(i))
         {
-            state->isValid = FALSE;
-            state->isCompleted = TRUE;
-            state->hasPendingRewards = TRUE;
+            if(!RogueQuest_GetStateFlag(i, QUEST_STATE_HAS_COMPLETE))
+                Debug_RogueQuest_CompleteQuest(i);
         }
     }
 #endif
@@ -428,33 +422,13 @@ void RogueDebug_CompleteAvaliableQuests(void)
 void RogueDebug_CollectAllQuests(void)
 {
 #ifdef ROGUE_DEBUG
-    bool8 shouldLoop;
     u16 i;
-    u16 questId;
-    struct OLDRogueQuestState* state;
 
-    shouldLoop = TRUE;
-
-    while(shouldLoop)
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
     {
-        shouldLoop = FALSE;
-
-        for(i = 0; i < QUEST_CAPACITY; ++i)
+        if(RogueQuest_HasPendingRewards(i))
         {
-            // Work backwards to avoid completing new collected quests (Assuming unlocks always go forward in ID)
-            questId = QUEST_CAPACITY - i - 1;
-
-            state = &gRogueSaveBlock->questStates[questId];
-
-            if(state->isUnlocked && (!state->isCompleted || state->hasPendingRewards))
-            {
-                state->isValid = FALSE;
-                state->isCompleted = TRUE;
-                state->hasPendingRewards = FALSE;
-
-                UnlockFollowingQuests(questId);
-                shouldLoop = TRUE;
-            }
+            RogueQuest_TryCollectRewards(i);
         }
     }
 #endif

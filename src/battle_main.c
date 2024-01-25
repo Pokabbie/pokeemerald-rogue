@@ -3387,7 +3387,7 @@ static void DoBattleIntro(void)
                 gBattleMons[battler].type1 = gSpeciesInfo[gBattleMons[battler].species].types[0];
                 gBattleMons[battler].type2 = gSpeciesInfo[gBattleMons[battler].species].types[1];
                 gBattleMons[battler].type3 = TYPE_MYSTERY;
-                gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
+                gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum, gBattleMons[battler].otId);
                 gBattleStruct->hpOnSwitchout[GetBattlerSide(battler)] = gBattleMons[battler].hp;
                 gBattleMons[battler].status2 = 0;
                 for (i = 0; i < NUM_BATTLE_STATS; i++)

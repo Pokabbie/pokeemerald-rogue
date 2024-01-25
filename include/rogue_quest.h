@@ -4,6 +4,7 @@
 #include "constants/generated/quests.h"
 
 struct RogueQuestTrigger;
+struct CustomMonPreset;
 
 typedef bool8 (*QuestFunc)(u16 questId, struct RogueQuestTrigger const* trigger);
 
@@ -24,7 +25,6 @@ struct RogueQuestRewardNEW
         struct
         {
             u8 const* nickname;
-            u16 moves[MAX_MON_MOVES];
             u32 customOt;
             u16 species;
             u8 isShiny : 1;
@@ -97,7 +97,9 @@ bool8 RogueQuest_HasPendingRewards(u16 questId);
 bool8 RogueQuest_TryCollectRewards(u16 questId);
 
 u16 RogueQuest_GetCustomRewardMonId(struct Pokemon* mon);
+u16 RogueQuest_GetCustomRewardMonIdBySpecies(u16 species, u32 otId);
 u16 const* RogueQuest_GetCustomRewardMonMoves(u16 id);
+u16 const* RogueQuest_GetCustomRewardMonAbilites(u16 id);
 
 void RogueQuest_ActivateQuestsFor(u32 flags);
 bool8 RogueQuest_IsQuestActive(u16 questId);

@@ -24,6 +24,7 @@ struct QuestReward
 		std::string customOt;
 		std::string nickname;
 		std::array<std::string, 4> moves;
+		std::array<std::string, 3> abilities;
 	} 
 	pokemonParams;
 	struct
@@ -157,17 +158,6 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 					fileStream << c_TabSpacing4 << ".nickname = COMPOUND_STRING(\"" << upperNickname << "\"),\n";
 					fileStream << "#endif\n";
 				}
-
-				fileStream << c_TabSpacing4 << ".moves = {\n";
-				for (int i = 0; i < 4; ++i)
-				{
-					if(rewardInfo.pokemonParams.moves[i].empty())
-						fileStream << c_TabSpacing5 << "MOVE_NONE,\n";
-					else
-						fileStream << c_TabSpacing5 << rewardInfo.pokemonParams.moves[i] << ",\n";
-				}
-				fileStream << c_TabSpacing4 << "},\n";
-
 
 				fileStream << c_TabSpacing3 << "}\n";
 				fileStream << c_TabSpacing2 << "}\n";
@@ -368,6 +358,15 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 			}
 			fileStream << c_TabSpacing2 << "},\n";
 
+			fileStream << c_TabSpacing2 << ".abilities = {\n";
+
+			for (int i = 0; i < 3; ++i)
+			{
+				if (!rewardInfo.pokemonParams.abilities[i].empty())
+					fileStream << c_TabSpacing3 << rewardInfo.pokemonParams.abilities[i] << ",\n";
+			}
+			fileStream << c_TabSpacing2 << "},\n";
+
 
 			fileStream << c_TabSpacing << "},\n";
 
@@ -539,6 +538,15 @@ static QuestReward ParseQuestReward(json const& jsonData)
 			for (json move : jsonData["moves"])
 			{
 				reward.pokemonParams.moves[i++] = move.get<std::string>();
+			}
+		}
+
+		if (jsonData.contains("abilities"))
+		{
+			int i = 0;
+			for (json move : jsonData["abilities"])
+			{
+				reward.pokemonParams.abilities[i++] = move.get<std::string>();
 			}
 		}
 

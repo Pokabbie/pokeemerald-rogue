@@ -3821,13 +3821,12 @@ static void Task_ExitPartyMenuToPokedex(u8 taskId)
     if (!gPaletteFade.active)
     {
         u8 slot = GetCursorSelectionMonId();
-        u16 species = GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES);
 
         ResetSpriteData();
         FreePartyPointers();
 
         DestroyTask(taskId);
-        Rogue_ShowPokedexForSpecies(species);
+        Rogue_ShowPokedexForMon(&gPlayerParty[slot]);
     }
 }
 
@@ -5138,7 +5137,7 @@ void Task_AbilityCapsule(u8 taskId)
         }
         gPartyMenuUseExitCallback = TRUE;
         GetMonNickname(&gPlayerParty[tMonId], gStringVar1);
-        StringCopy(gStringVar2, gAbilityNames[GetAbilityBySpecies(tSpecies, tAbilityNum)]);
+        StringCopy(gStringVar2, gAbilityNames[GetAbilityBySpecies(tSpecies, tAbilityNum, GetMonData(&gPlayerParty[tMonId], MON_DATA_OT_ID))]);
         StringExpandPlaceholders(gStringVar4, askText);
         PlaySE(SE_SELECT);
         DisplayPartyMenuMessage(gStringVar4, 1);
@@ -5225,7 +5224,7 @@ void Task_AbilityPatch(u8 taskId)
         }
         gPartyMenuUseExitCallback = TRUE;
         GetMonNickname(&gPlayerParty[tMonId], gStringVar1);
-        StringCopy(gStringVar2, gAbilityNames[GetAbilityBySpecies(tSpecies, tAbilityNum)]);
+        StringCopy(gStringVar2, gAbilityNames[GetAbilityBySpecies(tSpecies, tAbilityNum, GetMonData(&gPlayerParty[tMonId], MON_DATA_OT_ID))]);
         StringExpandPlaceholders(gStringVar4, askText);
         PlaySE(SE_SELECT);
         DisplayPartyMenuMessage(gStringVar4, 1);

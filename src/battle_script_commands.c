@@ -6265,7 +6265,7 @@ static void Cmd_switchindataupdate(void)
     gBattleMons[battler].type1 = gSpeciesInfo[gBattleMons[battler].species].types[0];
     gBattleMons[battler].type2 = gSpeciesInfo[gBattleMons[battler].species].types[1];
     gBattleMons[battler].type3 = TYPE_MYSTERY;
-    gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
+    gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum, gBattleMons[battler].otId);
 
     // check knocked off item
     i = GetBattlerSide(battler);
@@ -12974,6 +12974,7 @@ static void Cmd_healpartystatus(void)
 
         for (i = 0; i < PARTY_SIZE; i++)
         {
+            u32 otId = GetMonData(&party[i], MON_DATA_OT_ID);
             u16 species = GetMonData(&party[i], MON_DATA_SPECIES_OR_EGG);
             u8 abilityNum = GetMonData(&party[i], MON_DATA_ABILITY_NUM);
 
@@ -12988,7 +12989,7 @@ static void Cmd_healpartystatus(void)
                          && !(gAbsentBattlerFlags & gBitTable[battler]))
                     ability = GetBattlerAbility(battler);
                 else
-                    ability = GetAbilityBySpecies(species, abilityNum);
+                    ability = GetAbilityBySpecies(species, abilityNum, otId);
 
                 if (ability != ABILITY_SOUNDPROOF)
                     toHeal |= (1 << i);

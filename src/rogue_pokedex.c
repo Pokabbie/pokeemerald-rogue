@@ -39,6 +39,7 @@
 #include "rogue_ridemon.h"
 #include "rogue_settings.h"
 #include "rogue_query.h"
+#include "rogue_quest.h"
 
 #ifdef ROGUE_EXPANSION
 #define DEX_GEN_LIMIT 9
@@ -307,6 +308,7 @@ struct PokedexMenu
     u16 overviewPageNumbers[OVERVIEW_ENTRY_COUNT];
 
     // Mon screen
+    u32 viewOtId;
     u16 lastCrySpecies;
     u16 viewBaseSpecies;
     u16 listScrollAmount;
@@ -315,6 +317,7 @@ struct PokedexMenu
 EWRAM_DATA static u8 *sTilemapBufferPtr = NULL;
 EWRAM_DATA static struct PokedexMenu* sPokedexMenu = NULL;
 EWRAM_DATA static u16 sRequestedSpecies = 0;
+EWRAM_DATA static u32 sRequestedSpeciesOtId = 0;
 
 static void VBlankCB(void)
 {
@@ -355,6 +358,7 @@ void Rogue_ShowPokedexFromMenu(void)
 {
     gMain.savedCallback = CB2_ReturnToFieldWithOpenMenu;
     sRequestedSpecies = SPECIES_NONE;
+    sRequestedSpeciesOtId = 0;
     SetMainCallback2(CB2_Rogue_ShowPokedex);
 }
 
@@ -363,15 +367,17 @@ void Rogue_ShowPokedexFromScript(void)
     //gMain.savedCallback CB2_ReturnToFieldContinueScript CB2_ReturnToFieldFadeFromBlack
     gMain.savedCallback = CB2_ReturnToFieldContinueScript;
     sRequestedSpecies = SPECIES_NONE;
+    sRequestedSpeciesOtId = 0;
     SetMainCallback2(CB2_Rogue_ShowPokedex);
 }
 
-void Rogue_ShowPokedexForSpecies(u16 species)
+void Rogue_ShowPokedexForMon(struct Pokemon* mon)
 {
     //gMain.savedCallback = CB2_ReturnToFieldContinueScript;
 
     // ReturnToPartyMenuSubMenu called below
-    sRequestedSpecies = species;
+    sRequestedSpecies = GetMonData(mon, MON_DATA_SPECIES);
+    sRequestedSpeciesOtId = GetMonData(mon, MON_DATA_OT_ID);
     SetMainCallback2(CB2_Rogue_ShowPokedex);
 }
 
@@ -383,11 +389,13 @@ static void CB2_Rogue_ShowPokedex(void)
     sPokedexMenu->desiredPage = PAGE_TITLE_SCREEN;
 
     sPokedexMenu->lastCrySpecies = SPECIES_NONE;
+    sPokedexMenu->viewOtId = 0;
 
     if(sRequestedSpecies != SPECIES_NONE)
     {
         sPokedexMenu->desiredPage = PAGE_MON_STATS;
         sPokedexMenu->viewBaseSpecies = sRequestedSpecies;
+        sPokedexMenu->viewOtId = sRequestedSpeciesOtId;
     }
 
     for(i = 0; i < ARRAY_COUNT(sPokedexMenu->pageSprites); ++i)
@@ -1116,9 +1124,9 @@ static void DisplayMonStatsText(void)
         AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 4, 1 + ySpacing * j, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_Abilities);
         ++j;
 
-        for(i = 0; i < ARRAY_COUNT(gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].abilities); ++i)
+        for(i = 0; i < NUM_ABILITY_SLOTS; ++i)
         {
-            u16 ability = gRogueSpeciesInfo[sPokedexMenu->viewBaseSpecies].abilities[i];
+            u16 ability = GetAbilityBySpecies(sPokedexMenu->viewBaseSpecies, i, sPokedexMenu->viewOtId);
 
             if(ability != ABILITY_NONE && ability != prevAbility)
             {
@@ -1215,7 +1223,24 @@ static u16 GetMaxMoveScrollOffset()
     u8 i;
     u16 count = 0;
     u16 species = sPokedexMenu->viewBaseSpecies;
+    u16 customMonId = RogueQuest_GetCustomRewardMonIdBySpecies(species, sPokedexMenu->viewOtId);
     
+    // Custom moves
+    if(customMonId)
+    {
+        u16 const* customMoves = RogueQuest_GetCustomRewardMonMoves(customMonId);
+
+        if(customMoves)
+        {
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                if (customMoves[i] == MOVE_NONE)
+                    break;
+                ++count;
+            }
+        }
+    }
+
     // Level up
     for (i = 0; TRUE; i++)
     {
@@ -1247,6 +1272,33 @@ static void DisplayMonMovesText()
     AddTitleText(sTitle_Moves);
 
     FillWindowPixelBuffer(WIN_MON_PAGE_CONTENT, PIXEL_FILL(0));
+
+    // Custom moves
+    if(sPokedexMenu->viewOtId)
+    {
+        u16 customMonId = RogueQuest_GetCustomRewardMonIdBySpecies(species, sPokedexMenu->viewOtId);
+        u16 const* customMoves = RogueQuest_GetCustomRewardMonMoves(customMonId);
+        
+        if(customMoves)
+        {
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                if (customMoves[i] == MOVE_NONE)
+                    break;
+
+                // Is custom move
+                StringCopy(gStringVar1, gMoveNames[customMoves[i]]);
+                StringExpandPlaceholders(gStringVar3, gText_PokedexMovesCustom);
+                
+                if(listIndex >= sPokedexMenu->listScrollAmount)
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar3);
+                    ++displayCount;
+                }
+                ++listIndex;
+            }
+        }
+    }
 
     // Level moves
     {
@@ -3876,6 +3928,11 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
         case SPECIES_ZARUDE:
 
         case SPECIES_ENAMORUS:
+
+        case SPECIES_WO_CHIEN:
+        case SPECIES_CHIEN_PAO:
+        case SPECIES_TING_LU:
+        case SPECIES_CHI_YU:
 
         case SPECIES_WALKING_WAKE:
         case SPECIES_IRON_LEAVES:

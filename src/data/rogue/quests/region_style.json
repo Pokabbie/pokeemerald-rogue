@@ -92,7 +92,12 @@
                         "moves":
                         [
                             "MOVE_VOLT_TACKLE",
-                            "MOVE_THUNDER"
+                            "MOVE_THUNDER",
+                            "MOVE_EXTREME_SPEED"
+                        ],
+                        "abilities":
+                        [
+                            "ABILITY_SPEED_BOOST"
                         ]
                     }
                 ]

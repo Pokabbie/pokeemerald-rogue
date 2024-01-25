@@ -742,6 +742,7 @@ const u8 gText_PokedexMovesEvo[] = _("{COLOR LIGHT_GRAY}{SHADOW RED}Evo. {COLOR 
 const u8 gText_PokedexMovesTM[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GRAY}TM.  {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
 const u8 gText_PokedexMovesTR[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}TR.  {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
 const u8 gText_PokedexMovesTutor[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Tutor {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
+const u8 gText_PokedexMovesCustom[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Custom {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{STR_VAR_1}");
 
 const u8 gText_PokedexEvoFriendship[] = _("Reach high {COLOR GREEN}{SHADOW LIGHT_GREEN}friendship");
 const u8 gText_PokedexEvoFriendshipDay[] = _("Reach high {COLOR GREEN}{SHADOW LIGHT_GREEN}friendship{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} at {COLOR RED}{SHADOW LIGHT_RED}day");

@@ -1192,6 +1192,7 @@ extern const u8 gText_PokedexMovesEvo[];
 extern const u8 gText_PokedexMovesTM[];
 extern const u8 gText_PokedexMovesTR[];
 extern const u8 gText_PokedexMovesTutor[];
+extern const u8 gText_PokedexMovesCustom[];
 
 extern const u8 gText_PokedexEvoFriendship[];
 extern const u8 gText_PokedexEvoFriendshipDay[];
