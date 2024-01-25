@@ -4724,7 +4724,7 @@ u8 GetMonAbility(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     u32 otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
     u8 abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM, NULL);
-    return GetAbilityBySpecies(species, otId, abilityNum);
+    return GetAbilityBySpecies(species, abilityNum, otId);
 }
 
 void CreateSecretBaseEnemyParty(struct SecretBase *secretBaseRecord)
