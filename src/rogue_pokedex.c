@@ -905,6 +905,10 @@ static bool8 IsAltFormVisible(u16 baseForm, u16 altForm)
         return FALSE;
 
 #ifdef ROGUE_EXPANSION
+    // catch case like toxtricity where we have an alt dynamax form not in form change table
+    if(gSpeciesInfo[formChange.targetSpecies].isGigantamax && !IsDynamaxEnabled())
+        return FALSE;
+
     {
         u32 i;
         struct FormChange formChange;
@@ -950,10 +954,13 @@ static u16 GetDisplayedOverviewSpecies(u16 species)
 
         for(i = 0; formTable && formTable[i] != FORM_SPECIES_END; ++i)
         {
-            if(IsAltFormVisible(species, formTable[i]) && GetSetPokedexSpeciesFlag(formTable[i], FLAG_GET_SEEN))
+		    // Only consider regional variants
+            if(gSpeciesInfo[formTable[i]].isAlolanForm || gSpeciesInfo[formTable[i]].isGalarianForm || gSpeciesInfo[formTable[i]].isHisuianForm || gSpeciesInfo[formTable[i]].isPaldeanForm)
             {
-                species = formTable[i];
-                break;
+                if(GetSetPokedexSpeciesFlag(formTable[i], FLAG_GET_SEEN))
+                {
+                    return formTable[i];
+                }
             }
         }
     }
