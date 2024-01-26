@@ -906,7 +906,7 @@ static bool8 IsAltFormVisible(u16 baseForm, u16 altForm)
 
 #ifdef ROGUE_EXPANSION
     // catch case like toxtricity where we have an alt dynamax form not in form change table
-    if(gSpeciesInfo[formChange.targetSpecies].isGigantamax && !IsDynamaxEnabled())
+    if(gSpeciesInfo[altForm].isGigantamax && !IsDynamaxEnabled())
         return FALSE;
 
     {
