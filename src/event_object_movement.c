@@ -146,7 +146,7 @@ static void UpdateObjectEventVisibility(struct ObjectEvent *, struct Sprite *);
 static void MakeSpriteTemplateFromObjectEventTemplate(const struct ObjectEventTemplate *, struct SpriteTemplate *, const struct SubspriteTable **);
 static void GetObjectEventMovingCameraOffset(s16 *, s16 *);
 //static struct ObjectEventTemplate *GetObjectEventTemplateByLocalIdAndMap(u8, u8, u8);
-static void LoadObjectEventPalette(u16);
+static u16 LoadObjectEventPalette(u16);
 static void RemoveObjectEventIfOutsideView(struct ObjectEvent *);
 static void SpawnObjectEventOnReturnToField(u8, s16, s16);
 static void SetPlayerAvatarObjectEventIdAndObjectId(u8, u8);
@@ -1897,17 +1897,46 @@ u8 CreateObjectGraphicsSprite(u16 graphicsId, void (*callback)(struct Sprite *),
 
     spriteTemplate = Alloc(sizeof(struct SpriteTemplate));
     CopyObjectGraphicsInfoToSpriteTemplate(graphicsId, callback, spriteTemplate, &subspriteTables); // ?
+
     if (spriteTemplate->paletteTag != TAG_NONE)
-        LoadObjectEventPalette(spriteTemplate->paletteTag);
+    {
+        u16 palIndex;
+
+        if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
+        {
+            spriteTemplate->paletteTag = OBJ_EVENT_PAL_TAG_FOLLOW_MON_1 + graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_FIRST;
+        }
+
+        palIndex = LoadObjectEventPalette(spriteTemplate->paletteTag);
+
+        if(palIndex != 0xFF)
+        {
+            if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
+            {
+                // Overwrite followmon palette with correct palette
+                const u16* palette = FollowMon_GetGraphicsForPalSlot(graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_FIRST);
+                LoadPalette(palette, OBJ_PLTT_ID(palIndex), PLTT_SIZE_4BPP);
+            }
+
+            // Apply ToD tint
+            Rogue_ModifyOverworldPalette(OBJ_PLTT_ID(palIndex), PLTT_SIZE_4BPP);
+        }
+    }
 
     spriteId = CreateSprite(spriteTemplate, x, y, subpriority);
     Free(spriteTemplate);
 
     if (spriteId != MAX_SPRITES && subspriteTables != NULL)
     {
+        //const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
+        //u8 paletteSlot = graphicsInfo->paletteSlot;
+
+        //Rogue_ModifyObjectPaletteSlot(graphicsId, &paletteSlot);
+
         sprite = &gSprites[spriteId];
         SetSubspriteTables(sprite, subspriteTables);
         sprite->subspriteMode = SUBSPRITES_IGNORE_PRIORITY;
+        //sprite->oam.paletteNum = paletteSlot; // global palette
     }
 
     return spriteId;
@@ -2456,7 +2485,7 @@ void FreeAndReserveObjectSpritePalettes(void)
     gReservedSpritePaletteCount = OBJ_PALSLOT_COUNT;
 }
 
-static void LoadObjectEventPalette(u16 paletteTag)
+static u16 LoadObjectEventPalette(u16 paletteTag)
 {
     u16 i = FindObjectEventPaletteIndexByTag(paletteTag);
 
@@ -2469,7 +2498,10 @@ static void LoadObjectEventPalette(u16 paletteTag)
         //{
         //    Rogue_ModifyOverworldPalette(paletteOffset * 16 + 0x100, 1);
         //}
+        return paletteOffset;
     }
+
+    return 0xFF;
 }
 
 static void UNUSED LoadObjectEventPaletteSet(u16 *paletteTags)

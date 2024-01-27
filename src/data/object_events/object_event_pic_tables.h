@@ -4716,6 +4716,14 @@ static const struct SpriteFrameImage sPicTable_ItemZCrystal[] = {
     obj_frame_tiles(gObjectEventPic_ItemZCrystal),
 };
 
+static const struct SpriteFrameImage sPicTable_ItemDynamaxBall[] = {
+    obj_frame_tiles(gObjectEventPic_ItemDynamaxBall),
+};
+
+static const struct SpriteFrameImage sPicTable_ItemHealing[] = {
+    obj_frame_tiles(gObjectEventPic_ItemHealing),
+};
+
 static const struct SpriteFrameImage sPicTable_GoldGrass[] = {
     obj_frame_tiles(gObjectEventPic_GoldGrass),
 };

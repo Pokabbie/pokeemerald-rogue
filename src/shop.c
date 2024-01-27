@@ -256,7 +256,7 @@ static const struct ListMenuTemplate sShopBuyMenuListTemplate =
     .cursorShadowPal = 3,
     .lettersSpacing = 0,
     .itemVerticalPadding = 0,
-    .scrollMultiple = LIST_NO_MULTIPLE_SCROLL,
+    .scrollMultiple = LIST_MULTIPLE_SCROLL_L_R,
     .fontId = FONT_NARROW,
     .cursorKind = CURSOR_BLACK_ARROW
 };

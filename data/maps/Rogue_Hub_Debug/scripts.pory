@@ -189,3 +189,101 @@ script Rogue_Debug_DisplayVoltorbFlip
     waitstate
     release
 }
+
+script Rogue_Debug_GiveMegaRing
+{
+    lock
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("NOT IN EX"))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            checkitem(ITEM_MEGA_RING)
+            if(var(VAR_RESULT) == YES)
+            {
+                removeitem(ITEM_MEGA_RING)
+            }
+            else
+            {
+                giveitem(ITEM_MEGA_RING)
+            }
+        }
+    }
+
+    release
+}
+
+script Rogue_Debug_GiveZRing
+{
+    lock
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("NOT IN EX"))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            checkitem(ITEM_Z_POWER_RING)
+            if(var(VAR_RESULT) == YES)
+            {
+                removeitem(ITEM_Z_POWER_RING)
+            }
+            else
+            {
+                giveitem(ITEM_Z_POWER_RING)
+            }
+        }
+    }
+
+    release
+}
+
+script Rogue_Debug_DynamaxBand
+{
+    lock
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("NOT IN EX"))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            checkitem(ITEM_DYNAMAX_BAND)
+            if(var(VAR_RESULT) == YES)
+            {
+                removeitem(ITEM_DYNAMAX_BAND)
+            }
+            else
+            {
+                giveitem(ITEM_DYNAMAX_BAND)
+            }
+        }
+    }
+
+    release
+}
+
+script Rogue_Debug_HealingFlask
+{
+    lock
+
+    checkitem(ITEM_HEALING_FLASK)
+    if(var(VAR_RESULT) == YES)
+    {
+        removeitem(ITEM_HEALING_FLASK)
+    }
+    else
+    {
+        giveitem(ITEM_HEALING_FLASK)
+    }
+
+    release
+}
