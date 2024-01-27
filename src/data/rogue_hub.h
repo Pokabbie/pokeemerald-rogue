@@ -63,9 +63,10 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
         .buildCost = 1,
         .connectionWarps = 
         {
-            [HUB_AREA_CONN_EAST] = { 1, 2 },
-            [HUB_AREA_CONN_SOUTH] = { 3, 4 },
-            [HUB_AREA_CONN_WEST] = { 5, 6 },
+            [HUB_AREA_CONN_NORTH] = { 0, 1 },
+            [HUB_AREA_CONN_EAST] = { 2, 3 },
+            [HUB_AREA_CONN_SOUTH] = { 4, 5 },
+            [HUB_AREA_CONN_WEST] = { 6, 7 },
         },
         .iconImage = gItemIcon_BasementKey,
         .iconPalette = gItemIconPalette_OldKey,

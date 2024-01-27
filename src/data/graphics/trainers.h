@@ -615,6 +615,9 @@ const u32 gTrainerPalette_GlitchTails[] = INCBIN_U32("graphics/trainers/palettes
 const u32 gTrainerFrontPic_GlitchErma[] = INCBIN_U32("graphics/trainers/front_pics/glitch/erma_front_pic.4bpp.lz");
 const u32 gTrainerPalette_GlitchErma[] = INCBIN_U32("graphics/trainers/palettes/glitch/elite_erma.gbapal.lz");
 
+const u32 gTrainerFrontPic_GlitchRandoman[] = INCBIN_U32("graphics/trainers/front_pics/glitch/randoman_front_pic.4bpp.lz");
+const u32 gTrainerPalette_GlitchRandoman[] = INCBIN_U32("graphics/trainers/front_pics/glitch/randoman_front_pic.gbapal.lz");
+
 const u32 gTrainerFrontPic_CommunityZefa[] = INCBIN_U32("graphics/trainers/front_pics/community/zefa_front_pic.4bpp.lz");
 const u32 gTrainerPalette_CommunityZefa[] = INCBIN_U32("graphics/trainers/front_pics/community/zefa_front_pic.gbapal.lz");
 

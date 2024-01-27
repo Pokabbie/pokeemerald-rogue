@@ -1965,6 +1965,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, u16 trainerNum, const
             if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
             {
                 Rogue_Battle_StartTrainerBattle();
+        		Rogue_Battle_TrainerTeamReady();
                 return CalculateEnemyPartyCount();
             }
 #endif
@@ -1972,6 +1973,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, u16 trainerNum, const
             if(gBattleScripting.specialTrainerBattleType == SPECIAL_BATTLE_AUTOMATION)
             {
                 Rogue_Battle_StartTrainerBattle();
+        		Rogue_Battle_TrainerTeamReady();
                 return CalculateEnemyPartyCount();
             }
 #endif
@@ -1997,6 +1999,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, u16 trainerNum, const
         }
     }
 
+    Rogue_Battle_TrainerTeamReady();
     return monsCount;
 }
 
@@ -5210,16 +5213,25 @@ static void HandleEndTurn_BattleWon(void)
 
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
+        // RogueNote: Too late for Rogue_ApplyFinalQuestFinalBossTeamSwap
         struct Trainer trainer;
         struct RogueBattleMusic music;
 
-        Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
-        Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, gTrainerBattleOpponent_A, &music);
+        //if(Rogue_IsFinalQuestFinalBoss())
+        //{
+        //    // No exit message for final quest final bost
+        //    BattleStopLowHpSound();
+        //}
+        //else
+        {
+            Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
+            Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, gTrainerBattleOpponent_A, &music);
 
-        BattleStopLowHpSound();
-        gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
+            BattleStopLowHpSound();
+            gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
 
-        PlayBGM(music.victoryMusic);
+            PlayBGM(music.victoryMusic);
+        }
     }
     else
     {

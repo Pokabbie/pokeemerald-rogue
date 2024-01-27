@@ -24,7 +24,7 @@ script Rogue_Encounter_RestStop_RandomMan
     waitmovement(0)
     faceplayer
 
-    msgbox(format("WAHEY!\pYou looking to add a bit of randomness to you life?\pTell you what..."), MSGBOX_DEFAULT)
+    msgbox(format("WAHEY!\pYou looking to add a bit of randomness to your life?\pTell you what…"), MSGBOX_DEFAULT)
     
     showmoneybox(0, 0)
     msgbox(format("For ¥1000 I'll trade you one Pokémon.\nOR!\pI'll trade ALL your Pokémon for free?"), MSGBOX_DEFAULT)

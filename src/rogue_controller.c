@@ -44,6 +44,7 @@
 #include "rtc.h"
 #include "safari_zone.h"
 #include "script.h"
+#include "script_pokemon_util.h"
 #include "siirtc.h"
 #include "strings.h"
 #include "string_util.h"
@@ -317,6 +318,47 @@ bool8 Rogue_UseFinalQuestEffects(void)
             return FALSE;
 
         return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 HasFinalQuestBossAppliedSwap()
+{
+    return !(gEnemyPartyCount != 1 && GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) != SPECIES_WOBBUFFET);
+}
+
+bool8 Rogue_IsFinalQuestFinalBoss(void)
+{
+    if(Rogue_UseFinalQuestEffects() && (gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+    {
+        return Rogue_IsBossTrainer(gTrainerBattleOpponent_A);
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_ApplyFinalQuestFinalBossTeamSwap(void)
+{
+    if(Rogue_IsFinalQuestFinalBoss())
+    {
+        if(!HasFinalQuestBossAppliedSwap())
+        {
+            // Only do this once
+            // Swap out team for the "final" mon a custom Wobbuffet
+            u8 i;
+
+            for(i = 0; i < PARTY_SIZE; ++i)
+                ZeroMonData(&gEnemyParty[i]);
+
+            // TODO - Apply custom mon
+            CreateMon(&gEnemyParty[0], SPECIES_WOBBUFFET, MAX_LEVEL, 10, FALSE, 0, OT_ID_PLAYER_ID, 0);
+
+            // Apply different music ??
+            //PlayBGM();
+
+            return TRUE;
+        }
     }
 
     return FALSE;
@@ -926,18 +968,25 @@ const u8* Rogue_ModifyFieldMessage(const u8* str)
 
     if(Rogue_IsRunActive())
     {
-        switch(gRogueAdvPath.currentRoomType)
+
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
-            case ADVPATH_ROOM_BOSS:
-                if(str == gPlaceholder_Gym_PreBattleOpenning)
-                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_PRE_BATTLE_OPENNING);
-                else if(str == gPlaceholder_Gym_PreBattleTaunt)
-                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_PRE_BATTLE_TAUNT);
-                else if(str == gPlaceholder_Gym_PostBattleTaunt)
-                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_TAUNT);
-                else if(str == gPlaceholder_Gym_PostBattleCloser)
-                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
-                break;
+            u16 trainerNum;
+
+            // We don't technically have a new room so force the trainer num here
+            if(Rogue_UseFinalQuestEffects() && Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+                trainerNum = gRogueRun.bossTrainerNums[ROGUE_FINAL_CHAMP_DIFFICULTY];
+            else
+                trainerNum = gRogueAdvPath.currentRoomParams.perType.boss.trainerNum;
+
+            if(str == gPlaceholder_Gym_PreBattleOpenning)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_PRE_BATTLE_OPENNING);
+            else if(str == gPlaceholder_Gym_PreBattleTaunt)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_PRE_BATTLE_TAUNT);
+            else if(str == gPlaceholder_Gym_PostBattleTaunt)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_TAUNT);
+            else if(str == gPlaceholder_Gym_PostBattleCloser)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
         }
 
         // Overworld trainer messages
@@ -967,6 +1016,9 @@ const u8* Rogue_ModifyFieldMessage(const u8* str)
 }
 
 extern const u8* const gBattleStringsTable[];
+extern const u8 sText_Trainer1SentOutPkmn2[];
+
+static const u8 sText_FinalQuestFinalMonSendOut[] = _("Wahey!\nI'm not through yet!");
 
 const u8* Rogue_ModifyBattleMessage(const u8* str)
 {
@@ -977,6 +1029,12 @@ const u8* Rogue_ModifyBattleMessage(const u8* str)
         // Don't display "Would you like to nickname" msg
         if(str == gBattleStringsTable[STRINGID_GIVENICKNAMECAPTURED - BATTLESTRINGS_TABLE_START])
             overrideStr = gText_EmptyString2;
+    }
+
+    if(Rogue_IsFinalQuestFinalBoss() && HasFinalQuestBossAppliedSwap())
+    {
+        if(str == sText_Trainer1SentOutPkmn2)
+            overrideStr = sText_FinalQuestFinalMonSendOut;
     }
 
     return overrideStr != NULL ? overrideStr : str;
@@ -3779,6 +3837,26 @@ void Rogue_OnWarpIntoMap(void)
     }
     else
     {
+        u16 specialState = VarGet(VAR_ROGUE_SPECIAL_MODE);
+
+        if(specialState != ROGUE_SPECIAL_MODE_NONE)
+        {
+            if(specialState == ROGUE_SPECIAL_MODE_DECORATING)
+            {
+                // Maintain special state provided we're still in any player home area
+                bool8 inHomeMap = gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_HOME || gMapHeader.mapLayoutId == LAYOUT_ROGUE_INTERIOR_HOME || gMapHeader.mapLayoutId == LAYOUT_ROGUE_INTERIOR_HOME_UPPER;
+
+                if(!inHomeMap)
+                    VarSet(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE);
+            }
+            else
+            {
+                // Clear map state
+                VarSet(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE);
+            }
+        }
+
+
         // In the hub, clients just copy host state
         if(RogueMP_IsActive() && RogueMP_IsClient())
         {
@@ -3797,6 +3875,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     if(warp->mapGroup == MAP_GROUP(ROGUE_HUB) && warp->mapNum == MAP_NUM(ROGUE_HUB))
     {
         // Warping back to hub must be intentional
+        return;
+    }
+    else if(warp->mapGroup == MAP_GROUP(ROGUE_BOSS_FINAL) && warp->mapNum == MAP_NUM(ROGUE_BOSS_FINAL))
+    {
+        // Never override this warp
         return;
     }
     else if(warp->mapGroup == MAP_GROUP(ROGUE_AREA_ADVENTURE_ENTRANCE) && warp->mapNum == MAP_NUM(ROGUE_AREA_ADVENTURE_ENTRANCE))
@@ -4287,32 +4370,53 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty, bool8 ca
     }
 }
 
-void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
+static void CheckAndNotifyForFaintedMons()
 {
-    bool8 hasValidSpecies;
-    u8 read;
-    u8 write = 0;
-    bool8 hasMonFainted = FALSE;
-
-    // If we're finished, we don't want to release any mons, just check if anything has fainted or not
-    if(Rogue_IsRunActive() && Rogue_GetCurrentDifficulty() >= ROGUE_MAX_BOSS_COUNT)
+    if(Rogue_IsRunActive())
     {
-        for(read = 0; read < PARTY_SIZE; ++read)
-        {
-            hasValidSpecies = GetMonData(&gPlayerParty[read], MON_DATA_SPECIES) != SPECIES_NONE;
+        u8 i;
+        u8 faintedCount = 0;
 
-            if(hasValidSpecies && GetMonData(&gPlayerParty[read], MON_DATA_HP, NULL) != 0)
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            bool8 hasValidSpecies = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE;
+
+            if(hasValidSpecies && GetMonData(&gPlayerParty[i], MON_DATA_HP, NULL) != 0)
             {
                 // This mon is alive
             }
             else if(hasValidSpecies)
             {
-                hasMonFainted = TRUE;
-                break;
+                ++faintedCount;
             }
         }
+
+        if(faintedCount)
+        {
+            // TODO - Notifies
+        }
     }
-    else
+}
+
+void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
+{
+    bool8 hasValidSpecies;
+    u8 read;
+    u8 write = 0;
+    bool8 skipReleasing = FALSE;
+
+    if(Rogue_IsRunActive())
+    {
+        // If we're finished, we don't want to release any mons, just check if anything has fainted or not
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_MAX_BOSS_COUNT)
+            skipReleasing = TRUE;
+
+        // Don't release any fainted mons for final champ fight
+        if(Rogue_UseFinalQuestEffects() && Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+            skipReleasing = TRUE;
+    }
+
+    if(!skipReleasing)
     {
         for(read = 0; read < PARTY_SIZE; ++read)
         {
@@ -4340,8 +4444,6 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
                     if(heldItem != ITEM_NONE)
                         AddBagItem(heldItem, 1);
                 }
-                else
-                    hasMonFainted = TRUE;
 
 
                 // Only push mons if run is active
@@ -4358,18 +4460,59 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
         }
     }
 
-    if(hasMonFainted)
-    {
-        Rogue_CampaignNotify_OnMonFainted();
-        QuestNotify_OnMonFainted();
-    }
-
     gPlayerPartyCount = CalculatePlayerPartyCount();
+}
+
+struct Pokemon* GetRecordedPlayerPartyPtr();
+struct Pokemon* GetRecordedEnemyPartyPtr();
+
+static void TempSavePlayerTeam()
+{
+    u8 i;
+    struct Pokemon* tempParty = GetRecordedPlayerPartyPtr();
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+        CopyMon(&tempParty[i], &gPlayerParty[i], sizeof(struct Pokemon));
+}
+
+static void TempRestorePlayerTeam()
+{
+    u8 i;
+    struct Pokemon* tempParty = GetRecordedPlayerPartyPtr();
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+        CopyMon(&gPlayerParty[i], &tempParty[i], sizeof(struct Pokemon));
+
+    CalculatePlayerPartyCount();
+}
+
+static void TempSaveEnemyTeam()
+{
+    u8 i;
+    struct Pokemon* tempParty = GetRecordedEnemyPartyPtr();
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+        CopyMon(&tempParty[i], &gEnemyParty[i], sizeof(struct Pokemon));
+}
+
+static void TempRestoreEnemyTeam()
+{
+    u8 i;
+    struct Pokemon* tempParty = GetRecordedEnemyPartyPtr();
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+        CopyMon(&gEnemyParty[i], &tempParty[i], sizeof(struct Pokemon));
+
+    CalculateEnemyPartyCount();
 }
 
 void Rogue_Battle_StartTrainerBattle(void)
 {
     bool8 shouldDoubleBattle = FALSE;
+
+    // Apply trainer specific seed
+    gRogueLocal.rngSeedToRestore = gRngRogueValue;
+    SeedRogueRng(RogueRandom() + (gTrainerBattleOpponent_A ^ RogueRandom()));
 
         // enable dyanmax for this fight
     if(IsDynamaxEnabled() && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
@@ -4408,6 +4551,60 @@ void Rogue_Battle_StartTrainerBattle(void)
 
     RememberPartyHeldItems();
     RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_START);
+}
+
+void Rogue_Battle_TrainerTeamReady(void)
+{
+    if(Rogue_IsFinalQuestFinalBoss())
+    {
+        u32 temp;
+        u8 i, j;
+        struct Pokemon* tempPlayerParty = GetRecordedPlayerPartyPtr();
+        struct Pokemon* tempEnemyParty = GetRecordedEnemyPartyPtr();
+
+        // Now swap teams but the player's team keeps it's IVs/EVs and the EnemyTeam keeps it's IVs/EVs
+        TempSavePlayerTeam();
+        TempSaveEnemyTeam();
+
+        // Heal player's mons before swapping them over
+        HealPlayerParty();
+
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            CopyMon(&gEnemyParty[i], &gPlayerParty[i], sizeof(struct Pokemon));
+            CopyMon(&gPlayerParty[i], &tempEnemyParty[i], sizeof(struct Pokemon));
+
+            // Maintain IVs/EVs on swapped mons
+            for(j = 0; j < NUM_STATS; ++j)
+            {
+                temp = GetMonData(&tempPlayerParty[i], MON_DATA_HP_IV + j);
+                SetMonData(&gPlayerParty[i], MON_DATA_HP_IV + j, &temp);
+                temp = GetMonData(&tempPlayerParty[i], MON_DATA_HP_EV + j);
+                SetMonData(&gPlayerParty[i], MON_DATA_HP_EV + j, &temp);
+
+                temp = GetMonData(&tempEnemyParty[i], MON_DATA_HP_IV + j);
+                SetMonData(&gEnemyParty[i], MON_DATA_HP_IV + j, &temp);
+                temp = GetMonData(&tempEnemyParty[i], MON_DATA_HP_EV + j);
+                SetMonData(&gEnemyParty[i], MON_DATA_HP_EV + j, &temp);
+            }
+
+            // Make sure everything is lvl 100
+            temp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES)].growthRate, MAX_LEVEL);
+            SetMonData(&gPlayerParty[i], MON_DATA_EXP, &temp);
+    
+            temp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gEnemyParty[i], MON_DATA_SPECIES)].growthRate, MAX_LEVEL);
+            SetMonData(&gEnemyParty[i], MON_DATA_EXP, &temp);
+            
+            CalculateMonStats(&gPlayerParty[i]);
+            CalculateMonStats(&gEnemyParty[i]);
+        }
+
+        CalculatePlayerPartyCount();
+        CalculateEnemyPartyCount();
+    }
+
+    // Can restore the seed now
+    gRngRogueValue = gRogueLocal.rngSeedToRestore;
 }
 
 static bool32 IsPlayerDefeated(u32 battleOutcome)
@@ -4619,6 +4816,11 @@ static void EnableRivalEncounterIfRequired()
 
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
+    if(Rogue_IsFinalQuestFinalBoss())
+    {
+        TempRestorePlayerTeam();
+    }
+
     TryRestorePartyHeldItems(FALSE);
     FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
 
@@ -4688,6 +4890,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             QuestNotify_OnTrainerBattleEnd(isBossTrainer);
+            CheckAndNotifyForFaintedMons();
             RemoveAnyFaintedMons(FALSE, TRUE);
 
             // Reward EVs based on nature
@@ -4787,6 +4990,7 @@ void Rogue_Battle_EndWildBattle(void)
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             QuestNotify_OnWildBattleEnd();
+            CheckAndNotifyForFaintedMons();
             RemoveAnyFaintedMons(FALSE, TRUE);
         }
         else

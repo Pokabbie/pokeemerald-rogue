@@ -842,3 +842,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Encounter_DayCare/scripts.inc"
 
 	.include "data/maps/Rogue_Encounter_RocketHideout/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_Final/scripts.inc"

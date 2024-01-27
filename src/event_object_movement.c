@@ -2491,8 +2491,7 @@ static u16 LoadObjectEventPalette(u16 paletteTag)
 
     if (i != OBJ_EVENT_PAL_TAG_NONE) // always true
     {
-        //u16 paletteOffset = LoadSpritePaletteIfTagExists(&sObjectEventSpritePalettes[i]);
-        LoadSpritePaletteIfTagExists(&sObjectEventSpritePalettes[i]);
+        u16 paletteOffset = LoadSpritePaletteIfTagExists(&sObjectEventSpritePalettes[i]);
 
         //if(paletteOffset != 0xFF)
         //{

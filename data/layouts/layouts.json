@@ -1534,10 +1534,10 @@
     {
       "id": "LAYOUT_ROGUE_AREA_HOME",
       "name": "Rogue_Area_Home_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 30,
+      "height": 32,
       "primary_tileset": "gTileset_GeneralHub",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Rogue_Area_Home/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_Home/map.bin"
     },
@@ -1564,8 +1564,8 @@
     {
       "id": "LAYOUT_ROGUE_AREA_FARMING_FIELD",
       "name": "Rogue_Area_FarmingField_Layout",
-      "width": 20,
-      "height": 16,
+      "width": 40,
+      "height": 12,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Area_FarmingField/border.bin",
@@ -1800,6 +1800,16 @@
       "secondary_tileset": "gTileset_FacilityRocket",
       "border_filepath": "data/layouts/Rogue_Encounter_RocketHideout/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_RocketHideout/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_BOSS_FINAL",
+      "name": "Rogue_Boss_Final_Layout",
+      "width": 17,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/Rogue_Boss_Final/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Boss_Final/map.bin"
     }
   ]
 }

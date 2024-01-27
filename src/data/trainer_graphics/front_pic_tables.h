@@ -221,6 +221,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_GLITCH_KATE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_GLITCH_TAILS] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_GLITCH_ERMA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_GLITCH_RANDOMAN] = {.size = 8, .y_offset = 1},
 
     [TRAINER_PIC_COMMUNITY_ZEFA] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_COMMUNITY_LIGHTNINGSTRIKE7] = {.size = 8, .y_offset = 1},
@@ -473,6 +474,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(GLITCH_KATE, gTrainerFrontPic_GlitchKate),
     TRAINER_SPRITE(GLITCH_TAILS, gTrainerFrontPic_GlitchTails),
     TRAINER_SPRITE(GLITCH_ERMA, gTrainerFrontPic_GlitchErma),
+    TRAINER_SPRITE(GLITCH_RANDOMAN, gTrainerFrontPic_GlitchRandoman),
 
     TRAINER_SPRITE(COMMUNITY_ZEFA, gTrainerFrontPic_CommunityZefa),
     TRAINER_SPRITE(COMMUNITY_LIGHTNINGSTRIKE7, gTrainerFrontPic_CommunityLightningStrike7),
@@ -724,6 +726,7 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(GLITCH_KATE, gTrainerPalette_GlitchKate),
     TRAINER_PAL(GLITCH_TAILS, gTrainerPalette_GlitchTails),
     TRAINER_PAL(GLITCH_ERMA, gTrainerPalette_GlitchErma),
+    TRAINER_PAL(GLITCH_RANDOMAN, gTrainerPalette_GlitchRandoman),
 
     TRAINER_PAL(COMMUNITY_ZEFA, gTrainerPalette_CommunityZefa),
     TRAINER_PAL(COMMUNITY_LIGHTNINGSTRIKE7, gTrainerPalette_CommunityLightningStrike7),

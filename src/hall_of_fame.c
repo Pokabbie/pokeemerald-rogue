@@ -92,6 +92,8 @@ static bool8 CreateHofConfettiSprite(void);
 static void StartCredits(void);
 static bool8 LoadHofBgs(bool8 inPC);
 static void Task_Hof_InitMonData(u8 taskId);
+static void Task_Hof_InitFakeout(u8 taskId);
+static void Task_Hof_WaitForFadeout(u8 taskId);
 static void Task_Hof_InitTeamSaveData(u8 taskId);
 static void Task_Hof_SetMonDisplayTask(u8 taskId);
 static void Task_Hof_TrySaveData(u8 taskId);
@@ -478,6 +480,16 @@ void CB2_DoHallOfFameScreenDontSaveData(void)
     }
 }
 
+void CB2_DoHallOfFameScreenForFakeout(void)
+{
+    if (!InitHallOfFameScreen())
+    {
+        u8 taskId = CreateTask(Task_Hof_InitFakeout, 0);
+        gTasks[taskId].tDontSaveData = FALSE;
+        sHofMonPtr = AllocZeroed(sizeof(*sHofMonPtr));
+    }
+}
+
 static void Task_Hof_InitMonData(u8 taskId)
 {
     u16 i, j;
@@ -567,6 +579,36 @@ static void Task_Hof_InitTeamSaveData(u8 taskId)
     AddTextPrinterParameterized2(0, FONT_NORMAL, gText_SavingDontTurnOffPower, 0, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
     CopyWindowToVram(0, COPYWIN_FULL);
     gTasks[taskId].func = Task_Hof_TrySaveData;
+}
+
+static void Task_Hof_InitFakeout(u8 taskId)
+{
+    //DrawDialogueFrame(0, FALSE);
+    //AddTextPrinterParameterized2(0, FONT_NORMAL, gText_EmptyString2, 0, NULL, 2, 1, 3);
+    //CopyWindowToVram(0, COPYWIN_FULL);
+
+    gTasks[taskId].tFrameCount = 0;
+    gTasks[taskId].func = Task_Hof_WaitForFadeout;
+}
+
+static void Task_Hof_WaitForFadeout(u8 taskId)
+{
+    ++gTasks[taskId].tFrameCount;
+    if(gTasks[taskId].tFrameCount >= 60 * 5)
+    {
+        PlayBGM(MUS_NONE);
+
+        SetWarpDestination(MAP_GROUP(ROGUE_BOSS_FINAL), MAP_NUM(ROGUE_BOSS_FINAL), WARP_ID_NONE, 9, 5);
+        WarpIntoMap();
+        DestroyTask(taskId);
+
+        //SetMainCallback2(CB2_ReturnToFieldFadeFromBlack);
+        //gFieldCallback = FieldCB_FadeTryShowMapPopup;
+        SetMainCallback2(CB2_LoadMap);
+
+        //SetMainCallback1(CB1_Overworld);
+        //SetMainCallback2(CB2_Overworld);
+    }
 }
 
 static void Task_Hof_TrySaveData(u8 taskId)

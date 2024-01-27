@@ -116,6 +116,7 @@
 #define MAP_ROGUE_BOSS_12                  (16 | (6 << 8))
 #define MAP_ROGUE_BOSS_13                  (17 | (6 << 8))
 #define MAP_ROGUE_ENCOUNTER_ROCKET_HIDEOUT (18 | (6 << 8))
+#define MAP_ROGUE_BOSS_FINAL               (19 | (6 << 8))
 
 // gMapGroup_RogueAdventureMonEncounters
 #define MAP_ROGUE_SOUTHERN_ISLAND_LATIOS   (0 | (7 << 8))

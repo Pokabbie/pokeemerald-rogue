@@ -1520,6 +1520,10 @@ void InitPlayerAvatar(s16 x, s16 y, u8 direction, u8 gender)
     // When loading into the intro, we're going to hide the player sprite initially
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTRO) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_INTRO))
         SetPlayerInvisibility(TRUE);
+
+    // Set invis for final map too
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_BOSS_FINAL) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_BOSS_FINAL))
+        SetPlayerInvisibility(TRUE);
 }
 
 void SetPlayerInvisibility(bool8 invisible)

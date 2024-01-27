@@ -215,6 +215,7 @@ gSpecials::
 	def_special Rogue_CheckMonCombo
 	def_special Rogue_ApplyMonCombo
 	def_special Rogue_GetFollowMonSpecies
+	def_special Rogue_SetupFollowMonFromParty
 	def_special Rogue_TryEnqueueWildBattleMon
 	def_special Rogue_GetTrainerNum
 	def_special Rogue_PlayStaticTrainerEncounterBGM
@@ -248,6 +249,7 @@ gSpecials::
 	def_special Rogue_CheckDaycareCount
 	def_special Rogue_IsDaycareSlotEmpty
 	def_special Rogue_SwapDaycareMon
+	def_special Rogue_HealAlivePlayerParty
 	def_special Rogue_DisplayPopupsFromScript
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueAdv_ApplyAdventureMetatiles
@@ -377,6 +379,7 @@ gSpecials::
 	def_special LookThroughPorthole
 	def_special DoSoftReset
 	def_special GameClear
+	def_special GameClearFakeout
 	def_special MoveElevator
 	def_special ShowGlassWorkshopMenu
 	def_special SpawnCameraObject

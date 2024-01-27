@@ -359,6 +359,7 @@ extern const u32 gTrainerFrontPic_PokabbieJustDitto[];
 extern const u32 gTrainerFrontPic_GlitchKate[];
 extern const u32 gTrainerFrontPic_GlitchTails[];
 extern const u32 gTrainerFrontPic_GlitchErma[];
+extern const u32 gTrainerFrontPic_GlitchRandoman[];
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -556,6 +557,7 @@ extern const u32 gTrainerPalette_PokabbieJustDitto[];
 extern const u32 gTrainerPalette_GlitchKate[];
 extern const u32 gTrainerPalette_GlitchTails[];
 extern const u32 gTrainerPalette_GlitchErma[];
+extern const u32 gTrainerPalette_GlitchRandoman[];
 
 extern const u32 gTrainerFrontPic_CommunityZefa[];
 extern const u32 gTrainerPalette_CommunityZefa[];

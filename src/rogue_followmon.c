@@ -257,6 +257,10 @@ void SetupFollowParterMonObjectEvent()
     if(shouldFollowMonBeVisible && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | PLAYER_AVATAR_FLAG_RIDING)))
         shouldFollowMonBeVisible = FALSE;
 
+    // Hide whilst decorating
+    if(shouldFollowMonBeVisible && VarGet(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+        shouldFollowMonBeVisible = FALSE;
+
     if(shouldFollowMonBeVisible)
     {
         if(!FollowMon_IsPartnerMonActive())
@@ -323,6 +327,25 @@ void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny)
 {
     u16 gfxSpecies = MonSpeciesToFollowSpecies(species, isShiny);
     VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
+}
+
+void FollowMon_SetGraphicsFromMon(u16 id, struct Pokemon* mon)
+{
+    u16 gfxSpecies = FollowMon_GetMonGraphics(mon);
+    VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
+}
+
+void FollowMon_SetGraphicsFromParty()
+{
+    u8 i;
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        if(i < gPlayerPartyCount)
+            FollowMon_SetGraphicsFromMon(i, &gPlayerParty[i]);
+        else
+            FollowMon_SetGraphics(i, SPECIES_NONE, FALSE);
+    }
 }
 
 u16 FollowMon_GetGraphics(u16 id)

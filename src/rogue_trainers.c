@@ -1440,9 +1440,6 @@ static bool8 ShouldTrainerUseValidNatures(u16 trainerNum)
 u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacity, bool8 firstTrainer)
 {
     u8 monCount;
-    u32 tempSeed = gRngRogueValue;
-
-    SeedRogueRng(RogueRandom() + trainerNum * RogueRandom()); // todo - move this sooner? Need to sync doubles/singles mixed mode to seed
 
     if(Rogue_IsRivalTrainer(trainerNum))
         monCount = CreateRivalPartyInternal(trainerNum, party, monCapacity);
@@ -1483,7 +1480,6 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
         }
     }
 
-    gRngRogueValue = tempSeed;
     return monCount;
 }
 

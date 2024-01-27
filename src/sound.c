@@ -377,6 +377,9 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
     u32 pitch;
     u32 chorus;
 
+    if(species >= FOLLOWMON_SHINY_OFFSET)
+        species -= FOLLOWMON_SHINY_OFFSET;
+
     // Set default values
     // May be overridden depending on mode.
     length = 210;

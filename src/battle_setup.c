@@ -930,10 +930,20 @@ u8 GetTrainerBattleTransition(void)
 
     if (trainer.trainerClass == TRAINER_CLASS_CHAMPION || trainer.trainerClass == TRAINER_CLASS_DEVELOPER_CHAMPION)
     {
-        if (Rogue_GetCurrentDifficulty() >= 13)
+        if(Rogue_UseFinalQuestEffects())
+        {
+            if(Rogue_IsFinalQuestFinalBoss())
+                return B_TRANSITION_CHAMPION_RANDOMAN;
+
             return B_TRANSITION_CHAMPION_STEVEN;
-            
-        return B_TRANSITION_CHAMPION;
+        }
+        else
+        {
+            if (Rogue_GetCurrentDifficulty() >= 13)
+                return B_TRANSITION_CHAMPION_STEVEN;
+                
+            return B_TRANSITION_CHAMPION;
+        }
     }
     
     if (trainer.trainerClass == TRAINER_CLASS_TEAM_MAGMA

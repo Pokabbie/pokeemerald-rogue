@@ -849,12 +849,22 @@
         "champ":
         [
             {
-                "name": "PLACEHOLDER",
+                "name": "RANDOMAN",
                 "type_assignment": "NONE",
-                "gfx_suffix": "KANTO_PROFOAK",
+                "object_event": "OBJ_EVENT_GFX_CONTEST_JUDGE",
+                "trainer_pic": "TRAINER_PIC_GLITCH_RANDOMAN",
                 "music_player": "rogue_final_champion",
                 "class_flags": [ "BOSS_CHAMP" ],
-                "shiny_species": "SPECIES_MEW",
+                "shiny_species": "SPECIES_NONE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "unused",
+                        "PRE_BATTLE_TAUNT": "unused",
+                        "POST_BATTLE_TAUNT": "You are truely a\\nChampion of Emerald Rogue.",
+                        "POST_BATTLE_CLOSER": "unused"
+                    }
+                ],
                 "pokeball": "FINAL_BOSS_POKEBALL",
                 "preferred_mon_gender": "MALE",
                 "team_generator":
@@ -867,10 +877,6 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CHARMANDER", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BULBASAUR", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SQUIRTLE", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
                     ]
                 }

@@ -1,0 +1,307 @@
+const VAR_FRAME_TABLE_IDX = VAR_TEMP_0
+
+const COORD_HIDDEN_X = 0
+const COORD_HIDDEN_Y = 0
+
+const COORD_CENTRE_X = 9
+const COORD_CENTRE_Y = 5
+
+const COORD_FOLLOWMON_0_X = 7
+const COORD_FOLLOWMON_0_Y = 4
+const COORD_FOLLOWMON_1_X = 11
+const COORD_FOLLOWMON_1_Y = 4
+const COORD_FOLLOWMON_2_X = 8
+const COORD_FOLLOWMON_2_Y = 2
+const COORD_FOLLOWMON_3_X = 10
+const COORD_FOLLOWMON_3_Y = 2
+const COORD_FOLLOWMON_4_X = 6
+const COORD_FOLLOWMON_4_Y = 2
+const COORD_FOLLOWMON_5_X = 12
+const COORD_FOLLOWMON_5_Y = 2
+
+const OBJ_LOCAL_ID_SHADOW = 1
+const OBJ_LOCAL_ID_RANDOMAN = 2
+
+const OBJ_LOCAL_ID_FOLLOWMON_0 = 3
+const OBJ_LOCAL_ID_FOLLOWMON_1 = 4
+const OBJ_LOCAL_ID_FOLLOWMON_2 = 5
+const OBJ_LOCAL_ID_FOLLOWMON_3 = 6
+const OBJ_LOCAL_ID_FOLLOWMON_4 = 7
+const OBJ_LOCAL_ID_FOLLOWMON_5 = 8
+
+mapscripts Rogue_Boss_Final_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Boss_Final_OnLoad
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_FRAME_TABLE_IDX, 0: Rogue_Boss_Final_LoadFrame_0
+    ]
+}
+
+script Rogue_Boss_Final_OnLoad
+{
+    special(Rogue_SetupFollowMonFromParty)
+}
+
+script Rogue_Boss_Final_LoadFrame_0
+{
+    lock
+    setvar(VAR_FRAME_TABLE_IDX, 1)
+    setvar(VAR_LAST_TALKED, OBJ_LOCAL_ID_RANDOMAN)
+
+    // Fade in screen
+    //
+    fadescreen(FADE_TO_BLACK)
+    delay(60)
+    closemessage
+
+    // Fade in shadow sprite
+    //
+    playbgm(MUS_DP_HALL_OF_ORIGIN, FALSE)
+    setobjectxy(OBJ_LOCAL_ID_SHADOW, COORD_CENTRE_X, COORD_CENTRE_Y)
+
+    fadescreen(FADE_FROM_BLACK)
+    //delay(30)
+
+    //message(format("… … …"))
+    //waitmessage
+    delay(300)
+
+    message(format("Wahey…"))
+    waitmessage
+    delay(180)
+    closemessage
+
+    // Swap out randoman
+    //
+    setobjectxy(OBJ_LOCAL_ID_RANDOMAN, COORD_CENTRE_X, COORD_CENTRE_Y)
+    setobjectxy(OBJ_LOCAL_ID_SHADOW, COORD_HIDDEN_X, COORD_HIDDEN_Y)
+
+    applymovement(OBJ_LOCAL_ID_RANDOMAN, Rogue_Boss_Final_RandomanSpin)
+    waitmovement(0)
+
+    msgbox(format("Welcome!\pTo my EVER so lovingly setup finale!\pSo… … …"))
+    closemessage
+
+    // Display current party
+    //
+    if(var(VAR_FOLLOW_MON_0) != SPECIES_NONE)
+    {
+        setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_0, COORD_FOLLOWMON_0_X, COORD_FOLLOWMON_0_Y)
+        playmoncry(VAR_FOLLOW_MON_0, CRY_MODE_NORMAL)
+        delay(120)
+    }
+
+    if(var(VAR_FOLLOW_MON_1) != SPECIES_NONE)
+    {
+        setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_1, COORD_FOLLOWMON_1_X, COORD_FOLLOWMON_1_Y)
+        playmoncry(VAR_FOLLOW_MON_1, CRY_MODE_NORMAL)
+        delay(120)
+    }
+
+    if(var(VAR_FOLLOW_MON_2) != SPECIES_NONE)
+    {
+        setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_2, COORD_FOLLOWMON_2_X, COORD_FOLLOWMON_2_Y)
+        playmoncry(VAR_FOLLOW_MON_2, CRY_MODE_NORMAL)
+        delay(120)
+    }
+
+    if(var(VAR_FOLLOW_MON_3) != SPECIES_NONE)
+    {
+        setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_3, COORD_FOLLOWMON_3_X, COORD_FOLLOWMON_3_Y)
+        playmoncry(VAR_FOLLOW_MON_3, CRY_MODE_NORMAL)
+        delay(120)
+    }
+
+    if(var(VAR_FOLLOW_MON_4) != SPECIES_NONE)
+    {
+        setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_4, COORD_FOLLOWMON_4_X, COORD_FOLLOWMON_4_Y)
+        playmoncry(VAR_FOLLOW_MON_4, CRY_MODE_NORMAL)
+        delay(120)
+    }
+
+    if(var(VAR_FOLLOW_MON_5) != SPECIES_NONE)
+    {
+        setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_5, COORD_FOLLOWMON_5_X, COORD_FOLLOWMON_5_Y)
+        playmoncry(VAR_FOLLOW_MON_5, CRY_MODE_NORMAL)
+        delay(120)
+    }
+
+    // Indicate team shuffle
+    //
+    message(format("Would you like to add a bit of randomness to your life?"))
+    waitmessage
+    delay(180)
+
+    fadescreen(FADE_TO_BLACK)
+    delay(10)
+
+    fadeoutbgm(1)
+
+    playbgm(MUS_MOVE_DELETED_SLOW, FALSE)
+    delay(270)
+
+    // Hide all sprites
+    setobjectxy(OBJ_LOCAL_ID_RANDOMAN, COORD_HIDDEN_X, COORD_HIDDEN_Y)
+    setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_0, COORD_HIDDEN_X, COORD_HIDDEN_Y)
+    setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_1, COORD_HIDDEN_X, COORD_HIDDEN_Y)
+    setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_2, COORD_HIDDEN_X, COORD_HIDDEN_Y)
+    setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_3, COORD_HIDDEN_X, COORD_HIDDEN_Y)
+    setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_4, COORD_HIDDEN_X, COORD_HIDDEN_Y)
+    setobjectxy(OBJ_LOCAL_ID_FOLLOWMON_5, COORD_HIDDEN_X, COORD_HIDDEN_Y)
+
+    // Start fight
+    call(Rogue_SetDesiredWeather)
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_DYNAMIC, 0, gPlaceholder_Gym_PostBattleTaunt)
+
+    call(Rogue_Boss_Final_BattleDefeated)
+}
+
+script Rogue_Boss_Final_BattleDefeated
+{
+    // game clear
+    fadescreen(FADE_TO_BLACK)
+    special(GameClear)
+    waitstate
+    releaseall
+}
+
+movement Rogue_Boss_Final_RandomanSpin
+{
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+    
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+
+
+    face_right
+    delay_2
+
+    face_up
+    delay_2
+
+    face_left
+    delay_2
+
+    face_down
+    delay_2
+    
+    face_right
+    delay_2
+
+    face_up
+    delay_2
+
+    face_left
+    delay_2
+
+    face_down
+    delay_2
+
+
+    face_right
+    delay_4
+
+    face_up
+    delay_4
+
+    face_left
+    delay_4
+
+    face_down
+    delay_4
+    
+    face_right
+    delay_4
+
+    face_up
+    delay_4
+
+    face_left
+    delay_4
+
+    face_down
+    delay_4
+
+
+    face_right
+    delay_8
+
+    face_up
+    delay_8
+
+    face_left
+    delay_8
+
+    face_down
+    delay_8
+    
+    face_right
+    delay_8
+
+    face_up
+    delay_8
+
+    face_left
+    delay_8
+
+    face_down
+    delay_8
+
+
+    face_right
+    delay_16
+
+    face_up
+    delay_16
+
+    face_left
+    delay_16
+
+    face_down
+    delay_16
+    
+    face_right
+    delay_16
+
+    face_up
+    delay_16
+
+    face_left
+    delay_16
+
+    face_down
+    delay_16
+
+
+    face_right
+    delay_16 * 2
+
+    face_up
+    delay_16 * 2
+
+    face_left
+    delay_16 * 2
+
+    face_down
+    delay_16 * 2
+}

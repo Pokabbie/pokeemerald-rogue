@@ -4516,7 +4516,16 @@ static void Cmd_checkteamslost(void)
         gBattleOutcome |= B_OUTCOME_LOST;
 
     if (NoAliveMonsForOpponent())
-        gBattleOutcome |= B_OUTCOME_WON;
+	{
+		if(gBattleOutcome != B_OUTCOME_LOST && Rogue_ApplyFinalQuestFinalBossTeamSwap())
+		{
+            // Not won yet as we just spawned in a mon
+        }
+		else
+		{
+        	gBattleOutcome |= B_OUTCOME_WON;
+		}		
+	}
 
     // For link battles that haven't ended, count number of empty battler spots
     // In link multi battles, jump to pointer if more than 1 spot empty
