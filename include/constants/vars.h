@@ -63,7 +63,7 @@
 #define VAR_WONDER_NEWS_COUNTER              0x402E
 
 #define VAR_ROGUE_ACTIVE_POKEBLOCK           0x402F
-#define VAR_UNUSED_0x4030                    0x4030
+#define VAR_ROGUE_SPECIAL_MODE               0x4030
 #define VAR_ROGUE_SAFARI_BALL_TYPE           0x4031
 #define VAR_ROGUE_REGISTERED_RIDE_MON        0x4032
 #define VAR_ROGUE_INTRO_STATE                0x4033

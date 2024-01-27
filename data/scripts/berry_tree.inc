@@ -22,7 +22,7 @@ BerryTree_EventScript_CheckSoil::
 	lock
 	faceplayer
 	specialvar VAR_RESULT, PlayerHasBerries
-	goto_if_eq VAR_RESULT, TRUE, BerryTree_EventScript_WantToPlant
+	goto_if_eq VAR_RESULT, TRUE, Rogue_BerryTree_WantToPlant
 	message BerryTree_Text_ItsSoftLoamySoil
 	waitmessage
 	waitbuttonpress
@@ -42,7 +42,7 @@ BerryTree_EventScript_ChooseBerryToPlant::
 	waitstate
 	goto_if_eq VAR_ITEM_ID, 0, BerryTree_EventScript_CancelPlanting
 	removeitem VAR_ITEM_ID
-	call BerryTree_EventScript_PlantBerry
+	call Rogue_BerryTree_PlantBerry
 
 BerryTree_EventScript_CancelPlanting::
 	release
@@ -135,7 +135,7 @@ BerryTree_EventScript_CancelPickingBerry::
 BerryTree_EventScript_ItemUsePlantBerry::
 	lockall
 	special ObjectEventInteractionGetBerryTreeData
-	call BerryTree_EventScript_PlantBerry
+	call Rogue_BerryTree_PlantBerry
 	releaseall
 	end
 

@@ -3779,6 +3779,26 @@ void Rogue_OnWarpIntoMap(void)
     }
     else
     {
+        u16 specialState = VarGet(VAR_ROGUE_SPECIAL_MODE);
+
+        if(specialState != ROGUE_SPECIAL_MODE_NONE)
+        {
+            if(specialState == ROGUE_SPECIAL_MODE_DECORATING)
+            {
+                // Maintain special state provided we're still in any player home area
+                bool8 inHomeMap = gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_HOME || gMapHeader.mapLayoutId == LAYOUT_ROGUE_INTERIOR_HOME || gMapHeader.mapLayoutId == LAYOUT_ROGUE_INTERIOR_HOME_UPPER;
+
+                if(!inHomeMap)
+                    VarSet(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE);
+            }
+            else
+            {
+                // Clear map state
+                VarSet(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE);
+            }
+        }
+
+
         // In the hub, clients just copy host state
         if(RogueMP_IsActive() && RogueMP_IsClient())
         {

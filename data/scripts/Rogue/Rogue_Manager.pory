@@ -846,6 +846,44 @@ script Rogue_BerryTree_CheckSoil
     return
 }
 
+script Rogue_BerryTree_WantToPlant
+{
+    // Quick replant mode
+    if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_PLANTING)
+    {
+        if(var(VAR_ITEM_ID) >= FIRST_BERRY_INDEX && var(VAR_ITEM_ID) <= LAST_BERRY_INDEX)
+        {
+            checkitem(VAR_ITEM_ID)
+            if(var(VAR_RESULT) == YES)
+            {
+                bufferitemname(STR_VAR_1, VAR_ITEM_ID)
+                msgbox(format("Plant {STR_VAR_1}?"), MSGBOX_YESNO)
+                
+                if(var(VAR_RESULT) == YES)
+                {
+                    removeitem(VAR_ITEM_ID)
+                    call(Rogue_BerryTree_PlantBerry)
+                    release
+                    end
+                }
+            }
+        }
+
+        setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE)
+    }
+
+    goto(BerryTree_EventScript_WantToPlant)
+    end
+}
+
+script Rogue_BerryTree_PlantBerry
+{
+    setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_PLANTING)
+
+    goto(BerryTree_EventScript_PlantBerry)
+    return
+}
+
 script Rogue_BerryTree_PickedUpBerry
 {
     //if(!flag(FLAG_ROGUE_RUN_ACTIVE))

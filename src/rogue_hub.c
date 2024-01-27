@@ -579,36 +579,36 @@ static void RogueHub_UpdateFarmingAreaMetatiles()
     // Remove connectionss
     if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(7, 0, 12, 0, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(7, 1, 12, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(1, 0, 6, 2, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(1, 3, 6, TREE_TYPE_DENSE);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(18, 9);
+        MetatileFill_CommonWarpExitHorizontal(38, 5);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitVertical(8, 14);
-        MetatileFill_TreeCaps(8, 15, 11);
+        MetatileFill_CommonWarpExitVertical(32, 10);
+        MetatileFill_TreeCaps(32, 11, 35);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(0, 9);
+        MetatileFill_CommonWarpExitHorizontal(0, 5);
     }
 
 
     // Fill right field
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD))
-    {
-        MetatileFill_TreesOverlapping(12, 1, 19, 6, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(13, 7, 19, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(12, 7, 12, TREE_TYPE_SPARSE);
-        
-        MetatileFill_Tile(12, 8, 19, 8, METATILE_GeneralHub_Grass);
-    }
+    //if(!RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD))
+    //{
+    //    MetatileFill_TreesOverlapping(12, 1, 19, 6, TREE_TYPE_DENSE);
+    //    MetatileFill_TreeStumps(13, 7, 19, TREE_TYPE_DENSE);
+    //    MetatileFill_TreeStumps(12, 7, 12, TREE_TYPE_SPARSE);
+    //    
+    //    MetatileFill_Tile(12, 8, 19, 8, METATILE_GeneralHub_Grass);
+    //}
 }
 
 static void RogueHub_UpdateSafariAreaMetatiles()

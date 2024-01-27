@@ -257,6 +257,10 @@ void SetupFollowParterMonObjectEvent()
     if(shouldFollowMonBeVisible && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | PLAYER_AVATAR_FLAG_RIDING)))
         shouldFollowMonBeVisible = FALSE;
 
+    // Hide whilst decorating
+    if(shouldFollowMonBeVisible && VarGet(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+        shouldFollowMonBeVisible = FALSE;
+
     if(shouldFollowMonBeVisible)
     {
         if(!FollowMon_IsPartnerMonActive())

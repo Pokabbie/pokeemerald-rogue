@@ -1564,8 +1564,8 @@
     {
       "id": "LAYOUT_ROGUE_AREA_FARMING_FIELD",
       "name": "Rogue_Area_FarmingField_Layout",
-      "width": 20,
-      "height": 16,
+      "width": 40,
+      "height": 12,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Area_FarmingField/border.bin",
