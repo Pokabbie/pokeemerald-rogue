@@ -274,7 +274,7 @@ static bool32 IsRecordedBattleSaveValid(struct RecordedBattleSave *save)
     return TRUE;
 }
 
-static bool32 RecordedBattleToSave(struct RecordedBattleSave *battleSave, struct RecordedBattleSave *saveSector)
+static bool32 UNUSED RecordedBattleToSave(struct RecordedBattleSave *battleSave, struct RecordedBattleSave *saveSector)
 {
     memset(saveSector, 0, SECTOR_SIZE);
     memcpy(saveSector, battleSave, sizeof(*battleSave));
@@ -289,6 +289,7 @@ static bool32 RecordedBattleToSave(struct RecordedBattleSave *battleSave, struct
 
 bool32 MoveRecordedBattleToSaveData(void)
 {
+    return FALSE;
     //s32 i, j;
     //bool32 ret;
     //struct RecordedBattleSave *battleSave, *savSection;
@@ -440,10 +441,9 @@ bool32 MoveRecordedBattleToSaveData(void)
     //        break;
     //}
 //
-    free(battleSave);
-    free(savSection);
+    //free(battleSave);
+    //free(savSection);
     //return ret;
-    return FALSE;
 }
 
 static bool32 TryCopyRecordedBattleSaveData(struct RecordedBattleSave *dst, struct SaveSector *saveBuffer)
