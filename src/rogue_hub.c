@@ -486,71 +486,78 @@ static void RogueHub_UpdateAdventureEntranceAreaMetatiles()
 static void RogueHub_UpdateHomeAreaMetatiles()
 {
     // Remove connections
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_TreesOverlapping(1, 0, 5, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(1, 1, 6, TREE_TYPE_DENSE);
+    }
+
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(18, 15);
+        MetatileFill_TreesOverlapping(28, 25, 29, 30, TREE_TYPE_DENSE);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreeCaps(8, 19, 11);
+        MetatileFill_TreesOverlapping(23, 30, 28, 31, TREE_TYPE_DENSE);
+        MetatileFill_TreeCaps(24, 29, 27);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(0, 15);
+        MetatileFill_TreesOverlapping(0, 1, 1, 6, TREE_TYPE_DENSE);
     }
 
 
     // Fill right field
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_GRASS_FIELD))
-    {
-        MetatileFill_TreesOverlapping(8, 2, 19, 9, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(8, 9, 11, TREE_TYPE_DENSE);
-        MetatileFill_TreesOverlapping(12, 10, 19, 12, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(12, 13, 19, TREE_TYPE_DENSE);
-    }
-
-    // Fill shed (must unlock after field)
-    else if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_GRASS_FIELD_SHED))
-    {
-        MetatileFill_TreesOverlapping(14, 2, 17, 4, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(14, 5, 17, TREE_TYPE_DENSE);
-    }
-
-    // Fill left field
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_BERRY_FIELD1))
-    {
-        // Unlocked no fields
-        MetatileFill_TreesOverlapping(0, 5, 7, 8, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(0, 9, 7, TREE_TYPE_DENSE);
-        MetatileFill_Tile(0, 10, 6, 14, METATILE_GeneralHub_Grass);
-    }
-    else if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_BERRY_FIELD2))
-    {
-        // Unlocked right field
-        MetatileFill_Tile(4, 9, 6, 14, METATILE_GeneralHub_Grass);
-    }
-
-    // Remove house
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_LOWER_FLOOR))
-    {
-        MetatileFill_Tile(7, 10, 11, 14, METATILE_GeneralHub_Grass);
-    }
-    // Remove 2nd storey from house
-    else if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR))
-    {
-        // back
-        MetatileFill_Tile(7, 10, 11, 10, METATILE_GeneralHub_Grass);
-        MetatileSet_Tile(7, 11, 0x260); // left 
-        MetatileSet_Tile(11, 11, 0x261); // right
-        MetatileFill_Tile(8, 11, 10, 11, 0x209); // tiles
-
-        // front
-        MetatileSet_Tile(7, 12, 0x268 | MAPGRID_COLLISION_MASK); // left 
-        MetatileSet_Tile(11, 12, 0x269 | MAPGRID_COLLISION_MASK); // right
-        MetatileFill_Tile(8, 12, 10, 12, 0x211 | MAPGRID_COLLISION_MASK); // tiles
-    }
+    //if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_GRASS_FIELD))
+    //{
+    //    MetatileFill_TreesOverlapping(8, 2, 19, 9, TREE_TYPE_DENSE);
+    //    MetatileFill_TreeStumps(8, 9, 11, TREE_TYPE_DENSE);
+    //    MetatileFill_TreesOverlapping(12, 10, 19, 12, TREE_TYPE_DENSE);
+    //    MetatileFill_TreeStumps(12, 13, 19, TREE_TYPE_DENSE);
+    //}
+//
+    //// Fill shed (must unlock after field)
+    //else if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_GRASS_FIELD_SHED))
+    //{
+    //    MetatileFill_TreesOverlapping(14, 2, 17, 4, TREE_TYPE_DENSE);
+    //    MetatileFill_TreeStumps(14, 5, 17, TREE_TYPE_DENSE);
+    //}
+//
+    //// Fill left field
+    //if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_BERRY_FIELD1))
+    //{
+    //    // Unlocked no fields
+    //    MetatileFill_TreesOverlapping(0, 5, 7, 8, TREE_TYPE_DENSE);
+    //    MetatileFill_TreeStumps(0, 9, 7, TREE_TYPE_DENSE);
+    //    MetatileFill_Tile(0, 10, 6, 14, METATILE_GeneralHub_Grass);
+    //}
+    //else if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_BERRY_FIELD2))
+    //{
+    //    // Unlocked right field
+    //    MetatileFill_Tile(4, 9, 6, 14, METATILE_GeneralHub_Grass);
+    //}
+//
+    //// Remove house
+    //if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_LOWER_FLOOR))
+    //{
+    //    MetatileFill_Tile(7, 10, 11, 14, METATILE_GeneralHub_Grass);
+    //}
+    //// Remove 2nd storey from house
+    //else if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR))
+    //{
+    //    // back
+    //    MetatileFill_Tile(7, 10, 11, 10, METATILE_GeneralHub_Grass);
+    //    MetatileSet_Tile(7, 11, 0x260); // left 
+    //    MetatileSet_Tile(11, 11, 0x261); // right
+    //    MetatileFill_Tile(8, 11, 10, 11, 0x209); // tiles
+//
+    //    // front
+    //    MetatileSet_Tile(7, 12, 0x268 | MAPGRID_COLLISION_MASK); // left 
+    //    MetatileSet_Tile(11, 12, 0x269 | MAPGRID_COLLISION_MASK); // right
+    //    MetatileFill_Tile(8, 12, 10, 12, 0x211 | MAPGRID_COLLISION_MASK); // tiles
+    //}
 }
 
 static void RogueHub_UpdateHomeInteriorMetatiles()

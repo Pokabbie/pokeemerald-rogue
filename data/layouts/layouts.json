@@ -1534,10 +1534,10 @@
     {
       "id": "LAYOUT_ROGUE_AREA_HOME",
       "name": "Rogue_Area_Home_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 30,
+      "height": 32,
       "primary_tileset": "gTileset_GeneralHub",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Rogue_Area_Home/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_Home/map.bin"
     },
