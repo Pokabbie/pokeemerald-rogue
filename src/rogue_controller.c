@@ -44,6 +44,7 @@
 #include "rtc.h"
 #include "safari_zone.h"
 #include "script.h"
+#include "script_pokemon_util.h"
 #include "siirtc.h"
 #include "strings.h"
 #include "string_util.h"
@@ -317,6 +318,16 @@ bool8 Rogue_UseFinalQuestEffects(void)
             return FALSE;
 
         return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_IsFinalQuestFinalBoss(void)
+{
+    if(Rogue_UseFinalQuestEffects() && Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+    {
+        return Rogue_IsBossTrainer(gTrainerBattleOpponent_A);
     }
 
     return FALSE;
@@ -4312,32 +4323,53 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty, bool8 ca
     }
 }
 
-void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
+static void CheckAndNotifyForFaintedMons()
 {
-    bool8 hasValidSpecies;
-    u8 read;
-    u8 write = 0;
-    bool8 hasMonFainted = FALSE;
-
-    // If we're finished, we don't want to release any mons, just check if anything has fainted or not
-    if(Rogue_IsRunActive() && Rogue_GetCurrentDifficulty() >= ROGUE_MAX_BOSS_COUNT)
+    if(Rogue_IsRunActive())
     {
-        for(read = 0; read < PARTY_SIZE; ++read)
-        {
-            hasValidSpecies = GetMonData(&gPlayerParty[read], MON_DATA_SPECIES) != SPECIES_NONE;
+        u8 i;
+        u8 faintedCount = 0;
 
-            if(hasValidSpecies && GetMonData(&gPlayerParty[read], MON_DATA_HP, NULL) != 0)
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            bool8 hasValidSpecies = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE;
+
+            if(hasValidSpecies && GetMonData(&gPlayerParty[i], MON_DATA_HP, NULL) != 0)
             {
                 // This mon is alive
             }
             else if(hasValidSpecies)
             {
-                hasMonFainted = TRUE;
-                break;
+                ++faintedCount;
             }
         }
+
+        if(faintedCount)
+        {
+            // TODO - Notifies
+        }
     }
-    else
+}
+
+void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
+{
+    bool8 hasValidSpecies;
+    u8 read;
+    u8 write = 0;
+    bool8 skipReleasing = FALSE;
+
+    if(Rogue_IsRunActive())
+    {
+        // If we're finished, we don't want to release any mons, just check if anything has fainted or not
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_MAX_BOSS_COUNT)
+            skipReleasing = TRUE;
+
+        // Don't release any fainted mons for final champ fight
+        if(Rogue_UseFinalQuestEffects() && Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+            skipReleasing = TRUE;
+    }
+
+    if(!skipReleasing)
     {
         for(read = 0; read < PARTY_SIZE; ++read)
         {
@@ -4365,8 +4397,6 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
                     if(heldItem != ITEM_NONE)
                         AddBagItem(heldItem, 1);
                 }
-                else
-                    hasMonFainted = TRUE;
 
 
                 // Only push mons if run is active
@@ -4383,18 +4413,59 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
         }
     }
 
-    if(hasMonFainted)
-    {
-        Rogue_CampaignNotify_OnMonFainted();
-        QuestNotify_OnMonFainted();
-    }
-
     gPlayerPartyCount = CalculatePlayerPartyCount();
+}
+
+struct Pokemon* GetRecordedPlayerPartyPtr();
+struct Pokemon* GetRecordedEnemyPartyPtr();
+
+static void TempSavePlayerTeam()
+{
+    u8 i;
+    struct Pokemon* tempParty = GetRecordedPlayerPartyPtr();
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+        CopyMon(&tempParty[i], &gPlayerParty[i], sizeof(struct Pokemon));
+}
+
+static void TempRestorePlayerTeam()
+{
+    u8 i;
+    struct Pokemon* tempParty = GetRecordedPlayerPartyPtr();
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+        CopyMon(&gPlayerParty[i], &tempParty[i], sizeof(struct Pokemon));
+
+    CalculatePlayerPartyCount();
+}
+
+static void TempSaveEnemyTeam()
+{
+    u8 i;
+    struct Pokemon* tempParty = GetRecordedEnemyPartyPtr();
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+        CopyMon(&tempParty[i], &gEnemyParty[i], sizeof(struct Pokemon));
+}
+
+static void TempRestoreEnemyTeam()
+{
+    u8 i;
+    struct Pokemon* tempParty = GetRecordedEnemyPartyPtr();
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+        CopyMon(&gEnemyParty[i], &tempParty[i], sizeof(struct Pokemon));
+
+    CalculateEnemyPartyCount();
 }
 
 void Rogue_Battle_StartTrainerBattle(void)
 {
     bool8 shouldDoubleBattle = FALSE;
+
+    // Apply trainer specific seed
+    gRogueLocal.rngSeedToRestore = gRngRogueValue;
+    SeedRogueRng(RogueRandom() + (gTrainerBattleOpponent_A ^ RogueRandom()));
 
         // enable dyanmax for this fight
     if(IsDynamaxEnabled() && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
@@ -4433,6 +4504,60 @@ void Rogue_Battle_StartTrainerBattle(void)
 
     RememberPartyHeldItems();
     RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_START);
+}
+
+void Rogue_Battle_TrainerTeamReady(void)
+{
+    if(Rogue_IsFinalQuestFinalBoss())
+    {
+        u32 temp;
+        u8 i, j;
+        struct Pokemon* tempPlayerParty = GetRecordedPlayerPartyPtr();
+        struct Pokemon* tempEnemyParty = GetRecordedEnemyPartyPtr();
+
+        // Now swap teams but the player's team keeps it's IVs/EVs and the EnemyTeam keeps it's IVs/EVs
+        TempSavePlayerTeam();
+        TempSaveEnemyTeam();
+
+        // Heal player's mons before swapping them over
+        HealPlayerParty();
+
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            CopyMon(&gPlayerParty[i], &tempEnemyParty[i], sizeof(struct Pokemon));
+            CopyMon(&gEnemyParty[i], &tempPlayerParty[i], sizeof(struct Pokemon));
+
+            // Maintain IVs/EVs on swapped mons
+            for(j = 0; j < NUM_STATS; ++j)
+            {
+                temp = GetMonData(&tempPlayerParty[i], MON_DATA_HP_IV + j);
+                SetMonData(&gPlayerParty[i], MON_DATA_HP_IV + j, &temp);
+                temp = GetMonData(&tempPlayerParty[i], MON_DATA_HP_EV + j);
+                SetMonData(&gPlayerParty[i], MON_DATA_HP_EV + j, &temp);
+
+                temp = GetMonData(&tempEnemyParty[i], MON_DATA_HP_IV + j);
+                SetMonData(&gEnemyParty[i], MON_DATA_HP_IV + j, &temp);
+                temp = GetMonData(&tempEnemyParty[i], MON_DATA_HP_EV + j);
+                SetMonData(&gEnemyParty[i], MON_DATA_HP_EV + j, &temp);
+            }
+
+            // Make sure everything is lvl 100
+            temp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES)].growthRate, MAX_LEVEL);
+            SetMonData(&gPlayerParty[i], MON_DATA_EXP, &temp);
+    
+            temp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gEnemyParty[i], MON_DATA_SPECIES)].growthRate, MAX_LEVEL);
+            SetMonData(&gEnemyParty[i], MON_DATA_EXP, &temp);
+            
+            CalculateMonStats(&gPlayerParty[i]);
+            CalculateMonStats(&gEnemyParty[i]);
+        }
+
+        CalculatePlayerPartyCount();
+        CalculateEnemyPartyCount();
+    }
+
+    // Can restore the seed now
+    gRngRogueValue = gRogueLocal.rngSeedToRestore;
 }
 
 static bool32 IsPlayerDefeated(u32 battleOutcome)
@@ -4644,6 +4769,11 @@ static void EnableRivalEncounterIfRequired()
 
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
+    if(Rogue_IsFinalQuestFinalBoss())
+    {
+        TempRestorePlayerTeam();
+    }
+
     TryRestorePartyHeldItems(FALSE);
     FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
 
@@ -4713,6 +4843,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             QuestNotify_OnTrainerBattleEnd(isBossTrainer);
+            CheckAndNotifyForFaintedMons();
             RemoveAnyFaintedMons(FALSE, TRUE);
 
             // Reward EVs based on nature
@@ -4812,6 +4943,7 @@ void Rogue_Battle_EndWildBattle(void)
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             QuestNotify_OnWildBattleEnd();
+            CheckAndNotifyForFaintedMons();
             RemoveAnyFaintedMons(FALSE, TRUE);
         }
         else

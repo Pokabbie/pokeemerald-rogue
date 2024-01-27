@@ -1174,3 +1174,40 @@ void Rogue_SwapDaycareMon()
     if(partySlot == 0)
         SetupFollowParterMonObjectEvent();
 }
+
+void Rogue_HealAlivePlayerParty()
+{
+    u8 i, j;
+    u8 ppBonuses;
+    u8 arg[4];
+
+    CalculatePlayerPartyCount();
+
+    // restore HP.
+    for(i = 0; i < gPlayerPartyCount; i++)
+    {
+        u16 currHp = GetMonData(&gPlayerParty[i], MON_DATA_HP);
+        if(currHp != 0)
+        {
+            u16 maxHP = GetMonData(&gPlayerParty[i], MON_DATA_MAX_HP);
+            arg[0] = maxHP;
+            arg[1] = maxHP >> 8;
+            SetMonData(&gPlayerParty[i], MON_DATA_HP, arg);
+            ppBonuses = GetMonData(&gPlayerParty[i], MON_DATA_PP_BONUSES);
+
+            // restore PP.
+            for(j = 0; j < MAX_MON_MOVES; j++)
+            {
+                arg[0] = CalculatePPWithBonus(GetMonData(&gPlayerParty[i], MON_DATA_MOVE1 + j), ppBonuses, j);
+                SetMonData(&gPlayerParty[i], MON_DATA_PP1 + j, arg);
+            }
+
+            // since status is u32, the four 0 assignments here are probably for safety to prevent undefined data from reaching SetMonData.
+            arg[0] = 0;
+            arg[1] = 0;
+            arg[2] = 0;
+            arg[3] = 0;
+            SetMonData(&gPlayerParty[i], MON_DATA_STATUS, arg);
+        }
+    }
+}

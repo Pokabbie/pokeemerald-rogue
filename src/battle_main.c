@@ -1981,6 +1981,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_DISABLE_PARTY_GENERATION))
     {
         Rogue_Battle_StartTrainerBattle();
+        Rogue_Battle_TrainerTeamReady();
         return CalculateEnemyPartyCount();
     }
 #endif
@@ -1989,6 +1990,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     if(gBattleScripting.specialTrainerBattleType == SPECIAL_BATTLE_AUTOMATION)
     {
         Rogue_Battle_StartTrainerBattle();
+        Rogue_Battle_TrainerTeamReady();
         return CalculateEnemyPartyCount();
     }
 #endif
@@ -2110,6 +2112,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
         gBattleTypeFlags |= trainer.doubleBattle;
     }
 
+    Rogue_Battle_TrainerTeamReady();
     return monsCount;
 }
 

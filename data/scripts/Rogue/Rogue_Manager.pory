@@ -317,7 +317,7 @@ script Rogue_EventScript_AttemptPostGymHeal
     checkitem(ITEM_HEALING_FLASK)
     if(var(VAR_RESULT) == NO)
     {
-        special(HealPlayerParty)
+        special(Rogue_HealAlivePlayerParty)
     }
 }
 
@@ -327,7 +327,7 @@ script Rogue_EventScript_AttemptPostRivalHeal
     checkitem(ITEM_HEALING_FLASK)
     if(var(VAR_RESULT) == NO)
     {
-        special(HealPlayerParty)
+        special(Rogue_HealAlivePlayerParty)
     }
 }
 

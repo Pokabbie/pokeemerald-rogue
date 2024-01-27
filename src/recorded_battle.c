@@ -627,6 +627,16 @@ u8 GetRecordedBattleFronterBrainSymbol(void)
     return sFrontierBrainSymbol;
 }
 
+struct Pokemon* GetRecordedPlayerPartyPtr()
+{
+    return sSavedPlayerParty;
+}
+
+struct Pokemon* GetRecordedEnemyPartyPtr()
+{
+    return sSavedOpponentParty;
+}
+
 void RecordedBattle_SaveParties(void)
 {
     s32 i;

@@ -249,6 +249,7 @@ gSpecials::
 	def_special Rogue_CheckDaycareCount
 	def_special Rogue_IsDaycareSlotEmpty
 	def_special Rogue_SwapDaycareMon
+	def_special Rogue_HealAlivePlayerParty
 	def_special Rogue_DisplayPopupsFromScript
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueAdv_ApplyAdventureMetatiles

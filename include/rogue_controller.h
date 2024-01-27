@@ -35,6 +35,7 @@ bool8 Rogue_UseKeyBattleAnims(void);
 bool8 Rogue_GetBattleAnimsEnabled(void);
 bool8 Rogue_UseFinalQuestEffects(void);
 bool8 Rogue_AssumeFinalQuestFakeChamp(void);
+bool8 Rogue_IsFinalQuestFinalBoss(void);
 bool8 Rogue_Use100PercEffects(void);
 bool8 Rogue_Use200PercEffects(void);
 
@@ -125,6 +126,7 @@ u16 Rogue_SelectHoneyTreeEncounterRoom(void);
 void Rogue_SelectMiniBossRewardMons();
 
 void Rogue_Battle_StartTrainerBattle(void);
+void Rogue_Battle_TrainerTeamReady(void);
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum);
 void Rogue_Battle_StartWildBattle(void);
 void Rogue_Battle_EndWildBattle(void);
