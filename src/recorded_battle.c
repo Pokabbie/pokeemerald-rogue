@@ -323,160 +323,161 @@ static bool32 RecordedBattleToSave(struct RecordedBattleSave *battleSave, struct
 
 bool32 MoveRecordedBattleToSaveData(void)
 {
-    s32 i, j;
-    bool32 ret;
-    struct RecordedBattleSave *battleSave, *savSection;
-    u8 saveAttempts;
-
-    saveAttempts = 0;
-    battleSave = AllocZeroed(sizeof(struct RecordedBattleSave));
-    savSection = AllocZeroed(SECTOR_SIZE);
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        battleSave->playerParty[i] = sSavedPlayerParty[i];
-        battleSave->opponentParty[i] = sSavedOpponentParty[i];
-    }
-
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-    {
-        for (j = 0; j < PLAYER_NAME_LENGTH + 1; j++)
-            battleSave->playersName[i][j] = sPlayers[i].name[j];
-        battleSave->playersGender[i] = sPlayers[i].gender;
-        battleSave->playersLanguage[i] = sPlayers[i].language;
-        battleSave->playersBattlers[i] = sPlayers[i].battlerId;
-        battleSave->playersTrainerId[i] = sPlayers[i].trainerId;
-    }
-
-    battleSave->rngSeed = gRecordedBattleRngSeed;
-
-    if (sBattleFlags & BATTLE_TYPE_LINK)
-    {
-        battleSave->battleFlags = (sBattleFlags & ~(BATTLE_TYPE_LINK | BATTLE_TYPE_LINK_IN_BATTLE)) | BATTLE_TYPE_RECORDED_LINK;
-
-        // BATTLE_TYPE_RECORDED_IS_MASTER set indicates battle will play
-        // out from player's perspective (i.e. player with back to camera)
-        // Otherwise player will appear on "opponent" side
-        if (sBattleFlags & BATTLE_TYPE_IS_MASTER)
-        {
-            battleSave->battleFlags |= BATTLE_TYPE_RECORDED_IS_MASTER;
-        }
-        else if (sBattleFlags & BATTLE_TYPE_MULTI)
-        {
-            switch (sPlayers[0].battlerId)
-            {
-            case 0:
-            case 2:
-                if (!(sPlayers[gRecordedBattleMultiplayerId].battlerId & 1))
-                    battleSave->battleFlags |= BATTLE_TYPE_RECORDED_IS_MASTER;
-                break;
-            case 1:
-            case 3:
-                if ((sPlayers[gRecordedBattleMultiplayerId].battlerId & 1))
-                    battleSave->battleFlags |= BATTLE_TYPE_RECORDED_IS_MASTER;
-                break;
-            }
-        }
-    }
-    else
-    {
-        battleSave->battleFlags = sBattleFlags;
-    }
-
-    battleSave->opponentA = gTrainerBattleOpponent_A;
-    battleSave->opponentB = gTrainerBattleOpponent_B;
-    battleSave->partnerId = gPartnerTrainerId;
-    battleSave->multiplayerId = gRecordedBattleMultiplayerId;
-    battleSave->lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
-    battleSave->frontierFacility = sFrontierFacility;
-    battleSave->frontierBrainSymbol = sFrontierBrainSymbol;
-    battleSave->battleScene = gSaveBlock2Ptr->optionsBossBattleSceneOff;
-    battleSave->textSpeed = gSaveBlock2Ptr->optionsTextSpeed;
-    battleSave->AI_scripts = sAI_Scripts;
-
-    if (gTrainerBattleOpponent_A >= TRAINER_RECORD_MIXING_FRIEND && gTrainerBattleOpponent_A < TRAINER_RECORD_MIXING_APPRENTICE)
-    {
-        for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
-            battleSave->recordMixFriendName[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].name[i];
-        battleSave->recordMixFriendClass = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
-
-        if (sBattleOutcome == B_OUTCOME_WON)
-        {
-            for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-                battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].speechLost[i];
-        }
-        else
-        {
-            for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-                battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].speechWon[i];
-        }
-        battleSave->recordMixFriendLanguage = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].language;
-    }
-    else if (gTrainerBattleOpponent_B >= TRAINER_RECORD_MIXING_FRIEND && gTrainerBattleOpponent_B < TRAINER_RECORD_MIXING_APPRENTICE)
-    {
-        for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
-            battleSave->recordMixFriendName[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].name[i];
-        battleSave->recordMixFriendClass = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
-
-        if (sBattleOutcome == B_OUTCOME_WON)
-        {
-            for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-                battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].speechLost[i];
-        }
-        else
-        {
-            for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-                battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].speechWon[i];
-        }
-        battleSave->recordMixFriendLanguage = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].language;
-    }
-    else if (gPartnerTrainerId >= TRAINER_RECORD_MIXING_FRIEND && gPartnerTrainerId < TRAINER_RECORD_MIXING_APPRENTICE)
-    {
-        for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
-            battleSave->recordMixFriendName[i] = gSaveBlock2Ptr->frontier.towerRecords[gPartnerTrainerId - TRAINER_RECORD_MIXING_FRIEND].name[i];
-        battleSave->recordMixFriendClass = gSaveBlock2Ptr->frontier.towerRecords[gPartnerTrainerId - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
-
-        battleSave->recordMixFriendLanguage = gSaveBlock2Ptr->frontier.towerRecords[gPartnerTrainerId - TRAINER_RECORD_MIXING_FRIEND].language;
-    }
-
-    if (gTrainerBattleOpponent_A >= TRAINER_RECORD_MIXING_APPRENTICE)
-    {
-        battleSave->apprenticeId = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_APPRENTICE].id;
-        for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-            battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_APPRENTICE].speechWon[i];
-        battleSave->apprenticeLanguage = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_APPRENTICE].language;
-    }
-    else if (gTrainerBattleOpponent_B >= TRAINER_RECORD_MIXING_APPRENTICE)
-    {
-        battleSave->apprenticeId = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_APPRENTICE].id;
-        for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-            battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_APPRENTICE].speechWon[i];
-        battleSave->apprenticeLanguage = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_APPRENTICE].language;
-    }
-    else if (gPartnerTrainerId >= TRAINER_RECORD_MIXING_APPRENTICE)
-    {
-        battleSave->apprenticeId = gSaveBlock2Ptr->apprentices[gPartnerTrainerId - TRAINER_RECORD_MIXING_APPRENTICE].id;
-
-        battleSave->apprenticeLanguage = gSaveBlock2Ptr->apprentices[gPartnerTrainerId - TRAINER_RECORD_MIXING_APPRENTICE].language;
-    }
-
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-        for (j = 0; j < BATTLER_RECORD_SIZE; j++)
-            battleSave->battleRecord[i][j] = sBattleRecords[i][j];
-
-    while (1)
-    {
-        ret = RecordedBattleToSave(battleSave, savSection);
-        if (ret == TRUE)
-            break;
-        saveAttempts++;
-        if (saveAttempts >= 3)
-            break;
-    }
-
-    free(battleSave);
-    free(savSection);
-    return ret;
+    return FALSE;
+    //s32 i, j;
+    //bool32 ret;
+    //struct RecordedBattleSave *battleSave, *savSection;
+    //u8 saveAttempts;
+//
+    //saveAttempts = 0;
+    //battleSave = AllocZeroed(sizeof(struct RecordedBattleSave));
+    //savSection = AllocZeroed(SECTOR_SIZE);
+//
+    //for (i = 0; i < PARTY_SIZE; i++)
+    //{
+    //    battleSave->playerParty[i] = sSavedPlayerParty[i];
+    //    battleSave->opponentParty[i] = sSavedOpponentParty[i];
+    //}
+//
+    //for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+    //{
+    //    for (j = 0; j < PLAYER_NAME_LENGTH + 1; j++)
+    //        battleSave->playersName[i][j] = sPlayers[i].name[j];
+    //    battleSave->playersGender[i] = sPlayers[i].gender;
+    //    battleSave->playersLanguage[i] = sPlayers[i].language;
+    //    battleSave->playersBattlers[i] = sPlayers[i].battlerId;
+    //    battleSave->playersTrainerId[i] = sPlayers[i].trainerId;
+    //}
+//
+    //battleSave->rngSeed = gRecordedBattleRngSeed;
+//
+    //if (sBattleFlags & BATTLE_TYPE_LINK)
+    //{
+    //    battleSave->battleFlags = (sBattleFlags & ~(BATTLE_TYPE_LINK | BATTLE_TYPE_LINK_IN_BATTLE)) | BATTLE_TYPE_RECORDED_LINK;
+//
+    //    // BATTLE_TYPE_RECORDED_IS_MASTER set indicates battle will play
+    //    // out from player's perspective (i.e. player with back to camera)
+    //    // Otherwise player will appear on "opponent" side
+    //    if (sBattleFlags & BATTLE_TYPE_IS_MASTER)
+    //    {
+    //        battleSave->battleFlags |= BATTLE_TYPE_RECORDED_IS_MASTER;
+    //    }
+    //    else if (sBattleFlags & BATTLE_TYPE_MULTI)
+    //    {
+    //        switch (sPlayers[0].battlerId)
+    //        {
+    //        case 0:
+    //        case 2:
+    //            if (!(sPlayers[gRecordedBattleMultiplayerId].battlerId & 1))
+    //                battleSave->battleFlags |= BATTLE_TYPE_RECORDED_IS_MASTER;
+    //            break;
+    //        case 1:
+    //        case 3:
+    //            if ((sPlayers[gRecordedBattleMultiplayerId].battlerId & 1))
+    //                battleSave->battleFlags |= BATTLE_TYPE_RECORDED_IS_MASTER;
+    //            break;
+    //        }
+    //    }
+    //}
+    //else
+    //{
+    //    battleSave->battleFlags = sBattleFlags;
+    //}
+//
+    //battleSave->opponentA = gTrainerBattleOpponent_A;
+    //battleSave->opponentB = gTrainerBattleOpponent_B;
+    //battleSave->partnerId = gPartnerTrainerId;
+    //battleSave->multiplayerId = gRecordedBattleMultiplayerId;
+    //battleSave->lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+    //battleSave->frontierFacility = sFrontierFacility;
+    //battleSave->frontierBrainSymbol = sFrontierBrainSymbol;
+    //battleSave->battleScene = gSaveBlock2Ptr->optionsBossBattleSceneOff;
+    //battleSave->textSpeed = gSaveBlock2Ptr->optionsTextSpeed;
+    //battleSave->AI_scripts = sAI_Scripts;
+//
+    //if (gTrainerBattleOpponent_A >= TRAINER_RECORD_MIXING_FRIEND && gTrainerBattleOpponent_A < TRAINER_RECORD_MIXING_APPRENTICE)
+    //{
+    //    for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
+    //        battleSave->recordMixFriendName[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].name[i];
+    //    battleSave->recordMixFriendClass = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
+//
+    //    if (sBattleOutcome == B_OUTCOME_WON)
+    //    {
+    //        for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
+    //            battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].speechLost[i];
+    //    }
+    //    else
+    //    {
+    //        for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
+    //            battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].speechWon[i];
+    //    }
+    //    battleSave->recordMixFriendLanguage = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].language;
+    //}
+    //else if (gTrainerBattleOpponent_B >= TRAINER_RECORD_MIXING_FRIEND && gTrainerBattleOpponent_B < TRAINER_RECORD_MIXING_APPRENTICE)
+    //{
+    //    for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
+    //        battleSave->recordMixFriendName[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].name[i];
+    //    battleSave->recordMixFriendClass = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
+//
+    //    if (sBattleOutcome == B_OUTCOME_WON)
+    //    {
+    //        for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
+    //            battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].speechLost[i];
+    //    }
+    //    else
+    //    {
+    //        for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
+    //            battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].speechWon[i];
+    //    }
+    //    battleSave->recordMixFriendLanguage = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].language;
+    //}
+    //else if (gPartnerTrainerId >= TRAINER_RECORD_MIXING_FRIEND && gPartnerTrainerId < TRAINER_RECORD_MIXING_APPRENTICE)
+    //{
+    //    for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
+    //        battleSave->recordMixFriendName[i] = gSaveBlock2Ptr->frontier.towerRecords[gPartnerTrainerId - TRAINER_RECORD_MIXING_FRIEND].name[i];
+    //    battleSave->recordMixFriendClass = gSaveBlock2Ptr->frontier.towerRecords[gPartnerTrainerId - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
+//
+    //    battleSave->recordMixFriendLanguage = gSaveBlock2Ptr->frontier.towerRecords[gPartnerTrainerId - TRAINER_RECORD_MIXING_FRIEND].language;
+    //}
+//
+    //if (gTrainerBattleOpponent_A >= TRAINER_RECORD_MIXING_APPRENTICE)
+    //{
+    //    battleSave->apprenticeId = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_APPRENTICE].id;
+    //    for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
+    //        battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_APPRENTICE].speechWon[i];
+    //    battleSave->apprenticeLanguage = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_APPRENTICE].language;
+    //}
+    //else if (gTrainerBattleOpponent_B >= TRAINER_RECORD_MIXING_APPRENTICE)
+    //{
+    //    battleSave->apprenticeId = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_APPRENTICE].id;
+    //    for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
+    //        battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_APPRENTICE].speechWon[i];
+    //    battleSave->apprenticeLanguage = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_APPRENTICE].language;
+    //}
+    //else if (gPartnerTrainerId >= TRAINER_RECORD_MIXING_APPRENTICE)
+    //{
+    //    battleSave->apprenticeId = gSaveBlock2Ptr->apprentices[gPartnerTrainerId - TRAINER_RECORD_MIXING_APPRENTICE].id;
+//
+    //    battleSave->apprenticeLanguage = gSaveBlock2Ptr->apprentices[gPartnerTrainerId - TRAINER_RECORD_MIXING_APPRENTICE].language;
+    //}
+//
+    //for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+    //    for (j = 0; j < BATTLER_RECORD_SIZE; j++)
+    //        battleSave->battleRecord[i][j] = sBattleRecords[i][j];
+//
+    //while (1)
+    //{
+    //    ret = RecordedBattleToSave(battleSave, savSection);
+    //    if (ret == TRUE)
+    //        break;
+    //    saveAttempts++;
+    //    if (saveAttempts >= 3)
+    //        break;
+    //}
+//
+    //free(battleSave);
+    //free(savSection);
+    //return ret;
 }
 
 static bool32 TryCopyRecordedBattleSaveData(struct RecordedBattleSave *dst, struct SaveSector *saveBuffer)
@@ -639,24 +640,24 @@ struct Pokemon* GetRecordedEnemyPartyPtr()
 
 void RecordedBattle_SaveParties(void)
 {
-    s32 i;
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        sSavedPlayerParty[i] = gPlayerParty[i];
-        sSavedOpponentParty[i] = gEnemyParty[i];
-    }
+    //s32 i;
+//
+    //for (i = 0; i < PARTY_SIZE; i++)
+    //{
+    //    sSavedPlayerParty[i] = gPlayerParty[i];
+    //    sSavedOpponentParty[i] = gEnemyParty[i];
+    //}
 }
 
 static void RecordedBattle_RestoreSavedParties(void)
 {
-    s32 i;
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        gPlayerParty[i] = sSavedPlayerParty[i];
-        gEnemyParty[i] = sSavedOpponentParty[i];
-    }
+    //s32 i;
+//
+    //for (i = 0; i < PARTY_SIZE; i++)
+    //{
+    //    gPlayerParty[i] = sSavedPlayerParty[i];
+    //    gEnemyParty[i] = sSavedOpponentParty[i];
+    //}
 }
 
 u8 GetActiveBattlerLinkPlayerGender(void)

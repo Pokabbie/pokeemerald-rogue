@@ -5035,16 +5035,25 @@ static void HandleEndTurn_BattleWon(void)
 
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
+        // RogueNote: Too late for Rogue_ApplyFinalQuestFinalBossTeamSwap
         struct Trainer trainer;
         struct RogueBattleMusic music;
 
-        Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
-        Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, gTrainerBattleOpponent_A, &music);
+        //if(Rogue_IsFinalQuestFinalBoss())
+        //{
+        //    // No exit message for final quest final bost
+        //    BattleStopLowHpSound();
+        //}
+        //else
+        {
+            Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
+            Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, gTrainerBattleOpponent_A, &music);
 
-        BattleStopLowHpSound();
-        gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
+            BattleStopLowHpSound();
+            gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
 
-        PlayBGM(music.victoryMusic);
+            PlayBGM(music.victoryMusic);
+        }
     }
     else
     {

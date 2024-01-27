@@ -3646,13 +3646,14 @@ static void Cmd_getexp(void)
 // sets gBattleOutcome accordingly, if necessary.
 static void Cmd_checkteamslost(void)
 {
-    u16 HP_count = 0;
+    u16 HP_count;
     s32 i;
 
     if (gBattleControllerExecFlags)
         return;
 
     // Get total HP for the player's party to determine if the player has lost
+    HP_count = 0;
     if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
     {
         // In multi battle with Steven, skip his Pokémon
@@ -3667,7 +3668,7 @@ static void Cmd_checkteamslost(void)
         for (i = 0; i < PARTY_SIZE; i++)
         {
             if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG)
-             && (!(gBattleTypeFlags & BATTLE_TYPE_ARENA) || !(gBattleStruct->arenaLostPlayerMons & gBitTable[i])))
+            && (!(gBattleTypeFlags & BATTLE_TYPE_ARENA) || !(gBattleStruct->arenaLostPlayerMons & gBitTable[i])))
             {
                 HP_count += GetMonData(&gPlayerParty[i], MON_DATA_HP);
             }
@@ -3681,13 +3682,23 @@ static void Cmd_checkteamslost(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) && !GetMonData(&gEnemyParty[i], MON_DATA_IS_EGG)
-         && (!(gBattleTypeFlags & BATTLE_TYPE_ARENA) || !(gBattleStruct->arenaLostOpponentMons & gBitTable[i])))
+        && (!(gBattleTypeFlags & BATTLE_TYPE_ARENA) || !(gBattleStruct->arenaLostOpponentMons & gBitTable[i])))
         {
             HP_count += GetMonData(&gEnemyParty[i], MON_DATA_HP);
         }
     }
+
     if (HP_count == 0)
-        gBattleOutcome |= B_OUTCOME_WON;
+    {
+        if(gBattleOutcome != B_OUTCOME_LOST && Rogue_ApplyFinalQuestFinalBossTeamSwap())
+        {
+            // Not won yet as we just spawned in a mon
+        }
+        else
+        {
+            gBattleOutcome |= B_OUTCOME_WON;
+        }
+    }
 
     // For link battles that haven't ended, count number of empty battler spots
     // In link multi battles, jump to pointer if more than 1 spot empty

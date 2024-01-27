@@ -83,8 +83,6 @@ script Rogue_Boss_Final_LoadFrame_0
     msgbox(format("Welcome!\pTo my EVER so lovingly setup finale!\pSo… … …"))
     closemessage
 
-    fadeoutbgm(1)
-
     // Display current party
     //
     if(var(VAR_FOLLOW_MON_0) != SPECIES_NONE)
@@ -137,6 +135,8 @@ script Rogue_Boss_Final_LoadFrame_0
 
     fadescreen(FADE_TO_BLACK)
     delay(10)
+
+    fadeoutbgm(1)
 
     playbgm(MUS_MOVE_DELETED_SLOW, FALSE)
     delay(270)

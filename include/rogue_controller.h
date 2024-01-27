@@ -36,6 +36,7 @@ bool8 Rogue_GetBattleAnimsEnabled(void);
 bool8 Rogue_UseFinalQuestEffects(void);
 bool8 Rogue_AssumeFinalQuestFakeChamp(void);
 bool8 Rogue_IsFinalQuestFinalBoss(void);
+bool8 Rogue_ApplyFinalQuestFinalBossTeamSwap(void);
 bool8 Rogue_Use100PercEffects(void);
 bool8 Rogue_Use200PercEffects(void);
 

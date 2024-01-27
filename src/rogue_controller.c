@@ -323,11 +323,42 @@ bool8 Rogue_UseFinalQuestEffects(void)
     return FALSE;
 }
 
+static bool8 HasFinalQuestBossAppliedSwap()
+{
+    return !(gEnemyPartyCount != 1 && GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) != SPECIES_WOBBUFFET);
+}
+
 bool8 Rogue_IsFinalQuestFinalBoss(void)
 {
-    if(Rogue_UseFinalQuestEffects() && Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+    if(Rogue_UseFinalQuestEffects() && (gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
     {
         return Rogue_IsBossTrainer(gTrainerBattleOpponent_A);
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_ApplyFinalQuestFinalBossTeamSwap(void)
+{
+    if(Rogue_IsFinalQuestFinalBoss())
+    {
+        if(!HasFinalQuestBossAppliedSwap())
+        {
+            // Only do this once
+            // Swap out team for the "final" mon a custom Wobbuffet
+            u8 i;
+
+            for(i = 0; i < PARTY_SIZE; ++i)
+                ZeroMonData(&gEnemyParty[i]);
+
+            // TODO - Apply custom mon
+            CreateMon(&gEnemyParty[0], SPECIES_WOBBUFFET, MAX_LEVEL, 10, FALSE, 0, OT_ID_PLAYER_ID, 0);
+
+            // Apply different music ??
+            //PlayBGM();
+
+            return TRUE;
+        }
     }
 
     return FALSE;
@@ -937,18 +968,25 @@ const u8* Rogue_ModifyFieldMessage(const u8* str)
 
     if(Rogue_IsRunActive())
     {
-        switch(gRogueAdvPath.currentRoomType)
+
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
-            case ADVPATH_ROOM_BOSS:
-                if(str == gPlaceholder_Gym_PreBattleOpenning)
-                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_PRE_BATTLE_OPENNING);
-                else if(str == gPlaceholder_Gym_PreBattleTaunt)
-                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_PRE_BATTLE_TAUNT);
-                else if(str == gPlaceholder_Gym_PostBattleTaunt)
-                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_TAUNT);
-                else if(str == gPlaceholder_Gym_PostBattleCloser)
-                    overrideStr = Rogue_GetTrainerString(gRogueAdvPath.currentRoomParams.perType.boss.trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
-                break;
+            u16 trainerNum;
+
+            // We don't technically have a new room so force the trainer num here
+            if(Rogue_UseFinalQuestEffects() && Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+                trainerNum = gRogueRun.bossTrainerNums[ROGUE_FINAL_CHAMP_DIFFICULTY];
+            else
+                trainerNum = gRogueAdvPath.currentRoomParams.perType.boss.trainerNum;
+
+            if(str == gPlaceholder_Gym_PreBattleOpenning)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_PRE_BATTLE_OPENNING);
+            else if(str == gPlaceholder_Gym_PreBattleTaunt)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_PRE_BATTLE_TAUNT);
+            else if(str == gPlaceholder_Gym_PostBattleTaunt)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_TAUNT);
+            else if(str == gPlaceholder_Gym_PostBattleCloser)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
         }
 
         // Overworld trainer messages
@@ -978,6 +1016,9 @@ const u8* Rogue_ModifyFieldMessage(const u8* str)
 }
 
 extern const u8* const gBattleStringsTable[];
+extern const u8 sText_Trainer1SentOutPkmn2[];
+
+static const u8 sText_FinalQuestFinalMonSendOut[] = _("Wahey!\nI'm not through yet!");
 
 const u8* Rogue_ModifyBattleMessage(const u8* str)
 {
@@ -988,6 +1029,12 @@ const u8* Rogue_ModifyBattleMessage(const u8* str)
         // Don't display "Would you like to nickname" msg
         if(str == gBattleStringsTable[STRINGID_GIVENICKNAMECAPTURED - BATTLESTRINGS_TABLE_START])
             overrideStr = gText_EmptyString2;
+    }
+
+    if(Rogue_IsFinalQuestFinalBoss() && HasFinalQuestBossAppliedSwap())
+    {
+        if(str == sText_Trainer1SentOutPkmn2)
+            overrideStr = sText_FinalQuestFinalMonSendOut;
     }
 
     return overrideStr != NULL ? overrideStr : str;
@@ -4524,8 +4571,8 @@ void Rogue_Battle_TrainerTeamReady(void)
 
         for(i = 0; i < PARTY_SIZE; ++i)
         {
+            CopyMon(&gEnemyParty[i], &gPlayerParty[i], sizeof(struct Pokemon));
             CopyMon(&gPlayerParty[i], &tempEnemyParty[i], sizeof(struct Pokemon));
-            CopyMon(&gEnemyParty[i], &tempPlayerParty[i], sizeof(struct Pokemon));
 
             // Maintain IVs/EVs on swapped mons
             for(j = 0; j < NUM_STATS; ++j)
