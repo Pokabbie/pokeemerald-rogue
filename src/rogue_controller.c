@@ -122,6 +122,7 @@ struct RogueLocalData
     bool8 hasValidQuickSave : 1;
     bool8 hasSaveWarningPending : 1;
     bool8 hasVersionUpdateMsgPending : 1;
+    bool8 hasBattleEventOccurred : 1;
 };
 
 struct RogueLabEncounterData
@@ -325,7 +326,7 @@ bool8 Rogue_UseFinalQuestEffects(void)
 
 static bool8 HasFinalQuestBossAppliedSwap()
 {
-    return !(gEnemyPartyCount != 1 && GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) != SPECIES_WOBBUFFET);
+    return gRogueLocal.hasBattleEventOccurred != 0;
 }
 
 bool8 Rogue_IsFinalQuestFinalBoss(void)
@@ -356,6 +357,8 @@ bool8 Rogue_ApplyFinalQuestFinalBossTeamSwap(void)
 
             // Apply different music ??
             //PlayBGM();
+
+            gRogueLocal.hasBattleEventOccurred = TRUE;
 
             return TRUE;
         }
@@ -4495,7 +4498,7 @@ static void TempSaveEnemyTeam()
         CopyMon(&tempParty[i], &gEnemyParty[i], sizeof(struct Pokemon));
 }
 
-static void TempRestoreEnemyTeam()
+static void UNUSED TempRestoreEnemyTeam()
 {
     u8 i;
     struct Pokemon* tempParty = GetRecordedEnemyPartyPtr();
@@ -4509,6 +4512,7 @@ static void TempRestoreEnemyTeam()
 void Rogue_Battle_StartTrainerBattle(void)
 {
     bool8 shouldDoubleBattle = FALSE;
+    gRogueLocal.hasBattleEventOccurred = FALSE;
 
     // Apply trainer specific seed
     gRogueLocal.rngSeedToRestore = gRngRogueValue;
@@ -4917,6 +4921,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
 void Rogue_Battle_StartWildBattle(void)
 {
+    gRogueLocal.hasBattleEventOccurred = FALSE;
     RememberPartyHeldItems();
     RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_START);
 }

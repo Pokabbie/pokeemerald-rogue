@@ -398,7 +398,7 @@
             },
             {
                 "name": "Collector X",
-                "description": "Defeat any Elite Four Trainer with a Pokémon of Legends in you party.",
+                "description": "Defeat any Elite Four Trainer with a Pokémon of Legends in your party.",
                 "triggers":
                 [
                     {
