@@ -768,15 +768,24 @@ script Rogue_SpeakDaycareLady_TrySwapMon
     special(Rogue_IsDaycareSlotEmpty)
     if(var(VAR_RESULT) == YES)
     {
-        msgbox(format("Which Pokémon would you like to leave with me?"), MSGBOX_DEFAULT)
-        fadescreen(FADE_TO_BLACK)
-        special(ChooseSendDaycareMon)
-        waitstate
+        specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
 
-        if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
+        if(var(VAR_TEMP_0) == 1)
         {
-            special(Rogue_SwapDaycareMon)
-            msgbox(format("I'll make sure to take good care of them!\pTake care!"), MSGBOX_DEFAULT)
+            msgbox(format("I'm afraid you can't leave any more Pokémon with me at the moment.\pIf you did, you'd be left with no Pokémon in your party!"), MSGBOX_DEFAULT)
+        }
+        else
+        {
+            msgbox(format("Which Pokémon would you like to leave with me?"), MSGBOX_DEFAULT)
+            fadescreen(FADE_TO_BLACK)
+            special(ChooseSendDaycareMon)
+            waitstate
+
+            if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
+            {
+                special(Rogue_SwapDaycareMon)
+                msgbox(format("I'll make sure to take good care of them!\pTake care!"), MSGBOX_DEFAULT)
+            }
         }
     }
     else

@@ -1164,4 +1164,8 @@ void Rogue_SwapDaycareMon()
     u16 partySlot = gSpecialVar_0x8004;
     u8 daycareSlot = gSpecialVar_0x8005;
     Rogue_SwapMonInDaycare(&gPlayerParty[partySlot], Rogue_GetDaycareBoxMon(daycareSlot));
+
+    // Resetup followmon
+    if(partySlot == 0)
+        SetupFollowParterMonObjectEvent();
 }
