@@ -349,11 +349,28 @@ bool8 Rogue_ApplyFinalQuestFinalBossTeamSwap(void)
             // Swap out team for the "final" mon a custom Wobbuffet
             u8 i;
 
-            for(i = 0; i < PARTY_SIZE; ++i)
-                ZeroMonData(&gEnemyParty[i]);
+            if(gEnemyPartyCount == PARTY_SIZE)
+            {
+                // Find an empty index which isn't sent out yet
+                // (prefer these to go into the early spots)
+                for(i = 0; i < PARTY_SIZE; ++i)
+                {
+                    if(i == gBattlerPartyIndexes[B_POSITION_OPPONENT_LEFT])
+                        continue;
+
+                    if((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && i == gBattlerPartyIndexes[B_POSITION_OPPONENT_RIGHT])
+                        continue;
+
+                    break;
+                }
+            }
+            else
+            {
+                i = gEnemyPartyCount;
+            }
 
             // TODO - Apply custom mon
-            CreateMon(&gEnemyParty[0], SPECIES_WOBBUFFET, MAX_LEVEL, 10, FALSE, 0, OT_ID_PLAYER_ID, 0);
+            CreateMon(&gEnemyParty[i], SPECIES_WOBBUFFET, MAX_LEVEL, 10, FALSE, 0, OT_ID_PLAYER_ID, 0);
 
             // Apply different music ??
             //PlayBGM();
