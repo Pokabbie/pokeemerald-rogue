@@ -85,6 +85,12 @@ int GameClear(void)
     return 0;
 }
 
+int GameClearFakeout(void)
+{
+    SetMainCallback2(CB2_DoHallOfFameScreenForFakeout);
+    return 0;
+}
+
 bool8 SetCB2WhiteOut(void)
 {
     SetMainCallback2(CB2_WhiteOut);

@@ -329,6 +329,25 @@ void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny)
     VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
 }
 
+void FollowMon_SetGraphicsFromMon(u16 id, struct Pokemon* mon)
+{
+    u16 gfxSpecies = FollowMon_GetMonGraphics(mon);
+    VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
+}
+
+void FollowMon_SetGraphicsFromParty()
+{
+    u8 i;
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+    {
+        if(i < gPlayerPartyCount)
+            FollowMon_SetGraphicsFromMon(i, &gPlayerParty[i]);
+        else
+            FollowMon_SetGraphics(i, SPECIES_NONE, FALSE);
+    }
+}
+
 u16 FollowMon_GetGraphics(u16 id)
 {
     return VarGet(VAR_FOLLOW_MON_0 + id);

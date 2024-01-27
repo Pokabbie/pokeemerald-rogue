@@ -819,6 +819,11 @@ void Rogue_GetFollowMonSpecies(void)
     gSpecialVar_0x8009 = spawnSlot;
 }
 
+void Rogue_SetupFollowMonFromParty(void)
+{
+    FollowMon_SetGraphicsFromParty();
+}
+
 void Rogue_TryEnqueueWildBattleMon(void)
 {
     u8 spawnSlot = gSpecialVar_0x8009;

@@ -55,12 +55,12 @@ script Rogue_BattleDefeated_Boss13
     if(var(VAR_APPLY_FINAL_QUEST_FAKE_OUT) == TRUE)
     {
         // Fake out the game clear
-        fadescreen(FADE_TO_BLACK)
+        call(Rogue_EventScript_AttemptPostGymHeal) // todo - avoid popup from here
 
-        // TODO
-        special(RemoveCameraObject)
-        warp(MAP_ROGUE_HUB_TRANSITION, 0)
+        fadescreen(FADE_TO_BLACK)
+        special(GameClearFakeout)
         waitstate
+        releaseall
     }
     else
     {

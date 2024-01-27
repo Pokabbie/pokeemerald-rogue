@@ -10,6 +10,8 @@ u16 GetWildChainSpecies();
 u8 GetWildChainCount();
 
 void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny);
+void FollowMon_SetGraphicsFromMon(u16 id, struct Pokemon* mon);
+void FollowMon_SetGraphicsFromParty();
 u16 FollowMon_GetGraphics(u16 id);
 u16 const* FollowMon_GetGraphicsForPalSlot(u16 palSlot);
 

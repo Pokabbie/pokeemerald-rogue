@@ -3819,6 +3819,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         // Warping back to hub must be intentional
         return;
     }
+    else if(warp->mapGroup == MAP_GROUP(ROGUE_BOSS_FINAL) && warp->mapNum == MAP_NUM(ROGUE_BOSS_FINAL))
+    {
+        // Never override this warp
+        return;
+    }
     else if(warp->mapGroup == MAP_GROUP(ROGUE_AREA_ADVENTURE_ENTRANCE) && warp->mapNum == MAP_NUM(ROGUE_AREA_ADVENTURE_ENTRANCE))
     {
         // Warping back to hub must be intentional

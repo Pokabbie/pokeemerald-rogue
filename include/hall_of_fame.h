@@ -3,6 +3,7 @@
 
 void CB2_DoHallOfFameScreen(void);
 void CB2_DoHallOfFameScreenDontSaveData(void);
+void CB2_DoHallOfFameScreenForFakeout(void);
 void CB2_DoHallOfFamePC(void);
 
 // hof_pc.c

@@ -215,6 +215,7 @@ gSpecials::
 	def_special Rogue_CheckMonCombo
 	def_special Rogue_ApplyMonCombo
 	def_special Rogue_GetFollowMonSpecies
+	def_special Rogue_SetupFollowMonFromParty
 	def_special Rogue_TryEnqueueWildBattleMon
 	def_special Rogue_GetTrainerNum
 	def_special Rogue_PlayStaticTrainerEncounterBGM
@@ -377,6 +378,7 @@ gSpecials::
 	def_special LookThroughPorthole
 	def_special DoSoftReset
 	def_special GameClear
+	def_special GameClearFakeout
 	def_special MoveElevator
 	def_special ShowGlassWorkshopMenu
 	def_special SpawnCameraObject
