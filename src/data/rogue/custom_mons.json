@@ -94,17 +94,17 @@
                 "held_item": "ITEM_KINGS_ROCK",
                 "moves":
                 [
+                    "MOVE_DRAIN_PUNCH",
                     "MOVE_KINGS_SHIELD",
                     "MOVE_POWER_UP_PUNCH",
                     "MOVE_SHADOW_PUNCH",
-                    "MOVE_SUCKER_PUNCH",
 
                     "MOVE_BULLET_PUNCH",
                     "MOVE_COMET_PUNCH",
-                    "MOVE_DRAIN_PUNCH",
                     "MOVE_DYNAMIC_PUNCH",
                     "MOVE_MACH_PUNCH",
-                    "MOVE_MEGA_PUNCH"
+                    "MOVE_MEGA_PUNCH",
+                    "MOVE_SUCKER_PUNCH"
                 ],
                 "abilities":
                 [

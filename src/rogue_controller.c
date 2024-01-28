@@ -349,7 +349,7 @@ bool8 Rogue_ApplyFinalQuestFinalBossTeamSwap(void)
             // Only do this once
             // Swap out team for the "final" mon a custom Wobbuffet
             u8 i;
-            u32 fixedIVs = min(15, GetMonData(&gEnemyParty[0], MON_DATA_HP_IV)); // we don't want this final surprise mon to be too strong
+            u32 fixedIVs = GetMonData(&gEnemyParty[0], MON_DATA_HP_IV);
 
             if(gEnemyPartyCount == PARTY_SIZE)
             {
