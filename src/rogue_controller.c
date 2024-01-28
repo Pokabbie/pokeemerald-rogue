@@ -349,6 +349,7 @@ bool8 Rogue_ApplyFinalQuestFinalBossTeamSwap(void)
             // Only do this once
             // Swap out team for the "final" mon a custom Wobbuffet
             u8 i;
+            u32 fixedIVs = min(15, GetMonData(&gEnemyParty[0], MON_DATA_HP_IV)); // we don't want this final surprise mon to be too strong
 
             if(gEnemyPartyCount == PARTY_SIZE)
             {
@@ -370,8 +371,8 @@ bool8 Rogue_ApplyFinalQuestFinalBossTeamSwap(void)
                 i = gEnemyPartyCount;
             }
 
-            // TODO - Apply custom mon
-            CreateMon(&gEnemyParty[i], SPECIES_WOBBUFFET, MAX_LEVEL, 10, FALSE, 0, OT_ID_PLAYER_ID, 0);
+            // Create custom wobbuffet
+            RogueGift_CreateMon(CUSTOM_MON_RNDOMAN_WOBBUFFET, &gEnemyParty[i], MAX_LEVEL, fixedIVs);
 
             // Apply different music ??
             //PlayBGM();
