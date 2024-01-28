@@ -2908,6 +2908,62 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
     #endif
         .footprint = gMonFootprint_Wobbuffet,
         LEARNSETS(Wobbuffet),
+        .formSpeciesIdTable = sWobbuffetFormSpeciesIdTable,
+        .formChangeTable = sWobbuffetFormChangeTable
+    },
+
+    [SPECIES_WOBBUFFET_PUNCHING] = 
+    {
+        .baseHP        = 190,
+        .baseAttack    = 100,
+        .baseDefense   = 10,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 5,
+        .baseSpDefense = 10,
+        .types = { TYPE_PSYCHIC, TYPE_PSYCHIC },
+        .catchRate = 45,
+        .expYield = 142,
+        .evYield_HP = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
+        .abilities = { ABILITY_STANCE_CHANGE, ABILITY_NONE, ABILITY_NONE },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Wobbuffet"),
+        .cryId = CRY_WOBBUFFET,
+        .natDexNum = NATIONAL_DEX_WOBBUFFET,
+        .categoryName = _("Patient"),
+        .height = 13,
+        .weight = 285,
+        .description = POKEDEX_DESC_STRING(
+            "Usually docile, a Wobbuffet strikes back\n"
+            "ferociously if its black tail is attacked.\n"
+            "It makes its lair in caves where it waits\n"
+            "for nightfall."),
+        .pokemonScale = 274,
+        .pokemonOffset = 4,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(WobbuffetPunching, 64, 56),
+        FRONT_PIC_FEMALE(WobbuffetPunching, 64, 56),
+        .frontPicYOffset = 5,
+        .frontAnimFrames = sAnims_Wobbuffet,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        BACK_PIC(WobbuffetPunching, 56, 56),
+        BACK_PIC_FEMALE(WobbuffetPunching, 56, 56),
+        .backPicYOffset = 10,
+        .backAnimId = BACK_ANIM_V_STRETCH,
+        PALETTES(WobbuffetPunching),
+        ICON(WobbuffetPunching, 0),
+    #if P_CUSTOM_GENDER_DIFF_ICONS == TRUE
+        ICON_FEMALE(WobbuffetPunching, 0),
+    #endif
+        .footprint = gMonFootprint_Wobbuffet,
+        LEARNSETS(Wobbuffet),
+        .formSpeciesIdTable = sWobbuffetFormSpeciesIdTable,
+        .formChangeTable = sWobbuffetFormChangeTable
     },
 #endif //P_FAMILY_WOBBUFFET
 

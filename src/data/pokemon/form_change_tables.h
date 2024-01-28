@@ -202,6 +202,15 @@ static const struct FormChange sTyranitarFormChangeTable[] = {
 };
 #endif //P_FAMILY_LARVITAR
 
+#if P_FAMILY_WOBBUFFET
+static const struct FormChange sWobbuffetFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_SWITCH, SPECIES_WOBBUFFET},
+    {FORM_CHANGE_FAINT,         SPECIES_WOBBUFFET},
+    {FORM_CHANGE_END_BATTLE,    SPECIES_WOBBUFFET},
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif //P_FAMILY_WOBBUFFET
+
 #if P_FAMILY_TREECKO
 static const struct FormChange sSceptileFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_SCEPTILE_MEGA, ITEM_SCEPTILITE},

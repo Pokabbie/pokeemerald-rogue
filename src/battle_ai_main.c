@@ -3941,7 +3941,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
             break;
         case MOVE_KINGS_SHIELD:
             if (aiData->abilities[battlerAtk] == ABILITY_STANCE_CHANGE //Special logic for Aegislash
-              && gBattleMons[battlerAtk].species == SPECIES_AEGISLASH_BLADE
+              && (gBattleMons[battlerAtk].species == SPECIES_AEGISLASH_BLADE || gBattleMons[battlerAtk].species == SPECIES_WOBBUFFET_PUNCHING)
               && !IsBattlerIncapacitated(battlerDef, aiData->abilities[battlerDef]))
             {
                 ADJUST_SCORE(3);

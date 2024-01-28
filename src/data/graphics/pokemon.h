@@ -2795,6 +2795,18 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
 #if P_CUSTOM_GENDER_DIFF_ICONS
     const u8 gMonIcon_WobbuffetF[] = INCBIN_U8("graphics/pokemon/wobbuffet/iconf.4bpp");
 #endif
+
+    const u32 gMonFrontPic_WobbuffetPunching[] = INCBIN_U32("graphics/pokemon/wobbuffet/rogue/anim_front.4bpp.lz");
+    const u32 gMonPalette_WobbuffetPunching[] = INCBIN_U32("graphics/pokemon/wobbuffet/rogue/normal.gbapal.lz");
+    const u32 gMonBackPic_WobbuffetPunching[] = INCBIN_U32("graphics/pokemon/wobbuffet/rogue/back.4bpp.lz");
+    const u32 gMonShinyPalette_WobbuffetPunching[] = INCBIN_U32("graphics/pokemon/wobbuffet/rogue/shiny.gbapal.lz");
+    const u8 gMonIcon_WobbuffetPunching[] = INCBIN_U8("graphics/pokemon/wobbuffet/rogue/icon.4bpp");
+
+    const u32 gMonFrontPic_WobbuffetPunchingF[] = INCBIN_U32("graphics/pokemon/wobbuffet/rogue/anim_frontf.4bpp.lz");
+    const u32 gMonBackPic_WobbuffetPunchingF[] = INCBIN_U32("graphics/pokemon/wobbuffet/rogue/backf.4bpp.lz");
+#if P_CUSTOM_GENDER_DIFF_ICONS
+    const u8 gMonIcon_WobbuffetPunchingF[] = INCBIN_U8("graphics/pokemon/wobbuffet/rogue/iconf.4bpp");
+#endif
 #endif //P_FAMILY_WOBBUFFET
 
 #if P_FAMILY_GIRAFARIG

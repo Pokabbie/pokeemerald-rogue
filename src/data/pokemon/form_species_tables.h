@@ -571,6 +571,14 @@ static const u16 sTyranitarFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_LARVITAR
 
+#if P_FAMILY_WOBBUFFET
+static const u16 sWobbuffetFormSpeciesIdTable[] = {
+    SPECIES_WOBBUFFET,
+    SPECIES_WOBBUFFET_PUNCHING,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_WOBBUFFET
+
 #if P_FAMILY_TREECKO
 static const u16 sSceptileFormSpeciesIdTable[] = {
     SPECIES_SCEPTILE,
