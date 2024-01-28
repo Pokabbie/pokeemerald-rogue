@@ -910,6 +910,10 @@ static bool8 IsAltFormVisible(u16 baseForm, u16 altForm)
     if(gSpeciesInfo[altForm].isGigantamax && !IsDynamaxEnabled())
         return FALSE;
 
+    // Hide punching form until the reveal
+    if(altForm == SPECIES_WOBBUFFET_PUNCHING && !Rogue_Use100PercEffects())
+        return FALSE;
+
     {
         u32 i;
         struct FormChange formChange;
