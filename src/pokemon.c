@@ -50,6 +50,7 @@
 #include "constants/trainers.h"
 
 #include "rogue_controller.h"
+#include "rogue_gifts.h"
 #include "rogue_player_customisation.h"
 #include "rogue_timeofday.h"
 #include "rogue_quest.h"
@@ -4698,8 +4699,8 @@ u8 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 
     if(IsOtherTrainer(otId))
     {
-        u16 customMonId = RogueQuest_GetCustomRewardMonIdBySpecies(species, otId);
-        u16 const* customAbilities = RogueQuest_GetCustomRewardMonAbilites(customMonId);
+        u16 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
+        u16 const* customAbilities = RogueGift_GetCustomMonAbilites(customMonId);
         if(customAbilities != NULL)
         {
 #ifdef ROGUE_EXPANSION
@@ -6532,7 +6533,7 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
-    u16 rewardMonId = RogueQuest_GetCustomRewardMonId(mon);
+    u16 rewardMonId = RogueGift_GetCustomMonId(mon);
     int i, j, k;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -6541,11 +6542,12 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     if(rewardMonId != 0)
     {
         // This is a custom mon so make sure it can relearn it's special moves
-        u16 const* customMoves = RogueQuest_GetCustomRewardMonMoves(rewardMonId);
+        u16 const* customMoves = RogueGift_GetCustomMonMoves(rewardMonId);
+        u16 moveCount = RogueGift_GetCustomMonMoveCount(rewardMonId);
 
         if(customMoves != NULL)
         {
-            for(i = 0; i < MAX_MON_MOVES; ++i)
+            for(i = 0; i < moveCount; ++i)
             {
                 if(customMoves[i] == MOVE_NONE)
                     break;

@@ -25,6 +25,7 @@
 #include "constants/rgb.h"
 
 #include "rogue_controller.h"
+#include "rogue_gifts.h"
 #include "rogue_quest.h"
 #include "rogue_questmenu.h"
 
@@ -1173,7 +1174,7 @@ static void Draw_QuestPage()
                         spriteLayering[spriteIdx] = 0;
                         ++spriteIdx;
                     }
-                    if(reward->perType.pokemon.customOt)
+                    if(reward->perType.pokemon.customMonId != CUSTOM_MON_NONE)
                     {
                         sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_POKEMON_CUSTOM, TAG_REWARD_ICON_POKEMON_SHINY, gItemIcon_RogueStatusCustom, gItemIconPalette_RogueStatusStarCustom);
                         groupedSpriteIndex[spriteIdx] = currentSpriteGroup;

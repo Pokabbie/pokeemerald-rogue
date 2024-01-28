@@ -78,6 +78,7 @@
 	.include "src/rogue_trainers.o"
 	.include "src/rogue_quest.o"
 	.include "src/rogue_questmenu.o"
+	.include "src/rogue_gifts.o"
 	.include "src/rogue_multiplayer.o"
 	.include "src/rogue_popup.o"
 	.include "src/rogue_adventurepaths.o"

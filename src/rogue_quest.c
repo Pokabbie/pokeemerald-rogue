@@ -15,6 +15,7 @@
 #include "rogue.h"
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
+#include "rogue_gifts.h"
 #include "rogue_pokedex.h"
 #include "rogue_quest.h"
 #include "rogue_settings.h"
@@ -38,14 +39,6 @@ static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigg
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PokedexEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
-
-struct CustomMonPreset
-{
-    u32 otId;
-    u16 moves[MAX_MON_MOVES];
-    u16 abilities[NUM_ABILITY_SLOTS];
-    u16 species;
-};
 
 #define COMPOUND_STRING(str) (const u8[]) _(str)
 
@@ -269,21 +262,22 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
             {
                 struct Pokemon* mon = &gEnemyParty[0];
                 u32 temp = 0;
-                u8 otIdType = OT_ID_PLAYER_ID;
-                u32 customOtId = 0;
                 bool8 isCustom = FALSE;
 
-                if(rewardInfo->perType.pokemon.customOt)
+                if(rewardInfo->perType.pokemon.customMonId != CUSTOM_MON_NONE)
                 {
-                    otIdType = OT_ID_PRESET;
-                    customOtId = rewardInfo->perType.pokemon.customOt;
+                    isCustom = TRUE;
+                    RogueGift_CreateMon(rewardInfo->perType.pokemon.customMonId, mon, STARTER_MON_LEVEL, USE_RANDOM_IVS);
+                    AGB_ASSERT(rewardInfo->perType.pokemon.species == GetMonData(mon, MON_DATA_SPECIES));
                 }
+                else
+                {
+                    ZeroMonData(mon);
+                    CreateMon(mon, rewardInfo->perType.pokemon.species, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
 
-                ZeroMonData(mon);
-                CreateMon(mon, rewardInfo->perType.pokemon.species, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, otIdType, customOtId);
-
-                temp = METLOC_FATEFUL_ENCOUNTER;
-                SetMonData(mon, MON_DATA_MET_LOCATION, &temp);
+                    temp = METLOC_FATEFUL_ENCOUNTER;
+                    SetMonData(mon, MON_DATA_MET_LOCATION, &temp);
+                }
 
                 // Update nickname
                 if(rewardInfo->perType.pokemon.nickname != NULL)
@@ -291,79 +285,15 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
                     SetMonData(mon, MON_DATA_NICKNAME, rewardInfo->perType.pokemon.nickname);
                 }
 
-                // Update OT name
-                if(customOtId)
+                // Set shiny state
+                if(rewardInfo->perType.pokemon.isShiny)
                 {
-                    u8 j;
-                    u16 customMonId = RogueQuest_GetCustomRewardMonIdBySpecies(rewardInfo->perType.pokemon.species, customOtId);
-                    u16 const* customMoves = RogueQuest_GetCustomRewardMonMoves(customMonId);
-                    u16 const* customAbilities = RogueQuest_GetCustomRewardMonAbilites(customMonId);
-
-                    temp = customOtId % 2;
-                    SetMonData(mon, MON_DATA_OT_NAME, Rogue_GetTrainerNameFromOT(customOtId));
-                    SetMonData(mon, MON_DATA_OT_GENDER, &temp);
-                    isCustom = TRUE;
-
-                    // Set pokeball
-                    if(rewardInfo->perType.pokemon.customOt == POKABBIE_OTID)
-                    {
-                        temp = ITEM_POKABBIE_POKEBALL;
-                        SetMonData(mon, MON_DATA_POKEBALL, &temp);
-                    }
-                    else
-                    {
-                        // Fallback
-                        temp = ITEM_CUSTOM_MON_POKEBALL;
-                        SetMonData(mon, MON_DATA_POKEBALL, &temp);
-                    }
-
-                    // Populate moves
-                    if(customMoves)
-                    {
-                        u8 m, j;
-                        u16 moves[MAX_MON_MOVES];
-
-                        isCustom = TRUE;
-
-                        for(m = 0; m < MAX_MON_MOVES; ++m)
-                        {
-                            moves[m] = customMoves[m];
-                            if(moves[m] == MOVE_NONE)
-                                break;
-                        }
-
-                        // Fill the rest of the moves with default moves
-                        for(j = 0; m < MAX_MON_MOVES; ++m, ++j)
-                        {
-                            moves[m] = GetMonData(mon, MON_DATA_MOVE1 + j);
-                        }
-
-                        // Give back moves
-                        for(m = 0; m < MAX_MON_MOVES; ++m)
-                        {
-                            temp = moves[m];
-                            SetMonData(mon, MON_DATA_MOVE1 + m, &temp);
-                            SetMonData(mon, MON_DATA_PP1 + m, &gBattleMoves[temp].pp);
-                        }
-                    }
-
-                    // Assign ability
-                    if(customAbilities)
-                    {
-                        isCustom = TRUE;
-
-                        // If we have a custom ability, always assign abilityNum 0
-                        temp = 0;
-                        SetMonData(mon, MON_DATA_ABILITY_NUM, &temp);
-                    }
+                    temp = 1;
+                    SetMonData(mon, MON_DATA_IS_SHINY, &temp);
                 }
 
-                // Set shiny state
-                temp = rewardInfo->perType.pokemon.isShiny ? 1 : 0;
-                SetMonData(mon, MON_DATA_IS_SHINY, &temp);
-
                 // Give mon
-                if(customOtId)
+                if(isCustom)
                     GiveTradedMonToPlayer(mon);
                 else
                     GiveMonToPlayer(mon);
@@ -405,60 +335,6 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
     questState->highestCollectedRewardDifficulty = questState->highestCompleteDifficulty;
 
     return TRUE;
-}
-
-u16 RogueQuest_GetCustomRewardMonId(struct Pokemon* mon)
-{
-    u16 species = GetMonData(mon, MON_DATA_SPECIES);
-    u32 otId = GetMonData(mon, MON_DATA_OT_ID);
-    return RogueQuest_GetCustomRewardMonIdBySpecies(species, otId);
-}
-
-u16 RogueQuest_GetCustomRewardMonIdBySpecies(u16 species, u32 otId)
-{
-    u16 i;
-
-    species = Rogue_GetEggSpecies(species);
-
-    if(!IsOtherTrainer(otId))
-        return 0;
-
-    for(i = 0; i < ARRAY_COUNT(sCustomRewardMonPresets); ++i)
-    {
-        if(sCustomRewardMonPresets[i].otId)
-        {
-            if(species == Rogue_GetEggSpecies(sCustomRewardMonPresets[i].species))
-            {
-                return i + 1;
-            }
-        }
-    }
-
-    return 0;
-}
-
-u16 const* RogueQuest_GetCustomRewardMonMoves(u16 id)
-{
-    if(id == 0)
-        return NULL;
-    
-    --id;
-    if(sCustomRewardMonPresets[id].moves[0] != MOVE_NONE)
-        return sCustomRewardMonPresets[id].moves;
-    else
-        return NULL;
-}
-
-u16 const* RogueQuest_GetCustomRewardMonAbilites(u16 id)
-{
-    if(id == 0)
-        return NULL;
-    
-    --id;
-    if(sCustomRewardMonPresets[id].abilities[0] != ABILITY_NONE)
-        return sCustomRewardMonPresets[id].abilities;
-    else
-        return NULL;
 }
 
 void RogueQuest_ActivateQuestsFor(u32 flags)

@@ -47,6 +47,8 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 void ExportQuestData_H(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 void ExportQuestData_Pory(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 void ExportNicknameData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
+void ExportCustomMonData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
+void ExportCustomMonData_H(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 
 
 static std::map<std::string, ExporterFunc> CreateExportMap()
@@ -60,6 +62,8 @@ static std::map<std::string, ExporterFunc> CreateExportMap()
     mapping["quests_h"] = ExportQuestData_H;
     mapping["quests_pory"] = ExportQuestData_Pory;
     mapping["nicknames_c"] = ExportNicknameData_C;
+    mapping["custom_mons_c"] = ExportCustomMonData_C;
+    mapping["custom_mons_h"] = ExportCustomMonData_H;
 
     return mapping;
 }

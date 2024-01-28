@@ -556,12 +556,6 @@
 #define ROGUE_INTRO_STATE_LEARN_TO_BUILD        6
 #define ROGUE_INTRO_STATE_COMPLETE              7
 
-// Trainer OTs
-//
-#define CLOWN_OTID          33414
-#define POKABBIE_OTID       181
-#define RED_OTID            61226
-
 // Misc.
 //
 // Number of bytes needed to cover all species

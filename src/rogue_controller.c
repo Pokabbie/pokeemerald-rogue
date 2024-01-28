@@ -58,6 +58,7 @@
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_debug.h"
+#include "rogue_gifts.h"
 #include "rogue_followmon.h"
 #include "rogue_hub.h"
 #include "rogue_multiplayer.h"
@@ -6080,13 +6081,10 @@ void Rogue_ModifyGiveMon(struct Pokemon* mon)
                 u32 temp;
 
                 ZeroMonData(mon);
-                CreateMonForcedShiny(mon, SPECIES_STANTLER, STARTER_MON_LEVEL, USE_RANDOM_IVS, OT_ID_PRESET, CLOWN_OTID);
+                RogueGift_CreateMon(CUSTOM_MON_CLOWN_STANTLER, mon, STARTER_MON_LEVEL, USE_RANDOM_IVS);
 
                 temp = 0;
                 SetMonData(mon, MON_DATA_GENDER_FLAG, &temp);
-
-                SetMonData(mon, MON_DATA_OT_NAME, gText_Clown);
-                SetMonData(mon, MON_DATA_NICKNAME, gText_ClownStantler);
             }
         }
     }

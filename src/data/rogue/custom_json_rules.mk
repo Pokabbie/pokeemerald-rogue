@@ -20,3 +20,9 @@ $(ROGUEPORYSCRIPTSDIR)/Generated/trainers.pory: $(DATA_SRC_SUBDIR)/rogue/trainer
 
 $(ROGUEPORYSCRIPTSDIR)/Generated/quests.pory: $(DATA_SRC_SUBDIR)/rogue/quests.json $(DATA_SRC_SUBDIR)/rogue/quests/*.json
 	$(CUSTOMJSON) quests_pory $(DATA_SRC_SUBDIR)/rogue/quests.json $@
+
+$(DATA_SRC_SUBDIR)/rogue/custom_mons.h: $(DATA_SRC_SUBDIR)/rogue/custom_mons.json
+	$(CUSTOMJSON) custom_mons_c $^ $@
+
+include/constants/generated/custom_mons.h: $(DATA_SRC_SUBDIR)/rogue/custom_mons.json
+	$(CUSTOMJSON) custom_mons_h $^ $@
