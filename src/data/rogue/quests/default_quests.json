@@ -297,16 +297,7 @@
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
                     {
                         "species": "SPECIES_MAREEP",
-                        "shiny": true,
-                        "custom_ot": "POKABBIE_OTID",
-                        "nickname": "Pikin",
-                        "moves":
-                        [
-                            "MOVE_DRAGON_BREATH",
-                            "MOVE_MAGIC_COAT",
-                            "MOVE_THUNDER",
-                            "MOVE_TAIL_GLOW"
-                        ]
+                        "custom_mon_id": "CUSTOM_MON_ABBIE_MAREEP"
                     }
                 ]
             },
@@ -334,16 +325,7 @@
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
                     {
                         "species": "SPECIES_MAREEP",
-                        "shiny": true,
-                        "custom_ot": "POKABBIE_OTID",
-                        "nickname": "Pikin",
-                        "moves":
-                        [
-                            "MOVE_METEOR_BEAM",
-                            "MOVE_MAGIC_COAT",
-                            "MOVE_DISCHARGE",
-                            "MOVE_TAIL_GLOW"
-                        ]
+                        "custom_mon_id": "CUSTOM_MON_ABBIE_MAREEP"
                     }
                 ]
             },

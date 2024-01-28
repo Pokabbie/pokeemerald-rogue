@@ -87,18 +87,7 @@
                     { 
                         "species": "SPECIES_PIKACHU",
                         "shiny": true,
-                        "custom_ot": "RED_OTID",
-                        "nickname": "Sparky",
-                        "moves":
-                        [
-                            "MOVE_VOLT_TACKLE",
-                            "MOVE_THUNDER",
-                            "MOVE_EXTREME_SPEED"
-                        ],
-                        "abilities":
-                        [
-                            "ABILITY_SPEED_BOOST"
-                        ]
+                        "nickname": "Sparky"
                     }
                 ]
             },

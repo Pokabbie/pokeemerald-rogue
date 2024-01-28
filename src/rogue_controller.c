@@ -58,6 +58,7 @@
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_debug.h"
+#include "rogue_gifts.h"
 #include "rogue_followmon.h"
 #include "rogue_hub.h"
 #include "rogue_multiplayer.h"
@@ -349,11 +350,28 @@ bool8 Rogue_ApplyFinalQuestFinalBossTeamSwap(void)
             // Swap out team for the "final" mon a custom Wobbuffet
             u8 i;
 
-            for(i = 0; i < PARTY_SIZE; ++i)
-                ZeroMonData(&gEnemyParty[i]);
+            if(gEnemyPartyCount == PARTY_SIZE)
+            {
+                // Find an empty index which isn't sent out yet
+                // (prefer these to go into the early spots)
+                for(i = 0; i < PARTY_SIZE; ++i)
+                {
+                    if(i == gBattlerPartyIndexes[B_POSITION_OPPONENT_LEFT])
+                        continue;
+
+                    if((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && i == gBattlerPartyIndexes[B_POSITION_OPPONENT_RIGHT])
+                        continue;
+
+                    break;
+                }
+            }
+            else
+            {
+                i = gEnemyPartyCount;
+            }
 
             // TODO - Apply custom mon
-            CreateMon(&gEnemyParty[0], SPECIES_WOBBUFFET, MAX_LEVEL, 10, FALSE, 0, OT_ID_PLAYER_ID, 0);
+            CreateMon(&gEnemyParty[i], SPECIES_WOBBUFFET, MAX_LEVEL, 10, FALSE, 0, OT_ID_PLAYER_ID, 0);
 
             // Apply different music ??
             //PlayBGM();
@@ -6063,13 +6081,10 @@ void Rogue_ModifyGiveMon(struct Pokemon* mon)
                 u32 temp;
 
                 ZeroMonData(mon);
-                CreateMonForcedShiny(mon, SPECIES_STANTLER, STARTER_MON_LEVEL, USE_RANDOM_IVS, OT_ID_PRESET, CLOWN_OTID);
+                RogueGift_CreateMon(CUSTOM_MON_CLOWN_STANTLER, mon, STARTER_MON_LEVEL, USE_RANDOM_IVS);
 
                 temp = 0;
                 SetMonData(mon, MON_DATA_GENDER_FLAG, &temp);
-
-                SetMonData(mon, MON_DATA_OT_NAME, gText_Clown);
-                SetMonData(mon, MON_DATA_NICKNAME, gText_ClownStantler);
             }
         }
     }

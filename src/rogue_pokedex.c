@@ -35,6 +35,7 @@
 
 #include "rogue_baked.h"
 #include "rogue_controller.h"
+#include "rogue_gifts.h"
 #include "rogue_pokedex.h"
 #include "rogue_ridemon.h"
 #include "rogue_settings.h"
@@ -1230,19 +1231,18 @@ static u16 GetMaxMoveScrollOffset()
     u8 i;
     u16 count = 0;
     u16 species = sPokedexMenu->viewBaseSpecies;
-    u16 customMonId = RogueQuest_GetCustomRewardMonIdBySpecies(species, sPokedexMenu->viewOtId);
+    u16 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
     
     // Custom moves
     if(customMonId)
     {
-        u16 const* customMoves = RogueQuest_GetCustomRewardMonMoves(customMonId);
+        u16 const* customMoves = RogueGift_GetCustomMonMoves(customMonId);
+        u16 customMoveCount = RogueGift_GetCustomMonMoveCount(customMonId);
 
         if(customMoves)
         {
-            for (i = 0; i < MAX_MON_MOVES; i++)
+            for (i = 0; i < customMoveCount; i++)
             {
-                if (customMoves[i] == MOVE_NONE)
-                    break;
                 ++count;
             }
         }
@@ -1283,16 +1283,14 @@ static void DisplayMonMovesText()
     // Custom moves
     if(sPokedexMenu->viewOtId)
     {
-        u16 customMonId = RogueQuest_GetCustomRewardMonIdBySpecies(species, sPokedexMenu->viewOtId);
-        u16 const* customMoves = RogueQuest_GetCustomRewardMonMoves(customMonId);
+        u16 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
+        u16 const* customMoves = RogueGift_GetCustomMonMoves(customMonId);
+        u16 customMoveCount = RogueGift_GetCustomMonMoveCount(customMonId);
         
         if(customMoves)
         {
-            for (i = 0; i < MAX_MON_MOVES; i++)
+            for (i = 0; i < customMoveCount; i++)
             {
-                if (customMoves[i] == MOVE_NONE)
-                    break;
-
                 // Is custom move
                 StringCopy(gStringVar1, gMoveNames[customMoves[i]]);
                 StringExpandPlaceholders(gStringVar3, gText_PokedexMovesCustom);
