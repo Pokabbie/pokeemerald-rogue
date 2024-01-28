@@ -861,7 +861,7 @@
                     {
                         "PRE_BATTLE_OPENNING": "unused",
                         "PRE_BATTLE_TAUNT": "unused",
-                        "POST_BATTLE_TAUNT": "You are truely a\\nChampion of Emerald Rogue.",
+                        "POST_BATTLE_TAUNT": "You are truely a fine\\nChampion of Emerald Rogue.",
                         "POST_BATTLE_CLOSER": "unused"
                     }
                 ],
