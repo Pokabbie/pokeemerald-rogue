@@ -17,6 +17,7 @@ struct QuestReward
 {
 	QuestRewardType type;
 	std::string preprocessorCondition;
+	std::string visibility;
 	struct
 	{
 		std::string species;
@@ -133,6 +134,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 				fileStream << "#if " << rewardInfo.preprocessorCondition << "\n";
 
 			fileStream << c_TabSpacing << "{\n";
+			fileStream << c_TabSpacing2 << ".visiblity = QUEST_REWARD_VISIBLITY_" << rewardInfo.visibility << ",\n";
 
 			switch (rewardInfo.type)
 			{
@@ -454,6 +456,12 @@ static QuestReward ParseQuestReward(json const& jsonData)
 	{
 		reward.preprocessorCondition = jsonData["#if"].get<std::string>();
 	}
+
+	if (jsonData.contains("visibility"))
+		reward.visibility = GetAsString(jsonData["visibility"]);
+	else
+		reward.visibility = "DEFAULT";
+
 
 	// Per type
 	if (jsonData.contains("species"))

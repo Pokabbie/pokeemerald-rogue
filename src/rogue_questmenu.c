@@ -1075,121 +1075,26 @@ static void Draw_QuestPage()
                     break;
 
                 reward = RogueQuest_GetReward(questId, i);
-                
+
+                // Don't have any visual indication for this
+                if(reward->visiblity == QUEST_REWARD_VISIBLITY_INVISIBLE)
+                    continue;
+
                 // Reset to ignore invalid groups
                 if(spriteIdx != 0)
                     currentSpriteGroup = groupedSpriteIndex[spriteIdx - 1] + 1;
                 else
                     currentSpriteGroup = 0;
 
-                switch (reward->type)
+                if(reward->visiblity == QUEST_REWARD_VISIBLITY_OBSCURED)
                 {
-                case QUEST_REWARD_ITEM:
-                    currentTag = TAG_REWARD_ICON_ITEM + reward->perType.item.item;
-
-                    sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.item.item);
-                    groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
-                    spriteLayering[spriteIdx] = 0;
-                    ++spriteIdx;
-
-                    if(reward->perType.item.count >= QUEST_REWARD_MEDIUM_BUILD_AMOUNT)
-                    {
-                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.item.item);
-                        gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 3;
-                        gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 1;
-                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
-                        spriteLayering[spriteIdx] = 1;
-                        ++spriteIdx;
-                    }
-                    if(reward->perType.item.count >= QUEST_REWARD_LARGE_BUILD_AMOUNT)
-                    {
-                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.item.item);
-                        gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 6;
-                        gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 2;
-                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
-                        spriteLayering[spriteIdx] = 1;
-                        ++spriteIdx;
-                    }
-                    break;
-
-                case QUEST_REWARD_SHOP_ITEM:
-                    currentTag = TAG_REWARD_ICON_ITEM + reward->perType.shopItem.item;
-                    
-                    sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.shopItem.item);
-                    groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
-                    spriteLayering[spriteIdx] = 0;
-                    ++spriteIdx;
-                    break;
-
-                case QUEST_REWARD_MONEY:
-                    // TODO - Actual icon for money
-                    currentTag = TAG_REWARD_ICON_ITEM + ITEM_COIN_CASE;
-
-                    sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
-                    groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
-                    spriteLayering[spriteIdx] = 0;
-                    ++spriteIdx;
-
-                    if(reward->perType.money.amount >= QUEST_REWARD_MEDIUM_MONEY)
-                    {
-                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
-                        gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 3;
-                        gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 1;
-                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
-                        spriteLayering[spriteIdx] = 1;
-                        ++spriteIdx;
-                    }
-                    if(reward->perType.money.amount >= QUEST_REWARD_LARGE_MONEY)
-                    {
-                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
-                        gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 6;
-                        gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 2;
-                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
-                        spriteLayering[spriteIdx] = 1;
-                        ++spriteIdx;
-                    }
-                    break;
-
-                case QUEST_REWARD_QUEST_UNLOCK:
-                    if(!hasDisplayedQuestUnlock)
-                    {
-                        currentTag = TAG_REWARD_ICON_ITEM + ITEM_QUEST_LOG;
-
-                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_QUEST_LOG);
-                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
-                        spriteLayering[spriteIdx] = 0;
-                        ++spriteIdx;
-
-                        // Don't display multiple quest unlock entries (one is enough)
-                        hasDisplayedQuestUnlock = TRUE;
-                    }
-                    break;
-
-                case QUEST_REWARD_POKEMON:
-
-                    if(reward->perType.pokemon.isShiny)
-                    {
-                        sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_POKEMON_SHINY, TAG_REWARD_ICON_POKEMON_SHINY, gItemIcon_RogueStatusStar, gItemIconPalette_RogueStatusStarCustom);
-                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
-                        spriteLayering[spriteIdx] = 0;
-                        ++spriteIdx;
-                    }
-                    if(reward->perType.pokemon.customMonId != CUSTOM_MON_NONE)
-                    {
-                        sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_POKEMON_CUSTOM, TAG_REWARD_ICON_POKEMON_SHINY, gItemIcon_RogueStatusCustom, gItemIconPalette_RogueStatusStarCustom);
-                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
-                        spriteLayering[spriteIdx] = 0;
-                        ++spriteIdx;
-                    }
-
-                    LoadMonIconPalette(reward->perType.pokemon.species);
-                    sQuestMenuData->sprites[spriteIdx] = CreateMonIcon(
-                        reward->perType.pokemon.species,
+                    // Add a ? icon
+                    LoadMonIconPalette(SPECIES_NONE);
+                    sQuestMenuData->sprites[spriteIdx] = CreateMissingMonIcon(
                         SpriteCallbackDummy,
                         0, 0,
                         0,
-                        0,
-                        MON_MALE
+                        0
                     );
 
                     gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = -4;
@@ -1198,7 +1103,127 @@ static void Draw_QuestPage()
                     groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
                     spriteLayering[spriteIdx] = 0;
                     ++spriteIdx;
-                    break;
+                }
+                else
+                {
+                    switch (reward->type)
+                    {
+                    case QUEST_REWARD_ITEM:
+                        currentTag = TAG_REWARD_ICON_ITEM + reward->perType.item.item;
+
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.item.item);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+
+                        if(reward->perType.item.count >= QUEST_REWARD_MEDIUM_BUILD_AMOUNT)
+                        {
+                            sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.item.item);
+                            gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 3;
+                            gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 1;
+                            groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                            spriteLayering[spriteIdx] = 1;
+                            ++spriteIdx;
+                        }
+                        if(reward->perType.item.count >= QUEST_REWARD_LARGE_BUILD_AMOUNT)
+                        {
+                            sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.item.item);
+                            gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 6;
+                            gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 2;
+                            groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                            spriteLayering[spriteIdx] = 1;
+                            ++spriteIdx;
+                        }
+                        break;
+
+                    case QUEST_REWARD_SHOP_ITEM:
+                        currentTag = TAG_REWARD_ICON_ITEM + reward->perType.shopItem.item;
+                        
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.shopItem.item);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+                        break;
+
+                    case QUEST_REWARD_MONEY:
+                        // TODO - Actual icon for money
+                        currentTag = TAG_REWARD_ICON_ITEM + ITEM_COIN_CASE;
+
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+
+                        if(reward->perType.money.amount >= QUEST_REWARD_MEDIUM_MONEY)
+                        {
+                            sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                            gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 3;
+                            gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 1;
+                            groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                            spriteLayering[spriteIdx] = 1;
+                            ++spriteIdx;
+                        }
+                        if(reward->perType.money.amount >= QUEST_REWARD_LARGE_MONEY)
+                        {
+                            sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                            gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 6;
+                            gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 2;
+                            groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                            spriteLayering[spriteIdx] = 1;
+                            ++spriteIdx;
+                        }
+                        break;
+
+                    case QUEST_REWARD_QUEST_UNLOCK:
+                        if(!hasDisplayedQuestUnlock)
+                        {
+                            currentTag = TAG_REWARD_ICON_ITEM + ITEM_QUEST_LOG;
+
+                            sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_QUEST_LOG);
+                            groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                            spriteLayering[spriteIdx] = 0;
+                            ++spriteIdx;
+
+                            // Don't display multiple quest unlock entries (one is enough)
+                            hasDisplayedQuestUnlock = TRUE;
+                        }
+                        break;
+
+                    case QUEST_REWARD_POKEMON:
+
+                        if(reward->perType.pokemon.isShiny)
+                        {
+                            sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_POKEMON_SHINY, TAG_REWARD_ICON_POKEMON_SHINY, gItemIcon_RogueStatusStar, gItemIconPalette_RogueStatusStarCustom);
+                            groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                            spriteLayering[spriteIdx] = 0;
+                            ++spriteIdx;
+                        }
+                        if(reward->perType.pokemon.customMonId != CUSTOM_MON_NONE)
+                        {
+                            sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_POKEMON_CUSTOM, TAG_REWARD_ICON_POKEMON_SHINY, gItemIcon_RogueStatusCustom, gItemIconPalette_RogueStatusStarCustom);
+                            groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                            spriteLayering[spriteIdx] = 0;
+                            ++spriteIdx;
+                        }
+
+                        LoadMonIconPalette(reward->perType.pokemon.species);
+                        sQuestMenuData->sprites[spriteIdx] = CreateMonIcon(
+                            reward->perType.pokemon.species,
+                            SpriteCallbackDummy,
+                            0, 0,
+                            0,
+                            0,
+                            MON_MALE
+                        );
+
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = -4;
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = -8;
+
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+                        break;
+                    }
                 }
             }
 

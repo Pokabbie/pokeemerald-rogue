@@ -301,7 +301,8 @@
                     },
                     {
                         "species": "SPECIES_WOBBUFFET",
-                        "custom_mon_id": "CUSTOM_MON_RNDOMAN_WOBBUFFET"
+                        "custom_mon_id": "CUSTOM_MON_RNDOMAN_WOBBUFFET",
+                        "visibility": "OBSCURED"
                     }
                 ]
             },
@@ -333,7 +334,8 @@
                     },
                     {
                         "species": "SPECIES_WOBBUFFET",
-                        "custom_mon_id": "CUSTOM_MON_RNDOMAN_WOBBUFFET"
+                        "custom_mon_id": "CUSTOM_MON_RNDOMAN_WOBBUFFET",
+                        "visibility": "OBSCURED"
                     }
                 ]
             },
