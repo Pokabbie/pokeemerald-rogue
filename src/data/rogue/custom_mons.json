@@ -49,6 +49,23 @@
                 ]
             },
             {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_MAREEP",
+                "nickname": "Pikin",
+                "trainer": "Abbie",
+                "pokeball": "ITEM_POKABBIE_POKEBALL",
+                "moves":
+                [
+                    "MOVE_METEOR_BEAM",
+                    "MOVE_MAGIC_COAT",
+                    "MOVE_DISCHARGE",
+                    "MOVE_TAIL_GLOW"
+                ],
+                "abilities":
+                [
+                ]
+            },
+            {
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_WOBBUFFET",
                 "trainer": "Rndoman",
