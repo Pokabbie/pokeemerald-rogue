@@ -1,6 +1,12 @@
 const u32 gObjectEventPic_Overworld_none[] = INCBIN_U32("graphics/object_events/pics/pokemon_ow/none.4bpp");
 const u16 gObjectEventPal_Overworld_none[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/none.gbapal");
 const u16 gObjectEventPal_Overworld_none_shiny[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/none_shiny.gbapal");
+const u32 gObjectEventPic_Overworld_pikachu_original_cap[] = INCBIN_U32("graphics/object_events/pics/pokemon_ow/pikachu_original_cap.4bpp");
+const u16 gObjectEventPal_Overworld_pikachu_original_cap[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/pikachu_original_cap.gbapal");
+const u16 gObjectEventPal_Overworld_pikachu_original_cap_shiny[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/pikachu_original_cap_shiny.gbapal");
+const u32 gObjectEventPic_Overworld_pikachu_partner_cap[] = INCBIN_U32("graphics/object_events/pics/pokemon_ow/pikachu_partner_cap.4bpp");
+const u16 gObjectEventPal_Overworld_pikachu_partner_cap[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/pikachu_partner_cap.gbapal");
+const u16 gObjectEventPal_Overworld_pikachu_partner_cap_shiny[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/pikachu_partner_cap_shiny.gbapal");
 const u32 gObjectEventPic_Overworld_bulbasaur[] = INCBIN_U32("graphics/object_events/pics/pokemon_ow/bulbasaur.4bpp");
 const u16 gObjectEventPal_Overworld_bulbasaur[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/bulbasaur.gbapal");
 const u16 gObjectEventPal_Overworld_bulbasaur_shiny[] = INCBIN_U16("graphics/object_events/pics/pokemon_ow/bulbasaur_shiny.gbapal");

@@ -10,6 +10,30 @@ static const struct SpriteFrameImage sPicTable_Mon_none[] = {
     overworld_frame(gObjectEventPic_Overworld_none, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_Mon_pikachu_original_cap[] = {
+    overworld_frame(gObjectEventPic_Overworld_pikachu_original_cap, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_original_cap, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_original_cap, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_original_cap, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_original_cap, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_original_cap, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_original_cap, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_original_cap, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_original_cap, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_Mon_pikachu_partner_cap[] = {
+    overworld_frame(gObjectEventPic_Overworld_pikachu_partner_cap, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_partner_cap, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_partner_cap, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_partner_cap, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_partner_cap, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_partner_cap, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_partner_cap, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_partner_cap, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Overworld_pikachu_partner_cap, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_Mon_bulbasaur[] = {
     overworld_frame(gObjectEventPic_Overworld_bulbasaur, 4, 4, 0),
     overworld_frame(gObjectEventPic_Overworld_bulbasaur, 4, 4, 1),
@@ -13992,6 +14016,8 @@ static const struct SpriteFrameImage sPicTable_Mon_miraidon[] = {
 
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_none = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_none, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_pikachu_original_cap = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_pikachu_original_cap, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_pikachu_partner_cap = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_pikachu_partner_cap, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_bulbasaur = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_bulbasaur, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_ivysaur = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_ivysaur, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mon_venusaur = {TAG_NONE, OBJ_EVENT_PAL_TAG_FOLLOW_MON_0, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 10, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_Mon_venusaur, gDummySpriteAffineAnimTable};
@@ -15164,6 +15190,18 @@ const struct RogueFollowMonGraphicsInfo gFollowMonGraphicsInfo[NUM_SPECIES] = {
 		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_none,
 		.normalPal = gObjectEventPal_Overworld_none,
 		.shinyPal = gObjectEventPal_Overworld_none_shiny,
+	},
+	[SPECIES_PIKACHU_ORIGINAL_CAP] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_pikachu_original_cap,
+		.normalPal = gObjectEventPal_Overworld_pikachu_original_cap,
+		.shinyPal = gObjectEventPal_Overworld_pikachu_original_cap_shiny,
+	},
+	[SPECIES_PIKACHU_PARTNER_CAP] =
+	{
+		.objectEventGfxInfo = &gObjectEventGraphicsInfo_Mon_pikachu_partner_cap,
+		.normalPal = gObjectEventPal_Overworld_pikachu_partner_cap,
+		.shinyPal = gObjectEventPal_Overworld_pikachu_partner_cap_shiny,
 	},
 	[SPECIES_BULBASAUR] =
 	{
