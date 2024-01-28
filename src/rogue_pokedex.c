@@ -911,8 +911,13 @@ static bool8 IsAltFormVisible(u16 baseForm, u16 altForm)
         return FALSE;
 
     // Hide punching form until the reveal
-    if(altForm == SPECIES_WOBBUFFET_PUNCHING && !Rogue_Use100PercEffects())
-        return FALSE;
+    if(altForm == SPECIES_WOBBUFFET_PUNCHING)
+    {
+        if(Rogue_Use100PercEffects() || Rogue_Use200PercEffects())
+            return TRUE;
+        else
+            return FALSE;
+    }
 
     {
         u32 i;
@@ -3648,6 +3653,7 @@ u16 RoguePokedex_RedirectSpeciesGetSetFlag(u16 species)
     case SPECIES_DUDUNSPARCE_THREE_SEGMENT:
     case SPECIES_POLTCHAGEIST_ARTISAN:
     case SPECIES_SINISTCHA_MASTERPIECE:
+    case SPECIES_WOBBUFFET_PUNCHING:
         return GET_BASE_SPECIES_ID(species);
     }
 #endif
