@@ -75,10 +75,16 @@ namespace PokemonDataGenerator
 
 		public static void GenerateFromURL()
 		{
-			SpriteSheetSplitter.AppendGenericMonSprites32("none", 0, "", "res://none_overworld.png");
+			SpriteSheetSplitter.AppendGenericMonSprites32("none", 0, "", "res://Overworld/Custom/none_overworld.png");
 
 			if(s_GenerateShinies)
-				SpriteSheetSplitter.AppendGenericMonSprites32("none", 0, "_shiny", "res://none_overworld_shiny.png");
+				SpriteSheetSplitter.AppendGenericMonSprites32("none", 0, "_shiny", "res://Overworld/Custom/none_overworld_shiny.png");
+
+			if (!s_TargettingVanilla)
+			{
+				SpriteSheetSplitter.AppendGenericMonSprites32("pikachu_original_cap", 0, "", "res://Overworld/Custom/pikachu_cap_original.png");
+				SpriteSheetSplitter.AppendGenericMonSprites32("pikachu_partner_cap", 0, "", "res://Overworld/Custom/pikachu_cap_red.png");
+			}
 
 			// Gather all of gens 3/4
 			foreach (var subpath in c_Subpaths)
