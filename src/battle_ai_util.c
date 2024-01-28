@@ -1664,7 +1664,10 @@ void ProtectChecks(u32 battlerAtk, u32 battlerDef, u32 move, u32 predictedMove, 
 
     if (uses == 0)
     {
-        if (predictedMove != MOVE_NONE && predictedMove != 0xFFFF && !IS_MOVE_STATUS(predictedMove))
+        // Don't waste protect turns when at max HP
+        if(gBattleMons[battlerAtk].maxHP != 1 && gBattleMons[battlerAtk].hp == gBattleMons[battlerAtk].maxHP)
+            ADJUST_SCORE_PTR(-1);
+        else if (predictedMove != MOVE_NONE && predictedMove != 0xFFFF && !IS_MOVE_STATUS(predictedMove))
             ADJUST_SCORE_PTR(2);
         else if (Random() % 256 < 100)
             ADJUST_SCORE_PTR(1);
