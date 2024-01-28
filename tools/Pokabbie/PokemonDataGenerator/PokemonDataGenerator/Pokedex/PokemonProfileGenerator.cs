@@ -876,8 +876,8 @@ namespace PokemonDataGenerator.Pokedex
 										redirectSpecies = "SPECIES_OGERPON_CORNERSTONE_MASK";
 										break;
 
-									case "SPECIES_WOBBUFFET_ROGUEIAN_PUNCHING":
-										redirectSpecies = "SPECIES_WOBBUFFET_ROGUEIAN";
+									case "SPECIES_WOBBUFFET_PUNCHING":
+										redirectSpecies = "SPECIES_WOBBUFFET";
 										break;
 								}
 
