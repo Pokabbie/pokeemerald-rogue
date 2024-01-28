@@ -49,20 +49,49 @@
                 ]
             },
             {
-                "#if": "defined(ROGUE_EXPANSION)",
-                "species": "SPECIES_MAREEP",
-                "nickname": "Pikin",
-                "trainer": "Abbie",
-                "pokeball": "ITEM_POKABBIE_POKEBALL",
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_WOBBUFFET",
+                "trainer": "Rndoman",
+                "held_item": "ITEM_LEFTOVERS",
                 "moves":
                 [
-                    "MOVE_METEOR_BEAM",
-                    "MOVE_MAGIC_COAT",
-                    "MOVE_DISCHARGE",
-                    "MOVE_TAIL_GLOW"
+                    "MOVE_FIRE_PUNCH",
+                    "MOVE_ICE_PUNCH",
+                    "MOVE_MACH_PUNCH",
+                    "MOVE_THUNDER_PUNCH",
+
+                    "MOVE_SHADOW_PUNCH",
+                    "MOVE_COMET_PUNCH",
+                    "MOVE_DYNAMIC_PUNCH",
+                    "MOVE_MEGA_PUNCH"
                 ],
                 "abilities":
                 [
+                    "ABILITY_HUGE_POWER"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_WOBBUFFET",
+                "trainer": "Rndoman",
+                "held_item": "ITEM_KINGS_ROCK",
+                "moves":
+                [
+                    "MOVE_KINGS_SHIELD",
+                    "MOVE_POWER_UP_PUNCH",
+                    "MOVE_SHADOW_PUNCH",
+                    "MOVE_SUCKER_PUNCH",
+
+                    "MOVE_BULLET_PUNCH",
+                    "MOVE_COMET_PUNCH",
+                    "MOVE_DRAIN_PUNCH",
+                    "MOVE_DYNAMIC_PUNCH",
+                    "MOVE_MACH_PUNCH",
+                    "MOVE_MEGA_PUNCH"
+                ],
+                "abilities":
+                [
+                    "ABILITY_STANCE_CHANGE"
                 ]
             }
         ]

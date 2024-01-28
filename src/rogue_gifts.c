@@ -1,4 +1,7 @@
 #include "global.h"
+#include "constants/abilities.h"
+#include "constants/items.h"
+#include "constants/moves.h"
 #include "constants/region_map_sections.h"
 
 #include "rogue_baked.h"
