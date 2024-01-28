@@ -53,6 +53,7 @@
 #include "rogue_gifts.h"
 #include "rogue_player_customisation.h"
 #include "rogue_timeofday.h"
+#include "rogue_trainers.h"
 #include "rogue_quest.h"
 
 struct SpeciesItem
@@ -6122,15 +6123,6 @@ u16 ModifyStatByNature(u8 nature, u16 stat, u8 statIndex)
     return retVal;
 }
 
-#define IS_LEAGUE_BATTLE                                    \
-    ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)               \
-    && (trainer.trainerClass == TRAINER_CLASS_ELITE_FOUR    \
-     || trainer.trainerClass == TRAINER_CLASS_LEADER        \
-     || trainer.trainerClass == TRAINER_CLASS_TOTEM_LEADER  \
-     || trainer.trainerClass == TRAINER_CLASS_DEVELOPER_CHAMPION      \
-     || trainer.trainerClass == TRAINER_CLASS_COMMUNITY_MOD      \
-     || trainer.trainerClass == TRAINER_CLASS_CHAMPION))    \
-
 void AdjustFriendship(struct Pokemon *mon, u8 event)
 {
     u16 species, heldItem;
@@ -6167,7 +6159,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
             friendshipLevel++;
 
         if ((event != FRIENDSHIP_EVENT_WALKING || !(Random() & 1))
-         && (event != FRIENDSHIP_EVENT_LEAGUE_BATTLE || IS_LEAGUE_BATTLE))
+         && (event != FRIENDSHIP_EVENT_LEAGUE_BATTLE || Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A)))
         {
             s8 mod = sFriendshipEventModifiers[event][friendshipLevel];
             if (mod > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
@@ -7357,4 +7349,22 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 managerId, u8 spriteNum)
 
         return gfx->spritePointers[spriteNum];
     }
+}
+
+u32 GetMonAffectionHearts(struct Pokemon *pokemon)
+{
+    u32 friendship = GetMonData(pokemon, MON_DATA_FRIENDSHIP, NULL);
+
+    if (friendship == MAX_FRIENDSHIP)
+        return AFFECTION_FIVE_HEARTS;
+    if (friendship >= 220)
+        return AFFECTION_FOUR_HEARTS;
+    if (friendship >= 180)
+        return AFFECTION_THREE_HEARTS;
+    if (friendship >= 130)
+        return AFFECTION_TWO_HEARTS;
+    if (friendship >= 80)
+        return AFFECTION_ONE_HEART;
+
+    return AFFECTION_NO_HEARTS;
 }

@@ -30,6 +30,7 @@ u8 Rogue_GetCurrentDifficulty(void);
 void Rogue_SetCurrentDifficulty(u8 difficulty);
 
 bool8 Rogue_ForceExpAll(void);
+bool8 Rogue_EnableAffectionMechanics(void);
 bool8 Rogue_FastBattleAnims(void);
 bool8 Rogue_UseKeyBattleAnims(void);
 bool8 Rogue_GetBattleAnimsEnabled(void);

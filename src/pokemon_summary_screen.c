@@ -173,7 +173,8 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u16 spdefEV; // ??
         u16 speedEV; // ??
         u16 item; // 0x2E
-        u16 friendship; // 0x30
+        u16 friendship : 8; // 0x30
+        u16 affection : 8; // 0x30
         u8 OTGender; // 0x32
         u8 nature; // 0x33
         u8 ppBonuses; // 0x34
@@ -1491,6 +1492,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->metLevel = GetMonData(mon, MON_DATA_MET_LEVEL);
         sum->metGame = GetMonData(mon, MON_DATA_MET_GAME);
         sum->friendship = GetMonData(mon, MON_DATA_FRIENDSHIP);
+        sum->affection = GetMonAffectionHearts(mon);
         break;
     default:
         sum->ribbonCount = GetMonData(mon, MON_DATA_RIBBON_COUNT);
@@ -3454,17 +3456,31 @@ static void PrintHeldItemName(void)
 //    PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_RIBBON_COUNT), text, x, 1, 0, 0);
 //}
 
+
 static void PrintFriendship(void)
 {
-    const u8 *text;
+    const u8 bgColour[] = _("{COLOR BLUE}{SHADOW DARK_GRAY}");
+    const u8 starIcon[] = _("{STAR_ICON}");
+    u8 *text;
     int x;
+    u16 i;
     u16 value;
 
-    //TODO - MAX_FRIENDSHIP to 1 -> 100 range?
-    ConvertIntToDecimalStringN(gStringVar1, sMonSummaryScreen->summary.friendship, STR_CONV_MODE_LEFT_ALIGN, 3);
+    text = StringCopy(gStringVar1, bgColour);
+
+    if(sMonSummaryScreen->summary.affection == 0)
+    {
+        text = StringAppend(gStringVar1, gText_Dash);
+    }
+    else
+    {
+        for(i = 0; i < sMonSummaryScreen->summary.affection; ++i)
+            text = StringAppend(text, starIcon);
+    }
+
     text = gStringVar1;
 
-    x = GetStringCenterAlignXOffset(FONT_NORMAL, text, 70) + 6;
+    x = GetStringCenterAlignXOffset(FONT_NORMAL, text, 70) + 4;
     PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_RIBBON_COUNT), text, x, 1, 0, 0);
 }
 

@@ -218,6 +218,7 @@ enum
     MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
     MENUITEM_MENU_TOGGLE_BAG_WIPE,
     MENUITEM_MENU_TOGGLE_SWITCH_MODE,
+    MENUITEM_MENU_TOGGLE_AFFECTION,
 
     MENUITEM_MENU_TOGGLE_TRAINER_ROGUE,
     MENUITEM_MENU_TOGGLE_TRAINER_KANTO,
@@ -373,6 +374,7 @@ static const struct MenuEntry sOptionMenuItems[] =
         .drawChoices = ArrowRight_DrawChoices
     },
 
+
     [MENUITEM_MENU_TOGGLE_EXP_ALL] = 
     {
         .itemName = gText_DifficultyExpAll,
@@ -412,6 +414,13 @@ static const struct MenuEntry sOptionMenuItems[] =
     {
         .itemName = gText_DifficultySwitchMode,
         .SINGLE_DESC(gText_DifficultySwitchModeDesc),
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+    [MENUITEM_MENU_TOGGLE_AFFECTION] = 
+    {
+        .itemName = gText_DifficultyExpAll,
+        .SINGLE_DESC(gText_DifficultyExpAllDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
@@ -632,9 +641,12 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_SLIDER_TRAINER,
             MENUITEM_MENU_SLIDER_ITEM,
             MENUITEM_MENU_SLIDER_LEGENDARY,
-            MENUITEM_MENU_TOGGLE_SWITCH_MODE,
             MENUITEM_MENU_TOGGLE_OVER_LVL,
             MENUITEM_MENU_TOGGLE_EV_GAIN,
+#ifdef ROGUE_EXPANSION
+            MENUITEM_MENU_TOGGLE_AFFECTION,
+#endif
+            MENUITEM_MENU_TOGGLE_SWITCH_MODE,
             MENUITEM_MENU_TOGGLE_BAG_WIPE,
             MENUITEM_CANCEL
         }
@@ -1470,6 +1482,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_TOGGLE_SWITCH_MODE:
         return Rogue_GetConfigToggle(CONFIG_TOGGLE_SWITCH_MODE);
 
+    case MENUITEM_MENU_TOGGLE_AFFECTION:
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_AFFECTION);
+
     // Trainers
     //
     case MENUITEM_MENU_TOGGLE_TRAINER_ROGUE:
@@ -1587,6 +1602,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_TOGGLE_SWITCH_MODE:
         Rogue_SetConfigToggle(CONFIG_TOGGLE_SWITCH_MODE, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_AFFECTION:
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_AFFECTION, value);
         break;
 
     // Trainers
