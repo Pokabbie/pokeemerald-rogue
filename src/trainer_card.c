@@ -697,8 +697,6 @@ static u8 UNUSED GetRubyTrainerStars(struct TrainerCard *trainerCard)
 
     if (trainerCard->hofDebutHours || trainerCard->hofDebutMinutes || trainerCard->hofDebutSeconds)
         stars++;
-    if (trainerCard->caughtAllHoenn)
-        stars++;
     if (trainerCard->battleTowerStraightWins > 49)
         stars++;
     if (trainerCard->hasAllPaintings)
@@ -743,7 +741,6 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard)
     }
 
     trainerCard->hasPokedex = FlagGet(FLAG_SYS_POKEDEX_GET);
-    trainerCard->caughtAllHoenn = HasAllHoennMons();
     trainerCard->caughtMonsCount = GetCaughtMonsCount();
 
     trainerCard->trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
