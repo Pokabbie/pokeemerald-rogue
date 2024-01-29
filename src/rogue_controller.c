@@ -2123,210 +2123,86 @@ struct StarterSelectionData
     u8 count;
 };
 
-#define TYPE_x0     0
-#define TYPE_x0_25  5
-#define TYPE_x0_50  10
-#define TYPE_x1     20
-#define TYPE_x2     40
-#define TYPE_x4     80
-
-#ifdef ROGUE_EXPANSION
-uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk, u32 battlerDef, u32 defAbility, bool32 recordAbilities);
-
-int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode)
+static const u8 sStarterTypeTriangles[] = 
 {
-    uq4_12_t modifier = CalcTypeEffectivenessMultiplier(move, moveType, defType1, defType2, defAbility, mode);
-
-    if (modifier == UQ_4_12(0.0))
-    {
-        return TYPE_x0;
-    }
-    else if (modifier == UQ_4_12(1.0))
-    {
-        return TYPE_x1;
-    }
-    else if (modifier > UQ_4_12(1.0))
-    {
-        return TYPE_x2;
-    }
-    else //if (modifier < UQ_4_12(1.0))
-    {
-        return TYPE_x0_50;
-    }
-}
-#else
-// Declared elsewhere in Vanilla
-int GetMovePower(u16 move, u8 moveType, u16 defType1, u16 defType2, u16 defAbility, u16 mode);
+    TYPE_WATER, TYPE_GRASS, TYPE_FIRE,
+    TYPE_BUG, TYPE_ROCK, TYPE_GRASS,
+#ifdef ROGUE_EXPANSION
+    TYPE_FAIRY, TYPE_STEEL, TYPE_FIGHTING,
 #endif
 
-static bool8 IsSpeciesGoodAgainstInternal(u16 atkSpecies, u16 defSpecies)
-{
-    int effectA;
-    s8 delta = 0;
+    // dragon, dragon, dragon
+    TYPE_ROCK, TYPE_GRASS, TYPE_FIRE,
+    TYPE_DARK, TYPE_FIGHTING, TYPE_PSYCHIC,
 
-    effectA = GetMovePower(
-        MOVE_HIDDEN_POWER, 
-        RoguePokedex_GetSpeciesType(atkSpecies, 0),
-        RoguePokedex_GetSpeciesType(defSpecies, 0),
-        RoguePokedex_GetSpeciesType(defSpecies, 1),
-        gRogueSpeciesInfo[defSpecies].abilities[0],
-        0
-    );
+    TYPE_PSYCHIC, TYPE_BUG, TYPE_POISON,
+    // ghost, ghost, ghost
+    TYPE_ICE, TYPE_FIGHTING, TYPE_FLYING,
 
-    switch (effectA)
-    {
-    case TYPE_x0:
-        return FALSE;
-        
-    case TYPE_x0_25:
-        delta -= 2;
-        break;
-    case TYPE_x0_50:
-        delta -= 1;
-        break;
+    TYPE_ELECTRIC, TYPE_GROUND, TYPE_WATER,
+    TYPE_GRASS, TYPE_ICE, TYPE_ROCK,
+    TYPE_POISON, TYPE_GROUND, TYPE_GRASS,
 
-    case TYPE_x2:
-        delta += 1;
-        break;
-    case TYPE_x4:
-        delta += 2;
-        break;
-    }
-    
-    if(RoguePokedex_GetSpeciesType(atkSpecies, 0) != RoguePokedex_GetSpeciesType(atkSpecies, 1))
-    {
-        int effectB = GetMovePower(
-            MOVE_HIDDEN_POWER, 
-            RoguePokedex_GetSpeciesType(atkSpecies, 0),
-            RoguePokedex_GetSpeciesType(defSpecies, 0),
-            RoguePokedex_GetSpeciesType(defSpecies, 1),
-            gRogueSpeciesInfo[defSpecies].abilities[0],
-            0
-        );
+    TYPE_FIRE, TYPE_GROUND, TYPE_ICE,
+    TYPE_ROCK, TYPE_FIGHTING, TYPE_PSYCHIC,
+    TYPE_FIGHTING, TYPE_FLYING, TYPE_ROCK,
 
-        switch (effectB)
-        {
-        case TYPE_x0:
-            return FALSE;
-
-        case TYPE_x0_25:
-            delta -= 2;
-            break;
-        case TYPE_x0_50:
-            delta -= 1;
-            break;
-
-        case TYPE_x2:
-            delta += 1;
-            break;
-        case TYPE_x4:
-            delta += 2;
-            break;
-        }
-    }
-
-    return delta > 0;
-}
-
-static bool8 IsSpeciesGoodAgainst(u16 atkSpecies, u16 defSpecies)
-{
-    return IsSpeciesGoodAgainstInternal(atkSpecies, defSpecies) && !IsSpeciesGoodAgainstInternal(defSpecies, atkSpecies);
-}
-
-static u8 SelectStarterMons_CalculateWeight(u16 index, u16 species, void* data)
-{
-    u8 i;
-    struct StarterSelectionData* starters = (struct StarterSelectionData*)data;
-    //u8 weight = 1;
-
-    for(i = 0; i < starters->count; ++i)
-    {
-        // Don't dupe starters
-        if(starters->species[i] == species)
-            return 0;
-    }
-
-    switch (starters->count)
-    {
-    case 0:
-        // Do nothing
-        break;
-    case 1:
-        if(
-            IsSpeciesGoodAgainst(species, starters->species[0]) || IsSpeciesGoodAgainst(starters->species[0], species) ||
-            IsSpeciesGoodAgainst(starters->species[0], species) || IsSpeciesGoodAgainst(species, starters->species[0])
-        )
-        {
-            // We fit a type triangle so really prefer this!
-            return 255;
-        }
-        break;
-    case 2:
-        // We want to be good against one and the other is good against us
-        if(IsSpeciesGoodAgainst(species, starters->species[0]) && IsSpeciesGoodAgainst(starters->species[1], species))
-        {
-            // We fit a type triangle so really prefer this!
-            return 255;
-        }
-        if(IsSpeciesGoodAgainst(species, starters->species[1]) && IsSpeciesGoodAgainst(starters->species[0], species))
-        {
-            // We fit a type triangle so really prefer this!
-            return 255;
-        }
-        break;
-    
-    default:
-        AGB_ASSERT(FALSE);
-        break;
-    }
-
-    // Mediocre, but still allow for safety
-    return 1;
-}
+    TYPE_GROUND, TYPE_ICE, TYPE_STEEL,
+    TYPE_FLYING, TYPE_ROCK, TYPE_GRASS,
+    TYPE_STEEL, TYPE_FIRE, TYPE_ROCK
+};
 
 static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
 {
     struct StarterSelectionData starters;
+    u8 i;
+    bool8 isValidTriangle = FALSE;
+    u16 typeTriangleOffset = (isSeeded ? RogueRandom() : Random());
 
-    RogueMonQuery_Begin();
-
-    RogueMonQuery_IsSpeciesActive();
-    RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
-    RogueMonQuery_TransformIntoEggSpecies();
-    RogueMonQuery_TransformIntoEvos(2, FALSE, FALSE); // to force mons to fit gen settings
-    RogueMonQuery_AnyActiveEvos(QUERY_FUNC_INCLUDE);
-
+    while(!isValidTriangle)
     {
-        u8 i;
-        starters.count = 0;
+        u16 triangleCount = ARRAY_COUNT(sStarterTypeTriangles) / 3;
 
-        RogueWeightQuery_Begin();
+        typeTriangleOffset = (typeTriangleOffset + 1) % triangleCount;
+        isValidTriangle = TRUE;
 
-        for(i = 0; i < ARRAY_COUNT(starters.species); ++i)
+        for(i = 0; i < 3; ++i)
         {
-            if(i == 0)
+            u32 typeFlags = MON_TYPE_VAL_TO_FLAGS(sStarterTypeTriangles[typeTriangleOffset * 3 + i]);
+            RogueMonQuery_Begin();
+
+            RogueMonQuery_IsSpeciesActive();
+            RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, typeFlags);
+            RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+
+            RogueMonQuery_TransformIntoEggSpecies();
+            RogueMonQuery_TransformIntoEvos(2, FALSE, FALSE); // to force mons to fit gen settings
+            RogueMonQuery_AnyActiveEvos(QUERY_FUNC_INCLUDE);
+
+            RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
+
+            RogueWeightQuery_Begin();
+            {
                 RogueWeightQuery_FillWeights(1);
-            else
-                RogueWeightQuery_CalculateWeights(SelectStarterMons_CalculateWeight, &starters);
 
-            starters.species[i] = RogueWeightQuery_SelectRandomFromWeights(isSeeded ? RogueRandom() : Random());
-            starters.shinyState[i] = (Random() % Rogue_GetShinyOdds()) == 0;
-            starters.count = i + 1;
+                // No valid starter for this type so exit this triangle here
+                if(!RogueWeightQuery_HasAnyWeights())
+                {
+                    RogueWeightQuery_End();
+                    RogueMonQuery_End();
+
+                    isValidTriangle = FALSE;
+                    break;
+                }
+
+                starters.species[i] = RogueWeightQuery_SelectRandomFromWeights(isSeeded ? RogueRandom() : Random());
+                starters.shinyState[i] = (Random() % Rogue_GetShinyOdds()) == 0;
+            }
+            RogueWeightQuery_End();
+
+            RogueMonQuery_End();
         }
-
-        RogueWeightQuery_End();
-        
-        VarSet(VAR_ROGUE_STARTER0, starters.species[0]);
-        VarSet(VAR_ROGUE_STARTER1, starters.species[1]);
-        VarSet(VAR_ROGUE_STARTER2, starters.species[2]);
-
-#ifdef ROGUE_DEBUG
-        //VarSet(VAR_ROGUE_STARTER0, SPECIES_EEVEE);
-        //VarSet(VAR_ROGUE_STARTER1, SPECIES_CASTFORM);
-#endif
     }
-
-    RogueMonQuery_End();
 
     return starters;
 }
@@ -3860,10 +3736,14 @@ void Rogue_OnWarpIntoMap(void)
     else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL)
     {
         // Generate starters now (Do it now, so config/pokedex settings can be used to limit starters moreso)
-        struct StarterSelectionData starter = SelectStarterMons(FALSE);
-        FollowMon_SetGraphics(0, starter.species[0], starter.shinyState[0]);
-        FollowMon_SetGraphics(1, starter.species[1], starter.shinyState[1]);
-        FollowMon_SetGraphics(2, starter.species[2], starter.shinyState[2]);
+        struct StarterSelectionData starters = SelectStarterMons(FALSE);
+        VarSet(VAR_ROGUE_STARTER0, starters.species[0]);
+        VarSet(VAR_ROGUE_STARTER1, starters.species[1]);
+        VarSet(VAR_ROGUE_STARTER2, starters.species[2]);
+
+        FollowMon_SetGraphics(0, starters.species[0], starters.shinyState[0]);
+        FollowMon_SetGraphics(1, starters.species[1], starters.shinyState[1]);
+        FollowMon_SetGraphics(2, starters.species[2], starters.shinyState[2]);
     }
 
     if(Rogue_IsRunActive())
