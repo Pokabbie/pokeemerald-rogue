@@ -934,7 +934,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     u8 submenuSelection = gTasks[taskId].data[TD_SUBMENU];
     u8 menuItem = sOptionMenuEntries[submenuSelection].menuOptions[menuSelection];
 
-    if (JOY_NEW(B_BUTTON) || (JOY_NEW(A_BUTTON) && menuItem == MENUITEM_CANCEL))
+    if (JOY_NEW(B_BUTTON) || (JOY_NEW(A_BUTTON) && (menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_DIFFICULTY_PRESET)))
     {
         if(submenuSelection != SUBMENUITEM_NONE)
         {
