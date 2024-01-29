@@ -93,6 +93,8 @@ static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_
 static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Rainbow");
 static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Official");
 
+static u8 const sMenuName_Affection[] = _("Affection FX");
+
 static u8 const sMenuName_TrainerRogue[] = _("Rogue");
 static u8 const sMenuName_TrainerKanto[] = _("Kanto");
 static u8 const sMenuName_TrainerJohto[] = _("Johto");
@@ -173,6 +175,12 @@ static u8 const* const sMenuNameDesc_TrainerOrder[] =
     [TRAINER_ORDER_RAINBOW] = sMenuNameDesc_TrainerOrder_Rainbow,
     [TRAINER_ORDER_OFFICIAL] = sMenuNameDesc_TrainerOrder_Official,
 };
+
+const u8 sMenuNameDesc_Affection[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "{PKMN} with high friendship may have special\n"
+    "effects e.g. enduring, extra crits etc."
+);
 
 static u8 const sMenuNameDesc_Rogue[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -455,8 +463,8 @@ static const struct MenuEntry sOptionMenuItems[] =
     },
     [MENUITEM_MENU_TOGGLE_AFFECTION] = 
     {
-        .itemName = gText_DifficultyExpAll,
-        .SINGLE_DESC(gText_DifficultyExpAllDesc),
+        .itemName = sMenuName_Affection,
+        .SINGLE_DESC(sMenuNameDesc_Affection),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
