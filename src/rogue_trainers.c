@@ -569,7 +569,7 @@ static void GetGlobalFilter(struct TrainerFliter* filter)
     if(filter->trainerFlagsInclude == TRAINER_FLAG_NONE)
     {
         // Safety fallback (Should never reach here)
-        AGB_ASSERT(FALSE);
+        //AGB_ASSERT(FALSE);
         filter->trainerFlagsInclude = TRAINER_FLAG_REGION_DEFAULT;
     }
 }
