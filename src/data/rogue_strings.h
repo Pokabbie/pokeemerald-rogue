@@ -73,39 +73,33 @@ const u8 gText_EscapeRopeDesc[] = _(
 const u8 gText_16Spaces[] = _("                ");
 const u8 gText_32Spaces[] = _("                                ");
 
-const u8 gText_DifficultySettings[] = _("DIFFICULTY SETTINGS");
+const u8 gText_DifficultySettings[] = _("Difficulty Settings");
 const u8 gText_DifficultyArrowLeft[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}{LEFT_ARROW}");
 const u8 gText_DifficultyArrowRight[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}{RIGHT_ARROW}");
 
 const u8 gText_DifficultyDoesntAffectReward[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}(rewards unaffected)");
-const u8 gText_DifficultyRewardLevel[] = _("{FONT_SMALL}{COLOR GREEN}{SHADOW LIGHT_GREEN}REWARD LEVEL: ");
+const u8 gText_DifficultyRewardLevel[] = _("{FONT_SMALL}{COLOR GREEN}{SHADOW LIGHT_GREEN}Reward Level: ");
 
-const u8 gText_DifficultyPreset[] = _("PRESET");
-const u8 gText_DifficultyPresetEasy[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}EASY");
-const u8 gText_DifficultyPresetMedium[] = _("{COLOR DARK_GRAY}{SHADOW LIGHT_GREEN}AVERAGE");
-const u8 gText_DifficultyPresetHard[] = _("{COLOR RED}{SHADOW LIGHT_GREEN}HARD");
-const u8 gText_DifficultyPresetBrutal[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}BRUTAL");
-const u8 gText_DifficultyPresetCustom[] = _("{COLOR RED}{SHADOW LIGHT_RED}CUSTOM");
+const u8 gText_DifficultyPreset[] = _("Difficulty");
+const u8 gText_DifficultyPresetEasy[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Easy");
+const u8 gText_DifficultyPresetMedium[] = _("{COLOR DARK_GRAY}{SHADOW LIGHT_GREEN}Average");
+const u8 gText_DifficultyPresetHard[] = _("{COLOR RED}{SHADOW LIGHT_GREEN}Hard");
+const u8 gText_DifficultyPresetBrutal[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}Brutal");
+const u8 gText_DifficultyPresetCustom[] = _("{COLOR RED}{SHADOW LIGHT_RED}Custom");
 
-const u8 gText_DifficultyEnabled[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}ENABLED  ");
-const u8 gText_DifficultyDisabled[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}DISABLED");
+const u8 gText_DifficultyEnabled[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Enabled  ");
+const u8 gText_DifficultyDisabled[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}Disabled");
 
-const u8 gText_DifficultyExpAll[] = _("EXP. ALL");
-const u8 gText_DifficultyOverLvl[] = _("OVER LEVEL");
-const u8 gText_DifficultyEVGain[] = _("EV GAIN");
-const u8 gText_DifficultyOverworldMons[] = _("VISIBLE WILD {PKMN}");
-const u8 gText_DifficultyBagWipe[] = _("BASIC BAG");
-const u8 gText_DifficultySwitchMode[] = _("SWITCH MODE");
+const u8 gText_DifficultyExpAll[] = _("Exp. All");
+const u8 gText_DifficultyOverLvl[] = _("Over Level");
+const u8 gText_DifficultyEVGain[] = _("EV Gain");
+const u8 gText_DifficultyOverworldMons[] = _("Visible Wild {PKMN}");
+const u8 gText_DifficultyBagWipe[] = _("Basic Bag");
+const u8 gText_DifficultySwitchMode[] = _("Switch Mode");
 
-const u8 gText_DifficultyTrainers[] = _("TRAINERS");
-const u8 gText_DifficultyItems[] = _("ITEMS");
-const u8 gText_DifficultyLegendaries[] = _("LEGENDARIES");
-
-const u8 gText_DifficultyPresetDesc[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Developer tuned experience for\n"
-    "different skill levels."
-);
+const u8 gText_DifficultyTrainers[] = _("Trainers");
+const u8 gText_DifficultyItems[] = _("Items");
+const u8 gText_DifficultyLegendaries[] = _("Legendaries");
 
 const u8 gText_DifficultyCustomDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -121,19 +115,19 @@ const u8 gText_AdventureCustomDesc[] = _(
 
 const u8 gText_DifficultyExpAllDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "All {PKMN} in the party will be awarded EXP\n"
+    "All {PKMN} in the party will be awarded Exp.\n"
     "even if they didn't enter the battle."
 );
 
 const u8 gText_DifficultyOverLvlDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Allows {PKMN} to continue gaining LVLs\n"
-    "past the current LVL CAP."
+    "Allows {PKMN} to continue gaining lvls\n"
+    "past the current lvl cap."
 );
 
 const u8 gText_DifficultyEVGainDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "{PKMN} gain EVs from TRAINER battles based\n"
+    "{PKMN} gain EVs from Trainer battles based\n"
     "on their nature (Trainers never have EVs)"
 );
 
@@ -158,7 +152,7 @@ const u8 gText_DifficultySwitchModeDesc[] = _(
 const u8 gText_DifficultyTrainersDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Increases quality, quantity and strength\n"
-    "of all TRAINER's {PKMN}."
+    "of all Trainer's {PKMN}."
 );
 
 const u8 gText_DifficultyItemsDesc[] = _(
@@ -169,7 +163,7 @@ const u8 gText_DifficultyItemsDesc[] = _(
 const u8 gText_DifficultyLegendariesDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Decreases quality and quantity of\n"
-    "LEGENDARY {PKMN} encounters."
+    "Legendary {PKMN} encounters."
 );
 
 // Quest Log

@@ -78,31 +78,66 @@ enum
     TD_PREVIOUS_MENUSELECTION_TOP,
 };
 
-static u8 const sMenuName_DifficultySubmenu[] = _("DIFFICULTY");
-static u8 const sMenuName_AdventureSubmenu[] = _("ADVENTURE");
-static u8 const sMenuName_TrainersSubmenu[] = _("TRAINERS");
+static u8 const sMenuName_Back[] = _("Back");
+static u8 const sMenuName_DifficultySubmenu[] = _("Custom Difficulty");
+static u8 const sMenuName_AdventureSubmenu[] = _("Adventure");
+static u8 const sMenuName_TrainersSubmenu[] = _("Trainers");
 
-static u8 const sMenuName_BattleFormat[] = _("BATTLE FORMAT");
-static u8 const sMenuName_BattleFormatSingles[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}SINGLES");
-static u8 const sMenuName_BattleFormatDoubles[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}DOUBLES");
-static u8 const sMenuName_BattleFormatMixed[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}MIXED");
+static u8 const sMenuName_BattleFormat[] = _("Battle Format");
+static u8 const sMenuName_BattleFormatSingles[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Singles");
+static u8 const sMenuName_BattleFormatDoubles[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Doubles");
+static u8 const sMenuName_BattleFormatMixed[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Mixed");
 
-static u8 const sMenuName_TrainerOrder[] = _("TRAINER ORDER");
-static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}DEFAULT");
-static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}RAINBOW");
-static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}OFFICIAL");
+static u8 const sMenuName_TrainerOrder[] = _("Trainer Order");
+static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Default");
+static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Rainbow");
+static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Official");
 
-static u8 const sMenuName_TrainerRogue[] = _("ROGUE");
-static u8 const sMenuName_TrainerKanto[] = _("KANTO");
-static u8 const sMenuName_TrainerJohto[] = _("JOHTO");
-static u8 const sMenuName_TrainerHoenn[] = _("HOENN");
+static u8 const sMenuName_TrainerRogue[] = _("Rogue");
+static u8 const sMenuName_TrainerKanto[] = _("Kanto");
+static u8 const sMenuName_TrainerJohto[] = _("Johto");
+static u8 const sMenuName_TrainerHoenn[] = _("Hoenn");
 #ifdef ROGUE_EXPANSION
-static u8 const sMenuName_TrainerSinnoh[] = _("SINNOH");
-static u8 const sMenuName_TrainerUnova[] = _("UNOVA");
-static u8 const sMenuName_TrainerKalos[] = _("KALOS");
-static u8 const sMenuName_TrainerAlola[] = _("ALOLA");
-static u8 const sMenuName_TrainerGalar[] = _("GALAR");
+static u8 const sMenuName_TrainerSinnoh[] = _("Sinnoh");
+static u8 const sMenuName_TrainerUnova[] = _("Unova");
+static u8 const sMenuName_TrainerKalos[] = _("Kalos");
+static u8 const sMenuName_TrainerAlola[] = _("Alola");
+static u8 const sMenuName_TrainerGalar[] = _("Galar");
 #endif
+
+const u8 sMenuNameDesc_PresetDescription_Easy[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "For those who want a casual experience,\n"
+    "comparable to modern {PKMN} games."
+);
+const u8 sMenuNameDesc_PresetDescription_Average[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Recommended for those who have good {PKMN}\n"
+    "knowledge and enjoy a challenge."
+);
+const u8 sMenuNameDesc_PresetDescription_Hard[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "A punishing experience intended for\n"
+    "those who enjoy increased difficulty."
+);
+const u8 sMenuNameDesc_PresetDescription_Brutal[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "An even more punishing experience than\n"
+    "Hard, for those who want to suffer."
+);
+const u8 sMenuNameDesc_PresetDescription_Custom[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Your rules, your way!"
+);
+static u8 const* const sMenuNameDesc_PresetDescription[] = 
+{
+    [DIFFICULTY_LEVEL_EASY] = sMenuNameDesc_PresetDescription_Easy,
+    [DIFFICULTY_LEVEL_AVERAGE] = sMenuNameDesc_PresetDescription_Average,
+    [DIFFICULTY_LEVEL_HARD] = sMenuNameDesc_PresetDescription_Hard,
+    [DIFFICULTY_LEVEL_BRUTAL] = sMenuNameDesc_PresetDescription_Brutal,
+    [DIFFICULTY_LEVEL_CUSTOM] = sMenuNameDesc_PresetDescription_Custom,
+};
+
 
 static u8 const sMenuNameDesc_TrainersSubmenu[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -115,6 +150,7 @@ static u8 const sMenuNameDesc_BattleFormat[] = _(
     "Controls if battles are 1v1, 2v2 or\n"
     "a random mix of both."
 );
+
 
 static u8 const sMenuNameDesc_TrainerOrder_Default[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -141,48 +177,48 @@ static u8 const* const sMenuNameDesc_TrainerOrder[] =
 static u8 const sMenuNameDesc_Rogue[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the…\n"
-    "ROGUE region?\n"
+    "Rogue region?\n"
 );
 
 static u8 const sMenuNameDesc_Kanto[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Enables trainers from the KANTO region.\n"
+    "Enables trainers from the Kanto region.\n"
 );
 
 static u8 const sMenuNameDesc_Johto[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Enables trainers from the JOHTO region.\n"
+    "Enables trainers from the Johto region.\n"
 );
 
 static u8 const sMenuNameDesc_Hoenn[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Enables trainers from the HOENN region.\n"
+    "Enables trainers from the Hoenn region.\n"
 );
 
 #ifdef ROGUE_EXPANSION
 static u8 const sMenuNameDesc_Sinnoh[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Enables trainers from the SINNOH region.\n"
+    "Enables trainers from the Sinnoh region.\n"
 );
 
 static u8 const sMenuNameDesc_Unova[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Enables trainers from the UNOVA region.\n"
+    "Enables trainers from the Unova region.\n"
 );
 
 static u8 const sMenuNameDesc_Kalos[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Enables trainers from the KALOS region.\n"
+    "Enables trainers from the Kalos region.\n"
 );
 
 static u8 const sMenuNameDesc_Alola[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Enables trainers from the ALOLA region.\n"
+    "Enables trainers from the Alola region.\n"
 );
 
 static u8 const sMenuNameDesc_Galar[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Enables trainers from the GALAR region.\n"
+    "Enables trainers from the Galar region.\n"
 );
 #endif
 
@@ -347,7 +383,7 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_DIFFICULTY_PRESET] = 
     {
         .itemName = gText_DifficultyPreset,
-        .SINGLE_DESC(gText_DifficultyPresetDesc),
+        .MULTI_DESC(sMenuNameDesc_PresetDescription),
         .processInput = Slider_ProcessInput,
         .drawChoices = Slider_DrawChoices
     },
@@ -609,7 +645,7 @@ static const struct MenuEntry sOptionMenuItems[] =
 
     [MENUITEM_CANCEL] = 
     {
-        .itemName = gText_OptionMenuCancel,
+        .itemName = sMenuName_Back,
         .processInput = Empty_ProcessInput,
         .drawChoices = Empty_DrawChoices
     },
