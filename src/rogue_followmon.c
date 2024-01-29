@@ -56,9 +56,15 @@ static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
 
 #ifdef ROGUE_EXPANSION
     // Force special cases to reuse existing ones
-    if(species >= SPECIES_PIKACHU_COSPLAY && species <= SPECIES_PIKACHU_WORLD_CAP)
+    if(species >= SPECIES_PIKACHU_COSPLAY && species <= SPECIES_PIKACHU_LIBRE)
     {
         species = SPECIES_PIKACHU;
+    }
+
+    // We have partner and original cap overworld sprites
+    if(species >= SPECIES_PIKACHU_HOENN_CAP && species <= SPECIES_PIKACHU_WORLD_CAP)
+    {
+        species = SPECIES_PIKACHU_PARTNER_CAP;
     }
 
     if(species >= SPECIES_ARCEUS_FIGHTING && species <= SPECIES_ARCEUS_FAIRY)

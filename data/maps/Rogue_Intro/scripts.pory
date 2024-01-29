@@ -200,6 +200,10 @@ script Rogue_Intro_MapScripts_LoadFrame_0
     lock
     setvar(VAR_FRAME_TABLE_IDX, 1)
 
+    msgbox(format("Please select an initial difficulty.\pThis can be changed later in the Config Lab."), MSGBOX_AUTOCLOSE)
+    special(Special_ViewDifficultyConfigMenu)
+    waitstate
+
     // Fade in screen
     //
     fadescreen(FADE_TO_BLACK)

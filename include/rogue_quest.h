@@ -17,9 +17,17 @@ enum
     QUEST_REWARD_QUEST_UNLOCK,
 };
 
+enum
+{
+    QUEST_REWARD_VISIBLITY_DEFAULT,
+    QUEST_REWARD_VISIBLITY_INVISIBLE,
+    QUEST_REWARD_VISIBLITY_OBSCURED,
+};
+
 struct RogueQuestRewardNEW
 {
     u8 type;
+    u8 visiblity;
     union
     {
         struct

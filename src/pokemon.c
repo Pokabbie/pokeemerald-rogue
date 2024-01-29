@@ -61,6 +61,7 @@
 #include "rogue_gifts.h"
 #include "rogue_player_customisation.h"
 #include "rogue_timeofday.h"
+#include "rogue_trainers.h"
 #include "rogue_quest.h"
 
 #if P_FRIENDSHIP_EVO_THRESHOLD >= GEN_9
@@ -4684,15 +4685,6 @@ u16 ModifyStatByNature(u8 nature, u16 stat, u8 statIndex)
     return retVal;
 }
 
-#define IS_LEAGUE_BATTLE                                    \
-    ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)               \
-    && (trainer.trainerClass == TRAINER_CLASS_ELITE_FOUR    \
-     || trainer.trainerClass == TRAINER_CLASS_LEADER        \
-     || trainer.trainerClass == TRAINER_CLASS_TOTEM_LEADER  \
-     || trainer.trainerClass == TRAINER_CLASS_DEVELOPER_CHAMPION      \
-     || trainer.trainerClass == TRAINER_CLASS_COMMUNITY_MOD      \
-     || trainer.trainerClass == TRAINER_CLASS_CHAMPION))    \
-
 void AdjustFriendship(struct Pokemon *mon, u8 event)
 {
     u16 species, heldItem;
@@ -4729,7 +4721,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
             friendshipLevel++;
 
         if ((event != FRIENDSHIP_EVENT_WALKING || !(Random() & 1))
-         && (event != FRIENDSHIP_EVENT_LEAGUE_BATTLE || IS_LEAGUE_BATTLE))
+         && (event != FRIENDSHIP_EVENT_LEAGUE_BATTLE || Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A)))
         {
             s8 mod = sFriendshipEventModifiers[event][friendshipLevel];
             if (mod > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)

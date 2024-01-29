@@ -271,6 +271,15 @@ bool8 Rogue_ForceExpAll(void)
     return Rogue_GetConfigToggle(CONFIG_TOGGLE_EXP_ALL);
 }
 
+bool8 Rogue_EnableAffectionMechanics(void)
+{
+#ifdef ROGUE_EXPANSION
+    return Rogue_GetConfigToggle(CONFIG_TOGGLE_AFFECTION);
+#else
+    return FALSE;
+#endif
+}
+
 bool8 Rogue_FastBattleAnims(void)
 {
     if(GetSafariZoneFlag())
@@ -2796,6 +2805,7 @@ u16 Rogue_PostRunRewardLvls()
 
         for(i = 0; i < gPlayerPartyCount; ++i)
         {
+            // Award levels
             for(j = 0; j < lvlCount; ++j)
             {
                 if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) != MAX_LEVEL)
@@ -2804,6 +2814,9 @@ u16 Rogue_PostRunRewardLvls()
                     SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
                     CalculateMonStats(&gPlayerParty[i]);
                 }
+                
+                // Increase friendship from these levels
+                AdjustFriendship(&gPlayerParty[i], FRIENDSHIP_EVENT_GROW_LEVEL);
             }
         }
     }
