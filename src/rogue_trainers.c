@@ -501,6 +501,91 @@ bool8 Rogue_IsValidTrainerShinySpecies(u16 trainerNum, u16 species)
     return trainer->potentialShinySpecies == species;
 }
 
+bool8 Rogue_ShouldTrainerSmartSwitch(u16 trainerNum)
+{
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        if(Rogue_IsAnyBossTrainer(trainerNum))
+        {
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
+                return TRUE;
+            else
+                return FALSE;
+        }
+        else
+        {
+            return FALSE;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_AVERAGE:
+        if(Rogue_IsAnyBossTrainer(trainerNum))
+        {
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
+                return TRUE;
+            else
+                return FALSE;
+        }
+        else
+        {
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+                return TRUE;
+            else
+                return FALSE;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
+        if(Rogue_IsAnyBossTrainer(trainerNum))
+        {
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_START_DIFFICULTY + 2)
+                return TRUE;
+            else
+                return FALSE;
+        }
+        else
+        {
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
+                return TRUE;
+            else
+                return FALSE;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        return TRUE;
+    }
+
+    AGB_ASSERT(FALSE);
+    return FALSE;
+}
+
+bool8 Rogue_ShouldTrainerBeDoubleAware(u16 trainerNum)
+{
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_AVERAGE:
+        if(Rogue_IsAnyBossTrainer(trainerNum))
+        {
+            if(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+                return TRUE;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
+    case DIFFICULTY_LEVEL_BRUTAL:
+        if(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+            return TRUE;
+        break;
+    }
+
+    return FALSE;
+}
+
 bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum)
 {
     return TRUE;
@@ -569,7 +654,7 @@ static void GetGlobalFilter(struct TrainerFliter* filter)
     if(filter->trainerFlagsInclude == TRAINER_FLAG_NONE)
     {
         // Safety fallback (Should never reach here)
-        AGB_ASSERT(FALSE);
+        //AGB_ASSERT(FALSE);
         filter->trainerFlagsInclude = TRAINER_FLAG_REGION_DEFAULT;
     }
 }

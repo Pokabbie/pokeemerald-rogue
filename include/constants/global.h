@@ -106,9 +106,7 @@
 #define CONTEST_CATEGORIES_COUNT  5
 
 // string lengths
-#define ITEM_NAME_LENGTH 14
-#define ROGUE_ITEM_NAME_LENGTH 16
-#define ROGUE_ITEM_DESC_LENGTH 64
+#define ITEM_NAME_LENGTH 16 // increased
 #define POKEMON_NAME_LENGTH 10
 #define POKEMON_NAME_BUFFER_SIZE max(20, POKEMON_NAME_LENGTH + 1) // Frequently used buffer size. Larger than necessary
 #define PLAYER_NAME_LENGTH 7

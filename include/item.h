@@ -29,7 +29,7 @@ struct Item
 //
 struct RogueItem
 {
-    const u8 name[ROGUE_ITEM_NAME_LENGTH];
+    const u8 name[ITEM_NAME_LENGTH];
     const u8* description;
     u16 itemId;
     u16 price;

@@ -2,6 +2,7 @@
 #include "constants/layouts.h"
 #include "gba/isagbprint.h"
 #include "random.h"
+#include "string_util.h"
 
 #include "rogue_controller.h"
 #include "rogue_multiplayer.h"
@@ -526,6 +527,21 @@ static u16 GetCurrentNicknameMode()
     return gSaveBlock2Ptr->optionsNicknameMode;
 }
 
+static bool8 DoesPartyContainNickname(u8 const* str)
+{
+    u8 i;
+    u8 nickname[POKEMON_NAME_LENGTH];
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        GetMonData(&gPlayerParty[i], MON_DATA_NICKNAME, nickname);
+        if(StringCompareN(str, nickname, POKEMON_NAME_LENGTH) == 0)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 bool8 Rogue_ShouldSkipAssignNickname(struct Pokemon* mon)
 {
     switch (GetCurrentNicknameMode())
@@ -535,7 +551,16 @@ bool8 Rogue_ShouldSkipAssignNickname(struct Pokemon* mon)
 
     case OPTIONS_NICKNAME_RANDOM:
         {
-            u16 nicknameIdx = Random2() % ARRAY_COUNT(sNicknameTable_Global);
+            u16 nicknameIdx;
+            
+            while(TRUE)
+            {
+                nicknameIdx = Random() % ARRAY_COUNT(sNicknameTable_Global);
+
+                if(!DoesPartyContainNickname(sNicknameTable_Global[nicknameIdx]))
+                    break;
+            }
+
             SetMonData(mon, MON_DATA_NICKNAME, sNicknameTable_Global[nicknameIdx]);
             return TRUE;
         }
