@@ -3145,10 +3145,14 @@ static void MonStats_HandleInput(u8 taskId)
 
 static void MonMoves_HandleInput(u8 taskId)
 {
+    u16 maxScrollOffset;
+
     if(MonInfo_HandleInput(taskId))
         return;
 
-    if(JOY_HELD(DPAD_UP))
+    maxScrollOffset = GetMaxMoveScrollOffset();
+
+    if((sPokedexMenu->listScrollAmount != 0 && JOY_HELD(DPAD_UP)) || JOY_NEW(DPAD_UP))
     {
         if(sPokedexMenu->listScrollAmount == 0)
             sPokedexMenu->listScrollAmount = GetMaxMoveScrollOffset();
@@ -3158,10 +3162,8 @@ static void MonMoves_HandleInput(u8 taskId)
         PlaySE(SE_DEX_SCROLL);
         DisplayMonMovesText();
     }
-    else if(JOY_HELD(DPAD_DOWN))
+    else if((sPokedexMenu->listScrollAmount != maxScrollOffset && JOY_HELD(DPAD_DOWN)) || JOY_NEW(DPAD_DOWN))
     {
-        u16 maxScrollOffset = GetMaxMoveScrollOffset();
-
         if(sPokedexMenu->listScrollAmount == maxScrollOffset)
             sPokedexMenu->listScrollAmount = 0;
         else
