@@ -2251,34 +2251,32 @@ static void Task_HandleCancelParticipationYesNoInput(u8 taskId)
 
 static u8 CanTeachMove(struct Pokemon *mon, u16 move)
 {
-    AGB_ASSERT(FALSE); //fixme
-    return CANNOT_LEARN_MOVE;
+    u16 itemid;
 
-    //u16 move;
-//
-    //if (GetMonData(mon, MON_DATA_IS_EGG))
-    //    return CANNOT_LEARN_MOVE_IS_EGG;
-//
-    //if (item >= ITEM_TM01)
-    //{
-    //    if (!CanMonLearnTM(mon, item))
-    //        return CANNOT_LEARN_MOVE;
-    //    else
-    //        move = ItemIdToBattleMoveId(item);
-    //}
-    //else
-    //{
-    //    AGB_ASSERT(FALSE);
-    //    //if (!CanLearnTutorMove(GetMonData(mon, MON_DATA_SPECIES), tutor))
-    //    //    return CANNOT_LEARN_MOVE;
-    //    //else
-    //    //    move = GetTutorMove(tutor);
-    //}
-//
-    //if (MonKnowsMove(mon, move) == TRUE)
-    //    return ALREADY_KNOWS_MOVE;
-    //else
-    //    return CAN_LEARN_MOVE;
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+        return CANNOT_LEARN_MOVE_IS_EGG;
+
+    if (MonKnowsMove(mon, move) == TRUE)
+        return ALREADY_KNOWS_MOVE;
+
+    itemid = BattleMoveIdToItemId(move);
+
+    if(itemid != ITEM_NONE)
+    {
+        if (!CanMonLearnTM(mon, itemid))
+            return CANNOT_LEARN_MOVE;
+    }
+    else
+    {
+        AGB_ASSERT(FALSE);
+        return CANNOT_LEARN_MOVE;
+        //if (!CanLearnTutorMove(GetMonData(mon, MON_DATA_SPECIES), tutor))
+        //    return CANNOT_LEARN_MOVE;
+        //else
+        //    move = GetTutorMove(tutor);
+    }
+
+    return CAN_LEARN_MOVE;
 }
 
 u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves, u16 tutorMovesCapacity)
