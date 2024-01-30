@@ -32,7 +32,10 @@ const u8* Rogue_GetItemDesc(u16 itemIdx);
 const void* Rogue_GetItemIconPicOrPalette(u16 itemId, u8 which);
 u16 Rogue_GetPrice(u16 itemId);
 void Rogue_ModifyItem(u16 itemIdx, struct Item* outItem);
-bool8 Rogue_IsEvolutionItem(u16 itemIdx);
+bool8 Rogue_IsEvolutionItem(u16 itemId);
+u16 Rogue_GetEvolutionItemIndex(u16 itemId);
+bool8 Rogue_IsFormItem(u16 itemId);
+u16 Rogue_GetFormItemIndex(u16 itemId);
 u16 Rogue_CalculateMovePrice(u16 move);
 
 const u8* Rogue_GetTrainerName(u16 trainerNum);

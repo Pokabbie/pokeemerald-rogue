@@ -837,7 +837,7 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
 #endif
             }
 
-            if(Rogue_IsEvolutionItem(itemId))
+            if(Rogue_IsEvolutionItem(itemId) || Rogue_IsFormItem(itemId))
                 amount = 1;
 
 #ifdef ROGUE_EXPANSION
@@ -1520,6 +1520,60 @@ static u8 ItemToGen(u16 item)
     return 1;
 }
 
+static void SetEvolutionItemFlag(u16 itemId, bool8 state)
+{
+    u16 elem = Rogue_GetEvolutionItemIndex(itemId);
+    u16 idx = elem / 8;
+    u16 bit = elem % 8;
+    u8 bitMask = 1 << bit;
+
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueRun.activeEvoItemFlags));
+
+    if(state)
+        gRogueRun.activeEvoItemFlags[idx] |= bitMask;
+    else
+        gRogueRun.activeEvoItemFlags[idx] &= ~bitMask;
+}
+
+static bool8 GetEvolutionItemFlag(u16 itemId)
+{
+    u16 elem = Rogue_GetEvolutionItemIndex(itemId);
+    u16 idx = elem / 8;
+    u16 bit = elem % 8;
+    u8 bitMask = 1 << bit;
+
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueRun.activeEvoItemFlags));
+
+    return (gRogueRun.activeEvoItemFlags[idx] & bitMask) != 0;
+}
+
+static void SetFormItemFlag(u16 itemId, bool8 state)
+{
+    u16 elem = Rogue_GetFormItemIndex(itemId);
+    u16 idx = elem / 8;
+    u16 bit = elem % 8;
+    u8 bitMask = 1 << bit;
+
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueRun.activeFormItemFlags));
+
+    if(state)
+        gRogueRun.activeFormItemFlags[idx] |= bitMask;
+    else
+        gRogueRun.activeFormItemFlags[idx] &= ~bitMask;
+}
+
+static bool8 GetFormItemFlag(u16 itemId)
+{
+    u16 elem = Rogue_GetFormItemIndex(itemId);
+    u16 idx = elem / 8;
+    u16 bit = elem % 8;
+    u8 bitMask = 1 << bit;
+
+    AGB_ASSERT(idx < ARRAY_COUNT(gRogueRun.activeFormItemFlags));
+
+    return (gRogueRun.activeFormItemFlags[idx] & bitMask) != 0;
+}
+
 extern const struct RogueItem gRogueItems[];
 
 bool8 Rogue_IsItemEnabled(u16 itemId)
@@ -1745,8 +1799,23 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
             }
         }
 #endif
-        
-        // TODO - Should probably just remove ItemToGen eventually and link it to species specific held items
+
+        if(Rogue_IsEvolutionItem(itemId))
+        {
+            // Only include the active evo items
+            if(GetEvolutionItemFlag(itemId))
+                return TRUE;
+            // if inactive but has hold effect, keep active
+            else if(ItemId_GetHoldEffect(itemId))
+                return FALSE;
+        }
+
+        if(Rogue_IsFormItem(itemId))
+        {
+            // Only include the active form change items
+            return GetFormItemFlag(itemId) != FALSE;
+        }
+
         if(ItemToGen(itemId) > genLimit)
             return FALSE;
     }
@@ -2825,6 +2894,40 @@ static void BeginRogueRun_ModifyParty(void)
     }
 }
 
+static void BeginRogueRun_ConsiderItems(void)
+{
+    // Go through all active evo/forms and figure out what items we want to enable
+    struct Evolution evo;
+    u16 e, evoCount, species;
+
+    // Always enable? as we may get an evo curse 
+    //SetEvoFormItemFlag(ITEM_LINK_CABLE, TRUE);
+
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        if(Query_IsSpeciesEnabled(species))
+        {
+            evoCount = Rogue_GetActiveEvolutionCount(species);
+
+            for(e = 0; e < evoCount; ++e)
+            {
+                Rogue_ModifyEvolution(species, e, &evo);
+
+                switch (evo.method)
+                {
+                case EVO_ITEM:
+#ifdef ROGUE_EXPANSION
+                case EVO_ITEM_MALE:
+                case EVO_ITEM_FEMALE:
+#endif
+                    SetEvolutionItemFlag(evo.param, TRUE);
+                    break;
+                }
+            }
+        }
+    }
+}
+
 static bool8 CanEnterWithItem(u16 itemId, bool8 isBasicBagEnabled)
 {
     u8 pocket;
@@ -2944,6 +3047,7 @@ static void BeginRogueRun(void)
     PlayTimeCounter_Reset();
     PlayTimeCounter_Start();
 
+    BeginRogueRun_ConsiderItems();
     BeginRogueRun_ModifyParty();
     SetupRogueRunBag();
 

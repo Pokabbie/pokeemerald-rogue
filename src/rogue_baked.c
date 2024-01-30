@@ -69,6 +69,10 @@ extern const struct RogueItem gRogueItems[];
 #ifdef ROGUE_BAKE_VALID
 extern const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES];
 extern const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_BYTE_COUNT];
+extern const u16 gRogueBake_EvoItems[];
+extern const u16 gRogueBake_EvoItems_Count;
+extern const u16 gRogueBake_FormItems[];
+extern const u16 gRogueBake_FormItems_Count;
 #endif
 
 void HistoryBufferPush(u16* buffer, u16 capacity, u16 value)
@@ -844,11 +848,6 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
 }
 
-bool8 Rogue_IsEvolutionItem(u16 itemIdx)
-{
-    return FALSE;
-}
-
 u16 Rogue_CalculateMovePrice(u16 move)
 {
     return 0;
@@ -1463,80 +1462,6 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     }
 }
 
-
-bool8 Rogue_IsEvolutionItem(u16 itemIdx)
-{
-    switch (itemIdx)
-    {
-    case ITEM_LINK_CABLE:
-    case ITEM_FIRE_STONE:
-    case ITEM_WATER_STONE:
-    case ITEM_THUNDER_STONE:
-    case ITEM_LEAF_STONE:
-    case ITEM_SUN_STONE:
-    case ITEM_MOON_STONE:
-    case ITEM_DEEP_SEA_TOOTH:
-    case ITEM_DEEP_SEA_SCALE:
-    case ITEM_DRAGON_SCALE:
-    case ITEM_KINGS_ROCK:
-    case ITEM_METAL_COAT:
-    
-#ifdef ROGUE_EXPANSION
-    case ITEM_UPGRADE:
-#else
-    case ITEM_UP_GRADE:
-#endif
-
-#ifdef ROGUE_EXPANSION
-    case ITEM_ALOLA_STONE:
-    case ITEM_GALAR_STONE:
-    case ITEM_HISUI_STONE:
-
-    case ITEM_RAZOR_FANG:
-    case ITEM_RAZOR_CLAW:
-    case ITEM_ICE_STONE:
-    case ITEM_SHINY_STONE:
-    case ITEM_DUSK_STONE:
-    case ITEM_DAWN_STONE:
-    case ITEM_SWEET_APPLE:
-    case ITEM_TART_APPLE:
-    case ITEM_CRACKED_POT:
-    case ITEM_CHIPPED_POT:
-    case ITEM_GALARICA_CUFF:
-    case ITEM_GALARICA_WREATH:
-    case ITEM_PROTECTOR:
-    case ITEM_ELECTIRIZER:
-    case ITEM_MAGMARIZER:
-    case ITEM_DUBIOUS_DISC:
-    case ITEM_REAPER_CLOTH:
-    case ITEM_PRISM_SCALE:
-    case ITEM_WHIPPED_DREAM:
-    case ITEM_SACHET:
-    case ITEM_OVAL_STONE:
-    case ITEM_STRAWBERRY_SWEET:
-    case ITEM_LOVE_SWEET:
-    case ITEM_BERRY_SWEET:
-    case ITEM_CLOVER_SWEET:
-    case ITEM_FLOWER_SWEET:
-    case ITEM_STAR_SWEET:
-    case ITEM_RIBBON_SWEET:
-    case ITEM_BLACK_AUGURITE:
-    case ITEM_LINKING_CORD:
-    case ITEM_PEAT_BLOCK:
-
-    case ITEM_LEADERS_CREST:
-    case ITEM_AUSPICIOUS_ARMOR:
-    case ITEM_MALICIOUS_ARMOR:
-    case ITEM_SYRUPY_APPLE:
-    case ITEM_UNREMARKABLE_TEACUP:
-    case ITEM_MASTERPIECE_TEACUP:
-#endif
-        return TRUE;
-    }
-
-    return FALSE;
-}
-
 u16 Rogue_CalculateMovePrice(u16 move)
 {
     // Move cost takes into account high level stats and then modifies based on usage
@@ -1623,6 +1548,166 @@ u16 Rogue_CalculateMovePrice(u16 move)
 }
 #endif
 
+#ifndef ROGUE_BAKE_VALID
+static bool8 IsEvolutionItemInternal(u16 itemId)
+{
+    struct Evolution evo;
+    u16 s, e, evoCount;
+
+    for (s = SPECIES_NONE + 1; s < NUM_SPECIES; ++s)
+    {
+        evoCount = Rogue_GetMaxEvolutionCount(s);
+
+        for (e = 0; e < evoCount; ++e)
+        {
+            Rogue_ModifyEvolution(s, e, &evo);
+
+            switch (evo.method)
+            {
+            case EVO_ITEM:
+#ifdef ROGUE_EXPANSION
+            case EVO_ITEM_MALE:
+            case EVO_ITEM_FEMALE:
+#endif
+                if (evo.param == itemId)
+                    return TRUE;
+                break;
+            }
+        }
+    }
+
+    return FALSE;
+}
+#endif
+
+static u16 BinarySearchForItem(u16 item, u16 const* data, u16 count)
+{
+    u16 minIndex, maxIndex, currIndex;
+
+    if(count == 0)
+        return count;
+
+    // Binary search for item
+    minIndex = 0;
+    maxIndex = count - 1;
+    do
+    {
+        currIndex = (maxIndex + minIndex) / 2;
+
+        if(data[currIndex] == item)
+            return currIndex;
+        
+        if(item < data[currIndex])
+            maxIndex = currIndex;
+        else
+        {
+            if(minIndex == currIndex)
+                ++currIndex;
+
+            minIndex = currIndex;
+        }
+    }
+    while(minIndex != maxIndex);
+
+    // Final check
+    if(data[currIndex] == item)
+        return currIndex;
+
+    // Failed to find
+    return count;
+}
+
+bool8 Rogue_IsEvolutionItem(u16 itemId)
+{
+#ifdef ROGUE_BAKE_VALID
+    u16 findIndex = BinarySearchForItem(itemId, gRogueBake_EvoItems, gRogueBake_EvoItems_Count);
+    return findIndex != gRogueBake_EvoItems_Count;
+#else
+    return IsEvolutionItemInternal(itemId);
+#endif
+}
+
+u16 Rogue_GetEvolutionItemIndex(u16 itemId)
+{
+#ifdef ROGUE_BAKE_VALID
+    u16 findIndex = BinarySearchForItem(itemId, gRogueBake_EvoItems, gRogueBake_EvoItems_Count);
+    AGB_ASSERT(findIndex != gRogueBake_EvoItems_Count);
+    return findIndex;
+#else
+    return 0;
+#endif
+}
+
+#ifndef ROGUE_BAKE_VALID
+static bool8 IsFormItemInternal(u16 itemId)
+{
+#ifdef ROGUE_EXPANSION
+    struct FormChange form;
+    u16 s, e, formCount;
+
+    for (s = SPECIES_NONE + 1; s < NUM_SPECIES; ++s)
+    {
+        formCount = Rogue_GetActiveFormChangeCount(s);
+
+        for (e = 0; e < evoCount; ++e)
+        {
+            Rogue_ModifyFormChange(s, e, &form);
+
+            switch (evo.method)
+            {
+            case EVO_ITEM:
+#ifdef ROGUE_EXPANSION
+            case EVO_ITEM_MALE:
+            case EVO_ITEM_FEMALE:
+#endif
+                if (evo.param == itemId)
+                    return TRUE;
+                break;
+            }
+        }
+    }
+#endif
+
+    return FALSE;
+}
+#endif
+
+#ifdef ROGUE_EXPANSION
+
+bool8 Rogue_IsFormItem(u16 itemId)
+{
+#ifdef ROGUE_BAKE_VALID
+    u16 findIndex = BinarySearchForItem(itemId, gRogueBake_FormItems, gRogueBake_FormItems_Count);
+    return findIndex != gRogueBake_FormItems_Count;
+#else
+    return IsFormItemInternal(itemId);
+#endif
+}
+
+u16 Rogue_GetFormItemIndex(u16 itemId)
+{
+#ifdef ROGUE_BAKE_VALID
+    u16 findIndex = BinarySearchForItem(itemId, gRogueBake_FormItems, gRogueBake_FormItems_Count);
+    AGB_ASSERT(findIndex != gRogueBake_FormItems_Count);
+    return findIndex;
+#else
+    return 0;
+#endif
+}
+
+#else
+
+bool8 Rogue_IsFormItem(u16 itemId)
+{
+    return FALSE;
+}
+
+u16 Rogue_GetFormItemIndex(u16 itemId)
+{
+    return 0;
+}
+
+#endif
 
 u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level)
 {
