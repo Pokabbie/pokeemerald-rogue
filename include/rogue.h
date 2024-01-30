@@ -257,7 +257,7 @@ struct RogueRunData
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
     u8 honeyTreePokeblock[POKEBLOCK_ITEM_COUNT];
     u8 activeEvoItemFlags[8];
-    u8 activeFormItemFlags[8];
+    u8 activeFormItemFlags[16]; // technically this isn't needed for Vanilla
     union
     {
         struct RogueCampaignData_Generic generic;

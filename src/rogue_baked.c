@@ -544,15 +544,31 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
 #endif
 }
 
+
+#if defined(ROGUE_EXPANSION)
+static const struct FormChange* GetBaseFormChange(u16 species)
+{
+#ifdef ROGUE_BAKING
+    const struct FormChange* formChanges = gSpeciesInfo[species].formChangeTable;
+    if (formChanges == NULL)
+        return gSpeciesInfo[SPECIES_NONE].formChangeTable;
+    return formChanges;
+#else
+    return GetSpeciesFormChanges(species);
+#endif
+}
+#endif
+
 void Rogue_ModifyFormChange(u16 species, u8 changeIdx, struct FormChange* outFormChange)
 {
-#if defined(ROGUE_EXPANSION) && !defined(ROGUE_BAKING)
-    const struct FormChange *formChanges = GetSpeciesFormChanges(species);
+#if defined(ROGUE_EXPANSION)
+    const struct FormChange *formChanges = GetBaseFormChange(species);
 
     if(formChanges != NULL)
     {
         memcpy(outFormChange, &formChanges[changeIdx], sizeof(*outFormChange));
 
+#if !defined(ROGUE_BAKING)
         if(!IsMegaEvolutionEnabled())
         {
             if(
@@ -571,6 +587,7 @@ void Rogue_ModifyFormChange(u16 species, u8 changeIdx, struct FormChange* outFor
                 outFormChange->method = FORM_CHANGE_DISABLED_STUB;
             }
         }
+#endif
     }
     else
     {
@@ -1649,18 +1666,19 @@ static bool8 IsFormItemInternal(u16 itemId)
     {
         formCount = Rogue_GetActiveFormChangeCount(s);
 
-        for (e = 0; e < evoCount; ++e)
+        for (e = 0; e < formCount; ++e)
         {
             Rogue_ModifyFormChange(s, e, &form);
 
-            switch (evo.method)
+            switch (form.method)
             {
-            case EVO_ITEM:
-#ifdef ROGUE_EXPANSION
-            case EVO_ITEM_MALE:
-            case EVO_ITEM_FEMALE:
-#endif
-                if (evo.param == itemId)
+            case FORM_CHANGE_ITEM_HOLD:
+            case FORM_CHANGE_ITEM_USE:
+            case FORM_CHANGE_BEGIN_BATTLE:
+            case FORM_CHANGE_END_BATTLE:
+            case FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM:
+            case FORM_CHANGE_BATTLE_PRIMAL_REVERSION:
+                if (form.param1 == itemId)
                     return TRUE;
                 break;
             }
