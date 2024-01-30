@@ -1803,11 +1803,7 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         if(Rogue_IsEvolutionItem(itemId))
         {
             // Only include the active evo items
-            if(GetEvolutionItemFlag(itemId))
-                return TRUE;
-            // if inactive but has hold effect, keep active
-            else if(ItemId_GetHoldEffect(itemId))
-                return FALSE;
+            return GetEvolutionItemFlag(itemId) != FALSE;
         }
 
         if(Rogue_IsFormItem(itemId))
@@ -2894,38 +2890,91 @@ static void BeginRogueRun_ModifyParty(void)
     }
 }
 
+extern const u16 gRogueBake_EvoItems_Count;
+extern const u16 gRogueBake_FormItems_Count;
+
 static void BeginRogueRun_ConsiderItems(void)
 {
-    // Go through all active evo/forms and figure out what items we want to enable
-    struct Evolution evo;
-    u16 e, evoCount, species;
+    DebugPrintf("Evos: required bits %d, avaliable bits %d", gRogueBake_EvoItems_Count, ARRAY_COUNT(gRogueRun.activeEvoItemFlags) * 8);
+    AGB_ASSERT(gRogueBake_EvoItems_Count < ARRAY_COUNT(gRogueRun.activeEvoItemFlags) * 8);
 
-    // Always enable? as we may get an evo curse 
-    //SetEvoFormItemFlag(ITEM_LINK_CABLE, TRUE);
-
-    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
-    {
-        if(Query_IsSpeciesEnabled(species))
-        {
-            evoCount = Rogue_GetActiveEvolutionCount(species);
-
-            for(e = 0; e < evoCount; ++e)
-            {
-                Rogue_ModifyEvolution(species, e, &evo);
-
-                switch (evo.method)
-                {
-                case EVO_ITEM:
 #ifdef ROGUE_EXPANSION
-                case EVO_ITEM_MALE:
-                case EVO_ITEM_FEMALE:
+    DebugPrintf("Forms: required bits %d, avaliable bits %d", gRogueBake_FormItems_Count, ARRAY_COUNT(gRogueRun.activeFormItemFlags) * 8);
+    AGB_ASSERT(gRogueBake_FormItems_Count < ARRAY_COUNT(gRogueRun.activeFormItemFlags) * 8);
 #endif
-                    SetEvolutionItemFlag(evo.param, TRUE);
-                    break;
+
+    // Go through all active evo/forms and figure out what items we want to enable
+    {
+        struct Evolution evo;
+        u16 e, evoCount, species;
+
+        // Always enable these as they have a non mon specific held effect
+        SetEvolutionItemFlag(ITEM_KINGS_ROCK, TRUE);
+        SetEvolutionItemFlag(ITEM_METAL_COAT, TRUE);
+#ifdef ROGUE_EXPANSION
+        SetEvolutionItemFlag(ITEM_RAZOR_CLAW, TRUE);
+#endif
+
+        // Always enable? as we may get an evo curse 
+        //SetEvoFormItemFlag(ITEM_LINK_CABLE, TRUE);
+
+        for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+        {
+            if(Query_IsSpeciesEnabled(species))
+            {
+                evoCount = Rogue_GetActiveEvolutionCount(species);
+
+                for(e = 0; e < evoCount; ++e)
+                {
+                    Rogue_ModifyEvolution(species, e, &evo);
+
+                    switch (evo.method)
+                    {
+                    case EVO_ITEM:
+#ifdef ROGUE_EXPANSION
+                    case EVO_ITEM_MALE:
+                    case EVO_ITEM_FEMALE:
+#endif
+                        SetEvolutionItemFlag(evo.param, TRUE);
+                        break;
+                    }
                 }
             }
         }
     }
+
+#ifdef ROGUE_EXPANSION
+    {
+        struct FormChange form;
+        u16 species, e, formCount;
+
+        for (species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+        {
+            if(Query_IsSpeciesEnabled(species))
+            {
+                formCount = Rogue_GetActiveFormChangeCount(species);
+
+                for (e = 0; e < formCount; ++e)
+                {
+                    Rogue_ModifyFormChange(species, e, &form);
+
+                    switch (form.method)
+                    {
+                    case FORM_CHANGE_ITEM_HOLD:
+                    case FORM_CHANGE_ITEM_USE:
+                    case FORM_CHANGE_BEGIN_BATTLE:
+                    case FORM_CHANGE_END_BATTLE:
+                    case FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM:
+                    case FORM_CHANGE_BATTLE_PRIMAL_REVERSION:
+                        if(form.param1 != ITEM_NONE)
+                            SetFormItemFlag(form.param1, TRUE);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+#endif
 }
 
 static bool8 CanEnterWithItem(u16 itemId, bool8 isBasicBagEnabled)
