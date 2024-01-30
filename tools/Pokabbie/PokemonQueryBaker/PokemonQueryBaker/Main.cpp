@@ -157,6 +157,35 @@ int main()
 		file << "};\n";
 	}
 
+	// Possible Evo + Form items
+	//
+	{
+		file << "\n";
+		file << "const u16 gRogueBake_EvoItems[] =\n{\n";
+
+		for (int i = ITEM_NONE + 1; i < ITEMS_COUNT; ++i)
+		{
+			if (Rogue_IsEvolutionItem(i))
+				file << "\t" << i << ",\n";
+		}
+		file << "};\n";
+		file << "const u16 gRogueBake_EvoItems_Count = ARRAY_COUNT(gRogueBake_EvoItems);\n";
+		file << "\n";
+
+		file << "\n";
+		file << "const u16 gRogueBake_FormItems[] =\n{\n";
+
+		for (int i = ITEM_NONE + 1; i < ITEMS_COUNT; ++i)
+		{
+			if (Rogue_IsFormItem(i))
+				file << "\t" << i << ",\n";
+		}
+
+		file << "};\n";
+		file << "const u16 gRogueBake_FormItems_Count = ARRAY_COUNT(gRogueBake_FormItems);\n";
+		file << "\n";
+	}
+
 	file.close();
 	return 0;
 }

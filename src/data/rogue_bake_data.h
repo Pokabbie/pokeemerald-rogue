@@ -2812,3 +2812,28 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		7,
 	},
 };
+
+const u16 gRogueBake_EvoItems[] =
+{
+	93,
+	94,
+	95,
+	96,
+	97,
+	98,
+	187,
+	192,
+	193,
+	199,
+	201,
+	218,
+	377,
+};
+const u16 gRogueBake_EvoItems_Count = ARRAY_COUNT(gRogueBake_EvoItems);
+
+
+const u16 gRogueBake_FormItems[] =
+{
+};
+const u16 gRogueBake_FormItems_Count = ARRAY_COUNT(gRogueBake_FormItems);
+
