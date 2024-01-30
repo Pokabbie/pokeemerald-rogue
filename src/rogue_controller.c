@@ -7248,7 +7248,6 @@ static void RandomiseItemContent(u8 difficultyLevel)
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_KEY_ITEMS);
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKEBLOCK);
-        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKE_BALLS);
 
         RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
         
