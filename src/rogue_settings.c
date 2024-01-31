@@ -256,7 +256,7 @@ void RogueDebug_SetConfigToggle(u16 elem, bool8 state)
 
 bool8 RogueDebug_GetConfigToggle(u16 elem)
 {
-    return 0;
+    return FALSE;
 }
 
 void RogueDebug_SetConfigRange(u16 elem, u8 value)

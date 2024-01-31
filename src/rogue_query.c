@@ -275,6 +275,11 @@ void RogueMonQuery_End()
 {
     ASSERT_MON_QUERY;
     FreeQuery();
+    
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_MON_QUERY))
+    {
+        RogueDebugQuery_FillPC();
+    }
 }
 
 void RogueMonQuery_Reset(u8 func)
@@ -907,6 +912,11 @@ void RogueItemQuery_End()
 {
     ASSERT_ITEM_QUERY;
     FreeQuery();
+    
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_ITEM_QUERY))
+    {
+        RogueDebugQuery_FillBag();
+    }
 }
 
 void RogueItemQuery_Reset(u8 func)

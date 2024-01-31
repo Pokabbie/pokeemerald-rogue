@@ -90,6 +90,8 @@ Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
 Debug_EventScript_Script_1::
+    special Special_ViewDifficultyConfigMenu
+    waitstate
 	end
 
 Debug_EventScript_Script_2::
