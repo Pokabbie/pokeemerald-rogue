@@ -5,49 +5,54 @@ script Rogue_Debug_FillPCWithGen
 {
     lock
     
-    message(format("Fill PC with GEN?"))
-    waitmessage
+    msgbox(format("Fill PC?"), MSGBOX_YESNO)
 
-    //setflag(FLAG_SYS_QUEST_LOG_GET)
-    //setflag(FLAG_SYS_FIELD_MOVES_GET)
-
-    checkitem(ITEM_QUEST_LOG)
-    if(var(VAR_RESULT) == NO)
+    if(var(VAR_RESULT) == YES)
     {
-        giveitem(ITEM_QUEST_LOG)
+        message(format("Which gen?"))
+        waitmessage
+
+        //setflag(FLAG_SYS_QUEST_LOG_GET)
+        //setflag(FLAG_SYS_FIELD_MOVES_GET)
+
+        checkitem(ITEM_QUEST_LOG)
+        if(var(VAR_RESULT) == NO)
+        {
+            giveitem(ITEM_QUEST_LOG)
+        }
+
+        if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+        {
+            multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
+        }
+        else
+        {
+            multichoice(20, 6, MULTI_GENERATIONS_UPTO3, NO)
+        }
+
+        switch(var(VAR_RESULT))
+        {
+            case MULTI_B_PRESSED: 
+                msgbox(format("No worries!\nCome chat to me if you ever change your mind."), MSGBOX_DEFAULT)
+
+            default:
+                waitse
+                playse(SE_PIN)
+                addvar(VAR_RESULT, 1)
+                copyvar(VAR_0x8004, VAR_RESULT)
+
+                special(RogueDebug_FillGenPC)
+
+                msgbox(format("Done."), MSGBOX_DEFAULT)
+
+        }
     }
 
-    if(flag(FLAG_ROGUE_EXPANSION_ACTIVE))
+    msgbox(format("Fill dex?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
     {
-        multichoice(20, 0, MULTI_GENERATIONS_UPTO8, NO)
-    }
-    else
-    {
-        multichoice(20, 6, MULTI_GENERATIONS_UPTO3, NO)
-    }
-
-    switch(var(VAR_RESULT))
-    {
-        case 0:
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-            waitse
-            playse(SE_PIN)
-            addvar(VAR_RESULT, 1)
-            copyvar(VAR_0x8004, VAR_RESULT)
-
-            special(RogueDebug_FillGenPC)
-
-            msgbox(format("Done."), MSGBOX_DEFAULT)
-
-        case MULTI_B_PRESSED: 
-            msgbox(format("No worries!\nCome chat to me if you ever change your mind."), MSGBOX_DEFAULT)
-
+        special(RogueDebug_FillDex)
+        msgbox(format("Done."), MSGBOX_DEFAULT)
     }
 
     release

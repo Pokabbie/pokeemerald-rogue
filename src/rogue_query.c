@@ -12,6 +12,7 @@
 #include "party_menu.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "random.h"
 
 #include "rogue_adventurepaths.h"
@@ -1797,4 +1798,68 @@ u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
     //}
 
     return sRogueQuery.listArray;
+}
+
+void RogueDebugQuery_FillPC()
+{
+#ifdef ROGUE_DEBUG
+    u16 species;
+    u16 writeIdx = 0;
+
+    ASSERT_NO_QUERY;
+
+    sRogueQuery.queryType = QUERY_TYPE_MON;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryBitFlag(species))
+        {
+            struct Pokemon mon;
+            u16 currIdx = writeIdx++;
+            u16 targetBox = currIdx / IN_BOX_COUNT;
+            u16 boxIndex = currIdx % IN_BOX_COUNT;
+
+            GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
+            GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
+
+            CreateMon(&mon, species, 1, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+
+            SetBoxMonAt(targetBox, boxIndex, &mon.box);
+        }
+    }
+
+    // Clear a box of space
+    for(species = 0; species < IN_BOX_COUNT; ++species)
+    {
+        u16 currIdx = writeIdx++;
+        u16 targetBox = currIdx / IN_BOX_COUNT;
+        u16 boxIndex = currIdx % IN_BOX_COUNT;
+        ZeroBoxMonAt(targetBox, boxIndex);
+    }
+
+    sRogueQuery.queryType = QUERY_TYPE_NONE;
+#endif
+}
+
+void RogueDebugQuery_FillBag()
+{
+#ifdef ROGUE_DEBUG
+    u16 itemId;
+
+    ASSERT_NO_QUERY;
+    sRogueQuery.queryType = QUERY_TYPE_ITEM;
+
+    ClearBag();
+
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    {
+        if(GetQueryBitFlag(itemId))
+        {
+            if(!AddBagItem(itemId, 1))
+                break;
+        }
+    }
+
+    sRogueQuery.queryType = QUERY_TYPE_NONE;
+#endif
 }
