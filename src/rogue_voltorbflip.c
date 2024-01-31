@@ -8,6 +8,7 @@
 #include "task.h"
 #include "malloc.h"
 #include "decompress.h"
+#include "event_data.h"
 #include "bg.h"
 #include "window.h"
 #include "sound.h"
@@ -111,6 +112,8 @@ extern const u8 gText_PokedexDiploma[];
 static void MainCB2(void);
 static void Task_VoltorbFlipFadeIn(u8);
 static void Task_VoltorbFlipWaitForKeyPress(u8);
+static void Task_VoltorbFlipVictory(u8);
+static void Task_VoltorbFlipLoss(u8);
 static void Task_VoltorbFlipFadeOut(u8);
 static void DisplayVoltorbFlipText(void);
 static void DrawBoardCardTiles(void);
@@ -526,7 +529,7 @@ void CB2_ShowVoltorbFlip(void)
     SetVBlankCallback(VBlankCB);
     SetMainCallback2(MainCB2);
 
-    ResetVoltorbFlipCards(0);
+    ResetVoltorbFlipCards(VarGet(VAR_0x8004));
 
     CreateTask(Task_VoltorbFlipFadeIn, 0);
 }
@@ -553,17 +556,31 @@ static void Task_VoltorbFlipWaitForKeyPress(u8 taskId)
 
     if (JOY_NEW(B_BUTTON))
     {
+        VarSet(VAR_RESULT, FALSE);
+
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_VoltorbFlipFadeOut;
         return;
     }
 
-    if(gameState != GAME_STATE_IN_PROGRESS)
+    if(gameState == GAME_STATE_LOSE)
     {
-        ShowAllCards();
+        VarSet(VAR_RESULT, FALSE);
+
         gSprites[sVoltorbFlipState->outlineSprite].invisible = TRUE;
         gSprites[sVoltorbFlipState->pointerSprite].invisible = TRUE;
-        // TODO - Exit
+        gTasks[taskId].func = Task_VoltorbFlipLoss;
+        gTasks[taskId].data[0] = 0;
+    }
+    else if(gameState == GAME_STATE_WIN)
+    {
+        ShowAllCards();
+        VarSet(VAR_RESULT, TRUE);
+
+        gSprites[sVoltorbFlipState->outlineSprite].invisible = TRUE;
+        gSprites[sVoltorbFlipState->pointerSprite].invisible = TRUE;
+        gTasks[taskId].func = Task_VoltorbFlipVictory;
+        gTasks[taskId].data[0] = 0;
         return;
     }
 
@@ -666,6 +683,32 @@ static void Task_VoltorbFlipWaitForKeyPress(u8 taskId)
     UpdateVoltorbFlipSprites();
 }
 
+static void Task_VoltorbFlipVictory(u8 taskId)
+{
+    if(gTasks[taskId].data[0] == 0)
+    {
+        PlayFanfare(MUS_OBTAIN_ITEM);
+        ++gTasks[taskId].data[0];
+    }
+    else
+    {
+        if(WaitFanfare(FALSE))
+        {
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+            gTasks[taskId].func = Task_VoltorbFlipFadeOut;
+        }
+    }
+}
+
+static void Task_VoltorbFlipLoss(u8 taskId)
+{
+    if(!IsSEPlaying())
+    {
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+        gTasks[taskId].func = Task_VoltorbFlipFadeOut;
+    }
+}
+
 static void Task_VoltorbFlipFadeOut(u8 taskId)
 {
     if (!gPaletteFade.active)
@@ -676,7 +719,7 @@ static void Task_VoltorbFlipFadeOut(u8 taskId)
         sVoltorbFlipState = NULL;
         FreeAllWindowBuffers();
         DestroyTask(taskId);
-        SetMainCallback2(CB2_ReturnToFieldFadeFromBlack);
+        SetMainCallback2(CB2_ReturnToFieldContinueScript);
     }
 }
 

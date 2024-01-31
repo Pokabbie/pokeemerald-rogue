@@ -42,6 +42,7 @@
 	.include "src/rogue_controller.o"
 	.include "src/rogue_debug.o"
 	.include "src/rogue_followmon.o"
+	.include "src/rogue_gameshow.o"
 	.include "src/rogue_ridemon.o"
 	.include "src/rogue_hub.o"
 	.include "src/rogue_query.o"

@@ -66,6 +66,22 @@
                 ]
             },
             {
+                "species": "SPECIES_ELECTRODE",
+                "trainer": "Rndoman",
+                "held_item": "ITEM_SILK_SCARF",
+                "moves":
+                [
+                    "MOVE_EXPLOSION",
+                    "MOVE_EXPLOSION",
+                    "MOVE_EXPLOSION",
+                    "MOVE_EXPLOSION"
+                ],
+                "abilities":
+                [
+                    "ABILITY_WONDER_GUARD"
+                ]
+            },
+            {
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_WOBBUFFET",
                 "trainer": "Rndoman",
