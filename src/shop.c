@@ -1438,10 +1438,15 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
 
     if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
+        u16 ballCount = tItemCount / 10;
         PlaySE(SE_SELECT);
-        if (tItemId == ITEM_POKE_BALL && tItemCount > 9 && AddBagItem(ITEM_PREMIER_BALL, 1) == TRUE)
+        if (ItemId_GetPocket(tItemId) == POCKET_POKE_BALLS && ballCount != 0 && AddBagItem(ITEM_PREMIER_BALL, ballCount) == TRUE)
         {
-            BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBall, BuyMenuReturnToItemList);
+            CopyItemNameHandlePlural(ITEM_PREMIER_BALL, gStringVar1, ballCount);
+            if(ballCount > 1)
+                BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBalls, BuyMenuReturnToItemList);
+            else
+                BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBall, BuyMenuReturnToItemList);
         }
         else
         {
