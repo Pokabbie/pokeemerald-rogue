@@ -894,6 +894,15 @@ void TintPalette_GrayScale2(u16 *palette, u16 count)
     }
 }
 
+void TintPalette_StompColour(u16 *palette, u16 count, u16 colour)
+{
+    u16 i;
+    for (i = 0; i < count; i++)
+    {
+        *palette++ = colour;
+    }
+}
+
 void TintPalette_SepiaTone(u16 *palette, u16 count)
 {
     s32 r, g, b, i;

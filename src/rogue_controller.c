@@ -58,6 +58,7 @@
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_debug.h"
+#include "rogue_gameshow.h"
 #include "rogue_gifts.h"
 #include "rogue_followmon.h"
 #include "rogue_hub.h"
@@ -116,6 +117,7 @@ struct RouteMonPreview
 struct RogueLocalData
 {
     struct RouteMonPreview encounterPreview[WILD_ENCOUNTER_GRASS_CAPACITY];
+    struct RogueGameShow gameShow;
     u32 rngSeedToRestore;
     u16 wildEncounterHistoryBuffer[3];
     bool8 runningToggleActive : 1;
@@ -332,6 +334,11 @@ bool8 Rogue_UseFinalQuestEffects(void)
     }
 
     return FALSE;
+}
+
+struct RogueGameShow* Rogue_GetGameShow()
+{
+    return &gRogueLocal.gameShow;
 }
 
 static bool8 HasFinalQuestBossAppliedSwap()
@@ -826,7 +833,7 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
                 break;
 
             case ITEM_RARE_CANDY:
-                amount = 5;
+                amount = 10;
                 break;
 
 #ifdef ROGUE_EXPANSION
@@ -3463,6 +3470,12 @@ bool8 Rogue_IsBattleAlphaMon(u16 species)
     if(gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] == species && gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] == Rogue_GetCurrentDifficulty())
         return TRUE;
 
+    if(Rogue_IsRunActive())
+    {
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_GAMESHOW && species == SPECIES_ELECTRODE)
+            return TRUE;
+    }
+    
     return FALSE;
 }
 
@@ -6003,6 +6016,10 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
         {
             FillWithRoamerState(mon, GetMonData(mon, MON_DATA_LEVEL));
         }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_GAMESHOW)
+        {
+            RogueGift_CreateMon(CUSTOM_MON_RNDOMAN_ELECTRODE, mon, GetMonData(mon, MON_DATA_LEVEL), 31);
+        }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
         {
             u16 presetIndex;
@@ -7248,7 +7265,6 @@ static void RandomiseItemContent(u8 difficultyLevel)
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_KEY_ITEMS);
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKEBLOCK);
-        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKE_BALLS);
 
         RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
         
@@ -7267,8 +7283,9 @@ static void RandomiseItemContent(u8 difficultyLevel)
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
         {
-            // Allow rare candies in hideouts
+            // Allow rare candies and escape ropes in hideouts
             RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_RARE_CANDY);
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_ESCAPE_ROPE);
         }
 
         RogueWeightQuery_Begin();

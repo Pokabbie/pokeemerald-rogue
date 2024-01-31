@@ -635,14 +635,14 @@ static const struct EasyChatScreenTemplate sEasyChatScreenTemplates[] = {
         .confirmText2 = gText_IsAsShownOkay,
     },
     {
-        .type = EASY_CHAT_TYPE_BATTLE_TOWER_INTERVIEW,
+        .type = EASY_CHAT_TYPE_ROGUE_GAMESHOW_CHOOSE_MON,
         .numColumns = 1,
         .numRows = 1,
         .frameId = FRAMEID_INTERVIEW_SHOW_PERSON,
         .fourFooterOptions = FALSE,
-        .titleText = gText_Interview,
-        .instructionsText1 = gText_FindWordsThatDescribeYour,
-        .instructionsText2 = gText_FeelingsRightNow,
+        .titleText = gText_TheAnswerColon,
+        .instructionsText1 = gText_WhichPokemongIsIt,
+        .instructionsText2 = gText_EmptyString2,
         .confirmText1 = gText_TheAnswer,
         .confirmText2 = gText_IsAsShownOkay,
     },
@@ -1537,9 +1537,10 @@ void ShowEasyChatScreen(void)
         words = &gSaveBlock1Ptr->tvShows[gSpecialVar_0x8005].bravoTrainer.words[gSpecialVar_0x8006];
         displayedPersonType = EASY_CHAT_PERSON_REPORTER_MALE;
         break;
-    case EASY_CHAT_TYPE_BATTLE_TOWER_INTERVIEW:
-        words = gSaveBlock1Ptr->tvShows[gSpecialVar_0x8005].bravoTrainerTower.words;
-        displayedPersonType = EASY_CHAT_PERSON_REPORTER_FEMALE;
+    case EASY_CHAT_TYPE_ROGUE_GAMESHOW_CHOOSE_MON:
+        words = gSaveBlock1Ptr->dewfordTrends[2].words;
+        displayedPersonType = EASY_CHAT_PERSON_RANDOMAN;
+        //words = gSaveBlock1Ptr->tvShows[gSpecialVar_0x8005].bravoTrainerTower.words;
         break;
     case EASY_CHAT_TYPE_GOOD_SAYING:
         words = (u16 *)gStringVar3;
@@ -1800,6 +1801,15 @@ static u16 HandleEasyChatInput_Phrase(void)
         else if (JOY_NEW(DPAD_DOWN))
         {
             sEasyChatScreen->mainCursorRow++;
+
+            // RogueNote: hack
+            if(sEasyChatScreen->type == EASY_CHAT_TYPE_ROGUE_GAMESHOW_CHOOSE_MON)
+            {
+                // Place cursor on OK
+                if(sEasyChatScreen->mainCursorRow == 1)
+                    sEasyChatScreen->mainCursorColumn = 2;
+            }
+
             break;
         }
         else if (JOY_NEW(DPAD_RIGHT))
@@ -5065,6 +5075,9 @@ static void TryAddInterviewObjectEvents(void)
     case EASY_CHAT_PERSON_BOY:
         graphicsId = OBJ_EVENT_GFX_BOY_1;
         break;
+    case EASY_CHAT_PERSON_RANDOMAN:
+        graphicsId = OBJ_EVENT_GFX_CONTEST_JUDGE;
+        break;
     default:
         return;
     }
@@ -5151,29 +5164,29 @@ static void AddMainScreenButtonWindow(void)
     PutWindowTilemap(windowId);
 }
 
-static bool8 IsEasyChatGroupUnlocked(u8 groupId)
+static bool8 IsEasyChatGroupVisible(u8 groupId)
 {
-    switch (groupId)
+    if(sEasyChatScreen->type == EASY_CHAT_TYPE_ROGUE_GAMESHOW_CHOOSE_MON)
     {
-    case EC_GROUP_TRENDY_SAYING:
-        return FlagGet(FLAG_UNLOCKED_TRENDY_SAYINGS);
-    case EC_GROUP_EVENTS:
-    case EC_GROUP_MOVE_1:
-    case EC_GROUP_MOVE_2:
-        return FlagGet(FLAG_SYS_GAME_CLEAR);
-    case EC_GROUP_POKEMON_NATIONAL:
-        return EasyChatIsNationalPokedexEnabled();
-    default:
+        switch (groupId)
+        {
+        case EC_GROUP_POKEMON:
+        case EC_GROUP_POKEMON_NATIONAL:
+            return TRUE;
+            break;
+        }
+
+        return FALSE;
+    }
+    else
+    {
         return TRUE;
     }
 }
 
 u16 EasyChat_GetNumWordsInGroup(u8 groupId)
 {
-    if (groupId == EC_GROUP_POKEMON)
-        return GetNationalPokedexCount(FLAG_GET_SEEN);
-
-    if (IsEasyChatGroupUnlocked(groupId))
+    if (IsEasyChatGroupVisible(groupId))
         return gEasyChatGroups[groupId].numEnabledWords;
 
     return 0;
@@ -5192,6 +5205,9 @@ static bool8 IsEasyChatWordInvalid(u16 easyChatWord)
     groupId = EC_GROUP(easyChatWord);
     index = EC_INDEX(easyChatWord);
     if (groupId >= EC_NUM_GROUPS)
+        return TRUE;
+
+    if(!IsEasyChatGroupVisible(groupId))
         return TRUE;
 
     numWords = gEasyChatGroups[groupId].numWords;
@@ -5265,7 +5281,7 @@ u8 *CopyEasyChatWord(u8 *dest, u16 easyChatWord)
     u8 *resultStr;
     if (IsEasyChatWordInvalid(easyChatWord))
     {
-        resultStr = StringCopy(dest, gText_ThreeQuestionMarks);
+        resultStr = StringCopy(dest, gText_Dash);
     }
     else if (easyChatWord != EC_EMPTY_WORD)
     {
@@ -5413,7 +5429,7 @@ u16 GetRandomEasyChatWordFromGroup(u16 groupId)
 
 u16 GetRandomEasyChatWordFromUnlockedGroup(u16 groupId)
 {
-    if (!IsEasyChatGroupUnlocked(groupId))
+    if (!IsEasyChatGroupVisible(groupId))
         return EC_EMPTY_WORD;
 
     if (groupId == EC_GROUP_POKEMON)
@@ -5838,38 +5854,12 @@ static u16 SetSelectedWordGroup_AlphabetMode(u16 groupId)
     return totalWords;
 }
 
-static bool8 UNUSED IsEasyChatGroupUnlocked2(u8 groupId)
-{
-    return TRUE;
-    //int i;
-    //for (i = 0; i < sWordData->numUnlockedGroups; i++)
-    //{
-    //    if (sWordData->unlockedGroupIds[i] == groupId)
-    //        return TRUE;
-    //}
-//
-    //return FALSE;
-}
-
 static bool8 IsEasyChatIndexAndGroupUnlocked(u16 wordIndex, u8 groupId)
 {
-    switch (groupId)
-    {
-    case EC_GROUP_POKEMON:
-        return CanPokemonBeShown(wordIndex);
-    case EC_GROUP_POKEMON_NATIONAL:
-        if (IsRestrictedWordSpecies(wordIndex))
-            CanPokemonBeShown(wordIndex);
-        return TRUE;
-    //case EC_GROUP_MOVE_1:
-    //case EC_GROUP_MOVE_2:
-    //    return TRUE;
-    //case EC_GROUP_TRENDY_SAYING:
-    //    return IsAdditionalPhraseUnlocked(wordIndex);
-    default:
-        //return gEasyChatGroups[groupId].wordData.words[wordIndex].enabled;
-        return TRUE;
-    }
+    if (!IsEasyChatGroupVisible(groupId))
+        return FALSE;
+
+    return TRUE;
 }
 
 // Pokémon words in EC_GROUP_POKEMON_NATIONAL are always allowed (assuming the group is unlocked)
@@ -5888,13 +5878,13 @@ static int IsRestrictedWordSpecies(u16 species)
 
 static u8 IsEasyChatWordUnlocked(u16 easyChatWord)
 {
-    return TRUE;
-    //u8 groupId = EC_GROUP(easyChatWord);
+    u8 groupId = EC_GROUP(easyChatWord);
     //u32 index = EC_INDEX(easyChatWord);
-    //if (!IsEasyChatGroupUnlocked2(groupId))
-    //    return FALSE;
-    //else
-    //    return IsEasyChatIndexAndGroupUnlocked(index, groupId);
+
+    if (!IsEasyChatGroupVisible(groupId))
+        return FALSE;
+
+    return TRUE;
 }
 
 void InitializeEasyChatWordArray(u16 *words, u16 length)
@@ -5914,12 +5904,10 @@ void InitQuestionnaireWords(void)
 
 bool32 IsEasyChatAnswerUnlocked(int easyChatWord)
 {
+    u8 groupId = EC_GROUP(easyChatWord);
+
+    if (!IsEasyChatGroupVisible(groupId))
+        return FALSE;
+
     return TRUE;
-    //int groupId = EC_GROUP(easyChatWord);
-    //int mask = EC_MASK_GROUP;
-    //int index = EC_INDEX(easyChatWord);
-    //if (!IsEasyChatGroupUnlocked(groupId & mask))
-    //    return FALSE;
-    //else
-    //    return IsEasyChatIndexAndGroupUnlocked(index, groupId & mask);
 }

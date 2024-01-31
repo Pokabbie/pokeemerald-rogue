@@ -256,6 +256,10 @@ gSpecials::
 	def_special RogueAdv_GetLastInteractedRoomParams
 	def_special RogueAdv_WarpLastInteractedRoom
 	def_special RoguePlayer_HandleEasterEggOutfitUnlocks
+	def_special GameShow_RestartGameShow
+	def_special GameShow_SelectRandomSpecies
+	def_special GameShow_BufferSpecies
+	def_special GameShow_CheckResultMatchesSpecies
 	def_special ReloadWarpSilent
 	def_special GetFirstFreePokeblockSlot
 	def_special DoBerryBlending

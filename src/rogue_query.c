@@ -224,6 +224,31 @@ bool8 RogueMiscQuery_AnyActiveElements()
     return sRogueQuery.bitCount != 0;
 }
 
+u16 RogueMiscQuery_SelectRandomElement(u16 rngValue)
+{
+    u16 elem;
+    u16 currIndex;
+    u16 count = Query_MaxBitCount();
+    u16 desiredIndex = rngValue % sRogueQuery.bitCount;
+    ASSERT_ANY_QUERY;
+    AGB_ASSERT(RogueMiscQuery_AnyActiveElements());
+
+    currIndex = 0;
+
+    for(elem = 1; elem < count; ++elem)
+    {
+        if(GetQueryBitFlag(elem))
+        {
+            if(currIndex++ == desiredIndex)
+                return elem;
+        }
+    }
+
+    // Should never reach here
+    AGB_ASSERT(FALSE);
+    return elem - 1;
+}
+
 void RogueCustomQuery_Begin()
 {
     ASSERT_NO_QUERY;

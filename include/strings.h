@@ -2836,6 +2836,7 @@ extern const u8 gText_AndImproveTheBardsSong[];
 extern const u8 gText_TheBardsSong2[];
 extern const u8 gText_FindWordsThatDescribeYour[];
 extern const u8 gText_FeelingsRightNow[];
+extern const u8 gText_WhichPokemongIsIt[];
 extern const u8 gText_WhatsHipAndHappening[];
 extern const u8 gText_CampaignPhrase[];
 extern const u8 gText_CombineTwoWordsOrPhrases[];

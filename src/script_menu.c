@@ -15,6 +15,7 @@
 #include "text.h"
 #include "constants/field_specials.h"
 #include "constants/items.h"
+#include "constants/rgb.h"
 #include "constants/script_menu.h"
 #include "constants/songs.h"
 
@@ -608,7 +609,7 @@ static void Task_PokemonPicWindow(u8 taskId)
     }
 }
 
-bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y)
+bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y, bool8 isObscured)
 {
     u8 taskId;
     u8 spriteId;
@@ -627,6 +628,14 @@ bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y)
         gTasks[taskId].tMonSpriteId = spriteId;
         gSprites[spriteId].callback = SpriteCallbackDummy;
         gSprites[spriteId].oam.priority = 0;
+
+        if(isObscured)
+        {
+            // black out palette
+            TintPalette_StompColour(&gPlttBufferUnfaded[OBJ_PLTT_ID(gSprites[spriteId].oam.paletteNum)], 16, RGB(1, 1, 1));
+            TintPalette_StompColour(&gPlttBufferFaded[OBJ_PLTT_ID(gSprites[spriteId].oam.paletteNum)], 16, RGB(1, 1, 1));
+        }
+
         SetStandardWindowBorderStyle(gTasks[taskId].tWindowId, TRUE);
         ScheduleBgCopyTilemapToVram(0);
         return TRUE;

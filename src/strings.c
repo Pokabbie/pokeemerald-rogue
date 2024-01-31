@@ -1175,6 +1175,7 @@ const u8 gText_CombineSixWordsOrPhrases[] = _("Combine six words or phrases");
 const u8 gText_AndMakeAMessage[] = _("and make a message.");
 const u8 gText_FindWordsThatDescribeYour[] = _("Find words that describe your");
 const u8 gText_FeelingsRightNow[] = _("feelings right now.");
+const u8 gText_WhichPokemongIsIt[] = _("Which Pokemon is it?");
 const u8 gText_WithFourPhrases[] = _("With four phrases,"); // Unused
 const u8 gText_CombineNineWordsOrPhrases[] = _("Combine nine words or phrases");
 const u8 gText_AndMakeAMessage2[] = _("and make a message.");
