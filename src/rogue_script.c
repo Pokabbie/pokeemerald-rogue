@@ -374,9 +374,6 @@ void RogueDebug_FillGenPC(void)
             u16 targetBox = currIdx / IN_BOX_COUNT;
             u16 boxIndex = currIdx % IN_BOX_COUNT;
 
-            GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
-            GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
-
             CreateMon(&mon, species, 95, MAX_PER_STAT_IVS, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
             SetBoxMonAt(targetBox, boxIndex, &mon.box);
@@ -390,6 +387,19 @@ void RogueDebug_FillGenPC(void)
         u16 targetBox = currIdx / IN_BOX_COUNT;
         u16 boxIndex = currIdx % IN_BOX_COUNT;
         ZeroBoxMonAt(targetBox, boxIndex);
+    }
+#endif
+}
+
+void RogueDebug_FillDex(void)
+{
+#ifdef ROGUE_DEBUG
+    u16 species;
+
+    for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
+    {
+        GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
+        GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
     }
 #endif
 }

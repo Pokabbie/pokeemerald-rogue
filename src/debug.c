@@ -68,6 +68,7 @@
 #include "save.h"
 
 #include "rogue_pokedex.h"
+#include "rogue_query.h"
 
 #ifndef ROGUE_EXPANSION
 #define MON_DATA_SPECIES_OR_EGG MON_DATA_SPECIES2
@@ -462,8 +463,8 @@ static const u8 sDebugText_Fill[] =             _("Fill PC/Pockets…{CLEAR_TO 1
 static const u8 sDebugText_Sound[] =            _("Sound…{CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_Cancel[] =           _("Cancel");
 // Script menu
-static const u8 sDebugText_Util_Script_1[] =               _("Script 1");
-static const u8 sDebugText_Util_Script_2[] =               _("Script 2");
+static const u8 sDebugText_Util_Script_1[] =               _("Fill PC from Query");
+static const u8 sDebugText_Util_Script_2[] =               _("Fill Bag from Query");
 static const u8 sDebugText_Util_Script_3[] =               _("Script 3");
 static const u8 sDebugText_Util_Script_4[] =               _("Script 4");
 static const u8 sDebugText_Util_Script_5[] =               _("Script 5");
@@ -2206,11 +2207,13 @@ void BufferExpansionVersion(struct ScriptContext *ctx)
 // Actions Scripts
 static void DebugAction_Util_Script_1(u8 taskId)
 {
+    RogueDebugQuery_FillPC();
     Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_1);
 }
 
 static void DebugAction_Util_Script_2(u8 taskId)
 {
+    RogueDebugQuery_FillBag();
     Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_2);
 }
 

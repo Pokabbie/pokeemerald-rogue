@@ -14,12 +14,12 @@
             [
                 {
                     "max_samples": 1,
-                    "include_types": [ "DARK" ],
+                    "include_types": [ "FIRE" ],
                     "exclude_types": [ "WATER" ]
                 },
                 {
                     "max_samples": 1,
-                    "include_types": [ "FIRE" ],
+                    "include_types": [ "DARK" ],
                     "exclude_types": [ "WATER" ]
                 },
                 {

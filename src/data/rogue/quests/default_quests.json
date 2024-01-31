@@ -36,7 +36,7 @@
             {
                 "name": "Gym Badge 1",
                 "display_group": "starter_quests",
-                "description": "Defeat a Strong Trainer and collect your 1st Gym Badge",
+                "description": "Defeat a Mighty Trainer and collect your 1st Gym Badge",
                 "triggers":
                 [
                     {
@@ -55,7 +55,7 @@
             {
                 "name": "Gym Badge 2",
                 "display_group": "starter_quests",
-                "description": "Defeat a Strong Trainer and collect your 2nd Gym Badge",
+                "description": "Defeat a Mighty Trainer and collect your 2nd Gym Badge",
                 "triggers":
                 [
                     {
@@ -74,7 +74,7 @@
             {
                 "name": "Gym Badge 3",
                 "display_group": "starter_quests",
-                "description": "Defeat a Strong Trainer and collect your 3rd Gym Badge",
+                "description": "Defeat a Mighty Trainer and collect your 3rd Gym Badge",
                 "triggers":
                 [
                     {
@@ -93,7 +93,7 @@
             {
                 "name": "Gym Badge 4",
                 "display_group": "starter_quests",
-                "description": "Defeat a Strong Trainer and collect your 4th Gym Badge",
+                "description": "Defeat a Mighty Trainer and collect your 4th Gym Badge",
                 "triggers":
                 [
                     {
@@ -112,7 +112,7 @@
             {
                 "name": "Gym Badge 5",
                 "display_group": "starter_quests",
-                "description": "Defeat a Strong Trainer and collect your 5th Gym Badge",
+                "description": "Defeat a Mighty Trainer and collect your 5th Gym Badge",
                 "triggers":
                 [
                     {
@@ -131,7 +131,7 @@
             {
                 "name": "Gym Badge 6",
                 "display_group": "starter_quests",
-                "description": "Defeat a Strong Trainer and collect your 6th Gym Badge",
+                "description": "Defeat a Mighty Trainer and collect your 6th Gym Badge",
                 "triggers":
                 [
                     {
@@ -150,7 +150,7 @@
             {
                 "name": "Gym Badge 7",
                 "display_group": "starter_quests",
-                "description": "Defeat a Strong Trainer and collect your 7th Gym Badge",
+                "description": "Defeat a Mighty Trainer and collect your 7th Gym Badge",
                 "triggers":
                 [
                     {
@@ -169,7 +169,7 @@
             {
                 "name": "Gym Badge 8",
                 "display_group": "starter_quests",
-                "description": "Defeat a Strong Trainer and collect your 8th Gym Badge",
+                "description": "Defeat a Mighty Trainer and collect your 8th Gym Badge",
                 "triggers":
                 [
                     {

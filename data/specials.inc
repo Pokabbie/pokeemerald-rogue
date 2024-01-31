@@ -189,6 +189,7 @@ gSpecials::
 	def_special Rogue_GetMonEvoCount
 	def_special Rogue_GetMonEvoParams
 	def_special RogueDebug_FillGenPC
+	def_special RogueDebug_FillDex
 	def_special RogueDebug_ClearQuests
 	def_special RogueDebug_CompleteAvaliableQuests
 	def_special RogueDebug_CollectAllQuests

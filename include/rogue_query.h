@@ -101,4 +101,8 @@ void RogueListQuery_Begin();
 void RogueListQuery_End();
 u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort);
 
+// Debug
+void RogueDebugQuery_FillPC();
+void RogueDebugQuery_FillBag();
+
 #endif

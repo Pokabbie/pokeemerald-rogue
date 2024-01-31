@@ -156,17 +156,17 @@ static u8 const sMenuNameDesc_BattleFormat[] = _(
 
 static u8 const sMenuNameDesc_TrainerOrder_Default[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Strong Trainers appear in a random order\n"
+    "Mighty Trainers appear in a random order\n"
     "within their official Trainer Class.\n"
 );
 static u8 const sMenuNameDesc_TrainerOrder_Rainbow[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Strong Trainers appear in a random order.\n"
+    "Mighty Trainers appear in a random order.\n"
     "(Type specialties won't repeat)\n"
 );
 static u8 const sMenuNameDesc_TrainerOrder_Official[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Strong Trainers appear in the order\n"
+    "Mighty Trainers appear in the order\n"
     "they appear in their official games.\n"
 );
 static u8 const* const sMenuNameDesc_TrainerOrder[] = 
