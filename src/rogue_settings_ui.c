@@ -241,6 +241,8 @@ static u8 const sMenuName_DebugToggleInstantCapture[] = _("INSTANT CATCH");
 static u8 const sMenuName_DebugToggleTodTintUsePlayerColour[] = _("PLAYER TOD TINT");
 static u8 const sMenuName_DebugToggleDebugShops[] = _("DEBUG SHOPS");
 static u8 const sMenuName_DebugToggleDebugLegends[] = _("DEBUG LEGENDS");
+static u8 const sMenuName_DebugToggleDebugMonQuery[] = _("Dump Mon Query");
+static u8 const sMenuName_DebugToggleDebugItemQuery[] = _("Dump Item Query");
 
 static u8 const sMenuName_DebugRangeStartDifficulty[] = _("START DIFFICULTY");
 static u8 const sMenuName_DebugRangeForcedRoute[] = _("FORCED ROUTE");
@@ -293,6 +295,8 @@ enum
     MENUITEM_MENU_DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR,
     MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_SHOPS,
     MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_LEGENDS,
+    MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_MON_QUERY,
+    MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_ITEM_QUERY,
 
     MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
     MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE,
@@ -629,6 +633,18 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
+    [MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_MON_QUERY] = 
+    {
+        .itemName = sMenuName_DebugToggleDebugMonQuery,
+        .processInput = DebugToggle_ProcessInput,
+        .drawChoices = DebugToggle_DrawChoices
+    },
+    [MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_ITEM_QUERY] = 
+    {
+        .itemName = sMenuName_DebugToggleDebugItemQuery,
+        .processInput = DebugToggle_ProcessInput,
+        .drawChoices = DebugToggle_DrawChoices
+    },
 
     [MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY] = 
     {
@@ -740,6 +756,8 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR,
             MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_SHOPS,
             MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_LEGENDS,
+            MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_MON_QUERY,
+            MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_ITEM_QUERY,
 
             MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
             MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE,
@@ -1601,6 +1619,12 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_LEGENDS:
         return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_LEGENDS);
 
+    case MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_MON_QUERY:
+        return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_MON_QUERY);
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_ITEM_QUERY:
+        return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_ITEM_QUERY);
+
 
     case MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY:
         return RogueDebug_GetConfigRange(DEBUG_RANGE_START_DIFFICULTY);
@@ -1744,6 +1768,15 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
     case MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_LEGENDS:
         RogueDebug_SetConfigToggle(DEBUG_TOGGLE_DEBUG_LEGENDS, value);
         break;
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_MON_QUERY:
+        RogueDebug_SetConfigToggle(DEBUG_TOGGLE_DEBUG_MON_QUERY, value);
+        break;
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_ITEM_QUERY:
+        RogueDebug_SetConfigToggle(DEBUG_TOGGLE_DEBUG_ITEM_QUERY, value);
+        break;
+
 
     case MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY:
         RogueDebug_SetConfigRange(DEBUG_RANGE_START_DIFFICULTY, value);

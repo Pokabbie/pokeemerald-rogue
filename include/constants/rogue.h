@@ -480,7 +480,9 @@
 #define DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR     (DEBUG_START_VALUE + 5)
 #define DEBUG_TOGGLE_DEBUG_SHOPS                    (DEBUG_START_VALUE + 6)
 #define DEBUG_TOGGLE_DEBUG_LEGENDS                  (DEBUG_START_VALUE + 7)
-#define DEBUG_TOGGLE_COUNT                          8
+#define DEBUG_TOGGLE_DEBUG_MON_QUERY                (DEBUG_START_VALUE + 8)
+#define DEBUG_TOGGLE_DEBUG_ITEM_QUERY               (DEBUG_START_VALUE + 9)
+#define DEBUG_TOGGLE_COUNT                          10
 #define DEBUG_TOGGLE_BYTE_COUNT                     (1 + DEBUG_TOGGLE_COUNT / 8)
 
 // DEBUG_RANGE_

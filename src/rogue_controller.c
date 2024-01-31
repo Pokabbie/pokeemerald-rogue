@@ -4043,9 +4043,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                     RandomiseWildEncounters();
                     ResetTrainerBattles();
+                    RandomiseBerryTrees();
                     RandomiseEnabledTrainers();
                     RandomiseEnabledItems();
-                    RandomiseBerryTrees();
 
                     if(Rogue_GetCurrentDifficulty() != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
                     {
@@ -7265,6 +7265,8 @@ static void RandomiseItemContent(u8 difficultyLevel)
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_KEY_ITEMS);
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKEBLOCK);
+
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_PREMIER_BALL);
 
         RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
         
