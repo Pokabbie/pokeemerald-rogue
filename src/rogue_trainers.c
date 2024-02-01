@@ -2188,6 +2188,9 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         {
             RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, currentSubset->includedTypeMask);
             RogueMonQuery_IsOfType(QUERY_FUNC_EXCLUDE, currentSubset->excludedTypeMask);
+
+            RogueMonQuery_IsOfGeneration(QUERY_FUNC_INCLUDE, currentSubset->includedGenMask);
+            RogueMonQuery_IsOfGeneration(QUERY_FUNC_EXCLUDE, currentSubset->excludedGenMask);
         }
         else
         {

@@ -475,6 +475,41 @@ void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
     }
 }
 
+void RogueMonQuery_IsOfGeneration(u8 func, u32 generationFlags)
+{
+    u16 species;
+    u32 speciesFlags;
+
+    ASSERT_MON_QUERY;
+
+    // Skip and accept all if empty
+    if(generationFlags == 0)
+        return;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryBitFlag(species))
+        {
+            speciesFlags = MON_GEN_TO_FLAGS(SpeciesToGen(species));
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if((generationFlags & speciesFlags) == 0)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if((generationFlags & speciesFlags) != 0)
+                {
+                    SetQueryBitFlag(species, FALSE);
+                }
+            }
+        }
+    }
+}
+
 void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags)
 {
     bool8 containsAnyType;

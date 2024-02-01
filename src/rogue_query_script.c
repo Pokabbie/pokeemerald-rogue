@@ -121,23 +121,14 @@ u8 RogueQueryScript_CalculateWeightsCallback(u16 index, u16 species, void* data)
     else
     {
         // Favour is measuring powers of 2
-        u8 shift;
-        u8 weight = 8;
-        s16 signedValue = (s16)context->currentFavour - DEFAULT_FAVOUR;
+        u8 weight;
+        s16 signedValue;
 
         // Start with neutral weight as 8, so can decrease weight by 3 or increase by 4
-        if(signedValue < 0)
-        {
-            signedValue *= -1;
-            shift = min(signedValue, 3);
-            weight = (8 >> shift);
-        }
-        else
-        {
-            shift = min(signedValue, 4);
-            weight = (8 << shift);
-        }
+        signedValue = (s16)context->currentFavour - DEFAULT_FAVOUR + 3;
+        signedValue = min(8, max(0, signedValue));
 
+        weight = (1 << (u8)(signedValue));
         return weight;
     }
 }

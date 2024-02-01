@@ -83,7 +83,7 @@
         "xlocinfo": "cpp",
         "xstddef": "cpp",
         "csignal": "cpp",
-        "filesystem": "c"
+        "filesystem": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "languageServerPoryscript.commandIncludes": [
