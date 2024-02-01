@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_BOSS_0",
   "name": "Rogue_Boss_0",
   "layout": "LAYOUT_ROGUE_BOSS_0",
-  "music": "MUS_GYM",
+  "music": "MUS_B_DOME",
   "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -73,7 +73,7 @@
       "y": 20,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_BOSS_0",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

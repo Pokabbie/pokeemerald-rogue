@@ -4424,6 +4424,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_DP_SNOWPOINT_DAY) \
     X(MUS_DP_SOLACEON_DAY) \
     X(MUS_DP_UNDERGROUND) \
+    X(MUS_DP_GYM) \
     X(MUS_PL_VS_GIRATINA) \
     X(MUS_MOVE_DELETED_SLOW) \
 

@@ -702,6 +702,7 @@ gSongTable::
 	song mus_dp_snowpoint_day, 0, 0
 	song mus_dp_solaceon_day, 0, 0
 	song mus_dp_underground, 0, 0
+	song mus_dp_gym, 0, 0
 	song mus_pl_vs_giratina, 0, 0
 	song mus_move_deleted_slow, 2, 2
 

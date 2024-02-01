@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_BOSS_9",
   "name": "Rogue_Boss_9",
   "layout": "LAYOUT_ROGUE_BOSS_9",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_DP_INSIDE_POKEMON_LEAGUE",
   "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -34,7 +34,7 @@
       "y": 27,
       "elevation": 3,
       "dest_map": "MAP_ROGUE_BOSS_8",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

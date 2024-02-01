@@ -634,8 +634,9 @@
 #define MUS_DP_SNOWPOINT_DAY            (MUS_DP_TITLE + 42)
 #define MUS_DP_SOLACEON_DAY             (MUS_DP_TITLE + 43)
 #define MUS_DP_UNDERGROUND              (MUS_DP_TITLE + 44)
+#define MUS_DP_GYM                      (MUS_DP_TITLE + 45)
 
-#define MUS_PL_VS_GIRATINA              (MUS_DP_TITLE + 45)
+#define MUS_PL_VS_GIRATINA              (MUS_DP_TITLE + 46)
 
 #define MUS_MOVE_DELETED_SLOW           (MUS_PL_VS_GIRATINA + 1)
 
