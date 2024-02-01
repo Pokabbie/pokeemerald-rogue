@@ -586,8 +586,10 @@
 
 #ifdef ROGUE_EXPANSION
 #define POKEDEX_VARIANT_DEFAULT     POKEDEX_VARIANT_ROGUE_MAIN
+#define POKEDEX_MAX_GEN             9
 #else
 #define POKEDEX_VARIANT_DEFAULT     POKEDEX_VARIANT_NATIONAL_GEN3
+#define POKEDEX_MAX_GEN             3
 #endif
 
 
@@ -604,6 +606,9 @@
 // don't waste a bit on mystery type (shift everything down)
 #define __MON_TYPE_VAL(type)     (type > TYPE_MYSTERY ? (type - 1) : type)
 #define MON_TYPE_VAL_TO_FLAGS(type)     ((u32)(type == TYPE_NONE || type == TYPE_MYSTERY ? 0U : ((u32)1 << (u32)__MON_TYPE_VAL(type))))
+
+#define __MON_GEN_VAL(gen)      ((gen - 1) % POKEDEX_MAX_GEN)
+#define MON_GEN_TO_FLAGS(gen)   ((u32)1 << (u32)__MON_GEN_VAL(gen))
 
 #define RIDE_WHISTLE_BASIC      0
 #define RIDE_WHISTLE_GOLD       1

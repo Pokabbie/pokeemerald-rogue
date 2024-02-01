@@ -177,6 +177,24 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 				}
 				exporter.earlyBlock << ",\n";
 
+				// included gens
+				exporter.earlyBlock << c_TabSpacing << ".includedGenMask = 0";
+				if (subset.contains("include_gens"))
+				{
+					for (auto gen : subset["include_gens"])
+						exporter.earlyBlock << " | MON_GEN_TO_FLAGS(" << gen.get<std::string>() << ")";
+				}
+				exporter.earlyBlock << ",\n";
+
+				// excluded gens
+				exporter.earlyBlock << c_TabSpacing << ".excludedGenMask = 0";
+				if (subset.contains("exclude_gens"))
+				{
+					for (auto gen : subset["exclude_gens"])
+						exporter.earlyBlock << " | MON_GEN_TO_FLAGS(" << gen.get<std::string>() << ")";
+				}
+				exporter.earlyBlock << ",\n";
+
 				exporter.earlyBlock << c_TabSpacing << "},\n";
 
 			}

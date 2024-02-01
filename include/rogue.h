@@ -364,6 +364,8 @@ struct RogueTeamGeneratorSubset
 {
     u32 includedTypeMask;
     u32 excludedTypeMask;
+    u32 includedGenMask;
+    u32 excludedGenMask;
     u8 maxSamples;
 };
 

@@ -40,6 +40,7 @@ void RogueMonQuery_IsSpeciesActive();
 void RogueMonQuery_TransformIntoEggSpecies();
 void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8 keepSourceSpecies);
 void RogueMonQuery_IsOfType(u8 func, u32 typeFlags);
+void RogueMonQuery_IsOfGeneration(u8 func, u32 generationFlags);
 void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags);
 void RogueMonQuery_ContainsPresetFlags(u8 func, u32 flags);
 void RogueMonQuery_IsLegendary(u8 func);
