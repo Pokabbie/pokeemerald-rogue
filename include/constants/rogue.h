@@ -319,18 +319,32 @@
 
 // Some defines to use in trainer setup just to make the EX/Vanilla versioning easier ;)
 #ifdef ROGUE_EXPANSION
-#define ITEM_POKABBIE_POKEBALL      ITEM_PARK_BALL
-#define ITEM_FINAL_BOSS_POKEBALL    ITEM_CHERISH_BALL
-#define ITEM_CUSTOM_MON_POKEBALL    ITEM_CHERISH_BALL
-#define SPECIES_RAVEN_ACE           SPECIES_GOOMY
-#define SPECIES_ERMA_ACE            SPECIES_FOMANTIS
+#define ITEM_POKABBIE_POKEBALL          ITEM_PARK_BALL
+#define ITEM_FINAL_TRAINERS_POKEBALL    ITEM_CHERISH_BALL
+#define ITEM_FINAL_BOSS_POKEBALL        ITEM_CHERISH_BALL
+#define ITEM_CUSTOM_MON_POKEBALL        ITEM_CHERISH_BALL
+
+#define SPECIES_RAVEN_ACE               SPECIES_GOOMY
+#define SPECIES_ERMA_ACE                SPECIES_FOMANTIS
 #else
-#define ITEM_POKABBIE_POKEBALL      ITEM_LUXURY_BALL
-#define ITEM_FINAL_BOSS_POKEBALL    ITEM_LUXURY_BALL
-#define ITEM_CUSTOM_MON_POKEBALL    ITEM_LUXURY_BALL
-#define SPECIES_RAVEN_ACE           SPECIES_NONE
-#define SPECIES_ERMA_ACE            SPECIES_NONE
+#define ITEM_POKABBIE_POKEBALL          ITEM_LUXURY_BALL
+#define ITEM_FINAL_TRAINERS_POKEBALL    ITEM_PREMIER_BALL
+#define ITEM_FINAL_BOSS_POKEBALL        ITEM_LUXURY_BALL
+#define ITEM_CUSTOM_MON_POKEBALL        ITEM_LUXURY_BALL
+
+#define SPECIES_RAVEN_ACE               SPECIES_NONE
+#define SPECIES_ERMA_ACE                SPECIES_NONE
 #endif
+
+// For final quest we're going to only show a single rival per "gym gen"
+#define TYPE_FINAL_TYPE_1               TYPE_NORMAL
+#define TYPE_FINAL_TYPE_2               TYPE_FIGHTING
+#define TYPE_FINAL_TYPE_3               TYPE_FLYING
+#define TYPE_FINAL_TYPE_4               TYPE_POISON
+#define TYPE_FINAL_TYPE_5               TYPE_GROUND
+#define TYPE_FINAL_TYPE_6               TYPE_ROCK
+#define TYPE_FINAL_TYPE_7               TYPE_BUG
+#define TYPE_FINAL_TYPE_8               TYPE_GHOST
 
 // Mon Preset flags
 //

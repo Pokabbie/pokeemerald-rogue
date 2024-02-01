@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_BOSS_0",
   "name": "Rogue_Boss_0",
   "layout": "LAYOUT_ROGUE_BOSS_0",
-  "music": "MUS_B_DOME",
+  "music": "MUS_GYM",
   "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

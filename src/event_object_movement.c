@@ -565,7 +565,26 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 //#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN       0x118A
 #define OBJ_EVENT_PAL_TAG_PLAYER                 0x118B
 
-#define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x118C
+#define OBJ_EVENT_PAL_TAG_RIVAL_RED              0x118B
+#define OBJ_EVENT_PAL_TAG_RIVAL_LEAF             0x118C
+#define OBJ_EVENT_PAL_TAG_RIVAL_ETHAN            0x118D
+#define OBJ_EVENT_PAL_TAG_RIVAL_LYRA             0x118E
+#define OBJ_EVENT_PAL_TAG_RIVAL_BRENDAN          0x118F
+#define OBJ_EVENT_PAL_TAG_RIVAL_MAY              0x1190
+#define OBJ_EVENT_PAL_TAG_RIVAL_LUCAS            0x1191
+#define OBJ_EVENT_PAL_TAG_RIVAL_DAWN             0x1192
+#define OBJ_EVENT_PAL_TAG_RIVAL_HILBERT          0x1193
+#define OBJ_EVENT_PAL_TAG_RIVAL_HILDA            0x1194
+#define OBJ_EVENT_PAL_TAG_RIVAL_NATE             0x1195
+#define OBJ_EVENT_PAL_TAG_RIVAL_ROSA             0x1196
+#define OBJ_EVENT_PAL_TAG_RIVAL_CALEM            0x1197
+#define OBJ_EVENT_PAL_TAG_RIVAL_SERENA           0x1198
+#define OBJ_EVENT_PAL_TAG_RIVAL_ELIO             0x1199
+#define OBJ_EVENT_PAL_TAG_RIVAL_SELENE           0x119A
+#define OBJ_EVENT_PAL_TAG_RIVAL_VICTOR           0x119B
+#define OBJ_EVENT_PAL_TAG_RIVAL_GLORIA           0x119C
+
+#define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x119D
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
@@ -728,6 +747,25 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},
     //{gObjectEventPal_Glitch_NPC_Raven,      OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN},
     {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_PLAYER},
+
+    {gObjectEventPal_PlayerRedLeafBase,     OBJ_EVENT_PAL_TAG_RIVAL_RED},
+    {gObjectEventPal_PlayerRedLeafBase,     OBJ_EVENT_PAL_TAG_RIVAL_LEAF},    
+    {gObjectEventPal_PlayerEthanBase,       OBJ_EVENT_PAL_TAG_RIVAL_ETHAN},
+    {gObjectEventPal_PlayerLyraBase,        OBJ_EVENT_PAL_TAG_RIVAL_LYRA},
+    {gObjectEventPal_PlayerBrendanBase,     OBJ_EVENT_PAL_TAG_RIVAL_BRENDAN},
+    {gObjectEventPal_PlayerMayBase,         OBJ_EVENT_PAL_TAG_RIVAL_MAY},
+    {gObjectEventPal_PlayerLucasBase,       OBJ_EVENT_PAL_TAG_RIVAL_LUCAS},
+    {gObjectEventPal_PlayerDawnBase,        OBJ_EVENT_PAL_TAG_RIVAL_DAWN},
+    {gObjectEventPal_PlayerHilbertBase,     OBJ_EVENT_PAL_TAG_RIVAL_HILBERT},
+    {gObjectEventPal_PlayerHildaBase,       OBJ_EVENT_PAL_TAG_RIVAL_HILDA},
+    {gObjectEventPal_PlayerNateBase,        OBJ_EVENT_PAL_TAG_RIVAL_NATE},
+    {gObjectEventPal_PlayerRosaBase,        OBJ_EVENT_PAL_TAG_RIVAL_ROSA},
+    {gObjectEventPal_PlayerCalemBase,       OBJ_EVENT_PAL_TAG_RIVAL_CALEM},
+    {gObjectEventPal_PlayerSerenaBase,      OBJ_EVENT_PAL_TAG_RIVAL_SERENA},
+    {gObjectEventPal_PlayerElioBase,        OBJ_EVENT_PAL_TAG_RIVAL_ELIO},
+    {gObjectEventPal_PlayerSeleneBase,      OBJ_EVENT_PAL_TAG_RIVAL_SELENE},
+    {gObjectEventPal_PlayerVictorBase,      OBJ_EVENT_PAL_TAG_RIVAL_VICTOR},
+    {gObjectEventPal_PlayerGloriaBase,      OBJ_EVENT_PAL_TAG_RIVAL_GLORIA},
 
     {gObjectEventPal_RouteExt,       OBJ_EVENT_PAL_TAG_ROUTE_EXT},
     {},

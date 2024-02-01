@@ -461,6 +461,25 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Raven;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Tails;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Red;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Leaf;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Ethan;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Lyra;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Brendan;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_May;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Lucas;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Dawn;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Hilbert;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Hilda;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Nate;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Rosa;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Calem;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Sernea;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Elio;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Selene;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Victor;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Gloria;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Bug;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Dark;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Dragon;
@@ -940,6 +959,25 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GLITCH_ERMA] =              &gObjectEventGraphicsInfo_Glitch_Erma,
     [OBJ_EVENT_GFX_GLITCH_RAVEN] =             &gObjectEventGraphicsInfo_Glitch_Raven,
     [OBJ_EVENT_GFX_GLITCH_TAILS] =             &gObjectEventGraphicsInfo_Glitch_Tails,
+    
+    [OBJ_EVENT_GFX_RIVAL_RED] =                &gObjectEventGraphicsInfo_Rival_Red,
+    [OBJ_EVENT_GFX_RIVAL_LEAF] =               &gObjectEventGraphicsInfo_Rival_Leaf,
+    [OBJ_EVENT_GFX_RIVAL_ETHAN] =              &gObjectEventGraphicsInfo_Rival_Ethan,
+    [OBJ_EVENT_GFX_RIVAL_LYRA] =               &gObjectEventGraphicsInfo_Rival_Lyra,
+    [OBJ_EVENT_GFX_RIVAL_BRENDAN] =            &gObjectEventGraphicsInfo_Rival_Brendan,
+    [OBJ_EVENT_GFX_RIVAL_MAY] =                &gObjectEventGraphicsInfo_Rival_May,
+    [OBJ_EVENT_GFX_RIVAL_LUCAS] =              &gObjectEventGraphicsInfo_Rival_Lucas,
+    [OBJ_EVENT_GFX_RIVAL_DAWN] =               &gObjectEventGraphicsInfo_Rival_Dawn,
+    [OBJ_EVENT_GFX_RIVAL_HILBERT] =            &gObjectEventGraphicsInfo_Rival_Hilbert,
+    [OBJ_EVENT_GFX_RIVAL_HILDA] =              &gObjectEventGraphicsInfo_Rival_Hilda,
+    [OBJ_EVENT_GFX_RIVAL_NATE] =               &gObjectEventGraphicsInfo_Rival_Nate,
+    [OBJ_EVENT_GFX_RIVAL_ROSA] =               &gObjectEventGraphicsInfo_Rival_Rosa,
+    [OBJ_EVENT_GFX_RIVAL_CALEM] =              &gObjectEventGraphicsInfo_Rival_Calem,
+    [OBJ_EVENT_GFX_RIVAL_SERENA] =             &gObjectEventGraphicsInfo_Rival_Sernea,
+    [OBJ_EVENT_GFX_RIVAL_ELIO] =               &gObjectEventGraphicsInfo_Rival_Elio,
+    [OBJ_EVENT_GFX_RIVAL_SELENE] =             &gObjectEventGraphicsInfo_Rival_Selene,
+    [OBJ_EVENT_GFX_RIVAL_VICTOR] =             &gObjectEventGraphicsInfo_Rival_Victor,
+    [OBJ_EVENT_GFX_RIVAL_GLORIA] =             &gObjectEventGraphicsInfo_Rival_Gloria,
 
     [OBJ_EVENT_GFX_ROUTE_BUG] =                &gObjectEventGraphicsInfo_Route_Bug,
     [OBJ_EVENT_GFX_ROUTE_DARK] =               &gObjectEventGraphicsInfo_Route_Dark,

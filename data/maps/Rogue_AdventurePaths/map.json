@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_ADVENTURE_PATHS",
   "name": "Rogue_AdventurePaths",
   "layout": "LAYOUT_ROGUE_ADVENTURE_PATHS",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_B_DOME",
   "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -22,7 +22,7 @@
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ADVENTURE_PATHS",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

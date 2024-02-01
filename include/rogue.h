@@ -390,7 +390,7 @@ struct RogueTrainer
     u16 potentialShinySpecies;
     u8 levelOverride;
     u8 trainerClass;
-    u8 trainerPic;
+    u16 trainerPic;
     u8 preferredWeather;
     u8 musicPlayer;
     u8 encounterTextCount;
