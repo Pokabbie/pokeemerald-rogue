@@ -185,7 +185,7 @@ bool8 RogueMiscQuery_CheckState(u16 elem)
     return GetQueryBitFlag(elem);
 }
 
-void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance)
+void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount)
 {
     u16 elem;
     u16 count = Query_MaxBitCount();
@@ -195,7 +195,7 @@ void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance)
 
     SeedRogueRng(rngSeed);
 
-    for(elem = 1; elem < count; ++elem)
+    for(elem = 1; elem < count && sRogueQuery.bitCount > minCount; ++elem)
     {
         if(GetQueryBitFlag(elem))
         {

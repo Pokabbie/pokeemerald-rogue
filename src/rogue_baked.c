@@ -1122,7 +1122,7 @@ u16 Rogue_GetPrice(u16 itemId)
     if(itemId >= ITEM_FLAME_PLATE && itemId <= ITEM_PIXIE_PLATE)
     {
         applyDefaultHubIncrease = TRUE;
-        price = HELD_ITEM_MID_PRICE / 2;
+        price = HELD_ITEM_MID_PRICE;
     }
 
     if(itemId >= ITEM_DOUSE_DRIVE && itemId <= ITEM_CHILL_DRIVE)

@@ -105,7 +105,7 @@ void Rogue_RandomisePartyMon(void)
     // Remove random entries until we can safely calcualte weights without going over
     while(RogueWeightQuery_IsOverSafeCapacity())
     {
-        RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50);
+        RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50, PARTY_SIZE);
     }
 
     RogueWeightQuery_Begin();

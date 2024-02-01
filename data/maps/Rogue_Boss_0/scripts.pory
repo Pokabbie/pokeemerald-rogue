@@ -122,7 +122,7 @@ script Rogue_BattleDefeated_Boss0
         msgbox(format("Looks like you have some Quests to collect!\pYou can either continue this Adventure or Retire and collect them now.\pWould you like to continue this Adventure?"), MSGBOX_YESNO)
         if(var(VAR_RESULT) == NO)
         {
-            msgbox(format("So you want to Retire and return to the HUB?"), MSGBOX_YESNO)
+            msgbox(format("Are you sure you'd like to end your Adventure and return to {POKEMON_HUB}?"), MSGBOX_YESNO)
         
             if(var(VAR_RESULT) == YES)
             {

@@ -134,7 +134,7 @@ script Rogue_QuickSaveVersionUpdate
 script Rogue_RetireFromRun
 {
     lockall
-    msgbox(format("Are you sure you'd like to return to the HUB?"), MSGBOX_YESNO)
+    msgbox(format("Are you sure you'd like to return to {POKEMON_HUB}?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {

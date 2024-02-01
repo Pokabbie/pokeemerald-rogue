@@ -331,7 +331,7 @@
                     {
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: It's not often a Trainer manages to challenge me.\\pAnd when they do, they've all been boring battles. I didn't even break a sweat beating them.",
                         "PRE_BATTLE_TAUNT": "I hope you're the Trainer who'll make me remember how fun it is to battle!",
-                        "POST_BATTLE_TAUNT": "You've got me beat. Your desire and the noble way you Pokémon battled for you…",
+                        "POST_BATTLE_TAUNT": "You've got me beat. Your desire and the noble way your Pokémon battled for you…",
                         "POST_BATTLE_CLOSER": "I even felt thrilled during our match.\\pThat was a very good battle.\\pI'm sure you're gonna go far!"
                     }
                 ],
