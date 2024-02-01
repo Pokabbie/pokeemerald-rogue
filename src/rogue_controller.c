@@ -5066,6 +5066,7 @@ void Rogue_Battle_EndWildBattle(void)
                 gRogueRun.wildEncounters.roamer.spDefenseIV = GetMonData(&gEnemyParty[0], MON_DATA_SPDEF_IV);
                 gRogueRun.wildEncounters.roamer.abilityNum = GetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM);
                 gRogueRun.wildEncounters.roamer.genderFlag = GetMonData(&gEnemyParty[0], MON_DATA_GENDER_FLAG);
+                gRogueRun.wildEncounters.roamer.status = GetMonData(&gEnemyParty[0], MON_DATA_STATUS);
                 gRogueRun.wildEncounters.roamer.hpPerc = (GetMonData(&gEnemyParty[0], MON_DATA_HP) * 100) / GetMonData(&gEnemyParty[0], MON_DATA_MAX_HP);
             }
         }
@@ -5955,6 +5956,9 @@ static void FillWithRoamerState(struct Pokemon* mon, u8 level)
 
     temp = gRogueRun.wildEncounters.roamer.genderFlag;
     SetMonData(mon, MON_DATA_GENDER_FLAG, &temp);
+
+    temp = gRogueRun.wildEncounters.roamer.status;
+    SetMonData(mon, MON_DATA_STATUS, &temp);
 
     temp = (((u32)gRogueRun.wildEncounters.roamer.hpPerc) * GetMonData(mon, MON_DATA_MAX_HP)) / 100;
     if(temp <= 0)

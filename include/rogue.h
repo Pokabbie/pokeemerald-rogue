@@ -59,10 +59,13 @@ struct RogueRoamerMon
     u32 genderFlag  : 1;
     u32 hpPerc      : 7; // stored as a percentage
     u32 encounerCount : 4;
-    u32 unused      : 3; 
+    u32 unused0     : 3; 
+
+    u32 status      : 16;
+    u32 unused1     : 16; 
 };
 
-STATIC_ASSERT(sizeof(struct RogueRoamerMon) == 8, SizeOfRogueRoamerMon);
+STATIC_ASSERT(sizeof(struct RogueRoamerMon) == 12, SizeOfRogueRoamerMon);
 
 // Adventure Path settings
 //
