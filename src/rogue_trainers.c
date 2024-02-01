@@ -608,7 +608,7 @@ static void GetDefaultFilter(struct TrainerFliter* filter)
     filter->classFlagsExclude = CLASS_FLAG_NONE;
 }
 
-static void GetGlobalFilter(struct TrainerFliter* filter)
+static void GetGlobalFilter(u8 difficulty, struct TrainerFliter* filter)
 {
     filter->trainerFlagsInclude = TRAINER_FLAG_NONE;
     filter->trainerFlagsExclude = TRAINER_FLAG_NONE;
@@ -616,8 +616,13 @@ static void GetGlobalFilter(struct TrainerFliter* filter)
     filter->classFlagsInclude = CLASS_FLAG_NONE;
     filter->classFlagsExclude = CLASS_FLAG_NONE;
 
-    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE))
-        filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_ROGUE;
+    // Rogue trainers aren't at all supported in rainbow
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE) && Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER) != TRAINER_ORDER_RAINBOW)
+    {
+        // We won't use the champ unless the quest is active
+        if(Rogue_UseFinalQuestEffects() || difficulty < ROGUE_CHAMP_START_DIFFICULTY)
+            filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_ROGUE;
+    }
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_KANTO))
         filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_KANTO;
@@ -659,12 +664,12 @@ static void GetGlobalFilter(struct TrainerFliter* filter)
     }
 }
 
-static u16 Rogue_ChooseTrainerId(struct TrainerFliter* filter, u16* historyBuffer, u16 historyBufferCapacity)
+static u16 Rogue_ChooseTrainerId(struct TrainerFliter* filter, u8 difficulty, u16* historyBuffer, u16 historyBufferCapacity)
 {
     u8 i;
     u16 trainerNum = gRogueTrainerCount;
     struct TrainerFliter globalFilter;
-    GetGlobalFilter(&globalFilter);
+    GetGlobalFilter(difficulty, &globalFilter);
 
     RogueTrainerQuery_Begin();
 
@@ -813,7 +818,7 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
         break;
     }
 
-    return Rogue_ChooseTrainerId(&filter, historyBuffer, historyBufferCapacity);
+    return Rogue_ChooseTrainerId(&filter, difficulty, historyBuffer, historyBufferCapacity);
 }
 
 void Rogue_ChooseBossTrainersForNewAdventure()
@@ -878,7 +883,7 @@ static u16 Rogue_ChooseRivalTrainerId()
     GetDefaultFilter(&filter);
     filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_RIVAL;
 
-    return Rogue_ChooseTrainerId(&filter, NULL, 0);
+    return Rogue_ChooseTrainerId(&filter, 0, NULL, 0);
 }
 
 static u8 SelectRivalWeakestMon(u16* speciesBuffer, u8 partySize)
@@ -1162,7 +1167,7 @@ static u16 Rogue_RouteTrainerId(u16* historyBuffer, u16 historyBufferCapacity)
     // Exclude the teams which aren't enabled so we can scatter some team trainers on routes
     filter.classFlagsExclude |= CLASS_FLAG_ANY_TEAM & ~GetActiveTeamFlag();
 
-    return Rogue_ChooseTrainerId(&filter, historyBuffer, historyBufferCapacity);
+    return Rogue_ChooseTrainerId(&filter, 0, historyBuffer, historyBufferCapacity);
 }
 
 void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity)
@@ -1188,7 +1193,7 @@ static u16 Rogue_TeamHideoutTrainerId(u16* historyBuffer, u16 historyBufferCapac
     filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_TEAM;
     filter.classFlagsInclude |= GetActiveTeamFlag();
 
-    return Rogue_ChooseTrainerId(&filter, historyBuffer, historyBufferCapacity);
+    return Rogue_ChooseTrainerId(&filter, 0, historyBuffer, historyBufferCapacity);
 }
 
 void Rogue_ChooseTeamHideoutTrainers(u16* writeBuffer, u16 bufferCapacity)

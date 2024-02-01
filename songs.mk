@@ -1062,6 +1062,9 @@ $(MID_SUBDIR)/mus_dp_solaceon_day.s: %.s: %.mid
 $(MID_SUBDIR)/mus_dp_underground.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V100
 
+$(MID_SUBDIR)/mus_dp_gym.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V118
+
 $(MID_SUBDIR)/mus_pl_vs_giratina.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V105
 

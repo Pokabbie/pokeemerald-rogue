@@ -238,7 +238,16 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 
 		// Optional Shiny species
 		if(trainer.contains("shiny_species"))
+		{
+			// In vanilla ignore species that don't exists; in EX enforce the species actually exists
+			exporter.trainerStructsBlock << "#ifdef ROGUE_EXPANSION\n";
 			exporter.trainerStructsBlock << c_TabSpacing << ".potentialShinySpecies = " << strutil::to_upper(trainer["shiny_species"].get<std::string>()) << ",\n";
+			exporter.trainerStructsBlock << "#else\n";
+			exporter.trainerStructsBlock << c_TabSpacing <<"#ifdef " << strutil::to_upper(trainer["shiny_species"].get<std::string>()) <<"\n";
+			exporter.trainerStructsBlock << c_TabSpacing << ".potentialShinySpecies = " << strutil::to_upper(trainer["shiny_species"].get<std::string>()) << ",\n";
+			exporter.trainerStructsBlock << c_TabSpacing <<"#endif\n";
+			exporter.trainerStructsBlock << "#endif\n";
+		}
 		else
 			exporter.trainerStructsBlock << c_TabSpacing << ".potentialShinySpecies = SPECIES_NONE,\n";
 

@@ -3582,7 +3582,7 @@ u16 Rogue_SelectWildDenEncounterRoom(void)
     // Remove random entries until we can safely calcualte weights without going over
     while(RogueWeightQuery_IsOverSafeCapacity())
     {
-        RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, 50);
+        RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, 50, 1);
     }
 
     RogueWeightQuery_Begin();
@@ -3702,7 +3702,7 @@ u16 Rogue_SelectHoneyTreeEncounterRoom(void)
     // Remove random entries until we can safely calcualte weights without going over
     while(RogueWeightQuery_IsOverSafeCapacity())
     {
-        RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50);
+        RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50, 1);
     }
 
     RogueWeightQuery_Begin();
@@ -4305,7 +4305,7 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                                 else if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
                                     objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_Z_CRYSTAL;
                                 else
-                                    objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_POKE_BALL;
+                                    objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_HOLD_ITEM;
                                 break;
 #endif
                             }
@@ -5066,6 +5066,7 @@ void Rogue_Battle_EndWildBattle(void)
                 gRogueRun.wildEncounters.roamer.spDefenseIV = GetMonData(&gEnemyParty[0], MON_DATA_SPDEF_IV);
                 gRogueRun.wildEncounters.roamer.abilityNum = GetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM);
                 gRogueRun.wildEncounters.roamer.genderFlag = GetMonData(&gEnemyParty[0], MON_DATA_GENDER_FLAG);
+                gRogueRun.wildEncounters.roamer.status = GetMonData(&gEnemyParty[0], MON_DATA_STATUS);
                 gRogueRun.wildEncounters.roamer.hpPerc = (GetMonData(&gEnemyParty[0], MON_DATA_HP) * 100) / GetMonData(&gEnemyParty[0], MON_DATA_MAX_HP);
             }
         }
@@ -5956,6 +5957,9 @@ static void FillWithRoamerState(struct Pokemon* mon, u8 level)
     temp = gRogueRun.wildEncounters.roamer.genderFlag;
     SetMonData(mon, MON_DATA_GENDER_FLAG, &temp);
 
+    temp = gRogueRun.wildEncounters.roamer.status;
+    SetMonData(mon, MON_DATA_STATUS, &temp);
+
     temp = (((u32)gRogueRun.wildEncounters.roamer.hpPerc) * GetMonData(mon, MON_DATA_MAX_HP)) / 100;
     if(temp <= 0)
         temp = 1;
@@ -6335,6 +6339,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     case ROGUE_SHOP_RARE_HELD_ITEMS:
 #ifdef ROGUE_EXPANSION
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_STONES);
+        applyRandomChance = TRUE;
 #else
         AGB_ASSERT(FALSE);
 #endif
@@ -6502,7 +6507,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
             }
 
             if(chance < 100)
-                RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, chance);
+                RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, chance, 1);
         }
     }
 }
@@ -6728,7 +6733,7 @@ static void BeginWildEncounterQuery()
     // Remove random entries until we can safely calcualte weights without going over
     while(RogueWeightQuery_IsOverSafeCapacity())
     {
-        RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, 50);
+        RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, 50, WILD_ENCOUNTER_GRASS_CAPACITY);
     }
 }
 
