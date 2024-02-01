@@ -96,7 +96,7 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CHARMANDER", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
                     ]
                 }
@@ -119,7 +119,7 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BULBASAUR", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
                     ]
                 }
@@ -143,7 +143,7 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TOTODILE", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
                     ]
                 }
@@ -166,7 +166,7 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CHIKORITA", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
                     ]
                 }
@@ -190,7 +190,7 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MUDKIP", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
                     ]
                 }
@@ -213,7 +213,7 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TORCHIC", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
                     ]
                 }
@@ -239,7 +239,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TURTWIG", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
@@ -264,7 +264,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_PIPLUP", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
@@ -290,7 +290,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SNIVY", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
@@ -315,7 +315,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TEPIG", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
@@ -340,7 +340,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_OSHAWOTT", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
@@ -365,7 +365,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SNIVY", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
@@ -391,7 +391,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FROAKIE", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
@@ -416,7 +416,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FENNEKIN", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
@@ -442,7 +442,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_LITTEN", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
@@ -467,7 +467,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ROWLET", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "7", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
@@ -493,7 +493,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GROOKEY", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
@@ -518,7 +518,7 @@
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SCORBUNNY", "INC_FAVOUR",
-                            "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                            "EQUAL_TO", "VAR_MON_GENERATION", "8", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
                         "#endif"
                     ]
                 }
