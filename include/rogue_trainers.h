@@ -38,6 +38,7 @@ void Rogue_ChooseBossTrainersForNewAdventure();
 void Rogue_ChooseRivalTrainerForNewAdventure();
 void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity);
 void Rogue_ChooseTeamHideoutTrainers(u16* writeBuffer, u16 bufferCapacity);
+void Rogue_ChooseSpectatorTrainers(u16* writeBuffer, u16 bufferCapacity);
 
 void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum);
 
