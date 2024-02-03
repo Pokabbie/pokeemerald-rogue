@@ -6,6 +6,7 @@
 #include "event_data.h"
 #include "fieldmap.h"
 #include "menu.h"
+#include "overworld.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
@@ -30,6 +31,7 @@ static void MetatileFill_TreeCaps(u16 xStart, u16 yStart, u16 xEnd);
 
 static void MetatileFill_CommonWarpExitVertical(u16 xStart, u16 yStart);
 static void MetatileFill_CommonWarpExitHorizontal(u16 xStart, u16 yStart);
+static void MetatileFill_BlitMapRegion(u16 mapGroup, u16 mapNum, u16 destX1, u16 destY1, u16 destX2, u16 destY2, u16 srcX1, u16 srcY1);
 
 static void RogueHub_UpdateGlobalMetatiles();
 
@@ -485,6 +487,13 @@ static void RogueHub_UpdateAdventureEntranceAreaMetatiles()
 
 static void RogueHub_UpdateHomeAreaMetatiles()
 {
+    // Blit map styles first
+    MetatileFill_BlitMapRegion(
+        MAP_GROUP(ROGUE_AREA_RIDE_TRAINING), MAP_NUM(ROGUE_AREA_RIDE_TRAINING), 
+        3,3, 12,12,
+        3, 24
+    );
+
     // Remove connections
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
@@ -871,6 +880,23 @@ static void MetatileFill_CommonWarpExitVertical(u16 xStart, u16 yStart)
 static void MetatileFill_CommonWarpExitHorizontal(u16 xStart, u16 yStart)
 {
     MetatileFill_CommonWarpExit(xStart, yStart, xStart + 1, yStart + 4);
+}
+
+static void MetatileFill_BlitMapRegion(u16 mapGroup, u16 mapNum, u16 destX1, u16 destY1, u16 destX2, u16 destY2, u16 srcX1, u16 srcY1)
+{
+    int i, dx, dy, sx, sy;
+    struct MapHeader const * mapHeader = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum);
+
+    for(dy = destY1, sy = srcY1; dy <= destY2; ++dy, ++sy)
+    {
+        for(dx = destY1, sx = srcX1; dx <= destX2; ++dx, ++sx)
+        {
+            i = sx + mapHeader->mapLayout->width * sy;
+            AGB_ASSERT(i < mapHeader->mapLayout->width * mapHeader->mapLayout->height);
+
+            MapGridSetMetatileEntryAt(dx + MAP_OFFSET, dy + MAP_OFFSET, mapHeader->mapLayout->map[i]);
+        }
+    }
 }
 
 void RogueHub_SetRandomFollowMonsFromPC()

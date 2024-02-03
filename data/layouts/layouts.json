@@ -1537,7 +1537,7 @@
       "width": 30,
       "height": 32,
       "primary_tileset": "gTileset_GeneralHub",
-      "secondary_tileset": "gTileset_Unused1",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Area_Home/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_Home/map.bin"
     },
