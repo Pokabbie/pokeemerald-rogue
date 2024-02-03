@@ -1044,10 +1044,10 @@
     {
       "id": "LAYOUT_ROGUE_ENCOUNTER_SHOPS",
       "name": "Rogue_Encounter_Shops_Layout",
-      "width": 40,
-      "height": 40,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Slateport",
+      "width": 15,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/Rogue_Encounter_Shops/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_Shops/map.bin"
     },
