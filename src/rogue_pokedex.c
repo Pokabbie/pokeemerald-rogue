@@ -315,10 +315,34 @@ struct PokedexMenu
     u16 listScrollAmount;
 };
 
+enum
+{
+    DEX_VIEW_STANDARD,      // regular pokedex nothing speciton
+    DEX_VIEW_SPECIFIC_MON,  // view entry for a specific party mon (support custom mons)
+    DEX_VIEW_SELECT_MON,    // select a mon and return it in gSpecialVarResult
+};
+
+struct PokedexViewRequest
+{
+    u8 view;
+    union
+    {
+        struct
+        {
+            u32 OtId;
+            u16 species;
+        } specificMon;
+        struct
+        {
+            u16 dexVariant;
+            bool8 ignoreDexSeen;
+        } selectMon;
+    } perView;
+};
+
 EWRAM_DATA static u8 *sTilemapBufferPtr = NULL;
 EWRAM_DATA static struct PokedexMenu* sPokedexMenu = NULL;
-EWRAM_DATA static u16 sRequestedSpecies = 0;
-EWRAM_DATA static u32 sRequestedSpeciesOtId = 0;
+EWRAM_DATA static struct PokedexViewRequest sPokedexViewReq = {0};
 
 static void VBlankCB(void)
 {
@@ -358,8 +382,7 @@ static const u32 sPageTiles[] = INCBIN_U32("graphics/rogue_pokedex/page_tiles.4b
 void Rogue_ShowPokedexFromMenu(void)
 {
     gMain.savedCallback = CB2_ReturnToFieldWithOpenMenu;
-    sRequestedSpecies = SPECIES_NONE;
-    sRequestedSpeciesOtId = 0;
+    sPokedexViewReq.view = DEX_VIEW_STANDARD;
     SetMainCallback2(CB2_Rogue_ShowPokedex);
 }
 
@@ -367,8 +390,7 @@ void Rogue_ShowPokedexFromScript(void)
 {
     //gMain.savedCallback CB2_ReturnToFieldContinueScript CB2_ReturnToFieldFadeFromBlack
     gMain.savedCallback = CB2_ReturnToFieldContinueScript;
-    sRequestedSpecies = SPECIES_NONE;
-    sRequestedSpeciesOtId = 0;
+    sPokedexViewReq.view = DEX_VIEW_STANDARD;
     SetMainCallback2(CB2_Rogue_ShowPokedex);
 }
 
@@ -377,8 +399,23 @@ void Rogue_ShowPokedexForMon(struct Pokemon* mon)
     //gMain.savedCallback = CB2_ReturnToFieldContinueScript;
 
     // ReturnToPartyMenuSubMenu called below
-    sRequestedSpecies = GetMonData(mon, MON_DATA_SPECIES);
-    sRequestedSpeciesOtId = GetMonData(mon, MON_DATA_OT_ID);
+    sPokedexViewReq.view = DEX_VIEW_SPECIFIC_MON;
+    sPokedexViewReq.perView.specificMon.species = GetMonData(mon, MON_DATA_SPECIES);
+    sPokedexViewReq.perView.specificMon.OtId = GetMonData(mon, MON_DATA_OT_ID);
+    SetMainCallback2(CB2_Rogue_ShowPokedex);
+}
+
+void Rogue_SelectPokemonInPokedexFromDex(bool8 ignoreDexSeen)
+{
+    Rogue_SelectPokemonInPokedexFromDexVariant(RoguePokedex_GetDexVariant(), ignoreDexSeen);
+}
+
+void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 ignoreDexSeen)
+{
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
+    sPokedexViewReq.view = DEX_VIEW_SELECT_MON;
+    sPokedexViewReq.perView.selectMon.dexVariant = variant;
+    sPokedexViewReq.perView.selectMon.ignoreDexSeen = ignoreDexSeen;
     SetMainCallback2(CB2_Rogue_ShowPokedex);
 }
 
@@ -390,13 +427,18 @@ static void CB2_Rogue_ShowPokedex(void)
     sPokedexMenu->desiredPage = PAGE_TITLE_SCREEN;
 
     sPokedexMenu->lastCrySpecies = SPECIES_NONE;
+    sPokedexMenu->viewBaseSpecies = SPECIES_NONE;
     sPokedexMenu->viewOtId = 0;
 
-    if(sRequestedSpecies != SPECIES_NONE)
+    if(sPokedexViewReq.view == DEX_VIEW_SPECIFIC_MON)
     {
         sPokedexMenu->desiredPage = PAGE_MON_STATS;
-        sPokedexMenu->viewBaseSpecies = sRequestedSpecies;
-        sPokedexMenu->viewOtId = sRequestedSpeciesOtId;
+        sPokedexMenu->viewBaseSpecies = sPokedexViewReq.perView.specificMon.species;
+        sPokedexMenu->viewOtId = sPokedexViewReq.perView.specificMon.OtId;
+    }
+    else if(sPokedexViewReq.view == DEX_VIEW_SELECT_MON)
+    {
+        sPokedexMenu->desiredPage = PAGE_OVERVIEW;
     }
 
     for(i = 0; i < ARRAY_COUNT(sPokedexMenu->pageSprites); ++i)
@@ -828,7 +870,7 @@ static void Task_PageFadeOutAndExit(u8 taskId)
         FreeAllWindowBuffers();
         DestroyTask(taskId);
 
-        if(sRequestedSpecies != SPECIES_NONE)
+        if(sPokedexViewReq.view == DEX_VIEW_SPECIFIC_MON)
         {
             ReturnToPartyMenuSubMenu();
         }
@@ -955,6 +997,10 @@ static bool8 IsAltFormVisible(u16 baseForm, u16 altForm)
 
 static u16 GetDisplayedOverviewSpecies(u16 species)
 {
+    // Always display the base species for this slot
+    if(sPokedexViewReq.view == DEX_VIEW_SELECT_MON)
+        return species;
+
 #ifdef ROGUE_EXPANSION
     // If we haven't seen the base species check if we've seen any variants
     if(!GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
@@ -2286,12 +2332,23 @@ static u8 Overview_GetEntryType(s8 entryX, s8 entryY, s8 deltaX, s8 deltaY)
     if(species == SPECIES_NONE)
         return ENTRY_TYPE_DISABLED;
 
-    if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT_SHINY))
-        return ENTRY_TYPE_CAUGHT_SHINY;
-    else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
-        return ENTRY_TYPE_CAUGHT;
-    else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
-        return ENTRY_TYPE_SEEN;
+        
+    // We don't care if we've seen this mon or not
+    if(sPokedexViewReq.view == DEX_VIEW_SELECT_MON)
+    {
+        if(sPokedexViewReq.perView.selectMon.ignoreDexSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+            return ENTRY_TYPE_EMPTY;
+    }
+    else
+    {
+        // Display icons based on dex state
+        if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT_SHINY))
+            return ENTRY_TYPE_CAUGHT_SHINY;
+        else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+            return ENTRY_TYPE_CAUGHT;
+        else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+            return ENTRY_TYPE_SEEN;
+    }
 
     return ENTRY_TYPE_QUESTION_MARK;
 }
@@ -2643,27 +2700,61 @@ static void Overview_HandleInput(u8 taskId)
     {
         u16 species = sPokedexMenu->overviewPageSpecies[sPokedexMenu->selectedIdx];
 
-        if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+        if(sPokedexViewReq.view == DEX_VIEW_SELECT_MON)
         {
-            // Swap to the stats page
-            sPokedexMenu->desiredPage = PAGE_MON_STATS;
-            sPokedexMenu->viewBaseSpecies = species;
-            gTasks[taskId].func = Task_SwapToPage;
+            if(sPokedexViewReq.perView.selectMon.ignoreDexSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+            {
+                gSpecialVar_Result = species;
 
-            PlaySE(SE_PIN);
+                // Immediately exit if viewing view party summary
+                BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+                gTasks[taskId].func = Task_PageFadeOutAndExit;
+
+                PlaySE(SE_PIN);
+            }
+            else
+            {
+                // Can't select if we haven't seen this mon
+                PlaySE(SE_FAILURE);
+            }
         }
         else
         {
-            // Can't open if we haven't seen this mon
-            PlaySE(SE_FAILURE);
+            if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+            {
+                // Swap to the stats page
+                sPokedexMenu->desiredPage = PAGE_MON_STATS;
+                sPokedexMenu->viewBaseSpecies = species;
+                gTasks[taskId].func = Task_SwapToPage;
+
+                PlaySE(SE_PIN);
+            }
+            else
+            {
+                // Can't open if we haven't seen this mon
+                PlaySE(SE_FAILURE);
+            }
         }
     }
     else if (JOY_NEW(B_BUTTON))
     {
-        sPokedexMenu->desiredPage = PAGE_TITLE_SCREEN;
-        gTasks[taskId].func = Task_SwapToPage;
+        if(sPokedexViewReq.view == DEX_VIEW_SELECT_MON)
+        {
+            gSpecialVar_Result = SPECIES_NONE;
 
-        PlaySE(SE_SELECT);
+            // Immediately exit if viewing view party summary
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+            gTasks[taskId].func = Task_PageFadeOutAndExit;
+
+            PlaySE(SE_PC_OFF);
+        }
+        else
+        {
+            sPokedexMenu->desiredPage = PAGE_TITLE_SCREEN;
+            gTasks[taskId].func = Task_SwapToPage;
+
+            PlaySE(SE_SELECT);
+        }
     }
 
 
@@ -2782,20 +2873,32 @@ static void Overview_CreateSprites()
 
             if(species != SPECIES_NONE)
             {
-                if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+                if(sPokedexViewReq.view == DEX_VIEW_SELECT_MON)
                 {
-                    // Animated
-                    sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCB_MonIcon, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
-                }
-                else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
-                {
-                    // Non animated
-                    sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
+                    if(sPokedexViewReq.perView.selectMon.ignoreDexSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+                    {
+                        // Always display in select mon view
+                        // Non animated
+                        sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
+                    }
                 }
                 else
                 {
-                    // Place ? icon
-                    //sPokedexMenu->pageSprites[i] = CreateMissingMonIcon(SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0);
+                    if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+                    {
+                        // Animated
+                        sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCB_MonIcon, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
+                    }
+                    else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+                    {
+                        // Non animated
+                        sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
+                    }
+                    else
+                    {
+                        // Place ? icon
+                        //sPokedexMenu->pageSprites[i] = CreateMissingMonIcon(SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0);
+                    }
                 }
             }
         }
@@ -3073,7 +3176,6 @@ static bool8 MonInfo_HandleInput(u8 taskId)
     u16 viewSpecies = sPokedexMenu->viewBaseSpecies;
     bool8 useInput = FALSE;
 
-    // TODO A_BUTTON cycle forms (if any)
     if(JOY_NEW(L_BUTTON))
     {
         useInput = TRUE;
@@ -3094,7 +3196,7 @@ static bool8 MonInfo_HandleInput(u8 taskId)
     {
         useInput = TRUE;
 
-        if(sRequestedSpecies != SPECIES_NONE)
+        if(sPokedexViewReq.view == DEX_VIEW_SPECIFIC_MON)
         {
             // Immediately exit if viewing view party summary
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
@@ -3568,6 +3670,21 @@ bool8 RoguePokedex_IsSpeciesEnabled(u16 species)
 
         // The species or the base species is allowed to use this
         return CheckPokedexVariantContainsSpecies(variant, species) || CheckPokedexVariantContainsSpecies(variant, Rogue_GetEggSpecies(species));
+    }
+
+    return TRUE;
+}
+
+bool8 RoguePokedex_IsBaseSpeciesEnabled(u16 species)
+{
+    if(species == SPECIES_NONE)
+        return FALSE;
+
+    {
+        u8 variant = RoguePokedex_GetDexVariant();
+
+        // The species or the base species is allowed to use this
+        return CheckPokedexVariantContainsSpecies(variant, species);
     }
 
     return TRUE;

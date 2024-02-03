@@ -5,6 +5,8 @@
 void Rogue_ShowPokedexFromMenu(void);
 void Rogue_ShowPokedexFromScript(void);
 void Rogue_ShowPokedexForMon(struct Pokemon* mon);
+void Rogue_SelectPokemonInPokedexFromDex(bool8 ignoreDexSeen);
+void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 ignoreDexSeen);
 
 u8 RoguePokedex_GetDexRegion();
 void RoguePokedex_SetDexRegion(u8 region);
@@ -19,6 +21,7 @@ bool8 RoguePokedex_IsVariantEditUnlocked();
 bool8 RoguePokedex_IsVariantEditEnabled();
 
 bool8 RoguePokedex_IsSpeciesEnabled(u16 species);
+bool8 RoguePokedex_IsBaseSpeciesEnabled(u16 baseSpecies);
 u16 RoguePokedex_GetSpeciesCurrentNum(u16 species);
 u16 RoguePokedex_RedirectSpeciesGetSetFlag(u16 species);
 

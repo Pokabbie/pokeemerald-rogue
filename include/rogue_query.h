@@ -37,6 +37,8 @@ void RogueMonQuery_Begin();
 void RogueMonQuery_End();
 void RogueMonQuery_Reset(u8 func);
 void RogueMonQuery_IsSpeciesActive();
+void RogueMonQuery_IsBaseSpeciesInCurrentDex(u8 func);
+void RogueMonQuery_IsSeenInPokedex(u8 func);
 void RogueMonQuery_TransformIntoEggSpecies();
 void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8 keepSourceSpecies);
 void RogueMonQuery_IsOfType(u8 func, u32 typeFlags);
