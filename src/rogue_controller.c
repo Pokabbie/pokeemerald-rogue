@@ -4076,6 +4076,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     trainerNum = gRogueAdvPath.currentRoomParams.perType.boss.trainerNum;
 
                     gRogueRun.currentLevelOffset = 0;
+                    RandomiseEnabledTrainers();
                     RandomiseEnabledItems();
 
                     VarSet(VAR_OBJ_GFX_ID_0, Rogue_GetTrainerObjectEventGfx(trainerNum));
@@ -4197,11 +4198,9 @@ static bool8 IsHubMapGroup()
     return gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_HUB) || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_AREA_HOME) || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTERIOR_HOME);
 }
 
-static bool8 RogueRandomChanceTrainer();
-
 static bool8 ShouldAdjustRouteObjectEvents()
 {
-    return gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT;
+    return gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS;
 }
 
 void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
@@ -6981,22 +6980,45 @@ static void ResetTrainerBattles(void)
     }
 }
 
+static bool8 RogueRandomChanceTrainer();
+
 static void RandomiseEnabledTrainers()
 {
     u16 i;
+    u16 activeTrainers = 0;
     u16 trainerBuffer[ROGUE_TRAINER_COUNT];
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
         Rogue_ChooseTeamHideoutTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
+    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
+        Rogue_ChooseSpectatorTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
     else
         Rogue_ChooseRouteTrainers(trainerBuffer, ARRAY_COUNT(trainerBuffer));
-        
+
     for(i = 0; i < ROGUE_MAX_ACTIVE_TRAINER_COUNT; ++i)
     {
         if(RogueRandomChanceTrainer())
+        {
             Rogue_SetDynamicTrainer(i, trainerBuffer[i]);
+            ++activeTrainers;
+        }
         else
             Rogue_SetDynamicTrainer(i, TRAINER_NONE);
+    }
+
+    // May only limited number of trainers active
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
+    {
+        while(activeTrainers > 10)
+        {
+            i = RogueRandom() % ROGUE_MAX_ACTIVE_TRAINER_COUNT;
+
+            if(Rogue_GetDynamicTrainer(i) != TRAINER_NONE)
+            {
+                Rogue_SetDynamicTrainer(i, TRAINER_NONE);
+                --activeTrainers;
+            }
+        }
     }
 }
 
@@ -7114,7 +7136,45 @@ static bool8 RogueRandomChanceTrainer()
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     s32 chance = 4 * (difficultyLevel + 1);
 
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
+    {
+        // Scale with badge count
+        switch (difficultyLevel)
+        {
+        case 0:
+            chance = 1;
+            break;
+        
+        case 1:
+            chance = 5;
+            break;
+        
+        case 2:
+            chance = 10;
+            break;
+        
+        case 3:
+            chance = 20;
+            break;
+        
+        case 4:
+            chance = 35;
+            break;
+        
+        case 5:
+            chance = 55;
+            break;
+
+        case 6:
+            chance = 80;
+            break;
+
+        default:
+            chance = 100;
+            break;
+        }
+    }
+    else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
     {
         // We want a good number of trainers i nthe hideout
         chance = max(25, chance);

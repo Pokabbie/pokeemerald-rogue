@@ -180,8 +180,8 @@ script Rogue_Debug_DisplayDifficultyConfigMenu
 script Rogue_Debug_DisplayPokedex
 {
     lock
-    msgbox(format("Rogue Pokedex"))
-    special(Special_ViewRoguePokedex)
+    msgbox(format("Select Mon"))
+    special(Special_SelectMonInPokedex)
     waitstate
     release
 }

@@ -1212,6 +1212,34 @@ void Rogue_ChooseTeamHideoutTrainers(u16* writeBuffer, u16 bufferCapacity)
     }
 }
 
+static u16 Rogue_SpectatorTrainerId(u16* historyBuffer, u16 historyBufferCapacity)
+{
+    struct TrainerFliter filter;
+    GetDefaultFilter(&filter);
+    filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_ROUTE;
+
+    // Exclude all evil teams from being spectators
+    filter.classFlagsExclude |= CLASS_FLAG_ANY_TEAM;
+
+    return Rogue_ChooseTrainerId(&filter, 0, historyBuffer, historyBufferCapacity);
+}
+
+void Rogue_ChooseSpectatorTrainers(u16* writeBuffer, u16 bufferCapacity)
+{
+    u8 i;
+    u16 trainerNum;
+    u16 historyBuffer[ROGUE_MAX_BOSS_COUNT];
+
+    memset(writeBuffer, TRAINER_NONE, sizeof(u16) * bufferCapacity);
+    memset(&historyBuffer[0], INVALID_HISTORY_ENTRY, sizeof(u16) * ARRAY_COUNT(historyBuffer));
+
+    for(i = 0; i < bufferCapacity; ++i)
+    {
+        trainerNum = Rogue_SpectatorTrainerId(historyBuffer, ARRAY_COUNT(historyBuffer));
+        writeBuffer[i] = trainerNum;
+    }
+}
+
 void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum)
 {
     u8 type = Rogue_GetTrainerTypeAssignment(trainerNum);

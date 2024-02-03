@@ -177,6 +177,12 @@ void Special_ViewRoguePokedex(void)
     LockPlayerFieldControls();
 }
 
+void Special_SelectMonInPokedex(void)
+{
+    Rogue_SelectPokemonInPokedexFromDex(FALSE);
+    LockPlayerFieldControls();
+}
+
 void Special_ViewVoltorbFlip(void)
 {
     gMain.savedCallback = CB2_ReturnToField;

@@ -311,6 +311,56 @@ void RogueMonQuery_IsSpeciesActive()
     }
 }
 
+void RogueMonQuery_IsBaseSpeciesInCurrentDex(u8 func)
+{
+    u16 species;
+    ASSERT_MON_QUERY;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryBitFlag(species))
+        {
+            bool8 inDex = RoguePokedex_IsBaseSpeciesEnabled(species);
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!inDex)
+                    SetQueryBitFlag(species, FALSE);
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(inDex)
+                    SetQueryBitFlag(species, FALSE);
+            }
+        }
+    }
+}
+
+void RogueMonQuery_IsSeenInPokedex(u8 func)
+{
+    u16 species;
+    ASSERT_MON_QUERY;
+
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    {
+        if(GetQueryBitFlag(species))
+        {
+            bool8 inDex = GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN);
+
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(!inDex)
+                    SetQueryBitFlag(species, FALSE);
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(inDex)
+                    SetQueryBitFlag(species, FALSE);
+            }
+        }
+    }
+}
+
 void RogueMonQuery_TransformIntoEggSpecies()
 {
     u16 species;

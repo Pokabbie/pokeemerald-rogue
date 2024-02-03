@@ -29,6 +29,8 @@ void GameShow_SelectRandomSpecies()
 
     RogueMonQuery_Begin();
     RogueMonQuery_IsSpeciesActive();
+    RogueMonQuery_IsBaseSpeciesInCurrentDex(QUERY_FUNC_INCLUDE);
+    RogueMonQuery_IsSeenInPokedex(QUERY_FUNC_INCLUDE);
 
     gameShow->recentSpecies = RogueMiscQuery_SelectRandomElement(Random());
 
@@ -44,7 +46,5 @@ u16 GameShow_BufferSpecies()
 void GameShow_CheckResultMatchesSpecies()
 {
     struct RogueGameShow* gameShow = Rogue_GetGameShow();
-    CopyEasyChatWord(gStringVar4, gSaveBlock1Ptr->dewfordTrends[2].words[0]);
-
-    gSpecialVar_Result = StringCompareN(RoguePokedex_GetSpeciesName(gameShow->recentSpecies), gStringVar4, POKEMON_NAME_LENGTH) == 0;
+    gSpecialVar_Result = gSpecialVar_Result == gameShow->recentSpecies;
 }

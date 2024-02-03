@@ -1374,7 +1374,7 @@ static void NamingScreen_CreatePlayerIcon(void);
 static void NamingScreen_CreatePCIcon(void);
 static void NamingScreen_CreateMonIcon(void);
 static void NamingScreen_CreateWaldaDadIcon(void);
-static void NamingScreen_CreateQuestBoardIcon(void);
+static void NamingScreen_CreateSmallSignIcon(void);
 
 static void (*const sIconFunctions[])(void) =
 {
@@ -1383,7 +1383,7 @@ static void (*const sIconFunctions[])(void) =
     NamingScreen_CreatePCIcon,
     NamingScreen_CreateMonIcon,
     NamingScreen_CreateWaldaDadIcon,
-    NamingScreen_CreateQuestBoardIcon,
+    NamingScreen_CreateSmallSignIcon,
 };
 
 static void CreateInputTargetIcon(void)
@@ -1433,11 +1433,11 @@ static void NamingScreen_CreateWaldaDadIcon(void)
     StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_SOUTH);
 }
 
-static void NamingScreen_CreateQuestBoardIcon(void)
+static void NamingScreen_CreateSmallSignIcon(void)
 {
     u8 spriteId;
 
-    spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_QUEST_BOARD, SpriteCallbackDummy, 56, 37, 0);
+    spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_SMALL_SIGN, SpriteCallbackDummy, 56, 37, 0);
     gSprites[spriteId].oam.priority = 3;
     StartSpriteAnim(&gSprites[spriteId], ANIM_STD_FACE_SOUTH);
 }
@@ -2144,7 +2144,7 @@ static const struct NamingScreenTemplate sPokemonHubNamingScreenTemplate =
 {
     .copyExistingString = TRUE,
     .maxChars = POKEMON_HUB_NAME_LENGTH,
-    .iconFunction = 5, // NamingScreen_CreateQuestBoardIcon
+    .iconFunction = 5, // NamingScreen_CreateSmallSignIcon
     .addGenderIcon = FALSE,
     .initialPage = KBPAGE_LETTERS_UPPER,
     .unused = 11,

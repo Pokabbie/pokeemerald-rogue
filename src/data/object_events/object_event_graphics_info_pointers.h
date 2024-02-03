@@ -432,6 +432,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Trevor;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PCStand;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeblockMixer;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SmallSign;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DevilMan;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WorkTable;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_QuestBoard;
@@ -931,6 +932,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_PC] =                       &gObjectEventGraphicsInfo_PC,
     [OBJ_EVENT_GFX_PC_STAND] =                 &gObjectEventGraphicsInfo_PCStand,
     [OBJ_EVENT_GFX_POKEBLOCK_MIXER] =          &gObjectEventGraphicsInfo_PokeblockMixer,
+    [OBJ_EVENT_GFX_SMALL_SIGN] =               &gObjectEventGraphicsInfo_SmallSign,
     [OBJ_EVENT_GFX_DEVIL_MAN] =                &gObjectEventGraphicsInfo_DevilMan,
     [OBJ_EVENT_GFX_WORK_TABLE] =               &gObjectEventGraphicsInfo_WorkTable,
     [OBJ_EVENT_GFX_QUEST_BOARD] =              &gObjectEventGraphicsInfo_QuestBoard,

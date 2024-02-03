@@ -175,10 +175,13 @@ script Rogue_Encounter_GameShow_WhosThatPokemonFlow
             delay(90)
         }
 
-        setvar(VAR_0x8004, EASY_CHAT_TYPE_ROGUE_GAMESHOW_CHOOSE_MON)
-        call(Common_ShowEasyChatScreen)
+        special(Special_SelectMonInPokedex)
+        waitstate
 
-        if(var(VAR_RESULT) == YES)
+        //setvar(VAR_0x8004, EASY_CHAT_TYPE_ROGUE_GAMESHOW_CHOOSE_MON)
+        //call(Common_ShowEasyChatScreen)
+
+        if(var(VAR_RESULT) != SPECIES_NONE)
         {
             msgbox(format("That answer is…"))
             special(GameShow_CheckResultMatchesSpecies)
