@@ -1,83 +1,186 @@
 const BOSS_NPC = 1
 
+const FLAG_SHOW_HINT = FLAG_TEMP_1
+
 mapscripts Rogue_Boss_0_MapScripts
 {
+}
+
+script Rogue_Battle_Boss0_ShowHint
+{
+    msgbox(format("A mysterious sign!"), MSGBOX_DEFAULT)
+
+    if(flag(FLAG_SHOW_HINT))
+    {
+        setvar(VAR_RESULT, YES)
+        return
+    }
+
+    call(Rogue_IsGlitchModeGymLeadersActive)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("The text is scratched up...\pIt reads...\nDMVBF DE LYF POLLU!!!\p(Whatever that means?)"), MSGBOX_DEFAULT)
+        setvar(VAR_RESULT, NO)
+    }
+    // TODO - Fix up statue hint for free if easy
+    //elif(flag(FLAG_ROGUE_EASY_TRAINERS))
+    //{
+    //    msgbox(format("It reads...\p'I can provide you a glimpse of the future'"), MSGBOX_DEFAULT)
+    //    msgbox(format("Do you want to read on?"), MSGBOX_YESNO)
+    //}
+    else
+    {
+        msgbox(format("It reads…\p'For a cost, I can provide you a glimpse of the future'"), MSGBOX_DEFAULT)
+
+        showmoneybox(0, 0)
+
+        switch(var(VAR_ROGUE_DIFFICULTY))
+        {
+            case 0:
+                checkconstantmoney(1000)
+                bufferconstantnumberstring(STR_VAR_1, 1000)
+            case 1:
+                checkconstantmoney(2000)
+                bufferconstantnumberstring(STR_VAR_1, 2000)
+            case 2:
+                checkconstantmoney(3000)
+                bufferconstantnumberstring(STR_VAR_1, 3000)
+            case 3:
+                checkconstantmoney(4000)
+                bufferconstantnumberstring(STR_VAR_1, 4000)
+            case 4:
+                checkconstantmoney(5000)
+                bufferconstantnumberstring(STR_VAR_1, 5000)
+            case 5:
+                checkconstantmoney(6000)
+                bufferconstantnumberstring(STR_VAR_1, 6000)
+            case 6:
+                checkconstantmoney(7000)
+                bufferconstantnumberstring(STR_VAR_1, 7000)
+            default:
+                checkconstantmoney(8000)
+                bufferconstantnumberstring(STR_VAR_1, 8000)
+        }
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("Do you want to spend ¥{STR_VAR_1}?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                playse(SE_VEND)
+                setflag(FLAG_SHOW_HINT)
+                switch(var(VAR_ROGUE_DIFFICULTY))
+                {
+                    case 0:
+                        removeconstantmoney(1000)
+                    case 1:
+                        removeconstantmoney(2000)
+                    case 2:
+                        removeconstantmoney(3000)
+                    case 3:
+                        removeconstantmoney(4000)
+                    case 4:
+                        removeconstantmoney(5000)
+                    case 5:
+                        removeconstantmoney(6000)
+                    case 6:
+                        removeconstantmoney(7000)
+                    default:
+                        removeconstantmoney(8000)
+                }
+
+                updatemoneybox
+                waitse
+            }
+        }
+        else
+        {
+            msgbox(format("Oh no!\pIt requires ¥{STR_VAR_1} which is more than what I have!"), MSGBOX_DEFAULT)
+        }
+
+        hidemoneybox
+    }
 }
 
 script Rogue_Battle_Boss0_Hint
 {
     lock
 
-    call(Rogue_GymIdentity_PreBoss)
+    call(Rogue_Battle_Boss0_ShowHint)
     if(var(VAR_RESULT) == YES)
     {
-        switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1))
+        if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1) == TYPE_NONE)
         {
-            case TYPE_NONE:
-                bufferstring(STR_VAR_1, "NONE")
-
-            case TYPE_NORMAL:
-                bufferstring(STR_VAR_1, "NORMAL")
-
-            case TYPE_FIGHTING:
-                bufferstring(STR_VAR_1, "FIGHTING")
-
-            case TYPE_FLYING:
-                bufferstring(STR_VAR_1, "FLYING")
-
-            case TYPE_POISON:
-                bufferstring(STR_VAR_1, "POISON")
-
-            case TYPE_GROUND:
-                bufferstring(STR_VAR_1, "GROUND")
-
-            case TYPE_ROCK:
-                bufferstring(STR_VAR_1, "ROCK")
-
-            case TYPE_BUG:
-                bufferstring(STR_VAR_1, "BUG")
-
-            case TYPE_GHOST:
-                bufferstring(STR_VAR_1, "GHOST")
-
-            case TYPE_STEEL:
-                bufferstring(STR_VAR_1, "STEEL")
-
-            case TYPE_MYSTERY:
-                bufferstring(STR_VAR_1, "STRANGE")
-
-            case TYPE_FIRE:
-                bufferstring(STR_VAR_1, "FIRE")
-
-            case TYPE_WATER:
-                bufferstring(STR_VAR_1, "WATER")
-    
-            case TYPE_GRASS:
-                bufferstring(STR_VAR_1, "GRASS")
-    
-            case TYPE_ELECTRIC:
-                bufferstring(STR_VAR_1, "ELECTRIC")
-    
-            case TYPE_PSYCHIC:
-                bufferstring(STR_VAR_1, "PSYCHIC")
-    
-            case TYPE_ICE:
-                bufferstring(STR_VAR_1, "ICE")
-    
-            case TYPE_DRAGON:
-                bufferstring(STR_VAR_1, "DRAGON")
-    
-            case TYPE_DARK:
-                bufferstring(STR_VAR_1, "DARK")
-    
-            case 18: //TYPE_FAIRY
-                bufferstring(STR_VAR_1, "FAIRY")
-
-            default:
-                bufferstring(STR_VAR_1, "???")
+            msgbox(format("A Gym Leader who specialises in various types awaits…"), MSGBOX_DEFAULT)
         }
+        else
+        {
+            switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1))
+            {
+                case TYPE_NORMAL:
+                    bufferstring(STR_VAR_1, "Normal")
 
-        msgbox(format("A GYM LEADER of the type {STR_VAR_1} awaits..."), MSGBOX_DEFAULT)
+                case TYPE_FIGHTING:
+                    bufferstring(STR_VAR_1, "Fighting")
+
+                case TYPE_FLYING:
+                    bufferstring(STR_VAR_1, "Flying")
+
+                case TYPE_POISON:
+                    bufferstring(STR_VAR_1, "Poison")
+
+                case TYPE_GROUND:
+                    bufferstring(STR_VAR_1, "Ground")
+
+                case TYPE_ROCK:
+                    bufferstring(STR_VAR_1, "Rock")
+
+                case TYPE_BUG:
+                    bufferstring(STR_VAR_1, "Bug")
+
+                case TYPE_GHOST:
+                    bufferstring(STR_VAR_1, "Ghost")
+
+                case TYPE_STEEL:
+                    bufferstring(STR_VAR_1, "Steel")
+
+                case TYPE_MYSTERY:
+                    bufferstring(STR_VAR_1, "Mystery?")
+
+                case TYPE_FIRE:
+                    bufferstring(STR_VAR_1, "Fire")
+
+                case TYPE_WATER:
+                    bufferstring(STR_VAR_1, "Water")
+        
+                case TYPE_GRASS:
+                    bufferstring(STR_VAR_1, "Grass")
+        
+                case TYPE_ELECTRIC:
+                    bufferstring(STR_VAR_1, "Electric")
+        
+                case TYPE_PSYCHIC:
+                    bufferstring(STR_VAR_1, "Psychic")
+        
+                case TYPE_ICE:
+                    bufferstring(STR_VAR_1, "Ice")
+        
+                case TYPE_DRAGON:
+                    bufferstring(STR_VAR_1, "Dragon")
+        
+                case TYPE_DARK:
+                    bufferstring(STR_VAR_1, "Dark")
+        
+                case 18: //TYPE_FAIRY
+                    bufferstring(STR_VAR_1, "Fairy")
+
+                default:
+                    bufferstring(STR_VAR_1, "???")
+            }
+
+            msgbox(format("A Gym Leader who specialises in {STR_VAR_1} type Pokémon awaits…"), MSGBOX_DEFAULT)
+        }
     }
 
     release
