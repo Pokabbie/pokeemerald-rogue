@@ -1537,15 +1537,15 @@
       "width": 30,
       "height": 32,
       "primary_tileset": "gTileset_GeneralHub",
-      "secondary_tileset": "gTileset_Unused1",
+      "secondary_tileset": "gTileset_PlayerHome",
       "border_filepath": "data/layouts/Rogue_Area_Home/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_Home/map.bin"
     },
     {
       "id": "LAYOUT_ROGUE_INTERIOR_HOME",
       "name": "Rogue_Interior_Home_Layout",
-      "width": 9,
-      "height": 7,
+      "width": 10,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/Rogue_Interior_Home/border.bin",
@@ -1554,8 +1554,8 @@
     {
       "id": "LAYOUT_ROGUE_INTERIOR_HOME_UPPER",
       "name": "Rogue_Interior_HomeUpper_Layout",
-      "width": 9,
-      "height": 7,
+      "width": 10,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/Rogue_Interior_HomeUpper/border.bin",
@@ -1810,6 +1810,46 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/Rogue_Boss_Final/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Boss_Final/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_TEMPLATE_HOMES",
+      "name": "Rogue_Template_Homes_Layout",
+      "width": 50,
+      "height": 5,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_PlayerHome",
+      "border_filepath": "data/layouts/Rogue_Template_Homes/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Template_Homes/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_TEMPLATE_HOME_FLOWERS",
+      "name": "Rogue_Template_Home_Flowers_Layout",
+      "width": 30,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_PlayerHome",
+      "border_filepath": "data/layouts/Rogue_Template_Home_Flowers/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Template_Home_Flowers/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_TEMPLATE_HOME_BASE",
+      "name": "Rogue_Template_Home_Base_Layout",
+      "width": 30,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_PlayerHome",
+      "border_filepath": "data/layouts/Rogue_Template_Home_Base/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Template_Home_Base/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_TEMPLATE_HOME_GRASS",
+      "name": "Rogue_Template_Home_Grass_Layout",
+      "width": 30,
+      "height": 32,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_PlayerHome",
+      "border_filepath": "data/layouts/Rogue_Template_Home_Grass/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Template_Home_Grass/map.bin"
     }
   ]
 }

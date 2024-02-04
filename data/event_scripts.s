@@ -844,3 +844,11 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Encounter_RocketHideout/scripts.inc"
 
 	.include "data/maps/Rogue_Boss_Final/scripts.inc"
+
+	.include "data/maps/Rogue_Template_Homes/scripts.inc"
+
+	.include "data/maps/Rogue_Template_Home_Flowers/scripts.inc"
+
+	.include "data/maps/Rogue_Template_Home_Base/scripts.inc"
+
+	.include "data/maps/Rogue_Template_Home_Grass/scripts.inc"

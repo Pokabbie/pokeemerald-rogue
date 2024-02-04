@@ -60,6 +60,32 @@
 
 #define HUB_UPGRADE_NONE 255
 
+// Player Home Options
+//
+#define HOME_AREA_STYLE_OVERGROWN       0
+#define HOME_AREA_STYLE_FLOWERS         1
+#define HOME_AREA_STYLE_PLAIN           2
+#define HOME_AREA_STYLE_COUNT           3
+
+#define HOME_BUILDING_STYLE_CAVE        0
+#define HOME_BUILDING_STYLE_TREES       1
+#define HOME_BUILDING_STYLE_RED_BRICK   2
+#define HOME_BUILDING_STYLE_WOODEN      3
+#define HOME_BUILDING_STYLE_GYM         4
+#define HOME_BUILDING_STYLE_COUNT       5
+
+#define HOME_REGION_HOUSE               0 // this is first as it overlaps the others, so is the highest priority
+#define HOME_REGION_TL                  1
+#define HOME_REGION_TR                  2
+#define HOME_REGION_BL                  3
+#define HOME_REGION_BR                  4
+#define HOME_REGION_COUNT               5
+
+#define HOME_DECOR_OUTSIDE_COUNT        32
+#define HOME_DECOR_LOWER_COUNT          16
+#define HOME_DECOR_UPPER_COUNT          16
+#define HOME_DECOR_TOTAL_COUNT          (HOME_DECOR_OUTSIDE_COUNT + HOME_DECOR_LOWER_COUNT + HOME_DECOR_UPPER_COUNT)
+
 // Misc
 //
 #define HUB_UPGRADE_MAX_REQUIREMENTS 2

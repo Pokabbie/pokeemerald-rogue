@@ -4,6 +4,7 @@
     "gMapGroup_RogueHub",
     "gMapGroup_RogueHubAreas",
     "gMapGroup_RogueHubInteriors",
+    "gMapGroup_RogueHubTemplates",
     "gMapGroup_RogueHubTesting",
     "gMapGroup_RogueRun",
     "gMapGroup_RogueAdventureEncounters",
@@ -56,6 +57,12 @@
     "Rogue_Interior_Restaurant",
     "Rogue_Interior_Cafe",
     "Rogue_Interior_School"
+  ],
+  "gMapGroup_RogueHubTemplates": [
+    "Rogue_Template_Homes",
+    "Rogue_Template_Home_Base",
+    "Rogue_Template_Home_Flowers",
+    "Rogue_Template_Home_Grass"
   ],
   "gMapGroup_RogueHubTesting": [
     "Rogue_Tile_Test1",
