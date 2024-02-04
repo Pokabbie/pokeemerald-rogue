@@ -1461,6 +1461,9 @@ const u16 gTilesetPalettes_General02_Summer[] = INCBIN_U16("data/tilesets/primar
 const u16 gTilesetPalettes_General02_Autumn[] = INCBIN_U16("data/tilesets/primary/general/palettes/season/02_autumn.gbapal");
 const u16 gTilesetPalettes_General02_Winter[] = INCBIN_U16("data/tilesets/primary/general/palettes/season/02_winter.gbapal");
 
+const u16 gTilesetPalettes_General02_Day[] = INCBIN_U16("data/tilesets/primary/general/palettes/time/02_day.gbapal");
+const u16 gTilesetPalettes_General02_Night[] = INCBIN_U16("data/tilesets/primary/general/palettes/time/02_night.gbapal");
+
 const u32 gTilesetTiles_General[] = INCBIN_U32("data/tilesets/primary/general/tiles.4bpp.lz");
 
 // trade/egg hatch

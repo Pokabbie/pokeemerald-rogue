@@ -138,6 +138,9 @@ extern const u16 gTilesetPalettes_General02_Summer[];
 extern const u16 gTilesetPalettes_General02_Autumn[];
 extern const u16 gTilesetPalettes_General02_Winter[];
 
+extern const u16 gTilesetPalettes_General02_Day[];
+extern const u16 gTilesetPalettes_General02_Night[];
+
 u16 RogueToD_GetTime()
 {
     return gRogueSaveBlock->timeOfDayMinutes;
@@ -286,6 +289,52 @@ static void TintPalette_CustomMultiply(u16 *palette, u16 size, u16 rTone, u16 gT
     }
 }
 
+// Will only apply override palette if the input matches
+static void UNUSED TintPalette_CompareOverrideWithMultiplyFallback(u16 *palette, u16 size, const u16* comparePalette, const u16* overridePalette,  u16 rTone, u16 gTone, u16 bTone)
+{
+    s32 r, g, b;
+    u16 i, j;
+    u16 colour;
+
+    for (i = 0; i < size / sizeof(u16); i++)
+    {
+        colour = *palette;
+
+        for(j = 0; j < 16; ++j)
+        {
+            // We have a valid override to apply (e.g. lights)
+            if(comparePalette[j] == colour)
+            {
+                colour = overridePalette[j];
+                break;
+            }
+        }
+
+        // Apply tone fallback
+        if(j == 16)
+        {
+            r = GET_R(colour);
+            g = GET_G(colour);
+            b = GET_B(colour);
+
+            r = (r * rTone) / 31;
+            g = (g * gTone) / 31;
+            b = (b * bTone) / 31;
+
+            if (r > 31)
+                r = 31;
+            if (g > 31)
+                g = 31;
+            if (b > 31)
+                b = 31;
+
+            colour = RGB2(r, g, b);
+        }
+
+        *palette++ = colour;
+    }
+}
+
 static void TintPalette_Season(u16 *palette, u16 size)
 {
     switch (RogueToD_GetSeason())
@@ -306,7 +355,19 @@ static void TintPalette_Season(u16 *palette, u16 size)
 
 static void TintPalette_ToD(u16 *palette, u16 size, u16 colour)
 {
-    TintPalette_CustomMultiply(palette, size, GET_R(colour), GET_G(colour), GET_B(colour));
+    // Glowing water :(
+    //if(RogueToD_IsNight())
+    //{
+    //    TintPalette_CompareOverrideWithMultiplyFallback(
+    //        palette, size, 
+    //        gTilesetPalettes_General02_Day, gTilesetPalettes_General02_Night,
+    //        GET_R(colour), GET_G(colour), GET_B(colour)
+    //    );
+    //}
+    //else
+    {
+        TintPalette_CustomMultiply(palette, size, GET_R(colour), GET_G(colour), GET_B(colour));
+    }
 }
 
 bool8 RogueToD_ApplySeasonVisuals()
