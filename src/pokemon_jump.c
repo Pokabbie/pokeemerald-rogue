@@ -1813,8 +1813,8 @@ static void UpdateVineSpeed(void)
 
 static int PokeJumpRandom(void)
 {
-    sPokemonJump->rngSeed = ISO_RANDOMIZE1(sPokemonJump->rngSeed);
-    return sPokemonJump->rngSeed >> 16;
+    u16 random = RandomCustom(&sPokemonJump->rngSeed);
+    return random;
 }
 
 static void ResetVineAfterHit(void)

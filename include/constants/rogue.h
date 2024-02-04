@@ -28,6 +28,9 @@
 
 #endif
 
+// Seems to be slower overall
+//#define ROGUE_FEATURE_HQ_RANDOM 1
+
 #ifdef ROGUE_EXPANSION
 #define ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
 #endif

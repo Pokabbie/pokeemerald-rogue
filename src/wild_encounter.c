@@ -115,8 +115,8 @@ static bool8 CheckFeebas(void)
 
 static u16 FeebasRandom(void)
 {
-    sFeebasRngValue = ISO_RANDOMIZE2(sFeebasRngValue);
-    return sFeebasRngValue >> 16;
+    u16 result = RandomCustom(&sFeebasRngValue);
+    return result;
 }
 
 static void FeebasSeedRng(u16 seed)

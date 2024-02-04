@@ -189,7 +189,7 @@ void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount)
 {
     u16 elem;
     u16 count = Query_MaxBitCount();
-    u32 startSeed = gRngRogueValue;
+    RAND_TYPE startSeed = gRngRogueValue;
 
     ASSERT_ANY_QUERY;
 

@@ -156,7 +156,6 @@ struct Contest
     u8 judgeSpeechBubbleSpriteId;
     s8 applauseLevel;
     u8 prevTurnOrder[CONTESTANT_COUNT];
-    u32 unusedRng;
     u16 moveHistory[CONTEST_NUM_APPEALS][CONTESTANT_COUNT];
     u8 excitementHistory[CONTEST_NUM_APPEALS][CONTESTANT_COUNT];
     u8 applauseMeterSpriteId;

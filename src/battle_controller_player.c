@@ -2773,7 +2773,11 @@ static void PlayerChooseMoveInBattlePalace(void)
 {
     if (--*(gBattleStruct->arenaMindPoints + gActiveBattler) == 0)
     {
+#ifdef ROGUE_FEATURE_HQ_RANDOM
+        gBattlePalaceMoveSelectionRngValue = gRngValue.seed;
+#else
         gBattlePalaceMoveSelectionRngValue = gRngValue;
+#endif
         BtlController_EmitTwoReturnValues(BUFFER_B, 10, ChooseMoveAndTargetInBattlePalace());
         PlayerBufferExecCompleted();
     }

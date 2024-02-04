@@ -93,6 +93,7 @@ SECTIONS {
         src/battle_controller_link_opponent.o(.text);
         src/pokemon.o(.text);
         src/trig.o(.text);
+        src/random32.o(.text)
         src/random.o(.text);
         src/util.o(.text);
         src/daycare.o(.text);

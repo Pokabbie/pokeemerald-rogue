@@ -118,7 +118,7 @@ struct RogueLocalData
 {
     struct RouteMonPreview encounterPreview[WILD_ENCOUNTER_GRASS_CAPACITY];
     struct RogueGameShow gameShow;
-    u32 rngSeedToRestore;
+    RAND_TYPE rngSeedToRestore;
     u16 wildEncounterHistoryBuffer[3];
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
@@ -3533,7 +3533,7 @@ bool8 Rogue_IsBattleRoamerMon(u16 species)
 void Rogue_SelectMiniBossRewardMons()
 {
     u16 indexA, indexB;
-    u32 startSeed = gRngRogueValue;
+    RAND_TYPE startSeed = gRngRogueValue;
     u8 partySize = CalculateEnemyPartyCount();
 
     if(partySize == 1)
@@ -6571,7 +6571,7 @@ static void ApplyTutorMoveCapacity(u8* count, u16* moves, u16 capacity)
 {
     u16 i;
     u16 randIdx;
-    u32 startSeed = gRngRogueValue;
+    RAND_TYPE startSeed = gRngRogueValue;
 
     while(*count > capacity)
     {
