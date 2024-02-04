@@ -816,7 +816,7 @@ static void MetatileSet_Tile(u16 x, u16 y, u16 tile)
     MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, tile);
 }
 
-static void MetatileFill_Tile(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd, u16 tile)
+static void UNUSED MetatileFill_Tile(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd, u16 tile)
 {
     u16 x, y;
 
