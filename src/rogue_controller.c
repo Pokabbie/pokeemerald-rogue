@@ -493,6 +493,37 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
                 break;
             }
         }
+
+        if(VarGet(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+        {
+            switch (songNum)
+            {
+            case MUS_LITTLEROOT:
+                songNum = MUS_DP_UNDERGROUND;
+                break;
+            }
+        }
+
+        switch (songNum)
+        {
+        case MUS_LITTLEROOT:
+            switch(RogueToD_GetSeason())
+            {
+                case SEASON_SPRING:
+                    songNum = MUS_DP_SANDGEM_DAY;
+                    break;
+                case SEASON_SUMMER:
+                    songNum = MUS_DP_SOLACEON_DAY;
+                    break;
+                case SEASON_AUTUMN:
+                    songNum = MUS_DP_FLOAROMA_DAY;
+                    break;
+                case SEASON_WINTER:
+                    songNum = MUS_DP_SNOWPOINT_DAY;
+                    break;
+            }
+            break;
+        }
     }
 
     return songNum;
@@ -1234,6 +1265,18 @@ s16 Rogue_ModifyBattleSlideAnim(s16 rate)
 
     // Still run faster and default game because it's way too slow :(
     return rate;
+}
+
+const u8* Rogue_ModifyOverworldInteractionScript(struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* script)
+{
+    u16 specialState = VarGet(VAR_ROGUE_SPECIAL_MODE);
+
+    if(specialState == ROGUE_SPECIAL_MODE_DECORATING)
+    {
+        script = RogueHub_GetDecoratingScriptFor(gMapHeader.mapLayoutId, position, metatileBehavior, direction, script);
+    }
+
+    return script;
 }
 
 u8 SpeciesToGen(u16 species)
@@ -3925,7 +3968,7 @@ void Rogue_OnWarpIntoMap(void)
             if(specialState == ROGUE_SPECIAL_MODE_DECORATING)
             {
                 // Maintain special state provided we're still in any player home area
-                bool8 inHomeMap = gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_HOME || gMapHeader.mapLayoutId == LAYOUT_ROGUE_INTERIOR_HOME || gMapHeader.mapLayoutId == LAYOUT_ROGUE_INTERIOR_HOME_UPPER;
+                bool8 inHomeMap = RogueHub_IsPlayerBaseLayout(gMapHeader.mapLayoutId);
 
                 if(!inHomeMap)
                     VarSet(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE);
@@ -4356,6 +4399,13 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                     break;
                 }
             }
+        }
+    }
+    else
+    {
+        if(RogueHub_IsPlayerBaseLayout(mapHeader->mapLayoutId))
+        {
+            RogueHub_ModifyPlayerBaseObjectEvents(mapHeader->mapLayoutId, loadingFromSave, objectEvents, objectEventCount, objectEventCapacity);
         }
     }
 }

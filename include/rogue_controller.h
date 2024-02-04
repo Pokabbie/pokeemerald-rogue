@@ -66,6 +66,8 @@ void Rogue_ModifyBattlePalette(u16 offset, u16 count);
 const u8* Rogue_ModifyFieldMessage(const u8* str);
 const u8* Rogue_ModifyBattleMessage(const u8* str);
 
+const u8* Rogue_ModifyOverworldInteractionScript(struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* script);
+
 bool8 Rogue_ShouldShowMiniMenu(void);
 u16 Rogue_MiniMenuHeight(void);
 u8* Rogue_GetMiniMenuContent(void);

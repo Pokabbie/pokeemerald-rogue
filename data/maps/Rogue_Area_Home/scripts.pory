@@ -5,6 +5,8 @@ const FLAG_FIELD_MON1 = FLAG_TEMP_4
 const FLAG_FIELD_MON2 = FLAG_TEMP_5
 const FLAG_FIELD_MON3 = FLAG_TEMP_6
 
+const VAR_SELECT_REGION = VAR_0x8004
+
 mapscripts Rogue_Area_Home_MapScripts 
 {
     MAP_SCRIPT_ON_LOAD: Rogue_Area_Home_OnTransition
@@ -57,4 +59,52 @@ script Rogue_Area_Home_OnTransition
             clearflag(FLAG_FIELD_MON3)
         }
     }
+}
+
+script Rogue_Area_Home_InteractWithWorkbench
+{
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    if(var(VAR_RESULT) != DIR_SOUTH) // Can't interact from the top
+    {
+        lock
+
+        if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+        {
+            setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE)
+        }
+        else
+        {
+            setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_DECORATING)
+        }
+
+        //playbgm(MUS_LITTLEROOT, TRUE)
+        //special(Rogue_SetupFollowParterMonObjectEvent)
+
+        if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+        {
+            msgbox(format("Start Decorating!"))
+        }
+        else
+        {
+            msgbox(format("Stopped Decorating"))
+        }
+        
+        special(ReloadWarpSilent)
+
+        // TODO - give choice
+
+        //call(Rogue_Area_WorkbenchOptions)
+
+        release
+    }
+}
+
+script Rogue_Area_Home_DecorateTile
+{
+    lock
+
+    buffernumberstring(STR_VAR_1, VAR_SELECT_REGION)
+    msgbox(format("region {STR_VAR_1}"))
+
+    release
 }

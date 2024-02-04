@@ -23,6 +23,56 @@
 
 #define HOME_AREA_DISPLAY_MONS 4
 
+struct RegionCoords
+{
+    u16 xStart;
+    u16 yStart;
+    u16 xEnd;
+    u16 yEnd;
+};
+
+struct MapInfo
+{
+    u16 group;
+    u16 num;
+};
+
+static struct RegionCoords const sHomeRegionCoords[HOME_REGION_COUNT] = 
+{
+    [HOME_REGION_TL] = 
+    {
+        1, 1,
+        12, 17
+    },
+    [HOME_REGION_TR] = 
+    {
+        13, 1,
+        28, 12
+    },
+    [HOME_REGION_BL] = 
+    {
+        1, 18,
+        16, 29
+    },
+    [HOME_REGION_BR] = 
+    {
+        16, 13,
+        28, 29
+    },
+    [HOME_REGION_HOUSE] = 
+    {
+        12, 12,
+        16, 16
+    },
+};
+
+static struct MapInfo const sHomeAreaStyles[HOME_AREA_STYLE_COUNT] = 
+{
+    [HOME_AREA_STYLE_OVERGROWN] = {}, // default
+    [HOME_AREA_STYLE_FLOWERS] = { MAP_GROUP(ROGUE_TEMPLATE_HOME_FLOWERS), MAP_NUM(ROGUE_TEMPLATE_HOME_FLOWERS) },
+    [HOME_AREA_STYLE_PLAIN] = { MAP_GROUP(ROGUE_TEMPLATE_HOME_GRASS), MAP_NUM(ROGUE_TEMPLATE_HOME_GRASS) },
+};
+
 static void MetatileSet_Tile(u16 xStart, u16 yStart, u16 tile);
 static void MetatileFill_Tile(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd, u16 tile);
 static void MetatileFill_TreesOverlapping(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd, u8 treeType);
@@ -485,14 +535,47 @@ static void RogueHub_UpdateAdventureEntranceAreaMetatiles()
     }
 }
 
+static void BlitPlayerHomeRegion(u16 region, u16 style)
+{
+    AGB_ASSERT(region < HOME_REGION_COUNT);
+    AGB_ASSERT(style < HOME_AREA_STYLE_COUNT);
+
+    if(style != HOME_AREA_STYLE_OVERGROWN) // HOME_AREA_STYLE_OVERGROWN is default
+    {
+        MetatileFill_BlitMapRegion(
+            sHomeAreaStyles[style].group, sHomeAreaStyles[style].num,
+            sHomeRegionCoords[region].xStart, sHomeRegionCoords[region].yStart, sHomeRegionCoords[region].xEnd, sHomeRegionCoords[region].yEnd,
+            sHomeRegionCoords[region].xStart, sHomeRegionCoords[region].yStart
+        );
+    }
+}
+
+static void BlitPlayerHouse(u16 style, bool8 isUpgraded)
+{
+    u16 const width = (sHomeRegionCoords[HOME_REGION_HOUSE].xEnd - sHomeRegionCoords[HOME_REGION_HOUSE].xStart + 1);
+    AGB_ASSERT(style < HOME_BUILDING_STYLE_COUNT);
+
+    MetatileFill_BlitMapRegion(
+        MAP_GROUP(ROGUE_TEMPLATE_HOMES), MAP_NUM(ROGUE_TEMPLATE_HOMES),
+        sHomeRegionCoords[HOME_REGION_HOUSE].xStart, sHomeRegionCoords[HOME_REGION_HOUSE].yStart, sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, sHomeRegionCoords[HOME_REGION_HOUSE].yEnd,
+        width * (style * 2 + (isUpgraded ? 0 : 1)),0
+    );
+}
+
 static void RogueHub_UpdateHomeAreaMetatiles()
 {
     // Blit map styles first
-    MetatileFill_BlitMapRegion(
-        MAP_GROUP(ROGUE_AREA_RIDE_TRAINING), MAP_NUM(ROGUE_AREA_RIDE_TRAINING), 
-        3,3, 12,12,
-        3, 24
-    );
+    u8 i;
+    struct RogueHubMap* hubMap = GetActiveHubMap();
+
+    for(i = 0; i < HOME_REGION_COUNT; ++i)
+    {
+        if(i == HOME_REGION_HOUSE)
+            BlitPlayerHouse(hubMap->homeRegionStyles[i], RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR));
+        else
+            BlitPlayerHomeRegion(i, hubMap->homeRegionStyles[i]);
+    }
+
 
     // Remove connections
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
@@ -574,19 +657,12 @@ static void RogueHub_UpdateHomeInteriorMetatiles()
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR))
     {
         // Replace with back wall
-        MetatileSet_Tile(8, 0, 0x20E | MAPGRID_COLLISION_MASK);
-        MetatileSet_Tile(8, 1, 0x216 | MAPGRID_COLLISION_MASK);
-        MetatileFill_Tile(6, 0, 7, 0, 0x254 | MAPGRID_COLLISION_MASK);
-        MetatileFill_Tile(6, 1, 7, 1, 0x25C | MAPGRID_COLLISION_MASK);
-
-        // Replace with PC
-        MetatileSet_Tile(8, 0, 0x251 | MAPGRID_COLLISION_MASK);
-        MetatileSet_Tile(8, 1, 0x259 | MAPGRID_COLLISION_MASK);
-        MetatileSet_Tile(8, 2, 0x261);
-
-        MetatileSet_Tile(7, 1, 0x258 | MAPGRID_COLLISION_MASK);
-        MetatileSet_Tile(7, 2, 0x260);
-
+        MetatileSet_Tile(7, 0, 0x254 | MAPGRID_COLLISION_MASK);
+        MetatileSet_Tile(7, 1, 0x25C | MAPGRID_COLLISION_MASK);
+        MetatileSet_Tile(8, 0, 0x21E | MAPGRID_COLLISION_MASK);
+        MetatileSet_Tile(8, 1, 0x226 | MAPGRID_COLLISION_MASK);
+        MetatileSet_Tile(9, 0, 0x254 | MAPGRID_COLLISION_MASK);
+        MetatileSet_Tile(9, 1, 0x25C | MAPGRID_COLLISION_MASK);
     }
 }
 
@@ -889,7 +965,7 @@ static void MetatileFill_BlitMapRegion(u16 mapGroup, u16 mapNum, u16 destX1, u16
 
     for(dy = destY1, sy = srcY1; dy <= destY2; ++dy, ++sy)
     {
-        for(dx = destY1, sx = srcX1; dx <= destX2; ++dx, ++sx)
+        for(dx = destX1, sx = srcX1; dx <= destX2; ++dx, ++sx)
         {
             i = sx + mapHeader->mapLayout->width * sy;
             AGB_ASSERT(i < mapHeader->mapLayout->width * mapHeader->mapLayout->height);
@@ -975,4 +1051,49 @@ static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea)
             break;
         }
     }
+}
+
+bool8 RogueHub_IsPlayerBaseLayout(u16 layoutId)
+{
+    return layoutId == LAYOUT_ROGUE_AREA_HOME || layoutId == LAYOUT_ROGUE_INTERIOR_HOME || layoutId == LAYOUT_ROGUE_INTERIOR_HOME_UPPER;
+}
+
+void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
+{
+
+}
+
+extern u8 const Rogue_Area_Home_InteractWithWorkbench[];
+extern u8 const Rogue_Area_Home_DecorateTile[];
+
+const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* existingScript)
+{
+    if(existingScript == Rogue_Area_Home_InteractWithWorkbench)
+    {
+        return existingScript;
+    }
+
+    if(layoutId == LAYOUT_ROGUE_AREA_HOME)
+    {
+        u8 i;
+
+        for(i = 0; i < HOME_REGION_COUNT; ++i)
+        {
+            if(
+                position->x - MAP_OFFSET >= sHomeRegionCoords[i].xStart &&
+                position->x - MAP_OFFSET <= sHomeRegionCoords[i].xEnd &&
+                position->y - MAP_OFFSET >= sHomeRegionCoords[i].yStart &&
+                position->y - MAP_OFFSET <= sHomeRegionCoords[i].yEnd
+            )
+                break;
+        }
+
+        gSpecialVar_0x8004 = i;
+    }
+    else
+    {
+        gSpecialVar_0x8004 = HOME_REGION_COUNT;
+    }
+
+    return Rogue_Area_Home_DecorateTile;
 }

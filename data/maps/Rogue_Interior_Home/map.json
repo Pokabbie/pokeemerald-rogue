@@ -18,21 +18,21 @@
   ],
   "warp_events": [
     {
-      "x": 7,
-      "y": 6,
+      "x": 5,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "8"
     },
     {
-      "x": 6,
-      "y": 6,
+      "x": 4,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "8"
     },
     {
-      "x": 7,
+      "x": 8,
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_HOME_UPPER",
@@ -45,16 +45,16 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 8,
-      "y": 1,
+      "x": 4,
+      "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Rogue_Interior_Home_TurnOnPCLowerFloor"
     },
     {
       "type": "sign",
-      "x": 4,
-      "y": 2,
+      "x": 2,
+      "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Rogue_Interior_Home_ChangeClothes"
