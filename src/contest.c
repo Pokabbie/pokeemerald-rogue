@@ -1293,7 +1293,7 @@ static void Task_ReadyStartLinkContest(u8 taskId)
         GetMultiplayerId();  // unused return value
         DestroyTask(taskId);
         gTasks[eContest.mainTaskId].func = Task_WaitToRaiseCurtainAtStart;
-        gRngValue = gContestRngValue;
+        SeedRng(gContestRngValue);
     }
 }
 
@@ -1708,7 +1708,6 @@ static void Task_AppealSetup(u8 taskId)
     if (++gTasks[taskId].data[0] > 19)
     {
         eContest.turnNumber = 0;
-        eContest.unusedRng = gRngValue;
         if ((gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK) && IsPlayerLinkLeader())
         {
             s32 i;
@@ -2671,7 +2670,11 @@ static void Task_EndAppeals(u8 taskId)
         SetConestLiveUpdateTVData();
         ContestDebugPrintBitStrings();
     }
+#ifdef ROGUE_FEATURE_HQ_RANDOM
+    gContestRngValue = gRngValue.seed;
+#else
     gContestRngValue = gRngValue;
+#endif
     StringExpandPlaceholders(gStringVar4, gText_AllOutOfAppealTime);
     Contest_StartTextPrinter(gStringVar4, TRUE);
     gTasks[taskId].data[2] = 0;

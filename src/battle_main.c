@@ -4219,7 +4219,7 @@ static void HandleTurnActionSelectionState(void)
                     else if (gBattleTypeFlags & BATTLE_TYPE_PALACE
                              && gChosenActionByBattler[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))] == B_ACTION_USE_MOVE)
                     {
-                        gRngValue = gBattlePalaceMoveSelectionRngValue;
+                        SeedRng(gBattlePalaceMoveSelectionRngValue);
                         RecordedBattle_ClearBattlerAction(GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler))), 1);
                     }
                     else

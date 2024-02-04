@@ -183,6 +183,13 @@ struct UCoords32
     u32 y;
 };
 
+struct PCG32
+{
+    u32 seed;
+    u32 low;
+    u32 high;
+};
+
 #include "rogue.h"
 
 struct Time

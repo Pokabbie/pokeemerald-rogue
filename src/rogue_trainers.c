@@ -1014,7 +1014,7 @@ void Rogue_GenerateRivalBaseTeamIfNeeded()
     if(gRogueRun.rivalSpecies[0] == SPECIES_NONE)
     {
         u8 i;
-        u32 savedRng = gRngRogueValue;
+        RAND_TYPE savedRng = gRngRogueValue;
 
         // Fake the difficulty for the generator
         u16 tempDifficulty = Rogue_GetCurrentDifficulty();
@@ -1059,7 +1059,7 @@ void Rogue_GenerateRivalSwapTeamIfNeeded()
     if(gRogueRun.rivalSpecies[RIVAL_BASE_PARTY_SIZE] == SPECIES_NONE)
     {
         u8 i, j;
-        u32 savedRng = gRngRogueValue;
+        RAND_TYPE savedRng = gRngRogueValue;
 
         // Fake the difficulty for the generator
         u16 tempDifficulty = Rogue_GetCurrentDifficulty();

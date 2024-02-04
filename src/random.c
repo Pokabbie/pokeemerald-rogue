@@ -4,6 +4,65 @@
 #include <alloca.h>
 #endif
 
+#ifdef ROGUE_FEATURE_HQ_RANDOM
+
+struct PCG32 gRngValue;
+struct PCG32 gRng2Value;
+struct PCG32 gRngRogueValue;
+
+u32 RandomPCG32(struct PCG32* rng);
+
+u32 Random32(void)
+{
+    return RandomPCG32(&gRngValue);
+}
+
+u32 RandomAlt32(void)
+{
+    return RandomPCG32(&gRng2Value);
+}
+
+u32 RogueRandom32(void)
+{
+    return RandomPCG32(&gRngRogueValue);
+}
+
+u32 RandomCustom32(u32* seed)
+{
+    struct PCG32 rng;
+    u32 result;
+    rng.seed = *seed;
+    rng.high = *seed;
+    rng.low = *seed;
+
+    result = RandomPCG32(&rng);
+
+    *seed = rng.seed;
+    return result;
+}
+
+void SeedRng(u32 seed)
+{
+    gRngValue.seed = seed;
+    gRngValue.high = seed;
+    gRngValue.low = seed;
+}
+
+void SeedRng2(u32 seed)
+{
+    gRng2Value.seed = seed;
+    gRng2Value.high = seed;
+    gRng2Value.low = seed;
+}
+
+void SeedRogueRng(u32 seed)
+{
+    gRngRogueValue.seed = seed;
+    gRngRogueValue.high = seed;
+    gRngRogueValue.low = seed;
+}
+
+#else
 EWRAM_DATA static u8 sUnknown = 0;
 EWRAM_DATA static u32 sRandCount = 0;
 
@@ -52,7 +111,7 @@ u16 RandomCustom(u32* seed)
     *seed = ISO_RANDOMIZE1(*seed);
     return *seed >> 16;
 }
-
+#endif
 #define SHUFFLE_IMPL \
     u32 tmp; \
     --n; \

@@ -98,13 +98,17 @@ void RecordedBattle_SetTrainerInfo(void)
 
     if (sRecordMode == B_RECORD_MODE_RECORDING)
     {
+#ifdef ROGUE_FEATURE_HQ_RANDOM
+        gRecordedBattleRngSeed = gRngValue.seed;
+#else
         gRecordedBattleRngSeed = gRngValue;
+#endif
         sFrontierFacility = VarGet(VAR_FRONTIER_FACILITY);
         sFrontierBrainSymbol = GetFronterBrainSymbol();
     }
     else if (sRecordMode == B_RECORD_MODE_PLAYBACK)
     {
-        gRngValue = gRecordedBattleRngSeed;
+        SeedRng(gRecordedBattleRngSeed);
     }
 
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
