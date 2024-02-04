@@ -400,7 +400,7 @@ static void VBlankIntr(void)
     TryReceiveLinkBattleData();
 
     if (!gTestRunnerEnabled && (!gMain.inBattle || !(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_RECORDED))))
-        Random();
+        CycleRandom();
 
     UpdateWirelessStatusIndicatorSprite();
 

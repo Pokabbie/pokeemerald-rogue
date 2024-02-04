@@ -28,6 +28,8 @@ u32 RandomCustom32(u32* seed);
 #define RogueRandom()       Random_16(RogueRandom32())
 #define RandomCustom(seed)  Random_16(RandomCustom32(seed))
 
+#define CycleRandom()       Random32()
+
 //Sets the initial seed value of the pseudorandom number generator
 void SeedRng(u32 seed);
 void SeedRng2(u32 seed);
@@ -49,6 +51,8 @@ u16 RandomCustom(u32* seed);
 
 //Returns a 32-bit pseudorandom number
 #define Random32() (Random() | (Random() << 16))
+
+#define CycleRandom()       Random()
 
 //Sets the initial seed value of the pseudorandom number generator
 void SeedRng(u16 seed);
