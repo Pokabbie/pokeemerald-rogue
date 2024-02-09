@@ -469,6 +469,10 @@
 #define METATILE_RS_MossdeepGym_Switch_Down     0x239
 #define METATILE_RS_MossdeepGym_Switch_Up       0x238
 
+// gTileset_Restaurant
+#define METATILE_Restaurant_KitchenDoorClosed  0x227
+#define METATILE_Restaurant_KitchenDoorOpen    0x217
+
 // gTileset_Rustboro
 #define METATILE_Rustboro_Door_Gray  0x21F
 #define METATILE_Rustboro_Door_Tan   0x22F

@@ -61,6 +61,7 @@ gSpecials::
 	def_special ObjectEventInteractionGetBerryCountString
 	def_special Bag_ChooseBerry
 	def_special Bag_ChooseBall
+	def_special Bag_ChoosePokeblock
 	def_special ObjectEventInteractionPlantBerryTree
 	def_special ObjectEventInteractionPickBerryTree
 	def_special ObjectEventInteractionRemoveBerryTree
@@ -246,6 +247,11 @@ gSpecials::
 	def_special Rogue_IsFinalQuestActive
 	def_special Rogue_TryScatterPokeblockNearHoneyTree
 	def_special Rogue_ScatterPokeblockItem
+	def_special Rogue_IsValidPieCrust
+	def_special Rogue_IsValidPieFilling
+	def_special Rogue_CanMakeShinyPieFor
+	def_special Rogue_WillMonLikePie
+	def_special Rogue_FeedMonPie
 	def_special Rogue_CanPlantBerries
 	def_special Rogue_CheckDaycareCount
 	def_special Rogue_IsDaycareSlotEmpty

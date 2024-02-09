@@ -52,7 +52,7 @@
 #define FLAG_SET_SEED_WILDMONS          0x26
 #define FLAG_ROGUE_DYNAMAX_BATTLE       0x27
 #define FLAG_ROGUE_MAP_EVENT            0x28 // gets reset on every valid encounter jump (doesn't include warps within same map)
-#define FLAG_UNUSED_0x29                0x29
+#define FLAG_ROGUE_MET_SHINY_CHEF       0x29
 
 #define FLAG_ROGUE_TRAINER0    0x2A // Unused Flag
 #define FLAG_ROGUE_TRAINER1    0x2B // Unused Flag

@@ -1694,10 +1694,10 @@
     {
       "id": "LAYOUT_ROGUE_INTERIOR_RESTAURANT",
       "name": "Rogue_Interior_Restaurant_Layout",
-      "width": 12,
-      "height": 10,
+      "width": 13,
+      "height": 12,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_MossdeepGameCorner",
+      "secondary_tileset": "gTileset_Restaurant",
       "border_filepath": "data/layouts/Rogue_Interior_Restaurant/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Interior_Restaurant/map.bin"
     },

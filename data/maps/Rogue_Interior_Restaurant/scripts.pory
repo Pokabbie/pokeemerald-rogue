@@ -1,1 +1,453 @@
-mapscripts Rogue_Interior_Restaurant_MapScripts {}
+
+const VAR_MAP_LOAD_STATE = VAR_TEMP_0
+
+const VAR_CRUST_ITEM = VAR_0x8008
+const VAR_FILLING_ITEM = VAR_0x8009
+const VAR_PIE_SIZE = VAR_0x800A
+const VAR_FILLING_AMOUNT = VAR_0x800B
+
+const FLAG_HIDE_PIE = FLAG_TEMP_1
+
+const NPC_OBJ_NORMAL_CHEF = 1
+const NPC_OBJ_SHINY_CHEF = 3
+const NPC_OBJ_PLACED_PIE = 7
+
+mapscripts Rogue_Interior_Restaurant_MapScripts
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Interior_Restaurant_MapScripts_OnTransition
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_MAP_LOAD_STATE, 0: Rogue_Interior_Restaurant_LoadState0
+    ]
+}
+
+script Rogue_Interior_Restaurant_MapScripts_OnTransition
+{
+    setvar(VAR_FOLLOW_MON_0, SPECIES_CHINCHOU)
+    //setflag(FLAG_HIDE_PIE)
+
+    hideobjectat(NPC_OBJ_PLACED_PIE, MAP_ROGUE_INTERIOR_RESTAURANT)
+}
+
+script Rogue_Interior_Restaurant_LoadState0
+{
+    hideobjectat(NPC_OBJ_PLACED_PIE, MAP_ROGUE_INTERIOR_RESTAURANT)
+    addvar(VAR_MAP_LOAD_STATE, 1)
+}
+
+script Rogue_Interior_Restaurant_TalkMainChef 
+{
+    lock
+    faceplayer
+
+    setvar(VAR_0x8004, 0)
+    special(BufferMonNickname)
+    msgbox(format("Good day to you!\pWould you like me to bake a Pie for you to share with {STR_VAR_1}?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("I will need two types {POKEBLOCK} in order to bake a Pie."), MSGBOX_DEFAULT)
+        
+        // Select ingredients
+        call(Rogue_Interior_Restaurant_SelectCrustPokeblock)
+        if(var(VAR_RESULT) == YES)
+        {
+            call(Rogue_Interior_Restaurant_SelectFillingPokeblock)
+        }
+
+        // Notify if we're making a "negative" Pie
+        if(var(VAR_RESULT) == YES)
+        {
+            special(Rogue_WillMonLikePie)
+
+            if(var(VAR_RESULT) == NO)
+            {
+                setvar(VAR_0x8004, 0)
+                special(BufferMonNickname)
+
+                msgbox(format("I don't think {STR_VAR_1} will like this Pie very much.\pAre you sure you'd like to continue?"), MSGBOX_YESNO)
+            }
+        }
+
+        // Now make the Pie
+        if(var(VAR_RESULT) == YES)
+        {
+            removeitem(VAR_CRUST_ITEM, PIE_CRUST_AMOUNT)
+            removeitem(VAR_FILLING_ITEM, VAR_FILLING_AMOUNT)
+            msgbox(format("I'll get started on it right away!\pPlease take a seat."), MSGBOX_DEFAULT)
+
+            // Walk to chef
+            fadescreen(FADE_TO_BLACK)
+
+            // Move player to chair super fast
+            applymovement(OBJ_EVENT_ID_PLAYER, Movement_PlayerToTableNormal)
+            waitmovement(0)
+
+            // Extra move so the mon is actually the one sat infront of the pie
+            if(flag(FLAG_SYS_SHOW_POKE_FOLLOWER))
+            {
+                applymovement(OBJ_EVENT_ID_PLAYER, Movement_PlayerToTableGivePieToMon)
+                waitmovement(0)
+            }
+
+            setobjectxy(NPC_OBJ_NORMAL_CHEF, 3, 5)
+
+            fadescreen(FADE_FROM_BLACK)
+
+            delay(15)
+
+            applymovement(NPC_OBJ_NORMAL_CHEF, Movement_ChefWalkInPlace)
+            waitmovement(0)
+
+            showobjectat(NPC_OBJ_PLACED_PIE, MAP_ROGUE_INTERIOR_RESTAURANT)
+
+            msgbox(format("Bon Appétit!"), MSGBOX_DEFAULT)
+
+
+            fadescreen(FADE_TO_BLACK)
+
+            // Eating sfx
+            playse(SE_RG_BALL_CLICK)
+            delay(15)
+            playse(SE_RG_BALL_CLICK)
+            delay(15)
+            playse(SE_RG_BALL_CLICK)
+            delay(15)
+            playse(SE_RG_BALL_CLICK)
+            delay(15)
+            playse(SE_RG_BALL_CLICK)
+            delay(15)
+
+            playfanfare(MUS_LEVEL_UP)
+            waitfanfare
+
+            special(Rogue_FeedMonPie)
+
+            setobjectxy(NPC_OBJ_NORMAL_CHEF, 7, 3)
+            hideobjectat(NPC_OBJ_PLACED_PIE, MAP_ROGUE_INTERIOR_RESTAURANT)
+
+            special(ReloadWarpSilent)
+        }
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("Please let me know, if you change your mind."))
+    }
+
+    release
+}
+
+movement Movement_PlayerToTableNormal {
+    walk_faster_down
+    walk_faster_left * 3
+}
+
+movement Movement_PlayerToTableGivePieToMon {
+    walk_faster_down
+    face_left
+}
+
+movement Movement_ChefWalkInPlace {
+    walk_in_place_down
+}
+
+script Rogue_Interior_Restaurant_SelectCrustPokeblock
+{
+    // based on PIE_CRUST_AMOUNT
+    msgbox(format("Firstly, what type {POKEBLOCK} would you like the Crust (Uses x3 {POKEBLOCK}) to be made from?"), MSGBOX_DEFAULT)
+    fadescreen(FADE_TO_BLACK)
+
+    special(Bag_ChoosePokeblock)
+    waitstate
+
+    if(var(VAR_ITEM_ID) == ITEM_NONE)
+    {
+        setvar(VAR_RESULT, NO)
+    }
+    else
+    {
+        special(Rogue_IsValidPieCrust)
+        if(var(VAR_RESULT) == YES)
+        {
+            checkitem(VAR_ITEM_ID, PIE_CRUST_AMOUNT)
+            if(var(VAR_RESULT) == YES)
+            {
+                copyvar(VAR_CRUST_ITEM, VAR_ITEM_ID)
+                setvar(VAR_RESULT, YES)
+            }
+            else
+            {
+                msgbox(format("I'm afraid you don't have enough {POKEBLOCK} for crust."))
+                setvar(VAR_RESULT, 2)
+            }
+        }
+        else
+        {
+            msgbox(format("I'm afraid that {POKEBLOCK} cannot be used for crust"))
+            setvar(VAR_RESULT, 2)
+        }
+    }
+}
+
+script Rogue_Interior_Restaurant_SelectFillingPokeblock
+{
+    message(format("Secondly, what size Pie would you like?"))
+    waitmessage
+    
+    multichoice(20, 6, MULTI_SELECT_PIE_FILLING, NO)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            setvar(VAR_PIE_SIZE, PIE_SIZE_SMALL)
+            setvar(VAR_FILLING_AMOUNT, PIE_SMALL_FILLING_AMOUNT)
+
+        case 1:
+            setvar(VAR_PIE_SIZE, PIE_SIZE_MEDIUM)
+            setvar(VAR_FILLING_AMOUNT, PIE_MEDIUM_FILLING_AMOUNT)
+
+        case 2:
+            setvar(VAR_PIE_SIZE, PIE_SIZE_LARGE)
+            setvar(VAR_FILLING_AMOUNT, PIE_LARGE_FILLING_AMOUNT)
+
+        case MULTI_B_PRESSED:
+            setvar(VAR_RESULT, NO)
+            return
+    }
+
+    msgbox(format("Finally, what {POKEBLOCK} would you like the filling to be made from?"), MSGBOX_DEFAULT)
+    fadescreen(FADE_TO_BLACK)
+
+    special(Bag_ChoosePokeblock)
+    waitstate
+
+    if(var(VAR_ITEM_ID) == ITEM_NONE)
+    {
+        setvar(VAR_RESULT, NO)
+    }
+    else
+    {
+        special(Rogue_IsValidPieFilling)
+        if(var(VAR_RESULT) == YES)
+        {
+            checkitem(VAR_ITEM_ID, VAR_FILLING_AMOUNT)
+            if(var(VAR_RESULT) == YES)
+            {
+                copyvar(VAR_FILLING_ITEM, VAR_ITEM_ID)
+                setvar(VAR_RESULT, YES)
+            }
+            else
+            {
+                msgbox(format("I'm afraid you don't have enough {POKEBLOCK} for that filling."))
+                setvar(VAR_RESULT, 2)
+            }
+        }
+        else
+        {
+            msgbox(format("I'm afraid that {POKEBLOCK} cannot be used for filling"))
+            setvar(VAR_RESULT, 2)
+        }
+    }
+}
+
+script Rogue_Interior_Restaurant_TalkShinyChef 
+{
+    lock
+
+    if(flag(FLAG_ROGUE_MET_SHINY_CHEF) == FALSE)
+    {
+        msgbox(format("Sigh…"))
+        faceplayer
+
+        msgbox(format("I'm trying to bake a Pie using Shiny {POKEBLOCK} as the filling, but it's very difficult…\pEach Pokémon seems to enjoy it prepared in a different way.\pOh, I know!\pI bet I could do it, if I had some Pokédex data on the Pokémon!\pIf you catch a Pokémon in it's Shiny form, I'm certain I could bake a Shiny Pie for it!"))
+        setflag(FLAG_ROGUE_MET_SHINY_CHEF)
+    }
+    else
+    {
+        faceplayer
+
+        setvar(VAR_0x8004, 0)
+        special(BufferMonNickname)
+        msgbox(format("Would you like me to bake a Shiny Pie for you to share with {STR_VAR_1}?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            special(Rogue_CanMakeShinyPieFor)
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("I'm afraid you haven't got any Shiny Pokédex data for that Pokémon."))
+                setvar(VAR_RESULT, 2)
+            }
+        }
+
+        // Select ingredients
+        if(var(VAR_RESULT) == YES)
+        {
+            call(Rogue_Interior_Restaurant_SelectCrustPokeblock)
+        }
+
+        if(var(VAR_RESULT) == YES)
+        {
+            setvar(VAR_PIE_SIZE, PIE_SIZE_SMALL)
+            setvar(VAR_FILLING_AMOUNT, PIE_SMALL_FILLING_AMOUNT)
+            setvar(VAR_FILLING_ITEM, ITEM_POKEBLOCK_SHINY)
+
+            msgbox(format("Finally, I will need x3 Shiny {POKEBLOCK} for the filling.")) // based on PIE_SMALL_FILLING_AMOUNT
+    
+            checkitem(VAR_FILLING_ITEM, VAR_FILLING_AMOUNT)
+            if(var(VAR_RESULT) == YES)
+            {
+                setvar(VAR_RESULT, YES)
+            }
+            else
+            {
+                msgbox(format("I'm afraid you don't have enough Shiny {POKEBLOCK} for the filling.")) // based on PIE_SMALL_FILLING_AMOUNT
+                setvar(VAR_RESULT, 2)
+            }
+        }
+
+        // Notify if we're making a "negative" Pie
+        if(var(VAR_RESULT) == YES)
+        {
+            special(Rogue_WillMonLikePie)
+
+            if(var(VAR_RESULT) == NO)
+            {
+                setvar(VAR_0x8004, 0)
+                special(BufferMonNickname)
+
+                msgbox(format("I don't think {STR_VAR_1} will like this Pie very much.\pAre you sure you'd like to continue?"), MSGBOX_YESNO)
+            }
+        }
+
+        // Now make the Pie
+        if(var(VAR_RESULT) == YES)
+        {
+            removeitem(VAR_CRUST_ITEM, PIE_CRUST_AMOUNT)
+            removeitem(VAR_FILLING_ITEM, VAR_FILLING_AMOUNT)
+            msgbox(format("I'll get started on it right away!\pPlease take a seat."), MSGBOX_DEFAULT)
+
+            // Walk to chef
+            fadescreen(FADE_TO_BLACK)
+
+            // Move player to chair super fast
+            specialvar(VAR_RESULT, GetPlayerFacingDirection)
+            if(var(VAR_RESULT) == DIR_NORTH)
+            {
+                applymovement(OBJ_EVENT_ID_PLAYER, Movement_PlayerToTableShinyNorth)
+                waitmovement(0)
+            }
+            else
+            {
+                applymovement(OBJ_EVENT_ID_PLAYER, Movement_PlayerToTableShinyWest)
+                waitmovement(0)
+            }
+
+            // Extra move so the mon is actually the one sat infront of the pie
+            if(flag(FLAG_SYS_SHOW_POKE_FOLLOWER))
+            {
+                applymovement(OBJ_EVENT_ID_PLAYER, Movement_PlayerToTableGivePieToMon)
+                waitmovement(0)
+            }
+
+            setobjectxy(NPC_OBJ_SHINY_CHEF, 3, 5)
+            turnobject(NPC_OBJ_SHINY_CHEF, DIR_SOUTH)
+
+            fadescreen(FADE_FROM_BLACK)
+
+            delay(15)
+
+            applymovement(NPC_OBJ_SHINY_CHEF, Movement_ChefWalkInPlace)
+            waitmovement(0)
+
+            showobjectat(NPC_OBJ_PLACED_PIE, MAP_ROGUE_INTERIOR_RESTAURANT)
+
+            msgbox(format("Bon Appétit!"), MSGBOX_DEFAULT)
+
+
+            fadescreen(FADE_TO_BLACK)
+
+            // Eating sfx
+            playse(SE_RG_BALL_CLICK)
+            delay(15)
+            playse(SE_RG_BALL_CLICK)
+            delay(15)
+            playse(SE_RG_BALL_CLICK)
+            delay(15)
+            playse(SE_RG_BALL_CLICK)
+            delay(15)
+            playse(SE_RG_BALL_CLICK)
+            delay(15)
+
+            playfanfare(MUS_LEVEL_UP)
+            waitfanfare
+
+            special(Rogue_FeedMonPie)
+
+            setobjectxy(NPC_OBJ_SHINY_CHEF, 2, 2)
+            hideobjectat(NPC_OBJ_PLACED_PIE, MAP_ROGUE_INTERIOR_RESTAURANT)
+
+            special(ReloadWarpSilent)
+        }
+
+        if(var(VAR_RESULT) == NO)
+        {
+            msgbox(format("Please let me know, if you change your mind."))
+        }
+    }
+
+    release
+}
+
+movement Movement_PlayerToTableShinyNorth {
+    walk_faster_down * 2
+    walk_faster_right * 3
+    walk_faster_down
+    walk_faster_left
+}
+
+movement Movement_PlayerToTableShinyWest {
+    walk_faster_down * 3
+    walk_faster_right * 2
+    walk_faster_down
+    walk_faster_left
+}
+
+script Rogue_Interior_Restaurant_TalkBoy1
+{
+    lock
+    faceplayer
+    msgbox(format("The Chef won't let me use Grass {POKEBLOCK} as filling…\pI'm pretty sure he wants me to use Atk {POKEBLOCK} or something like that…\pBut I think Grass {POKEBLOCK} filling could taste nice too!"))
+    release
+}
+
+script Rogue_Interior_Restaurant_TalkBoy2
+{
+    lock
+    faceplayer
+    msgbox(format("Pie can be tasty and make you stronger!?\pWho'd've thought!"))
+    release
+}
+
+script Rogue_Interior_Restaurant_TalkWoman
+{
+    lock
+    faceplayer
+    msgbox(format("I asked the Chef to make a Pie for my Chinchou using Water {POKEBLOCK} for the Crust and Speed {POKEBLOCK} for the filling.\pChinchou seems to get faster with every bite it takes!"))
+    release
+}
+
+script Rogue_Interior_Restaurant_TalkEattingMon
+{
+    lock
+    msgbox(format("It's engrossed in eating."))
+    release
+}
+
+script Rogue_Interior_Restaurant_TalkPie
+{
+    lock
+    msgbox(format("It's a delicious smelling Pie!"))
+    release
+}

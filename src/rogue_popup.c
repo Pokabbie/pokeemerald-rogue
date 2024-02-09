@@ -285,6 +285,10 @@ static const u8 sText_Popup_CampaignLowScore[] = _("{COLOR RED}{SHADOW LIGHT_RED
 static const u8 sText_Popup_SafariArea[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Safari Area");
 
 static const u8 sText_Popup_StarterWarning[] = _("{COLOR LIGHT_RED}{SHADOW RED}Evos. Disabled");
+static const u8 sText_Popup_GotWeaker[] = _("{COLOR LIGHT_RED}{SHADOW RED}Got Weaker.");
+static const u8 sText_Popup_GotStronger[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Got Stronger!");
+static const u8 sText_Popup_LostShiny[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Shininess.");
+static const u8 sText_Popup_GotShiny[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Became Shiny!");
 
 static const u8 sText_Popup_EncounterChain[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Encounter Chain");
 static const u8 sText_Popup_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RED}Chain Lost");
@@ -1136,6 +1140,31 @@ void Rogue_PushPopup_UnableToEvolve(u8 slotId)
     popup->titleTextCapacity = POKEMON_NAME_LENGTH;
 }
 
+void Rogue_PushPopup_MonStatChange(u8 slotId, bool8 improvement)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+    u16 species = GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES);
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    
+    popup->titleText = gPlayerParty[slotId].box.nickname;
+    popup->subtitleText = improvement ? sText_Popup_GotStronger : sText_Popup_GotWeaker;
+    popup->titleTextCapacity = POKEMON_NAME_LENGTH;
+}
+
+void Rogue_PushPopup_MonShinyChange(u8 slotId, bool8 improvement)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+    u16 species = GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES);
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    
+    popup->titleText = gPlayerParty[slotId].box.nickname;
+    popup->subtitleText = improvement ? sText_Popup_GotShiny : sText_Popup_LostShiny;
+    popup->titleTextCapacity = POKEMON_NAME_LENGTH;
+}
 
 void Rogue_PushPopup_QuestComplete(u16 questId)
 {
