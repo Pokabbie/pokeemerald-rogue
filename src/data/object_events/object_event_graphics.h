@@ -764,6 +764,7 @@ const u16 gObjectEventPal_RouteExt[] = INCBIN_U16("graphics/object_events/palett
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");
 const u32 gObjectEventPic_PCStand[] = INCBIN_U32("graphics/object_events/pics/rogue/pc_stand.4bpp");
 const u32 gObjectEventPic_PokeblockMixer[] = INCBIN_U32("graphics/object_events/pics/rogue/pokeblock_mixer.4bpp");
+const u32 gObjectEventPic_FoodPie[] = INCBIN_U32("graphics/object_events/pics/rogue/food_pie.4bpp");
 const u32 gObjectEventPic_SmallSign[] = INCBIN_U32("graphics/object_events/pics/rogue/small_sign.4bpp");
 const u32 gObjectEventPic_DevilMan[] = INCBIN_U32("graphics/object_events/pics/rogue/devil_man.4bpp");
 const u32 gObjectEventPic_WorkTable[] = INCBIN_U32("graphics/object_events/pics/rogue/work_table.4bpp");

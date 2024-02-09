@@ -4656,6 +4656,10 @@ static const struct SpriteFrameImage sPicTable_PokeblockMixer[] = {
     obj_frame_tiles(gObjectEventPic_PokeblockMixer),
 };
 
+static const struct SpriteFrameImage sPicTable_FoodPie[] = {
+    obj_frame_tiles(gObjectEventPic_FoodPie),
+};
+
 static const struct SpriteFrameImage sPicTable_SmallSign[] = {
     obj_frame_tiles(gObjectEventPic_SmallSign),
 };

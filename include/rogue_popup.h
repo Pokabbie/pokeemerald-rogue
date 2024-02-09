@@ -12,6 +12,9 @@ void Rogue_PushPopup_NewMoves(u8 slotId);
 void Rogue_PushPopup_NewEvos(u8 slotId);
 void Rogue_PushPopup_UnableToEvolve(u8 slotId);
 
+void Rogue_PushPopup_MonStatChange(u8 slotId, bool8 improvement);
+void Rogue_PushPopup_MonShinyChange(u8 slotId, bool8 improvement);
+
 void Rogue_PushPopup_QuestComplete(u16 questId);
 void Rogue_PushPopup_QuestFail(u16 questId);
 void Rogue_PushPopup_QuestUnlocked(u16 questId);

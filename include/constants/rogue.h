@@ -632,6 +632,7 @@
 #define REDIRECT_PARAM_TRAINER_CLASS        1
 #define REDIRECT_PARAM_SPECIES              2
 
+// Seasons/ToD
 #define SEASON_SPRING   0
 #define SEASON_SUMMER   1
 #define SEASON_AUTUMN   2
@@ -643,6 +644,16 @@
 #define TIME_PRESET_DUSK        2
 #define TIME_PRESET_MIDNIGHT    3
 #define TIME_PRESET_COUNT       4
+
+// Pies
+#define PIE_SIZE_SMALL      0
+#define PIE_SIZE_MEDIUM     1
+#define PIE_SIZE_LARGE      2
+
+#define PIE_CRUST_AMOUNT                3
+#define PIE_SMALL_FILLING_AMOUNT        3
+#define PIE_MEDIUM_FILLING_AMOUNT       6
+#define PIE_LARGE_FILLING_AMOUNT        9
 
 #include "rogue_pokedex.h"
 #include "rogue_quests.h"

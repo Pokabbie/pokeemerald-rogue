@@ -133,7 +133,7 @@ void Rogue_RandomisePartyMon(void)
                 temp = ITEM_SAFARI_BALL;
                 SetMonData(&gPlayerParty[i], MON_DATA_POKEBALL, &temp);
 
-                GetSetPokedexSpeciesFlag(species, IsMonShiny(&gPlayerParty[i]) ? FLAG_GET_CAUGHT_SHINY : FLAG_GET_CAUGHT);
+                GetSetPokedexSpeciesFlag(species, IsMonShiny(&gPlayerParty[i]) ? FLAG_SET_CAUGHT_SHINY : FLAG_SET_CAUGHT);
             }
         }
         else
@@ -152,7 +152,7 @@ void Rogue_RandomisePartyMon(void)
             temp = ITEM_SAFARI_BALL;
             SetMonData(&gPlayerParty[monIdx], MON_DATA_POKEBALL, &temp);
 
-            GetSetPokedexSpeciesFlag(species, IsMonShiny(&gPlayerParty[monIdx]) ? FLAG_GET_CAUGHT_SHINY : FLAG_GET_CAUGHT);
+            GetSetPokedexSpeciesFlag(species, IsMonShiny(&gPlayerParty[monIdx]) ? FLAG_SET_CAUGHT_SHINY : FLAG_SET_CAUGHT);
         }
     }
     RogueWeightQuery_End();
@@ -398,8 +398,9 @@ void RogueDebug_FillDex(void)
 
     for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
     {
-        GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
-        GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
+        //GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
+        //GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
+        GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT_SHINY);
     }
 #endif
 }
@@ -1144,6 +1145,133 @@ void Rogue_ScatterPokeblockItem()
         u8 type = ItemId_GetSecondaryId(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK));
         gSpecialVar_Result = Rogue_RerollSingleWildSpecies(type);
     }
+}
+
+void Rogue_IsValidPieCrust()
+{
+    u16 crustItem = gSpecialVar_ItemId;
+    u8 type = ItemId_GetSecondaryId(crustItem);
+
+    // Only type pokeblock can be used for crust
+    gSpecialVar_Result = (type != TYPE_MYSTERY && type != TYPE_NONE);
+}
+
+void Rogue_IsValidPieFilling()
+{
+    // Only stat specific pokeblock can be used for filling (technically we can also use a shiny pokeblock by a separate path too)
+    u16 fillingItem = gSpecialVar_ItemId;
+    gSpecialVar_Result = (fillingItem >= ITEM_POKEBLOCK_HP && fillingItem <= ITEM_POKEBLOCK_SPDEF);
+}
+
+void Rogue_CanMakeShinyPieFor()
+{
+    u16 species = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
+    gSpecialVar_Result = GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT_SHINY);
+}
+
+static bool8 WillMonLikePieInternal(u16 crustItem, u16 fillingItem, struct Pokemon* mon)
+{
+    u8 type = ItemId_GetSecondaryId(crustItem);
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+
+    if(type != TYPE_MYSTERY && type != TYPE_NONE)
+    {
+        if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
+        {
+            return FALSE;
+        }
+    }
+
+    if(fillingItem == ITEM_POKEBLOCK_SHINY)
+    {
+        if(IsMonShiny(mon))
+            return FALSE;
+    }
+    else
+    {
+        type = ItemId_GetSecondaryId(fillingItem);
+
+        if(type != TYPE_MYSTERY && type != TYPE_NONE)
+        {
+            if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
+            {
+                return FALSE;
+            }
+        }
+    }
+
+    return TRUE;
+}
+
+void Rogue_WillMonLikePie()
+{
+    u16 crustItem = gSpecialVar_0x8008;
+    u16 fillingItem = gSpecialVar_0x8009;
+
+    gSpecialVar_Result = WillMonLikePieInternal(crustItem, fillingItem, &gPlayerParty[0]);
+}
+
+void Rogue_FeedMonPie()
+{
+    u32 temp;
+    u16 crustItem = gSpecialVar_0x8008;
+    u16 fillingItem = gSpecialVar_0x8009;
+    u16 pieSize = gSpecialVar_0x800A;
+    bool8 likesPie = WillMonLikePieInternal(crustItem, fillingItem, &gPlayerParty[0]);
+
+    AGB_ASSERT(pieSize <= PIE_SIZE_LARGE);
+
+    if(fillingItem == ITEM_POKEBLOCK_SHINY)
+    {
+        temp = likesPie ? 1 : 0;
+        SetMonData(&gPlayerParty[0], MON_DATA_IS_SHINY, &temp);
+        Rogue_PushPopup_MonShinyChange(0, likesPie);
+    }
+    else
+    {
+        u16 stat = fillingItem - ITEM_POKEBLOCK_HP;
+        temp = GetMonData(&gPlayerParty[0], MON_DATA_HP_IV + stat);
+
+        if(likesPie)
+        {
+            switch (pieSize)
+            {
+            case PIE_SIZE_SMALL:
+                temp = min(temp + 1, 31);
+                break;
+
+            case PIE_SIZE_MEDIUM:
+                temp = min(temp + 10, 31);
+                break;
+
+            case PIE_SIZE_LARGE:
+                temp = min(temp + 10, 31);
+                break;
+            }
+        }
+        else
+        {
+            switch (pieSize)
+            {
+            case PIE_SIZE_SMALL:
+                temp = temp <= 1 ? 0 : (temp - 1);
+                break;
+
+            case PIE_SIZE_MEDIUM:
+                temp = temp <= 5 ? 0 : (temp - 5);
+                break;
+
+            case PIE_SIZE_LARGE:
+                temp = temp <= 10 ? 0 : (temp - 10);
+                break;
+            }
+        }
+
+        SetMonData(&gPlayerParty[0], MON_DATA_HP_IV + stat, &temp);
+        Rogue_PushPopup_MonStatChange(0, likesPie);
+    }
+
+    CalculateMonStats(&gPlayerParty[0]);
 }
 
 void Rogue_CanPlantBerries()

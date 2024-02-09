@@ -1319,6 +1319,11 @@ void Bag_ChooseBall(void)
     SetMainCallback2(CB2_ChooseBall);
 }
 
+void Bag_ChoosePokeblock(void)
+{
+    SetMainCallback2(CB2_ChoosePokeblock);
+}
+
 void ObjectEventInteractionPlantBerryTree(void)
 {
     u8 berry = ItemIdToBerryType(gSpecialVar_ItemId);
