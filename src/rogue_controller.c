@@ -924,6 +924,11 @@ const void* Rogue_ModifyPaletteLoad(const void* input)
         return RoguePlayer_GetOverworldPalette();
     }
 
+    if(input == &gObjectEventPal_NetPlayerPlaceholder[0])
+    {
+        return RogueNetPlayer_GetOverworldPalette();
+    }
+
     //if(input == &gObjectEventPal_FollowMon0[0])
     //    return FollowMon_GetGraphicsForPalSlot(0);
 //
@@ -944,6 +949,13 @@ const void* Rogue_ModifyPaletteLoad(const void* input)
 
 bool8 Rogue_ModifyObjectPaletteSlot(u16 graphicsId, u8* palSlot)
 {
+    if(graphicsId >= OBJ_EVENT_GFX_NET_PLAYER_FIRST && graphicsId <= OBJ_EVENT_GFX_NET_PLAYER_LAST)
+    {
+        *palSlot = 8;
+        PatchObjectPalette(0x118C, *palSlot); // OBJ_EVENT_PAL_TAG_NET_PLAYER - todo should def pull this out correctly
+        return TRUE;
+    }
+
     if(graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_PARTNER)
     {
         *palSlot = 1;

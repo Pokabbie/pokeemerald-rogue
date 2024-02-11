@@ -678,14 +678,14 @@ static bool8 IsSpawnSlotValid(u16 slot)
     }
 
     // 1 : normal pal index 2
-    // 2 : normal pal index 3
-    if(slot >= 1 && slot <= 2)
+    if(slot == 1)
     {
         return TRUE;
     }
     
+    // 2 : normal pal index 3 (Shared for the multiplayer player palette)
     // 3 : normal pal index 4 (Shared for the multiplayer follower palette)
-    if(slot == 3)
+    if(slot == 2 || slot == 3)
     {
         if(!RogueMP_IsActive())
             return TRUE;

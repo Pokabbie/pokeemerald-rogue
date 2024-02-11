@@ -376,6 +376,7 @@ const u32 gObjectEventPic_LeafRiding[] = INCBIN_U32("graphics/object_events/pics
 // Player customisation
 //
 const u16 gObjectEventPal_PlayerPlaceholder[] = INCBIN_U16("graphics/rogue_palettes/placeholder_object_event.gbapal");
+const u16 gObjectEventPal_NetPlayerPlaceholder[] = INCBIN_U16("graphics/rogue_palettes/placeholder_net_object_event.gbapal");
 
 const u16 gObjectEventPal_PlayerBrendanBase[] = INCBIN_U16("graphics/rogue_palettes/brendan/object_event_base.gbapal");
 const u16 gObjectEventPal_PlayerBrendanLayers[] = INCBIN_U16("graphics/rogue_palettes/brendan/object_event_layers.gbapal");

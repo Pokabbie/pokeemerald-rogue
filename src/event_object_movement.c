@@ -562,29 +562,30 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 
 #define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x1188
 #define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1189
-//#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN       0x118A
+//#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN     0x118A
 #define OBJ_EVENT_PAL_TAG_PLAYER                 0x118B
+#define OBJ_EVENT_PAL_TAG_NET_PLAYER             0x118C
 
-#define OBJ_EVENT_PAL_TAG_RIVAL_RED              0x118C
+#define OBJ_EVENT_PAL_TAG_RIVAL_RED              0x118D
 #define OBJ_EVENT_PAL_TAG_RIVAL_LEAF             OBJ_EVENT_PAL_TAG_RIVAL_RED
-#define OBJ_EVENT_PAL_TAG_RIVAL_ETHAN            0x118D
-#define OBJ_EVENT_PAL_TAG_RIVAL_LYRA             0x118E
-#define OBJ_EVENT_PAL_TAG_RIVAL_BRENDAN          0x118F
-#define OBJ_EVENT_PAL_TAG_RIVAL_MAY              0x1190
-#define OBJ_EVENT_PAL_TAG_RIVAL_LUCAS            0x1191
-#define OBJ_EVENT_PAL_TAG_RIVAL_DAWN             0x1192
-#define OBJ_EVENT_PAL_TAG_RIVAL_HILBERT          0x1193
-#define OBJ_EVENT_PAL_TAG_RIVAL_HILDA            0x1194
-#define OBJ_EVENT_PAL_TAG_RIVAL_NATE             0x1195
-#define OBJ_EVENT_PAL_TAG_RIVAL_ROSA             0x1196
-#define OBJ_EVENT_PAL_TAG_RIVAL_CALEM            0x1197
-#define OBJ_EVENT_PAL_TAG_RIVAL_SERENA           0x1198
-#define OBJ_EVENT_PAL_TAG_RIVAL_ELIO             0x1199
-#define OBJ_EVENT_PAL_TAG_RIVAL_SELENE           0x119A
-#define OBJ_EVENT_PAL_TAG_RIVAL_VICTOR           0x119B
-#define OBJ_EVENT_PAL_TAG_RIVAL_GLORIA           0x119C
+#define OBJ_EVENT_PAL_TAG_RIVAL_ETHAN            0x118E
+#define OBJ_EVENT_PAL_TAG_RIVAL_LYRA             0x118F
+#define OBJ_EVENT_PAL_TAG_RIVAL_BRENDAN          0x1190
+#define OBJ_EVENT_PAL_TAG_RIVAL_MAY              0x1191
+#define OBJ_EVENT_PAL_TAG_RIVAL_LUCAS            0x1192
+#define OBJ_EVENT_PAL_TAG_RIVAL_DAWN             0x1193
+#define OBJ_EVENT_PAL_TAG_RIVAL_HILBERT          0x1194
+#define OBJ_EVENT_PAL_TAG_RIVAL_HILDA            0x1195
+#define OBJ_EVENT_PAL_TAG_RIVAL_NATE             0x1196
+#define OBJ_EVENT_PAL_TAG_RIVAL_ROSA             0x1197
+#define OBJ_EVENT_PAL_TAG_RIVAL_CALEM            0x1198
+#define OBJ_EVENT_PAL_TAG_RIVAL_SERENA           0x1199
+#define OBJ_EVENT_PAL_TAG_RIVAL_ELIO             0x119A
+#define OBJ_EVENT_PAL_TAG_RIVAL_SELENE           0x119B
+#define OBJ_EVENT_PAL_TAG_RIVAL_VICTOR           0x119C
+#define OBJ_EVENT_PAL_TAG_RIVAL_GLORIA           0x119D
 
-#define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x119D
+#define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x119E
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
@@ -747,6 +748,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},
     //{gObjectEventPal_Glitch_NPC_Raven,      OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN},
     {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_PLAYER},
+    {gObjectEventPal_NetPlayerPlaceholder,     OBJ_EVENT_PAL_TAG_NET_PLAYER},
 
     {gObjectEventPal_PlayerRedLeafBase,     OBJ_EVENT_PAL_TAG_RIVAL_RED},
     {gObjectEventPal_PlayerEthanBase,       OBJ_EVENT_PAL_TAG_RIVAL_ETHAN},
@@ -2397,6 +2399,23 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
 
             case OBJ_EVENT_GFX_PLAYER_FIELD_MOVE:
                 return RoguePlayer_GetObjectEventGraphicsInfo(PLAYER_AVATAR_STATE_FIELD_MOVE);
+
+            default:
+                graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
+                break;
+        }
+    }
+
+    // Handle net player avatar
+    else if (graphicsId >= OBJ_EVENT_GFX_NET_PLAYER_FIRST && graphicsId <= OBJ_EVENT_GFX_NET_PLAYER_LAST)
+    {
+        switch(graphicsId)
+        {
+            case OBJ_EVENT_GFX_NET_PLAYER_NORMAL:
+                return RogueNetPlayer_GetObjectEventGraphicsInfo(PLAYER_AVATAR_STATE_NORMAL);
+
+            case OBJ_EVENT_GFX_NET_PLAYER_RIDING:
+                return RogueNetPlayer_GetObjectEventGraphicsInfo(PLAYER_AVATAR_STATE_RIDE_GRABBING);
 
             default:
                 graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
