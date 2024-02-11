@@ -5613,8 +5613,12 @@ u8 ObjectEventGetHeldMovementActionId(struct ObjectEvent *objectEvent)
 void UpdateObjectEventCurrentMovement(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 (*callback)(struct ObjectEvent *, struct Sprite *))
 {
     // RogueNote: default here so can shift around in movement below
-    sprite->x2 = 0;
-    sprite->y2 = 0;
+    // (We can't always do this as other field effects may adjust these values)
+    if (Rogue_IsActiveRideMonObject(sprite->sObjEventId))
+    {
+        sprite->x2 = 0;
+        sprite->y2 = 0;
+    }
 
     DoGroundEffects_OnSpawn(objectEvent, sprite);
     TryEnableObjectEventAnim(objectEvent, sprite);

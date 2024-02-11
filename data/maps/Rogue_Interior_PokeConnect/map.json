@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_TEALA",
-      "x": 6,
+      "x": 25,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TEALA",
-      "x": 8,
+      "x": 6,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -47,14 +47,28 @@
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": 11
+      "dest_warp_id": "11"
     },
     {
       "x": 7,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": 11
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 23,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

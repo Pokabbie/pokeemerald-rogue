@@ -382,6 +382,25 @@ void Rogue_HandleRideMonMovementIfNeeded(u8 objectEventId)
     }
 }
 
+bool8 Rogue_IsActiveRideMonObject(u8 objectEventId)
+{
+    u8 i;
+
+    if(gPlayerAvatar.objectEventId == objectEventId)
+    {
+        if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].isActive)
+            return TRUE;
+    }
+
+    for(i = 1; i < RIDE_OBJECT_COUNT; ++i)
+    {
+        if(sRideMonData.rideObjects[i].isActive && sRideMonData.rideObjects[i].riderObjectEventId == objectEventId)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void Rogue_SetupRideObject(u8 rideObjectId, u8 objectEventId, u16 rideSpecies, bool8 isFlying)
 {
     AGB_ASSERT(rideObjectId < RIDE_OBJECT_COUNT);
