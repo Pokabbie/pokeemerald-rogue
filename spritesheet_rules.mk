@@ -1097,6 +1097,9 @@ $(OBJEVENTGFXDIR)/rogue/npc/misc/npc_tutor.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/rogue/npc/misc/nurse.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/rogue/npc/misc/peonia.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/rogue/npc/misc/poke_fan_f.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 

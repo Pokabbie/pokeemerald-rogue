@@ -4298,6 +4298,17 @@ static const struct SpriteFrameImage sPicTable_Misc_Nurse[] = {
     overworld_frame(gObjectEventPic_Misc_Nurse, 2, 4, 7),
     overworld_frame(gObjectEventPic_Misc_Nurse, 2, 4, 8),
 };
+static const struct SpriteFrameImage sPicTable_Misc_Peonia[] = {
+    overworld_frame(gObjectEventPic_Misc_Peonia, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Misc_Peonia, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Misc_Peonia, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Misc_Peonia, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Misc_Peonia, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Misc_Peonia, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Misc_Peonia, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Misc_Peonia, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Misc_Peonia, 2, 4, 8),
+};
 static const struct SpriteFrameImage sPicTable_Misc_Poke_Fan_F[] = {
     overworld_frame(gObjectEventPic_Misc_Poke_Fan_F, 2, 4, 0),
     overworld_frame(gObjectEventPic_Misc_Poke_Fan_F, 2, 4, 1),

@@ -705,6 +705,7 @@ const u32 gObjectEventPic_Misc_Npc_Lady[] = INCBIN_U32("graphics/object_events/p
 const u32 gObjectEventPic_Misc_Npc_Mystery_Gift[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/npc_mystery_gift.4bpp");
 const u32 gObjectEventPic_Misc_Npc_Tutor[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/npc_tutor.4bpp");
 const u32 gObjectEventPic_Misc_Nurse[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/nurse.4bpp");
+const u32 gObjectEventPic_Misc_Peonia[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/peonia.4bpp");
 const u32 gObjectEventPic_Misc_Poke_Fan_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/poke_fan_f.4bpp");
 const u32 gObjectEventPic_Misc_Professor_Elm[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/professor_elm.4bpp");
 const u32 gObjectEventPic_Misc_Ruin_Maniac[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/ruin_maniac.4bpp");
@@ -760,6 +761,7 @@ const u16 gObjectEventPal_Glitch_NPC_Kate[] = INCBIN_U16("graphics/object_events
 const u16 gObjectEventPal_Glitch_NPC_Erma[] = INCBIN_U16("graphics/object_events/pics/people/glitch/erma.gbapal");
 //const u16 gObjectEventPal_Glitch_NPC_Raven[] = INCBIN_U16("graphics/object_events/pics/people/glitch/raven.gbapal");
 
+const u16 gObjectEventPal_Misc_Peonia[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/misc/peonia.gbapal");
 const u16 gObjectEventPal_RouteExt[] = INCBIN_U16("graphics/object_events/palettes/route_ext.gbapal");
 
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");

@@ -585,7 +585,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_RIVAL_VICTOR           0x119C
 #define OBJ_EVENT_PAL_TAG_RIVAL_GLORIA           0x119D
 
-#define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x119E
+#define OBJ_EVENT_PAL_TAG_MISC_PEONIA            0x119E
+#define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x119F
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
@@ -768,7 +769,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_PlayerVictorBase,      OBJ_EVENT_PAL_TAG_RIVAL_VICTOR},
     {gObjectEventPal_PlayerGloriaBase,      OBJ_EVENT_PAL_TAG_RIVAL_GLORIA},
 
-    {gObjectEventPal_RouteExt,       OBJ_EVENT_PAL_TAG_ROUTE_EXT},
+    {gObjectEventPal_Misc_Peonia,           OBJ_EVENT_PAL_TAG_MISC_PEONIA},
+    {gObjectEventPal_RouteExt,              OBJ_EVENT_PAL_TAG_ROUTE_EXT},
     {},
 };
 

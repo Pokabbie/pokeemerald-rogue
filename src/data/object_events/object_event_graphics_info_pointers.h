@@ -402,6 +402,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Npc_Lady;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Npc_Mystery_Gift;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Npc_Tutor;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Nurse;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Peonia;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Poke_Fan_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Professor_Elm;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Ruin_Maniac;
@@ -903,6 +904,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MISC_NPC_MYSTERY_GIFT] = &gObjectEventGraphicsInfo_Misc_Npc_Mystery_Gift,
     [OBJ_EVENT_GFX_MISC_NPC_TUTOR] = &gObjectEventGraphicsInfo_Misc_Npc_Tutor,
     [OBJ_EVENT_GFX_MISC_NURSE] = &gObjectEventGraphicsInfo_Misc_Nurse,
+    [OBJ_EVENT_GFX_MISC_PEONIA] = &gObjectEventGraphicsInfo_Misc_Peonia,
     [OBJ_EVENT_GFX_MISC_POKE_FAN_F] = &gObjectEventGraphicsInfo_Misc_Poke_Fan_F,
     [OBJ_EVENT_GFX_MISC_PROFESSOR_ELM] = &gObjectEventGraphicsInfo_Misc_Professor_Elm,
     [OBJ_EVENT_GFX_MISC_RUIN_MANIAC] = &gObjectEventGraphicsInfo_Misc_Ruin_Maniac,
