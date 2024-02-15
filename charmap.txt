@@ -1095,10 +1095,9 @@ MUS_DP_SNOWPOINT_DAY            = BA 02
 MUS_DP_SOLACEON_DAY             = BB 02
 MUS_DP_UNDERGROUND              = BC 02
 MUS_DP_GYM                      = BD 02
-
 MUS_PL_VS_GIRATINA              = BE 02
-
 MUS_MOVE_DELETED_SLOW           = BF 02
+MUS_DEBUG_TEST                  = C0 02
 
 A_BUTTON = F8 00
 B_BUTTON = F8 01

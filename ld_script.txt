@@ -1060,7 +1060,6 @@ SECTIONS {
         sound/songs/midi/mus_evolution_intro.o(.rodata);
         sound/songs/midi/mus_evolution.o(.rodata);
         sound/songs/midi/mus_move_deleted.o(.rodata);
-        sound/songs/midi/mus_move_deleted_slow.o(.rodata);
         sound/songs/midi/mus_encounter_girl.o(.rodata);
         sound/songs/midi/mus_encounter_male.o(.rodata);
         sound/songs/midi/mus_abandoned_ship.o(.rodata);
@@ -1385,6 +1384,8 @@ SECTIONS {
         sound/songs/midi/mus_dp_underground.o(.rodata);
         sound/songs/midi/mus_dp_gym.o(.rodata);
         sound/songs/midi/mus_pl_vs_giratina.o(.rodata);
+        sound/songs/midi/mus_move_deleted_slow.o(.rodata);
+        sound/songs/midi/mus_debug_test.o(.rodata);
     } =0
 
     lib_rodata :

@@ -1068,6 +1068,9 @@ $(MID_SUBDIR)/mus_dp_gym.s: %.s: %.mid
 $(MID_SUBDIR)/mus_pl_vs_giratina.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V105
 
+$(MID_SUBDIR)/mus_debug_test.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V105
+
 $(MID_SUBDIR)/se_a.s: %.s: %.mid
 	$(MID) $< $@ -E -G128 -V095 -P4
 
