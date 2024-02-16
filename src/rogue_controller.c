@@ -5162,15 +5162,15 @@ void Rogue_Safari_EndWildBattle(void)
                     FlagSet(gSaveBlock1Ptr->objectEventTemplates[i].flagId);
                 }
 
-                // Move birch just above the player
-                if(gSaveBlock1Ptr->objectEventTemplates[i].graphicsId == OBJ_EVENT_GFX_PROF_BIRCH)
+                // Move prof just above the player
+                if(gSaveBlock1Ptr->objectEventTemplates[i].graphicsId == OBJ_EVENT_GFX_MISC_PROFESSOR_ELM)
                 {
                     SetObjEventTemplateCoords(gSaveBlock1Ptr->objectEventTemplates[i].localId, gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y - 2);
                     TryMoveObjectEventToMapCoords(gSaveBlock1Ptr->objectEventTemplates[i].localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y - 2);
                 }
             }
 
-            // Birch may not have been in view, so force it to spawn
+            // Prof may not have been in view, so force it to spawn
             TrySpawnObjectEvents(gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y);
 
             VarSet(VAR_ROGUE_INTRO_STATE, VarGet(VAR_ROGUE_INTRO_STATE) + 1);

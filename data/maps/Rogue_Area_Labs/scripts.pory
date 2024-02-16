@@ -47,7 +47,7 @@ script Rogue_Area_Labs_StartGame
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerStartGame0)
     waitmovement(0)
 
-    msgbox(format("BIRCH: There you are!\nBack up on your feet now!\pYou seem fine, but perhaps it would be a good idea for you to have a wander around {POKEMON_HUB} to refresh your memory.\pOnce you're ready, come and find me in my lab."))
+    msgbox(format("ELM: There you are!\nBack up on your feet now!\pYou seem fine, but perhaps it would be a good idea for you to have a wander around {POKEMON_HUB} to refresh your memory.\pOnce you're ready, come and find me in my lab."))
     closemessage
 
     applymovement(OBJ_EVENT_BIRCH, BirchStartGame1)
@@ -91,7 +91,7 @@ movement BirchStartGame2
 
 script Rogue_Area_Labs_LabSign
 {
-    msgbox(format("Prof. Birch's Lab"), MSGBOX_SIGN)
+    msgbox(format("Professor Elm's Lab"), MSGBOX_SIGN)
 }
 
 script Rogue_Area_Labs_ConfigSign

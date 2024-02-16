@@ -171,7 +171,7 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
     }
     elif (var(VAR_ROGUE_INTRO_STATE) < ROGUE_INTRO_STATE_COLLECT_QUEST_LOG)
     {
-        msgbox(format("Hi {PLAYER}!\pI'm afraid I can't let you past here without a Pokémon of your own.\pMaybe Professor Birch would be able to help with that?"))
+        msgbox(format("Hi {PLAYER}!\pI'm afraid I can't let you past here without a Pokémon of your own.\pMaybe Professor Elm would be able to help with that?"))
     }
     elif (var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_COLLECT_QUEST_LOG)
     {
