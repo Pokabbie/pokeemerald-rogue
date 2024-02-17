@@ -432,14 +432,41 @@ bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon)
     return FALSE;
 }
 
+static bool8 IsExpensiveWeatherActive()
+{
+    switch (GetSavedWeather())
+    {
+    case WEATHER_RAIN:
+    //case WEATHER_SNOW:
+    case WEATHER_RAIN_THUNDERSTORM:
+    case WEATHER_FOG_HORIZONTAL:
+    case WEATHER_VOLCANIC_ASH:
+    case WEATHER_SANDSTORM:
+    case WEATHER_FOG_DIAGONAL:
+    case WEATHER_DOWNPOUR:
+    case WEATHER_LEAVES:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 bool8 FollowMon_ShouldAlwaysAnimation(struct ObjectEvent *objectEvent)
 {
-    // TODO - Should animate in legendary rooms???
-
-    if((!Rogue_IsRunActive() && !Rogue_InWildSafari()) || objectEvent->graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_PARTNER)
+    if(Rogue_InWildSafari())
     {
-        // Only fully animate partner mons
+        // Don't animate in safari
+        return FALSE;
+    }
+
+    if(objectEvent->graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_PARTNER && !IsExpensiveWeatherActive())
+    {
         return TRUE;
+    }
+
+    if(Rogue_IsRunActive())
+    {
+        // TODO - Enabled for legendaries
     }
 
     return FALSE;
@@ -456,19 +483,8 @@ bool8 FollowMon_ShouldAnimationGrass(struct ObjectEvent *objectEvent)
     if(Rogue_AreWildMonEnabled())
     {
         // Weather is laggy, so turn off grass entirely for these
-        switch (GetSavedWeather())
-        {
-        case WEATHER_RAIN:
-        //case WEATHER_SNOW:
-        case WEATHER_RAIN_THUNDERSTORM:
-        case WEATHER_FOG_HORIZONTAL:
-        case WEATHER_VOLCANIC_ASH:
-        case WEATHER_SANDSTORM:
-        case WEATHER_FOG_DIAGONAL:
-        case WEATHER_DOWNPOUR:
-        case WEATHER_LEAVES:
+        if(IsExpensiveWeatherActive())
             return FALSE;
-        }
 
         // Turn off animated grass when wild mons are active because it's pretty laggy and causes palette issues
         if(objectEvent == &gObjectEvents[gPlayerAvatar.objectEventId])

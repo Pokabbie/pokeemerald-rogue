@@ -67,6 +67,7 @@ const u8* Rogue_ModifyFieldMessage(const u8* str);
 const u8* Rogue_ModifyBattleMessage(const u8* str);
 
 const u8* Rogue_ModifyOverworldInteractionScript(struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* script);
+u16 Rogue_ModifyOverworldMapWeather(u16 weather);
 
 bool8 Rogue_ShouldShowMiniMenu(void);
 u16 Rogue_MiniMenuHeight(void);

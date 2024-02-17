@@ -14,6 +14,8 @@
 #include "trig.h"
 #include "gpu_regs.h"
 
+#include "rogue_controller.h"
+
 EWRAM_DATA static u8 sCurrentAbnormalWeather = 0;
 EWRAM_DATA static u16 sUnusedWeatherRelated = 0;
 
@@ -2807,7 +2809,7 @@ u8 GetSavedWeather(void)
 void SetSavedWeatherFromCurrMapHeader(void)
 {
     u8 oldWeather = gSaveBlock1Ptr->weather;
-    gSaveBlock1Ptr->weather = TranslateWeatherNum(gMapHeader.weather);
+    gSaveBlock1Ptr->weather = TranslateWeatherNum(Rogue_ModifyOverworldMapWeather(gMapHeader.weather));
     UpdateRainCounter(gSaveBlock1Ptr->weather, oldWeather);
 }
 

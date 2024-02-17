@@ -376,6 +376,20 @@ u8 RogueHub_GetAreaFromCurrentMap()
     return GetAreaForLayout(gMapHeader.mapLayoutId);
 }
 
+u16 RogueHub_GetWeatherState()
+{
+    return GetActiveHubMap()->weatherState;
+}
+
+void RogueHub_OnNewDayStarted()
+{
+    // Ignore this if client
+    if(RogueMP_IsActive() && !RogueMP_IsHost())
+        return;
+
+    gRogueSaveBlock->hubMap.weatherState = Random();
+}
+
 void RogueHub_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp)
 {
     u8 area = GetAreaForLayout(mapHeader->mapLayoutId);

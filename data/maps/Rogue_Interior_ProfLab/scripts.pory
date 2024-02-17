@@ -126,14 +126,14 @@ script Rogue_Interior_ProfLab_FrameState0
 
 movement IntroAssistant0
 {
-    walk_left * 3
-    walk_up * 5
+    walk_left * 4
+    walk_up * 4
 }
 
 movement IntroAssistant1
 {
-    walk_down * 5
-    walk_right * 3
+    walk_right
+    face_left
 }
 
 script Rogue_Interior_ProfLab_TalkBirch

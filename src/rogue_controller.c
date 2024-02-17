@@ -7,6 +7,7 @@
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/layouts.h"
+#include "constants/map_types.h"
 #include "constants/rogue.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -1326,6 +1327,102 @@ const u8* Rogue_ModifyOverworldInteractionScript(struct MapPosition *position, u
     return script;
 }
 
+u16 Rogue_ModifyOverworldMapWeather(u16 weather)
+{
+    if(gMapHeader.mapType != MAP_TYPE_INDOOR && gMapHeader.mapType != MAP_TYPE_UNDERGROUND)
+    {
+        if(Rogue_IsRunActive())
+        {
+            switch (gRogueAdvPath.currentRoomType)
+            {
+            case ADVPATH_ROOM_ROUTE:
+                return VarGet(VAR_ROGUE_DESIRED_WEATHER);
+            }
+        }
+        else if(VarGet(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_GO_ON_ADVENTURE)
+        {
+            // Don't have any special weather until player has embarked on first adventure
+            return WEATHER_NONE;
+        }
+        else
+        {
+            
+            u16 weatherState = RogueHub_GetWeatherState();
+
+            switch(RogueToD_GetSeason())
+            {
+                case SEASON_SPRING:
+                {
+                    switch (weatherState % 5)
+                    {
+                    case 0:
+                        return WEATHER_RAIN;
+                    case 1:
+                        return WEATHER_RAIN_THUNDERSTORM;
+                    case 2:
+                        return WEATHER_MISTY_FOG;
+
+                    case 3:
+                    case 4:
+                        return WEATHER_NONE;
+                    }
+                }
+                case SEASON_SUMMER:
+                {
+                    switch (weatherState % 5)
+                    {
+                    case 0:
+                        return WEATHER_RAIN_THUNDERSTORM;
+
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        return WEATHER_NONE;
+                    }
+                }
+                case SEASON_AUTUMN:
+                {
+                    switch (weatherState % 6)
+                    {
+                    case 0:
+                        return WEATHER_RAIN;
+                    case 1:
+                        return WEATHER_RAIN_THUNDERSTORM;
+                    case 2:
+                    case 3:
+                        return WEATHER_LEAVES;
+
+                    case 4:
+                    case 5:
+                        return WEATHER_NONE;
+                    }
+                }
+                case SEASON_WINTER:
+                {
+                    switch (weatherState % 6)
+                    {
+                    case 0:
+                    case 1:
+                    case 2:
+                        return WEATHER_SNOW;
+
+                    case 3:
+                        return WEATHER_SHADE;
+
+                    case 4:
+                    case 5:
+                        return WEATHER_NONE;
+                    }
+                }
+                    return WEATHER_SNOW;
+            }
+        }
+    }
+
+    return weather;
+}
+
 u8 SpeciesToGen(u16 species)
 {
     if(species >= SPECIES_BULBASAUR && species <= SPECIES_MEW)
@@ -2431,7 +2528,6 @@ void Rogue_OnNewGame(void)
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_WILD_SAFARI);
-    FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
     FlagClear(FLAG_ROGUE_LVL_TUTORIAL);
 
     FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
@@ -4123,13 +4219,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     u8 weatherChance = 5 + 20 * gRogueAdvPath.currentRoomParams.perType.route.difficulty;
 
                     gRogueRun.currentRouteIndex = gRogueAdvPath.currentRoomParams.roomIdx;
-
-                    // Legacy feature legendaries were on random routes (Just keep them in as debug shortcut)
-                    #ifdef ROGUE_DEBUG
-                        FlagSet(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
-                    #else
-                        FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
-                    #endif
 
                     RandomiseWildEncounters();
                     ResetTrainerBattles();

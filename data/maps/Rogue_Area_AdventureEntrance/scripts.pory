@@ -199,28 +199,25 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
         if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_GO_ON_ADVENTURE)
         {
             msgbox(format("Now you seem all ready to go!"))
-            message(format("Would you like to set off on an Adventure?"))
+            msgbox(format("Would you like to set off on an Adventure?"), MSGBOX_YESNO)
         }
         else
         {
-            message(format("Hi {PLAYER}!\pWould you like to set off on an Adventure?"))
+            msgbox(format("Hi {PLAYER}!\pWould you like to set off on an Adventure?"), MSGBOX_YESNO)
         }
-        waitmessage
 
-        multichoice(20, 6, MULTI_YESNOINFO, NO)
-
-        switch(var(VAR_RESULT))
+        if(var(VAR_RESULT) == YES)
         {
-            case 0: // Yes
-                call(Rogue_ResetAdventureVars)
-                call(Rogue_StartAdventureInternal)
-
-            case 1: // No
-            case MULTI_B_PRESSED:
-                msgbox(format("No worries!\pCome and talk to me, once you're ready."), MSGBOX_DEFAULT)
-
-            case 2: // Info
-                msgbox(format("todo"), MSGBOX_DEFAULT)
+            if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_GO_ON_ADVENTURE)
+            {
+                addvar(VAR_ROGUE_INTRO_STATE, 1)
+            }
+            call(Rogue_ResetAdventureVars)
+            call(Rogue_StartAdventureInternal)
+        }
+        else
+        {
+            msgbox(format("No worries!\pCome and talk to me, once you're ready."), MSGBOX_DEFAULT)
         }
     }
 
