@@ -645,6 +645,25 @@ gSongTable::
 	song mus_hg_encounter_girl_2, 0, 0
 	song mus_hg_encounter_boy_2, 0, 0
 	song mus_hg_encounter_suspicious_2, 0, 0
+	song mus_hg_title, 0, 0
+	song mus_hg_credits, 0, 0
+	song mus_hg_end, 0, 0
+	song mus_hg_new_bark, 0, 0
+	song mus_hg_national_park, 0, 0
+	song mus_hg_dance_theater, 0, 0
+	song mus_hg_game_corner, 0, 0
+	song mus_hg_game_corner_win, 0, 0
+	song mus_hg_team_rocket_hq, 0, 0
+	song mus_hg_bug_contest_prep, 0, 0
+	song mus_hg_bug_catching_contest, 0, 0
+	song mus_hg_bug_contest_1st_place, 2, 2
+	song mus_hg_bug_contest_2nd_place, 2, 2
+	song mus_hg_bug_contest_3rd_place, 2, 2
+	song mus_hg_rocket_takeover, 0, 0
+	song mus_hg_elm_lab, 0, 0
+	song mus_hg_kimono_girl, 0, 0
+	song mus_hg_card_flip, 2, 2
+	song mus_hg_card_flip_game_over, 2, 2
 	song mus_dp_route201_day, 0, 0
 	song mus_dp_route203_day, 0, 0
 	song mus_dp_route205_day, 0, 0

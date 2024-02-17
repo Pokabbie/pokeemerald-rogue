@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_ENCOUNTER_SHRINE",
   "name": "Rogue_Encounter_Shrine",
   "layout": "LAYOUT_ROGUE_ENCOUNTER_SHRINE",
-  "music": "MUS_HG_VS_GYM_LEADER",
+  "music": "MUS_HG_DANCE_THEATER",
   "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

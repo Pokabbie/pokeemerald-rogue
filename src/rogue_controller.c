@@ -523,7 +523,7 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
             switch (songNum)
             {
             case MUS_LITTLEROOT:
-            case MUS_BIRCH_LAB:
+            case MUS_HG_ELM_LAB:
                 songNum = MUS_HELP;
                 break;
             }
@@ -545,10 +545,10 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
             switch(RogueToD_GetSeason())
             {
                 case SEASON_SPRING:
-                    songNum = MUS_DP_SANDGEM_DAY;
+                    songNum = MUS_HG_NEW_BARK;
                     break;
                 case SEASON_SUMMER:
-                    songNum = MUS_DP_SOLACEON_DAY;
+                    songNum = MUS_DP_SANDGEM_DAY;
                     break;
                 case SEASON_AUTUMN:
                     songNum = MUS_DP_FLOAROMA_DAY;

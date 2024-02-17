@@ -126,14 +126,14 @@ script Rogue_Interior_ProfLab_FrameState0
 
 movement IntroAssistant0
 {
-    walk_right * 3
-    walk_up * 4
+    walk_left * 3
+    walk_up * 5
 }
 
 movement IntroAssistant1
 {
-    walk_down * 4
-    walk_left * 3
+    walk_down * 5
+    walk_right * 3
 }
 
 script Rogue_Interior_ProfLab_TalkBirch
@@ -230,7 +230,7 @@ script Rogue_Interior_ProfLab_TriggerIntroInternal
     msgbox(format("PROFFFFFFESSOR!"))
     closemessage
 
-    setobjectxy(OBJ_EVENT_RUIN_MANIAC, 7, 11)
+    setobjectxy(OBJ_EVENT_RUIN_MANIAC, 4, 11)
     //showobjectat(OBJ_EVENT_RUIN_MANIAC, MAP_ROGUE_INTERIOR_PROF_LAB)
     playbgm(MUS_HELP, FALSE)
     
