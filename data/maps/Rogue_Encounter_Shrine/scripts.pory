@@ -1,0 +1,100 @@
+const FLAG_ACCEPTED_GIFT = FLAG_TEMP_1
+
+mapscripts Rogue_Encounter_Shrine_MapScripts {}
+
+
+script Rogue_Encounter_Shrine_Talk 
+{
+    lock
+    faceplayer
+    bufferitemname(STR_VAR_1, ITEM_SACRED_ASH)
+
+    if(flag(FLAG_ACCEPTED_GIFT))
+    {
+        msgbox(format("I hope that {STR_VAR_1} can be helpful to you!"))
+    }
+    else
+    {
+        msgbox(format("Why hello!\nWhat a treat to have visitors!"))
+
+        message(format("You're on an Adventure I see.\nIf you'd like, I have some {STR_VAR_1} you may take?"))
+        setvar(VAR_TEMP_0, TRUE)
+
+        while(var(VAR_TEMP_0) == TRUE)
+        {
+            setvar(VAR_TEMP_0, FALSE)
+            waitmessage
+
+            bufferitemname(STR_VAR_1, ITEM_SACRED_ASH)
+            bufferitemname(STR_VAR_2, ITEM_PARTY_CURSE)
+
+            multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+            switch(var(VAR_RESULT))
+            {
+                case 0: // Yes
+                    call(Rogue_Encounter_Shrine_TalkAccept)
+
+                case 1: // No
+                case MULTI_B_PRESSED:
+                    msgbox(format("I see…\nIf you change your mind, please do let me know."), MSGBOX_DEFAULT)
+
+                case 2: // Info
+                    msgbox(format("{STR_VAR_1} is a special kind of Charm which can protect you in the event your entire party faints.\pIn that event, the {STR_VAR_1} will shine, reviving all of your Pokémon and teleporting you back to a safe location so that you may have a second chance.\pThe {STR_VAR_1} is however a very strong item.\pIn fact, it is so strong that I'm afraid, in order to carry it, you must take this {STR_VAR_2} which will reduce the maximum number of Pokémon you may carry in your party by one."), MSGBOX_DEFAULT)
+                    setvar(VAR_TEMP_0, TRUE)
+                    message(format("Would you like to take the {STR_VAR_1}?"))
+            }
+        }
+    }
+
+
+    release
+}
+
+script Rogue_Encounter_Shrine_TalkAccept
+{
+    specialvar(VAR_0x8000, CalculatePlayerPartyCount)
+
+    checkitemspace(ITEM_SACRED_ASH)
+
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("Oh…\nIt looks like your bag is too full…\pI can give you it, once you free up some space!"))
+    }
+    else
+    {
+        specialvar(VAR_TEMP_1, CalculatePlayerPartyCount)
+        specialvar(VAR_TEMP_2, Rogue_CalcMaxPartySize)
+
+        if(var(VAR_TEMP_1) >= VAR_TEMP_2)
+        {
+            msgbox(format("You will have to release a Pokémon in order to take the required {STR_VAR_2}…"))
+            //fadescreen(FADE_TO_BLACK)
+            special(ChoosePartyMon)
+            waitstate
+
+            if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
+            {
+                special(Rogue_ReleaseMonInSlot)
+            }
+        }
+        else
+        {
+            setvar(VAR_0x8004, 6)
+        }
+
+        if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+        {
+            msgbox(format("I see…\nIf you change your mind, please do let me know."))
+        }
+        else
+        {
+            giveitem(ITEM_SACRED_ASH)
+            giveitem(ITEM_PARTY_CURSE)
+            call(Rogue_Common_DisplayPopups)
+
+            msgbox(format("There you are!\nI hope that can be helpful to you!"))
+            setflag(FLAG_ACCEPTED_GIFT)
+        }
+    }
+}

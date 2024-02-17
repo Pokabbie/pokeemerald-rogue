@@ -456,7 +456,7 @@
       "x": 20,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_ENCOUNTER_ROCKET_HIDEOUT",
+      "dest_map": "MAP_ROGUE_ENCOUNTER_SHRINE",
       "dest_warp_id": "0"
     }
   ],
