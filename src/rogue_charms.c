@@ -247,6 +247,7 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
     switch(effectType)
     {
         case EFFECT_PARTY_SIZE:
+        case EFFECT_EXTRA_LIFE:
             return TRUE;
 
         // Disable these effects, once we already have one (They don't stack)
