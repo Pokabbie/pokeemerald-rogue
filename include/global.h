@@ -530,6 +530,7 @@ struct SaveBlock2
              u32 optionsAutoRunToggle:1; // whether running is trigger by a B toggle or a hold
              u32 timeOfDayVisuals:1;
              u32 seasonVisuals:1;
+             u32 weatherVisuals:1;
              u32 regionMapZoom:1; // whether the map is zoomed in
     /*0x18*/ struct Pokedex pokedex;
              s8 playerStyles[8];

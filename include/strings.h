@@ -352,6 +352,7 @@ extern const u8 gText_AutoRun[];
 extern const u8 gText_NicknameMode[];
 extern const u8 gText_TimeOfDay[];
 extern const u8 gText_Seasons[];
+extern const u8 gText_Weather[];
 extern const u8 gText_Sound[];
 extern const u8 gText_PopupSound[];
 extern const u8 gText_SoundChannelBGM[];

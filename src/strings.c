@@ -1666,6 +1666,7 @@ const u8 gText_AutoRun[] = _("Run Style");
 const u8 gText_NicknameMode[] = _("Nickname Mode");
 const u8 gText_TimeOfDay[] = _("Day/Night");
 const u8 gText_Seasons[] = _("Seasons");
+const u8 gText_Weather[] = _("Weather");
 const u8 gText_Sound[] = _("Sound Playback");
 const u8 gText_PopupSound[] = _("Popup Sound");
 const u8 gText_SoundChannelBGM[] = _("Music Volume");

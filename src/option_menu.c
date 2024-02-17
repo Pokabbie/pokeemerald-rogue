@@ -42,6 +42,7 @@ enum
     MENUITEM_NICKNAME_MODE,
     MENUITEM_TIME_OF_DAY,
     MENUITEM_SEASON,
+    MENUITEM_WEATHER,
     MENUITEM_SOUND,
     MENUITEM_POPUP_SOUND,
     MENUITEM_SOUND_CHANNEL_BGM,
@@ -211,6 +212,12 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = TimeOfDaySeason_ProcessInput,
         .drawChoices = TimeOfDaySeason_DrawChoices
     },
+    [MENUITEM_WEATHER] = 
+    {
+        .itemName = gText_Weather,
+        .processInput = TimeOfDaySeason_ProcessInput,
+        .drawChoices = TimeOfDaySeason_DrawChoices
+    },
     [MENUITEM_SOUND] = 
     {
         .itemName = gText_Sound,
@@ -293,6 +300,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         {
             MENUITEM_TIME_OF_DAY,
             MENUITEM_SEASON,
+            MENUITEM_WEATHER,
             MENUITEM_BATTLESCENE_WILD_BATTLES,
             MENUITEM_BATTLESCENE_TRAINER_BATTLES,
             MENUITEM_BATTLESCENE_KEY_BATTLES,
@@ -1057,6 +1065,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_SEASON:
         return gSaveBlock2Ptr->seasonVisuals;
 
+    case MENUITEM_WEATHER:
+        return gSaveBlock2Ptr->weatherVisuals;
+
     case MENUITEM_SOUND:
         return gSaveBlock2Ptr->optionsSound;
 
@@ -1116,6 +1127,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_SEASON:
         gSaveBlock2Ptr->seasonVisuals = value;
+        break;
+
+    case MENUITEM_WEATHER:
+        gSaveBlock2Ptr->weatherVisuals = value;
         break;
         
     case MENUITEM_SOUND:
