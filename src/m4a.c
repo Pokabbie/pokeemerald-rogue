@@ -598,6 +598,13 @@ void MPlayStart(struct MusicPlayerInfo *mplayInfo, struct SongHeader *songHeader
     u8 unk_B;
     struct MusicPlayerTrack *track;
 
+    u8 volume = Rogue_ModifySoundVolume(mplayInfo, 64, ROGUE_SOUND_TYPE_UNKNOWN);
+    if(volume == 0)
+    {
+        // Override with MUS_DUMMY so something still technically plays
+        songHeader = gSongTable[0].header;
+    }
+
     if (mplayInfo->ident != ID_NUMBER)
         return;
 

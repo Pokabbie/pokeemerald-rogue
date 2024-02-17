@@ -13,6 +13,7 @@
 #include "text.h"
 #include "text_window.h"
 #include "international_string_util.h"
+#include "sound.h"
 #include "strings.h"
 #include "string_util.h"
 #include "gba/m4a_internal.h"
@@ -1135,8 +1136,16 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         break;
         
     case MENUITEM_SOUND_CHANNEL_BGM:
-        gSaveBlock2Ptr->optionsSoundChannelBGM = value;
-        m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 256);
+        {
+            bool8 refreshMus = gSaveBlock2Ptr->optionsSoundChannelBGM == 0 || value == 0;
+
+            gSaveBlock2Ptr->optionsSoundChannelBGM = value;
+
+            if(refreshMus)
+                FadeOutAndPlayNewMapMusic(GetCurrentMapMusic(), 1);
+            else
+                m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 256);
+        }
         break;
         
     case MENUITEM_SOUND_CHANNEL_SE:

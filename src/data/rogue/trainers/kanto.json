@@ -114,7 +114,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Only those Trainers who have a policy about Pokémon can turn pro.",
                         "PRE_BATTLE_TAUNT": "Can you handle my all-out offensive of Water-type Pokémon?",
                         "POST_BATTLE_TAUNT": "Wow!\\nYou're too much!",
-                        "POST_BATTLE_CLOSER": "There's plenty strong of TRAINERS still ahead of you.\\pStay strong!"
+                        "POST_BATTLE_CLOSER": "There's plenty strong of Trainers still ahead of you.\\pStay strong!"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE",

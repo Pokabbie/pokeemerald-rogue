@@ -449,17 +449,47 @@ u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 sou
     default:
         if(mplayInfo == &gMPlayInfo_BGM)
         {
-            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBGM;
+            // Fanfares are exempt
+            if(
+                mplayInfo->songHeader == gSongTable[MUS_LEVEL_UP].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_ITEM].header ||
+                mplayInfo->songHeader == gSongTable[MUS_EVOLVED].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_TMHM].header ||
+                mplayInfo->songHeader == gSongTable[MUS_HEAL].header ||
+                mplayInfo->songHeader == gSongTable[MUS_DP_HEAL].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_BADGE].header ||
+                mplayInfo->songHeader == gSongTable[MUS_MOVE_DELETED].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_BERRY].header ||
+                mplayInfo->songHeader == gSongTable[MUS_AWAKEN_LEGEND].header ||
+                mplayInfo->songHeader == gSongTable[MUS_SLOTS_JACKPOT].header ||
+                mplayInfo->songHeader == gSongTable[MUS_SLOTS_WIN].header ||
+                mplayInfo->songHeader == gSongTable[MUS_TOO_BAD].header ||
+                mplayInfo->songHeader == gSongTable[MUS_RG_POKE_FLUTE].header ||
+                mplayInfo->songHeader == gSongTable[MUS_RG_OBTAIN_KEY_ITEM].header ||
+                mplayInfo->songHeader == gSongTable[MUS_RG_DEX_RATING].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_B_POINTS].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_SYMBOL].header ||
+                mplayInfo->songHeader == gSongTable[MUS_REGISTER_MATCH_CALL].header
+            )
+            {
+                // do nothing
+            }
+            else
+            {
+                audioLevel = gSaveBlock2Ptr->optionsSoundChannelBGM;
+            }
         }
         else 
         {
             if(
                 mplayInfo->songHeader == gSongTable[SE_SELECT].header ||
                 mplayInfo->songHeader == gSongTable[SE_DEX_SCROLL].header ||
-                mplayInfo->songHeader == gSongTable[SE_PIN].header
+                mplayInfo->songHeader == gSongTable[SE_PIN].header ||
+                mplayInfo->songHeader == gSongTable[SE_WIN_OPEN].header ||
+                mplayInfo->songHeader == gSongTable[SE_BALL].header
             )
             {
-                // Just UI sound effects
+                // UI sound effects
                 audioLevel = gSaveBlock2Ptr->optionsSoundChannelSE;
             }
             else if(gMain.inBattle)
