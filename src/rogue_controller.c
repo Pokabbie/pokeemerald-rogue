@@ -310,7 +310,12 @@ bool8 Rogue_UseKeyBattleAnims(void)
 
 bool8 Rogue_GetBattleAnimsEnabled(void)
 {
-    return !(Rogue_UseKeyBattleAnims() ? gSaveBlock2Ptr->optionsBossBattleSceneOff : gSaveBlock2Ptr->optionsDefaultBattleSceneOff);
+    if(Rogue_UseKeyBattleAnims())
+        return !gSaveBlock2Ptr->optionsBossBattleSceneOff;
+    else if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0)
+        return !gSaveBlock2Ptr->optionsTrainerBattleSceneOff;
+    else
+        return !gSaveBlock2Ptr->optionsWildBattleSceneOff;
 }
 
 bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck);

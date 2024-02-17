@@ -35,7 +35,8 @@ enum
     MENUITEM_MENU_UI,
     MENUITEM_MENU_AUDIO,
     MENUITEM_TEXTSPEED,
-    MENUITEM_BATTLESCENE_DEFAULT,
+    MENUITEM_BATTLESCENE_WILD_BATTLES,
+    MENUITEM_BATTLESCENE_TRAINER_BATTLES,
     MENUITEM_BATTLESCENE_KEY_BATTLES,
     MENUITEM_AUTORUN_TOGGLE,
     MENUITEM_NICKNAME_MODE,
@@ -111,9 +112,14 @@ static void Empty_DrawChoices(u8 menuOffset, u8 selection);
 
 EWRAM_DATA static bool8 sArrowPressed = FALSE;
 
-static const u16 sOptionMenuText_Pal[] = INCBIN_U16("graphics/interface/option_menu_text.gbapal");
+//static const u16 sOptionMenuText_Pal[] = INCBIN_U16("graphics/interface/option_menu_text.gbapal");
+static const u16 sOptionMenuText_Pal[] = INCBIN_U16("graphics/interface/option_menu_text2.gbapal"); // <- inserts extra greens
 // note: this is only used in the Japanese release
 static const u8 sEqualSignGfx[] = INCBIN_U8("graphics/interface/option_menu_equals_sign.4bpp");
+
+static const u8 sText_HighlightOn[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}");
+static const u8 sText_HighlightOff[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}");
+static const u8 sText_HighlightMid[] = _("{SHADOW LIGHT_GREEN}");
 
 typedef u8 (*MenuItemInputCallback)(u8, u8);
 typedef void (*MenuItemDrawCallback)(u8, u8);
@@ -163,15 +169,21 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = TextSpeed_ProcessInput,
         .drawChoices = TextSpeed_DrawChoices
     },
-    [MENUITEM_BATTLESCENE_DEFAULT] = 
+    [MENUITEM_BATTLESCENE_WILD_BATTLES] = 
     {
-        .itemName = gText_BattleSceneDefault,
+        .itemName = gText_BattleSceneWild,
+        .processInput = BattleScene_ProcessInput,
+        .drawChoices = BattleScene_DrawChoices
+    },
+    [MENUITEM_BATTLESCENE_TRAINER_BATTLES] = 
+    {
+        .itemName = gText_BattleSceneTrainer,
         .processInput = BattleScene_ProcessInput,
         .drawChoices = BattleScene_DrawChoices
     },
     [MENUITEM_BATTLESCENE_KEY_BATTLES] = 
     {
-        .itemName = gText_BattleSceneBoss,
+        .itemName = gText_BattleSceneKey,
         .processInput = BattleScene_ProcessInput,
         .drawChoices = BattleScene_DrawChoices
     },
@@ -281,7 +293,8 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         {
             MENUITEM_TIME_OF_DAY,
             MENUITEM_SEASON,
-            MENUITEM_BATTLESCENE_DEFAULT,
+            MENUITEM_BATTLESCENE_WILD_BATTLES,
+            MENUITEM_BATTLESCENE_TRAINER_BATTLES,
             MENUITEM_BATTLESCENE_KEY_BATTLES,
             MENUITEM_CANCEL
         }
@@ -647,28 +660,31 @@ static u8 TextSpeed_ProcessInput(u8 menuOffset, u8 selection)
     return selection;
 }
 
+#define VALUE_X_OFFSET 124
+
+static void DrawChoiceSelection(u8 menuOffset, u8 selection, u8 const** strings, u8 stringCount)
+{
+    const u8* text = NULL;
+    u8 style = 0;
+
+    // Hack to wipe tiles????
+    DrawOptionMenuChoice(gText_32Spaces, VALUE_X_OFFSET, menuOffset * YPOS_SPACING, 0);
+
+    AGB_ASSERT(selection < stringCount);
+    text = strings[min(selection, stringCount - 1)];
+
+    DrawOptionMenuChoice(text, VALUE_X_OFFSET, menuOffset * YPOS_SPACING, style);
+}
+
 static void TextSpeed_DrawChoices(u8 menuOffset, u8 selection)
 {
-    u8 styles[3];
-    u8 height;
-    s32 widthSlow, widthMid, widthFast, xMid;
-
-    styles[0] = 0;
-    styles[1] = 0;
-    styles[2] = 0;
-    styles[selection] = 1;
-
-    DrawOptionMenuChoice(gText_TextSpeedSlow, 104, menuOffset* YPOS_SPACING, styles[0]);
-
-    widthSlow = GetStringWidth(FONT_NORMAL, gText_TextSpeedSlow, 0);
-    widthMid = GetStringWidth(FONT_NORMAL, gText_TextSpeedMid, 0);
-    widthFast = GetStringWidth(FONT_NORMAL, gText_TextSpeedFast, 0);
-
-    widthMid -= 94;
-    xMid = (widthSlow - widthMid - widthFast) / 2 + 104;
-    DrawOptionMenuChoice(gText_TextSpeedMid, xMid, menuOffset* YPOS_SPACING, styles[1]);
-
-    DrawOptionMenuChoice(gText_TextSpeedFast, GetStringRightAlignXOffset(FONT_NORMAL, gText_TextSpeedFast, 198), menuOffset* YPOS_SPACING, styles[2]);
+    u8 const* options[] = 
+    {
+        gText_TextSpeedSlow,
+        gText_TextSpeedMid,
+        gText_TextSpeedFast,
+    };
+    DrawChoiceSelection(menuOffset, selection, options, ARRAY_COUNT(options));
 }
 
 static u8 BattleScene_ProcessInput(u8 menuOffset, u8 selection)
@@ -684,14 +700,12 @@ static u8 BattleScene_ProcessInput(u8 menuOffset, u8 selection)
 
 static void BattleScene_DrawChoices(u8 menuOffset, u8 selection)
 {
-    u8 styles[2];
-
-    styles[0] = 0;
-    styles[1] = 0;
-    styles[selection] = 1;
-
-    DrawOptionMenuChoice(gText_BattleSceneOn, 104, menuOffset* YPOS_SPACING, styles[0]);
-    DrawOptionMenuChoice(gText_BattleSceneOff, GetStringRightAlignXOffset(FONT_NORMAL, gText_BattleSceneOff, 198), menuOffset* YPOS_SPACING, styles[1]);
+    u8 const* options[] = 
+    {
+        gText_BattleSceneOn,
+        gText_BattleSceneOff,
+    };
+    DrawChoiceSelection(menuOffset, selection, options, ARRAY_COUNT(options));
 }
 
 static u8 AutoRun_ProcessInput(u8 menuOffset, u8 selection)
@@ -707,14 +721,12 @@ static u8 AutoRun_ProcessInput(u8 menuOffset, u8 selection)
 
 static void AutoRun_DrawChoices(u8 menuOffset, u8 selection)
 {
-    u8 styles[2];
-
-    styles[0] = 0;
-    styles[1] = 0;
-    styles[selection] = 1;
-
-    DrawOptionMenuChoice(gText_AutoRunHold, 104, menuOffset* YPOS_SPACING, styles[0]);
-    DrawOptionMenuChoice(gText_AutoRunToggle, GetStringRightAlignXOffset(FONT_NORMAL, gText_AutoRunToggle, 198), menuOffset* YPOS_SPACING, styles[1]);
+    u8 const* options[] = 
+    {
+        gText_AutoRunHold,
+        gText_AutoRunToggle,
+    };
+    DrawChoiceSelection(menuOffset, selection, options, ARRAY_COUNT(options));
 }
 
 static u8 NicknameMode_ProcessInput(u8 menuOffset, u8 selection)
@@ -742,32 +754,14 @@ static u8 NicknameMode_ProcessInput(u8 menuOffset, u8 selection)
 
 static void NicknameMode_DrawChoices(u8 menuOffset, u8 selection)
 {
-    const u8* text = NULL;
-    u8 style = 1;
-
-    // Hack to wipe tiles????
-    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
-
-    switch (selection)
+    u8 const* options[] = 
     {
-    case OPTIONS_NICKNAME_MODE_ASK:
-        text = gText_TextNicknameAsk;
-        break;
-
-    case OPTIONS_NICKNAME_MODE_ALWAYS:
-        text = gText_TextNicknameAlways;
-        break;
-
-    case OPTIONS_NICKNAME_MODE_NEVER:
-        text = gText_TextNicknameNever;
-        break;
-
-    case OPTIONS_NICKNAME_RANDOM:
-        text = gText_TextNicknameRandom;
-        break;
-    }
-
-    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, style);
+        gText_TextNicknameAsk,
+        gText_TextNicknameAlways,
+        gText_TextNicknameNever,
+        gText_TextNicknameRandom,
+    };
+    DrawChoiceSelection(menuOffset, selection, options, ARRAY_COUNT(options));
 }
 
 static u8 TimeOfDaySeason_ProcessInput(u8 menuOffset, u8 selection)
@@ -783,14 +777,12 @@ static u8 TimeOfDaySeason_ProcessInput(u8 menuOffset, u8 selection)
 
 static void TimeOfDaySeason_DrawChoices(u8 menuOffset, u8 selection)
 {
-    u8 styles[2];
-
-    styles[0] = 0;
-    styles[1] = 0;
-    styles[selection] = 1;
-
-    DrawOptionMenuChoice(gText_TimeOfDayHidden, 104, menuOffset* YPOS_SPACING, styles[0]);
-    DrawOptionMenuChoice(gText_TimeOfDayVisible, GetStringRightAlignXOffset(FONT_NORMAL, gText_TimeOfDayVisible, 198), menuOffset* YPOS_SPACING, styles[1]);
+    u8 const* options[] = 
+    {
+        gText_TimeOfDayHidden,
+        gText_TimeOfDayVisible,
+    };
+    DrawChoiceSelection(menuOffset, selection, options, ARRAY_COUNT(options));
 }
 
 static u8 Sound_ProcessInput(u8 menuOffset, u8 selection)
@@ -807,14 +799,12 @@ static u8 Sound_ProcessInput(u8 menuOffset, u8 selection)
 
 static void Sound_DrawChoices(u8 menuOffset, u8 selection)
 {
-    u8 styles[2];
-
-    styles[0] = 0;
-    styles[1] = 0;
-    styles[selection] = 1;
-
-    DrawOptionMenuChoice(gText_SoundMono, 104, menuOffset* YPOS_SPACING, styles[0]);
-    DrawOptionMenuChoice(gText_SoundStereo, GetStringRightAlignXOffset(FONT_NORMAL, gText_SoundStereo, 198), menuOffset* YPOS_SPACING, styles[1]);
+    u8 const* options[] = 
+    {
+        gText_SoundMono,
+        gText_SoundStereo,
+    };
+    DrawChoiceSelection(menuOffset, selection, options, ARRAY_COUNT(options));
 }
 
 static u8 SoundChannelBGM_ProcessInput(u8 menuOffset, u8 selection)
@@ -840,19 +830,22 @@ static void SoundChannelBGM_DrawChoices(u8 menuOffset, u8 selection)
 {
     u8 text[16];
     u8* textPtr;
-    u16 i;
 
-    for (i = 0; gText_FrameTypeNumber[i] != EOS && i <= 5; i++)
-        text[i] = gText_FrameTypeNumber[i];
+    if (selection == 0)
+        textPtr = StringCopy(text, sText_HighlightOff);
+    else if (selection == 10)
+        textPtr = StringCopy(text, sText_HighlightOn);
+    else
+        textPtr = StringCopy(text, sText_HighlightMid);
 
-    textPtr = ConvertUIntToDecimalStringN(&text[i], selection * 10, STR_CONV_MODE_LEFT_ALIGN, 3);
+    textPtr = ConvertUIntToDecimalStringN(textPtr, selection * 10, STR_CONV_MODE_LEFT_ALIGN, 3);
 
     textPtr[0] = 0x5B; // %
     textPtr[1] = 0; // ' '
     textPtr[2] = 0; // ' '
     textPtr[3] = EOS;
 
-    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, 1);
+    DrawOptionMenuChoice(text, VALUE_X_OFFSET, menuOffset * YPOS_SPACING, 0);
 }
 
 static u8 SoundChannelSE_ProcessInput(u8 menuOffset, u8 selection)
@@ -878,19 +871,22 @@ static void SoundChannelSE_DrawChoices(u8 menuOffset, u8 selection)
 {
     u8 text[16];
     u8* textPtr;
-    u16 i;
 
-    for (i = 0; gText_FrameTypeNumber[i] != EOS && i <= 5; i++)
-        text[i] = gText_FrameTypeNumber[i];
+    if (selection == 0)
+        textPtr = StringCopy(text, sText_HighlightOff);
+    else if (selection == 10)
+        textPtr = StringCopy(text, sText_HighlightOn);
+    else
+        textPtr = StringCopy(text, sText_HighlightMid);
 
-    textPtr = ConvertUIntToDecimalStringN(&text[i], selection * 10, STR_CONV_MODE_LEFT_ALIGN, 3);
+    textPtr = ConvertUIntToDecimalStringN(textPtr, selection * 10, STR_CONV_MODE_LEFT_ALIGN, 3);
 
     textPtr[0] = 0x5B; // %
     textPtr[1] = 0; // ' '
     textPtr[2] = 0; // ' '
     textPtr[3] = EOS;
 
-    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, 1);
+    DrawOptionMenuChoice(text, VALUE_X_OFFSET, menuOffset * YPOS_SPACING, 0);
 }
 
 static u8 FrameType_ProcessInput(u8 menuOffset, u8 selection)
@@ -947,8 +943,8 @@ static void FrameType_DrawChoices(u8 menuOffset, u8 selection)
 
     text[i] = EOS;
 
-    DrawOptionMenuChoice(gText_FrameType, 104, menuOffset* YPOS_SPACING, 0);
-    DrawOptionMenuChoice(text, 128, menuOffset* YPOS_SPACING, 1);
+    DrawOptionMenuChoice(gText_FrameType, VALUE_X_OFFSET, menuOffset* YPOS_SPACING, 0);
+    DrawOptionMenuChoice(text, VALUE_X_OFFSET + 24, menuOffset* YPOS_SPACING, 0);
 }
 
 static u8 ButtonMode_ProcessInput(u8 menuOffset, u8 selection)
@@ -976,25 +972,13 @@ static u8 ButtonMode_ProcessInput(u8 menuOffset, u8 selection)
 
 static void ButtonMode_DrawChoices(u8 menuOffset, u8 selection)
 {
-    s32 widthNormal, widthLR, widthLA, xLR;
-    u8 styles[3];
-
-    styles[0] = 0;
-    styles[1] = 0;
-    styles[2] = 0;
-    styles[selection] = 1;
-
-    DrawOptionMenuChoice(gText_ButtonTypeNormal, 104, menuOffset* YPOS_SPACING, styles[0]);
-
-    widthNormal = GetStringWidth(FONT_NORMAL, gText_ButtonTypeNormal, 0);
-    widthLR = GetStringWidth(FONT_NORMAL, gText_ButtonTypeLR, 0);
-    widthLA = GetStringWidth(FONT_NORMAL, gText_ButtonTypeLEqualsA, 0);
-
-    widthLR -= 94;
-    xLR = (widthNormal - widthLR - widthLA) / 2 + 104;
-    DrawOptionMenuChoice(gText_ButtonTypeLR, xLR, menuOffset* YPOS_SPACING, styles[1]);
-
-    DrawOptionMenuChoice(gText_ButtonTypeLEqualsA, GetStringRightAlignXOffset(FONT_NORMAL, gText_ButtonTypeLEqualsA, 198), menuOffset* YPOS_SPACING, styles[2]);
+    u8 const* options[] = 
+    {
+        gText_ButtonTypeNormal,
+        gText_ButtonTypeLR,
+        gText_ButtonTypeLEqualsA,
+    };
+    DrawChoiceSelection(menuOffset, selection, options, ARRAY_COUNT(options));
 }
 
 static u8 Empty_ProcessInput(u8 menuOffset, u8 selection)
@@ -1052,8 +1036,11 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_TEXTSPEED:
         return gSaveBlock2Ptr->optionsTextSpeed;
         
-    case MENUITEM_BATTLESCENE_DEFAULT:
-        return gSaveBlock2Ptr->optionsDefaultBattleSceneOff;
+    case MENUITEM_BATTLESCENE_WILD_BATTLES:
+        return gSaveBlock2Ptr->optionsWildBattleSceneOff;
+        
+    case MENUITEM_BATTLESCENE_TRAINER_BATTLES:
+        return gSaveBlock2Ptr->optionsTrainerBattleSceneOff;
 
     case MENUITEM_BATTLESCENE_KEY_BATTLES:
         return gSaveBlock2Ptr->optionsBossBattleSceneOff;
@@ -1103,8 +1090,12 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         gSaveBlock2Ptr->optionsTextSpeed = value;
         break;
 
-    case MENUITEM_BATTLESCENE_DEFAULT:
-        gSaveBlock2Ptr->optionsDefaultBattleSceneOff = value;
+    case MENUITEM_BATTLESCENE_WILD_BATTLES:
+        gSaveBlock2Ptr->optionsWildBattleSceneOff = value;
+        break;
+
+    case MENUITEM_BATTLESCENE_TRAINER_BATTLES:
+        gSaveBlock2Ptr->optionsTrainerBattleSceneOff = value;
         break;
 
     case MENUITEM_BATTLESCENE_KEY_BATTLES:
