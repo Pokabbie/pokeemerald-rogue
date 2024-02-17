@@ -40,6 +40,8 @@
 #include "text.h"
 
 #include "rogue.h"
+#include "rogue_controller.h"
+#include "rogue_hub.h"
 #include "rogue_player_customisation.h"
 #include "rogue_save.h"
 #include "rogue_settings.h"
@@ -155,6 +157,9 @@ void RogueToD_SetTime(u16 time)
     if(prevMins > gRogueSaveBlock->timeOfDayMinutes)
     {
         RogueToD_SetSeasonCounter(gRogueSaveBlock->seasonCounter + 1);
+
+        if(!Rogue_IsRunActive())
+            RogueHub_OnNewDayStarted();
     }
 
     sTimeOfDay.areCalcsValid = FALSE;

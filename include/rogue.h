@@ -227,6 +227,7 @@ struct RogueHubMap
     u8 homeRegionStyles[HOME_REGION_COUNT];
     u8 areaBuiltFlags[1 + HUB_AREA_COUNT / 8];
     u8 upgradeFlags[1 + HUB_UPGRADE_COUNT / 8];
+    u16 weatherState;
 };
 
 struct RogueCampaignData_LowBst

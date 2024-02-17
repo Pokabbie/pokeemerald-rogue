@@ -7,6 +7,7 @@
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/layouts.h"
+#include "constants/map_types.h"
 #include "constants/rogue.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -310,7 +311,12 @@ bool8 Rogue_UseKeyBattleAnims(void)
 
 bool8 Rogue_GetBattleAnimsEnabled(void)
 {
-    return !(Rogue_UseKeyBattleAnims() ? gSaveBlock2Ptr->optionsBossBattleSceneOff : gSaveBlock2Ptr->optionsDefaultBattleSceneOff);
+    if(Rogue_UseKeyBattleAnims())
+        return !gSaveBlock2Ptr->optionsBossBattleSceneOff;
+    else if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0)
+        return !gSaveBlock2Ptr->optionsTrainerBattleSceneOff;
+    else
+        return !gSaveBlock2Ptr->optionsWildBattleSceneOff;
 }
 
 bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck);
@@ -449,17 +455,47 @@ u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 sou
     default:
         if(mplayInfo == &gMPlayInfo_BGM)
         {
-            audioLevel = gSaveBlock2Ptr->optionsSoundChannelBGM;
+            // Fanfares are exempt
+            if(
+                mplayInfo->songHeader == gSongTable[MUS_LEVEL_UP].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_ITEM].header ||
+                mplayInfo->songHeader == gSongTable[MUS_EVOLVED].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_TMHM].header ||
+                mplayInfo->songHeader == gSongTable[MUS_HEAL].header ||
+                mplayInfo->songHeader == gSongTable[MUS_DP_HEAL].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_BADGE].header ||
+                mplayInfo->songHeader == gSongTable[MUS_MOVE_DELETED].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_BERRY].header ||
+                mplayInfo->songHeader == gSongTable[MUS_AWAKEN_LEGEND].header ||
+                mplayInfo->songHeader == gSongTable[MUS_SLOTS_JACKPOT].header ||
+                mplayInfo->songHeader == gSongTable[MUS_SLOTS_WIN].header ||
+                mplayInfo->songHeader == gSongTable[MUS_TOO_BAD].header ||
+                mplayInfo->songHeader == gSongTable[MUS_RG_POKE_FLUTE].header ||
+                mplayInfo->songHeader == gSongTable[MUS_RG_OBTAIN_KEY_ITEM].header ||
+                mplayInfo->songHeader == gSongTable[MUS_RG_DEX_RATING].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_B_POINTS].header ||
+                mplayInfo->songHeader == gSongTable[MUS_OBTAIN_SYMBOL].header ||
+                mplayInfo->songHeader == gSongTable[MUS_REGISTER_MATCH_CALL].header
+            )
+            {
+                // do nothing
+            }
+            else
+            {
+                audioLevel = gSaveBlock2Ptr->optionsSoundChannelBGM;
+            }
         }
         else 
         {
             if(
                 mplayInfo->songHeader == gSongTable[SE_SELECT].header ||
                 mplayInfo->songHeader == gSongTable[SE_DEX_SCROLL].header ||
-                mplayInfo->songHeader == gSongTable[SE_PIN].header
+                mplayInfo->songHeader == gSongTable[SE_PIN].header ||
+                mplayInfo->songHeader == gSongTable[SE_WIN_OPEN].header ||
+                mplayInfo->songHeader == gSongTable[SE_BALL].header
             )
             {
-                // Just UI sound effects
+                // UI sound effects
                 audioLevel = gSaveBlock2Ptr->optionsSoundChannelSE;
             }
             else if(gMain.inBattle)
@@ -488,7 +524,7 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
             switch (songNum)
             {
             case MUS_LITTLEROOT:
-            case MUS_BIRCH_LAB:
+            case MUS_HG_ELM_LAB:
                 songNum = MUS_HELP;
                 break;
             }
@@ -510,10 +546,10 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
             switch(RogueToD_GetSeason())
             {
                 case SEASON_SPRING:
-                    songNum = MUS_DP_SANDGEM_DAY;
+                    songNum = MUS_HG_NEW_BARK;
                     break;
                 case SEASON_SUMMER:
-                    songNum = MUS_DP_SOLACEON_DAY;
+                    songNum = MUS_DP_SANDGEM_DAY;
                     break;
                 case SEASON_AUTUMN:
                     songNum = MUS_DP_FLOAROMA_DAY;
@@ -924,6 +960,11 @@ const void* Rogue_ModifyPaletteLoad(const void* input)
         return RoguePlayer_GetOverworldPalette();
     }
 
+    if(input == &gObjectEventPal_NetPlayerPlaceholder[0])
+    {
+        return RogueNetPlayer_GetOverworldPalette();
+    }
+
     //if(input == &gObjectEventPal_FollowMon0[0])
     //    return FollowMon_GetGraphicsForPalSlot(0);
 //
@@ -944,6 +985,13 @@ const void* Rogue_ModifyPaletteLoad(const void* input)
 
 bool8 Rogue_ModifyObjectPaletteSlot(u16 graphicsId, u8* palSlot)
 {
+    if(graphicsId >= OBJ_EVENT_GFX_NET_PLAYER_FIRST && graphicsId <= OBJ_EVENT_GFX_NET_PLAYER_LAST)
+    {
+        *palSlot = 8;
+        PatchObjectPalette(0x118C, *palSlot); // OBJ_EVENT_PAL_TAG_NET_PLAYER - todo should def pull this out correctly
+        return TRUE;
+    }
+
     if(graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_PARTNER)
     {
         *palSlot = 1;
@@ -1277,6 +1325,102 @@ const u8* Rogue_ModifyOverworldInteractionScript(struct MapPosition *position, u
     }
 
     return script;
+}
+
+u16 Rogue_ModifyOverworldMapWeather(u16 weather)
+{
+    if(gMapHeader.mapType != MAP_TYPE_INDOOR && gMapHeader.mapType != MAP_TYPE_UNDERGROUND)
+    {
+        if(Rogue_IsRunActive())
+        {
+            switch (gRogueAdvPath.currentRoomType)
+            {
+            case ADVPATH_ROOM_ROUTE:
+                return VarGet(VAR_ROGUE_DESIRED_WEATHER);
+            }
+        }
+        else if(VarGet(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_GO_ON_ADVENTURE)
+        {
+            // Don't have any special weather until player has embarked on first adventure
+            return WEATHER_NONE;
+        }
+        else
+        {
+            
+            u16 weatherState = RogueHub_GetWeatherState();
+
+            switch(RogueToD_GetSeason())
+            {
+                case SEASON_SPRING:
+                {
+                    switch (weatherState % 5)
+                    {
+                    case 0:
+                        return WEATHER_RAIN;
+                    case 1:
+                        return WEATHER_RAIN_THUNDERSTORM;
+                    case 2:
+                        return WEATHER_MISTY_FOG;
+
+                    case 3:
+                    case 4:
+                        return WEATHER_NONE;
+                    }
+                }
+                case SEASON_SUMMER:
+                {
+                    switch (weatherState % 5)
+                    {
+                    case 0:
+                        return WEATHER_RAIN_THUNDERSTORM;
+
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        return WEATHER_NONE;
+                    }
+                }
+                case SEASON_AUTUMN:
+                {
+                    switch (weatherState % 6)
+                    {
+                    case 0:
+                        return WEATHER_RAIN;
+                    case 1:
+                        return WEATHER_RAIN_THUNDERSTORM;
+                    case 2:
+                    case 3:
+                        return WEATHER_LEAVES;
+
+                    case 4:
+                    case 5:
+                        return WEATHER_NONE;
+                    }
+                }
+                case SEASON_WINTER:
+                {
+                    switch (weatherState % 6)
+                    {
+                    case 0:
+                    case 1:
+                    case 2:
+                        return WEATHER_SNOW;
+
+                    case 3:
+                        return WEATHER_SHADE;
+
+                    case 4:
+                    case 5:
+                        return WEATHER_NONE;
+                    }
+                }
+                    return WEATHER_SNOW;
+            }
+        }
+    }
+
+    return weather;
 }
 
 u8 SpeciesToGen(u16 species)
@@ -2384,7 +2528,6 @@ void Rogue_OnNewGame(void)
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_WILD_SAFARI);
-    FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
     FlagClear(FLAG_ROGUE_LVL_TUTORIAL);
 
     FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
@@ -4077,13 +4220,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                     gRogueRun.currentRouteIndex = gRogueAdvPath.currentRoomParams.roomIdx;
 
-                    // Legacy feature legendaries were on random routes (Just keep them in as debug shortcut)
-                    #ifdef ROGUE_DEBUG
-                        FlagSet(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
-                    #else
-                        FlagClear(FLAG_ROGUE_SPECIAL_ENCOUNTER_ACTIVE);
-                    #endif
-
                     RandomiseWildEncounters();
                     ResetTrainerBattles();
                     RandomiseBerryTrees();
@@ -5150,15 +5286,15 @@ void Rogue_Safari_EndWildBattle(void)
                     FlagSet(gSaveBlock1Ptr->objectEventTemplates[i].flagId);
                 }
 
-                // Move birch just above the player
-                if(gSaveBlock1Ptr->objectEventTemplates[i].graphicsId == OBJ_EVENT_GFX_PROF_BIRCH)
+                // Move prof just above the player
+                if(gSaveBlock1Ptr->objectEventTemplates[i].graphicsId == OBJ_EVENT_GFX_MISC_PROFESSOR_ELM)
                 {
                     SetObjEventTemplateCoords(gSaveBlock1Ptr->objectEventTemplates[i].localId, gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y - 2);
                     TryMoveObjectEventToMapCoords(gSaveBlock1Ptr->objectEventTemplates[i].localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y - 2);
                 }
             }
 
-            // Birch may not have been in view, so force it to spawn
+            // Prof may not have been in view, so force it to spawn
             TrySpawnObjectEvents(gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y);
 
             VarSet(VAR_ROGUE_INTRO_STATE, VarGet(VAR_ROGUE_INTRO_STATE) + 1);

@@ -891,6 +891,63 @@ $(MID_SUBDIR)/mus_hg_encounter_boy_2.s: %.s: %.mid
 $(MID_SUBDIR)/mus_hg_encounter_suspicious_2.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G229 -V086
 
+$(MID_SUBDIR)/mus_hg_title.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V109
+
+$(MID_SUBDIR)/mus_hg_credits.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V059
+
+$(MID_SUBDIR)/mus_hg_end.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V074
+
+$(MID_SUBDIR)/mus_hg_new_bark.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V080
+
+$(MID_SUBDIR)/mus_hg_national_park.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V087
+
+$(MID_SUBDIR)/mus_hg_dance_theater.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V080
+
+$(MID_SUBDIR)/mus_hg_game_corner.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V092
+
+$(MID_SUBDIR)/mus_hg_game_corner_win.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V078
+
+$(MID_SUBDIR)/mus_hg_team_rocket_hq.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V081
+
+$(MID_SUBDIR)/mus_hg_bug_contest_prep.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V052
+
+$(MID_SUBDIR)/mus_hg_bug_catching_contest.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V100
+
+$(MID_SUBDIR)/mus_hg_bug_contest_1st_place.s: %.s: %.mid
+	$(MID) $< $@ -E -G229 -V097 -p5
+
+$(MID_SUBDIR)/mus_hg_bug_contest_2nd_place.s: %.s: %.mid
+	$(MID) $< $@ -E -G229 -V102 -p5
+
+$(MID_SUBDIR)/mus_hg_bug_contest_3rd_place.s: %.s: %.mid
+	$(MID) $< $@ -E -G229 -V097 -p5
+
+$(MID_SUBDIR)/mus_hg_rocket_takeover.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V069
+
+$(MID_SUBDIR)/mus_hg_elm_lab.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V080
+
+$(MID_SUBDIR)/mus_hg_kimono_girl.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V088
+
+$(MID_SUBDIR)/mus_hg_card_flip.s: %.s: %.mid
+	$(MID) $< $@ -E -G229 -V098 -p5
+
+$(MID_SUBDIR)/mus_hg_card_flip_game_over.s: %.s: %.mid
+	$(MID) $< $@ -E -G229 -V097 -p5
+
 $(MID_SUBDIR)/mus_dp_route201_day.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V127
 
@@ -1066,6 +1123,9 @@ $(MID_SUBDIR)/mus_dp_gym.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V118
 
 $(MID_SUBDIR)/mus_pl_vs_giratina.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V105
+
+$(MID_SUBDIR)/mus_debug_test.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V105
 
 $(MID_SUBDIR)/se_a.s: %.s: %.mid

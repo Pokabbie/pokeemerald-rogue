@@ -229,7 +229,7 @@ script Rogue_Intro_MapScripts_LoadFrame_0
 
     // Pokemon walking anims
     //
-    msgbox(format("I am Professor Birch."))
+    msgbox(format("I am Professor Elm."))
 
     call(Rogue_Intro_PlayAnim_FlyingMons)
     call(Rogue_Intro_PlayAnim_FightMons)
@@ -237,7 +237,7 @@ script Rogue_Intro_MapScripts_LoadFrame_0
     call(Rogue_Intro_PlayAnim_ParentChildMon)
 
     msgbox(format(
-        "BIRCH: Pokémon inhabit every inch of this world… Be it land, sky or sea!\p"
+        "ELM: Pokémon inhabit every inch of this world… Be it land, sky or sea!\p"
         "Pokémon are the friends of many and, for some, they even train and fight alongside their Pokémon in an attempt to become a Pokémon Champion!\p"
         "I myself study Pokémon to try and understand what makes each and every species unique!\p"
 

@@ -13,8 +13,6 @@ mapscripts Rogue_Route_Chaos0_MapScripts
 
 script Rogue_Route_Chaos0_OnFrame0
 {
-    call(Rogue_SetDesiredWeather)
-
     lockall
     special(DoSealedChamberShakingEffect_Short)
     waitstate

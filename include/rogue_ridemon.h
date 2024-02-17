@@ -8,6 +8,7 @@ void Rogue_GetOnOffRideMon(u8 whistleType, bool8 forWarp);
 bool8 Rogue_HandleRideMonInput();
 void Rogue_UpdateRideMons();
 void Rogue_HandleRideMonMovementIfNeeded(u8 objectEventId);
+bool8 Rogue_IsActiveRideMonObject(u8 objectEventId);
 void Rogue_OnResetRideMonSprites();
 
 void Rogue_SetupRideObject(u8 rideObjectId, u8 objectEventId, u16 rideSpecies, bool8 isFlying);

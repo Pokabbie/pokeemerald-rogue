@@ -3958,6 +3958,7 @@ extern const u16 gObjectEventPal_FollowMon4[];
 
 // Player
 extern const u16 gObjectEventPal_PlayerPlaceholder[];
+extern const u16 gObjectEventPal_NetPlayerPlaceholder[];
 
 extern const u16 gObjectEventPal_PlayerBrendanBase[];
 extern const u16 gObjectEventPal_PlayerBrendanLayers[];

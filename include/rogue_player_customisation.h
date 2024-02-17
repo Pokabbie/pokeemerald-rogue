@@ -53,6 +53,9 @@ const u16* RoguePlayer_GetTrainerBackPalette();
 const struct ObjectEventGraphicsInfo* RoguePlayer_GetObjectEventGraphicsInfo(u8 state);
 const u16* RoguePlayer_GetOverworldPalette();
 
+const struct ObjectEventGraphicsInfo* RogueNetPlayer_GetObjectEventGraphicsInfo(u8 state);
+const u16* RogueNetPlayer_GetOverworldPalette();
+
 u8 RoguePlayer_GetTextVariantId();
 u8 RoguePlayer_GetBagGfxVariant();
 

@@ -53,7 +53,7 @@ script Rogue_Interior_ProfLab_FrameState0
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
     waitmovement(0)
 
-    msgbox(format("BIRCH: There we are!\pI must say I was pretty impressed by your catching technique!\pI can't think of a better Trainer to have going on Adventures for {POKEMON_HUB}!"))
+    msgbox(format("ELM: There we are!\pI must say I was pretty impressed by your catching technique!\pI can't think of a better Trainer to have going on Adventures for {POKEMON_HUB}!"))
     msgbox(format("Now, {PLAYER}.\nDid you want me to explain how Adventures work?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
@@ -126,21 +126,21 @@ script Rogue_Interior_ProfLab_FrameState0
 
 movement IntroAssistant0
 {
-    walk_right * 3
+    walk_left * 4
     walk_up * 4
 }
 
 movement IntroAssistant1
 {
-    walk_down * 4
-    walk_left * 3
+    walk_right
+    face_left
 }
 
 script Rogue_Interior_ProfLab_TalkBirch
 {
     lock
     faceplayer
-    msgbox(format("BIRCH: Hi {PLAYER}!\pDid you want me to explain how Adventures work?"), MSGBOX_YESNO)
+    msgbox(format("ELM: Hi {PLAYER}!\pDid you want me to explain how Adventures work?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {
@@ -224,13 +224,13 @@ script Rogue_Interior_ProfLab_TriggerIntro2
 
 script Rogue_Interior_ProfLab_TriggerIntroInternal
 {
-    msgbox(format("BIRCH: Hi {PLAYER}!\pIt looks like you've refreshed your memory a bit now!\pNow that {POKEMON_HUB} is properly established, we need someone to go out on Adventures to explore and gather resources.\pIf we can do that, we'll be able to build up and expand the village.\pThat's where you come in {PLAYER}!\pIn order for you to do that you'll need a Pokémon Partner…"))
+    msgbox(format("ELM: Hi {PLAYER}!\pIt looks like you've refreshed your memory a bit now!\pNow that {POKEMON_HUB} is properly established, we need someone to go out on Adventures to explore and gather resources.\pIf we can do that, we'll be able to build up and expand the village.\pThat's where you come in {PLAYER}!\pIn order for you to do that you'll need a Pokémon Partner…"))
 
     playbgm(MUS_NONE, FALSE)
     msgbox(format("PROFFFFFFESSOR!"))
     closemessage
 
-    setobjectxy(OBJ_EVENT_RUIN_MANIAC, 7, 11)
+    setobjectxy(OBJ_EVENT_RUIN_MANIAC, 4, 11)
     //showobjectat(OBJ_EVENT_RUIN_MANIAC, MAP_ROGUE_INTERIOR_PROF_LAB)
     playbgm(MUS_HELP, FALSE)
     
@@ -242,7 +242,7 @@ script Rogue_Interior_ProfLab_TriggerIntroInternal
     applymovement(OBJ_EVENT_BIRCH, BirchIntro0)
     waitmovement(0)
 
-    msgbox(format("BIRCH: What do you mean!?\pThis can't be good {PLAYER}.\pWe better go help!"))
+    msgbox(format("ELM: What do you mean!?\pThis can't be good {PLAYER}.\pWe better go help!"))
     closemessage
 
     applymovement(OBJ_EVENT_RUIN_MANIAC, RuinManiacIntro1)

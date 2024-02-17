@@ -93,6 +93,24 @@ bool8 RogueMP_IsClient()
     return RogueMP_IsActive() && (gRogueMultiplayer->netCurrentState & NET_STATE_HOST) == 0;
 }
 
+ROGUE_STATIC_ASSERT(NET_PLAYER_CAPACITY == 2, PlayerIdAssume2Players);
+
+u8 RogueMP_GetLocalPlayerId()
+{
+    if(gRogueMultiplayer != NULL)
+        return gRogueMultiplayer->localPlayerId;
+    else
+        return 0;
+}
+
+u8 RogueMP_GetRemotePlayerId()
+{
+    if(gRogueMultiplayer != NULL)
+        return gRogueMultiplayer->localPlayerId ^ 1;
+    else
+        return 0;
+}
+
 static void CreatePlayerProfile(struct RogueNetPlayerProfile* profile)
 {
     u8 i;
@@ -468,9 +486,9 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
         syncInfo.movementBufferReadOffset = 0;
 
         if(player->playerFlags & NET_PLAYER_STATE_FLAG_RIDING)
-            syncInfo.gfxId = OBJ_EVENT_GFX_BUG_CATCHER_RIDING; // TODO - need to have net outfits that have riding gfx too
+            syncInfo.gfxId = OBJ_EVENT_GFX_NET_PLAYER_RIDING;
         else
-            syncInfo.gfxId = OBJ_EVENT_GFX_BUG_CATCHER;
+            syncInfo.gfxId = OBJ_EVENT_GFX_NET_PLAYER_NORMAL;
 
         objectEventId = ProcessSyncedObjectEvent(&syncInfo);
 
