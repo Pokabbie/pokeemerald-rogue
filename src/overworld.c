@@ -77,6 +77,7 @@
 #include "rogue_campaign.h"
 #include "rogue_charms.h"
 #include "rogue_controller.h"
+#include "rogue_debug.h"
 #include "rogue_followmon.h"
 #include "rogue_quest.h"
 #include "rogue_popup.h"
@@ -1503,11 +1504,14 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
     bool8 inputActive = FALSE;
     struct FieldInput inputStruct;
 
+    START_TIMER(OVERWORLD_CB1);
+
     UpdatePlayerAvatarTransitionState();
     FieldClearPlayerInput(&inputStruct);
     FieldGetPlayerInput(&inputStruct, newKeys, heldKeys);
     if (!ArePlayerFieldControlsLocked())
     {
+        START_TIMER(OVERWORLD_PLAYER_FIELD_INPUT);
         if (ProcessPlayerFieldInput(&inputStruct) == 1)
         {
             LockPlayerFieldControls();
@@ -1517,12 +1521,20 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
         }
         else
         {
+            START_TIMER(OVERWORLD_PLAYER_STEP);
             PlayerStep(inputStruct.dpadDirection, newKeys, heldKeys);
+            STOP_TIMER(OVERWORLD_PLAYER_STEP);
+
             Rogue_UpdatePopups(TRUE, TRUE);
+
+            START_TIMER(ROGUE_FOLLOWMON_CB);
             FollowMon_OverworldCB();
+            STOP_TIMER(ROGUE_FOLLOWMON_CB);
+
             inputActive = TRUE;
             PUSH_ASSISTANT_STATE2(OVERWORLD, MOVEMENT);
         }
+        STOP_TIMER(OVERWORLD_PLAYER_FIELD_INPUT);
     }
     else
     {
@@ -1531,7 +1543,9 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
         Rogue_UpdatePopups(TRUE, FALSE);
     }
 
+    START_TIMER(OVERWORLD_ROGUE_CALLBACK);
     Rogue_OverworldCB(newKeys, heldKeys, inputActive);
+    STOP_TIMER(OVERWORLD_ROGUE_CALLBACK);
 
     // if stop running but keep holding B -> fix follower frame
     if (PlayerHasFollower() && IsPlayerOnFoot() && IsPlayerStandingStill())
@@ -1540,6 +1554,8 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_PushAutomationInputState(AUTO_INPUT_STATE_OVERWORLD);
 #endif
+
+    STOP_TIMER(OVERWORLD_CB1);
 }
 
 void CB1_Overworld(void)

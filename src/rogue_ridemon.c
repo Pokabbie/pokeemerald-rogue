@@ -14,6 +14,7 @@
 #include "sound.h"
 
 #include "rogue_baked.h"
+#include "rogue_debug.h"
 #include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
 #include "rogue_ridemon.h"
@@ -368,8 +369,10 @@ void Rogue_HandleRideMonMovementIfNeeded(u8 objectEventId)
 
     if(gPlayerAvatar.objectEventId == objectEventId)
     {
+        START_TIMER(ROGUE_RIDEMON_UPDATE);
         UpdatePlayerRideState();
         Rogue_UpdateRideMons(); // do global update based on player
+        STOP_TIMER(ROGUE_RIDEMON_UPDATE);
     }
 
     for(i = 0; i < RIDE_OBJECT_COUNT; ++i)

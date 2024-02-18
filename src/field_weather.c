@@ -19,6 +19,7 @@
 #include "field_camera.h"
 
 #include "rogue_controller.h"
+#include "rogue_timeofday.h"
 
 #define DROUGHT_COLOR_INDEX(color) ((((color) >> 1) & 0xF) | (((color) >> 2) & 0xF0) | (((color) >> 3) & 0xF00))
 
@@ -188,6 +189,14 @@ void StartWeather(void)
     }
 }
 
+static u16 OverrideDisplayedWeather(u16 weather)
+{
+    if(RogueToD_ApplyWeatherVisuals())
+        return weather;
+
+    return WEATHER_NONE;
+}
+
 void SetNextWeather(u8 weather)
 {
     if (weather != WEATHER_RAIN && weather != WEATHER_RAIN_THUNDERSTORM && weather != WEATHER_DOWNPOUR)
@@ -197,7 +206,7 @@ void SetNextWeather(u8 weather)
 
     if (gWeatherPtr->nextWeather != weather && gWeatherPtr->currWeather == weather)
     {
-        sWeatherFuncs[weather].initVars();
+        sWeatherFuncs[OverrideDisplayedWeather(weather)].initVars();
     }
 
     gWeatherPtr->weatherChangeComplete = FALSE;
@@ -228,7 +237,7 @@ static void Task_WeatherInit(u8 taskId)
     if (gWeatherPtr->readyForInit)
     {
         UpdateCameraPanning();
-        sWeatherFuncs[gWeatherPtr->currWeather].initAll();
+        sWeatherFuncs[OverrideDisplayedWeather(gWeatherPtr->currWeather)].initAll();
         gTasks[taskId].func = Task_WeatherMain;
     }
 }
@@ -237,11 +246,11 @@ static void Task_WeatherMain(u8 taskId)
 {
     if (gWeatherPtr->currWeather != gWeatherPtr->nextWeather)
     {
-        if (!sWeatherFuncs[gWeatherPtr->currWeather].finish()
+        if (!sWeatherFuncs[OverrideDisplayedWeather(gWeatherPtr->currWeather)].finish()
             && gWeatherPtr->palProcessingState != WEATHER_PAL_STATE_SCREEN_FADING_OUT)
         {
             // Finished cleaning up previous weather. Now transition to next weather.
-            sWeatherFuncs[gWeatherPtr->nextWeather].initVars();
+            sWeatherFuncs[OverrideDisplayedWeather(gWeatherPtr->nextWeather)].initVars();
             gWeatherPtr->colorMapStepCounter = 0;
             gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_CHANGING_WEATHER;
             gWeatherPtr->currWeather = gWeatherPtr->nextWeather;
@@ -250,7 +259,7 @@ static void Task_WeatherMain(u8 taskId)
     }
     else
     {
-        sWeatherFuncs[gWeatherPtr->currWeather].main();
+        sWeatherFuncs[OverrideDisplayedWeather(gWeatherPtr->currWeather)].main();
     }
 
     gWeatherPalStateFuncs[gWeatherPtr->palProcessingState]();

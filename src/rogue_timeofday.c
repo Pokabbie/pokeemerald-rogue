@@ -385,6 +385,11 @@ bool8 RogueToD_ApplyTimeVisuals()
     return gSaveBlock2Ptr->timeOfDayVisuals && gMapHeader.mapType != MAP_TYPE_INDOOR;
 }
 
+bool8 RogueToD_ApplyWeatherVisuals()
+{
+    return gSaveBlock2Ptr->weatherVisuals;
+}
+
 static u16 GetDesiredTintForCurrentMap(u16 inTint, bool8 isOverworld)
 {
     if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_TOD_TINT_USE_PLAYER_COLOUR))

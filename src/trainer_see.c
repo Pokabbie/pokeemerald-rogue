@@ -251,6 +251,8 @@ bool8 CheckForTrainersWantingBattle(void)
             continue;
         if (gObjectEvents[i].trainerType != TRAINER_TYPE_NORMAL && gObjectEvents[i].trainerType != TRAINER_TYPE_BURIED)
             continue;
+        if (gObjectEvents[i].trainerRange_berryTreeId == 0)
+            continue;
 
         numTrainers = CheckTrainer(i);
         if (numTrainers == 2)
@@ -295,15 +297,11 @@ bool8 CheckForTrainersWantingBattle(void)
 
 static u8 CheckTrainer(u8 objectEventId)
 {
-    const u8 *scriptPtr;
+    const u8 *scriptPtr = NULL;
     u8 numTrainers = 1;
     u8 approachDistance;
 
-    if (InTrainerHill() == TRUE)
-        scriptPtr = GetTrainerHillTrainerScript();
-    else
-        scriptPtr = GetObjectEventScriptPointerByObjectEventId(objectEventId);
-
+    // Early out
     if (InBattlePyramid())
     {
         if (GetBattlePyramidTrainerFlag(objectEventId))
@@ -319,8 +317,7 @@ static u8 CheckTrainer(u8 objectEventId)
         if(GetTrainerFlagFromObjectEventId(objectEventId))
             return 0;
 
-        if (GetTrainerFlagFromScriptPointer(scriptPtr))
-            return 0;
+        // previously would check GetTrainerFlagFromScriptPointer here but it's actually faster to wait until after approach distance is calculated
     }
 
     approachDistance = GetTrainerApproachDistance(&gObjectEvents[objectEventId]);
@@ -332,6 +329,19 @@ static u8 CheckTrainer(u8 objectEventId)
 
     if (approachDistance != 0)
     {
+        // Delay get script ptr until we are in range as this can be slow
+        if (InTrainerHill() == TRUE)
+            scriptPtr = GetTrainerHillTrainerScript();
+        else
+            scriptPtr = GetObjectEventScriptPointerByObjectEventId(objectEventId);
+
+        if (!(InBattlePyramid() && InTrainerHill() == TRUE))
+        {
+            if (GetTrainerFlagFromScriptPointer(scriptPtr))
+                return 0;
+        }
+        
+
         if (scriptPtr[1] == TRAINER_BATTLE_DOUBLE
             || scriptPtr[1] == TRAINER_BATTLE_REMATCH_DOUBLE
             || scriptPtr[1] == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE)

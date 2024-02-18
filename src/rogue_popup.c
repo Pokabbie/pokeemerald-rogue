@@ -2,6 +2,7 @@
 #include "battle_pyramid.h"
 #include "bg.h"
 #include "event_data.h"
+#include "field_weather.h"
 #include "graphics.h"
 #include "data.h"
 #include "gpu_regs.h"
@@ -28,10 +29,12 @@
 #include "rogue.h"
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
+#include "rogue_debug.h"
 #include "rogue_followmon.h"
 #include "rogue_pokedex.h"
 #include "rogue_popup.h"
 #include "rogue_quest.h"
+#include "rogue_timeofday.h"
 
 #define POPUP_QUEUE_CAPACITY 8
 
@@ -62,6 +65,7 @@ enum
 enum
 {
     POPUP_CUSTOM_ICON_POKEDEX,
+    POPUP_CUSTOM_ICON_CLOUD,
     POPUP_CUSTOM_ICON_TYPE_NORMAL,
     POPUP_CUSTOM_ICON_TYPE_FIGHTING,
     POPUP_CUSTOM_ICON_TYPE_FLYING,
@@ -121,6 +125,7 @@ struct PopupRequest
 struct PopupManager
 {
     struct PopupRequest requestQueue[POPUP_QUEUE_CAPACITY];
+    u16 lastWeatherPopup;
     u8 windowId;
     u8 iconWindowId;
     u8 taskId;
@@ -145,6 +150,11 @@ static struct CustomIcon const sRoguePopupCustomIcons[POPUP_CUSTOM_ICON_COUNT] =
     {
         .icon = gItemIcon_Pokedex,
         .palette = gItemIconPalette_Pokedex
+    },
+    [POPUP_CUSTOM_ICON_CLOUD] = 
+    {
+        .icon = gItemIcon_Cloud,
+        .palette = gItemIconPalette_Cloud
     },
     [POPUP_CUSTOM_ICON_TYPE_NORMAL] = 
     {
@@ -312,6 +322,34 @@ static const u8 sText_Popup_EliteBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}E
 static const u8 sText_Popup_ChampBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Champion Badge");
 static const u8 sText_Popup_EarnBadge[] = _("Recieved badge!");
 
+static const u8 sText_Popup_WeatherActive[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Weather Active");
+
+static const u8 sWeatherNames[22][14] = {
+    [WEATHER_NONE]               = _("None"),
+    [WEATHER_SUNNY_CLOUDS]       = _("Sunny"),
+    [WEATHER_SUNNY]              = _("Sunny"),
+    [WEATHER_RAIN]               = _("Rain"),
+    [WEATHER_SNOW]               = _("Snow"),
+    [WEATHER_RAIN_THUNDERSTORM]  = _("Thunderstorm"),
+#ifdef ROGUE_EXPANSION
+    [WEATHER_PSYCHIC_FOG]        = _("Psychic Fog"),
+    [WEATHER_MISTY_FOG]          = _("Misty Fog"),
+#else
+    [WEATHER_PSYCHIC_FOG]        = _("Fog"),
+    [WEATHER_MISTY_FOG]          = _("Fog"),
+#endif
+    [WEATHER_VOLCANIC_ASH]       = _("Ash"),
+    [WEATHER_SANDSTORM]          = _("Sandstorm"),
+    [WEATHER_UNDERWATER]         = _("Underwater"),
+    [WEATHER_SHADE]              = _("Shade"),
+    [WEATHER_DROUGHT]            = _("Drought"),
+    [WEATHER_DOWNPOUR]           = _("Downpour"),
+    [WEATHER_UNDERWATER_BUBBLES] = _("Bubbles"),
+    [WEATHER_ABNORMAL]           = _("Abnormal"),
+    [WEATHER_ROUTE119_CYCLE]     = _("???"),
+    [WEATHER_ROUTE123_CYCLE]     = _("???"),
+};
+
 
 #define DEFAULT_ANIM_DURATION 15
 #define DEFAULT_DISPLAY_DURATION 90
@@ -329,6 +367,7 @@ enum
     POPUP_COMMON_PARTY_INFO,
     POPUP_COMMON_INSTANT_POKEMON_TEXT,
     POPUP_COMMON_CUSTOM_ICON_TEXT,
+    POPUP_COMMON_CUSTOM_ICON_SLIDE_TEXT,
 };
 
 static const struct PopupRequestTemplate sPopupRequestTemplates[] =
@@ -438,6 +477,24 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
     [POPUP_COMMON_CUSTOM_ICON_TEXT] = 
     {
         .enterAnim = POPUP_ANIM_NONE,
+        .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
+        .animDuration = DEFAULT_ANIM_DURATION,
+        .generateBorder = FALSE,
+        .transparentText = TRUE,
+        .left = 10,
+        .down = 0,
+        .width = 10,
+        .height = 4,
+        
+        .iconMode = POPUP_ICON_MODE_CUSTOM,
+        .iconLeft = 7,
+        .iconDown = 0,
+        .iconWidth = 3,
+        .iconHeight = 3,
+    },
+    [POPUP_COMMON_CUSTOM_ICON_SLIDE_TEXT] = 
+    {
+        .enterAnim = POPUP_ANIM_SLIDE_VERTICAL,
         .exitAnim = POPUP_ANIM_SLIDE_VERTICAL,
         .animDuration = DEFAULT_ANIM_DURATION,
         .generateBorder = FALSE,
@@ -567,6 +624,8 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 {
     bool8 enabled = inOverworld && inputEnabled; // May need to check this too? GetStartMenuWindowId
 
+    START_TIMER(ROGUE_POPUPS);
+
     if(sRoguePopups.forceEnabled)
     {
         enabled = TRUE;
@@ -592,6 +651,18 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
             sRoguePopups.forceEnabled = FALSE;
             sRoguePopups.forceEnabledFromScript = FALSE;
         }
+        else if(!RogueToD_ApplyWeatherVisuals() && sRoguePopups.lastWeatherPopup != GetSavedWeather())
+        {
+            // Apply weather popups if we have weather visuals disabled
+            sRoguePopups.lastWeatherPopup = GetSavedWeather();
+
+            if(sRoguePopups.lastWeatherPopup != WEATHER_NONE)
+            {
+                // We don't need to do this in the hub, as weather is purely asthetic in the hub
+                if(Rogue_IsRunActive())
+                    Rogue_PushPopup_WeatherActive(sRoguePopups.lastWeatherPopup);
+            }
+        }
         else
         {
             // Push next party notification, if
@@ -615,6 +686,7 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
     }
 
     sRoguePopups.wasEnabled = enabled;
+    STOP_TIMER(ROGUE_POPUPS);
 }
 
 void Rogue_ForceEnablePopups(bool8 allowAudio)
@@ -1529,4 +1601,15 @@ void Rogue_PushPopup_NewBadgeGet(u8 difficulty)
         popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
     }
 
+}
+
+void Rogue_PushPopup_WeatherActive(u16 weather)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_SLIDE_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_CLOUD;
+
+    popup->titleText = sWeatherNames[weather];
+    popup->subtitleText = sText_Popup_WeatherActive;
 }

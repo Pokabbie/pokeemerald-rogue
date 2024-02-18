@@ -29,6 +29,7 @@
 #include "rogue_multiplayer.h"
 #include "rogue_popup.h"
 #include "rogue_safari.h"
+#include "rogue_settings.h"
 
 // Care with increasing FOLLOWMON_MAX_SPAWN_SLOTS as it can cause lag
 
@@ -252,6 +253,9 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
 void SetupFollowParterMonObjectEvent()
 {
     bool8 shouldFollowMonBeVisible = FlagGet(FLAG_SYS_SHOW_POKE_FOLLOWER) && !FlagGet(FLAG_SCRIPT_HIDE_FOLLOWER);
+
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_HIDE_FOLLOWER))
+        shouldFollowMonBeVisible = FALSE;
 
     if(shouldFollowMonBeVisible && FollowMon_GetPartnerFollowSpecies(TRUE) == SPECIES_NONE)
         shouldFollowMonBeVisible = FALSE;
@@ -943,6 +947,9 @@ void FollowMon_OverworldCB()
 {
     if(Rogue_AreWildMonEnabled())
     {
+        if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_STOP_WILD_SPAWNING))
+            return;
+
         // Speed up spawning
         if(sFollowMonData.activeCount <= 1)
         {

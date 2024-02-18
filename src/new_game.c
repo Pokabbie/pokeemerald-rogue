@@ -106,6 +106,7 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsNicknameMode = OPTIONS_NICKNAME_MODE_ASK;
     gSaveBlock2Ptr->timeOfDayVisuals = TRUE;
     gSaveBlock2Ptr->seasonVisuals = TRUE;
+    gSaveBlock2Ptr->weatherVisuals = TRUE;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
     
     Rogue_SetDefaultOptions();

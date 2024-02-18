@@ -14,6 +14,7 @@ void RogueToD_SetTimePreset(u8 time, u8 season);
 
 bool8 RogueToD_ApplyTimeVisuals();
 bool8 RogueToD_ApplySeasonVisuals();
+bool8 RogueToD_ApplyWeatherVisuals();
 
 u16 RogueToD_GetHours();
 u16 RogueToD_GetMinutes();
