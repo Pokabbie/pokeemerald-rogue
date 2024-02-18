@@ -138,7 +138,8 @@ void AgbMain()
 
     for (;;)
     {
-        RogueDebug_BeginFrameTimers();
+        RogueDebug_ResetFrameTimers();
+        START_TIMER(FRAME_TOTAL);
 
         ReadKeys();
 
@@ -174,8 +175,11 @@ void AgbMain()
 
         PlayTimeCounter_Update();
         MapMusicMain();
+
+        START_TIMER(WAIT_FOR_VBLANK);
         WaitForVBlank();
-        RogueDebug_EndFrameTimers();
+        STOP_TIMER(WAIT_FOR_VBLANK);
+        STOP_TIMER(FRAME_TOTAL);
     }
 }
 
@@ -199,19 +203,23 @@ static void InitMainCallbacks(void)
 
 static void CallCallbacks(void)
 {
-    START_TIMER(MAIN_CALLBACK_1);
-    if (gMain.callback1)
-        gMain.callback1();
-    STOP_TIMER(MAIN_CALLBACK_1);
+    START_TIMER(MAIN_CALLBACKS);
+    {
+        START_TIMER(MAIN_CALLBACK_1);
+        if (gMain.callback1)
+            gMain.callback1();
+        STOP_TIMER(MAIN_CALLBACK_1);
 
-    START_TIMER(MAIN_CALLBACK_2);
-    if (gMain.callback2)
-        gMain.callback2();
-    STOP_TIMER(MAIN_CALLBACK_2);
+        START_TIMER(MAIN_CALLBACK_2);
+        if (gMain.callback2)
+            gMain.callback2();
+        STOP_TIMER(MAIN_CALLBACK_2);
 
-    START_TIMER(MAIN_ROGUE_CALLBACK);
-    Rogue_MainCB();
-    STOP_TIMER(MAIN_ROGUE_CALLBACK);
+        START_TIMER(MAIN_ROGUE_CALLBACK);
+        Rogue_MainCB();
+        STOP_TIMER(MAIN_ROGUE_CALLBACK);
+    }
+    STOP_TIMER(MAIN_CALLBACKS);
 }
 
 void SetMainCallback2(MainCallback callback)

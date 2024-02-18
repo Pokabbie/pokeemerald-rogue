@@ -4,6 +4,8 @@
 #include "main.h"
 #include "malloc.h"
 #include "sound.h"
+#include "string.h"
+#include "string_util.h"
 
 #include "rogue_debug.h"
 
@@ -25,26 +27,18 @@ void RogueDebug_MainCB(void)
     MEMORY_STOMP_TRACKING_POLL();
 
 #ifdef DEBUG_FEATURE_FRAME_TIMERS
-    if(JOY_HELD(L_BUTTON) && JOY_NEW(A_BUTTON))
+    if(JOY_HELD(R_BUTTON) && JOY_NEW(L_BUTTON))
     {
         EnqueuePrintTimers();
     }
 #endif
 }
 
-void RogueDebug_BeginFrameTimers()
+void RogueDebug_ResetFrameTimers()
 {
 #ifdef DEBUG_FEATURE_FRAME_TIMERS
     ResetClockCounters();
     ResetTimerData();
-    START_TIMER(FRAME_TOTAL);
-#endif
-}
-
-void RogueDebug_EndFrameTimers()
-{
-#ifdef DEBUG_FEATURE_FRAME_TIMERS
-    STOP_TIMER(FRAME_TOTAL);
 #endif
 }
 
@@ -66,13 +60,10 @@ void RogueDebug_MainCB(void)
 {
 }
 
-void RogueDebug_BeginFrameTimers()
+void RogueDebug_ResetFrameTimers()
 {
 }
 
-void RogueDebug_EndFrameTimers()
-{
-}
 #endif // DEBUG
 
 
@@ -152,22 +143,22 @@ void RogueMemStomp_Poll()
 struct FrameTimerData
 {
     u32 duration;
+    u32 marker : 16;
     u32 depth : 7;
     u32 hasStarted : 1;
-    u32 unused : 24;
+    u32 unused : 8;
 };
 
 struct FrameTimerManager
 {
     struct FrameTimerData timers[FRAME_TIMER_COUNT];
-    u8 currentDepth;
-    u8 printTimerQueued : 1;
-    u8 printTimerActive : 1;
+    u16 currentMarker;
+    u16 currentDepth;
+    u16 printTimerQueued : 1;
+    u16 printTimerActive : 1;
 };
 
 static EWRAM_DATA struct FrameTimerManager sFrameTimerManager = {0};
-
-// GBA clock takes 2^-24s per cycle
 
 static void ResetClockCounters()
 {
@@ -200,6 +191,7 @@ void RogueDebug_StartTimer(u16 timer)
     sFrameTimerManager.timers[timer].duration = SampleClock();
     sFrameTimerManager.timers[timer].hasStarted = TRUE;
     sFrameTimerManager.timers[timer].depth = sFrameTimerManager.currentDepth;
+    sFrameTimerManager.timers[timer].marker = sFrameTimerManager.currentMarker++;
     ++sFrameTimerManager.currentDepth;
 }
 
@@ -211,7 +203,32 @@ void RogueDebug_StopTimer(u16 timer)
     --sFrameTimerManager.currentDepth;
 }
 
-#define PRINT_TIMER(timer) DebugPrintf(#timer ", %d = %d (%d %%)", sFrameTimerManager.timers[FRAME_TIMER_ ## timer].depth, sFrameTimerManager.timers[FRAME_TIMER_ ## timer].duration, GetFrameTimeAsPercentage(sFrameTimerManager.timers[FRAME_TIMER_ ## timer].duration));
+#define PRINT_TIMER(timer) \
+    if(sFrameTimerManager.timers[FRAME_TIMER_ ## timer].marker == i) \
+    { \
+        DebugPrintf("%s" #timer " = %d us (%d %%)", BufferIndents(sFrameTimerManager.timers[FRAME_TIMER_ ## timer].depth), GetFrameTimeInDisplayUnits(sFrameTimerManager.timers[FRAME_TIMER_ ## timer].duration), GetFrameTimeAsPercentage(sFrameTimerManager.timers[FRAME_TIMER_ ## timer].duration)); \
+        continue; \
+    }
+
+static u8 const* BufferIndents(u32 depth)
+{
+    u32 i;
+    for(i = 0; i < depth * 3; ++i)
+    {
+        gStringVar4[i] = 32; // space
+    }
+
+    gStringVar4[i] = 0;
+    return gStringVar4;
+}
+
+static u32 GetFrameTimeInDisplayUnits(u32 time)
+{
+    // GBA clock takes 2^-24s per cycle
+    // convert to microseconds
+    u64 value = ((u64)time * (u64)1000000) / (u64)16777216;
+    return (u32)value;
+}
 
 static u32 GetFrameTimeAsPercentage(u32 time)
 {
@@ -228,7 +245,12 @@ static void ResetTimerData()
         sFrameTimerManager.printTimerActive = FALSE;
 
         DebugPrint("======= TIMES START =======");
-        FOR_EACH_TIMER(PRINT_TIMER)
+
+        for(i = 0; i < sFrameTimerManager.currentMarker; ++i)
+        {
+            FOR_EACH_TIMER(PRINT_TIMER)
+        }
+
         DebugPrint("======== TIMES END ========");
         PlaySE(SE_EXP_MAX);
     }

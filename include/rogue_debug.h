@@ -22,15 +22,14 @@
 // (uncomment to enable)
 #ifdef ROGUE_DEBUG
 //#define DEBUG_FEATURE_MEMORY_STOMP_TRACKING
-//#define DEBUG_FEATURE_FRAME_TIMERS
+#define DEBUG_FEATURE_FRAME_TIMERS
 #endif
 
 
 void RogueDebug_MainInit(void);
 void RogueDebug_MainCB(void);
 
-void RogueDebug_BeginFrameTimers();
-void RogueDebug_EndFrameTimers();
+void RogueDebug_ResetFrameTimers();
 void RogueDebug_PrintTimers();
 
 
@@ -53,9 +52,21 @@ void RogueMemStomp_Poll();
 // All supported timers
 #define FOR_EACH_TIMER(X) \
     X(FRAME_TOTAL) \
+    X(WAIT_FOR_VBLANK) \
+    X(MAIN_CALLBACKS) \
     X(MAIN_CALLBACK_1) \
     X(MAIN_CALLBACK_2) \
     X(MAIN_ROGUE_CALLBACK) \
+    X(OVERWORLD_CB1) \
+    X(OVERWORLD_PLAYER_FIELD_INPUT) \
+    X(OVERWORLD_PLAYER_STEP) \
+    X(OVERWORLD_TRAINER_SIGHT_LINE) \
+    X(OVERWORLD_MAP_SCRIPT) \
+    X(OVERWORLD_ROGUE_PLAYER_FIELD_INPUT_CB) \
+    X(OVERWORLD_ROGUE_CALLBACK) \
+    X(ROGUE_POPUPS) \
+    X(ROGUE_FOLLOWMON_CB) \
+    X(ROGUE_RIDEMON_UPDATE) \
 
 #define TIMER_ENUM(timer) FRAME_TIMER_ ## timer,
 

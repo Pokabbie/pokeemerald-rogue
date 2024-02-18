@@ -29,6 +29,7 @@
 #include "rogue.h"
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
+#include "rogue_debug.h"
 #include "rogue_followmon.h"
 #include "rogue_pokedex.h"
 #include "rogue_popup.h"
@@ -623,6 +624,8 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 {
     bool8 enabled = inOverworld && inputEnabled; // May need to check this too? GetStartMenuWindowId
 
+    START_TIMER(ROGUE_POPUPS);
+
     if(sRoguePopups.forceEnabled)
     {
         enabled = TRUE;
@@ -683,6 +686,7 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
     }
 
     sRoguePopups.wasEnabled = enabled;
+    STOP_TIMER(ROGUE_POPUPS);
 }
 
 void Rogue_ForceEnablePopups(bool8 allowAudio)

@@ -38,6 +38,7 @@
 #include "constants/trainer_hill.h"
 
 #include "rogue_controller.h"
+#include "rogue_debug.h"
 #include "rogue_ridemon.h"
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
@@ -159,14 +160,29 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     GetPlayerPosition(&position);
     metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);
 
+    START_TIMER(OVERWORLD_TRAINER_SIGHT_LINE);
     if (CheckForTrainersWantingBattle() == TRUE)
+    {
+        STOP_TIMER(OVERWORLD_TRAINER_SIGHT_LINE);
         return TRUE;
+    }
+    STOP_TIMER(OVERWORLD_TRAINER_SIGHT_LINE);
 
+    START_TIMER(OVERWORLD_MAP_SCRIPT);
     if (TryRunOnFrameMapScript() == TRUE)
+    {
+        STOP_TIMER(OVERWORLD_MAP_SCRIPT);
         return TRUE;
+    }
+    STOP_TIMER(OVERWORLD_MAP_SCRIPT);
 
+    START_TIMER(OVERWORLD_ROGUE_PLAYER_FIELD_INPUT_CB);
     if (Rogue_OnProcessPlayerFieldInput() == TRUE)
+    {
+        STOP_TIMER(OVERWORLD_ROGUE_PLAYER_FIELD_INPUT_CB);
         return TRUE;
+    }
+    STOP_TIMER(OVERWORLD_ROGUE_PLAYER_FIELD_INPUT_CB);
 
     if (input->pressedBButton && TrySetupDiveEmergeScript() == TRUE)
         return TRUE;
