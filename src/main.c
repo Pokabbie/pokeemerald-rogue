@@ -27,6 +27,7 @@
 #include "constants/rgb.h"
 
 #include "rogue_controller.h"
+#include "rogue_debug.h"
 #include "rogue_save.h"
 
 static void VBlankIntr(void);
@@ -137,6 +138,8 @@ void AgbMain()
 
     for (;;)
     {
+        RogueDebug_BeginFrameTimers();
+
         ReadKeys();
 
         if (gSoftResetDisabled == FALSE
@@ -172,6 +175,7 @@ void AgbMain()
         PlayTimeCounter_Update();
         MapMusicMain();
         WaitForVBlank();
+        RogueDebug_EndFrameTimers();
     }
 }
 
@@ -195,13 +199,19 @@ static void InitMainCallbacks(void)
 
 static void CallCallbacks(void)
 {
+    START_TIMER(MAIN_CALLBACK_1);
     if (gMain.callback1)
         gMain.callback1();
+    STOP_TIMER(MAIN_CALLBACK_1);
 
+    START_TIMER(MAIN_CALLBACK_2);
     if (gMain.callback2)
         gMain.callback2();
+    STOP_TIMER(MAIN_CALLBACK_2);
 
+    START_TIMER(MAIN_ROGUE_CALLBACK);
     Rogue_MainCB();
+    STOP_TIMER(MAIN_ROGUE_CALLBACK);
 }
 
 void SetMainCallback2(MainCallback callback)

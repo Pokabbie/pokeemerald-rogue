@@ -499,7 +499,9 @@
 #define DEBUG_TOGGLE_DEBUG_LEGENDS                  (DEBUG_START_VALUE + 7)
 #define DEBUG_TOGGLE_DEBUG_MON_QUERY                (DEBUG_START_VALUE + 8)
 #define DEBUG_TOGGLE_DEBUG_ITEM_QUERY               (DEBUG_START_VALUE + 9)
-#define DEBUG_TOGGLE_COUNT                          10
+#define DEBUG_TOGGLE_HIDE_FOLLOWER                  (DEBUG_START_VALUE + 10)
+#define DEBUG_TOGGLE_STOP_WILD_SPAWNING             (DEBUG_START_VALUE + 11)
+#define DEBUG_TOGGLE_COUNT                          12
 #define DEBUG_TOGGLE_BYTE_COUNT                     (1 + DEBUG_TOGGLE_COUNT / 8)
 
 // DEBUG_RANGE_
