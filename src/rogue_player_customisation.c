@@ -1369,7 +1369,6 @@ const u16* RoguePlayer_GetOverworldPalette()
 
 const u16* RogueNetPlayer_GetOverworldPalette()
 {
-    u8 i;
     const struct PlayerOutfit* outfit = GetNetCurrentOutfit();
     u16 layerColours[PLAYER_OUTFIT_STYLE_COUNT];
     GrabRemotePlayerColours(layerColours);
