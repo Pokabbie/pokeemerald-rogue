@@ -53,14 +53,6 @@
         },
 
         { 
-            "label": "build",
-            "type":"shell",
-            "isBackground": false,
-            "windows": {
-                "command": "${workspaceFolder}/scripts/launch_build.bat"
-            },
-        },
-        { 
             "label": "clean",
             "type":"shell",
             "isBackground": false,
@@ -69,33 +61,80 @@
             },
         },
         { 
-            "label": "rebuild",
+            "label": "build-debug",
+            "type":"shell",
+            "isBackground": false,
+            "windows": {
+                "command": "${workspaceFolder}/scripts/launch_build_debug.bat"
+            },
+        },
+        { 
+            "label": "build-release",
+            "type":"shell",
+            "isBackground": false,
+            "windows": {
+                "command": "${workspaceFolder}/scripts/launch_build_release.bat"
+            },
+        },
+        { 
+            "label": "rebuild-debug",
             "type":"shell",
             "isBackground": false,
             "dependsOrder": "sequence",
             "dependsOn":
             [
                 "clean",
-                "build"
+                "build-debug"
             ]
         },
         { 
-            "label": "build & debug",
+            "label": "rebuild-release",
+            "type":"shell",
+            "isBackground": false,
+            "dependsOrder": "sequence",
+            "dependsOn":
+            [
+                "clean",
+                "build-release"
+            ]
+        },
+        { 
+            "label": "build-debug & attach",
             "type":"shell",
             "dependsOrder": "sequence",
             "dependsOn":
             [
-                "build",
+                "build-debug",
                 "gdb-debug"
             ]
         },
         { 
-            "label": "build & launch",
+            "label": "build-release & attach",
             "type":"shell",
             "dependsOrder": "sequence",
             "dependsOn":
             [
-                "build",
+                "build-release",
+                "gdb-debug"
+            ]
+        },
+        { 
+            "label": "build-debug & launch",
+            "type":"shell",
+            "dependsOrder": "sequence",
+            "dependsOn":
+            [
+                "build-debug",
+                "start emulator"
+            ]
+        },
+        { 
+            "label": "build-release & launch",
+            "type":"shell",
+            "dependsOrder": "sequence",
+            "dependsOn":
+            [
+                "build-release",
                 "start emulator"
             ]
         }

@@ -2,29 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Just Build",
-            "type": "node",
-            "request": "launch",
-            "program": "${workspaceFolder}/scripts/launch_stub.js",
-            "preLaunchTask": "build",
-        },
-        {
-            "name": "Just Rebuild",
-            "type": "node",
-            "request": "launch",
-            "program": "${workspaceFolder}/scripts/launch_stub.js",
-            "preLaunchTask": "rebuild",
-        },
-        {
-            "name": "Just Clean",
+            "name": "Clean",
             "type": "node",
             "request": "launch",
             "program": "${workspaceFolder}/scripts/launch_stub.js",
             "preLaunchTask": "clean",
         },
-
         {
-            "name": "Just Launch (attach)",
+            "name": "Launch (Attach)",
             "type": "cppdbg",
             "request": "launch",
             "preLaunchTask": "gdb-debug",
@@ -42,12 +27,40 @@
             "serverStarted": "started-mgba-server",
             "miDebuggerPath": "C:/devkitPro/devkitARM/bin/arm-none-eabi-gdb.exe"
         },
+        {
+            "name": "Build (Debug)",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/launch_stub.js",
+            "preLaunchTask": "build-debug",
+        },
+        {
+            "name": "Build (Release)",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/launch_stub.js",
+            "preLaunchTask": "build-release",
+        },
+        {
+            "name": "Rebuild (Debug)",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/launch_stub.js",
+            "preLaunchTask": "rebuild-debug",
+        },
+        {
+            "name": "Rebuild (Release)",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/launch_stub.js",
+            "preLaunchTask": "rebuild-release",
+        },
 
         {
-            "name": "Build & Launch (attach)",
+            "name": "Build & Attach (Debug)",
             "type": "cppdbg",
             "request": "launch",
-            "preLaunchTask": "build & debug",
+            "preLaunchTask": "build-debug & attach",
             "serverLaunchTimeout": 20000,
             //"stopOnEntry": true,
             "program": "${workspaceRoot}/pokeemerald.elf",
@@ -62,13 +75,24 @@
             "serverStarted": "started-mgba-server",
             "miDebuggerPath": "C:/devkitPro/devkitARM/bin/arm-none-eabi-gdb.exe"
         },
-
         {
-            "name": "Build & Launch",
-            "type": "node",
+            "name": "Build & Attach (Release)",
+            "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/scripts/launch_stub.js",
-            "preLaunchTask": "build & launch"
-        },
+            "preLaunchTask": "build-release & attach",
+            "serverLaunchTimeout": 20000,
+            //"stopOnEntry": true,
+            "program": "${workspaceRoot}/pokeemerald.elf",
+            "args":[
+                "target remote localhost:2345"
+            ],
+            "MIMode": "gdb",
+            "externalConsole": false,
+            "cwd": "${workspaceFolder}",
+            "targetArchitecture": "arm",
+            "miDebuggerServerAddress": "localhost:2345",
+            "serverStarted": "started-mgba-server",
+            "miDebuggerPath": "C:/devkitPro/devkitARM/bin/arm-none-eabi-gdb.exe"
+        }
     ]
 }
