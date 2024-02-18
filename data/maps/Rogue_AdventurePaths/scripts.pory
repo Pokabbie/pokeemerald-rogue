@@ -89,7 +89,7 @@ script Rogue_AdventurePaths_InteractRoom
                     msgbox(format("It's an Average {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
 
                 case 2:
-                    msgbox(format("It's an Tough {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
+                    msgbox(format("It's a Tough {STR_VAR_1} route.\nEnter this encounter?"), MSGBOX_YESNO)
 
                 default:
                     msgbox(format("??\nEnter this encounter?"), MSGBOX_YESNO)
