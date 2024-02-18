@@ -847,7 +847,7 @@ static void CB2_GoToMainMenu(void)
         SetMainCallback2(CB2_InitMainMenu);
 }
 
-static void CB2_GoToCopyrightScreen(void)
+static void UNUSED CB2_GoToCopyrightScreen(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_InitCopyrightScreenAfterTitleScreen);
