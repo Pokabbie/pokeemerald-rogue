@@ -488,6 +488,12 @@ void SetBagVisualPocketId(u8 bagPocketId, bool8 isSwitchingPockets)
     }
 }
 
+void SetBagSpriteVisible(bool8 state)
+{
+    struct Sprite *sprite = &gSprites[gBagMenu->spriteIds[ITEMMENUSPRITE_BAG]];
+    sprite->invisible = !state;
+}
+
 static void SpriteCB_BagVisualSwitchingPockets(struct Sprite *sprite)
 {
     if (sprite->y2 != 0)
