@@ -775,7 +775,7 @@ static const struct WindowTemplate sContextMenuWindowTemplates[] =
         .width = 5,
         .height = 4,
         .paletteNum = 15,
-        .baseBlock = CONTEXT_BASE_BLOCK(861),
+        .baseBlock = CONTEXT_BASE_BLOCK(861 - 20), // to share memory with YESNO_LOW as we're going past 1024 which causes issues due to OW collision masks in fill methods :/
     },
     [ITEMWIN_QUANTITY] = { // Used for quantity of items to Toss/Deposit
         .bg = 1,
@@ -784,7 +784,7 @@ static const struct WindowTemplate sContextMenuWindowTemplates[] =
         .width = 5,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = CONTEXT_BASE_BLOCK(881),
+        .baseBlock = CONTEXT_BASE_BLOCK(881 - 20),
     },
     [ITEMWIN_QUANTITY_WIDE] = { // Used for quantity and price of items to Sell
         .bg = 1,
@@ -793,7 +793,7 @@ static const struct WindowTemplate sContextMenuWindowTemplates[] =
         .width = 10,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = CONTEXT_BASE_BLOCK(891),
+        .baseBlock = CONTEXT_BASE_BLOCK(891 - 20),
     },
     [ITEMWIN_MONEY] = {
         .bg = 1,
@@ -802,7 +802,7 @@ static const struct WindowTemplate sContextMenuWindowTemplates[] =
         .width = 10,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = CONTEXT_BASE_BLOCK(911),
+        .baseBlock = CONTEXT_BASE_BLOCK(911 - 20),
     },
 };
 
