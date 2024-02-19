@@ -986,9 +986,9 @@ static u16 RenderText(struct TextPrinter *textPrinter)
         currChar = *textPrinter->printerTemplate.currentChar;
         textPrinter->printerTemplate.currentChar++;
 
-        if(textPrinter->textSpeed == 0 && (currChar == CHAR_PROMPT_CLEAR || currChar == CHAR_PROMPT_SCROLL))
+        if(gTextFlags.replaceScrollWithNewLine && (currChar == CHAR_PROMPT_CLEAR || currChar == CHAR_PROMPT_SCROLL))
         {
-            // RogueNote: Hack so we can use poryscript to format test
+            // RogueNote: Hack so we can use poryscript to format instant text e.g. item descs
             // turn \l into \n
             currChar = CHAR_NEWLINE;
         }

@@ -935,7 +935,9 @@ static void BuyMenuInitWindows(void)
 
 static void BuyMenuPrint(u8 windowId, const u8 *text, u8 x, u8 y, s8 speed, u8 colorSet)
 {
+    gTextFlags.replaceScrollWithNewLine = TRUE;
     AddTextPrinterParameterized4(windowId, FONT_NORMAL, x, y, 0, 0, sShopBuyMenuTextColors[colorSet], speed, text);
+    gTextFlags.replaceScrollWithNewLine = FALSE;
 }
 
 static void BuyMenuDisplayMessage(u8 taskId, const u8 *text, TaskFunc callback)
