@@ -2521,9 +2521,9 @@ static void ConfirmToss(u8 taskId)
 // For when items are tossed or deposited
 static void Task_RemoveItemFromBag(u8 taskId)
 {
-    s16* data = gTasks[taskId].data;
-    u16* scrollPos = &gBagPosition.scrollPosition[gBagPosition.pocket];
-    u16* cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
+    //s16* data = gTasks[taskId].data;
+    //u16* scrollPos = &gBagPosition.scrollPosition[gBagPosition.pocket];
+    //u16* cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
 
     if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
