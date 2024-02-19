@@ -1042,9 +1042,7 @@ static bool8 SetupBagMenu(void)
         AddBagVisualSprite(gBagPosition.pocket);
 
         if(gBagPosition.pocket == TMHM_POCKET)
-        {
             SetBagSpriteVisible(FALSE);
-        }
 
         gMain.state++;
         break;
@@ -1106,7 +1104,10 @@ static bool8 LoadBagMenu_Graphics(void)
     case 1:
         if (FreeTempTileDataBuffersIfPossible() != TRUE)
         {
-            LZDecompressWram(gBagScreen_GfxTileMap, gBagMenu->tilemapBuffer);
+            if(gBagPosition.pocket == TMHM_POCKET)
+                LZDecompressWram(gBagScreen_GfxTileMapTMHM, gBagMenu->tilemapBuffer);
+            else
+                LZDecompressWram(gBagScreen_GfxTileMap, gBagMenu->tilemapBuffer);
             gBagMenu->graphicsLoadState++;
         }
         break;
@@ -1336,8 +1337,6 @@ static void PrintItemDescription(int itemIndex)
 
     if(gBagPosition.pocket == TMHM_POCKET)
     {
-        SetBagSpriteVisible(FALSE);
-
         // Print move info by default (Better UX for TRs)
         ClearWindowTilemap(WIN_DESCRIPTION);
         PrintTMHMMoveData(BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, itemIndex));
@@ -1357,7 +1356,6 @@ static void PrintItemDescription(int itemIndex)
     {
         const u8 *str;
 
-        SetBagSpriteVisible(TRUE);
         ClearWindowTilemap(WIN_MON_ICON_0);
         ClearWindowTilemap(WIN_MON_ICON_1);
         ClearWindowTilemap(WIN_MON_ICON_2);
@@ -1779,6 +1777,7 @@ static void ChangeBagPocketId(u8 *bagPocketId, s8 deltaBagPocketId)
 static void SwitchBagPocket(u8 taskId, s16 deltaBagPocketId, bool16 skipEraseList)
 {
     s16* data = gTasks[taskId].data;
+    u8 oldPocket = gBagPosition.pocket;
     u8 newPocket;
 
     tPocketSwitchState = 0;
@@ -1805,6 +1804,42 @@ static void SwitchBagPocket(u8 taskId, s16 deltaBagPocketId, bool16 skipEraseLis
         PrintPocketNames(gPocketNamesStringsTable[newPocket], gPocketNamesStringsTable[gBagPosition.pocket]);
         CopyPocketNameToWindow(8);
     }
+
+    if(newPocket == TMHM_POCKET)
+    {
+        u8 i;
+        LZDecompressWram(gBagScreen_GfxTileMapTMHM, gBagMenu->tilemapBuffer);
+
+        for(i = 0; i < POCKETS_COUNT; ++i)
+            DrawPocketIndicatorSquare(i, FALSE);
+
+        SetBagSpriteVisible(FALSE);
+    }
+    else  if(oldPocket == TMHM_POCKET)
+    {
+        u8 i;
+        LZDecompressWram(gBagScreen_GfxTileMap, gBagMenu->tilemapBuffer);
+
+        for(i = 0; i < POCKETS_COUNT; ++i)
+            DrawPocketIndicatorSquare(i, FALSE);
+
+        SetBagSpriteVisible(TRUE);
+
+        // Hide previously visible sprites
+        ClearWindowTilemap(WIN_MON_ICON_0);
+        ClearWindowTilemap(WIN_MON_ICON_1);
+        ClearWindowTilemap(WIN_MON_ICON_2);
+        ClearWindowTilemap(WIN_MON_ICON_3);
+        ClearWindowTilemap(WIN_MON_ICON_4);
+        ClearWindowTilemap(WIN_MON_ICON_5);
+        CopyWindowToVram(WIN_MON_ICON_0, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_1, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_2, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_3, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_4, COPYWIN_GFX);
+        CopyWindowToVram(WIN_MON_ICON_5, COPYWIN_GFX);
+    }
+
     DrawPocketIndicatorSquare(gBagPosition.pocket, FALSE);
     DrawPocketIndicatorSquare(newPocket, TRUE);
     FillBgTilemapBufferRect_Palette0(2, 11, 14, 2, 15, 16);
