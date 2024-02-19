@@ -3173,9 +3173,13 @@ static void BagMenu_Print(u8 windowId, u8 fontId, const u8 *str, u8 left, u8 top
     //if(windowId == WIN_DESCRIPTION && sTempDisableDescriptionPrint)
     //    return;
 
-    gTextFlags.replaceScrollWithNewLine = TRUE;
-    AddTextPrinterParameterized4(windowId, fontId, left, top, letterSpacing, lineSpacing, sFontColorTable[colorIndex], 0, str);
-    gTextFlags.replaceScrollWithNewLine = FALSE;
+    if(windowId == WIN_DESCRIPTION)
+        gTextFlags.replaceScrollWithNewLine = TRUE;
+
+    AddTextPrinterParameterized4(windowId, fontId, left, top, letterSpacing, lineSpacing, sFontColorTable[colorIndex], speed, str);
+
+    if(windowId == WIN_DESCRIPTION)
+        gTextFlags.replaceScrollWithNewLine = FALSE;
 }
 
 // Unused
