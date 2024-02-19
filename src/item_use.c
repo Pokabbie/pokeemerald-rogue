@@ -70,7 +70,7 @@ static void ItemUseOnFieldCB_Berry(u8);
 static void ItemUseOnFieldCB_WailmerPailBerry(u8);
 static void ItemUseOnFieldCB_WailmerPailSudowoodo(u8);
 static bool8 TryToWaterSudowoodo(void);
-static void BootUpSoundTMHM(u8);
+//static void BootUpSoundTMHM(u8);
 static void Task_ShowTMHMContainedMessage(u8);
 static void UseTMHMYesNo(u8);
 static void UseTMHM(u8);
@@ -931,21 +931,24 @@ void ItemUseOutOfBattle_RareCandy(u8 taskId)
 
 void ItemUseOutOfBattle_TMHM(u8 taskId)
 {
-    if (gSpecialVar_ItemId >= ITEM_TR01 && gSpecialVar_ItemId <= ITEM_TR50)
-        DisplayItemMessage(taskId, FONT_NORMAL, gText_BootedUpTM, BootUpSoundTMHM); // TM
-    else
-        DisplayItemMessage(taskId, FONT_NORMAL, gText_BootedUpHM, BootUpSoundTMHM); // HM
-}
-
-static void BootUpSoundTMHM(u8 taskId)
-{
     PlaySE(SE_PC_LOGIN);
     gTasks[taskId].func = Task_ShowTMHMContainedMessage;
+
+    //if (gSpecialVar_ItemId >= ITEM_TR01 && gSpecialVar_ItemId <= ITEM_TR50)
+    //    DisplayItemMessage(taskId, FONT_NORMAL, gText_BootedUpTM, BootUpSoundTMHM); // TM
+    //else
+    //    DisplayItemMessage(taskId, FONT_NORMAL, gText_BootedUpHM, BootUpSoundTMHM); // HM
 }
+
+//static void BootUpSoundTMHM(u8 taskId)
+//{
+//    PlaySE(SE_PC_LOGIN);
+//    gTasks[taskId].func = Task_ShowTMHMContainedMessage;
+//}
 
 static void Task_ShowTMHMContainedMessage(u8 taskId)
 {
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    //if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
         StringCopy(gStringVar1, gMoveNames[ItemIdToBattleMoveId(gSpecialVar_ItemId)]);
         StringExpandPlaceholders(gStringVar4, gText_TMHMContainedVar1);
