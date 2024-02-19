@@ -2240,14 +2240,17 @@ static void ItemMenu_Toss(u8 taskId)
 
 static void AskTossItems(u8 taskId)
 {
-    s16* data = gTasks[taskId].data;
+    // Always just instant confirm toss now
+    ConfirmToss(taskId);
 
-    CopyItemName(gSpecialVar_ItemId, gStringVar1);
-    ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, MAX_ITEM_DIGITS);
-    StringExpandPlaceholders(gStringVar4, gText_ConfirmTossItems);
-    FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
-    BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, gStringVar4, 3, 1, 0, 0, 0, COLORID_NORMAL);
-    BagMenu_YesNo(taskId, ITEMWIN_YESNO_LOW, &sYesNoTossFunctions);
+    //s16* data = gTasks[taskId].data;
+//
+    //CopyItemName(gSpecialVar_ItemId, gStringVar1);
+    //ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, MAX_ITEM_DIGITS);
+    //StringExpandPlaceholders(gStringVar4, gText_ConfirmTossItems);
+    //FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
+    //BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, gStringVar4, 3, 1, 0, 0, 0, COLORID_NORMAL);
+    //BagMenu_YesNo(taskId, ITEMWIN_YESNO_LOW, &sYesNoTossFunctions);
 }
 
 static void CancelToss(u8 taskId)
@@ -2322,16 +2325,36 @@ static void Task_RegisterUsingDpad(u8 taskId)
     ItemMenu_Cancel(taskId);
 }
 
-static void ConfirmToss(u8 taskId)
+static void RemoveItemFromBagInternal(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
+    u16* scrollPos = &gBagPosition.scrollPosition[gBagPosition.pocket];
+    u16* cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
 
-    CopyItemName(gSpecialVar_ItemId, gStringVar1);
-    ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, MAX_ITEM_DIGITS);
-    StringExpandPlaceholders(gStringVar4, gText_ThrewAwayVar2Var1s);
-    FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
-    BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, gStringVar4, 3, 1, 0, 0, 0, COLORID_NORMAL);
-    gTasks[taskId].func = Task_RemoveItemFromBag;
+    PlaySE(SE_SELECT);
+    RemoveBagItem(gSpecialVar_ItemId, tItemCount);
+    DestroyListMenuTask(tListTaskId, scrollPos, cursorPos);
+    UpdatePocketItemList(gBagPosition.pocket);
+    UpdatePocketListPosition(gBagPosition.pocket);
+    LoadBagItemListBuffers(gBagPosition.pocket);
+    tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, *scrollPos, *cursorPos);
+    PrintBagCapacity();
+    ScheduleBgCopyTilemapToVram(0);
+    ReturnToItemList(taskId);
+}
+
+static void ConfirmToss(u8 taskId)
+{
+    //s16* data = gTasks[taskId].data;
+
+    //CopyItemName(gSpecialVar_ItemId, gStringVar1);
+    //ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, MAX_ITEM_DIGITS);
+    //StringExpandPlaceholders(gStringVar4, gText_ThrewAwayVar2Var1s);
+    //FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
+    //BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, gStringVar4, 3, 1, 0, 0, 0, COLORID_NORMAL);
+    //gTasks[taskId].func = Task_RemoveItemFromBag;
+
+    RemoveItemFromBagInternal(taskId);
 }
 
 // Remove selected item(s) from the bag and update list
@@ -2344,16 +2367,7 @@ static void Task_RemoveItemFromBag(u8 taskId)
 
     if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
-        PlaySE(SE_SELECT);
-        RemoveBagItem(gSpecialVar_ItemId, tItemCount);
-        DestroyListMenuTask(tListTaskId, scrollPos, cursorPos);
-        UpdatePocketItemList(gBagPosition.pocket);
-        UpdatePocketListPosition(gBagPosition.pocket);
-        LoadBagItemListBuffers(gBagPosition.pocket);
-        tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, *scrollPos, *cursorPos);
-        PrintBagCapacity();
-        ScheduleBgCopyTilemapToVram(0);
-        ReturnToItemList(taskId);
+        RemoveItemFromBagInternal(taskId);
     }
 }
 
