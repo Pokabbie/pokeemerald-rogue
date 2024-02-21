@@ -1070,6 +1070,9 @@ $(OBJEVENTGFXDIR)/rogue/npc/misc/bug_catcher.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/rogue/npc/misc/burglar.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/rogue/npc/misc/channeler.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/rogue/npc/misc/clown.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 

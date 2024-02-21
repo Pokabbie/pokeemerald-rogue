@@ -3341,6 +3341,8 @@ static void BeginRogueRun(void)
     Rogue_ChooseBossTrainersForNewAdventure();
     EnableRivalEncounterIfRequired();
 
+    gRogueRun.shrineSpawnDifficulty = 1 + RogueRandomRange(ROGUE_MAX_BOSS_COUNT, 0);
+
     QuestNotify_BeginAdventure();
 
     // Trigger before and after as we may have hub/run only quests which are interested in this trigger
@@ -4336,6 +4338,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 case ADVPATH_ROOM_DARK_DEAL:
                 {
                     RandomiseCharmItems();
+                    break;
+                }
+
+                case ADVPATH_ROOM_SHRINE:
+                {
                     break;
                 }
             };

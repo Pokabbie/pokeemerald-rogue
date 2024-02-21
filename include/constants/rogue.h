@@ -194,10 +194,11 @@
 #define ADVPATH_ROOM_GAMESHOW       8
 #define ADVPATH_ROOM_DARK_DEAL      9
 #define ADVPATH_ROOM_LAB            10
+#define ADVPATH_ROOM_SHRINE         11
 
-#define ADVPATH_ROOM_BOSS           11
+#define ADVPATH_ROOM_BOSS           12
 
-#define ADVPATH_ROOM_COUNT          12
+#define ADVPATH_ROOM_COUNT          13
 
 
 #define ADVPATH_SUBROOM_ROUTE_CALM          0

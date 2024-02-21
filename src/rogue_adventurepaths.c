@@ -389,7 +389,7 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
         count = CountRoomType(roomType);
         if(count != 0)
             return 0;
-        else if((GetPathGenerationDifficulty() % 3) != 0)
+        else if((GetPathGenerationDifficulty() % 2) != 0)
             return 1;
         break;
 
@@ -398,7 +398,7 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
         count = CountRoomType(roomType);
         if(count != 0)
             return 0;
-        else if(((GetPathGenerationDifficulty() + 1) % 3) != 0)
+        else if(((GetPathGenerationDifficulty() + 1) % 2) != 0)
             return 1;
         break;
 
@@ -409,6 +409,13 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
         if(count != 0)
             return 0;
         break;
+
+    // We really want this to spawn when we allow it to
+    case ADVPATH_ROOM_SHRINE:
+        count = CountRoomType(roomType);
+        if(count != 0)
+            return 0;
+        return 100;
 
     default:
         AGB_ASSERT(FALSE);
@@ -618,27 +625,42 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     // Honey tree
     if(GetPathGenerationDifficulty() >= 1)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_HONEY_TREE;
-    
-    // Lab
-    if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1 && RogueRandomChance(10, 0))
-        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_LAB;
 
-    // Dark deal / Game show
-    if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 2)
+    // Shrine
+    if(GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SHRINE;
+
     {
-        // Only dark deals
-        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_DARK_DEAL;
-    }
-    else if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
-    {
-        // Mix of both
-        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_DARK_DEAL;
-        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_GAMESHOW;
-    }
-    else
-    {
-        // Only game show
-        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_GAMESHOW;
+        bool8 allowDarkDeal = (GetPathGenerationDifficulty() % 3 != 0);
+        bool8 allowLab = (GetPathGenerationDifficulty() % 3 != 1);
+
+        if(allowLab)
+        {
+            // Lab
+            if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1 && RogueRandomChance(10, 0))
+                validEncounterList[validEncounterCount++] = ADVPATH_ROOM_LAB;
+        }
+
+        // Dark deal / Game show
+        if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 2)
+        {
+            // Only dark deals
+            if(allowDarkDeal)
+                validEncounterList[validEncounterCount++] = ADVPATH_ROOM_DARK_DEAL;
+        }
+        else if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
+        {
+            // Mix of both
+            if(allowDarkDeal)
+                validEncounterList[validEncounterCount++] = ADVPATH_ROOM_DARK_DEAL;
+
+            validEncounterList[validEncounterCount++] = ADVPATH_ROOM_GAMESHOW;
+        }
+        else
+        {
+            // Only game show
+            validEncounterList[validEncounterCount++] = ADVPATH_ROOM_GAMESHOW;
+        }
     }
 
     // Replace % of route with special encounters
@@ -1227,6 +1249,11 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
             warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_LAB);
             warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_LAB);
             break;
+
+        case ADVPATH_ROOM_SHRINE:
+            warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_SHRINE);
+            warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_SHRINE);
+            break;
     }
 }
 
@@ -1459,6 +1486,9 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
 
         case ADVPATH_ROOM_LAB:
             return OBJ_EVENT_GFX_PC;
+
+        case ADVPATH_ROOM_SHRINE:
+            return OBJ_EVENT_GFX_MISC_CHANNELER;
 
         case ADVPATH_ROOM_BOSS:
             return OBJ_EVENT_GFX_BALL_CUSHION; // ?
