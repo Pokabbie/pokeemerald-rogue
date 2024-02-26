@@ -405,7 +405,6 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
 
     // Only allow 1 of this type at once
     case ADVPATH_ROOM_GAMESHOW:
-    case ADVPATH_ROOM_CATCHING_CONTEST:
         count = CountRoomType(roomType);
         if(count != 0)
             return 0;
@@ -417,6 +416,15 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
         if(count != 0)
             return 0;
         return 100;
+
+    // Allow 2 but make 2nd uncommon
+    case ADVPATH_ROOM_CATCHING_CONTEST:
+        count = CountRoomType(roomType);
+        if(count >= 2)
+            return 0;
+        else if(count == 1)
+            return 1;
+        break;
 
     default:
         AGB_ASSERT(FALSE);
@@ -631,8 +639,9 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     if(GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SHRINE;
 
-    // TODO - Setup weighting
-    validEncounterList[validEncounterCount++] = ADVPATH_ROOM_CATCHING_CONTEST;
+    // Catching contest
+    if((GetPathGenerationDifficulty() + 2) % 4 >= 0)
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_CATCHING_CONTEST;
 
     {
         bool8 allowDarkDeal = (GetPathGenerationDifficulty() % 3 != 0);

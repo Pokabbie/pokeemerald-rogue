@@ -64,7 +64,6 @@ MauvilleCity_PokemonCenter_1F_EventScript_DeclineWritingLyrics::
 MauvilleCity_PokemonCenter_1F_EventScript_Hipster::
 	lock
 	faceplayer
-	setflag FLAG_UNLOCKED_TRENDY_SAYINGS
 	msgbox MauvilleCity_PokemonCenter_1F_Text_TeachWhatsHipAndHappening, MSGBOX_DEFAULT
 	special HasHipsterTaughtWord
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_PokemonCenter_1F_EventScript_TryTeachWord

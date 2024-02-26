@@ -5692,7 +5692,7 @@ static void SetUnlockedEasyChatGroups(void)
         sWordData->unlockedGroupIds[sWordData->numUnlockedGroups++] = EC_GROUP_MOVE_2;
     }
 
-    if (FlagGet(FLAG_UNLOCKED_TRENDY_SAYINGS))
+    if (TRUE) // (FlagGet(FLAG_SYS_HIPSTER_MEET))
         sWordData->unlockedGroupIds[sWordData->numUnlockedGroups++] = EC_GROUP_TRENDY_SAYING;
 
     if (IsNationalPokedexEnabled())

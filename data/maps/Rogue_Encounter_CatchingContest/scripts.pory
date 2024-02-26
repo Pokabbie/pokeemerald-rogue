@@ -1,12 +1,18 @@
 const VAR_CONTEST_STATE = VAR_TEMP_0
-const VAR_CURRENT_TYPE = VAR_TEMP_1
-const VAR_CURRENT_STAT = VAR_TEMP_2
+
+// Keep in sync with Rogue_SelectCatchingContestMode
+const VAR_CURRENT_TYPE = VAR_TEMP_2
+const VAR_CURRENT_STAT = VAR_TEMP_3
 
 const NPC_OBJ_HOST = 1
 
 mapscripts Rogue_Encounter_CatchingContest_MapScripts 
 {
     MAP_SCRIPT_ON_LOAD: Rogue_Encounter_CatchingContest_OnLoad
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerNorth
+    ]
 }
 
 script Rogue_Encounter_CatchingContest_OnLoad
@@ -60,6 +66,7 @@ script Rogue_Encounter_CatchingContest_StartContest
         msgbox(format("Good luck!"), MSGBOX_DEFAULT)
         playbgm(MUS_HG_BUG_CATCHING_CONTEST, TRUE)
 
+        setflag(FLAG_SYS_SAVE_DISABLED)
         addvar(VAR_CONTEST_STATE, 1)
     }
 }
@@ -101,6 +108,7 @@ script Rogue_Encounter_CatchingContest_EndContest
 
         fadeoutbgm(1)
         msgbox(format("Now for the result{PAUSE 15}…{PAUSE 15} …{PAUSE 15} …"))
+        clearflag(FLAG_SYS_SAVE_DISABLED)
         addvar(VAR_CONTEST_STATE, 1)
 
         if(var(VAR_RESULT) == TRUE)
@@ -111,7 +119,7 @@ script Rogue_Encounter_CatchingContest_EndContest
             waitmessage
 
             addmoney(15000)
-            msgbox(format("As for your special price…"))
+            msgbox(format("As for your special prize…"))
 
             playfanfare(MUS_OBTAIN_TMHM)
             message(format("You won ¥15000!"))
