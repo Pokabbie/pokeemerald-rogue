@@ -293,12 +293,19 @@ static u8 UNUSED FreeSafariMonSlotCount()
 
 u16 RogueSafari_GetActivePokeballType()
 {
-    u16 itemId = VarGet(VAR_ROGUE_SAFARI_BALL_TYPE);
+    if(Rogue_IsCatchingContestActive())
+    {
+        return ITEM_CATCHING_CONTEST_POKEBALL;
+    }
+    else
+    {
+        u16 itemId = VarGet(VAR_ROGUE_SAFARI_BALL_TYPE);
 
-    if(itemId >= FIRST_BALL && itemId <= LAST_BALL)
-        return itemId;
+        if(itemId >= FIRST_BALL && itemId <= LAST_BALL)
+            return itemId;
 
-    return ITEM_POKE_BALL;
+        return ITEM_POKE_BALL;
+    }
 }
 
 void RogueSafari_SetActivePokeballType(u16 itemId)

@@ -236,8 +236,15 @@ static bool8 BufferContainsValue(u16* buffer, u16 count, u16 value)
 
 u16 Rogue_GetMaxPartySize(void)
 {
-    u16 count = min(GetCurseValue(EFFECT_PARTY_SIZE), PARTY_SIZE - 1);
-    return PARTY_SIZE - count;
+    if(Rogue_IsCatchingContestActive())
+    {
+        return 1;
+    }
+    else
+    {
+        u16 count = min(GetCurseValue(EFFECT_PARTY_SIZE), PARTY_SIZE - 1);
+        return PARTY_SIZE - count;
+    }
 }
 
 bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)

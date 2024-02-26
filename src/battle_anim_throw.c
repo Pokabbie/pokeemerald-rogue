@@ -1236,7 +1236,7 @@ static void SpriteCB_Ball_Wobble_Step(struct Sprite *sprite)
         SHAKE_INC(sprite->sState);
         shakes = SHAKES(sprite->sState);
 
-        if(Rogue_InWildSafari())
+        if(Rogue_UseSafariBattle())
         {
             sprite->affineAnimPaused = TRUE;
             sprite->callback = SpriteCB_Ball_Capture;

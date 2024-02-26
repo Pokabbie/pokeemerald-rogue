@@ -405,6 +405,7 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
 
     // Only allow 1 of this type at once
     case ADVPATH_ROOM_GAMESHOW:
+    case ADVPATH_ROOM_CATCHING_CONTEST:
         count = CountRoomType(roomType);
         if(count != 0)
             return 0;
@@ -629,6 +630,9 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     // Shrine
     if(GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SHRINE;
+
+    // TODO - Setup weighting
+    validEncounterList[validEncounterCount++] = ADVPATH_ROOM_CATCHING_CONTEST;
 
     {
         bool8 allowDarkDeal = (GetPathGenerationDifficulty() % 3 != 0);
@@ -1254,6 +1258,11 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
             warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_SHRINE);
             warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_SHRINE);
             break;
+
+        case ADVPATH_ROOM_CATCHING_CONTEST:
+            warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_CATCHING_CONTEST);
+            warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_CATCHING_CONTEST);
+            break;
     }
 }
 
@@ -1489,6 +1498,9 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
 
         case ADVPATH_ROOM_SHRINE:
             return OBJ_EVENT_GFX_MISC_CHANNELER;
+
+        case ADVPATH_ROOM_CATCHING_CONTEST:
+            return OBJ_EVENT_GFX_MISC_BUG_CATCHER;
 
         case ADVPATH_ROOM_BOSS:
             return OBJ_EVENT_GFX_BALL_CUSHION; // ?

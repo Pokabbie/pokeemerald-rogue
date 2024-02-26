@@ -1860,6 +1860,16 @@
       "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/Rogue_Encounter_Shrine/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_Shrine/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_CATCHING_CONTEST",
+      "name": "Rogue_Encounter_CatchingContest_Layout",
+      "width": 40,
+      "height": 54,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/Rogue_Encounter_CatchingContest/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_CatchingContest/map.bin"
     }
   ]
 }

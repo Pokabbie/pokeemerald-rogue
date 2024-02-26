@@ -12,6 +12,7 @@
 #include "main.h"
 #include "m4a.h"
 #include "palette.h"
+#include "party_menu.h"
 #include "pokeball.h"
 #include "pokeblock.h"
 #include "pokemon.h"
@@ -197,9 +198,17 @@ static void HandleInputChooseAction(void)
             }
             break;
         case 1:
-            PlaySE(SE_SELECT);
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_USE_ITEM, 0);
-            SafariBufferExecCompleted();
+
+            if(Rogue_CanChangeSafariBall())
+            {
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_USE_ITEM, 0);
+                SafariBufferExecCompleted();
+            }
+            else
+            {
+                PlaySE(SE_FAILURE);
+            }
 
             break;
         //case 2:
@@ -510,7 +519,11 @@ static void SafariHandleChooseAction(void)
     s32 i;
 
     gBattlerControllerFuncs[gActiveBattler] = HandleChooseActionAfterDma3;
-    BattlePutTextOnWindow(gText_SafariZoneMenu, B_WIN_ACTION_MENU);
+
+    if(Rogue_CanChangeSafariBall())
+        BattlePutTextOnWindow(gText_SafariZoneMenu, B_WIN_ACTION_MENU);
+    else
+        BattlePutTextOnWindow(gText_SafariZoneMenuNoBallSwap, B_WIN_ACTION_MENU);
 
     for (i = 0; i < 4; i++)
         ActionSelectionDestroyCursorAt(i);
@@ -560,9 +573,55 @@ static void SafariHandleChooseItem(void)
     gBattlerInMenuId = gActiveBattler;
 }
 
+static void WaitForMonSelection(void)
+{
+    if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
+    {
+        if (gPartyMenuUseExitCallback == TRUE)
+            BtlController_EmitChosenMonReturnValue(BUFFER_B, gSelectedMonPartyId, gBattlePartyCurrentOrder);
+        else
+            BtlController_EmitChosenMonReturnValue(BUFFER_B, PARTY_SIZE, NULL);
+
+        //if ((gBattleBufferA[gActiveBattler][1] & 0xF) == 1)
+        //    PrintLinkStandbyMsg();
+
+        SafariBufferExecCompleted();
+    }
+}
+
+static void OpenPartyMenuToChooseMon(void)
+{
+    if (!gPaletteFade.active)
+    {
+        u8 caseId;
+
+        gBattlerControllerFuncs[gActiveBattler] = WaitForMonSelection;
+        caseId = gTasks[gBattleControllerData[gActiveBattler]].data[0];
+        DestroyTask(gBattleControllerData[gActiveBattler]);
+        FreeAllWindowBuffers();
+        OpenPartyMenuInBattle(caseId);
+    }
+}
+
 static void SafariHandleChoosePokemon(void)
 {
-    SafariBufferExecCompleted();
+    if(Rogue_IsCatchingContestActive())
+    {
+        // Open switch screen only in catching contest to choose to release mon
+        gBattleControllerData[gActiveBattler] = CreateTask(TaskDummy, 0xFF);
+        gTasks[gBattleControllerData[gActiveBattler]].data[0] = gBattleBufferA[gActiveBattler][1] & 0xF;
+        *(&gBattleStruct->battlerPreventingSwitchout) = gBattleBufferA[gActiveBattler][1] >> 4;
+        *(&gBattleStruct->prevSelectedPartySlot) = gBattleBufferA[gActiveBattler][2];
+        *(&gBattleStruct->abilityPreventingSwitchout) = gBattleBufferA[gActiveBattler][3];
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+        gBattlerControllerFuncs[gActiveBattler] = OpenPartyMenuToChooseMon;
+        gBattlerInMenuId = gActiveBattler;
+    }
+    else
+    {
+        // Do nothing
+        SafariBufferExecCompleted();
+    }
 }
 
 static void SafariHandleCmd23(void)

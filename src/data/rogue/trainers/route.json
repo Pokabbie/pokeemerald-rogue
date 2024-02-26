@@ -122,7 +122,7 @@
                 [
                     {
                         "PRE_BATTLE_TAUNT": "Look at me go!\\nI can destroy the world!",
-                        "POST_BATTLE_TAUNT": "It's not fun when you pretend too.",
+                        "POST_BATTLE_TAUNT": "It's not fun when you pretend too…",
                         "POST_BATTLE_CLOSER": "You're a party pooper!"
                     }
                 ],
@@ -581,6 +581,63 @@
                             "include_types": [ "POISON", "NORMAL" ]
                         }
                     ]
+                }
+            },
+            {
+                "name": "BLAIR",
+                "object_event": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
+                "trainer_pic": "TRAINER_PIC_CYCLING_TRIATHLETE_M",
+                "trainer_class": "TRAINER_CLASS_TRIATHLETE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Nothing like a good workout!",
+                        "POST_BATTLE_TAUNT": "Just like that!",
+                        "POST_BATTLE_CLOSER": "I can't stop now!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets": []
+                }
+            },
+            {
+                "name": "MONROE",
+                "object_event": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
+                "trainer_pic": "TRAINER_PIC_CYCLING_TRIATHLETE_F",
+                "trainer_class": "TRAINER_CLASS_TRIATHLETE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "What?\\pBreak for a battle?\\nSure!",
+                        "POST_BATTLE_TAUNT": "What fun!",
+                        "POST_BATTLE_CLOSER": "Exercise is good for both People and Pokémon!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets": []
+                }
+            },
+            {
+                "name": "MONROE",
+                "object_event": "OBJ_EVENT_GFX_MAN_5",
+                "trainer_pic": "TRAINER_PIC_KINDLER",
+                "trainer_class": "TRAINER_CLASS_KINDLER",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "What?\\pBreak for a battle?\\nSure!",
+                        "POST_BATTLE_TAUNT": "What fun!",
+                        "POST_BATTLE_CLOSER": "Exercise is good for both People and Pokémon!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets": []
                 }
             }
         ]

@@ -1997,7 +1997,7 @@ static void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
     if (!GetSetPokedexSpeciesFlag(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES), FLAG_GET_CAUGHT))
         return;
 
-    if(GetSafariZoneFlag() || Rogue_InWildSafari())
+    if(GetSafariZoneFlag() || Rogue_UseSafariBattle())
     {
         if(!AnyPlayerPartyMonOfSpecies(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES))
             && !AnyStorageMonOfSpecies(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES)))

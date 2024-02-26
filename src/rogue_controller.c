@@ -114,11 +114,23 @@ struct RouteMonPreview
     u8 monSpriteId;
 };
 
+struct RogueCatchingContest
+{
+    u16 winningSpecies;
+    u16 winningScore;
+    u16 itemCountToRestore;
+    u8 activeType;
+    u8 activeStat;
+    u8 spawnsRemaining;
+    u8 isActive : 1;
+};
+
 // Temp data only ever stored in RAM
 struct RogueLocalData
 {
     struct RouteMonPreview encounterPreview[WILD_ENCOUNTER_GRASS_CAPACITY];
     struct RogueGameShow gameShow;
+    struct RogueCatchingContest catchingContest;
     RAND_TYPE rngSeedToRestore;
     u16 wildEncounterHistoryBuffer[3];
     bool8 runningToggleActive : 1;
@@ -127,6 +139,8 @@ struct RogueLocalData
     bool8 hasSaveWarningPending : 1;
     bool8 hasVersionUpdateMsgPending : 1;
     bool8 hasBattleEventOccurred : 1;
+    bool8 hasUsePlayerTeamTempSave : 1;
+    bool8 hasUseEnemyTeamTempSave : 1;
 };
 
 struct RogueLabEncounterData
@@ -257,6 +271,16 @@ bool8 Rogue_IsRunActive(void)
 bool8 Rogue_InWildSafari(void)
 {
     return FlagGet(FLAG_ROGUE_WILD_SAFARI);
+}
+
+bool8 Rogue_UseSafariBattle()
+{
+    return Rogue_InWildSafari() || Rogue_IsCatchingContestActive();
+}
+
+bool8 Rogue_CanChangeSafariBall(void)
+{
+    return !Rogue_IsCatchingContestActive();
 }
 
 u8 Rogue_GetCurrentDifficulty(void)
@@ -687,7 +711,7 @@ void Rogue_ModifyEVGain(int* multiplier)
 
 void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
 { 
-    if(GetSafariZoneFlag() || Rogue_InWildSafari() || RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INSTANT_CAPTURE))
+    if(GetSafariZoneFlag() || Rogue_UseSafariBattle() || RogueDebug_GetConfigToggle(DEBUG_TOGGLE_INSTANT_CAPTURE))
     {
         *ballMultiplier = 12345; // Masterball equiv
     }
@@ -4345,6 +4369,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 {
                     break;
                 }
+
+                case ADVPATH_ROOM_CATCHING_CONTEST:
+                {
+                    break;
+                }
             };
 
             // Update VARs
@@ -4743,18 +4772,33 @@ static void TempSavePlayerTeam()
 {
     u8 i;
     struct Pokemon* tempParty = GetRecordedPlayerPartyPtr();
+    AGB_ASSERT(!gRogueLocal.hasUsePlayerTeamTempSave);
 
     for(i = 0; i < PARTY_SIZE; ++i)
         CopyMon(&tempParty[i], &gPlayerParty[i], sizeof(struct Pokemon));
+
+    gRogueLocal.hasUsePlayerTeamTempSave = TRUE;
 }
 
 static void TempRestorePlayerTeam()
 {
     u8 i;
     struct Pokemon* tempParty = GetRecordedPlayerPartyPtr();
+    AGB_ASSERT(gRogueLocal.hasUsePlayerTeamTempSave);
 
     for(i = 0; i < PARTY_SIZE; ++i)
         CopyMon(&gPlayerParty[i], &tempParty[i], sizeof(struct Pokemon));
+
+    CalculatePlayerPartyCount();
+    gRogueLocal.hasUsePlayerTeamTempSave = FALSE;
+}
+
+static void ClearPlayerTeam()
+{
+    u8 i;
+
+    for(i = 0; i < PARTY_SIZE; ++i)
+        ZeroMonData(&gPlayerParty[i]);
 
     CalculatePlayerPartyCount();
 }
@@ -4763,20 +4807,25 @@ static void TempSaveEnemyTeam()
 {
     u8 i;
     struct Pokemon* tempParty = GetRecordedEnemyPartyPtr();
+    AGB_ASSERT(!gRogueLocal.hasUseEnemyTeamTempSave);
 
     for(i = 0; i < PARTY_SIZE; ++i)
         CopyMon(&tempParty[i], &gEnemyParty[i], sizeof(struct Pokemon));
+
+    gRogueLocal.hasUseEnemyTeamTempSave = TRUE;
 }
 
 static void UNUSED TempRestoreEnemyTeam()
 {
     u8 i;
     struct Pokemon* tempParty = GetRecordedEnemyPartyPtr();
+    AGB_ASSERT(gRogueLocal.hasUseEnemyTeamTempSave);
 
     for(i = 0; i < PARTY_SIZE; ++i)
         CopyMon(&gEnemyParty[i], &tempParty[i], sizeof(struct Pokemon));
 
     CalculateEnemyPartyCount();
+    gRogueLocal.hasUseEnemyTeamTempSave = FALSE;
 }
 
 void Rogue_Battle_StartTrainerBattle(void)
@@ -5763,11 +5812,7 @@ static u8 GetCurrentWildEncounterCount()
 {    
     u16 count = 0;
 
-    if(GetSafariZoneFlag())
-    {
-        count = 6;
-    }
-    else
+    if(Rogue_IsRunActive())
     {
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_HONEY_TREE)
         {
@@ -5815,6 +5860,10 @@ static u8 GetCurrentWildEncounterCount()
         {
             count--;
         }
+    }
+    else if(GetSafariZoneFlag())
+    {
+        count = 6;
     }
 
     return count;
@@ -6017,7 +6066,31 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
         else
             *level  = CalculateWildLevel(6);
 
-        if(ForceChainSpeciesSpawn(area))
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_CATCHING_CONTEST)
+        {
+            if(gRogueLocal.catchingContest.isActive && gRogueLocal.catchingContest.spawnsRemaining != 0)
+            {
+                u8 stats[NUM_STATS];
+
+                *species = RogueMiscQuery_SelectRandomElement(RogueRandom());
+                *level = Rogue_CalculatePlayerMonLvl();
+                --gRogueLocal.catchingContest.spawnsRemaining;
+
+                // Update score
+                RoguePokedex_GetSpeciesStatArray(*species, stats, ARRAY_COUNT(stats));
+
+                if(stats[gRogueLocal.catchingContest.activeStat] > gRogueLocal.catchingContest.winningScore)
+                {
+                    gRogueLocal.catchingContest.winningSpecies = *species;
+                    gRogueLocal.catchingContest.winningScore = stats[gRogueLocal.catchingContest.activeStat];
+                }
+            }
+            else
+            {
+                *species = SPECIES_NONE;
+            }
+        }
+        else if(ForceChainSpeciesSpawn(area))
         {
             *species = GetWildChainSpecies();
             shinyOdds = GetEncounterChainShinyOdds(GetWildChainCount());
@@ -6089,7 +6162,17 @@ bool8 Rogue_AreWildMonEnabled(void)
         return FALSE;
     }
 
-    if(Rogue_IsRunActive() || GetSafariZoneFlag())
+    if(Rogue_IsRunActive())
+    {
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_CATCHING_CONTEST)
+        {
+            return gRogueLocal.catchingContest.isActive ? TRUE : FALSE;
+        }
+
+        return GetCurrentWildEncounterCount() > 0;
+    }
+
+    if(GetSafariZoneFlag())
     {
         return GetCurrentWildEncounterCount() > 0;
     }
@@ -6428,6 +6511,101 @@ void Rogue_DaycareMultichoiceCallback(struct MenuAction* outList, u8* outCount, 
     }
 
     *outCount = i;
+}
+
+void Rogue_BeginCatchingContest(u8 type, u8 stat)
+{
+    gRogueLocal.catchingContest.activeType = type;
+    gRogueLocal.catchingContest.activeStat = stat;
+    gRogueLocal.catchingContest.winningSpecies = SPECIES_NONE;
+    gRogueLocal.catchingContest.winningScore = 0;
+    gRogueLocal.catchingContest.spawnsRemaining = 10 + Random() % 20;
+    gRogueLocal.catchingContest.isActive = TRUE;
+
+    // Take player team
+    TempSavePlayerTeam();
+    ClearPlayerTeam();
+
+    // Temporarily take pokeballs away
+    gRogueLocal.catchingContest.itemCountToRestore = CountTotalItemQuantityInBag(ITEM_CATCHING_CONTEST_POKEBALL);
+
+    RogueMonQuery_Begin();
+
+    RogueMonQuery_IsSpeciesActive();
+
+    // Prefilter to mons of types we're interested in
+    RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, MON_TYPE_VAL_TO_FLAGS(type));
+    RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+
+    RogueMonQuery_TransformIntoEggSpecies();
+    RogueMonQuery_TransformIntoEvos(Rogue_CalculatePlayerMonLvl(), TRUE, TRUE);
+
+    // Now we've evolved we're only caring about mons of this type
+    RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, MON_TYPE_VAL_TO_FLAGS(type));
+
+    SetupFollowParterMonObjectEvent();
+}
+
+void Rogue_EndCatchingContest()
+{
+    while(gRogueLocal.catchingContest.spawnsRemaining != 0)
+    {
+        // Force spawn remaining mons
+        u8 area;
+        u16 species; 
+        u8 level; 
+        bool8 forceShiny;
+        Rogue_CreateWildMon(area, &species, &level, &forceShiny);
+    }
+
+    // Re-add pokeballs we had when entering
+    while(TRUE)
+    {
+        if(!RemoveBagItem(ITEM_CATCHING_CONTEST_POKEBALL, 1))
+            break;
+    }
+    if(gRogueLocal.catchingContest.itemCountToRestore)
+        AddBagItem(ITEM_CATCHING_CONTEST_POKEBALL, gRogueLocal.catchingContest.itemCountToRestore);
+
+    gRogueLocal.catchingContest.isActive = FALSE;
+
+    // Store caught mon for later
+    CopyMon(&gEnemyParty[0], &gPlayerParty[0], sizeof(struct Pokemon));
+
+    // Hack to hide follower
+    ZeroMonData(&gPlayerParty[0]);
+    SetupFollowParterMonObjectEvent();
+
+    // Give back player team
+    TempRestorePlayerTeam();
+
+    RogueMonQuery_End();
+
+    SetupFollowParterMonObjectEvent();
+}
+
+bool8 Rogue_IsCatchingContestActive()
+{
+    return Rogue_IsRunActive() && gRogueLocal.catchingContest.isActive;
+}
+
+void Rogue_GetCatchingContestResults(u16* caughtSpecies, bool8* didWin, u16* winningSpecies)
+{
+    u8 stats[NUM_STATS];
+
+    *caughtSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
+    *winningSpecies = gRogueLocal.catchingContest.winningSpecies;
+    *didWin = FALSE;
+
+    if(*caughtSpecies != SPECIES_NONE)
+    {
+        RoguePokedex_GetSpeciesStatArray(*caughtSpecies, stats, ARRAY_COUNT(stats));
+
+        if(stats[gRogueLocal.catchingContest.activeStat] >= gRogueLocal.catchingContest.winningScore)
+        {
+            *didWin = TRUE;
+        }
+    }
 }
 
 void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)

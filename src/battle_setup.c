@@ -305,7 +305,7 @@ static void CreateBattleStartTask(u8 transition, u16 song)
 
 void BattleSetup_StartWildBattle(void)
 {
-    if (GetSafariZoneFlag() || Rogue_InWildSafari())
+    if (GetSafariZoneFlag() || Rogue_UseSafariBattle())
         DoSafariBattle();
     else
         DoStandardWildBattle();

@@ -10141,7 +10141,7 @@ static void Cmd_handleballthrow(void)
 
         // RogueNote: catching odds
 
-        if(Rogue_InWildSafari())
+        if(Rogue_UseSafariBattle())
         {
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_1_SHAKE);
             MarkBattlerForControllerExec(gActiveBattler);

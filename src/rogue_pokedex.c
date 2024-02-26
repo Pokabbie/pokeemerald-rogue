@@ -4177,3 +4177,9 @@ u8 RoguePokedex_GetSpeciesWorstStat(u16 species)
 {
     return SelectBestWorstStat(species, FALSE);
 }
+
+void RoguePokedex_GetSpeciesStatArray(u16 species, u8* stats, u8 bufferSize)
+{
+    AGB_ASSERT(bufferSize >= NUM_STATS);
+    GatherSpeciesStatsArray(species, stats);
+}
