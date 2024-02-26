@@ -1605,11 +1605,17 @@ void Rogue_PushPopup_NewBadgeGet(u8 difficulty)
 
 void Rogue_PushPopup_WeatherActive(u16 weather)
 {
-    struct PopupRequest* popup = CreateNewPopup();
+    if(
+        weather != WEATHER_SHADE && 
+        weather != WEATHER_VOLCANIC_ASH
+    )
+    {
+        struct PopupRequest* popup = CreateNewPopup();
 
-    popup->templateId = POPUP_COMMON_CUSTOM_ICON_SLIDE_TEXT;
-    popup->iconId = POPUP_CUSTOM_ICON_CLOUD;
+        popup->templateId = POPUP_COMMON_CUSTOM_ICON_SLIDE_TEXT;
+        popup->iconId = POPUP_CUSTOM_ICON_CLOUD;
 
-    popup->titleText = sWeatherNames[weather];
-    popup->subtitleText = sText_Popup_WeatherActive;
+        popup->titleText = sWeatherNames[weather];
+        popup->subtitleText = sText_Popup_WeatherActive;
+    }
 }

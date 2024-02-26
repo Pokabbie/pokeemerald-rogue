@@ -507,6 +507,23 @@ static u8 ReplaceRoomEncounters_CalculateWeight(u16 weightIndex, u16 roomId, voi
         if(IsProceededByRoomType(existingRoom, ADVPATH_ROOM_LEGENDARY))
             weight += 160;
         break;
+
+    case ADVPATH_ROOM_SHRINE:
+    case ADVPATH_ROOM_LAB:
+        // Like being placed in the final column but can occasionally end up in other one
+        if(existingRoom->coords.x <= 2)
+            weight += 80;
+        break;
+
+    case ADVPATH_ROOM_CATCHING_CONTEST:
+    case ADVPATH_ROOM_GAMESHOW:
+        // Don't want to place in first column
+        if(existingRoom->coords.x + 1 == gRogueAdvPath.pathLength)
+            weight -= 40;
+        // Like being placed in the middle columns but can occasionally end up in other one
+        else if(existingRoom->coords.x > 2)
+            weight += 80;
+        break;
     }
 
     // If we've got this encounter immediately before or after prefer not this one
@@ -623,15 +640,13 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         }
     }
 
-    // Honey tree / Catching contest
+    // Honey tree
     if(GetPathGenerationDifficulty() >= 1)
-    {
-        // 25% of the time we have a catching contest, otherwise we have honey trees
-        if((RogueRandom() % 4) == 0)
-            validEncounterList[validEncounterCount++] = ADVPATH_ROOM_CATCHING_CONTEST;
-        else
-            validEncounterList[validEncounterCount++] = ADVPATH_ROOM_HONEY_TREE;
-    }
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_HONEY_TREE;
+
+    // Catching contest
+    if(RogueRandomChance(33, 0))
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_CATCHING_CONTEST;
 
     // Shrine
     if(GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
@@ -640,6 +655,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     {
         bool8 allowDarkDeal = (GetPathGenerationDifficulty() % 3 != 0);
         bool8 allowLab = (GetPathGenerationDifficulty() % 3 != 1);
+        bool8 allowGameShow = RogueRandomChance(50, 0);
 
         if(allowLab)
         {
@@ -661,12 +677,14 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
             if(allowDarkDeal)
                 validEncounterList[validEncounterCount++] = ADVPATH_ROOM_DARK_DEAL;
 
-            validEncounterList[validEncounterCount++] = ADVPATH_ROOM_GAMESHOW;
+            if(allowGameShow)
+                validEncounterList[validEncounterCount++] = ADVPATH_ROOM_GAMESHOW;
         }
         else
         {
             // Only game show
-            validEncounterList[validEncounterCount++] = ADVPATH_ROOM_GAMESHOW;
+            if(allowGameShow)
+                validEncounterList[validEncounterCount++] = ADVPATH_ROOM_GAMESHOW;
         }
     }
 
