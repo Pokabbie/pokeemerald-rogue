@@ -6551,10 +6551,10 @@ void Rogue_EndCatchingContest()
     while(gRogueLocal.catchingContest.spawnsRemaining != 0)
     {
         // Force spawn remaining mons
-        u8 area;
-        u16 species; 
-        u8 level; 
-        bool8 forceShiny;
+        u8 area = 0;
+        u16 species = 0; 
+        u8 level = 0; 
+        bool8 forceShiny = FALSE;
         Rogue_CreateWildMon(area, &species, &level, &forceShiny);
     }
 
