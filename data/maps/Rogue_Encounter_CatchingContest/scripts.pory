@@ -1,0 +1,189 @@
+const VAR_CONTEST_STATE = VAR_TEMP_0
+const VAR_CURRENT_TYPE = VAR_TEMP_1
+const VAR_CURRENT_STAT = VAR_TEMP_2
+
+const NPC_OBJ_HOST = 1
+
+mapscripts Rogue_Encounter_CatchingContest_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Encounter_CatchingContest_OnLoad
+}
+
+script Rogue_Encounter_CatchingContest_OnLoad
+{
+    special(Rogue_SelectCatchingContestMode)
+    setvar(VAR_CONTEST_STATE, 0)
+}
+
+script Rogue_Encounter_CatchingContest_TalkHost
+{
+    lock
+    faceplayer
+
+    switch(var(VAR_CONTEST_STATE))
+    {
+        case 0:
+            call(Rogue_Encounter_CatchingContest_StartContest)
+
+        case 1:
+            call(Rogue_Encounter_CatchingContest_EndContest)
+
+        default:
+            msgbox(format("That's all for now.\pGood luck on your adventure!"))
+
+    }
+
+    release
+}
+
+script Rogue_Encounter_CatchingContest_StartContest 
+{
+    special(Rogue_BufferContestMode)
+    msgbox(format("Today we're running a {STR_VAR_1} catching contest.\pWould you like to enter?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(Rogue_CatchingContestBegin)
+
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Enter)
+        applymovement(NPC_OBJ_HOST, Movement_Host_Enter)
+        waitmovement(0)
+
+        setobjectxyperm(NPC_OBJ_HOST, 12, 36)
+        setobjectmovementtype(NPC_OBJ_HOST, MOVEMENT_TYPE_FACE_UP)
+        turnobject(NPC_OBJ_HOST, DIR_NORTH)
+
+        msgbox(format("If you can catch the Pokémon with the highest Base {STR_VAR_2}, you will win a special reward!\pHere are some Poké Balls for you."), MSGBOX_DEFAULT)
+        giveitem(ITEM_CATCHING_CONTEST_POKEBALL, 3)
+
+        msgbox(format("Good luck!"), MSGBOX_DEFAULT)
+        playbgm(MUS_HG_BUG_CATCHING_CONTEST, TRUE)
+
+        addvar(VAR_CONTEST_STATE, 1)
+    }
+}
+
+movement Movement_Host_Enter {
+    walk_up * 2
+    walk_left
+    face_right
+    walk_right
+    walk_up
+}
+
+movement Movement_Player_Enter {
+    walk_up * 5
+    face_down
+}
+
+script Rogue_Encounter_CatchingContest_EndContest 
+{
+    msgbox(format("Are you ready to end your Contest attempt?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == NO)
+    {
+        special(Rogue_BufferContestMode)
+        msgbox(format("Remember, if you can catch the Pokémon with the highest Base {STR_VAR_2}, you will win a special reward!"))
+    }
+    else
+    {
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Exit)
+        applymovement(NPC_OBJ_HOST, Movement_Host_Exit)
+        waitmovement(0)
+
+        setobjectxyperm(NPC_OBJ_HOST, 12, 29)
+        setobjectmovementtype(NPC_OBJ_HOST, MOVEMENT_TYPE_FACE_DOWN)
+        turnobject(NPC_OBJ_HOST, DIR_SOUTH)
+
+        special(Rogue_CatchingContestEnd)
+
+        fadeoutbgm(1)
+        msgbox(format("Now for the result{PAUSE 15}…{PAUSE 15} …{PAUSE 15} …"))
+        addvar(VAR_CONTEST_STATE, 1)
+
+        if(var(VAR_RESULT) == TRUE)
+        {
+            message(format("You won!"))
+            playfanfare(MUS_HG_BUG_CONTEST_1ST_PLACE)
+            waitfanfare
+            waitmessage
+
+            addmoney(15000)
+            msgbox(format("As for your special price…"))
+
+            playfanfare(MUS_OBTAIN_TMHM)
+            message(format("You won ¥15000!"))
+            waitfanfare
+            waitmessage
+        }
+        else
+        {
+            message(format("Oh no.\nYou didn't win this time round."))
+            playfanfare(MUS_TOO_BAD)
+            waitfanfare
+            waitmessage
+
+            msgbox(format("The highest scorer today was {STR_VAR_2}."))
+        }
+
+        // Check if we actually caught a mon and attempt to add it to team
+        if(var(VAR_0x8000) == TRUE)
+        {
+            specialvar(VAR_TEMP_8, CalculatePlayerPartyCount)
+            specialvar(VAR_TEMP_9, Rogue_CalcMaxPartySize)
+
+            if(var(VAR_TEMP_8) >= VAR_TEMP_9)
+            {
+                msgbox(format("You will have to release a Pokémon in order to take {STR_VAR_1} with you.\pWould you like to release a Pokémon?"), MSGBOX_YESNO)
+                
+                if(var(VAR_RESULT) == YES)
+                {
+                    //fadescreen(FADE_TO_BLACK)
+                    special(ChoosePartyMon)
+                    waitstate
+
+                    if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
+                    {
+                        special(Rogue_ReleaseMonInSlot)
+                    }
+                }
+                else
+                {
+                    setvar(VAR_0x8004, PARTY_NOTHING_CHOSEN)
+                }
+            }
+            else
+            {
+                msgbox(format("Please take good care of {STR_VAR_1}!"), MSGBOX_DEFAULT)
+                setvar(VAR_0x8004, 6)
+            }
+
+            if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
+            {
+                msgbox(format("Of course!\n{STR_VAR_1} will be released back into the park!"))
+            }
+            else
+            {
+                special(Rogue_GiveCatchingContestMon)
+            }
+        }
+
+        msgbox(format("Good luck on your adventure!"))
+        playbgm(MUS_HG_NATIONAL_PARK, TRUE)
+    }
+}
+
+movement Movement_Host_Exit {
+    walk_down * 2
+    walk_left
+    face_right
+    walk_right
+    walk_down
+}
+
+movement Movement_Player_Exit {
+    walk_down * 5
+    face_up
+}

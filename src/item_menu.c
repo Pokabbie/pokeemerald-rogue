@@ -775,7 +775,7 @@ static const struct WindowTemplate sContextMenuWindowTemplates[] =
         .width = 5,
         .height = 4,
         .paletteNum = 15,
-        .baseBlock = CONTEXT_BASE_BLOCK(861),
+        .baseBlock = CONTEXT_BASE_BLOCK(861 - 20), // to share memory with YESNO_LOW as we're going past 1024 which causes issues due to OW collision masks in fill methods :/
     },
     [ITEMWIN_QUANTITY] = { // Used for quantity of items to Toss/Deposit
         .bg = 1,
@@ -784,7 +784,7 @@ static const struct WindowTemplate sContextMenuWindowTemplates[] =
         .width = 5,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = CONTEXT_BASE_BLOCK(881),
+        .baseBlock = CONTEXT_BASE_BLOCK(881 - 20),
     },
     [ITEMWIN_QUANTITY_WIDE] = { // Used for quantity and price of items to Sell
         .bg = 1,
@@ -793,7 +793,7 @@ static const struct WindowTemplate sContextMenuWindowTemplates[] =
         .width = 10,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = CONTEXT_BASE_BLOCK(891),
+        .baseBlock = CONTEXT_BASE_BLOCK(891 - 20),
     },
     [ITEMWIN_MONEY] = {
         .bg = 1,
@@ -802,7 +802,7 @@ static const struct WindowTemplate sContextMenuWindowTemplates[] =
         .width = 10,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = CONTEXT_BASE_BLOCK(911),
+        .baseBlock = CONTEXT_BASE_BLOCK(911 - 20),
     },
 };
 
@@ -832,7 +832,7 @@ void CB2_BagMenuFromStartMenu(void)
 
 void CB2_BagMenuFromBattle(void)
 {
-    if(Rogue_InWildSafari())
+    if(Rogue_UseSafariBattle())
         // Just want to select pokeball type in safair
         GoToBagMenu(ITEMMENULOCATION_BERRY_TREE, BALLS_POCKET, CB2_SetUpReshowBattleScreenAfterMenu2);
     else if (!InBattlePyramid())
@@ -1675,7 +1675,7 @@ static void Task_BagMenu_HandleInput(u8 taskId)
             gSpecialVar_ItemId = BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, listPosition);
 
             // Just update the active safari ball and act as if we didn't click anything
-            if(Rogue_InWildSafari())
+            if(Rogue_UseSafariBattle())
             {
                 RogueSafari_SetActivePokeballType(gSpecialVar_ItemId);
                 gSpecialVar_ItemId = ITEM_NONE;

@@ -100,7 +100,7 @@ void CB2_EndSafariBattle(void)
 {
     Rogue_Safari_EndWildBattle();
 
-    if(Rogue_InWildSafari())
+    if(Rogue_UseSafariBattle())
     {
         SetMainCallback2(CB2_ReturnToField);
     }

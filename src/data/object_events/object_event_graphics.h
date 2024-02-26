@@ -711,6 +711,7 @@ const u32 gObjectEventPic_Misc_Backpacker_F[] = INCBIN_U32("graphics/object_even
 const u32 gObjectEventPic_Misc_Backpacker_M[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/backpacker_m.4bpp");
 const u32 gObjectEventPic_Misc_Bug_Catcher[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/bug_catcher.4bpp");
 const u32 gObjectEventPic_Misc_Burglar[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/burglar.4bpp");
+const u32 gObjectEventPic_Misc_Channeler[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/channeler.4bpp");
 const u32 gObjectEventPic_Misc_Clown[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/clown.4bpp");
 const u32 gObjectEventPic_Misc_Hex_Maniac[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/hex_maniac.4bpp");
 const u32 gObjectEventPic_Misc_Kalos_Engineer[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/kalos_engineer.4bpp");

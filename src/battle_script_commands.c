@@ -15111,7 +15111,7 @@ static void Cmd_handleballthrow(void)
         if (gBattleResults.catchAttempts[gLastUsedItem - FIRST_BALL] < 255)
             gBattleResults.catchAttempts[gLastUsedItem - FIRST_BALL]++;
 
-        if (Rogue_InWildSafari() || odds > 254 || ballMultiplier == 12345) // mon caught
+        if (Rogue_UseSafariBattle() || odds > 254 || ballMultiplier == 12345) // mon caught
         {
             BtlController_EmitBallThrowAnim(gBattlerAttacker, BUFFER_A, Rogue_InWildSafari() ? BALL_1_SHAKE : BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gBattlerAttacker);

@@ -793,11 +793,19 @@ static bool8 StartMenuPokemonCallback(void)
 {
     if (!gPaletteFade.active)
     {
-        PlayRainStoppingSoundEffect();
-        RemoveExtraStartMenuWindows();
-        CleanupOverworldWindowsAndTilemaps();
-        SetMainCallback2(CB2_PartyMenuFromStartMenu); // Display party menu
-        return TRUE;
+        if(GetMonData(&gPlayerParty[0], MON_DATA_SPECIES) == SPECIES_NONE)
+        {
+            PlaySE(SE_FAILURE);
+            return FALSE;
+        }
+        else
+        {
+            PlayRainStoppingSoundEffect();
+            RemoveExtraStartMenuWindows();
+            CleanupOverworldWindowsAndTilemaps();
+            SetMainCallback2(CB2_PartyMenuFromStartMenu); // Display party menu
+            return TRUE;
+        }
     }
 
     return FALSE;

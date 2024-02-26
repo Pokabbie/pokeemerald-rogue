@@ -26,6 +26,8 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab);
 
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_InWildSafari(void);
+bool8 Rogue_UseSafariBattle(void);
+bool8 Rogue_CanChangeSafariBall(void);
 u8 Rogue_GetCurrentDifficulty(void);
 void Rogue_SetCurrentDifficulty(u8 difficulty);
 
@@ -165,6 +167,10 @@ void Rogue_ModifyGiveMon(struct Pokemon* mon);
 struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot);
 void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycareMon);
 void Rogue_DaycareMultichoiceCallback(struct MenuAction* outList, u8* outCount, u8 listCapacity);
+void Rogue_BeginCatchingContest(u8 type, u8 stat);
+void Rogue_EndCatchingContest();
+bool8 Rogue_IsCatchingContestActive();
+void Rogue_GetCatchingContestResults(u16* caughtSpecies, bool8* didWin, u16* winningSpecies);
 
 u8 Rogue_GetEncounterDifficultyModifier();
 u16 Rogue_GetTRMove(u16 trNumber);

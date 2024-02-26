@@ -263,6 +263,9 @@ void SetupFollowParterMonObjectEvent()
     if(shouldFollowMonBeVisible && RogueAdv_IsViewingPath())
         shouldFollowMonBeVisible = FALSE;
 
+    if(shouldFollowMonBeVisible && Rogue_IsCatchingContestActive())
+        shouldFollowMonBeVisible = FALSE;
+
     // Don't show if on bike, surfing or riding mon
     if(shouldFollowMonBeVisible && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | PLAYER_AVATAR_FLAG_RIDING)))
         shouldFollowMonBeVisible = FALSE;
@@ -749,12 +752,17 @@ static u16 NextSpawnMonSlot()
     bool8 isShiny;
 
     species = SPECIES_NONE;
+    slot = FOLLOWMON_MAX_SPAWN_SLOTS;
 
     // Attempt to find a free slot first
-    for(slot = 0; slot < FOLLOWMON_MAX_SPAWN_SLOTS; ++slot)
+    // (Don't do this in catching contest as we want mons to disappear fairly fast)
+    if(!Rogue_IsCatchingContestActive())
     {
-        if(IsSpawnSlotValid(slot) && FindObjectEventForGfx(OBJ_EVENT_GFX_FOLLOW_MON_0 + slot) == OBJECT_EVENTS_COUNT)
-            break;
+        for(slot = 0; slot < FOLLOWMON_MAX_SPAWN_SLOTS; ++slot)
+        {
+            if(IsSpawnSlotValid(slot) && FindObjectEventForGfx(OBJ_EVENT_GFX_FOLLOW_MON_0 + slot) == OBJECT_EVENTS_COUNT)
+                break;
+        }
     }
 
     // All mon slots are in use
@@ -950,16 +958,20 @@ void FollowMon_OverworldCB()
         if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_STOP_WILD_SPAWNING))
             return;
 
+
         // Speed up spawning
-        if(sFollowMonData.activeCount <= 1)
+        if(!Rogue_IsCatchingContestActive())
         {
-            // Super fast spawn for new things on screen
-            sFollowMonData.spawnCountdown = min(sFollowMonData.spawnCountdown, 15);
-        }
-        else if(sFollowMonData.activeCount <= (ActiveSpawnSlotCount() - 1))
-        {
-            // Fast spawn to reach capacity
-            sFollowMonData.spawnCountdown = min(sFollowMonData.spawnCountdown, 60);
+            if(sFollowMonData.activeCount <= 1)
+            {
+                // Super fast spawn for new things on screen
+                sFollowMonData.spawnCountdown = min(sFollowMonData.spawnCountdown, 15);
+            }
+            else if(sFollowMonData.activeCount <= (ActiveSpawnSlotCount() - 1))
+            {
+                // Fast spawn to reach capacity
+                sFollowMonData.spawnCountdown = min(sFollowMonData.spawnCountdown, 60);
+            }
         }
 
         if(sFollowMonData.spawnCountdown == 0)
@@ -994,6 +1006,12 @@ void FollowMon_OverworldCB()
 
                     // Slower replacement spawning
                     sFollowMonData.spawnCountdown = 60 * (3 + Random() % 2);
+                }
+
+                if(Rogue_IsCatchingContestActive())
+                {
+                    // Always use set spawn/despawn interval for catchign contest
+                    sFollowMonData.spawnCountdown = 120;
                 }
             }
         }

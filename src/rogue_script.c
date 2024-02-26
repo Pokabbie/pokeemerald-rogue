@@ -4,6 +4,8 @@
 #include "constants/items.h"
 #include "constants/rogue.h"
 
+#include "battle_main.h"
+#include "battle_message.h"
 #include "event_data.h"
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
@@ -43,6 +45,41 @@
 #include "rogue_settings.h"
 
 void DoSpecialTrainerBattle(void);
+
+static const u8 sTypeNames[NUMBER_OF_MON_TYPES][10] = // alt version of gTypeNames
+{
+    [TYPE_NORMAL] = _("Normal"),
+    [TYPE_FIGHTING] = _("Fighting"),
+    [TYPE_FLYING] = _("Flying"),
+    [TYPE_POISON] = _("Poison"),
+    [TYPE_GROUND] = _("Ground"),
+    [TYPE_ROCK] = _("Rock"),
+    [TYPE_BUG] = _("Bug"),
+    [TYPE_GHOST] = _("Ghost"),
+    [TYPE_STEEL] = _("Steel"),
+    [TYPE_MYSTERY] = _("???"),
+    [TYPE_FIRE] = _("Fire"),
+    [TYPE_WATER] = _("Water"),
+    [TYPE_GRASS] = _("Grass"),
+    [TYPE_ELECTRIC] = _("Electric"),
+    [TYPE_PSYCHIC] = _("Psychic"),
+    [TYPE_ICE] = _("Ice"),
+    [TYPE_DRAGON] = _("Dragon"),
+    [TYPE_DARK] = _("Dark"),
+#ifdef ROGUE_EXPANSION
+    [TYPE_FAIRY] = _("Fairy"),
+#endif
+};
+
+static const u8 sStatNamesTable[NUM_STATS][13] = // a;t versopm pf gStatNamesTable
+{
+    [STAT_HP]      = _("HP"),
+    [STAT_ATK]     = _("Attack"),
+    [STAT_DEF]     = _("Defence"),
+    [STAT_SPEED]   = _("Speed"),
+    [STAT_SPATK]   = _("Sp. Attack"),
+    [STAT_SPDEF]   = _("Sp. Defence"),
+};
 
 bool8 Rogue_CheckPartyHasRoomForMon(void)
 {
@@ -1348,4 +1385,54 @@ void Rogue_HealAlivePlayerParty()
             SetMonData(&gPlayerParty[i], MON_DATA_STATUS, arg);
         }
     }
+}
+
+void Rogue_SelectCatchingContestMode()
+{
+    u8 type = Random() % NUMBER_OF_MON_TYPES;
+    u8 stat = Random() % NUM_STATS;
+
+    while(type == TYPE_NONE || type == TYPE_MYSTERY)
+    {
+        type = Random() % NUMBER_OF_MON_TYPES;
+    }
+
+    VarSet(VAR_TEMP_0, type);
+    VarSet(VAR_TEMP_1, stat);
+}
+
+void Rogue_BufferContestMode()
+{
+    u8 type = VarGet(VAR_TEMP_0);
+    u8 stat = VarGet(VAR_TEMP_1);
+
+    StringCopy(gStringVar1, sTypeNames[type]);
+    StringCopy(gStringVar2, sStatNamesTable[stat]);
+}
+
+void Rogue_CatchingContestBegin()
+{
+    u8 type = VarGet(VAR_TEMP_0);
+    u8 stat = VarGet(VAR_TEMP_1);
+    Rogue_BeginCatchingContest(type, stat);
+}
+
+void Rogue_CatchingContestEnd()
+{
+    u16 caughtSpecies;
+    u16 winningSpecies;
+    bool8 didWin;
+
+    Rogue_EndCatchingContest();
+    Rogue_GetCatchingContestResults(&caughtSpecies, &didWin, &winningSpecies);
+
+    gSpecialVar_Result = didWin;
+    gSpecialVar_0x8000 = caughtSpecies != SPECIES_NONE;
+    StringCopy_Nickname(gStringVar1, RoguePokedex_GetSpeciesName(caughtSpecies));
+    StringCopy_Nickname(gStringVar2, RoguePokedex_GetSpeciesName(winningSpecies));
+}
+
+void Rogue_GiveCatchingContestMon()
+{
+    GiveMonToPlayer(&gEnemyParty[0]);
 }

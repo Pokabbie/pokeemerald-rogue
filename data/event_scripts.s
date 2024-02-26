@@ -854,3 +854,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Template_Home_Grass/scripts.inc"
 
 	.include "data/maps/Rogue_Encounter_Shrine/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_CatchingContest/scripts.inc"

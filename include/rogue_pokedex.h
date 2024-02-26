@@ -38,5 +38,6 @@ u8 RoguePokedex_GetSpeciesType(u16 species, u8 typeIndex);
 u16 RoguePokedex_GetSpeciesBST(u16 species);
 u8 RoguePokedex_GetSpeciesBestStat(u16 species);
 u8 RoguePokedex_GetSpeciesWorstStat(u16 species);
+void RoguePokedex_GetSpeciesStatArray(u16 species, u8* stats, u8 bufferSize);
 
 #endif

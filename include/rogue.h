@@ -280,9 +280,10 @@ struct RogueRunData
     u16 baseSeed;
     u16 rivalTrainerNum;
     u16 teamEncounterNum;
-    u8 adventureRoomId;
     u16 enteredRoomCounter;
     u16 currentDifficulty;
+    u8 shrineSpawnDifficulty;
+    u8 adventureRoomId;
     u8 currentRouteIndex;
     u8 currentLevelOffset;
 #ifdef ROGUE_EXPANSION
