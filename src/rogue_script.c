@@ -1387,6 +1387,9 @@ void Rogue_HealAlivePlayerParty()
     }
 }
 
+#define VAR_CATCH_CONTEST_TYPE VAR_TEMP_2
+#define VAR_CATCH_CONTEST_STAT VAR_TEMP_3
+
 void Rogue_SelectCatchingContestMode()
 {
     u8 type = Random() % NUMBER_OF_MON_TYPES;
@@ -1397,14 +1400,14 @@ void Rogue_SelectCatchingContestMode()
         type = Random() % NUMBER_OF_MON_TYPES;
     }
 
-    VarSet(VAR_TEMP_0, type);
-    VarSet(VAR_TEMP_1, stat);
+    VarSet(VAR_CATCH_CONTEST_TYPE, type);
+    VarSet(VAR_CATCH_CONTEST_STAT, stat);
 }
 
 void Rogue_BufferContestMode()
 {
-    u8 type = VarGet(VAR_TEMP_0);
-    u8 stat = VarGet(VAR_TEMP_1);
+    u8 type = VarGet(VAR_CATCH_CONTEST_TYPE);
+    u8 stat = VarGet(VAR_CATCH_CONTEST_STAT);
 
     StringCopy(gStringVar1, sTypeNames[type]);
     StringCopy(gStringVar2, sStatNamesTable[stat]);
@@ -1412,8 +1415,8 @@ void Rogue_BufferContestMode()
 
 void Rogue_CatchingContestBegin()
 {
-    u8 type = VarGet(VAR_TEMP_0);
-    u8 stat = VarGet(VAR_TEMP_1);
+    u8 type = VarGet(VAR_CATCH_CONTEST_TYPE);
+    u8 stat = VarGet(VAR_CATCH_CONTEST_STAT);
     Rogue_BeginCatchingContest(type, stat);
 }
 
@@ -1436,3 +1439,6 @@ void Rogue_GiveCatchingContestMon()
 {
     GiveMonToPlayer(&gEnemyParty[0]);
 }
+
+#undef VAR_CATCH_CONTEST_TYPE
+#undef VAR_CATCH_CONTEST_STAT

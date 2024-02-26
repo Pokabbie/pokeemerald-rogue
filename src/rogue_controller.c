@@ -2578,6 +2578,7 @@ void Rogue_OnNewGame(void)
     VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
 
     FlagSet(FLAG_SYS_B_DASH);
+    FlagClear(FLAG_SYS_SAVE_DISABLED);
     EnableNationalPokedex();
 
     RogueToD_SetTime(60 * 10);
@@ -5969,7 +5970,7 @@ void Rogue_ModifyWildMonHeldItem(u16* itemId)
 {
     if(Rogue_IsRunActive())
     {
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_CATCHING_CONTEST)
         {
             *itemId = 0;
             return;
