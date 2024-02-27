@@ -609,44 +609,68 @@ static bool8 HandleScrollBehaviour()
 
     AGB_ASSERT(sQuestMenuData->scrollListCount != 0);
 
-    if (JOY_REPEAT(DPAD_UP))
+    if (JOY_REPEAT(DPAD_UP) || JOY_REPEAT(L_BUTTON))
     {
-        if(sQuestMenuData->scrollListHead + sQuestMenuData->scrollListOffset == 0)
+        u8 i;
+        u8 loopCount = JOY_REPEAT(L_BUTTON) ? 7 : 1;
+
+        for(i = 0; i < loopCount; ++i)
         {
-            if(sQuestMenuData->scrollListCount <= SCROLL_ITEMS_IN_VIEW)
+            if(sQuestMenuData->scrollListHead + sQuestMenuData->scrollListOffset == 0)
             {
-                sQuestMenuData->scrollListOffset = sQuestMenuData->scrollListCount - 1;
-                sQuestMenuData->scrollListHead = 0;
+                // Snap to top before looping
+                if(i != 0)
+                    break;
+
+                if(sQuestMenuData->scrollListCount <= SCROLL_ITEMS_IN_VIEW)
+                {
+                    sQuestMenuData->scrollListOffset = sQuestMenuData->scrollListCount - 1;
+                    sQuestMenuData->scrollListHead = 0;
+                }
+                else
+                {
+                    sQuestMenuData->scrollListOffset = SCROLL_ITEMS_IN_VIEW - 1;
+                    sQuestMenuData->scrollListHead = sQuestMenuData->scrollListCount - SCROLL_ITEMS_IN_VIEW;
+                }
+
+                break;
             }
             else
             {
-                sQuestMenuData->scrollListOffset = SCROLL_ITEMS_IN_VIEW - 1;
-                sQuestMenuData->scrollListHead = sQuestMenuData->scrollListCount - SCROLL_ITEMS_IN_VIEW;
+                if(sQuestMenuData->scrollListOffset != 0)
+                    --sQuestMenuData->scrollListOffset;
+                else
+                    --sQuestMenuData->scrollListHead;
             }
-        }
-        else
-        {
-            if(sQuestMenuData->scrollListOffset != 0)
-                --sQuestMenuData->scrollListOffset;
-            else
-                --sQuestMenuData->scrollListHead;
         }
     }
-    else if (JOY_REPEAT(DPAD_DOWN))
+    else if (JOY_REPEAT(DPAD_DOWN) || JOY_REPEAT(R_BUTTON))
     {
-        if(sQuestMenuData->scrollListHead + sQuestMenuData->scrollListOffset + 1 >= sQuestMenuData->scrollListCount)
-        {
-            sQuestMenuData->scrollListOffset = 0;
-            sQuestMenuData->scrollListHead = 0;
-        }
-        else
-        {
-            ++sQuestMenuData->scrollListOffset;
+        u8 i;
+        u8 loopCount = JOY_REPEAT(R_BUTTON) ? 7 : 1;
 
-            if(sQuestMenuData->scrollListOffset >= SCROLL_ITEMS_IN_VIEW)
+        for(i = 0; i < loopCount; ++i)
+        {
+            if(sQuestMenuData->scrollListHead + sQuestMenuData->scrollListOffset + 1 >= sQuestMenuData->scrollListCount)
             {
-                --sQuestMenuData->scrollListOffset;
-                ++sQuestMenuData->scrollListHead;
+                // Snap to bottome before looping
+                if(i != 0)
+                    break;
+
+                sQuestMenuData->scrollListOffset = 0;
+                sQuestMenuData->scrollListHead = 0;
+
+                break;
+            }
+            else
+            {
+                ++sQuestMenuData->scrollListOffset;
+
+                if(sQuestMenuData->scrollListOffset >= SCROLL_ITEMS_IN_VIEW)
+                {
+                    --sQuestMenuData->scrollListOffset;
+                    ++sQuestMenuData->scrollListHead;
+                }
             }
         }
     }
