@@ -726,6 +726,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "shop_item": "ITEM_ADAMANT_ORB" },
                     { "shop_item": "ITEM_ADAMANT_CRYSTAL" }
                 ]
             },
@@ -740,6 +741,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "shop_item": "ITEM_LUSTROUS_ORB" },
                     { "shop_item": "ITEM_LUSTROUS_GLOBE" }
                 ]
             },
@@ -754,6 +756,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "shop_item": "ITEM_GRISEOUS_ORB" },
                     { "shop_item": "ITEM_GRISEOUS_CORE" }
                 ]
             },
