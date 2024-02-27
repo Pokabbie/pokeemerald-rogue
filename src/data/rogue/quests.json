@@ -28,6 +28,10 @@
         {
             "id": "type_challenges",
             "sort_alphabetically": true
+        },
+        {
+            "id": "mon_masteries",
+            "sort_alphabetically": false
         }
     ],
     "quest_groups":

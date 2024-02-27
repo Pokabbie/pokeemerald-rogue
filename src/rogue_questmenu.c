@@ -1000,6 +1000,8 @@ static void Draw_QuestPage()
     u8 const color[3] = {0, 2, 3};
     u16 questIndex = GetCurrentListQuestIndex();
 
+    gTextFlags.replaceScrollWithNewLine = TRUE;
+
     // Draw current quest info
     FillWindowPixelBuffer(WIN_LEFT_PAGE, PIXEL_FILL(0));
 
@@ -1286,6 +1288,8 @@ static void Draw_QuestPage()
             IterateNextVisibleQuestIndex(&questIndex);
         }
     }
+
+    gTextFlags.replaceScrollWithNewLine = FALSE;
 
     ScheduleBgCopyTilemapToVram(1);
 }
