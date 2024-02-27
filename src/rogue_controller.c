@@ -6432,6 +6432,10 @@ void Rogue_ModifyGiveMon(struct Pokemon* mon)
             }
         }
     }
+
+    // Clear popup data on catch
+    mon->rogueExtraData.lastPopupLevel = GetMonData(mon, MON_DATA_LEVEL) - 1;
+    mon->rogueExtraData.hasPendingEvo = FALSE;
 }
 
 struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot)

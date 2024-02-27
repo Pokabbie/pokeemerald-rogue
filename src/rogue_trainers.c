@@ -1835,6 +1835,8 @@ static u16 GetSimilarCheckSpecies(u16 species)
 
     switch (baseSpecies)
     {
+    case SPECIES_TAUROS:
+    case SPECIES_WOOPER:
     case SPECIES_DEOXYS:
     case SPECIES_BURMY:
     case SPECIES_WORMADAM:
@@ -1878,6 +1880,22 @@ static u16 GetSimilarCheckSpecies(u16 species)
     case SPECIES_ZAMAZENTA:
     case SPECIES_URSHIFU:
     case SPECIES_CALYREX:
+    case SPECIES_GROWLITHE:
+    case SPECIES_ARCANINE:
+    case SPECIES_VOLTORB:
+    case SPECIES_ELECTRODE:
+    case SPECIES_TYPHLOSION:
+    case SPECIES_QWILFISH:
+    case SPECIES_SNEASEL:
+    case SPECIES_SAMUROTT:
+    case SPECIES_LILLIGANT:
+    case SPECIES_ZORUA:
+    case SPECIES_ZOROARK:
+    case SPECIES_BRAVIARY:
+    case SPECIES_SLIGGOO:
+    case SPECIES_GOODRA:
+    case SPECIES_AVALUGG:
+    case SPECIES_DECIDUEYE:
         return baseSpecies;
     }
 #endif

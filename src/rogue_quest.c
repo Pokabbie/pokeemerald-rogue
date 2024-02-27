@@ -32,6 +32,7 @@ static bool8 QuestCondition_HasCompletedQuestOR(u16 questId, struct RogueQuestTr
 static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsLegendary(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -39,6 +40,8 @@ static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigg
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PokedexEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+
+bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 
 #define COMPOUND_STRING(str) (const u8[]) _(str)
 
@@ -645,6 +648,22 @@ static bool8 QuestCondition_PartyContainsLegendary(u16 questId, struct RogueQues
     return FALSE;
 }
 
+static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+    u16 species;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        species = trigger->params[i];
+
+        if(PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, species))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 
 static bool8 CheckSingleTrainerConfigValid(u32 toggleToCheck, u32 currentToggle)
 {
@@ -790,8 +809,6 @@ static const u16 TypeToMonoQuest[NUMBER_OF_MON_TYPES] =
     [TYPE_FAIRY] = QUEST_FAIRY_Champion,
 #endif
 };
-
-bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 
 static void UpdateMonoQuests(void);
 static void ForEachUnlockedQuest(QuestCallbackOLD callback);

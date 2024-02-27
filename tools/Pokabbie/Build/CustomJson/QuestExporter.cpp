@@ -419,6 +419,7 @@ static std::string FormatQuestId(std::string const& prettyName)
 {
 	std::string questId = strutil::to_upper(prettyName);
 	strutil::replace_all(questId, " ", "_");
+	strutil::replace_all(questId, "-", "_");
 	strutil::replace_all(questId, "!", "EMARK");
 	strutil::replace_all(questId, "?", "QMARK");
 	strutil::replace_all(questId, ",", "");
