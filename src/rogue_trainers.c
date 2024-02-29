@@ -617,7 +617,7 @@ static void GetGlobalFilter(u8 difficulty, struct TrainerFliter* filter)
     filter->classFlagsExclude = CLASS_FLAG_NONE;
 
     // Rogue trainers aren't at all supported in rainbow
-    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE) && Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER) != TRAINER_ORDER_RAINBOW)
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE) && Rogue_GetModeRules()->trainerOrder != TRAINER_ORDER_RAINBOW)
     {
         // We won't use the champ unless the quest is active
         if(Rogue_UseFinalQuestEffects() || difficulty < ROGUE_CHAMP_START_DIFFICULTY)
@@ -650,8 +650,7 @@ static void GetGlobalFilter(u8 difficulty, struct TrainerFliter* filter)
         filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_GALAR;
 #endif
 
-    // TODO - Rework this flag
-    if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER) == TRAINER_ORDER_RAINBOW)
+    if(Rogue_GetModeRules()->trainerOrder == TRAINER_ORDER_RAINBOW)
         filter->trainerFlagsExclude |= TRAINER_FLAG_MISC_RAINBOW_EXCLUDE;
     else
         filter->trainerFlagsExclude |= TRAINER_FLAG_MISC_RAINBOW_ONLY;
@@ -739,7 +738,7 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
     GetDefaultFilter(&filter);
     filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_BOSS;
 
-    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER))
+    switch (Rogue_GetModeRules()->trainerOrder)
     {
     case TRAINER_ORDER_DEFAULT:
         {
@@ -855,7 +854,7 @@ void Rogue_ChooseBossTrainersForNewAdventure()
         {
             // Clear the history buffer, as we track based on types
             // In rainbow mode, the type can only appear once though
-            if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER) != TRAINER_ORDER_RAINBOW)
+            if(Rogue_GetModeRules()->trainerOrder != TRAINER_ORDER_RAINBOW)
             {
                 switch(difficulty)
                 {

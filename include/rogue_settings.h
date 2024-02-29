@@ -3,6 +3,13 @@
 
 typedef void (*RogueDifficultyMenuCallback)(void);
 
+struct GameModeRules
+{
+    u32 trainerOrder : 2;
+    u32 disableMainQuests : 1;
+    u32 disableChallengeQuests : 1;
+};
+
 void Rogue_SetConfigToggle(u16 elem, bool8 state);
 bool8 Rogue_GetConfigToggle(u16 elem);
 
@@ -10,6 +17,8 @@ void Rogue_SetConfigRange(u16 elem, u8 value);
 u8 Rogue_GetConfigRange(u16 elem);
 
 bool8 Rogue_CanEditConfig();
+
+struct GameModeRules const* Rogue_GetModeRules();
 
 void RogueDebug_SetConfigToggle(u16 elem, bool8 state);
 bool8 RogueDebug_GetConfigToggle(u16 elem);

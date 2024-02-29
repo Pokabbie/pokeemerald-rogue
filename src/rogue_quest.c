@@ -155,6 +155,9 @@ static bool8 CanActivateQuest(u16 questId)
     // Challenges can be run again at a higher difficulty
     if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_CHALLENGE))
     {
+        if(Rogue_GetModeRules()->disableChallengeQuests)
+            return FALSE;
+
         if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
         {
             u8 difficultyLevel = Rogue_GetDifficultyRewardLevel();
@@ -166,6 +169,9 @@ static bool8 CanActivateQuest(u16 questId)
     }
     else
     {
+        if(Rogue_GetModeRules()->disableMainQuests)
+            return FALSE;
+
         // Can't repeat main quests
         if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
             return FALSE;
@@ -1558,7 +1564,7 @@ void QuestNotify_BeginAdventure(void)
     }
 
     {
-        bool8 rainbowMode = Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER) == TRAINER_ORDER_RAINBOW;
+        bool8 rainbowMode = Rogue_GetModeRules()->trainerOrder == TRAINER_ORDER_RAINBOW;
         u16 dexLimit = VarGet(VAR_ROGUE_REGION_DEX_LIMIT);
         u16 genLimit = VarGet(VAR_ROGUE_ENABLED_GEN_LIMIT);
 

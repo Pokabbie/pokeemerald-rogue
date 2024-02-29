@@ -293,12 +293,6 @@
 #define TRAINER_STRING_POST_BATTLE_CLOSER       3 // after battle (back in overworld; auto speak for gyms)
 #define TRAINER_STRING_COUNT                    4
 
-// Order
-#define TRAINER_ORDER_DEFAULT                   0
-#define TRAINER_ORDER_RAINBOW                   1
-#define TRAINER_ORDER_OFFICIAL                  2
-#define TRAINER_ORDER_COUNT                     3
-
 // Teams
 #define TEAM_NUM_KANTO_ROCKET   0
 #define TEAM_NUM_JOHTO_ROCKET   1
@@ -486,8 +480,8 @@
 #define CONFIG_RANGE_LEGENDARY              2
 #define CONFIG_RANGE_BATTLE_FORMAT          3
 #define CONFIG_RANGE_POKEDEX_VARIANT        4
-#define CONFIG_RANGE_UNUSED                 5
-#define CONFIG_RANGE_TRAINER_ORDER          6
+#define CONFIG_RANGE_GAME_MODE_NUM          5
+#define CONFIG_RANGE_UNUSED0                6 // prev TRAINER_ORDER
 #define CONFIG_RANGE_COUNT                  7
 
 #define DEBUG_START_VALUE           0x7FFF
@@ -514,13 +508,27 @@
 #define DEBUG_RANGE_FORCED_WEATHER                  (DEBUG_START_VALUE + 3)
 #define DEBUG_RANGE_COUNT                           4
 
-
 #define BATTLE_FORMAT_SINGLES   0
 #define BATTLE_FORMAT_DOUBLES   1
 #define BATTLE_FORMAT_MIXED     2
 #define BATTLE_FORMAT_COUNT     3
 
-// Rogue Campaigns
+
+// Game Modes
+//
+#define ROGUE_GAME_MODE_STANDARD    0
+#define ROGUE_GAME_MODE_RAINBOW     1
+#define ROGUE_GAME_MODE_OFFICIAL    2
+#define ROGUE_GAME_MODE_COUNT       3
+
+// Order
+#define TRAINER_ORDER_DEFAULT                   0
+#define TRAINER_ORDER_RAINBOW                   1
+#define TRAINER_ORDER_OFFICIAL                  2
+#define TRAINER_ORDER_COUNT                     3
+
+
+// Rogue Campaigns OLD
 //
 #define ROGUE_CAMPAIGN_NONE                     0
 #define ROGUE_CAMPAIGN_LOW_BST                  1
