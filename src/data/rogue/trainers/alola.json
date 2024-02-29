@@ -72,6 +72,15 @@
                 "gfx_suffix": "ALOLA_HALA",
                 "class_flags": [ "BOSS_GYM_2", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CRABRAWLER",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Ho!\\nI have been waiting for this!\\pShow me you and your team's full power!",
+                        "PRE_BATTLE_TAUNT": "Old Hala here will also be going all out!",
+                        "POST_BATTLE_TAUNT": "Whoa! Well played!",
+                        "POST_BATTLE_CLOSER": "…Hmmph!\\pThe results come as no surprise to me.\\pWhat a fine Trainer… and what Pokémon, too!\\pI'm sure you are set for success in your Adventure!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -96,6 +105,15 @@
                 "gfx_suffix": "ALOLA_OLIVIA",
                 "class_flags": [ "BOSS_GYM_4", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ROCKRUFF",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Great!\\nI'm looking forward to this!",
+                        "PRE_BATTLE_TAUNT": "My adorable, rugged little Rock types are gonna give you guys everything we've got!",
+                        "POST_BATTLE_TAUNT": "How lovely.",
+                        "POST_BATTLE_CLOSER": "Diamonds only sparkle after coal is pushed to it's absolute limit.\\pYou guys are the best!\\pGood luck with your next battle!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -120,6 +138,15 @@
                 "gfx_suffix": "ALOLA_NANU",
                 "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_MEOWTH_ALOLAN",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Hey now,\\nSlow down.\\pI'll battle you, you don't need to be in such a rush.",
+                        "PRE_BATTLE_TAUNT": "Don't take it too serious, now.",
+                        "POST_BATTLE_TAUNT": "Hmph…",
+                        "POST_BATTLE_CLOSER": "Well, shoot…\\pI knew you had heart and strength, but I didn't know you were this good.\\pYou got this, kid."
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -144,6 +171,15 @@
                 "gfx_suffix": "ALOLA_HAPU",
                 "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_MUDBRAY",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I am Kahuna Hapu!",
+                        "PRE_BATTLE_TAUNT": "I will battle you with everything that I have got!",
+                        "POST_BATTLE_TAUNT": "Thud! That's the sound of your strength rocking me to my core!",
+                        "POST_BATTLE_CLOSER": "Oho…\\nYou sure showed me.\\pLooks like I cannot beat you even when I am not holding back…\\pGood luck with the rest of your Adventure!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -169,6 +205,15 @@
                 "gfx_suffix": "ALOLA_ILIMA",
                 "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_YUNGOOS",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Very well then!",
+                        "PRE_BATTLE_TAUNT": "Behold the magnificent Pokémon of the one and only Ilima!",
+                        "POST_BATTLE_TAUNT": "Yes! You have emerged victorious!",
+                        "POST_BATTLE_CLOSER": "You- or should I say you and your Pokémon- make quite the interesting team!\\pI hope you go far on your Adventure."
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -193,6 +238,15 @@
                 "gfx_suffix": "ALOLA_LANA",
                 "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_DEWPIDER",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I have a responsibility to set a good example for my younger sisters.",
+                        "PRE_BATTLE_TAUNT": "I will show you what a serious Lana can do!",
+                        "POST_BATTLE_TAUNT": "Well! You certainly reeled me in.",
+                        "POST_BATTLE_CLOSER": "Phew…\\p{PLAYER}, that was fantastic!\\pYou and your Pokémon were perfectly in sync!\\pI wish you good luck, {PLAYER}!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -217,6 +271,15 @@
                 "gfx_suffix": "ALOLA_KIAWE",
                 "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_CUBONE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Being thrilled by an opponent's excitement…\\pNothing makes me want to battle more!",
+                        "PRE_BATTLE_TAUNT": "Would you like to burn in battle with me?",
+                        "POST_BATTLE_TAUNT": "Not enough dancing!",
+                        "POST_BATTLE_CLOSER": "Astounding!\\p{PLAYER}, you were spectacular!\\pI'm certain you'll do well in the rest of your Adventure!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -241,6 +304,15 @@
                 "gfx_suffix": "ALOLA_MALLOW",
                 "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_BOUNSWEET",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Now that my Pokémon have me felling all relaxed…",
+                        "PRE_BATTLE_TAUNT": "Take our all-out attack!",
+                        "POST_BATTLE_TAUNT": "When it comes to Trainer and Pokémon the quality of the ingredients shine forth!",
+                        "POST_BATTLE_CLOSER": "Awww, I lost…\\pGuess now I'll have to get my Grass-type Pokémon to make me feel all better again…\\pGood luck I guess…"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -265,6 +337,15 @@
                 "gfx_suffix": "ALOLA_SOPHOCLES",
                 "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_GEODUDE_ALOLAN",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I believe in my Pokémon's strength.",
+                        "PRE_BATTLE_TAUNT": "I trained them together with Big Mo, after all!",
+                        "POST_BATTLE_TAUNT": "I couldn't get it done…",
+                        "POST_BATTLE_CLOSER": "You were so strong!\\pYou know about as much about Pokémon battling as Big Mo…\\pYou got this!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -289,6 +370,15 @@
                 "gfx_suffix": "ALOLA_ACEROLA",
                 "class_flags": [ "BOSS_GYM_5", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_SANDYGAST",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Hiya! Acerola here, bringing an old royal touch to your Adventure!\\pNanu didn't want to be here…",
+                        "PRE_BATTLE_TAUNT": "So I guess I'll just have to battle hard enough to make up for that!",
+                        "POST_BATTLE_TAUNT": "I'm… I'm speechless! You've done me in!",
+                        "POST_BATTLE_CLOSER": "Phew!\\pWell, there goes my hope of beating you to smithereens and entering the Hall of Fame myself!\\pYou better not lose!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -314,6 +404,15 @@
                 "gfx_suffix": "ALOLA_MINA",
                 "class_flags": [ "BOSS_GYM_7", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CUTIEFLY",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Heh heh heh…",
+                        "PRE_BATTLE_TAUNT": "Let the trial of Mina begin!",
+                        "POST_BATTLE_TAUNT": "Whoa! I'm shocked at your strength!",
+                        "POST_BATTLE_CLOSER": "Phew!\\pYou were way stronger than I expected!\\pGood luck with the rest of your Adventure!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -342,6 +441,15 @@
                 "gfx_suffix": "ALOLA_KAHILI",
                 "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ORICORIO",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: So, here you are…",
+                        "PRE_BATTLE_TAUNT": "Why don't we see who the winds favor today, you… or me?",
+                        "POST_BATTLE_TAUNT": "It seems your strength is the real deal.",
+                        "POST_BATTLE_CLOSER": "You know…\\pI think you'll bring a breath of fresh air to the Pokémon Battling scene.\\pYou make sure you don't lose your next battle, otherwise you'll have annoyed me!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -367,6 +475,15 @@
                 "gfx_suffix": "ALOLA_MOLAYNE",
                 "class_flags": [ "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_DIGLETT_ALOLAN",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Hey!\\pI'm looking forward to battling against you!",
+                        "PRE_BATTLE_TAUNT": "Let's begin!",
+                        "POST_BATTLE_TAUNT": "What an interesting Trainer for me to face!",
+                        "POST_BATTLE_CLOSER": "Battling you felt like a fresh breeze blowing through!\\pI hope Sophocles can learn from battling you too!\\pBest of luck with your upcoming battles!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -396,6 +513,15 @@
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
                 "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_ROWLET",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Oh yeah, now you're the Pokémon League Champion!\\pWouldn't it be nice if it was that simple?\\pThe truth is, there's one more person you have to battle if you want that title.",
+                        "PRE_BATTLE_TAUNT": "And of course that Trainer is me. Woo!",
+                        "POST_BATTLE_TAUNT": "I couldn't win even though I went all out…\\nBut what a refreshing feeling. Woo!",
+                        "POST_BATTLE_CLOSER": "Amazing!\\pThe strongest moves you can use are the ones a Trainer and their Pokémon choose together in the heat of the moment- when it really counts.\\pYou just proved that!\\pI'm looking forward to when you become a Champion!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
