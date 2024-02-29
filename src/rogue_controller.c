@@ -229,7 +229,7 @@ bool8 RogueRandomChance(u8 chance, u16 seedFlag)
 
 u16 Rogue_GetShinyOdds(void)
 {
-    u16 baseOdds = 512;
+    u16 baseOdds = 400;
     
     if(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK) == ITEM_POKEBLOCK_SHINY)
         baseOdds /= 2;
@@ -256,10 +256,11 @@ static u16 GetEncounterChainShinyOdds(u8 count)
     }
     else
     {
-        u16 range = 24 - 4;
-        count = min(count - 4, range);
+        u16 const range = 24 - 4;
+        u16 t = min(count - 4, range);
+        u16 targetOdds = 16; // always target these odds regardless of the base odds
 
-        return max(24, baseOdds - ((baseOdds * count) / range));
+        return (targetOdds * t + baseOdds * (range - t)) / range;
     }
 }
 
