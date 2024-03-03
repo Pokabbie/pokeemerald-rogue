@@ -1400,8 +1400,6 @@ static void SetBikeScene(u8 scene, u8 taskId)
 
 static bool8 LoadBikeScene(u8 scene, u8 taskId)
 {
-    u8 spriteId;
-
     switch (gMain.state)
     {
     default:
@@ -1535,7 +1533,7 @@ static void DrawTheEnd(u16 offset, u16 palette)
 
 #define sState data[0]
 
-static void SpriteCB_Player(struct Sprite *sprite)
+static void UNUSED SpriteCB_Player(struct Sprite *sprite)
 {
     if (gIntroCredits_MovingSceneryState != INTROCRED_SCENERY_NORMAL)
     {
@@ -1572,7 +1570,7 @@ static void SpriteCB_Player(struct Sprite *sprite)
     }
 }
 
-static void SpriteCB_Rival(struct Sprite *sprite)
+static void UNUSED SpriteCB_Rival(struct Sprite *sprite)
 {
     if (gIntroCredits_MovingSceneryState != INTROCRED_SCENERY_NORMAL)
     {

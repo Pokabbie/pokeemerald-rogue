@@ -1063,7 +1063,7 @@ static void CreateTreeSprites(void)
     CreateMovingScenerySprites(TRUE, sSpriteMetadata_Trees, sAnims_Trees, 12);
 }
 
-static void CreateHouseSprites(void)
+static void UNUSED CreateHouseSprites(void)
 {
     CreateMovingScenerySprites(TRUE, sSpriteMetadata_HouseSilhouette, sAnims_HouseSilhouette, 6);
 }
