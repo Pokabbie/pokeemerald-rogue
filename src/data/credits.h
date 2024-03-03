@@ -7,18 +7,22 @@
 // The index doesn't matter too much here, just make sure it's unique and that's fine
 #define FOR_EACH_CREDIT(method) \
     method(0, "", 0) \
-    method(1, "POKéMON EMERALD ROGUE", CREDITS_FLAG_TITLE) \
+    method(1, "Pokémon Emerald Rogue", CREDITS_FLAG_TITLE) \
     method(2, "Credits", CREDITS_FLAG_TITLE) \
     method(3, "", CREDITS_FLAG_BREAK) \
     \
-    method(4, "Hack Creator", CREDITS_FLAG_TITLE) \
+    method(4000, "", 0) \
+    method(4001, "Hack Creator", CREDITS_FLAG_TITLE) \
     method(5, "Pokabbie", 0) \
     method(5005, "", CREDITS_FLAG_BREAK) \
-    method(6, "POKéMON EMERALD", CREDITS_FLAG_TITLE) \
+    \
+    method(6000, "", 0) \
+    method(6001, "Pokémon Emerald", CREDITS_FLAG_TITLE) \
     method(7, "Game Freak", 0) \
     method(8, "", CREDITS_FLAG_BREAK) \
     \
-    method(9, "Made possible by...", CREDITS_FLAG_TITLE) \
+    method(9000, "", 0) \
+    method(9001, "Made possible by...", CREDITS_FLAG_TITLE) \
     method(10, "", CREDITS_FLAG_BREAK) \
     \
     method(11, "Community Moderators", CREDITS_FLAG_TITLE) \
@@ -34,7 +38,7 @@
     method(155, "Hex", 0) \
     method(156, "", CREDITS_FLAG_BREAK) \
     \
-    method(16, "Emerald Expansion", CREDITS_FLAG_TITLE) \
+    method(16, "RH Hideout - Emerald Expansion", CREDITS_FLAG_TITLE) \
     method(17, "UltimaSoul", 0) \
     method(18, "ghoulslash", 0) \
     method(19, "DizzyEggg", 0) \
@@ -115,24 +119,31 @@
     method(5908, "TintjeMadelintje101", 0) \
     method(60, "", CREDITS_FLAG_BREAK) \
     \
-    method(64, "Special Thanks to", CREDITS_FLAG_TITLE) \
+    method(640, "", 0) \
+    method(641, "Special Thanks to", CREDITS_FLAG_TITLE) \
     method(65, "Kate", 0) \
     method(66, "", CREDITS_FLAG_BREAK) \
     \
-    method(67, "And to you, the community", 0) \
+    method(670, "", 0) \
+    method(671, "And to you, the community", 0) \
     method(68, "", CREDITS_FLAG_BREAK) \
     \
-    method(69, "Thank you!", 0) \
+    method(690, "", 0) \
+    method(691, "Thank you!", 0) \
     method(70, "", CREDITS_FLAG_BREAK) \
     \
-    method(71, "For making Rogue larger than", 0) \
+    method(710, "", 0) \
+    method(711, "For making Rogue larger than", 0) \
     method(72, "I could ever have imagined!", 0) \
     method(73, "", CREDITS_FLAG_BREAK) \
     \
-    method(74, "Good luck on your future runs!", 0) \
+    method(740, "", 0) \
+    method(741, "Good luck on your future runs!", 0) \
     method(75, "{EMOJI_HEART}", 0) \
     method(76, "", CREDITS_FLAG_BREAK) \
     \
+    method(77, "", 0) \
+    method(78, "", CREDITS_FLAG_BREAK) \
 
 #define CREDITS_DECLARE_STRINGS(idx, str, flags) static const u8 sCreditsText_ ## idx [] = _(str);
 FOR_EACH_CREDIT(CREDITS_DECLARE_STRINGS)
