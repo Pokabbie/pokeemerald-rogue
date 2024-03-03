@@ -5549,6 +5549,12 @@ void Rogue_DebugFillPartySnapshots()
         {
             gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_CHARMANDER;
             gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 123;
+
+            for(j = 1; j < PARTY_SIZE; ++j)
+            {
+                gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_NONE;
+                gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 0;
+            }
         }
         else if(i == 1)
         {
