@@ -219,20 +219,8 @@ u16 FollowMon_GetMonGraphics(struct Pokemon* mon)
     return MonSpeciesToFollowSpecies(species, IsMonShiny(mon));
 }
 
-const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId)
+static const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfoFromSpecies(u16 species)
 {
-    u16 species;
-
-    if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
-    {
-        u16 varNo = graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
-        species = VarGet(VAR_FOLLOW_MON_0 + varNo);
-    }
-    else // OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
-    {
-        species = FollowMon_GetPartnerFollowSpecies(TRUE);
-    }
-
     if(species >= FOLLOWMON_SHINY_OFFSET)
     {
         species -= FOLLOWMON_SHINY_OFFSET;
@@ -248,6 +236,23 @@ const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId
 
     // Return a fallback sprite
     return gFollowMonGraphicsInfo[SPECIES_NONE].objectEventGfxInfo;
+}
+
+const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfo(u16 graphicsId)
+{
+    u16 species;
+
+    if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_0 && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
+    {
+        u16 varNo = graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_0;
+        species = VarGet(VAR_FOLLOW_MON_0 + varNo);
+    }
+    else // OBJ_EVENT_GFX_FOLLOW_MON_PARTNER
+    {
+        species = FollowMon_GetPartnerFollowSpecies(TRUE);
+    }
+
+    return GetFollowMonObjectEventInfoFromSpecies(species);
 }
 
 void SetupFollowParterMonObjectEvent()
@@ -395,6 +400,11 @@ u16 const* FollowMon_GetGraphicsForPalSlot(u16 palSlot)
     }
 
     return gFollowMonGraphicsInfo[species].normalPal;
+}
+
+bool8 FollowMon_IsLargeGfx(u16 gfxSpecies)
+{
+    return GetFollowMonObjectEventInfoFromSpecies(gfxSpecies)->size > 512;
 }
 
 bool8 FollowMon_IsPartnerMonActive()

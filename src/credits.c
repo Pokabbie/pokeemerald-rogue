@@ -1244,7 +1244,12 @@ static void SetupRogueSprites(u8 snapshotIndex)
         {
             FollowMon_SetGraphicsRaw(i, sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i]);
 
-            spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_FOLLOW_MON_0 + i, SpriteCallbackDummy, cMonTemplates[i].x, cMonTemplates[i].y, cMonTemplates[i].subpriority);
+            spriteId = CreateObjectGraphicsSprite(
+                    OBJ_EVENT_GFX_FOLLOW_MON_0 + i, 
+                    SpriteCallbackDummy, 
+                    cMonTemplates[i].x, cMonTemplates[i].y - (FollowMon_IsLargeGfx(sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i]) ? 16 : 0), 
+                    cMonTemplates[i].subpriority
+            );
             gSprites[spriteId].oam.priority = 1;
             StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_EAST);
 

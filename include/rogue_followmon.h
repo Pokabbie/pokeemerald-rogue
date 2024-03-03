@@ -14,7 +14,9 @@ void FollowMon_SetGraphicsRaw(u16 id, u16 gfxSpecies);
 void FollowMon_SetGraphicsFromMon(u16 id, struct Pokemon* mon);
 void FollowMon_SetGraphicsFromParty();
 u16 FollowMon_GetGraphics(u16 id);
+
 u16 const* FollowMon_GetGraphicsForPalSlot(u16 palSlot);
+bool8 FollowMon_IsLargeGfx(u16 gfxSpecies);
 
 bool8 FollowMon_IsPartnerMonActive();
 u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset);
