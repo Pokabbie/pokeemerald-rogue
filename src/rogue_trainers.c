@@ -754,7 +754,7 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
         break;
     
     case TRAINER_ORDER_RAINBOW:
-        filter.classFlagsInclude = CLASS_FLAG_BOSS_ANY_GYM;
+        filter.classFlagsInclude = CLASS_FLAG_BOSS_ANY;
         break;
     
     case TRAINER_ORDER_OFFICIAL:
