@@ -138,7 +138,6 @@ static void LoadTheEndScreen(u16, u16, u16);
 static void DrawTheEnd(u16, u16);
 static void SpriteCB_Player(struct Sprite *);
 static void SpriteCB_Rival(struct Sprite *);
-static u8 CreateCreditsMonSprite(u16, s16, s16, u16);
 
 static const u8 sTheEnd_LetterMap_T[] =
 {
@@ -1606,114 +1605,7 @@ static void UNUSED SpriteCB_Rival(struct Sprite *sprite)
 #define sPosition data[1]
 #define sSpriteId data[6]
 
-static void SpriteCB_CreditsMon(struct Sprite *sprite)
-{
-    if (gIntroCredits_MovingSceneryState != INTROCRED_SCENERY_NORMAL)
-    {
-        FreeAndDestroyMonPicSprite(sprite->sSpriteId);
-        return;
-    }
-
-    sprite->data[7]++;
-    switch (sprite->sState)
-    {
-    case 0:
-    default:
-        sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
-        sprite->oam.matrixNum = sprite->sPosition;
-        sprite->data[2] = 16;
-        SetOamMatrix(sprite->sPosition, 0x10000 / sprite->data[2], 0, 0, 0x10000 / sprite->data[2]);
-        sprite->invisible = FALSE;
-        sprite->sState = 1;
-        break;
-    case 1:
-        if (sprite->data[2] < 256)
-        {
-            sprite->data[2] += 8;
-            SetOamMatrix(sprite->sPosition, 0x10000 / sprite->data[2], 0, 0, 0x10000 / sprite->data[2]);
-        }
-        else
-        {
-            sprite->sState++;
-        }
-        switch (sprite->sPosition)
-        {
-        case POS_LEFT + 1:
-            if ((sprite->data[7] & 3) == 0)
-                sprite->y++;
-            sprite->x -= 2;
-            break;
-        case POS_CENTER + 1:
-            break;
-        case POS_RIGHT + 1:
-            if ((sprite->data[7] & 3) == 0)
-                sprite->y++;
-            sprite->x += 2;
-            break;
-        }
-        break;
-    case 2:
-        if (sprite->data[3] != 0)
-        {
-            sprite->data[3]--;
-        }
-        else
-        {
-            SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG0 | BLDCNT_TGT2_BG1 | BLDCNT_TGT2_BG2 | BLDCNT_TGT2_BG3);
-            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16, 0));
-            sprite->oam.objMode = ST_OAM_OBJ_BLEND;
-            sprite->data[3] = 16;
-            sprite->sState++;
-        }
-        break;
-    case 3:
-        if (sprite->data[3] != 0)
-        {
-            int data3;
-
-            sprite->data[3]--;
-
-            data3 = 16 - sprite->data[3];
-            SetGpuReg(REG_OFFSET_BLDALPHA, (data3 << 8) + sprite->data[3]);
-        }
-        else
-        {
-            sprite->invisible = TRUE;
-            sprite->sState = 9;
-        }
-        break;
-    case 9:
-        sprite->sState++;
-        break;
-    case 10:
-        SetGpuReg(REG_OFFSET_BLDCNT, 0);
-        SetGpuReg(REG_OFFSET_BLDALPHA, 0);
-        FreeAndDestroyMonPicSprite(sprite->data[6]);
-        break;
-    }
-}
-
 #define sMonSpriteId data[0]
-
-static u8 CreateCreditsMonSprite(u16 nationalDexNum, s16 x, s16 y, u16 position)
-{
-    u8 monSpriteId;
-    u8 bgSpriteId;
-
-    monSpriteId = CreateMonSpriteFromNationalDexNumber(nationalDexNum, x, y, position);
-    gSprites[monSpriteId].oam.priority = 1;
-    gSprites[monSpriteId].sPosition = position + 1;
-    gSprites[monSpriteId].invisible = TRUE;
-    gSprites[monSpriteId].callback = SpriteCB_CreditsMon;
-    gSprites[monSpriteId].sSpriteId = monSpriteId;
-
-    bgSpriteId = CreateSprite(&sSpriteTemplate_CreditsMonBg, gSprites[monSpriteId].x, gSprites[monSpriteId].y, 1);
-    gSprites[bgSpriteId].sMonSpriteId = monSpriteId;
-
-    StartSpriteAnimIfDifferent(&gSprites[bgSpriteId], position);
-
-    return monSpriteId;
-}
 
 static void SpriteCB_CreditsMonBg(struct Sprite *sprite)
 {
