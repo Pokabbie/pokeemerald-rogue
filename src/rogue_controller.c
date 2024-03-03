@@ -5587,7 +5587,11 @@ void Rogue_DebugFillPartySnapshots()
                     if(gRogueRun.partySnapshots[snapshotIndex - 1].partySpeciesGfx[j] != 0)
                     {
                         RogueMonQuery_Begin();
-                        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, gRogueRun.partySnapshots[snapshotIndex - 1].partySpeciesGfx[j]);
+                        if(gRogueRun.partySnapshots[snapshotIndex - 1].partySpeciesGfx[j] >= FOLLOWMON_SHINY_OFFSET)
+                            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, gRogueRun.partySnapshots[snapshotIndex - 1].partySpeciesGfx[j] - FOLLOWMON_SHINY_OFFSET);
+                        else
+                            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, gRogueRun.partySnapshots[snapshotIndex - 1].partySpeciesGfx[j]);
+
                         RogueMonQuery_TransformIntoEvos(10 * i, TRUE, FALSE);
 
                         gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = RogueMiscQuery_SelectRandomElement(Random());
