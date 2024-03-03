@@ -264,7 +264,7 @@ struct RogueRunData
 {
     struct RogueWildEncounters wildEncounters;
     struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
-    struct RoguePartySnapshot partySnapshots[ROGUE_MAX_BOSS_COUNT + 1];
+    struct RoguePartySnapshot partySnapshots[ROGUE_MAX_BOSS_COUNT + 2];
     u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
     u16 rivalSpecies[ROGUE_RIVAL_TOTAL_MON_COUNT];
     u16 legendarySpecies[ADVPATH_LEGEND_COUNT];

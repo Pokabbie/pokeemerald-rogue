@@ -5519,6 +5519,22 @@ void Rogue_AddPartySnapshot()
         }
     }
 }
+
+#ifdef ROGUE_DEBUG
+static u16 Debug_RandomActiveSpecies()
+{
+    u16 species;
+    RogueMonQuery_Begin();
+    RogueMonQuery_IsSpeciesActive();
+
+    species = RogueMiscQuery_SelectRandomElement(Random());
+
+    RogueMonQuery_End();
+
+    return species;
+}
+#endif
+
 void Rogue_DebugFillPartySnapshots()
 {
 #ifdef ROGUE_DEBUG
@@ -5552,7 +5568,7 @@ void Rogue_DebugFillPartySnapshots()
                 switch (Random() % 6)
                 {
                 case 0:
-                    gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = Random() % NUM_SPECIES;
+                    gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = Debug_RandomActiveSpecies() + ((Random() % 5) ? 0 : FOLLOWMON_SHINY_OFFSET);
                     gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = Random();
                     break;
 
@@ -5575,12 +5591,24 @@ void Rogue_DebugFillPartySnapshots()
                     }
                     else
                     {
-                        gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = Random() % NUM_SPECIES;
+                        gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = Debug_RandomActiveSpecies() + ((Random() % 5) ? 0 : FOLLOWMON_SHINY_OFFSET);
                         gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = Random();
                     }
                     break;
                 }
             }
+        }
+
+        // Force spawn 2 large mons
+        if(i == 4)
+        {
+            u8 randIdx = 1 + Random() % 5;
+            gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[randIdx] = SPECIES_RAYQUAZA + ((Random() % 5) ? 0 : FOLLOWMON_SHINY_OFFSET);
+            gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[randIdx] = Random();
+
+            randIdx = 1 + Random() % 5;
+            gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[randIdx] = SPECIES_KYOGRE + ((Random() % 5) ? 0 : FOLLOWMON_SHINY_OFFSET);
+            gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[randIdx] = Random();
         }
     }
 #endif

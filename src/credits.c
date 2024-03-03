@@ -55,7 +55,6 @@ enum {
 #define tTaskId_BgScenery  data[0] // ID for Task_BicycleBgAnimation (created by CreateBicycleBgAnimationTask)
 #define tTaskId_BikeScene  data[1] // ID for Task_BikeScene
 #define tTaskId_SceneryPal data[2] // ID for Task_CycleSceneryPalette
-#define tTaskId_ShowMons   data[3] // ID for Task_ShowMons
 #define tEndCredits        data[4]
 #define tSceneNum          data[7]
 // data[8]-[10] are unused
@@ -64,8 +63,6 @@ enum {
 #define tCurrentMode       data[13]
 #define tPrintedPage       data[14]
 #define tTaskId_UpdatePage data[15]
-
-#define NUM_MON_SLIDES 71
 
 enum
 {
@@ -94,14 +91,8 @@ struct RogueCreditsData
 
 struct CreditsData
 {
-    u16 monToShow[NUM_MON_SLIDES]; // List of Pokemon species ids that will show during the credits
     u16 imgCounter; //how many mon images have been shown
     u16 nextImgPos; //if the next image spawns left/center/right
-    u16 currShownMon; //index into monToShow
-    u16 numMonToShow; //number of pokemon to show, always NUM_MON_SLIDES after determine function
-    u16 caughtMonIds[NATIONAL_DEX_COUNT]; //temporary location to hold a condensed array of all caught pokemon
-    u16 numCaughtMon; //count of filled spaces in caughtMonIds
-    u16 unused[7];
 };
 
 struct CreditsEntry
@@ -129,8 +120,6 @@ static void SetupRogueSprites(u8 snapshotIndex);
 static void FadeOutRogueSprites(u8 snapshotIndex);
 static void UpdateRogueSprites();
 static bool8 AreRogueSpritesAnimating();
-static void Task_LoadShowMons(u8);
-static void Task_ReadyShowMons(u8);
 static void Task_CreditsTheEnd1(u8);
 static void Task_CreditsTheEnd2(u8);
 static void Task_CreditsTheEnd3(u8);
@@ -141,7 +130,6 @@ static void Task_CreditsSoftReset(u8);
 static void ResetGpuAndVram(void);
 static void Task_UpdatePage(u8);
 static u8 CheckChangeScene(u8, u8);
-static void Task_ShowMons(u8);
 static void Task_CycleSceneryPalette(u8);
 static void Task_BikeScene(u8);
 static bool8 LoadBikeScene(u8 data, u8);
@@ -151,7 +139,6 @@ static void DrawTheEnd(u16, u16);
 static void SpriteCB_Player(struct Sprite *);
 static void SpriteCB_Rival(struct Sprite *);
 static u8 CreateCreditsMonSprite(u16, s16, s16, u16);
-static void DeterminePokemonToShow(void);
 
 static const u8 sTheEnd_LetterMap_T[] =
 {
@@ -520,11 +507,8 @@ void CB2_StartCreditsSequence(void)
     sUsedSpeedUp = FALSE;
     sCreditsData = AllocZeroed(sizeof(struct CreditsData));
 
-    DeterminePokemonToShow();
-
     sCreditsData->imgCounter = 0;
     sCreditsData->nextImgPos = POS_LEFT;
-    sCreditsData->currShownMon = 0;
 
     sSavedTaskId = taskId;
 }
@@ -560,14 +544,14 @@ static void Task_CreditsMain(u8 taskId)
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_ReadyBikeScene;
     }
-    else if (gTasks[taskId].tNextMode == MODE_SHOW_MONS)
-    {
-        // Start a Pokémon interlude
-        gTasks[taskId].tCurrentMode = mode;
-        gTasks[taskId].tNextMode = MODE_NONE;
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-        gTasks[taskId].func = Task_ReadyShowMons;
-    }
+    //else if (gTasks[taskId].tNextMode == MODE_SHOW_MONS)
+    //{
+    //    // Start a Pokémon interlude
+    //    gTasks[taskId].tCurrentMode = mode;
+    //    gTasks[taskId].tNextMode = MODE_NONE;
+    //    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+    //    gTasks[taskId].func = Task_ReadyShowMons;
+    //}
 }
 
 static void Task_ReadyBikeScene(u8 taskId)
@@ -590,80 +574,6 @@ static void Task_SetBikeScene(u8 taskId)
         EnableInterrupts(INTR_FLAG_VBLANK);
         SetVBlankCallback(VBlankCB_Credits);
         gTasks[taskId].func = Task_WaitPaletteFade;
-    }
-}
-
-static void Task_ReadyShowMons(u8 taskId)
-{
-    if (!gPaletteFade.active)
-    {
-        SetGpuReg(REG_OFFSET_DISPCNT, 0);
-        ResetCreditsTasks(taskId);
-        gTasks[taskId].func = Task_LoadShowMons;
-    }
-}
-
-static void Task_LoadShowMons(u8 taskId)
-{
-    switch (gMain.state)
-    {
-    default:
-    case 0:
-    {
-        u16 i;
-        u16 *temp;
-
-        ResetSpriteData();
-        ResetAllPicSprites();
-        FreeAllSpritePalettes();
-        gReservedSpritePaletteCount = 8;
-        LZ77UnCompVram(gBirchBagGrass_Gfx, (void *)VRAM);
-        LZ77UnCompVram(gBirchGrassTilemap, (void *)(BG_SCREEN_ADDR(7)));
-        LoadPalette(gBirchBagGrass_Pal + 1, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(2 * 16 - 1));
-
-        for (i = 0; i < MON_PIC_SIZE; i++)
-            gDecompressionBuffer[i] = 0x11;
-        for (i = 0; i < MON_PIC_SIZE; i++)
-            (gDecompressionBuffer + MON_PIC_SIZE)[i] = 0x22;
-        for (i = 0; i < MON_PIC_SIZE; i++)
-            (gDecompressionBuffer + MON_PIC_SIZE * 2)[i] = 0x33;
-
-        temp = (u16 *)(&gDecompressionBuffer[MONBG_OFFSET]);
-        temp[0] = RGB_BLACK;
-        temp[1] = RGB(31, 31, 20); // light yellow
-        temp[2] = RGB(31, 20, 20); // light red
-        temp[3] = RGB(20, 20, 31); // light blue
-
-        LoadSpriteSheet(sSpriteSheet_MonBg);
-        LoadSpritePalette(sSpritePalette_MonBg);
-
-        gMain.state++;
-        break;
-    }
-    case 1:
-        gTasks[taskId].tTaskId_ShowMons = CreateTask(Task_ShowMons, 0);
-        gTasks[gTasks[taskId].tTaskId_ShowMons].tState = 1;
-        gTasks[gTasks[taskId].tTaskId_ShowMons].tMainTaskId = taskId;
-        gTasks[gTasks[taskId].tTaskId_ShowMons].data[2] = gTasks[taskId].tSceneNum; // data[2] never read
-
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
-        SetGpuReg(REG_OFFSET_BG3HOFS, 0);
-        SetGpuReg(REG_OFFSET_BG3VOFS, 32);
-        SetGpuReg(REG_OFFSET_BG3CNT, BGCNT_PRIORITY(3)
-                                   | BGCNT_CHARBASE(0)
-                                   | BGCNT_SCREENBASE(7)
-                                   | BGCNT_16COLOR
-                                   | BGCNT_TXT256x256);
-        SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0
-                                    | DISPCNT_OBJ_1D_MAP
-                                    | DISPCNT_BG0_ON
-                                    | DISPCNT_BG3_ON
-                                    | DISPCNT_OBJ_ON);
-
-        gMain.state = 0;
-        gIntroCredits_MovingSceneryState = INTROCRED_SCENERY_NORMAL;
-        gTasks[taskId].func = Task_WaitPaletteFade;
-        break;
     }
 }
 
@@ -1069,55 +979,6 @@ static u8 CheckChangeScene(u8 page, u8 taskId)
 
 #define tDelay data[3]
 
-static void Task_ShowMons(u8 taskId)
-{
-    u8 spriteId;
-
-    switch (gTasks[taskId].tState)
-    {
-    case 0:
-        break;
-    case 1:
-        if (sCreditsData->nextImgPos == POS_LEFT && gTasks[gTasks[taskId].tMainTaskId].tPrintedPage == FALSE)
-            break;
-        gTasks[taskId].tState++;
-        break;
-    case 2:
-        if (sCreditsData->imgCounter == NUM_MON_SLIDES || gTasks[gTasks[taskId].tMainTaskId].func != Task_CreditsMain)
-            break;
-        spriteId = CreateCreditsMonSprite(sCreditsData->monToShow[sCreditsData->currShownMon],
-                                    sMonSpritePos[sCreditsData->nextImgPos][0],
-                                    sMonSpritePos[sCreditsData->nextImgPos][1],
-                                    sCreditsData->nextImgPos);
-        if (sCreditsData->currShownMon < sCreditsData->numMonToShow - 1)
-        {
-            sCreditsData->currShownMon++;
-            gSprites[spriteId].data[3] = 50;
-        }
-        else
-        {
-            sCreditsData->currShownMon = 0;
-            gSprites[spriteId].data[3] = 512;
-        }
-        sCreditsData->imgCounter++;
-
-        if (sCreditsData->nextImgPos == POS_RIGHT)
-            sCreditsData->nextImgPos = POS_LEFT;
-        else
-            sCreditsData->nextImgPos++;
-
-        gTasks[taskId].tDelay = 50;
-        gTasks[taskId].tState++;
-        break;
-    case 3:
-        if (gTasks[taskId].tDelay != 0)
-            gTasks[taskId].tDelay--;
-        else
-            gTasks[taskId].tState = 1;
-        break;
-    }
-}
-
 #undef tMainTaskId
 #undef tDelay
 
@@ -1338,8 +1199,6 @@ static void SetupRogueSprites(u8 snapshotIndex)
 
     u8 i;
     u8 spriteId;
-
-    sRogueCreditsData->hintAtEvos = FALSE;
     
     // Setup player on initial load
     if(snapshotIndex == 0)
@@ -1362,6 +1221,8 @@ static void SetupRogueSprites(u8 snapshotIndex)
         sRogueCreditsData->rogueSprites[ROGUE_SPRITE_PLAYER].desiredX = 0;
     }
 
+    sRogueCreditsData->hintAtEvos = FALSE;
+
     // Destroy all the mon sprites we don't need
     for(i = 0; i < PARTY_SIZE; ++i)
     {
@@ -1383,7 +1244,12 @@ static void SetupRogueSprites(u8 snapshotIndex)
         {
             FollowMon_SetGraphicsRaw(i, sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i]);
 
-            spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_FOLLOW_MON_0 + i, SpriteCallbackDummy, cMonTemplates[i].x, cMonTemplates[i].y, cMonTemplates[i].subpriority);
+            spriteId = CreateObjectGraphicsSprite(
+                    OBJ_EVENT_GFX_FOLLOW_MON_0 + i, 
+                    SpriteCallbackDummy, 
+                    cMonTemplates[i].x, cMonTemplates[i].y - (FollowMon_IsLargeGfx(sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i]) ? 16 : 0), 
+                    cMonTemplates[i].subpriority
+            );
             gSprites[spriteId].oam.priority = 1;
             StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_EAST);
 
@@ -1495,7 +1361,7 @@ static bool8 AreRogueSpritesAnimating()
     u8 i;
 
     if(sRogueCreditsData == NULL)
-        return;
+        return FALSE;
 
     for(i = 0; i < ROGUE_SPRITE_END; ++i)
     {
@@ -1593,13 +1459,6 @@ static void ResetCreditsTasks(u8 taskId)
     {
         DestroyTask(gTasks[taskId].tTaskId_SceneryPal);
         gTasks[taskId].tTaskId_SceneryPal = 0;
-    }
-
-    // Destroy Task_ShowMons, if running
-    if (gTasks[taskId].tTaskId_ShowMons != 0)
-    {
-        DestroyTask(gTasks[taskId].tTaskId_ShowMons);
-        gTasks[taskId].tTaskId_ShowMons = 0;
     }
 
     gIntroCredits_MovingSceneryState = INTROCRED_SCENERY_DESTROY;
@@ -1872,88 +1731,4 @@ static void SpriteCB_CreditsMonBg(struct Sprite *sprite)
     sprite->oam.matrixNum = gSprites[sprite->sMonSpriteId].oam.matrixNum;
     sprite->x = gSprites[sprite->sMonSpriteId].x;
     sprite->y = gSprites[sprite->sMonSpriteId].y;
-}
-
-static void DeterminePokemonToShow(void)
-{
-    u16 starter = SpeciesToNationalPokedexNum(GetStarterPokemon(VarGet(VAR_STARTER_MON)));
-    u16 page;
-    u16 dexNum;
-    u16 j;
-
-    // Go through the Pokedex, and anything that has gotten caught we put into our massive array.
-    // This basically packs all of the caught pokemon into the front of the array
-    for (dexNum = 1, j = 0; dexNum < NATIONAL_DEX_COUNT; dexNum++)
-    {
-        if (GetSetPokedexSpeciesFlag(NationalPokedexNumToSpecies(dexNum), FLAG_GET_CAUGHT))
-        {
-            sCreditsData->caughtMonIds[j] = dexNum;
-            j++;
-        }
-    }
-
-    // Fill the rest of the array with zeroes
-    for (dexNum = j; dexNum < NATIONAL_DEX_COUNT; dexNum++)
-        sCreditsData->caughtMonIds[dexNum] = NATIONAL_DEX_NONE;
-
-    // Cap the number of pokemon we care about to NUM_MON_SLIDES, the max we show in the credits scene (-1 for the starter)
-    sCreditsData->numCaughtMon = j;
-    if (sCreditsData->numCaughtMon < NUM_MON_SLIDES)
-        sCreditsData->numMonToShow = j;
-    else
-        sCreditsData->numMonToShow = NUM_MON_SLIDES;
-
-    // Loop through our list of caught pokemon and select randomly from it to fill the images to show
-    j = 0;
-    do
-    {
-        // Select a random mon, insert into array
-        page = Random() % sCreditsData->numCaughtMon;
-        sCreditsData->monToShow[j] = sCreditsData->caughtMonIds[page];
-
-        // Remove the select mon from the array, and condense array entries
-        j++;
-        sCreditsData->caughtMonIds[page] = 0;
-        sCreditsData->numCaughtMon--;
-        if (page != sCreditsData->numCaughtMon)
-        {
-            // Instead of looping through and moving everything down, just take from the end. Order doesn't matter after all.
-            sCreditsData->caughtMonIds[page] = sCreditsData->caughtMonIds[sCreditsData->numCaughtMon];
-            sCreditsData->caughtMonIds[sCreditsData->numCaughtMon] = 0;
-        }
-    }
-    while (sCreditsData->numCaughtMon != 0 && j < NUM_MON_SLIDES);
-
-    // If we don't have enough pokemon in the dex to fill everything, copy the selected mon into the end of the array, so it loops
-    if (sCreditsData->numMonToShow < NUM_MON_SLIDES)
-    {
-        for (j = sCreditsData->numMonToShow, page = 0; j < NUM_MON_SLIDES; j++)
-        {
-            sCreditsData->monToShow[j] = sCreditsData->monToShow[page];
-
-            page++;
-            if (page == sCreditsData->numMonToShow)
-                page = 0;
-        }
-        // Ensure the last pokemon is our starter
-        sCreditsData->monToShow[NUM_MON_SLIDES - 1] = starter;
-    }
-    else
-    {
-        // Check to see if our starter has already appeared in this list, break if it has
-        for (dexNum = 0; sCreditsData->monToShow[dexNum] != starter && dexNum < NUM_MON_SLIDES; dexNum++);
-
-        // If it has, swap it with the last pokemon, to ensure our starter is the last image
-        if (dexNum < sCreditsData->numMonToShow - 1)
-        {
-            sCreditsData->monToShow[dexNum] = sCreditsData->monToShow[NUM_MON_SLIDES-1];
-            sCreditsData->monToShow[NUM_MON_SLIDES - 1] = starter;
-        }
-        else
-        {
-            // Ensure the last pokemon is our starter
-            sCreditsData->monToShow[NUM_MON_SLIDES - 1] = starter;
-        }
-    }
-    sCreditsData->numMonToShow = NUM_MON_SLIDES;
 }
