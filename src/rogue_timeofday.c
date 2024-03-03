@@ -71,10 +71,11 @@ struct ToDPalette
 
 struct ToDData
 {
-    bool8 areCalcsValid;
-    u8 timeCode;
     u16 overworldColour;
     u16 battleColour;
+    u8 timeCode;
+    bool8 areCalcsValid : 1;
+    bool8 timeVisualsTempDisabled : 1;
 };
 
 enum
@@ -382,12 +383,17 @@ bool8 RogueToD_ApplySeasonVisuals()
 
 bool8 RogueToD_ApplyTimeVisuals()
 {
-    return gSaveBlock2Ptr->timeOfDayVisuals && gMapHeader.mapType != MAP_TYPE_INDOOR;
+    return gSaveBlock2Ptr->timeOfDayVisuals && gMapHeader.mapType != MAP_TYPE_INDOOR && !sTimeOfDay.timeVisualsTempDisabled;
 }
 
 bool8 RogueToD_ApplyWeatherVisuals()
 {
     return gSaveBlock2Ptr->weatherVisuals;
+}
+
+void RogueToD_SetTempDisableTimeVisuals(bool8 state)
+{
+    sTimeOfDay.timeVisualsTempDisabled = state;
 }
 
 static u16 GetDesiredTintForCurrentMap(u16 inTint, bool8 isOverworld)

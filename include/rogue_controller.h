@@ -145,6 +145,8 @@ u16 Rogue_GetBagCapacity();
 u16 Rogue_GetBagPocketAmountPerItem(u8 pocket);
 u32 Rogue_CalcBagUpgradeCost();
 
+void Rogue_AddPartySnapshot();
+void Rogue_DebugFillPartySnapshots();
 
 void Rogue_PreBattleSetup(void);
 bool8 Rogue_OverrideTrainerItems(u16* items);

@@ -67,6 +67,7 @@
 #include "constants/weather.h"
 #include "save.h"
 
+#include "rogue_controller.h"
 #include "rogue_pokedex.h"
 #include "rogue_query.h"
 
@@ -2131,6 +2132,7 @@ static void DebugAction_Util_SetWallClock(u8 taskId)
 static void DebugAction_Util_WatchCredits(u8 taskId)
 {
     Debug_DestroyMenu_Full(taskId);
+    Rogue_DebugFillPartySnapshots();
     SetMainCallback2(CB2_StartCreditsSequence);
 }
 

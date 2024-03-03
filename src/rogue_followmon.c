@@ -342,6 +342,11 @@ void FollowMon_SetGraphics(u16 id, u16 species, bool8 isShiny)
     VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
 }
 
+void FollowMon_SetGraphicsRaw(u16 id, u16 gfxSpecies)
+{
+    VarSet(VAR_FOLLOW_MON_0 + id, gfxSpecies);
+}
+
 void FollowMon_SetGraphicsFromMon(u16 id, struct Pokemon* mon)
 {
     u16 gfxSpecies = FollowMon_GetMonGraphics(mon);

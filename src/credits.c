@@ -27,6 +27,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_timeofday.h"
 
 // Fade into accurate background colour
 #define COLOR_DARK_GREEN (gPlttBufferUnfaded[BG_PLTT_ID(15) + 6]) // RGB(7, 11, 6)
@@ -82,9 +83,12 @@ struct RogueSpriteData
 struct RogueCreditsData
 {
     struct RogueSpriteData rogueSprites[ROGUE_SPRITE_END];
+    struct RoguePartySnapshot previousPartySnapshot;
+    struct RoguePartySnapshot currentPartySnapshot;
     u8 currentDisplayPhase;
     u8 updateFrame;
     u8 inEndFade : 1;
+    u8 hintAtEvos : 1;
 };
 
 struct CreditsData
@@ -120,9 +124,10 @@ static void Task_WaitPaletteFade(u8);
 static void Task_CreditsMain(u8);
 static void Task_ReadyBikeScene(u8);
 static void Task_SetBikeScene(u8);
-static void SetupRogueSprites(u8 difficulty);
-static void FadeOutRogueSprites(u8 difficulty);
+static void SetupRogueSprites(u8 snapshotIndex);
+static void FadeOutRogueSprites(u8 snapshotIndex);
 static void UpdateRogueSprites();
+static bool8 AreRogueSpritesAnimating();
 static void Task_LoadShowMons(u8);
 static void Task_ReadyShowMons(u8);
 static void Task_CreditsTheEnd1(u8);
@@ -474,6 +479,8 @@ void CB2_StartCreditsSequence(void)
     s16 bikeTaskId;
     u8 pageTaskId;
 
+    RogueToD_SetTempDisableTimeVisuals(TRUE);
+
     ResetGpuAndVram();
     SetVBlankCallback(NULL);
     InitHeap(gHeap, HEAP_SIZE);
@@ -751,6 +758,7 @@ static void Task_CreditsTheEnd6(u8 taskId)
             {
                 FadeOutBGM(4);
                 BeginNormalPaletteFade(PALETTES_ALL, 8, 0, 16, RGB_WHITEALPHA);
+                RogueToD_SetTempDisableTimeVisuals(FALSE);
                 gTasks[taskId].func = Task_CreditsSoftReset;
                 return;
             }
@@ -799,6 +807,30 @@ static void ResetGpuAndVram(void)
 #define tCurrentPage    data[2]
 #define tCurrentIndex   data[3]
 #define tDelay          data[4]
+
+static u16 CalculateTotalPageCount()
+{
+    u16 i, entryCount, pageCount;
+
+    pageCount = 0;
+    entryCount = 0;
+
+    for(i = 0; i < ARRAY_COUNT(sCreditsEntryPointerTable); ++i)
+    {
+        if((sCreditsEntryPointerTable[i].flags & CREDITS_FLAG_BREAK) != 0)
+        {
+            entryCount = 0;
+            ++pageCount;
+        }
+        else if(++entryCount >= ENTRIES_PER_PAGE)
+        {
+            entryCount = 0;
+            ++pageCount;
+        }
+    }
+
+    return pageCount;
+}
 
 static void Task_UpdatePage(u8 taskId)
 {
@@ -879,26 +911,26 @@ static void Task_UpdatePage(u8 taskId)
                 if(sRogueCreditsData != NULL)
                 {
                     // 2 phases per difficulty (enter and exit)
-                    u8 const cTeamSnapshotCount = 13; // TODO
-                    u8 displayPhase = (gTasks[taskId].tCurrentIndex * cTeamSnapshotCount * 2) / (ARRAY_COUNT(sCreditsEntryPointerTable) - 2);
+                    u16 totalPageCount = CalculateTotalPageCount();
+                    u8 displayPhase = (gTasks[taskId].tCurrentPage * (gRogueRun.partySnapshotCount - 1) * 2) / (totalPageCount - 2);
 
-                    displayPhase = min(displayPhase, cTeamSnapshotCount * 2);
+                    displayPhase = min(displayPhase, gRogueRun.partySnapshotCount * 2);
 
                     if(sRogueCreditsData->currentDisplayPhase != displayPhase)
                     {
-                        u8 desiredDifficulty = displayPhase / 2;
-                        u8 currentDifficulty = sRogueCreditsData->currentDisplayPhase / 2;
+                        u8 desiredSnapshotIndex = displayPhase / 2;
+                        u8 currentSnapshotIndex= sRogueCreditsData->currentDisplayPhase / 2;
 
-                        if(desiredDifficulty != currentDifficulty)
+                        sRogueCreditsData->currentDisplayPhase = displayPhase;
+
+                        if(desiredSnapshotIndex != currentSnapshotIndex)
                         {
-                            SetupRogueSprites(desiredDifficulty);
+                            SetupRogueSprites(desiredSnapshotIndex);
                         }
                         else
                         {
-                            FadeOutRogueSprites(desiredDifficulty);
+                            FadeOutRogueSprites(desiredSnapshotIndex);
                         }
-
-                        sRogueCreditsData->currentDisplayPhase = displayPhase;
                     }
                 }
 
@@ -953,10 +985,13 @@ static void Task_UpdatePage(u8 taskId)
         }
         return;
     case 10:
-        gTasks[gTasks[taskId].tMainTaskId].tEndCredits = TRUE;
-        DestroyTask(taskId);
-        FreeCreditsBgsAndWindows();
-        FREE_AND_SET_NULL(sCreditsData);
+        if(AreRogueSpritesAnimating())
+        {
+            gTasks[gTasks[taskId].tMainTaskId].tEndCredits = TRUE;
+            DestroyTask(taskId);
+            FreeCreditsBgsAndWindows();
+            FREE_AND_SET_NULL(sCreditsData);
+        }
         return;
     }
 }
@@ -1236,7 +1271,64 @@ struct MonSpriteTemplate
     u8 subpriority;
 };
 
-static void SetupRogueSprites(u8 difficulty)
+#define GFX_EGG_SPECIES(species) (Rogue_GetEggSpecies(species >= FOLLOWMON_SHINY_OFFSET ? (species - FOLLOWMON_SHINY_OFFSET) : species))
+
+static void UpdateDisplayedSnapshots(u8 snapshotIndex)
+{
+    memcpy(&sRogueCreditsData->previousPartySnapshot, &sRogueCreditsData->currentPartySnapshot, sizeof(sRogueCreditsData->previousPartySnapshot));
+
+    if(snapshotIndex < gRogueRun.partySnapshotCount)
+    {
+        // Copy whilst maintaining index so pokemon don't jump around party slots
+        u8 i, j;
+        u8 useMonIndices[PARTY_SIZE] = {0};
+
+        memset(&sRogueCreditsData->currentPartySnapshot, 0, sizeof(sRogueCreditsData->currentPartySnapshot));
+
+        // Copy the mons we previously were showing so they are in the same slot
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            if(sRogueCreditsData->previousPartySnapshot.partyPersonalities[i] != 0)
+            {
+                for(j = 0; j < PARTY_SIZE; ++j)
+                {
+                    if(
+                        GFX_EGG_SPECIES(gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j]) == GFX_EGG_SPECIES(sRogueCreditsData->previousPartySnapshot.partySpeciesGfx[i]) &&
+                        gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] == sRogueCreditsData->previousPartySnapshot.partyPersonalities[i]
+                    )
+                    {
+                        // Found the same mon
+                        sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i] = gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j];
+                        sRogueCreditsData->currentPartySnapshot.partyPersonalities[i] = gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j];
+
+                        useMonIndices[j] = TRUE;
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Put new mons into any free slot
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            if(useMonIndices[i] || gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[i] == SPECIES_NONE)
+                continue;
+
+            // Find free slot and insert
+            for(j = 0; j < PARTY_SIZE; ++j)
+            {
+                if(sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[j] == SPECIES_NONE)
+                {
+                    sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[j] = gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[i];
+                    sRogueCreditsData->currentPartySnapshot.partyPersonalities[j] = gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[i];
+                    break;
+                }
+            }
+        }
+    }
+}
+
+static void SetupRogueSprites(u8 snapshotIndex)
 {
     struct MonSpriteTemplate const cMonTemplates[PARTY_SIZE] = 
     {
@@ -1250,9 +1342,11 @@ static void SetupRogueSprites(u8 difficulty)
 
     u8 i;
     u8 spriteId;
+
+    sRogueCreditsData->hintAtEvos = FALSE;
     
     // Setup player on initial load
-    if(difficulty == 0)
+    if(snapshotIndex == 0)
     {
         AGB_ASSERT(sRogueCreditsData == NULL);
 
@@ -1261,6 +1355,7 @@ static void SetupRogueSprites(u8 difficulty)
         for(spriteId = 0; spriteId < ROGUE_SPRITE_END; ++spriteId)
             sRogueCreditsData->rogueSprites[spriteId].spriteIndex = SPRITE_NONE;
 
+        UpdateDisplayedSnapshots(snapshotIndex);
 
         spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_PLAYER_NORMAL, SpriteCallbackDummy, 72, 72, 3);
         gSprites[spriteId].oam.priority = 1;
@@ -1276,8 +1371,8 @@ static void SetupRogueSprites(u8 difficulty)
     {
         if(sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].spriteIndex != SPRITE_NONE)
         {
-            // TODO - determine release state
-            if(sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].desiredX < 0)
+            // Sprites have gone off screen to left
+            if(sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].desiredX < 0 || sRogueCreditsData->previousPartySnapshot.partySpeciesGfx[i] != sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i])
             {
                 DestroySprite(&gSprites[sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].spriteIndex]);
                 sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].spriteIndex = SPRITE_NONE;
@@ -1288,14 +1383,18 @@ static void SetupRogueSprites(u8 difficulty)
     // Spawn in new sprites
     for(i = 0; i < PARTY_SIZE; ++i)
     {
-        if(sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].spriteIndex == SPRITE_NONE)
+        if(sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].spriteIndex == SPRITE_NONE && sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i] != SPECIES_NONE)
         {
-            FollowMon_SetGraphics(i, 1 + SPECIES_BULBASAUR * difficulty + i, FALSE);
+            FollowMon_SetGraphicsRaw(i, sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i]);
 
             spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_FOLLOW_MON_0 + i, SpriteCallbackDummy, cMonTemplates[i].x, cMonTemplates[i].y, cMonTemplates[i].subpriority);
             gSprites[spriteId].oam.priority = 1;
-            gSprites[spriteId].x2 = (difficulty == 0 ? 0 : 232); // place off screen indicating caught on adventure
             StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_EAST);
+
+            if(snapshotIndex == 0 || sRogueCreditsData->previousPartySnapshot.partyPersonalities[i] == sRogueCreditsData->currentPartySnapshot.partyPersonalities[i])
+                gSprites[spriteId].x2 = 0;
+            else
+                gSprites[spriteId].x2 = 232; // place off screen indicating caught on adventure
 
             sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].spriteIndex = spriteId;
             sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].desiredX = 0;
@@ -1303,11 +1402,14 @@ static void SetupRogueSprites(u8 difficulty)
     }
 }
 
-static void FadeOutRogueSprites(u8 difficulty)
+static void FadeOutRogueSprites(u8 snapshotIndex)
 {
     u8 i;
 
-    if(difficulty == 255) // final display
+    sRogueCreditsData->hintAtEvos = TRUE;
+    UpdateDisplayedSnapshots(snapshotIndex);
+
+    if(snapshotIndex == 255) // final display
     {
         sRogueCreditsData->inEndFade = TRUE;
         sRogueCreditsData->rogueSprites[ROGUE_SPRITE_PLAYER].desiredX = DISPLAY_WIDTH;
@@ -1317,18 +1419,22 @@ static void FadeOutRogueSprites(u8 difficulty)
     {
         if(sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].spriteIndex != SPRITE_NONE)
         {
-            // TODO - determine release state
-            if(Random() % 2)
+            if(GFX_EGG_SPECIES(sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i]) != GFX_EGG_SPECIES(sRogueCreditsData->previousPartySnapshot.partySpeciesGfx[i]) || sRogueCreditsData->currentPartySnapshot.partyPersonalities[i] != sRogueCreditsData->previousPartySnapshot.partyPersonalities[i])
             {
-                sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].desiredX = -DISPLAY_WIDTH; // number doesn't matter just get it off screen!
+                if(snapshotIndex == 255) // final display
+                    sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].desiredX = -1; // have it stand still
+                else
+                    sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].desiredX = -DISPLAY_WIDTH; // number doesn't matter just get it off screen!
             }
-            else if(difficulty == 255) // final display
+            else if(snapshotIndex == 255) // final display
             {
                 sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].desiredX = DISPLAY_WIDTH;
             }
         }
     }
 }
+
+#undef GFX_EGG_SPECIES
 
 static void UpdateRogueSprites()
 {
@@ -1374,8 +1480,39 @@ static void UpdateRogueSprites()
                 --gSprites[spriteId].x2;
             else if(gSprites[spriteId].x2 < sRogueCreditsData->rogueSprites[i].desiredX)
                 ++gSprites[spriteId].x2;
+
+            if(sRogueCreditsData->hintAtEvos && i >= ROGUE_SPRITE_MON_START && i <= ROGUE_SPRITE_MON_END)
+            {
+                // Jump to indicate an evo
+                if(
+                    sRogueCreditsData->previousPartySnapshot.partySpeciesGfx[i - ROGUE_SPRITE_MON_START] != sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i - ROGUE_SPRITE_MON_START] &&
+                    sRogueCreditsData->previousPartySnapshot.partyPersonalities[i - ROGUE_SPRITE_MON_START] == sRogueCreditsData->currentPartySnapshot.partyPersonalities[i - ROGUE_SPRITE_MON_START]
+                )
+                    gSprites[spriteId].y2 = -(((s16)frame / 4) % 2);
+            }
         }
     }
+}
+
+static bool8 AreRogueSpritesAnimating()
+{
+    u8 i;
+
+    if(sRogueCreditsData == NULL)
+        return;
+
+    for(i = 0; i < ROGUE_SPRITE_END; ++i)
+    {
+        if(sRogueCreditsData->rogueSprites[i].spriteIndex != SPRITE_NONE)
+        {
+            u8 spriteId = sRogueCreditsData->rogueSprites[i].spriteIndex;
+
+            if(gSprites[spriteId].x2 != sRogueCreditsData->rogueSprites[i].desiredX)
+                return TRUE;
+        }
+    }
+
+    return FALSE;
 }
 
 static void SetBikeScene(u8 scene, u8 taskId)
