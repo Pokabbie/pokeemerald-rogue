@@ -10,6 +10,7 @@
 #include "menu.h"
 #include "international_string_util.h"
 #include "constants/songs.h"
+#include "constants/species.h"
 #include "gpu_regs.h"
 #include "m4a.h"
 #include "constants/rgb.h"
@@ -109,7 +110,7 @@ struct CreditsEntry
     u16 flags;
 };
 
-static EWRAM_DATA s16 sUnkVar = 0; // Never read, only set to 0
+static EWRAM_DATA s16 UNUSED sUnkVar = 0; // Never read, only set to 0
 static EWRAM_DATA u16 sSavedTaskId = 0;
 EWRAM_DATA bool8 gHasHallOfFameRecords = 0;
 static EWRAM_DATA bool8 sUsedSpeedUp = 0; // Never read
@@ -244,7 +245,7 @@ static const struct WindowTemplate sWindowTemplates[] =
         .bg = 0,
         .tilemapLeft = 0,
         .tilemapTop = 5, // 9
-        .width = 30,
+        .width = DISPLAY_TILE_WIDTH,
         .height = 12,
         .paletteNum = 8,
         .baseBlock = 1
@@ -347,7 +348,7 @@ static const struct OamData sOamData_MonBg =
     .y = DISPLAY_HEIGHT,
     .affineMode = ST_OAM_AFFINE_OFF,
     .objMode = ST_OAM_OBJ_NORMAL,
-    .mosaic = 0,
+    .mosaic = FALSE,
     .bpp = ST_OAM_4BPP,
     .shape = SPRITE_SHAPE(64x64),
     .x = 0,
@@ -432,7 +433,7 @@ static void InitCreditsBgsAndWindows(void)
     ResetBgsAndClearDma3BusyFlags(0);
     InitBgsFromTemplates(0, sBackgroundTemplates, ARRAY_COUNT(sBackgroundTemplates));
     SetBgTilemapBuffer(0, AllocZeroed(BG_SCREEN_SIZE));
-    LoadPalette(sCredits_Pal, 0x80, 64);
+    LoadPalette(sCredits_Pal, BG_PLTT_ID(8), 2 * PLTT_SIZE_4BPP);
     InitWindows(sWindowTemplates);
     DeactivateAllTextPrinters();
     PutWindowTilemap(0);
@@ -616,9 +617,9 @@ static void Task_LoadShowMons(u8 taskId)
         ResetAllPicSprites();
         FreeAllSpritePalettes();
         gReservedSpritePaletteCount = 8;
-        LZ77UnCompVram(gBirchHelpGfx, (void *)VRAM);
+        LZ77UnCompVram(gBirchBagGrass_Gfx, (void *)VRAM);
         LZ77UnCompVram(gBirchGrassTilemap, (void *)(BG_SCREEN_ADDR(7)));
-        LoadPalette(gBirchBagGrassPal[0] + 1, 1, 31 * 2);
+        LoadPalette(gBirchBagGrass_Pal + 1, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(2 * 16 - 1));
 
         for (i = 0; i < MON_PIC_SIZE; i++)
             gDecompressionBuffer[i] = 0x11;
@@ -705,7 +706,7 @@ static void Task_CreditsTheEnd3(u8 taskId)
 {
     ResetGpuAndVram();
     ResetPaletteFade();
-    LoadTheEndScreen(0, 0x3800, 0);
+    LoadTheEndScreen(0, 0x3800, BG_PLTT_ID(0));
     ResetSpriteData();
     FreeAllSpritePalettes();
     BeginNormalPaletteFade(PALETTES_ALL, 8, 16, 0, RGB_BLACK);
@@ -868,7 +869,7 @@ static void Task_UpdatePage(u8 taskId)
             if (gTasks[taskId].tCurrentIndex < ARRAY_COUNT(sCreditsEntryPointerTable))
             {
                 // Print text for this Credits page
-                u16 entryIdx, entryCount, offset;
+                u16 entryIdx, entryCount;
                 u16 entryIndices[ENTRIES_PER_PAGE];
 
                 entryCount = 0;
@@ -887,11 +888,6 @@ static void Task_UpdatePage(u8 taskId)
                     if((sCreditsEntryPointerTable[entryIdx].flags & CREDITS_FLAG_BREAK) != 0)
                         break;
                 }
-
-                if(entryCount <= 2)
-                    offset = 2;
-                else
-                    offset = 0;
 
                 for (i = 0; i < entryCount; i++)
                 {
@@ -1342,8 +1338,6 @@ static void SetupRogueSprites(u8 snapshotIndex)
 
     u8 i;
     u8 spriteId;
-
-    sRogueCreditsData->hintAtEvos = FALSE;
     
     // Setup player on initial load
     if(snapshotIndex == 0)
@@ -1365,6 +1359,8 @@ static void SetupRogueSprites(u8 snapshotIndex)
         sRogueCreditsData->rogueSprites[ROGUE_SPRITE_PLAYER].spriteIndex = spriteId;
         sRogueCreditsData->rogueSprites[ROGUE_SPRITE_PLAYER].desiredX = 0;
     }
+
+    sRogueCreditsData->hintAtEvos = FALSE;
 
     // Destroy all the mon sprites we don't need
     for(i = 0; i < PARTY_SIZE; ++i)
@@ -1499,7 +1495,7 @@ static bool8 AreRogueSpritesAnimating()
     u8 i;
 
     if(sRogueCreditsData == NULL)
-        return;
+        return FALSE;
 
     for(i = 0; i < ROGUE_SPRITE_END; ++i)
     {
@@ -1541,8 +1537,6 @@ static void SetBikeScene(u8 scene, u8 taskId)
 
 static bool8 LoadBikeScene(u8 scene, u8 taskId)
 {
-    u8 spriteId;
-
     switch (gMain.state)
     {
     default:
@@ -1676,7 +1670,7 @@ static void DrawTheEnd(u16 offset, u16 palette)
 
 #define sState data[0]
 
-static void SpriteCB_Player(struct Sprite *sprite)
+static void UNUSED SpriteCB_Player(struct Sprite *sprite)
 {
     if (gIntroCredits_MovingSceneryState != INTROCRED_SCENERY_NORMAL)
     {
@@ -1702,7 +1696,7 @@ static void SpriteCB_Player(struct Sprite *sprite)
         break;
     case 4:
         StartSpriteAnimIfDifferent(sprite, 0);
-        if (sprite->x > 120)
+        if (sprite->x > DISPLAY_WIDTH / 2)
             sprite->x--;
         break;
     case 5:
@@ -1713,7 +1707,7 @@ static void SpriteCB_Player(struct Sprite *sprite)
     }
 }
 
-static void SpriteCB_Rival(struct Sprite *sprite)
+static void UNUSED SpriteCB_Rival(struct Sprite *sprite)
 {
     if (gIntroCredits_MovingSceneryState != INTROCRED_SCENERY_NORMAL)
     {
