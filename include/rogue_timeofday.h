@@ -16,6 +16,8 @@ bool8 RogueToD_ApplyTimeVisuals();
 bool8 RogueToD_ApplySeasonVisuals();
 bool8 RogueToD_ApplyWeatherVisuals();
 
+void RogueToD_SetTempDisableTimeVisuals(bool8 state);
+
 u16 RogueToD_GetHours();
 u16 RogueToD_GetMinutes();
 void RogueToD_AddMinutes(u16 minutes);

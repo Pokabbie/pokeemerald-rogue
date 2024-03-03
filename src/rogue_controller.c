@@ -3375,6 +3375,8 @@ static void BeginRogueRun(void)
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_START);
     RogueQuest_ActivateQuestsFor(QUEST_CONST_ACTIVE_IN_RUN);
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_START);
+
+    Rogue_AddPartySnapshot();
 }
 
 static void EndRogueRun(void)
@@ -4874,6 +4876,11 @@ void Rogue_Battle_StartTrainerBattle(void)
         }
     }
 
+    if(Rogue_IsBossTrainer(gTrainerBattleOpponent_A))
+    {
+        Rogue_AddPartySnapshot();
+    }
+
     RememberPartyHeldItems();
     RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_START);
 }
@@ -5183,6 +5190,9 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
             if(Rogue_GetCurrentDifficulty() >= ROGUE_MAX_BOSS_COUNT)
             {
+                // Snapshot HoF team
+                Rogue_AddPartySnapshot();
+
                 FlagSet(FLAG_IS_CHAMPION);
                 FlagSet(FLAG_ROGUE_RUN_COMPLETED);
                 RogueQuest_OnTrigger(QUEST_TRIGGER_ENTER_HALL_OF_FAME);
@@ -5484,6 +5494,96 @@ u32 Rogue_CalcBagUpgradeCost()
     default:
         return 1000 * (u32)(gSaveBlock1Ptr->bagCapacityUpgrades - 2);
     }
+}
+
+void Rogue_AddPartySnapshot()
+{
+    AGB_ASSERT(gRogueRun.partySnapshotCount < ARRAY_COUNT(gRogueRun.partySnapshots));
+
+    if(gRogueRun.partySnapshotCount < ARRAY_COUNT(gRogueRun.partySnapshots))
+    {
+        u8 i, s;
+        u8 index = gRogueRun.partySnapshotCount++;
+        memset(&gRogueRun.partySnapshots[index], 0, sizeof(gRogueRun.partySnapshots[index]));
+
+        s = 0;
+
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(&gPlayerParty[i], MON_DATA_HP) != 0)
+            {
+                gRogueRun.partySnapshots[index].partySpeciesGfx[s] = FollowMon_GetMonGraphics(&gPlayerParty[i]);
+                gRogueRun.partySnapshots[index].partyPersonalities[s] = (GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY) & ~24); // remove nature part as that might change
+                ++s;
+            }
+        }
+    }
+}
+void Rogue_DebugFillPartySnapshots()
+{
+#ifdef ROGUE_DEBUG
+    u8 i, j, snapshotIndex;
+    gRogueRun.partySnapshotCount = 0;
+
+    for(i = 0; i < ROGUE_MAX_BOSS_COUNT; ++i)
+    {
+        snapshotIndex = gRogueRun.partySnapshotCount++;
+
+        if(i == 0)
+        {
+            gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_CHARMANDER;
+            gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 123;
+        }
+        else if(i == 1)
+        {
+            gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_CHARMELEON;
+            gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 123;
+        }
+        else
+        {
+            gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[0] = SPECIES_CHARIZARD;
+            gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[0] = 123;
+        }
+
+        if(i != 0)
+        {
+            for(j = 1; j < PARTY_SIZE; ++j)
+            {
+                switch (Random() % 6)
+                {
+                case 0:
+                    gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = Random() % NUM_SPECIES;
+                    gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = Random();
+                    break;
+
+                case 1:
+                    gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = 0;
+                    gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = 0;
+                    break;
+
+                default:
+                    if(gRogueRun.partySnapshots[snapshotIndex - 1].partySpeciesGfx[j] != 0)
+                    {
+                        RogueMonQuery_Begin();
+                        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, gRogueRun.partySnapshots[snapshotIndex - 1].partySpeciesGfx[j]);
+                        RogueMonQuery_TransformIntoEvos(10 * i, TRUE, FALSE);
+
+                        gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = RogueMiscQuery_SelectRandomElement(Random());
+                        gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = gRogueRun.partySnapshots[snapshotIndex - 1].partyPersonalities[j];
+
+                        RogueMonQuery_End();
+                    }
+                    else
+                    {
+                        gRogueRun.partySnapshots[snapshotIndex].partySpeciesGfx[j] = Random() % NUM_SPECIES;
+                        gRogueRun.partySnapshots[snapshotIndex].partyPersonalities[j] = Random();
+                    }
+                    break;
+                }
+            }
+        }
+    }
+#endif
 }
 
 void Rogue_PreBattleSetup(void)

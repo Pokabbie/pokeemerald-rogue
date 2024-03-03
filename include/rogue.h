@@ -248,16 +248,23 @@ struct RogueWildEncounters
     u8 roamerActiveThisPath : 1;
 };
 
-// We just want this to be the same size as box pokemon so we can reserve the memory and cast later
+// We just want this to be the same size as box pokemon so we can reserve the memory and cast laterpartyPid
 struct RogueBoxPokemonFacade
 {
     u8 data[80];
+};
+
+struct RoguePartySnapshot
+{
+    u32 partyPersonalities[PARTY_SIZE];
+    u16 partySpeciesGfx[PARTY_SIZE];
 };
 
 struct RogueRunData
 {
     struct RogueWildEncounters wildEncounters;
     struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
+    struct RoguePartySnapshot partySnapshots[ROGUE_MAX_BOSS_COUNT + 1];
     u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
     u16 rivalSpecies[ROGUE_RIVAL_TOTAL_MON_COUNT];
     u16 legendarySpecies[ADVPATH_LEGEND_COUNT];
@@ -286,6 +293,7 @@ struct RogueRunData
     u8 adventureRoomId;
     u8 currentRouteIndex;
     u8 currentLevelOffset;
+    u8 partySnapshotCount;
 #ifdef ROGUE_EXPANSION
     u8 megasEnabled : 1;
     u8 zMovesEnabled : 1;
