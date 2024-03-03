@@ -1946,6 +1946,7 @@ u8 CreateObjectGraphicsSprite(u16 graphicsId, void (*callback)(struct Sprite *),
         if(graphicsId >= OBJ_EVENT_GFX_FOLLOW_MON_FIRST && graphicsId <= OBJ_EVENT_GFX_FOLLOW_MON_LAST)
         {
             spriteTemplate->paletteTag = OBJ_EVENT_PAL_TAG_FOLLOW_MON_1 + graphicsId - OBJ_EVENT_GFX_FOLLOW_MON_FIRST;
+            FreeSpritePaletteByTag(spriteTemplate->paletteTag);
         }
 
         palIndex = LoadObjectEventPalette(spriteTemplate->paletteTag);

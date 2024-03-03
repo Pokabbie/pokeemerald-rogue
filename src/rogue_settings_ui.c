@@ -82,16 +82,21 @@ static u8 const sMenuName_Back[] = _("Back");
 static u8 const sMenuName_DifficultySubmenu[] = _("Custom Difficulty");
 static u8 const sMenuName_AdventureSubmenu[] = _("Adventure");
 static u8 const sMenuName_TrainersSubmenu[] = _("Trainers");
+static u8 const sMenuName_GameModesSubmenu[] = _("Game Modes");
 
 static u8 const sMenuName_BattleFormat[] = _("Battle Format");
 static u8 const sMenuName_BattleFormatSingles[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Singles");
 static u8 const sMenuName_BattleFormatDoubles[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Doubles");
 static u8 const sMenuName_BattleFormatMixed[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Mixed");
 
-static u8 const sMenuName_TrainerOrder[] = _("Trainer Order");
-static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Default");
-static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Rainbow");
-static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Official");
+//static u8 const sMenuName_TrainerOrder[] = _("Trainer Order");
+//static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Default");
+//static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Rainbow");
+//static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Official");
+
+static u8 const sMenuName_GameMode_Standard[] = _("Standard");
+static u8 const sMenuName_GameMode_Rainbow[] = _("Rainbow");
+static u8 const sMenuName_GameMode_Official[] = _("Official");
 
 static u8 const sMenuName_Affection[] = _("Affection FX");
 
@@ -143,8 +148,14 @@ static u8 const* const sMenuNameDesc_PresetDescription[] =
 
 static u8 const sMenuNameDesc_TrainersSubmenu[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Edit which trainers you will encounter in\n"
-    "adventures to your liking."
+    "Enable or Disable groups of Trainers that\n"
+    "you would like to encounter."
+);
+
+static u8 const sMenuNameDesc_GameModesSubmenu[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Choose custom rule sets or scenarios\n"
+    "you to play with."
 );
 
 static u8 const sMenuNameDesc_BattleFormat[] = _(
@@ -152,29 +163,6 @@ static u8 const sMenuNameDesc_BattleFormat[] = _(
     "Controls if battles are 1v1, 2v2 or\n"
     "a random mix of both."
 );
-
-
-static u8 const sMenuNameDesc_TrainerOrder_Default[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Mighty Trainers appear in a random order\n"
-    "within their official Trainer Class.\n"
-);
-static u8 const sMenuNameDesc_TrainerOrder_Rainbow[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Mighty Trainers appear in a random order.\n"
-    "(Type specialties won't repeat)\n"
-);
-static u8 const sMenuNameDesc_TrainerOrder_Official[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Mighty Trainers appear in the order\n"
-    "they appear in their official games.\n"
-);
-static u8 const* const sMenuNameDesc_TrainerOrder[] = 
-{
-    [TRAINER_ORDER_DEFAULT] = sMenuNameDesc_TrainerOrder_Default,
-    [TRAINER_ORDER_RAINBOW] = sMenuNameDesc_TrainerOrder_Rainbow,
-    [TRAINER_ORDER_OFFICIAL] = sMenuNameDesc_TrainerOrder_Official,
-};
 
 const u8 sMenuNameDesc_Affection[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -230,6 +218,23 @@ static u8 const sMenuNameDesc_Galar[] = _(
 );
 #endif
 
+static u8 const sMenuNameDesc_GameMode_Standard[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Base Adventure with no custom rules."
+);
+static u8 const sMenuNameDesc_GameMode_Rainbow[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Mighty Trainers appear in any order but\n"
+    "will never repeat type specialties.\n"
+    "eg. E4 can be Gym Leaders and vice versa"
+);
+static u8 const sMenuNameDesc_GameMode_Official[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Mighty Trainers appear in the order they\n"
+    "appear in their official games.\n"
+    "(Disables Challenges)"
+);
+
 #ifdef ROGUE_DEBUG
 static u8 const sMenuName_Debug[] = _("DEBUG");
 
@@ -259,6 +264,7 @@ enum
     MENUITEM_MENU_DIFFICULTY_SUBMENU,
     MENUITEM_MENU_ADVENTURE_SUBMENU,
     MENUITEM_MENU_TRAINERS_SUBMENU,
+    MENUITEM_MENU_GAME_MODES_SUBMENU,
 
     MENUITEM_MENU_TOGGLE_EXP_ALL,
     MENUITEM_MENU_TOGGLE_OVER_LVL,
@@ -284,7 +290,10 @@ enum
     MENUITEM_MENU_SLIDER_ITEM,
     MENUITEM_MENU_SLIDER_LEGENDARY,
     MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
-    MENUITEM_MENU_SLIDER_TRAINER_ORDER,
+
+    MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
+    MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW,
+    MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL,
 
 #ifdef ROGUE_DEBUG
     MENUITEM_MENU_DEBUG_SUBMENU,
@@ -316,6 +325,7 @@ enum
     SUBMENUITEM_DIFFICULTY,
     SUBMENUITEM_ADVENTURE,
     SUBMENUITEM_TRAINERS,
+    SUBMENUITEM_GAME_MODES,
 #ifdef ROGUE_DEBUG
     SUBMENUITEM_DEBUG,
 #endif
@@ -355,8 +365,8 @@ static u8 Empty_ProcessInput(u8 menuOffset, u8 selection);
 static void Empty_DrawChoices(u8 menuOffset, u8 selection);
 static u8 BattleFormat_ProcessInput(u8 menuOffset, u8 selection);
 static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection);
-static u8 TrainerOrder_ProcessInput(u8 menuOffset, u8 selection);
-static void TrainerOrder_DrawChoices(u8 menuOffset, u8 selection);
+static u8 GameMode_ProcessInput(u8 menuOffset, u8 selection);
+static void GameMode_DrawChoices(u8 menuOffset, u8 selection);
 
 #ifdef ROGUE_DEBUG
 static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection);
@@ -422,6 +432,13 @@ static const struct MenuEntry sOptionMenuItems[] =
     {
         .itemName = sMenuName_TrainersSubmenu,
         .SINGLE_DESC(sMenuNameDesc_TrainersSubmenu),
+        .processInput = Empty_ProcessInput,
+        .drawChoices = ArrowRight_DrawChoices
+    },
+    [MENUITEM_MENU_GAME_MODES_SUBMENU] = 
+    {
+        .itemName = sMenuName_GameModesSubmenu,
+        .SINGLE_DESC(sMenuNameDesc_GameModesSubmenu),
         .processInput = Empty_ProcessInput,
         .drawChoices = ArrowRight_DrawChoices
     },
@@ -573,12 +590,27 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = BattleFormat_ProcessInput,
         .drawChoices = BattleFormat_DrawChoices
     },
-    [MENUITEM_MENU_SLIDER_TRAINER_ORDER] = 
+
+    [MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD] = 
     {
-        .itemName = sMenuName_TrainerOrder,
-        .MULTI_DESC(sMenuNameDesc_TrainerOrder),
-        .processInput = TrainerOrder_ProcessInput,
-        .drawChoices = TrainerOrder_DrawChoices
+        .itemName = sMenuName_GameMode_Standard,
+        .SINGLE_DESC(sMenuNameDesc_GameMode_Standard),
+        .processInput = GameMode_ProcessInput,
+        .drawChoices = GameMode_DrawChoices
+    },
+    [MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW] = 
+    {
+        .itemName = sMenuName_GameMode_Rainbow,
+        .SINGLE_DESC(sMenuNameDesc_GameMode_Rainbow),
+        .processInput = GameMode_ProcessInput,
+        .drawChoices = GameMode_DrawChoices
+    },
+    [MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL] = 
+    {
+        .itemName = sMenuName_GameMode_Official,
+        .SINGLE_DESC(sMenuNameDesc_GameMode_Official),
+        .processInput = GameMode_ProcessInput,
+        .drawChoices = GameMode_DrawChoices
     },
 
 #ifdef ROGUE_DEBUG
@@ -704,6 +736,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_DIFFICULTY_SUBMENU,
             MENUITEM_MENU_ADVENTURE_SUBMENU,
             MENUITEM_MENU_TRAINERS_SUBMENU,
+            MENUITEM_MENU_GAME_MODES_SUBMENU,
 #ifdef ROGUE_DEBUG
             MENUITEM_MENU_DEBUG_SUBMENU,
 #endif
@@ -731,12 +764,10 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
     {
         .menuOptions = 
         {
+            MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
             MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
             MENUITEM_MENU_TOGGLE_EXP_ALL,
-            MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
-            MENUITEM_MENU_SLIDER_TRAINER_ORDER,
 
-            
             MENUITEM_CANCEL
         }
     },
@@ -756,6 +787,16 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_TOGGLE_TRAINER_GALAR,
 #endif
             MENUITEM_MENU_TOGGLE_TRAINER_ROGUE,
+            MENUITEM_CANCEL
+        }
+    },
+    [SUBMENUITEM_GAME_MODES] = 
+    {
+        .menuOptions = 
+        {
+            MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
+            MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW,
+            MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL,
             MENUITEM_CANCEL
         }
     },
@@ -1007,6 +1048,11 @@ static void Task_OptionMenuProcessInput(u8 taskId)
             submenuChanged = TRUE;
             break;
 
+        case MENUITEM_MENU_GAME_MODES_SUBMENU:
+            submenuSelection = SUBMENUITEM_GAME_MODES;
+            submenuChanged = TRUE;
+            break;
+
 #ifdef ROGUE_DEBUG
         case MENUITEM_MENU_DEBUG_SUBMENU:
             submenuSelection = SUBMENUITEM_DEBUG;
@@ -1062,9 +1108,17 @@ static void Task_OptionMenuProcessInput(u8 taskId)
 
         if(prevOption != currOption)
         {
-            sOptionMenuItems[menuItem].drawChoices(menuSelection - menuSelectionTop, currOption);
-
-            SetMenuItemValue(menuItem, currOption);
+            // Redraw all options in Game Modes, as changing one setting can toggle other settings
+            if(submenuSelection == SUBMENUITEM_GAME_MODES)
+            {
+                SetMenuItemValue(menuItem, currOption);
+                DrawOptionMenuTexts(submenuSelection, menuSelectionTop);
+            }
+            else
+            {
+                sOptionMenuItems[menuItem].drawChoices(menuSelection - menuSelectionTop, currOption);
+                SetMenuItemValue(menuItem, currOption);
+            }
 
             // Update the description
             DrawDescriptionOptionMenuText(submenuSelection, menuSelection);
@@ -1312,35 +1366,20 @@ static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection)
     DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, style);
 }
 
-static u8 TrainerOrder_ProcessInput(u8 menuOffset, u8 selection)
+static u8 GameMode_ProcessInput(u8 menuOffset, u8 selection)
 {
-    return ProcessInputRange(menuOffset, selection, TRAINER_ORDER_COUNT);
+    return Toggle_ProcessInput(menuOffset, selection);
 }
 
-static void TrainerOrder_DrawChoices(u8 menuOffset, u8 selection)
+static void GameMode_DrawChoices(u8 menuOffset, u8 selection)
 {
-    const u8* text = NULL;
-    u8 style = 0;
-
     // Hack to wipe tiles????
     DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
 
-    switch (selection)
-    {
-    case TRAINER_ORDER_DEFAULT:
-        text = sMenuName_TrainerOrderDefault;
-        break;
+    // Only draw enabled
 
-    case TRAINER_ORDER_RAINBOW:
-        text = sMenuName_TrainerOrderRainbow;
-        break;
-
-    case TRAINER_ORDER_OFFICIAL:
-        text = sMenuName_TrainerOrderOfficial;
-        break;
-    }
-
-    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, style);
+    if(selection != 0)
+        DrawOptionMenuChoice(gText_DifficultyEnabled, 104, menuOffset * YPOS_SPACING, 0);
 }
 
 #ifdef ROGUE_DEBUG
@@ -1457,52 +1496,73 @@ static void DrawDescriptionOptionMenuText(u8 submenu, u8 selection)
 
     FillWindowPixelBuffer(WIN_TEXT_OPTION, PIXEL_FILL(1));
 
-    // Element name
-    str = StringCopy(text, sOptionMenuItems[menuItem].itemName);
-    //str = StringAppend(str, gText_DifficultyDoesntAffectReward); // TODO - hookup hint?
-
-    AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, text, 8, 1, TEXT_SKIP_DRAW, NULL);
-
-    // Place current reward level
-    str = StringCopy(text, gText_DifficultyRewardLevel);
-    
-    switch (Rogue_GetDifficultyRewardLevel())
+    if(submenu == SUBMENUITEM_GAME_MODES)
     {
-    case DIFFICULTY_LEVEL_EASY:
-        str = StringAppend(str, gText_DifficultyPresetEasy);
-        break;
+        // Use entire box for the mode description
 
-    case DIFFICULTY_LEVEL_AVERAGE:
-        str = StringAppend(str, gText_DifficultyPresetMedium);
-        break;
-
-    case DIFFICULTY_LEVEL_HARD:
-        str = StringAppend(str, gText_DifficultyPresetHard);
-        break;
-
-    case DIFFICULTY_LEVEL_BRUTAL:
-        str = StringAppend(str, gText_DifficultyPresetBrutal);
-        break;
-    
-    default:
-        // This should never be reached
-        str = StringAppend(str, gText_DifficultyPresetCustom);
-        break;
-    }
-
-    AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, text, 120, 0, TEXT_SKIP_DRAW, NULL);
-
-    // Element description
-    if(sOptionMenuItems[menuItem].descCount != 0)
-    {
-        if(sOptionMenuItems[menuItem].descCount > 1)
+        // Element description
+        if(sOptionMenuItems[menuItem].descCount != 0)
         {
-            u8 value = min(GetMenuItemValue(menuItem), sOptionMenuItems[menuItem].descCount - 1);
-            AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, sOptionMenuItems[menuItem].multiDesc[value], 8, 17, TEXT_SKIP_DRAW, NULL);
+            if(sOptionMenuItems[menuItem].descCount > 1)
+            {
+                u8 value = min(GetMenuItemValue(menuItem), sOptionMenuItems[menuItem].descCount - 1);
+                AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, sOptionMenuItems[menuItem].multiDesc[value], 8, 1, TEXT_SKIP_DRAW, NULL);
+            }
+            else
+            {
+                AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, sOptionMenuItems[menuItem].singleDesc, 8, 1, TEXT_SKIP_DRAW, NULL);
+            }
         }
-        else
+    }
+    else
+    {
+        // Element name
+        str = StringCopy(text, sOptionMenuItems[menuItem].itemName);
+        //str = StringAppend(str, gText_DifficultyDoesntAffectReward); // TODO - hookup hint?
+
+        AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, text, 8, 1, TEXT_SKIP_DRAW, NULL);
+
+        // Place current reward level
+        str = StringCopy(text, gText_DifficultyRewardLevel);
+        
+        switch (Rogue_GetDifficultyRewardLevel())
         {
-            AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, sOptionMenuItems[menuItem].singleDesc, 8, 17, TEXT_SKIP_DRAW, NULL);
+        case DIFFICULTY_LEVEL_EASY:
+            str = StringAppend(str, gText_DifficultyPresetEasy);
+            break;
+
+        case DIFFICULTY_LEVEL_AVERAGE:
+            str = StringAppend(str, gText_DifficultyPresetMedium);
+            break;
+
+        case DIFFICULTY_LEVEL_HARD:
+            str = StringAppend(str, gText_DifficultyPresetHard);
+            break;
+
+        case DIFFICULTY_LEVEL_BRUTAL:
+            str = StringAppend(str, gText_DifficultyPresetBrutal);
+            break;
+        
+        default:
+            // This should never be reached
+            str = StringAppend(str, gText_DifficultyPresetCustom);
+            break;
+        }
+
+        AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, text, 120, 0, TEXT_SKIP_DRAW, NULL);
+
+        // Element description
+        if(sOptionMenuItems[menuItem].descCount != 0)
+        {
+            if(sOptionMenuItems[menuItem].descCount > 1)
+            {
+                u8 value = min(GetMenuItemValue(menuItem), sOptionMenuItems[menuItem].descCount - 1);
+                AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, sOptionMenuItems[menuItem].multiDesc[value], 8, 17, TEXT_SKIP_DRAW, NULL);
+            }
+            else
+            {
+                AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, sOptionMenuItems[menuItem].singleDesc, 8, 17, TEXT_SKIP_DRAW, NULL);
+            }
         }
     }
 
@@ -1609,8 +1669,10 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_SLIDER_BATTLE_FORMAT:
         return Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT);
 
-    case MENUITEM_MENU_SLIDER_TRAINER_ORDER:
-        return Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER);
+    case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL:
+        return Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM) == (ROGUE_GAME_MODE_STANDARD + menuItem - MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD);
 
 #ifdef ROGUE_DEBUG
     case MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL:
@@ -1756,8 +1818,13 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         Rogue_SetConfigRange(CONFIG_RANGE_BATTLE_FORMAT, value);
         break;
 
-    case MENUITEM_MENU_SLIDER_TRAINER_ORDER:
-        Rogue_SetConfigRange(CONFIG_RANGE_TRAINER_ORDER, value);
+    case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL:
+        if(value != 0)
+            Rogue_SetConfigRange(CONFIG_RANGE_GAME_MODE_NUM, ROGUE_GAME_MODE_STANDARD + menuItem - MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD);
+        else
+            Rogue_SetConfigRange(CONFIG_RANGE_GAME_MODE_NUM, ROGUE_GAME_MODE_STANDARD);
         break;
 
 #ifdef ROGUE_DEBUG

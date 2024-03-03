@@ -38,6 +38,20 @@ struct RogueDifficultyPreset
     struct RogueDifficultyPresetRange ranges[CONFIG_RANGE_COUNT + 1];
 };
 
+static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] = 
+{
+    [ROGUE_GAME_MODE_STANDARD] = {}, // we should never have anything here, every rule/flag should default to off in standard
+    [ROGUE_GAME_MODE_RAINBOW] = 
+    {
+        .trainerOrder = TRAINER_ORDER_RAINBOW,
+    },
+    [ROGUE_GAME_MODE_OFFICIAL] = 
+    {
+        .trainerOrder = TRAINER_ORDER_OFFICIAL,
+        .disableChallengeQuests = TRUE,
+    },
+};
+
 EWRAM_DATA struct RogueDifficultyLocal gRogueDifficultyLocal;
 
 #ifdef ROGUE_DEBUG
@@ -190,6 +204,13 @@ bool8 Rogue_CanEditConfig()
         return FALSE;
 
     return !Rogue_IsRunActive();
+}
+
+struct GameModeRules const* Rogue_GetModeRules()
+{
+    u8 mode = Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM);
+    AGB_ASSERT(mode < ROGUE_GAME_MODE_COUNT);
+    return &sGameModeRules[mode];
 }
 
 #ifdef ROGUE_DEBUG

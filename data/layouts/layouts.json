@@ -1344,8 +1344,8 @@
     {
       "id": "LAYOUT_ROGUE_TILE_TEST1",
       "name": "Rogue_Tile_Test1_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 18,
+      "height": 13,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Rogue_Tile_Test1/border.bin",
