@@ -542,7 +542,62 @@ u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 sou
 
 u16 Rogue_ModifyPlayBGM(u16 songNum)
 {
-    if(!Rogue_IsRunActive())
+    if(Rogue_IsRunActive())
+    {
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+        {
+            u16 mapFlags = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].mapFlags;
+
+            //gRogueRouteTable
+            switch (songNum)
+            {
+            case MUS_VS_WILD:
+                if(mapFlags & ROUTE_FLAG_KANTO)
+                    return MUS_RG_VS_WILD;
+
+                else if(mapFlags & ROUTE_FLAG_JOHTO)
+                    return MUS_HG_VS_WILD;
+
+                else if(mapFlags & ROUTE_FLAG_SINNOH)
+                    return MUS_DP_VS_WILD;
+                break;
+
+            case MUS_VICTORY_WILD:
+                if(mapFlags & ROUTE_FLAG_KANTO)
+                    return MUS_RG_VICTORY_WILD;
+
+                else if(mapFlags & ROUTE_FLAG_JOHTO)
+                    return MUS_DP_VICTORY_WILD; // TODO - Fix with HG specific one 
+
+                else if(mapFlags & ROUTE_FLAG_SINNOH)
+                    return MUS_DP_VICTORY_WILD;
+                break;
+
+            case MUS_VS_TRAINER:
+                if(mapFlags & ROUTE_FLAG_KANTO)
+                    return MUS_RG_VS_TRAINER;
+
+                else if(mapFlags & ROUTE_FLAG_JOHTO)
+                    return MUS_HG_VS_TRAINER;
+
+                else if(mapFlags & ROUTE_FLAG_SINNOH)
+                    return MUS_DP_VS_TRAINER;
+                break;
+
+            case MUS_VICTORY_TRAINER:
+                if(mapFlags & ROUTE_FLAG_KANTO)
+                    return MUS_RG_VICTORY_TRAINER;
+    
+                else if(mapFlags & ROUTE_FLAG_JOHTO)
+                    return MUS_HG_VICTORY_TRAINER;
+
+                else if(mapFlags & ROUTE_FLAG_SINNOH)
+                    return MUS_DP_VICTORY_TRAINER;
+                break;
+            }
+        }
+    }
+    else
     {
         if(VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
         {

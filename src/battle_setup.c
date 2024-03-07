@@ -834,8 +834,8 @@ static u8 GetTrainerBattleTransition(void)
     if (trainer.trainerClass == TRAINER_SECRET_BASE)
         return B_TRANSITION_CHAMPION;
 
-    //if (trainer.trainerClass == TRAINER_CLASS_RIVAL)
-    //    return B_TRANSITION_CHAMPION_STEVEN;
+    if (trainer.trainerClass == TRAINER_CLASS_RIVAL)
+        return B_TRANSITION_ANGLED_WIPES;
 
     if (trainer.trainerClass == TRAINER_CLASS_ELITE_FOUR || trainer.trainerClass == TRAINER_CLASS_COMMUNITY_MOD)
     {
