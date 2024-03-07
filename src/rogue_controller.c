@@ -3284,12 +3284,13 @@ static void BeginRogueRun(void)
     }
 
     Rogue_SetCurrentDifficulty(GetStartDifficulty());
-    gRogueRun.currentLevelOffset = 3; // assume STARTER_MON_LEVEL == 5 and first boss level is 10
+    gRogueRun.currentLevelOffset = Rogue_GetModeRules()->initialLevelOffset;
     gRogueRun.adventureRoomId = ADVPATH_INVALID_ROOM_ID;
     
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    if(gRogueRun.currentLevelOffset == 0)
     {
-        gRogueRun.currentLevelOffset = 80;
+        // Apply default
+        gRogueRun.currentLevelOffset = 3; // assume STARTER_MON_LEVEL == 5 and first boss level is 10
     }
 
     // Apply some base seed for anything which needs to be randomly setup
@@ -3486,6 +3487,7 @@ static void ChooseLegendarysForNewAdventure()
 {
     bool8 spawnRoamer = RogueRandomChance(50, 0);
     bool8 spawnMinor = RogueRandomChance(75, 0);
+    bool8 spawnBox = TRUE;
 
     // Always have 1
     if(!spawnRoamer && !spawnMinor)
@@ -3494,6 +3496,15 @@ static void ChooseLegendarysForNewAdventure()
             spawnRoamer = TRUE;
         else
             spawnMinor = TRUE;
+    }
+
+    if(Rogue_GetModeRules()->generateGauntletAdventurePath)
+    {
+        // Gauntlet always generates a minor legendary only
+        spawnRoamer = FALSE;
+        spawnMinor = TRUE;
+        spawnBox = FALSE;
+        
     }
 
     // DEBUG - Force all legends to spawn
@@ -3510,18 +3521,21 @@ static void ChooseLegendarysForNewAdventure()
 
     // Prioritise box legend first, then roamer, then finally minor
 
-    gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(3, 0);
-    gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] = SelectLegendarySpecies(ADVPATH_LEGEND_BOX);
+    if(spawnBox)
+    {
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(3, 0);
+        gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] = SelectLegendarySpecies(ADVPATH_LEGEND_BOX);
+    }
 
     if(spawnRoamer)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = 1 + RogueRandomRange(5, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : 1 + RogueRandomRange(5, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_ROAMER] = SelectLegendarySpecies(ADVPATH_LEGEND_ROAMER);
     }
 
     if(spawnMinor)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = 4 + RogueRandomRange(4, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : 4 + RogueRandomRange(4, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_MINOR] = SelectLegendarySpecies(ADVPATH_LEGEND_MINOR);
     }
 
@@ -3607,6 +3621,10 @@ static void ChooseTeamEncountersForNewAdventure()
 
     // Select a random active team to encounter this run
     gRogueRun.teamEncounterNum = ChooseTeamEncounterNum();
+
+    // Don't place any of these encounters
+    if(Rogue_GetModeRules()->generateGauntletAdventurePath)
+        return;
 
     // Setup maps (There's only 1 per each currently)
     for(i = 0; i < gRogueTeamEncounterInfo.mapCount; ++i)
@@ -4232,7 +4250,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 case ADVPATH_ROOM_RESTSTOP:
                 {
-                    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE) || RogueRandomChance(33, OVERWORLD_FLAG))
+                    if(Rogue_GetModeRules()->forceRandomanAlwaysActive || RogueRandomChance(33, OVERWORLD_FLAG))
                     {
                         // Enable random trader
                         FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
@@ -5208,11 +5226,12 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         // Adjust this after the boss reset
         if(gRogueRun.currentLevelOffset)
         {
-            u8 levelOffsetDelta = 4;
+            u8 levelOffsetDelta = Rogue_GetModeRules()->levelOffsetInterval;
             
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            if(levelOffsetDelta == 0)
             {
-                levelOffsetDelta = 5;
+                // Apply default
+                levelOffsetDelta = 4;
             }
 
             // Every trainer battle drops level cap slightly
@@ -5273,11 +5292,12 @@ void Rogue_Battle_EndWildBattle(void)
     {
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
-            u8 levelOffsetDelta = 4;
+            u8 levelOffsetDelta = Rogue_GetModeRules()->levelOffsetInterval;
             
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            if(levelOffsetDelta == 0)
             {
-                levelOffsetDelta = 5;
+                // Apply default
+                levelOffsetDelta = 4;
             }
 
             // Don't increase the level caps if we only caught the mon
@@ -7069,8 +7089,8 @@ void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hi
         {
             difficulty = Rogue_GetCurrentDifficulty();
 
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-                difficulty = 13;
+            //if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            //    difficulty = 13;
 
             if(difficulty < 8)
                 capacity = 3 + difficulty * 1;
@@ -7733,13 +7753,10 @@ static bool8 RogueRandomChanceItem()
         }
     }
 
-    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
-            chance = max(10, chance - 25);
-        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
-            chance = min(100, chance + 25);
-    }
+    if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
+        chance = max(10, chance - 25);
+    else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
+        chance = min(100, chance + 25);
 
     return TRUE;//RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
@@ -7816,26 +7833,15 @@ static void RandomiseItemContent(u8 difficultyLevel)
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     u8 dropRarity = GetCurrentDropRarity();
 
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
     {
-        // Give us 1 room of basic items
-        if(gRogueRun.enteredRoomCounter > 1)
-        {
-            dropRarity += 10;
-        }
+        if(dropRarity != 0)
+            --dropRarity;
     }
-    else
+    else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
     {
-        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
-        {
-            if(dropRarity != 0)
-                --dropRarity;
-        }
-        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
-        {
-            if(dropRarity != 0)
-                ++dropRarity;
-        }
+        if(dropRarity != 0)
+            ++dropRarity;
     }
 
     RogueItemQuery_Begin();
@@ -7849,18 +7855,15 @@ static void RandomiseItemContent(u8 difficultyLevel)
         RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_PREMIER_BALL);
 
         RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
-        
-        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-        {
-            if(difficultyLevel <= 1)
-            {
-                //RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
-            }
 
-            if(difficultyLevel <= 3)
-            {
-                RogueItemQuery_IsHeldItem(QUERY_FUNC_EXCLUDE);
-            }
+        if(difficultyLevel <= 1)
+        {
+            //RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
+        }
+
+        if(difficultyLevel <= 3)
+        {
+            RogueItemQuery_IsHeldItem(QUERY_FUNC_EXCLUDE);
         }
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)

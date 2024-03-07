@@ -332,7 +332,6 @@ SECTIONS {
         src/international_string_util.o(.text);
         src/follow_me.o(.text);
         src/debug.o(.text);
-        src/rogue_adventure.o(.text);
         src/rogue_automation.o(.text);
         src/rogue_assistant.o(.text);
         src/rogue_campaign.o(.text);
@@ -725,7 +724,6 @@ SECTIONS {
         data/sound_data.o(.rodata);
         src/follow_me.o(.rodata);
         src/debug.o(.rodata);
-        src/rogue_adventure.o(.rodata);
         src/rogue_automation.o(.rodata);
         src/rogue_assistant.o(.rodata);
         src/rogue_campaign.o(.rodata);

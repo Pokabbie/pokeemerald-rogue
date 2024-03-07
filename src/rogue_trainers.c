@@ -287,7 +287,7 @@ u8 Rogue_GetTrainerWeather(u16 trainerNum)
 
 static u8 CalculateLvlFor(u8 difficulty)
 {
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    if(Rogue_GetModeRules()->disablePerBadgeLvlCaps)
     {
         return MAX_LEVEL;
     }
@@ -930,29 +930,39 @@ void Rogue_ChooseRivalTrainerForNewAdventure()
     // We can encounter the rival up to the first E4 encounter (Technically not entered the E4 so I'll allow it)
     // Set this up to assume 4 encounters for now to ensure they are evenly spaced
     AGB_ASSERT(ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS == 4);
-    
-    // First encounter just before or just after 1st badge
-    gRogueRun.rivalEncounterDifficulties[0] = RogueRandom() % 2;
 
-    // Around middle of run
-    gRogueRun.rivalEncounterDifficulties[1] = ROGUE_GYM_MID_DIFFICULTY - 1 + (RogueRandom() % 3);
-
-    // Going to very occasionally have 2 mid run encounters with rival
-    if((RogueRandom() % 4) == 0)
+    if(Rogue_GetModeRules()->disableRivalEncounters)
     {
-        gRogueRun.rivalEncounterDifficulties[1] = 3 + (RogueRandom() % 2);
-        gRogueRun.rivalEncounterDifficulties[2] = ROGUE_GYM_MID_DIFFICULTY + 1 + (RogueRandom() % 2);
+        u8 i;
+
+        for(i = 0; i < ARRAY_COUNT(gRogueRun.rivalEncounterDifficulties); ++i)
+            gRogueRun.rivalEncounterDifficulties[i] = ROGUE_MAX_BOSS_COUNT;
     }
-    // Only have 1 mid run encounter
     else
     {
+        // First encounter just before or just after 1st badge
+        gRogueRun.rivalEncounterDifficulties[0] = RogueRandom() % 2;
+
         // Around middle of run
         gRogueRun.rivalEncounterDifficulties[1] = ROGUE_GYM_MID_DIFFICULTY - 1 + (RogueRandom() % 3);
-        gRogueRun.rivalEncounterDifficulties[2] = gRogueRun.rivalEncounterDifficulties[1];
-    }
 
-    // Last encounter just before or just after last gym
-    gRogueRun.rivalEncounterDifficulties[3] = ROGUE_ELITE_START_DIFFICULTY - (RogueRandom() % 2);
+        // Going to very occasionally have 2 mid run encounters with rival
+        if((RogueRandom() % 4) == 0)
+        {
+            gRogueRun.rivalEncounterDifficulties[1] = 3 + (RogueRandom() % 2);
+            gRogueRun.rivalEncounterDifficulties[2] = ROGUE_GYM_MID_DIFFICULTY + 1 + (RogueRandom() % 2);
+        }
+        // Only have 1 mid run encounter
+        else
+        {
+            // Around middle of run
+            gRogueRun.rivalEncounterDifficulties[1] = ROGUE_GYM_MID_DIFFICULTY - 1 + (RogueRandom() % 3);
+            gRogueRun.rivalEncounterDifficulties[2] = gRogueRun.rivalEncounterDifficulties[1];
+        }
+
+        // Last encounter just before or just after last gym
+        gRogueRun.rivalEncounterDifficulties[3] = ROGUE_ELITE_START_DIFFICULTY - (RogueRandom() % 2);
+    }
 }
 
 static void SortByBst(u16* speciesBuffer, u16 bufferSize)
@@ -1451,7 +1461,7 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
 
     if(Rogue_IsKeyTrainer(trainerNum))
     {
-        if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+        if(Rogue_GetModeRules()->forceEndGameTrainers)
             monCount = 6;
         else
         {
@@ -2397,7 +2407,7 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
     }
 #endif
 
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    if(Rogue_GetModeRules()->forceEndGameTrainers)
     {
         return Rogue_IsAnyBossTrainer(scratch->trainerNum);
     }
@@ -2934,7 +2944,7 @@ static void ReorderPartyMons(u16 trainerNum, struct Pokemon *party, u8 monCount)
 
     if(Rogue_IsAnyBossTrainer(trainerNum))
     {
-        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE) && Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD && Rogue_GetCurrentDifficulty() < 8)
+        if(!(Rogue_GetModeRules()->forceEndGameTrainers) && Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD && Rogue_GetCurrentDifficulty() < 8)
         {
             // Prior to E4 we don't want to force forward the best lead mon
             // We just want to push final mons to the back

@@ -19,7 +19,6 @@
 #include "rogue_controller.h"
 
 #include "rogue_adventurepaths.h"
-#include "rogue_adventure.h"
 #include "rogue_campaign.h"
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
@@ -931,6 +930,14 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 
         pathSettings.generator = &generator;
         pathSettings.totalLength = 3 + 2; // +2 to account for final encounter and initial split
+
+        if(Rogue_GetModeRules()->generateGauntletAdventurePath)
+        {
+            if(GetPathGenerationDifficulty() == 0)
+                pathSettings.totalLength = 5 + 2;
+            else
+                pathSettings.totalLength = 2;
+        }
 
         // Select the correct seed
         {

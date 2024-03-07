@@ -5,9 +5,16 @@ typedef void (*RogueDifficultyMenuCallback)(void);
 
 struct GameModeRules
 {
-    u32 trainerOrder : 2;
-    u32 disableMainQuests : 1;
-    u32 disableChallengeQuests : 1;
+    u8 initialLevelOffset;
+    u8 levelOffsetInterval;
+    u8 trainerOrder : 2;
+    u8 disableMainQuests : 1;
+    u8 disableChallengeQuests : 1;
+    u8 disablePerBadgeLvlCaps : 1;
+    u8 forceEndGameTrainers : 1;
+    u8 forceRandomanAlwaysActive : 1;
+    u8 disableRivalEncounters : 1;
+    u8 generateGauntletAdventurePath : 1;
 };
 
 void Rogue_SetConfigToggle(u16 elem, bool8 state);
