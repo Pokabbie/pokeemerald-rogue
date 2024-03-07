@@ -548,7 +548,6 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
         {
             u16 mapFlags = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].mapFlags;
 
-            //gRogueRouteTable
             switch (songNum)
             {
             case MUS_VS_WILD:
