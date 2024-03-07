@@ -712,8 +712,12 @@ static u16 Rogue_ChooseTrainerId(struct TrainerFliter* filter, u8 difficulty, u1
             }
             else
             {
-                // Usually, this isn't intentional, so assert here
-                AGB_ASSERT(FALSE);
+                if(Rogue_GetModeRules()->trainerOrder != TRAINER_ORDER_RAINBOW)
+                {
+                    // Usually, this isn't intentional, so assert here
+                    // Can happen in Rainbow for gens with typeless champs
+                    AGB_ASSERT(FALSE);
+                }
 
                 if(historyBuffer != NULL)
                 {
@@ -1258,11 +1262,18 @@ void Rogue_GetPreferredElite4Map(u16 trainerNum, s8* mapGroup, s8* mapNum)
 
 static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScratch* scratch)
 {
+    u8 difficulty = Rogue_GetCurrentDifficulty();
+
+    if(Rogue_GetModeRules()->forceEndGameTrainers)
+    {
+        difficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
+    }
+
     // Configure evos, strong presets and legend settings
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
-        if(Rogue_GetCurrentDifficulty() >= 8)
+        if(difficulty >= 8)
         {
             scratch->allowItemEvos = TRUE;
             scratch->allowWeakLegends = TRUE;
@@ -1270,28 +1281,28 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
         break;
 
     case DIFFICULTY_LEVEL_AVERAGE:
-        if(Rogue_GetCurrentDifficulty() >= 8)
+        if(difficulty >= 8)
         {
             scratch->allowStrongLegends = TRUE;
             scratch->preferStrongSpecies = TRUE;
         }
-        else if(Rogue_GetCurrentDifficulty() >= 7)
+        else if(difficulty >= 7)
         {
             scratch->allowWeakLegends = TRUE;
         }
-        if(Rogue_GetCurrentDifficulty() >= 4)
+        if(difficulty >= 4)
         {
             scratch->allowItemEvos = TRUE;
         }
         break;
 
     case DIFFICULTY_LEVEL_HARD:
-        if(Rogue_GetCurrentDifficulty() >= 5)
+        if(difficulty >= 5)
         {
             scratch->allowStrongLegends = TRUE;
             scratch->preferStrongSpecies = TRUE;
         }
-        else if(Rogue_GetCurrentDifficulty() >= 2)
+        else if(difficulty >= 2)
         {
             scratch->allowWeakLegends = TRUE;
             scratch->allowItemEvos = TRUE;
@@ -1299,12 +1310,12 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
         break;
 
     case DIFFICULTY_LEVEL_BRUTAL:
-        if(Rogue_GetCurrentDifficulty() >= 2)
+        if(difficulty >= 2)
         {
             scratch->allowStrongLegends = TRUE;
             scratch->preferStrongSpecies = TRUE;
         }
-        else if(Rogue_GetCurrentDifficulty() >= 1)
+        else if(difficulty >= 1)
         {
             scratch->allowWeakLegends = TRUE;
             scratch->allowItemEvos = TRUE;
@@ -1402,6 +1413,13 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
 
 static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
 {
+    u8 difficulty = Rogue_GetCurrentDifficulty();
+
+    if(Rogue_GetModeRules()->forceEndGameTrainers)
+    {
+        difficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
+    }
+
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
@@ -1412,7 +1430,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
             return TRUE;
         else if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 2)
+            if(difficulty >= ROGUE_ELITE_START_DIFFICULTY - 2)
                 return TRUE;
             else
                 return FALSE;
@@ -1428,7 +1446,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
             return TRUE;
         else if(Rogue_IsKeyTrainer(trainerNum))
         {
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
+            if(difficulty >= ROGUE_GYM_MID_DIFFICULTY)
                 return TRUE;
             else
                 return FALSE;
@@ -1436,7 +1454,7 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
         else
         {
             // Normal trainers start to optimize coverage from E4 onward
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+            if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
                 return TRUE;
             else
                 return FALSE;
@@ -1458,6 +1476,11 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
     // Hack for EXP trainer
     if(monLevel == 1)
         return 1;
+
+    if(Rogue_GetModeRules()->forceEndGameTrainers)
+    {
+        return 6;
+    }
 
     if(Rogue_IsKeyTrainer(trainerNum))
     {
@@ -1539,6 +1562,13 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
 
 static bool8 ShouldTrainerUseValidNatures(u16 trainerNum)
 {
+    u8 difficulty = Rogue_GetCurrentDifficulty();
+
+    if(Rogue_GetModeRules()->forceEndGameTrainers)
+    {
+        difficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
+    }
+
     if(!Rogue_IsKeyTrainer(trainerNum))
         return FALSE;
 
@@ -1548,12 +1578,12 @@ static bool8 ShouldTrainerUseValidNatures(u16 trainerNum)
         return FALSE;
 
     case DIFFICULTY_LEVEL_AVERAGE:
-        if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+        if(difficulty >= ROGUE_FINAL_CHAMP_DIFFICULTY)
             return TRUE;
         return FALSE;
 
     case DIFFICULTY_LEVEL_HARD:
-        if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+        if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
             return TRUE;
         return FALSE;
 
