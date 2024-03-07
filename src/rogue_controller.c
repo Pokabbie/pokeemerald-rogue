@@ -2519,6 +2519,17 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
 
             RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
 
+            // Exclude other types in triangle
+            typeFlags = 0;
+            if(i != 0)
+                typeFlags |= MON_TYPE_VAL_TO_FLAGS(sStarterTypeTriangles[typeTriangleOffset * 3 + 0]);
+            if(i != 1)
+                typeFlags |= MON_TYPE_VAL_TO_FLAGS(sStarterTypeTriangles[typeTriangleOffset * 3 + 1]);
+            if(i != 2)
+                typeFlags |= MON_TYPE_VAL_TO_FLAGS(sStarterTypeTriangles[typeTriangleOffset * 3 + 2]);
+
+            RogueMonQuery_IsOfType(QUERY_FUNC_EXCLUDE, typeFlags);
+
             RogueWeightQuery_Begin();
             {
                 RogueWeightQuery_FillWeights(1);
