@@ -1870,6 +1870,16 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Encounter_CatchingContest/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_CatchingContest/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_SINNOH_215",
+      "name": "Rogue_Route_Sinnoh_215_Layout",
+      "width": 98,
+      "height": 35,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Rogue_Route_Sinnoh_215/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_215/map.bin"
     }
   ]
 }
