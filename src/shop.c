@@ -118,7 +118,7 @@ static u32 GetShopItemPrice(u16 item);
 static bool8 IsZeroPriceMarkedAsFree();
 
 static u32 GetShopCurrencyAmount();
-static void RemoveShopCurrencyAmount(u16 amount);
+static void RemoveShopCurrencyAmount(u32 amount);
 
 static const struct YesNoFuncTable sShopPurchaseYesNoFuncs =
 {
@@ -1921,7 +1921,7 @@ static u32 GetShopCurrencyAmount()
     return GetMoney(&gSaveBlock1Ptr->money);
 }
 
-static void RemoveShopCurrencyAmount(u16 amount)
+static void RemoveShopCurrencyAmount(u32 amount)
 {
     if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
@@ -1930,5 +1930,6 @@ static void RemoveShopCurrencyAmount(u16 amount)
     else
     {
         RemoveMoney(&gSaveBlock1Ptr->money, amount);
+        Rogue_OnSpendMoney(amount);
     }
 }

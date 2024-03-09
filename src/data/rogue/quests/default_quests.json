@@ -417,6 +417,56 @@
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
+            },
+
+            {
+                "name": "Shopping Spree",
+                "description": "Spend at least ¥20000 in shops during a single visit to any Rest Stop.",
+                "triggers":
+                [
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "InAdventureEncounterType",
+                        "params": [ "ADVPATH_ROOM_RESTSTOP" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "TotalMoneySpentGreaterThan",
+                        "params": [ "19999" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "quest": "Big Saver" }
+                ]
+            },
+            {
+                "name": "Big Saver",
+                "description": "Exit a Rest Stop with at least ¥50000 in you pocket.",
+                "triggers":
+                [
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "InAdventureEncounterType",
+                        "params": [ "ADVPATH_ROOM_RESTSTOP" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "PlayerMoneyGreaterThan",
+                        "params": [ "49999" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
             }
         ]
     }

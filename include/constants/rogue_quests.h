@@ -43,6 +43,8 @@
 #define QUEST_TRIGGER_ENTER_HALL_OF_FAME    (1 << 9)
 #define QUEST_TRIGGER_MAP_SPECIFIC_EVENT    (1 << 10) // expected to be called from script so can check for specific map in quest conditions
 #define QUEST_TRIGGER_POKEDEX_UPDATE        (1 << 11) 
+#define QUEST_TRIGGER_ENTER_ENCOUNTER       (1 << 12) // on warp into encounter map
+#define QUEST_TRIGGER_EXIT_ENCOUNTER        (1 << 13) // on warp out of encounter map
 
 #define QUEST_TRIGGER_ANY_BATTLE_START      (QUEST_TRIGGER_WILD_BATTLE_START | QUEST_TRIGGER_TRAINER_BATTLE_START)
 

@@ -39,226 +39,226 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         .sortIndex = 0,
     },
 
-    [QUEST_FirstAdventure] = 
-    {
-        .title = _("To adventure!"),
-        .desc = _(
-                    "Embark on your first\n"
-                    "adventure!"
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksShops },
-        },
-        .unlockedQuests = { 
-            QUEST_WobFate
-        }
-    },
+    //[QUEST_FirstAdventure] = 
+    //{
+    //    .title = _("To adventure!"),
+    //    .desc = _(
+    //                "Embark on your first\n"
+    //                "adventure!"
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
+    //        { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+    //        { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksShops },
+    //    },
+    //    .unlockedQuests = { 
+    //        QUEST_WobFate
+    //    }
+    //},
 
-    [QUEST_Gym1] = 
-    {
-        .title = _("BADGE 1"),
-        .desc = _(
-                    "Defeat the 1st GYM."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PECHA_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM01, 1 } },
-        }
-    },
-    [QUEST_Gym2] = 
-    {
-        .title = _("BADGE 2"),
-        .desc = _(
-                    "Defeat the 2nd GYM."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PERSIM_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM05, 1 } },
-        }
-    },
-    [QUEST_Gym3] = 
-    {
-        .title = _("BADGE 3"),
-        .desc = _(
-                    "Defeat the 3rd GYM."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RAWST_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM06, 1 } },
-        }
-    },
-    [QUEST_Gym4] = 
-    {
-        .title = _("BADGE 4"),
-        .desc = _(
-                    "Defeat the 4th GYM."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHERI_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM04, 1 } },
-        }
-    },
-    [QUEST_Gym5] = 
-    {
-        .title = _("BADGE 5"),
-        .desc = _(
-                    "Defeat the 5th GYM."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ASPEAR_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM08, 1 } },
-        }
-    },
-    [QUEST_Gym6] = 
-    {
-        .title = _("BADGE 6"),
-        .desc = _(
-                    "Defeat the 6th GYM."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHESTO_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM02, 1 } },
-        }
-    },
-    [QUEST_Gym7] = 
-    {
-        .title = _("BADGE 7"),
-        .desc = _(
-                    "Defeat the 7th GYM."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LEPPA_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM07, 1 } },
-        }
-    },
-    [QUEST_Gym8] = 
-    {
-        .title = _("BADGE 8"),
-        .desc = _(
-                    "Defeat the 8th GYM."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SITRUS_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM03, 1 } },
-        }
-    },
+    //[QUEST_Gym1] = 
+    //{
+    //    .title = _("BADGE 1"),
+    //    .desc = _(
+    //                "Defeat the 1st GYM."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PECHA_BERRY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM01, 1 } },
+    //    }
+    //},
+    //[QUEST_Gym2] = 
+    //{
+    //    .title = _("BADGE 2"),
+    //    .desc = _(
+    //                "Defeat the 2nd GYM."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PERSIM_BERRY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM05, 1 } },
+    //    }
+    //},
+    //[QUEST_Gym3] = 
+    //{
+    //    .title = _("BADGE 3"),
+    //    .desc = _(
+    //                "Defeat the 3rd GYM."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RAWST_BERRY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM06, 1 } },
+    //    }
+    //},
+    //[QUEST_Gym4] = 
+    //{
+    //    .title = _("BADGE 4"),
+    //    .desc = _(
+    //                "Defeat the 4th GYM."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHERI_BERRY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM04, 1 } },
+    //    }
+    //},
+    //[QUEST_Gym5] = 
+    //{
+    //    .title = _("BADGE 5"),
+    //    .desc = _(
+    //                "Defeat the 5th GYM."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ASPEAR_BERRY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM08, 1 } },
+    //    }
+    //},
+    //[QUEST_Gym6] = 
+    //{
+    //    .title = _("BADGE 6"),
+    //    .desc = _(
+    //                "Defeat the 6th GYM."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHESTO_BERRY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM02, 1 } },
+    //    }
+    //},
+    //[QUEST_Gym7] = 
+    //{
+    //    .title = _("BADGE 7"),
+    //    .desc = _(
+    //                "Defeat the 7th GYM."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LEPPA_BERRY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM07, 1 } },
+    //    }
+    //},
+    //[QUEST_Gym8] = 
+    //{
+    //    .title = _("BADGE 8"),
+    //    .desc = _(
+    //                "Defeat the 8th GYM."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SITRUS_BERRY, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HM03, 1 } },
+    //    }
+    //},
 
-    [QUEST_GymChallenge] = 
-    {
-        .title = _("Gym Challenge"),
-        .desc = _(
-                    "Defeat the first 4\n"
-                    "GYM leaders."
-                ),
-        .flags = QUEST_FLAGS_REPEATABLE,
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
-        }
-    },
-    [QUEST_GymMaster] = 
-    {
-        .title = _("Gym Master"),
-        .desc = _(
-                    "Defeat all 8\n"
-                    "GYM leaders."
-                ),
-        .flags = QUEST_FLAGS_REPEATABLE,
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
-        }
-    },
-    [QUEST_EliteMaster] = 
-    {
-        .title = _("Elite Master"),
-        .desc = _(
-                    "Defeat all of the\n"
-                    "Elite 4."
-                ),
-        .flags = QUEST_FLAGS_REPEATABLE,
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } } 
-        }
-    },
-    [QUEST_Champion] = 
-    {
-        .title = _("The Champion"),
-        .desc = _(
-                    "Defeat the final\n"
-                    "champion."
-                ),
-        .flags = QUEST_FLAGS_REPEATABLE,
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } } 
-        },
-        .unlockedQuests = { 
-            QUEST_NORMAL_Champion, 
-            QUEST_FIGHTING_Champion, 
-            QUEST_FLYING_Champion, 
-            QUEST_POISON_Champion, 
-            QUEST_GROUND_Champion, 
-            QUEST_ROCK_Champion, 
-            QUEST_BUG_Champion, 
-            QUEST_GHOST_Champion, 
-            QUEST_STEEL_Champion, 
-            QUEST_FIRE_Champion, 
-            QUEST_WATER_Champion, 
-            QUEST_GRASS_Champion, 
-            QUEST_ELECTRIC_Champion, 
-            QUEST_PSYCHIC_Champion, 
-            QUEST_ICE_Champion, 
-            QUEST_DRAGON_Champion, 
-            QUEST_DARK_Champion, 
-#ifdef ROGUE_EXPANSION
-            QUEST_FAIRY_Champion,
-#endif
-        }
-    },
+    //[QUEST_GymChallenge] = 
+    //{
+    //    .title = _("Gym Challenge"),
+    //    .desc = _(
+    //                "Defeat the first 4\n"
+    //                "GYM leaders."
+    //            ),
+    //    .flags = QUEST_FLAGS_REPEATABLE,
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
+    //        { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
+    //    }
+    //},
+    //[QUEST_GymMaster] = 
+    //{
+    //    .title = _("Gym Master"),
+    //    .desc = _(
+    //                "Defeat all 8\n"
+    //                "GYM leaders."
+    //            ),
+    //    .flags = QUEST_FLAGS_REPEATABLE,
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
+    //        { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } } 
+    //    }
+    //},
+    //[QUEST_EliteMaster] = 
+    //{
+    //    .title = _("Elite Master"),
+    //    .desc = _(
+    //                "Defeat all of the\n"
+    //                "Elite 4."
+    //            ),
+    //    .flags = QUEST_FLAGS_REPEATABLE,
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
+    //        { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } } 
+    //    }
+    //},
+//    [QUEST_Champion] = 
+//    {
+//        .title = _("The Champion"),
+//        .desc = _(
+//                    "Defeat the final\n"
+//                    "champion."
+//                ),
+//        .flags = QUEST_FLAGS_REPEATABLE,
+//        .rewards = { 
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 3 } },
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } } 
+//        },
+//        .unlockedQuests = { 
+//            QUEST_NORMAL_Champion, 
+//            QUEST_FIGHTING_Champion, 
+//            QUEST_FLYING_Champion, 
+//            QUEST_POISON_Champion, 
+//            QUEST_GROUND_Champion, 
+//            QUEST_ROCK_Champion, 
+//            QUEST_BUG_Champion, 
+//            QUEST_GHOST_Champion, 
+//            QUEST_STEEL_Champion, 
+//            QUEST_FIRE_Champion, 
+//            QUEST_WATER_Champion, 
+//            QUEST_GRASS_Champion, 
+//            QUEST_ELECTRIC_Champion, 
+//            QUEST_PSYCHIC_Champion, 
+//            QUEST_ICE_Champion, 
+//            QUEST_DRAGON_Champion, 
+//            QUEST_DARK_Champion, 
+//#ifdef ROGUE_EXPANSION
+//            QUEST_FAIRY_Champion,
+//#endif
+//        }
+//    },
     
-    [QUEST_MeetPokabbie] = 
-    {
-        .title = _("Post Game"),
-        .desc = _(
-                    "Meet ??? in ??? to activate\n"
-                    "post-game content."
-                ),
-        .flags = QUEST_FLAGS_ACTIVE_IN_HUB,
-        .rewards = {
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STARF_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 1 } },
-#else
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 1 } },
-#endif
-        },
-        .unlockedQuests = { 
-            QUEST_CampaignTease,
-            QUEST_GauntletMode,
-            QUEST_KantoMode,
-#ifdef ROGUE_EXPANSION
-
-            QUEST_MegaEvo,
-            QUEST_ZMove,
-            QUEST_ShayminItem,
-            QUEST_HoopaItem,
-            QUEST_NatureItem,
-            QUEST_DeoxysItem,
-#endif
-        }
-    },
+//    [QUEST_MeetPokabbie] = 
+//    {
+//        .title = _("Post Game"),
+//        .desc = _(
+//                    "Meet ??? in ??? to activate\n"
+//                    "post-game content."
+//                ),
+//        .flags = QUEST_FLAGS_ACTIVE_IN_HUB,
+//        .rewards = {
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STARF_BERRY, 1 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 1 } },
+//#else
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SALAC_BERRY, 1 } },
+//#endif
+//        },
+//        .unlockedQuests = { 
+//            QUEST_CampaignTease,
+//            QUEST_GauntletMode,
+//            QUEST_KantoMode,
+//#ifdef ROGUE_EXPANSION
+//
+//            QUEST_MegaEvo,
+//            QUEST_ZMove,
+//            QUEST_ShayminItem,
+//            QUEST_HoopaItem,
+//            QUEST_NatureItem,
+//            QUEST_DeoxysItem,
+//#endif
+//        }
+//    },
 
     [QUEST_CampaignTease] = 
     {
@@ -275,84 +275,84 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         }
     },
 
-    [QUEST_Collector1] = 
-    {
-        .title = _("Collector"),
-        .desc = _(
-                    "Fill out 15 POKéDEX\n"
-                    "entries."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksSafari },
-        },
-        .unlockedQuests = { 
-            QUEST_Collector2,
-            QUEST_CollectorLegend,
-        }
-    },
-    [QUEST_Collector2] = 
-    {
-        .title = _("Collector +"),
-        .desc = _(
-                    "Fill out 100 POKéDEX\n"
-                    "entries."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_MEW, 7, FALSE } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveSafariLimiter },
-        },
-        .unlockedQuests = { 
-            QUEST_ShinyOnly,
-        }
-    },
-    [QUEST_CollectorLegend] = 
-    {
-        .title = _("Collector X"),
-        .desc = _(
-                    "Defeat the Elite 4\n"
-                    "with a Legendary POKéMON\n"
-                    "in your party."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveLegendarySafari },
-        },
-        .unlockedQuests = { 
-            QUEST_LegendOnly
-        }
-    },
+    //[QUEST_Collector1] = 
+    //{
+    //    .title = _("Collector"),
+    //    .desc = _(
+    //                "Fill out 15 POKéDEX\n"
+    //                "entries."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+    //        { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksSafari },
+    //    },
+    //    .unlockedQuests = { 
+    //        QUEST_Collector2,
+    //        QUEST_CollectorLegend,
+    //    }
+    //},
+    //[QUEST_Collector2] = 
+    //{
+    //    .title = _("Collector +"),
+    //    .desc = _(
+    //                "Fill out 100 POKéDEX\n"
+    //                "entries."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+    //        { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_MEW, 7, FALSE } },
+    //        { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveSafariLimiter },
+    //    },
+    //    .unlockedQuests = { 
+    //        QUEST_ShinyOnly,
+    //    }
+    //},
+    //[QUEST_CollectorLegend] = 
+    //{
+    //    .title = _("Collector X"),
+    //    .desc = _(
+    //                "Defeat the Elite 4\n"
+    //                "with a Legendary POKéMON\n"
+    //                "in your party."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+    //        { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksLegendarySafari, .giveText=gText_GiveLegendarySafari },
+    //    },
+    //    .unlockedQuests = { 
+    //        QUEST_LegendOnly
+    //    }
+    //},
 
-    [QUEST_ShoppingSpree] = 
-    {
-        .title = _("Shop Spree"),
-        .desc = _(
-                    "Spend at least ¥20000\n"
-                    "In a single visit to any\n"
-                    "REST STOP."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 2 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksTravellingMart },
-        },
-        .unlockedQuests = { 
-            QUEST_BigSaver
-        }
-    },
-    [QUEST_BigSaver] = 
-    {
-        .title = _("Big Saver"),
-        .desc = _(
-                    "Exit a REST STOP with\n"
-                    "¥50000 in your pocket."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_AMULET_COIN, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 3 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksTravellingBank },
-        }
-    },
+    //[QUEST_ShoppingSpree] = 
+    //{
+    //    .title = _("Shop Spree"),
+    //    .desc = _(
+    //                "Spend at least ¥20000\n"
+    //                "In a single visit to any\n"
+    //                "REST STOP."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 2 } },
+    //        { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksTravellingMart },
+    //    },
+    //    .unlockedQuests = { 
+    //        QUEST_BigSaver
+    //    }
+    //},
+    //[QUEST_BigSaver] = 
+    //{
+    //    .title = _("Big Saver"),
+    //    .desc = _(
+    //                "Exit a REST STOP with\n"
+    //                "¥50000 in your pocket."
+    //            ),
+    //    .rewards = { 
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_AMULET_COIN, 1 } },
+    //        { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_STAR_PIECE, 3 } },
+    //        { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksTravellingBank },
+    //    }
+    //},
     
     [QUEST_Bike1] = 
     {

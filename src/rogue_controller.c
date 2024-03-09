@@ -132,6 +132,7 @@ struct RogueLocalData
     struct RogueGameShow gameShow;
     struct RogueCatchingContest catchingContest;
     RAND_TYPE rngSeedToRestore;
+    u32 totalMoneySpentOnMap;
     u16 wildEncounterHistoryBuffer[3];
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
@@ -4466,8 +4467,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             // Update VARs
             VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.enteredRoomCounter);
             VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, Rogue_CalculateBossMonLvl());
+
+            RogueQuest_OnTrigger(QUEST_TRIGGER_ENTER_ENCOUNTER);
         }
     }
+
+    gRogueLocal.totalMoneySpentOnMap = 0;
 
     FollowMon_OnWarp();
     QuestNotify_OnWarp(warp);
@@ -5542,6 +5547,16 @@ void Rogue_OnItemUse(u16 itemId)
     //if (gMain.inBattle)
     //{
     //}
+}
+
+void Rogue_OnSpendMoney(u32 money)
+{
+    gRogueLocal.totalMoneySpentOnMap += money;
+}
+
+u32 Rogue_GetTotalSpentOnActiveMap()
+{
+    return gRogueLocal.totalMoneySpentOnMap;
 }
 
 u16 Rogue_GetBagCapacity()

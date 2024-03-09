@@ -23,6 +23,7 @@
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
 #include "rogue_query.h"
+#include "rogue_quest.h"
 
 
 #define ROOM_TO_WORLD_X 3
@@ -1340,6 +1341,8 @@ u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
             warp->y = ROOM_TO_WARP_Y(gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.y);
         }
 
+        // Trigger before we wipe the room type
+        RogueQuest_OnTrigger(QUEST_TRIGGER_EXIT_ENCOUNTER);
 
         gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
         return ROGUE_WARP_TO_ADVPATH;
