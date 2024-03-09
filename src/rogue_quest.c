@@ -167,7 +167,7 @@ static bool8 CanActivateQuest(u16 questId)
                 return FALSE;
         }
     }
-    else
+    else // QUEST_CONST_IS_MAIN_QUEST || QUEST_CONST_IS_MON_MASTERY
     {
         if(Rogue_GetModeRules()->disableMainQuests)
             return FALSE;
