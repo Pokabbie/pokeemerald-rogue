@@ -175,8 +175,8 @@ const u8 sMenuNameDesc_Affection[] = _(
 
 static u8 const sMenuNameDesc_Rogue[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Enables trainers from the…\n"
-    "Rogue region?\n"
+    "Enables trainers from the… Rogue\n"
+    "region? (Rainbow mode not supported)\n"
 );
 
 static u8 const sMenuNameDesc_Kanto[] = _(

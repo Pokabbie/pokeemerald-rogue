@@ -201,7 +201,7 @@
         "rogue_boss":
         {
             "encounter": "MUS_DP_ENCOUNTER_INTENSE",
-            "battle": "MUS_HG_VS_TRAINER_KANTO",
+            "battle": "MUS_HG_VS_GYM_LEADER_KANTO",
             "victory": "MUS_HG_VICTORY_GYM_LEADER",
             "conditional_redirects":
             [
@@ -222,8 +222,8 @@
         "rogue_elite":
         {
             "encounter": "MUS_DP_ENCOUNTER_ELITE_FOUR",
-            "battle": "MUS_HG_VS_GYM_LEADER_KANTO",
-            "victory": "MUS_HG_VICTORY_GYM_LEADER"
+            "battle": "MUS_DP_VS_ELITE_FOUR",
+            "victory": "MUS_DP_VICTORY_ELITE_FOUR"
         },
         "rogue_champion":
         {
