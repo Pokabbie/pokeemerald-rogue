@@ -4339,10 +4339,15 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     {
                         // Enable random trader
                         FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+                        // Update tracking flags
+                        FlagSet(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
                     }
                     else
                     {
                         FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+                        FlagClear(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
                     }
                     break;
                 }

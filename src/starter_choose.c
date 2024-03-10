@@ -357,8 +357,9 @@ u16 GetStarterPokemon(u16 chosenStarterId)
         VAR_ROGUE_STARTER2
     };
 
-    if (chosenStarterId > STARTER_MON_COUNT)
-        chosenStarterId = 0;
+    if (chosenStarterId >= STARTER_MON_COUNT)
+        return SPECIES_NONE;
+
     return VarGet(starterVars[chosenStarterId]);
 }
 
@@ -556,7 +557,7 @@ static void Task_AskCancelStarter(u8 taskId)
     AddTextPrinterParameterized(0, FONT_NORMAL, gText_CancelStarterChoice, 0, 1, 0, NULL);
     ScheduleBgCopyTilemapToVram(0);
     CreateYesNoMenu(&sWindowTemplate_ConfirmStarter, 0x2A8, 0xD, 0);
-    gTasks[taskId].func = Task_HandleConfirmStarterInput;
+    gTasks[taskId].func = Task_HandleCancelStarterInput;
 }
 
 static void Task_HandleConfirmStarterInput(u8 taskId)

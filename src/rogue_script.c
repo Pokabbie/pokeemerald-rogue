@@ -1445,5 +1445,5 @@ void Rogue_GiveCatchingContestMon()
 
 void Rogue_HasUnlockedRandomStarterTrade()
 {
-    gSpecialVar_Result = RogueQuest_HasCollectedRewards(QUEST_ID_TO_ADVENTUREEMARK);
+    gSpecialVar_Result = RogueQuest_HasCollectedRewards(QUEST_ID_MR_RANDOMAN);
 }
