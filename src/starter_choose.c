@@ -10,6 +10,7 @@
 #include "palette.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "random.h"
 #include "scanline_effect.h"
 #include "sound.h"
 #include "sprite.h"
@@ -39,7 +40,9 @@ static void Task_StarterChoose(u8 taskId);
 static void Task_HandleStarterChooseInput(u8 taskId);
 static void Task_WaitForStarterSprite(u8 taskId);
 static void Task_AskConfirmStarter(u8 taskId);
+static void Task_AskCancelStarter(u8 taskId);
 static void Task_HandleConfirmStarterInput(u8 taskId);
+static void Task_HandleCancelStarterInput(u8 taskId);
 static void Task_DeclineStarter(u8 taskId);
 static void Task_MoveStarterChooseCursor(u8 taskId);
 static void Task_CreateStarterLabel(u8 taskId);
@@ -108,13 +111,6 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
     {0, 9},
     {16, 10},
     {8, 4},
-};
-
-static const u16 sStarterMon[STARTER_MON_COUNT] =
-{
-    SPECIES_TREECKO,
-    SPECIES_TORCHIC,
-    SPECIES_MUDKIP,
 };
 
 static const struct BgTemplate sBgTemplates[3] =
@@ -350,9 +346,17 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
 // .text
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
-    if (chosenStarterId > STARTER_MON_COUNT)
-        chosenStarterId = 0;
-    return sStarterMon[chosenStarterId];
+    u16 starterVars[] = 
+    {
+        VAR_ROGUE_STARTER0,
+        VAR_ROGUE_STARTER1,
+        VAR_ROGUE_STARTER2
+    };
+
+    if (chosenStarterId >= STARTER_MON_COUNT)
+        return SPECIES_NONE;
+
+    return VarGet(starterVars[chosenStarterId]);
 }
 
 static void VblankCB_StarterChoose(void)
@@ -440,7 +444,7 @@ void CB2_ChooseStarter(void)
     ShowBg(3);
 
     taskId = CreateTask(Task_StarterChoose, 0);
-    gTasks[taskId].tStarterSelection = 1;
+    gTasks[taskId].tStarterSelection = Random() % STARTER_MON_COUNT;
 
     // Create hand sprite
     spriteId = CreateSprite(&sSpriteTemplate_Hand, 120, 56, 2);
@@ -503,6 +507,14 @@ static void Task_HandleStarterChooseInput(u8 taskId)
         gTasks[taskId].tPkmnSpriteId = spriteId;
         gTasks[taskId].func = Task_WaitForStarterSprite;
     }
+    else if (JOY_NEW(B_BUTTON))
+    {
+        u8 spriteId;
+
+        ClearStarterLabel();
+
+        gTasks[taskId].func = Task_AskCancelStarter;
+    }
     else if (JOY_NEW(DPAD_LEFT) && selection > 0)
     {
         gTasks[taskId].tStarterSelection--;
@@ -535,6 +547,15 @@ static void Task_AskConfirmStarter(u8 taskId)
     gTasks[taskId].func = Task_HandleConfirmStarterInput;
 }
 
+static void Task_AskCancelStarter(u8 taskId)
+{
+    FillWindowPixelBuffer(0, PIXEL_FILL(1));
+    AddTextPrinterParameterized(0, FONT_NORMAL, gText_CancelStarterChoice, 0, 1, 0, NULL);
+    ScheduleBgCopyTilemapToVram(0);
+    CreateYesNoMenu(&sWindowTemplate_ConfirmStarter, 0x2A8, 0xD, 0);
+    gTasks[taskId].func = Task_HandleCancelStarterInput;
+}
+
 static void Task_HandleConfirmStarterInput(u8 taskId)
 {
     u8 spriteId;
@@ -557,6 +578,26 @@ static void Task_HandleConfirmStarterInput(u8 taskId)
         spriteId = gTasks[taskId].tCircleSpriteId;
         FreeOamMatrix(gSprites[spriteId].oam.matrixNum);
         DestroySprite(&gSprites[spriteId]);
+        gTasks[taskId].func = Task_DeclineStarter;
+        break;
+    }
+}
+
+static void Task_HandleCancelStarterInput(u8 taskId)
+{
+    u8 spriteId;
+
+    switch (Menu_ProcessInputNoWrapClearOnChoose())
+    {
+    case 0:  // YES
+        // Return the starter choice and exit.
+        gSpecialVar_Result = STARTER_MON_COUNT;
+        ResetAllPicSprites();
+        SetMainCallback2(gMain.savedCallback);
+        break;
+    case 1:  // NO
+    case MENU_B_PRESSED:
+        PlaySE(SE_SELECT);
         gTasks[taskId].func = Task_DeclineStarter;
         break;
     }

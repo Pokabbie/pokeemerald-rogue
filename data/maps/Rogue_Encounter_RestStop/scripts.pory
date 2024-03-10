@@ -68,6 +68,7 @@ script Rogue_Encounter_RestStop_RandomMan
                     completequest(QUEST_MrRandoman)
                     //deactivatequest(QUEST_ChaosChampion) // We have to trade entire team for this to be valid
                     setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
+                    clearflag(FLAG_ROGUE_RANDOM_TRADE_WAS_FULL_PARTY)
                     removeobject(NPC_RANDOM_MAN)
                 }
             }
@@ -93,6 +94,7 @@ script Rogue_Encounter_RestStop_RandomMan
 
             completequest(QUEST_MrRandoman)
             setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
+            setflag(FLAG_ROGUE_RANDOM_TRADE_WAS_FULL_PARTY)
             removeobject(NPC_RANDOM_MAN)
 
         case MULTI_B_PRESSED:

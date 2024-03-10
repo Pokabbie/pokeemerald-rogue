@@ -10,13 +10,14 @@
 #define QUEST_CONST_UNLOCKED_BY_DEFAULT     (1 << 0)
 #define QUEST_CONST_IS_MAIN_QUEST           (1 << 1)
 #define QUEST_CONST_IS_CHALLENGE            (1 << 2)
-#define QUEST_CONST_ACTIVE_IN_RUN           (1 << 3)
-#define QUEST_CONST_ACTIVE_IN_HUB           (1 << 4)
+#define QUEST_CONST_IS_MON_MASTERY          (1 << 3)
+#define QUEST_CONST_ACTIVE_IN_RUN           (1 << 4)
+#define QUEST_CONST_ACTIVE_IN_HUB           (1 << 5)
 
 #define QUEST_CONST_ACTIVE_ALWAYS           (QUEST_CONST_ACTIVE_IN_RUN | QUEST_CONST_ACTIVE_IN_HUB)
 #define QUEST_CONST_MAIN_QUEST_DEFAULT      (QUEST_CONST_IS_MAIN_QUEST)
 #define QUEST_CONST_CHALLENGE_DEFAULT       (QUEST_CONST_IS_CHALLENGE)
-#define QUEST_CONST_MON_MASTERY_DEFAULT     (QUEST_CONST_IS_CHALLENGE) // TODO
+#define QUEST_CONST_MON_MASTERY_DEFAULT     (QUEST_CONST_IS_MON_MASTERY)
 
 // State flags
 //
@@ -42,6 +43,8 @@
 #define QUEST_TRIGGER_ENTER_HALL_OF_FAME    (1 << 9)
 #define QUEST_TRIGGER_MAP_SPECIFIC_EVENT    (1 << 10) // expected to be called from script so can check for specific map in quest conditions
 #define QUEST_TRIGGER_POKEDEX_UPDATE        (1 << 11) 
+#define QUEST_TRIGGER_ENTER_ENCOUNTER       (1 << 12) // on warp into encounter map
+#define QUEST_TRIGGER_EXIT_ENCOUNTER        (1 << 13) // on warp out of encounter map
 
 #define QUEST_TRIGGER_ANY_BATTLE_START      (QUEST_TRIGGER_WILD_BATTLE_START | QUEST_TRIGGER_TRAINER_BATTLE_START)
 

@@ -42,6 +42,7 @@ extern const u8 gText_DifficultyPresetCustom[];
 
 extern const u8 gText_DifficultyEnabled[];
 extern const u8 gText_DifficultyDisabled[];
+extern const u8 gText_DifficultyModeActive[];
 
 extern const u8 gText_DifficultyExpAll[];
 extern const u8 gText_DifficultyOverLvl[];
@@ -97,6 +98,8 @@ static u8 const sMenuName_BattleFormatMixed[] = _("{COLOR GREEN}{SHADOW LIGHT_GR
 static u8 const sMenuName_GameMode_Standard[] = _("Standard");
 static u8 const sMenuName_GameMode_Rainbow[] = _("Rainbow");
 static u8 const sMenuName_GameMode_Official[] = _("Official");
+static u8 const sMenuName_GameMode_Gauntlet[] = _("Gauntlet");
+static u8 const sMenuName_GameMode_RainbowGauntlet[] = _("Rainbow Gauntlet");
 
 static u8 const sMenuName_Affection[] = _("Affection FX");
 
@@ -172,8 +175,8 @@ const u8 sMenuNameDesc_Affection[] = _(
 
 static u8 const sMenuNameDesc_Rogue[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Enables trainers from the…\n"
-    "Rogue region?\n"
+    "Enables trainers from the… Rogue\n"
+    "region? (Rainbow mode not supported)\n"
 );
 
 static u8 const sMenuNameDesc_Kanto[] = _(
@@ -220,7 +223,7 @@ static u8 const sMenuNameDesc_Galar[] = _(
 
 static u8 const sMenuNameDesc_GameMode_Standard[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Base Adventure with no custom rules."
+    "Typical Adventure with no custom rules."
 );
 static u8 const sMenuNameDesc_GameMode_Rainbow[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -233,6 +236,17 @@ static u8 const sMenuNameDesc_GameMode_Official[] = _(
     "Mighty Trainers appear in the order they\n"
     "appear in their official games.\n"
     "(Disables Challenges)"
+);
+static u8 const sMenuNameDesc_GameMode_Gauntlet[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Prepare your team and then fight Mighty\n"
+    "Trainers back to back without a chance\n"
+    "to catch any {PKMN}. (Disables Challenges)"
+);
+static u8 const sMenuNameDesc_GameMode_RainbowGauntlet[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Combined effects of both Rainbow and\n"
+    "Gauntlet modes."
 );
 
 #ifdef ROGUE_DEBUG
@@ -294,6 +308,8 @@ enum
     MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
     MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW,
     MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL,
+    MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET,
+    MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET,
 
 #ifdef ROGUE_DEBUG
     MENUITEM_MENU_DEBUG_SUBMENU,
@@ -612,6 +628,20 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = GameMode_ProcessInput,
         .drawChoices = GameMode_DrawChoices
     },
+    [MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET] = 
+    {
+        .itemName = sMenuName_GameMode_Gauntlet,
+        .SINGLE_DESC(sMenuNameDesc_GameMode_Gauntlet),
+        .processInput = GameMode_ProcessInput,
+        .drawChoices = GameMode_DrawChoices
+    },
+    [MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET] = 
+    {
+        .itemName = sMenuName_GameMode_RainbowGauntlet,
+        .SINGLE_DESC(sMenuNameDesc_GameMode_RainbowGauntlet),
+        .processInput = GameMode_ProcessInput,
+        .drawChoices = GameMode_DrawChoices
+    },
 
 #ifdef ROGUE_DEBUG
     [MENUITEM_MENU_DEBUG_SUBMENU] = 
@@ -797,6 +827,8 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
             MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW,
             MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL,
+            MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET,
+            MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET,
             MENUITEM_CANCEL
         }
     },
@@ -1289,7 +1321,7 @@ static u8 Toggle_ProcessInput(u8 menuOffset, u8 selection)
     if(ShouldSkipInput())
         return selection;
 
-    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT | A_BUTTON ))
     {
         selection ^= 1;
         sArrowPressed = TRUE;
@@ -1368,7 +1400,16 @@ static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection)
 
 static u8 GameMode_ProcessInput(u8 menuOffset, u8 selection)
 {
-    return Toggle_ProcessInput(menuOffset, selection);
+    if(ShouldSkipInput())
+        return selection;
+
+    if (!selection && JOY_NEW(A_BUTTON))
+    {
+        selection ^= 1;
+        sArrowPressed = TRUE;
+    }
+
+    return selection;
 }
 
 static void GameMode_DrawChoices(u8 menuOffset, u8 selection)
@@ -1379,7 +1420,7 @@ static void GameMode_DrawChoices(u8 menuOffset, u8 selection)
     // Only draw enabled
 
     if(selection != 0)
-        DrawOptionMenuChoice(gText_DifficultyEnabled, 104, menuOffset * YPOS_SPACING, 0);
+        DrawOptionMenuChoice(gText_DifficultyModeActive, 104, menuOffset * YPOS_SPACING, 0);
 }
 
 #ifdef ROGUE_DEBUG
@@ -1672,6 +1713,8 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:
     case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW:
     case MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET:
         return Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM) == (ROGUE_GAME_MODE_STANDARD + menuItem - MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD);
 
 #ifdef ROGUE_DEBUG
@@ -1821,6 +1864,8 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
     case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:
     case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW:
     case MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET:
         if(value != 0)
             Rogue_SetConfigRange(CONFIG_RANGE_GAME_MODE_NUM, ROGUE_GAME_MODE_STANDARD + menuItem - MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD);
         else

@@ -177,10 +177,6 @@
 //
 #define ROGUE_ADVPATH_ROOM_CAPACITY 32
 
-#define ROGUE_ADV_STANDARD      0
-#define ROGUE_ADV_RAINBOW       1
-#define ROGUE_ADV_GAUNTLET      2
-
 // AdvPath
 //
 #define ADVPATH_ROOM_NONE               0
@@ -516,10 +512,12 @@
 
 // Game Modes
 //
-#define ROGUE_GAME_MODE_STANDARD    0
-#define ROGUE_GAME_MODE_RAINBOW     1
-#define ROGUE_GAME_MODE_OFFICIAL    2
-#define ROGUE_GAME_MODE_COUNT       3
+#define ROGUE_GAME_MODE_STANDARD                0
+#define ROGUE_GAME_MODE_RAINBOW                 1
+#define ROGUE_GAME_MODE_OFFICIAL                2
+#define ROGUE_GAME_MODE_GAUNTLET                3
+#define ROGUE_GAME_MODE_RAINBOW_GAUNTLET        4
+#define ROGUE_GAME_MODE_COUNT                   5
 
 // Order
 #define TRAINER_ORDER_DEFAULT                   0

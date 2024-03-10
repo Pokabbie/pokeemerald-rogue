@@ -131,6 +131,30 @@ script Rogue_QuickSaveVersionUpdate
     release
 }
 
+script Rogue_ForceNicknameMon
+{
+    lock
+    setvar(VAR_0x8004, 0)
+    call(Common_EventScript_NameReceivedPartyMon)
+    release
+}
+
+script Rogue_AskNicknameMon
+{
+    lock
+
+    bufferspeciesname(STR_VAR_1, VAR_STARTER_SWAP_SPECIES)
+    msgbox(format("Give {STR_VAR_1} a nickname?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_0x8004, 0)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+
+    release
+}
+
 script Rogue_RetireFromRun
 {
     lockall

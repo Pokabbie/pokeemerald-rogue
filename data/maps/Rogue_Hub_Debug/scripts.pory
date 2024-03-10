@@ -292,3 +292,10 @@ script Rogue_Debug_HealingFlask
 
     release
 }
+
+script Rogue_Debug_ChooseStarter
+{
+    lock
+    special(ChooseStarter)
+    release
+}

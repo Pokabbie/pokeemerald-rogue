@@ -483,12 +483,12 @@
 #define FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH  0x1B8
 #define FLAG_MOVE_TUTOR_TAUGHT_DOUBLE_EDGE   0x1B9
 #define FLAG_MOVE_TUTOR_TAUGHT_EXPLOSION     0x1BA
-#define FLAG_DEFEATED_REGIROCK               0x1BB
-#define FLAG_DEFEATED_REGICE                 0x1BC
-#define FLAG_DEFEATED_REGISTEEL              0x1BD
-#define FLAG_DEFEATED_KYOGRE                 0x1BE
-#define FLAG_DEFEATED_GROUDON                0x1BF
-#define FLAG_DEFEATED_RAYQUAZA               0x1C0
+#define FLAG_UNUSED_0x1BB                    0x1BB
+#define FLAG_UNUSED_0x1BC                    0x1BC
+#define FLAG_UNUSED_0x1BD                    0x1BD
+#define FLAG_UNUSED_0x1BE                    0x1BE
+#define FLAG_UNUSED_0x1BF                    0x1BF
+#define FLAG_UNUSED_0x1C0                    0x1C0
 #define FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE 0x1C1
 #define FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE 0x1C2
 #define FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE 0x1C3
@@ -518,8 +518,8 @@
 #define FLAG_UNUSED_0x1DA                    0x1DA // Unused Flag
 
 #define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
-#define FLAG_DEFEATED_HO_OH                  0x1DC
-#define FLAG_DEFEATED_LUGIA                  0x1DD
+#define FLAG_UNUSED_0x1DC                    0x1DC
+#define FLAG_UNUSED_0x1DD                    0x1DD
 
 #define FLAG_DEBUG_NO_ENCOUNTER              0x1DE // Unused Flag
 #define FLAG_DEBUG_NO_TRAINER_SEE            0x1DF // Unused Flag
@@ -675,7 +675,7 @@
 #define FLAG_ROGUE_GAUNTLET_MODE             0x26E
 #define FLAG_ROGUE_EXPANSION_ACTIVE          0x26F
 #define FLAG_ROGUE_RARE_ITEM_MART_DISABLED   0x270
-#define FLAG_ROGUE_RANDOM_TRADE_DISABLED     0x271
+#define FLAG_UNUSED_0x271                    0x271
 #define FLAG_UNUSED_0x272                    0x272
 #define FLAG_ROGUE_SCOTT_GIFTED_EXTRAS       0x273
 #define FLAG_ROGUE_DEBUG_DISABLED            0x274
@@ -684,9 +684,9 @@
 #define FLAG_ROGUE_QUESTS_ASK_FOR_RETIRE     0x277
 #define FLAG_ROGUE_QUESTS_NEVER_ASK_FOR_RETIRE  0x278
 #define FLAG_UNUSED_0x279                    0x279
-#define FLAG_UNUSED_0x27A                    0x27A
-#define FLAG_UNUSED_0x27B                    0x27B
-#define FLAG_UNUSED_0x27C                    0x27C
+#define FLAG_ROGUE_RANDOM_TRADE_DISABLED     0x27A
+#define FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE   0x27B
+#define FLAG_ROGUE_RANDOM_TRADE_WAS_FULL_PARTY 0x27C
 #define FLAG_UNUSED_0x27D                    0x27D
 #define FLAG_UNUSED_0x27E                    0x27E
 #define FLAG_UNUSED_0x27F                    0x27F

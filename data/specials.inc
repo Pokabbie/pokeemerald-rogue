@@ -262,6 +262,7 @@ gSpecials::
 	def_special Rogue_CatchingContestBegin
 	def_special Rogue_CatchingContestEnd
 	def_special Rogue_GiveCatchingContestMon
+	def_special Rogue_HasUnlockedRandomStarterTrade
 	def_special Rogue_DisplayPopupsFromScript
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueAdv_ApplyAdventureMetatiles

@@ -40,6 +40,12 @@ static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigg
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PokedexEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_InAdventureEncounterType(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_TotalMoneySpentGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PlayerMoneyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_RandomanWasUsed(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_RandomanWasActive(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQuestTrigger const* trigger);
 
 bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 
@@ -167,7 +173,7 @@ static bool8 CanActivateQuest(u16 questId)
                 return FALSE;
         }
     }
-    else
+    else // QUEST_CONST_IS_MAIN_QUEST || QUEST_CONST_IS_MON_MASTERY
     {
         if(Rogue_GetModeRules()->disableMainQuests)
             return FALSE;
@@ -775,8 +781,53 @@ static bool8 QuestCondition_PokedexEntryCountGreaterThan(u16 questId, struct Rog
     return RoguePokedex_CountNationalCaughtMons(FLAG_GET_CAUGHT) > count;
 }
 
+static bool8 QuestCondition_InAdventureEncounterType(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+    u16 encounterType;
 
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        encounterType = trigger->params[i];
 
+        if(gRogueAdvPath.currentRoomType == encounterType)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_TotalMoneySpentGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 count = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
+    return Rogue_GetTotalSpentOnActiveMap() > count;
+}
+
+static bool8 QuestCondition_PlayerMoneyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 count = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
+    return GetMoney(&gSaveBlock1Ptr->money) > count;
+}
+
+static bool8 QuestCondition_RandomanWasUsed(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(0);
+    return FlagGet(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE) && FlagGet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+}
+
+static bool8 QuestCondition_RandomanWasActive(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(0);
+    return !!FlagGet(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
+}
+
+static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(0);
+    return !!FlagGet(FLAG_ROGUE_RANDOM_TRADE_WAS_FULL_PARTY);
+}
 
 // old
 extern const u8 gText_QuestRewardGive[];

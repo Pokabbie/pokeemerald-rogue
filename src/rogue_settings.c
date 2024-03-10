@@ -50,6 +50,30 @@ static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] =
         .trainerOrder = TRAINER_ORDER_OFFICIAL,
         .disableChallengeQuests = TRUE,
     },
+    [ROGUE_GAME_MODE_GAUNTLET] = 
+    {
+        .initialLevelOffset = 80,
+        .levelOffsetInterval = 10,
+        .trainerOrder = TRAINER_ORDER_DEFAULT,
+        .disableChallengeQuests = TRUE,
+        .disablePerBadgeLvlCaps = TRUE,
+        .forceEndGameTrainers = TRUE,
+        .forceRandomanAlwaysActive = TRUE,
+        .disableRivalEncounters = TRUE,
+        .generateGauntletAdventurePath = TRUE,
+    },
+    [ROGUE_GAME_MODE_RAINBOW_GAUNTLET] = 
+    {
+        .initialLevelOffset = 80,
+        .levelOffsetInterval = 10,
+        .trainerOrder = TRAINER_ORDER_RAINBOW,
+        .disableChallengeQuests = TRUE,
+        .disablePerBadgeLvlCaps = TRUE,
+        .forceEndGameTrainers = TRUE,
+        .forceRandomanAlwaysActive = TRUE,
+        .disableRivalEncounters = TRUE,
+        .generateGauntletAdventurePath = TRUE,
+    },
 };
 
 EWRAM_DATA struct RogueDifficultyLocal gRogueDifficultyLocal;

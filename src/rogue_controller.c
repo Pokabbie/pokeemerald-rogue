@@ -132,12 +132,14 @@ struct RogueLocalData
     struct RogueGameShow gameShow;
     struct RogueCatchingContest catchingContest;
     RAND_TYPE rngSeedToRestore;
+    u32 totalMoneySpentOnMap;
     u16 wildEncounterHistoryBuffer[3];
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
     bool8 hasValidQuickSave : 1;
     bool8 hasSaveWarningPending : 1;
     bool8 hasVersionUpdateMsgPending : 1;
+    bool8 hasNicknameMonMsgPending : 1;
     bool8 hasBattleEventOccurred : 1;
     bool8 hasUsePlayerTeamTempSave : 1;
     bool8 hasUseEnemyTeamTempSave : 1;
@@ -189,6 +191,7 @@ static void ChooseLegendarysForNewAdventure();
 static void ChooseTeamEncountersForNewAdventure();
 static void RememberPartyHeldItems();
 static void TryRestorePartyHeldItems(bool8 allowThief);
+static void ClearPlayerTeam();
 
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party);
 
@@ -542,7 +545,61 @@ u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 sou
 
 u16 Rogue_ModifyPlayBGM(u16 songNum)
 {
-    if(!Rogue_IsRunActive())
+    if(Rogue_IsRunActive())
+    {
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
+        {
+            u16 mapFlags = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].mapFlags;
+
+            switch (songNum)
+            {
+            case MUS_VS_WILD:
+                if(mapFlags & ROUTE_FLAG_KANTO)
+                    return MUS_RG_VS_WILD;
+
+                else if(mapFlags & ROUTE_FLAG_JOHTO)
+                    return MUS_HG_VS_WILD;
+
+                else if(mapFlags & ROUTE_FLAG_SINNOH)
+                    return MUS_DP_VS_WILD;
+                break;
+
+            case MUS_VICTORY_WILD:
+                if(mapFlags & ROUTE_FLAG_KANTO)
+                    return MUS_RG_VICTORY_WILD;
+
+                else if(mapFlags & ROUTE_FLAG_JOHTO)
+                    return MUS_DP_VICTORY_WILD; // TODO - Fix with HG specific one 
+
+                else if(mapFlags & ROUTE_FLAG_SINNOH)
+                    return MUS_DP_VICTORY_WILD;
+                break;
+
+            case MUS_VS_TRAINER:
+                if(mapFlags & ROUTE_FLAG_KANTO)
+                    return MUS_RG_VS_TRAINER;
+
+                else if(mapFlags & ROUTE_FLAG_JOHTO)
+                    return MUS_HG_VS_TRAINER;
+
+                else if(mapFlags & ROUTE_FLAG_SINNOH)
+                    return MUS_DP_VS_TRAINER;
+                break;
+
+            case MUS_VICTORY_TRAINER:
+                if(mapFlags & ROUTE_FLAG_KANTO)
+                    return MUS_RG_VICTORY_TRAINER;
+    
+                else if(mapFlags & ROUTE_FLAG_JOHTO)
+                    return MUS_HG_VICTORY_TRAINER;
+
+                else if(mapFlags & ROUTE_FLAG_SINNOH)
+                    return MUS_DP_VICTORY_TRAINER;
+                break;
+            }
+        }
+    }
+    else
     {
         if(VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
         {
@@ -2465,6 +2522,17 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
 
             RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
 
+            // Exclude other types in triangle
+            typeFlags = 0;
+            if(i != 0)
+                typeFlags |= MON_TYPE_VAL_TO_FLAGS(sStarterTypeTriangles[typeTriangleOffset * 3 + 0]);
+            if(i != 1)
+                typeFlags |= MON_TYPE_VAL_TO_FLAGS(sStarterTypeTriangles[typeTriangleOffset * 3 + 1]);
+            if(i != 2)
+                typeFlags |= MON_TYPE_VAL_TO_FLAGS(sStarterTypeTriangles[typeTriangleOffset * 3 + 2]);
+
+            RogueMonQuery_IsOfType(QUERY_FUNC_EXCLUDE, typeFlags);
+
             RogueWeightQuery_Begin();
             {
                 RogueWeightQuery_FillWeights(1);
@@ -2489,6 +2557,14 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
     }
 
     return starters;
+}
+
+void Rogue_RandomiseStarters()
+{
+    struct StarterSelectionData starters = SelectStarterMons(FALSE);
+    VarSet(VAR_ROGUE_STARTER0, starters.species[0]);
+    VarSet(VAR_ROGUE_STARTER1, starters.species[1]);
+    VarSet(VAR_ROGUE_STARTER2, starters.species[2]);
 }
 
 static void UNUSED ClearPokemonHeldItems(void)
@@ -2611,7 +2687,7 @@ void Rogue_SetDefaultOptions(void)
 #ifdef ROGUE_DEBUG
     gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
 #else
-    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_SLOW;
+    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
 #endif
     //gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
     //gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
@@ -2621,6 +2697,8 @@ void Rogue_SetDefaultOptions(void)
 extern const u8 Rogue_QuickSaveLoad[];
 extern const u8 Rogue_QuickSaveVersionWarning[];
 extern const u8 Rogue_QuickSaveVersionUpdate[];
+extern const u8 Rogue_ForceNicknameMon[];
+extern const u8 Rogue_AskNicknameMon[];
 
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 {
@@ -2661,6 +2739,15 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
     {
         gRogueLocal.hasVersionUpdateMsgPending = FALSE;
         ScriptContext_SetupScript(Rogue_QuickSaveVersionUpdate);
+        return TRUE;
+    }
+    else if(gRogueLocal.hasNicknameMonMsgPending)
+    {
+        gRogueLocal.hasNicknameMonMsgPending = FALSE;
+        if(Rogue_ShouldSkipAssignNicknameYesNoMessage())
+            ScriptContext_SetupScript(Rogue_ForceNicknameMon);
+        else
+            ScriptContext_SetupScript(Rogue_AskNicknameMon);
         return TRUE;
     }
     else if(!RogueDebug_GetConfigToggle(DEBUG_TOGGLE_ALLOW_SAVE_SCUM) && gRogueLocal.hasQuickLoadPending)
@@ -3022,16 +3109,14 @@ static void ResetFaintedLabMonAtSlot(u16 slot)
 
     struct Pokemon* mon = &gRogueLabEncounterData.party[slot];
 
-    if(slot == VarGet(VAR_STARTER_MON))
+    species = VarGet(VAR_ROGUE_STARTER0 + slot);
+
+    if(species == VarGet(VAR_STARTER_SWAP_SPECIES))
     {
         species = SPECIES_SUNKERN;
     }
-    else
-    {
-        species = VarGet(VAR_ROGUE_STARTER0 + slot);
-    }
 
-    CreateMonWithNature(mon, species, 7, USE_RANDOM_IVS, Random() % NUM_NATURES);
+    CreateMonWithNature(mon, species, STARTER_MON_LEVEL, USE_RANDOM_IVS, Random() % NUM_NATURES);
 }
 
 static void InitialiseFaintedLabMons(void)
@@ -3079,6 +3164,21 @@ static u16 GetPartyStrongLegendary(void)
 
 static void BeginRogueRun_ModifyParty(void)
 {
+    u16 starterSpecies = VarGet(VAR_STARTER_SWAP_SPECIES);
+
+    if(starterSpecies != SPECIES_NONE)
+    {
+        ClearPlayerTeam();
+
+        CreateMon(&gEnemyParty[0], starterSpecies, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+        GiveMonToPlayer(&gEnemyParty[0]);
+        CalculatePlayerPartyCount();
+
+        if(!Rogue_ShouldSkipAssignNickname(&gPlayerParty[0]))
+            gRogueLocal.hasNicknameMonMsgPending = TRUE;
+    }
+
     // Always clear out EVs as we shouldn't have them in the HUB anymore
     {
         u16 i;
@@ -3100,8 +3200,15 @@ static void BeginRogueRun_ModifyParty(void)
                 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, STARTER_MON_LEVEL);
                 SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
 
-                // Partner's can't reappear in safari
-                gPlayerParty[i].rogueExtraData.isSafariIllegal = TRUE;
+                if(starterSpecies != SPECIES_NONE)
+                {
+                    // This mon was just added so it can appear in the safari
+                }
+                else
+                {
+                    // Partner's can't reappear in safari
+                    gPlayerParty[i].rogueExtraData.isSafariIllegal = TRUE;
+                }
 
                 CalculateMonStats(&gPlayerParty[i]);
             }
@@ -3284,12 +3391,13 @@ static void BeginRogueRun(void)
     }
 
     Rogue_SetCurrentDifficulty(GetStartDifficulty());
-    gRogueRun.currentLevelOffset = 3; // assume STARTER_MON_LEVEL == 5 and first boss level is 10
+    gRogueRun.currentLevelOffset = Rogue_GetModeRules()->initialLevelOffset;
     gRogueRun.adventureRoomId = ADVPATH_INVALID_ROOM_ID;
     
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    if(gRogueRun.currentLevelOffset == 0)
     {
-        gRogueRun.currentLevelOffset = 80;
+        // Apply default
+        gRogueRun.currentLevelOffset = 3; // assume STARTER_MON_LEVEL == 5 and first boss level is 10
     }
 
     // Apply some base seed for anything which needs to be randomly setup
@@ -3323,16 +3431,6 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_RUN_COMPLETED);
     FlagClear(FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP);
     FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
-
-    // Enable randoman trader at start
-    if(IsQuestCollected(QUEST_MrRandoman))
-    {
-        FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-    }
-    else
-    {
-        FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-    }
 
     Rogue_PostActivateDesiredCampaign();
 
@@ -3486,6 +3584,7 @@ static void ChooseLegendarysForNewAdventure()
 {
     bool8 spawnRoamer = RogueRandomChance(50, 0);
     bool8 spawnMinor = RogueRandomChance(75, 0);
+    bool8 spawnBox = TRUE;
 
     // Always have 1
     if(!spawnRoamer && !spawnMinor)
@@ -3494,6 +3593,15 @@ static void ChooseLegendarysForNewAdventure()
             spawnRoamer = TRUE;
         else
             spawnMinor = TRUE;
+    }
+
+    if(Rogue_GetModeRules()->generateGauntletAdventurePath)
+    {
+        // Gauntlet always generates a minor legendary only
+        spawnRoamer = FALSE;
+        spawnMinor = TRUE;
+        spawnBox = FALSE;
+        
     }
 
     // DEBUG - Force all legends to spawn
@@ -3510,18 +3618,21 @@ static void ChooseLegendarysForNewAdventure()
 
     // Prioritise box legend first, then roamer, then finally minor
 
-    gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(3, 0);
-    gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] = SelectLegendarySpecies(ADVPATH_LEGEND_BOX);
+    if(spawnBox)
+    {
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(3, 0);
+        gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] = SelectLegendarySpecies(ADVPATH_LEGEND_BOX);
+    }
 
     if(spawnRoamer)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = 1 + RogueRandomRange(5, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : 1 + RogueRandomRange(5, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_ROAMER] = SelectLegendarySpecies(ADVPATH_LEGEND_ROAMER);
     }
 
     if(spawnMinor)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = 4 + RogueRandomRange(4, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : 4 + RogueRandomRange(4, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_MINOR] = SelectLegendarySpecies(ADVPATH_LEGEND_MINOR);
     }
 
@@ -3607,6 +3718,10 @@ static void ChooseTeamEncountersForNewAdventure()
 
     // Select a random active team to encounter this run
     gRogueRun.teamEncounterNum = ChooseTeamEncounterNum();
+
+    // Don't place any of these encounters
+    if(Rogue_GetModeRules()->generateGauntletAdventurePath)
+        return;
 
     // Setup maps (There's only 1 per each currently)
     for(i = 0; i < gRogueTeamEncounterInfo.mapCount; ++i)
@@ -4005,13 +4120,8 @@ static void ResetSpecialEncounterStates(void)
     // Rayquaza
     VarSet(VAR_SKY_PILLAR_STATE, 2); // Keep in clean layout, but act as is R is has left for G/K cutscene
     //VarSet(VAR_SKY_PILLAR_RAQUAZA_CRY_DONE, 1); // Hide cutscene R
-    FlagClear(FLAG_DEFEATED_RAYQUAZA);
     FlagClear(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL); // Show battle
     FlagSet(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA); // Hide cutscene R
-
-    // Groudon + Kyogre
-    FlagClear(FLAG_DEFEATED_GROUDON);
-    FlagClear(FLAG_DEFEATED_KYOGRE);
 
     // Mew
     FlagClear(FLAG_HIDE_MEW);
@@ -4025,13 +4135,6 @@ static void ResetSpecialEncounterStates(void)
     // Ho-oh + Lugia
     FlagClear(FLAG_CAUGHT_HO_OH);
     FlagClear(FLAG_CAUGHT_LUGIA);
-    FlagClear(FLAG_DEFEATED_HO_OH);
-    FlagClear(FLAG_DEFEATED_LUGIA);
-
-    // Regis
-    FlagClear(FLAG_DEFEATED_REGICE);
-    FlagClear(FLAG_DEFEATED_REGISTEEL);
-    FlagClear(FLAG_DEFEATED_REGIROCK);
 
     // Latis
     //FlagClear(FLAG_DEFEATED_LATIAS_OR_LATIOS);
@@ -4232,14 +4335,19 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 case ADVPATH_ROOM_RESTSTOP:
                 {
-                    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE) || RogueRandomChance(33, OVERWORLD_FLAG))
+                    if(Rogue_GetModeRules()->forceRandomanAlwaysActive || RogueRandomChance(33, OVERWORLD_FLAG))
                     {
                         // Enable random trader
                         FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+                        // Update tracking flags
+                        FlagSet(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
                     }
                     else
                     {
                         FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+                        FlagClear(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
                     }
                     break;
                 }
@@ -4383,8 +4491,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             // Update VARs
             VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, gRogueRun.enteredRoomCounter);
             VarSet(VAR_ROGUE_CURRENT_LEVEL_CAP, Rogue_CalculateBossMonLvl());
+
+            RogueQuest_OnTrigger(QUEST_TRIGGER_ENTER_ENCOUNTER);
         }
     }
+
+    gRogueLocal.totalMoneySpentOnMap = 0;
 
     FollowMon_OnWarp();
     QuestNotify_OnWarp(warp);
@@ -5208,11 +5320,12 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         // Adjust this after the boss reset
         if(gRogueRun.currentLevelOffset)
         {
-            u8 levelOffsetDelta = 4;
+            u8 levelOffsetDelta = Rogue_GetModeRules()->levelOffsetInterval;
             
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            if(levelOffsetDelta == 0)
             {
-                levelOffsetDelta = 5;
+                // Apply default
+                levelOffsetDelta = 4;
             }
 
             // Every trainer battle drops level cap slightly
@@ -5273,11 +5386,12 @@ void Rogue_Battle_EndWildBattle(void)
     {
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
-            u8 levelOffsetDelta = 4;
+            u8 levelOffsetDelta = Rogue_GetModeRules()->levelOffsetInterval;
             
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            if(levelOffsetDelta == 0)
             {
-                levelOffsetDelta = 5;
+                // Apply default
+                levelOffsetDelta = 4;
             }
 
             // Don't increase the level caps if we only caught the mon
@@ -5457,6 +5571,16 @@ void Rogue_OnItemUse(u16 itemId)
     //if (gMain.inBattle)
     //{
     //}
+}
+
+void Rogue_OnSpendMoney(u32 money)
+{
+    gRogueLocal.totalMoneySpentOnMap += money;
+}
+
+u32 Rogue_GetTotalSpentOnActiveMap()
+{
+    return gRogueLocal.totalMoneySpentOnMap;
 }
 
 u16 Rogue_GetBagCapacity()
@@ -7069,8 +7193,8 @@ void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hi
         {
             difficulty = Rogue_GetCurrentDifficulty();
 
-            if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-                difficulty = 13;
+            //if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+            //    difficulty = 13;
 
             if(difficulty < 8)
                 capacity = 3 + difficulty * 1;
@@ -7733,13 +7857,10 @@ static bool8 RogueRandomChanceItem()
         }
     }
 
-    if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-    {
-        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
-            chance = max(10, chance - 25);
-        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
-            chance = min(100, chance + 25);
-    }
+    if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
+        chance = max(10, chance - 25);
+    else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
+        chance = min(100, chance + 25);
 
     return TRUE;//RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
@@ -7816,26 +7937,15 @@ static void RandomiseItemContent(u8 difficultyLevel)
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     u8 dropRarity = GetCurrentDropRarity();
 
-    if(FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
+    if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
     {
-        // Give us 1 room of basic items
-        if(gRogueRun.enteredRoomCounter > 1)
-        {
-            dropRarity += 10;
-        }
+        if(dropRarity != 0)
+            --dropRarity;
     }
-    else
+    else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
     {
-        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
-        {
-            if(dropRarity != 0)
-                --dropRarity;
-        }
-        else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
-        {
-            if(dropRarity != 0)
-                ++dropRarity;
-        }
+        if(dropRarity != 0)
+            ++dropRarity;
     }
 
     RogueItemQuery_Begin();
@@ -7849,18 +7959,15 @@ static void RandomiseItemContent(u8 difficultyLevel)
         RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_PREMIER_BALL);
 
         RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 50 + 100 * (difficultyLevel + dropRarity), 300 + 800 * (difficultyLevel + dropRarity));
-        
-        if(!FlagGet(FLAG_ROGUE_GAUNTLET_MODE))
-        {
-            if(difficultyLevel <= 1)
-            {
-                //RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
-            }
 
-            if(difficultyLevel <= 3)
-            {
-                RogueItemQuery_IsHeldItem(QUERY_FUNC_EXCLUDE);
-            }
+        if(difficultyLevel <= 1)
+        {
+            //RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
+        }
+
+        if(difficultyLevel <= 3)
+        {
+            RogueItemQuery_IsHeldItem(QUERY_FUNC_EXCLUDE);
         }
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)

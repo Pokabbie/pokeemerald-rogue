@@ -2514,7 +2514,7 @@ bool8 ScrCmd_questcompleted(struct ScriptContext *ctx)
 bool8 ScrCmd_questcollected(struct ScriptContext *ctx)
 {
     u16 index = ScriptReadHalfword(ctx);
-    gSpecialVar_Result = IsQuestCollected(index);
+    gSpecialVar_Result = RogueQuest_HasCollectedRewards(index);
     return FALSE;
 }
 

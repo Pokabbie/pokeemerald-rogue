@@ -82,9 +82,15 @@ enum
     PAGE_BOOK_MAIN_TODO,
     PAGE_BOOK_MAIN_ACTIVE,
     PAGE_BOOK_MAIN_COMPLETE,
+
     PAGE_BOOK_CHALLENGE_TODO,
     PAGE_BOOK_CHALLENGE_ACTIVE,
     PAGE_BOOK_CHALLENGE_COMPLETE,
+
+    PAGE_BOOK_MON_MASTERY_TODO,
+    PAGE_BOOK_MON_MASTERY_ACTIVE,
+    PAGE_BOOK_MON_MASTERY_COMPLETE,
+
     PAGE_QUEST_BOARD, // new quests
     PAGE_COUNT,
 
@@ -110,7 +116,10 @@ struct QuestMenuData
     u16 scrollListHead;
     u16 scrollListOffset;
     u16 scrollListCount;
+    u16 previousScrollListHead;
+    u16 previousScrollListOffset;
     u8 currentPage;
+    u8 previousPage;
 };
 
 struct PageData
@@ -203,6 +212,7 @@ static const struct PageData sPageData[PAGE_COUNT] =
         .inputCallback = HandleInput_QuestPage,
         .drawCallback = Draw_QuestPage,
     },
+
     [PAGE_BOOK_CHALLENGE_TODO] = 
     {
         .tilemap = sInnerTilemap,
@@ -224,6 +234,29 @@ static const struct PageData sPageData[PAGE_COUNT] =
         .inputCallback = HandleInput_QuestPage,
         .drawCallback = Draw_QuestPage,
     },
+
+    [PAGE_BOOK_MON_MASTERY_TODO] = 
+    {
+        .tilemap = sInnerTilemap,
+        .setupCallback = Setup_QuestPage,
+        .inputCallback = HandleInput_QuestPage,
+        .drawCallback = Draw_QuestPage,
+    },
+    [PAGE_BOOK_MON_MASTERY_ACTIVE] = 
+    {
+        .tilemap = sInnerTilemap,
+        .setupCallback = Setup_QuestPage,
+        .inputCallback = HandleInput_QuestPage,
+        .drawCallback = Draw_QuestPage,
+    },
+    [PAGE_BOOK_MON_MASTERY_COMPLETE] = 
+    {
+        .tilemap = sInnerTilemap,
+        .setupCallback = Setup_QuestPage,
+        .inputCallback = HandleInput_QuestPage,
+        .drawCallback = Draw_QuestPage,
+    },
+
     [PAGE_QUEST_BOARD] = 
     {
         .tilemap = sQuestboardTilemap,
@@ -279,11 +312,13 @@ static const struct WindowTemplate sQuestWinTemplates[WIN_COUNT + 1] =
 };
 
 static u8 const sText_QuestsTodo[] = _("Quests·{FONT_SMALL_NARROW}{COLOR BLUE}To-Do");
-static u8 const sText_QuestsComplete[] = _("Quests·{FONT_SMALL_NARROW}{COLOR GREEN}Complete");
+static u8 const sText_QuestsComplete[] = _("Quests·{FONT_SMALL_NARROW}{COLOR GREEN}Done");
 static u8 const sText_ChallengesTodo[] = _("Challenges·{FONT_SMALL_NARROW}{COLOR BLUE}To-Do");
-static u8 const sText_ChallengesComplete[] = _("Challenges·{FONT_SMALL_NARROW}{COLOR GREEN}Complete");
+static u8 const sText_ChallengesComplete[] = _("Challenges·{FONT_SMALL_NARROW}{COLOR GREEN}Done");
+static u8 const sText_MonMasteryTodo[] = _("Masteries·{FONT_SMALL_NARROW}{COLOR BLUE}To-Do");
+static u8 const sText_MonMasteryComplete[] = _("Masteries·{FONT_SMALL_NARROW}{COLOR GREEN}Done");
 
-static u8 const sText_Pinned[] = _("Pinned Quests");
+static u8 const sText_Pinned[] = _("·Pinned Quests·");
 static u8 const sText_InProgress[] = _("In Progress…");
 static u8 const sText_Inactive[] = _("Inactive");
 static u8 const sText_Todo[] = _("To-do");
@@ -392,11 +427,27 @@ static void MainCB2(void)
 
 static void SetupPage(u8 page)
 {
-    sQuestMenuData->currentPage = page;
+    u16 prevScrollListHead = sQuestMenuData->scrollListHead;
+    u16 prevScrollListOffset = sQuestMenuData->scrollListOffset;
+    
+    if(sQuestMenuData->previousPage == page)
+    {
+        sQuestMenuData->scrollListHead = sQuestMenuData->previousScrollListHead;
+        sQuestMenuData->scrollListOffset = sQuestMenuData->previousScrollListOffset;
+        sQuestMenuData->scrollListCount = 0;
+    }
+    else
+    {
+        sQuestMenuData->scrollListHead = 0;
+        sQuestMenuData->scrollListOffset = 0;
+        sQuestMenuData->scrollListCount = 0;
+    }
 
-    sQuestMenuData->scrollListHead = 0;
-    sQuestMenuData->scrollListOffset = 0;
-    sQuestMenuData->scrollListCount = 0;
+    sQuestMenuData->previousPage = sQuestMenuData->currentPage;
+    sQuestMenuData->previousScrollListHead = prevScrollListHead;
+    sQuestMenuData->previousScrollListOffset = prevScrollListOffset;
+
+    sQuestMenuData->currentPage = page;
 
     sQuestMenuData->questListConstIncludeFlags = QUEST_CONST_NONE;
     sQuestMenuData->questListConstExcludeFlags = QUEST_CONST_NONE;
@@ -801,6 +852,7 @@ static struct MenuOption const sMenuOptionsHub[] =
         .callback = SetupPage,
         .param = PAGE_BOOK_MAIN_COMPLETE,
     },
+
     {
         .text = sText_ChallengesTodo,
         .callback = SetupPage,
@@ -811,6 +863,18 @@ static struct MenuOption const sMenuOptionsHub[] =
         .callback = SetupPage,
         .param = PAGE_BOOK_CHALLENGE_COMPLETE,
     },
+
+    {
+        .text = sText_MonMasteryTodo,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_MON_MASTERY_TODO,
+    },
+    {
+        .text = sText_MonMasteryComplete,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_MON_MASTERY_COMPLETE,
+    },
+
     {
         .text = sText_Back,
         .callback = SetupPage,
@@ -924,32 +988,47 @@ static void Setup_QuestPage()
 
 
     case PAGE_BOOK_MAIN_TODO:
-        sQuestMenuData->questListConstExcludeFlags = QUEST_CONST_CHALLENGE_DEFAULT;
+        sQuestMenuData->questListConstIncludeFlags = QUEST_CONST_IS_MAIN_QUEST;
         sQuestMenuData->questListStateExcludeFlags = QUEST_STATE_HAS_COMPLETE;
         break;
 
     case PAGE_BOOK_MAIN_ACTIVE:
-        sQuestMenuData->questListConstExcludeFlags = QUEST_CONST_CHALLENGE_DEFAULT;
+        sQuestMenuData->questListConstIncludeFlags = QUEST_CONST_IS_MAIN_QUEST;
         sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_ACTIVE;
         break;
 
     case PAGE_BOOK_MAIN_COMPLETE:
-        sQuestMenuData->questListConstExcludeFlags = QUEST_CONST_CHALLENGE_DEFAULT;
+        sQuestMenuData->questListConstIncludeFlags = QUEST_CONST_IS_MAIN_QUEST;
         sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_HAS_COMPLETE;
         break;
 
     case PAGE_BOOK_CHALLENGE_TODO:
-        sQuestMenuData->questListConstExcludeFlags = QUEST_CONST_MAIN_QUEST_DEFAULT;
+        sQuestMenuData->questListConstIncludeFlags = QUEST_CONST_IS_CHALLENGE;
         sQuestMenuData->questListStateExcludeFlags = QUEST_STATE_HAS_COMPLETE;
         break;
 
     case PAGE_BOOK_CHALLENGE_ACTIVE:
-        sQuestMenuData->questListConstExcludeFlags = QUEST_CONST_MAIN_QUEST_DEFAULT;
+        sQuestMenuData->questListConstIncludeFlags = QUEST_CONST_IS_CHALLENGE;
         sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_ACTIVE;
         break;
 
     case PAGE_BOOK_CHALLENGE_COMPLETE:
-        sQuestMenuData->questListConstExcludeFlags = QUEST_CONST_MAIN_QUEST_DEFAULT;
+        sQuestMenuData->questListConstIncludeFlags = QUEST_CONST_IS_CHALLENGE;
+        sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_HAS_COMPLETE;
+        break;
+
+    case PAGE_BOOK_MON_MASTERY_TODO:
+        sQuestMenuData->questListConstIncludeFlags = QUEST_CONST_IS_MON_MASTERY;
+        sQuestMenuData->questListStateExcludeFlags = QUEST_STATE_HAS_COMPLETE;
+        break;
+
+    case PAGE_BOOK_MON_MASTERY_ACTIVE:
+        sQuestMenuData->questListConstIncludeFlags = QUEST_CONST_IS_MON_MASTERY;
+        sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_ACTIVE;
+        break;
+
+    case PAGE_BOOK_MON_MASTERY_COMPLETE:
+        sQuestMenuData->questListConstIncludeFlags = QUEST_CONST_IS_MON_MASTERY;
         sQuestMenuData->questListStateIncludeFlags = QUEST_STATE_HAS_COMPLETE;
         break;
     

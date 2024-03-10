@@ -690,7 +690,5 @@ extern const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT];
 extern const u8 gRogueTypeWeatherTable[];
 extern const struct RogueEncounterMap gRogueTypeToEliteRoom[];
 
-extern const struct RogueAdventureSettings gRogueAdventureSettings[];
-
 
 #endif  // GUARD_ROGUE_H

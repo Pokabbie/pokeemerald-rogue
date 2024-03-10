@@ -816,8 +816,10 @@ static void Task_UpdatePage(u8 taskId)
                 if(sRogueCreditsData != NULL)
                 {
                     // 2 phases per difficulty (enter and exit)
-                    u16 totalPageCount = CalculateTotalPageCount();
-                    u8 displayPhase = (gTasks[taskId].tCurrentPage * (gRogueRun.partySnapshotCount - 1) * 2) / (totalPageCount - 2);
+                    u16 totalPageCount = CalculateTotalPageCount() - 1;
+                    u16 displayPhase = ((gTasks[taskId].tCurrentPage + 1) * gRogueRun.partySnapshotCount * 2) / totalPageCount;
+
+                    DebugPrintf("Phase %d, Page %d / %d", displayPhase, gTasks[taskId].tCurrentPage, totalPageCount);
 
                     displayPhase = min(displayPhase, gRogueRun.partySnapshotCount * 2);
 
@@ -830,10 +832,12 @@ static void Task_UpdatePage(u8 taskId)
 
                         if(desiredSnapshotIndex != currentSnapshotIndex)
                         {
+                            DebugPrintf("    SetupRogueSprites %d", desiredSnapshotIndex);
                             SetupRogueSprites(desiredSnapshotIndex);
                         }
                         else
                         {
+                            DebugPrintf("    FadeOutRogueSprites %d", desiredSnapshotIndex);
                             FadeOutRogueSprites(desiredSnapshotIndex);
                         }
                     }
@@ -1260,6 +1264,12 @@ static void SetupRogueSprites(u8 snapshotIndex)
             sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].spriteIndex = spriteId;
             sRogueCreditsData->rogueSprites[ROGUE_SPRITE_MON_START + i].desiredX = 0;
         }
+    }
+
+    // Instantly copy current snapshot over previous to avoid pop/jump bug
+    if(snapshotIndex == 0)
+    {
+        memcpy(&sRogueCreditsData->previousPartySnapshot, &sRogueCreditsData->currentPartySnapshot, sizeof(sRogueCreditsData->previousPartySnapshot));
     }
 }
 

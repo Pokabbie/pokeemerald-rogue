@@ -909,8 +909,8 @@ u8 GetTrainerBattleTransition(void)
     if (trainer.trainerClass == TRAINER_SECRET_BASE)
         return B_TRANSITION_CHAMPION;
 
-    //if (trainer.trainerClass == TRAINER_CLASS_RIVAL)
-    //    return B_TRANSITION_CHAMPION_STEVEN;
+    if (trainer.trainerClass == TRAINER_CLASS_RIVAL)
+        return B_TRANSITION_ANGLED_WIPES;
 
     if (trainer.trainerClass == TRAINER_CLASS_ELITE_FOUR || trainer.trainerClass == TRAINER_CLASS_COMMUNITY_MOD)
     {
@@ -1034,21 +1034,25 @@ u8 GetSpecialBattleTransition(s32 id)
 
 void ChooseStarter(void)
 {
+    VarSet(VAR_STARTER_SWAP_SPECIES, SPECIES_NONE);
+    Rogue_RandomiseStarters();
+
     SetMainCallback2(CB2_ChooseStarter);
     gMain.savedCallback = CB2_GiveStarter;
 }
 
 static void CB2_GiveStarter(void)
 {
-    u16 starterMon;
+    u16 species = GetStarterPokemon(gSpecialVar_Result);
+    VarSet(VAR_STARTER_SWAP_SPECIES, species);
 
-    *GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
-    starterMon = GetStarterPokemon(gSpecialVar_Result);
-    ScriptGiveMon(starterMon, 5, ITEM_NONE, 0, 0, 0);
     ResetTasks();
-    PlayBattleBGM();
+    //PlayBattleBGM();
     SetMainCallback2(CB2_StartFirstBattle);
-    BattleTransition_Start(B_TRANSITION_BLUR);
+    //BattleTransition_Start(B_TRANSITION_BLUR);
+    BeginNormalPaletteFade(0xFFFFFFFF, -1, 0, 0x10, 0);
+
+    //SetMainCallback2(CB2_ReturnToFieldContinueScript);
 }
 
 static void CB2_StartFirstBattle(void)
@@ -1056,18 +1060,20 @@ static void CB2_StartFirstBattle(void)
     UpdatePaletteFade();
     RunTasks();
 
-    if (IsBattleTransitionDone() == TRUE)
+    //if (IsBattleTransitionDone() == TRUE)
+    if (!gPaletteFade.active)
     {
         gBattleTypeFlags = BATTLE_TYPE_FIRST_BATTLE;
-        gMain.savedCallback = CB2_EndFirstBattle;
+        //gMain.savedCallback = CB2_EndFirstBattle;
         FreeAllWindowBuffers();
-        SetMainCallback2(CB2_InitBattle);
-        RestartWildEncounterImmunitySteps();
-        ClearPoisonStepCounter();
-        IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-        IncrementGameStat(GAME_STAT_WILD_BATTLES);
-        IncrementDailyWildBattles();
-        TryUpdateGymLeaderRematchFromWild();
+        //SetMainCallback2(CB2_InitBattle);
+        SetMainCallback2(CB2_EndFirstBattle);
+        //RestartWildEncounterImmunitySteps();
+        //ClearPoisonStepCounter();
+        //IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+        //IncrementGameStat(GAME_STAT_WILD_BATTLES);
+        //IncrementDailyWildBattles();
+        //TryUpdateGymLeaderRematchFromWild();
     }
 }
 

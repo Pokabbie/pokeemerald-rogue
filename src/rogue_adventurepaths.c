@@ -19,11 +19,11 @@
 #include "rogue_controller.h"
 
 #include "rogue_adventurepaths.h"
-#include "rogue_adventure.h"
 #include "rogue_campaign.h"
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
 #include "rogue_query.h"
+#include "rogue_quest.h"
 
 
 #define ROOM_TO_WORLD_X 3
@@ -349,6 +349,9 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
         // Prefer a 2nd rest stop
         else if(count == 1)
             return 20;
+        // If we already have 4 perfer most other encounters
+        else if(count >= 4)
+            return 1;
         break;
 
     // Only allow 1 but we really want to place it
@@ -459,7 +462,7 @@ static u8 ReplaceRoomEncounters_CalculateWeight(u16 weightIndex, u16 roomId, voi
     case ADVPATH_ROOM_RESTSTOP:
         // Like being placed in the final column but can occasionally end up in other one
         if(existingRoom->coords.x <= 2)
-            weight += 80;
+            weight += 90;
 
         // Don't want to place in first column
         if(existingRoom->coords.x + 1 == gRogueAdvPath.pathLength)
@@ -758,7 +761,7 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
     //DebugPrintf("ADVPATH: \tAdded room type %d (Total: %d)", roomType, pathSettings->numOfRooms[roomSettings->roomType]);
 
     // Erase any previously set params
-    gRogueAdvPath.rooms[roomId].roomType = roomType;
+    gRogueAdvPath.rooms[roomId].roomType = ADVPATH_ROOM_NONE; // set room type below so counting methods don't break
     memset(&gRogueAdvPath.rooms[roomId].roomParams, 0, sizeof(gRogueAdvPath.rooms[roomId].roomParams));
 
     switch(roomType)
@@ -777,13 +780,21 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
 
             // Prefer showing each rest stop type before having duplicates
             if(CountSubRoomType(ADVPATH_ROOM_RESTSTOP, ADVPATH_SUBROOM_RESTSTOP_BATTLE) != 0)
-                weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 3;
+                weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 0;
 
             if(CountSubRoomType(ADVPATH_ROOM_RESTSTOP, ADVPATH_SUBROOM_RESTSTOP_SHOP) != 0)
-                weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 3;
+                weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 0;
 
             if(CountSubRoomType(ADVPATH_ROOM_RESTSTOP, ADVPATH_SUBROOM_RESTSTOP_DAYCARE) != 0)
+                weights[ADVPATH_SUBROOM_RESTSTOP_DAYCARE] = 0;
+
+            if(weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] == 0 && weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] == 0 && weights[ADVPATH_SUBROOM_RESTSTOP_DAYCARE] == 0)
+            {
+                // Make sure we place all other types first before placing duplicates
+                weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 3;
+                weights[ADVPATH_SUBROOM_RESTSTOP_SHOP] = 3;
                 weights[ADVPATH_SUBROOM_RESTSTOP_DAYCARE] = 3;
+            }
 
             // If we have a full rest stop, make it only appear once
             if(CountSubRoomType(ADVPATH_ROOM_RESTSTOP, ADVPATH_SUBROOM_RESTSTOP_FULL) != 0)
@@ -848,6 +859,9 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             break;
         }
     }
+
+    // Set room type at the end to avoid breaking code that considers sub rooms
+    gRogueAdvPath.rooms[roomId].roomType = roomType;
 }
 
 static u8 CountRoomConnections(u8 mask)
@@ -931,6 +945,14 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 
         pathSettings.generator = &generator;
         pathSettings.totalLength = 3 + 2; // +2 to account for final encounter and initial split
+
+        if(Rogue_GetModeRules()->generateGauntletAdventurePath)
+        {
+            if(GetPathGenerationDifficulty() == 0)
+                pathSettings.totalLength = 5 + 2;
+            else
+                pathSettings.totalLength = 2;
+        }
 
         // Select the correct seed
         {
@@ -1333,6 +1355,8 @@ u8 RogueAdv_OverrideNextWarp(struct WarpData *warp)
             warp->y = ROOM_TO_WARP_Y(gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.y);
         }
 
+        // Trigger before we wipe the room type
+        RogueQuest_OnTrigger(QUEST_TRIGGER_EXIT_ENCOUNTER);
 
         gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
         return ROGUE_WARP_TO_ADVPATH;
