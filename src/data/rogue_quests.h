@@ -432,39 +432,39 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         }
     },
 
-    [QUEST_MrRandoman] = 
-    {
-        .title = _("Mr. Randoman"),
-        .desc = _(
-                    "Trade a POKéMON with\n"
-                    "Mr. Randoman."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksAdventureSetting, .giveText=gText_PreviewUnlocksMrRandoStart },
-        },
-        .unlockedQuests = { 
-            QUEST_ChaosChampion,
-        }
-    },
-    [QUEST_ChaosChampion] = 
-    {
-        .title = _("Chaos Master"),
-        .desc = _(
-                    "Win a full Run, always\n"
-                    "doing a Random Party\n"
-                    "Trade whenever possible."
-                ),
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ABILITY_CAPSULE, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ABILITY_PATCH, 1 } },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
-#endif
-            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_SMEARGLE, 7, TRUE } },
-        }
-    },
+//    [QUEST_MrRandoman] = 
+//    {
+//        .title = _("Mr. Randoman"),
+//        .desc = _(
+//                    "Trade a POKéMON with\n"
+//                    "Mr. Randoman."
+//                ),
+//        .rewards = { 
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksAdventureSetting, .giveText=gText_PreviewUnlocksMrRandoStart },
+//        },
+//        .unlockedQuests = { 
+//            QUEST_ChaosChampion,
+//        }
+//    },
+//    [QUEST_ChaosChampion] = 
+//    {
+//        .title = _("Chaos Master"),
+//        .desc = _(
+//                    "Win a full Run, always\n"
+//                    "doing a Random Party\n"
+//                    "Trade whenever possible."
+//                ),
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ABILITY_CAPSULE, 1 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ABILITY_PATCH, 1 } },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
+//#endif
+//            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_SMEARGLE, 7, TRUE } },
+//        }
+//    },
     [QUEST_DevilDeal] = 
     {
         .title = _("Mankey's Paw"),
