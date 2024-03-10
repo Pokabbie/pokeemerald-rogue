@@ -1,7 +1,7 @@
 #ifdef ROGUE_EXPANSION
-#define QUEST_SAVE_COUNT 128
+#define QUEST_SAVE_COUNT 256
 #else
-#define QUEST_SAVE_COUNT 128
+#define QUEST_SAVE_COUNT 256
 #endif
 
 // Constant flags
