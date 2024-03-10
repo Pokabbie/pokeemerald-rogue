@@ -543,60 +543,71 @@ u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 sou
     return volume;
 }
 
+static u16 ModifyBattleSongByMap(u16 songNum, u32 mapFlags)
+{
+    switch (songNum)
+    {
+    case MUS_VS_WILD:
+        if(mapFlags & ROUTE_FLAG_KANTO)
+            return MUS_RG_VS_WILD;
+
+        else if(mapFlags & ROUTE_FLAG_JOHTO)
+            return MUS_HG_VS_WILD;
+
+        else if(mapFlags & ROUTE_FLAG_SINNOH)
+            return MUS_DP_VS_WILD;
+        break;
+
+    case MUS_VICTORY_WILD:
+        if(mapFlags & ROUTE_FLAG_KANTO)
+            return MUS_RG_VICTORY_WILD;
+
+        else if(mapFlags & ROUTE_FLAG_JOHTO)
+            return MUS_DP_VICTORY_WILD; // TODO - Fix with HG specific one 
+
+        else if(mapFlags & ROUTE_FLAG_SINNOH)
+            return MUS_DP_VICTORY_WILD;
+        break;
+
+    case MUS_VS_TRAINER:
+        if(mapFlags & ROUTE_FLAG_KANTO)
+            return MUS_RG_VS_TRAINER;
+
+        else if(mapFlags & ROUTE_FLAG_JOHTO)
+            return MUS_HG_VS_TRAINER;
+
+        else if(mapFlags & ROUTE_FLAG_SINNOH)
+            return MUS_DP_VS_TRAINER;
+        break;
+
+    case MUS_VICTORY_TRAINER:
+        if(mapFlags & ROUTE_FLAG_KANTO)
+            return MUS_RG_VICTORY_TRAINER;
+
+        else if(mapFlags & ROUTE_FLAG_JOHTO)
+            return MUS_HG_VICTORY_TRAINER;
+
+        else if(mapFlags & ROUTE_FLAG_SINNOH)
+            return MUS_DP_VICTORY_TRAINER;
+        break;
+    }
+
+    return songNum;
+}
+
 u16 Rogue_ModifyPlayBGM(u16 songNum)
 {
+    if(Rogue_InWildSafari() || Rogue_IsCatchingContestActive())
+    {
+        songNum = ModifyBattleSongByMap(songNum, ROUTE_FLAG_KANTO);
+    }
+
     if(Rogue_IsRunActive())
     {
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
         {
-            u16 mapFlags = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].mapFlags;
-
-            switch (songNum)
-            {
-            case MUS_VS_WILD:
-                if(mapFlags & ROUTE_FLAG_KANTO)
-                    return MUS_RG_VS_WILD;
-
-                else if(mapFlags & ROUTE_FLAG_JOHTO)
-                    return MUS_HG_VS_WILD;
-
-                else if(mapFlags & ROUTE_FLAG_SINNOH)
-                    return MUS_DP_VS_WILD;
-                break;
-
-            case MUS_VICTORY_WILD:
-                if(mapFlags & ROUTE_FLAG_KANTO)
-                    return MUS_RG_VICTORY_WILD;
-
-                else if(mapFlags & ROUTE_FLAG_JOHTO)
-                    return MUS_DP_VICTORY_WILD; // TODO - Fix with HG specific one 
-
-                else if(mapFlags & ROUTE_FLAG_SINNOH)
-                    return MUS_DP_VICTORY_WILD;
-                break;
-
-            case MUS_VS_TRAINER:
-                if(mapFlags & ROUTE_FLAG_KANTO)
-                    return MUS_RG_VS_TRAINER;
-
-                else if(mapFlags & ROUTE_FLAG_JOHTO)
-                    return MUS_HG_VS_TRAINER;
-
-                else if(mapFlags & ROUTE_FLAG_SINNOH)
-                    return MUS_DP_VS_TRAINER;
-                break;
-
-            case MUS_VICTORY_TRAINER:
-                if(mapFlags & ROUTE_FLAG_KANTO)
-                    return MUS_RG_VICTORY_TRAINER;
-    
-                else if(mapFlags & ROUTE_FLAG_JOHTO)
-                    return MUS_HG_VICTORY_TRAINER;
-
-                else if(mapFlags & ROUTE_FLAG_SINNOH)
-                    return MUS_DP_VICTORY_TRAINER;
-                break;
-            }
+            u32 mapFlags = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].mapFlags;
+            songNum = ModifyBattleSongByMap(songNum, mapFlags);
         }
     }
     else
@@ -3595,7 +3606,7 @@ static void ChooseLegendarysForNewAdventure()
             spawnMinor = TRUE;
     }
 
-    if(Rogue_GetModeRules()->generateGauntletAdventurePath)
+    if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
     {
         // Gauntlet always generates a minor legendary only
         spawnRoamer = FALSE;
@@ -3620,19 +3631,19 @@ static void ChooseLegendarysForNewAdventure()
 
     if(spawnBox)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(3, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = (Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(3, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] = SelectLegendarySpecies(ADVPATH_LEGEND_BOX);
     }
 
     if(spawnRoamer)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : 1 + RogueRandomRange(5, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = (Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : 1 + RogueRandomRange(5, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_ROAMER] = SelectLegendarySpecies(ADVPATH_LEGEND_ROAMER);
     }
 
     if(spawnMinor)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : 4 + RogueRandomRange(4, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = (Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : 4 + RogueRandomRange(4, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_MINOR] = SelectLegendarySpecies(ADVPATH_LEGEND_MINOR);
     }
 
@@ -3720,7 +3731,7 @@ static void ChooseTeamEncountersForNewAdventure()
     gRogueRun.teamEncounterNum = ChooseTeamEncounterNum();
 
     // Don't place any of these encounters
-    if(Rogue_GetModeRules()->generateGauntletAdventurePath)
+    if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
         return;
 
     // Setup maps (There's only 1 per each currently)
