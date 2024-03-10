@@ -15,6 +15,7 @@ struct GameModeRules
     u8 forceEndGameTrainers : 1;
     u8 forceRandomanAlwaysActive : 1;
     u8 disableRivalEncounters : 1;
+    u8 forceFullShopInventory : 1;
 };
 
 void Rogue_SetConfigToggle(u16 elem, bool8 state);

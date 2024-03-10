@@ -4964,6 +4964,10 @@ void Rogue_Battle_StartTrainerBattle(void)
     gRogueLocal.rngSeedToRestore = gRngRogueValue;
     SeedRogueRng(RogueRandom() + (gTrainerBattleOpponent_A ^ RogueRandom()));
 
+    // Remove soft level cap
+    if(Rogue_IsExpTrainer(gTrainerBattleOpponent_A))
+        gRogueRun.currentLevelOffset = 0;
+
         // enable dyanmax for this fight
     if(IsDynamaxEnabled() && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
         FlagSet(FLAG_ROGUE_DYNAMAX_BATTLE);
@@ -7045,6 +7049,11 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     default:
         AGB_ASSERT(FALSE);
         break;
+    }
+
+    if(Rogue_GetModeRules()->forceFullShopInventory)
+    {
+        applyRandomChance = FALSE;
     }
 
     // Run only items
