@@ -279,9 +279,32 @@ script Rogue_StartAdventureInternal
         msgbox(format("Good luck {PLAYER}!"))
         closemessage
 
-        applymovement(OBJ_EVENT_ADVENTURE_NURSE, Rogue_Adventure_WalkNurse)
-        applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Adventure_WalkPlayer)
-        waitmovement(0)
+        if(var(VAR_RESULT) == YES) // todo - swap out with if have unlocked random starter
+        {
+            applymovement(OBJ_EVENT_ADVENTURE_NURSE, Rogue_Adventure_WalkNurse)
+            applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Adventure_WalkPlayerStarter)
+            waitmovement(0)
+
+            msgbox(format("Take a random Partner Pokémon?"), MSGBOX_YESNO)
+            closemessage
+
+            if(var(VAR_RESULT) == YES)
+            {
+                special(ChooseStarter)
+                setflag(FLAG_SCRIPT_HIDE_FOLLOWER) 
+                waitstate
+                clearflag(FLAG_SCRIPT_HIDE_FOLLOWER) 
+            }
+
+            applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Adventure_WalkPlayerStarter1)
+            waitmovement(0)
+        }
+        else
+        {
+            applymovement(OBJ_EVENT_ADVENTURE_NURSE, Rogue_Adventure_WalkNurse)
+            applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Adventure_WalkPlayer)
+            waitmovement(0)
+        }
 
         setflag(FLAG_ROGUE_LEFT_ON_RUN)
         setrespawn(HEAL_LOCATION_ROGUE_HUB)
@@ -304,6 +327,17 @@ movement Rogue_Adventure_WalkNurse
 movement Rogue_Adventure_WalkPlayer
 {
     walk_up * 3
+}
+
+movement Rogue_Adventure_WalkPlayerStarter
+{
+    walk_up * 2
+    face_left
+}
+
+movement Rogue_Adventure_WalkPlayerStarter1
+{
+    walk_up
 }
 
 script Rogue_ReturnAdventureInternal

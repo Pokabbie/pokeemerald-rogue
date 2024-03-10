@@ -84,6 +84,7 @@ bool8 IsMegaEvolutionEnabled(void);
 bool8 IsZMovesEnabled(void);
 bool8 IsDynamaxEnabled(void);
 
+void Rogue_RandomiseStarters();
 void Rogue_ResetConfigHubSettings(void);
 void Rogue_OnNewGame(void);
 void Rogue_GameClear(void);

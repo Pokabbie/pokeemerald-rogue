@@ -139,6 +139,7 @@ struct RogueLocalData
     bool8 hasValidQuickSave : 1;
     bool8 hasSaveWarningPending : 1;
     bool8 hasVersionUpdateMsgPending : 1;
+    bool8 hasNicknameMonMsgPending : 1;
     bool8 hasBattleEventOccurred : 1;
     bool8 hasUsePlayerTeamTempSave : 1;
     bool8 hasUseEnemyTeamTempSave : 1;
@@ -190,6 +191,7 @@ static void ChooseLegendarysForNewAdventure();
 static void ChooseTeamEncountersForNewAdventure();
 static void RememberPartyHeldItems();
 static void TryRestorePartyHeldItems(bool8 allowThief);
+static void ClearPlayerTeam();
 
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party);
 
@@ -2557,6 +2559,14 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
     return starters;
 }
 
+void Rogue_RandomiseStarters()
+{
+    struct StarterSelectionData starters = SelectStarterMons(FALSE);
+    VarSet(VAR_ROGUE_STARTER0, starters.species[0]);
+    VarSet(VAR_ROGUE_STARTER1, starters.species[1]);
+    VarSet(VAR_ROGUE_STARTER2, starters.species[2]);
+}
+
 static void UNUSED ClearPokemonHeldItems(void)
 {
     struct BoxPokemon* boxMon;
@@ -2687,6 +2697,8 @@ void Rogue_SetDefaultOptions(void)
 extern const u8 Rogue_QuickSaveLoad[];
 extern const u8 Rogue_QuickSaveVersionWarning[];
 extern const u8 Rogue_QuickSaveVersionUpdate[];
+extern const u8 Rogue_ForceNicknameMon[];
+extern const u8 Rogue_AskNicknameMon[];
 
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 {
@@ -2727,6 +2739,15 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
     {
         gRogueLocal.hasVersionUpdateMsgPending = FALSE;
         ScriptContext_SetupScript(Rogue_QuickSaveVersionUpdate);
+        return TRUE;
+    }
+    else if(gRogueLocal.hasNicknameMonMsgPending)
+    {
+        gRogueLocal.hasNicknameMonMsgPending = FALSE;
+        if(Rogue_ShouldSkipAssignNicknameYesNoMessage())
+            ScriptContext_SetupScript(Rogue_ForceNicknameMon);
+        else
+            ScriptContext_SetupScript(Rogue_AskNicknameMon);
         return TRUE;
     }
     else if(!RogueDebug_GetConfigToggle(DEBUG_TOGGLE_ALLOW_SAVE_SCUM) && gRogueLocal.hasQuickLoadPending)
@@ -3088,16 +3109,14 @@ static void ResetFaintedLabMonAtSlot(u16 slot)
 
     struct Pokemon* mon = &gRogueLabEncounterData.party[slot];
 
-    if(slot == VarGet(VAR_STARTER_MON))
+    species = VarGet(VAR_ROGUE_STARTER0 + slot);
+
+    if(species == VarGet(VAR_STARTER_SWAP_SPECIES))
     {
         species = SPECIES_SUNKERN;
     }
-    else
-    {
-        species = VarGet(VAR_ROGUE_STARTER0 + slot);
-    }
 
-    CreateMonWithNature(mon, species, 7, USE_RANDOM_IVS, Random() % NUM_NATURES);
+    CreateMonWithNature(mon, species, STARTER_MON_LEVEL, USE_RANDOM_IVS, Random() % NUM_NATURES);
 }
 
 static void InitialiseFaintedLabMons(void)
@@ -3145,6 +3164,21 @@ static u16 GetPartyStrongLegendary(void)
 
 static void BeginRogueRun_ModifyParty(void)
 {
+    u16 starterSpecies = VarGet(VAR_STARTER_SWAP_SPECIES);
+
+    if(starterSpecies != SPECIES_NONE)
+    {
+        ClearPlayerTeam();
+
+        CreateMon(&gEnemyParty[0], starterSpecies, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+        GiveMonToPlayer(&gEnemyParty[0]);
+        CalculatePlayerPartyCount();
+
+        if(!Rogue_ShouldSkipAssignNickname(&gPlayerParty[0]))
+            gRogueLocal.hasNicknameMonMsgPending = TRUE;
+    }
+
     // Always clear out EVs as we shouldn't have them in the HUB anymore
     {
         u16 i;
@@ -3166,8 +3200,15 @@ static void BeginRogueRun_ModifyParty(void)
                 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, STARTER_MON_LEVEL);
                 SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
 
-                // Partner's can't reappear in safari
-                gPlayerParty[i].rogueExtraData.isSafariIllegal = TRUE;
+                if(starterSpecies != SPECIES_NONE)
+                {
+                    // This mon was just added so it can appear in the safari
+                }
+                else
+                {
+                    // Partner's can't reappear in safari
+                    gPlayerParty[i].rogueExtraData.isSafariIllegal = TRUE;
+                }
 
                 CalculateMonStats(&gPlayerParty[i]);
             }

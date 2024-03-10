@@ -11,15 +11,11 @@
 
 static u32 GetMirageRnd(void)
 {
-    u32 hi = VarGet(VAR_MIRAGE_RND_H);
-    u32 lo = VarGet(VAR_MIRAGE_RND_L);
-    return (hi << 16) | lo;
+    return 0;
 }
 
 static void SetMirageRnd(u32 rnd)
 {
-    VarSet(VAR_MIRAGE_RND_H, rnd >> 16);
-    VarSet(VAR_MIRAGE_RND_L, rnd);
 }
 
 // unused
