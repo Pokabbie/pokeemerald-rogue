@@ -49,6 +49,16 @@ script Rogue_Area_AdventureEntrance_MapLoad
         setflag(FLAG_HIDE_RUIN_MANIAC)
         setvar(VAR_INTRO_SCRIPT_STATE, HUB_AREA_CONN_COUNT)
     }
+
+    special(Rogue_HasUnlockedRandomStarterTrade)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        clearflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
+    }
+    else
+    {
+        setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
+    }
 }
 
 script Rogue_Area_AdventureEntrance_WarpState0
@@ -279,7 +289,7 @@ script Rogue_StartAdventureInternal
         msgbox(format("Good luck {PLAYER}!"))
         closemessage
 
-        if(var(VAR_RESULT) == YES) // todo - swap out with if have unlocked random starter
+        if(!flag(FLAG_ROGUE_RANDOM_TRADE_DISABLED))
         {
             applymovement(OBJ_EVENT_ADVENTURE_NURSE, Rogue_Adventure_WalkNurse)
             applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Adventure_WalkPlayerStarter)

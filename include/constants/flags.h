@@ -482,12 +482,12 @@
 #define FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH  0x1B8
 #define FLAG_MOVE_TUTOR_TAUGHT_DOUBLE_EDGE   0x1B9
 #define FLAG_MOVE_TUTOR_TAUGHT_EXPLOSION     0x1BA
-#define FLAG_DEFEATED_REGIROCK               0x1BB
-#define FLAG_DEFEATED_REGICE                 0x1BC
-#define FLAG_DEFEATED_REGISTEEL              0x1BD
-#define FLAG_DEFEATED_KYOGRE                 0x1BE
-#define FLAG_DEFEATED_GROUDON                0x1BF
-#define FLAG_DEFEATED_RAYQUAZA               0x1C0
+#define FLAG_UNUSED_0x1BB                    0x1BB
+#define FLAG_UNUSED_0x1BC                    0x1BC
+#define FLAG_UNUSED_0x1BD                    0x1BD
+#define FLAG_UNUSED_0x1BE                    0x1BE
+#define FLAG_UNUSED_0x1BF                    0x1BF
+#define FLAG_UNUSED_0x1C0                    0x1C0
 #define FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE 0x1C1
 #define FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE 0x1C2
 #define FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE 0x1C3
@@ -517,8 +517,8 @@
 #define FLAG_UNUSED_0x1DA                    0x1DA // Unused Flag
 
 #define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
-#define FLAG_DEFEATED_HO_OH                  0x1DC
-#define FLAG_DEFEATED_LUGIA                  0x1DD
+#define FLAG_UNUSED_0x1DC                    0x1DC
+#define FLAG_UNUSED_0x1DD                    0x1DD
 
 #define FLAG_DEBUG_NO_ENCOUNTER              0x1DE // Unused Flag
 #define FLAG_DEBUG_NO_TRAINER_SEE            0x1DF // Unused Flag

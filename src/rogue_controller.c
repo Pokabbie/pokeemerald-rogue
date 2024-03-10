@@ -3432,16 +3432,6 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP);
     FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
 
-    // Enable randoman trader at start
-    if(IsQuestCollected(QUEST_MrRandoman))
-    {
-        FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-    }
-    else
-    {
-        FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-    }
-
     Rogue_PostActivateDesiredCampaign();
 
     FlagClear(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES);
@@ -4130,13 +4120,8 @@ static void ResetSpecialEncounterStates(void)
     // Rayquaza
     VarSet(VAR_SKY_PILLAR_STATE, 2); // Keep in clean layout, but act as is R is has left for G/K cutscene
     //VarSet(VAR_SKY_PILLAR_RAQUAZA_CRY_DONE, 1); // Hide cutscene R
-    FlagClear(FLAG_DEFEATED_RAYQUAZA);
     FlagClear(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL); // Show battle
     FlagSet(FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA); // Hide cutscene R
-
-    // Groudon + Kyogre
-    FlagClear(FLAG_DEFEATED_GROUDON);
-    FlagClear(FLAG_DEFEATED_KYOGRE);
 
     // Mew
     FlagClear(FLAG_HIDE_MEW);
@@ -4150,13 +4135,6 @@ static void ResetSpecialEncounterStates(void)
     // Ho-oh + Lugia
     FlagClear(FLAG_CAUGHT_HO_OH);
     FlagClear(FLAG_CAUGHT_LUGIA);
-    FlagClear(FLAG_DEFEATED_HO_OH);
-    FlagClear(FLAG_DEFEATED_LUGIA);
-
-    // Regis
-    FlagClear(FLAG_DEFEATED_REGICE);
-    FlagClear(FLAG_DEFEATED_REGISTEEL);
-    FlagClear(FLAG_DEFEATED_REGIROCK);
 
     // Latis
     //FlagClear(FLAG_DEFEATED_LATIAS_OR_LATIOS);
