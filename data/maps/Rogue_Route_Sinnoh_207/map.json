@@ -606,14 +606,14 @@
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_SINNOH_207",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 56,
       "y": 86,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_SINNOH_207",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
