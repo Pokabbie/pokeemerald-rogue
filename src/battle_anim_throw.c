@@ -610,6 +610,9 @@ static void AnimTask_FlashHealthboxOnLevelUp_Step(u8 taskId)
     u8 paletteNum;
     u32 paletteOffset, colorOffset;
 
+    u16 scale1 = Rogue_UseFastLevelUpAnim() ? 8 : 16;
+    u16 scale2 = Rogue_UseFastLevelUpAnim() ? 2 : 1;
+
     gTasks[taskId].data[0]++;
     if (gTasks[taskId].data[0]++ >= gTasks[taskId].data[11])
     {
@@ -620,12 +623,12 @@ static void AnimTask_FlashHealthboxOnLevelUp_Step(u8 taskId)
         {
         case 0:
             gTasks[taskId].data[2] += 2;
-            if (gTasks[taskId].data[2] > 16)
-                gTasks[taskId].data[2] = 16;
+            if (gTasks[taskId].data[2] > scale1)
+                gTasks[taskId].data[2] = scale1;
 
             paletteOffset = paletteNum * 16 + 0x100;
-            BlendPalette(paletteOffset + colorOffset, 1, gTasks[taskId].data[2], RGB(20, 27, 31));
-            if (gTasks[taskId].data[2] == 16)
+            BlendPalette(paletteOffset + colorOffset, 1, gTasks[taskId].data[2] * scale2, RGB(20, 27, 31));
+            if (gTasks[taskId].data[2] == scale1)
                 gTasks[taskId].data[1]++;
             break;
         case 1:
@@ -634,7 +637,7 @@ static void AnimTask_FlashHealthboxOnLevelUp_Step(u8 taskId)
                 gTasks[taskId].data[2] = 0;
 
             paletteOffset = paletteNum * 16 + 0x100;
-            BlendPalette(paletteOffset + colorOffset, 1, gTasks[taskId].data[2], RGB(20, 27, 31));
+            BlendPalette(paletteOffset + colorOffset, 1, gTasks[taskId].data[2] * scale2, RGB(20, 27, 31));
             if (gTasks[taskId].data[2] == 0)
                 DestroyAnimVisualTask(taskId);
             break;

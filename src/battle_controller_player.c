@@ -1238,13 +1238,16 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
     exp -= currLvlExp;
     expToNextLvl = Rogue_ModifyExperienceTables(gBaseStats[species].growthRate, level + 1) - currLvlExp;
     SetBattleBarStruct(battlerId, gHealthboxSpriteIds[battlerId], expToNextLvl, exp, -gainedExp);
-    PlaySE(SE_EXP);
+
+    if(!Rogue_UseFastLevelUpAnim())
+        PlaySE(SE_EXP);
+
     gTasks[taskId].func = Task_GiveExpWithExpBar;
 }
 
 static void Task_GiveExpWithExpBar(u8 taskId)
 {
-    if (gTasks[taskId].tExpTask_frames < 3)
+    if (gTasks[taskId].tExpTask_frames < (Rogue_UseFastLevelUpAnim() ? 0 : 3))
     {
         gTasks[taskId].tExpTask_frames++;
     }

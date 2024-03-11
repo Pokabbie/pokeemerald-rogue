@@ -1408,6 +1408,11 @@ s16 Rogue_ModifyBattleSlideAnim(s16 rate)
     return rate;
 }
 
+bool8 Rogue_UseFastLevelUpAnim()
+{
+    return gSaveBlock2Ptr->optionsTextSpeed != OPTIONS_TEXT_SPEED_SLOW;
+}
+
 const u8* Rogue_ModifyOverworldInteractionScript(struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* script)
 {
     u16 specialState = VarGet(VAR_ROGUE_SPECIAL_MODE);
@@ -6895,6 +6900,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 {
     bool8 applyRandomChance = FALSE;
     u16 maxPriceRange = 65000;
+    u16 difficulty = Rogue_GetModeRules()->forceFullShopInventory ? ROGUE_FINAL_CHAMP_DIFFICULTY : Rogue_GetCurrentDifficulty();
 
     gRogueLocal.rngSeedToRestore = gRngRogueValue;
 
@@ -6927,7 +6933,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         
         if(Rogue_IsRunActive())
         {
-            maxPriceRange =  300 + Rogue_GetCurrentDifficulty() * 400;
+            maxPriceRange =  300 + difficulty * 400;
         }
         break;
 
@@ -6937,15 +6943,15 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         
         if(Rogue_IsRunActive())
         {
-            maxPriceRange =  300 + Rogue_GetCurrentDifficulty() * 400;
+            maxPriceRange =  300 + difficulty * 400;
 
-            if(Rogue_GetCurrentDifficulty() <= 0)
+            if(difficulty <= 0)
                 maxPriceRange = 200;
-            else if(Rogue_GetCurrentDifficulty() <= 1)
+            else if(difficulty <= 1)
                 maxPriceRange = 600;
-            else if(Rogue_GetCurrentDifficulty() <= 2)
+            else if(difficulty <= 2)
                 maxPriceRange = 1000;
-            else if(Rogue_GetCurrentDifficulty() < 11)
+            else if(difficulty < 11)
                 maxPriceRange = 2000;
         }
         break;
@@ -7155,13 +7161,13 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         {
             u8 chance = 100;
 
-            if(Rogue_GetCurrentDifficulty() < ROGUE_ELITE_START_DIFFICULTY)
+            if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
             {
-                chance = 10 + 5 * Rogue_GetCurrentDifficulty();
+                chance = 10 + 5 * difficulty;
             }
-            else if(Rogue_GetCurrentDifficulty() < ROGUE_CHAMP_START_DIFFICULTY)
+            else if(difficulty < ROGUE_CHAMP_START_DIFFICULTY)
             {
-                chance = 60 + 10 * (Rogue_GetCurrentDifficulty() - ROGUE_ELITE_START_DIFFICULTY);
+                chance = 60 + 10 * (difficulty - ROGUE_ELITE_START_DIFFICULTY);
             }
 
             if(chance < 100)
