@@ -447,7 +447,7 @@ bool8 Rogue_Use100PercEffects(void)
     u16 completionPerc = RogueQuest_GetDisplayCompletePerc();
 
     // TODO - Also consider NG+
-    if(completionPerc != 200 && completionPerc >= 100)
+    if(completionPerc != 120 && completionPerc >= 100)
     {
         return TRUE;
     }
@@ -459,7 +459,7 @@ bool8 Rogue_Use200PercEffects(void)
 {
     u16 completionPerc = RogueQuest_GetDisplayCompletePerc();
 
-    if(completionPerc == 200)
+    if(completionPerc == 120)
     {
         return TRUE;
     }

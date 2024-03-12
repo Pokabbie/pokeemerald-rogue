@@ -261,6 +261,19 @@ bool8 RogueQuest_HasPendingRewards(u16 questId)
     return FALSE;
 }
 
+bool8 RogueQuest_HasAnyPendingRewards()
+{
+    u16 i;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_HasPendingRewards(i))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 bool8 RogueQuest_TryCollectRewards(u16 questId)
 {
     u16 i;
@@ -378,7 +391,7 @@ bool8 RogueQuest_IsQuestActive(u16 questId)
     return RogueQuest_IsQuestUnlocked(questId) && RogueQuest_GetStateFlag(questId, QUEST_STATE_ACTIVE);
 }
 
-u16 RogueQuest_GetQuestCompletePerc()
+u16 RogueQuest_GetQuestCompletePercFor(u32 constFlag)
 {
     u16 i;
     u16 complete = 0;
@@ -386,7 +399,7 @@ u16 RogueQuest_GetQuestCompletePerc()
 
     for(i = 0; i < QUEST_ID_COUNT; ++i)
     {
-        if(RogueQuest_GetConstFlag(i, QUEST_CONST_MAIN_QUEST_DEFAULT))
+        if(RogueQuest_GetConstFlag(i, constFlag))
         {
             ++total;
 
@@ -400,35 +413,39 @@ u16 RogueQuest_GetQuestCompletePerc()
     return (complete * 100) / total;
 }
 
-u16 RogueQuest_GetChallengeCompletePerc()
+void RogueQuest_GetQuestCountsFor(u32 constFlag, u16* activeCount, u16* inactiveCount)
 {
     u16 i;
-    u16 complete = 0;
-    u16 total = 0;
+    u16 active = 0;
+    u16 inactive = 0;
 
     for(i = 0; i < QUEST_ID_COUNT; ++i)
     {
-        if(RogueQuest_GetConstFlag(i, QUEST_CONST_CHALLENGE_DEFAULT))
+        if(RogueQuest_GetConstFlag(i, constFlag))
         {
-            ++total;
-
-            if(RogueQuest_GetStateFlag(i, QUEST_STATE_HAS_COMPLETE))
+            if(RogueQuest_IsQuestActive(i))
             {
-                ++complete;
+                active++;
+            }
+            else
+            {
+                inactive++;
             }
         }
     }
 
-    return (complete * 100) / total;
+    *activeCount = active;
+    *inactiveCount = inactive;
 }
 
 u16 RogueQuest_GetDisplayCompletePerc()
 {
-    u16 questCompletion = RogueQuest_GetQuestCompletePerc();
+    u16 questCompletion = RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_MAIN_QUEST);
 
     if(questCompletion == 100)
     {
-        return questCompletion + RogueQuest_GetChallengeCompletePerc();
+        // Reach 120% total
+        return questCompletion + RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_CHALLENGE) / 10 + RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_MON_MASTERY) / 10;
     }
 
     return questCompletion;
