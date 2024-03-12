@@ -512,6 +512,9 @@ void Rogue_QuestCollectNextReward()
     // 2 - Cannot give reward
     u16 questId;
 
+    if(!RogueQuest_IsRewardSequenceActive())
+        RogueQuest_BeginRewardSequence();
+
     for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
     {
         if(RogueQuest_HasPendingRewards(questId))
@@ -519,12 +522,16 @@ void Rogue_QuestCollectNextReward()
             if(RogueQuest_TryCollectRewards(questId))
                 gSpecialVar_Result = 1;
             else
+            {
                 gSpecialVar_Result = 2;
+                RogueQuest_EndRewardSequence();
+            }
             return;
         }
     }
 
     gSpecialVar_Result = 0;
+    RogueQuest_EndRewardSequence();
 }
 
 void Rogue_HasAnyNewQuests()

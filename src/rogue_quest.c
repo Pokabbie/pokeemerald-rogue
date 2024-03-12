@@ -8,6 +8,7 @@
 #include "event_data.h"
 #include "data.h"
 #include "item.h"
+#include "malloc.h"
 #include "money.h"
 #include "pokedex.h"
 #include "string_util.h"
@@ -22,6 +23,16 @@
 #include "rogue_popup.h"
 
 // new quests
+
+struct RogueQuestRewardOutput
+{
+    u32 moneyCount;
+    u16 buildSuppliesCount;
+    u16 failedRewardItem;
+    u16 failedRewardCount;
+};
+
+static EWRAM_DATA struct RogueQuestRewardOutput* sRogueQuestRewardOutput = NULL;
 
 static bool8 QuestCondition_Always(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_DifficultyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -274,100 +285,228 @@ bool8 RogueQuest_HasAnyPendingRewards()
     return FALSE;
 }
 
+static bool8 GiveRewardInternal(struct RogueQuestRewardNEW const* rewardInfo)
+{
+    bool8 state = TRUE;
+
+    switch (rewardInfo->type)
+    {
+    case QUEST_REWARD_POKEMON:
+        {
+            struct Pokemon* mon = &gEnemyParty[0];
+            u32 temp = 0;
+            bool8 isCustom = FALSE;
+
+            if(rewardInfo->perType.pokemon.customMonId != CUSTOM_MON_NONE)
+            {
+                isCustom = TRUE;
+                RogueGift_CreateMon(rewardInfo->perType.pokemon.customMonId, mon, STARTER_MON_LEVEL, USE_RANDOM_IVS);
+                AGB_ASSERT(rewardInfo->perType.pokemon.species == GetMonData(mon, MON_DATA_SPECIES));
+            }
+            else
+            {
+                ZeroMonData(mon);
+                CreateMon(mon, rewardInfo->perType.pokemon.species, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+
+                temp = METLOC_FATEFUL_ENCOUNTER;
+                SetMonData(mon, MON_DATA_MET_LOCATION, &temp);
+            }
+
+            // Update nickname
+            if(rewardInfo->perType.pokemon.nickname != NULL)
+            {
+                SetMonData(mon, MON_DATA_NICKNAME, rewardInfo->perType.pokemon.nickname);
+            }
+
+            // Set shiny state
+            if(rewardInfo->perType.pokemon.isShiny)
+            {
+                temp = 1;
+                SetMonData(mon, MON_DATA_IS_SHINY, &temp);
+            }
+
+            // Give mon
+            if(isCustom)
+                GiveTradedMonToPlayer(mon);
+            else
+                GiveMonToPlayer(mon);
+
+            // Set pokedex flag
+            GetSetPokedexSpeciesFlag(rewardInfo->perType.pokemon.species, rewardInfo->perType.pokemon.isShiny ? FLAG_SET_CAUGHT_SHINY : FLAG_SET_CAUGHT);
+
+            Rogue_PushPopup_AddPokemon(rewardInfo->perType.pokemon.species, isCustom, rewardInfo->perType.pokemon.isShiny);
+        }
+        break;
+
+    case QUEST_REWARD_ITEM:
+        state = AddBagItem(rewardInfo->perType.item.item, rewardInfo->perType.item.count);
+
+        if(state)
+        {
+            if(sRogueQuestRewardOutput && rewardInfo->perType.item.item == ITEM_BUILDING_SUPPLIES)
+                sRogueQuestRewardOutput->buildSuppliesCount += rewardInfo->perType.item.count;
+            else
+                Rogue_PushPopup_AddItem(rewardInfo->perType.item.item, rewardInfo->perType.item.count);
+        }
+        else
+        {
+            if(sRogueQuestRewardOutput)
+            {
+                sRogueQuestRewardOutput->failedRewardItem = rewardInfo->perType.item.item;
+                sRogueQuestRewardOutput->failedRewardCount = rewardInfo->perType.item.count;
+            }
+        }
+        break;
+
+    case QUEST_REWARD_SHOP_ITEM:
+        Rogue_PushPopup_UnlockedShopItem(rewardInfo->perType.shopItem.item);
+        break;
+
+    case QUEST_REWARD_MONEY:
+        AddMoney(&gSaveBlock1Ptr->money, rewardInfo->perType.money.amount);
+
+        if(sRogueQuestRewardOutput)
+            sRogueQuestRewardOutput->moneyCount += rewardInfo->perType.money.amount;
+        else
+            Rogue_PushPopup_AddMoney(rewardInfo->perType.money.amount);
+
+        break;
+
+    case QUEST_REWARD_QUEST_UNLOCK:
+        RogueQuest_TryUnlockQuest(rewardInfo->perType.questUnlock.questId);
+        break;
+    
+    default:
+        AGB_ASSERT(FALSE);
+        break;
+    }
+
+    return state;
+}
+
+static void RemoveRewardInternal(struct RogueQuestRewardNEW const* rewardInfo)
+{
+    switch (rewardInfo->type)
+    {
+    case QUEST_REWARD_ITEM:
+        RemoveBagItem(rewardInfo->perType.item.item, rewardInfo->perType.item.count);
+
+        if(sRogueQuestRewardOutput && rewardInfo->perType.item.item == ITEM_BUILDING_SUPPLIES)
+            sRogueQuestRewardOutput->buildSuppliesCount -= rewardInfo->perType.item.count;
+        break;
+
+    case QUEST_REWARD_MONEY:
+        RemoveMoney(&gSaveBlock1Ptr->money, rewardInfo->perType.money.amount);
+
+        if(sRogueQuestRewardOutput)
+            sRogueQuestRewardOutput->moneyCount -= rewardInfo->perType.money.amount;
+        break;
+    
+    default:
+        // Cannot refund this type
+        AGB_ASSERT(FALSE);
+        break;
+    }
+}
+
+static bool8 IsHighPriorityReward(struct RogueQuestRewardNEW const* rewardInfo)
+{
+    // High priority rewards can fail and be refunded
+    switch (rewardInfo->type)
+    {
+    case QUEST_REWARD_ITEM:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 bool8 RogueQuest_TryCollectRewards(u16 questId)
 {
     u16 i;
+    bool8 state = TRUE;
     struct RogueQuestRewardNEW const* rewardInfo;
     struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
     u16 rewardCount = RogueQuest_GetRewardCount(questId);
 
     AGB_ASSERT(RogueQuest_HasPendingRewards(questId));
 
-    // TODO - Check free bag slots and pokemon slots
-
+    // Give high pri rewards
     for(i = 0; i < rewardCount; ++i)
     {
         rewardInfo = RogueQuest_GetReward(questId, i);
 
-        switch (rewardInfo->type)
+        if(IsHighPriorityReward(rewardInfo))
         {
-        case QUEST_REWARD_POKEMON:
-            {
-                struct Pokemon* mon = &gEnemyParty[0];
-                u32 temp = 0;
-                bool8 isCustom = FALSE;
-
-                if(rewardInfo->perType.pokemon.customMonId != CUSTOM_MON_NONE)
-                {
-                    isCustom = TRUE;
-                    RogueGift_CreateMon(rewardInfo->perType.pokemon.customMonId, mon, STARTER_MON_LEVEL, USE_RANDOM_IVS);
-                    AGB_ASSERT(rewardInfo->perType.pokemon.species == GetMonData(mon, MON_DATA_SPECIES));
-                }
-                else
-                {
-                    ZeroMonData(mon);
-                    CreateMon(mon, rewardInfo->perType.pokemon.species, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
-
-                    temp = METLOC_FATEFUL_ENCOUNTER;
-                    SetMonData(mon, MON_DATA_MET_LOCATION, &temp);
-                }
-
-                // Update nickname
-                if(rewardInfo->perType.pokemon.nickname != NULL)
-                {
-                    SetMonData(mon, MON_DATA_NICKNAME, rewardInfo->perType.pokemon.nickname);
-                }
-
-                // Set shiny state
-                if(rewardInfo->perType.pokemon.isShiny)
-                {
-                    temp = 1;
-                    SetMonData(mon, MON_DATA_IS_SHINY, &temp);
-                }
-
-                // Give mon
-                if(isCustom)
-                    GiveTradedMonToPlayer(mon);
-                else
-                    GiveMonToPlayer(mon);
-
-                // Set pokedex flag
-                GetSetPokedexSpeciesFlag(rewardInfo->perType.pokemon.species, rewardInfo->perType.pokemon.isShiny ? FLAG_SET_CAUGHT_SHINY : FLAG_SET_CAUGHT);
-
-                Rogue_PushPopup_AddPokemon(rewardInfo->perType.pokemon.species, isCustom, rewardInfo->perType.pokemon.isShiny);
-            }
-            break;
-
-        case QUEST_REWARD_ITEM:
-            AddBagItem(rewardInfo->perType.item.item, rewardInfo->perType.item.count);
-            Rogue_PushPopup_AddItem(rewardInfo->perType.item.item, rewardInfo->perType.item.count);
-            break;
-
-        case QUEST_REWARD_SHOP_ITEM:
-            Rogue_PushPopup_UnlockedShopItem(rewardInfo->perType.shopItem.item);
-            break;
-
-        case QUEST_REWARD_MONEY:
-            AddMoney(&gSaveBlock1Ptr->money, rewardInfo->perType.money.amount);
-            Rogue_PushPopup_AddMoney(rewardInfo->perType.money.amount);
-            break;
-
-        case QUEST_REWARD_QUEST_UNLOCK:
-            RogueQuest_TryUnlockQuest(rewardInfo->perType.questUnlock.questId);
-            break;
-        
-        default:
-            AGB_ASSERT(FALSE);
-            break;
+            state = GiveRewardInternal(rewardInfo);
+            if(!state)
+                break;
         }
     }
 
-    // Clear pending rewards
-    RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, FALSE);
+    if(!state)
+    {
+        // Failed to give items so refund all we had previously given
+        rewardCount = i;
+        for(i = 0; i < rewardCount; ++i)
+        {
+            rewardInfo = RogueQuest_GetReward(questId, i);
 
-    questState->highestCollectedRewardDifficulty = questState->highestCompleteDifficulty;
+            if(IsHighPriorityReward(rewardInfo))
+                RemoveRewardInternal(rewardInfo);
+        }
+    }
+    else
+    {
+        // Give all remaining low pri rewards
+        for(i = 0; i < rewardCount; ++i)
+        {
+            rewardInfo = RogueQuest_GetReward(questId, i);
 
-    return TRUE;
+            if(!IsHighPriorityReward(rewardInfo))
+            {
+                // We should never be able to fail to give a high pri reward
+                state = GiveRewardInternal(RogueQuest_GetReward(questId, i));
+                AGB_ASSERT(state);
+            }
+        }
+
+        // Clear pending rewards
+        RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, FALSE);
+
+        questState->highestCollectedRewardDifficulty = questState->highestCompleteDifficulty;
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 RogueQuest_IsRewardSequenceActive()
+{
+    return sRogueQuestRewardOutput != NULL;
+}
+
+void RogueQuest_BeginRewardSequence()
+{
+    AGB_ASSERT(sRogueQuestRewardOutput == NULL);
+    sRogueQuestRewardOutput = AllocZeroed(sizeof(struct RogueQuestRewardOutput));
+}
+
+void RogueQuest_EndRewardSequence()
+{
+    AGB_ASSERT(sRogueQuestRewardOutput != NULL);
+
+    if(sRogueQuestRewardOutput->buildSuppliesCount)
+        Rogue_PushPopup_AddItem(ITEM_BUILDING_SUPPLIES, sRogueQuestRewardOutput->buildSuppliesCount);
+
+    if(sRogueQuestRewardOutput->moneyCount)
+        Rogue_PushPopup_AddMoney(sRogueQuestRewardOutput->moneyCount);
+
+    if(sRogueQuestRewardOutput->failedRewardItem != ITEM_NONE)
+        Rogue_PushPopup_CannotTakeItem(sRogueQuestRewardOutput->failedRewardItem, sRogueQuestRewardOutput->failedRewardCount);
+
+    Free(sRogueQuestRewardOutput);
+    sRogueQuestRewardOutput = NULL;
 }
 
 void RogueQuest_ActivateQuestsFor(u32 flags)

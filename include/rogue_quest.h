@@ -104,6 +104,9 @@ bool8 RogueQuest_HasCollectedRewards(u16 questId);
 bool8 RogueQuest_HasPendingRewards(u16 questId);
 bool8 RogueQuest_HasAnyPendingRewards();
 bool8 RogueQuest_TryCollectRewards(u16 questId);
+bool8 RogueQuest_IsRewardSequenceActive();
+void RogueQuest_BeginRewardSequence();
+void RogueQuest_EndRewardSequence();
 
 void RogueQuest_ActivateQuestsFor(u32 flags);
 bool8 RogueQuest_IsQuestActive(u16 questId);
