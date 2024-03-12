@@ -116,6 +116,9 @@ void RogueQuest_OnNewGame();
 void RogueQuest_OnLoadGame();
 void RogueQuest_OnTrigger(u16 trigger);
 
+bool8 RogueQuest_HasUnlockedChallenges();
+bool8 RogueQuest_HasUnlockedMonMasteries();
+
 
 // old
 void ResetQuestStateAfter(u16 loadedQuestCapacity);

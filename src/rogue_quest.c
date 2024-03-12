@@ -566,6 +566,16 @@ void RogueQuest_OnTrigger(u16 triggerFlag)
     }
 }
 
+bool8 RogueQuest_HasUnlockedChallenges()
+{
+    return TRUE; // todo
+}
+
+bool8 RogueQuest_HasUnlockedMonMasteries()
+{
+    return TRUE; // todo
+}
+
 // QuestCondition
 //
 

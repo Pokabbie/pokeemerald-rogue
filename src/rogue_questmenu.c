@@ -107,6 +107,7 @@ enum
 
 struct QuestMenuData
 {
+    struct MenuOption* menuOptionsBuffer;
     u8 backgroundTilemapBuffer[BG_SCREEN_SIZE];
     //u8 textTilemapBuffer[BG_SCREEN_SIZE];
     u8 sprites[QUEST_SPRITE_CAPACITY];
@@ -121,6 +122,7 @@ struct QuestMenuData
     u16 previousScrollListOffset;
     u8 currentPage;
     u8 previousPage;
+    u8 menuOptionsBufferCount;
 };
 
 struct PageData
@@ -312,6 +314,11 @@ static const struct WindowTemplate sQuestWinTemplates[WIN_COUNT + 1] =
     [WIN_COUNT] = DUMMY_WIN_TEMPLATE,
 };
 
+static u8 const sText_EarlyGameTodo[] = _("·{COLOR BLUE}To-Do");
+static u8 const sText_EarlyGameComplete[] = _("·{COLOR GREEN}Done");
+static u8 const sText_EarlyGameActive[] = _("·{COLOR BLUE}Active");
+static u8 const sText_EarlyGameInactive[] = _("·{COLOR RED}Inactive");
+
 static u8 const sText_QuestsTodo[] = _("Main·{FONT_SMALL_NARROW}{COLOR BLUE}To-Do");
 static u8 const sText_QuestsComplete[] = _("Main·{FONT_SMALL_NARROW}{COLOR GREEN}Done");
 static u8 const sText_QuestsActive[] = _("Main·{FONT_SMALL_NARROW}{COLOR BLUE}Active");
@@ -346,6 +353,21 @@ static u8 const sText_MarkerCompleteHard[] = _("{COLOR GREEN}·Complete Hard·")
 static u8 const sText_MarkerCompleteBrutal[] = _("{COLOR GREEN}·Complete Brutal·");
 static u8 const sText_MarkerRewards[] = _("{COLOR DARK_GRAY}Rewards");
 
+// Index Page
+static u8 const sText_Index_InProgressPerc[] = _("{COLOR BLUE}{STR_VAR_1}%");
+static u8 const sText_Index_FinishedPerc[] = _("{COLOR GREEN}{STR_VAR_1}%");
+static u8 const sText_Index_ActiveCount[] = _("{COLOR BLUE}{STR_VAR_1} / {STR_VAR_2}");
+static u8 const sText_Index_NoneActiveCount[] = _("{COLOR RED}{STR_VAR_1} / {STR_VAR_2}");
+
+static u8 const sText_Index_Quest[] = _("Main");
+static u8 const sText_Index_Challenge[] = _("Challenge");
+static u8 const sText_Index_Mastery[] = _("Mastery");
+static u8 const sText_Index_Total[] = _("Total");
+static u8 const sText_Index_ActiveQuests[] = _("Active Quests");
+
+static u8 const sText_Index_PendingRewards[] = _("{COLOR GREEN}Rewards ready to\nbe Collected!");
+
+
 EWRAM_DATA static struct QuestMenuData* sQuestMenuData = NULL;
 
 static void VBlankCB(void)
@@ -363,7 +385,7 @@ static void OpenQuestMenu(RogueQuestMenuCallback callback, u8 page)
     LockPlayerFieldControls();
 
     
-    sQuestMenuData = Alloc(sizeof(struct QuestMenuData));
+    sQuestMenuData = AllocZeroed(sizeof(struct QuestMenuData));
     sQuestMenuData->currentPage = page;
 
     SetMainCallback2(CB2_InitQuestMenu);
@@ -528,6 +550,9 @@ static void Task_QuestFadeOut(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
+        if(sQuestMenuData->menuOptionsBuffer)
+            Free(sQuestMenuData->menuOptionsBuffer);
+
         Free(sQuestMenuData);
         sQuestMenuData = NULL;
 
@@ -939,22 +964,85 @@ static struct MenuOption const sMenuOptionsAdventure[] =
     },
 };
 
+static bool8 IsIndexPageVisible(u8 page)
+{
+    switch (page)
+    {
+    case PAGE_BOOK_CHALLENGE_TODO:
+    case PAGE_BOOK_CHALLENGE_ACTIVE:
+    case PAGE_BOOK_CHALLENGE_INACTIVE:
+    case PAGE_BOOK_CHALLENGE_COMPLETE:
+        return RogueQuest_HasUnlockedChallenges();
+ 
+    case PAGE_BOOK_MON_MASTERY_TODO:
+    case PAGE_BOOK_MON_MASTERY_ACTIVE:
+    case PAGE_BOOK_MON_MASTERY_INACTIVE:
+    case PAGE_BOOK_MON_MASTERY_COMPLETE:
+        return RogueQuest_HasUnlockedMonMasteries();
+    }
+
+    return TRUE;
+}
+
+static void OverrideIndexPageOption(struct MenuOption* option)
+{
+    // Remove the prefix when we haven't unlocked any other categories
+    switch (option->param)
+    {
+    case PAGE_BOOK_MAIN_TODO:
+        if(!RogueQuest_HasUnlockedChallenges() && !RogueQuest_HasUnlockedMonMasteries())
+            option->text = sText_EarlyGameTodo;
+        break;
+
+    case PAGE_BOOK_MAIN_ACTIVE:
+        if(!RogueQuest_HasUnlockedChallenges() && !RogueQuest_HasUnlockedMonMasteries())
+            option->text = sText_EarlyGameActive;
+        break;
+
+    case PAGE_BOOK_MAIN_INACTIVE:
+        if(!RogueQuest_HasUnlockedChallenges() && !RogueQuest_HasUnlockedMonMasteries())
+            option->text = sText_EarlyGameInactive;
+        break;
+
+    case PAGE_BOOK_MAIN_COMPLETE:
+        if(!RogueQuest_HasUnlockedChallenges() && !RogueQuest_HasUnlockedMonMasteries())
+            option->text = sText_EarlyGameComplete;
+        break;
+    }
+}
+
+static void EnsureMenuOptionsBufferIsValid()
+{
+    if(sQuestMenuData->menuOptionsBuffer == NULL)
+    {
+        u16 i;
+        struct MenuOption const* baseMenu = Rogue_IsRunActive() ? sMenuOptionsAdventure : sMenuOptionsHub;
+        u16 baseCount = Rogue_IsRunActive() ? ARRAY_COUNT(sMenuOptionsAdventure) : ARRAY_COUNT(sMenuOptionsHub);
+
+        sQuestMenuData->menuOptionsBuffer = Alloc(sizeof(struct MenuOption) * baseCount);
+        sQuestMenuData->menuOptionsBufferCount = 0;
+
+        for(i = 0; i < baseCount; ++i)
+        {
+            if(IsIndexPageVisible(baseMenu[i].param))
+            {
+                memcpy(&sQuestMenuData->menuOptionsBuffer[sQuestMenuData->menuOptionsBufferCount++], &baseMenu[i], sizeof(struct MenuOption));
+                OverrideIndexPageOption(&sQuestMenuData->menuOptionsBuffer[sQuestMenuData->menuOptionsBufferCount - 1]);
+            }
+        }
+    }
+}
+
 static struct MenuOption const* GetIndexMenuOptionsPtr()
 {
-    //sQuestMenuData
-
-    if(Rogue_IsRunActive())
-        return sMenuOptionsAdventure;
-    else
-        return sMenuOptionsHub;
+    EnsureMenuOptionsBufferIsValid();
+    return sQuestMenuData->menuOptionsBuffer;
 }
 
 static u16 GetIndexMenuOptionsCount()
 {
-    if(Rogue_IsRunActive())
-        return ARRAY_COUNT(sMenuOptionsAdventure);
-    else
-        return ARRAY_COUNT(sMenuOptionsHub);
+    EnsureMenuOptionsBufferIsValid();
+    return sQuestMenuData->menuOptionsBufferCount;
 }
 
 static void Setup_IndexPage()
@@ -979,19 +1067,6 @@ static void HandleInput_IndexPage(u8 taskId)
         SetupPage(PAGE_BOOK_FRONT);
 }
 
-static u8 const sText_Index_InProgressPerc[] = _("{COLOR BLUE}{STR_VAR_1}%");
-static u8 const sText_Index_FinishedPerc[] = _("{COLOR GREEN}{STR_VAR_1}%");
-static u8 const sText_Index_ActiveCount[] = _("{COLOR BLUE}{STR_VAR_1} / {STR_VAR_2}");
-static u8 const sText_Index_NoneActiveCount[] = _("{COLOR RED}{STR_VAR_1} / {STR_VAR_2}");
-
-static u8 const sText_Index_Quest[] = _("Main");
-static u8 const sText_Index_Challenge[] = _("Challenge");
-static u8 const sText_Index_Mastery[] = _("Mastery");
-static u8 const sText_Index_Total[] = _("Total");
-static u8 const sText_Index_ActiveQuests[] = _("Active Quests");
-
-static u8 const sText_Index_PendingRewards[] = _("{COLOR GREEN}Rewards ready to\nbe Collected!");
-
 static void BufferQuestPercValueFor(u8* str, u8 perc, u8 total)
 {
     ConvertUIntToDecimalStringN(gStringVar1, perc, STR_CONV_MODE_LEFT_ALIGN, 3);
@@ -1015,6 +1090,7 @@ static void Draw_IndexPage()
 {
     u8 x, y;
     u8 str[32];
+    u8 const* textMainQuest = (RogueQuest_HasUnlockedChallenges() || RogueQuest_HasUnlockedMonMasteries()) ? sText_Index_Quest : sText_Index_Total;
     u8 const color[3] = {0, 2, 3};
 
     // Draw current quest info
@@ -1025,7 +1101,7 @@ static void Draw_IndexPage()
 
     // Main Quests
     {
-        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Quest);
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, textMainQuest);
         BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_MAIN_QUEST), 100);
 
         x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
@@ -1034,6 +1110,7 @@ static void Draw_IndexPage()
     }
 
     // Challenges
+    if(RogueQuest_HasUnlockedChallenges())
     {
         AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Challenge);
         BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_CHALLENGE), 100);
@@ -1044,6 +1121,7 @@ static void Draw_IndexPage()
     }
 
     // Mon Mastery
+    if(RogueQuest_HasUnlockedMonMasteries())
     {
         AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Mastery);
         BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_MON_MASTERY), 100);
@@ -1053,10 +1131,10 @@ static void Draw_IndexPage()
         ++y;
     }
 
-    ++y;
-
     // Total
+    if(RogueQuest_HasUnlockedChallenges() || RogueQuest_HasUnlockedMonMasteries())
     {
+        ++y;
         AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Total);
         BufferQuestPercValueFor(str, RogueQuest_GetDisplayCompletePerc(), 120);
 
@@ -1077,7 +1155,7 @@ static void Draw_IndexPage()
         
         // Main Quests
         {
-            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Quest);
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, textMainQuest);
             RogueQuest_GetQuestCountsFor(QUEST_CONST_IS_MAIN_QUEST, &active, &inactive);
             BufferActiveCountFor(str, active, inactive);
 
@@ -1087,6 +1165,7 @@ static void Draw_IndexPage()
         }
         
         // Challenges
+        if(RogueQuest_HasUnlockedChallenges())
         {
             AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Challenge);
             RogueQuest_GetQuestCountsFor(QUEST_CONST_IS_CHALLENGE, &active, &inactive);
@@ -1098,6 +1177,7 @@ static void Draw_IndexPage()
         }
         
         // Mon Mastery
+        if(RogueQuest_HasUnlockedMonMasteries())
         {
             AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Mastery);
             RogueQuest_GetQuestCountsFor(QUEST_CONST_IS_MON_MASTERY, &active, &inactive);
