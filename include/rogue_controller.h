@@ -50,6 +50,7 @@ u16 Rogue_ModifyPlayFanfare(u16 songNum);
 
 void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage);
 s16 Rogue_ModifyBattleSlideAnim(s16 rate);
+bool8 Rogue_UseFastLevelUpAnim();
 void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money);
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain);
 void Rogue_ModifyEVGain(int* multiplier);

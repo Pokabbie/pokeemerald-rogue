@@ -134,6 +134,15 @@ static u8 SelectObjectMovementTypeForRoom(struct RogueAdvPathRoom* room);
 
 static u8 GetPathGenerationDifficulty()
 {
+    if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
+    {
+        if(Rogue_GetCurrentDifficulty() == 0)
+        {
+            // Generate full path under late game difficulty balance
+            return ROGUE_ELITE_START_DIFFICULTY - 1;
+        }
+    }
+
     // Skip ahead for the fake out
     if(Rogue_AssumeFinalQuestFakeChamp())
         return Rogue_GetCurrentDifficulty() + 1;
@@ -599,11 +608,27 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     // Now we're going to replace the routes based on the ideal placement
     // The order of these is important to decide the placement
 
+    // For gauntlet, place full rest stop at end always
+    if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
+    {
+        for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+        {
+            if(gRogueAdvPath.rooms[i].roomType == ADVPATH_ROOM_ROUTE && gRogueAdvPath.rooms[i].coords.x <= 2)
+            {
+                GenerateRoomInstance(i, ADVPATH_ROOM_RESTSTOP);
+                --freeRoomCount;
+            }
+        }
+    }
+
     // Randomly replace a routes with empty tiles
     {
         u8 chance = 5;
 
         if(GetPathGenerationDifficulty() == 0)
+            chance = 0;
+
+        if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
             chance = 0;
 
         for(i = 0; i < gRogueAdvPath.roomCount; ++i)
@@ -618,8 +643,11 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
 
     // Populate special encounters into a single list
     //
-    validEncounterList[validEncounterCount++] = ADVPATH_ROOM_RESTSTOP;
-    ++minReplaceCount;
+    if(Rogue_GetModeRules()->adventureGenerator != ADV_GENERATOR_GAUNTLET) // In gauntlet we place these manually
+    {
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_RESTSTOP;
+        ++minReplaceCount;
+    }
 
     // Legends
     for(i = 0; i < ADVPATH_LEGEND_COUNT; ++i)
@@ -659,6 +687,13 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         bool8 allowDarkDeal = (GetPathGenerationDifficulty() % 3 != 0);
         bool8 allowLab = (GetPathGenerationDifficulty() % 3 != 1);
         bool8 allowGameShow = RogueRandomChance(50, 0);
+
+        if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
+        {
+            allowDarkDeal = TRUE;
+            allowLab = FALSE;
+            allowGameShow = TRUE;
+        }
 
         if(allowLab)
         {
@@ -712,6 +747,11 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         replaceCount = (replaceCount * replacePerc) / 100;
         replaceCount = max(replaceCount, minReplaceCount);
         replaceCount = max(replaceCount, freeRoomCount);
+
+        if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
+        {
+            replaceCount = min(replaceCount, validEncounterCount);
+        }
 
         for(i = 0; i < (u8)replaceCount; ++i)
         {
@@ -800,7 +840,14 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             if(CountSubRoomType(ADVPATH_ROOM_RESTSTOP, ADVPATH_SUBROOM_RESTSTOP_FULL) != 0)
                 weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 0;
 
-            gRogueAdvPath.rooms[roomId].roomParams.roomIdx = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
+            if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
+            {
+                gRogueAdvPath.rooms[roomId].roomParams.roomIdx = ADVPATH_SUBROOM_RESTSTOP_FULL;
+            }
+            else
+            {
+                gRogueAdvPath.rooms[roomId].roomParams.roomIdx = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
+            }
             break;
 
         case ADVPATH_ROOM_LEGENDARY:
@@ -946,9 +993,9 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
         pathSettings.generator = &generator;
         pathSettings.totalLength = 3 + 2; // +2 to account for final encounter and initial split
 
-        if(Rogue_GetModeRules()->generateGauntletAdventurePath)
+        if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
         {
-            if(GetPathGenerationDifficulty() == 0)
+            if(Rogue_GetCurrentDifficulty() == 0)
                 pathSettings.totalLength = 5 + 2;
             else
                 pathSettings.totalLength = 2;
@@ -983,66 +1030,78 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
             
             for(i = 1; i < MAX_CONNECTION_GENERATOR_COLUMNS; ++i)
             {
-                // Random column variant switches
-                switch (RogueRandom() % 6)
+                if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
                 {
-                // Mixed/Standard
-                case 0:
+                    // Mixed but not too wide
                     generator.connectionsSettingsPerColumn[i].minCount = 1;
-                    generator.connectionsSettingsPerColumn[i].maxCount = 3;
+                    generator.connectionsSettingsPerColumn[i].maxCount = 2;
                     generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
                     generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 40;
                     generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
-                    break;
+                }
+                else
+                {
+                    // Random column variant switches
+                    switch (RogueRandom() % 6)
+                    {
+                    // Mixed/Standard
+                    case 0:
+                        generator.connectionsSettingsPerColumn[i].minCount = 1;
+                        generator.connectionsSettingsPerColumn[i].maxCount = 3;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 40;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                        break;
 
-                // Branches
-                case 1:
-                    generator.connectionsSettingsPerColumn[i].minCount = 1;
-                    generator.connectionsSettingsPerColumn[i].maxCount = 2;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
-                    break;
+                    // Branches
+                    case 1:
+                        generator.connectionsSettingsPerColumn[i].minCount = 1;
+                        generator.connectionsSettingsPerColumn[i].maxCount = 2;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                        break;
 
-                // Lines
-                case 2:
-                    generator.connectionsSettingsPerColumn[i].minCount = 2;
-                    generator.connectionsSettingsPerColumn[i].maxCount = 2;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 10;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 50;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 10;
-                    break;
+                    // Lines
+                    case 2:
+                        generator.connectionsSettingsPerColumn[i].minCount = 2;
+                        generator.connectionsSettingsPerColumn[i].maxCount = 2;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 10;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 50;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 10;
+                        break;
 
-                // Wiggling line
-                case 3:
-                    generator.connectionsSettingsPerColumn[i].minCount = 1;
-                    generator.connectionsSettingsPerColumn[i].maxCount = 1;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
-                    break;
+                    // Wiggling line
+                    case 3:
+                        generator.connectionsSettingsPerColumn[i].minCount = 1;
+                        generator.connectionsSettingsPerColumn[i].maxCount = 1;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 40;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 0;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 40;
+                        break;
 
-                // Fork
-                case 4:
-                    generator.connectionsSettingsPerColumn[i].minCount = 3;
-                    generator.connectionsSettingsPerColumn[i].maxCount = 3;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 100;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 100;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 100;
-                    break;
+                    // Fork
+                    case 4:
+                        generator.connectionsSettingsPerColumn[i].minCount = 3;
+                        generator.connectionsSettingsPerColumn[i].maxCount = 3;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 100;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 100;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 100;
+                        break;
 
-                // Mixed/Standard Alt
-                case 5:
-                    generator.connectionsSettingsPerColumn[i].minCount = 1;
-                    generator.connectionsSettingsPerColumn[i].maxCount = 3;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 50;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 10;
-                    generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 50;
-                    break;
-                
-                default:
-                    AGB_ASSERT(FALSE);
-                    break;
+                    // Mixed/Standard Alt
+                    case 5:
+                        generator.connectionsSettingsPerColumn[i].minCount = 1;
+                        generator.connectionsSettingsPerColumn[i].maxCount = 3;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_TOP] = 50;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_MID] = 10;
+                        generator.connectionsSettingsPerColumn[i].branchingChance[ROOM_CONNECTION_BOT] = 50;
+                        break;
+                    
+                    default:
+                        AGB_ASSERT(FALSE);
+                        break;
+                    }
                 }
             }
         }

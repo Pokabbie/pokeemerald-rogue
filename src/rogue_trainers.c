@@ -120,6 +120,11 @@ static u8 GetTrainerLevel(u16 trainerNum)
     return Rogue_CalculateTrainerMonLvl();
 }
 
+bool8 Rogue_IsExpTrainer(u16 trainerNum)
+{
+    return GetTrainerLevel(trainerNum) == 1;
+}
+
 const struct RogueTrainer* Rogue_GetTrainer(u16 trainerNum)
 {
     AGB_ASSERT(trainerNum < gRogueTrainerCount);
@@ -1753,7 +1758,11 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
     scratch.allowWeakLegends = FALSE;
     scratch.preferStrongSpecies = FALSE;
 
-    ConfigurePartyScratchSettings(trainerNum, &scratch);
+    // Exp trainer should just use default settings
+    if(Rogue_IsExpTrainer(trainerNum))
+    {
+        ConfigurePartyScratchSettings(trainerNum, &scratch);
+    }
 
     // Generate team
     {
@@ -2369,7 +2378,14 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
             scratch->forceLegends = FALSE;
         }
 
-        species = SampleNextSpeciesInternal(scratch);
+        if(Rogue_IsExpTrainer(scratch->trainerNum))
+        {
+            species = SPECIES_CHANSEY;
+        }
+        else
+        {
+            species = SampleNextSpeciesInternal(scratch);
+        }
 
         if(species == SPECIES_NONE)
         {

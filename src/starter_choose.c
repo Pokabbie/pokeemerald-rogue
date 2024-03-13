@@ -509,8 +509,6 @@ static void Task_HandleStarterChooseInput(u8 taskId)
     }
     else if (JOY_NEW(B_BUTTON))
     {
-        u8 spriteId;
-
         ClearStarterLabel();
 
         gTasks[taskId].func = Task_AskCancelStarter;
@@ -585,8 +583,6 @@ static void Task_HandleConfirmStarterInput(u8 taskId)
 
 static void Task_HandleCancelStarterInput(u8 taskId)
 {
-    u8 spriteId;
-
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
     case 0:  // YES

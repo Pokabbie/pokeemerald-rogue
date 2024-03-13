@@ -924,20 +924,20 @@ script Rogue_Battle_PreBoss
     lock
     faceplayer
 
-    // TODO - Rehook up EXP limiting
-    //if(flag(FLAG_ROGUE_CAN_OVERLVL))
-    //{
-    //    clearflag(FLAG_TEMP_1A)
-    //}
+    special(Rogue_CanOverLevel)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_TEMP_1A)
+    }
 
     if(flag(FLAG_TEMP_1A))
     {
-        msgbox(format("Good luck with the big battle!"), MSGBOX_DEFAULT)
+        msgbox(format("Good luck with your Adventure!"), MSGBOX_DEFAULT)
     }
     else
     {
         buffernumberstring(STR_VAR_1, VAR_ROGUE_CURRENT_LEVEL_CAP)
-        msgbox(format("I can help you level up if you'd like.\pLvl. {STR_VAR_1} is the current cap. Would you like to battle?"), MSGBOX_YESNO)
+        msgbox(format("I can help you level up if you'd like.\p{LV}{STR_VAR_1} is the current cap.\nWould you like to battle?"), MSGBOX_YESNO)
 
         if(var(VAR_RESULT) == YES)
         {

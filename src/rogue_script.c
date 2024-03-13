@@ -512,6 +512,9 @@ void Rogue_QuestCollectNextReward()
     // 2 - Cannot give reward
     u16 questId;
 
+    if(!RogueQuest_IsRewardSequenceActive())
+        RogueQuest_BeginRewardSequence();
+
     for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
     {
         if(RogueQuest_HasPendingRewards(questId))
@@ -519,12 +522,16 @@ void Rogue_QuestCollectNextReward()
             if(RogueQuest_TryCollectRewards(questId))
                 gSpecialVar_Result = 1;
             else
+            {
                 gSpecialVar_Result = 2;
+                RogueQuest_EndRewardSequence();
+            }
             return;
         }
     }
 
     gSpecialVar_Result = 0;
+    RogueQuest_EndRewardSequence();
 }
 
 void Rogue_HasAnyNewQuests()
@@ -1446,4 +1453,9 @@ void Rogue_GiveCatchingContestMon()
 void Rogue_HasUnlockedRandomStarterTrade()
 {
     gSpecialVar_Result = RogueQuest_HasCollectedRewards(QUEST_ID_MR_RANDOMAN);
+}
+
+void Rogue_CanOverLevel()
+{
+    gSpecialVar_Result = Rogue_GetConfigToggle(CONFIG_TOGGLE_OVER_LVL);
 }

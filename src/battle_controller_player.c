@@ -1520,7 +1520,9 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
     expToNextLvl = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, level + 1) - currLvlExp;
     SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], expToNextLvl, exp, -gainedExp);
     TestRunner_Battle_RecordExp(battler, exp, -gainedExp);
-    PlaySE(SE_EXP);
+    if(!Rogue_UseFastLevelUpAnim())
+        PlaySE(SE_EXP);
+
     gTasks[taskId].func = Task_GiveExpWithExpBar;
 }
 
@@ -1530,7 +1532,7 @@ static void Task_GiveExpWithExpBar(u8 taskId)
     u16 species;
     s32 currExp, expOnNextLvl, newExpPoints;
 
-    if (gTasks[taskId].tExpTask_frames < 3)
+    if (gTasks[taskId].tExpTask_frames < (Rogue_UseFastLevelUpAnim() ? 0 : 3))
     {
         gTasks[taskId].tExpTask_frames++;
     }

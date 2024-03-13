@@ -447,7 +447,7 @@ bool8 Rogue_Use100PercEffects(void)
     u16 completionPerc = RogueQuest_GetDisplayCompletePerc();
 
     // TODO - Also consider NG+
-    if(completionPerc != 200 && completionPerc >= 100)
+    if(completionPerc != 120 && completionPerc >= 100)
     {
         return TRUE;
     }
@@ -459,7 +459,7 @@ bool8 Rogue_Use200PercEffects(void)
 {
     u16 completionPerc = RogueQuest_GetDisplayCompletePerc();
 
-    if(completionPerc == 200)
+    if(completionPerc == 120)
     {
         return TRUE;
     }
@@ -543,60 +543,71 @@ u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 sou
     return volume;
 }
 
+static u16 ModifyBattleSongByMap(u16 songNum, u32 mapFlags)
+{
+    switch (songNum)
+    {
+    case MUS_VS_WILD:
+        if(mapFlags & ROUTE_FLAG_KANTO)
+            return MUS_RG_VS_WILD;
+
+        else if(mapFlags & ROUTE_FLAG_JOHTO)
+            return MUS_HG_VS_WILD;
+
+        else if(mapFlags & ROUTE_FLAG_SINNOH)
+            return MUS_DP_VS_WILD;
+        break;
+
+    case MUS_VICTORY_WILD:
+        if(mapFlags & ROUTE_FLAG_KANTO)
+            return MUS_RG_VICTORY_WILD;
+
+        else if(mapFlags & ROUTE_FLAG_JOHTO)
+            return MUS_DP_VICTORY_WILD; // TODO - Fix with HG specific one 
+
+        else if(mapFlags & ROUTE_FLAG_SINNOH)
+            return MUS_DP_VICTORY_WILD;
+        break;
+
+    case MUS_VS_TRAINER:
+        if(mapFlags & ROUTE_FLAG_KANTO)
+            return MUS_RG_VS_TRAINER;
+
+        else if(mapFlags & ROUTE_FLAG_JOHTO)
+            return MUS_HG_VS_TRAINER;
+
+        else if(mapFlags & ROUTE_FLAG_SINNOH)
+            return MUS_DP_VS_TRAINER;
+        break;
+
+    case MUS_VICTORY_TRAINER:
+        if(mapFlags & ROUTE_FLAG_KANTO)
+            return MUS_RG_VICTORY_TRAINER;
+
+        else if(mapFlags & ROUTE_FLAG_JOHTO)
+            return MUS_HG_VICTORY_TRAINER;
+
+        else if(mapFlags & ROUTE_FLAG_SINNOH)
+            return MUS_DP_VICTORY_TRAINER;
+        break;
+    }
+
+    return songNum;
+}
+
 u16 Rogue_ModifyPlayBGM(u16 songNum)
 {
+    if(Rogue_InWildSafari() || Rogue_IsCatchingContestActive())
+    {
+        songNum = ModifyBattleSongByMap(songNum, ROUTE_FLAG_KANTO);
+    }
+
     if(Rogue_IsRunActive())
     {
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_ROUTE)
         {
-            u16 mapFlags = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].mapFlags;
-
-            switch (songNum)
-            {
-            case MUS_VS_WILD:
-                if(mapFlags & ROUTE_FLAG_KANTO)
-                    return MUS_RG_VS_WILD;
-
-                else if(mapFlags & ROUTE_FLAG_JOHTO)
-                    return MUS_HG_VS_WILD;
-
-                else if(mapFlags & ROUTE_FLAG_SINNOH)
-                    return MUS_DP_VS_WILD;
-                break;
-
-            case MUS_VICTORY_WILD:
-                if(mapFlags & ROUTE_FLAG_KANTO)
-                    return MUS_RG_VICTORY_WILD;
-
-                else if(mapFlags & ROUTE_FLAG_JOHTO)
-                    return MUS_DP_VICTORY_WILD; // TODO - Fix with HG specific one 
-
-                else if(mapFlags & ROUTE_FLAG_SINNOH)
-                    return MUS_DP_VICTORY_WILD;
-                break;
-
-            case MUS_VS_TRAINER:
-                if(mapFlags & ROUTE_FLAG_KANTO)
-                    return MUS_RG_VS_TRAINER;
-
-                else if(mapFlags & ROUTE_FLAG_JOHTO)
-                    return MUS_HG_VS_TRAINER;
-
-                else if(mapFlags & ROUTE_FLAG_SINNOH)
-                    return MUS_DP_VS_TRAINER;
-                break;
-
-            case MUS_VICTORY_TRAINER:
-                if(mapFlags & ROUTE_FLAG_KANTO)
-                    return MUS_RG_VICTORY_TRAINER;
-    
-                else if(mapFlags & ROUTE_FLAG_JOHTO)
-                    return MUS_HG_VICTORY_TRAINER;
-
-                else if(mapFlags & ROUTE_FLAG_SINNOH)
-                    return MUS_DP_VICTORY_TRAINER;
-                break;
-            }
+            u32 mapFlags = gRogueRouteTable.routes[gRogueRun.currentRouteIndex].mapFlags;
+            songNum = ModifyBattleSongByMap(songNum, mapFlags);
         }
     }
     else
@@ -1395,6 +1406,11 @@ s16 Rogue_ModifyBattleSlideAnim(s16 rate)
 
     // Still run faster and default game because it's way too slow :(
     return rate;
+}
+
+bool8 Rogue_UseFastLevelUpAnim()
+{
+    return gSaveBlock2Ptr->optionsTextSpeed != OPTIONS_TEXT_SPEED_SLOW;
 }
 
 const u8* Rogue_ModifyOverworldInteractionScript(struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* script)
@@ -3595,7 +3611,7 @@ static void ChooseLegendarysForNewAdventure()
             spawnMinor = TRUE;
     }
 
-    if(Rogue_GetModeRules()->generateGauntletAdventurePath)
+    if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
     {
         // Gauntlet always generates a minor legendary only
         spawnRoamer = FALSE;
@@ -3620,19 +3636,19 @@ static void ChooseLegendarysForNewAdventure()
 
     if(spawnBox)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(3, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_BOX] = (Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : ROGUE_ELITE_START_DIFFICULTY - 1 + RogueRandomRange(3, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_BOX] = SelectLegendarySpecies(ADVPATH_LEGEND_BOX);
     }
 
     if(spawnRoamer)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : 1 + RogueRandomRange(5, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_ROAMER] = (Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : 1 + RogueRandomRange(5, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_ROAMER] = SelectLegendarySpecies(ADVPATH_LEGEND_ROAMER);
     }
 
     if(spawnMinor)
     {
-        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = Rogue_GetModeRules()->generateGauntletAdventurePath ? 0 : 4 + RogueRandomRange(4, 0);
+        gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] = (Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET) ? 0 : 4 + RogueRandomRange(4, 0);
         gRogueRun.legendarySpecies[ADVPATH_LEGEND_MINOR] = SelectLegendarySpecies(ADVPATH_LEGEND_MINOR);
     }
 
@@ -3720,7 +3736,7 @@ static void ChooseTeamEncountersForNewAdventure()
     gRogueRun.teamEncounterNum = ChooseTeamEncounterNum();
 
     // Don't place any of these encounters
-    if(Rogue_GetModeRules()->generateGauntletAdventurePath)
+    if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
         return;
 
     // Setup maps (There's only 1 per each currently)
@@ -4952,6 +4968,10 @@ void Rogue_Battle_StartTrainerBattle(void)
     // Apply trainer specific seed
     gRogueLocal.rngSeedToRestore = gRngRogueValue;
     SeedRogueRng(RogueRandom() + (gTrainerBattleOpponent_A ^ RogueRandom()));
+
+    // Remove soft level cap
+    if(Rogue_IsExpTrainer(gTrainerBattleOpponent_A))
+        gRogueRun.currentLevelOffset = 0;
 
         // enable dyanmax for this fight
     if(IsDynamaxEnabled() && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
@@ -6880,6 +6900,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 {
     bool8 applyRandomChance = FALSE;
     u16 maxPriceRange = 65000;
+    u16 difficulty = Rogue_GetModeRules()->forceFullShopInventory ? ROGUE_FINAL_CHAMP_DIFFICULTY : Rogue_GetCurrentDifficulty();
 
     gRogueLocal.rngSeedToRestore = gRngRogueValue;
 
@@ -6912,7 +6933,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         
         if(Rogue_IsRunActive())
         {
-            maxPriceRange =  300 + Rogue_GetCurrentDifficulty() * 400;
+            maxPriceRange =  300 + difficulty * 400;
         }
         break;
 
@@ -6922,15 +6943,15 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         
         if(Rogue_IsRunActive())
         {
-            maxPriceRange =  300 + Rogue_GetCurrentDifficulty() * 400;
+            maxPriceRange =  300 + difficulty * 400;
 
-            if(Rogue_GetCurrentDifficulty() <= 0)
+            if(difficulty <= 0)
                 maxPriceRange = 200;
-            else if(Rogue_GetCurrentDifficulty() <= 1)
+            else if(difficulty <= 1)
                 maxPriceRange = 600;
-            else if(Rogue_GetCurrentDifficulty() <= 2)
+            else if(difficulty <= 2)
                 maxPriceRange = 1000;
-            else if(Rogue_GetCurrentDifficulty() < 11)
+            else if(difficulty < 11)
                 maxPriceRange = 2000;
         }
         break;
@@ -7036,6 +7057,11 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         break;
     }
 
+    if(Rogue_GetModeRules()->forceFullShopInventory)
+    {
+        applyRandomChance = FALSE;
+    }
+
     // Run only items
     if(!Rogue_IsRunActive())
     {
@@ -7135,13 +7161,13 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         {
             u8 chance = 100;
 
-            if(Rogue_GetCurrentDifficulty() < ROGUE_ELITE_START_DIFFICULTY)
+            if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
             {
-                chance = 10 + 5 * Rogue_GetCurrentDifficulty();
+                chance = 10 + 5 * difficulty;
             }
-            else if(Rogue_GetCurrentDifficulty() < ROGUE_CHAMP_START_DIFFICULTY)
+            else if(difficulty < ROGUE_CHAMP_START_DIFFICULTY)
             {
-                chance = 60 + 10 * (Rogue_GetCurrentDifficulty() - ROGUE_ELITE_START_DIFFICULTY);
+                chance = 60 + 10 * (difficulty - ROGUE_ELITE_START_DIFFICULTY);
             }
 
             if(chance < 100)

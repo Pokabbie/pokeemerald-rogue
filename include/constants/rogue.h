@@ -525,6 +525,10 @@
 #define TRAINER_ORDER_OFFICIAL                  2
 #define TRAINER_ORDER_COUNT                     3
 
+// Generators
+#define ADV_GENERATOR_STANDARD                  0
+#define ADV_GENERATOR_GAUNTLET                  1
+
 
 // Rogue Campaigns OLD
 //

@@ -110,7 +110,7 @@ struct PopupRequest
 {
     const u8* titleText;
     const u8* subtitleText;
-    u16 expandTextData[3];
+    u32 expandTextData[3];
     u16 expandTextType[3];
     u8 titleTextCapacity;
     u8 templateId;
@@ -515,6 +515,7 @@ static const struct PopupRequestTemplate sPopupRequestTemplates[] =
 static void ShowQuestPopup(void);
 static void HideQuestPopUpWindow(void);
 
+static u8 GetActiveOnScreenDisplayTimer();
 static void Task_QuestPopUpWindow(u8 taskId);
 static void ShowQuestPopUpWindow(void);
 
@@ -620,6 +621,21 @@ void Rogue_ClearPopupQueue(void)
     sRoguePopups.lastShownId = 0;
 }
 
+#define SKIP_POPUP_BUTTONS A_BUTTON | B_BUTTON | START_BUTTON
+
+static bool8 ShouldSkipPopups()
+{
+    // Always skip if pressing
+    if(JOY_NEW(SKIP_POPUP_BUTTONS))
+        return TRUE;
+
+    // If holding skip after has been on screen for long enough
+    if((JOY_HELD(SKIP_POPUP_BUTTONS) && GetActiveOnScreenDisplayTimer() >= 1))
+        return TRUE;
+
+    return FALSE;
+}
+
 void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
 {
     bool8 enabled = inOverworld && inputEnabled; // May need to check this too? GetStartMenuWindowId
@@ -672,7 +688,8 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
         // If you press a button during a script, it will skip this notification
         if(sRoguePopups.forceEnabled && !GetCurrentPopup()->cantBeSkipped)
         {
-            if(JOY_NEW(A_BUTTON | B_BUTTON | START_BUTTON))
+            // If held wait a few frames before moving on
+            if(ShouldSkipPopups())
             {
                 if (FuncIsActiveTask(Task_QuestPopUpWindow))
                     HideQuestPopUpWindow();
@@ -751,6 +768,15 @@ static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 u
         value = (invTimer * yEnd) / template->animDuration + (timer * yStart) / template->animDuration;
         SetGpuReg(REG_OFFSET_BG0VOFS, value);
     }
+}
+
+static u8 GetActiveOnScreenDisplayTimer()
+{
+    u8 taskId = FindTaskIdByFunc(Task_QuestPopUpWindow);
+    if(taskId != TASK_NONE)
+        return gTasks[taskId].tOnscreenTimer;
+
+    return 0;
 }
 
 static void Task_QuestPopUpWindow(u8 taskId)
@@ -985,7 +1011,7 @@ static void ExpandPopupText(struct PopupRequest* popup)
     };
 
     u8 i;
-    u16 data;
+    u32 data;
 
     for(i = 0; i < ARRAY_COUNT(popup->expandTextType); ++i)
     {
@@ -1004,7 +1030,7 @@ static void ExpandPopupText(struct PopupRequest* popup)
                     break;
 
                 case TEXT_EXPAND_UNSIGNED_NUMBER:
-                    ConvertIntToDecimalStringN(textDest[i], data, STR_CONV_MODE_LEFT_ALIGN, 5);
+                    ConvertIntToDecimalStringN(textDest[i], data, STR_CONV_MODE_LEFT_ALIGN, data > 99999 ? 9 : 5);
                     break;
 
                 case TEXT_EXPAND_ITEM_NAME:
@@ -1069,6 +1095,9 @@ static void ShowQuestPopUpWindow(void)
     if(!gSaveBlock2Ptr->optionsPopupSoundOff)
     {
         bool8 playAudio = !popupRequest->scriptAudioOnly || sRoguePopups.forceEnabled;
+
+        if(JOY_HELD(SKIP_POPUP_BUTTONS))
+            playAudio = FALSE;
 
         if(sRoguePopups.forceEnabled && sRoguePopups.forceEnabledMuteAudio)
             playAudio = FALSE;
