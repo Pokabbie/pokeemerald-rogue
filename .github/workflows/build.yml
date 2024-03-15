@@ -46,13 +46,14 @@ jobs:
         working-directory: agbcc
 
       - name: Build Debug
-        run: make -j${nproc} -O all RELEASE=0
-
-      - name: Clean
-        run: make clean -j${nproc}
+        env:
+          RELEASE: 0
+        run: make -j${nproc} -O all
 
       - name: Build Release
-        run: make -j${nproc} -O all RELEASE=1
+        env:
+          RELEASE: 1
+        run: make -j${nproc} -O all
 
       - name: Update Memory Stats
         uses: actions/upload-artifact@v3
