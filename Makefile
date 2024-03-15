@@ -45,6 +45,16 @@ endif
 ROGUEPORYSCRIPTSDIR := data/scripts/Rogue
 PORYSCRIPTARGS := -s ROGUE_VERSION=ROGUE_VERSION_EXPANSION -fc $(ROGUEPORYSCRIPTSDIR)/Strings/poryscript_font_config.json
 
+# CPPFLAGS += -D ROGUE_EXPANSION=1
+
+ifeq ($(RELEASE), 1)
+PORYSCRIPTARGS += -s ROGUE_RELEASE=1
+endif
+
+ifeq ($(RELEASE), 0)
+PORYSCRIPTARGS += -s ROGUE_DEBUG=1
+endif
+
 TITLE       := POKEMON EMER
 GAME_CODE   := BPEE
 MAKER_CODE  := 01
@@ -52,6 +62,7 @@ REVISION    := 0
 MODERN      ?= 1
 TEST        ?= 0
 ANALYZE     ?= 0
+RELEASE     ?= 0
 
 ifeq (agbcc,$(MAKECMDGOALS))
   MODERN := 0
@@ -153,6 +164,16 @@ endif
 CPPFLAGS := -iquote include -iquote $(GFLIB_SUBDIR) -Wno-trigraphs -DMODERN=$(MODERN) -DTESTING=$(TEST)
 ifneq ($(MODERN),1)
 CPPFLAGS += -I tools/agbcc/include -I tools/agbcc -nostdinc -undef
+endif
+
+CPPFLAGS += -D ROGUE_EXPANSION=1
+
+ifeq ($(RELEASE), 1)
+CPPFLAGS += -D ROGUE_RELEASE=1
+endif
+
+ifeq ($(RELEASE), 0)
+CPPFLAGS += -D ROGUE_DEBUG=1
 endif
 
 SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
