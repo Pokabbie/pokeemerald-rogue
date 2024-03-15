@@ -45,8 +45,14 @@ jobs:
           ./install.sh ../
         working-directory: agbcc
 
-      - name: Agbcc
-        run: make -j${nproc} -O all
+      - name: Build Debug
+        run: make -j${nproc} -O all RELEASE=0
+
+      - name: Clean
+        run: make clean -j${nproc}
+
+      - name: Build Release
+        run: make -j${nproc} -O all RELEASE=1
 
       - name: Update Memory Stats
         uses: actions/upload-artifact@v3

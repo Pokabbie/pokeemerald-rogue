@@ -1,10 +1,9 @@
 #ifndef ROGUE_CONFIG_H
 #define ROGUE_CONFIG_H
 
-//#define ROGUE_EXPANSION
-
 #define ROGUE_VERSION_VANILLA       0
 #define ROGUE_VERSION_EXPANSION     1
+
 
 #ifdef ROGUE_EXPANSION
 #define ROGUE_VERSION ROGUE_VERSION_EXPANSION
@@ -12,21 +11,10 @@
 #define ROGUE_VERSION ROGUE_VERSION_VANILLA
 #endif
 
-#ifndef ROGUE_FEATURE_AUTOMATION
-// Debugging defines
-// Override these when debugging
-//
-#define ROGUE_DEBUG
+#ifdef ROGUE_DEBUG
 #define ROGUE_DEBUG_LOGGING
-#else
-
-// Automation defines
-// Don't adjust these unless needed
-//
-#define ROGUE_DEBUG
-#define ROGUE_DEBUG_LOGGING
-
 #endif
+
 
 // Seems to be slower overall
 //#define ROGUE_FEATURE_HQ_RANDOM 1
@@ -36,7 +24,6 @@
 #endif
 //#define ROGUE_FEATURE_AUTOMATION // Activate this for builds where automated external interactions are enabled (e.g. Soak Tests)
 //#define ROGUE_FEATURE_SKIP_SAVE_WARNINGS // Activate this if you intend on putting on a physical cart with 64k FLASH save
-#define ROGUE_FEATURE_MEMORY_STOMP_TRACKING // Memory stomp support (See Rogue_debug.h)
 
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
