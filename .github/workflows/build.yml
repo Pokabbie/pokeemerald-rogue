@@ -60,12 +60,6 @@ jobs:
           RELEASE: 0
         run: make -j${nproc} -O
 
-      - name: Clean
-        env:
-          MODERN: 1
-          COMPARE: 0
-        run: make clean -j${nproc}
-
       - name: Build Release
         env:
           MODERN: 1

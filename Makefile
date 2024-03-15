@@ -45,14 +45,14 @@ endif
 ROGUEPORYSCRIPTSDIR := data/scripts/Rogue
 PORYSCRIPTARGS := -s ROGUE_VERSION=ROGUE_VERSION_EXPANSION -fc $(ROGUEPORYSCRIPTSDIR)/Strings/poryscript_font_config.json
 
-# CPPFLAGS += -D ROGUE_EXPANSION=1
-
 ifeq ($(RELEASE), 1)
 PORYSCRIPTARGS += -s ROGUE_RELEASE=1
+BUILD_CONFIG := release
 endif
 
 ifeq ($(RELEASE), 0)
 PORYSCRIPTARGS += -s ROGUE_DEBUG=1
+BUILD_CONFIG := debug
 endif
 
 TITLE       := POKEMON EMER
@@ -92,12 +92,12 @@ endif
 ROM_NAME := pokeemerald_agbcc.gba
 ELF_NAME := $(ROM_NAME:.gba=.elf)
 MAP_NAME := $(ROM_NAME:.gba=.map)
-OBJ_DIR_NAME := build/emerald
+OBJ_DIR_NAME := build/emerald_$(BUILD_CONFIG)
 
 MODERN_ROM_NAME := pokeemerald.gba
 MODERN_ELF_NAME := $(MODERN_ROM_NAME:.gba=.elf)
 MODERN_MAP_NAME := $(MODERN_ROM_NAME:.gba=.map)
-MODERN_OBJ_DIR_NAME := build/modern
+MODERN_OBJ_DIR_NAME := build/modern_$(BUILD_CONFIG)
 
 SHELL := /bin/bash -o pipefail
 
@@ -133,6 +133,14 @@ MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
 TEST_BUILDDIR = $(OBJ_DIR)/$(TEST_SUBDIR)
 
 ASFLAGS := -mcpu=arm7tdmi --defsym MODERN=$(MODERN)
+
+ifeq ($(RELEASE), 1)
+ASFLAGS += --defsym ROGUE_RELEASE=1
+endif
+
+ifeq ($(RELEASE), 0)
+ASFLAGS += --defsym ROGUE_DEBUG=1
+endif
 
 ifeq ($(MODERN),0)
 CC1             := tools/agbcc/bin/agbcc$(EXE)

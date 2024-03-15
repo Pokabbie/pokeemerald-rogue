@@ -1,8 +1,6 @@
 #ifndef GUARD_CONFIG_DEBUG_H
 #define GUARD_CONFIG_DEBUG_H
 
-#include "constants/rogue.h"
-
 #ifdef ROGUE_DEBUG
 #define ROGUE_DEBUG_ACTIVE TRUE
 #else

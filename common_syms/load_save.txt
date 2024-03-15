@@ -3,3 +3,4 @@ gSaveBlock1Ptr
 gSaveBlock2Ptr
 gPokemonStoragePtr
 gRogueSaveBlock
+
