@@ -45,6 +45,7 @@ void ExportTrainerData_Pory(std::ofstream& fileStream, std::string const& dataPa
 void ExportBattleMusicData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 void ExportQuestData_H(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
+void ExportQuestData_ConstsH(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 void ExportQuestData_Pory(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 void ExportNicknameData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 void ExportCustomMonData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
@@ -60,6 +61,7 @@ static std::map<std::string, ExporterFunc> CreateExportMap()
     mapping["battle_music_c"] = ExportBattleMusicData_C;
     mapping["quests_c"] = ExportQuestData_C;
     mapping["quests_h"] = ExportQuestData_H;
+    mapping["quest_consts_h"] = ExportQuestData_ConstsH;
     mapping["quests_pory"] = ExportQuestData_Pory;
     mapping["nicknames_c"] = ExportNicknameData_C;
     mapping["custom_mons_c"] = ExportCustomMonData_C;
