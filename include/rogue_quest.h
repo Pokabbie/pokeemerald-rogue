@@ -1,7 +1,9 @@
 #ifndef ROGUE_QUEST_H
 #define ROGUE_QUEST_H
 
+#define QUEST_ENUM_ACTIVE
 #include "constants/generated/quests.h"
+#undef QUEST_ENUM_ACTIVE
 
 struct RogueQuestTrigger;
 struct CustomMonPreset;

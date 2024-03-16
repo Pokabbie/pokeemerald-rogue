@@ -383,6 +383,8 @@ void ExportQuestData_H(std::ofstream& fileStream, std::string const& dataPath, j
 	GatherQuests(dataPath, jsonData, questData);
 
 	// Enum define
+	fileStream << "#ifdef QUEST_ENUM_ACTIVE\n";
+
 	fileStream << "enum\n{\n";
 	for (auto it = questData.questInfo.begin(); it != questData.questInfo.end(); ++it)
 	{
@@ -398,6 +400,44 @@ void ExportQuestData_H(std::ofstream& fileStream, std::string const& dataPath, j
 	}
 	fileStream << c_TabSpacing << "QUEST_ID_COUNT,\n";
 	fileStream << "};\n\n";
+
+	fileStream << "#else // !QUEST_ENUM_ACTIVE\n\n";
+	
+
+	// Save count define
+	int counter = 0;
+
+	for (auto it = questData.questInfo.begin(); it != questData.questInfo.end(); ++it)
+	{
+		auto const& quest = *it;
+		int index = counter++;
+
+		if (!quest.preprocessorCondition.empty())
+		{
+			fileStream << "#if " << quest.preprocessorCondition << "\n";
+			fileStream << "\t#define __QUEST_COUNT_" << quest.questId << "_" << index << " 1\n";
+			fileStream << "#else\n";
+			fileStream << "\t#define __QUEST_COUNT_" << quest.questId << "_" << index << " 0\n";
+			fileStream << "#endif\n";
+		}
+		else
+			fileStream << "#define __QUEST_COUNT_" << quest.questId << "_" << index << " 1\n";
+	}
+
+	counter = 0;
+
+	fileStream << "\n\n";
+	fileStream << "#define QUEST_SAVE_COUNT (0 \\\n";
+	for (auto it = questData.questInfo.begin(); it != questData.questInfo.end(); ++it)
+	{
+		int index = counter++;
+
+		auto const& quest = *it;
+		fileStream << "\t+ __QUEST_COUNT_" << quest.questId << "_" << index << " \\\n";
+	}
+	fileStream << ")\n\n";
+
+	fileStream << "#endif // !QUEST_ENUM_ACTIVE";
 }
 
 void ExportQuestData_Pory(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)

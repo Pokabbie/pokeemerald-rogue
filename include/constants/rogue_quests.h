@@ -1,8 +1,6 @@
-#ifdef ROGUE_EXPANSION
-#define QUEST_SAVE_COUNT 256
-#else
-#define QUEST_SAVE_COUNT 88
-#endif
+
+#include "constants/generated/quests.h"
+
 
 // Constant flags
 //

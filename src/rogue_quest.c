@@ -66,13 +66,8 @@ bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species
 
 #undef COMPOUND_STRING
 
-#ifdef ROGUE_DEBUG
-// ensure we are serializing enough for debug builds
-STATIC_ASSERT(QUEST_SAVE_COUNT >= QUEST_ID_COUNT, saveQuestCountMissmatch);
-#else
 // ensure we are serializing the exact correct amount
 STATIC_ASSERT(QUEST_SAVE_COUNT == QUEST_ID_COUNT, saveQuestCountMissmatch);
-#endif
 
 //static u8* RogueQuest_GetExtraState(size_t size)
 //{
