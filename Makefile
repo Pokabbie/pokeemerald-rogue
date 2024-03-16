@@ -1,5 +1,7 @@
 TOOLCHAIN := $(DEVKITARM)
 COMPARE ?= 0
+RELEASE ?= 0
+EXPANSION := 0
 
 ifeq (compare,$(MAKECMDGOALS))
   COMPARE := 1
@@ -43,7 +45,15 @@ PORYSCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
 endif
 
 ROGUEPORYSCRIPTSDIR := data/scripts/Rogue
-PORYSCRIPTARGS := -s ROGUE_VERSION=ROGUE_VERSION_VANILLA -fc $(ROGUEPORYSCRIPTSDIR)/Strings/poryscript_font_config.json
+PORYSCRIPTARGS := -fc $(ROGUEPORYSCRIPTSDIR)/Strings/poryscript_font_config.json
+
+ifeq ($(EXPANSION), 1)
+PORYSCRIPTARGS := -s ROGUE_EXPANSION=ROGUE_VERSION_EXPANSION
+endif
+
+ifeq ($(EXPANSION), 0)
+PORYSCRIPTARGS := -s ROGUE_VERSION=ROGUE_VERSION_VANILLA
+endif
 
 ifeq ($(RELEASE), 1)
 PORYSCRIPTARGS += -s ROGUE_RELEASE=1
@@ -60,7 +70,6 @@ GAME_CODE   := BPEE
 MAKER_CODE  := 01
 REVISION    := 0
 MODERN      ?= 0
-RELEASE     ?= 0
 
 ifeq (modern,$(MAKECMDGOALS))
   MODERN := 1
@@ -118,6 +127,10 @@ MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
 
 ASFLAGS := -mcpu=arm7tdmi --defsym MODERN=$(MODERN)
 
+ifeq ($(EXPANSION), 1)
+ASFLAGS += --defsym ROGUE_EXPANSION=1
+endif
+
 ifeq ($(RELEASE), 1)
 ASFLAGS += --defsym ROGUE_RELEASE=1
 endif
@@ -147,7 +160,9 @@ ifneq ($(MODERN),1)
 CPPFLAGS += -I tools/agbcc/include -I tools/agbcc -nostdinc -undef
 endif
 
-# CPPFLAGS += -D ROGUE_EXPANSION=1
+ifeq ($(EXPANSION), 1)
+CPPFLAGS += -D ROGUE_EXPANSION=1
+endif
 
 ifeq ($(RELEASE), 1)
 CPPFLAGS += -D ROGUE_RELEASE=1
