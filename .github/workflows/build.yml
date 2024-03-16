@@ -58,14 +58,14 @@ jobs:
           MODERN: 1
           COMPARE: 0
           RELEASE: 0
-        run: make -j${nproc} -O
+        run: make -j${nproc} -O all
 
       - name: Build Release
         env:
           MODERN: 1
           COMPARE: 0
           RELEASE: 1
-        run: make -j${nproc} -O
+        run: make -j${nproc} -O all
 
       - name: Update Memory Stats
         uses: actions/upload-artifact@v3
