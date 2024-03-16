@@ -15,6 +15,9 @@ $(DATA_SRC_SUBDIR)/rogue/pokemon_nicknames.h: $(DATA_SRC_SUBDIR)/rogue/pokemon_n
 include/constants/generated/quests.h: $(DATA_SRC_SUBDIR)/rogue/quests.json $(DATA_SRC_SUBDIR)/rogue/quests/*.json
 	$(CUSTOMJSON) quests_h $(DATA_SRC_SUBDIR)/rogue/quests.json $@
 
+include/constants/generated/quest_consts.h: $(DATA_SRC_SUBDIR)/rogue/quests.json $(DATA_SRC_SUBDIR)/rogue/quests/*.json
+	$(CUSTOMJSON) quest_consts_h $(DATA_SRC_SUBDIR)/rogue/quests.json $@
+
 $(ROGUEPORYSCRIPTSDIR)/Generated/trainers.pory: $(DATA_SRC_SUBDIR)/rogue/trainers.json $(DATA_SRC_SUBDIR)/rogue/trainers/*.json
 	$(CUSTOMJSON) trainers_pory $(DATA_SRC_SUBDIR)/rogue/trainers.json $@
 
