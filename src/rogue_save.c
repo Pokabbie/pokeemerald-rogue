@@ -69,7 +69,7 @@ static void FlipEncryptMemory(void* ptr, size_t size, u32 encryptionKey)
     }
 }
 
-static bool8 IsSerializeRangeValid(struct SaveBlockStream* block, size_t size)
+static bool8 UNUSED_RELEASE IsSerializeRangeValid(struct SaveBlockStream* block, size_t size)
 {
     void* startAddr = block->data + block->offset;
     void* endAddr = startAddr + size;
