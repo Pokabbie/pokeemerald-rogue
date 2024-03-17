@@ -88,7 +88,10 @@ static struct RogueQuestEntry const* RogueQuest_GetEntry(u16 questId)
 static struct RogueQuestStateNEW* RogueQuest_GetState(u16 questId)
 {
     AGB_ASSERT(questId < QUEST_ID_COUNT);
-    return &gRogueSaveBlock->questStatesNEW[questId];
+    if(questId < QUEST_ID_COUNT)
+        return &gRogueSaveBlock->questStatesNEW[questId];
+
+    return NULL;
 }
 
 u8 const* RogueQuest_GetTitle(u16 questId)
