@@ -208,7 +208,7 @@ struct SpecialStatus
     // End of byte
     u8 emergencyExited:1;
     u8 afterYou:1;
-    u8 magicianStolen:1; // So that Life Orb doesn't activate after Magician steals it.
+    u8 preventLifeOrbDamage:1; // So that Life Orb doesn't activate various effects.
 };
 
 struct SideTimer
@@ -323,7 +323,7 @@ struct AiLogicData
     bool8 shouldSwitchMon; // Because all available moves have no/little effect. Each bit per battler.
     u8 monToSwitchId[MAX_BATTLERS_COUNT]; // ID of the mon to switch.
     bool8 weatherHasEffect; // The same as WEATHER_HAS_EFFECT. Stored here, so it's called only once.
-    u8 mostSuitableMonId; // Stores result of GetMostSuitableMonToSwitchInto, which decides which generic mon the AI would switch into if they decide to switch. This can be overruled by specific mons found in ShouldSwitch; the final resulting mon is stored in AI_monToSwitchIntoId.
+    u8 mostSuitableMonId[MAX_BATTLERS_COUNT]; // Stores result of GetMostSuitableMonToSwitchInto, which decides which generic mon the AI would switch into if they decide to switch. This can be overruled by specific mons found in ShouldSwitch; the final resulting mon is stored in AI_monToSwitchIntoId.
     struct SwitchinCandidate switchinCandidate; // Struct used for deciding which mon to switch to in battle_ai_switch_items.c
 };
 
@@ -705,7 +705,6 @@ struct BattleStruct
     u8 quickClawBattlerId;
     struct LostItem itemLost[PARTY_SIZE];  // Player's team that had items consumed or stolen (two bytes per party member)
     u8 forcedSwitch:4; // For each battler
-    u8 switchInAbilityPostponed:4; // To not activate against an empty field, each bit for battler
     u8 blunderPolicy:1; // should blunder policy activate
     u8 swapDamageCategory:1; // Photon Geyser, Shell Side Arm, Light That Burns the Sky
     u8 ballSpriteIds[2];    // item gfx, window gfx
