@@ -2820,8 +2820,8 @@ static void ResetHotTracking()
 static void UpdateHotTracking()
 {
     hot_track_dat localCounter = HotTrackingLocalRtcToCounter();
-    hot_track_dat seedCounter = localCounter - gRogueHotTracking.initSeed;
     hot_track_dat rollingCounter = localCounter - gRogueHotTracking.rollingSeed;
+    DEBUG_CODE(hot_track_dat seedCounter = localCounter - gRogueHotTracking.initSeed);
 
     if(rollingCounter > 1)
     {

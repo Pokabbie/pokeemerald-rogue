@@ -1,5 +1,5 @@
 echo Working Directory: $PWD
-echo Running Build..
+echo Running Release Build..
 make -j12 -O RELEASE=1
 
 exitCode=$?

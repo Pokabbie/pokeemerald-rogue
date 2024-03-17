@@ -28,6 +28,13 @@
 // It looks like file.c:line: size of array `id' is negative
 #define ROGUE_STATIC_ASSERT(expr, id) typedef char id[(expr) ? 1 : -1];
 
+#ifdef ROGUE_DEBUG
+#define DEBUG_CODE(x) x
+#define RELEASE_CODE(x)
+#else
+#define DEBUG_CODE(x)
+#define RELEASE_CODE(x) x
+#endif
 
 // Items
 //

@@ -1,5 +1,5 @@
 echo Working Directory: $PWD
-echo Running Build..
+echo Running Debug Build..
 make -j12 RELEASE=0
 
 exitCode=$?
