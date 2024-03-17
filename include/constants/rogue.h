@@ -31,9 +31,15 @@
 #ifdef ROGUE_DEBUG
 #define DEBUG_CODE(x) x
 #define RELEASE_CODE(x)
+
+#define UNUSED_DEBUG UNUSED
+#define UNUSED_RELEASE
 #else
 #define DEBUG_CODE(x)
 #define RELEASE_CODE(x) x
+
+#define UNUSED_DEBUG
+#define UNUSED_RELEASE UNUSED
 #endif
 
 // Items
