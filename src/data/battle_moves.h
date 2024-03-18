@@ -13603,7 +13603,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_LAST_RESPECTS] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_LAST_RESPECTS
+        .effect = EFFECT_LAST_RESPECTS,
         .power = 50,
         .type = TYPE_GHOST,
         .accuracy = 100,
@@ -13818,7 +13818,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_DOODLE] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_DOODLE
+        .effect = EFFECT_DOODLE,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -13835,7 +13835,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_FILLET_AWAY] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_FILLET_AWAY
+        .effect = EFFECT_FILLET_AWAY,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -13995,7 +13995,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_SHED_TAIL] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_SHED_TAIL
+        .effect = EFFECT_SHED_TAIL,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -14029,7 +14029,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_TIDY_UP] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_TIDY_UP
+        .effect = EFFECT_TIDY_UP,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -14477,7 +14477,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_ELECTRO_SHOT] =
     {
-        .effect = EFFECT_PLACEHOLDER, //EFFECT_ELECTRO_SHOT
+        .effect = EFFECT_TWO_TURNS_ATTACK, // todo - EFFECT_PLACEHOLDER
         .power = 130,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
@@ -14510,7 +14510,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_FICKLE_BEAM] =
     {
-        .effect = EFFECT_PLACEHOLDER, //EFFECT_FICKLE_BEAM
+        .effect = EFFECT_FICKLE_BEAM,
         .power = 80,
         .type = TYPE_DRAGON,
         .accuracy = 100,
@@ -14524,7 +14524,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_BURNING_BULWARK] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_PROTECT with effects
+        .effect = EFFECT_PROTECT,
         .power = 0,
         .type = TYPE_FIRE,
         .accuracy = 0,
@@ -14605,7 +14605,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_DRAGON_CHEER] =
     {
-        .effect = EFFECT_PLACEHOLDER, //EFFECT_DRAGON_CHEER
+        .effect = EFFECT_DRAGON_CHEER,
         .power = 0,
         .type = TYPE_DRAGON,
         .accuracy = 0,
@@ -14682,7 +14682,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_UPPER_HAND] =
     {
-        .effect = EFFECT_PLACEHOLDER, //EFFECT_UPPER_HAND
+        .effect = EFFECT_UPPER_HAND, // EFFECT_PLACEHOLDER RogueNote: doesn't really seem to work?
         .power = 65,
         .type = TYPE_FIGHTING,
         .accuracy = 100,

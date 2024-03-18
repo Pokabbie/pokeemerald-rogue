@@ -420,7 +420,18 @@
 #define EFFECT_GLAIVE_RUSH                  414
 #define EFFECT_RAGING_BULL                  415
 #define EFFECT_RAGE_FIST                    416
+#define EFFECT_DOODLE                       417
+#define EFFECT_FILLET_AWAY                  418
+#define EFFECT_IVY_CUDGEL                   419
+#define EFFECT_FICKLE_BEAM                  420
+#define EFFECT_BLIZZARD                     421
+#define EFFECT_RAIN_ALWAYS_HIT              422 // Unlike EFFECT_THUNDER, it doesn't get its accuracy reduced under sun.
+#define EFFECT_SHED_TAIL                    423
+#define EFFECT_UPPER_HAND                   424
+#define EFFECT_DRAGON_CHEER                 425
+#define EFFECT_LAST_RESPECTS                426
+#define EFFECT_TIDY_UP                      427
 
-#define NUM_BATTLE_MOVE_EFFECTS             417
+#define NUM_BATTLE_MOVE_EFFECTS             428
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

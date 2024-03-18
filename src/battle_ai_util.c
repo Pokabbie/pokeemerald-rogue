@@ -1962,6 +1962,22 @@ bool32 HasMoveEffect(u32 battlerId, u32 moveEffect)
     return FALSE;
 }
 
+bool32 HasMoveWithCriticalHitChance(u32 battlerId)
+{
+    //s32 i;
+    //u16 *moves = GetMovesArray(battlerId);
+//
+    //for (i = 0; i < MAX_MON_MOVES; i++)
+    //{
+    //    if (moves[i] != MOVE_NONE && moves[i] != MOVE_UNAVAILABLE
+    //        && gBattleMoves[moves[i]].criticalHitStage > 0)
+    //        return TRUE;
+    //}
+
+    // RogueNote: todo
+    return FALSE;
+}
+
 bool32 HasMove(u32 battlerId, u32 move)
 {
     s32 i;
@@ -2101,6 +2117,7 @@ bool32 IsAttackBoostMoveEffect(u32 effect)
     case EFFECT_BELLY_DRUM:
     case EFFECT_BULK_UP:
     case EFFECT_GROWTH:
+    case EFFECT_FILLET_AWAY:
         return TRUE;
     default:
         return FALSE;
@@ -3774,4 +3791,22 @@ u32 AI_CalcSecondaryEffectChance(u32 battler, u32 secondaryEffectChance)
         secondaryEffectChance *= 2;
 
     return secondaryEffectChance;
+}
+
+void IncreaseTidyUpScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score)
+{
+    if (gSideStatuses[GetBattlerSide(battlerAtk)] & SIDE_STATUS_HAZARDS_ANY && CountUsablePartyMons(battlerAtk) != 0)
+        ADJUST_SCORE_PTR(4);
+    if (gSideStatuses[GetBattlerSide(battlerDef)] & SIDE_STATUS_HAZARDS_ANY && CountUsablePartyMons(battlerDef) != 0)
+        ADJUST_SCORE_PTR(-2);
+
+    if (gBattleMons[battlerAtk].status2 & STATUS2_SUBSTITUTE && AI_STRIKES_FIRST(battlerAtk, battlerDef, move))
+        ADJUST_SCORE_PTR(-10);
+    if (gBattleMons[battlerDef].status2 & STATUS2_SUBSTITUTE)
+        ADJUST_SCORE_PTR(4);
+
+    if (gStatuses3[battlerAtk] & STATUS3_LEECHSEED)
+        ADJUST_SCORE_PTR(2);
+    if (gStatuses3[battlerDef] & STATUS3_LEECHSEED)
+        ADJUST_SCORE_PTR(-2);
 }

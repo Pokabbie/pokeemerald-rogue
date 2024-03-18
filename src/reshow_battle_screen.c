@@ -21,7 +21,6 @@
 // this file's functions
 static void CB2_ReshowBattleScreenAfterMenu(void);
 static bool8 LoadBattlerSpriteGfx(u8 battlerId);
-static void CreateBattlerSprite(u8 battlerId);
 static void CreateHealthboxSprite(u8 battlerId);
 static void ClearBattleBgCntBaseBlocks(void);
 
@@ -207,7 +206,7 @@ static bool8 LoadBattlerSpriteGfx(u8 battler)
     return TRUE;
 }
 
-static void CreateBattlerSprite(u8 battler)
+void CreateBattlerSprite(u32 battler)
 {
     if (battler < gBattlersCount)
     {
