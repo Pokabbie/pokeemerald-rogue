@@ -701,8 +701,10 @@
 #define STRINGID_TEAMGREWTOLV                         699
 #define STRINGID_SHEDITSTAIL                          700
 #define STRINGID_TIDYINGUPCOMPLETE                    701
+#define STRINGID_HOSPITALITYRESTORATION               702
+#define STRINGID_SUPERSWEETAROMAWAFTS                 703
 
-#define BATTLESTRINGS_COUNT                           702
+#define BATTLESTRINGS_COUNT                           704
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
