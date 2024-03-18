@@ -213,7 +213,7 @@ static void ModifyKnowMoveEvo(u16 species, struct Evolution* outEvo, u16 fromMet
             if(gRoguePokemonProfiles[species].levelUpMoves[i].move == outEvo->param)
             {
                 outEvo->method = toMethod;
-                outEvo->param = max(30, gRoguePokemonProfiles[species].levelUpMoves[i].level);
+                outEvo->param = max(38, gRoguePokemonProfiles[species].levelUpMoves[i].level);
                 break;
             }
         }
@@ -222,8 +222,8 @@ static void ModifyKnowMoveEvo(u16 species, struct Evolution* outEvo, u16 fromMet
         if(outEvo->method == EVO_MOVE)
         {
             // Assume this was a tutor move
-                outEvo->method = toMethod;
-                outEvo->param = 30;
+            outEvo->method = toMethod;
+            outEvo->param = 36;
         }
     }
 }
@@ -320,17 +320,17 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     if(species == SPECIES_PAWMO && evoIdx == 0)
     {
         outEvo->method = EVO_LEVEL;
-        outEvo->param = 30;
+        outEvo->param = 36;
     }
     if(species == SPECIES_BRAMBLIN && evoIdx == 0)
     {
         outEvo->method = EVO_LEVEL;
-        outEvo->param = 30;
+        outEvo->param = 36;
     }
     if(species == SPECIES_RELLOR && evoIdx == 0)
     {
         outEvo->method = EVO_LEVEL;
-        outEvo->param = 30;
+        outEvo->param = 36;
     }
 
     if(species == SPECIES_GIMMIGHOUL && evoIdx == 0)
@@ -359,7 +359,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
             if(evoIdx == 0)
             {
                 outEvo->method = EVO_LEVEL;
-                outEvo->param = 30;
+                outEvo->param = 36;
             }
             else
             {
@@ -420,13 +420,13 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 #else 
                 // Make level evo
                 outEvo->method = EVO_LEVEL;
-                outEvo->param = 30;
+                outEvo->param = 36;
 #endif
                 break;
 
             case(EVO_FRIENDSHIP):
                 outEvo->method = EVO_LEVEL;
-                outEvo->param = 30;
+                outEvo->param = 36;
                 break;
 
             case(EVO_TRADE):
@@ -441,11 +441,11 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
             case(EVO_FRIENDSHIP_DAY):
                 outEvo->method = EVO_LEVEL_DAY;
-                outEvo->param = 30;
+                outEvo->param = 36;
                 break;
             case(EVO_FRIENDSHIP_NIGHT):
                 outEvo->method = EVO_LEVEL_NIGHT;
-                outEvo->param = 30;
+                outEvo->param = 36;
                 break;
 
             case(EVO_TRADE_ITEM):
@@ -463,7 +463,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
             case(EVO_CRITICAL_HITS):
             case(EVO_SCRIPT_TRIGGER_DMG):
                 outEvo->method = EVO_LEVEL;
-                outEvo->param = 30;
+                outEvo->param = 36;
                 break;
 
             case(EVO_WATER_SCROLL):
