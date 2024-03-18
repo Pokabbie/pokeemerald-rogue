@@ -101,7 +101,7 @@ namespace PokemonDataGenerator
 			{
 				if (s_TargettingDebugSet)
 				{
-					SpriteSheetSplitter_Hisui.AppendMonSprites();
+					SpriteSheetSplitter_Gen9.AppendMonSprites();
 				}
 				else
 				{

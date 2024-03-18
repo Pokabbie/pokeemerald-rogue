@@ -3904,6 +3904,13 @@ bool8 RoguePokedex_IsSpeciesLegendary(u16 species)
         case SPECIES_FEZANDIPITI:
         case SPECIES_OGERPON:
 
+        case SPECIES_GOUGING_FIRE:
+        case SPECIES_RAGING_BOLT:
+        case SPECIES_IRON_BOULDER:
+        case SPECIES_IRON_CROWN:
+        case SPECIES_TERAPAGOS:
+        case SPECIES_PECHARUNT:
+
         // Forms
         case SPECIES_KYUREM_WHITE:
         case SPECIES_KYUREM_BLACK:
@@ -3923,6 +3930,9 @@ bool8 RoguePokedex_IsSpeciesLegendary(u16 species)
         case SPECIES_ARTICUNO_GALARIAN:
         case SPECIES_ZAPDOS_GALARIAN:
         case SPECIES_MOLTRES_GALARIAN:
+
+        case SPECIES_TERAPAGOS_TERASTAL:
+        case SPECIES_TERAPAGOS_STELLAR:
 #endif
             return TRUE;
     };
@@ -3978,6 +3988,9 @@ bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species)
         case SPECIES_KORAIDON:
         case SPECIES_MIRAIDON:
         case SPECIES_OGERPON:
+
+        case SPECIES_TERAPAGOS:
+        case SPECIES_PECHARUNT:
 
         // Forms
         case SPECIES_KYUREM_WHITE:
@@ -4070,6 +4083,10 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
 
         case SPECIES_WALKING_WAKE:
         case SPECIES_IRON_LEAVES:
+        case SPECIES_GOUGING_FIRE:
+        case SPECIES_RAGING_BOLT:
+        case SPECIES_IRON_BOULDER:
+        case SPECIES_IRON_CROWN:
         
         case SPECIES_OKIDOGI:
         case SPECIES_MUNKIDORI:

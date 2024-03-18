@@ -50,6 +50,12 @@ namespace PokemonDataGenerator.OverworldSprites
 						int tl_x = originX + x * settings.CellSize;
 						int tl_y = originY + y * settings.CellSize;
 
+						if(tl_x >= settings.Source.Width)
+						{
+							tl_x %= settings.Source.Width;
+							tl_y += settings.CellSize;
+						}
+
 						Bitmap spriteFrame = settings.Source.Clone(new Rectangle(tl_x, tl_y, settings.CellSize, settings.CellSize), PixelFormat.Format32bppArgb);
 						ApplyTransparencyToAlphaChannel(spriteFrame);
 
