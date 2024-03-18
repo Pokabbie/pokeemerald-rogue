@@ -191,6 +191,22 @@ namespace PokemonDataGenerator.OverworldSprites
 				"OGERPON_HEARTHFLAME_MASK",
 				"_", // alt for SPECIES_OGERPON_CORNERSTONE_MASK
 				"OGERPON_CORNERSTONE_MASK",
+				"ARCHALUDON",
+				"_", // SPECIES_HYDRAPPLE
+				"_", // SPECIES_HYDRAPPLE
+				"_", // SPECIES_HYDRAPPLE
+				"_", // SPECIES_HYDRAPPLE
+				"GOUGING_FIRE",
+				"_", // SPECIES_RAGING_BOLT
+				"_", // SPECIES_RAGING_BOLT
+				"_", // SPECIES_RAGING_BOLT
+				"_", // SPECIES_RAGING_BOLT
+				"IRON_BOULDER",
+				"IRON_CROWN",
+				"TERAPAGOS_NORMAL",
+				"TERAPAGOS_TERASTAL",
+				"PECHARUNT",
+				"_", // alt for SPECIES_PECHARUNT
 				"TAUROS_PALDEAN_COMBAT_BREED",
 				"TAUROS_PALDEAN_BLAZE_BREED",
 				"TAUROS_PALDEAN_AQUA_BREED",
@@ -205,12 +221,17 @@ namespace PokemonDataGenerator.OverworldSprites
 			settings.CellSize = 64;
 			settings.FrameNames = new string[]
 			{
-				$"front{groupKey}_1",   $"front{groupKey}_2", $"_",    $"_",
-				$"side{groupKey}_1",    $"side{groupKey}_2", $"back{groupKey}_1",    $"back{groupKey}_2",
+				$"front{groupKey}_1",   $"front{groupKey}_2", $"side{groupKey}_1",    $"side{groupKey}_2",
+				$"_", $"_",  $"back{groupKey}_1",    $"back{groupKey}_2",
 			};
 			settings.FrameStride = 4;
 			SpriteSheetSplitter.AppendMonSprites("DONDOZO", pokedexNumber++, settings, 512, 640);
 
+			settings.FrameNames = new string[]
+			{
+				$"front{groupKey}_1",   $"front{groupKey}_2", $"_",    $"_",
+				$"side{groupKey}_1",    $"side{groupKey}_2", $"back{groupKey}_1",    $"back{groupKey}_2",
+			};
 			monNames = new string[]
 			{
 				"DUDUNSPARCE_THREE_SEGMENT",
@@ -227,6 +248,22 @@ namespace PokemonDataGenerator.OverworldSprites
 			};
 			originX = 640;
 			originY = 1024;
+			SpriteSheetSplitter.AppendMonBlockSprites(monNames, ref pokedexNumber, settings, ref originX, ref originY);
+
+			monNames = new string[]
+			{
+				"HYDRAPPLE",
+			};
+			originX = 448;
+			originY = 1280;
+			SpriteSheetSplitter.AppendMonBlockSprites(monNames, ref pokedexNumber, settings, ref originX, ref originY);
+
+			monNames = new string[]
+			{
+				"RAGING_BOLT",
+			};
+			originX = 768;
+			originY = 1280;
 			SpriteSheetSplitter.AppendMonBlockSprites(monNames, ref pokedexNumber, settings, ref originX, ref originY);
 		}
 	}
