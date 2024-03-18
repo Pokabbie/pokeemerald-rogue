@@ -73,8 +73,8 @@ namespace PokemonDataGenerator.Pokedex
 
 				fullDexes.Add(GatherDexData("paldea_scvi", "Scarlet/Violet", 9, "paldea"));
 				fullDexes.Add(GatherDexData("paldea_kitakami", "The Teal Mask", 9, "kitakami"));
-				//fullDexes.Add(GatherDexData("paldea_blueberry", "Indigo Disk", 9, "blueberry"));
-				fullDexes.Add(GatherDexData("paldea_fulldlc", "Scarlet/Violet + DLC", 9, "paldea", "kitakami"));//, "blueberry"));
+				fullDexes.Add(GatherDexData("paldea_blueberry", "Indigo Disk", 9, "blueberry"));
+				fullDexes.Add(GatherDexData("paldea_fulldlc", "Scarlet/Violet + DLC", 9, "paldea", "kitakami", "blueberry"));
 
 				fullDexes.Add(GatherDexData("extras_conquest", "Conquest", 5, "conquest-gallery"));
 				fullDexes.Add(GatherDexData("extras_legendsarceus", "LegendsArceus", 8, "hisui"));
@@ -160,18 +160,18 @@ namespace PokemonDataGenerator.Pokedex
 		{
 			if (!GameDataHelpers.IsVanillaVersion)
 			{
-				switch (FormatKeyword(species))
-				{
-					case "ARCHALUDON":
-					case "HYDRAPPLE":
-					case "GOUGING_FIRE":
-					case "RAGING_BOLT":
-					case "IRON_BOULDER":
-					case "IRON_CROWN":
-					case "TERAPAGOS":
-					case "PECHARUNT":
-						return true;
-				}
+				//switch (FormatKeyword(species))
+				//{
+				//	case "ARCHALUDON":
+				//	case "HYDRAPPLE":
+				//	case "GOUGING_FIRE":
+				//	case "RAGING_BOLT":
+				//	case "IRON_BOULDER":
+				//	case "IRON_CROWN":
+				//	case "TERAPAGOS":
+				//	case "PECHARUNT":
+				//		return true;
+				//}
 			}
 			else
 			{
@@ -252,6 +252,9 @@ namespace PokemonDataGenerator.Pokedex
 					// so forcefully insert them here
 					if (isHGSS)
 						AppendDexMon_ExtraHGSS(species, target);
+
+					if(dexId == "blueberry")
+						AppendDexMon_ScViBlueberry(species, target);
 				}
 			}
 
@@ -385,6 +388,15 @@ namespace PokemonDataGenerator.Pokedex
 			else if (species.Equals("snorunt", StringComparison.CurrentCultureIgnoreCase))
 			{
 				target.Mons.Add("froslass");
+			}
+		}
+
+		private static void AppendDexMon_ScViBlueberry(string species, PokedexData target)
+		{
+			if (species.Equals("archaludon", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("applin");
+				target.Mons.Add("dipplin");
 			}
 		}
 

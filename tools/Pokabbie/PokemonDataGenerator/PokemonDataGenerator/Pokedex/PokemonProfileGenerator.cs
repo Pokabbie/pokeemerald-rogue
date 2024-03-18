@@ -619,18 +619,10 @@ namespace PokemonDataGenerator.Pokedex
 
 				// Moves that aren't currently implemented fully
 				//case "MOVE_TERA_BLAST": <- is replaced by hidden power
-				case "MOVE_LAST_RESPECTS":
 				case "MOVE_ORDER_UP":
 				case "MOVE_SPICY_EXTRACT":
-				case "MOVE_DOODLE":
-				case "MOVE_FILLET_AWAY":
-				case "MOVE_SHED_TAIL":
-				case "MOVE_TIDY_UP":
 				case "MOVE_ELECTRO_SHOT":
 				case "MOVE_TERA_STARSTORM":
-				case "MOVE_FICKLE_BEAM":
-				case "MOVE_BURNING_BULWARK":
-				case "MOVE_DRAGON_CHEER":
 				case "MOVE_ALLURING_VOICE":
 				case "MOVE_PSYCHIC_NOISE":
 				case "MOVE_UPPER_HAND":
@@ -874,6 +866,11 @@ namespace PokemonDataGenerator.Pokedex
 
 									case "SPECIES_OGERPON_CORNERSTONE_MASK_TERA":
 										redirectSpecies = "SPECIES_OGERPON_CORNERSTONE_MASK";
+										break;
+
+									case "SPECIES_TERAPAGOS_TERASTAL":
+									case "SPECIES_TERAPAGOS_STELLAR":
+										redirectSpecies = "SPECIES_TERAPAGOS";
 										break;
 
 									case "SPECIES_WOBBUFFET_PUNCHING":
