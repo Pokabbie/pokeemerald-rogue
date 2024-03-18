@@ -686,19 +686,19 @@ namespace PokemonDataGenerator.Utils
 
 		private static bool IsSpeciesIgnored(string apiName)
 		{
-			string speciesName = CompetitiveApiNameToSpeciesName(apiName);
-
-			switch(speciesName)
-			{
-				// Currently not implemented species
-				case "SPECIES_ARCHALUDON":
-				case "SPECIES_HYDRAPPLE":
-				case "SPECIES_GOUGING_FIRE":
-				case "SPECIES_RAGING_BOLT":
-				case "SPECIES_IRON_BOULDER":
-				case "SPECIES_IRON_CROWN":
-					return true;
-			}
+			//string speciesName = CompetitiveApiNameToSpeciesName(apiName);
+			//
+			//switch(speciesName)
+			//{
+			//	// Currently not implemented species
+			//	case "SPECIES_ARCHALUDON":
+			//	case "SPECIES_HYDRAPPLE":
+			//	case "SPECIES_GOUGING_FIRE":
+			//	case "SPECIES_RAGING_BOLT":
+			//	case "SPECIES_IRON_BOULDER":
+			//	case "SPECIES_IRON_CROWN":
+			//		return true;
+			//}
 
 			return false;
 		}
