@@ -1544,7 +1544,7 @@ u8 SpeciesToGen(u16 species)
     if(species >= SPECIES_WYRDEER && species <= SPECIES_ENAMORUS)
         return 8;
 
-    if(species >= SPECIES_SPRIGATITO && species <= SPECIES_URSALUNA_BLOODMOON)
+    if(species >= SPECIES_SPRIGATITO && species <= SPECIES_PECHARUNT)
         return 9;
 
     if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_MAROWAK_ALOLAN)
