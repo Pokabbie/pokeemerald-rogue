@@ -159,6 +159,18 @@ namespace RideMonSpriteConfigurer.Helpers
 				SpeciesRideMonInfo info = new SpeciesRideMonInfo();
 				info.SpeciesName = internalName;
 
+
+				string monOverworldSprite = Path.Combine(GameDataHelpers.RootDirectory, "graphics\\object_events\\pics\\pokemon_ow\\" + internalName + ".png");
+				Image monSourceImg = Image.FromFile(monOverworldSprite);
+
+				if (monSourceImg.Height >= 64)
+				{
+					// Auto offset large sprite
+					info.DownSprite.MonOffsetY -= 16;
+					info.SideSprite.MonOffsetY -= 16;
+					info.UpSprite.MonOffsetY -= 16;
+				}
+
 				s_SpeciesToRideInfo.Add(internalName, info);
 
 				return info;
