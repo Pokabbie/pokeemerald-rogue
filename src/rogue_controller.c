@@ -1993,10 +1993,6 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         case ITEM_TINY_BAMBOO_SHOOT:
         case ITEM_GIMMIGHOUL_COIN: // ?
 
-        // Not implemented yet?
-        case ITEM_814:
-        case ITEM_815:
-
         // Link cable is Rogue's item
         case ITEM_LINKING_CORD:
 
