@@ -53,7 +53,7 @@ namespace PokemonDataGenerator.OverworldSprites
 						if(tl_x >= settings.Source.Width)
 						{
 							tl_x %= settings.Source.Width;
-							tl_y += settings.CellSize;
+							tl_y += settings.CellSize * (settings.FrameNames.Length / settings.FrameStride);
 						}
 
 						Bitmap spriteFrame = settings.Source.Clone(new Rectangle(tl_x, tl_y, settings.CellSize, settings.CellSize), PixelFormat.Format32bppArgb);
