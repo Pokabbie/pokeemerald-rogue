@@ -847,3 +847,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Encounter_CatchingContest/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Sinnoh_215/scripts.inc"
+
+	.include "data/maps/Rogue_Special_Gen9_Mon/scripts.inc"

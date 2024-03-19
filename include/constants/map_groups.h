@@ -155,6 +155,7 @@
 #define MAP_ROGUE_SPECIAL_GEN6_MON         (24 | (8 << 8))
 #define MAP_ROGUE_SPECIAL_GEN7_MON         (25 | (8 << 8))
 #define MAP_ROGUE_SPECIAL_GEN8_MON         (26 | (8 << 8))
+#define MAP_ROGUE_SPECIAL_GEN9_MON         (27 | (8 << 8))
 
 #define MAP_GROUPS_COUNT 9
 
