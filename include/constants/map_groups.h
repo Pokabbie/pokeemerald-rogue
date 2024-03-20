@@ -41,6 +41,7 @@
 #define MAP_ROGUE_AREA_RIDE_TRAINING        (8 | (2 << 8))
 #define MAP_ROGUE_AREA_MARTS                (9 | (2 << 8))
 #define MAP_ROGUE_AREA_TOWN_SQUARE          (10 | (2 << 8))
+#define MAP_ROGUE_AREA_CHALLENGE_FRONTIER   (11 | (2 << 8))
 
 // gMapGroup_RogueHubInteriors
 #define MAP_ROGUE_INTERIOR_HOME         (0 | (3 << 8))

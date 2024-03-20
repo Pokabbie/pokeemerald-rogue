@@ -149,6 +149,22 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
         .iconImage = gItemIcon_Potion,
         .iconPalette = gItemIconPalette_Potion,
     },
+    [HUB_AREA_CHALLENGE_FRONTIER] = 
+    {
+        SET_AREA_PRIMARY_MAP(ROGUE_AREA_CHALLENGE_FRONTIER),
+        .areaName = _("Challenge Area"),
+        .buildCost = 1,
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .connectionWarps = 
+        {
+            [HUB_AREA_CONN_NORTH] = { 0, 1 },
+            [HUB_AREA_CONN_EAST] = { 2, 3 },
+            [HUB_AREA_CONN_SOUTH] = { 4, 5 },
+            [HUB_AREA_CONN_WEST] = { 6, 7 },
+        },
+        .iconImage = gItemIcon_Potion,
+        .iconPalette = gItemIconPalette_Potion,
+    },
 };
 
 #undef SET_UPDATE_AREA

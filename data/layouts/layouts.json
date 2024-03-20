@@ -1890,6 +1890,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Special_Gen9_Mon/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Special_Gen9_Mon/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_AREA_CHALLENGE_FRONTIER",
+      "name": "Rogue_Area_ChallengeFrontier_Layout",
+      "width": 34,
+      "height": 28,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/Rogue_Area_ChallengeFrontier/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_ChallengeFrontier/map.bin"
     }
   ]
 }
