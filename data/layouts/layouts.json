@@ -1275,8 +1275,8 @@
       "id": "LAYOUT_ROGUE_SPECIAL_GEN5_MON",
       "name": "Rogue_Special_Gen5_Mon_Layout",
       "width": 21,
-      "height": 23,
-      "primary_tileset": "gTileset_General",
+      "height": 21,
+      "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/Rogue_Special_Gen5_Mon/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Special_Gen5_Mon/map.bin"
@@ -1880,6 +1880,26 @@
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/Rogue_Route_Sinnoh_215/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_215/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_SPECIAL_GEN9_MON",
+      "name": "Rogue_Special_Gen9_Mon_Layout",
+      "width": 27,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Special_Gen9_Mon/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Special_Gen9_Mon/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_AREA_CHALLENGE_FRONTIER",
+      "name": "Rogue_Area_ChallengeFrontier_Layout",
+      "width": 34,
+      "height": 28,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/Rogue_Area_ChallengeFrontier/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_ChallengeFrontier/map.bin"
     }
   ]
 }

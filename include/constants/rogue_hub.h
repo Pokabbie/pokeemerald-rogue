@@ -11,8 +11,9 @@
 #define HUB_AREA_RIDE_TRAINING          (HUB_AREA_FIRST + 5)
 #define HUB_AREA_MARTS                  (HUB_AREA_FIRST + 6)
 #define HUB_AREA_TOWN_SQUARE            (HUB_AREA_FIRST + 7)
+#define HUB_AREA_CHALLENGE_FRONTIER     (HUB_AREA_FIRST + 8)
 
-#define HUB_AREA_COUNT                  (HUB_AREA_TOWN_SQUARE + 1)
+#define HUB_AREA_COUNT                  (HUB_AREA_CHALLENGE_FRONTIER + 1)
 
 #define HUB_AREA_NONE 255
 
@@ -54,6 +55,9 @@
 //
 
 // HUB_AREA_TOWN_SQUARE
+//
+
+// HUB_AREA_CHALLENGE_FRONTIER
 //
 
 #define HUB_UPGRADE_COUNT                   (HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE + 1)
