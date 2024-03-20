@@ -115,6 +115,15 @@
                 "gfx_suffix": "GALAR_MILO",
                 "class_flags": [ "BOSS_GYM_1", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_GOSSIFLEUR",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Sure seems like you understand Pokémon real well.",
+                        "PRE_BATTLE_TAUNT": "This is gonna be a doozy of a battle!",
+                        "POST_BATTLE_TAUNT": "The power of Grass has wilted…",
+                        "POST_BATTLE_CLOSER": "Incredible!\\pThat must have been a fulfilling Pokémon battle for you!\\pI bet you end up going far in your Adventure!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -139,6 +148,15 @@
                 "gfx_suffix": "GALAR_NESSA",
                 "class_flags": [ "BOSS_GYM_2", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CHEWTLE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: No matter what kind of plan your refined mind may be plotting…",
+                        "PRE_BATTLE_TAUNT": "My partner and I will be sure to sink it!",
+                        "POST_BATTLE_TAUNT": "I was totally washed away!",
+                        "POST_BATTLE_CLOSER": "How…? How can this be?!\\pNow that I've battled you, I think I understand.\\pContinue to seize victories in your Adventure with you Pokemon."
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -163,6 +181,15 @@
                 "gfx_suffix": "GALAR_KABU",
                 "class_flags": [ "BOSS_GYM_3", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_SIZZLIPEDE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Every Trainer and Pokémon trains hard in pursuit of victory.",
+                        "PRE_BATTLE_TAUNT": "In the end, the match is decided by which side is able to unleash their true potential.",
+                        "POST_BATTLE_TAUNT": "Great Pokémon and a great Trainer! It's no surprise that you won!",
+                        "POST_BATTLE_CLOSER": "Clearly, your talent surpassed my many years of experience.\\pI still have much to learn!\\pGood luck in your future battles!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -187,6 +214,15 @@
                 "gfx_suffix": "GALAR_BEA",
                 "class_flags": [ "BOSS_GYM_4", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_FARFETCHD_GALARIAN",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Do you have an unshakable spirit that won't be moved, no matter how you are attacked?",
+                        "PRE_BATTLE_TAUNT": "I think I'll just test that out, shall I?",
+                        "POST_BATTLE_TAUNT": "I felt the fighting spirit of your Pokémon as you led them in battle.",
+                        "POST_BATTLE_CLOSER": "Phew…\\nFacing you gave me all the explanation I needed.\\pI hadn't expected it, but it made my heart dance.\\pGood luck for your next battle!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -211,6 +247,15 @@
                 "gfx_suffix": "GALAR_ALLISTER",
                 "class_flags": [ "BOSS_GYM_4", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_CORSOLA_GALARIAN",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: …'M Allister.",
+                        "PRE_BATTLE_TAUNT": "H-here…I go…",
+                        "POST_BATTLE_TAUNT": "I nearly lost my mask from the shock…",
+                        "POST_BATTLE_CLOSER": "Crumbs…\\p…That was ace.\\p…Good luck."
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -235,6 +280,15 @@
                 "gfx_suffix": "GALAR_OPAL",
                 "class_flags": [ "BOSS_GYM_5", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_MILCERY",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I'll put aside my quiz for this battle.",
+                        "PRE_BATTLE_TAUNT": "Let me have a look at how you and your partner Pokemon behave!",
+                        "POST_BATTLE_TAUNT": "Your pink is still lacking, but you're an excellent Trainer with some excellent Pokemon.",
+                        "POST_BATTLE_CLOSER": "Well, good try.\\pAnd, good luck with the rest of your Adventure."
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -259,6 +313,15 @@
                 "gfx_suffix": "GALAR_GORDIE",
                 "class_flags": [ "BOSS_GYM_6", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ROLYCOLY",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I admit I feel a little bad for doing this, but…",
+                        "PRE_BATTLE_TAUNT": "I'm going to use this match to show that my Pokémon are unbeatable!",
+                        "POST_BATTLE_TAUNT": "I just want to climb into a hole…",
+                        "POST_BATTLE_CLOSER": "That was… impressive.\\pI admit I'm shocked!\\pGood luck with the rest of your battles."
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -283,6 +346,15 @@
                 "gfx_suffix": "GALAR_MELONY",
                 "class_flags": [ "BOSS_GYM_6", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_DARUMAKA_GALARIAN",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I suppose we should get started.",
+                        "PRE_BATTLE_TAUNT": "You won't be able to escape when I freeze you solid.",
+                        "POST_BATTLE_TAUNT": "I just want to climb into a hole…",
+                        "POST_BATTLE_CLOSER": "You… You're pretty good, huh?\\pOf course seeing my Pokémon lose is sad, but to meet someone so young with such ability is quite grand.\\pGood luck with your Adventure."
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -307,6 +379,15 @@
                 "gfx_suffix": "GALAR_PIERS",
                 "class_flags": [ "BOSS_GYM_7", "BOSS_ANY_ELITE" ],
                 "shiny_species": "SPECIES_ZIGZAGOON_GALARIAN",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You wanna challenge me, even though you know you'll lose?\\pThen this song's for you, foolish Trainer!",
+                        "PRE_BATTLE_TAUNT": "Get ready for a mosh pit with me and my party!",
+                        "POST_BATTLE_TAUNT": "Me an' my team gave it our best.",
+                        "POST_BATTLE_CLOSER": "I'm glad we were able to battle.\\pSeems like my Pokémon feel the same way.\\pI hope you go far on your Adventure."
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -332,6 +413,15 @@
                 "class_flags": [ "BOSS_GYM_8", "BOSS_ANY_ELITE" ],
                 "weather": "SANDSTORM",
                 "shiny_species": "SPECIES_DURALUDON",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Finally, a challenger made it!\\pI've been waiting for someone to battle…\\pYou haven't lost a battle yet, huh?",
+                        "PRE_BATTLE_TAUNT": "I-Raihan-will have to show you what that feels like then!",
+                        "POST_BATTLE_TAUNT": "I might have lost, but I still look good.",
+                        "POST_BATTLE_CLOSER": "In the aftermath of the furious battle…\\pI feel as pure and refreshed as when the sky clears after a storm.\\pWhat can I possibly say?\\pI hope you do well in the rest of your Adventure!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -368,6 +458,15 @@
                 "trainer_flags": [ "REGION_GALAR", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
                 "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_CHARMANDER",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: The greatest challenger along with the most powerful team of Pokémon-is that it?\\pNow you're really getting me excited!\\pLet's make this a final match that'll go down in history!",
+                        "PRE_BATTLE_TAUNT": "We're gonna have an absolutely champion time!",
+                        "POST_BATTLE_TAUNT": "My time as Champion is over…\\pBut what a champion time it's been!",
+                        "POST_BATTLE_CLOSER": "Thank you for the greatest battle I've ever had!\\pYou've beat even the unbeatable Champion- meaning you only have one more battle left before becoming the Champion!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
