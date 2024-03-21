@@ -80,6 +80,25 @@ script Rogue_Area_DayCare_SwapMonGender
 {
     lock
     faceplayer
-    msgbox(format("TODO"))
+
+    setvar(VAR_0x8004, 0)
+    special(BufferMonNickname)
+    msgbox(format("Well hi there!\pI just brewed a fresh batch of Tea.\nSometimes Pokémon who drink it can change gender!\pDid you want me to share some with {STR_VAR_1}?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        fadescreen(FADE_TO_BLACK)
+
+        playse(SE_USE_ITEM)
+        waitse
+        special(Rogue_SwapMonGender)
+
+        fadescreen(FADE_FROM_BLACK)
+    }
+    else
+    {
+        msgbox(format("Well, I have plenty of Herbal Remedy Tea to go around, if you change your mind!"))
+    }
+
     release
 }

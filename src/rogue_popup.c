@@ -299,6 +299,8 @@ static const u8 sText_Popup_GotWeaker[] = _("{COLOR LIGHT_RED}{SHADOW RED}Got We
 static const u8 sText_Popup_GotStronger[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Got Stronger!");
 static const u8 sText_Popup_LostShiny[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Shininess.");
 static const u8 sText_Popup_GotShiny[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Became Shiny!");
+static const u8 sText_Popup_BecameMale[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Became Male!");
+static const u8 sText_Popup_BecameFemale[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Became Female!");
 
 static const u8 sText_Popup_EncounterChain[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Encounter Chain");
 static const u8 sText_Popup_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RED}Chain Lost");
@@ -1264,6 +1266,19 @@ void Rogue_PushPopup_MonShinyChange(u8 slotId, bool8 improvement)
     
     popup->titleText = gPlayerParty[slotId].box.nickname;
     popup->subtitleText = improvement ? sText_Popup_GotShiny : sText_Popup_LostShiny;
+    popup->titleTextCapacity = POKEMON_NAME_LENGTH;
+}
+
+void Rogue_PushPopup_MonGenderChange(u8 slotId, u8 gender)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+    u16 species = GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES);
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    
+    popup->titleText = gPlayerParty[slotId].box.nickname;
+    popup->subtitleText = gender == MON_MALE ? sText_Popup_BecameMale : sText_Popup_BecameFemale;
     popup->titleTextCapacity = POKEMON_NAME_LENGTH;
 }
 

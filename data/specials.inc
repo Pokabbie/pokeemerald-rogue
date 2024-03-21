@@ -252,6 +252,7 @@ gSpecials::
 	def_special Rogue_CanMakeShinyPieFor
 	def_special Rogue_WillMonLikePie
 	def_special Rogue_FeedMonPie
+	def_special Rogue_SwapMonGender
 	def_special Rogue_CanPlantBerries
 	def_special Rogue_CheckDaycareCount
 	def_special Rogue_IsDaycareSlotEmpty

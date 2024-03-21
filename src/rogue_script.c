@@ -1318,6 +1318,24 @@ void Rogue_FeedMonPie()
     CalculateMonStats(&gPlayerParty[0]);
 }
 
+void Rogue_SwapMonGender()
+{
+    u8 gender;
+    u8 startGender = GetMonGender(&gPlayerParty[0]);
+    u32 genderFlag = GetMonData(&gPlayerParty[0], MON_DATA_GENDER_FLAG);
+
+    genderFlag = !genderFlag;
+
+    SetMonData(&gPlayerParty[0], MON_DATA_GENDER_FLAG, &genderFlag);
+    
+    gender = GetMonGender(&gPlayerParty[0]);
+
+    if(startGender != gender)
+    {
+        Rogue_PushPopup_MonGenderChange(0, gender);
+    }
+}
+
 void Rogue_CanPlantBerries()
 {
     gSpecialVar_Result = !Rogue_IsRunActive() || gRogueAdvPath.currentRoomType == ADVPATH_ROOM_RESTSTOP;
