@@ -66,6 +66,7 @@ struct RogueQueryData
     u16 bitCount;
     u16 totalWeight;
     u16 arrayCapacity;
+    u16 debugDumpCounter;
     u8 queryType;
     bool8 dynamicAllocListArray;
 };
@@ -96,6 +97,7 @@ static void AllocQuery(u8 type)
 {
     memset(&sRogueQuery, 0, sizeof(sRogueQuery));
     sRogueQuery.queryType = type;
+    sRogueQuery.debugDumpCounter = 0;
     sRogueQuery.bitCount = 0;
     sRogueQuery.bitFlags = &gRogueQueryBits[0];
     sRogueQuery.weightArray = NULL;
@@ -269,6 +271,11 @@ void RogueMonQuery_Begin()
 {
     ASSERT_NO_QUERY;
     AllocQuery(QUERY_TYPE_MON);
+
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_MON_QUERY))
+    {
+        RogueDebugQuery_FillPC(FALSE);
+    }
 }
 
 void RogueMonQuery_End()
@@ -278,7 +285,7 @@ void RogueMonQuery_End()
     
     if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_MON_QUERY))
     {
-        RogueDebugQuery_FillPC();
+        RogueDebugQuery_FillPC(TRUE);
     }
 }
 
@@ -286,6 +293,11 @@ void RogueMonQuery_Reset(u8 func)
 {
     u16 species;
     ASSERT_MON_QUERY;
+
+    if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_MON_QUERY))
+    {
+        RogueDebugQuery_FillPC(TRUE);
+    }
 
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
     {
@@ -1901,14 +1913,14 @@ u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
     return sRogueQuery.listArray;
 }
 
-void RogueDebugQuery_FillPC()
+void RogueDebugQuery_FillPC(bool8 append)
 {
 #ifdef ROGUE_DEBUG
     u16 species;
-    u16 writeIdx = 0;
+    u16 writeIdx = append ? sRogueQuery.debugDumpCounter : 0;
+    u16 queryTypeToRestore = sRogueQuery.queryType;
 
-    ASSERT_NO_QUERY;
-
+    AGB_ASSERT(sRogueQuery.queryType == QUERY_TYPE_MON || sRogueQuery.queryType == QUERY_TYPE_NONE);
     sRogueQuery.queryType = QUERY_TYPE_MON;
 
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
@@ -1929,8 +1941,11 @@ void RogueDebugQuery_FillPC()
         }
     }
 
-    // Clear a box of space
-    for(species = 0; species < IN_BOX_COUNT; ++species)
+    // Leave 1 space between query results
+    sRogueQuery.debugDumpCounter = writeIdx + 1;
+
+    // Clear a row of spaces after so there is a clear indication of the end
+    for(species = 0; species < 6; ++species)
     {
         u16 currIdx = writeIdx++;
         u16 targetBox = currIdx / IN_BOX_COUNT;
@@ -1938,7 +1953,7 @@ void RogueDebugQuery_FillPC()
         ZeroBoxMonAt(targetBox, boxIndex);
     }
 
-    sRogueQuery.queryType = QUERY_TYPE_NONE;
+    sRogueQuery.queryType = queryTypeToRestore;
 #endif
 }
 
