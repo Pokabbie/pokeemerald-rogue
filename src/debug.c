@@ -2206,7 +2206,7 @@ static void DebugAction_Util_Script_1(u8 taskId)
 
 static void DebugAction_Util_Script_2(u8 taskId)
 {
-    RogueDebugQuery_FillPC();
+    RogueDebugQuery_FillPC(FALSE);
     Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_2);
 }
 
