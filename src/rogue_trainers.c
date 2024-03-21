@@ -1949,8 +1949,6 @@ static u16 GetSimilarCheckSpecies(u16 species)
     case SPECIES_SQUAWKABILLY:
     case SPECIES_TATSUGIRI:
     case SPECIES_DUDUNSPARCE:
-    case SPECIES_TAUROS:
-    case SPECIES_WOOPER:
     case SPECIES_POLTCHAGEIST:
     case SPECIES_SINISTCHA:
     case SPECIES_OGERPON:
