@@ -1900,6 +1900,16 @@
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/Rogue_Area_ChallengeFrontier/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_ChallengeFrontier/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_AREA_DAY_CARE",
+      "name": "Rogue_Area_DayCare_Layout",
+      "width": 38,
+      "height": 26,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Rogue_Area_DayCare/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_DayCare/map.bin"
     }
   ]
 }

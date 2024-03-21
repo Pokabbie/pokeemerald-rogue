@@ -14,24 +14,24 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "down",
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
       "offset": 10,
-      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
+      "direction": "down"
     },
     {
-      "direction": "left",
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
       "offset": 6,
-      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+      "direction": "left"
     },
     {
-      "direction": "right",
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
       "offset": 6,
-      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+      "direction": "right"
     },
     {
-      "direction": "up",
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
       "offset": 10,
-      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -68,91 +68,91 @@
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 14,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 27,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 27,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 13,
       "y": 13,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 14,
       "y": 13,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 0,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 0,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 22,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 7,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_PROF_LAB",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 20,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_CONFIG_LAB",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 9,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 23,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_DEBUG",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

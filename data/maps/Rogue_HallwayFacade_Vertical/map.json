@@ -12,7 +12,13 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "map": "MAP_ROGUE_AREA_DAY_CARE",
+      "offset": -16,
+      "direction": "up"
+    }
+  ],
   "object_events": [
 
   ],
