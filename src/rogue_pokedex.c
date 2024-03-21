@@ -925,6 +925,9 @@ static bool8 IsDebugAltForm(u16 species)
     if(species >= SPECIES_ALCREMIE_BERRY && species <= SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL)
         return TRUE;
 
+    if(species >= SPECIES_OGERPON_TEAL_MASK_TERA && species <= SPECIES_OGERPON_CORNERSTONE_MASK_TERA)
+        return TRUE;
+
     switch (species)
     {
     case SPECIES_PICHU_SPIKY_EARED:
@@ -935,6 +938,7 @@ static bool8 IsDebugAltForm(u16 species)
     case SPECIES_ETERNATUS_ETERNAMAX:
     case SPECIES_ZARUDE_DADA:
     case SPECIES_GIMMIGHOUL_ROAMING:
+    case SPECIES_TERAPAGOS_STELLAR:
         return TRUE;
     }
 #endif

@@ -922,6 +922,13 @@ bool8 Query_IsSpeciesEnabled(u16 species)
             case SPECIES_PALAFIN_HERO:
             //case SPECIES_DUDUNSPARCE_THREE_SEGMENT:
             case SPECIES_GIMMIGHOUL_ROAMING:
+            case SPECIES_GIMMIGHOUL_ROAMING:
+            case SPECIES_OGERPON_TEAL_MASK_TERA:
+            case SPECIES_OGERPON_WELLSPRING_MASK_TERA:
+            case SPECIES_OGERPON_HEARTHFLAME_MASK_TERA:
+            case SPECIES_OGERPON_CORNERSTONE_MASK_TERA:
+            case SPECIES_TERAPAGOS_TERASTAL:
+            case SPECIES_TERAPAGOS_STELLAR:
                 return FALSE;
             
             }
