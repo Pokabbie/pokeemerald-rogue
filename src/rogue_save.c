@@ -287,6 +287,8 @@ u16 RogueSave_GetVersionId()
 
 void RogueSave_OnSaveLoaded()
 {
+    RAND_TYPE startSeed = gRngRogueValue;
+
     Rogue_NotifySaveLoaded();
 
     if(gRogueSaveBlock->saveVersion != ROGUE_SAVE_VERSION)
@@ -315,6 +317,9 @@ void RogueSave_OnSaveLoaded()
 
     // Remove any net objects which we shouldn't have saved anyway
     Rogue_RemoveNetObjectEvents();
+
+    // Restore the seed as path generation will likely reset the seed
+    gRngRogueValue = startSeed;
 }
 
 static void AppendItemsFromPocket(u8 pocket, struct ItemSlot* dst, u16* index)
