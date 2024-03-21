@@ -7295,7 +7295,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
         PALETTES(Kingambit),
-        ICON(Kingambit, 3),
+        ICON(Kingambit, 0),
         //.footprint = gMonFootprint_Kingambit,
         LEARNSETS(Kingambit),
     },
