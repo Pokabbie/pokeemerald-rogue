@@ -1944,6 +1944,18 @@ static u16 GetSimilarCheckSpecies(u16 species)
     case SPECIES_GOODRA:
     case SPECIES_AVALUGG:
     case SPECIES_DECIDUEYE:
+    case SPECIES_OINKOLOGNE:
+    case SPECIES_MAUSHOLD:
+    case SPECIES_SQUAWKABILLY:
+    case SPECIES_TATSUGIRI:
+    case SPECIES_DUDUNSPARCE:
+    case SPECIES_TAUROS:
+    case SPECIES_WOOPER:
+    case SPECIES_POLTCHAGEIST:
+    case SPECIES_SINISTCHA:
+    case SPECIES_OGERPON:
+    case SPECIES_URSALUNA:
+    case SPECIES_TERAPAGOS:
         return baseSpecies;
     }
 #endif
