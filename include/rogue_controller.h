@@ -171,6 +171,7 @@ void Rogue_ModifyWildMon(struct Pokemon* mon);
 void Rogue_ModifyScriptMon(struct Pokemon* mon);
 void Rogue_ModifyGiveMon(struct Pokemon* mon);
 struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot);
+u8 Rogue_GetCurrentDaycareSlotCount();
 void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycareMon);
 void Rogue_DaycareMultichoiceCallback(struct MenuAction* outList, u8* outCount, u8 listCapacity);
 void Rogue_BeginCatchingContest(u8 type, u8 stat);

@@ -219,6 +219,13 @@ u16 FollowMon_GetMonGraphics(struct Pokemon* mon)
     return MonSpeciesToFollowSpecies(species, IsMonShiny(mon));
 }
 
+u16 FollowMon_GetBoxMonGraphics(struct BoxPokemon* mon)
+{
+    u16 species = GetBoxMonData(mon, MON_DATA_SPECIES);
+    bool8 shiny = GetBoxMonData(mon, MON_DATA_IS_SHINY);
+    return MonSpeciesToFollowSpecies(species, shiny);
+}
+
 static const struct ObjectEventGraphicsInfo *GetFollowMonObjectEventInfoFromSpecies(u16 species)
 {
     if(species >= FOLLOWMON_SHINY_OFFSET)
@@ -739,7 +746,7 @@ static bool8 IsSpawnSlotValid(u16 slot)
     // 5 : normal pal index 1 (partner slot)
     if(slot == 5)
     {
-        return !FollowMon_IsPartnerMonActive();
+        return !FollowMon_IsPartnerMonActive() && !Rogue_IsRideActive();
     }
 
     return FALSE;

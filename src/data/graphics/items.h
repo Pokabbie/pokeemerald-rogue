@@ -567,6 +567,7 @@ const u32 gItemIconPalette_WailmerPail[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_DevonGoods[] = INCBIN_U32("graphics/items/icons/devon_goods.4bpp.lz");
 const u32 gItemIconPalette_DevonGoods[] = INCBIN_U32("graphics/items/icon_palettes/devon_goods.gbapal.lz");
+const u32 gItemIconPalette_DevonGoodsBrown[] = INCBIN_U32("graphics/items/icon_palettes/devon_goods_brown.gbapal.lz");
 
 const u32 gItemIcon_SootSack[] = INCBIN_U32("graphics/items/icons/soot_sack.4bpp.lz");
 const u32 gItemIconPalette_SootSack[] = INCBIN_U32("graphics/items/icon_palettes/soot_sack.gbapal.lz");
@@ -763,6 +764,12 @@ const u32 gItemIconPalette_GalarStone[] = INCBIN_U32("graphics/items/icons/rogue
 
 const u32 gItemIcon_HisuiStone[] = INCBIN_U32("graphics/items/icons/rogue_hisui_stone.4bpp.lz");
 const u32 gItemIconPalette_HisuiStone[] = INCBIN_U32("graphics/items/icons/rogue_hisui_stone.gbapal.lz");
+
+const u32 gItemIcon_FieldMoves[] = INCBIN_U32("graphics/items/icons/rogue_field_moves.4bpp.lz");
+const u32 gItemIconPalette_FieldMoves[] = INCBIN_U32("graphics/items/icons/rogue_field_moves.gbapal.lz");
+
+const u32 gItemIcon_Egg[] = INCBIN_U32("graphics/items/icons/rogue_egg.4bpp.lz");
+const u32 gItemIconPalette_Egg[] = INCBIN_U32("graphics/items/icons/rogue_egg.gbapal.lz");
 
 const u32 gItemIcon_Pokedex[] = INCBIN_U32("graphics/items/icons/pokedex.4bpp.lz");
 const u32 gItemIconPalette_Pokedex[] = INCBIN_U32("graphics/items/icons/pokedex.gbapal.lz");

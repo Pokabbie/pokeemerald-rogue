@@ -1401,7 +1401,7 @@
 #define FLAG_SYS_RIDING_LEDGE_JUMP                  (SYSTEM_FLAGS + 0x22)
 #define FLAG_SYS_RIDING_SURF                        (SYSTEM_FLAGS + 0x23)
 #define FLAG_SYS_RIDING_FLY                         (SYSTEM_FLAGS + 0x24)
-#define FLAG_UNUSED_0x885                           (SYSTEM_FLAGS + 0x25) // Unused Flag
+#define FLAG_SYS_RIDING_ACCESS_DAYCARE              (SYSTEM_FLAGS + 0x25)
 #define FLAG_UNUSED_0x886                           (SYSTEM_FLAGS + 0x26) // Unused Flag
 #define FLAG_UNUSED_0x887                           (SYSTEM_FLAGS + 0x27) // Unused Flag
 

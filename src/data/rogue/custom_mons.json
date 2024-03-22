@@ -29,6 +29,7 @@
             {
                 "species": "SPECIES_STANTLER",
                 "nickname": "Kurt",
+                "is_shiny": true,
                 "trainer": "Clown"
             },
             {

@@ -6727,6 +6727,11 @@ struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot)
     return (struct BoxPokemon*)&gRogueRun.daycarePokemon[slot];
 }
 
+u8 Rogue_GetCurrentDaycareSlotCount()
+{
+    return DAYCARE_SLOT_COUNT;
+}
+
 void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycareMon)
 {
     u16 species;
