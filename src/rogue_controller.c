@@ -563,7 +563,7 @@ static u16 ModifyBattleSongByMap(u16 songNum, u32 mapFlags)
             return MUS_RG_VICTORY_WILD;
 
         else if(mapFlags & ROUTE_FLAG_JOHTO)
-            return MUS_DP_VICTORY_WILD; // TODO - Fix with HG specific one 
+            return MUS_HG_VICTORY_WILD;
 
         else if(mapFlags & ROUTE_FLAG_SINNOH)
             return MUS_DP_VICTORY_WILD;

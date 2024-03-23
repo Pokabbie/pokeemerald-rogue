@@ -948,6 +948,45 @@ $(MID_SUBDIR)/mus_hg_card_flip.s: %.s: %.mid
 $(MID_SUBDIR)/mus_hg_card_flip_game_over.s: %.s: %.mid
 	$(MID) $< $@ -E -G229 -V097 -p5
 
+$(MID_SUBDIR)/mus_hg_b_arcade.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V077 -X
+
+$(MID_SUBDIR)/mus_hg_b_castle.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V097
+
+$(MID_SUBDIR)/mus_hg_b_factory.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V077
+
+$(MID_SUBDIR)/mus_hg_b_hall.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V080
+
+$(MID_SUBDIR)/mus_hg_b_tower.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V097
+
+$(MID_SUBDIR)/mus_hg_b_tower_reception.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V070
+
+$(MID_SUBDIR)/mus_hg_evolution.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V080
+
+$(MID_SUBDIR)/mus_hg_evolved.s: %.s: %.mid
+	$(MID) $< $@ -E -G229 -V076 -p5
+
+$(MID_SUBDIR)/mus_hg_gym.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V080
+
+$(MID_SUBDIR)/mus_hg_level_up.s: %.s: %.mid
+	$(MID) $< $@ -E -G229 -V102 -P5
+
+$(MID_SUBDIR)/mus_hg_magnet_train.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V100
+
+$(MID_SUBDIR)/mus_hg_sinjou_ruins.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V088
+
+$(MID_SUBDIR)/mus_hg_victory_wild.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G229 -V110
+
 $(MID_SUBDIR)/mus_dp_route201_day.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V127
 
@@ -1122,7 +1161,34 @@ $(MID_SUBDIR)/mus_dp_underground.s: %.s: %.mid
 $(MID_SUBDIR)/mus_dp_gym.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V118
 
+$(MID_SUBDIR)/mus_dp_evolution.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
+
+$(MID_SUBDIR)/mus_dp_evolved.s: %.s: %.mid
+	$(MID) $< $@ -E -G191 -V094 -P5
+
+$(MID_SUBDIR)/mus_dp_gts.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V096
+
+$(MID_SUBDIR)/mus_dp_lake.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V088
+
+$(MID_SUBDIR)/mus_dp_level_up.s: %.s: %.mid
+	$(MID) $< $@ -E -G191 -V125 -P5
+
+$(MID_SUBDIR)/mus_dp_legend_appears.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V100
+
 $(MID_SUBDIR)/mus_pl_vs_giratina.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V105
+
+$(MID_SUBDIR)/mus_pl_distortion_world.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V105
+
+$(MID_SUBDIR)/mus_pl_looker.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V115
+
+$(MID_SUBDIR)/mus_pl_vs_regi.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V105
 
 $(MID_SUBDIR)/mus_debug_test.s: %.s: %.mid

@@ -4388,6 +4388,19 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_HG_KIMONO_GIRL) \
     X(MUS_HG_CARD_FLIP) \
     X(MUS_HG_CARD_FLIP_GAME_OVER) \
+    X(MUS_HG_B_ARCADE) \
+    X(MUS_HG_B_CASTLE) \
+    X(MUS_HG_B_FACTORY) \
+    X(MUS_HG_B_HALL) \
+    X(MUS_HG_B_TOWER) \
+    X(MUS_HG_B_TOWER_RECEPTION) \
+    X(MUS_HG_EVOLUTION) \
+    X(MUS_HG_EVOLVED) \
+    X(MUS_HG_GYM) \
+    X(MUS_HG_LEVEL_UP) \
+    X(MUS_HG_MAGNET_TRAIN) \
+    X(MUS_HG_SINJOU_RUINS) \
+    X(MUS_HG_VICTORY_WILD) \
     X(MUS_DP_ROUTE201_DAY) \
     X(MUS_DP_ROUTE203_DAY) \
     X(MUS_DP_ROUTE205_DAY) \
@@ -4446,7 +4459,16 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_DP_SOLACEON_DAY) \
     X(MUS_DP_UNDERGROUND) \
     X(MUS_DP_GYM) \
+    X(MUS_DP_EVOLUTION) \
+    X(MUS_DP_EVOLVED) \
+    X(MUS_DP_GTS) \
+    X(MUS_DP_LAKE) \
+    X(MUS_DP_LEVEL_UP) \
+    X(MUS_DP_LEGEND_APPEARS) \
     X(MUS_PL_VS_GIRATINA) \
+    X(MUS_PL_DISTORTION_WORLD) \
+    X(MUS_PL_LOOKER) \
+    X(MUS_PL_VS_REGI) \
     X(MUS_MOVE_DELETED_SLOW) \
     X(MUS_DEBUG_TEST) \
 

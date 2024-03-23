@@ -1342,6 +1342,19 @@ SECTIONS {
         sound/songs/midi/mus_hg_kimono_girl.o(.rodata);
         sound/songs/midi/mus_hg_card_flip.o(.rodata);
         sound/songs/midi/mus_hg_card_flip_game_over.o(.rodata);
+        sound/songs/midi/mus_hg_b_arcade.o(.rodata);
+        sound/songs/midi/mus_hg_b_castle.o(.rodata);
+        sound/songs/midi/mus_hg_b_factory.o(.rodata);
+        sound/songs/midi/mus_hg_b_hall.o(.rodata);
+        sound/songs/midi/mus_hg_b_tower.o(.rodata);
+        sound/songs/midi/mus_hg_b_tower_reception.o(.rodata);
+        sound/songs/midi/mus_hg_evolution.o(.rodata);
+        sound/songs/midi/mus_hg_evolved.o(.rodata);
+        sound/songs/midi/mus_hg_gym.o(.rodata);
+        sound/songs/midi/mus_hg_level_up.o(.rodata);
+        sound/songs/midi/mus_hg_magnet_train.o(.rodata);
+        sound/songs/midi/mus_hg_sinjou_ruins.o(.rodata);
+        sound/songs/midi/mus_hg_victory_wild.o(.rodata);
         sound/songs/midi/mus_dp_route201_day.o(.rodata);
         sound/songs/midi/mus_dp_route203_day.o(.rodata);
         sound/songs/midi/mus_dp_route205_day.o(.rodata);
@@ -1400,7 +1413,16 @@ SECTIONS {
         sound/songs/midi/mus_dp_solaceon_day.o(.rodata);
         sound/songs/midi/mus_dp_underground.o(.rodata);
         sound/songs/midi/mus_dp_gym.o(.rodata);
+        sound/songs/midi/mus_dp_evolution.o(.rodata);
+        sound/songs/midi/mus_dp_evolved.o(.rodata);
+        sound/songs/midi/mus_dp_gts.o(.rodata);
+        sound/songs/midi/mus_dp_lake.o(.rodata);
+        sound/songs/midi/mus_dp_level_up.o(.rodata);
+        sound/songs/midi/mus_dp_legend_appears.o(.rodata);
         sound/songs/midi/mus_pl_vs_giratina.o(.rodata);
+        sound/songs/midi/mus_pl_distortion_world.o(.rodata);
+        sound/songs/midi/mus_pl_looker.o(.rodata);
+        sound/songs/midi/mus_pl_vs_regi.o(.rodata);
         sound/songs/midi/mus_move_deleted_slow.o(.rodata);
         sound/songs/midi/mus_debug_test.o(.rodata);
     } =0
