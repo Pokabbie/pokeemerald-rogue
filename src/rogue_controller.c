@@ -353,13 +353,8 @@ bool8 Rogue_UseFinalQuestEffects(void)
 {
     if(RogueQuest_IsQuestUnlocked(QUEST_ID_THE_FINAL_RUN))
     {
-#ifdef ROGUE_EXPANSION
-        if(RoguePokedex_GetDexVariant() != POKEDEX_VARIANT_NATIONAL_GEN9)
+        if(RoguePokedex_GetDexVariant() != POKEDEX_VARIANT_NATIONAL_MAX)
             return FALSE;
-#else
-        if(RoguePokedex_GetDexVariant() != POKEDEX_VARIANT_NATIONAL_GEN3)
-            return FALSE;
-#endif
 
         if(!CheckOnlyTheseTrainersEnabled(CONFIG_TOGGLE_TRAINER_ROGUE))
             return FALSE;
@@ -503,7 +498,11 @@ u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 sou
                 mplayInfo->songHeader == gSongTable[MUS_RG_DEX_RATING].header ||
                 mplayInfo->songHeader == gSongTable[MUS_OBTAIN_B_POINTS].header ||
                 mplayInfo->songHeader == gSongTable[MUS_OBTAIN_SYMBOL].header ||
-                mplayInfo->songHeader == gSongTable[MUS_REGISTER_MATCH_CALL].header
+                mplayInfo->songHeader == gSongTable[MUS_REGISTER_MATCH_CALL].header ||
+                mplayInfo->songHeader == gSongTable[MUS_HG_LEVEL_UP].header ||
+                mplayInfo->songHeader == gSongTable[MUS_HG_EVOLVED].header ||
+                mplayInfo->songHeader == gSongTable[MUS_DP_LEVEL_UP].header ||
+                mplayInfo->songHeader == gSongTable[MUS_DP_EVOLVED].header
             )
             {
                 // do nothing
@@ -655,6 +654,13 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
         }
     }
 
+    switch (songNum)
+    {
+    //case MUS_EVOLUTION:
+    //    songNum = MUS_HG_EVOLUTION;
+    //    break;
+    }
+
     return songNum;
 }
 
@@ -669,6 +675,9 @@ u16 Rogue_ModifyPlayFanfare(u16 songNum)
     {
     case MUS_HEAL:
         return MUS_DP_HEAL;
+
+    case MUS_LEVEL_UP:
+        return MUS_HG_LEVEL_UP;
     }
 
     return songNum;
@@ -4210,7 +4219,7 @@ void Rogue_OnWarpIntoMap(void)
 
 
     // Set new safari flag on entering area
-    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE || gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL)
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE || gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL || gMapHeader.mapLayoutId == LAYOUT_ROGUE_INTERIOR_SAFARI_CAVE)
     {
         FlagSet(FLAG_ROGUE_WILD_SAFARI);
         RogueSafari_ResetSpawns();
@@ -6461,7 +6470,7 @@ bool8 Rogue_AreWildMonEnabled(void)
         return GetCurrentWildEncounterCount() > 0;
     }
 
-    if(Rogue_InWildSafari())
+    if(Rogue_InWildSafari() && gMapHeader.mapLayoutId != LAYOUT_ROGUE_INTERIOR_SAFARI_CAVE)
     {
         return TRUE;
     }

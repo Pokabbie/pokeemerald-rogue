@@ -21,6 +21,7 @@
 #include "shop.h"
 #include "sound.h"
 #include "string_util.h"
+#include "strings.h"
 
 #include "rogue.h"
 #include "rogue_adventurepaths.h"
@@ -80,6 +81,9 @@ static const u8 sStatNamesTable[NUM_STATS][13] = // a;t versopm pf gStatNamesTab
     [STAT_SPATK]   = _("Sp. Attack"),
     [STAT_SPDEF]   = _("Sp. Defence"),
 };
+
+static u8 const sText_The[] = _(" the ");
+static u8 const sText_TheShiny[] = _(" the shiny ");
 
 bool8 Rogue_CheckPartyHasRoomForMon(void)
 {
@@ -1476,4 +1480,69 @@ void Rogue_HasUnlockedRandomStarterTrade()
 void Rogue_CanOverLevel()
 {
     gSpecialVar_Result = Rogue_GetConfigToggle(CONFIG_TOGGLE_OVER_LVL);
+}
+
+void Rogue_AnyLegendsInSafari()
+{
+    u8 i;
+
+    gSpecialVar_Result = FALSE;
+
+    for(i = ROGUE_SAFARI_LEGENDS_START_INDEX; i <ROGUE_SAFARI_TOTAL_MONS; ++i)
+    {
+        if(gRogueSaveBlock->safariMons[i].species != SPECIES_NONE)
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+}
+
+static bool8 WillSpeciesLikePokeblockInternal(u16 pokeblockItem, u16 species)
+{
+    u8 type = ItemId_GetSecondaryId(pokeblockItem);
+
+    if(type != TYPE_MYSTERY && type != TYPE_NONE)
+    {
+        if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
+        {
+            return FALSE;
+        }
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+void Rogue_CheckSafariMonLikesPokeblock()
+{
+    u8 safariIndex = gSpecialVar_0x8008;
+    gSpecialVar_Result = WillSpeciesLikePokeblockInternal(gSpecialVar_ItemId, gRogueSaveBlock->safariMons[safariIndex].species);
+}
+
+void Rogue_EnqueueSafariBattle()
+{
+    u8 safariIndex = gSpecialVar_0x8008;
+    RogueSafari_EnqueueBattleMonByIndex(safariIndex);
+
+    gSpecialVar_Result = gRogueSaveBlock->safariMons[safariIndex].species;
+}
+
+void Rogue_BufferSafariMonInfo()
+{
+    u8 safariIndex = gSpecialVar_0x8008;
+    u8 const* speciesName = RoguePokedex_GetSpeciesName(gRogueSaveBlock->safariMons[safariIndex].species);
+
+    StringCopyN(gStringVar1, gRogueSaveBlock->safariMons[safariIndex].nickname, POKEMON_NAME_LENGTH);
+
+    if(gRogueSaveBlock->safariMons[safariIndex].shinyFlag || StringCompareN(gStringVar1, speciesName, POKEMON_NAME_LENGTH) != 0)
+    {
+        if(gRogueSaveBlock->safariMons[safariIndex].shinyFlag)
+            StringAppend(gStringVar1, sText_TheShiny);
+        else
+            StringAppend(gStringVar1, sText_The);
+
+        StringAppend(gStringVar1, speciesName);
+    }
 }

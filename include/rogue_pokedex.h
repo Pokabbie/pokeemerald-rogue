@@ -7,6 +7,7 @@ void Rogue_ShowPokedexFromScript(void);
 void Rogue_ShowPokedexForMon(struct Pokemon* mon);
 void Rogue_SelectPokemonInPokedexFromDex(bool8 ignoreDexSeen);
 void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 ignoreDexSeen);
+void Rogue_SelectPokemonInSafari();
 
 u8 RoguePokedex_GetDexRegion();
 void RoguePokedex_SetDexRegion(u8 region);

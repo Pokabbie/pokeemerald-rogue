@@ -807,17 +807,13 @@ static u8 GetWildBattleTransition(void)
     // RogueNote: Force wild battle transition
     if (enemyLevel < playerLevel)
     {
-        if (InBattlePyramid() || Rogue_IsRunActive())
-            return B_TRANSITION_BLUR;
-        else
-            return sBattleTransitionTable_Wild[transitionType][0];
+        // Rogue_IsRunActive()
+        return B_TRANSITION_BLUR;
     }
     else
     {
-        if (InBattlePyramid() || Rogue_IsRunActive())
-            return B_TRANSITION_GRID_SQUARES;
-        else
-            return sBattleTransitionTable_Wild[transitionType][1];
+        // Rogue_IsRunActive()
+        return B_TRANSITION_GRID_SQUARES;
     }
 }
 

@@ -1675,7 +1675,7 @@ static void Task_BagMenu_HandleInput(u8 taskId)
             gSpecialVar_ItemId = BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, listPosition);
 
             // Just update the active safari ball and act as if we didn't click anything
-            if(Rogue_UseSafariBattle())
+            if(gMain.inBattle && Rogue_UseSafariBattle())
             {
                 RogueSafari_SetActivePokeballType(gSpecialVar_ItemId);
                 gSpecialVar_ItemId = ITEM_NONE;
