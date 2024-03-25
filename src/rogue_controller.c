@@ -3493,6 +3493,7 @@ static void BeginRogueRun(void)
     gRogueRun.shrineSpawnDifficulty = 1 + RogueRandomRange(ROGUE_MAX_BOSS_COUNT, 0);
 
     QuestNotify_BeginAdventure();
+    RogueSafari_CompactEmptyEntries();
 
     // Trigger before and after as we may have hub/run only quests which are interested in this trigger
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_START);

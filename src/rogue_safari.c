@@ -322,3 +322,34 @@ void RogueSafari_SetActivePokeballType(u16 itemId)
 {
     VarSet(VAR_ROGUE_SAFARI_BALL_TYPE, itemId);
 }
+
+static void CompactEmptyEntriesInternal(u8 fromIndex, u8 toIndex)
+{
+    u8 i;
+    u8 endIndex = toIndex;
+    bool8 loop = TRUE;
+    u8 count = 0;
+
+    while(loop && endIndex != 0)
+    {
+        loop = FALSE;
+
+        for(i = fromIndex; i < endIndex - 1; ++i)
+        {
+            if(gRogueSaveBlock->safariMons[i + 0].species == SPECIES_NONE && gRogueSaveBlock->safariMons[i + 1].species != SPECIES_NONE)
+            {
+                memcpy(&gRogueSaveBlock->safariMons[i + 0], &gRogueSaveBlock->safariMons[i + 1], sizeof(gRogueSaveBlock->safariMons[i + 1]));
+                ZeroSafariMon(&gRogueSaveBlock->safariMons[i + 1]);
+                loop = TRUE;
+            }
+        }
+
+        --endIndex;
+    }
+}
+
+void RogueSafari_CompactEmptyEntries()
+{
+    CompactEmptyEntriesInternal(0, ROGUE_SAFARI_LEGENDS_START_INDEX - 1);
+    CompactEmptyEntriesInternal(ROGUE_SAFARI_LEGENDS_START_INDEX, ROGUE_SAFARI_TOTAL_MONS - 1);
+}

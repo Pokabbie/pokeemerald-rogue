@@ -19,6 +19,7 @@ script Rogue_Interior_SafariCave_InteractLegendSummon
     {
         msgbox(format("Powerful Pokémon cries echo throughout the cave.\pWhich Pokémon would you like to make an offering to?"))
 
+        special(RogueSafari_CompactEmptyEntries)
         special(Special_SelectSafariMonInPokedex)
         waitstate
 

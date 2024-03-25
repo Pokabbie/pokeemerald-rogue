@@ -23,4 +23,6 @@ struct RogueSafariMon* RogueSafari_GetPendingBattleMon();
 u16 RogueSafari_GetActivePokeballType();
 void RogueSafari_SetActivePokeballType(u16 itemId);
 
+void RogueSafari_CompactEmptyEntries();
+
 #endif
