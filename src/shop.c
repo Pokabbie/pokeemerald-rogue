@@ -1675,7 +1675,7 @@ static u16 HubUpgradeShopItemListCallback(u16 index)
 
             for(i = 0; i < HUB_UPGRADE_COUNT; ++i)
             {
-                if(!RogueHub_HasUpgrade(i) && RogueHub_HasUpgradeRequirements(i))
+                if(!RogueHub_HasUpgrade(i) && RogueHub_HasUpgradeRequirements(i) && !gRogueHubUpgrades[i].isHidden)
                 {
                     if(listIndex == index)
                         return i;

@@ -327,6 +327,7 @@ struct RogueAreaUpgrade
     u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
     u8 targetArea;
     u8 buildCost;
+    bool8 isHidden : 1;
 };
 
 struct RogueRouteMap

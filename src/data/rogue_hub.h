@@ -285,9 +285,10 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     //
     [HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE] = 
     {
-        .upgradeName = _("."),
+        .upgradeName = _("Legend Cave"),
         .targetArea = HUB_AREA_SAFARI_ZONE,
         .buildCost = 1,
-        .requiredUpgrades = { HUB_UPGRADE_NONE }
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .isHidden = TRUE
     },
 };
