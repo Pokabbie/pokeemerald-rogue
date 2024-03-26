@@ -72,15 +72,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -95,9 +103,27 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win32\glfw3.lib;$(ProjectDir)External\ENet\enet.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;freetype.lib;winmm.lib;gdi32.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win32\glfw3.lib;$(ProjectDir)External\ENet\enet.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
     </Link>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>
+      </Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>
+      </Outputs>
+    </CustomBuildStep>
+    <PreBuildEvent>
+      <Command>External\bin2cpp\bin\bin2cpp.exe --dir=Assets --output=Embedded</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Embedding assets...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -116,9 +142,27 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;sfml-system-s.lib;sfml-network-s.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win32\glfw3.lib;$(ProjectDir)External\ENet\enet.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;sfml-system-s.lib;sfml-network-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;freetype.lib;winmm.lib;gdi32.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win32\glfw3.lib;$(ProjectDir)External\ENet\enet.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
     </Link>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>
+      </Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>
+      </Outputs>
+    </CustomBuildStep>
+    <PreBuildEvent>
+      <Command>External\bin2cpp\bin\bin2cpp.exe --dir=Assets --output=Embedded</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Embedding assets...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -136,6 +180,24 @@
       <AdditionalDependencies>opengl32.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win64\glfw3.lib;$(ProjectDir)External\ENet\enet64.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)External\ENet;%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
     </Link>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>
+      </Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>
+      </Outputs>
+    </CustomBuildStep>
+    <PreBuildEvent>
+      <Command>External\bin2cpp\bin\bin2cpp.exe --dir=Assets --output=Embedded</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Embedding assets...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -157,6 +219,24 @@
       <AdditionalDependencies>opengl32.lib;sfml-system-s.lib;sfml-network-s.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win64\glfw3.lib;$(ProjectDir)External\ENet\enet64.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)External\ENet;%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
     </Link>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>
+      </Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>
+      </Outputs>
+    </CustomBuildStep>
+    <PreBuildEvent>
+      <Command>External\bin2cpp\bin\bin2cpp.exe --dir=Assets --output=Embedded</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Embedding assets...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="External\imgui\imgui.cpp" />
@@ -166,6 +246,7 @@
     <ClCompile Include="External\imgui\imgui_impl_opengl2.cpp" />
     <ClCompile Include="External\imgui\imgui_tables.cpp" />
     <ClCompile Include="External\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Src\Assets.cpp" />
     <ClCompile Include="Src\Behaviours\CommonBehaviour.cpp" />
     <ClCompile Include="Src\Behaviours\MultiplayerBehaviour.cpp" />
     <ClCompile Include="Src\GameConnection.cpp" />
@@ -176,7 +257,8 @@
     <ClCompile Include="Src\ObservedGameMemory.cpp" />
     <ClCompile Include="Src\Testing.cpp" />
     <ClCompile Include="Src\Timer.cpp" />
-    <ClCompile Include="Src\Window.cpp" />
+    <ClCompile Include="Src\UI\PrimaryUI.cpp" />
+    <ClCompile Include="Src\UI\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="External\imgui\imconfig.h" />
@@ -187,6 +269,7 @@
     <ClInclude Include="External\imgui\imstb_rectpack.h" />
     <ClInclude Include="External\imgui\imstb_textedit.h" />
     <ClInclude Include="External\imgui\imstb_truetype.h" />
+    <ClInclude Include="Inc\Assets.h" />
     <ClInclude Include="Inc\Behaviours\CommonBehaviour.h" />
     <ClInclude Include="Inc\Behaviours\MultiplayerBehaviour.h" />
     <ClInclude Include="Inc\Defines.h" />
@@ -199,7 +282,8 @@
     <ClInclude Include="Inc\Log.h" />
     <ClInclude Include="Inc\ObservedGameMemory.h" />
     <ClInclude Include="Inc\Timer.h" />
-    <ClInclude Include="Inc\Window.h" />
+    <ClInclude Include="Inc\UI\PrimaryUI.h" />
+    <ClInclude Include="Inc\UI\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Scripts\RogueAssistant_mGBA.lua" />

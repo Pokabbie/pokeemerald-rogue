@@ -3,7 +3,11 @@
 #include <string>
 
 class Window;
-struct GLFWwindow;
+
+namespace sf
+{
+	class RenderWindow;
+}
 
 typedef std::function<bool(Window*, void*)> WindowCallback;
 
@@ -26,7 +30,10 @@ public:
 
 	void EnterMainLoop(WindowCallback callback, void* userData = nullptr);
 
+	inline sf::RenderWindow* GetHandle() { return m_WindowHandle; }
+	inline sf::RenderWindow const * GetHandle() const { return m_WindowHandle; }
+
 private:
 	WindowConfig m_Config;
-	GLFWwindow* m_GlfwWindow;
+	sf::RenderWindow* m_WindowHandle;
 };

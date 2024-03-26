@@ -10,7 +10,7 @@ TimeDurationNS const UpdateTimer::c_25UPS = NANOSECONDS_PER_SECOND / 25;
 TimeDurationNS const UpdateTimer::c_30UPS = NANOSECONDS_PER_SECOND / 30;
 TimeDurationNS const UpdateTimer::c_60UPS = NANOSECONDS_PER_SECOND / 60;
 
-static TimeDurationNS GetCurrentTime()
+TimeDurationNS UpdateTimer::GetCurrentTime()
 {
 	auto timePoint = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(timePoint.time_since_epoch());

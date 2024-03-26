@@ -27,6 +27,9 @@ public:
 
 	void UpdateConnections();
 
+	inline bool AnyConnectionsActive() const { return !m_ActiveConnections.empty(); }
+	inline int ActiveConnectionCount() const { return m_ActiveConnections.size(); }
+
 private:
 	GameConnectionManager() = default;
 	void BackgroundUpdate(GameConnectionRef game);

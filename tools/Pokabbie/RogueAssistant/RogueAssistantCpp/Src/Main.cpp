@@ -1,4 +1,5 @@
-#include "Window.h"
+#include "UI\PrimaryUI.h"
+#include "UI\Window.h"
 #include "GameConnectionManager.h"
 
 #include <stdlib.h>
@@ -56,12 +57,13 @@ int RogueAssistant_Main(std::vector<std::string> const& args)
     config.imGuiEnabled = false;
 
     Window window(config);
+    PrimaryUI ui;
 
     if (window.Create())
     {
         GameConnectionManager::Instance().OpenListener();
 
-        window.EnterMainLoop(RogueAssistant_MainLoop);
+        window.EnterMainLoop(RogueAssistant_MainLoop, &ui);
         if (window.Destroy())
         {
             GameConnectionManager::Instance().CloseListener();
@@ -74,6 +76,8 @@ int RogueAssistant_Main(std::vector<std::string> const& args)
 
 bool RogueAssistant_MainLoop(Window* window, void* userData)
 {
+    PrimaryUI* ui = (PrimaryUI*)userData;
     GameConnectionManager::Instance().UpdateConnections();
+    ui->Render(*window);
     return true;
 }

@@ -18,6 +18,8 @@ public:
 
 	bool Update();
 
+	static TimeDurationNS GetCurrentTime();
+
 private:
 	TimeDurationNS m_LastUpdate;
 	TimeDurationNS m_Timer;
