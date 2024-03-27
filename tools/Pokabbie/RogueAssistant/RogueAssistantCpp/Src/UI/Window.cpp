@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <Windows.h>
 
 #include "Defines.h"
 #include "Log.h"
@@ -45,14 +46,58 @@ void Window::EnterMainLoop(WindowCallback callback, void* userData)
 
     while (m_WindowHandle->isOpen() && continueLoop)
     {
+        m_PreviousKeyStates = m_CurrentKeyStates;
+
         sf::Event sfEvent;
         while (m_WindowHandle->pollEvent(sfEvent))
         {
+            if (sfEvent.type == sf::Event::KeyPressed && sfEvent.key.code != sf::Keyboard::Unknown)
+                m_CurrentKeyStates.set(sfEvent.key.code, true);
+
+            if (sfEvent.type == sf::Event::KeyReleased && sfEvent.key.code != sf::Keyboard::Unknown)
+                m_CurrentKeyStates.set(sfEvent.key.code, false);
+
+            if (sfEvent.type == sf::Event::TextEntered && sfEvent.text.unicode < 128)
+            {
+                if (sfEvent.text.unicode == 8) // backspace
+                {
+                    if (!m_TextEntered.empty())
+                        m_TextEntered = m_TextEntered.substr(0, m_TextEntered.size() - 1);
+                }
+                else if (sfEvent.text.unicode >= 1 && sfEvent.text.unicode <= 26) // ctrl + ?
+                {
+                    if (sfEvent.text.unicode == 22) // ctrl + v
+                    {
+                        if (OpenClipboard(NULL))
+                        {
+                            HANDLE h = GetClipboardData(CF_TEXT);
+                            char* textPtr = (char*)h;
+
+                            if (textPtr != nullptr)
+                            {
+                                // Limit to specific character limit just for ease
+                                for (int i = 0; i < 256 && textPtr[i] != 0; ++i)
+                                    m_TextEntered += textPtr[i];
+                            }
+
+                            CloseClipboard();
+                        }
+                    }
+                    else if (sfEvent.text.unicode == 1) // ctrl + a
+                    {
+                        // breakig the rules just to make it easy to delete all the text
+                        m_TextEntered = "";
+                    }
+                }
+                else
+                    m_TextEntered += static_cast<char>(sfEvent.text.unicode);
+            }
+
             // "close requested" event: we close the window
             if (sfEvent.type == sf::Event::Closed)
                 continueLoop = false;
         }
-
+                
         m_WindowHandle->clear();
 
         if(!callback(this, userData))

@@ -21,15 +21,18 @@ enum RogueNetChannel
 #define NET_HANDSHAKE_STATE_SEND_TO_HOST        1
 #define NET_HANDSHAKE_STATE_SEND_TO_CLIENT      2
 
+u16 const MultiplayerBehaviour::c_DefaultPort = 30025;
+
 
 MultiplayerBehaviour::MultiplayerBehaviour()
-	: m_Port(20125)
+	: m_Port(c_DefaultPort)
 	, m_RequestFlags(0)
 	, m_PlayerId(0)
 	, m_NetServer(nullptr)
 	, m_NetClient(nullptr)
 	, m_NetPeer(nullptr)
 	, m_ConnState(ConnectionState::Default)
+	, m_HasAttemptedConnection(false)
 {
 }
 
@@ -44,15 +47,7 @@ void MultiplayerBehaviour::OnAttach(GameConnection& game)
 
 		u8 requestFlags = multiplayerBlob[rogueHeader.netRequestStateOffset];
 		m_RequestFlags = requestFlags;
-
-		if (m_RequestFlags & NET_STATE_HOST)
-		{
-			OpenHostConnection(game);
-		}
-		else
-		{
-			OpenClientConnection(game);
-		}
+		m_HasAttemptedConnection = false;
 	}
 }
 
@@ -61,9 +56,60 @@ void MultiplayerBehaviour::OnDetach(GameConnection& game)
 	CloseConnection(game);
 }
 
+bool MultiplayerBehaviour::IsRequestingHostConnection() const
+{
+	return m_RequestFlags & NET_STATE_HOST;
+}
+
+void MultiplayerBehaviour::ProvideConnectionAddress(std::string const& address)
+{
+	if (!m_HasAttemptedConnection)
+		m_ConnectionAddressRaw = address;
+}
+
+std::string MultiplayerBehaviour::SanitiseConnectionAddress(std::string const& address)
+{
+	std::string outAddress;
+
+	if (IsRequestingHostConnection())
+	{
+		// We're only inputing port
+		for (char c : address)
+		{
+			if (c >= '0' && c <= '9')
+				outAddress += c;
+		}
+	}
+	else
+	{
+		// allow anything
+		outAddress = address;
+	}
+
+	return outAddress;
+}
+
 void MultiplayerBehaviour::OnUpdate(GameConnection& game)
 {
 	GameStructures::RogueAssistantHeader const& rogueHeader = game.GetObservedGameMemory().GetRogueHeader();
+
+	if (!m_HasAttemptedConnection)
+	{
+		if (!m_ConnectionAddressRaw.empty())
+		{
+			m_HasAttemptedConnection = true;
+			if (IsRequestingHostConnection())
+			{
+				m_Port = std::stoi(m_ConnectionAddressRaw);
+				OpenHostConnection(game);
+			}
+			else
+			{
+				OpenClientConnection(game);
+			}
+		}
+		return;
+	}
 
 	if (!game.GetObservedGameMemory().IsMultiplayerStateValid())
 		return;

@@ -30,6 +30,8 @@ public:
 	inline bool AnyConnectionsActive() const { return !m_ActiveConnections.empty(); }
 	inline int ActiveConnectionCount() const { return m_ActiveConnections.size(); }
 
+	inline ActiveGameConnection& GetGameConnectionAt(int index) { return m_ActiveConnections[index]; }
+
 private:
 	GameConnectionManager() = default;
 	void BackgroundUpdate(GameConnectionRef game);

@@ -18,7 +18,7 @@ public:
 
 	bool Update();
 
-	static TimeDurationNS GetCurrentTime();
+	static TimeDurationNS GetCurrentClock();
 
 private:
 	TimeDurationNS m_LastUpdate;
