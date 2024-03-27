@@ -2,10 +2,8 @@ constants =
 {
     targetHost = "127.0.0.1",
     targetPort = 30125,
-    
     rogueHandshake1 = "3to8UEaoManH7wB4lKlLRgywSHHKmI0g",
     rogueHandshake2 = "Em68TrzBAFlyhBCOm4XQIjGWbdNhuplY",
-
     debugLog = false,
 }
 
@@ -52,10 +50,6 @@ function Cmd_EstablishConnection(params)
     globals.conn:send(constants.rogueHandshake2)
 end
 
-function Cmd_HelloWorld(params)
-    Cmd_Send(0, "Hello to you too!")
-end
-
 -- Write memory a byte a time (This is to avoid alignment issues for larger writes e.g. u32 has to be on the 4 byte boundary otherwise, it causes awkward to notice bugs)
 
 function Cmd_writeByte(params)
@@ -95,7 +89,6 @@ end
 commCmds = 
 {
     con = Cmd_EstablishConnection,
-    -- hello = Cmd_HelloWorld,
     ws = Cmd_writeByte,
     rs = Cmd_readByte,
     w = Cmd_writeBytes,

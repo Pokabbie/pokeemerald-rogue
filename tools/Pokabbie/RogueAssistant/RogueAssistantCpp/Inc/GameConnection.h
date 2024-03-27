@@ -77,9 +77,10 @@ private:
 	sf::TcpSocket m_Socket;
 	GameConnectionState m_State;
 	UpdateTimer m_UpdateTimer;
+	int m_UpdateFrame;
 
-	u8 m_RecieveBuffer[2048];
-	u8 m_SendBuffer[2048];
+	u8 m_RecieveBuffer[4096];
+	u8 m_SendBuffer[4096];
 	size_t m_SendSize;
 
 	RPCQueue m_GameRPCs;

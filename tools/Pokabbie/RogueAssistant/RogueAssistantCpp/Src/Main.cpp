@@ -1,7 +1,10 @@
 #include "UI\PrimaryUI.h"
 #include "UI\Window.h"
+#include "Assets.h"
 #include "GameConnectionManager.h"
+#include "Log.h"
 
+#include <fstream>
 #include <stdlib.h>
 #include <string>
 #include <vector>
@@ -42,15 +45,29 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine,
 
 #endif
 
-#if defined(_DEBUG)
-void TestEntry();
-#endif
+static void DumpScriptsNextToExe()
+{
+    std::ofstream fileStream;
+    fileStream.open("RogueAssistant_mGBA.lua", std::ios::out);
+
+    LOG_INFO("Dumping RogueAssistant_mGBA.lua next to exe");
+
+    auto const& data = bin2cpp::getRogueAssistant_mGBALuaFile();
+    char const* ptr = data.getBuffer();
+
+    for (;*ptr != 0; ++ptr)
+    {
+        // Ignore carriage return
+        if (*ptr != '\r')
+            fileStream << *ptr;
+    }
+
+    fileStream.close();
+}
 
 int RogueAssistant_Main(std::vector<std::string> const& args)
 {
-#if defined(_DEBUG)
-    TestEntry();
-#endif
+    DumpScriptsNextToExe();
 
     WindowConfig config;
     config.title = "Rogue Assistant";
