@@ -577,15 +577,30 @@ void RogueQuest_GetQuestCountsFor(u32 constFlag, u16* activeCount, u16* inactive
 
 u16 RogueQuest_GetDisplayCompletePerc()
 {
-    u16 questCompletion = RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_MAIN_QUEST);
+    u32 constFlags = QUEST_CONST_IS_MAIN_QUEST;
+    u16 maxValue = 100;
 
-    if(questCompletion == 100)
-    {
-        // Reach 120% total
-        return questCompletion + RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_CHALLENGE) / 10 + RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_MON_MASTERY) / 10;
-    }
+    if(RogueQuest_HasUnlockedChallenges())
+        constFlags |= QUEST_CONST_IS_CHALLENGE;
+    else
+        maxValue = 99;
 
-    return questCompletion;
+    if(RogueQuest_HasUnlockedMonMasteries())
+        constFlags |= QUEST_CONST_IS_MON_MASTERY;
+    else
+        maxValue = 99;
+
+    return min(maxValue, RogueQuest_GetQuestCompletePercFor(constFlags));
+
+    //u16 questCompletion = RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_MAIN_QUEST);
+//
+    //if(questCompletion == 100)
+    //{
+    //    // Reach 100% total
+    //    return questCompletion + RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_CHALLENGE) + RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_MON_MASTERY);
+    //}
+//
+    //return questCompletion;
 }
 
 static void EnsureUnlockedDefaultQuests()
