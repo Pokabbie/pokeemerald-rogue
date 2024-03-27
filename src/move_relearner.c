@@ -22,6 +22,7 @@
 #include "sprite.h"
 #include "string_util.h"
 #include "strings.h"
+#include "international_string_util.h"
 #include "task.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -354,6 +355,10 @@ static const struct BgTemplate sMoveRelearnerMenuBackgroundTemplates[] =
 
 static void DoMoveRelearnerMain(void);
 static void CreateLearnableMovesList(void);
+static u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices);
+static void MoveRelearnerCursorCallback(s32 itemIndex, bool8 onInit, struct ListMenu *list);
+static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove);
+static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove);
 static void CreateUISprites(void);
 static void CB2_MoveRelearnerMain(void);
 static void Task_WaitForFadeOut(u8 taskId);
@@ -368,6 +373,28 @@ static s32 GetCurrentSelectedMove(void);
 static void FreeMoveRelearnerResources(void);
 static void RemoveScrollArrows(void);
 static void HideHeartSpritesAndShowTeachMoveText(bool8);
+
+static const struct ListMenuTemplate sMoveRelearnerMovesListTemplate =
+{
+    .items = NULL,
+    .moveCursorFunc = MoveRelearnerCursorCallback,
+    .itemPrintFunc = NULL,
+    .totalItems = 0,
+    .maxShowed = 0,
+    .windowId = 2,
+    .header_X = 0,
+    .item_X = 8,
+    .cursor_X = 0,
+    .upText_Y = 1,
+    .cursorPal = 2,
+    .fillValue = 1,
+    .cursorShadowPal = 3,
+    .lettersSpacing = 0,
+    .itemVerticalPadding = 0,
+    .scrollMultiple = LIST_MULTIPLE_SCROLL_L_R,
+    .fontId = FONT_NORMAL,
+    .cursorKind = 0
+};
 
 static void VBlankCB_MoveRelearner(void)
 {
@@ -499,6 +526,7 @@ static void CB2_InitLearnMove(void)
     LoadSpritePalette(&sMoveRelearnerPalette);
     CreateUISprites();
 
+    // set via sMoveRelearnerMovesListTemplate
     sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
     FillPalette(RGB_BLACK, 0, 2);
     SetMainCallback2(CB2_MoveRelearnerMain);
@@ -526,6 +554,7 @@ static void CB2_InitLearnMoveReturnFromSelectMove(void)
     LoadSpritePalette(&sMoveRelearnerPalette);
     CreateUISprites();
 
+    // set via sMoveRelearnerMovesListTemplate
     sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
     FillPalette(RGB_BLACK, 0, 2);
     SetMainCallback2(CB2_MoveRelearnerMain);
@@ -1078,6 +1107,125 @@ static void CreateLearnableMovesList(void)
     sMoveRelearnerStruct->menuItems[sMoveRelearnerStruct->numMenuChoices].id = LIST_CANCEL;
     sMoveRelearnerStruct->numMenuChoices++;
     sMoveRelearnerStruct->numToShowAtOnce = LoadMoveRelearnerMovesList(sMoveRelearnerStruct->menuItems, sMoveRelearnerStruct->numMenuChoices);
+}
+
+static u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices)
+{
+    gMultiuseListMenuTemplate = sMoveRelearnerMovesListTemplate;
+    gMultiuseListMenuTemplate.totalItems = numChoices;
+    gMultiuseListMenuTemplate.items = items;
+
+    if (numChoices < 6)
+        gMultiuseListMenuTemplate.maxShowed = numChoices;
+    else
+        gMultiuseListMenuTemplate.maxShowed = 6;
+
+    return gMultiuseListMenuTemplate.maxShowed;
+}
+
+static void MoveRelearnerCursorCallback(s32 itemIndex, bool8 onInit, struct ListMenu *list)
+{
+    if (onInit != TRUE)
+        PlaySE(SE_SELECT);
+    MoveRelearnerLoadBattleMoveDescription(itemIndex);
+    MoveRelearnerMenuLoadContestMoveDescription(itemIndex);
+}
+
+static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
+{
+    s32 x;
+    const struct BattleMove *move;
+    u8 buffer[32];
+    const u8 *str;
+
+    FillWindowPixelBuffer(0, PIXEL_FILL(1));
+    str = gText_MoveRelearnerBattleMoves;
+    x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
+
+    str = gText_MoveRelearnerPP;
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, 4, 0x29, TEXT_SKIP_DRAW, NULL);
+
+    str = gText_MoveRelearnerPower;
+    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x6A);
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, x, 0x19, TEXT_SKIP_DRAW, NULL);
+
+    str = gText_MoveRelearnerAccuracy;
+    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x6A);
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, x, 0x29, TEXT_SKIP_DRAW, NULL);
+    if (chosenMove == LIST_CANCEL)
+    {
+        CopyWindowToVram(0, COPYWIN_GFX);
+        return;
+    }
+    move = &gBattleMoves[chosenMove];
+    str = gTypeNames[move->type];
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, 4, 0x19, TEXT_SKIP_DRAW, NULL);
+
+    x = 4 + GetStringWidth(FONT_NORMAL, gText_MoveRelearnerPP, 0);
+    ConvertIntToDecimalStringN(buffer, move->pp, STR_CONV_MODE_LEFT_ALIGN, 2);
+    AddTextPrinterParameterized(0, FONT_NORMAL, buffer, x, 0x29, TEXT_SKIP_DRAW, NULL);
+
+    if (move->power < 2)
+    {
+        str = gText_ThreeDashes;
+    }
+    else
+    {
+        ConvertIntToDecimalStringN(buffer, move->power, STR_CONV_MODE_LEFT_ALIGN, 3);
+        str = buffer;
+    }
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, 0x6A, 0x19, TEXT_SKIP_DRAW, NULL);
+
+    if (move->accuracy == 0)
+    {
+        str = gText_ThreeDashes;
+    }
+    else
+    {
+        ConvertIntToDecimalStringN(buffer, move->accuracy, STR_CONV_MODE_LEFT_ALIGN, 3);
+        str = buffer;
+    }
+    AddTextPrinterParameterized(0, FONT_NORMAL, str, 0x6A, 0x29, TEXT_SKIP_DRAW, NULL);
+
+    str = gMoveDescriptionPointers[chosenMove - 1];
+    AddTextPrinterParameterized(0, FONT_NARROW, str, 0, 0x41, 0, NULL);
+}
+
+static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
+{
+    s32 x;
+    const u8 *str;
+    const struct ContestMove *move;
+
+    MoveRelearnerShowHideHearts(chosenMove);
+    FillWindowPixelBuffer(1, PIXEL_FILL(1));
+    str = gText_MoveRelearnerContestMovesTitle;
+    x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 0x80);
+    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
+
+    str = gText_MoveRelearnerAppeal;
+    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x5C);
+    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 0x19, TEXT_SKIP_DRAW, NULL);
+
+    str = gText_MoveRelearnerJam;
+    x = GetStringRightAlignXOffset(FONT_NORMAL, str, 0x5C);
+    AddTextPrinterParameterized(1, FONT_NORMAL, str, x, 0x29, TEXT_SKIP_DRAW, NULL);
+
+    if (chosenMove == MENU_NOTHING_CHOSEN)
+    {
+        CopyWindowToVram(1, COPYWIN_GFX);
+        return;
+    }
+
+    move = &gContestMoves[chosenMove];
+    str = gContestMoveTypeTextPointers[move->contestCategory];
+    AddTextPrinterParameterized(1, FONT_NORMAL, str, 4, 0x19, TEXT_SKIP_DRAW, NULL);
+
+    str = gContestEffectDescriptionPointers[move->effect];
+    AddTextPrinterParameterized(1, FONT_NARROW, str, 0, 0x41, TEXT_SKIP_DRAW, NULL);
+
+    CopyWindowToVram(1, COPYWIN_GFX);
 }
 
 void MoveRelearnerShowHideHearts(s32 moveId)

@@ -120,7 +120,6 @@ void FreeConditionSparkles(struct Sprite **sprites);
 void MoveRelearnerPrintText(u8 *str);
 bool16 MoveRelearnerRunTextPrinters(void);
 void MoveRelearnerCreateYesNoMenu(void);
-u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices);
 void InitMoveRelearnerWindows(bool8 useContextWindow);
 
 // Quest Menu
