@@ -161,7 +161,6 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
 
     // Safari
     SerializeArray(stream, saveBlock->safariMons, sizeof(saveBlock->safariMons[0]), ARRAY_COUNT(saveBlock->safariMons));
-    SerializeArray(stream, saveBlock->safariLegends, sizeof(saveBlock->safariLegends[0]), ARRAY_COUNT(saveBlock->safariLegends));
 
     // Difficulty/Adventure Settings
     SerializeArray(stream, saveBlock->difficultyConfig.toggleBits, sizeof(saveBlock->difficultyConfig.toggleBits[0]), ARRAY_COUNT(saveBlock->difficultyConfig.toggleBits));

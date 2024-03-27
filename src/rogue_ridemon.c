@@ -14,6 +14,7 @@
 #include "sound.h"
 
 #include "rogue_baked.h"
+#include "rogue_controller.h"
 #include "rogue_debug.h"
 #include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
@@ -48,6 +49,7 @@ enum
 #define RIDE_MON_FLAG_CAN_CLIMB     (1 << 2)
 #define RIDE_MON_FLAG_CAN_FLY       (1 << 3)
 
+#define RIDE_FLY_HEIGHT 12   // 16
 
 #define RIDE_OBJECT_PLAYER              0   // Reserved for the player
 #define RIDE_OBJECT_COUNT               (1 + NET_PLAYER_CAPACITY)
@@ -128,6 +130,9 @@ static const struct RideMonInfo* GetRideMonInfoForSpecies(u16 species);
 
 static bool8 IsValidSpeciesToRideNow(u16 species)
 {
+    if(species >= FOLLOWMON_SHINY_OFFSET)
+        species -= FOLLOWMON_SHINY_OFFSET;
+
     if(species != SPECIES_NONE)
     {
         const struct RideMonInfo* rideInfo = GetRideMonInfoForSpecies(species);
@@ -145,16 +150,59 @@ static bool8 IsValidMonToRideNow(struct Pokemon* mon)
     return IsValidSpeciesToRideNow(species);
 }
 
+static u8 GetRideOptionCount()
+{
+    u8 count;
+
+    if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_GOLD)
+    {
+        count = 1 + (FlagGet(FLAG_SYS_RIDING_ACCESS_DAYCARE) ? Rogue_GetCurrentDaycareSlotCount() : 0);
+    }
+    else // RIDE_WHISTLE_BASIC
+    {
+        count = gPlayerPartyCount;
+    }
+
+    return count;
+}
+
+static u16 GetRideOptionGfx(u8 slot)
+{
+    if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_GOLD)
+    {
+        if(slot == 0)
+        {
+            return VarGet(VAR_ROGUE_REGISTERED_RIDE_MON);
+        }
+        else
+        {
+            struct BoxPokemon* mon = Rogue_GetDaycareBoxMon(slot - 1);
+            return FollowMon_GetBoxMonGraphics(mon);
+        }
+    }
+    else // RIDE_WHISTLE_BASIC
+    {
+        if(IsValidMonToRideNow(&gPlayerParty[slot]))
+        {
+            return FollowMon_GetMonGraphics(&gPlayerParty[slot]);
+        }
+    }
+
+    return SPECIES_NONE;
+}
+
 static bool8 CalculateRideSpecies(s8 dir)
 {
     u8 counter;
     s8 monIdx;
+    u16 rideOptionGfx;
+    u8 rideOptionCount = GetRideOptionCount();
 
     // Loop through mons from last riden
-    sRideMonData.recentRideIndex = min(sRideMonData.recentRideIndex, gPlayerPartyCount - 1);
+    sRideMonData.recentRideIndex = min(sRideMonData.recentRideIndex, rideOptionCount - 1);
     sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = SPECIES_NONE;
 
-    for(counter = 0; counter < gPlayerPartyCount; ++counter)
+    for(counter = 0; counter < rideOptionCount; ++counter)
     {
         monIdx = sRideMonData.recentRideIndex;
 
@@ -164,14 +212,15 @@ static bool8 CalculateRideSpecies(s8 dir)
             monIdx = counter;
 
         while(monIdx < 0)
-            monIdx += gPlayerPartyCount;
+            monIdx += rideOptionCount;
         
-        monIdx %= gPlayerPartyCount;
+        monIdx %= rideOptionCount;
+        rideOptionGfx = GetRideOptionGfx(monIdx);
 
-        if(IsValidMonToRideNow(&gPlayerParty[monIdx]))
+        if(IsValidSpeciesToRideNow(rideOptionGfx))
         {
             sRideMonData.recentRideIndex = monIdx;
-            sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = FollowMon_GetMonGraphics(&gPlayerParty[monIdx]);
+            sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = rideOptionGfx;
             return TRUE;
         }
     }
@@ -181,46 +230,29 @@ static bool8 CalculateRideSpecies(s8 dir)
 
 static bool8 CalculateInitialRideSpecies()
 {
-    if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_GOLD)
+    u8 counter;
+    u8 monIdx;
+    u16 rideOptionGfx;
+    u8 rideOptionCount = GetRideOptionCount();
+
+    sRideMonData.recentRideIndex = min(sRideMonData.recentRideIndex, rideOptionCount - 1);
+
+    // Try to ride the same species we were previously riding
+    for(counter = 0; counter < rideOptionCount; ++counter)
     {
-        u16 species;
-        u16 speciesGfx = species = VarGet(VAR_ROGUE_REGISTERED_RIDE_MON);
+        monIdx = (sRideMonData.recentRideIndex + counter) % rideOptionCount;
+        rideOptionGfx = GetRideOptionGfx(monIdx);
 
-        if(species >= FOLLOWMON_SHINY_OFFSET)
-            species -= FOLLOWMON_SHINY_OFFSET;
-
-        if(IsValidSpeciesToRideNow(species))
+        if(IsValidSpeciesToRideNow(rideOptionGfx))
         {
-            sRideMonData.recentRideIndex = 0;
-            sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = speciesGfx;
+            sRideMonData.recentRideIndex = monIdx;
+            sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = rideOptionGfx;
             return TRUE;
         }
-
-        return FALSE;
     }
-    else
-    {
-        u8 counter;
-        u8 monIdx;
 
-        sRideMonData.recentRideIndex = min(sRideMonData.recentRideIndex, gPlayerPartyCount - 1);
-
-        // Try to ride the same species we were previously riding
-        for(counter = 0; counter < gPlayerPartyCount; ++counter)
-        {
-            monIdx = (sRideMonData.recentRideIndex + counter) % gPlayerPartyCount;
-
-            if(IsValidMonToRideNow(&gPlayerParty[monIdx]))
-            {
-                sRideMonData.recentRideIndex = monIdx;
-                sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = FollowMon_GetMonGraphics(&gPlayerParty[monIdx]);
-                return TRUE;
-            }
-        }
-
-        // Can't ride the mon we were previously riding, so try to pick next avaliable
-        return CalculateRideSpecies(0);
-    }
+    // Can't ride the mon we were previously riding, so try to pick next avaliable
+    return CalculateRideSpecies(0);
 }
 
 // Based on GetOnOffBike
@@ -275,7 +307,7 @@ bool8 Rogue_HandleRideMonInput()
     if(Rogue_IsRideActive())
     {
         // Cycle through mons, when pressing L or R
-        if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_BASIC)
+        if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_BASIC || (FlagGet(FLAG_SYS_RIDING_ACCESS_DAYCARE) && sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_GOLD))
         {
             if(JOY_NEW(L_BUTTON))
             {
@@ -1141,7 +1173,7 @@ static bool8 AdjustFlyingAnimation(struct RideObjectEvent* rideObject)
 
     if(rideObject->state.flyingState)
     {
-        if(rideObject->state.flyingHeight < 16)
+        if(rideObject->state.flyingHeight < RIDE_FLY_HEIGHT)
         {
             if(rideObject->state.flyingHeight == 0)
             {

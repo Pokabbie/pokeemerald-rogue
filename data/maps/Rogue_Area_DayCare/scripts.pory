@@ -1,0 +1,104 @@
+const VAR_OBJ_GFX_TEA_SHOP = VAR_OBJ_GFX_ID_0
+
+mapscripts Rogue_Area_DayCare_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_DayCare_OnMapLoad
+}
+
+script Rogue_Area_DayCare_OnMapLoad
+{
+    random(2)
+    if(var(VAR_RESULT) == 0)
+    {
+        setvar(VAR_OBJ_GFX_TEA_SHOP, OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_M)
+    }
+    else
+    {
+        setvar(VAR_OBJ_GFX_TEA_SHOP, OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_F)
+    }
+}
+
+script Rogue_Area_DayCare_BlendPokeblock_Internal
+{
+    //goto(BerryBlender_EventScript_BerryBlender1)
+    
+    lockall
+    //applymovement LOCALID_EXPERT_M, BerryBlender_Movement_BlendLeaderWalkInPlace
+    //waitmovement 0
+
+    msgbox(format("MAKE {POKEBLOCK}?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        //goto(BerryBlender_EventScript_TryUseBerryBlender1)
+        
+        //checkitem ITEM_POKEBLOCK_CASE
+        //goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_Blender1NoCase
+        //specialvar VAR_RESULT, GetFirstFreePokeblockSlot
+        //goto_if_eq VAR_RESULT, 65535, BerryBlender_EventScript_Blender1CaseFull
+
+        specialvar(VAR_RESULT, PlayerHasBerries)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("LET'S PLAY"))
+            //goto BerryBlender_EventScript_UseBerryBlender1
+
+            // TODO - Explain
+            setvar(VAR_0x8004, 1) // NUM_OPPONENTS
+            fadescreen(FADE_TO_BLACK)
+            special(DoBerryBlending)
+            waitstate
+            releaseall
+        }
+        else
+        {
+            msgbox(format("NEED BERRIES"))
+        }
+    }
+    else
+    {
+        msgbox(format("SAD NO NO"))
+    }
+
+    releaseall
+}
+
+script Rogue_Area_DayCare_BlendPokeblockNovice
+{
+    setflag(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER)
+    goto(Rogue_Area_DayCare_BlendPokeblock_Internal)
+}
+
+script Rogue_Area_DayCare_BlendPokeblockMaster
+{
+    clearflag(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER)
+    goto(Rogue_Area_DayCare_BlendPokeblock_Internal)
+}
+
+script Rogue_Area_DayCare_SwapMonGender
+{
+    lock
+    faceplayer
+
+    setvar(VAR_0x8004, 0)
+    special(BufferMonNickname)
+    msgbox(format("Well hi there!\pI just brewed a fresh batch of Tea.\nSometimes Pokémon who drink it can change gender!\pDid you want me to share some with {STR_VAR_1}?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        fadescreen(FADE_TO_BLACK)
+
+        playse(SE_USE_ITEM)
+        waitse
+        special(Rogue_SwapMonGender)
+
+        fadescreen(FADE_FROM_BLACK)
+    }
+    else
+    {
+        msgbox(format("Well, I have plenty of Herbal Remedy Tea to go around, if you change your mind!"))
+    }
+
+    release
+}

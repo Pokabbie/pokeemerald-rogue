@@ -14,6 +14,7 @@ void Rogue_PushPopup_UnableToEvolve(u8 slotId);
 
 void Rogue_PushPopup_MonStatChange(u8 slotId, bool8 improvement);
 void Rogue_PushPopup_MonShinyChange(u8 slotId, bool8 improvement);
+void Rogue_PushPopup_MonGenderChange(u8 slotId, u8 gender);
 
 void Rogue_PushPopup_QuestComplete(u16 questId);
 void Rogue_PushPopup_QuestFail(u16 questId);

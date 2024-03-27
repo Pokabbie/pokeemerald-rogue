@@ -144,6 +144,10 @@ bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result)
 
         return TRUE;
     }
+    else
+    {
+        AGB_ASSERT(FALSE);
+    }
 #endif
     return FALSE;
 }

@@ -664,6 +664,19 @@ gSongTable::
 	song mus_hg_kimono_girl, 0, 0
 	song mus_hg_card_flip, 2, 2
 	song mus_hg_card_flip_game_over, 2, 2
+	song mus_hg_b_arcade, 0, 0
+	song mus_hg_b_castle, 0, 0
+	song mus_hg_b_factory, 0, 0
+	song mus_hg_b_hall, 0, 0
+	song mus_hg_b_tower, 0, 0
+	song mus_hg_b_tower_reception, 0, 0
+	song mus_hg_evolution, 0, 0
+	song mus_hg_evolved, 2, 2
+	song mus_hg_gym, 0, 0
+	song mus_hg_level_up, 2, 2
+	song mus_hg_magnet_train, 0, 0
+	song mus_hg_sinjou_ruins, 0, 0
+	song mus_hg_victory_wild, 0, 0
 	song mus_dp_route201_day, 0, 0
 	song mus_dp_route203_day, 0, 0
 	song mus_dp_route205_day, 0, 0
@@ -722,7 +735,16 @@ gSongTable::
 	song mus_dp_solaceon_day, 0, 0
 	song mus_dp_underground, 0, 0
 	song mus_dp_gym, 0, 0
+	song mus_dp_evolution, 0, 0
+	song mus_dp_evolved, 2, 2
+	song mus_dp_gts, 0, 0
+	song mus_dp_lake, 0, 0
+	song mus_dp_level_up, 2, 2
+	song mus_dp_legend_appears, 0, 0
 	song mus_pl_vs_giratina, 0, 0
+	song mus_pl_distortion_world, 0, 0
+	song mus_pl_looker, 0, 0
+	song mus_pl_vs_regi, 0, 0
 	song mus_move_deleted_slow, 2, 2
 	song mus_debug_test, 0, 0
 

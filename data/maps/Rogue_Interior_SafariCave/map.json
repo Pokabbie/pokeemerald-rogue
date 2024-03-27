@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_INTERIOR_SAFARI_CAVE",
   "name": "Rogue_Interior_SafariCave",
   "layout": "LAYOUT_ROGUE_INTERIOR_SAFARI_CAVE",
-  "music": "MUS_SEALED_CHAMBER",
+  "music": "MUS_HG_SINJOU_RUINS",
   "region_map_section": "MAPSEC_POKEMON_HUB",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -14,7 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TRICK_HOUSE_STATUE",
+      "x": 11,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Interior_SafariCave_InteractLegendSummon",
+      "flag": "0"
+    }
   ],
   "warp_events": [
     {
@@ -22,7 +34,7 @@
       "y": 28,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_SAFARI_ZONE",
-      "dest_warp_id": 6
+      "dest_warp_id": "6"
     }
   ],
   "coord_events": [

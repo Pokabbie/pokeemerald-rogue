@@ -252,6 +252,7 @@ gSpecials::
 	def_special Rogue_CanMakeShinyPieFor
 	def_special Rogue_WillMonLikePie
 	def_special Rogue_FeedMonPie
+	def_special Rogue_SwapMonGender
 	def_special Rogue_CanPlantBerries
 	def_special Rogue_CheckDaycareCount
 	def_special Rogue_IsDaycareSlotEmpty
@@ -264,12 +265,17 @@ gSpecials::
 	def_special Rogue_GiveCatchingContestMon
 	def_special Rogue_HasUnlockedRandomStarterTrade
 	def_special Rogue_CanOverLevel
+	def_special Rogue_AnyLegendsInSafari
+	def_special Rogue_CheckSafariMonLikesPokeblock
+	def_special Rogue_EnqueueSafariBattle
+	def_special Rogue_BufferSafariMonInfo
 	def_special Rogue_DisplayPopupsFromScript
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetLastInteractedRoomParams
 	def_special RogueAdv_WarpLastInteractedRoom
 	def_special RoguePlayer_HandleEasterEggOutfitUnlocks
+	def_special RogueSafari_CompactEmptyEntries
 	def_special GameShow_RestartGameShow
 	def_special GameShow_SelectRandomSpecies
 	def_special GameShow_BufferSpecies
@@ -387,6 +393,7 @@ gSpecials::
 	def_special Special_ViewDifficultyConfigMenu
 	def_special Special_ViewRoguePokedex
 	def_special Special_SelectMonInPokedex
+	def_special Special_SelectSafariMonInPokedex
 	def_special Special_ViewPlayerCustomisationMenu
 	def_special Special_ViewVoltorbFlip
 	def_special CheckLeadMonCool

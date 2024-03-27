@@ -16,10 +16,13 @@ struct RogueSafariMon* RogueSafari_GetSafariMonAt(u8 index);
 void RogueSafari_ClearSafariMonAtIdx(u8 index);
 
 void RogueSafari_EnqueueBattleMon(u8 slot);
+void RogueSafari_EnqueueBattleMonByIndex(u8 index);
 u8 RogueSafari_GetPendingBattleMonIdx();
 struct RogueSafariMon* RogueSafari_GetPendingBattleMon();
 
 u16 RogueSafari_GetActivePokeballType();
 void RogueSafari_SetActivePokeballType(u16 itemId);
+
+void RogueSafari_CompactEmptyEntries();
 
 #endif

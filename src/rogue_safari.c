@@ -6,6 +6,7 @@
 #include "string_util.h"
 
 #include "rogue_controller.h"
+#include "rogue_pokedex.h"
 #include "rogue_save.h"
 #include "rogue_safari.h"
 
@@ -21,7 +22,7 @@ struct SafariData
 static EWRAM_DATA struct SafariData sSafariData = {0};
 
 static void ZeroSafariMon(struct RogueSafariMon* mon);
-static u8 AllocSafariMonSlot();
+static u8 AllocSafariMonSlotFor(struct BoxPokemon* mon);
 static u8 FreeSafariMonSlotCount();
 
 void RogueSafari_PushMon(struct Pokemon* mon)
@@ -37,18 +38,18 @@ void RogueSafari_PushMon(struct Pokemon* mon)
 
 void RogueSafari_PushBoxMon(struct BoxPokemon* monToCopy)
 {
-    u8 index = AllocSafariMonSlot();
+    u8 index = AllocSafariMonSlotFor(monToCopy);
     struct RogueSafariMon* writeMon = &gRogueSaveBlock->safariMons[index];
 
     ZeroSafariMon(writeMon);
     RogueSafari_CopyToSafariMon(monToCopy, writeMon);
 
-    writeMon->priorityCounter = 1;
+    writeMon->priorityCounter = 32;
 
     if(writeMon->shinyFlag)
     {
         // Shinies will last much longer than regular mons
-        writeMon->priorityCounter += 10;
+        writeMon->priorityCounter += 32;
     }
 
     // TODO - Handle legends?
@@ -65,7 +66,7 @@ void RogueSafari_ResetSpawns()
 {
     u8 i;
 
-    sSafariData.spawnIndex = Random() % ARRAY_COUNT(gRogueSaveBlock->safariMons);
+    sSafariData.spawnIndex = Random() % ROGUE_SAFARI_TOTAL_MONS;
     sSafariData.pendingBattleIdx = INVALID_SAFARI_MON_IDX;
 
     for(i = 0; i < ARRAY_COUNT(sSafariData.slotToIndexMap); ++i)
@@ -150,9 +151,9 @@ struct RogueSafariMon* RogueSafari_ChooseSafariMonForSlot(u8 slot)
 {
     u8 i;
 
-    for(i = 0; i < ARRAY_COUNT(gRogueSaveBlock->safariMons); ++i)
+    for(i = 0; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
     {
-        sSafariData.spawnIndex = (sSafariData.spawnIndex + 1) % ARRAY_COUNT(gRogueSaveBlock->safariMons);
+        sSafariData.spawnIndex = (sSafariData.spawnIndex + 1) % ROGUE_SAFARI_LEGENDS_START_INDEX;
 
         if(gRogueSaveBlock->safariMons[sSafariData.spawnIndex].species != SPECIES_NONE && !IsMonAlreadySpawned(sSafariData.spawnIndex))
         {
@@ -179,7 +180,7 @@ struct RogueSafariMon* RogueSafari_GetSafariMonAt(u8 index)
     {
         u8 safariIndex = sSafariData.slotToIndexMap[index];
 
-        if(safariIndex < ARRAY_COUNT(gRogueSaveBlock->safariMons))
+        if(safariIndex < ROGUE_SAFARI_TOTAL_MONS)
             return &gRogueSaveBlock->safariMons[safariIndex];
     }
 
@@ -188,7 +189,7 @@ struct RogueSafariMon* RogueSafari_GetSafariMonAt(u8 index)
 
 void RogueSafari_ClearSafariMonAtIdx(u8 index)
 {
-    if(index < ARRAY_COUNT(gRogueSaveBlock->safariMons))
+    if(index < ROGUE_SAFARI_TOTAL_MONS)
     {
         u8 i;
 
@@ -215,6 +216,11 @@ void RogueSafari_EnqueueBattleMon(u8 slot)
     }
 }
 
+void RogueSafari_EnqueueBattleMonByIndex(u8 index)
+{
+    sSafariData.pendingBattleIdx = index;
+}
+
 u8 RogueSafari_GetPendingBattleMonIdx()
 {
     return sSafariData.pendingBattleIdx;
@@ -224,17 +230,21 @@ struct RogueSafariMon* RogueSafari_GetPendingBattleMon()
 {
     u8 safariIndex = sSafariData.pendingBattleIdx;
 
-    if(safariIndex < ARRAY_COUNT(gRogueSaveBlock->safariMons))
+    if(safariIndex < ROGUE_SAFARI_TOTAL_MONS)
         return &gRogueSaveBlock->safariMons[safariIndex];
 
     return NULL;
 }
 
-static u8 AllocSafariMonSlot()
+static u8 AllocSafariMonSlotFor(struct BoxPokemon* mon)
 {
     u8 i;
+    u16 species = GetBoxMonData(mon, MON_DATA_SPECIES);
 
-    for(i = 0; i < ARRAY_COUNT(gRogueSaveBlock->safariMons); ++i)
+    u8 startIndex = RoguePokedex_IsSpeciesLegendary(species) ? ROGUE_SAFARI_LEGENDS_START_INDEX : 0;
+    u8 endIndex = RoguePokedex_IsSpeciesLegendary(species) ? (ROGUE_SAFARI_TOTAL_MONS - 1) : ROGUE_SAFARI_LEGENDS_START_INDEX - 1;
+
+    for(i = startIndex; i <= endIndex; ++i)
     {
         if(gRogueSaveBlock->safariMons[i].species == SPECIES_NONE)
         {
@@ -249,21 +259,21 @@ static u8 AllocSafariMonSlot()
         u16 idx, offset;
 
         // Count down priorities
-        for(i = 0; i < ARRAY_COUNT(gRogueSaveBlock->safariMons); ++i)
+        for(i = startIndex; i <= endIndex; ++i)
         {
             if(gRogueSaveBlock->safariMons[i].priorityCounter != 0)
                 --gRogueSaveBlock->safariMons[i].priorityCounter;
 
             // Keep track of lowest priority in case there isn't a free slot
-            lowestPriority = min(lowestPriority, gRogueSaveBlock->safariMons[i].priorityCounter); 
+            lowestPriority = min(lowestPriority, gRogueSaveBlock->safariMons[i].priorityCounter);
         }
 
         offset = Random();
 
         // Find first mon of priority and give back it's slot
-        for(i = 0; i < ARRAY_COUNT(gRogueSaveBlock->safariMons); ++i)
+        for(i = startIndex; i < endIndex; ++i)
         {
-            idx = (offset + i) % ARRAY_COUNT(gRogueSaveBlock->safariMons);
+            idx = startIndex + (offset + i - startIndex) % (endIndex - startIndex + 1);
 
             if(gRogueSaveBlock->safariMons[idx].priorityCounter == lowestPriority)
             {
@@ -282,7 +292,7 @@ static u8 UNUSED FreeSafariMonSlotCount()
     u8 i;
     u8 count = 0;
 
-    for(i = 0; i < ARRAY_COUNT(gRogueSaveBlock->safariMons); ++i)
+    for(i = 0; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
     {
         if(gRogueSaveBlock->safariMons[i].species != SPECIES_NONE)
             ++count;
@@ -311,4 +321,35 @@ u16 RogueSafari_GetActivePokeballType()
 void RogueSafari_SetActivePokeballType(u16 itemId)
 {
     VarSet(VAR_ROGUE_SAFARI_BALL_TYPE, itemId);
+}
+
+static void CompactEmptyEntriesInternal(u8 fromIndex, u8 toIndex)
+{
+    u8 i;
+    u8 endIndex = toIndex;
+    bool8 loop = TRUE;
+    u8 count = 0;
+
+    while(loop && endIndex != 0)
+    {
+        loop = FALSE;
+
+        for(i = fromIndex; i < endIndex - 1; ++i)
+        {
+            if(gRogueSaveBlock->safariMons[i + 0].species == SPECIES_NONE && gRogueSaveBlock->safariMons[i + 1].species != SPECIES_NONE)
+            {
+                memcpy(&gRogueSaveBlock->safariMons[i + 0], &gRogueSaveBlock->safariMons[i + 1], sizeof(gRogueSaveBlock->safariMons[i + 1]));
+                ZeroSafariMon(&gRogueSaveBlock->safariMons[i + 1]);
+                loop = TRUE;
+            }
+        }
+
+        --endIndex;
+    }
+}
+
+void RogueSafari_CompactEmptyEntries()
+{
+    CompactEmptyEntriesInternal(0, ROGUE_SAFARI_LEGENDS_START_INDEX - 1);
+    CompactEmptyEntriesInternal(ROGUE_SAFARI_LEGENDS_START_INDEX, ROGUE_SAFARI_TOTAL_MONS - 1);
 }

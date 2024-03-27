@@ -4,9 +4,6 @@
     <ClCompile Include="Src\Main.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Window.cpp">
-      <Filter>Src</Filter>
-    </ClCompile>
     <ClCompile Include="External\imgui\imgui.cpp">
       <Filter>External</Filter>
     </ClCompile>
@@ -55,11 +52,17 @@
     <ClCompile Include="Src\Behaviours\CommonBehaviour.cpp">
       <Filter>Src\Behaviours</Filter>
     </ClCompile>
+    <ClCompile Include="Src\UI\Window.cpp">
+      <Filter>Src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\UI\PrimaryUI.cpp">
+      <Filter>Src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Assets.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Inc\Window.h">
-      <Filter>Inc</Filter>
-    </ClInclude>
     <ClInclude Include="External\imgui\imstb_truetype.h">
       <Filter>External</Filter>
     </ClInclude>
@@ -120,6 +123,18 @@
     <ClInclude Include="Inc\Behaviours\CommonBehaviour.h">
       <Filter>Inc\Behaviours</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\UI\Window.h">
+      <Filter>Inc\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\UI\PrimaryUI.h">
+      <Filter>Inc\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Assets.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\StringUtils.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -139,6 +154,12 @@
     </Filter>
     <Filter Include="Src\Behaviours">
       <UniqueIdentifier>{b1977417-dc41-456e-9ceb-c30e9975a76b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc\UI">
+      <UniqueIdentifier>{85c1db9b-57d9-4640-8e88-d07189f2c068}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\UI">
+      <UniqueIdentifier>{807a428c-7dd3-4788-b9ba-3dc50438f964}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

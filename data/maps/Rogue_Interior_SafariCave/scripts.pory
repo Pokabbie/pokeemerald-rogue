@@ -1,1 +1,130 @@
+const VAR_SHAKE_VERTICAL_PAN = VAR_0x8004
+const VAR_SHAKE_HORIZONTAL_PAN = VAR_0x8005
+const VAR_SHAKE_NUM_SHAKES = VAR_0x8006
+const VAR_SHAKE_SHAKE_DELAY = VAR_0x8007
+
+const VAR_SAFARI_INDEX = VAR_0x8008
+
 mapscripts Rogue_Interior_SafariCave_MapScripts {}
+
+script Rogue_Interior_SafariCave_InteractLegendSummon
+{
+    lock
+
+    msgbox(format("It's an odd statue…"))
+
+    special(Rogue_AnyLegendsInSafari)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Powerful Pokémon cries echo throughout the cave.\pWhich Pokémon would you like to make an offering to?"))
+
+        special(RogueSafari_CompactEmptyEntries)
+        special(Special_SelectSafariMonInPokedex)
+        waitstate
+
+        if(var(VAR_RESULT) != ROGUE_SAFARI_TOTAL_MONS)
+        {
+            copyvar(VAR_SAFARI_INDEX, VAR_RESULT)
+
+            special(Rogue_BufferSafariMonInfo)
+            msgbox(format("What would you like to offer to {STR_VAR_1}?"), MSGBOX_DEFAULT)
+
+            special(Bag_ChoosePokeblock)
+            waitstate
+
+            if(var(VAR_ITEM_ID) != ITEM_NONE)
+            {
+                special(Rogue_CheckSafariMonLikesPokeblock)
+                if(var(VAR_RESULT) == YES)
+                {
+                    bufferitemnameplural(STR_VAR_2, VAR_ITEM_ID, ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST)
+                    checkitem(VAR_ITEM_ID, ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST)
+
+                    if(var(VAR_RESULT) == YES)
+                    {
+                        msgbox(format("{STR_VAR_2} were scattered near the statue…"))
+                        removeitem(VAR_ITEM_ID, ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST)
+
+                        closemessage
+                        special(Rogue_EnqueueSafariBattle)
+                        call(Rogue_Interior_SafariCave_BattleSummonMon)
+                    }
+                    else
+                    {
+                        msgbox(format("Oh no!\n{STR_VAR_2} are needed in order\nto make an offering."))
+                    }
+                }
+                else
+                {
+                    msgbox(format("The Pokémon won't like that type of {POKEBLOCK}."))
+                }
+            }
+        }
+    }
+    else
+    {
+        msgbox(format("The cave is silent…"))
+    }
+
+    release
+}
+
+script Rogue_Interior_SafariCave_BattleSummonMon
+{
+    fadeoutbgm(1)
+
+    playbgm(MUS_NONE, FALSE)
+    delay(60)
+
+    setvar(VAR_SHAKE_VERTICAL_PAN, 1)
+    setvar(VAR_SHAKE_HORIZONTAL_PAN, 1)
+    setvar(VAR_SHAKE_NUM_SHAKES, 8)
+    setvar(VAR_SHAKE_SHAKE_DELAY, 5)
+    special(ShakeCamera)
+    waitstate
+
+    playbgm(MUS_DP_LEGEND_APPEARS, FALSE)
+    
+    delay(60)
+    setvar(VAR_SHAKE_VERTICAL_PAN, -2)
+    setvar(VAR_SHAKE_HORIZONTAL_PAN, 2)
+    setvar(VAR_SHAKE_NUM_SHAKES, 8)
+    setvar(VAR_SHAKE_SHAKE_DELAY, 5)
+    special(ShakeCamera)
+    waitstate
+
+    delay(60)
+    setvar(VAR_SHAKE_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKE_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKE_NUM_SHAKES, 8)
+    setvar(VAR_SHAKE_SHAKE_DELAY, 5)
+    special(ShakeCamera)
+    waitstate
+
+    delay(60)
+    setvar(VAR_SHAKE_VERTICAL_PAN, -4)
+    setvar(VAR_SHAKE_HORIZONTAL_PAN, 4)
+    setvar(VAR_SHAKE_NUM_SHAKES, 8)
+    setvar(VAR_SHAKE_SHAKE_DELAY, 5)
+    special(ShakeCamera)
+    waitstate
+
+    delay(90)
+    setvar(VAR_SHAKE_VERTICAL_PAN, 5)
+    setvar(VAR_SHAKE_HORIZONTAL_PAN, 5)
+    setvar(VAR_SHAKE_NUM_SHAKES, 8)
+    setvar(VAR_SHAKE_SHAKE_DELAY, 5)
+    special(ShakeCamera)
+    //waitstate
+
+    playmoncry(VAR_RESULT, CRY_MODE_ENCOUNTER)
+    msgbox(format("!!!"))
+
+    waitmoncry
+
+    seteventmon(VAR_RESULT, 1, ITEMS_COUNT, FALSE)
+    special(BattleSetup_StartWildBattle)
+    waitstate
+    return
+}

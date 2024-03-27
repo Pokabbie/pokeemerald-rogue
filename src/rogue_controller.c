@@ -353,13 +353,8 @@ bool8 Rogue_UseFinalQuestEffects(void)
 {
     if(RogueQuest_IsQuestUnlocked(QUEST_ID_THE_FINAL_RUN))
     {
-#ifdef ROGUE_EXPANSION
-        if(RoguePokedex_GetDexVariant() != POKEDEX_VARIANT_NATIONAL_GEN9)
+        if(RoguePokedex_GetDexVariant() != POKEDEX_VARIANT_NATIONAL_MAX)
             return FALSE;
-#else
-        if(RoguePokedex_GetDexVariant() != POKEDEX_VARIANT_NATIONAL_GEN3)
-            return FALSE;
-#endif
 
         if(!CheckOnlyTheseTrainersEnabled(CONFIG_TOGGLE_TRAINER_ROGUE))
             return FALSE;
@@ -503,7 +498,11 @@ u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 sou
                 mplayInfo->songHeader == gSongTable[MUS_RG_DEX_RATING].header ||
                 mplayInfo->songHeader == gSongTable[MUS_OBTAIN_B_POINTS].header ||
                 mplayInfo->songHeader == gSongTable[MUS_OBTAIN_SYMBOL].header ||
-                mplayInfo->songHeader == gSongTable[MUS_REGISTER_MATCH_CALL].header
+                mplayInfo->songHeader == gSongTable[MUS_REGISTER_MATCH_CALL].header ||
+                mplayInfo->songHeader == gSongTable[MUS_HG_LEVEL_UP].header ||
+                mplayInfo->songHeader == gSongTable[MUS_HG_EVOLVED].header ||
+                mplayInfo->songHeader == gSongTable[MUS_DP_LEVEL_UP].header ||
+                mplayInfo->songHeader == gSongTable[MUS_DP_EVOLVED].header
             )
             {
                 // do nothing
@@ -563,7 +562,7 @@ static u16 ModifyBattleSongByMap(u16 songNum, u32 mapFlags)
             return MUS_RG_VICTORY_WILD;
 
         else if(mapFlags & ROUTE_FLAG_JOHTO)
-            return MUS_DP_VICTORY_WILD; // TODO - Fix with HG specific one 
+            return MUS_HG_VICTORY_WILD;
 
         else if(mapFlags & ROUTE_FLAG_SINNOH)
             return MUS_DP_VICTORY_WILD;
@@ -655,6 +654,13 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
         }
     }
 
+    switch (songNum)
+    {
+    //case MUS_EVOLUTION:
+    //    songNum = MUS_HG_EVOLUTION;
+    //    break;
+    }
+
     return songNum;
 }
 
@@ -669,6 +675,9 @@ u16 Rogue_ModifyPlayFanfare(u16 songNum)
     {
     case MUS_HEAL:
         return MUS_DP_HEAL;
+
+    case MUS_LEVEL_UP:
+        return MUS_HG_LEVEL_UP;
     }
 
     return songNum;
@@ -3480,6 +3489,7 @@ static void BeginRogueRun(void)
     gRogueRun.shrineSpawnDifficulty = 1 + RogueRandomRange(ROGUE_MAX_BOSS_COUNT, 0);
 
     QuestNotify_BeginAdventure();
+    RogueSafari_CompactEmptyEntries();
 
     // Trigger before and after as we may have hub/run only quests which are interested in this trigger
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_START);
@@ -4206,7 +4216,7 @@ void Rogue_OnWarpIntoMap(void)
 
 
     // Set new safari flag on entering area
-    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE || gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL)
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE || gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL || gMapHeader.mapLayoutId == LAYOUT_ROGUE_INTERIOR_SAFARI_CAVE)
     {
         FlagSet(FLAG_ROGUE_WILD_SAFARI);
         RogueSafari_ResetSpawns();
@@ -5421,6 +5431,15 @@ void Rogue_Battle_EndWildBattle(void)
             }
         }
 
+        if(gBattleOutcome == B_OUTCOME_CAUGHT)
+        {
+            if(!RogueHub_HasUpgrade(HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE) && RoguePokedex_IsSpeciesLegendary(wildSpecies))
+            {
+                // This is like a hidden reward, we open up the cave as soon as a legend is caught
+                RogueHub_SetUpgrade(HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE, TRUE);
+            }
+        }
+
         if(Rogue_IsBattleRoamerMon(wildSpecies))
         {
             if(gBattleOutcome == B_OUTCOME_CAUGHT || gBattleOutcome == B_OUTCOME_WON)
@@ -6457,7 +6476,7 @@ bool8 Rogue_AreWildMonEnabled(void)
         return GetCurrentWildEncounterCount() > 0;
     }
 
-    if(Rogue_InWildSafari())
+    if(Rogue_InWildSafari() && gMapHeader.mapLayoutId != LAYOUT_ROGUE_INTERIOR_SAFARI_CAVE)
     {
         return TRUE;
     }
@@ -6721,6 +6740,11 @@ struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot)
 {
     AGB_ASSERT(slot < DAYCARE_SLOT_COUNT);
     return (struct BoxPokemon*)&gRogueRun.daycarePokemon[slot];
+}
+
+u8 Rogue_GetCurrentDaycareSlotCount()
+{
+    return DAYCARE_SLOT_COUNT;
 }
 
 void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycareMon)
@@ -7017,19 +7041,17 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         // Pokeblock and mints
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_POKEBLOCK);
 
-        if(!Rogue_IsRunActive())
+        if(Rogue_IsRunActive())
         {
-            // Cannot buy pokeblock in hub, must make
-            RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKEBLOCK);
+            // No need to sell these in the hub
+            RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_POKEBLOCK_HP, ITEM_POKEBLOCK_SPDEF);
         }
-
-        RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_POKEBLOCK_HP, ITEM_POKEBLOCK_SPDEF);
 
 #ifdef ROGUE_EXPANSION
         RogueMiscQuery_EditRange(QUERY_FUNC_INCLUDE, ITEM_LONELY_MINT, ITEM_SERIOUS_MINT);
 #endif
 
-        *minSalePrice = 500;
+        *minSalePrice = Rogue_IsRunActive() ? 500 : 1000;
         maxPriceRange = 10000;
         applyRandomChance = TRUE;
         break;

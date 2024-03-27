@@ -210,8 +210,8 @@ static const struct MenuAction sShopMenuActions_BuyQuit[] =
 
 static const struct MenuAction sShopMenuActions_BuildQuit[] =
 {
-    { gText_ShopUpgrade, {.void_u8=Task_HandleShopMenuUpgrades} },
     { gText_ShopAreas, {.void_u8=Task_HandleShopMenuAreas} },
+    { gText_ShopUpgrade, {.void_u8=Task_HandleShopMenuUpgrades} },
     { gText_ShopQuit, {.void_u8=Task_HandleShopMenuQuit} }
 };
 
@@ -557,6 +557,8 @@ static void Task_ReturnToShopMenu(u8 taskId)
     {
         if (sMartInfo.martType == MART_TYPE_DECOR2)
             DisplayItemMessageOnField(taskId, gText_CanIHelpWithAnythingElse, ShowShopMenuAfterExitingBuyOrSellMenu);
+        else if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
+            DisplayItemMessageOnField(taskId, gText_WhatWouldYouLikeToBuild, ShowShopMenuAfterExitingBuyOrSellMenu);
         else
             DisplayItemMessageOnField(taskId, gText_AnythingElseICanHelp, ShowShopMenuAfterExitingBuyOrSellMenu);
     }
@@ -1734,7 +1736,7 @@ static u16 HubUpgradeShopItemListCallback(u16 index)
 
             for(i = 0; i < HUB_UPGRADE_COUNT; ++i)
             {
-                if(!RogueHub_HasUpgrade(i) && RogueHub_HasUpgradeRequirements(i))
+                if(!RogueHub_HasUpgrade(i) && RogueHub_HasUpgradeRequirements(i) && !gRogueHubUpgrades[i].isHidden)
                 {
                     if(listIndex == index)
                         return i;

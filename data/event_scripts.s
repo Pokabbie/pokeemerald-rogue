@@ -861,3 +861,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Special_Gen9_Mon/scripts.inc"
 
 	.include "data/maps/Rogue_Area_ChallengeFrontier/scripts.inc"
+
+	.include "data/maps/Rogue_Area_DayCare/scripts.inc"

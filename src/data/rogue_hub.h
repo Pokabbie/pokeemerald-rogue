@@ -38,8 +38,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
         },
-        .iconImage = gItemIcon_FameChecker,
-        .iconPalette = gItemIconPalette_FameChecker,
+        .iconImage = gItemIcon_Pokedex,
+        .iconPalette = gItemIconPalette_Pokedex,
     },
     [HUB_AREA_ADVENTURE_ENTRANCE] = 
     {
@@ -52,8 +52,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_SOUTH] = { 2, 3 },
             [HUB_AREA_CONN_WEST] = { 0, 1 },
         },
-        .iconImage = gItemIcon_BasementKey,
-        .iconPalette = gItemIconPalette_OldKey,
+        .iconImage = gItemIcon_DevonGoods,
+        .iconPalette = gItemIconPalette_DevonGoodsBrown,
     },
     [HUB_AREA_HOME] = 
     {
@@ -98,13 +98,13 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_SOUTH] = { 2, 3 },
             [HUB_AREA_CONN_WEST] = { 0, 1 },
         },
-        .iconImage = gItemIcon_FameChecker,
-        .iconPalette = gItemIconPalette_FameChecker,
+        .iconImage = gItemIcon_SafariBall,
+        .iconPalette = gItemIconPalette_SafariBall,
     },
     [HUB_AREA_RIDE_TRAINING] = 
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_RIDE_TRAINING),
-        .areaName = _("Circus"),
+        .areaName = _("Park"),
         .buildCost = 1,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -114,8 +114,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
         },
-        .iconImage = gItemIcon_FameChecker,
-        .iconPalette = gItemIconPalette_FameChecker,
+        .iconImage = gItemIcon_FieldMoves,
+        .iconPalette = gItemIconPalette_FieldMoves,
     },
     [HUB_AREA_MARTS] = 
     {
@@ -146,8 +146,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
         },
-        .iconImage = gItemIcon_Potion,
-        .iconPalette = gItemIconPalette_Potion,
+        .iconImage = gItemIcon_PokeBall,
+        .iconPalette = gItemIconPalette_PokeBall,
     },
     [HUB_AREA_CHALLENGE_FRONTIER] = 
     {
@@ -162,8 +162,24 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
         },
-        .iconImage = gItemIcon_Potion,
-        .iconPalette = gItemIconPalette_Potion,
+        .iconImage = gItemIcon_MasterBall,
+        .iconPalette = gItemIconPalette_MasterBall,
+    },
+    [HUB_AREA_DAY_CARE] = 
+    {
+        SET_AREA_PRIMARY_MAP(ROGUE_AREA_DAY_CARE),
+        .areaName = _("Day Care"),
+        .buildCost = 1,
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .connectionWarps = 
+        {
+            [HUB_AREA_CONN_NORTH] = { 0, 1 },
+            [HUB_AREA_CONN_EAST] = { 2, 3 },
+            [HUB_AREA_CONN_SOUTH] = { 4, 5 },
+            [HUB_AREA_CONN_WEST] = { 6, 7 },
+        },
+        .iconImage = gItemIcon_Egg,
+        .iconPalette = gItemIconPalette_Egg,
     },
 };
 
@@ -269,9 +285,10 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     //
     [HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE] = 
     {
-        .upgradeName = _("."),
+        .upgradeName = _("Legend Cave"),
         .targetArea = HUB_AREA_SAFARI_ZONE,
         .buildCost = 1,
-        .requiredUpgrades = { HUB_UPGRADE_NONE }
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .isHidden = TRUE
     },
 };

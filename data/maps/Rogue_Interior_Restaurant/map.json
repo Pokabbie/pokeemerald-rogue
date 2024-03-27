@@ -137,14 +137,14 @@
       "x": 7,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_DAY_CARE",
       "dest_warp_id": "8"
     },
     {
       "x": 6,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_map": "MAP_ROGUE_AREA_DAY_CARE",
       "dest_warp_id": "8"
     }
   ],

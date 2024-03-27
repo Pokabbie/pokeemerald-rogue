@@ -327,6 +327,7 @@ struct RogueAreaUpgrade
     u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
     u8 targetArea;
     u8 buildCost;
+    bool8 isHidden : 1;
 };
 
 struct RogueRouteMap
@@ -631,8 +632,7 @@ struct RogueSaveBlock
     struct OLDRogueQuestState questStates[QUEST_CAPACITY];
     struct RogueQuestStateNEW questStatesNEW[QUEST_SAVE_COUNT];
     struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
-    struct RogueSafariMon safariMons[45];
-    struct RogueSafariMon safariLegends[15];
+    struct RogueSafariMon safariMons[ROGUE_SAFARI_TOTAL_MONS];
     struct RogueHubMap hubMap;
     struct RogueDifficultyConfig difficultyConfig;
     u16 timeOfDayMinutes;

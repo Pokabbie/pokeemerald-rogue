@@ -2,6 +2,7 @@
 #include "GameConnection.h"
 #include "GameData.h"
 #include "Log.h"
+#include "StringUtils.h"
 
 enum RogueNetChannel
 {
@@ -21,15 +22,18 @@ enum RogueNetChannel
 #define NET_HANDSHAKE_STATE_SEND_TO_HOST        1
 #define NET_HANDSHAKE_STATE_SEND_TO_CLIENT      2
 
+u16 const MultiplayerBehaviour::c_DefaultPort = 30025;
+
 
 MultiplayerBehaviour::MultiplayerBehaviour()
-	: m_Port(20125)
+	: m_Port(c_DefaultPort)
 	, m_RequestFlags(0)
 	, m_PlayerId(0)
 	, m_NetServer(nullptr)
 	, m_NetClient(nullptr)
 	, m_NetPeer(nullptr)
 	, m_ConnState(ConnectionState::Default)
+	, m_HasAttemptedConnection(false)
 {
 }
 
@@ -44,15 +48,7 @@ void MultiplayerBehaviour::OnAttach(GameConnection& game)
 
 		u8 requestFlags = multiplayerBlob[rogueHeader.netRequestStateOffset];
 		m_RequestFlags = requestFlags;
-
-		if (m_RequestFlags & NET_STATE_HOST)
-		{
-			OpenHostConnection(game);
-		}
-		else
-		{
-			OpenClientConnection(game);
-		}
+		m_HasAttemptedConnection = false;
 	}
 }
 
@@ -61,9 +57,60 @@ void MultiplayerBehaviour::OnDetach(GameConnection& game)
 	CloseConnection(game);
 }
 
+bool MultiplayerBehaviour::IsRequestingHostConnection() const
+{
+	return m_RequestFlags & NET_STATE_HOST;
+}
+
+void MultiplayerBehaviour::ProvideConnectionAddress(std::string const& address)
+{
+	if (!m_HasAttemptedConnection)
+		m_ConnectionAddressRaw = address;
+}
+
+std::string MultiplayerBehaviour::SanitiseConnectionAddress(std::string const& address)
+{
+	std::string outAddress;
+
+	if (IsRequestingHostConnection())
+	{
+		// We're only inputing port
+		for (char c : address)
+		{
+			if (c >= '0' && c <= '9')
+				outAddress += c;
+		}
+	}
+	else
+	{
+		// allow anything
+		outAddress = address;
+	}
+
+	return outAddress;
+}
+
 void MultiplayerBehaviour::OnUpdate(GameConnection& game)
 {
 	GameStructures::RogueAssistantHeader const& rogueHeader = game.GetObservedGameMemory().GetRogueHeader();
+
+	if (!m_HasAttemptedConnection)
+	{
+		if (!m_ConnectionAddressRaw.empty())
+		{
+			m_HasAttemptedConnection = true;
+			if (IsRequestingHostConnection())
+			{
+				m_Port = std::stoi(m_ConnectionAddressRaw);
+				OpenHostConnection(game);
+			}
+			else
+			{
+				OpenClientConnection(game);
+			}
+		}
+		return;
+	}
 
 	if (!game.GetObservedGameMemory().IsMultiplayerStateValid())
 		return;
@@ -156,13 +203,15 @@ void MultiplayerBehaviour::OpenHostConnection(GameConnection& game)
 		game.RemoveBehaviour(this);
 		return;
 	}
+	
+	GameStructures::RogueAssistantHeader const& rogueHeader = game.GetObservedGameMemory().GetRogueHeader();
 
 	ENetAddress address;
 	address.host = ENET_HOST_ANY;
 	address.port = m_Port;
 
 	m_NetServer = enet_host_create(&address,
-		4, // client count
+		rogueHeader.netPlayerCount - 1, // client count
 		RogueNetChannel::Num,  // channel count
 		0,  // assumed incoming bandwidth
 		0   // assumed outgoing bandwidth
@@ -203,8 +252,27 @@ void MultiplayerBehaviour::OpenClientConnection(GameConnection& game)
 		return;
 	}
 
+	// Parse address
+	strutil::trim(m_ConnectionAddressRaw);
+
+	std::vector<std::string> parts = strutil::split(m_ConnectionAddressRaw, ":");
+	std::string const& rawPort = parts[parts.size() - 1];
+	u16 desiredPort = strutil::parse_string<u16>(rawPort);
+
+	if (std::to_string(desiredPort) == rawPort)
+	{
+		// Has succeeded so remove the port
+		m_ConnectionAddressRaw = m_ConnectionAddressRaw.substr(0, m_ConnectionAddressRaw.size() + rawPort.size() + 1);
+		m_Port = desiredPort;
+	}
+	else
+	{
+		// Coun't find port so assume default
+		m_Port = c_DefaultPort;
+	}
+
 	ENetAddress address;
-	enet_address_set_host(&address, "localhost");
+	enet_address_set_host(&address, m_ConnectionAddressRaw.c_str());
 	address.port = m_Port;
 
 	m_NetPeer = enet_host_connect(m_NetClient, &address, RogueNetChannel::Num, 0);
