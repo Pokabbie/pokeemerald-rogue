@@ -202,13 +202,15 @@ void MultiplayerBehaviour::OpenHostConnection(GameConnection& game)
 		game.RemoveBehaviour(this);
 		return;
 	}
+	
+	GameStructures::RogueAssistantHeader const& rogueHeader = game.GetObservedGameMemory().GetRogueHeader();
 
 	ENetAddress address;
 	address.host = ENET_HOST_ANY;
 	address.port = m_Port;
 
 	m_NetServer = enet_host_create(&address,
-		4, // client count
+		rogueHeader.netPlayerCount - 1, // client count
 		RogueNetChannel::Num,  // channel count
 		0,  // assumed incoming bandwidth
 		0   // assumed outgoing bandwidth
