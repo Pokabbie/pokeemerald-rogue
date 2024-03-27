@@ -2,6 +2,7 @@
 #include "GameConnection.h"
 #include "GameData.h"
 #include "Log.h"
+#include "StringUtils.h"
 
 enum RogueNetChannel
 {
@@ -251,8 +252,27 @@ void MultiplayerBehaviour::OpenClientConnection(GameConnection& game)
 		return;
 	}
 
+	// Parse address
+	strutil::trim(m_ConnectionAddressRaw);
+
+	std::vector<std::string> parts = strutil::split(m_ConnectionAddressRaw, ":");
+	std::string const& rawPort = parts[parts.size() - 1];
+	u16 desiredPort = strutil::parse_string<u16>(rawPort);
+
+	if (std::to_string(desiredPort) == rawPort)
+	{
+		// Has succeeded so remove the port
+		m_ConnectionAddressRaw = m_ConnectionAddressRaw.substr(0, m_ConnectionAddressRaw.size() + rawPort.size() + 1);
+		m_Port = desiredPort;
+	}
+	else
+	{
+		// Coun't find port so assume default
+		m_Port = c_DefaultPort;
+	}
+
 	ENetAddress address;
-	enet_address_set_host(&address, "localhost");
+	enet_address_set_host(&address, m_ConnectionAddressRaw.c_str());
 	address.port = m_Port;
 
 	m_NetPeer = enet_host_connect(m_NetClient, &address, RogueNetChannel::Num, 0);

@@ -281,6 +281,7 @@
     <ClInclude Include="Inc\GameData.h" />
     <ClInclude Include="Inc\Log.h" />
     <ClInclude Include="Inc\ObservedGameMemory.h" />
+    <ClInclude Include="Inc\StringUtils.h" />
     <ClInclude Include="Inc\Timer.h" />
     <ClInclude Include="Inc\UI\PrimaryUI.h" />
     <ClInclude Include="Inc\UI\Window.h" />

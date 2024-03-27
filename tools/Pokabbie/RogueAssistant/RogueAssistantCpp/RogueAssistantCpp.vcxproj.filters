@@ -132,6 +132,9 @@
     <ClInclude Include="Inc\Assets.h">
       <Filter>Inc</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\StringUtils.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

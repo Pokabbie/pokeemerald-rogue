@@ -213,11 +213,11 @@ void PrimaryUI::Render(Window& window)
 		ActiveGameConnection& game = GameConnectionManager::Instance().GetGameConnectionAt(m_CurrentConnectionIdx);
 		bool hasSwappedConnection = prevConnIdx != m_CurrentConnectionIdx;
 
-		std::string connectionText = "connected";
+		std::string connectionText = "Connected to Game";
 
 		if (connectionCount > 1)
 		{
-			connectionText = "connected " + std::to_string(m_CurrentConnectionIdx + 1) + " / " + std::to_string(connectionCount) + " [TAB]";
+			connectionText += " " + std::to_string(m_CurrentConnectionIdx + 1) + " / " + std::to_string(connectionCount) + " [TAB]";
 		}
 
 		m_Assets->DrawCenteredText(
