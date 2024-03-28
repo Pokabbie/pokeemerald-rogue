@@ -637,7 +637,7 @@ static void CB2_MoveRelearnerMain(void)
 static void FormatAndPrintText(const u8 *src)
 {
     StringExpandPlaceholders(gStringVar4, src);
-    MoveRelearnerPrintMessage(gStringVar4);
+    MoveRelearnerPrintText(gStringVar4);
 }
 
 static void BufferMonNickname(u8* str)
@@ -1002,7 +1002,7 @@ static void FreeMoveRelearnerResources(void)
 // which is called whenever the cursor in either list changes.
 static void SetupDisplayedSprite(bool8 onlyHideSprites)
 {
-    s32 i;
+    //s32 i;
 
     //for (i = 0; i < 16; i++)
     //{

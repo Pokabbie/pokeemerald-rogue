@@ -41,7 +41,6 @@ EWRAM_DATA static struct ListMenuItem *sMailboxList = NULL;
 static void MailboxMenu_MoveCursorFunc(s32, bool8, struct ListMenu *);
 static void ConditionGraph_CalcRightHalf(struct ConditionGraph *);
 static void ConditionGraph_CalcLeftHalf(struct ConditionGraph *);
-static void MoveRelearnerCursorCallback(s32, bool8, struct ListMenu *);
 static void MoveRelearnerDummy(void);
 static void QuestMenuCursorCallback(s32, bool8, struct ListMenu *);
 static void QuestMenuDummy(void);

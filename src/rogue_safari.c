@@ -328,7 +328,7 @@ static void CompactEmptyEntriesInternal(u8 fromIndex, u8 toIndex)
     u8 i;
     u8 endIndex = toIndex;
     bool8 loop = TRUE;
-    u8 count = 0;
+    //u8 count = 0;
 
     while(loop && endIndex != 0)
     {
