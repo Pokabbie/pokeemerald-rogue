@@ -47,14 +47,14 @@
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": "11"
+      "dest_warp_id": "9"
     },
     {
       "x": 7,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": "11"
+      "dest_warp_id": "9"
     },
     {
       "x": 1,

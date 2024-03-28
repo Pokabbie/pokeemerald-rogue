@@ -17,6 +17,7 @@
 #include "rogue_hub.h"
 #include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
+#include "rogue_quest.h"
 
 #define TREE_TYPE_DENSE     0
 #define TREE_TYPE_SPARSE    1
@@ -508,6 +509,29 @@ void RogueHub_ApplyMapMetatiles()
     RogueHub_UpdateGlobalMetatiles();
 }
 
+static void UpdateStatueLevel()
+{
+    if(Rogue_Use200PercEffects())
+        gRogueSaveBlock->hubMap.statueLevel = 3;
+    else if(Rogue_Use100PercEffects())
+        gRogueSaveBlock->hubMap.statueLevel = 1;
+    else if(RogueQuest_HasCollectedRewards(QUEST_ID_CHAMPION))
+        gRogueSaveBlock->hubMap.statueLevel = 1;
+    else
+        gRogueSaveBlock->hubMap.statueLevel = 0;
+}
+
+void RogueHub_UpdateWarpStates()
+{
+    UpdateStatueLevel();
+}
+
+u8 RogueHub_GetStatueLevel()
+{
+    UpdateStatueLevel();
+    return GetActiveHubMap()->statueLevel;
+}
+
 static void RogueHub_UpdateGlobalMetatiles()
 {
     // TODO - Path options?
@@ -811,19 +835,19 @@ static void RogueHub_UpdateTownSquareAreaMetatiles()
     // Remove connectionss
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(20, 0, 23, 0, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(20, 1, 23, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(16, 0, 20, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(16, 1, 20, TREE_TYPE_DENSE);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(44, 13);
+        MetatileFill_CommonWarpExitHorizontal(28, 11);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitVertical(20, 28);
-        MetatileFill_TreeCaps(20, 29, 23);
+        MetatileFill_CommonWarpExitVertical(16, 18);
+        MetatileFill_TreeCaps(16, 19, 19);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)

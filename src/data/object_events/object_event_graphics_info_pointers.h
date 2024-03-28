@@ -439,6 +439,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SmallSign;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DevilMan;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WorkTable;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_QuestBoard;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_StatueLevel0;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_StatueLevel1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_StatueLevel2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_StatueLevel3;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemSilverTM;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemGoldTM;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemPokeBall;
@@ -942,6 +946,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DEVIL_MAN] =                &gObjectEventGraphicsInfo_DevilMan,
     [OBJ_EVENT_GFX_WORK_TABLE] =               &gObjectEventGraphicsInfo_WorkTable,
     [OBJ_EVENT_GFX_QUEST_BOARD] =              &gObjectEventGraphicsInfo_QuestBoard,
+    [OBJ_EVENT_GFX_STATUE_LEVEL_0] =           &gObjectEventGraphicsInfo_StatueLevel0,
+    [OBJ_EVENT_GFX_STATUE_LEVEL_1] =           &gObjectEventGraphicsInfo_StatueLevel1,
+    [OBJ_EVENT_GFX_STATUE_LEVEL_2] =           &gObjectEventGraphicsInfo_StatueLevel2,
+    [OBJ_EVENT_GFX_STATUE_LEVEL_3] =           &gObjectEventGraphicsInfo_StatueLevel3,
     [OBJ_EVENT_GFX_ITEM_SILVER_TM] =           &gObjectEventGraphicsInfo_ItemSilverTM,
     [OBJ_EVENT_GFX_ITEM_GOLD_TM] =             &gObjectEventGraphicsInfo_ItemGoldTM,
     [OBJ_EVENT_GFX_ITEM_POKE_BALL] =           &gObjectEventGraphicsInfo_ItemPokeBall,

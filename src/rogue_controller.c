@@ -2979,6 +2979,7 @@ void Rogue_OnLoadMap(void)
     else if(!Rogue_IsRunActive())
     {
         // Apply metatiles for the map we're in
+        RogueHub_UpdateWarpStates();
         RogueHub_ApplyMapMetatiles();
     }
 }

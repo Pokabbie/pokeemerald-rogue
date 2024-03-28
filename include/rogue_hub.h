@@ -23,11 +23,13 @@ bool8 RogueHub_CanBuildConnectionBetween(u8 fromArea, u8 toArea, u8 dir);
 u8 RogueHub_GetAreaFromCurrentMap();
 
 void RogueHub_OnNewDayStarted();
+void RogueHub_UpdateWarpStates();
 u16 RogueHub_GetWeatherState();
 
 void RogueHub_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp);
 bool8 RogueHub_AcceptMapConnection(struct MapHeader *mapHeader, const struct MapConnection *connection);
 void RogueHub_ApplyMapMetatiles();
+u8 RogueHub_GetStatueLevel();
 
 bool8 RogueHub_IsPlayerBaseLayout(u16 layoutId);
 void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity);

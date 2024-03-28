@@ -228,6 +228,7 @@ struct RogueHubMap
     u8 areaBuiltFlags[1 + HUB_AREA_COUNT / 8];
     u8 upgradeFlags[1 + HUB_UPGRADE_COUNT / 8];
     u16 weatherState;
+    u8 statueLevel;
 };
 
 struct RogueCampaignData_LowBst
