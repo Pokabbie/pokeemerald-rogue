@@ -3546,7 +3546,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .backPicYOffset = 6,
         .backAnimId = BACK_ANIM_GROW_STUTTER,
         PALETTES(Qwilfish),
-        ICON(Qwilfish, 1),
+        ICON(Qwilfish, 0),
         LEARNSETS(Qwilfish),
     },
 
