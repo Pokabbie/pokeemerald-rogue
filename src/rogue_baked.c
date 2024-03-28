@@ -869,7 +869,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
 }
 
-u16 Rogue_CalculateMovePrice(u16 move)
+u32 Rogue_CalculateMovePrice(u16 move)
 {
     return 0;
 }
@@ -1483,11 +1483,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     }
 }
 
-u16 Rogue_CalculateMovePrice(u16 move)
+u32 Rogue_CalculateMovePrice(u16 move)
 {
     // Move cost takes into account high level stats and then modifies based on usage
-    u16 cost = 0;
-    u16 usageCount = gRoguePokemonMoveUsages[move];
+    u32 cost = 0;
+    u32 usageCount = gRoguePokemonMoveUsages[move];
     u8 accuracy = gBattleMoves[move].accuracy;
     u8 pp = gBattleMoves[move].pp;
     u8 power = gBattleMoves[move].power;

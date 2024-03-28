@@ -600,128 +600,70 @@ script RogueSafari_Sign_SouthEast
 //
 script Rogue_Tutor_MoveRelearn
 {
-    special(TeachMoveSetContextRelearnMove)
-    setvar(VAR_0x8009, 1000)
-
     lock
     faceplayer
-    msgbox(format("I'm the LVL MOVE TUTOR.\p I can teach Pokémon moves if you'd like?\pFor a cost of course."), MSGBOX_DEFAULT)
-
-    call(Rogue_Tutor_MoveTeachLoop)
+    msgbox(format("Lvl Move tutor deprecated"), MSGBOX_DEFAULT)
     release
 }
 
 script Rogue_Tutor_EggMoveLearn
 {
-    special(TeachMoveSetContextEggMove)
-    setvar(VAR_0x8009, 2000)
-
     lock
     faceplayer
-    msgbox(format("I'm the EGG MOVE TUTOR.\p I can teach Pokémon moves if you'd like?"), MSGBOX_DEFAULT)
-
-    call(Rogue_Tutor_MoveTeachLoop)
+    msgbox(format("Egg tutor deprecated"), MSGBOX_DEFAULT)
     release
 }
 
 script Rogue_Tutor_TutorMoveLearn
 {
     special(TeachMoveSetContextTutorMove)
-    setvar(VAR_0x8009, 3000)
-
     lock
     faceplayer
-    msgbox(format("HYAH!\p I'm the SPECIAL MOVE TUTOR!\p I can teach Pokémon moves some radical moves!"), MSGBOX_DEFAULT)
+    msgbox(format("HYAH!\p I'm a Move Tutor!\p I can teach Pokémon moves some radical moves!\pWho do you want me to teach?"), MSGBOX_DEFAULT)
 
-    call(Rogue_Tutor_MoveTeachLoop)
-    release
-}
+    special(ChooseMonForMoveRelearner)
+    waitstate
 
-script Rogue_Tutor_MoveRelearnCancel
-{
-    msgbox(format("You know where to find me, if you change your mind."), MSGBOX_DEFAULT)
-}
+    setvar(VAR_RESULT, YES)
 
-script Rogue_Tutor_MoveTeachLoop
-{
-    showmoneybox(0, 0)
-    buffernumberstring(STR_VAR_1, VAR_0x8009)
-    msgbox(format("Would you like me to teach your Pokémon a move for ¥{STR_VAR_1}?"), MSGBOX_YESNO)
-    hidemoneybox
-
-    if(var(VAR_RESULT) == NO)
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
     {
-        goto(Rogue_Tutor_MoveRelearnCancel)
         setvar(VAR_RESULT, NO)
     }
 
-    while(var(VAR_RESULT) == YES)
+    if(var(VAR_RESULT) == YES)
     {
-        checkmoney(VAR_0x8009)
-        if(var(VAR_RESULT) == NO)
+        special(IsSelectedMonEgg)
+
+        if(var(VAR_RESULT) == YES)
         {
-            showmoneybox(0, 0)
-            buffernumberstring(STR_VAR_1, VAR_0x8009)
-            msgbox(format("You don't seem to have enough money at the moment.\pCome back once you have ¥{STR_VAR_1}."), MSGBOX_DEFAULT)
-            hidemoneybox
+            setvar(VAR_RESULT, NO)
         }
         else
         {
-            special(ChooseMonForMoveRelearner)
-            waitstate
-
-            if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
-            {
-                goto(Rogue_Tutor_MoveRelearnCancel)
-                setvar(VAR_RESULT, NO)
-            }
-
-            if(var(VAR_RESULT) == YES)
-            {
-                special(IsSelectedMonEgg)
-
-                if(var(VAR_RESULT) == TRUE)
-                {
-                    goto(Rogue_Tutor_MoveRelearnCancel)
-                    setvar(VAR_RESULT, NO)
-                }
-                else
-                {
-                    setvar(VAR_RESULT, YES)
-                }
-            }
-
-            if(var(VAR_RESULT) == YES)
-            {
-                // Teach move
-                special(TeachMoveFromContext)
-                waitstate
-
-                // Always loop here to make batch teaching less tedious
-                if(var(VAR_0x8006) != 0)
-                {
-                    removemoney(VAR_0x8009)
-                    playse(SE_SHOP)
-
-                    showmoneybox(0, 0)
-                    msgbox(format("Do you want me to teach another Pokémon?"), MSGBOX_YESNO)
-                    hidemoneybox
-                }
-                else
-                {
-                    setvar(VAR_RESULT, YES)
-                }
-            }
+            setvar(VAR_RESULT, YES)
         }
+        
     }
-}
 
+    if(var(VAR_RESULT) == YES)
+    {
+        special(TeachMoveFromContext)
+        waitstate
+    }
+    else
+    {
+        msgbox(format("You know where to find me, if you change your mind."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
 
 script Rogue_Tutor_MoveDelete
 {
     lock
     faceplayer
-    msgbox(format("Uh..\nOh, yes, I'm the MOVE DELETER.\pI can make Pokémon forget their moves, if you'd like?"), MSGBOX_YESNO)
+    msgbox(format("Uh..\nOh, yes, I'm the Move Deleter.\pI can make Pokémon forget their moves, if you'd like?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == NO)
     {
