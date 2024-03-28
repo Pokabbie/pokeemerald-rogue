@@ -36,7 +36,7 @@ bool8 Rogue_IsEvolutionItem(u16 itemId);
 u16 Rogue_GetEvolutionItemIndex(u16 itemId);
 bool8 Rogue_IsFormItem(u16 itemId);
 u16 Rogue_GetFormItemIndex(u16 itemId);
-u16 Rogue_CalculateMovePrice(u16 move);
+u32 Rogue_CalculateMovePrice(u16 move);
 
 const u8* Rogue_GetTrainerName(u16 trainerNum);
 void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer);

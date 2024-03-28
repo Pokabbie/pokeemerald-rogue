@@ -11,6 +11,10 @@
             [
                 "ROGUE_DEBUG=1",
 		"ROGUE_EXPANSION=1"
+            ],
+            "includePath": 
+            [
+                "include"
             ]
         }
     ],

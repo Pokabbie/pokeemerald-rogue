@@ -10,7 +10,8 @@ GameConnection::GameConnection()
 	: m_State(GameConnectionState::AwaitingFirstHandshake)
 	, m_GameRPCs(*this)
 	, m_SendSize(0)
-	, m_UpdateTimer(UpdateTimer::c_20UPS) // todo - give option? 10ups is less laggy emu but smoother mp
+	, m_UpdateFrame(0)
+	, m_UpdateTimer(UpdateTimer::c_10UPS) // todo - give option? 10ups is less laggy emu but smoother mp
 {
 	m_ObservedGameMemory = std::make_unique<ObservedGameMemory>(*this);
 	m_Socket.setBlocking(false);
@@ -24,9 +25,15 @@ GameConnection::~GameConnection()
 void GameConnection::Update()
 {
 	size_t recvSize;
-	if (m_Socket.receive(m_RecieveBuffer, sizeof(m_RecieveBuffer), recvSize) == sf::Socket::Done)
+	int frame = m_UpdateFrame++;
+
+	// Split send and recv each other frame
+	bool processRecv = frame % 2;
+
+	if (processRecv)
 	{
-		OnRecieveData(m_RecieveBuffer, recvSize);
+		if (m_Socket.receive(m_RecieveBuffer, sizeof(m_RecieveBuffer), recvSize) == sf::Socket::Done)
+			OnRecieveData(m_RecieveBuffer, recvSize);
 	}
 
 	if (m_UpdateTimer.Update())
@@ -55,7 +62,8 @@ void GameConnection::Update()
 		m_BehavioursToRemove.clear();
 	}
 
-	FlushCommands();
+	if (!processRecv)
+		FlushCommands();
 }
 
 void GameConnection::Disconnect()

@@ -52,7 +52,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_SOUTH] = { 2, 3 },
             [HUB_AREA_CONN_WEST] = { 0, 1 },
         },
-        .iconImage = gItemIcon_DevonGoods,
+        .iconImage = gItemIcon_DevonParts,
         .iconPalette = gItemIconPalette_DevonGoodsBrown,
     },
     [HUB_AREA_HOME] = 

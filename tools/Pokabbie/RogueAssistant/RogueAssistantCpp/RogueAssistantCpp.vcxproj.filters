@@ -25,9 +25,6 @@
     <ClCompile Include="External\imgui\imgui_widgets.cpp">
       <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Testing.cpp">
-      <Filter>Src</Filter>
-    </ClCompile>
     <ClCompile Include="Src\GameConnection.cpp">
       <Filter>Src</Filter>
     </ClCompile>
@@ -146,9 +143,6 @@
     <Filter Include="Inc">
       <UniqueIdentifier>{af55443b-3dcc-4987-bd7e-38ae5bd59537}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scripts">
-      <UniqueIdentifier>{3cb8b07b-52f2-4427-b7aa-1695e2e60419}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Inc\Behaviours">
       <UniqueIdentifier>{84f54e61-f7c0-4476-a8db-46a0edde9dc3}</UniqueIdentifier>
     </Filter>
@@ -163,11 +157,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Scripts\RogueAssistant_mGBA.lua">
-      <Filter>Scripts</Filter>
-    </None>
-    <None Include="..\Scripts\RogueAssistant_mGBA_TEST.lua">
-      <Filter>Scripts</Filter>
-    </None>
+    <None Include="Assets\RogueAssistant_mGBA.lua" />
   </ItemGroup>
 </Project>

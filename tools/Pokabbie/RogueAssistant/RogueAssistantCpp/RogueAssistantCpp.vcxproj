@@ -105,6 +105,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;freetype.lib;winmm.lib;gdi32.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win32\glfw3.lib;$(ProjectDir)External\ENet\enet.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>
@@ -144,6 +145,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;sfml-system-s.lib;sfml-network-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;freetype.lib;winmm.lib;gdi32.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win32\glfw3.lib;$(ProjectDir)External\ENet\enet.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>
@@ -179,6 +181,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win64\glfw3.lib;$(ProjectDir)External\ENet\enet64.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)External\ENet;%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>
@@ -218,6 +221,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;sfml-system-s.lib;sfml-network-s.lib;$(ProjectDir)External\glfw-3.3.8\lib\Win64\glfw3.lib;$(ProjectDir)External\ENet\enet64.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)External\ENet;%(AdditionalLibraryDirectories);$(ProjectDir)External\SFML\lib</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>
@@ -255,7 +259,6 @@
     <ClCompile Include="Src\GameData.cpp" />
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Src\ObservedGameMemory.cpp" />
-    <ClCompile Include="Src\Testing.cpp" />
     <ClCompile Include="Src\Timer.cpp" />
     <ClCompile Include="Src\UI\PrimaryUI.cpp" />
     <ClCompile Include="Src\UI\Window.cpp" />
@@ -287,8 +290,7 @@
     <ClInclude Include="Inc\UI\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Scripts\RogueAssistant_mGBA.lua" />
-    <None Include="..\Scripts\RogueAssistant_mGBA_TEST.lua" />
+    <None Include="Assets\RogueAssistant_mGBA.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -126,10 +126,9 @@ void DestroyConditionSparkleSprites(struct Sprite **sprites);
 void FreeConditionSparkles(struct Sprite **sprites);
 
 // Move relearner
-void MoveRelearnerPrintMessage(u8 *str);
+void MoveRelearnerPrintText(u8 *str);
 bool16 MoveRelearnerRunTextPrinters(void);
 void MoveRelearnerCreateYesNoMenu(void);
-u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices);
 void InitMoveRelearnerWindows(bool8 useContestWindow);
 
 // Quest Menu

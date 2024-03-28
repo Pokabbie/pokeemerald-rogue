@@ -439,10 +439,10 @@ bool8 Rogue_AssumeFinalQuestFakeChamp(void)
 
 bool8 Rogue_Use100PercEffects(void)
 {
-    u16 completionPerc = RogueQuest_GetDisplayCompletePerc();
+    u16 mainPerc = RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_MAIN_QUEST);
 
     // TODO - Also consider NG+
-    if(completionPerc != 120 && completionPerc >= 100)
+    if(mainPerc == 100 && !Rogue_Use200PercEffects())
     {
         return TRUE;
     }
@@ -454,7 +454,7 @@ bool8 Rogue_Use200PercEffects(void)
 {
     u16 completionPerc = RogueQuest_GetDisplayCompletePerc();
 
-    if(completionPerc == 120)
+    if(completionPerc == 100)
     {
         return TRUE;
     }
