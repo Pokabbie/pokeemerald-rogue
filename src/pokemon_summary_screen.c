@@ -1181,6 +1181,30 @@ static const struct SpriteTemplate sSpriteTemplate_StatusCondition =
 static const u16 sMarkings_Pal[] = INCBIN_U16("graphics/summary_screen/markings.gbapal");
 
 // code
+// Callbacks for rogue_pokedex
+
+void LoadMoveSplitSpritesheetAndPalette()
+{
+    LoadCompressedSpriteSheet(&sSpriteSheet_SplitIcons);
+    LoadSpritePalette(&sSpritePal_SplitIcons);
+}
+
+u8 CreateMoveSplitIcon(u32 split, u8 x, u8 y)
+{
+    u8 spriteId = CreateSprite(&sSpriteTemplate_SplitIcons, x + 8, y + 8, 0);
+    if(spriteId != SPRITE_NONE)
+    {
+        StartSpriteAnim(&gSprites[spriteId], split);
+    }
+
+    return spriteId;
+}
+
+void DestroyMoveSplitIcon(u8 spriteId)
+{
+    DestroySprite(&gSprites[spriteId]);
+}
+
 static u8 ShowSplitIcon(u32 split)
 {
     if (sMonSummaryScreen->splitIconSpriteId == 0xFF)
