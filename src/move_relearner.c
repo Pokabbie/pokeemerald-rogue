@@ -160,7 +160,7 @@
 #define JAM_HEART_EMPTY 2
 #define JAM_HEART_FULL 3
 
-#define MAX_RELEARNER_MOVES 96
+#define MAX_RELEARNER_MOVES 255
 
 #define TEACH_STATE_RELEARN       0
 #define TEACH_STATE_EGG_MOVES     1
@@ -475,7 +475,18 @@ static void GatherLearnableMoves(struct Pokemon* mon)
     }
     else // TEACH_STATE_RELEARN
     {
+        u16 temp;
+        u8 i;
         sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(mon, sMoveRelearnerStruct->movesToLearn);
+
+        // Flip order, so the most recently learn moves are first
+        for(i = 0; i <= sMoveRelearnerStruct->numMenuChoices / 2; ++i)
+        {
+            if(i < sMoveRelearnerStruct->numMenuChoices - 1 - i)
+            {
+                SWAP(sMoveRelearnerStruct->movesToLearn[i], sMoveRelearnerStruct->movesToLearn[sMoveRelearnerStruct->numMenuChoices - 1 - i], temp);
+            }
+        }
     }
 
     Rogue_ModifyTutorMoves(mon, sMoveRelearnerMenuSate.teachMoveState, &sMoveRelearnerStruct->numMenuChoices, &sMoveRelearnerStruct->numMenuHiddenChoices, sMoveRelearnerStruct->movesToLearn);
@@ -1041,11 +1052,11 @@ static void HandleInput(bool8 showContest)
         sMoveRelearnerStruct->state = MENU_STATE_SETUP_BATTLE_MODE;
         sMoveRelearnerMenuSate.showContestInfo = FALSE;
 
-        if(JOY_NEW(DPAD_LEFT))
+        if(JOY_NEW(DPAD_RIGHT))
         {
             sMoveRelearnerStruct->partyMon = (sMoveRelearnerStruct->partyMon + 1) % gPlayerPartyCount;
         }
-        else // JOY_NEW(DPAD_RIGHT)
+        else // JOY_NEW(DPAD_LEFT)
         {
             if(sMoveRelearnerStruct->partyMon == 0)
                 sMoveRelearnerStruct->partyMon = gPlayerPartyCount - 1;

@@ -1301,10 +1301,12 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         u8 difficulty = Rogue_GetCurrentDifficulty();
         u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
-        *money = CalculateBattleWinnings(trainerNum);
+        // Increase by 20%
+        *money = (CalculateBattleWinnings(trainerNum) * 120) / 100;
 
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
+        switch (gRogueAdvPath.currentRoomType)
         {
+        case ADVPATH_ROOM_BOSS:
             if(Rogue_IsKeyTrainer(trainerNum))
             {
                 u8 difficulty = Rogue_GetCurrentDifficulty();
@@ -1315,36 +1317,46 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
                 // EXP trainer
                 *money = 0;
             }
-        }
-        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
-        {
-            u8 difficulty = Rogue_GetCurrentDifficulty();
-            *money = (difficulty + 1) * 1000;
-        }
-        else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-        {
-            if(difficulty <= 11)
+            break;
+
+        case ADVPATH_ROOM_TEAM_HIDEOUT:
+            if(Rogue_IsKeyTrainer(trainerNum))
             {
-                if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
-                    *money = *money / 2;
-                else
-                    *money = *money / 3;
+                u8 difficulty = Rogue_GetCurrentDifficulty();
+                *money = (difficulty + 1) * 1000;
             }
             else
             {
-                // Kinder but not by much ;)
-                if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
-                    *money = *money / 2;
+                // Give move money here
+                *money *= 2;
             }
+            break;
         }
-        else if(!FlagGet(FLAG_ROGUE_EASY_ITEMS))
-        {
-            if(difficulty <= 11)
-            {
-                if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
-                    *money = *money / 2;
-            }
-        }
+        
+        //if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+        //{
+        //    if(difficulty <= 11)
+        //    {
+        //        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
+        //            *money = *money / 2;
+        //        else
+        //            *money = *money / 3;
+        //    }
+        //    else
+        //    {
+        //        // Kinder but not by much ;)
+        //        if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
+        //            *money = *money / 2;
+        //    }
+        //}
+        //else if(!FlagGet(FLAG_ROGUE_EASY_ITEMS))
+        //{
+        //    if(difficulty <= 11)
+        //    {
+        //        if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
+        //            *money = *money / 2;
+        //    }
+        //}
 
         // Snap/Floor to multiple of ten
         if(*money > 100)
