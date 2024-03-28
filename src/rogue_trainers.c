@@ -591,6 +591,61 @@ bool8 Rogue_ShouldTrainerBeDoubleAware(u16 trainerNum)
     return FALSE;
 }
 
+
+bool8 Rogue_ShouldTrainerTrySetup(u16 trainerNum)
+{
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        if(Rogue_IsKeyTrainer(trainerNum))
+            return (Rogue_GetCurrentDifficulty() >= ROGUE_GYM_START_DIFFICULTY + 2);
+        else
+            return FALSE;
+        break;
+
+    case DIFFICULTY_LEVEL_AVERAGE:
+        if(Rogue_IsKeyTrainer(trainerNum))
+            return TRUE;
+        else
+            return (Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY);
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
+    case DIFFICULTY_LEVEL_BRUTAL:
+            return TRUE;
+        break;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_ShouldTrainerBeSmart(u16 trainerNum)
+{
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        if(Rogue_IsKeyTrainer(trainerNum))
+            return (Rogue_GetCurrentDifficulty() >= ROGUE_GYM_START_DIFFICULTY + 2);
+        else
+            return FALSE;
+        break;
+
+    case DIFFICULTY_LEVEL_AVERAGE:
+        if(Rogue_IsKeyTrainer(trainerNum))
+            return TRUE;
+        else
+            return (Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1);
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
+    case DIFFICULTY_LEVEL_BRUTAL:
+            return TRUE;
+        break;
+    }
+
+    return FALSE;
+}
+
 bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum)
 {
     return TRUE;

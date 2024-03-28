@@ -705,7 +705,13 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         //outTrainer->partyFlags = 0;
         outTrainer->doubleBattle = FALSE;
 #ifdef ROGUE_EXPANSION
-        outTrainer->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_WILL_SUICIDE | AI_FLAG_HELP_PARTNER | AI_FLAG_SMART_MON_CHOICES;
+        outTrainer->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_WILL_SUICIDE;
+
+        if(Rogue_ShouldTrainerBeSmart(trainerNum))
+             outTrainer->aiFlags |= AI_FLAG_TRY_TO_FAINT | AI_FLAG_HELP_PARTNER | AI_FLAG_SMART_MON_CHOICES;
+
+        if(Rogue_ShouldTrainerTrySetup(trainerNum))
+             outTrainer->aiFlags |= AI_FLAG_SETUP_FIRST_TURN;
 
         if(Rogue_ShouldTrainerSmartSwitch(trainerNum))
              outTrainer->aiFlags |= AI_FLAG_SMART_SWITCHING;
@@ -713,13 +719,20 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         if(Rogue_ShouldTrainerBeDoubleAware(trainerNum))
              outTrainer->aiFlags |= AI_FLAG_DOUBLE_BATTLE;
 
+
         if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
         {
             // Ensure we don't send out the dynamax mon too early
             outTrainer->aiFlags |= AI_FLAG_ACE_POKEMON;
         }
 #else
-        outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN;
+        outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY;
+
+        if(Rogue_ShouldTrainerBeSmart(trainerNum))
+             outTrainer->aiFlags |= AI_SCRIPT_TRY_TO_FAINT;
+
+        if(Rogue_ShouldTrainerTrySetup(trainerNum))
+             outTrainer->aiFlags |= AI_SCRIPT_SETUP_FIRST_TURN;
 #endif
         if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
         {
