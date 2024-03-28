@@ -362,6 +362,12 @@ void LoadMoveTypesSpritesheetAndPalette();
 u8 CreateMonTypeIcon(u16 typeId, u8 x, u8 y);
 void DestroyMonTypIcon(u8 spriteId);
 
+#ifdef ROGUE_EXPANSION
+void LoadMoveSplitSpritesheetAndPalette();
+u8 CreateMoveSplitIcon(u32 split, u8 x, u8 y);
+void DestroyMoveSplitIcon(u8 spriteId);
+#endif
+
 static void DoMoveRelearnerMain(void);
 static void CreateLearnableMovesList(void);
 static u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices);
@@ -558,6 +564,9 @@ static void CB2_InitLearnMove(void)
     LoadSpritePalette(&sMoveRelearnerPalette);
     LoadMonIconPalettes();
     LoadMoveTypesSpritesheetAndPalette();
+#ifdef ROGUE_EXPANSION
+    LoadMoveSplitSpritesheetAndPalette();
+#endif
     CreateUISprites();
 
     // set via sMoveRelearnerMovesListTemplate
@@ -588,6 +597,9 @@ static void CB2_InitLearnMoveReturnFromSelectMove(void)
     LoadSpritePalette(&sMoveRelearnerPalette);
     LoadMonIconPalettes();
     LoadMoveTypesSpritesheetAndPalette();
+#ifdef ROGUE_EXPANSION
+    LoadMoveSplitSpritesheetAndPalette();
+#endif
     CreateUISprites();
 
     if(sMoveRelearnerStruct->moveSlot != MAX_MON_MOVES)
@@ -1407,16 +1419,25 @@ void MoveRelearnerShowHideHearts(s32 moveId)
         sMoveRelearnerStruct->typeSpriteIds[0] = SPRITE_NONE;
     }
 
+#ifdef ROGUE_EXPANSION
     if(sMoveRelearnerStruct->typeSpriteIds[1] != SPRITE_NONE)
     {
-        DestroyMonTypIcon(sMoveRelearnerStruct->typeSpriteIds[1]);
+        DestroyMoveSplitIcon(sMoveRelearnerStruct->typeSpriteIds[1]);
         sMoveRelearnerStruct->typeSpriteIds[1] = SPRITE_NONE;
     }
+#endif
 
     if(moveId != LIST_CANCEL)
     {
-        sMoveRelearnerStruct->typeSpriteIds[0] = CreateMonTypeIcon(gBattleMoves[moveId].type, 12, GetMoveStatsYOffset(59));
-        // TODO - Type split icon - sMoveRelearnerStruct->typeSpriteIds[1] = CreateMonTypeIcon(gBattleMoves[moveId].type, 45, GetMoveStatsYOffset(59));
+        u8 type = gBattleMoves[moveId].type;
+
+        if(moveId == MOVE_HIDDEN_POWER)
+            type = CalcMonHiddenPowerType(&gPlayerParty[sMoveRelearnerStruct->partyMon]);
+
+        sMoveRelearnerStruct->typeSpriteIds[0] = CreateMonTypeIcon(type, 12, GetMoveStatsYOffset(59));
+#ifdef ROGUE_EXPANSION
+        sMoveRelearnerStruct->typeSpriteIds[1] = CreateMoveSplitIcon(gBattleMoves[moveId].split, 44, GetMoveStatsYOffset(59));
+#endif
     }
 
     //sMoveRelearnerStruct->typeSpriteIds[1] = SPRITE_NONE;
