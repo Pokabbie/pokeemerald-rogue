@@ -566,6 +566,8 @@
 #define NET_HANDSHAKE_STATE_SEND_TO_HOST        1
 #define NET_HANDSHAKE_STATE_SEND_TO_CLIENT      2
 
+#define NET_CMD_BUFFER_SIZE                 32
+
 // Sound
 //
 #define ROGUE_SOUND_TYPE_UNKNOWN            0

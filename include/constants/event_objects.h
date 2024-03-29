@@ -589,6 +589,8 @@
 #define OBJ_EVENT_GFX_PLAYER_AVATAR             (0xFF00)
 #define OBJ_EVENT_GFX_PLAYER_RIVAL              (0xFF01)
 
+#define OBJ_EVENT_GFX_MP_FOLLOW_MON             OBJ_EVENT_GFX_FOLLOW_MON_3
+
 // Player gfx objects
 //
 #define PLAYER_OBJ_GFX_BRENDAN_NORMAL           0
@@ -630,17 +632,18 @@
 #define FIRST_DECORATION_SPRITE_GFX OBJ_EVENT_GFX_PICHU_DOLL
 
 // Special object event local ids
-#define OBJ_EVENT_ID_PLAYER 0xFF
-#define OBJ_EVENT_ID_FOLLOWER 0xFE
-#define OBJ_EVENT_ID_CAMERA 0x7F
+#define OBJ_EVENT_ID_PLAYER             255
+#define OBJ_EVENT_ID_FOLLOWER           254
+#define OBJ_EVENT_ID_CAMERA             127
 
 // IDs for dynamic object event spawns
-#define OBJ_EVENT_ID_FOLLOW_MON_FIRST 0xED
-#define OBJ_EVENT_ID_FOLLOW_MON_LAST 0xFD
+#define OBJ_EVENT_ID_FOLLOW_MON_FIRST   230
+#define OBJ_EVENT_ID_FOLLOW_MON_LAST    240
 
 // IDs for dynamic multiplayer objects
-#define OBJ_EVENT_ID_MULTIPLAYER_FIRST 0xE4
-#define OBJ_EVENT_ID_MULTIPLAYER_LAST 0xEC
+#define OBJ_EVENT_ID_MULTIPLAYER_FIRST  241
+#define OBJ_EVENT_ID_MULTIPLAYER_LAST   244
+#define OBJ_EVENT_ID_MULTIPLAYER_COUNT  (OBJ_EVENT_ID_MULTIPLAYER_LAST - OBJ_EVENT_ID_MULTIPLAYER_FIRST + 1)
 
 // Object event local ids referenced in C files
 #define LOCALID_ROUTE111_PLAYER_FALLING 45

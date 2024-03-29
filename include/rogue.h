@@ -482,15 +482,19 @@ struct RogueNetPlayerMovement
 struct RogueNetPlayer
 {
     struct RogueNetPlayerMovement movementBuffer[NET_PLAYER_MOVEMENT_BUFFER_SIZE];
+    u8 cmdSendBuffer[NET_CMD_BUFFER_SIZE];
+    u8 cmdRecvBuffer[NET_CMD_BUFFER_SIZE];
     struct Coords16 playerPos;
     struct Coords8 partnerPos;
     u16 partnerMon;
+    u16 sendCmd;
+    u16 recvCmd;
     s8 mapGroup;
     s8 mapNum;
-    u8 adventureTileNum;
-    u8 adventureDifficulty;
     u8 playerFlags;
-    u8 movementBufferHead;
+    u8 adventureDifficulty : 4; // assuming ROGUE_MAX_BOSS_COUNT=14 is max difficulty
+    u8 adventureTileNum : 4;
+    u8 movementBufferHead : 4; // assuming movementBuffer is 8 long
     u8 currentElevation : 4;
     u8 facingDirection : 4;
     u8 partnerFacingDirection : 4;

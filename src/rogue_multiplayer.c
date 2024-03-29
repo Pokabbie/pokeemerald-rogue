@@ -13,6 +13,7 @@
 
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
+#include "rogue_debug.h"
 #include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
 #include "rogue_player_customisation.h"
@@ -207,13 +208,18 @@ void RogueMP_OverworldCB()
     if(RogueMP_IsActive())
     {
         // To split up the processing, only process 1 player per frame
-        u8 playerId = gRogueMultiplayer->localCounter % NET_PLAYER_CAPACITY;
-        UpdateLocalPlayerState(playerId);
+        //u8 playerId = gRogueMultiplayer->localCounter % NET_PLAYER_CAPACITY;
+        //UpdateLocalPlayerState(playerId);
         
-        //u8 i;
-//
-        //for(i = 0; i < NET_PLAYER_CAPACITY; ++i)
-        //    UpdateLocalPlayerState(i);
+        u8 i;
+
+
+        START_TIMER(ROGUE_MP_UPDATE_PLAYER_STATE);
+
+        for(i = 0; i < NET_PLAYER_CAPACITY; ++i)
+            UpdateLocalPlayerState(i);
+
+        STOP_TIMER(ROGUE_MP_UPDATE_PLAYER_STATE);
     }
 }
 
@@ -366,7 +372,7 @@ static u8 GetLocalAdventureDifficulty()
         return Rogue_GetCurrentDifficulty();
     }
 
-    return 255;
+    return ROGUE_MAX_BOSS_COUNT;
 }
 
 static void WritePlayerState(struct RogueNetPlayer* player)
@@ -516,7 +522,7 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
         syncInfo.pos.y = player->partnerPos.y;
         syncInfo.elevation = player->currentElevation;
         syncInfo.facingDirection = player->partnerFacingDirection;
-        syncInfo.gfxId = OBJ_EVENT_GFX_FOLLOW_MON_3; // ++ playerId
+        syncInfo.gfxId = OBJ_EVENT_GFX_MP_FOLLOW_MON;
         syncInfo.mapGroup = player->mapGroup;
         syncInfo.mapNum = player->mapNum;
         syncInfo.adventureTileNum = player->adventureTileNum;
@@ -525,12 +531,9 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
         syncInfo.movementBufferHead = player->movementBufferHead;
         syncInfo.movementBufferReadOffset = 1; // skip the most recent movement, as that's where the player is
 
-        if(player->partnerMon != FollowMon_GetGraphics(3))
+        if(player->partnerMon != FollowMon_GetGraphics(OBJ_EVENT_GFX_MP_FOLLOW_MON - OBJ_EVENT_GFX_FOLLOW_MON_0))
         {
-            if(player->partnerMon >= FOLLOWMON_SHINY_OFFSET)
-                FollowMon_SetGraphics(3, player->partnerMon - FOLLOWMON_SHINY_OFFSET, TRUE);
-            else
-                FollowMon_SetGraphics(3, player->partnerMon, FALSE);
+            FollowMon_SetGraphicsRaw(OBJ_EVENT_GFX_MP_FOLLOW_MON - OBJ_EVENT_GFX_FOLLOW_MON_0, player->partnerMon);
 
             // Delete object and recreate
             EnsureObjectIsRemoved(followerObjectId);

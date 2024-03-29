@@ -3,7 +3,7 @@ script Rogue_InteractMultiplayerPlayer
 {
     lock
 
-    msgbox(format("TODO"))
+    msgbox(format("TODO - Player message"))
 
     release
 }

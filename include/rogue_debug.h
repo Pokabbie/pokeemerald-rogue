@@ -13,7 +13,7 @@
 // Frame Timers:
 // - Help profiling specific areas of the frame to figure out where the slowdowns are
 // Usage:
-// (In game) Press L + A to print to mGBA log the next frame's timers
+// (In game) Press R + L to print to mGBA log the next frame's timers
 // FOR_EACH_TIMER - Add new timers to here
 // START_TIMER - Start timer of specific id
 // STOP_TIMER - Start timer of specific id
@@ -64,6 +64,8 @@ void RogueMemStomp_Poll();
     X(OVERWORLD_MAP_SCRIPT) \
     X(OVERWORLD_ROGUE_PLAYER_FIELD_INPUT_CB) \
     X(OVERWORLD_ROGUE_CALLBACK) \
+    X(ROGUE_ASSISTANT_CALLBACK) \
+    X(ROGUE_MP_UPDATE_PLAYER_STATE) \
     X(ROGUE_POPUPS) \
     X(ROGUE_FOLLOWMON_CB) \
     X(ROGUE_RIDEMON_UPDATE) \

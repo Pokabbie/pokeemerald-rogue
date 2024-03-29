@@ -133,6 +133,7 @@ struct RogueLocalData
     struct RogueCatchingContest catchingContest;
     RAND_TYPE rngSeedToRestore;
     u32 totalMoneySpentOnMap;
+    u16 cachedObjIds[OBJ_EVENT_ID_MULTIPLAYER_COUNT];
     u16 wildEncounterHistoryBuffer[3];
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
@@ -2864,6 +2865,11 @@ static void UpdateHotTracking()
 
 void Rogue_MainInit(void)
 {
+    u32 i;
+
+    for(i = 0; i < OBJ_EVENT_ID_MULTIPLAYER_COUNT; ++i)
+        gRogueLocal.cachedObjIds[i] = OBJECT_EVENTS_COUNT;
+
     ResetHotTracking();
 
     RogueQuery_Init();
@@ -2908,7 +2914,9 @@ void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
         }
     }
     
+    START_TIMER(ROGUE_ASSISTANT_CALLBACK);
     Rogue_AssistantOverworldCB();
+    STOP_TIMER(ROGUE_ASSISTANT_CALLBACK);
 }
 
 bool8 Rogue_IsRunningToggledOn()
@@ -2916,11 +2924,16 @@ bool8 Rogue_IsRunningToggledOn()
     return gRogueLocal.runningToggleActive;
 }
 
-void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent)
+void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent, u8 objectEventId)
 {
     if(FollowMon_IsMonObject(objectEvent, TRUE))
     {
         FollowMon_OnObjectEventSpawned(objectEvent);
+    }
+
+    if (objectEvent->localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && objectEvent->localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+    {
+        gRogueLocal.cachedObjIds[objectEvent->localId - OBJ_EVENT_ID_MULTIPLAYER_FIRST] = objectEventId;
     }
 }
 
@@ -2929,6 +2942,11 @@ void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent)
     if(FollowMon_IsMonObject(objectEvent, TRUE))
     {
         FollowMon_OnObjectEventRemoved(objectEvent);
+    }
+    
+    if (objectEvent->localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && objectEvent->localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+    {
+        gRogueLocal.cachedObjIds[objectEvent->localId - OBJ_EVENT_ID_MULTIPLAYER_FIRST] = OBJECT_EVENTS_COUNT;
     }
 }
 
@@ -2948,12 +2966,27 @@ void Rogue_OnResumeMap()
 
 void Rogue_OnObjectEventsInit()
 {
+    u32 i;
+
     SetupFollowParterMonObjectEvent();
+
+    for(i = 0; i < OBJ_EVENT_ID_MULTIPLAYER_COUNT; ++i)
+        gRogueLocal.cachedObjIds[i] = OBJECT_EVENTS_COUNT;
 }
 
 void Rogue_OnResetAllSprites()
 {
     Rogue_OnResetRideMonSprites();
+}
+
+u8 Rogue_GetCachedObjectEventId(u32 localId)
+{
+    if (localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+    {
+        return gRogueLocal.cachedObjIds[localId - OBJ_EVENT_ID_MULTIPLAYER_FIRST];
+    }
+
+    return OBJECT_EVENTS_COUNT;
 }
 
 void Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)

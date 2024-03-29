@@ -1565,6 +1565,12 @@ u8 GetSpecialObjectEventIdByLocalId(u8 localId)
     if (localId == OBJ_EVENT_ID_FOLLOWER)
         return GetFollowerObjectId();
 
+    {
+        u8 result = Rogue_GetCachedObjectEventId(localId);
+        if(result != OBJECT_EVENTS_COUNT)
+            return result;
+    }
+
     return GetObjectEventIdByLocalId(localId);
 }
 
@@ -1842,7 +1848,7 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
     if (subspriteTables)
         SetSubspriteTables(&gSprites[gObjectEvents[objectEventId].spriteId], subspriteTables);
 
-    Rogue_OnSpawnObjectEvent(&gObjectEvents[objectEventId]);
+    Rogue_OnSpawnObjectEvent(&gObjectEvents[objectEventId], objectEventId);
 
     return objectEventId;
 }
