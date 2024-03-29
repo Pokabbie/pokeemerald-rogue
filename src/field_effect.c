@@ -1810,6 +1810,9 @@ static bool8 EscalatorWarpIn_Init(struct Task *task)
         // If dest is up escalator tile, player is riding down
         behavior = FALSE;
     }
+
+    EscalatorMoveFollowerFinish();
+
     StartEscalator(behavior);
     return TRUE;
 }
