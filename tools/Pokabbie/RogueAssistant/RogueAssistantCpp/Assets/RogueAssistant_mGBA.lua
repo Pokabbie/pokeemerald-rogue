@@ -42,7 +42,11 @@ function Cmd_Send(reqId, data)
     if constants.debugLog then
         console:log("\tSend (" .. reqId .."): " .. dataSize .. ":'" .. data .. "'")
     end
-    globals.conn:send(reqId .. ";" .. dataSize .. ";" .. data)
+    if reqId == nil then
+        console:error("ReqId was nil ")
+    else
+        globals.conn:send(reqId .. ";" .. dataSize .. ";" .. data)
+    end
 end
 
 

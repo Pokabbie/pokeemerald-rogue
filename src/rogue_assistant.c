@@ -36,6 +36,7 @@
 #include "rogue_pokedex.h"
 #include "rogue_popup.h"
 #include "rogue_query.h"
+#include "rogue_settings.h"
 
 enum 
 {
@@ -249,10 +250,13 @@ void Rogue_AssistantMainCB()
     // Expect the external sevice to keep stomping this counter to 0, so if it goes over threshold, we've lost connection
     if(gRogueAssistantState.isAssistantConnected)
     {
-        if(++gRogueAssistantState.externalConfirmCounter >= ASSISTANT_CONFIRM_THRESHOLD)
+        if(!RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT))
         {
-            gRogueAssistantState.isAssistantConnected = FALSE;
-            OnAssistantDisconnect();
+            if(++gRogueAssistantState.externalConfirmCounter >= ASSISTANT_CONFIRM_THRESHOLD)
+            {
+                gRogueAssistantState.isAssistantConnected = FALSE;
+                OnAssistantDisconnect();
+            }
         }
     }
     else if(gRogueAssistantState.externalConfirmCounter == 0)

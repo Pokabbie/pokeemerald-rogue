@@ -264,6 +264,7 @@ static u8 const sMenuName_DebugToggleDebugMonQuery[] = _("Dump Mon Query");
 static u8 const sMenuName_DebugToggleDebugItemQuery[] = _("Dump Item Query");
 static u8 const sMenuName_DebugToggleHideFollower[] = _("Hide Follower");
 static u8 const sMenuName_DebugToggleStopWildSpawning[] = _("Stop Wild Spawn");
+static u8 const sMenuName_DebugToggleDisableAssistantTimeout[] = _("Disable Assist Timeout");
 
 static u8 const sMenuName_DebugRangeStartDifficulty[] = _("START DIFFICULTY");
 static u8 const sMenuName_DebugRangeForcedRoute[] = _("FORCED ROUTE");
@@ -326,6 +327,7 @@ enum
     MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_ITEM_QUERY,
     MENUITEM_MENU_DEBUG_TOGGLE_HIDE_FOLLOWER,
     MENUITEM_MENU_DEBUG_TOGGLE_STOP_WILD_SPAWNING,
+    MENUITEM_MENU_DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT,
 
     MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
     MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE,
@@ -355,7 +357,7 @@ enum
     WIN_OPTIONS
 };
 
-#define MAX_MENUITEM_COUNT 16
+#define MAX_MENUITEM_COUNT 24
 #define MAX_MENUITEM_TO_DISPLAY 5
 #define YPOS_SPACING      16
 
@@ -723,6 +725,12 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
+    [MENUITEM_MENU_DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT] = 
+    {
+        .itemName = sMenuName_DebugToggleDisableAssistantTimeout,
+        .processInput = DebugToggle_ProcessInput,
+        .drawChoices = DebugToggle_DrawChoices
+    },
 
     [MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY] = 
     {
@@ -849,6 +857,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_DEBUG_TOGGLE_DEBUG_ITEM_QUERY,
             MENUITEM_MENU_DEBUG_TOGGLE_HIDE_FOLLOWER,
             MENUITEM_MENU_DEBUG_TOGGLE_STOP_WILD_SPAWNING,
+            MENUITEM_MENU_DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT,
 
             MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
             MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE,
@@ -1754,6 +1763,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_DEBUG_TOGGLE_STOP_WILD_SPAWNING:
         return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_STOP_WILD_SPAWNING);
 
+    case MENUITEM_MENU_DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT:
+        return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT);
+
 
     case MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY:
         return RogueDebug_GetConfigRange(DEBUG_RANGE_START_DIFFICULTY);
@@ -1919,6 +1931,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_DEBUG_TOGGLE_STOP_WILD_SPAWNING:
         RogueDebug_SetConfigToggle(DEBUG_TOGGLE_STOP_WILD_SPAWNING, value);
+        break;
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT:
+        RogueDebug_SetConfigToggle(DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT, value);
         break;
 
 

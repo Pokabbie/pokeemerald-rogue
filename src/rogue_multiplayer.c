@@ -525,12 +525,12 @@ static void ObservePlayerState(u8 playerId, struct RogueNetPlayer* player)
         syncInfo.movementBufferHead = player->movementBufferHead;
         syncInfo.movementBufferReadOffset = 1; // skip the most recent movement, as that's where the player is
 
-        if(player->partnerMon != FollowMon_GetGraphics(0xA + playerId))
+        if(player->partnerMon != FollowMon_GetGraphics(3))
         {
             if(player->partnerMon >= FOLLOWMON_SHINY_OFFSET)
-                FollowMon_SetGraphics(0xA + playerId, player->partnerMon - FOLLOWMON_SHINY_OFFSET, TRUE);
+                FollowMon_SetGraphics(3, player->partnerMon - FOLLOWMON_SHINY_OFFSET, TRUE);
             else
-                FollowMon_SetGraphics(0xA + playerId, player->partnerMon, FALSE);
+                FollowMon_SetGraphics(3, player->partnerMon, FALSE);
 
             // Delete object and recreate
             EnsureObjectIsRemoved(followerObjectId);
