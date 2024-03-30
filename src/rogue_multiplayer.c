@@ -47,6 +47,14 @@ struct SyncedObjectEventInfo
     u8 elevation : 4;
 };
 
+struct RogueLocalMP
+{
+    u8 lastProcessedSendCmd;
+};
+
+// Temporary data, that isn't remembered
+EWRAM_DATA struct RogueLocalMP gRogueLocalMP = {};
+
 EWRAM_DATA struct RogueNetMultiplayer* gRogueMultiplayer = NULL;
 EWRAM_DATA struct RogueNetMultiplayer gTEMPNetMultiplayer; // temporary memory holder which should be swaped out for dynamic alloc really
 
@@ -56,6 +64,7 @@ static void Client_HandleHandshakeResponse();
 static void Host_UpdateGameState();
 static void Client_UpdateGameState();
 static void UpdateLocalPlayerState(u8 playerId);
+static void ProcessPlayerCommands();
 static void Task_WaitForConnection(u8 taskId);
 
 static u8 ProcessSyncedObjectEvent(struct SyncedObjectEventInfo* syncInfo);
@@ -110,6 +119,14 @@ u8 RogueMP_GetRemotePlayerId()
         return gRogueMultiplayer->localPlayerId ^ 1;
     else
         return 0;
+}
+
+bool8 RogueMP_IsRemotePlayerActive()
+{ 
+    if(gRogueMultiplayer != NULL)
+        return gRogueMultiplayer->playerProfiles[RogueMP_GetRemotePlayerId()].isActive;
+    else
+        return FALSE;
 }
 
 static void CreatePlayerProfile(struct RogueNetPlayerProfile* profile)
@@ -201,6 +218,13 @@ void RogueMP_MainCB()
             Client_UpdateGameState();
         }
     }
+
+    if(RogueMP_IsActive())
+    {
+        START_TIMER(ROGUE_MP_PROCESS_PLAYER_COMMANDS);
+        ProcessPlayerCommands();
+        STOP_TIMER(ROGUE_MP_PROCESS_PLAYER_COMMANDS);
+    }
 }
 
 void RogueMP_OverworldCB()
@@ -220,6 +244,21 @@ void RogueMP_OverworldCB()
             UpdateLocalPlayerState(i);
 
         STOP_TIMER(ROGUE_MP_UPDATE_PLAYER_STATE);
+    }
+}
+
+void RogueMP_RemoveObjectEvents()
+{
+    u8 i;
+    u8 objectId;
+
+    for(i = OBJ_EVENT_ID_MULTIPLAYER_FIRST; i <= OBJ_EVENT_ID_MULTIPLAYER_LAST; ++i)
+    {
+        objectId = GetSpecialObjectEventIdByLocalId(i);
+        if(objectId != OBJECT_EVENTS_COUNT)
+        {
+            RemoveObjectEvent(&gObjectEvents[objectId]);
+        }
     }
 }
 
@@ -726,4 +765,139 @@ static void ProcessSyncedObjectMovement(struct SyncedObjectEventInfo* syncInfo, 
             );
         }
     }
+}
+
+// Remote Commands
+//
+
+// Utils
+//
+
+// Modified helpers taken from Emerald Expansion
+#define MEMBERS(...) VARARG_8(MEMBERS_, __VA_ARGS__)
+#define MEMBERS_0()
+#define MEMBERS_1(a) a;
+#define MEMBERS_2(a, b) a; b;
+#define MEMBERS_3(a, b, c) a; b; c;
+#define MEMBERS_4(a, b, c, d) a; b; c; d;
+#define MEMBERS_5(a, b, c, d, e) a; b; c; d; e;
+#define MEMBERS_6(a, b, c, d, e, f) a; b; c; d; e; f;
+#define MEMBERS_7(a, b, c, d, e, f, g) a; b; c; d; e; f; g;
+#define MEMBERS_8(a, b, c, d, e, f, g, h) a; b; c; d; e; f; g; h;
+
+#define MP_CMD_ARGS_(buffer, varToken, ...) struct PACKED { u16 cmdId; MEMBERS(__VA_ARGS__) } varToken = (void *)buffer
+#define LOCAL_SEND_ARGS(...) MP_CMD_ARGS_(GetLocalPlayer()->cmdSendBuffer, * localCmdArgs, __VA_ARGS__)
+#define LOCAL_RESP_ARGS(...) MP_CMD_ARGS_(GetLocalPlayer()->cmdRespBuffer, * localCmdArgs, __VA_ARGS__)
+#define REMOTE_SEND_ARGS(...) MP_CMD_ARGS_(GetRemotePlayer()->cmdSendBuffer, const * const remoteCmdArgs UNUSED, __VA_ARGS__)
+#define REMOTE_RESP_ARGS(...) MP_CMD_ARGS_(GetRemotePlayer()->cmdRespBuffer, const * const remoteCmdArgs UNUSED, __VA_ARGS__)
+
+
+static struct RogueNetPlayer* GetLocalPlayer()
+{
+    return &gRogueMultiplayer->playerState[RogueMP_GetLocalPlayerId()];
+}
+
+static struct RogueNetPlayer* GetRemotePlayer()
+{
+    return &gRogueMultiplayer->playerState[RogueMP_GetRemotePlayerId()];
+}
+
+//
+// Local client populate's it's own send cmd
+// Remote client then processes that; there may be multiple rounds of back and forth per each cmd
+// 
+// The remote is expected to populate resp cmd and buffer and then in response to that local can choose to populate send cmd and buffer to queue another round
+// e.g. this is needed to send large structs
+//
+
+typedef void (*MpCmdCallback)();
+
+static void Send_Cmd_RequestMon();
+static void Resp_Cmd_RequestMon();
+
+static const MpCmdCallback sMpSendCmdCallbacks[MP_CMD_COUNT] = 
+{
+    [MP_CMD_REQUEST_MON] = Send_Cmd_RequestMon,
+};
+
+static const MpCmdCallback sMpRespCmdCallbacks[MP_CMD_COUNT] = 
+{
+    [MP_CMD_REQUEST_MON] = Resp_Cmd_RequestMon,
+};
+
+
+static void ProcessPlayerCommands()
+{
+    // Setup to assume 2 players
+    struct RogueNetPlayer* localPlayer = GetLocalPlayer();
+    struct RogueNetPlayer* remotePlayer = GetRemotePlayer();
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+
+    // Can't do anything if the other player isn't active
+    // TODO - Need to gracefully fail any queued interactions
+    if(!RogueMP_IsRemotePlayerActive())
+        return;
+
+    // Process incoming request
+    {
+        REMOTE_SEND_ARGS();
+
+        if(gRogueLocalMP.lastProcessedSendCmd != remoteCmdArgs->cmdId)
+        {
+            // Zero the response buffer
+            gRogueLocalMP.lastProcessedSendCmd = remoteCmdArgs->cmdId;
+            memset(localPlayer->cmdRespBuffer, 0, sizeof(localPlayer->cmdRespBuffer));
+        }
+
+        // Run send callback
+        if(remoteCmdArgs->cmdId != MP_CMD_NONE)
+        {
+            AGB_ASSERT(sMpSendCmdCallbacks[remoteCmdArgs->cmdId] != NULL);
+
+            if(sMpSendCmdCallbacks[remoteCmdArgs->cmdId])
+                sMpSendCmdCallbacks[remoteCmdArgs->cmdId]();
+        }
+    }
+
+    // Process response to our request
+    {
+        LOCAL_SEND_ARGS();
+        REMOTE_RESP_ARGS();
+
+        if(localCmdArgs->cmdId != MP_CMD_NONE && localCmdArgs->cmdId == remoteCmdArgs->cmdId)
+        {
+            AGB_ASSERT(sMpRespCmdCallbacks[localCmdArgs->cmdId] != NULL);
+
+            // Run resp callback
+            if(sMpRespCmdCallbacks[localCmdArgs->cmdId])
+                sMpRespCmdCallbacks[localCmdArgs->cmdId]();
+        }
+    }
+}
+
+// MP_CMD_REQUEST_MON
+//
+
+void RogueMP_Cmd_RequestPartyMon(u8 slot)
+{
+    LOCAL_SEND_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
+
+    AGB_ASSERT(localCmdArgs->cmdId == MP_CMD_NONE);
+
+    localCmdArgs->cmdId = MP_CMD_REQUEST_MON;
+    localCmdArgs->slot = 0;
+    localCmdArgs->offset = 0;
+
+}
+
+static void Send_Cmd_RequestMon()
+{
+    LOCAL_RESP_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
+
+    DebugPrintf("slot %d, offset %d", localCmdArgs->slot, localCmdArgs->offset);
+}
+
+static void Resp_Cmd_RequestMon()
+{
+    //REMOTE_RESP_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
 }
