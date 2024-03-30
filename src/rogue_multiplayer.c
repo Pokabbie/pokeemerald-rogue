@@ -30,6 +30,14 @@
 #define NET_PLAYER_STATE_FLAG_RIDING    (1 << 0)
 #define NET_PLAYER_STATE_FLAG_FLYING    (1 << 1)
 
+// Enable logging of MP
+#if 1
+#define MpLog(pBuf) DebugPrint("[MP LOG] " pBuf)
+#define MpLogf(pBuf, ...) DebugPrintf("[MP LOG] " pBuf, __VA_ARGS__)
+#else
+#define MpLog(pBuf)
+#define MpLogf(pBuf, ...)
+#endif
 
 struct SyncedObjectEventInfo
 {
@@ -875,6 +883,15 @@ static void ProcessPlayerCommands()
     }
 }
 
+// Helpers
+//
+static void ClearSendCmd()
+{
+    LOCAL_SEND_ARGS();
+    localCmdArgs->cmdId = MP_CMD_NONE;
+}
+
+
 // MP_CMD_REQUEST_MON
 //
 
@@ -884,20 +901,75 @@ void RogueMP_Cmd_RequestPartyMon(u8 slot)
 
     AGB_ASSERT(localCmdArgs->cmdId == MP_CMD_NONE);
 
+    // Create the initial request
     localCmdArgs->cmdId = MP_CMD_REQUEST_MON;
-    localCmdArgs->slot = 0;
+    localCmdArgs->slot = slot;
     localCmdArgs->offset = 0;
+
+    MpLogf("RequestMon start slot:%d size:%d", slot, sizeof(struct Pokemon));
 
 }
 
 static void Send_Cmd_RequestMon()
 {
+    REMOTE_SEND_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
     LOCAL_RESP_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
 
-    DebugPrintf("slot %d, offset %d", localCmdArgs->slot, localCmdArgs->offset);
+    if(
+        localCmdArgs->cmdId != remoteCmdArgs->cmdId ||
+        localCmdArgs->slot != remoteCmdArgs->slot ||
+        localCmdArgs->offset != remoteCmdArgs->offset
+    )
+    {
+        // Requesting new chunk of the struct
+        u8 slot = min(remoteCmdArgs->slot, PARTY_SIZE - 1);
+        u8 offset = min(remoteCmdArgs->offset, sizeof(struct Pokemon));
+        u8* src = (u8*)&gPlayerParty[slot];
+        size_t copySize = min(sizeof(struct Pokemon) - offset, sizeof(localCmdArgs->data));
+
+        MpLogf("RequestMon send slot:%d offset:%d, size:%d", slot, offset, copySize);
+
+        localCmdArgs->cmdId = remoteCmdArgs->cmdId;
+        localCmdArgs->slot = slot;
+        localCmdArgs->offset = offset;
+        memcpy(localCmdArgs->data, &src[offset], copySize);
+    }
 }
 
 static void Resp_Cmd_RequestMon()
 {
-    //REMOTE_RESP_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
+    LOCAL_SEND_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
+    REMOTE_RESP_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
+
+    if(
+        localCmdArgs->cmdId == remoteCmdArgs->cmdId &&
+        localCmdArgs->slot == remoteCmdArgs->slot &&
+        localCmdArgs->offset == remoteCmdArgs->offset
+    )
+    {
+        // We have recieved the response so queue up the next amount
+        u8 slot = min(localCmdArgs->slot, PARTY_SIZE - 1);
+        u8 offset = min(localCmdArgs->offset, sizeof(struct Pokemon));
+        u8* dest = (u8*)&gEnemyParty[slot];
+        size_t copySize = min(sizeof(struct Pokemon) - offset, sizeof(localCmdArgs->data));
+
+        MpLogf("RequestMon resp slot:%d offset:%d, size:%d", slot, offset, copySize);
+
+        if(copySize != 0)
+            memcpy(&dest[offset], remoteCmdArgs->data, copySize);
+
+        if(copySize < sizeof(localCmdArgs->data))
+        {
+            // Finished
+            MpLog("RequestMon complete!");
+            ClearSendCmd();
+
+            GiveTradedMonToPlayer(&gEnemyParty[slot]);
+        }
+        else
+        {
+            // Request next chunk
+            localCmdArgs->offset = offset + copySize;
+        }
+    }
 }

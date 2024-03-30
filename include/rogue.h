@@ -483,12 +483,10 @@ struct RogueNetPlayer
 {
     struct RogueNetPlayerMovement movementBuffer[NET_PLAYER_MOVEMENT_BUFFER_SIZE];
     u8 cmdSendBuffer[NET_CMD_BUFFER_SIZE];
-    u8 cmdRecvBuffer[NET_CMD_BUFFER_SIZE];
+    u8 cmdRespBuffer[NET_CMD_BUFFER_SIZE];
     struct Coords16 playerPos;
     struct Coords8 partnerPos;
     u16 partnerMon;
-    u16 sendCmd;
-    u16 recvCmd;
     s8 mapGroup;
     s8 mapNum;
     u8 playerFlags;

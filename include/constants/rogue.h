@@ -566,7 +566,8 @@
 #define NET_HANDSHAKE_STATE_SEND_TO_HOST        1
 #define NET_HANDSHAKE_STATE_SEND_TO_CLIENT      2
 
-#define NET_CMD_BUFFER_SIZE                 32
+#define NET_CMD_BUFFER_SIZE                 64
+#define NET_CMD_UNRESERVED_BUFFER_SIZE      62 // 2 bytes at front reserved for cmd ID
 
 // Sound
 //

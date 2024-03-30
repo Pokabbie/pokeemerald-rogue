@@ -5,6 +5,9 @@ script Rogue_InteractMultiplayerPlayer
 
     msgbox(format("TODO - Player message"))
 
+    setvar(VAR_0x8004, 0)
+    special(Rogue_MultiplayerRequestMon)
+
     release
 }
 
