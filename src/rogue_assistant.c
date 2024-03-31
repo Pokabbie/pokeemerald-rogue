@@ -145,9 +145,6 @@ const struct RogueAssistantHeader gRogueAssistantHeader =
 };
 
 
-static void Task_ConnectMultiplayer(u8 taskId);
-
-
 // Methods
 //
 

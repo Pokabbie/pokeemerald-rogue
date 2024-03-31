@@ -4521,8 +4521,8 @@ static void SpriteCB_BouncingPokeballArrive(struct Sprite *sprite)
 
 u16 GetInGameTradeSpeciesInfo(void)
 {
-    StringCopy(gStringVar1, gSpeciesNames[SPECIES_ABRA]);
-    StringCopy(gStringVar2, gSpeciesNames[SPECIES_ABRA]);
+    StringCopy(gStringVar1, gSpeciesInfo[SPECIES_ABRA].speciesName);
+    StringCopy(gStringVar2, gSpeciesInfo[SPECIES_ABRA].speciesName);
     return SPECIES_ABRA;
 }
 
