@@ -227,7 +227,7 @@ static void ModifyKnowMoveEvo(u16 species, struct Evolution* outEvo, u16 fromMet
         {
             // Assume this was a tutor move
             outEvo->method = toMethod;
-            outEvo->param = 36;
+            outEvo->param = 30;
         }
     }
 }
@@ -324,23 +324,23 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     if(species == SPECIES_PAWMO && evoIdx == 0)
     {
         outEvo->method = EVO_LEVEL;
-        outEvo->param = 36;
+        outEvo->param = 20;
     }
     if(species == SPECIES_BRAMBLIN && evoIdx == 0)
     {
         outEvo->method = EVO_LEVEL;
-        outEvo->param = 36;
+        outEvo->param = 20;
     }
     if(species == SPECIES_RELLOR && evoIdx == 0)
     {
         outEvo->method = EVO_LEVEL;
-        outEvo->param = 36;
+        outEvo->param = 20;
     }
 
     if(species == SPECIES_GIMMIGHOUL && evoIdx == 0)
     {
-        outEvo->method = EVO_ITEM;
-        outEvo->param = ITEM_KINGS_ROCK;
+        outEvo->method = EVO_LEVEL;
+        outEvo->param = 55;
     }
 
 #endif
@@ -363,7 +363,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
             if(evoIdx == 0)
             {
                 outEvo->method = EVO_LEVEL;
-                outEvo->param = 36;
+                outEvo->param = 30;
             }
             else
             {
@@ -430,7 +430,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
             case(EVO_FRIENDSHIP):
                 outEvo->method = EVO_LEVEL;
-                outEvo->param = 36;
+                outEvo->param = 30;
                 break;
 
             case(EVO_TRADE):
@@ -445,11 +445,11 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
             case(EVO_FRIENDSHIP_DAY):
                 outEvo->method = EVO_LEVEL_DAY;
-                outEvo->param = 36;
+                outEvo->param = 30;
                 break;
             case(EVO_FRIENDSHIP_NIGHT):
                 outEvo->method = EVO_LEVEL_NIGHT;
-                outEvo->param = 36;
+                outEvo->param = 30;
                 break;
 
             case(EVO_TRADE_ITEM):
