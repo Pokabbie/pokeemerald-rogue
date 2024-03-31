@@ -929,7 +929,19 @@ static void ProcessSyncedObjectMovement(struct SyncedObjectEventInfo* syncInfo, 
 
                 if(syncInfo->movementBuffer[currentIdx].pos.x == objectEvent->currentCoords.x && syncInfo->movementBuffer[currentIdx].pos.y == objectEvent->currentCoords.y)
                 {
-                    ObjectEventSetHeldMovement(objectEvent, syncInfo->movementBuffer[currentIdx].movementAction);
+                    u8 movementAction = syncInfo->movementBuffer[currentIdx].movementAction;
+
+                    // If we're not the player, we can't do any sprinting movement actions
+                    //if(syncInfo->gfxId != OBJ_EVENT_GFX_NET_PLAYER_NORMAL) // note: we're just gonna not show any sprinting anims for now as it freezes on the final frame which is yucky
+                    {
+                        if(movementAction >= MOVEMENT_ACTION_PLAYER_RUN_DOWN && movementAction <= MOVEMENT_ACTION_PLAYER_RUN_RIGHT)
+                        {
+                            // Convert to walk fast actions
+                            movementAction = MOVEMENT_ACTION_WALK_FAST_DOWN + (movementAction - MOVEMENT_ACTION_PLAYER_RUN_DOWN);
+                        }
+                    }
+
+                    ObjectEventSetHeldMovement(objectEvent, movementAction);
                     return;
                 }
             }
