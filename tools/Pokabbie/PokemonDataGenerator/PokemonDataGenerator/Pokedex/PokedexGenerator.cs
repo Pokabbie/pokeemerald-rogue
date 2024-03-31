@@ -44,7 +44,12 @@ namespace PokemonDataGenerator.Pokedex
 			else
 			{
 				// Purposely order so the most recent regional dex is first
-				fullDexes.Add(GatherResourceDexData("rogue_main", "Emerald Rogue", 8, "Rogue Dex.csv"));
+				fullDexes.Add(GatherResourceDexData("rogue_modern", "Rogue Modern", 9, "Rogue Dex.csv"));
+
+				// Hacky, gather based on 3 but allow up to 9 in reality
+				var dexData = GatherDexData("rogue_classicplus", "Rogue Classic Plus", 3, "national");
+				dexData.GenLimit = 9;
+				fullDexes.Add(dexData);
 
 				fullDexes.Add(GatherDexData("kanto_RBY", "Red/Blue/Yellow", 1, "kanto"));
 				fullDexes.Add(GatherDexData("kanto_letsgo", "Let'sGo", 7, "letsgo-kanto"));
@@ -189,6 +194,7 @@ namespace PokemonDataGenerator.Pokedex
 			JObject dex = ContentCache.GetJsonContent(uri);
 
 			bool isHGSS = target.InternalName.Equals("johto_HGSS", StringComparison.CurrentCultureIgnoreCase);
+			bool isClassicPlus = target.InternalName.Equals("rogue_classicplus", StringComparison.CurrentCultureIgnoreCase);
 
 			foreach (JObject entry in dex["pokemon_entries"])
 			{
@@ -252,8 +258,10 @@ namespace PokemonDataGenerator.Pokedex
 					// so forcefully insert them here
 					if (isHGSS)
 						AppendDexMon_ExtraHGSS(species, target);
+					else if(isClassicPlus)
+						AppendDexMon_ExtraClassicPlus(species, target);
 
-					if(dexId == "blueberry")
+					if (dexId == "blueberry")
 						AppendDexMon_ScViBlueberry(species, target);
 				}
 			}
@@ -391,6 +399,221 @@ namespace PokemonDataGenerator.Pokedex
 			}
 		}
 
+		private static void AppendDexMon_ExtraClassicPlus(string species, PokedexData target)
+		{
+			// Add any future evos from past gen3 
+			// Also reorder dex so families are grouped together
+			if (species.Equals("pikachu", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "pichu";
+				target.Mons.Add("pikachu");
+			}
+			else if (species.Equals("clefairy", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "cleffa";
+				target.Mons.Add("clefairy");
+			}
+			else if (species.Equals("jigglypuff", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "igglybuff";
+				target.Mons.Add("jigglypuff");
+			}
+			else if (species.Equals("golbat", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("crobat");
+			}
+			else if (species.Equals("vileplume", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("bellossom");
+			}
+			else if (species.Equals("primeape", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("annihilape");
+			}
+			else if (species.Equals("poliwrath", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("politoed");
+			}
+			else if (species.Equals("magneton", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("magnezone");
+			}
+			else if (species.Equals("onix", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("steelix");
+			}
+			else if (species.Equals("hitmonlee", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "tyrogue";
+				target.Mons.Add("hitmonlee");
+			}
+			else if (species.Equals("hitmonchan", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("hitmontop");
+			}
+			else if (species.Equals("lickitung", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("lickilicky");
+			}
+			else if (species.Equals("rhydon", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("rhyperior");
+			}
+			else if (species.Equals("chansey", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "happiny";
+				target.Mons.Add("chansey");
+				target.Mons.Add("blissey");
+			}
+			else if (species.Equals("tangela", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("tangrowth");
+			}
+			else if (species.Equals("seadra", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("kingdra");
+			}
+			else if (species.Equals("mr_mime", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "mime_jr";
+				target.Mons.Add("mr_mime");
+				target.Mons.Add("mr_rime");
+			}
+			else if (species.Equals("scyther", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("scizor");
+				target.Mons.Add("kleavor");
+			}
+			else if (species.Equals("jynx", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "smoochum";
+				target.Mons.Add("jynx");
+			}
+			else if (species.Equals("electabuzz", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "elekid";
+				target.Mons.Add("electabuzz");
+				target.Mons.Add("electrivire");
+			}
+			else if (species.Equals("magmar", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "magby";
+				target.Mons.Add("magmar");
+				target.Mons.Add("magmortar");
+			}
+			else if (species.Equals("umbreon", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("leafeon");
+				target.Mons.Add("glaceon");
+				target.Mons.Add("sylveon");
+			}
+			else if (species.Equals("porygon", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("porygon2");
+				target.Mons.Add("porygon_z");
+			}
+			else if (species.Equals("snorlax", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "munchlax";
+				target.Mons.Add("snorlax");
+			}
+			else if (species.Equals("togetic", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("togekiss");
+			}
+			else if (species.Equals("marill", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "azurill";
+				target.Mons.Add("marill");
+			}
+			else if (species.Equals("sudowoodo", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "bonsly";
+				target.Mons.Add("sudowoodo");
+			}
+			else if (species.Equals("aipom", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("ambipom");
+			}
+			else if (species.Equals("yanma", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("yanmega");
+			}
+			else if (species.Equals("murkrow", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("honchkrow");
+			}
+			else if (species.Equals("misdreavus", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("mismagius");
+			}
+			else if (species.Equals("wobbuffet", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "wynaut";
+				target.Mons.Add("wobbuffet");
+			}
+			else if (species.Equals("girafarig", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("farigiraf");
+			}
+			else if (species.Equals("dunsparce", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("dudunsparce");
+			}
+			else if (species.Equals("gligar", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("gliscor");
+			}
+			else if (species.Equals("sneasel", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("weavile");
+				target.Mons.Add("sneasler");
+			}
+			else if (species.Equals("ursaring", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("ursaluna");
+			}
+			else if (species.Equals("piloswine", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("mamoswine");
+			}
+			else if (species.Equals("mantine", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "mantyke";
+				target.Mons.Add("mantine");
+			}
+			else if (species.Equals("stantler", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("wyrdeer");
+			}
+			else if (species.Equals("gardevoir", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("gallade");
+			}
+			else if (species.Equals("nosepass", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("probopass");
+			}
+			else if (species.Equals("roselia", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "budew";
+				target.Mons.Add("roselia");
+				target.Mons.Add("roserade");
+			}
+			else if (species.Equals("dusclops", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("dusknoir");
+			}
+			else if (species.Equals("chimecho", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons[target.Mons.Count - 1] = "chingling";
+				target.Mons.Add("chimecho");
+			}
+			else if (species.Equals("glalie", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("froslass");
+			}
+		}
 		private static void AppendDexMon_ScViBlueberry(string species, PokedexData target)
 		{
 			if (species.Equals("archaludon", StringComparison.CurrentCultureIgnoreCase))
