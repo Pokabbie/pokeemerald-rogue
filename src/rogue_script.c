@@ -1553,5 +1553,25 @@ void Rogue_IsRogueAssistantConnected()
 void Rogue_MultiplayerRequestMon()
 {
     u8 slot = gSpecialVar_0x8004;
-    RogueMP_Cmd_RequestPartyMon(slot);
+    RogueMP_Cmd_RequestPartyMon(slot, slot);
+}
+
+void Rogue_MultiplayerRequestParty()
+{
+    RogueMP_Cmd_RequestPartyMon(0, PARTY_SIZE - 1);
+}
+
+void Rogue_MultiplayerTalkToPlayer()
+{
+    RogueMP_Cmd_RequestTalkToPlayer();
+}
+
+void Rogue_WaitForCommunication()
+{
+    RogueMP_WaitForCommandFinish(FALSE);
+}
+
+void Rogue_WaitForCancellableCommunication()
+{
+    RogueMP_WaitForCommandFinish(TRUE);
 }

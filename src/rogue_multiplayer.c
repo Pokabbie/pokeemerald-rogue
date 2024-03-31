@@ -57,7 +57,9 @@ struct SyncedObjectEventInfo
 
 struct RogueLocalMP
 {
-    u8 lastProcessedSendCmd;
+    u8 lastProcessedRemoteSendCmd;
+    u8 recentSendCmd;
+    u8 recentResult;
 };
 
 // Temporary data, that isn't remembered
@@ -74,6 +76,7 @@ static void Client_UpdateGameState();
 static void UpdateLocalPlayerState(u8 playerId);
 static void ProcessPlayerCommands();
 static void Task_WaitForConnection(u8 taskId);
+static void Task_WaitForSendFinish(u8 taskId);
 
 static u8 ProcessSyncedObjectEvent(struct SyncedObjectEventInfo* syncInfo);
 static void ProcessSyncedObjectMovement(struct SyncedObjectEventInfo* syncInfo, struct ObjectEvent* objectEvent);
@@ -822,17 +825,34 @@ typedef void (*MpCmdCallback)();
 
 static void Send_Cmd_RequestMon();
 static void Resp_Cmd_RequestMon();
+static void Send_Cmd_RequestTalkPlayer();
+static void Resp_Cmd_RequestTalkPlayer();
 
 static const MpCmdCallback sMpSendCmdCallbacks[MP_CMD_COUNT] = 
 {
     [MP_CMD_REQUEST_MON] = Send_Cmd_RequestMon,
+    [MP_CMD_REQUEST_TALK_TO_PLAYER] = Send_Cmd_RequestTalkPlayer,
 };
 
 static const MpCmdCallback sMpRespCmdCallbacks[MP_CMD_COUNT] = 
 {
     [MP_CMD_REQUEST_MON] = Resp_Cmd_RequestMon,
+    [MP_CMD_REQUEST_TALK_TO_PLAYER] = Resp_Cmd_RequestTalkPlayer,
 };
 
+// Helpers
+//
+static void ClearSendCmd(u8 result)
+{
+    LOCAL_SEND_ARGS();
+    gRogueLocalMP.recentSendCmd = localCmdArgs->cmdId;
+    gRogueLocalMP.recentResult = result;
+
+    localCmdArgs->cmdId = MP_CMD_NONE;
+}
+
+// Main logic
+//
 
 static void ProcessPlayerCommands()
 {
@@ -850,10 +870,10 @@ static void ProcessPlayerCommands()
     {
         REMOTE_SEND_ARGS();
 
-        if(gRogueLocalMP.lastProcessedSendCmd != remoteCmdArgs->cmdId)
+        if(gRogueLocalMP.lastProcessedRemoteSendCmd != remoteCmdArgs->cmdId)
         {
             // Zero the response buffer
-            gRogueLocalMP.lastProcessedSendCmd = remoteCmdArgs->cmdId;
+            gRogueLocalMP.lastProcessedRemoteSendCmd = remoteCmdArgs->cmdId;
             memset(localPlayer->cmdRespBuffer, 0, sizeof(localPlayer->cmdRespBuffer));
         }
 
@@ -883,77 +903,136 @@ static void ProcessPlayerCommands()
     }
 }
 
-// Helpers
-//
-static void ClearSendCmd()
+#define canCancel data[0]
+
+u8 RogueMP_WaitForCommandFinish(bool8 allowCancel)
 {
-    LOCAL_SEND_ARGS();
-    localCmdArgs->cmdId = MP_CMD_NONE;
+    u8 taskId = FindTaskIdByFunc(Task_WaitForSendFinish);
+    if (taskId == TASK_NONE)
+    {
+        taskId = CreateTask(Task_WaitForSendFinish, 80);
+        gTasks[taskId].canCancel = allowCancel;
+    }
+
+    return taskId;
 }
 
+static void Task_WaitForSendFinish(u8 taskId)
+{
+    if(RogueMP_IsRemotePlayerActive())
+    {
+        LOCAL_SEND_ARGS();
+        if(localCmdArgs->cmdId == MP_CMD_NONE)
+        {
+            gSpecialVar_Result = gRogueLocalMP.recentResult;
+            ScriptContext_Enable();
+            DestroyTask(taskId);
+        }
+        else if(gTasks[taskId].canCancel && JOY_NEW(B_BUTTON))
+        {
+            ClearSendCmd(0);
+            gSpecialVar_Result = FALSE;
+            ScriptContext_Enable();
+            DestroyTask(taskId);
+        }
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+    }
+}
+
+#undef canCancel
+
+bool8 RogueMP_IsWaitingForCommandToFinish()
+{
+    if(RogueMP_IsRemotePlayerActive())
+    {
+        LOCAL_SEND_ARGS();
+        if(localCmdArgs->cmdId == MP_CMD_NONE)
+        {
+            return FALSE;
+        }
+
+        return TRUE;
+    }
+    else
+        return FALSE;
+}
 
 // MP_CMD_REQUEST_MON
 //
 
-void RogueMP_Cmd_RequestPartyMon(u8 slot)
+void RogueMP_Cmd_RequestPartyMon(u8 fromSlot, u8 toSlot)
 {
-    LOCAL_SEND_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
+    LOCAL_SEND_ARGS(u8 fromSlot : 4, u8 toSlot : 4, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
 
     AGB_ASSERT(localCmdArgs->cmdId == MP_CMD_NONE);
 
     // Create the initial request
     localCmdArgs->cmdId = MP_CMD_REQUEST_MON;
-    localCmdArgs->slot = slot;
+    localCmdArgs->fromSlot = fromSlot;
+    localCmdArgs->toSlot = toSlot;
     localCmdArgs->offset = 0;
 
-    MpLogf("RequestMon start slot:%d size:%d", slot, sizeof(struct Pokemon));
-
+    MpLogf("RequestMon start from:%d to:%d size:%d", fromSlot, toSlot, sizeof(struct Pokemon) * (toSlot - fromSlot + 1));
 }
 
 static void Send_Cmd_RequestMon()
 {
-    REMOTE_SEND_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
-    LOCAL_RESP_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
+    REMOTE_SEND_ARGS(u8 fromSlot : 4, u8 toSlot : 4, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
+    LOCAL_RESP_ARGS(u8 fromSlot : 4, u8 toSlot : 4, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
 
     if(
         localCmdArgs->cmdId != remoteCmdArgs->cmdId ||
-        localCmdArgs->slot != remoteCmdArgs->slot ||
+        localCmdArgs->fromSlot != remoteCmdArgs->fromSlot ||
+        localCmdArgs->toSlot != remoteCmdArgs->toSlot ||
         localCmdArgs->offset != remoteCmdArgs->offset
     )
     {
         // Requesting new chunk of the struct
-        u8 slot = min(remoteCmdArgs->slot, PARTY_SIZE - 1);
-        u8 offset = min(remoteCmdArgs->offset, sizeof(struct Pokemon));
-        u8* src = (u8*)&gPlayerParty[slot];
-        size_t copySize = min(sizeof(struct Pokemon) - offset, sizeof(localCmdArgs->data));
+        u8 fromSlot = min(remoteCmdArgs->fromSlot, PARTY_SIZE - 1);
+        u8 toSlot = min(remoteCmdArgs->toSlot, PARTY_SIZE - 1);
+        size_t totalSize = sizeof(struct Pokemon) * (toSlot - fromSlot + 1);
 
-        MpLogf("RequestMon send slot:%d offset:%d, size:%d", slot, offset, copySize);
+        size_t offset = min((size_t)remoteCmdArgs->offset * sizeof(localCmdArgs->data), totalSize);
+        u8* src = (u8*)&gPlayerParty[fromSlot];
+        size_t copySize = min(totalSize - offset, sizeof(localCmdArgs->data));
+
+        MpLogf("RequestMon send from:%d to:%d offset:%d, size:%d", fromSlot, toSlot, offset, copySize);
 
         localCmdArgs->cmdId = remoteCmdArgs->cmdId;
-        localCmdArgs->slot = slot;
-        localCmdArgs->offset = offset;
+        localCmdArgs->fromSlot = fromSlot;
+        localCmdArgs->toSlot = toSlot;
+        localCmdArgs->offset = remoteCmdArgs->offset;
         memcpy(localCmdArgs->data, &src[offset], copySize);
     }
 }
 
 static void Resp_Cmd_RequestMon()
 {
-    LOCAL_SEND_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
-    REMOTE_RESP_ARGS(u8 slot, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
+    LOCAL_SEND_ARGS(u8 fromSlot : 4, u8 toSlot : 4, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
+    REMOTE_RESP_ARGS(u8 fromSlot : 4, u8 toSlot : 4, u8 offset, u8 data[NET_CMD_UNRESERVED_BUFFER_SIZE - 2]);
 
     if(
         localCmdArgs->cmdId == remoteCmdArgs->cmdId &&
-        localCmdArgs->slot == remoteCmdArgs->slot &&
+        localCmdArgs->fromSlot == remoteCmdArgs->fromSlot &&
+        localCmdArgs->toSlot == remoteCmdArgs->toSlot &&
         localCmdArgs->offset == remoteCmdArgs->offset
     )
     {
         // We have recieved the response so queue up the next amount
-        u8 slot = min(localCmdArgs->slot, PARTY_SIZE - 1);
-        u8 offset = min(localCmdArgs->offset, sizeof(struct Pokemon));
-        u8* dest = (u8*)&gEnemyParty[slot];
-        size_t copySize = min(sizeof(struct Pokemon) - offset, sizeof(localCmdArgs->data));
+        u8 fromSlot = min(remoteCmdArgs->fromSlot, PARTY_SIZE - 1);
+        u8 toSlot = min(remoteCmdArgs->toSlot, PARTY_SIZE - 1);
+        size_t totalSize = sizeof(struct Pokemon) * (toSlot - fromSlot + 1);
 
-        MpLogf("RequestMon resp slot:%d offset:%d, size:%d", slot, offset, copySize);
+        size_t offset = min((size_t)localCmdArgs->offset * sizeof(localCmdArgs->data), totalSize);
+        u8* dest = (u8*)&gEnemyParty[fromSlot];
+        size_t copySize = min(totalSize - offset, sizeof(localCmdArgs->data));
+
+        MpLogf("RequestMon resp from:%d to:%d offset:%d, size:%d", fromSlot, toSlot, offset, copySize);
 
         if(copySize != 0)
             memcpy(&dest[offset], remoteCmdArgs->data, copySize);
@@ -962,14 +1041,86 @@ static void Resp_Cmd_RequestMon()
         {
             // Finished
             MpLog("RequestMon complete!");
-            ClearSendCmd();
+            ClearSendCmd(TRUE);
 
-            GiveTradedMonToPlayer(&gEnemyParty[slot]);
+            // TEMP DEBUG
+            //{
+            //    u8 i;
+//
+            //    for(i = fromSlot; i <= toSlot; ++i)
+            //    {
+            //        CopyMon(&gPlayerParty[i], &gEnemyParty[i], sizeof(struct Pokemon));
+            //    }
+            //    CalculatePlayerPartyCount();
+            //}
+            //GiveTradedMonToPlayer(&gEnemyParty[slot]);
         }
         else
         {
             // Request next chunk
-            localCmdArgs->offset = offset + copySize;
+            localCmdArgs->offset++;
         }
     }
+}
+
+// MP_CMD_REQUEST_TALK_TO_PLAYER
+//
+
+void RogueMP_Cmd_RequestTalkToPlayer()
+{
+    LOCAL_SEND_ARGS();
+
+    AGB_ASSERT(localCmdArgs->cmdId == MP_CMD_NONE);
+
+    // Create the initial request
+    localCmdArgs->cmdId = MP_CMD_REQUEST_TALK_TO_PLAYER;
+
+    MpLog("RequestTalkToPlayer start");
+}
+
+static void Send_Cmd_RequestTalkPlayer()
+{
+    LOCAL_RESP_ARGS();
+    REMOTE_SEND_ARGS();
+
+    if(localCmdArgs->cmdId == remoteCmdArgs->cmdId)
+    {
+        // We've begun talking, so now we can coordinate using other commands
+        MpLog("RequestTalkToPlayer end");
+        ClearSendCmd(TRUE);
+    }
+}
+
+static void Resp_Cmd_RequestTalkPlayer()
+{
+    LOCAL_SEND_ARGS();
+    REMOTE_RESP_ARGS();
+
+    if(localCmdArgs->cmdId == remoteCmdArgs->cmdId)
+    {
+        // We've begun talking, so now we can coordinate using other commands
+        MpLog("RequestTalkToPlayer end");
+        ClearSendCmd(TRUE);
+    }
+}
+
+bool8 RogueMP_HasTalkRequestPending()
+{
+    if(RogueMP_IsRemotePlayerActive())
+    {
+        LOCAL_RESP_ARGS();
+        REMOTE_SEND_ARGS();
+        return remoteCmdArgs->cmdId == MP_CMD_REQUEST_TALK_TO_PLAYER && localCmdArgs->cmdId != MP_CMD_REQUEST_TALK_TO_PLAYER;
+    }
+
+    return FALSE;
+}
+
+void RogueMP_NotifyAcceptTalkRequest()
+{
+    LOCAL_RESP_ARGS();
+
+    localCmdArgs->cmdId = MP_CMD_REQUEST_TALK_TO_PLAYER;
+
+    MpLog("RequestTalkToPlayer accepted");
 }

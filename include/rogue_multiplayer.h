@@ -5,6 +5,7 @@ enum
 {
     MP_CMD_NONE,
     MP_CMD_REQUEST_MON,
+    MP_CMD_REQUEST_TALK_TO_PLAYER,
     MP_CMD_COUNT,
 };
 
@@ -33,8 +34,14 @@ void RogueMP_OverworldCB();
 void RogueMP_RemoveObjectEvents();
 
 u8 RogueMP_WaitForConnection();
+u8 RogueMP_WaitForCommandFinish(bool8 canCancel);
+bool8 RogueMP_IsWaitingForCommandToFinish();
 
 
-void RogueMP_Cmd_RequestPartyMon(u8 slot);
+void RogueMP_Cmd_RequestPartyMon(u8 fromSlot, u8 toSlot);
+void RogueMP_Cmd_RequestTalkToPlayer();
+
+bool8 RogueMP_HasTalkRequestPending();
+void RogueMP_NotifyAcceptTalkRequest();
 
 #endif

@@ -355,7 +355,7 @@ void MultiplayerBehaviour::PollConnection(GameConnection& game)
 	if (conn != nullptr)
 	{
 		ENetEvent netEvent;
-		if (enet_host_service(conn, &netEvent, 0) > 0)
+		while (enet_host_service(conn, &netEvent, 0) > 0)
 		{
 			switch (netEvent.type)
 			{

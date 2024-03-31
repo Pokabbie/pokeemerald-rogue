@@ -231,6 +231,10 @@ gSpecials::
 	def_special Rogue_CloseMultiplayer
 	def_special Rogue_IsRogueAssistantConnected
 	def_special Rogue_MultiplayerRequestMon
+	def_special Rogue_MultiplayerRequestParty
+	def_special Rogue_MultiplayerTalkToPlayer
+	def_special Rogue_WaitForCommunication
+	def_special Rogue_WaitForCancellableCommunication
 	def_special Rogue_SetupFollowParterMonObjectEvent
 	def_special Rogue_RegisterRideMon
 	def_special Rogue_RunRewardLvls

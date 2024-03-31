@@ -2737,6 +2737,7 @@ extern const u8 Rogue_QuickSaveVersionWarning[];
 extern const u8 Rogue_QuickSaveVersionUpdate[];
 extern const u8 Rogue_ForceNicknameMon[];
 extern const u8 Rogue_AskNicknameMon[];
+extern const u8 Rogue_RemoteInteractMultiplayerPlayer[];
 
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 {
@@ -2796,6 +2797,12 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         gRogueRun.isQuickSaveValid = FALSE;
 
         ScriptContext_SetupScript(Rogue_QuickSaveLoad);
+        return TRUE;
+    }
+    else if(RogueMP_HasTalkRequestPending())
+    {
+        RogueMP_NotifyAcceptTalkRequest();
+        ScriptContext_SetupScript(Rogue_RemoteInteractMultiplayerPlayer);
         return TRUE;
     }
     else if(FollowMon_ProcessMonInteraction() == TRUE)
@@ -2883,7 +2890,13 @@ void Rogue_MainInit(void)
     RogueDebug_MainInit();
 }
 
-void Rogue_MainCB(void)
+void Rogue_MainEarlyCB(void)
+{
+    // Want to process before overworld update
+    Rogue_AssistantMainCB();
+}
+
+void Rogue_MainLateCB(void)
 {
     //Additional 3rd maincallback which is always called
 
@@ -2891,8 +2904,6 @@ void Rogue_MainCB(void)
     {
         UpdateHotTracking();
     }
-
-    Rogue_AssistantMainCB();
 
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationCallback();

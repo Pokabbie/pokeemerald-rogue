@@ -99,7 +99,8 @@ u16 Rogue_PostRunRewardLvls();
 u16 Rogue_PostRunRewardMoney();
 
 void Rogue_MainInit(void);
-void Rogue_MainCB(void);
+void Rogue_MainEarlyCB(void);
+void Rogue_MainLateCB(void);
 void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive);
 bool8 Rogue_IsRunningToggledOn();
 
