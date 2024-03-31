@@ -233,8 +233,15 @@ gSpecials::
 	def_special Rogue_MultiplayerRequestMon
 	def_special Rogue_MultiplayerRequestParty
 	def_special Rogue_MultiplayerTalkToPlayer
-	def_special Rogue_WaitForCommunication
-	def_special Rogue_WaitForCancellableCommunication
+	def_special Rogue_WaitForRemoteResponse
+	def_special Rogue_WaitForRemoteResponseCancellable
+	def_special Rogue_WaitForRemoteInput
+	def_special Rogue_WaitForRemoteInputCancellable
+	def_special Rogue_WaitForPlayerStatus
+	def_special Rogue_WaitForPlayerStatusCancellable
+	def_special Rogue_WaitForNextPlayerStatus
+	def_special Rogue_WaitForNextPlayerStatusCancellable
+	def_special Rogue_PrepareForTrade
 	def_special Rogue_SetupFollowParterMonObjectEvent
 	def_special Rogue_RegisterRideMon
 	def_special Rogue_RunRewardLvls

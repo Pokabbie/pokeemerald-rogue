@@ -2029,9 +2029,20 @@
 	.endm
 
 	@ Attempts to complete the given quest and returns the result
-	.macro completequest questId:req
+	.macro multiplayerpushstatus status:req, param:req
 	.byte 0xee
-	.2byte \questId
+	.byte \status
+	.2byte \param
+	.byte 0
+	.byte 0
+	.endm
+
+	.macro multiplayerpushstatusawait status:req, param:req, awaitCancellable:req
+	.byte 0xee
+	.byte \status
+	.2byte \param
+	.byte 1
+	.byte \awaitCancellable
 	.endm
 
 	@ Attempts to deactive the given quest and returns the result

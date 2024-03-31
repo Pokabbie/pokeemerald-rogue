@@ -3,6 +3,8 @@
 #include "text.h"
 #include "strings.h"
 
+#include "rogue_multiplayer.h"
+
 EWRAM_DATA u8 gStringVar1[0x100] = {0};
 EWRAM_DATA u8 gStringVar2[0x100] = {0};
 EWRAM_DATA u8 gStringVar3[0x100] = {0};
@@ -480,10 +482,15 @@ static const u8 *ExpandPlaceholder_KunChan(void)
 
 static const u8 *ExpandPlaceholder_RivalName(void)
 {
-    if (gSaveBlock2Ptr->playerGender == MALE)
-        return gText_ExpandedPlaceholder_May;
+    if(RogueMP_IsRemotePlayerActive())
+        return RogueMP_GetPlayerName(RogueMP_GetRemotePlayerId());
     else
-        return gText_ExpandedPlaceholder_Brendan;
+        return gText_ExpandedPlaceholder_RemotePlayer;
+
+    //if (gSaveBlock2Ptr->playerGender == MALE)
+    //    return gText_ExpandedPlaceholder_May;
+    //else
+    //    return gText_ExpandedPlaceholder_Brendan;
 }
 
 static const u8 *ExpandPlaceholder_Version(void)

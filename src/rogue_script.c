@@ -1566,12 +1566,54 @@ void Rogue_MultiplayerTalkToPlayer()
     RogueMP_Cmd_RequestTalkToPlayer();
 }
 
-void Rogue_WaitForCommunication()
+void Rogue_WaitForRemoteResponse()
 {
-    RogueMP_WaitForCommandFinish(FALSE);
+    RogueMP_WaitForOutgoingCommand(FALSE);
 }
 
-void Rogue_WaitForCancellableCommunication()
+void Rogue_WaitForRemoteResponseCancellable()
 {
-    RogueMP_WaitForCommandFinish(TRUE);
+    RogueMP_WaitForOutgoingCommand(TRUE);
+}
+
+void Rogue_WaitForRemoteInput()
+{
+    RogueMP_WaitForIncomingCommand(FALSE);
+}
+
+void Rogue_WaitForRemoteInputCancellable()
+{
+    RogueMP_WaitForIncomingCommand(TRUE);
+}
+
+void Rogue_WaitForPlayerStatus()
+{
+    RogueMP_WaitPlayerStatusSync(FALSE);
+}
+
+void Rogue_WaitForPlayerStatusCancellable()
+{
+    RogueMP_WaitPlayerStatusSync(TRUE);
+}
+
+void Rogue_WaitForNextPlayerStatus()
+{
+    RogueMP_WaitUpdatedPlayerStatus(FALSE);
+}
+
+void Rogue_WaitForNextPlayerStatusCancellable()
+{
+    RogueMP_WaitUpdatedPlayerStatus(TRUE);
+}
+
+void Rogue_PrepareForTrade()
+{
+    u16 playerMonSlot = gSpecialVar_0x800A;
+    u16 enemyMonSlot = gSpecialVar_0x800B;
+
+    gSpecialVar_0x8005 = playerMonSlot;
+    if(enemyMonSlot != 0)
+    {
+        CopyMon(&gEnemyParty[0], &gEnemyParty[enemyMonSlot], sizeof(struct Pokemon));
+    }
 }

@@ -244,7 +244,7 @@ script Rogue_ConfigRoom_Campaign_NewPhrase
     if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
     {
         faceplayer
-        completequest(QUEST_CampaignTease)
+        //completequest(QUEST_CampaignTease)
 
         special(Rogue_BufferCampaignName)
         msgbox(format("Whoa!\pThat there's the secret phrase for the {STR_VAR_1} Campaign!"), MSGBOX_DEFAULT)
@@ -326,7 +326,7 @@ script Rogue_ConfigRoom_Campaign
         msgbox(format("Hiya kid!"))
 
         // Always mark this as complete as some people are not getting it first time?
-        completequest(QUEST_CampaignTease)
+        //completequest(QUEST_CampaignTease)
 
         if(var(VAR_ROGUE_DESIRED_CAMPAIGN) != ROGUE_CAMPAIGN_NONE)
         {
@@ -477,7 +477,7 @@ script Rogue_ConfigRoom_MeetPokabbie
         msgbox(format("You can use this ROOM to enable SPECIAL MODES and although there's not too many now, I'll be sure to add more in future!\pFeel free to look around!"))
     }
 
-    completequest(QUEST_MeetPokabbie)
+    //completequest(QUEST_MeetPokabbie)
     setflag(FLAG_ROGUE_MET_POKABBIE)
     setvar(VAR_TEMP_1, 1)
 

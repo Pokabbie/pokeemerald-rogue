@@ -60,10 +60,11 @@ struct RogueLocalMP
     u8 lastProcessedRemoteSendCmd;
     u8 recentSendCmd;
     u8 recentResult;
+    u8 hasPendingPlayerInteraction : 1;
 };
 
 // Temporary data, that isn't remembered
-EWRAM_DATA struct RogueLocalMP gRogueLocalMP = {};
+EWRAM_DATA struct RogueLocalMP gRogueLocalMP = {0};
 
 EWRAM_DATA struct RogueNetMultiplayer* gRogueMultiplayer = NULL;
 EWRAM_DATA struct RogueNetMultiplayer gTEMPNetMultiplayer; // temporary memory holder which should be swaped out for dynamic alloc really
@@ -75,6 +76,8 @@ static void Host_UpdateGameState();
 static void Client_UpdateGameState();
 static void UpdateLocalPlayerState(u8 playerId);
 static void ProcessPlayerCommands();
+static void UpdateLocalPlayerStatus();
+static void Task_WaitPlayerStatusSync(u8 taskId);
 static void Task_WaitForConnection(u8 taskId);
 static void Task_WaitForSendFinish(u8 taskId);
 
@@ -130,6 +133,16 @@ u8 RogueMP_GetRemotePlayerId()
         return gRogueMultiplayer->localPlayerId ^ 1;
     else
         return 0;
+}
+
+static struct RogueNetPlayer* GetLocalPlayer()
+{
+    return &gRogueMultiplayer->playerState[RogueMP_GetLocalPlayerId()];
+}
+
+static struct RogueNetPlayer* GetRemotePlayer()
+{
+    return &gRogueMultiplayer->playerState[RogueMP_GetRemotePlayerId()];
 }
 
 bool8 RogueMP_IsRemotePlayerActive()
@@ -193,6 +206,18 @@ u16 RogueMP_GetPlayerOutfitStyle(u8 playerId, u8 outfitStyle)
 {
     AGB_ASSERT(gRogueMultiplayer != NULL);
     return gRogueMultiplayer->playerProfiles[playerId].preferredOutfitStyle[outfitStyle];
+}
+
+u8 const* RogueMP_GetPlayerName(u8 playerId)
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+    return gRogueMultiplayer->playerProfiles[playerId].trainerName;
+}
+
+u8 RogueMP_GetPlayerStatus(u8 playerId)
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+    return gRogueMultiplayer->playerState[playerId].playerStatus;
 }
 
 void RogueMP_MainCB()
@@ -270,6 +295,147 @@ void RogueMP_RemoveObjectEvents()
         {
             RemoveObjectEvent(&gObjectEvents[objectId]);
         }
+    }
+}
+
+#define canCancel       data[0]
+#define awaitUpdate     data[1]
+#define startedStatusCounterPtr ((u16*)&gTasks[taskId].data[2])
+
+u8 RogueMP_WaitPlayerStatusSync(bool8 allowCancel)
+{
+    u8 taskId = FindTaskIdByFunc(Task_WaitPlayerStatusSync);
+    if (taskId == TASK_NONE)
+    {
+        struct RogueNetPlayer* localPlayer = GetLocalPlayer();
+        struct RogueNetPlayer* remotePlayer = GetRemotePlayer();
+
+        taskId = CreateTask(Task_WaitPlayerStatusSync, 80);
+        gTasks[taskId].canCancel = allowCancel;
+        gTasks[taskId].awaitUpdate = FALSE;
+    }
+
+    return taskId;
+}
+
+u8 RogueMP_WaitUpdatedPlayerStatus(bool8 allowCancel)
+{
+    u8 taskId = FindTaskIdByFunc(Task_WaitPlayerStatusSync);
+    if (taskId == TASK_NONE)
+    {
+        struct RogueNetPlayer* localPlayer = GetLocalPlayer();
+
+        taskId = CreateTask(Task_WaitPlayerStatusSync, 80);
+        gTasks[taskId].canCancel = allowCancel;
+        gTasks[taskId].awaitUpdate = TRUE;
+        *startedStatusCounterPtr = localPlayer->playerStatusCounter;
+    }
+
+    return taskId;
+}
+
+static void Task_WaitPlayerStatusSync(u8 taskId)
+{
+    if(RogueMP_IsRemotePlayerActive())
+    {
+        struct RogueNetPlayer* localPlayer = GetLocalPlayer();
+        struct RogueNetPlayer* remotePlayer = GetRemotePlayer();
+
+        if(gTasks[taskId].canCancel && JOY_NEW(B_BUTTON))
+        {
+            gSpecialVar_Result = FALSE;
+            //gSpecialVar_0x8000 = FALSE;
+            ScriptContext_Enable();
+            DestroyTask(taskId);
+        }
+        else if(remotePlayer->playerStatusCounter == localPlayer->playerStatusCounter)
+        {
+            if(gTasks[taskId].awaitUpdate && localPlayer->playerStatusCounter == *startedStatusCounterPtr)
+                return;
+
+            // If we aborted, this will missmatch
+            gSpecialVar_Result = (remotePlayer->playerStatus == localPlayer->playerStatus);
+            gSpecialVar_0x8000 = remotePlayer->playerStatusParam;
+            ScriptContext_Enable();
+            DestroyTask(taskId);
+        }
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+    }
+}
+
+#undef canCancel
+#undef awaitUpdate
+#undef startedStatusCounterPtr
+
+static void UpdateLocalPlayerStatus()
+{
+    struct RogueNetPlayer* localPlayer = GetLocalPlayer();
+    struct RogueNetPlayer* remotePlayer = GetRemotePlayer();
+
+    if(localPlayer->playerStatus == MP_PLAYER_STATUS_NONE && remotePlayer->playerStatus == MP_PLAYER_STATUS_NONE && remotePlayer->playerStatusCounter == localPlayer->playerStatusCounter)
+    {
+        // Reset counter here to avoid overflow situations if possible (This still isn't ideal)
+        localPlayer->playerStatusCounter = 0;
+    }
+    // If positive, the remote is ahead of us, so we locally need to sync up
+    else if(remotePlayer->playerStatusCounter > localPlayer->playerStatusCounter)
+    {
+        MpLogf("remote status:%d counter:%d param:%d", remotePlayer->playerStatus, remotePlayer->playerStatusCounter, remotePlayer->playerStatusParam);
+
+        switch(remotePlayer->playerStatus)
+        {
+            case MP_PLAYER_STATUS_NONE:
+            {
+                // Just sync up, don't need to do anything else
+                localPlayer->playerStatus = remotePlayer->playerStatus;
+                localPlayer->playerStatusCounter = remotePlayer->playerStatusCounter;
+            }
+            break;
+
+            case MP_PLAYER_STATUS_TALK_TO_PLAYER:
+            {
+                // Begin interaction from our side
+                if(localPlayer->playerStatus != MP_PLAYER_STATUS_TALK_TO_PLAYER)
+                    gRogueLocalMP.hasPendingPlayerInteraction = TRUE;
+
+                localPlayer->playerStatus = remotePlayer->playerStatus;
+                localPlayer->playerStatusCounter = remotePlayer->playerStatusCounter;
+                localPlayer->playerStatusParam = remotePlayer->playerStatusParam;
+            }
+            break;
+        }
+    }
+}
+
+extern const u8 Rogue_RemoteInteractMultiplayerPlayer[];
+
+bool8 RogueMP_TryExecuteScripts()
+{
+    if(gRogueLocalMP.hasPendingPlayerInteraction)
+    {
+        gRogueLocalMP.hasPendingPlayerInteraction = FALSE;
+        ScriptContext_SetupScript(Rogue_RemoteInteractMultiplayerPlayer);
+        return FALSE;
+    }
+
+    return FALSE;
+}
+
+void RogueMP_PushLocalPlayerStatus(u8 status, u16 param)
+{
+    if(RogueMP_IsActive())
+    {
+        struct RogueNetPlayer* localPlayer = GetLocalPlayer();
+        localPlayer->playerStatus = status;
+        localPlayer->playerStatusParam = param;
+        localPlayer->playerStatusCounter = (RogueMP_IsRemotePlayerActive() ? GetRemotePlayer() : localPlayer)->playerStatusCounter + 1;
+
+        MpLogf("local status:%d counter:%d param:%d", localPlayer->playerStatus, localPlayer->playerStatusCounter, localPlayer->playerStatusParam);
     }
 }
 
@@ -802,17 +968,6 @@ static void ProcessSyncedObjectMovement(struct SyncedObjectEventInfo* syncInfo, 
 #define REMOTE_SEND_ARGS(...) MP_CMD_ARGS_(GetRemotePlayer()->cmdSendBuffer, const * const remoteCmdArgs UNUSED, __VA_ARGS__)
 #define REMOTE_RESP_ARGS(...) MP_CMD_ARGS_(GetRemotePlayer()->cmdRespBuffer, const * const remoteCmdArgs UNUSED, __VA_ARGS__)
 
-
-static struct RogueNetPlayer* GetLocalPlayer()
-{
-    return &gRogueMultiplayer->playerState[RogueMP_GetLocalPlayerId()];
-}
-
-static struct RogueNetPlayer* GetRemotePlayer()
-{
-    return &gRogueMultiplayer->playerState[RogueMP_GetRemotePlayerId()];
-}
-
 //
 // Local client populate's it's own send cmd
 // Remote client then processes that; there may be multiple rounds of back and forth per each cmd
@@ -866,6 +1021,8 @@ static void ProcessPlayerCommands()
     if(!RogueMP_IsRemotePlayerActive())
         return;
 
+    UpdateLocalPlayerStatus();
+
     // Process incoming request
     {
         REMOTE_SEND_ARGS();
@@ -903,14 +1060,29 @@ static void ProcessPlayerCommands()
     }
 }
 
-#define canCancel data[0]
+#define isIncoming data[0]
+#define canCancel data[1]
 
-u8 RogueMP_WaitForCommandFinish(bool8 allowCancel)
+u8 RogueMP_WaitForOutgoingCommand(bool8 allowCancel)
 {
     u8 taskId = FindTaskIdByFunc(Task_WaitForSendFinish);
     if (taskId == TASK_NONE)
     {
         taskId = CreateTask(Task_WaitForSendFinish, 80);
+        gTasks[taskId].isIncoming = FALSE;
+        gTasks[taskId].canCancel = allowCancel;
+    }
+
+    return taskId;
+}
+
+u8 RogueMP_WaitForIncomingCommand(bool8 allowCancel)
+{
+    u8 taskId = FindTaskIdByFunc(Task_WaitForSendFinish);
+    if (taskId == TASK_NONE)
+    {
+        taskId = CreateTask(Task_WaitForSendFinish, 80);
+        gTasks[taskId].isIncoming = TRUE;
         gTasks[taskId].canCancel = allowCancel;
     }
 
@@ -921,19 +1093,39 @@ static void Task_WaitForSendFinish(u8 taskId)
 {
     if(RogueMP_IsRemotePlayerActive())
     {
-        LOCAL_SEND_ARGS();
-        if(localCmdArgs->cmdId == MP_CMD_NONE)
+        if(gTasks[taskId].isIncoming)
         {
-            gSpecialVar_Result = gRogueLocalMP.recentResult;
-            ScriptContext_Enable();
-            DestroyTask(taskId);
+            REMOTE_SEND_ARGS();
+            if(remoteCmdArgs->cmdId != MP_CMD_NONE)
+            {
+                gSpecialVar_Result = TRUE;
+                ScriptContext_Enable();
+                DestroyTask(taskId);
+            }
+            else if(gTasks[taskId].canCancel && JOY_NEW(B_BUTTON))
+            {
+                ClearSendCmd(0);
+                gSpecialVar_Result = FALSE;
+                ScriptContext_Enable();
+                DestroyTask(taskId);
+            }
         }
-        else if(gTasks[taskId].canCancel && JOY_NEW(B_BUTTON))
+        else
         {
-            ClearSendCmd(0);
-            gSpecialVar_Result = FALSE;
-            ScriptContext_Enable();
-            DestroyTask(taskId);
+            LOCAL_SEND_ARGS();
+            if(localCmdArgs->cmdId == MP_CMD_NONE)
+            {
+                gSpecialVar_Result = gRogueLocalMP.recentResult;
+                ScriptContext_Enable();
+                DestroyTask(taskId);
+            }
+            else if(gTasks[taskId].canCancel && JOY_NEW(B_BUTTON))
+            {
+                ClearSendCmd(0);
+                gSpecialVar_Result = FALSE;
+                ScriptContext_Enable();
+                DestroyTask(taskId);
+            }
         }
     }
     else
@@ -944,6 +1136,7 @@ static void Task_WaitForSendFinish(u8 taskId)
     }
 }
 
+#undef isIncoming
 #undef canCancel
 
 bool8 RogueMP_IsWaitingForCommandToFinish()

@@ -2737,7 +2737,6 @@ extern const u8 Rogue_QuickSaveVersionWarning[];
 extern const u8 Rogue_QuickSaveVersionUpdate[];
 extern const u8 Rogue_ForceNicknameMon[];
 extern const u8 Rogue_AskNicknameMon[];
-extern const u8 Rogue_RemoteInteractMultiplayerPlayer[];
 
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 {
@@ -2799,10 +2798,9 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         ScriptContext_SetupScript(Rogue_QuickSaveLoad);
         return TRUE;
     }
-    else if(RogueMP_HasTalkRequestPending())
+    else if(RogueMP_IsActive() && RogueMP_TryExecuteScripts())
     {
-        RogueMP_NotifyAcceptTalkRequest();
-        ScriptContext_SetupScript(Rogue_RemoteInteractMultiplayerPlayer);
+        // Do nothing here, as we expect any update to be done above
         return TRUE;
     }
     else if(FollowMon_ProcessMonInteraction() == TRUE)

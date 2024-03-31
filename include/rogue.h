@@ -487,6 +487,10 @@ struct RogueNetPlayer
     struct Coords16 playerPos;
     struct Coords8 partnerPos;
     u16 partnerMon;
+    u16 playerStatusParam;
+    u16 playerStatusCounter;
+    u8 playerStatus;
+    u8 playerStatusSubstate;
     s8 mapGroup;
     s8 mapNum;
     u8 playerFlags;
