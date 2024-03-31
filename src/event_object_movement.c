@@ -1579,6 +1579,12 @@ u8 GetSpecialObjectEventIdByLocalId(u8 localId)
     if (localId == OBJ_EVENT_ID_FOLLOWER)
         return GetFollowerObjectId();
 
+    {
+        u8 result = Rogue_GetCachedObjectEventId(localId);
+        if(result != OBJECT_EVENTS_COUNT)
+            return result;
+    }
+
     return GetObjectEventIdByLocalId(localId);
 }
 
@@ -1856,7 +1862,7 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
     if (subspriteTables)
         SetSubspriteTables(&gSprites[gObjectEvents[objectEventId].spriteId], subspriteTables);
 
-    Rogue_OnSpawnObjectEvent(&gObjectEvents[objectEventId]);
+    Rogue_OnSpawnObjectEvent(&gObjectEvents[objectEventId], objectEventId);
 
     return objectEventId;
 }
@@ -2922,7 +2928,7 @@ static const u8 *GetObjectEventScriptPointerByLocalIdAndMap(u8 localId, u8 mapNu
     // Force override script here
     if(localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
     {
-        return (localId % 2) == 0 ? Rogue_InteractMultiplayerPlayer : Rogue_InteractMultiplayerFollowMon;
+        return ((localId - OBJ_EVENT_ID_MULTIPLAYER_FIRST) % 2) == 0 ? Rogue_InteractMultiplayerPlayer : Rogue_InteractMultiplayerFollowMon;
     }
     else if(localId >= OBJ_EVENT_ID_FOLLOW_MON_FIRST && localId <= OBJ_EVENT_ID_FOLLOW_MON_LAST)
     {

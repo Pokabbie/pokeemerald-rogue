@@ -29,6 +29,7 @@
 #include "constants/weather.h"
 
 #include "rogue_assistant.h"
+#include "rogue_multiplayer.h"
 
 /*
  *  This file handles region maps generally, and the map used when selecting a fly destination.
@@ -1501,7 +1502,7 @@ u8 *GetMapName(u8 *dest, u16 regionMapId, u16 padLength)
     {
         if(regionMapId == MAPSEC_POKEMON_HUB)
         {
-            if(Rogue_IsNetMultiplayerClient())
+            if(RogueMP_IsClient())
             {
                 // If we are the client, we're actual going to display as being in a different hub
                 str = StringCopy(dest, gRegionMapEntries[MAPSEC_OTHER_POKEMON_HUB].name);

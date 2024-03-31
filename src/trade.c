@@ -51,6 +51,8 @@
 #include "constants/songs.h"
 #include "constants/union_room.h"
 
+#include "rogue_multiplayer.h"
+
 // IDs for RunTradeMenuCallback
 enum {
     CB_MAIN_MENU,
@@ -3318,7 +3320,6 @@ static void BufferTradeSceneStrings(void)
 {
     u8 mpId;
     u8 name[POKEMON_NAME_BUFFER_SIZE];
-    const struct InGameTrade *ingameTrade;
 
     if (sTradeAnim->isLinkTrade)
     {
@@ -3331,9 +3332,9 @@ static void BufferTradeSceneStrings(void)
     }
     else
     {
-        ingameTrade = &sIngameTrades[gSpecialVar_0x8004];
-        StringCopy(gStringVar1, ingameTrade->otName);
-        StringCopy_Nickname(gStringVar3, ingameTrade->nickname);
+        StringCopy(gStringVar1, RogueMP_GetPlayerName(RogueMP_GetRemotePlayerId()));
+        GetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, name);
+        StringCopy_Nickname(gStringVar3, name);
         GetMonData(&gPlayerParty[gSpecialVar_0x8005], MON_DATA_NICKNAME, name);
         StringCopy_Nickname(gStringVar2, name);
     }
@@ -4520,66 +4521,36 @@ static void SpriteCB_BouncingPokeballArrive(struct Sprite *sprite)
 
 u16 GetInGameTradeSpeciesInfo(void)
 {
-    const struct InGameTrade *inGameTrade = &sIngameTrades[gSpecialVar_0x8004];
-    StringCopy(gStringVar1, GetSpeciesName(inGameTrade->requestedSpecies));
-    StringCopy(gStringVar2, GetSpeciesName(inGameTrade->species));
-    return inGameTrade->requestedSpecies;
+    StringCopy(gStringVar1, gSpeciesNames[SPECIES_ABRA]);
+    StringCopy(gStringVar2, gSpeciesNames[SPECIES_ABRA]);
+    return SPECIES_ABRA;
 }
 
 static void BufferInGameTradeMonName(void)
 {
     u8 nickname[max(32, POKEMON_NAME_BUFFER_SIZE)];
-    const struct InGameTrade *inGameTrade = &sIngameTrades[gSpecialVar_0x8004];
     GetMonData(&gPlayerParty[gSpecialVar_0x8005], MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(gStringVar1, nickname);
-    StringCopy(gStringVar2, GetSpeciesName(inGameTrade->species));
+
+    GetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, nickname);
+    StringCopy_Nickname(gStringVar2, nickname);
 }
 
 static void CreateInGameTradePokemonInternal(u8 whichPlayerMon, u8 whichInGameTrade)
 {
-    const struct InGameTrade *inGameTrade = &sIngameTrades[whichInGameTrade];
-    u8 level = GetMonData(&gPlayerParty[whichPlayerMon], MON_DATA_LEVEL);
-
-    struct Mail mail;
-    u8 metLocation = METLOC_IN_GAME_TRADE;
-    u8 mailNum;
-    struct Pokemon *pokemon = &gEnemyParty[0];
-
-    CreateMon(pokemon, inGameTrade->species, level, USE_RANDOM_IVS, TRUE, inGameTrade->personality, OT_ID_PRESET, inGameTrade->otId);
-
-    SetMonData(pokemon, MON_DATA_HP_IV, &inGameTrade->ivs[0]);
-    SetMonData(pokemon, MON_DATA_ATK_IV, &inGameTrade->ivs[1]);
-    SetMonData(pokemon, MON_DATA_DEF_IV, &inGameTrade->ivs[2]);
-    SetMonData(pokemon, MON_DATA_SPEED_IV, &inGameTrade->ivs[3]);
-    SetMonData(pokemon, MON_DATA_SPATK_IV, &inGameTrade->ivs[4]);
-    SetMonData(pokemon, MON_DATA_SPDEF_IV, &inGameTrade->ivs[5]);
-    SetMonData(pokemon, MON_DATA_NICKNAME, inGameTrade->nickname);
-    SetMonData(pokemon, MON_DATA_OT_NAME, inGameTrade->otName);
-    SetMonData(pokemon, MON_DATA_OT_GENDER, &inGameTrade->otGender);
-    SetMonData(pokemon, MON_DATA_ABILITY_NUM, &inGameTrade->abilityNum);
-    SetMonData(pokemon, MON_DATA_BEAUTY, &inGameTrade->conditions[1]);
-    SetMonData(pokemon, MON_DATA_CUTE, &inGameTrade->conditions[2]);
-    SetMonData(pokemon, MON_DATA_COOL, &inGameTrade->conditions[0]);
-    SetMonData(pokemon, MON_DATA_SMART, &inGameTrade->conditions[3]);
-    SetMonData(pokemon, MON_DATA_TOUGH, &inGameTrade->conditions[4]);
-    SetMonData(pokemon, MON_DATA_SHEEN, &inGameTrade->sheen);
-    SetMonData(pokemon, MON_DATA_MET_LOCATION, &metLocation);
-
-    mailNum = 0;
-    if (inGameTrade->heldItem != ITEM_NONE)
+    // Should already be calculated at this point, so just update info we need
+    u8 metLocation = GetMonData(&gEnemyParty[0], MON_DATA_MET_LOCATION);
+    
+    if(metLocation == MAPSEC_POKEMON_HUB)
+        metLocation = MAPSEC_OTHER_POKEMON_HUB;
+    else if(metLocation == MAPSEC_OTHER_POKEMON_HUB)
     {
-        if (ItemIsMail(inGameTrade->heldItem))
-        {
-            GetInGameTradeMail(&mail, inGameTrade);
-            gTradeMail[0] = mail;
-            SetMonData(pokemon, MON_DATA_MAIL, &mailNum);
-            SetMonData(pokemon, MON_DATA_HELD_ITEM, &inGameTrade->heldItem);
-        }
-        else
-        {
-            SetMonData(pokemon, MON_DATA_HELD_ITEM, &inGameTrade->heldItem);
-        }
+        // Trading back our old mon
+        if(!IsTradedMon(&gEnemyParty[0]))
+            metLocation = MAPSEC_POKEMON_HUB;
     }
+
+    SetMonData(&gEnemyParty[0], MON_DATA_MET_LOCATION, &metLocation);
     CalculateMonStats(&gEnemyParty[0]);
 }
 

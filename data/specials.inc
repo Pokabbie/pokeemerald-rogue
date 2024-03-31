@@ -230,6 +230,18 @@ gSpecials::
 	def_special Rogue_JoinMultiplayer
 	def_special Rogue_CloseMultiplayer
 	def_special Rogue_IsRogueAssistantConnected
+	def_special Rogue_MultiplayerRequestMon
+	def_special Rogue_MultiplayerRequestParty
+	def_special Rogue_MultiplayerTalkToPlayer
+	def_special Rogue_WaitForRemoteResponse
+	def_special Rogue_WaitForRemoteResponseCancellable
+	def_special Rogue_WaitForRemoteInput
+	def_special Rogue_WaitForRemoteInputCancellable
+	def_special Rogue_WaitForPlayerStatus
+	def_special Rogue_WaitForPlayerStatusCancellable
+	def_special Rogue_WaitForNextPlayerStatus
+	def_special Rogue_WaitForNextPlayerStatusCancellable
+	def_special Rogue_PrepareForTrade
 	def_special Rogue_SetupFollowParterMonObjectEvent
 	def_special Rogue_RegisterRideMon
 	def_special Rogue_RunRewardLvls
@@ -271,6 +283,7 @@ gSpecials::
 	def_special Rogue_BufferSafariMonInfo
 	def_special Rogue_DisplayPopupsFromScript
 	def_special RogueHub_SetRandomFollowMonsFromPC
+	def_special RogueHub_GetStatueLevel
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetLastInteractedRoomParams
 	def_special RogueAdv_WarpLastInteractedRoom

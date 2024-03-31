@@ -133,6 +133,7 @@ struct RogueLocalData
     struct RogueCatchingContest catchingContest;
     RAND_TYPE rngSeedToRestore;
     u32 totalMoneySpentOnMap;
+    u16 cachedObjIds[OBJ_EVENT_ID_MULTIPLAYER_COUNT];
     u16 wildEncounterHistoryBuffer[3];
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
@@ -1301,10 +1302,12 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         u8 difficulty = Rogue_GetCurrentDifficulty();
         u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
-        *money = CalculateBattleWinnings(trainerNum);
+        // Increase by 20%
+        *money = (CalculateBattleWinnings(trainerNum) * 120) / 100;
 
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
+        switch (gRogueAdvPath.currentRoomType)
         {
+        case ADVPATH_ROOM_BOSS:
             if(Rogue_IsKeyTrainer(trainerNum))
             {
                 u8 difficulty = Rogue_GetCurrentDifficulty();
@@ -1315,36 +1318,46 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
                 // EXP trainer
                 *money = 0;
             }
-        }
-        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_MINIBOSS)
-        {
-            u8 difficulty = Rogue_GetCurrentDifficulty();
-            *money = (difficulty + 1) * 1000;
-        }
-        else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-        {
-            if(difficulty <= 11)
+            break;
+
+        case ADVPATH_ROOM_TEAM_HIDEOUT:
+            if(Rogue_IsKeyTrainer(trainerNum))
             {
-                if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
-                    *money = *money / 2;
-                else
-                    *money = *money / 3;
+                u8 difficulty = Rogue_GetCurrentDifficulty();
+                *money = (difficulty + 1) * 1000;
             }
             else
             {
-                // Kinder but not by much ;)
-                if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
-                    *money = *money / 2;
+                // Give move money here
+                *money *= 2;
             }
+            break;
         }
-        else if(!FlagGet(FLAG_ROGUE_EASY_ITEMS))
-        {
-            if(difficulty <= 11)
-            {
-                if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
-                    *money = *money / 2;
-            }
-        }
+        
+        //if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
+        //{
+        //    if(difficulty <= 11)
+        //    {
+        //        if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
+        //            *money = *money / 2;
+        //        else
+        //            *money = *money / 3;
+        //    }
+        //    else
+        //    {
+        //        // Kinder but not by much ;)
+        //        if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
+        //            *money = *money / 2;
+        //    }
+        //}
+        //else if(!FlagGet(FLAG_ROGUE_EASY_ITEMS))
+        //{
+        //    if(difficulty <= 11)
+        //    {
+        //        if(difficultyModifier != ADVPATH_SUBROOM_ROUTE_TOUGH) // !Hard
+        //            *money = *money / 2;
+        //    }
+        //}
 
         // Snap/Floor to multiple of ten
         if(*money > 100)
@@ -2781,6 +2794,11 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         ScriptContext_SetupScript(Rogue_QuickSaveLoad);
         return TRUE;
     }
+    else if(RogueMP_IsActive() && RogueMP_TryExecuteScripts())
+    {
+        // Do nothing here, as we expect any update to be done above
+        return TRUE;
+    }
     else if(FollowMon_ProcessMonInteraction() == TRUE)
     {
         return TRUE;
@@ -2848,6 +2866,11 @@ static void UpdateHotTracking()
 
 void Rogue_MainInit(void)
 {
+    u32 i;
+
+    for(i = 0; i < OBJ_EVENT_ID_MULTIPLAYER_COUNT; ++i)
+        gRogueLocal.cachedObjIds[i] = OBJECT_EVENTS_COUNT;
+
     ResetHotTracking();
 
     RogueQuery_Init();
@@ -2861,7 +2884,13 @@ void Rogue_MainInit(void)
     RogueDebug_MainInit();
 }
 
-void Rogue_MainCB(void)
+void Rogue_MainEarlyCB(void)
+{
+    // Want to process before overworld update
+    Rogue_AssistantMainCB();
+}
+
+void Rogue_MainLateCB(void)
 {
     //Additional 3rd maincallback which is always called
 
@@ -2869,8 +2898,6 @@ void Rogue_MainCB(void)
     {
         UpdateHotTracking();
     }
-
-    Rogue_AssistantMainCB();
 
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_AutomationCallback();
@@ -2892,7 +2919,9 @@ void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
         }
     }
     
+    START_TIMER(ROGUE_ASSISTANT_CALLBACK);
     Rogue_AssistantOverworldCB();
+    STOP_TIMER(ROGUE_ASSISTANT_CALLBACK);
 }
 
 bool8 Rogue_IsRunningToggledOn()
@@ -2900,11 +2929,16 @@ bool8 Rogue_IsRunningToggledOn()
     return gRogueLocal.runningToggleActive;
 }
 
-void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent)
+void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent, u8 objectEventId)
 {
     if(FollowMon_IsMonObject(objectEvent, TRUE))
     {
         FollowMon_OnObjectEventSpawned(objectEvent);
+    }
+
+    if (objectEvent->localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && objectEvent->localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+    {
+        gRogueLocal.cachedObjIds[objectEvent->localId - OBJ_EVENT_ID_MULTIPLAYER_FIRST] = objectEventId;
     }
 }
 
@@ -2913,6 +2947,11 @@ void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent)
     if(FollowMon_IsMonObject(objectEvent, TRUE))
     {
         FollowMon_OnObjectEventRemoved(objectEvent);
+    }
+    
+    if (objectEvent->localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && objectEvent->localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+    {
+        gRogueLocal.cachedObjIds[objectEvent->localId - OBJ_EVENT_ID_MULTIPLAYER_FIRST] = OBJECT_EVENTS_COUNT;
     }
 }
 
@@ -2932,12 +2971,27 @@ void Rogue_OnResumeMap()
 
 void Rogue_OnObjectEventsInit()
 {
+    u32 i;
+
     SetupFollowParterMonObjectEvent();
+
+    for(i = 0; i < OBJ_EVENT_ID_MULTIPLAYER_COUNT; ++i)
+        gRogueLocal.cachedObjIds[i] = OBJECT_EVENTS_COUNT;
 }
 
 void Rogue_OnResetAllSprites()
 {
     Rogue_OnResetRideMonSprites();
+}
+
+u8 Rogue_GetCachedObjectEventId(u32 localId)
+{
+    if (localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+    {
+        return gRogueLocal.cachedObjIds[localId - OBJ_EVENT_ID_MULTIPLAYER_FIRST];
+    }
+
+    return OBJECT_EVENTS_COUNT;
 }
 
 void Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)
@@ -2963,6 +3017,7 @@ void Rogue_OnLoadMap(void)
     else if(!Rogue_IsRunActive())
     {
         // Apply metatiles for the map we're in
+        RogueHub_UpdateWarpStates();
         RogueHub_ApplyMapMetatiles();
     }
 }

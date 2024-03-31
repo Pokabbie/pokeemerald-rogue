@@ -15,6 +15,7 @@
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
+#include "rogue_multiplayer.h"
 #include "rogue_ridemon.h"
 #include "rogue_save.h"
 
@@ -315,7 +316,7 @@ void RogueSave_OnSaveLoaded()
     ResetFollowParterMonObjectEvent();
 
     // Remove any net objects which we shouldn't have saved anyway
-    Rogue_RemoveNetObjectEvents();
+    RogueMP_RemoveObjectEvents();
 
     // Restore the seed as path generation will likely reset the seed
     gRngRogueValue = startSeed;

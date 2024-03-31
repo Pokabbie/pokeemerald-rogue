@@ -54,6 +54,7 @@
 #include "constants/rogue.h"
 #include "rogue.h"
 #include "rogue_hub.h"
+#include "rogue_multiplayer.h"
 #include "rogue_popup.h"
 #include "rogue_quest.h"
 #include "rogue_trainers.h"
@@ -2541,10 +2542,20 @@ bool8 ScrCmd_unlockquest(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_completequest(struct ScriptContext *ctx)
+bool8 ScrCmd_multiplayerpushstatus(struct ScriptContext *ctx)
 {
-    u16 index = ScriptReadHalfword(ctx);
-    gSpecialVar_Result = TryMarkQuestAsComplete(index);
+    u8 status = ScriptReadByte(ctx);
+    u16 param = VarGet(ScriptReadHalfword(ctx));
+    bool8 await = ScriptReadByte(ctx);
+    bool8 awaitCancellable = ScriptReadByte(ctx);
+
+    RogueMP_PushLocalPlayerStatus(status, param);
+
+    if(await)
+    {
+        RogueMP_WaitPlayerStatusSync(awaitCancellable);
+    }
+
     return FALSE;
 }
 

@@ -99,17 +99,19 @@ u16 Rogue_PostRunRewardLvls();
 u16 Rogue_PostRunRewardMoney();
 
 void Rogue_MainInit(void);
-void Rogue_MainCB(void);
+void Rogue_MainEarlyCB(void);
+void Rogue_MainLateCB(void);
 void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive);
 bool8 Rogue_IsRunningToggledOn();
 
-void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent);
+void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent, u8 objectEventId);
 void Rogue_OnRemoveObjectEvent(struct ObjectEvent *objectEvent);
 void Rogue_OnMovementType_Player(struct Sprite *sprite);
 void Rogue_OnObjectEventMovement(u8 objectEventId);
 void Rogue_OnResumeMap();
 void Rogue_OnObjectEventsInit();
 void Rogue_OnResetAllSprites();
+u8 Rogue_GetCachedObjectEventId(u32 localId);
 
 void Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
 

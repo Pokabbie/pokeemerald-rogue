@@ -227,6 +227,22 @@ void MultiplayerBehaviour::OpenHostConnection(GameConnection& game)
 	m_ConnState = ConnectionState::ConnectionConfirmed;
 }
 
+static void SetPeerTimeouts(ENetPeer* netPeer)
+{
+	u32 timeoutLimit = ENET_PEER_TIMEOUT_LIMIT;
+	u32 timeoutMinimum = ENET_PEER_TIMEOUT_MINIMUM;
+	u32 timeoutMaximum = ENET_PEER_TIMEOUT_MAXIMUM;
+
+#if _DEBUG
+	timeoutLimit = static_cast<u32>(-1);
+	timeoutMinimum = static_cast<u32>(-1);
+	timeoutMaximum = static_cast<u32>(-1);
+#endif
+
+	LOG_INFO("ENet: Setting peer timeouts: %u, %u, %u", timeoutLimit, timeoutMinimum, timeoutMaximum);
+	enet_peer_timeout(netPeer, timeoutLimit, timeoutMinimum, timeoutMaximum);
+}
+
 void MultiplayerBehaviour::OpenClientConnection(GameConnection& game)
 {
 	LOG_INFO("ENet: Openning Client");
@@ -300,6 +316,8 @@ void MultiplayerBehaviour::OpenClientConnection(GameConnection& game)
 		return;
 	}
 
+	SetPeerTimeouts(m_NetPeer);
+
 	m_ConnState = ConnectionState::AwaitingHandshake;
 }
 
@@ -337,12 +355,13 @@ void MultiplayerBehaviour::PollConnection(GameConnection& game)
 	if (conn != nullptr)
 	{
 		ENetEvent netEvent;
-		if (enet_host_service(conn, &netEvent, 0) > 0)
+		while (enet_host_service(conn, &netEvent, 0) > 0)
 		{
 			switch (netEvent.type)
 			{
 			case ENET_EVENT_TYPE_CONNECT:
 				LOG_INFO("ENet: Connected %x:%u", netEvent.peer->address.host, netEvent.peer->address.port);
+				SetPeerTimeouts(netEvent.peer);
 				break;
 
 			case ENET_EVENT_TYPE_RECEIVE:

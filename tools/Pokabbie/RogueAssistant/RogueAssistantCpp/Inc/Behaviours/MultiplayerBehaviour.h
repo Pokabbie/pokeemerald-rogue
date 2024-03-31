@@ -48,7 +48,7 @@ private:
 		ServerState()
 			: m_PendingHandshake(nullptr)
 			, m_GameStateTimer(UpdateTimer::c_5UPS)
-			, m_PlayerStateTimer(UpdateTimer::c_5UPS)
+			, m_PlayerStateTimer(UpdateTimer::c_30UPS)
 		{}
 	};
 
@@ -57,7 +57,7 @@ private:
 		UpdateTimer m_PlayerStateTimer;
 
 		ClientState()
-			: m_PlayerStateTimer(UpdateTimer::c_5UPS)
+			: m_PlayerStateTimer(UpdateTimer::c_30UPS)
 		{}
 	};
 

@@ -4706,6 +4706,19 @@ static const struct SpriteFrameImage sPicTable_QuestBoard[] = {
     obj_frame_tiles(gObjectEventPic_QuestBoard),
 };
 
+static const struct SpriteFrameImage sPicTable_StatueLevel0[] = {
+    obj_frame_tiles(gObjectEventPic_StatueLevel0),
+};
+static const struct SpriteFrameImage sPicTable_StatueLevel1[] = {
+    obj_frame_tiles(gObjectEventPic_StatueLevel1),
+};
+static const struct SpriteFrameImage sPicTable_StatueLevel2[] = {
+    obj_frame_tiles(gObjectEventPic_StatueLevel2),
+};
+static const struct SpriteFrameImage sPicTable_StatueLevel3[] = {
+    obj_frame_tiles(gObjectEventPic_StatueLevel3),
+};
+
 static const struct SpriteFrameImage sPicTable_ItemSilverTM[] = {
     obj_frame_tiles(gObjectEventPic_ItemSilverTM),
 };

@@ -26,6 +26,8 @@ u16 Rogue_GetTrainerPokeballId(u16 trainerNum);
 bool8 Rogue_IsValidTrainerShinySpecies(u16 trainerNum, u16 species);
 bool8 Rogue_ShouldTrainerSmartSwitch(u16 trainerNum);
 bool8 Rogue_ShouldTrainerBeDoubleAware(u16 trainerNum);
+bool8 Rogue_ShouldTrainerTrySetup(u16 trainerNum);
+bool8 Rogue_ShouldTrainerBeSmart(u16 trainerNum);
 
 u8 Rogue_CalculatePlayerMonLvl();
 u8 Rogue_CalculateTrainerMonLvl();

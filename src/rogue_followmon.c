@@ -729,7 +729,7 @@ static bool8 IsSpawnSlotValid(u16 slot)
     }
     
     // 2 : normal pal index 3 (Shared for the multiplayer player palette)
-    // 3 : normal pal index 4 (Shared for the multiplayer follower palette)
+    // 3 : normal pal index 4 (Shared for the multiplayer follower palette) <- OBJ_EVENT_GFX_MP_FOLLOW_MON
     if(slot == 2 || slot == 3)
     {
         if(!RogueMP_IsActive())

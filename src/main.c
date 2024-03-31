@@ -216,6 +216,10 @@ static void CallCallbacks(void)
 {
     START_TIMER(MAIN_CALLBACKS);
     {
+        START_TIMER(MAIN_ROGUE_EARLY_CALLBACK);
+        Rogue_MainEarlyCB();
+        STOP_TIMER(MAIN_ROGUE_EARLY_CALLBACK);
+
         START_TIMER(MAIN_CALLBACK_1);
         if (gMain.callback1)
             gMain.callback1();
@@ -226,9 +230,9 @@ static void CallCallbacks(void)
             gMain.callback2();
         STOP_TIMER(MAIN_CALLBACK_2);
 
-        START_TIMER(MAIN_ROGUE_CALLBACK);
-        Rogue_MainCB();
-        STOP_TIMER(MAIN_ROGUE_CALLBACK);
+        START_TIMER(MAIN_ROGUE_LATE_CALLBACK);
+        Rogue_MainLateCB();
+        STOP_TIMER(MAIN_ROGUE_LATE_CALLBACK);
     }
     STOP_TIMER(MAIN_CALLBACKS);
 }

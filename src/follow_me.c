@@ -1010,6 +1010,7 @@ static void Task_FollowerHandleEscalatorFinish(u8 taskId)
         CalculateFollowerEscalatorTrajectoryUp(task);
         gSaveBlock2Ptr->follower.warpEnd = 0;
         gPlayerAvatar.preventStep = TRUE;
+        ObjectEventClearHeldMovementIfActive(follower);
         ObjectEventSetHeldMovement(follower, GetFaceDirectionMovementAction(DIR_EAST));
         if (task->data[2] == 0x6b)
             task->data[0] = 4;

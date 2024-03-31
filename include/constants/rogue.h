@@ -495,7 +495,8 @@
 #define DEBUG_TOGGLE_DEBUG_ITEM_QUERY               (DEBUG_START_VALUE + 9)
 #define DEBUG_TOGGLE_HIDE_FOLLOWER                  (DEBUG_START_VALUE + 10)
 #define DEBUG_TOGGLE_STOP_WILD_SPAWNING             (DEBUG_START_VALUE + 11)
-#define DEBUG_TOGGLE_COUNT                          12
+#define DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT      (DEBUG_START_VALUE + 12)
+#define DEBUG_TOGGLE_COUNT                          13
 #define DEBUG_TOGGLE_BYTE_COUNT                     (1 + DEBUG_TOGGLE_COUNT / 8)
 
 // DEBUG_RANGE_
@@ -564,6 +565,15 @@
 #define NET_HANDSHAKE_STATE_NONE                0
 #define NET_HANDSHAKE_STATE_SEND_TO_HOST        1
 #define NET_HANDSHAKE_STATE_SEND_TO_CLIENT      2
+
+#define NET_CMD_BUFFER_SIZE                 64
+#define NET_CMD_UNRESERVED_BUFFER_SIZE      62 // 2 bytes at front reserved for cmd ID
+
+// Multiplayer
+//
+#define MP_PLAYER_STATUS_NONE               0
+#define MP_PLAYER_STATUS_TALK_TO_PLAYER     1
+#define MP_PLAYER_STATUS_COUNT              2
 
 // Sound
 //

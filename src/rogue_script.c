@@ -941,39 +941,6 @@ void Rogue_EnterPartnerMonCapacity()
     gSpecialVar_Result = Rogue_GetStartingMonCapacity();
 }
 
-void Rogue_IsMultiplayerActive(void)
-{
-    gSpecialVar_Result = RogueMP_IsActive();
-}
-
-void Rogue_IsMultiplayerHost(void)
-{
-    gSpecialVar_Result = RogueMP_IsHost();
-}
-
-void Rogue_HostMultiplayer()
-{
-    RogueMP_OpenHost();
-    RogueMP_WaitForConnection();
-}
-
-void Rogue_JoinMultiplayer()
-{
-    RogueMP_OpenClient();
-    RogueMP_WaitForConnection();
-}
-
-void Rogue_CloseMultiplayer()
-{
-    RogueMP_Close();
-    //RogueMP_WaitForConnection();
-}
-
-void Rogue_IsRogueAssistantConnected()
-{
-    gSpecialVar_Result = Rogue_IsAssistantConnected();
-}
-
 void Rogue_SetupFollowParterMonObjectEvent()
 {
     SetupFollowParterMonObjectEvent();
@@ -1544,5 +1511,109 @@ void Rogue_BufferSafariMonInfo()
             StringAppend(gStringVar1, sText_The);
 
         StringAppend(gStringVar1, speciesName);
+    }
+}
+
+// Multiplayer scripts
+//
+
+void Rogue_IsMultiplayerActive(void)
+{
+    gSpecialVar_Result = RogueMP_IsActive();
+}
+
+void Rogue_IsMultiplayerHost(void)
+{
+    gSpecialVar_Result = RogueMP_IsHost();
+}
+
+void Rogue_HostMultiplayer()
+{
+    RogueMP_OpenHost();
+    RogueMP_WaitForConnection();
+}
+
+void Rogue_JoinMultiplayer()
+{
+    RogueMP_OpenClient();
+    RogueMP_WaitForConnection();
+}
+
+void Rogue_CloseMultiplayer()
+{
+    RogueMP_Close();
+    //RogueMP_WaitForConnection();
+}
+
+void Rogue_IsRogueAssistantConnected()
+{
+    gSpecialVar_Result = Rogue_IsAssistantConnected();
+}
+
+void Rogue_MultiplayerRequestMon()
+{
+    u8 slot = gSpecialVar_0x8004;
+    RogueMP_Cmd_RequestPartyMon(slot, slot);
+}
+
+void Rogue_MultiplayerRequestParty()
+{
+    RogueMP_Cmd_RequestPartyMon(0, PARTY_SIZE - 1);
+}
+
+void Rogue_MultiplayerTalkToPlayer()
+{
+    RogueMP_Cmd_RequestTalkToPlayer();
+}
+
+void Rogue_WaitForRemoteResponse()
+{
+    RogueMP_WaitForOutgoingCommand(FALSE);
+}
+
+void Rogue_WaitForRemoteResponseCancellable()
+{
+    RogueMP_WaitForOutgoingCommand(TRUE);
+}
+
+void Rogue_WaitForRemoteInput()
+{
+    RogueMP_WaitForIncomingCommand(FALSE);
+}
+
+void Rogue_WaitForRemoteInputCancellable()
+{
+    RogueMP_WaitForIncomingCommand(TRUE);
+}
+
+void Rogue_WaitForPlayerStatus()
+{
+    RogueMP_WaitPlayerStatusSync(FALSE);
+}
+
+void Rogue_WaitForPlayerStatusCancellable()
+{
+    RogueMP_WaitPlayerStatusSync(TRUE);
+}
+
+void Rogue_WaitForNextPlayerStatus()
+{
+    RogueMP_WaitUpdatedPlayerStatus(FALSE);
+}
+
+void Rogue_WaitForNextPlayerStatusCancellable()
+{
+    RogueMP_WaitUpdatedPlayerStatus(TRUE);
+}
+
+void Rogue_PrepareForTrade()
+{
+    u16 playerMonSlot = gSpecialVar_0x800A;
+    u16 enemyMonSlot = gSpecialVar_0x800B;
+
+    gSpecialVar_0x8005 = playerMonSlot;
+    if(enemyMonSlot != 0)
+    {
+        CopyMon(&gEnemyParty[0], &gEnemyParty[enemyMonSlot], sizeof(struct Pokemon));
     }
 }

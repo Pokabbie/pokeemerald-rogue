@@ -18,6 +18,7 @@ const u8 gText_ExpandedPlaceholder_Kyogre[] = _("KYOGRE");
 const u8 gText_ExpandedPlaceholder_Groudon[] = _("GROUDON");
 const u8 gText_ExpandedPlaceholder_Brendan[] = _("BRENDAN");
 const u8 gText_ExpandedPlaceholder_May[] = _("MAY");
+const u8 gText_ExpandedPlaceholder_RemotePlayer[] = _("REMOTE PLAYER");
 #ifdef ROGUE_EXPANSION
 const u8 gText_ExpandedPlaceholder_PokemonHub[] = _("Pokémon Hub");
 #else
