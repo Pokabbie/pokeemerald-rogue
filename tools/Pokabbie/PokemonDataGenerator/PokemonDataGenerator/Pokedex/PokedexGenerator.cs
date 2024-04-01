@@ -44,10 +44,10 @@ namespace PokemonDataGenerator.Pokedex
 			else
 			{
 				// Purposely order so the most recent regional dex is first
-				fullDexes.Add(GatherResourceDexData("rogue_modern", "Rogue Modern", 9, "Rogue Dex.csv"));
+				fullDexes.Add(GatherResourceDexData("rogue_modern", "Modern", 9, "Rogue Dex.csv"));
 
 				// Hacky, gather based on 3 but allow up to 9 in reality
-				var dexData = GatherDexData("rogue_classicplus", "Rogue Classic Plus", 3, "national");
+				var dexData = GatherDexData("rogue_classicplus", "Classic Plus", 3, "national");
 				dexData.GenLimit = 9;
 				fullDexes.Add(dexData);
 
@@ -473,11 +473,11 @@ namespace PokemonDataGenerator.Pokedex
 			{
 				target.Mons.Add("kingdra");
 			}
-			else if (species.Equals("mr_mime", StringComparison.CurrentCultureIgnoreCase))
+			else if (species.Equals("mr-mime", StringComparison.CurrentCultureIgnoreCase))
 			{
-				target.Mons[target.Mons.Count - 1] = "mime_jr";
-				target.Mons.Add("mr_mime");
-				target.Mons.Add("mr_rime");
+				target.Mons[target.Mons.Count - 1] = "mime-jr";
+				target.Mons.Add("mr-mime");
+				target.Mons.Add("mr-rime");
 			}
 			else if (species.Equals("scyther", StringComparison.CurrentCultureIgnoreCase))
 			{
