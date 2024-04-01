@@ -1128,7 +1128,7 @@ void Rogue_AssignDefaultRegion()
         Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_KANTO, TRUE);
     }
 
-#ifdef ROGUE_EXPASION
+#ifdef ROGUE_EXPANSION
     switch (VarGet(VAR_ROGUE_INITIAL_DEX_SELECTION))
     {
     case 0:
