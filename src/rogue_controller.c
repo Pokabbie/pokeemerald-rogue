@@ -193,6 +193,7 @@ static void ChooseTeamEncountersForNewAdventure();
 static void RememberPartyHeldItems();
 static void TryRestorePartyHeldItems(bool8 allowThief);
 static void ClearPlayerTeam();
+static void CheckAndNotifyForFaintedMons();
 
 static void SwapMonItems(u8 aIdx, u8 bIdx, struct Pokemon *party);
 
@@ -962,6 +963,21 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
                 ++gRogueRun.wildEncounters.catchCounts[index];
             }
         }
+
+        // Make sure we log if we end up replacing a fainted mon
+        CheckAndNotifyForFaintedMons();
+    }
+}
+
+void Rogue_DiscardedCaughtMon(struct Pokemon *mon)
+{
+    if(Rogue_IsRunActive())
+    {
+        // Don't track discarded mons for catching contest unless they're shiny
+        if(Rogue_IsCatchingContestActive() && !IsMonShiny(mon))
+            return;
+
+        RogueSafari_PushLowPriorityMon(mon);
     }
 }
 
@@ -4893,9 +4909,9 @@ static void CheckAndNotifyForFaintedMons()
             }
         }
 
-        if(faintedCount)
+        if(faintedCount != 0)
         {
-            // TODO - Notifies
+            RogueQuest_OnTrigger(QUEST_TRIGGER_MON_FAINTED);
         }
     }
 }

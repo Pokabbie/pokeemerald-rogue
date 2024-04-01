@@ -10215,10 +10215,19 @@ static void Cmd_rogue_partyhasroom(void)
 
 static void Cmd_rogue_caughtmon(void)
 {
-    // Modify before we've decided if we're going to release this or not
-    Rogue_ModifyCaughtMon(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+    bool8 discarded = gBattlescriptCurrInstr[1];
 
-    gBattlescriptCurrInstr++;
+    if(discarded)
+    {
+        Rogue_DiscardedCaughtMon(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+    }
+    else
+    {
+        // Modify before we've decided if we're going to release this or not
+        Rogue_ModifyCaughtMon(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+    }
+
+    gBattlescriptCurrInstr += 2;
 }
 
 static void Cmd_givecaughtmon(void)

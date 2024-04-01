@@ -43,6 +43,7 @@
 #define QUEST_TRIGGER_POKEDEX_UPDATE        (1 << 11) 
 #define QUEST_TRIGGER_ENTER_ENCOUNTER       (1 << 12) // on warp into encounter map
 #define QUEST_TRIGGER_EXIT_ENCOUNTER        (1 << 13) // on warp out of encounter map
+#define QUEST_TRIGGER_MON_FAINTED           (1 << 14)
 
 #define QUEST_TRIGGER_ANY_BATTLE_START      (QUEST_TRIGGER_WILD_BATTLE_START | QUEST_TRIGGER_TRAINER_BATTLE_START)
 

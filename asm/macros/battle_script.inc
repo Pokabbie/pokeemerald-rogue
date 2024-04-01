@@ -1258,8 +1258,9 @@
 	.4byte \ptr
 	.endm
 
-	.macro rogue_caughtmon
+	.macro rogue_caughtmon discard:req
 	.byte 0xfa
+	.byte \discard
 	.endm
 	
 @ various command changed to more readable macros

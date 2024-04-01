@@ -384,53 +384,53 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         }
     },
 
-    [QUEST_NoFainting1] = 
-    {
-        .title = _("Care Tactics"),
-        .desc = _(
-                    "Defeat 4 GYM leaders\n"
-                    "without your PARTNER\n"
-                    "POKéMON fainting."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SUPER_ROD, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksTutors },
-        },
-        .unlockedQuests = { 
-            QUEST_NoFainting2,
-            QUEST_NoFainting3,
-        }
-    },
-    [QUEST_NoFainting2] = 
-    {
-        .title = _("Smart Tactics"),
-        .desc = _(
-                    "Defeat all 8 GYM\n"
-                    "leaders without any\n"
-                    "POKéMON fainting."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KELPSY_BERRY, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HONDEW_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTutorUpgrade, .giveText=gText_GiveTutorUpgrade },
-        }
-    },
-    [QUEST_NoFainting3] = 
-    {
-        .title = _("True Tactics"),
-        .desc = _(
-                    "Win a full Run\n"
-                    "without any POKéMON\n"
-                    "ever fainting."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LUM_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTutorUpgrade, .giveText=gText_GiveTutorUpgrade },
-        }
-    },
+//    [QUEST_NoFainting1] = 
+//    {
+//        .title = _("Care Tactics"),
+//        .desc = _(
+//                    "Defeat 4 GYM leaders\n"
+//                    "without your PARTNER\n"
+//                    "POKéMON fainting."
+//                ),
+//        .rewards = { 
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SUPER_ROD, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksTutors },
+//        },
+//        .unlockedQuests = { 
+//            QUEST_NoFainting2,
+//            QUEST_NoFainting3,
+//        }
+//    },
+//    [QUEST_NoFainting2] = 
+//    {
+//        .title = _("Smart Tactics"),
+//        .desc = _(
+//                    "Defeat all 8 GYM\n"
+//                    "leaders without any\n"
+//                    "POKéMON fainting."
+//                ),
+//        .rewards = { 
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 500 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KELPSY_BERRY, 1 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HONDEW_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTutorUpgrade, .giveText=gText_GiveTutorUpgrade },
+//        }
+//    },
+//    [QUEST_NoFainting3] = 
+//    {
+//        .title = _("True Tactics"),
+//        .desc = _(
+//                    "Win a full Run\n"
+//                    "without any POKéMON\n"
+//                    "ever fainting."
+//                ),
+//        .rewards = { 
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 20000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_LUM_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTutorUpgrade, .giveText=gText_GiveTutorUpgrade },
+//        }
+//    },
 
 //    [QUEST_MrRandoman] = 
 //    {
@@ -963,484 +963,484 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
         }
     },
 
-    [QUEST_NORMAL_Champion] = 
-    {
-        .title = _("NORMAL Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with NORMAL\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SILK_SCARF, 1 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHILAN_BERRY, 1 } },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SILK_SCARF, 1 } },
-#endif
-        }
-    },
-    [QUEST_FIGHTING_Champion] = 
-    {
-        .title = _("FIGHT Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with FIGHTING\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHOPLE_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BLACK_BELT, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_FIST_PLATE,
-            ITEM_FIGHTING_MEMORY,
-        }
-#endif
-    },
-    [QUEST_FLYING_Champion] = 
-    {
-        .title = _("FLYING Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with FLYING\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_COBA_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SHARP_BEAK, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_SKY_PLATE,
-            ITEM_FLYING_MEMORY,
-        }
-#endif
-    },
-    [QUEST_POISON_Champion] = 
-    {
-        .title = _("POISON Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with POISON\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KEBIA_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_POISON_BARB, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_TOXIC_PLATE,
-            ITEM_POISON_MEMORY,
-        }
-#endif
-    },
-    [QUEST_GROUND_Champion] = 
-    {
-        .title = _("GROUND Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with GROUND\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SHUCA_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SOFT_SAND, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_EARTH_PLATE,
-            ITEM_GROUND_MEMORY,
-        }
-#endif
-    },
-    [QUEST_ROCK_Champion] = 
-    {
-        .title = _("ROCK Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with ROCK\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHARTI_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HARD_STONE, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_STONE_PLATE,
-            ITEM_ROCK_MEMORY,
-        }
-#endif
-    },
-    [QUEST_BUG_Champion] = 
-    {
-        .title = _("BUG Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with BUG\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TANGA_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_INSECT_PLATE,
-            ITEM_BUG_MEMORY,
-        }
-#endif
-    },
-    [QUEST_GHOST_Champion] = 
-    {
-        .title = _("GHOST Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with GHOST\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KASIB_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SPELL_TAG, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_SPOOKY_PLATE,
-            ITEM_GHOST_MEMORY,
-        }
-#endif
-    },
-    [QUEST_STEEL_Champion] = 
-    {
-        .title = _("STEEL Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with STEEL\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BABIRI_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_METAL_COAT, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_IRON_PLATE,
-            ITEM_STEEL_MEMORY,
-        }
-#endif
-    },
-    [QUEST_FIRE_Champion] = 
-    {
-        .title = _("FIRE Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with FIRE\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_OCCA_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHARCOAL, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_FLAME_PLATE,
-            ITEM_FIRE_MEMORY,
-            ITEM_BURN_DRIVE,
-        }
-#endif
-    },
-    [QUEST_WATER_Champion] = 
-    {
-        .title = _("WATER Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with WATER\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PASSHO_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MYSTIC_WATER, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_SPLASH_PLATE,
-            ITEM_WATER_MEMORY,
-            ITEM_DOUSE_DRIVE,
-        }
-#endif
-    },
-    [QUEST_GRASS_Champion] = 
-    {
-        .title = _("GRASS Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with GRASS\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RINDO_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MIRACLE_SEED, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_MEADOW_PLATE,
-            ITEM_GRASS_MEMORY,
-        }
-#endif
-    },
-    [QUEST_ELECTRIC_Champion] = 
-    {
-        .title = _("ELECTR Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with ELECTRIC\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_WACAN_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MAGNET, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_ZAP_PLATE,
-            ITEM_ELECTRIC_MEMORY,
-            ITEM_SHOCK_DRIVE,
-        }
-#endif
-    },
-    [QUEST_PSYCHIC_Champion] = 
-    {
-        .title = _("PSYCHC Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with PSYCHIC\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PAYAPA_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TWISTED_SPOON, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_MIND_PLATE,
-            ITEM_PSYCHIC_MEMORY,
-        }
-#endif
-    },
-    [QUEST_ICE_Champion] = 
-    {
-        .title = _("ICE Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with ICE\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_YACHE_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_NEVER_MELT_ICE, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_ICICLE_PLATE,
-            ITEM_ICE_MEMORY,
-            ITEM_CHILL_DRIVE,
-        }
-#endif
-    },
-    [QUEST_DRAGON_Champion] = 
-    {
-        .title = _("DRAGON Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with DRAGON\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HABAN_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_DRAGON_FANG, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_DRACO_PLATE,
-            ITEM_DRAGON_MEMORY,
-        }
-#endif
-    },
-    [QUEST_DARK_Champion] = 
-    {
-        .title = _("DARK Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with DARK\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_COLBUR_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-#else
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BLACK_GLASSES, 1 } },
-#endif
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_DREAD_PLATE,
-            ITEM_DARK_MEMORY,
-        }
-#endif
-    },
-#ifdef ROGUE_EXPANSION
-    [QUEST_FAIRY_Champion] = 
-    {
-        .title = _("FAIRY Master"),
-        .sortIndex = 255,
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with FAIRY\n"
-                    "POKéMON in your party."
-                ),
-        .flags = QUEST_FLAGS_NONE,
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ROSELI_BERRY, 1 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
-        },
-#ifdef ROGUE_EXPANSION
-        .unlockedShopRewards = {
-            ITEM_PIXIE_PLATE,
-            ITEM_FAIRY_MEMORY,
-        }
-#endif
-    },
-#endif
+//    [QUEST_NORMAL_Champion] = 
+//    {
+//        .title = _("NORMAL Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with NORMAL\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SILK_SCARF, 1 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHILAN_BERRY, 1 } },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SILK_SCARF, 1 } },
+//#endif
+//        }
+//    },
+//    [QUEST_FIGHTING_Champion] = 
+//    {
+//        .title = _("FIGHT Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with FIGHTING\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHOPLE_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BLACK_BELT, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_FIST_PLATE,
+//            ITEM_FIGHTING_MEMORY,
+//        }
+//#endif
+//    },
+//    [QUEST_FLYING_Champion] = 
+//    {
+//        .title = _("FLYING Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with FLYING\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_COBA_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SHARP_BEAK, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_SKY_PLATE,
+//            ITEM_FLYING_MEMORY,
+//        }
+//#endif
+//    },
+//    [QUEST_POISON_Champion] = 
+//    {
+//        .title = _("POISON Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with POISON\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KEBIA_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_POISON_BARB, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_TOXIC_PLATE,
+//            ITEM_POISON_MEMORY,
+//        }
+//#endif
+//    },
+//    [QUEST_GROUND_Champion] = 
+//    {
+//        .title = _("GROUND Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with GROUND\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SHUCA_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SOFT_SAND, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_EARTH_PLATE,
+//            ITEM_GROUND_MEMORY,
+//        }
+//#endif
+//    },
+//    [QUEST_ROCK_Champion] = 
+//    {
+//        .title = _("ROCK Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with ROCK\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHARTI_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HARD_STONE, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_STONE_PLATE,
+//            ITEM_ROCK_MEMORY,
+//        }
+//#endif
+//    },
+//    [QUEST_BUG_Champion] = 
+//    {
+//        .title = _("BUG Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with BUG\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TANGA_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_INSECT_PLATE,
+//            ITEM_BUG_MEMORY,
+//        }
+//#endif
+//    },
+//    [QUEST_GHOST_Champion] = 
+//    {
+//        .title = _("GHOST Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with GHOST\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_KASIB_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_SPELL_TAG, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_SPOOKY_PLATE,
+//            ITEM_GHOST_MEMORY,
+//        }
+//#endif
+//    },
+//    [QUEST_STEEL_Champion] = 
+//    {
+//        .title = _("STEEL Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with STEEL\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BABIRI_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_METAL_COAT, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_IRON_PLATE,
+//            ITEM_STEEL_MEMORY,
+//        }
+//#endif
+//    },
+//    [QUEST_FIRE_Champion] = 
+//    {
+//        .title = _("FIRE Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with FIRE\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_OCCA_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_CHARCOAL, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_FLAME_PLATE,
+//            ITEM_FIRE_MEMORY,
+//            ITEM_BURN_DRIVE,
+//        }
+//#endif
+//    },
+//    [QUEST_WATER_Champion] = 
+//    {
+//        .title = _("WATER Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with WATER\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PASSHO_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MYSTIC_WATER, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_SPLASH_PLATE,
+//            ITEM_WATER_MEMORY,
+//            ITEM_DOUSE_DRIVE,
+//        }
+//#endif
+//    },
+//    [QUEST_GRASS_Champion] = 
+//    {
+//        .title = _("GRASS Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with GRASS\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RINDO_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MIRACLE_SEED, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_MEADOW_PLATE,
+//            ITEM_GRASS_MEMORY,
+//        }
+//#endif
+//    },
+//    [QUEST_ELECTRIC_Champion] = 
+//    {
+//        .title = _("ELECTR Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with ELECTRIC\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_WACAN_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MAGNET, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_ZAP_PLATE,
+//            ITEM_ELECTRIC_MEMORY,
+//            ITEM_SHOCK_DRIVE,
+//        }
+//#endif
+//    },
+//    [QUEST_PSYCHIC_Champion] = 
+//    {
+//        .title = _("PSYCHC Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with PSYCHIC\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_PAYAPA_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_TWISTED_SPOON, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_MIND_PLATE,
+//            ITEM_PSYCHIC_MEMORY,
+//        }
+//#endif
+//    },
+//    [QUEST_ICE_Champion] = 
+//    {
+//        .title = _("ICE Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with ICE\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_YACHE_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_NEVER_MELT_ICE, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_ICICLE_PLATE,
+//            ITEM_ICE_MEMORY,
+//            ITEM_CHILL_DRIVE,
+//        }
+//#endif
+//    },
+//    [QUEST_DRAGON_Champion] = 
+//    {
+//        .title = _("DRAGON Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with DRAGON\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_HABAN_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_DRAGON_FANG, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_DRACO_PLATE,
+//            ITEM_DRAGON_MEMORY,
+//        }
+//#endif
+//    },
+//    [QUEST_DARK_Champion] = 
+//    {
+//        .title = _("DARK Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with DARK\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_COLBUR_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//#else
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_BLACK_GLASSES, 1 } },
+//#endif
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_DREAD_PLATE,
+//            ITEM_DARK_MEMORY,
+//        }
+//#endif
+//    },
+//#ifdef ROGUE_EXPANSION
+//    [QUEST_FAIRY_Champion] = 
+//    {
+//        .title = _("FAIRY Master"),
+//        .sortIndex = 255,
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with FAIRY\n"
+//                    "POKéMON in your party."
+//                ),
+//        .flags = QUEST_FLAGS_NONE,
+//        .rewards = { 
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ROSELI_BERRY, 1 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopPlates },
+//        },
+//#ifdef ROGUE_EXPANSION
+//        .unlockedShopRewards = {
+//            ITEM_PIXIE_PLATE,
+//            ITEM_FAIRY_MEMORY,
+//        }
+//#endif
+//    },
+//#endif
 };

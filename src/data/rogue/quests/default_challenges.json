@@ -19,24 +19,61 @@
         "default_group":
         [
             {
-                "name": "Challenger Approaches!",
-                "description": "Complete any Challenge Quest!",
-                "flags": 
-                [
-                    "CHALLENGE_DEFAULT",
-                    "ACTIVE_ALWAYS"
-                ],
+                "name": "Chaos Master",
+                "description": "Win a full Run, with a Random Partner Pokémon, always doing a Full Party trade with Mr. Randoman whenever possible.",
                 "triggers":
                 [
                     {
-                        "on": [ "RUN_END" ],
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "InAdventureEncounterType",
+                        "params": [ "ADVPATH_ROOM_RESTSTOP" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "RandomanWasActive",
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "RandomanWasUsed",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "LastRandomanWasFullParty",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
                         "condition": "Always",
                         "pass": "SUCCESS"
                     }
                 ],
                 "rewards":
                 [
-                    { "species": "SPECIES_WOBBUFFET", "shiny": true }
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "name": "True Tactics",
+                "description": "Win a full Run, without any Pokémon ever fainting.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MON_FAINTED" ],
+                        "condition": "Always",
+                        "pass": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
                 ]
             }
         ]
