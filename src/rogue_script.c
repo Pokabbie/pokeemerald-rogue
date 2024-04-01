@@ -1128,7 +1128,20 @@ void Rogue_AssignDefaultRegion()
         Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_KANTO, TRUE);
     }
 
+#ifdef ROGUE_EXPASION
+    switch (VarGet(VAR_ROGUE_INITIAL_DEX_SELECTION))
+    {
+    case 0:
+        RoguePokedex_SetDexVariant(POKEDEX_VARIANT_ROGUE_MODERN);
+        break;
+    
+    default:
+        RoguePokedex_SetDexVariant(POKEDEX_VARIANT_ROGUE_CLASSICPLUS);
+        break;
+    }
+#else
     RoguePokedex_SetDexVariant(POKEDEX_VARIANT_DEFAULT);
+#endif
 }
 
 void Rogue_IsFinalQuestActive()

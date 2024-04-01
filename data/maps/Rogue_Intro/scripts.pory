@@ -195,19 +195,77 @@ script Rogue_Intro_MapScripts_OnLoad
     }
 }
 
+script Rogue_PreIntro
+{
+    bufferstring(STR_VAR_1, gText_RogueVersion)
+    bufferstring(STR_VAR_2, gText_RogueVersionPrefix)
+    bufferstring(STR_VAR_3, gText_RogueVersionSuffix)
+
+    msgbox(format("{COLOR BLUE}Welcome to Emerald Rogue {STR_VAR_2}\n{STR_VAR_1} {STR_VAR_3}!\pA few things before you get started…"))
+
+    msgbox(format("{COLOR BLUE}Firstly, please select an initial difficulty.\p(This can be changed later in the Config Lab)"))
+    special(Special_ViewDifficultyConfigMenu)
+    waitstate
+
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            setvar(VAR_ROGUE_INITIAL_DEX_SELECTION, 0)
+            msgbox(format("{COLOR BLUE}Finally, as you are playing Vanilla version, you will be limited to the original Pokémon and battle mechanics of Pokémon Emerald.\pIf you would like to play with modern mechanics and Pokémon up to generation 9, please play the EX version instead."))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            message(format("{COLOR BLUE}Finally, for your first Adventure, what types of Pokémon would you like to encounter?"))
+            setvar(VAR_RESULT, NO)
+
+            while(var(VAR_RESULT) == NO)
+            {
+                waitmessage
+
+                multichoice(20, 7, MULTI_CLASSIC_MODERN, TRUE)
+                copyvar(VAR_0x8000, VAR_RESULT)
+
+                switch(var(VAR_0x8000))
+                {
+                    case 0: // Modern
+                        setvar(VAR_ROGUE_INITIAL_DEX_SELECTION, 0)
+                        msgbox(format("{COLOR BLUE}You'll encounter a selection of Pokémon from across all 9 generations.\pSo Modern is your preference?"), MSGBOX_YESNO)
+                        
+
+                    case 1: // Classic
+                        setvar(VAR_ROGUE_INITIAL_DEX_SELECTION, 1)
+                        msgbox(format("{COLOR BLUE}You'll encounter Pokémon from generations 1 to 3 along with any future evolutions and forms added.\pSo Classic is your preference?"), MSGBOX_YESNO)
+                }
+
+                if(var(VAR_RESULT) == NO)
+                {
+                    message(format("{COLOR BLUE}For your first Adventure, what types of Pokémon would you like to encounter?"))
+                }
+            }
+        }
+    }
+
+    msgbox(format("{COLOR BLUE}You're now all ready to go.\nI hope you enjoy Emerald Rogue!"))
+    closemessage
+}
+
 script Rogue_Intro_MapScripts_LoadFrame_0
 {
     lock
     setvar(VAR_FRAME_TABLE_IDX, 1)
 
-    msgbox(format("Please select an initial difficulty.\pThis can be changed later in the Config Lab."), MSGBOX_AUTOCLOSE)
-    special(Special_ViewDifficultyConfigMenu)
-    waitstate
+    fadescreen(FADE_TO_BLACK)
+
+    playbgm(MUS_RG_NEW_GAME_INSTRUCT, FALSE)
+    call(Rogue_PreIntro)
+    fadeoutbgm(1)
+
 
     // Fade in screen
     //
-    fadescreen(FADE_TO_BLACK)
-    delay(10)
+    delay(60)
     msgbox(format("… … …\p… … …!\pHey… … …!\pCan you hear me?"), MSGBOX_AUTOCLOSE)
 
     setobjectxy(OBJ_LOCAL_ID_PROF, COORD_CENTRE_X, COORD_CENTRE_Y)
