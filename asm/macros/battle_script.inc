@@ -1273,8 +1273,9 @@
 	.4byte \ptr
 	.endm
 
-	.macro rogue_caughtmon
+	.macro rogue_caughtmon discard:req
 	.byte 0xfd
+	.byte \discard
 	.endm
 
 	.macro settelekinesis failInstr:req

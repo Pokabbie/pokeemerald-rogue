@@ -3,6 +3,7 @@
 
 void RogueSafari_PushMon(struct Pokemon* mon);
 void RogueSafari_PushBoxMon(struct BoxPokemon* mon);
+void RogueSafari_PushLowPriorityMon(struct Pokemon* mon);
 
 void RogueSafari_ResetSpawns();
 

@@ -25,11 +25,52 @@ static void ZeroSafariMon(struct RogueSafariMon* mon);
 static u8 AllocSafariMonSlotFor(struct BoxPokemon* mon);
 static u8 FreeSafariMonSlotCount();
 
+static void PushBoxMonInternal(struct BoxPokemon* monToCopy, bool32 isLowPriority)
+{
+    u8 index = AllocSafariMonSlotFor(monToCopy);
+    struct RogueSafariMon* writeMon = &gRogueSaveBlock->safariMons[index];
+
+    ZeroSafariMon(writeMon);
+    RogueSafari_CopyToSafariMon(monToCopy, writeMon);
+
+    if(isLowPriority)
+    {
+        writeMon->priorityCounter = 0;
+    }
+    else
+    {
+        u8 metLevel = GetBoxMonData(monToCopy, MON_DATA_MET_LEVEL);
+        u8 currentLevel = GetBoxMonData(monToCopy, MON_DATA_LEVEL);
+
+        // For each 10 levels we raised this mon by increase by 4
+        writeMon->priorityCounter = 16 + ((currentLevel - metLevel) / 10) * 4;
+    }
+
+    writeMon->priorityCounter = isLowPriority ? 0 : 32;
+
+    if(writeMon->shinyFlag)
+    {
+        // Shinies will last much longer than regular mons
+        writeMon->priorityCounter += 32;
+    }
+}
+
 void RogueSafari_PushMon(struct Pokemon* mon)
 {
     if(!mon->rogueExtraData.isSafariIllegal)
     {
-        RogueSafari_PushBoxMon(&mon->box);
+        PushBoxMonInternal(&mon->box, FALSE);
+
+        // Just in case we somehow try to add this mon twice, don't
+        mon->rogueExtraData.isSafariIllegal = TRUE;
+    }
+}
+
+void RogueSafari_PushLowPriorityMon(struct Pokemon* mon)
+{
+    if(!mon->rogueExtraData.isSafariIllegal)
+    {
+        PushBoxMonInternal(&mon->box, TRUE);
 
         // Just in case we somehow try to add this mon twice, don't
         mon->rogueExtraData.isSafariIllegal = TRUE;
@@ -38,22 +79,7 @@ void RogueSafari_PushMon(struct Pokemon* mon)
 
 void RogueSafari_PushBoxMon(struct BoxPokemon* monToCopy)
 {
-    u8 index = AllocSafariMonSlotFor(monToCopy);
-    struct RogueSafariMon* writeMon = &gRogueSaveBlock->safariMons[index];
-
-    ZeroSafariMon(writeMon);
-    RogueSafari_CopyToSafariMon(monToCopy, writeMon);
-
-    writeMon->priorityCounter = 32;
-
-    if(writeMon->shinyFlag)
-    {
-        // Shinies will last much longer than regular mons
-        writeMon->priorityCounter += 32;
-    }
-
-    // TODO - Handle legends?
-    // TODO - Track if mon used in major fights (or lots of fights)
+    PushBoxMonInternal(monToCopy, FALSE);
 }
 
 static void ZeroSafariMon(struct RogueSafariMon* mon)
