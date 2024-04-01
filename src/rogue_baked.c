@@ -1602,6 +1602,8 @@ static bool8 IsEvolutionItemInternal(u16 itemId)
 #ifdef ROGUE_EXPANSION
             case EVO_ITEM_MALE:
             case EVO_ITEM_FEMALE:
+            case EVO_ITEM_DAY:
+            case EVO_ITEM_NIGHT:
 #endif
                 if (evo.param == itemId)
                     return TRUE;
