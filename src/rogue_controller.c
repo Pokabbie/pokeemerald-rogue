@@ -6981,6 +6981,7 @@ void Rogue_GetCatchingContestResults(u16* caughtSpecies, bool8* didWin, u16* win
 void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 {
     bool8 applyRandomChance = FALSE;
+    u16 randomChanceMinimum = 0;
     u16 maxPriceRange = 65000;
     u16 difficulty = Rogue_GetModeRules()->forceFullShopInventory ? ROGUE_FINAL_CHAMP_DIFFICULTY : Rogue_GetCurrentDifficulty();
 
@@ -7069,6 +7070,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
             }
         }
         applyRandomChance = TRUE;
+        randomChanceMinimum = 50;
         break;
 
     case ROGUE_SHOP_HELD_ITEMS:
@@ -7249,6 +7251,8 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
             {
                 chance = 60 + 10 * (difficulty - ROGUE_ELITE_START_DIFFICULTY);
             }
+
+            chance = max(randomChanceMinimum, chance);
 
             if(chance < 100)
                 RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, chance, 1);
