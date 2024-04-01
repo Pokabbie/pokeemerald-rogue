@@ -1834,13 +1834,17 @@ static u8 ItemToGen(u16 item)
     return 1;
 }
 
+extern const u16 gRogueBake_EvoItems_Count;
+extern const u16 gRogueBake_FormItems_Count;
+
 static void SetEvolutionItemFlag(u16 itemId, bool8 state)
 {
     u16 elem = Rogue_GetEvolutionItemIndex(itemId);
     u16 idx = elem / 8;
     u16 bit = elem % 8;
     u8 bitMask = 1 << bit;
-
+    
+    AGB_ASSERT(elem < gRogueBake_EvoItems_Count);
     AGB_ASSERT(idx < ARRAY_COUNT(gRogueRun.activeEvoItemFlags));
 
     if(state)
@@ -1868,6 +1872,7 @@ static void SetFormItemFlag(u16 itemId, bool8 state)
     u16 bit = elem % 8;
     u8 bitMask = 1 << bit;
 
+    AGB_ASSERT(elem < gRogueBake_FormItems_Count);
     AGB_ASSERT(idx < ARRAY_COUNT(gRogueRun.activeFormItemFlags));
 
     if(state)
@@ -3292,17 +3297,18 @@ static void BeginRogueRun_ModifyParty(void)
     }
 }
 
-extern const u16 gRogueBake_EvoItems_Count;
-extern const u16 gRogueBake_FormItems_Count;
-
 static void BeginRogueRun_ConsiderItems(void)
 {
     DebugPrintf("Evos: required bits %d, avaliable bits %d", gRogueBake_EvoItems_Count, ARRAY_COUNT(gRogueRun.activeEvoItemFlags) * 8);
     AGB_ASSERT(gRogueBake_EvoItems_Count < ARRAY_COUNT(gRogueRun.activeEvoItemFlags) * 8);
 
+    memset(&gRogueRun.activeEvoItemFlags, 0, sizeof(gRogueRun.activeEvoItemFlags));
+
 #ifdef ROGUE_EXPANSION
     DebugPrintf("Forms: required bits %d, avaliable bits %d", gRogueBake_FormItems_Count, ARRAY_COUNT(gRogueRun.activeFormItemFlags) * 8);
     AGB_ASSERT(gRogueBake_FormItems_Count < ARRAY_COUNT(gRogueRun.activeFormItemFlags) * 8);
+
+    memset(&gRogueRun.activeFormItemFlags, 0, sizeof(gRogueRun.activeFormItemFlags));
 #endif
 
     // Go through all active evo/forms and figure out what items we want to enable
@@ -3324,7 +3330,7 @@ static void BeginRogueRun_ConsiderItems(void)
         {
             if(Query_IsSpeciesEnabled(species))
             {
-                evoCount = Rogue_GetActiveEvolutionCount(species);
+                evoCount = Rogue_GetMaxEvolutionCount(species);
 
                 for(e = 0; e < evoCount; ++e)
                 {
@@ -3348,17 +3354,18 @@ static void BeginRogueRun_ConsiderItems(void)
 #ifdef ROGUE_EXPANSION
     {
         struct FormChange form;
-        u16 species, e, formCount;
+        u16 species, e;
 
         for (species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
         {
             if(Query_IsSpeciesEnabled(species))
             {
-                formCount = Rogue_GetActiveFormChangeCount(species);
-
-                for (e = 0; e < formCount; ++e)
+                for (e = 0; TRUE; ++e)
                 {
                     Rogue_ModifyFormChange(species, e, &form);
+
+                    if(form.method == FORM_CHANGE_TERMINATOR)
+                        break;
 
                     switch (form.method)
                     {
