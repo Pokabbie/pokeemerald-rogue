@@ -807,6 +807,9 @@ const u8 gText_PieSmall[] = _("Small    (Uses x3 {POKEBLOCK})");    // based on 
 const u8 gText_PieMedium[] = _("Medium (Uses x6 {POKEBLOCK})");     // based on PIE_MEDIUM_FILLING_AMOUNT
 const u8 gText_PieLarge[] = _("Large   (Uses x9 {POKEBLOCK})");     // based on PIE_LARGE_FILLING_AMOUNT
 
+const u8 gText_Classic[] = _("Classic");
+const u8 gText_Modern[] = _("Modern");
+
 const u8 gText_Info4[] = _("INFO"); // Unused
 const u8 gText_SingleBattle[] = _("SINGLES");
 const u8 gText_DoubleBattle[] = _("DOUBLES");

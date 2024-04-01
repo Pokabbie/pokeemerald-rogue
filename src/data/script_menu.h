@@ -894,6 +894,12 @@ static const struct MenuAction MultichoiceList_SelectPieFilling[] =
     {gText_PieLarge},
 };
 
+static const struct MenuAction MultichoiceList_ClassicModern[] =
+{
+    {gText_Modern},
+    {gText_Classic},
+};
+
 struct MultichoiceListStruct
 {
     const struct MenuAction *list;
@@ -1024,6 +1030,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SELECT_SEASON]              = MULTICHOICE(MultichoiceList_SelectSeason),
     [MULTI_SELECT_TIME]                = MULTICHOICE(MultichoiceList_SelectTime),
     [MULTI_SELECT_PIE_FILLING]         = MULTICHOICE(MultichoiceList_SelectPieFilling),
+    [MULTI_CLASSIC_MODERN]             = MULTICHOICE(MultichoiceList_ClassicModern),
 };
 
 static const MultichoiceList_Callback sMultichoiceCallback[] =

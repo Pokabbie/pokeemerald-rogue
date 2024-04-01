@@ -1266,6 +1266,9 @@ extern const u8 gText_PieSmall[];
 extern const u8 gText_PieMedium[];
 extern const u8 gText_PieLarge[];
 
+extern const u8 gText_Classic[];
+extern const u8 gText_Modern[];
+
 extern const u8 gText_Challenge[];
 extern const u8 gText_Info3[];
 extern const u8 gTrickHouse_Mechadoll_Oddish[];

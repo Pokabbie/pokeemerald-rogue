@@ -493,7 +493,7 @@ namespace PokemonDataGenerator.Pokedex
 			{
 				target.Mons[target.Mons.Count - 1] = "elekid";
 				target.Mons.Add("electabuzz");
-				target.Mons.Add("electrivire");
+				target.Mons.Add("electivire");
 			}
 			else if (species.Equals("magmar", StringComparison.CurrentCultureIgnoreCase))
 			{
@@ -501,8 +501,10 @@ namespace PokemonDataGenerator.Pokedex
 				target.Mons.Add("magmar");
 				target.Mons.Add("magmortar");
 			}
-			else if (species.Equals("umbreon", StringComparison.CurrentCultureIgnoreCase))
+			else if (species.Equals("flareon", StringComparison.CurrentCultureIgnoreCase))
 			{
+				target.Mons.Add("espeon");
+				target.Mons.Add("umbreon");
 				target.Mons.Add("leafeon");
 				target.Mons.Add("glaceon");
 				target.Mons.Add("sylveon");
