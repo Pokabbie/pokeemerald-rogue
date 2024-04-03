@@ -864,24 +864,24 @@ void GiveEggFromDaycare(void)
 
 static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
 {
-    u32 i, validEggs = 0;
+    u32 i;//, validEggs = 0;
 
-    for (i = 0; i < DAYCARE_MON_COUNT; i++)
-    {
-        if (GetBoxMonData(&daycare->mons[i].mon, MON_DATA_SANITY_HAS_SPECIES))
-            daycare->mons[i].steps++, validEggs++;
-    }
+    //for (i = 0; i < DAYCARE_MON_COUNT; i++)
+    //{
+    //    if (GetBoxMonData(&daycare->mons[i].mon, MON_DATA_SANITY_HAS_SPECIES))
+    //        daycare->mons[i].steps++, validEggs++;
+    //}
+//
+    //// Check if an egg should be produced
+    //if (daycare->offspringPersonality == 0 && validEggs == DAYCARE_MON_COUNT && (daycare->mons[1].steps & 0xFF) == 0xFF)
+    //{
+    //    u8 compatibility = GetDaycareCompatibilityScore(daycare);
+    //    if (compatibility > (Random() * 100u) / USHRT_MAX)
+    //        TriggerPendingDaycareEgg();
+    //}
 
-    // Check if an egg should be produced
-    if (daycare->offspringPersonality == 0 && validEggs == DAYCARE_MON_COUNT && (daycare->mons[1].steps & 0xFF) == 0xFF)
-    {
-        u8 compatibility = GetDaycareCompatibilityScore(daycare);
-        if (compatibility > (Random() * 100u) / USHRT_MAX)
-            TriggerPendingDaycareEgg();
-    }
-
-    // Try to hatch Egg
-    if (++daycare->stepCounter == 255)
+    // Try to hatch Egg (Only need to do it in the Hub)
+    if ((++daycare->stepCounter % 2) == 0 && !Rogue_IsRunActive())
     {
         u32 eggCycles;
         u8 toSub = GetEggCyclesToSubtract();
@@ -893,7 +893,8 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
             if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_BAD_EGG))
                 continue;
 
-            eggCycles = GetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP);
+            // Always assume 0 egg cycles left, just incase people decide to be cheeky and pkhex eggs in
+            eggCycles = 0; //GetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP);
             if (eggCycles != 0)
             {
                 if (eggCycles >= toSub)

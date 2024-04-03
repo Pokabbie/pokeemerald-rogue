@@ -1359,6 +1359,16 @@ void Rogue_SwapDaycareMon()
         SetupFollowParterMonObjectEvent();
 }
 
+void Rogue_TransformIntoValidDaycareEgg()
+{
+    u16 eggSpecies = Rogue_GetEggSpecies(gSpecialVar_Result);
+
+    if(!RoguePokedex_IsSpeciesLegendary(eggSpecies))
+        gSpecialVar_Result = eggSpecies;
+    else
+        gSpecialVar_Result = SPECIES_NONE;
+}
+
 void Rogue_HealAlivePlayerParty()
 {
     u8 i, j;

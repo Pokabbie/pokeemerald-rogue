@@ -43,6 +43,7 @@ u8 Rogue_GetStartingMonCapacity();
 
 bool8 Rogue_ShouldSkipAssignNickname(struct Pokemon* mon);
 bool8 Rogue_ShouldSkipAssignNicknameYesNoMessage();
+bool8 Rogue_ShouldForceNicknameScreen();
 
 // UI
 void Rogue_OpenDifficultyConfigMenu(RogueDifficultyMenuCallback callback);

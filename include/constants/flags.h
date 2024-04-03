@@ -482,7 +482,7 @@
 #define FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH  0x1B8
 #define FLAG_MOVE_TUTOR_TAUGHT_DOUBLE_EDGE   0x1B9
 #define FLAG_MOVE_TUTOR_TAUGHT_EXPLOSION     0x1BA
-#define FLAG_UNUSED_0x1BB                    0x1BB
+#define FLAG_ROGUE_DAYCARE_EGG_READY         0x1BB
 #define FLAG_UNUSED_0x1BC                    0x1BC
 #define FLAG_UNUSED_0x1BD                    0x1BD
 #define FLAG_UNUSED_0x1BE                    0x1BE
