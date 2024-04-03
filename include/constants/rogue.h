@@ -322,6 +322,7 @@
 
 #define SPECIES_RAVEN_ACE               SPECIES_GOOMY
 #define SPECIES_ERMA_ACE                SPECIES_FOMANTIS
+#define SPECIES_KATE_ACE                SPECIES_TAROUNTULA
 #else
 #define ITEM_POKABBIE_POKEBALL          ITEM_LUXURY_BALL
 #define ITEM_FINAL_TRAINERS_POKEBALL    ITEM_PREMIER_BALL
@@ -331,6 +332,7 @@
 
 #define SPECIES_RAVEN_ACE               SPECIES_NONE
 #define SPECIES_ERMA_ACE                SPECIES_NONE
+#define SPECIES_KATE_ACE                SPECIES_GASTLY
 #endif
 
 // For final quest we're going to only show a single rival per "gym gen"

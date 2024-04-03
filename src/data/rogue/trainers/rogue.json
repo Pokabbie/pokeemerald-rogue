@@ -588,15 +588,15 @@
                 "trainer_class": "TRAINER_CLASS_COMMUNITY_MOD",
                 "class_flags": [ "BOSS_ANY_ELITE" ],
                 "weather": "VOLCANIC_ASH",
-                "shiny_species": "SPECIES_GASTLY",
+                "shiny_species": "SPECIES_KATE_ACE",
                 "pokeball": "LUXURY_BALL",
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Why do they call it oven when you of in the cold food of out hot eat the food!",
-                        "PRE_BATTLE_TAUNT": "Todo",
-                        "POST_BATTLE_TAUNT": "Todo",
-                        "POST_BATTLE_CLOSER": "Todo"
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Have you spoken to Pokabbie?",
+                        "PRE_BATTLE_TAUNT": "Well, don't get any big ideas!",
+                        "POST_BATTLE_TAUNT": "Oh no!",
+                        "POST_BATTLE_CLOSER": "Please don't tell her I lost!"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE",
@@ -698,6 +698,11 @@
                             "SPECIES_MIMIKYU",
                             "SPECIES_TOXTRICITY",
                             "SPECIES_DRAGAPULT",
+
+                            "SPECIES_ANNIHILAPE",
+                            "SPECIES_TINKATON",
+                            "SPECIES_SPIDOPS",
+                            "SPECIES_CERULEDGE",
                         "#endif",
                         "SPECIES_NONE"
                     ]
@@ -1040,6 +1045,15 @@
                 "class_flags": [ "BOSS_ANY_ELITE" ],
                 "weather": "MISTY_FOG",
                 "shiny_species": "SPECIES_RAVEN_ACE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Have you take good care of your Pokémon?",
+                        "PRE_BATTLE_TAUNT": "Show me the bonds you made!",
+                        "POST_BATTLE_TAUNT": "Strong Pokémon.\\nGood job!",
+                        "POST_BATTLE_CLOSER": "If you take good care of Pokémon, even weak ones can be strong!\\pKeep it up!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -1109,6 +1123,9 @@
                             "SPECIES_DRACOZOLT",
                             "SPECIES_RAPIDASH_GALARIAN",
                             "SPECIES_ALCREMIE",
+
+                            "SPECIES_REVAVROOM",
+                            "SPECIES_DACHSBUN",
                         "#endif",
                         "SPECIES_NONE"
                     ]
