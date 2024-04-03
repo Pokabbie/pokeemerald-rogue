@@ -265,6 +265,7 @@ static const u8 sText_Popup_RoamerLegendary[] = _("{COLOR LIGHT_GREEN}{SHADOW GR
 static const u8 sText_Popup_GiftPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gift Pokémon!");
 static const u8 sText_Popup_GiftShinyPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gift Shiny {PKMN}!");
 static const u8 sText_Popup_GiftCustomPokemon[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Gift Unique {PKMN}!");
+static const u8 sText_Popup_DaycarePokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Pokémon Egg");
 static const u8 sText_Popup_None[] = _("");
 
 static const u8 sText_Popup_NewMoves[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}New Moves!");
@@ -1510,6 +1511,11 @@ void Rogue_PushPopup_AddPokemon(u16 species, bool8 isCustom, bool8 isShiny)
         popup->subtitleText = sText_Popup_GiftCustomPokemon;
     else if(isShiny)
         popup->subtitleText = sText_Popup_GiftShinyPokemon;
+    else if(species == SPECIES_EGG)
+    {
+        popup->titleText = sText_Popup_DaycarePokemon;
+        // no subtitle
+    }
     else
         popup->subtitleText = sText_Popup_GiftPokemon;
 }

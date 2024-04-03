@@ -102,3 +102,61 @@ script Rogue_Area_DayCare_SwapMonGender
 
     release
 }
+
+script Rogue_Area_DayCare_TalkEggBreeder
+{
+    lock
+    faceplayer
+
+    msgbox(format("Hello there, {PLAYER}!"))
+
+    if(flag(FLAG_ROGUE_DAYCARE_EGG_READY))
+    {
+        bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG)
+        msgbox(format("I managed to find that {STR_VAR_1} egg you were looking for!"))
+
+        giveegg(VAR_ROGUE_DAYCARE_EGG)
+
+        clearflag(FLAG_ROGUE_DAYCARE_EGG_READY)
+        setvar(VAR_ROGUE_DAYCARE_EGG, SPECIES_NONE)
+    }
+    else
+    {
+        if(var(VAR_ROGUE_DAYCARE_EGG) != SPECIES_NONE)
+        {
+            bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG)
+            msgbox(format("I've not managed to locate a {STR_VAR_1} egg quite yet.\pWould you like for me to look for a different type of Pokémon instead?"), MSGBOX_YESNO)
+        }
+        else
+        {
+            msgbox(format("If you'd like I can attempt to acquire a Pokémon for you whilst, you're out Adventuring!\pWhich Pokémon would you like and egg for?"))
+            setvar(VAR_RESULT, YES)
+        }
+
+        if(var(VAR_RESULT) == YES)
+        {
+            special(Special_SelectMonInPokedex)
+            waitstate
+
+            if(var(VAR_RESULT) != SPECIES_NONE)
+            {
+                special(Rogue_TransformIntoValidDaycareEgg)
+                
+                if(var(VAR_RESULT) == SPECIES_NONE)
+                {
+                    msgbox(format("I'm not sure I would be able to locate an Egg for that Pokémon, I'm afraid."))
+                }
+                else
+                {
+                    clearflag(FLAG_ROGUE_DAYCARE_EGG_READY)
+                    copyvar(VAR_ROGUE_DAYCARE_EGG, VAR_RESULT)
+                    bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG)
+
+                    msgbox(format("Alright!\nI'll keep my eyes out for a {STR_VAR_1} egg."))
+                }
+            }
+        }
+    }
+
+    release
+}

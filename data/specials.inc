@@ -269,6 +269,7 @@ gSpecials::
 	def_special Rogue_CheckDaycareCount
 	def_special Rogue_IsDaycareSlotEmpty
 	def_special Rogue_SwapDaycareMon
+	def_special Rogue_TransformIntoValidDaycareEgg
 	def_special Rogue_HealAlivePlayerParty
 	def_special Rogue_SelectCatchingContestMode
 	def_special Rogue_BufferContestMode

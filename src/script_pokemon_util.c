@@ -26,6 +26,7 @@
 #include "constants/battle_frontier.h"
 
 #include "rogue_controller.h"
+#include "rogue_baked.h"
 
 static void CB2_ReturnFromChooseHalfParty(void);
 static void CB2_ReturnFromChooseBattleFrontierParty(void);
@@ -111,9 +112,11 @@ u8 ScriptGiveEgg(u16 species)
     struct Pokemon mon;
     u8 isEgg;
 
-    CreateEgg(&mon, species, TRUE);
+    CreateEgg(&mon, Rogue_GetEggSpecies(species), FALSE);
     isEgg = TRUE;
     SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
+
+    Rogue_ModifyEggMon(&mon);
 
     return GiveMonToPlayer(&mon);
 }

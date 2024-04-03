@@ -37,6 +37,9 @@
 #include "battle.h" // to get rid of later
 #include "constants/rgb.h"
 
+#include "rogue_controller.h"
+#include "rogue_settings.h"
+
 #define GFXTAG_EGG       12345
 #define GFXTAG_EGG_SHARD 23456
 
@@ -668,11 +671,30 @@ static void CB2_EggHatch(void)
             sEggHatchData->state++;
         break;
     case 8:
-        // Ready the nickname prompt
-        GetMonNickname2(&gPlayerParty[sEggHatchData->eggPartyId], gStringVar1);
-        StringExpandPlaceholders(gStringVar4, gText_NicknameHatchPrompt);
-        EggHatchPrintMessage(sEggHatchData->windowId, gStringVar4, 0, 2, 1);
-        sEggHatchData->state++;
+        if(Rogue_ShouldSkipAssignNickname(&gPlayerParty[sEggHatchData->eggPartyId]) || Rogue_ShouldSkipAssignNicknameYesNoMessage())
+        {
+            if(Rogue_ShouldForceNicknameScreen())
+            {
+                GetMonNickname2(&gPlayerParty[sEggHatchData->eggPartyId], gStringVar3);
+                species = GetMonData(&gPlayerParty[sEggHatchData->eggPartyId], MON_DATA_SPECIES);
+                gender = GetMonGender(&gPlayerParty[sEggHatchData->eggPartyId]);
+                personality = GetMonData(&gPlayerParty[sEggHatchData->eggPartyId], MON_DATA_PERSONALITY, 0);
+                DoNamingScreen(NAMING_SCREEN_NICKNAME, gStringVar3, species, gender, personality, EggHatchSetMonNickname);
+            }
+            else
+            {
+                // Skip to fade out
+                sEggHatchData->state = 11;
+            }
+        }
+        else
+        {
+            // Ready the nickname prompt
+            GetMonNickname2(&gPlayerParty[sEggHatchData->eggPartyId], gStringVar1);
+            StringExpandPlaceholders(gStringVar4, gText_NicknameHatchPrompt);
+            EggHatchPrintMessage(sEggHatchData->windowId, gStringVar4, 0, 2, GetPlayerTextSpeedDelay());
+            sEggHatchData->state++;
+        }
         break;
     case 9:
         // Print the nickname prompt
@@ -918,7 +940,7 @@ static void EggHatchPrintMessage(u8 windowId, u8 *string, u8 x, u8 y, u8 speed)
 {
     FillWindowPixelBuffer(windowId, PIXEL_FILL(15));
     sEggHatchData->textColor[0] = 0;
-    sEggHatchData->textColor[1] = 5;
+    sEggHatchData->textColor[1] = 1;
     sEggHatchData->textColor[2] = 6;
     AddTextPrinterParameterized4(windowId, FONT_NORMAL, x, y, 0, 0, sEggHatchData->textColor, speed, string);
 }

@@ -427,7 +427,19 @@ u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
     if(Rogue_IsRideActive())
         species = Rogue_GetRideMonSpeciesGfx(0);
     else
-        species = FollowMon_GetMonGraphics(&gPlayerParty[0]);
+    {
+        u8 i;
+        species = SPECIES_NONE;
+
+        for(i = 0; i < gPlayerPartyCount; ++i)
+        {
+            if(!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+            {
+                species = FollowMon_GetMonGraphics(&gPlayerParty[i]);
+                break;
+            }
+        }
+    }
 
     if(!includeShinyOffset && species >= FOLLOWMON_SHINY_OFFSET)
         species -= FOLLOWMON_SHINY_OFFSET;

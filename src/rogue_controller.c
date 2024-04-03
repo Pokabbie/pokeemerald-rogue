@@ -969,6 +969,14 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
     }
 }
 
+void Rogue_ModifyEggMon(struct Pokemon *mon)
+{
+    u32 eggCyclesLeft = 0;
+    SetMonData(mon, MON_DATA_FRIENDSHIP, &eggCyclesLeft);
+
+    Rogue_PushPopup_AddPokemon(SPECIES_EGG, FALSE, FALSE);
+}
+
 void Rogue_DiscardedCaughtMon(struct Pokemon *mon)
 {
     if(Rogue_IsRunActive())
@@ -3612,6 +3620,13 @@ static void EndRogueRun(void)
     RogueQuest_ActivateQuestsFor(QUEST_CONST_ACTIVE_IN_HUB);
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_END);
     RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
+
+    if(Rogue_GetCurrentDifficulty() > 0)
+    {
+        // If we got at least 1 badge mark the daycare egg as ready to collect
+        if(VarGet(VAR_ROGUE_DAYCARE_EGG) != SPECIES_NONE)
+            FlagSet(FLAG_ROGUE_DAYCARE_EGG_READY);
+    }
 }
 
 static u16 SelectLegendarySpecies(u8 legendId)

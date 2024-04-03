@@ -626,3 +626,14 @@ bool8 Rogue_ShouldSkipAssignNicknameYesNoMessage(struct Pokemon* mon)
 
     return TRUE;
 }
+
+bool8 Rogue_ShouldForceNicknameScreen()
+{
+    switch (GetCurrentNicknameMode())
+    {
+    case OPTIONS_NICKNAME_MODE_ALWAYS:
+        return TRUE;
+    }
+
+    return FALSE;
+}
