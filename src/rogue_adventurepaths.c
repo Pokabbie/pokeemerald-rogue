@@ -1124,6 +1124,27 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
     }
 }
 
+void RogueAdv_Debug_ForceRegenerateAdventurePaths()
+{
+#ifdef ROGUE_DEBUG
+    struct WarpData warp;
+
+    gRogueAdvPath.roomCount = 0;
+    gRogueAdvPath.isOverviewActive = FALSE;
+    
+    // Fill with dud warp
+    warp.mapGroup = MAP_GROUP(ROGUE_HUB_TRANSITION);
+    warp.mapNum = MAP_NUM(ROGUE_HUB_TRANSITION);
+    warp.warpId = 0;
+    warp.x = -1;
+    warp.y = -1;
+
+    SetWarpDestination(warp.mapGroup, warp.mapNum, warp.warpId, warp.x, warp.y);
+    DoWarp();
+    ResetInitialPlayerAvatarState();
+#endif
+}
+
 u8 RogueAdv_GetTileNum()
 {
     if(!gRogueAdvPath.isOverviewActive && gRogueRun.adventureRoomId < gRogueAdvPath.roomCount)
