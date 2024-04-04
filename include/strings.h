@@ -1519,6 +1519,12 @@ extern const u8 gText_ElectricFan[];
 extern const u8 gText_LawnMower[];
 extern const u8 gText_Exit[];
 
+// Meteorite text
+extern const u8 gText_MeteoriteNormal[];
+extern const u8 gText_MeteoriteAttack[];
+extern const u8 gText_MeteoriteDefense[];
+extern const u8 gText_MeteoriteSpeed[];
+
 // Zygarde Cube text
 extern const u8 gText_ChangeForm[];
 extern const u8 gText_ChangeAbility[];
@@ -2339,6 +2345,7 @@ extern const u8 gText_DoWhatWithItem[];
 extern const u8 gText_DoWhatWithMail[];
 extern const u8 gText_AlreadyHoldingOne[];
 extern const u8 gText_WhichAppliance[];
+extern const u8 gText_WhichForm[];
 extern const u8 gText_NoUse[];
 extern const u8 gText_Able[];
 extern const u8 gText_First_PM[];

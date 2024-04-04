@@ -394,6 +394,37 @@ static const struct FormChange sRayquazaFormChangeTable[] = {
 };
 #endif //P_FAMILY_RAYQUAZA
 
+#if P_FAMILY_DEOXYS
+
+static const struct FormChange sDeoxysFormChangeTable[] = {
+    {FORM_CHANGE_ITEM_USE_MULTICHOICE, SPECIES_DEOXYS_NORMAL,   ITEM_METEORITE, 0},
+    {FORM_CHANGE_ITEM_USE_MULTICHOICE, SPECIES_DEOXYS_ATTACK,   ITEM_METEORITE, 1},
+    {FORM_CHANGE_ITEM_USE_MULTICHOICE, SPECIES_DEOXYS_DEFENSE,  ITEM_METEORITE, 2},
+    {FORM_CHANGE_ITEM_USE_MULTICHOICE, SPECIES_DEOXYS_SPEED,    ITEM_METEORITE, 3},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+//static const struct FormChange sDeoxysNormalFormChangeTable[] = {
+//    {FORM_CHANGE_ITEM_USE, SPECIES_DEOXYS_ATTACK,  ITEM_METEORITE},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//
+//static const struct FormChange sDeoxysAttackFormChangeTable[] = {
+//    {FORM_CHANGE_ITEM_USE, SPECIES_DEOXYS_DEFENSE,  ITEM_METEORITE},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//
+//static const struct FormChange sDeoxysDefenseFormChangeTable[] = {
+//    {FORM_CHANGE_ITEM_USE, SPECIES_DEOXYS_SPEED,  ITEM_METEORITE},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+//
+//static const struct FormChange sDeoxysSpeedFormChangeTable[] = {
+//    {FORM_CHANGE_ITEM_USE, SPECIES_DEOXYS_NORMAL,  ITEM_METEORITE},
+//    {FORM_CHANGE_TERMINATOR},
+//};
+#endif //P_FAMILY_DEOXYS
+
 #if P_FAMILY_BURMY
 static const struct FormChange sBurmyFormChangeTable[] = {
     {FORM_CHANGE_END_BATTLE_TERRAIN, SPECIES_BURMY_PLANT_CLOAK, BATTLE_TERRAIN_GRASS},

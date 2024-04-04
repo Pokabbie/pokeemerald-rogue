@@ -37,6 +37,7 @@ void ItemUseOutOfBattle_FormChange(u8);
 void ItemUseOutOfBattle_FormChange_ConsumedOnUse(u8);
 void ItemUseOutOfBattle_RotomCatalog(u8);
 void ItemUseOutOfBattle_ZygardeCube(u8);
+void ItemUseOutOfBattle_Meteorite(u8);
 void ItemUseOutOfBattle_Fusion(u8);
 void ItemUseOutOfBattle_Honey(u8);
 void ItemUseOutOfBattle_CannotUse(u8);

@@ -8152,7 +8152,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .trainerScale = 290,                                            \
         .trainerOffset = 2,                                             \
         .footprint = gMonFootprint_Deoxys,                              \
-        .formSpeciesIdTable = sDeoxysFormSpeciesIdTable
+        .formSpeciesIdTable = sDeoxysFormSpeciesIdTable,                \
+        .formChangeTable = sDeoxysFormChangeTable
 
     [SPECIES_DEOXYS_NORMAL] =
     {

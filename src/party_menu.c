@@ -109,6 +109,10 @@ enum {
     MENU_CATALOG_MOWER,
     MENU_CHANGE_FORM,
     MENU_CHANGE_ABILITY,
+    MENU_METEORITE_NORMAL,
+    MENU_METEORITE_ATTACK,
+    MENU_METEORITE_DEFENCE,
+    MENU_METEORITE_SPEED,
     MENU_RELEASE,
     MENU_RELEASE_FIELD,
     MENU_RENAME,
@@ -137,6 +141,7 @@ enum {
     ACTIONS_TAKEITEM_TOSS,
     ACTIONS_ROTOM_CATALOG,
     ACTIONS_ZYGARDE_CUBE,
+    ACTIONS_METEORITE,
     ACTIONS_RELEASE
 };
 
@@ -520,6 +525,10 @@ static void CursorCb_CatalogWashing(u8);
 static void CursorCb_CatalogFridge(u8);
 static void CursorCb_CatalogFan(u8);
 static void CursorCb_CatalogMower(u8);
+static void CursorCb_MeteoriteNormal(u8);
+static void CursorCb_MeteoriteAttack(u8);
+static void CursorCb_MeteoriteDefense(u8);
+static void CursorCb_MeteoriteSpeed(u8);
 static void CursorCb_ChangeForm(u8);
 static void CursorCb_ChangeAbility(u8);
 static bool8 SetUpFieldMove_Surf(void);
@@ -2760,6 +2769,9 @@ void DisplayPartyMenuStdMessage(u32 stringId)
         case PARTY_MSG_WHICH_APPLIANCE:
             *windowPtr = AddWindow(&sOrderWhichApplianceMsgWindowTemplate);
             break;
+        //case PARTY_MSG_WHICH_DEOXYS_FORM:
+        //    *windowPtr = AddWindow(&sOrderWhichDeoxysFormMsgWindowTemplate);
+        //    break;
         default:
             *windowPtr = AddWindow(&sDefaultPartyMsgWindowTemplate);
             break;
@@ -2823,6 +2835,9 @@ static u8 DisplaySelectionWindow(u8 windowType)
         break;
     case SELECTWINDOW_CATALOG:
         window = sCatalogSelectWindowTemplate;
+        break;
+    case SELECTWINDOW_METEORITE:
+        window = sMeteoriteSelectWindowTemplate;
         break;
     case SELECTWINDOW_ZYGARDECUBE:
         window = sZygardeCubeSelectWindowTemplate;
@@ -6943,6 +6958,17 @@ void ItemUseCB_RotomCatalog(u8 taskId, TaskFunc task)
     gTasks[taskId].func = Task_HandleSelectionMenuInput;
 }
 
+void ItemUseCB_Meteorite(u8 taskId, TaskFunc task)
+{
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+    SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_METEORITE);
+    DisplaySelectionWindow(SELECTWINDOW_METEORITE);
+    DisplayPartyMenuStdMessage(PARTY_MSG_WHICH_DEOXYS_FORM);
+    gTasks[taskId].data[0] = 0xFF;
+    gTasks[taskId].func = Task_HandleSelectionMenuInput;
+}
+
 bool32 TryMultichoiceFormChange(u8 taskId)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
@@ -7011,6 +7037,30 @@ static void CursorCb_CatalogMower(u8 taskId)
 {
     gSpecialVar_Result = 5;
     gSpecialVar_0x8000 = MOVE_LEAF_STORM;
+    TryMultichoiceFormChange(taskId);
+}
+
+static void CursorCb_MeteoriteNormal(u8 taskId)
+{
+    gSpecialVar_Result = 0;
+    TryMultichoiceFormChange(taskId);
+}
+
+static void CursorCb_MeteoriteAttack(u8 taskId)
+{
+    gSpecialVar_Result = 1;
+    TryMultichoiceFormChange(taskId);
+}
+
+static void CursorCb_MeteoriteDefense(u8 taskId)
+{
+    gSpecialVar_Result = 2;
+    TryMultichoiceFormChange(taskId);
+}
+
+static void CursorCb_MeteoriteSpeed(u8 taskId)
+{
+    gSpecialVar_Result = 3;
     TryMultichoiceFormChange(taskId);
 }
 

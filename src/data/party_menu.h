@@ -493,6 +493,17 @@ static const struct WindowTemplate sOrderWhichApplianceMsgWindowTemplate =
     .baseBlock = 0x299,
 };
 
+//static const struct WindowTemplate sOrderWhichDeoxysFormMsgWindowTemplate =
+//{
+//    .bg = 2,
+//    .tilemapLeft = 1,
+//    .tilemapTop = 15,
+//    .width = 14,
+//    .height = 4,
+//    .paletteNum = 15,
+//    .baseBlock = 0x299,
+//};
+
 static const struct WindowTemplate sItemGiveTakeWindowTemplate =
 {
     .bg = 2,
@@ -533,6 +544,17 @@ static const struct WindowTemplate sCatalogSelectWindowTemplate =
     .tilemapTop = 5,
     .width = 12,
     .height = 14,
+    .paletteNum = 14,
+    .baseBlock = 0x2E9,
+};
+
+static const struct WindowTemplate sMeteoriteSelectWindowTemplate =
+{
+    .bg = 2,
+    .tilemapLeft = 18,
+    .tilemapTop = 5,
+    .width = 11,
+    .height = 10,
     .paletteNum = 14,
     .baseBlock = 0x2E9,
 };
@@ -658,6 +680,7 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_DO_WHAT_WITH_MAIL]      = gText_DoWhatWithMail,
     [PARTY_MSG_ALREADY_HOLDING_ONE]    = gText_AlreadyHoldingOne,
     [PARTY_MSG_WHICH_APPLIANCE]        = gText_WhichAppliance,
+    [PARTY_MSG_WHICH_DEOXYS_FORM]      = gText_WhichForm,
     [PARTY_MSG_CHOOSE_SECOND_FUSION]   = gText_NextFusionMon,
 };
 
@@ -771,6 +794,10 @@ struct
     [MENU_CATALOG_FRIDGE] = {gText_Refrigerator, CursorCb_CatalogFridge},
     [MENU_CATALOG_FAN] = {gText_ElectricFan, CursorCb_CatalogFan},
     [MENU_CATALOG_MOWER] = {gText_LawnMower, CursorCb_CatalogMower},
+    [MENU_METEORITE_NORMAL] = {gText_MeteoriteNormal, CursorCb_MeteoriteNormal},
+    [MENU_METEORITE_ATTACK] = {gText_MeteoriteAttack, CursorCb_MeteoriteAttack},
+    [MENU_METEORITE_DEFENCE] = {gText_MeteoriteDefense, CursorCb_MeteoriteDefense},
+    [MENU_METEORITE_SPEED] = {gText_MeteoriteSpeed, CursorCb_MeteoriteSpeed},
     [MENU_CHANGE_FORM] = {gText_ChangeForm, CursorCb_ChangeForm},
     [MENU_CHANGE_ABILITY] = {gText_ChangeAbility, CursorCb_ChangeAbility},
     [MENU_RELEASE] = {gText_Release, CursorCb_Release},
@@ -812,8 +839,7 @@ static const u8 sPartyMenuAction_TakeItemTossCancel[] = {MENU_TAKE_ITEM, MENU_TO
 static const u8 sPartyMenuAction_ReleaseSummaryCancel[] = {MENU_RELEASE, MENU_SUMMARY, MENU_CANCEL1};
 static const u8 sPartyMenuAction_RotomCatalog[] = {MENU_CATALOG_BULB, MENU_CATALOG_OVEN, MENU_CATALOG_WASHING, MENU_CATALOG_FRIDGE, MENU_CATALOG_FAN, MENU_CATALOG_MOWER, MENU_CANCEL1};
 static const u8 sPartyMenuAction_ZygardeCube[] = {MENU_CHANGE_FORM, MENU_CHANGE_ABILITY, MENU_CANCEL1};
-
-
+static const u8 sPartyMenuAction_Meteorite[] = {MENU_METEORITE_NORMAL, MENU_METEORITE_ATTACK, MENU_METEORITE_DEFENCE, MENU_METEORITE_SPEED, MENU_CANCEL1};
 
 static const u8 *const sPartyMenuActions[] =
 {
@@ -833,6 +859,7 @@ static const u8 *const sPartyMenuActions[] =
     [ACTIONS_TAKEITEM_TOSS] = sPartyMenuAction_TakeItemTossCancel,
     [ACTIONS_ROTOM_CATALOG] = sPartyMenuAction_RotomCatalog,
     [ACTIONS_ZYGARDE_CUBE]  = sPartyMenuAction_ZygardeCube,
+    [ACTIONS_METEORITE]     = sPartyMenuAction_Meteorite,
     [ACTIONS_RELEASE]       = sPartyMenuAction_ReleaseSummaryCancel,
 };
 
@@ -854,6 +881,7 @@ static const u8 sPartyMenuActionCounts[] =
     [ACTIONS_TAKEITEM_TOSS] = ARRAY_COUNT(sPartyMenuAction_TakeItemTossCancel),
     [ACTIONS_ROTOM_CATALOG] = ARRAY_COUNT(sPartyMenuAction_RotomCatalog),
     [ACTIONS_ZYGARDE_CUBE]  = ARRAY_COUNT(sPartyMenuAction_ZygardeCube),
+    [ACTIONS_METEORITE]     = ARRAY_COUNT(sPartyMenuAction_Meteorite),
     [ACTIONS_RELEASE]       = ARRAY_COUNT(sPartyMenuAction_ReleaseSummaryCancel),
 };
 
