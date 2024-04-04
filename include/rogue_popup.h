@@ -23,8 +23,8 @@ void Rogue_PushPopup_QuestUnlocked(u16 questId);
 void Rogue_PushPopup_PokemonChain(u16 species, u16 chainSize);
 void Rogue_PushPopup_PokemonChainBroke(u16 species);
 
-void Rogue_PushPopup_WeakPokemonClause(u16 species);
-void Rogue_PushPopup_StrongPokemonClause(u16 species);
+void Rogue_PushPopup_WeakPokemonClause(u16 species, bool8 fromDaycare);
+void Rogue_PushPopup_StrongPokemonClause(u16 species, bool8 fromDaycare);
 void Rogue_PushPopup_RoamerPokemonActivated(u16 species);
 
 void Rogue_PushPopup_AddItem(u16 itemId, u16 amount);

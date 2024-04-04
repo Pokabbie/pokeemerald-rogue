@@ -3093,7 +3093,7 @@ static void GiveMonPartnerRibbon(void)
         species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
         if(species != SPECIES_NONE)
         {
-            SetMonData(&gPlayerParty[i], MON_DATA_EFFORT_RIBBON, &ribbonSet);
+            SetMonData(&gPlayerParty[i], MON_DATA_TEMP_PARTNER_RIBBON, &ribbonSet);
 
             if(Rogue_GetMaxEvolutionCount(species) != 0 && !HasAnyActiveEvos(species))
                 Rogue_PushPopup_UnableToEvolve(i);
@@ -3107,9 +3107,9 @@ bool8 Rogue_IsPartnerMonInTeam(void)
 
     for(i = 0; i < PARTY_SIZE; ++i)
     {
-        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(&gPlayerParty[i], MON_DATA_HP) != 0)
         {
-            if(GetMonData(&gPlayerParty[i], MON_DATA_EFFORT_RIBBON))
+            if(GetMonData(&gPlayerParty[i], MON_DATA_TEMP_PARTNER_RIBBON))
                 return TRUE;
         }
     }
@@ -3233,9 +3233,11 @@ static void InitialiseFaintedLabMons(void)
     }
 }
 
-static u16 GetPartyWeakLegendary(void)
+static u16 GetActiveWeakLegendary(bool8* fromDaycare)
 {
     u16 i;
+    *fromDaycare = FALSE;
+
     for(i = 0; i < gPlayerPartyCount; ++i)
     {
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
@@ -3245,12 +3247,24 @@ static u16 GetPartyWeakLegendary(void)
         }
     }
 
+    for(i = 0; i < Rogue_GetCurrentDaycareSlotCount(); ++i)
+    {
+        u16 species = GetBoxMonData(Rogue_GetDaycareBoxMon(i), MON_DATA_SPECIES);
+        if(species != SPECIES_NONE && RoguePokedex_IsSpeciesLegendary(species))
+        {
+            *fromDaycare = TRUE;
+            return species;
+        }
+    }
+
     return SPECIES_NONE;
 }
 
-static u16 GetPartyStrongLegendary(void)
+static u16 GetActiveStrongLegendary(bool8* fromDaycare)
 {
     u16 i;
+    *fromDaycare = FALSE;
+
     for(i = 0; i < gPlayerPartyCount; ++i)
     {
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
@@ -3259,6 +3273,19 @@ static u16 GetPartyStrongLegendary(void)
         {
             if(Rogue_CheckMonFlags(species, MON_FLAG_STRONG_WILD))
             {
+                return species;
+            }
+        }
+    }
+
+    for(i = 0; i < Rogue_GetCurrentDaycareSlotCount(); ++i)
+    {
+        u16 species = GetBoxMonData(Rogue_GetDaycareBoxMon(i), MON_DATA_SPECIES);
+        if(species != SPECIES_NONE && RoguePokedex_IsSpeciesLegendary(species))
+        {
+            if(Rogue_CheckMonFlags(species, MON_FLAG_STRONG_WILD))
+            {
+                *fromDaycare = TRUE;
                 return species;
             }
         }
@@ -3545,8 +3572,10 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES);
 
     {
-        u16 weakSpecies = GetPartyWeakLegendary();
-        u16 strongSpecies = GetPartyStrongLegendary();
+        bool8 weakSpeciesInDaycare;
+        bool8 strongSpeciesInDaycare;
+        u16 weakSpecies = GetActiveWeakLegendary(&weakSpeciesInDaycare);
+        u16 strongSpecies = GetActiveStrongLegendary(&strongSpeciesInDaycare);
 
         if(weakSpecies != SPECIES_NONE)
             FlagSet(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES);
@@ -3555,9 +3584,9 @@ static void BeginRogueRun(void)
             FlagSet(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES);
 
         if(strongSpecies != SPECIES_NONE)
-            Rogue_PushPopup_StrongPokemonClause(strongSpecies);
+            Rogue_PushPopup_StrongPokemonClause(strongSpecies, strongSpeciesInDaycare);
         else if(weakSpecies != SPECIES_NONE)
-            Rogue_PushPopup_WeakPokemonClause(weakSpecies);
+            Rogue_PushPopup_WeakPokemonClause(weakSpecies, weakSpeciesInDaycare);
 
     }
 
@@ -6832,7 +6861,7 @@ void Rogue_ModifyGiveMon(struct Pokemon* mon)
 struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot)
 {
     AGB_ASSERT(slot < DAYCARE_SLOT_COUNT);
-    return (struct BoxPokemon*)&gRogueRun.daycarePokemon[slot];
+    return (struct BoxPokemon*)&gRogueSaveBlock->daycarePokemon[slot];
 }
 
 u8 Rogue_GetCurrentDaycareSlotCount()

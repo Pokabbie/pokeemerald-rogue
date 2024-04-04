@@ -286,8 +286,8 @@ static const u8 sText_Popup_BerriesRequipSuccessSubtitle[] = _("{COLOR LIGHT_GRE
 static const u8 sText_Popup_BerriesRequipFail[] = _("Re-equip Fail");
 static const u8 sText_Popup_BerriesRequipFailSubtitle[] = _("{COLOR LIGHT_RED}{SHADOW RED}None in Bag");
 
-static const u8 sText_Popup_WeakLegendaryClause[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Basic Legendary");
-static const u8 sText_Popup_StrongLegendaryClause[] = _("{COLOR LIGHT_RED}{SHADOW RED}Strong Legendary");
+static const u8 sText_Popup_WeakLegendaryClause[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Basic Legend");
+static const u8 sText_Popup_StrongLegendaryClause[] = _("{COLOR LIGHT_RED}{SHADOW RED}Strong Legend");
 
 static const u8 sText_Popup_CampaignNoneScore[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Campaign Active!");
 static const u8 sText_Popup_CampaignHighScore[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Aim for High Score!");
@@ -1347,7 +1347,7 @@ void Rogue_PushPopup_PokemonChainBroke(u16 species)
 }
 
 
-void Rogue_PushPopup_WeakPokemonClause(u16 species)
+void Rogue_PushPopup_WeakPokemonClause(u16 species, bool8 fromDaycare)
 {
     struct PopupRequest* popup = CreateNewPopup();
 
@@ -1359,7 +1359,7 @@ void Rogue_PushPopup_WeakPokemonClause(u16 species)
     popup->subtitleText = sText_Popup_LegendaryClause;
 }
 
-void Rogue_PushPopup_StrongPokemonClause(u16 species)
+void Rogue_PushPopup_StrongPokemonClause(u16 species, bool8 fromDaycare)
 {
     struct PopupRequest* popup = CreateNewPopup();
 

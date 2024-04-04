@@ -46,6 +46,7 @@ struct RogueRunRestoreBlock
 {
     struct Pokemon playerParty[PARTY_SIZE];
     struct ItemSlot bagItems[BAG_ITEM_CAPACITY];
+    struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
     u32 money;
     u32 playTime;
 };
@@ -162,6 +163,9 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
 
     // Safari
     SerializeArray(stream, saveBlock->safariMons, sizeof(saveBlock->safariMons[0]), ARRAY_COUNT(saveBlock->safariMons));
+
+    // Daycare
+    SerializeArray(stream, saveBlock->daycarePokemon, sizeof(saveBlock->daycarePokemon[0]), ARRAY_COUNT(saveBlock->daycarePokemon));
 
     // Difficulty/Adventure Settings
     SerializeArray(stream, saveBlock->difficultyConfig.toggleBits, sizeof(saveBlock->difficultyConfig.toggleBits[0]), ARRAY_COUNT(saveBlock->difficultyConfig.toggleBits));
@@ -365,6 +369,11 @@ void RogueSave_SaveHubStates()
     {
         ZeroMonData(&sRunRestoreBlock.playerParty[i]);
     }
+
+    for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+    {
+        CopyMon(&sRunRestoreBlock.daycarePokemon[i], &gRogueSaveBlock->daycarePokemon[i], sizeof(struct BoxPokemon));
+    }
     
     // Put all items into a single big list
     bagItemIdx = 0;
@@ -423,6 +432,11 @@ void RogueSave_LoadHubStates()
             break;
     }
     gPlayerPartyCount = i;
+
+    for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+    {
+        CopyMon(&gRogueSaveBlock->daycarePokemon[i], &sRunRestoreBlock.daycarePokemon[i], sizeof(struct BoxPokemon));
+    }
 
     // Restore the bag by just clearing and adding everything back to it
     ClearBag();
