@@ -353,6 +353,11 @@ static bool8 FindMonThatAbsorbsOpponentsMove(u32 battler)
         absorbingTypeAbilities[0] = ABILITY_SAP_SIPPER;
         numAbsorbingAbilities = 1;
     }
+    else if (gBattleMoves[gLastLandedMoves[battler]].type == TYPE_GROUND)
+    {
+        absorbingTypeAbilities[0] = ABILITY_EARTH_EATER;
+        numAbsorbingAbilities = 1;
+    }
     else
     {
         return FALSE;
