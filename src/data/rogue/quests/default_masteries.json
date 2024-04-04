@@ -852,7 +852,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "species": "SPECIES_ZYGARDE_50_POWER_CONSTRUCT", "shiny": false }
+                    { "item": "ITEM_ZYGARDE_CUBE" }
                 ]
             },
             {
