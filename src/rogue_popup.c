@@ -309,6 +309,9 @@ static const u8 sText_Popup_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RE
 static const u8 sText_Popup_PokedexUnlock[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Recieved Pokedex!");
 static const u8 sText_Popup_PokedexUpgrade[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Pokedex Upgraded!");
 
+static const u8 sText_Popup_BagUpdate[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Bag Upgraded!");
+static const u8 sText_Popup_5Slots[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}+5 slots"); // assuming ITEM_BAG_SLOTS_PER_UPGRADE value
+
 
 static const u8 sText_Popup_RogueAssistant[] = _("Rogue Assistant");
 static const u8 sText_Popup_Connected[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Connected!");
@@ -1575,6 +1578,18 @@ void Rogue_PushPopup_UpgradePokedex()
     popup->fanfare = MUS_RG_OBTAIN_KEY_ITEM;
 
     popup->titleText = sText_Popup_PokedexUpgrade;
+}
+
+void Rogue_PushPopup_UpgradeBagCapacity()
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = ITEM_BERRY_POUCH;
+    popup->fanfare = MUS_LEVEL_UP;
+
+    popup->titleText = sText_Popup_BagUpdate;
+    popup->subtitleText = sText_Popup_5Slots;
 }
 
 void Rogue_PushPopup_AssistantConnected()

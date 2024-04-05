@@ -27,3 +27,58 @@ script Rogue_Area_TownSquare_TalkTownStatue
     msgbox(format("{POKEMON_HUB}\nThe land of chaotic beginnings…"))
     release
 }
+
+script Rogue_Area_TownSquare_TalkBackpacker
+{
+    lock
+    faceplayer
+
+    msgbox(format("Hi there {PLAYER}!"))
+
+    specialvar(VAR_0x8004, Rogue_GetBagCapacityUpgradeLevel)
+
+    if(var(VAR_0x8004) == ITEM_BAG_MAX_CAPACITY_UPGRADE)
+    {
+        msgbox(format("I hope that bag's working out well for you!"))
+        release
+    }
+    else
+    {
+        special(Rogue_BufferBagUpgradeCost)
+
+        showmoneybox(0, 0)
+        msgbox(format("I can upgrade your bag for ¥{STR_VAR_2}, if you'd like?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            special(Rogue_CheckBagUpgradeCost)
+
+            if(var(VAR_RESULT) == YES)
+            {
+                special(Rogue_RemoveBagUpgradeCost)
+                updatemoneybox
+
+                playse(SE_SHOP)
+                waitse
+                
+                hidemoneybox
+                release
+                delay(1)
+
+                special(Rogue_IncreaseBagCapacityUpgradeLevel)
+            }
+            else
+            {
+                hidemoneybox
+                msgbox(format("It doesn't look like you have enough money there bud."))
+                release
+            }
+        }
+        else
+        {
+            hidemoneybox
+            msgbox(format("Sure! You're busy!\pI get that!"))
+            release
+        }
+    }
+}

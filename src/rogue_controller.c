@@ -1413,7 +1413,7 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     }
     else if(difficulty < ROGUE_FINAL_CHAMP_DIFFICULTY) // Go at default speed for final fight
     {
-        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A))
+        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
         {
             // Still run faster and default game because it's way too slow :(
             if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
@@ -5747,8 +5747,8 @@ u16 Rogue_GetBagCapacity()
     else
     {
         // Takes into account BAG_ITEM_RESERVED_SLOTS
-        u16 startingSlots = BAG_ITEM_CAPACITY - ITEM_BAG_MAX_CAPACITY_UPGRADE * 10;
-        u16 slotCount = startingSlots + gSaveBlock1Ptr->bagCapacityUpgrades * 10;
+        u16 startingSlots = BAG_ITEM_CAPACITY - ITEM_BAG_MAX_CAPACITY_UPGRADE * ITEM_BAG_SLOTS_PER_UPGRADE;
+        u16 slotCount = startingSlots + gSaveBlock1Ptr->bagCapacityUpgrades * ITEM_BAG_SLOTS_PER_UPGRADE;
         return min(slotCount, BAG_ITEM_CAPACITY);
     }
 }
@@ -5760,20 +5760,17 @@ u16 Rogue_GetBagPocketAmountPerItem(u8 pocket)
 
 u32 Rogue_CalcBagUpgradeCost()
 {
-    // First few are hard coded jumps then always jump by 1000
+    // First few are hard coded jumps then always jump by 500
     switch (gSaveBlock1Ptr->bagCapacityUpgrades)
     {
     case 0:
         return 100;
 
     case 1:
-        return 200;
+        return 250;
 
-    case 2:
-        return 500;
-    
     default:
-        return 1000 * (u32)(gSaveBlock1Ptr->bagCapacityUpgrades - 2);
+        return 500 * (u32)(gSaveBlock1Ptr->bagCapacityUpgrades - 1);
     }
 }
 

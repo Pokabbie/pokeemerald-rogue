@@ -6159,7 +6159,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
             friendshipLevel++;
 
         if ((event != FRIENDSHIP_EVENT_WALKING || !(Random() & 1))
-         && (event != FRIENDSHIP_EVENT_LEAGUE_BATTLE || Rogue_IsAnyBossTrainer(gTrainerBattleOpponent_A)))
+         && (event != FRIENDSHIP_EVENT_LEAGUE_BATTLE || Rogue_IsKeyTrainer(gTrainerBattleOpponent_A)))
         {
             s8 mod = sFriendshipEventModifiers[event][friendshipLevel];
             if (mod > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)

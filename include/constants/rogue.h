@@ -160,7 +160,8 @@
 #define ITEM_SORT_MODE_AMOUNT       3
 #define ITEM_SORT_MODE_COUNT        4
 
-#define ITEM_BAG_MAX_CAPACITY_UPGRADE   32
+#define ITEM_BAG_SLOTS_PER_UPGRADE      5
+#define ITEM_BAG_MAX_CAPACITY_UPGRADE   64
 
 
 // Routes
