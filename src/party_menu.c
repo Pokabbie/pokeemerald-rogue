@@ -3536,7 +3536,7 @@ static void Task_ExitPartyMenuToPokedex(u8 taskId)
         FreePartyPointers();
 
         DestroyTask(taskId);
-        Rogue_ShowPokedexForMon(&gPlayerParty[slot]);
+        Rogue_ShowPokedexForPartySlot(slot);
     }
 }
 

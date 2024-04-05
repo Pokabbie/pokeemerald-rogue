@@ -4,7 +4,7 @@
 // New UI/UX for Rogue pokedex
 void Rogue_ShowPokedexFromMenu(void);
 void Rogue_ShowPokedexFromScript(void);
-void Rogue_ShowPokedexForMon(struct Pokemon* mon);
+void Rogue_ShowPokedexForPartySlot(u8 slot);
 void Rogue_SelectPokemonInPokedexFromDex(bool8 ignoreDexSeen);
 void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 ignoreDexSeen);
 void Rogue_SelectPokemonInSafari();

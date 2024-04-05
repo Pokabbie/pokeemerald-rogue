@@ -319,6 +319,7 @@ struct PokedexMenu
     u16 lastCrySpecies;
     u16 viewBaseSpecies;
     u16 listScrollAmount;
+    u8 partySlot;
 };
 
 enum
@@ -339,6 +340,7 @@ struct PokedexViewRequest
         {
             u32 OtId;
             u16 species;
+            u8 partySlot;
         } specificMon;
         struct
         {
@@ -404,14 +406,15 @@ void Rogue_ShowPokedexFromScript(void)
     SetupPokedexViewDefault();
 }
 
-void Rogue_ShowPokedexForMon(struct Pokemon* mon)
+void Rogue_ShowPokedexForPartySlot(u8 slot)
 {
     SetupPokedexViewDefault();
 
     // ReturnToPartyMenuSubMenu called below
     sPokedexViewReq.view = DEX_VIEW_SPECIFIC_MON;
-    sPokedexViewReq.perView.specificMon.species = GetMonData(mon, MON_DATA_SPECIES);
-    sPokedexViewReq.perView.specificMon.OtId = GetMonData(mon, MON_DATA_OT_ID);
+    sPokedexViewReq.perView.specificMon.species = GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES);
+    sPokedexViewReq.perView.specificMon.OtId = GetMonData(&gPlayerParty[slot], MON_DATA_OT_ID);
+    sPokedexViewReq.perView.specificMon.partySlot = slot;
 }
 
 void Rogue_SelectPokemonInPokedexFromDex(bool8 ignoreDexSeen)
@@ -451,12 +454,14 @@ static void CB2_Rogue_ShowPokedex(void)
     sPokedexMenu->lastCrySpecies = SPECIES_NONE;
     sPokedexMenu->viewBaseSpecies = SPECIES_NONE;
     sPokedexMenu->viewOtId = 0;
+    sPokedexMenu->partySlot = PARTY_SIZE;
 
     if(sPokedexViewReq.view == DEX_VIEW_SPECIFIC_MON)
     {
         sPokedexMenu->desiredPage = PAGE_MON_STATS;
         sPokedexMenu->viewBaseSpecies = sPokedexViewReq.perView.specificMon.species;
         sPokedexMenu->viewOtId = sPokedexViewReq.perView.specificMon.OtId;
+        sPokedexMenu->partySlot = sPokedexViewReq.perView.specificMon.partySlot;
     }
     else if(IsCurrentlySelectingMon())
     {
@@ -3138,69 +3143,95 @@ static u16 MonStats_GetMonNeighbour(u16 currViewSpecies, s8 offset)
     u8 dexVariant = RoguePokedex_GetDexVariant();
     u16 dexCount = GetVariantSpeciesCount(dexVariant);
 
-#ifdef ROGUE_EXPANSION
-    currViewSpecies = GET_BASE_SPECIES_ID(currViewSpecies);
-#endif
-
-    for(i = 0; i < dexCount; ++i)
+    // Loop through party when using L/R from that menu
+    if(sPokedexViewReq.view == DEX_VIEW_SPECIFIC_MON)
     {
-        if(GetVariantSpeciesAt(dexVariant, i) == currViewSpecies)
-        {
-            currViewIdx = i;
-            break;
-        }
-    }
-
-    for(i = 0; i < MAX_NEIGHBOUR_CHECKS; ++i)
-    {
-        u16 checkIdx;
-        u16 checkSpecies;
-
-        checkIdx = currViewIdx;
-
-        while(TRUE)
+        do
         {
             if(offset == 1)
-                checkIdx = (checkIdx + 1) % dexCount;
+                sPokedexMenu->partySlot = (sPokedexMenu->partySlot + 1) % gPlayerPartyCount;
             else // offset == -1
             {
-                if(checkIdx == 0)
-                    checkIdx = dexCount - 1;
+                if(sPokedexMenu->partySlot == 0)
+                    sPokedexMenu->partySlot = gPlayerPartyCount - 1;
                 else
-                    --checkIdx;
+                    --sPokedexMenu->partySlot;
             }
+        }
+        while(GetMonData(&gPlayerParty[sPokedexMenu->partySlot], MON_DATA_SPECIES) == SPECIES_NONE);
 
-            // If we've done a full loop, we've failed to find next species we can view
-            if(checkIdx == currViewIdx)
+        sPokedexMenu->viewBaseSpecies = SPECIES_NONE; // force it here so it always suceeds
+        sPokedexMenu->viewOtId = GetMonData(&gPlayerParty[sPokedexMenu->partySlot], MON_DATA_OT_ID);
+
+        return GetMonData(&gPlayerParty[sPokedexMenu->partySlot], MON_DATA_SPECIES);
+    }
+    else
+    {
+
+#ifdef ROGUE_EXPANSION
+        currViewSpecies = GET_BASE_SPECIES_ID(currViewSpecies);
+#endif
+
+        for(i = 0; i < dexCount; ++i)
+        {
+            if(GetVariantSpeciesAt(dexVariant, i) == currViewSpecies)
+            {
+                currViewIdx = i;
                 break;
+            }
+        }
 
-            checkSpecies = GetVariantSpeciesAt(dexVariant, checkIdx);
+        for(i = 0; i < MAX_NEIGHBOUR_CHECKS; ++i)
+        {
+            u16 checkIdx;
+            u16 checkSpecies;
 
-            // Only allowed to jump to seen mons
-            if(!GetSetPokedexSpeciesFlag(checkSpecies, FLAG_GET_SEEN))
-                continue;
+            checkIdx = currViewIdx;
+
+            while(TRUE)
+            {
+                if(offset == 1)
+                    checkIdx = (checkIdx + 1) % dexCount;
+                else // offset == -1
+                {
+                    if(checkIdx == 0)
+                        checkIdx = dexCount - 1;
+                    else
+                        --checkIdx;
+                }
+
+                // If we've done a full loop, we've failed to find next species we can view
+                if(checkIdx == currViewIdx)
+                    break;
+
+                checkSpecies = GetVariantSpeciesAt(dexVariant, checkIdx);
+
+                // Only allowed to jump to seen mons
+                if(!GetSetPokedexSpeciesFlag(checkSpecies, FLAG_GET_SEEN))
+                    continue;
 
 #ifdef ROGUE_DEBUG
-            // Debug behaviour for evo and forms page to make it easier to cycle through and debug
-            //
-            if(JOY_HELD(SELECT_BUTTON))
-            {
-                if(sPokedexMenu->currentPage == PAGE_MON_EVOS)
+                // Debug behaviour for evo and forms page to make it easier to cycle through and debug
+                //
+                if(JOY_HELD(SELECT_BUTTON))
                 {
-                    if(Rogue_GetMaxEvolutionCount(checkSpecies) == 0)
-                        continue;
-                }
+                    if(sPokedexMenu->currentPage == PAGE_MON_EVOS)
+                    {
+                        if(Rogue_GetMaxEvolutionCount(checkSpecies) == 0)
+                            continue;
+                    }
 #ifdef ROGUE_EXPANSION
-                else if(sPokedexMenu->currentPage == PAGE_MON_FORMS)
-                {
-                    if(Rogue_GetActiveFormChangeCount(checkSpecies) == 0)
-                        continue;
-                }
+                    else if(sPokedexMenu->currentPage == PAGE_MON_FORMS)
+                    {
+                        if(Rogue_GetActiveFormChangeCount(checkSpecies) == 0)
+                            continue;
+                    }
 #endif
-            }
+                }
 #endif
 
-            return checkSpecies;
+                return checkSpecies;
+            }
         }
     }
 
