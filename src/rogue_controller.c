@@ -5415,7 +5415,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
     TryRestorePartyHeldItems(FALSE);
     FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
-
+    CheckAndNotifyForFaintedMons();
     RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_END);
 
     if(Rogue_IsRunActive())
@@ -5486,7 +5486,6 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             QuestNotify_OnTrainerBattleEnd(isBossTrainer);
-            CheckAndNotifyForFaintedMons();
             RemoveAnyFaintedMons(FALSE, TRUE);
 
             // Reward EVs based on nature
@@ -5523,6 +5522,7 @@ void Rogue_Battle_EndWildBattle(void)
     u16 wildSpecies = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
 
     TryRestorePartyHeldItems(TRUE);
+    CheckAndNotifyForFaintedMons();
     RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_END);
 
     if(DidCompleteWildChain(gBattleOutcome))
@@ -5598,7 +5598,6 @@ void Rogue_Battle_EndWildBattle(void)
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             QuestNotify_OnWildBattleEnd();
-            CheckAndNotifyForFaintedMons();
             RemoveAnyFaintedMons(FALSE, TRUE);
         }
         else
