@@ -264,7 +264,6 @@ struct RoguePartySnapshot
 struct RogueRunData
 {
     struct RogueWildEncounters wildEncounters;
-    struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
     struct RoguePartySnapshot partySnapshots[ROGUE_MAX_BOSS_COUNT + 2];
     u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
     u16 rivalSpecies[ROGUE_RIVAL_TOTAL_MON_COUNT];
@@ -640,6 +639,7 @@ struct RogueSaveBlock
     struct RogueQuestStateNEW questStatesNEW[QUEST_SAVE_COUNT];
     struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
     struct RogueSafariMon safariMons[ROGUE_SAFARI_TOTAL_MONS];
+    struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
     struct RogueHubMap hubMap;
     struct RogueDifficultyConfig difficultyConfig;
     u16 timeOfDayMinutes;
@@ -687,6 +687,7 @@ extern const struct RogueBattleMusic gRogueTrainerMusic[];
 extern const struct RoguePokemonProfile gRoguePokemonProfiles[NUM_SPECIES];
 extern u16 const gRoguePokemonHeldItemUsages[ITEMS_COUNT];
 extern u16 const gRoguePokemonMoveUsages[MOVES_COUNT];
+extern u16 const gRoguePokemonSpecialMoveUsages[MOVES_COUNT];
 
 extern const struct RoguePokedexVariant gPokedexVariants[POKEDEX_VARIANT_COUNT];
 extern const struct RoguePokedexRegion gPokedexRegions[POKEDEX_REGION_COUNT];

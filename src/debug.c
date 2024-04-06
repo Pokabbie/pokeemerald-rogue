@@ -67,8 +67,10 @@
 #include "constants/weather.h"
 #include "save.h"
 
+#include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_pokedex.h"
+#include "rogue_popup.h"
 #include "rogue_query.h"
 
 #ifndef ROGUE_EXPANSION
@@ -80,6 +82,7 @@
 enum DebugMenu
 {
     DEBUG_MENU_ITEM_UTILITIES,
+    DEBUG_MENU_ITEM_ROGUE_UTILITIES,
     DEBUG_MENU_ITEM_PARTY_BOXES,
     DEBUG_MENU_ITEM_GIVE,
     DEBUG_MENU_ITEM_SCRIPTS,
@@ -105,6 +108,12 @@ enum UtilMenu
     DEBUG_UTIL_MENU_ITEM_PLAYER_ID,
     DEBUG_UTIL_MENU_ITEM_CHEAT,
     DEBUG_UTIL_MENU_ITEM_EXPANSION_VER,
+};
+
+enum RogueUtilMenu
+{
+    DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB,
+    DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY,
 };
 
 enum PartyBoxesMenu
@@ -320,6 +329,7 @@ static void DebugAction_Util_Script_7(u8 taskId);
 static void DebugAction_Util_Script_8(u8 taskId);
 
 static void DebugAction_OpenUtilitiesMenu(u8 taskId);
+static void DebugAction_OpenRogueUtilitiesMenu(u8 taskId);
 static void DebugAction_OpenPartyBoxesMenu(u8 taskId);
 static void DebugAction_OpenScriptsMenu(u8 taskId);
 static void DebugAction_OpenFlagsVarsMenu(u8 taskId);
@@ -354,6 +364,9 @@ static void DebugAction_Util_Player_Gender(u8 taskId);
 static void DebugAction_Util_Player_Id(u8 taskId);
 static void DebugAction_Util_CheatStart(u8 taskId);
 static void DebugAction_Util_ExpansionVersion(u8 taskId);
+
+static void DebugAction_RogueUtil_ConfigLab(u8 taskId);
+static void DebugAction_RogueUtil_NextDifficulty(u8 taskId);
 
 static void DebugAction_PartyBoxes_AccessPC(u8 taskId);
 static void DebugAction_PartyBoxes_MoveReminder(u8 taskId);
@@ -455,6 +468,7 @@ static const u8 sDebugText_Empty[] =         _("");
 static const u8 sDebugText_Continue[] =      _("Continue…{CLEAR_TO 110}{RIGHT_ARROW}");
 // Main Menu
 static const u8 sDebugText_Utilities[] =        _("Utilities…{CLEAR_TO 110}{RIGHT_ARROW}");
+static const u8 sDebugText_RogueUtilities[] =   _("Rogue Utils…{CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_PartyBoxes[] =       _("Party/Boxes…{CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_Scripts[] =          _("Scripts…{CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_FlagsVars[] =        _("Flags & Vars…{CLEAR_TO 110}{RIGHT_ARROW}");
@@ -491,6 +505,9 @@ static const u8 sDebugText_Util_Player_Gender[] =            _("Toggle Gender");
 static const u8 sDebugText_Util_Player_Id[] =                _("New Trainer Id");
 static const u8 sDebugText_Util_CheatStart[] =               _("CHEAT Start");
 static const u8 sDebugText_Util_ExpansionVersion[] =         _("Expansion Version");
+// Rogue Util Menu
+static const u8 sDebugText_RogueUtil_ConfigLab[] =           _("Config Lab…{CLEAR_TO 110}{RIGHT_ARROW}");
+static const u8 sDebugText_RogueUtil_NextDifficulty[] =      _("Next Difficulty");
 // Party/Boxes Menu
 static const u8 sDebugText_PartyBoxes_AccessPC[] =           _("Access PC");
 static const u8 sDebugText_PartyBoxes_MoveReminder[] =       _("Move Reminder");
@@ -636,6 +653,7 @@ static const s32 sPowersOfTen[] =
 static const struct ListMenuItem sDebugMenu_Items_Main[] =
 {
     [DEBUG_MENU_ITEM_UTILITIES]     = {sDebugText_Utilities,    DEBUG_MENU_ITEM_UTILITIES},
+    [DEBUG_MENU_ITEM_ROGUE_UTILITIES]= {sDebugText_RogueUtilities,   DEBUG_MENU_ITEM_ROGUE_UTILITIES},
     [DEBUG_MENU_ITEM_PARTY_BOXES]   = {sDebugText_PartyBoxes,   DEBUG_MENU_ITEM_PARTY_BOXES},
     [DEBUG_MENU_ITEM_GIVE]          = {sDebugText_Give,         DEBUG_MENU_ITEM_GIVE},
     [DEBUG_MENU_ITEM_SCRIPTS]       = {sDebugText_Scripts,      DEBUG_MENU_ITEM_SCRIPTS},
@@ -661,6 +679,12 @@ static const struct ListMenuItem sDebugMenu_Items_Utilities[] =
     [DEBUG_UTIL_MENU_ITEM_PLAYER_ID]      = {sDebugText_Util_Player_Id,      DEBUG_UTIL_MENU_ITEM_PLAYER_ID},
     [DEBUG_UTIL_MENU_ITEM_CHEAT]          = {sDebugText_Util_CheatStart,     DEBUG_UTIL_MENU_ITEM_CHEAT},
     [DEBUG_UTIL_MENU_ITEM_EXPANSION_VER]  = {sDebugText_Util_ExpansionVersion,DEBUG_UTIL_MENU_ITEM_EXPANSION_VER},
+};
+
+static const struct ListMenuItem sDebugMenu_Items_RogueUtilities[] =
+{
+    [DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB]          = {sDebugText_RogueUtil_ConfigLab,       DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB},
+    [DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY]     = {sDebugText_RogueUtil_NextDifficulty,  DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY},
 };
 
 static const struct ListMenuItem sDebugMenu_Items_PartyBoxes[] =
@@ -787,6 +811,7 @@ static const struct ListMenuItem sDebugMenu_Items_Sound[] =
 static void (*const sDebugMenu_Actions_Main[])(u8) =
 {
     [DEBUG_MENU_ITEM_UTILITIES]     = DebugAction_OpenUtilitiesMenu,
+    [DEBUG_MENU_ITEM_ROGUE_UTILITIES]= DebugAction_OpenRogueUtilitiesMenu,
     [DEBUG_MENU_ITEM_PARTY_BOXES]   = DebugAction_OpenPartyBoxesMenu,
     [DEBUG_MENU_ITEM_GIVE]          = DebugAction_OpenGiveMenu,
     [DEBUG_MENU_ITEM_SCRIPTS]       = DebugAction_OpenScriptsMenu,
@@ -812,6 +837,12 @@ static void (*const sDebugMenu_Actions_Utilities[])(u8) =
     [DEBUG_UTIL_MENU_ITEM_PLAYER_ID]      = DebugAction_Util_Player_Id,
     [DEBUG_UTIL_MENU_ITEM_CHEAT]          = DebugAction_Util_CheatStart,
     [DEBUG_UTIL_MENU_ITEM_EXPANSION_VER]  = DebugAction_Util_ExpansionVersion,
+};
+
+static void (*const sDebugMenu_Actions_RogueUtilities[])(u8) =
+{
+    [DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB]      = DebugAction_RogueUtil_ConfigLab,
+    [DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY] = DebugAction_RogueUtil_NextDifficulty,
 };
 
 static void (*const sDebugMenu_Actions_PartyBoxes[])(u8) =
@@ -957,6 +988,13 @@ static const struct ListMenuTemplate sDebugMenu_ListTemplate_Utilities =
     .items = sDebugMenu_Items_Utilities,
     .moveCursorFunc = ListMenuDefaultCursorMoveFunc,
     .totalItems = ARRAY_COUNT(sDebugMenu_Items_Utilities),
+};
+
+static const struct ListMenuTemplate sDebugMenu_ListTemplate_RogueUtilities =
+{
+    .items = sDebugMenu_Items_RogueUtilities,
+    .moveCursorFunc = ListMenuDefaultCursorMoveFunc,
+    .totalItems = ARRAY_COUNT(sDebugMenu_Items_RogueUtilities),
 };
 
 static const struct ListMenuTemplate sDebugMenu_ListTemplate_PartyBoxes =
@@ -1394,6 +1432,25 @@ static void DebugTask_HandleMenuInput_Utilities(u8 taskId)
     }
 }
 
+static void DebugTask_HandleMenuInput_RogueUtilities(u8 taskId)
+{
+    void (*func)(u8);
+    u32 input = ListMenu_ProcessInput(gTasks[taskId].tMenuTaskId);
+
+    if (JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        if ((func = sDebugMenu_Actions_RogueUtilities[input]) != NULL)
+            func(taskId);
+    }
+    else if (JOY_NEW(B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        Debug_DestroyMenu(taskId);
+        Debug_ReShowMainMenu();
+    }
+}
+
 static void DebugTask_HandleMenuInput_PartyBoxes(u8 taskId)
 {
     void (*func)(u8);
@@ -1690,6 +1747,12 @@ static void DebugAction_OpenUtilitiesMenu(u8 taskId)
 {
     Debug_DestroyMenu(taskId);
     Debug_ShowMenu(DebugTask_HandleMenuInput_Utilities, sDebugMenu_ListTemplate_Utilities);
+}
+
+static void DebugAction_OpenRogueUtilitiesMenu(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    Debug_ShowMenu(DebugTask_HandleMenuInput_RogueUtilities, sDebugMenu_ListTemplate_RogueUtilities);
 }
 
 static void DebugAction_OpenPartyBoxesMenu(u8 taskId)
@@ -2190,6 +2253,26 @@ static void DebugAction_Util_ExpansionVersion(u8 taskId)
     Debug_DestroyMenu_Full(taskId);
     LockPlayerFieldControls();
     ScriptContext_SetupScript(Debug_ShowExpansionVersion);
+}
+
+void Special_ViewDifficultyConfigMenu(void);
+
+static void DebugAction_RogueUtil_ConfigLab(u8 taskId)
+{
+    Debug_DestroyMenu_Full(taskId);
+    Special_ViewDifficultyConfigMenu();
+}
+
+static void DebugAction_RogueUtil_NextDifficulty(u8 taskId)
+{
+    if(Rogue_IsRunActive() && Rogue_GetCurrentDifficulty() < ROGUE_MAX_BOSS_COUNT - 1)
+    {
+        Debug_DestroyMenu_Full(taskId);
+
+        Rogue_PushPopup_NewBadgeGet(Rogue_GetCurrentDifficulty());
+        Rogue_SetCurrentDifficulty(Rogue_GetCurrentDifficulty() + 1);
+        RogueAdv_Debug_ForceRegenerateAdventurePaths();
+    }
 }
 
 void BufferExpansionVersion(struct ScriptContext *ctx)

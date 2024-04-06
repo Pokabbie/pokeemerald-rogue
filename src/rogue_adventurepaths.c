@@ -623,7 +623,24 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
 
     // Randomly replace a routes with empty tiles
     {
-        u8 chance = 5;
+        u8 chance;
+        u8 chanceFalloff;
+        
+        if(GetPathGenerationDifficulty() >=  ROGUE_CHAMP_START_DIFFICULTY)
+        {
+            chance = 50;
+            chanceFalloff = 0;
+        }
+        else if(GetPathGenerationDifficulty() >=  ROGUE_ELITE_START_DIFFICULTY)
+        {
+            chance = 20;
+            chanceFalloff = 5;
+        }
+        else
+        {
+            chance = 5;
+            chanceFalloff = 20;
+        }
 
         if(GetPathGenerationDifficulty() == 0)
             chance = 0;
@@ -631,12 +648,20 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
             chance = 0;
 
-        for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+        if(chance != 0)
         {
-            if(gRogueAdvPath.rooms[i].roomType == ADVPATH_ROOM_ROUTE && RogueRandomChance(chance, 0))
+            for(i = 0; i < gRogueAdvPath.roomCount; ++i)
             {
-                GenerateRoomInstance(i, ADVPATH_ROOM_NONE);
-                --freeRoomCount;
+                if(gRogueAdvPath.rooms[i].roomType == ADVPATH_ROOM_ROUTE && RogueRandomChance(chance, 0))
+                {
+                    GenerateRoomInstance(i, ADVPATH_ROOM_NONE);
+                    --freeRoomCount;
+
+                    if(chance <= chanceFalloff)
+                        chance = 1;
+                    else
+                        chance -= chanceFalloff;
+                }
             }
         }
     }
@@ -763,29 +788,56 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
 
     // Wild dens
     {
-        u8 chance = 5;
+        u8 chance;
+        u8 chanceFalloff;
+        u8 minRouteCount;
+
+        // Recoute number of regular routes remaining
+        freeRoomCount = 0;
+        for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+        {
+            if(gRogueAdvPath.rooms[i].roomType == ADVPATH_ROOM_ROUTE)
+                ++freeRoomCount;
+        }
 
         // If players get encounters they basically have to get lucky with wild den
         if(GetPathGenerationDifficulty() >=  ROGUE_CHAMP_START_DIFFICULTY)
         {
             chance = 95;
+            chanceFalloff = 0;
+            minRouteCount = 0;
         }
         else if(GetPathGenerationDifficulty() >=  ROGUE_ELITE_START_DIFFICULTY)
         {
             chance = 60;
+            chanceFalloff = 10;
+            minRouteCount = 1;
         }
         else if(GetPathGenerationDifficulty() >=  1)
         {
-            chance = 10;
+            chance = 40;
+            chanceFalloff = 20;
+            minRouteCount = 1;
+        }
+        else
+        {
+            chance = 5;
+            chanceFalloff = 0;
+            minRouteCount = 2;
         }
 
         // Always make sure there is at least 1 regular route which can be chosen
-        for(i = 0; i < gRogueAdvPath.roomCount && freeRoomCount > 1; ++i)
+        for(i = 0; i < gRogueAdvPath.roomCount && freeRoomCount > minRouteCount; ++i)
         {
             if(gRogueAdvPath.rooms[i].roomType == ADVPATH_ROOM_ROUTE && RogueRandomChance(chance, 0))
             {
                 GenerateRoomInstance(i, ADVPATH_ROOM_WILD_DEN);
                 --freeRoomCount;
+
+                if(chance <= chanceFalloff)
+                    chance = 1;
+                else
+                    chance -= chanceFalloff;
             }
         }
     }
@@ -1122,6 +1174,27 @@ bool8 RogueAdv_GenerateAdventurePathsIfRequired()
 
         return isNewGeneration;
     }
+}
+
+void RogueAdv_Debug_ForceRegenerateAdventurePaths()
+{
+#ifdef ROGUE_DEBUG
+    struct WarpData warp;
+
+    gRogueAdvPath.roomCount = 0;
+    gRogueAdvPath.isOverviewActive = FALSE;
+    
+    // Fill with dud warp
+    warp.mapGroup = MAP_GROUP(ROGUE_HUB_TRANSITION);
+    warp.mapNum = MAP_NUM(ROGUE_HUB_TRANSITION);
+    warp.warpId = 0;
+    warp.x = -1;
+    warp.y = -1;
+
+    SetWarpDestination(warp.mapGroup, warp.mapNum, warp.warpId, warp.x, warp.y);
+    DoWarp();
+    ResetInitialPlayerAvatarState();
+#endif
 }
 
 u8 RogueAdv_GetTileNum()

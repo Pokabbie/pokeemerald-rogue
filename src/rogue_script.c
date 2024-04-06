@@ -1016,6 +1016,7 @@ void Rogue_IncreaseBagCapacityUpgradeLevel()
     if(gSaveBlock1Ptr->bagCapacityUpgrades < ITEM_BAG_MAX_CAPACITY_UPGRADE)
     {
         ++gSaveBlock1Ptr->bagCapacityUpgrades;
+        Rogue_PushPopup_UpgradeBagCapacity();
         gSpecialVar_Result = TRUE;
         ShrinkBagItems();
     }

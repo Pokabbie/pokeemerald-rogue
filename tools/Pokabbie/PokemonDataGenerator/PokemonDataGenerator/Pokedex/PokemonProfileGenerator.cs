@@ -1099,6 +1099,7 @@ namespace PokemonDataGenerator.Pokedex
 			// Move/Item usages
 			//
 			Dictionary<string, int> moveCount = new Dictionary<string, int>();
+			Dictionary<string, int> specialMoveCount = new Dictionary<string, int>(); // i.e. moves found not in the level up moveset
 			Dictionary<string, int> heldItemCount = new Dictionary<string, int>();
 
 			foreach (var profile in profiles)
@@ -1121,6 +1122,14 @@ namespace PokemonDataGenerator.Pokedex
 						++moveCount[move];
 					else
 						moveCount[move] = 1;
+
+					if (!profile.HasLevelUpMove(move))
+					{
+						if (specialMoveCount.ContainsKey(move))
+							++specialMoveCount[move];
+						else
+							specialMoveCount[move] = 1;
+					}
 				}
 
 				foreach (var item in uniqueItems)
@@ -1135,6 +1144,13 @@ namespace PokemonDataGenerator.Pokedex
 			upperBlock.AppendLine("u16 const gRoguePokemonMoveUsages[MOVES_COUNT] = \n{");
 
 			foreach (var kvp in moveCount)
+				upperBlock.AppendLine($"\t[{kvp.Key}] = {kvp.Value},");
+
+			upperBlock.AppendLine("};\n");
+
+			upperBlock.AppendLine("u16 const gRoguePokemonSpecialMoveUsages[MOVES_COUNT] = \n{");
+
+			foreach (var kvp in specialMoveCount)
 				upperBlock.AppendLine($"\t[{kvp.Key}] = {kvp.Value},");
 
 			upperBlock.AppendLine("};\n");

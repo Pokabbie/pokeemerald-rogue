@@ -494,13 +494,13 @@
             },
             {
                 "name": "Care Tactics",
-                "description": "Defeat the first 4 Gym Leaders, without any Pokémon ever fainting.",
+                "description": "Defeat the first 4 Gym Leaders, without your Partner Pokémon ever fainting.",
                 "triggers":
                 [
                     {
-                        "on": [ "MON_FAINTED" ],
-                        "condition": "Always",
-                        "pass": "FAIL"
+                        "on": [ "ANY_BATTLE_END" ],
+                        "condition": "PartyContainsInitialPartner",
+                        "fail": "FAIL"
                     },
                     {
                         "on": [ "EARN_BADGE" ],
