@@ -7893,7 +7893,8 @@ u16 Rogue_GetTRMove(u16 trNumber)
 
 static u8 TRMove_CalculateWeight(u16 index, u16 move, void* data)
 {
-    u16 usage = gRoguePokemonMoveUsages[move];
+    // We're specifically going to use moves which would be Tutor moves i.e. ignore moves like growl or splash
+    u16 usage = gRoguePokemonSpecialMoveUsages[move];
 
     // If we don't have comp usage, the chance is impossible
     if(usage == 0)
