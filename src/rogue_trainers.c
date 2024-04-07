@@ -1029,6 +1029,17 @@ void Rogue_ChooseRivalTrainerForNewAdventure()
         // Last encounter just before or just after last gym
         gRogueRun.rivalEncounterDifficulties[3] = ROGUE_ELITE_START_DIFFICULTY - (RogueRandom() % 2);
     }
+
+#ifdef ROGUE_DEBUG
+    {
+        u8 i;
+
+        for(i = 0; i < ARRAY_COUNT(gRogueRun.rivalEncounterDifficulties); ++i)
+        {
+            DebugPrintf("\t- %d", gRogueRun.rivalEncounterDifficulties[i]);
+        }
+    }
+#endif
 }
 
 void Rogue_ChooseTeamBossTrainerForNewAdventure()
@@ -1150,7 +1161,7 @@ void Rogue_GenerateRivalSwapTeamIfNeeded()
 
         // Fake the difficulty for the generator
         u16 tempDifficulty = Rogue_GetCurrentDifficulty();
-        Rogue_SetCurrentDifficulty(ROGUE_ELITE_START_DIFFICULTY);
+        Rogue_SetCurrentDifficulty(ROGUE_FINAL_CHAMP_DIFFICULTY);
 
         // Apply some base seed for anything which needs to be randomly setup
         SeedRogueRng(gRogueRun.baseSeed * 6632 + 8073);
@@ -1347,7 +1358,7 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
-        if(difficulty >= 8)
+        if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
         {
             scratch->allowItemEvos = TRUE;
             scratch->allowWeakLegends = TRUE;
@@ -1355,43 +1366,52 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
         break;
 
     case DIFFICULTY_LEVEL_AVERAGE:
-        if(difficulty >= 8)
+        if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
         {
             scratch->allowStrongLegends = TRUE;
             scratch->preferStrongSpecies = TRUE;
         }
-        else if(difficulty >= 7)
+        else if(difficulty >= ROGUE_ELITE_START_DIFFICULTY - 1)
         {
             scratch->allowWeakLegends = TRUE;
         }
-        if(difficulty >= 4)
+
+        if(difficulty >= ROGUE_GYM_MID_DIFFICULTY)
         {
             scratch->allowItemEvos = TRUE;
         }
         break;
 
     case DIFFICULTY_LEVEL_HARD:
-        if(difficulty >= 5)
+        if(difficulty >= ROGUE_GYM_MID_DIFFICULTY + 1)
         {
             scratch->allowStrongLegends = TRUE;
             scratch->preferStrongSpecies = TRUE;
         }
-        else if(difficulty >= 2)
+        else if(difficulty >= ROGUE_GYM_START_DIFFICULTY + 2)
         {
             scratch->allowWeakLegends = TRUE;
+        }
+
+        if(difficulty >= ROGUE_GYM_START_DIFFICULTY + 2)
+        {
             scratch->allowItemEvos = TRUE;
         }
         break;
 
     case DIFFICULTY_LEVEL_BRUTAL:
-        if(difficulty >= 2)
+        if(difficulty >= ROGUE_GYM_START_DIFFICULTY + 2)
         {
             scratch->allowStrongLegends = TRUE;
             scratch->preferStrongSpecies = TRUE;
         }
-        else if(difficulty >= 1)
+        else if(difficulty >= ROGUE_GYM_START_DIFFICULTY + 1)
         {
             scratch->allowWeakLegends = TRUE;
+        }
+
+        if(difficulty >= ROGUE_GYM_START_DIFFICULTY + 1)
+        {
             scratch->allowItemEvos = TRUE;
         }
         break;
@@ -1832,7 +1852,7 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
     scratch.preferStrongSpecies = FALSE;
 
     // Exp trainer should just use default settings
-    if(Rogue_IsExpTrainer(trainerNum))
+    if(!Rogue_IsExpTrainer(trainerNum))
     {
         ConfigurePartyScratchSettings(trainerNum, &scratch);
     }
@@ -1855,9 +1875,9 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
         if(monCount == PARTY_SIZE)
         {
             if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
-                swapAmount = 3;
+                swapAmount = (ROGUE_RIVAL_TOTAL_MON_COUNT - PARTY_SIZE); // do all the swaps at the end
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 2)
-                swapAmount = 1;
+                swapAmount = 2; // swap a couple of them for the last battle before E4
         }
 
         // Remove all lowest scorers first (Mimic selection behaviour performed during generation)
@@ -2499,12 +2519,12 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
         // If we have valid subsets remaining and we're a boss, force the final mons to be legends
         if(scratch->subsetIndex < trainer->teamGenerator.subsetCount && (Rogue_IsBossTrainer(scratch->trainerNum) || Rogue_IsRivalTrainer(scratch->trainerNum)))
         {
-            if(Rogue_GetCurrentDifficulty() == ROGUE_MAX_BOSS_COUNT - 1 && scratch->partyCount == 4)
+            if(Rogue_GetCurrentDifficulty() == ROGUE_FINAL_CHAMP_DIFFICULTY && scratch->partyCount == 4)
             {
                 scratch->forceLegends = TRUE;
                 scratch->shouldRegenerateQuery = TRUE;
             }
-            else if(Rogue_GetCurrentDifficulty() == ROGUE_MAX_BOSS_COUNT - 2 && scratch->partyCount == 5)
+            else if(Rogue_GetCurrentDifficulty() == ROGUE_CHAMP_START_DIFFICULTY && scratch->partyCount == 5)
             {
                 scratch->forceLegends = TRUE;
                 scratch->shouldRegenerateQuery = TRUE;

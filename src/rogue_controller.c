@@ -187,7 +187,7 @@ static u16 GetWildGrassEncounter(u8 index);
 static u16 GetWildWaterEncounter(u8 index);
 static u16 GetWildEncounterIndexFor(u16 species);
 
-static void EnableRivalEncounterIfRequired();
+void EnableRivalEncounterIfRequired();
 static void ChooseLegendarysForNewAdventure();
 static void ChooseTeamEncountersForNewAdventure();
 static void RememberPartyHeldItems();
@@ -5229,6 +5229,7 @@ static bool32 IsPlayerDefeated(u32 battleOutcome)
     switch (battleOutcome)
     {
     case B_OUTCOME_LOST:
+    case B_OUTCOME_FORFEITED:
     case B_OUTCOME_DREW:
         return TRUE;
     case B_OUTCOME_WON:
@@ -5415,7 +5416,7 @@ static void MonGainRewardEVs(struct Pokemon *mon)
     }
 }
 
-static void EnableRivalEncounterIfRequired()
+void EnableRivalEncounterIfRequired()
 {
     u8 i;
 

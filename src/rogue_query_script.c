@@ -310,9 +310,9 @@ static void Condition_IsBannedSpecies(struct QueryScriptContext* context)
     if(RoguePokedex_IsSpeciesLegendary(context->currentSpecies))
     {
         if(RoguePokedex_IsSpeciesValidBoxLegendary(context->currentSpecies))
-            context->conditionState = !!context->allowBoxLegendaries;
+            context->conditionState = !context->allowBoxLegendaries;
         else
-            context->conditionState = !!context->allowNonBoxLegendaries;
+            context->conditionState = !context->allowNonBoxLegendaries;
     }
 }
 

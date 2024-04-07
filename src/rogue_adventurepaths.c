@@ -1180,6 +1180,7 @@ void RogueAdv_Debug_ForceRegenerateAdventurePaths()
 
     gRogueAdvPath.roomCount = 0;
     gRogueAdvPath.isOverviewActive = FALSE;
+    gRogueRun.adventureRoomId = ADVPATH_INVALID_ROOM_ID;
     
     // Fill with dud warp
     warp.mapGroup = MAP_GROUP(ROGUE_HUB_TRANSITION);
