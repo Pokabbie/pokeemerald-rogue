@@ -24,6 +24,8 @@
 #include "rogue_controller.h"
 #include "rogue_settings.h"
 
+#define QUICK_JUMP_AMOUNT 4
+
 extern const u8 gText_16Spaces[];
 extern const u8 gText_32Spaces[];
 extern const u8 gText_DifficultySettings[];
@@ -1052,13 +1054,18 @@ static void Task_OptionMenuFadeIn(u8 taskId)
         gTasks[taskId].func = Task_OptionMenuProcessInput;
 }
 
+static u8 GetMenuItemFor(u8 submenu, u8 index)
+{
+    return sOptionMenuEntries[submenu].menuOptions[index];
+}
+
 static void Task_OptionMenuProcessInput(u8 taskId)
 {
     bool8 submenuChanged = FALSE;
     u8 menuSelection = gTasks[taskId].data[TD_MENUSELECTION];
     u8 menuSelectionTop = gTasks[taskId].data[TD_MENUSELECTION_TOP];
     u8 submenuSelection = gTasks[taskId].data[TD_SUBMENU];
-    u8 menuItem = sOptionMenuEntries[submenuSelection].menuOptions[menuSelection];
+    u8 menuItem = GetMenuItemFor(submenuSelection, menuSelection);
 
     if (JOY_NEW(B_BUTTON) || (JOY_NEW(A_BUTTON) && (menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_DIFFICULTY_PRESET)))
     {
@@ -1102,37 +1109,56 @@ static void Task_OptionMenuProcessInput(u8 taskId)
 #endif
         }
     }
-    else if (JOY_REPEAT(DPAD_UP))
+    else if (JOY_REPEAT(DPAD_UP | L_BUTTON))
     {
-        if(menuSelection != 0)
-        {
-            menuSelection--;
-            DrawDescriptionOptionMenuText(submenuSelection, menuSelection);
+        u8 i;
+        u8 repeatAmount = JOY_REPEAT(L_BUTTON) ? QUICK_JUMP_AMOUNT : 1;
 
-            if(menuSelection < menuSelectionTop)
+        for(i = 0; i < repeatAmount; ++i)
+        {
+            if(menuSelection != 0)
             {
-                menuSelectionTop = menuSelection;
-                DrawOptionMenuTexts(submenuSelection, menuSelectionTop);
+                menuSelection--;
+
+                if(menuSelection < menuSelectionTop)
+                {
+                    menuSelectionTop = menuSelection;
+                }
             }
+            else
+                break;
         }
+
+        DrawDescriptionOptionMenuText(submenuSelection, menuSelection);
+        DrawOptionMenuTexts(submenuSelection, menuSelectionTop);
 
         HighlightOptionMenuItem(menuSelection, menuSelectionTop);
         gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
         gTasks[taskId].data[TD_MENUSELECTION_TOP] = menuSelectionTop;
     }
-    else if (JOY_REPEAT(DPAD_DOWN))
+    else if (JOY_REPEAT(DPAD_DOWN | R_BUTTON))
     {
-        if(menuItem != MENUITEM_CANCEL)
+        u8 i;
+        u8 repeatAmount = JOY_REPEAT(R_BUTTON) ? QUICK_JUMP_AMOUNT : 1;
+        
+        for(i = 0; i < repeatAmount; ++i)
         {
-            menuSelection++;
-            DrawDescriptionOptionMenuText(submenuSelection, menuSelection);
-
-            if(menuSelection >= menuSelectionTop + MAX_MENUITEM_TO_DISPLAY)
+            if(menuItem != MENUITEM_CANCEL)
             {
-                menuSelectionTop = menuSelection - MAX_MENUITEM_TO_DISPLAY + 1;
-                DrawOptionMenuTexts(submenuSelection, menuSelectionTop);
+                menuSelection++;
+                menuItem = GetMenuItemFor(submenuSelection, menuSelection);
+
+                if(menuSelection >= menuSelectionTop + MAX_MENUITEM_TO_DISPLAY)
+                {
+                    menuSelectionTop = menuSelection - MAX_MENUITEM_TO_DISPLAY + 1;
+                }
             }
+            else
+                break;
         }
+
+        DrawDescriptionOptionMenuText(submenuSelection, menuSelection);
+        DrawOptionMenuTexts(submenuSelection, menuSelectionTop);
 
         HighlightOptionMenuItem(menuSelection, menuSelectionTop);
         gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
@@ -1542,7 +1568,7 @@ static void DrawDescriptionOptionMenuText(u8 submenu, u8 selection)
     u8 text[64];
     u8* str;
 
-    u8 menuItem = sOptionMenuEntries[submenu].menuOptions[selection];
+    u8 menuItem = GetMenuItemFor(submenu, selection);
 
     FillWindowPixelBuffer(WIN_TEXT_OPTION, PIXEL_FILL(1));
 
@@ -1626,7 +1652,7 @@ static void DrawOptionMenuTexts(u8 submenu, u8 topIndex)
 
     for (i = 0; i < MAX_MENUITEM_TO_DISPLAY; i++)
     {
-        u8 menuItem = sOptionMenuEntries[submenu].menuOptions[i + topIndex];
+        u8 menuItem = GetMenuItemFor(submenu, i + topIndex);
 
         AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, sOptionMenuItems[menuItem].itemName, 8, (i * YPOS_SPACING) + 1, TEXT_SKIP_DRAW, NULL);
 
@@ -1636,7 +1662,7 @@ static void DrawOptionMenuTexts(u8 submenu, u8 topIndex)
 
     for (i = 0; i < MAX_MENUITEM_TO_DISPLAY; i++)
     {
-        u8 menuItem = sOptionMenuEntries[submenu].menuOptions[i + topIndex];
+        u8 menuItem = GetMenuItemFor(submenu, i + topIndex);
     
         sOptionMenuItems[menuItem].drawChoices(i, GetMenuItemValue(menuItem));
 
