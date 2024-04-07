@@ -6929,7 +6929,9 @@ struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot)
 
 u8 Rogue_GetCurrentDaycareSlotCount()
 {
-    return DAYCARE_SLOT_COUNT;
+    // TODO
+    return 1;
+    //return DAYCARE_SLOT_COUNT;
 }
 
 void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycareMon)
@@ -6983,7 +6985,7 @@ void Rogue_DaycareMultichoiceCallback(struct MenuAction* outList, u8* outCount, 
         gStringVar3
     };
 
-    for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+    for(i = 0; i < Rogue_GetCurrentDaycareSlotCount(); ++i)
     {
         mon = Rogue_GetDaycareBoxMon(i);
         species = GetBoxMonData(mon, MON_DATA_SPECIES);

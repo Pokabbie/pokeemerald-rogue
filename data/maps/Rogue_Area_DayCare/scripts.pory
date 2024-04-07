@@ -160,3 +160,26 @@ script Rogue_Area_DayCare_TalkEggBreeder
 
     release
 }
+
+script Rogue_Area_DayCare_InteractWithPhoneBooth
+{
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    if(var(VAR_RESULT) == DIR_NORTH)
+    {
+        lock
+        msgbox(format("It's the Day Care's phone!"))
+
+        if(!flag(FLAG_ROGUE_RUN_ACTIVE))
+        {
+            checkitem(ITEM_DAYCARE_PHONE)
+
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("Oh?\nThere's a small package with a note attached.\pIt reads…\p'Dear {PLAYER}, please accept this Pokégear.\pYou can use it to remotely make requests with the Day Care, whilst you're out on Adventures.\pBest of luck!\p - The Day Care Staff'"))
+                giveitem(ITEM_DAYCARE_PHONE)
+            }
+        }
+
+        release
+    }
+}

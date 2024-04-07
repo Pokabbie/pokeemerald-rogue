@@ -4685,6 +4685,10 @@ static const struct SpriteFrameImage sPicTable_PCStand[] = {
     obj_frame_tiles(gObjectEventPic_PCStand),
 };
 
+static const struct SpriteFrameImage sPicTable_PhoneBooth[] = {
+    obj_frame_tiles(gObjectEventPic_PhoneBooth),
+};
+
 static const struct SpriteFrameImage sPicTable_PokeblockMixer[] = {
     obj_frame_tiles(gObjectEventPic_PokeblockMixer),
 };

@@ -844,7 +844,7 @@ script Rogue_SpeakDaycareLady
 {
     lock
     faceplayer
-    msgbox(format("Why hello dear!\nI'm the Daycare Lady.\pI have enough capacity to look after 2 Pokémon currently."), MSGBOX_DEFAULT)
+    msgbox(format("Why hello dear!\nI'm the Daycare Lady.\pI can hold onto Pokémon for you, if you'd like."), MSGBOX_DEFAULT)
 
     message(format("Which daycare slot are you interested in?"))
     waitmessage
