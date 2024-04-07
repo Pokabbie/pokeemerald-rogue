@@ -1856,8 +1856,6 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
         {
             if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
                 swapAmount = 3;
-            else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 1)
-                swapAmount = 2;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 2)
                 swapAmount = 1;
         }
@@ -2098,14 +2096,57 @@ static bool8 FilterOutDuplicateMons(u16 elem, void* usrData)
 
 static void SetupQueryScriptVars(struct QueryScriptContext* context, struct TrainerPartyScratch* scratch)
 {
-    if(ShouldTrainerOptimizeCoverage(scratch->trainerNum))
+    u8 maxBoxLegends = 255;
+    u8 maxNonBoxLegends = 255;
+
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
-        RogueQueryScript_SetupVarsForParty(context, scratch->party, scratch->partyCount);
+    case DIFFICULTY_LEVEL_EASY:
+        if(Rogue_IsKeyTrainer(scratch->trainerNum))
+        {
+            maxBoxLegends = 1;
+            maxNonBoxLegends = 1;
+        }
+        else
+        {
+            maxBoxLegends = 0;
+            maxNonBoxLegends = 1;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_AVERAGE:
+        if(Rogue_IsKeyTrainer(scratch->trainerNum))
+        {
+            maxBoxLegends = 1;
+            maxNonBoxLegends = 2;
+        }
+        else
+        {
+            maxBoxLegends = 1;
+            maxNonBoxLegends = 1;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
+        if(Rogue_IsKeyTrainer(scratch->trainerNum))
+        {
+            maxBoxLegends = 2;
+            maxNonBoxLegends = 2;
+        }
+        else
+        {
+            maxBoxLegends = 1;
+            maxNonBoxLegends = 2;
+        }
+        break;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        maxBoxLegends = 6;
+        maxNonBoxLegends = 6;
+        break;
     }
-    else
-    {
-        RogueQueryScript_SetupVarsForParty(context, NULL, 0);
-    }
+
+    RogueQueryScript_SetupVarsForParty(context, scratch->party, scratch->partyCount, ShouldTrainerOptimizeCoverage(scratch->trainerNum), maxBoxLegends, maxNonBoxLegends);
 }
 
 static u8 SelectFallbackTypeFor(u8 type, u8 counter)

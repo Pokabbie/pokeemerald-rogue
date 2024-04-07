@@ -55,7 +55,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ZUBAT", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             }
@@ -92,7 +93,8 @@
                     [
                         "HAS_TYPE", "TYPE_NORMAL", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_PIDGEY", "INC_FAVOUR",
-                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR"
+                        "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -125,7 +127,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SCYTHER", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -159,7 +162,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MILTANK", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "IS_MONO_TYPE", "INC_FAVOUR"
+                        "IS_MONO_TYPE", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -197,7 +201,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MISDREAVUS", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -231,7 +236,8 @@
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_POLIWAG", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
-                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                        "IS_MONO_TYPE", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -264,7 +270,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ONIX", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -302,7 +309,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SWINUB", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -342,7 +350,8 @@
                         "HAS_TYPE", "TYPE_FIRE", "DEC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_HORSEA", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             }
@@ -383,7 +392,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NATU", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -420,7 +430,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ZUBAT", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "IS_MONO_TYPE", "INC_FAVOUR"
+                        "IS_MONO_TYPE", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -466,7 +477,8 @@
                         "HAS_TYPE", "TYPE_FIGHTING", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ONIX", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -503,7 +515,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_EEVEE", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "IS_MONO_TYPE", "INC_FAVOUR"
+                        "IS_MONO_TYPE", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             }
@@ -557,7 +570,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_DRATINI", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "2", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             }

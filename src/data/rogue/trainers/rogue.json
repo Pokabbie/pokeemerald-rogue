@@ -70,7 +70,8 @@
                         "GREATER_THAN", "VAR_MON_BST", "500", "INC_FAVOUR",
                         "LESS_THAN", "VAR_MON_BST", "400", "DEC_FAVOUR", "DEC_FAVOUR", "DEC_FAVOUR", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR"
+                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             }
@@ -100,7 +101,8 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CHARMANDER", "INC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -126,7 +128,8 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BULBASAUR", "INC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -153,7 +156,8 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TOTODILE", "INC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -179,7 +183,8 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CHIKORITA", "INC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -206,7 +211,8 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MUDKIP", "INC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -232,7 +238,8 @@
                     "weight_script":
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TORCHIC", "INC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -259,6 +266,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TURTWIG", "INC_FAVOUR",
                         "#endif"
@@ -287,6 +295,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_PIPLUP", "INC_FAVOUR",
                         "#endif"
@@ -316,6 +325,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SNIVY", "INC_FAVOUR",
                         "#endif"
@@ -344,6 +354,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TEPIG", "INC_FAVOUR",
                         "#endif"
@@ -372,6 +383,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_OSHAWOTT", "INC_FAVOUR",
                         "#endif"
@@ -400,6 +412,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SNIVY", "INC_FAVOUR",
                         "#endif"
@@ -429,6 +442,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FROAKIE", "INC_FAVOUR",
                         "#endif"
@@ -457,6 +471,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FENNEKIN", "INC_FAVOUR",
                         "#endif"
@@ -486,6 +501,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_LITTEN", "INC_FAVOUR",
                         "#endif"
@@ -514,6 +530,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ROWLET", "INC_FAVOUR",
                         "#endif"
@@ -543,6 +560,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GROOKEY", "INC_FAVOUR",
                         "#endif"
@@ -571,6 +589,7 @@
                     "weight_script":
                     [
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
                         "#ifdef ROGUE_EXPANSION",
                             "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SCORBUNNY", "INC_FAVOUR",
                         "#endif"
@@ -612,7 +631,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GASTLY", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR"
+                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ],
                     "query_script_override":
                     [
@@ -738,7 +758,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_ERMA_ACE", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR"
+                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ],
                     "query_script_override":
                     [
@@ -904,7 +925,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_AZURILL", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR"
+                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ],
                     "query_script_override":
                     [
@@ -1067,7 +1089,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_RAVEN_ACE", "INC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR"
+                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ],
                     "query_script_override":
                     [
@@ -1163,7 +1186,8 @@
                     ],
                     "weight_script":
                     [
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             }

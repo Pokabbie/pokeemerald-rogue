@@ -24,6 +24,10 @@ enum
 
     QUERY_SCRIPT_HAS_TYPE,
     QUERY_SCRIPT_IS_MONO_TYPE,
+    QUERY_SCRIPT_IS_LEGENDARY,
+    QUERY_SCRIPT_IS_BOX_LEGENDARY,
+    QUERY_SCRIPT_IS_NON_BOX_LEGENDARY,
+    QUERY_SCRIPT_IS_BANNED_SPECIES,
     QUERY_SCRIPT_HAS_UNIQUE_TYPE_IN_TEAM,
     QUERY_SCRIPT_ALREADY_HAS_TYPE_IN_TEAM,
 
@@ -79,13 +83,15 @@ struct QueryScriptContext
     u16 const* ptr;
     u32 partyTypeFlags;
     u16 currentSpecies;
+    bool8 allowBoxLegendaries;
+    bool8 allowNonBoxLegendaries;
     bool8 conditionState;
     u8 currentFavour;
 };
 
 void RogueQueryScript_SetupScript(struct QueryScriptContext* context, u16 const* script);
 void RogueQueryScript_SetupVarsForSpecies(struct QueryScriptContext* context, u16 species);
-void RogueQueryScript_SetupVarsForParty(struct QueryScriptContext* context, struct Pokemon* party, u8 count);
+void RogueQueryScript_SetupVarsForParty(struct QueryScriptContext* context, struct Pokemon* party, u8 count, bool8 includeTypeCoverage, u8 maxBoxLegends, u8 maxNonBoxLegends);
 
 void RogueQueryScript_Execute(struct QueryScriptContext* context);
 
