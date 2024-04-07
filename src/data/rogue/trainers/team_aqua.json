@@ -34,7 +34,8 @@
             ],
             "weight_script":
             [
-                "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
             ]
         }
     },
@@ -96,7 +97,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_KYOGRE", "INC_FAVOUR", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             }

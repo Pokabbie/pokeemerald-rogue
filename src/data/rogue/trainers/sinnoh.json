@@ -18,6 +18,30 @@
                 "trainer_flags": [ "REGION_SINNOH", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_MUNCHLAX",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Whoa!\\nYou look a little tough!\\pWhat about me?\\nDo you even need to ask?\\pOf course I'm tough!\\pCome on!\\nI'll demonstrate it to you!",
+                        "POST_BATTLE_TAUNT": "What just happened?\\nI lost?!",
+                        "POST_BATTLE_CLOSER": "Waah!\\nWhat do you mean I lost?!\\pWell, that's it!\\nThat's the last time I'll ever lose!\\pI'm going to be the world's toughest Trainer, and you know it!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Ta-daah!\\nKept me waiting again, {PLAYER}!\\pLet's see how much tougher you and I have gottten, right here and now!\\pNo whining! No waiting!\\nLet's get the show started!",
+                        "POST_BATTLE_TAUNT": "What just happened?!\\nYou're telling me I lost?!",
+                        "POST_BATTLE_CLOSER": "Whaaah!\\pIt goes to show my surefire winning strategy doesn't work.\\pI guess I have to grind it out and toughen up the team a bit at a time.\\pAnyway! I'm off!\\nSee ya, {PLAYER}!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Whoops!\\nHey, {PLAYER}!\\pYou're going to challenge the Elite Four, right?\\pSomeone should check to see if you're ready for this challenge!",
+                        "POST_BATTLE_TAUNT": "What just happened?!\\nYou're telling me I lost?!",
+                        "POST_BATTLE_CLOSER": "Yeah, yeah, you're just a bit better than me, as usual.\\pBut listen up!\\pLet me tell you who's going to become the toughest Trainer in the world.\\pYou guessed right!\\nIt's going to be me!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\pHold up!",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: You want to be the world's toughest Trainer, right?\\nThat's why I'm here too!\\pLet's see who's more worthy of taking the title!",
+                        "POST_BATTLE_TAUNT": "What just went down?!\\nMy team still needs raising?!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -32,7 +56,8 @@
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_STARLY", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MUNCHLAX", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             }
@@ -78,7 +103,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CRANIDOS", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -116,7 +142,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BUDEW", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -154,7 +181,8 @@
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_RIOLU", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
-                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                        "IS_MONO_TYPE", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -188,7 +216,8 @@
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BUIZEL", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
-                        "IS_MONO_TYPE", "DEC_FAVOUR"
+                        "IS_MONO_TYPE", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -233,7 +262,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_DRIFLOON", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -275,7 +305,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SHIELDON", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -316,7 +347,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SNOVER", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -366,7 +398,8 @@
                         "HAS_TYPE", "TYPE_ELECTRIC", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SHINX", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             }
@@ -409,7 +442,8 @@
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SKORUPI", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
-                        "HAS_TYPE", "TYPE_FIRE", "DEC_FAVOUR"
+                        "HAS_TYPE", "TYPE_FIRE", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -446,7 +480,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_HIPPOPOTAS", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -491,7 +526,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CHIMCHAR", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             },
@@ -532,7 +568,8 @@
                     [
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_BRONZOR", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             }
@@ -578,7 +615,8 @@
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GIBLE", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SPIRITOMB", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
-                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
                     ]
                 }
             }

@@ -153,7 +153,7 @@
 #define VAR_ROGUE_STARTER1                   0x4080 
 #define VAR_ROGUE_STARTER2                   0x4081
 #define VAR_UNUSED_0x4082                    0x4082
-#define VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2    0x4083
+#define VAR_UNUSED_0x4083                    0x4083
 #define VAR_UNUSED_0x4084                    0x4084
 #define VAR_UNUSED_0x4085                    0x4085 // 0-1: Wally tutorial, 2-6: 0-4 badges, 7: Defeated Norman, 8: Rematch Norman
 #define VAR_UNUSED_0x4086                    0x4086
@@ -206,7 +206,7 @@
 #define VAR_TRICK_HOUSE_ENTER_FROM_CORRIDOR  0x40B5
 #define VAR_TRICK_HOUSE_PUZZLE_7_STATE_2     0x40B6 // Leftover from RS, never set
 #define VAR_SLATEPORT_FAN_CLUB_STATE         0x40B7
-#define VAR_ROGUE_SPECIAL_ENCOUNTER_DATA     0x40B8
+#define VAR_UNUSED_0x40B8                    0x40B8
 #define VAR_MT_PYRE_STATE                    0x40B9
 #define VAR_NEW_MAUVILLE_STATE               0x40BA
 #define VAR_ROGUE_CURRENT_LEVEL_CAP          0x40BB
@@ -228,9 +228,9 @@
 #define VAR_FOLLOW_MON_3                     0x40CB
 #define VAR_FOLLOW_MON_4                     0x40CC
 #define VAR_FOLLOW_MON_5                     0x40CD
-#define VAR_UNUSED_0x40CE                    0x40CE // unused
-#define VAR_UNUSED_0x40CF                    0x40CF // unused
-#define VAR_UNUSED_0x40D0                    0x40D0 // unused
+#define VAR_ROGUE_SPECIAL_ENCOUNTER_DATA     0x40CE
+#define VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1    0x40CF
+#define VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2    0x40D0
 #define VAR_UNUSED_0x40D1                    0x40D1 // unused
 #define VAR_UNUSED_0x40D2                    0x40D2 // unused
 #define VAR_UNUSED_0x40D3                    0x40D3 // unused
@@ -269,7 +269,7 @@
 #define VAR_ROXANNE_CALL_STEP_COUNTER        0x40F4
 #define VAR_SCOTT_BF_CALL_STEP_COUNTER       0x40F5
 #define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER 0x40F6
-#define VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1    0x40F7
+#define VAR_UNUSED_0x40F7                    0x40F7
 #define VAR_ROGUE_DESIRED_CAMPAIGN           0x40F8
 #define VAR_ROGUE_ACTIVE_CAMPAIGN            0x40F9
 #define VAR_UNUSED_0x40FA                    0x40FA 

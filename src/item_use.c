@@ -831,6 +831,19 @@ void ItemUseOutOfBattle_CGear(u8 taskId)
     }
 }
 
+static void ItemUseOnFieldCB_DayCarePhone(u8 taskId)
+{
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Rogue_EventScript_UseDayCarePhoneItem);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_DayCarePhone(u8 taskId)
+{
+    sItemUseOnFieldCB = ItemUseOnFieldCB_DayCarePhone;
+    SetUpItemUseOnFieldCallback(taskId);
+}
+
 void ItemUseOutOfBattle_CoinCase(u8 taskId)
 {
     ConvertIntToDecimalStringN(gStringVar1, GetCoins(), STR_CONV_MODE_LEFT_ALIGN, 4);

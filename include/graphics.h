@@ -2289,6 +2289,8 @@ extern const u32 gItemIconPalette_CornerstoneMask[];
 
 extern const u32 gItemIcon_CGear[];
 extern const u32 gItemIconPalette_CGear[];
+extern const u32 gItemIcon_PokeGear[];
+extern const u32 gItemIconPalette_PokeGear[];
 extern const u32 gItemIcon_AlolaStone[];
 extern const u32 gItemIconPalette_AlolaStone[];
 extern const u32 gItemIcon_GalarStone[];

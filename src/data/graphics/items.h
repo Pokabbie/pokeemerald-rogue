@@ -2077,6 +2077,9 @@ const u32 gItemIconPalette_RogueCurse[] = INCBIN_U32("graphics/items/icon_palett
 const u32 gItemIcon_CGear[] = INCBIN_U32("graphics/items/icons/c_gear.4bpp.lz");
 const u32 gItemIconPalette_CGear[] = INCBIN_U32("graphics/items/icons/c_gear.gbapal.lz");
 
+const u32 gItemIcon_PokeGear[] = INCBIN_U32("graphics/items/icons/poke_gear.4bpp.lz");
+const u32 gItemIconPalette_PokeGear[] = INCBIN_U32("graphics/items/icons/poke_gear.gbapal.lz");
+
 const u32 gItemIcon_BuildResources[] = INCBIN_U32("graphics/items/icons/build_resources.4bpp.lz");
 const u32 gItemIconPalette_BuildResources[] = INCBIN_U32("graphics/items/icons/build_resources.gbapal.lz");
 

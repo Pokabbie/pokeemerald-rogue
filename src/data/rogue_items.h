@@ -6,6 +6,7 @@ extern const u8 gItemDesc_HealingFlask[];
 extern const u8 gItemDesc_RidingWhistle[];
 extern const u8 gItemDesc_GoldRidingWhistle[];
 extern const u8 gItemDesc_CGear[];
+extern const u8 gItemDesc_DaycarePhone[];
 extern const u8 gItemDesc_BuildingSupplies[];
 
 extern const u8 gItemDesc_NormalPokeblock[];
@@ -163,6 +164,25 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .registrability = TRUE,
         .iconImage = gItemIcon_CGear,
         .iconPalette = gItemIconPalette_CGear,
+    },
+
+    [ITEM_DAYCARE_PHONE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Pokégear"),
+#else
+        .name = _("POKéGEAR"),
+#endif
+        .itemId = ITEM_DAYCARE_PHONE,
+        .price = 0,
+        .description = gItemDesc_DaycarePhone,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_DayCarePhone,
+        .secondaryId = 0,
+        .registrability = TRUE,
+        .iconImage = gItemIcon_PokeGear,
+        .iconPalette = gItemIconPalette_PokeGear,
     },
     
     [ITEM_BUILDING_SUPPLIES - ITEM_ROGUE_ITEM_FIRST] =

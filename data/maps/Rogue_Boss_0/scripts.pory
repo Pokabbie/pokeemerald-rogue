@@ -103,6 +103,72 @@ script Rogue_Battle_Boss0_ShowHint
     }
 }
 
+script Rogue_Boss_BufferTypeHint
+{
+    switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1))
+    {
+        case TYPE_NORMAL:
+            bufferstring(STR_VAR_1, "Normal")
+
+        case TYPE_FIGHTING:
+            bufferstring(STR_VAR_1, "Fighting")
+
+        case TYPE_FLYING:
+            bufferstring(STR_VAR_1, "Flying")
+
+        case TYPE_POISON:
+            bufferstring(STR_VAR_1, "Poison")
+
+        case TYPE_GROUND:
+            bufferstring(STR_VAR_1, "Ground")
+
+        case TYPE_ROCK:
+            bufferstring(STR_VAR_1, "Rock")
+
+        case TYPE_BUG:
+            bufferstring(STR_VAR_1, "Bug")
+
+        case TYPE_GHOST:
+            bufferstring(STR_VAR_1, "Ghost")
+
+        case TYPE_STEEL:
+            bufferstring(STR_VAR_1, "Steel")
+
+        case TYPE_MYSTERY:
+            bufferstring(STR_VAR_1, "Mystery?")
+
+        case TYPE_FIRE:
+            bufferstring(STR_VAR_1, "Fire")
+
+        case TYPE_WATER:
+            bufferstring(STR_VAR_1, "Water")
+
+        case TYPE_GRASS:
+            bufferstring(STR_VAR_1, "Grass")
+
+        case TYPE_ELECTRIC:
+            bufferstring(STR_VAR_1, "Electric")
+
+        case TYPE_PSYCHIC:
+            bufferstring(STR_VAR_1, "Psychic")
+
+        case TYPE_ICE:
+            bufferstring(STR_VAR_1, "Ice")
+
+        case TYPE_DRAGON:
+            bufferstring(STR_VAR_1, "Dragon")
+
+        case TYPE_DARK:
+            bufferstring(STR_VAR_1, "Dark")
+
+        case 18: //TYPE_FAIRY
+            bufferstring(STR_VAR_1, "Fairy")
+
+        default:
+            bufferstring(STR_VAR_1, "???")
+    }
+}
+
 script Rogue_Battle_Boss0_Hint
 {
     lock
@@ -116,69 +182,7 @@ script Rogue_Battle_Boss0_Hint
         }
         else
         {
-            switch(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1))
-            {
-                case TYPE_NORMAL:
-                    bufferstring(STR_VAR_1, "Normal")
-
-                case TYPE_FIGHTING:
-                    bufferstring(STR_VAR_1, "Fighting")
-
-                case TYPE_FLYING:
-                    bufferstring(STR_VAR_1, "Flying")
-
-                case TYPE_POISON:
-                    bufferstring(STR_VAR_1, "Poison")
-
-                case TYPE_GROUND:
-                    bufferstring(STR_VAR_1, "Ground")
-
-                case TYPE_ROCK:
-                    bufferstring(STR_VAR_1, "Rock")
-
-                case TYPE_BUG:
-                    bufferstring(STR_VAR_1, "Bug")
-
-                case TYPE_GHOST:
-                    bufferstring(STR_VAR_1, "Ghost")
-
-                case TYPE_STEEL:
-                    bufferstring(STR_VAR_1, "Steel")
-
-                case TYPE_MYSTERY:
-                    bufferstring(STR_VAR_1, "Mystery?")
-
-                case TYPE_FIRE:
-                    bufferstring(STR_VAR_1, "Fire")
-
-                case TYPE_WATER:
-                    bufferstring(STR_VAR_1, "Water")
-        
-                case TYPE_GRASS:
-                    bufferstring(STR_VAR_1, "Grass")
-        
-                case TYPE_ELECTRIC:
-                    bufferstring(STR_VAR_1, "Electric")
-        
-                case TYPE_PSYCHIC:
-                    bufferstring(STR_VAR_1, "Psychic")
-        
-                case TYPE_ICE:
-                    bufferstring(STR_VAR_1, "Ice")
-        
-                case TYPE_DRAGON:
-                    bufferstring(STR_VAR_1, "Dragon")
-        
-                case TYPE_DARK:
-                    bufferstring(STR_VAR_1, "Dark")
-        
-                case 18: //TYPE_FAIRY
-                    bufferstring(STR_VAR_1, "Fairy")
-
-                default:
-                    bufferstring(STR_VAR_1, "???")
-            }
-
+            call(Rogue_Boss_BufferTypeHint)
             msgbox(format("A Gym Leader who specialises in {STR_VAR_1} type Pokémon awaits…"), MSGBOX_DEFAULT)
         }
     }

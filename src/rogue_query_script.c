@@ -20,6 +20,10 @@ static void Condition_EqualTo(struct QueryScriptContext* context);
 static void Condition_NotEqualTo(struct QueryScriptContext* context);
 static void Condition_HasType(struct QueryScriptContext* context);
 static void Condition_IsMonoType(struct QueryScriptContext* context);
+static void Condition_IsLegendary(struct QueryScriptContext* context);
+static void Condition_IsBoxLegendary(struct QueryScriptContext* context);
+static void Condition_IsNonBoxLegendary(struct QueryScriptContext* context);
+static void Condition_IsBannedSpecies(struct QueryScriptContext* context);
 static void Condition_HasUniqueTypeInTeam(struct QueryScriptContext* context);
 static void Condition_AlreadyHasTypeInTeam(struct QueryScriptContext* context);
 
@@ -44,6 +48,10 @@ static ScriptCallback const gScriptTable[] =
     [QUERY_SCRIPT_NOT_EQUAL_TO] = Condition_NotEqualTo,
     [QUERY_SCRIPT_HAS_TYPE] = Condition_HasType,
     [QUERY_SCRIPT_IS_MONO_TYPE] = Condition_IsMonoType,
+    [QUERY_SCRIPT_IS_LEGENDARY] = Condition_IsLegendary,
+    [QUERY_SCRIPT_IS_BOX_LEGENDARY] = Condition_IsBoxLegendary,
+    [QUERY_SCRIPT_IS_NON_BOX_LEGENDARY] = Condition_IsNonBoxLegendary,
+    [QUERY_SCRIPT_IS_BANNED_SPECIES] = Condition_IsBannedSpecies,
     [QUERY_SCRIPT_HAS_UNIQUE_TYPE_IN_TEAM] = Condition_HasUniqueTypeInTeam,
     [QUERY_SCRIPT_ALREADY_HAS_TYPE_IN_TEAM] = Condition_AlreadyHasTypeInTeam,
 
@@ -70,10 +78,13 @@ void RogueQueryScript_SetupVarsForSpecies(struct QueryScriptContext* context, u1
     context->currentSpecies = species;
 }
 
-void RogueQueryScript_SetupVarsForParty(struct QueryScriptContext* context, struct Pokemon* party, u8 count)
+void RogueQueryScript_SetupVarsForParty(struct QueryScriptContext* context, struct Pokemon* party, u8 count, bool8 includeTypeCoverage, u8 maxBoxLegends, u8 maxNonBoxLegends)
 {
     u8 i;
     u16 species;
+    u8 boxLegendaryCount = 0;
+    u8 nonBoxLegendaryCount = 0;
+
     context->partyTypeFlags = 0;
 
     for(i = 0; i < count; ++i)
@@ -81,9 +92,21 @@ void RogueQueryScript_SetupVarsForParty(struct QueryScriptContext* context, stru
         species = GetMonData(&party[i], MON_DATA_SPECIES);
         if(species != SPECIES_NONE)
         {
-            Rogue_AppendSpeciesTypeFlags(species, &context->partyTypeFlags);
+            if(includeTypeCoverage)
+                Rogue_AppendSpeciesTypeFlags(species, &context->partyTypeFlags);
+
+            if(RoguePokedex_IsSpeciesLegendary(species))
+            {
+                if(RoguePokedex_IsSpeciesValidBoxLegendary(species))
+                    ++boxLegendaryCount;
+                else
+                    ++nonBoxLegendaryCount;
+            }
         }
     }
+
+    context->allowBoxLegendaries = (boxLegendaryCount < maxBoxLegends);
+    context->allowNonBoxLegendaries = (nonBoxLegendaryCount < maxNonBoxLegends);
 }
 
 void RogueQueryScript_Execute(struct QueryScriptContext* context)
@@ -263,6 +286,34 @@ static void Condition_HasType(struct QueryScriptContext* context)
 static void Condition_IsMonoType(struct QueryScriptContext* context)
 {
     context->conditionState = (RoguePokedex_GetSpeciesType(context->currentSpecies, 0) == RoguePokedex_GetSpeciesType(context->currentSpecies, 1));
+}
+
+static void Condition_IsLegendary(struct QueryScriptContext* context)
+{
+    context->conditionState = RoguePokedex_IsSpeciesLegendary(context->currentSpecies);
+}
+
+static void Condition_IsBoxLegendary(struct QueryScriptContext* context)
+{
+    context->conditionState = RoguePokedex_IsSpeciesValidBoxLegendary(context->currentSpecies);
+}
+
+static void Condition_IsNonBoxLegendary(struct QueryScriptContext* context)
+{
+    context->conditionState = RoguePokedex_IsSpeciesLegendary(context->currentSpecies) && !RoguePokedex_IsSpeciesValidBoxLegendary(context->currentSpecies);
+}
+
+static void Condition_IsBannedSpecies(struct QueryScriptContext* context)
+{
+    context->conditionState = FALSE;
+
+    if(RoguePokedex_IsSpeciesLegendary(context->currentSpecies))
+    {
+        if(RoguePokedex_IsSpeciesValidBoxLegendary(context->currentSpecies))
+            context->conditionState = !context->allowBoxLegendaries;
+        else
+            context->conditionState = !context->allowNonBoxLegendaries;
+    }
 }
 
 static void Condition_HasUniqueTypeInTeam(struct QueryScriptContext* context)

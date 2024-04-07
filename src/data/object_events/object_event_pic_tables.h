@@ -4232,6 +4232,17 @@ static const struct SpriteFrameImage sPicTable_Misc_Hex_Maniac[] = {
     overworld_frame(gObjectEventPic_Misc_Hex_Maniac, 2, 4, 7),
     overworld_frame(gObjectEventPic_Misc_Hex_Maniac, 2, 4, 8),
 };
+static const struct SpriteFrameImage sPicTable_Misc_Hex_ManiacSecret[] = {
+    overworld_frame(gObjectEventPic_Misc_Hex_Maniac, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Misc_Hex_Maniac, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Misc_Hex_Maniac, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Misc_Hex_Maniac, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Misc_Hex_Maniac, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Misc_Hex_Maniac, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Misc_Hex_Maniac, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Misc_Hex_Maniac, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Misc_Hex_Maniac, 2, 4, 2),
+};
 static const struct SpriteFrameImage sPicTable_Misc_Kalos_Engineer[] = {
     overworld_frame(gObjectEventPic_Misc_Kalos_Engineer, 2, 4, 0),
     overworld_frame(gObjectEventPic_Misc_Kalos_Engineer, 2, 4, 1),
@@ -4672,6 +4683,10 @@ static const struct SpriteFrameImage sPicTable_PC[] = {
 
 static const struct SpriteFrameImage sPicTable_PCStand[] = {
     obj_frame_tiles(gObjectEventPic_PCStand),
+};
+
+static const struct SpriteFrameImage sPicTable_PhoneBooth[] = {
+    obj_frame_tiles(gObjectEventPic_PhoneBooth),
 };
 
 static const struct SpriteFrameImage sPicTable_PokeblockMixer[] = {

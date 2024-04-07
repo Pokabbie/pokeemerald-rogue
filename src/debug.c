@@ -2263,6 +2263,8 @@ static void DebugAction_RogueUtil_ConfigLab(u8 taskId)
     Special_ViewDifficultyConfigMenu();
 }
 
+void EnableRivalEncounterIfRequired();
+
 static void DebugAction_RogueUtil_NextDifficulty(u8 taskId)
 {
     if(Rogue_IsRunActive() && Rogue_GetCurrentDifficulty() < ROGUE_MAX_BOSS_COUNT - 1)
@@ -2271,6 +2273,7 @@ static void DebugAction_RogueUtil_NextDifficulty(u8 taskId)
 
         Rogue_PushPopup_NewBadgeGet(Rogue_GetCurrentDifficulty());
         Rogue_SetCurrentDifficulty(Rogue_GetCurrentDifficulty() + 1);
+        EnableRivalEncounterIfRequired();
         RogueAdv_Debug_ForceRegenerateAdventurePaths();
     }
 }

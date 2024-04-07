@@ -10,6 +10,7 @@ void ItemUseOutOfBattle_Itemfinder(u8);
 void ItemUseOutOfBattle_PokeblockCase(u8);
 void ItemUseOutOfBattle_QuestLog(u8);
 void ItemUseOutOfBattle_CGear(u8);
+void ItemUseOutOfBattle_DayCarePhone(u8);
 void ItemUseOutOfBattle_CoinCase(u8);
 void ItemUseOutOfBattle_PowderJar(u8);
 void ItemUseOutOfBattle_SSTicket(u8);
