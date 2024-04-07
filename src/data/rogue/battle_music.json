@@ -372,18 +372,52 @@
         {
             "encounter": "MUS_RG_ENCOUNTER_ROCKET",
             "battle": "MUS_RG_VS_TRAINER",
+            "victory": "MUS_RG_VICTORY_TRAINER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "TEAM_ROCKET_LEADER",
+                    "music_player": "team_rocket_leader"
+                }
+            ]
+        },
+        "team_rocket_leader":
+        {
+            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
+            "battle": "MUS_RG_VS_TRAINER",
             "victory": "MUS_RG_VICTORY_TRAINER"
         },
+
         "team_aqua":
         {
             "encounter": "MUS_ENCOUNTER_AQUA",
             "battle": "MUS_VS_AQUA_MAGMA",
-            "victory": "MUS_VICTORY_AQUA_MAGMA"
+            "victory": "MUS_VICTORY_AQUA_MAGMA",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "AQUA_LEADER",
+                    "music_player": "team_aqua_magma_leader"
+                }
+            ]
         },
         "team_magma":
         {
             "encounter": "MUS_ENCOUNTER_MAGMA",
             "battle": "MUS_VS_AQUA_MAGMA",
+            "victory": "MUS_VICTORY_AQUA_MAGMA",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "MAGMA_LEADER",
+                    "music_player": "team_aqua_magma_leader"
+                }
+            ]
+        },
+        "team_aqua_magma_leader":
+        {
+            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
+            "battle": "MUS_VS_AQUA_MAGMA_LEADER",
             "victory": "MUS_VICTORY_AQUA_MAGMA"
         },
 

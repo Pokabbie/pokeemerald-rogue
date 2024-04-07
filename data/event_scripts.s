@@ -863,3 +863,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Area_ChallengeFrontier/scripts.inc"
 
 	.include "data/maps/Rogue_Area_DayCare/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_SilphCo/scripts.inc"

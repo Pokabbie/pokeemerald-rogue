@@ -1910,6 +1910,16 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Rogue_Area_DayCare/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Area_DayCare/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_SILPH_CO",
+      "name": "Rogue_Encounter_SilphCo_Layout",
+      "width": 40,
+      "height": 71,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_FacilityRocket",
+      "border_filepath": "data/layouts/Rogue_Encounter_SilphCo/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_SilphCo/map.bin"
     }
   ]
 }

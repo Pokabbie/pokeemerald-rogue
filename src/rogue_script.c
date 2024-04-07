@@ -927,6 +927,18 @@ void Rogue_PlayRivalTrainerEncounterBGM(void)
     //playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
 }
 
+void Rogue_PlayTeamBossTrainerEncounterBGM(void)
+{
+    u16 trainerNum = gRogueRun.teamBossTrainerNum;
+
+    struct RogueBattleMusic music;
+    Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_TRAINER, trainerNum, &music);
+
+    //PlayBGM();
+    PlayNewMapMusic(music.encounterMusic);
+    //playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+}
+
 extern const u8 gPlaceholder_Gym_PreBattleOpenning[];
 
 void Rogue_ShouldSkipTrainerOpenningMsg(void)

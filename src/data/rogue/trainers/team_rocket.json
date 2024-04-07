@@ -32,6 +32,47 @@
     },
     "trainers":
     {
+        "boss":
+        [
+            {
+                "name": "GIOVANNI",
+                "object_event": "OBJ_EVENT_GFX_KANTO_ROCKET_GIOVANNI",
+                "trainer_pic": "TRAINER_PIC_KANTO_GIOVANNI",
+                "trainer_class": "TRAINER_CLASS_TEAM_ROCKET_LEADER",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
+                "shiny_species": "SPECIES_MEWTWO",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: So we meet at last!\\pYou've been such a thorn in my side.\\pKeep your nose out of grown-up matters…",
+                        "PRE_BATTLE_TAUNT": "Or, experience a world of pain!",
+                        "POST_BATTLE_TAUNT": "Arrgh!!",
+                        "POST_BATTLE_CLOSER": "Blast it all!\\nYou ruined our plans!\\pBut, Team Rocket will never fall!\\p{PLAYER}! Never forget that all Pokémon exist for Team Rocket!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 10,
+                            "include_types": [ "GROUND", "POISON", "NORMAL" ],
+                            "extra_species":
+                            [
+                                "SPECIES_MEWTWO"
+                            ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MEWTWO", "INC_FAVOUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "1", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
         "route":
         [
             {

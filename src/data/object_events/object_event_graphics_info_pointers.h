@@ -808,6 +808,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_KANTO_MISTY] =              &gObjectEventGraphicsInfo_Kanto_Misty,
     [OBJ_EVENT_GFX_KANTO_PROFOAK] =            &gObjectEventGraphicsInfo_Kanto_ProfOak,
     [OBJ_EVENT_GFX_KANTO_SABRINA] =            &gObjectEventGraphicsInfo_Kanto_Sabrina,
+    [OBJ_EVENT_GFX_KANTO_ROCKET_GIOVANNI] =    &gObjectEventGraphicsInfo_Kanto_Giovanni,
 
     [OBJ_EVENT_GFX_JOHTO_BUGSY] =              &gObjectEventGraphicsInfo_Johto_Bugsy,
     [OBJ_EVENT_GFX_JOHTO_CLAIR] =              &gObjectEventGraphicsInfo_Johto_Clair,

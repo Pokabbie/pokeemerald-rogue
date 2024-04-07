@@ -3863,6 +3863,8 @@ static void ChooseTeamEncountersForNewAdventure()
     // Select a random active team to encounter this run
     gRogueRun.teamEncounterNum = ChooseTeamEncounterNum();
 
+    Rogue_ChooseTeamBossTrainerForNewAdventure();
+
     // Don't place any of these encounters
     if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
         return;
@@ -4527,7 +4529,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     RandomiseEnabledTrainers();
                     RandomiseEnabledItems();
 
-                    VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+                    FlagClear(FLAG_ROGUE_TEAM_BOSS_DISABLED);
+
+                    VarSet(VAR_ROGUE_DESIRED_WEATHER, Rogue_GetTrainerWeather(gRogueRun.teamBossTrainerNum));
                     break;
                 }
 
@@ -4823,6 +4827,27 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
 
                     FlagClear(FLAG_ROGUE_RIVAL_DISABLED);
                     gRogueRun.hasPendingRivalBattle = FALSE;
+
+                    if(trainer != NULL)
+                    {
+                        objectEvents[i].graphicsId = trainer->objectEventGfx;
+                    }
+                    break;
+                }
+            }
+        }
+
+        // Look for team boss NPC and update
+        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
+        {
+            u8 i;
+            
+            for(i = 0; i < originalObjectCount; ++i)
+            {
+                // Found rival, so make visible and clear pending
+                if(objectEvents[i].flagId == FLAG_ROGUE_TEAM_BOSS_DISABLED)
+                {
+                    const struct RogueTrainer* trainer = Rogue_GetTrainer(gRogueRun.teamBossTrainerNum);
 
                     if(trainer != NULL)
                     {
@@ -7982,8 +8007,8 @@ static bool8 RogueRandomChanceTrainer()
     }
     else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
     {
-        // We want a good number of trainers i nthe hideout
-        chance = max(25, chance);
+        // We want a good number of trainers in the hideout
+        chance = max(33, chance);
     }
     else
     {

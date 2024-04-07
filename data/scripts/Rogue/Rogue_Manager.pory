@@ -355,6 +355,16 @@ script Rogue_EventScript_AttemptPostRivalHeal
     }
 }
 
+script Rogue_EventScript_AttemptTeamBossHeal
+{
+    // Don't heal if we're in the healing flask mode
+    checkitem(ITEM_HEALING_FLASK)
+    if(var(VAR_RESULT) == NO)
+    {
+        special(Rogue_HealAlivePlayerParty)
+    }
+}
+
 script Rogue_EventScript_AttemptNurseHeal
 {
     call(Common_EventScript_OutOfCenterPartyHeal)
@@ -1026,8 +1036,36 @@ script Rogue_Battle_Rival
 
     playse(SE_EXIT)
     removeobject(VAR_LAST_TALKED)
+    setflag(FLAG_ROGUE_RIVAL_DISABLED)
 
     call(Rogue_EventScript_AttemptPostRivalHeal)
+    fadedefaultbgm
+
+    release
+}
+
+script Rogue_Battle_TeamBoss
+{
+    lock
+    faceplayer
+
+    buffertrainername(STR_VAR_1, TRAINER_ROGUE_DYNAMIC)
+    msgbox(gPlaceholder_Trainer_PreBattleOpenning)
+
+    special(Rogue_PlayTeamBossTrainerEncounterBGM)
+    call(Rogue_SetDesiredWeather)
+
+    msgbox(gPlaceholder_Trainer_PreBattleTaunt)
+    trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, TRAINER_ROGUE_DYNAMIC, 0, gPlaceholder_Trainer_PostBattleTaunt)
+
+    call(Rogue_ClearWeather)
+    msgbox(gPlaceholder_Trainer_PostBattleCloser)
+
+    playse(SE_EXIT)
+    removeobject(VAR_LAST_TALKED)
+    setflag(FLAG_ROGUE_TEAM_BOSS_DISABLED)
+
+    call(Rogue_EventScript_AttemptTeamBossHeal)
     fadedefaultbgm
 
     release

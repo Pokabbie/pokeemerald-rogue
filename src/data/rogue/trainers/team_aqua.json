@@ -40,6 +40,67 @@
     },
     "trainers":
     {
+        "boss":
+        [
+            {
+                "name": "ARCHIE",
+                "object_event": "OBJ_EVENT_GFX_ARCHIE",
+                "trainer_pic": "TRAINER_PIC_AQUA_LEADER_ARCHIE",
+                "trainer_class": "TRAINER_CLASS_AQUA_LEADER",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
+                "shiny_species": "SPECIES_KYOGRE",
+                "weather": "DOWNPOUR",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Fufufu…\\nSo it's you getting in the way, huh?\\pThat's all over now.",
+                        "PRE_BATTLE_TAUNT": "For the realization of my dream, you must disappear now!",
+                        "POST_BATTLE_TAUNT": "What?!\\nI lost to a mere child like you?!",
+                        "POST_BATTLE_CLOSER": "I commend you. I must recognize that you are truly gifted.\\pBut!\\nTeam Aqua's vision of expanding the sea cannot stop!\\pWe will not stop!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "WATER", "POISON", "DARK" ],
+                            "exclude_types": [ "FIRE" ],
+                            "extra_species":
+                            [
+                                "SPECIES_KYOGRE"
+                            ]
+                        },
+                        {
+                            "max_samples": 2,
+                            "include_types": [ "WATER" ],
+                            "exclude_types": [ "FIRE" ],
+                            "extra_species":
+                            [
+                                "SPECIES_KYOGRE"
+                            ]
+                        },
+                        {
+                            "max_samples": 10,
+                            "include_types": [ "WATER", "POISON", "DARK" ],
+                            "exclude_types": [ "FIRE" ],
+                            "extra_species":
+                            [
+                                "SPECIES_KYOGRE"
+                            ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_KYOGRE", "INC_FAVOUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
         "route":
         [
             {

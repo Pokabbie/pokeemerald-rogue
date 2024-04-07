@@ -19,6 +19,8 @@
 #include "gba/m4a_internal.h"
 #include "constants/rgb.h"
 
+#define QUICK_JUMP_AMOUNT 4
+
 // Task data
 enum
 {
@@ -540,22 +542,42 @@ static void Task_OptionMenuProcessInput(u8 taskId)
             break;
         }
     }
-    else if (JOY_NEW(DPAD_UP))
+    else if (JOY_NEW(DPAD_UP | L_BUTTON))
     {
-        if(menuSelection == 0)
-            menuSelection = 0; // TODO - loop
-        else
-            menuSelection--;
+        u8 i;
+        u8 repeatAmount = JOY_REPEAT(L_BUTTON) ? QUICK_JUMP_AMOUNT : 1;
+        
+        for(i = 0; i < repeatAmount; ++i)
+        {
+            if(menuSelection == 0)
+            {
+                menuSelection = 0;
+                break;
+            }
+            else
+                menuSelection--;
+        }
 
         HighlightOptionMenuItem(menuSelection);
         gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
     }
-    else if (JOY_NEW(DPAD_DOWN))
+    else if (JOY_NEW(DPAD_DOWN | R_BUTTON))
     {
-        if(menuItem == MENUITEM_CANCEL)
-            menuSelection = 0;
-        else
-            menuSelection++;
+        u8 i;
+        u8 repeatAmount = JOY_REPEAT(R_BUTTON) ? QUICK_JUMP_AMOUNT : 1;
+        
+        for(i = 0; i < repeatAmount; ++i)
+        {
+            if(menuItem == MENUITEM_CANCEL)
+            {
+                break;
+            }
+            else
+            {
+                menuSelection++;
+                menuItem = sOptionMenuEntries[submenuSelection].menuOptions[menuSelection];
+            }
+        }
 
         HighlightOptionMenuItem(menuSelection);
         gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
