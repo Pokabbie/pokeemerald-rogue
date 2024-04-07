@@ -131,8 +131,9 @@
     "Rogue_Boss_11",
     "Rogue_Boss_12",
     "Rogue_Boss_13",
+    "Rogue_Boss_Final",
     "Rogue_Encounter_RocketHideout",
-    "Rogue_Boss_Final"
+    "Rogue_Encounter_SilphCo"
   ],
   "gMapGroup_RogueAdventureMonEncounters": [
     "Rogue_SouthernIsland_Latios",

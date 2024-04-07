@@ -7982,8 +7982,8 @@ static bool8 RogueRandomChanceTrainer()
     }
     else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
     {
-        // We want a good number of trainers i nthe hideout
-        chance = max(25, chance);
+        // We want a good number of trainers in the hideout
+        chance = max(33, chance);
     }
     else
     {
