@@ -3,6 +3,7 @@
 
 bool8 Rogue_IsBossTrainer(u16 trainerNum);
 bool8 Rogue_IsRivalTrainer(u16 trainerNum);
+bool8 Rogue_IsTeamBossTrainer(u16 trainerNum);
 bool8 Rogue_IsKeyTrainer(u16 trainerNum);
 bool8 Rogue_IsExpTrainer(u16 trainerNum);
 bool8 Rogue_GetTrainerFlag(u16 trainerNum);
@@ -38,6 +39,7 @@ bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum);
 
 void Rogue_ChooseBossTrainersForNewAdventure();
 void Rogue_ChooseRivalTrainerForNewAdventure();
+void Rogue_ChooseTeamBossTrainerForNewAdventure();
 void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity);
 void Rogue_ChooseTeamHideoutTrainers(u16* writeBuffer, u16 bufferCapacity);
 void Rogue_ChooseSpectatorTrainers(u16* writeBuffer, u16 bufferCapacity);

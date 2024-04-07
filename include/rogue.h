@@ -286,6 +286,7 @@ struct RogueRunData
     } campaignData;
     u16 baseSeed;
     u16 rivalTrainerNum;
+    u16 teamBossTrainerNum;
     u16 teamEncounterNum;
     u16 enteredRoomCounter;
     u16 currentDifficulty;
@@ -383,10 +384,12 @@ struct RogueBattleMusic
 
 struct RogueTeamGeneratorSubset
 {
+    u16 const* additionalSpecies;
     u32 includedTypeMask;
     u32 excludedTypeMask;
     u32 includedGenMask;
     u32 excludedGenMask;
+    u16 additionalSpeciesCount;
     u8 maxSamples;
 };
 

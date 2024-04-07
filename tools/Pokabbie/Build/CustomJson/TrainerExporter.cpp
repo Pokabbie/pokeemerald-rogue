@@ -152,10 +152,36 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 		// Subsets
 		{
 			json subsets = generator["subsets"];
+			int counter = 0;
 
+			// Additional Species lists
+			for (auto subset : subsets)
+			{
+				int subsetIndex = counter++;
+
+				if (subset.contains("extra_species"))
+				{
+					exporter.earlyBlock << "\nstatic u16 const sTrainerTeamSubsetsAdditionalSpecies_" << trainerSuffix << "_" << subsetIndex << "[] =\n{\n";
+
+					for (auto speciesJson : subset["extra_species"])
+					{
+						std::string species = speciesJson.get<std::string>();
+
+						if(strutil::starts_with(species, "#"))
+							exporter.earlyBlock << species << "\n";
+						else
+							exporter.earlyBlock << "\t" << species << ",\n";
+					}
+
+					exporter.earlyBlock << "};\n";
+				}
+			}
+
+			counter = 0;
 			exporter.earlyBlock << "\nstatic const struct RogueTeamGeneratorSubset sTrainerTeamSubsets_" << trainerSuffix << "[] =\n{\n";
 			for (auto subset : subsets)
 			{
+				int subsetIndex = counter++;
 				exporter.earlyBlock << c_TabSpacing << "{\n";
 				exporter.earlyBlock << c_TabSpacing << ".maxSamples = " << subset["max_samples"].get<int>() << ",\n";
 
@@ -194,6 +220,18 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 						exporter.earlyBlock << " | MON_GEN_TO_FLAGS(" << gen.get<std::string>() << ")";
 				}
 				exporter.earlyBlock << ",\n";
+
+				// additional species
+				if (subset.contains("extra_species"))
+				{
+					exporter.earlyBlock << c_TabSpacing << ".additionalSpecies = sTrainerTeamSubsetsAdditionalSpecies_" << trainerSuffix << "_" << subsetIndex << ",\n";
+					exporter.earlyBlock << c_TabSpacing << ".additionalSpeciesCount = ARRAY_COUNT(sTrainerTeamSubsetsAdditionalSpecies_" << trainerSuffix << "_" << subsetIndex << "),\n";
+				}
+				else
+				{
+					exporter.earlyBlock << c_TabSpacing << ".additionalSpecies = NULL,\n";
+					exporter.earlyBlock << c_TabSpacing << ".additionalSpeciesCount = 0,\n";
+				}
 
 				exporter.earlyBlock << c_TabSpacing << "},\n";
 

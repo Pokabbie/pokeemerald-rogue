@@ -372,6 +372,19 @@
         {
             "encounter": "MUS_RG_ENCOUNTER_ROCKET",
             "battle": "MUS_RG_VS_TRAINER",
+            "victory": "MUS_RG_VICTORY_TRAINER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "TEAM_ROCKET_LEADER",
+                    "music_player": "team_rocket_boss"
+                }
+            ]
+        },
+        "team_rocket_boss":
+        {
+            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
+            "battle": "MUS_RG_VS_TRAINER",
             "victory": "MUS_RG_VICTORY_TRAINER"
         },
         "team_aqua":

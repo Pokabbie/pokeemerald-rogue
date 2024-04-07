@@ -55,6 +55,7 @@ struct TrainerPartyScratch
     u8 fallbackCount;
 };
 
+static u32 GetActiveTeamFlag();
 static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch);
 
 static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 monCount, u8 monCapacity, bool8 firstTrainer, u8 startIndex);
@@ -89,9 +90,15 @@ bool8 Rogue_IsRivalTrainer(u16 trainerNum)
     return (trainer->trainerFlags & TRAINER_FLAG_CLASS_RIVAL) != 0;
 }
 
+bool8 Rogue_IsTeamBossTrainer(u16 trainerNum)
+{
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    return (trainer->trainerFlags & TRAINER_FLAG_CLASS_TEAM_BOSS) != 0;
+}
+
 bool8 Rogue_IsKeyTrainer(u16 trainerNum)
 {
-    return Rogue_IsBossTrainer(trainerNum) || Rogue_IsRivalTrainer(trainerNum);
+    return Rogue_IsBossTrainer(trainerNum) || Rogue_IsRivalTrainer(trainerNum) || Rogue_IsTeamBossTrainer(trainerNum);
 }
 
 static u8 GetTrainerLevel(u16 trainerNum)
@@ -1024,6 +1031,18 @@ void Rogue_ChooseRivalTrainerForNewAdventure()
     }
 }
 
+void Rogue_ChooseTeamBossTrainerForNewAdventure()
+{
+    struct TrainerFliter filter;
+    GetDefaultFilter(&filter);
+    filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_TEAM_BOSS;
+    filter.classFlagsInclude |= GetActiveTeamFlag();
+
+    gRogueRun.teamBossTrainerNum = Rogue_ChooseTrainerId(&filter, 0, NULL, 0);
+
+    DebugPrintf("Picking team boss = %d", gRogueRun.teamBossTrainerNum);
+}
+
 static void SortByBst(u16* speciesBuffer, u16 bufferSize)
 {
     u8 i, j;
@@ -1576,6 +1595,10 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
                 break;
             }
         }
+
+        // Clamp team boss to 5 mons
+        if(Rogue_IsTeamBossTrainer(trainerNum))
+            monCount = min(5, monCount);
     }
     else
     {
@@ -2345,6 +2368,19 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 
             RogueMonQuery_IsOfGeneration(QUERY_FUNC_INCLUDE, currentSubset->includedGenMask);
             RogueMonQuery_IsOfGeneration(QUERY_FUNC_EXCLUDE, currentSubset->excludedGenMask);
+
+            if(currentSubset->additionalSpecies != NULL)
+            {
+                u16 i;
+
+                for(i = 0; i < currentSubset->additionalSpeciesCount; ++i)
+                {
+                    u16 species = currentSubset->additionalSpecies[i];
+
+                    if(Query_IsSpeciesEnabled(species))
+                        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
+                }
+            }
         }
         else
         {
