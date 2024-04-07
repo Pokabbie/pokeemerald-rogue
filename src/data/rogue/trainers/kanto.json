@@ -38,7 +38,7 @@
                     },
                     {
                         "PRE_BATTLE_OPENNING": "… … …\\pI was looking forward to seeing you, {PLAYER}.",
-                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Whilst travelling, I assembled teams that would beat any Pokémon type.\\pDo you know what that means, {PLAYER}?\\pI am the most powerful TRAINER in the world!",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Whilst travelling, I assembled teams that would beat any Pokémon type.\\pDo you know what that means, {PLAYER}?\\pI am the most powerful Trainer in the world!",
                         "POST_BATTLE_TAUNT": "NO!\\nThat can't be!",
                         "POST_BATTLE_CLOSER": "…"
                     }
