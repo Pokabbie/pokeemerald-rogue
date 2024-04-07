@@ -3568,6 +3568,8 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP);
     FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
 
+    FlagSet(FLAG_ROGUE_DAYCARE_PHONE_CHARGED);
+
     Rogue_PostActivateDesiredCampaign();
 
     FlagClear(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES);
@@ -4483,6 +4485,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             {
                 case ADVPATH_ROOM_RESTSTOP:
                 {
+                    FlagSet(FLAG_ROGUE_DAYCARE_PHONE_CHARGED);
+
                     if(Rogue_GetModeRules()->forceRandomanAlwaysActive || RogueRandomChance(33, OVERWORLD_FLAG))
                     {
                         // Enable random trader

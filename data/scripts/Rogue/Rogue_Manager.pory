@@ -335,6 +335,131 @@ script Rogue_EventScript_UsePokeblockItem
     release
 }
 
+script Rogue_EventScript_UseDayCarePhoneItem
+{
+    lock
+
+    if(flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+        if(flag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED))
+        {
+            playse(SE_POKENAV_CALL)
+            message(format("{PAUSE 20}… {PAUSE 20}… {PAUSE 20}… {PAUSE 20}"))
+            waitse
+            waitmessage
+            closemessage
+
+            msgbox(format("{PLAYER}? Is that you?\pYou'd like to swap out one of your Pokémon, would you?"))
+
+            message(format("Which daycare slot are you interested in?"))
+            waitmessage
+
+            multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
+
+            switch(var(VAR_RESULT))
+            {
+                case MULTI_B_PRESSED:
+                    setvar(VAR_RESULT, NO)
+
+                default:
+                    copyvar(VAR_0x8005, VAR_RESULT)
+                    call(Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon)
+            }
+
+            playse(SE_POKENAV_HANG_UP)
+            waitse
+        }
+        else
+        {
+            msgbox(format("The Pokégear is out of charge.\pEntering any Rest Stop will recharge the Pokégear."))
+        }
+    }
+    else
+    {
+        msgbox(format("The Pokégear only works whilst out on Adventures…"))
+    }
+
+    release
+}
+
+script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
+{
+    special(Rogue_IsDaycareSlotEmpty)
+    if(var(VAR_RESULT) == YES)
+    {
+        specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
+
+        if(var(VAR_TEMP_0) == 1)
+        {
+            msgbox(format("I'm afraid you can't leave any more Pokémon with the Day Care at the moment.\pIf you did, you'd be left with no Pokémon in your party!"), MSGBOX_DEFAULT)
+        }
+        else
+        {
+            msgbox(format("Which Pokémon would you like to leave with us?"), MSGBOX_DEFAULT)
+            fadescreen(FADE_TO_BLACK)
+            special(ChooseSendDaycareMon)
+            waitstate
+
+            if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
+            {
+                special(Rogue_SwapDaycareMon)
+                msgbox(format("I'll make sure to take good care of them!\pSee you in a moment."), MSGBOX_DEFAULT)
+
+                fadescreen(FADE_TO_BLACK)
+                playse(SE_WARP_OUT)
+                waitse
+
+                closemessage
+                fadescreen(FADE_FROM_BLACK)
+                clearflag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED)
+            }
+        }
+    }
+    else
+    {
+        msgbox(format("So you would like to withdraw your Pokémon?\nI see, that's no problem at all!"), MSGBOX_DEFAULT)
+
+        specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
+        specialvar(VAR_TEMP_1, Rogue_CalcMaxPartySize)
+        
+        if(var(VAR_TEMP_0) >= VAR_TEMP_1)
+        {
+            msgbox(format("It looks like your party is full!\pYou'll need to leave a member of your party with me, in order to withdraw any Pokémon."))
+            fadescreen(FADE_TO_BLACK)
+            special(ChooseSendDaycareMon)
+            waitstate
+
+            if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
+            {
+                special(Rogue_SwapDaycareMon)
+                msgbox(format("I'll make sure to take good care of them!\pSee you in a moment."), MSGBOX_DEFAULT)
+
+                fadescreen(FADE_TO_BLACK)
+                playse(SE_WARP_OUT)
+                waitse
+
+                closemessage
+                fadescreen(FADE_FROM_BLACK)
+                clearflag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED)
+            }
+        }
+        else
+        {
+            setvar(VAR_0x8004, 5)
+            special(Rogue_SwapDaycareMon)
+            msgbox(format("See you in a moment."), MSGBOX_DEFAULT)
+
+            fadescreen(FADE_TO_BLACK)
+            playse(SE_WARP_OUT)
+            waitse
+
+            closemessage
+            fadescreen(FADE_FROM_BLACK)
+            clearflag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED)
+        }
+    }
+}
+
 script Rogue_EventScript_AttemptPostGymHeal
 {
     // Don't heal if we're in the healing flask mode

@@ -28,6 +28,11 @@ text gItemDesc_CGear
     format("A watch which can remotely access the Config Lab.")
 }
 
+text gItemDesc_DaycarePhone
+{
+    format("A Phone which can be used to directly call the Day Care")
+}
+
 text gItemDesc_BuildingSupplies
 {
     format("Supplies used to create and upgrade buildings.")

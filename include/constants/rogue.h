@@ -63,10 +63,11 @@
 #define ITEM_BASIC_RIDING_WHISTLE       (ITEM_ROGUE_ITEM_FIRST + 3)
 #define ITEM_GOLD_RIDING_WHISTLE        (ITEM_ROGUE_ITEM_FIRST + 4)
 #define ITEM_C_GEAR                     (ITEM_ROGUE_ITEM_FIRST + 5)
-#define ITEM_BUILDING_SUPPLIES          (ITEM_ROGUE_ITEM_FIRST + 6)
-#define ITEM_ALOLA_STONE                (ITEM_ROGUE_ITEM_FIRST + 7)
-#define ITEM_GALAR_STONE                (ITEM_ROGUE_ITEM_FIRST + 8)
-#define ITEM_HISUI_STONE                (ITEM_ROGUE_ITEM_FIRST + 9)
+#define ITEM_DAYCARE_PHONE              (ITEM_ROGUE_ITEM_FIRST + 6)
+#define ITEM_BUILDING_SUPPLIES          (ITEM_ROGUE_ITEM_FIRST + 7)
+#define ITEM_ALOLA_STONE                (ITEM_ROGUE_ITEM_FIRST + 8)
+#define ITEM_GALAR_STONE                (ITEM_ROGUE_ITEM_FIRST + 9)
+#define ITEM_HISUI_STONE                (ITEM_ROGUE_ITEM_FIRST + 10)
 
 // Free 10 - 19
 
