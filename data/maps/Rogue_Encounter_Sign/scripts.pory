@@ -1,0 +1,236 @@
+const FLAG_PAID_FOR_LEAD = FLAG_TEMP_1
+const FLAG_PAID_FOR_STRONGEST = FLAG_TEMP_2
+const FLAG_EASTER_EGG_NPC_HIDDEN = FLAG_TEMP_3
+
+const VAR_EASTER_EGG = VAR_TEMP_0
+
+const NPC_OBJ_EASTER_EGG_GIRL = 3
+
+mapscripts Rogue_Encounter_Sign_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Encounter_Sign_OnTransition
+}
+
+script Rogue_Encounter_Sign_OnTransition
+{
+    setflag(FLAG_EASTER_EGG_NPC_HIDDEN)
+    removeobject(NPC_OBJ_EASTER_EGG_GIRL)
+}
+
+script Rogue_Encounter_Sign_TalkTypeHint
+{
+    lock
+    faceplayer
+
+    msgbox(format("Whoa!\nWe don't get too many visitors our here.\pWe produce all of those Signs you find inside the Gyms.\pIn fact, I think we just shipped out a sign to the next Gym."))
+
+    if(var(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1) == TYPE_NONE)
+    {
+        msgbox(format("If I remember correctly, I believe the Gym specialises in various types of Pokémon."), MSGBOX_DEFAULT)
+    }
+    else
+    {
+        call(Rogue_Boss_BufferTypeHint)
+        msgbox(format("If I remember correctly, I believe the Gym specialises in {STR_VAR_1} type Pokémon."), MSGBOX_DEFAULT)
+    }
+
+    release
+}
+
+script Rogue_Encounter_Sign_TalkTeamHint
+{
+    lock
+    faceplayer
+
+    msgbox(format("I'm in the middle of making some signs.\pYou know, I might actually have some information on the upcoming Gym Leader, if you're interested…\pAnd you're willing to throw a few coins my way."))
+
+    message(format("What would you like to know about?"))
+    waitmessage
+
+    bufferstring(STR_VAR_1, "Lead Pokémon")
+    bufferstring(STR_VAR_2, "Strongest Pokémon")
+
+    
+    multichoice(17, 6, MULTI_EXPAND2_EXIT, FALSE)
+
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            call(Rogue_Encounter_Sign_TalkTeamHint_Lead)
+
+        case 1:
+            call(Rogue_Encounter_Sign_TalkTeamHint_Strongest)
+
+        case MULTI_B_PRESSED:
+            setvar(VAR_RESULT, NO)
+    }
+
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("You know where to find me, if you change your mind."))
+    }
+
+    release
+}
+
+script Rogue_Encounter_Sign_TalkTeamHint_Lead
+{
+    if(flag(FLAG_PAID_FOR_LEAD))
+    {
+        bufferspeciesname(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+        msgbox(format("I already told you that?\nTheir lead Pokémon is {STR_VAR_1}."))
+        setvar(VAR_RESULT, YES)
+    }
+    else
+    {
+        showmoneybox(0, 0)
+
+        msgbox(format("I'll tell you for ¥4000?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            checkconstantmoney(4000)
+            if(var(VAR_RESULT) == YES)
+            {
+                removeconstantmoney(4000)
+                updatemoneybox
+
+                playse(SE_SHOP)
+                waitse
+
+                bufferspeciesname(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA)
+                msgbox(format("Thank you very much!"))
+                msgbox(format("Their lead Pokémon is {STR_VAR_1}."))
+
+                setflag(FLAG_PAID_FOR_LEAD)
+                hidemoneybox
+                setvar(VAR_RESULT, YES)
+            }
+            else
+            {
+                msgbox(format("Oh… it doesn't look like you have enough money."))
+                hidemoneybox
+                setvar(VAR_RESULT, YES)
+            }
+        }
+        else
+        {
+            hidemoneybox
+        }
+    }
+}
+
+script Rogue_Encounter_Sign_TalkTeamHint_Strongest
+{
+    if(flag(FLAG_PAID_FOR_STRONGEST))
+    {
+        bufferspeciesname(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2)
+        msgbox(format("I already told you that?\nTheir strongest Pokémon is {STR_VAR_1}."))
+        setvar(VAR_RESULT, YES)
+    }
+    else
+    {
+        showmoneybox(0, 0)
+            
+        msgbox(format("I'll tell you for ¥2500?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            checkconstantmoney(2500)
+            if(var(VAR_RESULT) == YES)
+            {
+                removeconstantmoney(2500)
+                updatemoneybox
+
+                playse(SE_SHOP)
+                waitse
+
+                bufferspeciesname(STR_VAR_1, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2)
+                msgbox(format("Thank you very much!"))
+                msgbox(format("Their strongest Pokémon is {STR_VAR_1}."))
+
+                setflag(FLAG_PAID_FOR_STRONGEST)
+                hidemoneybox
+                setvar(VAR_RESULT, YES)
+            }
+            else
+            {
+                msgbox(format("Oh… it doesn't look like you have enough money."))
+                hidemoneybox
+                setvar(VAR_RESULT, YES)
+            }
+        }
+        else
+        {
+            hidemoneybox
+        }
+    }
+}
+
+script Rogue_Encounter_Sign_TalkInProgressSign
+{
+    lock
+    msgbox(format("A mysterious sign!\pIt reads…\p'For a cost, I can provide you a glim-'\pIt's not quite finished yet."))
+    release
+}
+
+script Rogue_Encounter_Sign_TalkSecret
+{
+    lock
+    msgbox(format("… … …\n… … …!"))
+
+    if(var(VAR_EASTER_EGG) == 0)
+    {
+        setvar(VAR_EASTER_EGG, 1)
+    }
+
+    release
+}
+
+script Rogue_Encounter_Sign_EasterEgg
+{
+    lock
+
+    delay(30)
+    fadeoutbgm(1)
+
+    fadescreen(FADE_TO_BLACK)
+    fadescreen(FADE_FROM_BLACK)
+    delay(30)
+
+    fadescreen(FADE_TO_BLACK)
+
+    clearflag(FLAG_EASTER_EGG_NPC_HIDDEN)
+    addobject(NPC_OBJ_EASTER_EGG_GIRL)
+
+    fadescreen(FADE_FROM_BLACK)
+    delay(30)
+
+    applymovement(NPC_OBJ_EASTER_EGG_GIRL, Rogue_Encounter_Sign_EasterEgg_Movement0)
+    waitmovement(NPC_OBJ_EASTER_EGG_GIRL)
+
+    msgbox(format("No, you're not the one…"))
+    closemessage
+
+    applymovement(NPC_OBJ_EASTER_EGG_GIRL, Rogue_Encounter_Sign_EasterEgg_Movement1)
+    waitmovement(NPC_OBJ_EASTER_EGG_GIRL)
+
+    setflag(FLAG_EASTER_EGG_NPC_HIDDEN)
+    removeobject(NPC_OBJ_EASTER_EGG_GIRL)
+
+    fadeinbgm(1)
+
+    setvar(VAR_EASTER_EGG, 2)
+    release
+}
+
+movement Rogue_Encounter_Sign_EasterEgg_Movement0 
+{
+    walk_slow_right
+    walk_slow_down * 4
+}
+
+movement Rogue_Encounter_Sign_EasterEgg_Movement1 
+{
+    walk_slow_down * 5
+}

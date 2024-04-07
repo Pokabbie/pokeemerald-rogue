@@ -418,6 +418,7 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
     // Only allow 1 of this type at once
     case ADVPATH_ROOM_GAMESHOW:
     case ADVPATH_ROOM_CATCHING_CONTEST:
+    case ADVPATH_ROOM_SIGN:
         count = CountRoomType(roomType);
         if(count != 0)
             return 0;
@@ -532,6 +533,16 @@ static u8 ReplaceRoomEncounters_CalculateWeight(u16 weightIndex, u16 roomId, voi
         // Like being placed in the middle columns but can occasionally end up in other one
         else if(existingRoom->coords.x > 2)
             weight += 80;
+        break;
+
+    case ADVPATH_ROOM_SIGN:
+        // Prefer being placed in first column
+        if(existingRoom->coords.x + 1 == gRogueAdvPath.pathLength)
+            weight += 80;
+
+        // Like being placed in the middle columns but can occasionally end up in other one
+        if(existingRoom->coords.x > 2)
+            weight += 40;
         break;
     }
 
@@ -701,6 +712,10 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     if(RogueRandomChance(33, 0))
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_CATCHING_CONTEST;
 
+    // Mysterious Sign
+    if(GetPathGenerationDifficulty() < ROGUE_ELITE_START_DIFFICULTY && RogueRandomChance(40, 0))
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SIGN;
+
     // Shrine
     if(GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SHRINE;
@@ -840,6 +855,20 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     }
 }
 
+static u8 FindRoomOfType(u16 type)
+{
+    u16 i;
+
+    for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+    {
+        if( gRogueAdvPath.rooms[i].roomType == type)
+            return i;
+    }
+
+    AGB_ASSERT(FALSE);
+    return 0;
+}
+
 static void GenerateRoomInstance(u8 roomId, u8 roomType)
 {
     u16 weights[ADVPATH_SUBROOM_WEIGHT_COUNT];
@@ -954,6 +983,11 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             gRogueAdvPath.rooms[roomId].roomParams.perType.route.difficulty = SelectIndexFromWeights(weights, ARRAY_COUNT(weights), RogueRandom());
             break;
         }
+
+        case ADVPATH_ROOM_SIGN:
+            // Use same RNG seed as boss so we can generate their team
+            gRogueAdvPath.rooms[roomId].rngSeed = gRogueAdvPath.rooms[FindRoomOfType(ADVPATH_ROOM_BOSS)].rngSeed;
+            break;
     }
 
     // Set room type at the end to avoid breaking code that considers sub rooms
@@ -1436,6 +1470,11 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
             warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_CATCHING_CONTEST);
             warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_CATCHING_CONTEST);
             break;
+
+        case ADVPATH_ROOM_SIGN:
+            warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_SIGN);
+            warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_SIGN);
+            break;
     }
 }
 
@@ -1676,6 +1715,9 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
 
         case ADVPATH_ROOM_CATCHING_CONTEST:
             return OBJ_EVENT_GFX_MISC_BUG_CATCHER;
+
+        case ADVPATH_ROOM_SIGN:
+            return OBJ_EVENT_GFX_SMALL_SIGN;
 
         case ADVPATH_ROOM_BOSS:
             return OBJ_EVENT_GFX_BALL_CUSHION; // ?

@@ -211,6 +211,8 @@ static void RandomiseCharmItems(void);
 static bool8 HasHoneyTreeEncounterPending(void);
 static void ClearHoneyTreePokeblock(void);
 
+static void SetupTrainerBattleInternal(u16 trainerNum);
+
 u16 RogueRandomRange(u16 range, u8 flag)
 {
     // Always use rogue random to avoid seeding issues based on flag
@@ -4539,6 +4541,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 {
                     u16 trainerNum;
                     trainerNum = gRogueAdvPath.currentRoomParams.perType.boss.trainerNum;
+                    gRogueLocal.rngSeedToRestore = gRngRogueValue;
 
                     gRogueRun.currentLevelOffset = 0;
                     RandomiseEnabledTrainers();
@@ -4549,6 +4552,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, trainerNum);
                     VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, Rogue_GetTrainerTypeAssignment(trainerNum));
+
+                    // Restore seed so it's predictable and we can reliably generate gym team in other encounters
+                    gRngRogueValue = gRogueLocal.rngSeedToRestore;
                     break;
                 }
 
@@ -4632,6 +4638,32 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 case ADVPATH_ROOM_CATCHING_CONTEST:
                 {
+                    break;
+                }
+
+                case ADVPATH_ROOM_SIGN:
+                {
+                    u8 i;
+                    u16 strongestSpecies = SPECIES_NONE;
+                    u16 trainerNum = gRogueRun.bossTrainerNums[Rogue_GetCurrentDifficulty()];
+
+                    SetupTrainerBattleInternal(trainerNum);
+                    Rogue_CreateTrainerParty(trainerNum, gEnemyParty, PARTY_SIZE, TRUE);
+                    gRngRogueValue = gRogueLocal.rngSeedToRestore;
+
+                    for(i = 0; i < PARTY_SIZE; ++i)
+                    {
+                        u16 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES);
+                        if(species != SPECIES_NONE)
+                        {
+                            if(strongestSpecies == SPECIES_NONE || RoguePokedex_GetSpeciesBST(species) > RoguePokedex_GetSpeciesBST(strongestSpecies))
+                                strongestSpecies = species;
+                        }
+                    }
+
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, Rogue_GetTrainerTypeAssignment(trainerNum));
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, strongestSpecies);
                     break;
                 }
             };
@@ -5113,21 +5145,17 @@ static void UNUSED TempRestoreEnemyTeam()
     gRogueLocal.hasUseEnemyTeamTempSave = FALSE;
 }
 
-void Rogue_Battle_StartTrainerBattle(void)
+static void SetupTrainerBattleInternal(u16 trainerNum)
 {
     bool8 shouldDoubleBattle = FALSE;
     gRogueLocal.hasBattleEventOccurred = FALSE;
 
     // Apply trainer specific seed
     gRogueLocal.rngSeedToRestore = gRngRogueValue;
-    SeedRogueRng(RogueRandom() + (gTrainerBattleOpponent_A ^ RogueRandom()));
+    SeedRogueRng(RogueRandom() + (trainerNum ^ RogueRandom()));
 
-    // Remove soft level cap
-    if(Rogue_IsExpTrainer(gTrainerBattleOpponent_A))
-        gRogueRun.currentLevelOffset = 0;
-
-        // enable dyanmax for this fight
-    if(IsDynamaxEnabled() && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
+    // enable dyanmax for this fight
+    if(IsDynamaxEnabled() && Rogue_IsKeyTrainer(trainerNum))
         FlagSet(FLAG_ROGUE_DYNAMAX_BATTLE);
     else
         FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
@@ -5160,6 +5188,15 @@ void Rogue_Battle_StartTrainerBattle(void)
             gBattleTypeFlags |= BATTLE_TYPE_DOUBLE;
         }
     }
+}
+
+void Rogue_Battle_StartTrainerBattle(void)
+{
+    // Remove soft level cap
+    if(Rogue_IsExpTrainer(gTrainerBattleOpponent_A))
+        gRogueRun.currentLevelOffset = 0;
+
+    SetupTrainerBattleInternal(gTrainerBattleOpponent_A);
 
     if(Rogue_IsBossTrainer(gTrainerBattleOpponent_A))
     {

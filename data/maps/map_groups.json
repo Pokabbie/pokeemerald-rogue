@@ -124,6 +124,9 @@
     "Rogue_Encounter_HoneyTree",
     "Rogue_Encounter_Shrine",
     "Rogue_Encounter_CatchingContest",
+    "Rogue_Encounter_Sign",
+    "Rogue_Encounter_RocketHideout",
+    "Rogue_Encounter_SilphCo",
     "Rogue_Boss_0",
     "Rogue_Boss_8",
     "Rogue_Boss_9",
@@ -131,9 +134,7 @@
     "Rogue_Boss_11",
     "Rogue_Boss_12",
     "Rogue_Boss_13",
-    "Rogue_Boss_Final",
-    "Rogue_Encounter_RocketHideout",
-    "Rogue_Encounter_SilphCo"
+    "Rogue_Boss_Final"
   ],
   "gMapGroup_RogueAdventureMonEncounters": [
     "Rogue_SouthernIsland_Latios",

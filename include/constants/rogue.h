@@ -193,10 +193,11 @@
 #define ADVPATH_ROOM_LAB                10
 #define ADVPATH_ROOM_SHRINE             11
 #define ADVPATH_ROOM_CATCHING_CONTEST   12
+#define ADVPATH_ROOM_SIGN               13
 
-#define ADVPATH_ROOM_BOSS               13
+#define ADVPATH_ROOM_BOSS               14
 
-#define ADVPATH_ROOM_COUNT              14
+#define ADVPATH_ROOM_COUNT              15
 
 
 #define ADVPATH_SUBROOM_ROUTE_CALM          0

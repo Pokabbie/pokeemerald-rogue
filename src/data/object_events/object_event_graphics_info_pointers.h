@@ -396,6 +396,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Burglar;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Channeler;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Clown;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Hex_Maniac;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Hex_ManiacSecret;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Kalos_Engineer;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Kalos_Worker;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Looker;
@@ -904,6 +905,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MISC_CHANNELER] = &gObjectEventGraphicsInfo_Misc_Channeler,
     [OBJ_EVENT_GFX_MISC_CLOWN] = &gObjectEventGraphicsInfo_Misc_Clown,
     [OBJ_EVENT_GFX_MISC_HEX_MANIAC] = &gObjectEventGraphicsInfo_Misc_Hex_Maniac,
+    [OBJ_EVENT_GFX_MISC_HEX_MANIAC_SECRET] = &gObjectEventGraphicsInfo_Misc_Hex_ManiacSecret,
     [OBJ_EVENT_GFX_MISC_KALOS_ENGINEER] = &gObjectEventGraphicsInfo_Misc_Kalos_Engineer,
     [OBJ_EVENT_GFX_MISC_KALOS_WORKER] = &gObjectEventGraphicsInfo_Misc_Kalos_Worker,
     [OBJ_EVENT_GFX_MISC_LOOKER] = &gObjectEventGraphicsInfo_Misc_Looker,

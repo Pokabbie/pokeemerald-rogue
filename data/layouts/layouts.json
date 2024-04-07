@@ -1920,6 +1920,16 @@
       "secondary_tileset": "gTileset_FacilityRocket",
       "border_filepath": "data/layouts/Rogue_Encounter_SilphCo/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_SilphCo/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_SIGN",
+      "name": "Rogue_Encounter_Sign_Layout",
+      "width": 16,
+      "height": 26,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/Rogue_Encounter_Sign/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_Sign/map.bin"
     }
   ]
 }
