@@ -39,9 +39,7 @@
                 "object_event": "OBJ_EVENT_GFX_KANTO_ROCKET_GIOVANNI",
                 "trainer_pic": "TRAINER_PIC_KANTO_GIOVANNI",
                 "trainer_class": "TRAINER_CLASS_TEAM_ROCKET_LEADER",
-                "music_player": "team_rocket",
                 "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
-                "class_flags": [ "TEAM_ROCKET" ],
                 "shiny_species": "SPECIES_MEWTWO",
                 "encounter_text":
                 [

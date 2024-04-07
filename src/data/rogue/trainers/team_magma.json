@@ -40,6 +40,67 @@
     },
     "trainers":
     {
+        "boss":
+        [
+            {
+                "name": "MAXIE",
+                "object_event": "OBJ_EVENT_GFX_MAXIE",
+                "trainer_pic": "TRAINER_PIC_MAGMA_LEADER_MAXIE",
+                "trainer_class": "TRAINER_CLASS_MAGMA_LEADER",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
+                "shiny_species": "SPECIES_GROUDON",
+                "weather": "DROUGHT",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I've seen you poking around uninvited here and there.\\pPullin cheap stunts on Team Magma…",
+                        "PRE_BATTLE_TAUNT": "I'll make you regret it!",
+                        "POST_BATTLE_TAUNT": "What makes you so adept at handling Pokémon?",
+                        "POST_BATTLE_CLOSER": "Humph…\\pThere is nothing you can do.\\pTeam Magma will not stop.\\pThis is where you and I part!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "GROUND", "FIRE", "DARK" ],
+                            "exclude_types": [ "WATER" ],
+                            "extra_species":
+                            [
+                                "SPECIES_GROUDON"
+                            ]
+                        },
+                        {
+                            "max_samples": 2,
+                            "include_types": [ "FIRE" ],
+                            "exclude_types": [ "WATER" ],
+                            "extra_species":
+                            [
+                                "SPECIES_GROUDON"
+                            ]
+                        },
+                        {
+                            "max_samples": 10,
+                            "include_types": [ "GROUND", "FIRE", "DARK" ],
+                            "exclude_types": [ "WATER" ],
+                            "extra_species":
+                            [
+                                "SPECIES_GROUDON"
+                            ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GROUDON", "INC_FAVOUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "3", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR"
+                    ]
+                }
+            }
+        ],
         "route":
         [
             {

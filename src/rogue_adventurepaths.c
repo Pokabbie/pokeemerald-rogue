@@ -500,24 +500,21 @@ static u8 ReplaceRoomEncounters_CalculateWeight(u16 weightIndex, u16 roomId, voi
 
         // We like having the legend be behind the team hideout
         if(IsPrecededByRoomType(existingRoom, ADVPATH_ROOM_TEAM_HIDEOUT))
-            weight += 160;
+            weight += 200;
         break;
 
     case ADVPATH_ROOM_TEAM_HIDEOUT:
-        // Don't want to place in first column
-        if(existingRoom->coords.x + 1 == gRogueAdvPath.pathLength)
+        // Don't want to place in final column
+        if(existingRoom->coords.x <= 2)
             weight -= 40;
-        // Like being placed in the middle columns but can occasionally end up in other one
-        else if(existingRoom->coords.x > 2)
-            weight += 80;
 
         // Prefer route where we are locked into this path
         if(CountRoomConnections(existingRoom->connectionMask) == 1)
-            weight += 40;
+            weight += 10;
 
         // We like having the legend be behind the team hideout
         if(IsProceededByRoomType(existingRoom, ADVPATH_ROOM_LEGENDARY))
-            weight += 160;
+            weight += 200;
         break;
 
     case ADVPATH_ROOM_SHRINE:
