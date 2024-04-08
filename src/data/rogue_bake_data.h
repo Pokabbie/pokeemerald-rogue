@@ -61109,6 +61109,7 @@ const u16 gRogueBake_EvoItems[] =
 	492,
 	493,
 	763,
+	766,
 	767,
 	768,
 	795,
@@ -61118,9 +61119,9 @@ const u16 gRogueBake_EvoItems[] =
 	802,
 	814,
 	816,
-	823,
 	824,
 	825,
+	826,
 };
 const u16 gRogueBake_EvoItems_Count = ARRAY_COUNT(gRogueBake_EvoItems);
 
