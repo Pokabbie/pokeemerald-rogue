@@ -38,6 +38,7 @@ void Rogue_PushPopup_RequipBerrySuccess(u16 itemId);
 void Rogue_PushPopup_RequipBerryFail(u16 itemId);
 
 void Rogue_PushPopup_TriggerExtraLife();
+void Rogue_PushPopup_FlaskRefilled();
 
 void Rogue_PushPopup_UnlockPokedex();
 void Rogue_PushPopup_UpgradePokedex();
