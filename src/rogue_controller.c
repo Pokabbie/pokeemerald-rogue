@@ -2044,7 +2044,6 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
 
         case ITEM_BIG_BAMBOO_SHOOT:
         case ITEM_TINY_BAMBOO_SHOOT:
-        case ITEM_GIMMIGHOUL_COIN: // ?
 
         // Link cable is Rogue's item
         case ITEM_LINKING_CORD:
