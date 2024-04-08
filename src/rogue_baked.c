@@ -339,8 +339,8 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 
     if(species == SPECIES_GIMMIGHOUL && evoIdx == 0)
     {
-        outEvo->method = EVO_LEVEL;
-        outEvo->param = 55;
+        outEvo->method = EVO_ITEM;
+        outEvo->param = ITEM_GIMMIGHOUL_COIN
     }
 
 #endif
