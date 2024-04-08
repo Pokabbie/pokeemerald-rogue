@@ -2456,7 +2456,7 @@ static u32 DpadInputToRegisteredItemIndex(bool32 check) {
     else if (JOY_NEW(DPAD_LEFT))
         i = 4;
     // If `check`, verify that slot actually has an item registered
-    if (i && check && gSaveBlock1Ptr->registeredItems[i-1] == ITEM_NONE)
+    if (i && check && gSaveBlock1Ptr->registeredItems[i-1] == ITEM_NONE && CheckBagHasItem(gSaveBlock1Ptr->registeredItems[i-1], 1))
         i = 0;
     return i;
 }
