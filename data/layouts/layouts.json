@@ -1930,6 +1930,16 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Encounter_Sign/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_Sign/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_CHALLENGE_FRONTIER",
+      "name": "Rogue_Interior_ChallengeFrontier_Layout",
+      "width": 43,
+      "height": 29,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleDome",
+      "border_filepath": "data/layouts/Rogue_Interior_ChallengeFrontier/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_ChallengeFrontier/map.bin"
     }
   ]
 }

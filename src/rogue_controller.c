@@ -4862,7 +4862,7 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                     const struct RogueTrainer* trainer = Rogue_GetTrainer(gRogueRun.rivalTrainerNum);
 
                     FlagClear(FLAG_ROGUE_RIVAL_DISABLED);
-                    gRogueRun.hasPendingRivalBattle = FALSE;
+                    gRogueRun.hasPendingRivalBattle = FALSE; // TODO - Need to make sure this works when warping within a map e.g. rocket base?
 
                     if(trainer != NULL)
                     {

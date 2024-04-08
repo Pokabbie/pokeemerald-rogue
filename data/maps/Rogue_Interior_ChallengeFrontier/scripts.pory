@@ -1,0 +1,286 @@
+const FLAG_HIDE_MEGA_STONE  = FLAG_TEMP_1
+const FLAG_HIDE_Z_CRYSTAL   = FLAG_TEMP_2
+const FLAG_HIDE_DYNAMAX     = FLAG_TEMP_3
+const FLAG_HIDE_HEALTH_VIAL = FLAG_TEMP_4
+
+const VAR_MAP_LOAD_STATE = VAR_TEMP_0
+
+const NPC_OBJ_MEGA_STONE    = 13
+const NPC_OBJ_Z_CRYSTAL     = 14
+const NPC_OBJ_DYNAMAX       = 15
+const NPC_OBJ_HEALTH_VIAL   = 16
+
+mapscripts Rogue_Interior_ChallengeFrontier_MapScripts
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Interior_ChallengeFrontier_OnMapLoad
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_MAP_LOAD_STATE, 0: Rogue_Interior_ChallengeFrontier_LoadState0
+    ]
+}
+
+script Rogue_Interior_ChallengeFrontier_OnMapLoad
+{
+    specialvar(VAR_RESULT, RogueHub_GetStatueLevel)
+
+    switch(var(VAR_RESULT))
+    {
+        case 3:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_STATUE_LEVEL_3)
+        case 2:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_STATUE_LEVEL_2)
+        case 1:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_STATUE_LEVEL_1)
+        default:
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_STATUE_LEVEL_0)
+    }
+}
+
+script Rogue_Interior_ChallengeFrontier_LoadState0
+{
+    call(Rogue_Interior_ChallengeFrontier_UpdateItemVisibility)
+    addvar(VAR_MAP_LOAD_STATE, 1)
+}
+
+script Rogue_Interior_ChallengeFrontier_UpdateItemVisibility
+{
+    
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            checkitem(ITEM_MEGA_RING)
+            if(var(VAR_RESULT) == YES)
+            {
+                removeobject(NPC_OBJ_MEGA_STONE)
+            }
+            else
+            {
+                addobject(NPC_OBJ_MEGA_STONE)
+            }
+
+            checkitem(ITEM_Z_POWER_RING)
+            if(var(VAR_RESULT) == YES)
+            {
+                removeobject(NPC_OBJ_Z_CRYSTAL)
+            }
+            else
+            {
+                addobject(NPC_OBJ_Z_CRYSTAL)
+            }
+
+            checkitem(ITEM_DYNAMAX_BAND)
+            if(var(VAR_RESULT) == YES)
+            {
+                removeobject(NPC_OBJ_DYNAMAX)
+            }
+            else
+            {
+                addobject(NPC_OBJ_DYNAMAX)
+            }
+        }
+    }
+
+    checkitem(ITEM_HEALING_FLASK)
+    if(var(VAR_RESULT) == YES)
+    {
+        removeobject(NPC_OBJ_HEALTH_VIAL)
+    }
+    else
+    {
+        addobject(NPC_OBJ_HEALTH_VIAL)
+    }
+}
+
+script Rogue_Interior_ChallengeFrontier_MegaStone
+{
+    lock
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("It's a Mega Ring!\pThis item is only avaliable in Emerald Rogue EX version."))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            checkitem(ITEM_MEGA_RING)
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("Would you like to put back the Mega Ring?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    removeitem(ITEM_MEGA_RING)
+                }
+            }
+            else
+            {
+                message("Would you like to take the Mega Ring?")
+                waitmessage
+
+                multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+                switch(var(VAR_RESULT))
+                {
+                    case 0: // Yes
+                        giveitem(ITEM_MEGA_RING)
+
+                    case 1: // No
+                        setvar(VAR_RESULT, NO)
+
+                    case 2: // Info
+                        msgbox(format("Grants you and other Trainer's the ability to Mega Evolve when a Pokémon is holding the correct Mega Stone."), MSGBOX_DEFAULT)
+
+                    case MULTI_B_PRESSED:
+                        setvar(VAR_RESULT, NO)
+                }
+            }
+            call(Rogue_Interior_ChallengeFrontier_UpdateItemVisibility)
+        }
+    }
+
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_ZCrystal
+{
+    lock
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("It's a Z-Power Ring!\pThis item is only avaliable in Emerald Rogue EX version."))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            checkitem(ITEM_Z_POWER_RING)
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("Would you like to put back the Z-Power Ring?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    removeitem(ITEM_Z_POWER_RING)
+                }
+            }
+            else
+            {
+                message("Would you like to take the Z-Power Ring?")
+                waitmessage
+
+                multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+                switch(var(VAR_RESULT))
+                {
+                    case 0: // Yes
+                        giveitem(ITEM_Z_POWER_RING)
+
+                    case 1: // No
+                        setvar(VAR_RESULT, NO)
+
+                    case 2: // Info
+                        msgbox(format("Grants you and other Trainer's the ability to use Z-Moves when a Pokémon is holding the correct Z-Crystal."), MSGBOX_DEFAULT)
+
+                    case MULTI_B_PRESSED:
+                        setvar(VAR_RESULT, NO)
+                }
+            }
+            call(Rogue_Interior_ChallengeFrontier_UpdateItemVisibility)
+        }
+    }
+
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_Dynamax
+{
+    lock
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("It's a Dynamax Band!\pThis item is only avaliable in Emerald Rogue EX version."))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            checkitem(ITEM_DYNAMAX_BAND)
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("Would you like to put back the Dynamax Band?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    removeitem(ITEM_DYNAMAX_BAND)
+                }
+            }
+            else
+            {
+                message("Would you like to take the Dynamax Band?")
+                waitmessage
+
+                multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+                switch(var(VAR_RESULT))
+                {
+                    case 0: // Yes
+                        giveitem(ITEM_DYNAMAX_BAND)
+
+                    case 1: // No
+                        setvar(VAR_RESULT, NO)
+
+                    case 2: // Info
+                        msgbox(format("Grants you and other Key Trainer's (e.g. Strong Trainers, Rivals) the ability to Dynamax or Gigantamax, if the Pokémon has a Gigantamax form available."), MSGBOX_DEFAULT)
+
+                    case MULTI_B_PRESSED:
+                        setvar(VAR_RESULT, NO)
+                }
+            }
+            call(Rogue_Interior_ChallengeFrontier_UpdateItemVisibility)
+        }
+    }
+
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_HealingVial
+{
+    lock
+
+    checkitem(ITEM_HEALING_FLASK)
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("Would you like to put back the Healing Flask?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES)
+        {
+            removeitem(ITEM_HEALING_FLASK)
+        }
+    }
+    else
+    {
+        message("Would you like to take the Healing Flask?")
+        waitmessage
+
+        multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // Yes
+                giveitem(ITEM_HEALING_FLASK)
+
+            case 1: // No
+                setvar(VAR_RESULT, NO)
+
+            case 2: // Info
+                msgbox(format("When Adventuring with the Healing Flask, your Party will not get automatically healed after Key Battles e.g. Strong Trainers or Rival Battles.\pInstead you will be given a number of Healing charges you may use via the Healing Flask.\pThe Healing Flask will only be refilled when your Party is healed at any Nurse."), MSGBOX_DEFAULT)
+
+            case MULTI_B_PRESSED:
+                setvar(VAR_RESULT, NO)
+        }
+    }
+    call(Rogue_Interior_ChallengeFrontier_UpdateItemVisibility)
+
+    release
+}

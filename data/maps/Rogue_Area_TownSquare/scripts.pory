@@ -24,7 +24,17 @@ script Rogue_Area_TownSquare_OnMapLoad
 script Rogue_Area_TownSquare_TalkTownStatue
 {
     lock
-    msgbox(format("{POKEMON_HUB}\nThe land of chaotic beginnings…"))
+
+    specialvar(VAR_RESULT, RogueHub_GetStatueLevel)
+
+    switch(var(VAR_RESULT))
+    {
+        case 3:
+            msgbox(format("{POKEMON_HUB}\nThe land of chaotic tales."))
+        default:
+            msgbox(format("{POKEMON_HUB}\nThe land of chaotic beginnings…"))
+    }
+
     release
 }
 
