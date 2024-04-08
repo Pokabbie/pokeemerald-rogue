@@ -84,10 +84,9 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { 
-                        "species": "SPECIES_PIKACHU",
-                        "shiny": true,
-                        "nickname": "Sparky"
+                    {
+                        "species": "SPECIES_FARFETCHD",
+                        "custom_mon_id": "CUSTOM_MON_QUESTS_FARFETCHD"
                     }
                 ]
             },
@@ -102,10 +101,9 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { 
-                        "species": "SPECIES_PIKACHU",
-                        "shiny": true,
-                        "trainer": "Red"
+                    {
+                        "species": "SPECIES_SPINARAK",
+                        "custom_mon_id": "CUSTOM_MON_QUESTS_SPINARAK"
                     }
                 ]
             },
@@ -120,10 +118,9 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { 
-                        "species": "SPECIES_PIKACHU",
-                        "shiny": true,
-                        "trainer": "Red"
+                    {
+                        "species": "SPECIES_CASTFORM",
+                        "custom_mon_id": "CUSTOM_MON_QUESTS_CASTFORM"
                     }
                 ]
             },
@@ -139,10 +136,9 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { 
-                        "species": "SPECIES_PIKACHU",
-                        "shiny": true,
-                        "trainer": "Red"
+                    {
+                        "species": "SPECIES_CARNIVINE",
+                        "custom_mon_id": "CUSTOM_MON_QUESTS_CARNIVINE"
                     }
                 ]
             },
@@ -158,10 +154,9 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { 
-                        "species": "SPECIES_PIKACHU",
-                        "shiny": true,
-                        "trainer": "Red"
+                    {
+                        "species": "SPECIES_KLINK",
+                        "custom_mon_id": "CUSTOM_MON_QUESTS_KLINK"
                     }
                 ]
             },
@@ -177,10 +172,9 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { 
-                        "species": "SPECIES_PIKACHU",
-                        "shiny": true,
-                        "trainer": "Red"
+                    {
+                        "species": "SPECIES_LITLEO",
+                        "custom_mon_id": "CUSTOM_MON_QUESTS_LITLEO"
                     }
                 ]
             },
@@ -196,10 +190,9 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { 
-                        "species": "SPECIES_PIKACHU",
-                        "shiny": true,
-                        "trainer": "Red"
+                    {
+                        "species": "SPECIES_DRAMPA",
+                        "custom_mon_id": "CUSTOM_MON_QUESTS_DRAMPA"
                     }
                 ]
             },
@@ -215,10 +208,9 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { 
-                        "species": "SPECIES_PIKACHU",
-                        "shiny": true,
-                        "trainer": "Red"
+                    {
+                        "species": "SPECIES_CLOBBOPUS",
+                        "custom_mon_id": "CUSTOM_MON_QUESTS_CLOBBOPUS"
                     }
                 ]
             },
@@ -248,10 +240,9 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { 
-                        "species": "SPECIES_PIKACHU",
-                        "shiny": true,
-                        "trainer": "Red"
+                    {
+                        "species": "SPECIES_CAPSAKID",
+                        "custom_mon_id": "CUSTOM_MON_QUESTS_CAPSAKID"
                     }
                 ]
             }

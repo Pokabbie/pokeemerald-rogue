@@ -13,6 +13,11 @@
             },
             {
                 "name": "Rndoman",
+                "trainer_id": 22822,
+                "trainer_colour": 0
+            },
+            {
+                "name": "Quests",
                 "trainer_colour": 0
             },
             {
@@ -64,6 +69,9 @@
                 ],
                 "abilities":
                 [
+                    "ABILITY_FLUFFY",
+                    "ABILITY_TERAVOLT",
+                    "ABILITY_NONE"
                 ]
             },
             {
@@ -82,6 +90,226 @@
                     "ABILITY_WONDER_GUARD"
                 ]
             },
+
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_FARFETCHD",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_ROCK_SLIDE",
+                    "MOVE_EXTREME_SPEED",
+                    "MOVE_DRILL_PECK",
+                    "MOVE_SHARPEN"
+                ],
+                "abilities":
+                [
+                    "ABILITY_HUGE_POWER"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_FARFETCHD",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_SACRED_SWORD",
+                    "MOVE_CEASELESS_EDGE",
+                    "MOVE_LEAF_BLADE",
+                    "MOVE_BITTER_BLADE"
+                ],
+                "abilities":
+                [
+                    "ABILITY_SHARPNESS"
+                ]
+            },
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_SPINARAK",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_CRUNCH",
+                    "MOVE_SWALLOW",
+                    "MOVE_STOCKPILE",
+                    "MOVE_SPIT_UP"
+                ],
+                "abilities":
+                [
+                    "ABILITY_BATTLE_ARMOR"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_SPINARAK",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_U_TURN",
+                    "MOVE_GUNK_SHOT",
+                    "MOVE_FELL_STINGER",
+                    "MOVE_SUCKER_PUNCH"
+                ],
+                "abilities":
+                [
+                    "ABILITY_ADAPTABILITY",
+                    "ABILITY_BATTLE_ARMOR",
+                    "ABILITY_NONE"
+                ]
+            },
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_CASTFORM",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_FLY",
+                    "MOVE_WISH",
+                    "MOVE_SURF",
+                    "MOVE_ERUPTION"
+                ],
+                "abilities":
+                [
+                    "ABILITY_FORECAST"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_CASTFORM",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_HURRICANE",
+                    "MOVE_THUNDER",
+                    "MOVE_SCALD",
+                    "MOVE_CHILLY_RECEPTION"
+                ],
+                "abilities":
+                [
+                    "ABILITY_FORECAST"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_CARNIVINE",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_TROP_KICK",
+                    "MOVE_AIR_SLASH",
+                    "MOVE_SLUDGE_BOMB",
+                    "MOVE_SYNTHESIS"
+                ],
+                "abilities":
+                [
+                    "ABILITY_UNBURDEN",
+                    "ABILITY_SERENE_GRACE",
+                    "ABILITY_NONE"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_KLINK",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_RAPID_SPIN",
+                    "MOVE_BODY_PRESS",
+                    "MOVE_IRON_DEFENSE",
+                    "MOVE_STEEL_ROLLER"
+                ],
+                "abilities":
+                [
+                    "ABILITY_LEVITATE",
+                    "ABILITY_VOLT_ABSORB",
+                    "ABILITY_NONE"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_LITLEO",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_FIERY_WRATH",
+                    "MOVE_AURA_SPHERE",
+                    "MOVE_FLAMETHROWER",
+                    "MOVE_FIRE_BLAST"
+                ],
+                "abilities":
+                [
+                    "ABILITY_FLASH_FIRE",
+                    "ABILITY_INTIMIDATE",
+                    "ABILITY_NONE"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_DRAMPA",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_SLUDGE_BOMB",
+                    "MOVE_PSYCHIC",
+                    "MOVE_DRAGON_PULSE",
+                    "MOVE_HYPER_VOICE"
+                ],
+                "abilities":
+                [
+                    "ABILITY_FLUFFY",
+                    "ABILITY_STAMINA",
+                    "ABILITY_NONE"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_CLOBBOPUS",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_JET_PUNCH",
+                    "MOVE_FLIP_TURN",
+                    "MOVE_BULK_UP",
+                    "MOVE_DRAIN_PUNCH"
+                ],
+                "abilities":
+                [
+                    "ABILITY_WATER_VEIL",
+                    "ABILITY_SWIFT_SWIM",
+                    "ABILITY_NONE"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_CAPSAKID",
+                "trainer": "Quests",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_ENERGY_BALL",
+                    "MOVE_FLAMETHROWER",
+                    "MOVE_QUIVER_DANCE",
+                    "MOVE_BURN_UP"
+                ],
+                "abilities":
+                [
+                    "ABILITY_SEED_SOWER",
+                    "ABILITY_ANGER_SHELL",
+                    "ABILITY_NONE"
+                ]
+            },
+
             {
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_WOBBUFFET",
