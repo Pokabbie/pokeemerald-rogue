@@ -153,7 +153,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_CHALLENGE_FRONTIER),
         .areaName = _("Challenge Area"),
-        .buildCost = 1,
+        .buildCost = 0,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {

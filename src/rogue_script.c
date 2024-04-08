@@ -1419,6 +1419,12 @@ void Rogue_HealAlivePlayerParty()
     }
 }
 
+void Rogue_FillHealingFlask()
+{
+    VarSet(VAR_ROGUE_FLASK_HEALS_USED, 0);
+    Rogue_PushPopup_FlaskRefilled();
+}
+
 #define VAR_CATCH_CONTEST_TYPE VAR_TEMP_2
 #define VAR_CATCH_CONTEST_STAT VAR_TEMP_3
 

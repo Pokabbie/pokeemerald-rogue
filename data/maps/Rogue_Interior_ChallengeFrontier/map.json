@@ -219,7 +219,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Interior_ChallengeFrontier_HealingVial",
+      "script": "Rogue_Interior_ChallengeFrontier_HealingFlask",
       "flag": "FLAG_TEMP_4"
     }
   ],
@@ -280,7 +280,7 @@
       "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Rogue_Interior_ChallengeFrontier_HealingVial"
+      "script": "Rogue_Interior_ChallengeFrontier_HealingFlask"
     }
   ]
 }

@@ -323,6 +323,8 @@ static const u8 sText_Popup_ItsASecret[] = _("Shh… its a secret");
 static const u8 sText_Popup_ExtraLifeTitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Extra Life!");
 static const u8 sText_Popup_ExtraLifeSubtitle[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Sacred Ash used");
 
+static const u8 sText_Popup_HealingFlaskRefilled[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Flask Refilled!");
+
 static const u8 sText_Popup_GymBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gym Badge {STR_VAR_1}");
 static const u8 sText_Popup_EliteBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Elite Badge {STR_VAR_1}");
 static const u8 sText_Popup_ChampBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Champion Badge");
@@ -1556,6 +1558,16 @@ void Rogue_PushPopup_TriggerExtraLife()
     
     popup->titleText = sText_Popup_ExtraLifeTitle;
     popup->subtitleText = sText_Popup_ExtraLifeSubtitle;
+}
+
+void Rogue_PushPopup_FlaskRefilled()
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = ITEM_HEALING_FLASK;
+    
+    popup->titleText = sText_Popup_HealingFlaskRefilled;
 }
 
 void Rogue_PushPopup_UnlockPokedex()

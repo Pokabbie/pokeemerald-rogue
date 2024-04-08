@@ -3552,6 +3552,18 @@ static void BeginRogueRun(void)
     ClearBerryTreeRange(BERRY_TREE_ROUTE_FIRST, BERRY_TREE_ROUTE_LAST);
     ClearBerryTreeRange(BERRY_TREE_DAYCARE_FIRST, BERRY_TREE_DAYCARE_LAST);
 
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_BAG_WIPE))
+    {
+        // Clear daycare mons
+        u8 i;
+
+        for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+        {
+            struct BoxPokemon* boxMon = Rogue_GetDaycareBoxMon(i);
+            ZeroBoxMonData(boxMon);
+        }
+    }
+
     RandomiseFishingEncounters();
     RandomiseTRMoves();
     InitialiseFaintedLabMons();

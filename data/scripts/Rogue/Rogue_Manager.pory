@@ -339,44 +339,51 @@ script Rogue_EventScript_UseDayCarePhoneItem
 {
     lock
 
-    if(flag(FLAG_ROGUE_RUN_ACTIVE))
+    if(!flag(FLAG_ROGUE_RUN_ACTIVE))
     {
-        if(flag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED))
+        // Can call unlimited times in hub
+        setflag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED)
+    }
+
+    if(flag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED))
+    {
+        playse(SE_POKENAV_CALL)
+        message(format("{PAUSE 20}… {PAUSE 20}… {PAUSE 20}… {PAUSE 20}"))
+        waitse
+        waitmessage
+        closemessage
+
+
+        if(!flag(FLAG_ROGUE_RUN_ACTIVE))
         {
-            playse(SE_POKENAV_CALL)
-            message(format("{PAUSE 20}… {PAUSE 20}… {PAUSE 20}… {PAUSE 20}"))
-            waitse
-            waitmessage
-            closemessage
-
-            msgbox(format("{PLAYER}? Is that you?\pYou'd like to swap out one of your Pokémon, would you?"))
-
-            message(format("Which daycare slot are you interested in?"))
-            waitmessage
-
-            multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
-
-            switch(var(VAR_RESULT))
-            {
-                case MULTI_B_PRESSED:
-                    setvar(VAR_RESULT, NO)
-
-                default:
-                    copyvar(VAR_0x8005, VAR_RESULT)
-                    call(Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon)
-            }
-
-            playse(SE_POKENAV_HANG_UP)
-            waitse
+            msgbox(format("{PLAYER}? Is that you?\pThe signal is so good in {POKEMON_HUB}!\pYou'd like to swap out one of your Pokémon, would you?"))
         }
         else
         {
-            msgbox(format("The Pokégear is out of charge.\pEntering any Rest Stop will recharge the Pokégear."))
+            msgbox(format("{PLAYER}? Is that you?\pYou'd like to swap out one of your Pokémon, would you?"))
         }
+
+        message(format("Which daycare slot are you interested in?"))
+        waitmessage
+
+        multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case MULTI_B_PRESSED:
+                setvar(VAR_RESULT, NO)
+
+            default:
+                copyvar(VAR_0x8005, VAR_RESULT)
+                call(Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon)
+        }
+
+        playse(SE_POKENAV_HANG_UP)
+        waitse
     }
     else
     {
-        msgbox(format("The Pokégear only works whilst out on Adventures…"))
+        msgbox(format("The Pokégear is out of charge.\pEntering any Rest Stop will recharge the Pokégear."))
     }
 
     release
@@ -1096,6 +1103,7 @@ script Rogue_Heal_PreBoss
                 }
 
                 call(Common_EventScript_OutOfCenterPartyHeal)
+                special(Rogue_FillHealingFlask)
             }
         }
         else
@@ -1114,6 +1122,7 @@ script Rogue_Heal_PreBoss
         {
             call(Common_EventScript_OutOfCenterPartyHeal)
             setflag(FLAG_ROGUE_FREE_HEAL_USED)
+            special(Rogue_FillHealingFlask)
         }
     }
 
