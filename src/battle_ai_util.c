@@ -295,6 +295,10 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_WANDERING_SPIRIT] = 2,
     [ABILITY_GORILLA_TACTICS] = 4,
     [ABILITY_EARTH_EATER] = 7,
+
+    [ABILITY_FORECAST_DRIZZLE] = 9,
+    [ABILITY_FORECAST_DROUGHT] = 9,
+    [ABILITY_FORECAST_SNOW] = 9,
 };
 
 static const u16 sEncouragedEncoreEffects[] =
@@ -1569,7 +1573,7 @@ bool32 ShouldSetHail(u32 battler, u32 ability, u32 holdEffect)
 
     if (ability == ABILITY_SNOW_CLOAK
       || ability == ABILITY_ICE_BODY
-      || ability == ABILITY_FORECAST
+      || IS_FORECAST_ABILITY(ability)
       || ability == ABILITY_SLUSH_RUSH
       || ability == ABILITY_MAGIC_GUARD
       || ability == ABILITY_OVERCOAT
@@ -1592,7 +1596,7 @@ bool32 ShouldSetRain(u32 battlerAtk, u32 atkAbility, u32 holdEffect)
 
     if (holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA
      && (atkAbility == ABILITY_SWIFT_SWIM
-      || atkAbility == ABILITY_FORECAST
+      || IS_FORECAST_ABILITY(atkAbility)
       || atkAbility == ABILITY_HYDRATION
       || atkAbility == ABILITY_RAIN_DISH
       || atkAbility == ABILITY_DRY_SKIN
@@ -1615,7 +1619,7 @@ bool32 ShouldSetSun(u32 battlerAtk, u32 atkAbility, u32 holdEffect)
     if (holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA
      && (atkAbility == ABILITY_CHLOROPHYLL
       || atkAbility == ABILITY_FLOWER_GIFT
-      || atkAbility == ABILITY_FORECAST
+      || IS_FORECAST_ABILITY(atkAbility)
       || atkAbility == ABILITY_LEAF_GUARD
       || atkAbility == ABILITY_SOLAR_POWER
       || atkAbility == ABILITY_HARVEST
@@ -1640,7 +1644,7 @@ bool32 ShouldSetSnow(u32 battler, u32 ability, u32 holdEffect)
 
     if (ability == ABILITY_SNOW_CLOAK
       || ability == ABILITY_ICE_BODY
-      || ability == ABILITY_FORECAST
+      || IS_FORECAST_ABILITY(ability)
       || ability == ABILITY_SLUSH_RUSH
       || IS_BATTLER_OF_TYPE(battler, TYPE_ICE)
       || HasMove(battler, MOVE_BLIZZARD)

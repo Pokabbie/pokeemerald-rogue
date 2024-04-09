@@ -141,6 +141,10 @@ static const u16 sRolePlayBannedAbilities[] =
     ABILITY_HUNGER_SWITCH,
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
+
+    ABILITY_FORECAST_DRIZZLE,
+    ABILITY_FORECAST_DROUGHT,
+    ABILITY_FORECAST_SNOW,
 };
 
 static const u16 sRolePlayBannedAttackerAbilities[] =
@@ -213,6 +217,10 @@ static const u16 sEntrainmentBannedAttackerAbilities[] =
     ABILITY_HUNGER_SWITCH,
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
+
+    ABILITY_FORECAST_DRIZZLE,
+    ABILITY_FORECAST_DROUGHT,
+    ABILITY_FORECAST_SNOW,
 };
 
 static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
@@ -1015,6 +1023,10 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_TRACE] = 1,
     [ABILITY_ZEN_MODE] = 1,
     [ABILITY_ZERO_TO_HERO] = 1,
+
+    [ABILITY_FORECAST_DRIZZLE] = 1,
+    [ABILITY_FORECAST_DROUGHT] = 1,
+    [ABILITY_FORECAST_SNOW] = 1,
 };
 
 static const u8 sHoldEffectToType[][2] =
@@ -4627,6 +4639,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_DRIZZLE:
+        case ABILITY_FORECAST_DRIZZLE:
             if (TryChangeBattleWeather(battler, ENUM_WEATHER_RAIN, TRUE))
             {
                 BattleScriptPushCursorAndCallback(BattleScript_DrizzleActivates);
@@ -4653,6 +4666,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_DROUGHT:
+        case ABILITY_FORECAST_DROUGHT:
             if (TryChangeBattleWeather(battler, ENUM_WEATHER_SUN, TRUE))
             {
                 BattleScriptPushCursorAndCallback(BattleScript_DroughtActivates);
@@ -4666,6 +4680,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_SNOW_WARNING:
+        case ABILITY_FORECAST_SNOW:
             if (B_SNOW_WARNING >= GEN_9 && TryChangeBattleWeather(battler, ENUM_WEATHER_SNOW, TRUE))
             {
                 BattleScriptPushCursorAndCallback(BattleScript_SnowWarningActivatesSnow);
@@ -6226,6 +6241,9 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         switch (gLastUsedAbility)
         {
         case ABILITY_FORECAST:
+        case ABILITY_FORECAST_DRIZZLE:
+        case ABILITY_FORECAST_DROUGHT:
+        case ABILITY_FORECAST_SNOW:
         case ABILITY_FLOWER_GIFT:
             if ((IsBattlerWeatherAffected(battler, gBattleWeather)
                  || gBattleWeather == B_WEATHER_NONE
@@ -10642,7 +10660,7 @@ u16 GetBattleFormChangeTargetSpecies(u32 battler, u16 method)
                     // Check if there is a required ability and if the battler's ability does not match it
                     // or is suppressed. If so, revert to the no weather form.
                     if (formChange.param2
-                        && GetBattlerAbility(battler) != formChange.param2
+                        && (IS_FORECAST_ABILITY(GetBattlerAbility(battler)) ? ABILITY_FORECAST : GetBattlerAbility(battler)) != formChange.param2
                         && formChange.param1 == B_WEATHER_NONE)
                     {
                         targetSpecies = formChange.targetSpecies;

@@ -302,6 +302,10 @@ static const u8 sTeraShellDescription[] = _("Resistant to types at full HP.");
 static const u8 sTeraformZeroDescription[] = _("Removes weather and terrain.");
 static const u8 sPoisonPuppeteerDescription[] = _("Confuses poisoned foes.");
 
+static const u8 sDrizzleForecastDescription[] = _("Drizzle and Forecast");
+static const u8 sDroughtForecastDescription[] = _("Drought and Forecast");
+static const u8 sSnowForecastDescription[] = _("Snow and Forecast");
+
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
@@ -616,6 +620,10 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_TERA_SHELL] = _("Tera Shell"),
     [ABILITY_TERAFORM_ZERO] = _("Teraform Zero"),
     [ABILITY_POISON_PUPPETEER] = _("Poison Puppeteer"),
+    
+    [ABILITY_FORECAST_DRIZZLE] = _("Drizzle Forecast"),
+    [ABILITY_FORECAST_DROUGHT] = _("Drought Forecast"),
+    [ABILITY_FORECAST_SNOW] = _("Snow Forecast"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -931,6 +939,10 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_TERA_SHELL] = _("Tera Shell"),
     [ABILITY_TERAFORM_ZERO] = _("TeraformZero"),
     [ABILITY_POISON_PUPPETEER] = _("PoisnPuppter"),
+    
+    [ABILITY_FORECAST_DRIZZLE] = _("Drizzle Forecast"),
+    [ABILITY_FORECAST_DROUGHT] = _("Drought Forecast"),
+    [ABILITY_FORECAST_SNOW] = _("Snow Forecast"),
 };
 #endif
 
@@ -1247,4 +1259,8 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_TERA_SHELL] = sTeraShellDescription,
     [ABILITY_TERAFORM_ZERO] = sTeraformZeroDescription,
     [ABILITY_POISON_PUPPETEER] = sPoisonPuppeteerDescription,
+    
+    [ABILITY_FORECAST_DRIZZLE] = sDrizzleForecastDescription,
+    [ABILITY_FORECAST_DROUGHT] = sDroughtForecastDescription,
+    [ABILITY_FORECAST_SNOW] = sSnowForecastDescription,
 };
