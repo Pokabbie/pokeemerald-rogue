@@ -313,6 +313,8 @@ void RogueSave_OnSaveLoaded()
         }
     }
 
+    UpdateBagItemsPointers();
+
     // We cache these values for faster lookup
     RecalcCharmCurseValues();
     
