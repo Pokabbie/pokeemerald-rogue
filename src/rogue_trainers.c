@@ -362,6 +362,12 @@ u8 Rogue_CalculateTrainerMonLvl()
     u8 startLvl;
     u8 playerLvl;
 
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
+    {
+        // Grunts use competitive mons but not comp levels
+        difficultyModifier = ADVPATH_SUBROOM_ROUTE_CALM;
+    }
+
     if(Rogue_GetCurrentDifficulty() == 0)
     {
         playerLvl = max(5, Rogue_CalculateTrainerLvlCap(FALSE) / 2); // climb slowly for difficulty 1

@@ -1070,7 +1070,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Have you take good care of your Pokémon?",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Have you taken good care of your Pokémon?",
                         "PRE_BATTLE_TAUNT": "Show me the bonds you made!",
                         "POST_BATTLE_TAUNT": "Strong Pokémon.\\nGood job!",
                         "POST_BATTLE_CLOSER": "If you take good care of Pokémon, even weak ones can be strong!\\pKeep it up!"
