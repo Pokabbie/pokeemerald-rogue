@@ -135,7 +135,7 @@ void Rogue_RandomisePartyMon(void)
     u8 targetlevel = Calc_RandomTradeLevel(&gPlayerParty[0]);
 
     RogueMonQuery_Begin();
-    RogueMonQuery_Reset(QUERY_FUNC_INCLUDE);
+    RogueMonQuery_IsSpeciesActive();
 
     if(Rogue_GetCurrentDifficulty() < ROGUE_GYM_MID_DIFFICULTY)
         RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);

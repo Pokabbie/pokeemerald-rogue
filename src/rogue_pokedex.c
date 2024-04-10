@@ -2035,7 +2035,7 @@ static void TitleScreen_HandleInput(u8 taskId)
             sPokedexMenu->titleScreenCursorIdx = (sPokedexMenu->titleScreenCursorIdx + 1) % 2;
             DisplayTitleDexVariantText();
         }
-        else if(JOY_NEW(DPAD_LEFT))
+        else if(JOY_REPEAT(DPAD_LEFT))
         {
             // Edit region
             if(sPokedexMenu->titleScreenCursorIdx == 0)
@@ -2100,7 +2100,7 @@ static void TitleScreen_HandleInput(u8 taskId)
             DisplayTitleScreenCountersText();
             TitleScreen_RefillStarsBg();
         }
-        else if(JOY_NEW(DPAD_RIGHT))
+        else if(JOY_REPEAT(DPAD_RIGHT))
         {
             // Edit region
             if(sPokedexMenu->titleScreenCursorIdx == 0)
@@ -2672,7 +2672,7 @@ static void Overview_HandleInput(u8 taskId)
     u16 prevSelectedIdx = sPokedexMenu->selectedIdx;
     u16 prevScrollAmount = sPokedexMenu->pageScrollAmount;
 
-    if(JOY_NEW(DPAD_LEFT))
+    if(JOY_REPEAT(DPAD_LEFT))
     {
         u8 x, y;
         x = sPokedexMenu->selectedIdx % COLUMN_ENTRY_COUNT;
@@ -2685,7 +2685,7 @@ static void Overview_HandleInput(u8 taskId)
 
         sPokedexMenu->selectedIdx = x + y * COLUMN_ENTRY_COUNT;
     }
-    else if(JOY_NEW(DPAD_RIGHT))
+    else if(JOY_REPEAT(DPAD_RIGHT))
     {
         u8 x, y;
         x = sPokedexMenu->selectedIdx % COLUMN_ENTRY_COUNT;
@@ -2694,7 +2694,7 @@ static void Overview_HandleInput(u8 taskId)
         x = (x + 1) % COLUMN_ENTRY_COUNT;
         sPokedexMenu->selectedIdx = x + y * COLUMN_ENTRY_COUNT;
     }
-    else if(JOY_NEW(DPAD_UP))
+    else if(JOY_REPEAT(DPAD_UP))
     {
         if(sPokedexMenu->selectedIdx >= COLUMN_ENTRY_COUNT)
             sPokedexMenu->selectedIdx -= COLUMN_ENTRY_COUNT; // jump back a row
@@ -2704,14 +2704,14 @@ static void Overview_HandleInput(u8 taskId)
             --sPokedexMenu->pageScrollAmount;
         }
     }
-    else if(JOY_NEW(DPAD_DOWN))
+    else if(JOY_REPEAT(DPAD_DOWN))
     {
         if(sPokedexMenu->selectedIdx < OVERVIEW_ENTRY_COUNT - COLUMN_ENTRY_COUNT)
             sPokedexMenu->selectedIdx += COLUMN_ENTRY_COUNT; // jump down a row
         else
             ++sPokedexMenu->pageScrollAmount;
     }
-    else if(JOY_NEW(L_BUTTON))
+    else if(JOY_REPEAT(L_BUTTON))
     {
         if(sPokedexMenu->pageScrollAmount != 0)
             sPokedexMenu->pageScrollAmount -= min(sPokedexMenu->pageScrollAmount, ROW_ENTRY_COUNT);
@@ -2722,7 +2722,7 @@ static void Overview_HandleInput(u8 taskId)
 
         justJumpedPage = TRUE;
     }
-    else if(JOY_NEW(R_BUTTON))
+    else if(JOY_REPEAT(R_BUTTON))
     {
         u8 maxScrollAmount = Overview_GetMaxScrollAmount();
         sPokedexMenu->pageScrollAmount += ROW_ENTRY_COUNT;
@@ -3292,7 +3292,7 @@ static bool8 MonInfo_HandleInput(u8 taskId)
     u16 viewSpecies = sPokedexMenu->viewBaseSpecies;
     bool8 useInput = FALSE;
 
-    if(JOY_NEW(L_BUTTON))
+    if(JOY_REPEAT(L_BUTTON))
     {
         useInput = TRUE;
         viewSpecies = MonStats_GetMonNeighbour(sPokedexMenu->viewBaseSpecies, -1);
@@ -3300,7 +3300,7 @@ static bool8 MonInfo_HandleInput(u8 taskId)
         if(viewSpecies == sPokedexMenu->viewBaseSpecies)
             PlaySE(SE_FAILURE);
     }
-    else if(JOY_NEW(R_BUTTON))
+    else if(JOY_REPEAT(R_BUTTON))
     {
         useInput = TRUE;
         viewSpecies = MonStats_GetMonNeighbour(sPokedexMenu->viewBaseSpecies, 1);
@@ -3328,7 +3328,7 @@ static bool8 MonInfo_HandleInput(u8 taskId)
             PlaySE(SE_PIN);
         }
     }
-    else if(JOY_NEW(DPAD_LEFT))
+    else if(JOY_REPEAT(DPAD_LEFT))
     {
         useInput = TRUE;
 
@@ -3336,7 +3336,7 @@ static bool8 MonInfo_HandleInput(u8 taskId)
         gTasks[taskId].func = Task_SwapToPage;
         PlaySE(SE_PIN);
     }
-    else if(JOY_NEW(DPAD_RIGHT))
+    else if(JOY_REPEAT(DPAD_RIGHT))
     {
         useInput = TRUE;
 
@@ -3465,7 +3465,7 @@ static void MonEvos_HandleInput(u8 taskId)
     if(MonInfo_HandleInput(taskId))
         return;
 
-    if(JOY_NEW(DPAD_UP))
+    if(JOY_REPEAT(DPAD_UP))
     {
         u16 maxScrollOffset = GetMaxEvoScrollOffset();
 
@@ -3485,7 +3485,7 @@ static void MonEvos_HandleInput(u8 taskId)
             MonEvos_CreateSprites();
         }
     }
-    else if(JOY_NEW(DPAD_DOWN))
+    else if(JOY_REPEAT(DPAD_DOWN))
     {
         u16 maxScrollOffset = GetMaxEvoScrollOffset();
 
@@ -3568,7 +3568,7 @@ static void MonForms_HandleInput(u8 taskId)
         return;
 
 #ifdef ROGUE_EXPANSION
-    if(JOY_NEW(DPAD_UP))
+    if(JOY_REPEAT(DPAD_UP))
     {
         u16 maxScrollOffset = GetMaxFormScrollOffset();
 
@@ -3588,7 +3588,7 @@ static void MonForms_HandleInput(u8 taskId)
             MonForms_CreateSprites();
         }
     }
-    else if(JOY_NEW(DPAD_DOWN))
+    else if(JOY_REPEAT(DPAD_DOWN))
     {
         u16 maxScrollOffset = GetMaxFormScrollOffset();
 
