@@ -362,37 +362,65 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         {
             if(evoIdx == 0)
             {
+                // Default form for neurtal natures
                 outEvo->method = EVO_LEVEL;
+                outEvo->targetSpecies = SPECIES_ALCREMIE_STRAWBERRY;
                 outEvo->param = 30;
             }
             else
             {
+                u16 supportedForms[] = 
+                {
+                    // SPECIES_ALCREMIE_STRAWBERRY // this is base form
+                    SPECIES_ALCREMIE_BERRY,
+                    SPECIES_ALCREMIE_LOVE,
+                    SPECIES_ALCREMIE_STAR,
+                    SPECIES_ALCREMIE_CLOVER,
+                    SPECIES_ALCREMIE_FLOWER,
+                    SPECIES_ALCREMIE_RIBBON,
+                };
                 u8 const supportedNatures[] = 
                 {
-                    NATURE_LONELY,
-                    NATURE_BRAVE,
                     NATURE_ADAMANT,
-                    NATURE_NAUGHTY,
-                    NATURE_BOLD,
-                    NATURE_RELAXED,
-                    NATURE_IMPISH,
                     NATURE_LAX,
-                    NATURE_TIMID,
-                    NATURE_HASTY,
-                    NATURE_JOLLY,
-                    NATURE_NAIVE,
                     NATURE_MODEST,
-                    NATURE_MILD,
-                    NATURE_QUIET,
-                    NATURE_RASH,
-                    NATURE_CALM,
                     NATURE_GENTLE,
-                    NATURE_SASSY,
-                    NATURE_CAREFUL,
+                    NATURE_TIMID,
+                    NATURE_JOLLY,
+
+                    //NATURE_LONELY,
+                    //NATURE_BRAVE,
+                    //NATURE_ADAMANT,
+                    //NATURE_NAUGHTY,
+                    //NATURE_BOLD,
+                    //NATURE_RELAXED,
+                    //NATURE_IMPISH,
+                    //NATURE_LAX,
+                    //NATURE_TIMID,
+                    //NATURE_HASTY,
+                    //NATURE_JOLLY,
+                    //NATURE_NAIVE,
+                    //NATURE_MODEST,
+                    //NATURE_MILD,
+                    //NATURE_QUIET,
+                    //NATURE_RASH,
+                    //NATURE_CALM,
+                    //NATURE_GENTLE,
+                    //NATURE_SASSY,
+                    //NATURE_CAREFUL,
                 };
 
-                outEvo->method = EVO_LEVEL_30_NATURE;
-                outEvo->param = supportedNatures[(evoIdx - 1) % ARRAY_COUNT(supportedNatures)];
+                if((evoIdx - 1) >= ARRAY_COUNT(supportedNatures))
+                {
+                    outEvo->method = EVO_NONE;
+                    outEvo->targetSpecies = SPECIES_NONE;
+                }
+                else
+                {
+                    outEvo->method = EVO_LEVEL_30_NATURE;
+                    outEvo->targetSpecies = supportedForms[evoIdx - 1];
+                    outEvo->param = supportedNatures[evoIdx - 1];
+                }
             }
         }
 #endif
@@ -465,6 +493,17 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 {
                     outEvo->method = EVO_LEVEL;
                     outEvo->param = 30;
+                }
+                break;
+
+            case(EVO_LEVEL_DAY):
+            case(EVO_LEVEL_NIGHT):
+#ifdef ROGUE_EXPANSION
+                // Rockruff & Cosmoem are the only species which still has time of day based evo
+                if(species != GET_BASE_SPECIES_ID(SPECIES_ROCKRUFF) && species != GET_BASE_SPECIES_ID(SPECIES_COSMOEM))
+#endif
+                {
+                    outEvo->method = EVO_LEVEL;
                 }
                 break;
 
