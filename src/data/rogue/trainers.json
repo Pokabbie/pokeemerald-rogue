@@ -55,8 +55,8 @@
                 "trainer_pic": "TRAINER_PIC_POKEFAN_F",
                 "trainer_class": "TRAINER_CLASS_POKEFAN",
                 "music_player": "route_trainer",
-                "trainer_flags": [ "REGION_ANY" ],
-                "class_flags": [],
+                "trainer_flags": [ "REGION_ANY", "CLASS_SPECIAL" ],
+                "class_flags": [ "EXP_TRAINER" ],
                 "encounter_text":
                 [
                     {
@@ -72,6 +72,27 @@
                     [
                         "FORCE_INCLUDE_SPECIES", "SPECIES_CHANSEY"
                     ]
+                }
+            },
+            {
+                "name": "JOEY",
+                "object_event": "OBJ_EVENT_GFX_YOUNGSTER",
+                "trainer_pic": "TRAINER_PIC_YOUNGSTER",
+                "trainer_class": "TRAINER_CLASS_YOUNGSTER",
+                "music_player": "battle_simulator",
+                "trainer_flags": [ "REGION_ANY", "CLASS_SPECIAL" ],
+                "class_flags": [ "BATTLE_SIM" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Let's go!",
+                        "POST_BATTLE_TAUNT": "Wow wow wow!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets": []
                 }
             }
         ]

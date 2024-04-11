@@ -800,6 +800,10 @@ const u8 gText_PieLarge[] = _("Large   (Uses x9 {POKEBLOCK})");     // based on 
 const u8 gText_Classic[] = _("Classic");
 const u8 gText_Modern[] = _("Modern");
 
+const u8 gText_WagerMoney[] = _("Money");
+const u8 gText_WagerIVs[] = _("IVs");
+const u8 gText_WagerItems[] = _("Items");
+
 const u8 gText_Info4[] = _("INFO"); // Unused
 const u8 gText_SingleBattle[] = _("SINGLES");
 const u8 gText_DoubleBattle[] = _("DOUBLES");

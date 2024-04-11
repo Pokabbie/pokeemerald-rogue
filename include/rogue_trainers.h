@@ -6,6 +6,7 @@ bool8 Rogue_IsRivalTrainer(u16 trainerNum);
 bool8 Rogue_IsTeamBossTrainer(u16 trainerNum);
 bool8 Rogue_IsKeyTrainer(u16 trainerNum);
 bool8 Rogue_IsExpTrainer(u16 trainerNum);
+bool8 Rogue_IsBattleSimTrainer(u16 trainerNum);
 bool8 Rogue_GetTrainerFlag(u16 trainerNum);
 
 u16 Rogue_GetDynamicTrainer(u16 i);

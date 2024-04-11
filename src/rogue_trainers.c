@@ -11,6 +11,7 @@
 #include "event_object_movement.h"
 #include "malloc.h"
 #include "party_menu.h"
+#include "pokemon_storage_system.h"
 #include "random.h"
 
 #include "rogue.h"
@@ -136,7 +137,14 @@ static u8 GetTrainerLevel(u16 trainerNum)
 
 bool8 Rogue_IsExpTrainer(u16 trainerNum)
 {
-    return GetTrainerLevel(trainerNum) == 1;
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    return (trainer->trainerFlags & TRAINER_FLAG_CLASS_SPECIAL) != 0 && (trainer->classFlags & CLASS_FLAG_EXP_TRAINER) != 0;
+}
+
+bool8 Rogue_IsBattleSimTrainer(u16 trainerNum)
+{
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    return (trainer->trainerFlags & TRAINER_FLAG_CLASS_SPECIAL) != 0 && (trainer->classFlags & CLASS_FLAG_BATTLE_SIM) != 0;
 }
 
 const struct RogueTrainer* Rogue_GetTrainer(u16 trainerNum)
@@ -1573,6 +1581,11 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
         break;
     }
 
+    if(Rogue_IsBattleSimTrainer(trainerNum))
+    {
+        fixedIV = 31;
+    }
+
     return fixedIV;
 }
 
@@ -1642,7 +1655,7 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
     if(monLevel == 1)
         return 1;
 
-    if(Rogue_GetModeRules()->forceEndGameTrainers)
+    if(Rogue_GetModeRules()->forceEndGameTrainers || Rogue_IsBattleSimTrainer(trainerNum))
     {
         return 6;
     }
@@ -1782,6 +1795,31 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
             SetMonData(&party[i], MON_DATA_POKEBALL, &pokeballId);
     }
 
+    // We expected to have saved the player team ready for reload before we reach here
+    if(Rogue_IsBattleSimTrainer(trainerNum))
+    {
+        // Player takes half of the enemy mons at random
+        u8 i, count;
+
+        for(count = 0; count < (monCount / 2);)
+        {
+            i = RogueRandom() % monCount;
+
+            if(GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+            {
+                CopyMon(&gPlayerParty[count], &gEnemyParty[i], sizeof(struct Pokemon));
+                ZeroMonData(&gEnemyParty[i]);
+                ++count;
+            }
+        }
+
+        CompactPartySlots();
+        CompactEnemyPartySlots();
+
+        CalculatePlayerPartyCount();
+        monCount = CalculateEnemyPartyCount();
+    }
+
     ReorderPartyMons(trainerNum, party, monCount);
     AssignAnySpecialMons(trainerNum, party, monCount);
 
@@ -1857,6 +1895,8 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
 
             if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_TRAINER_LVL_5))
                 CreateMon(&party[i], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+            else if(Rogue_IsBattleSimTrainer(trainerNum))
+                CreateMon(&party[i], species, 50, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
             else
                 CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
@@ -2683,6 +2723,12 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
         return TRUE;
     }
 #endif
+
+    if(Rogue_IsBattleSimTrainer(scratch->trainerNum))
+    {
+        // All mons are competitive
+        return TRUE;
+    }
 
     if(Rogue_GetModeRules()->forceEndGameTrainers)
     {

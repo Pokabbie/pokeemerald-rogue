@@ -28,8 +28,10 @@ void Rogue_PushPopup_StrongPokemonClause(u16 species, bool8 fromDaycare);
 void Rogue_PushPopup_RoamerPokemonActivated(u16 species);
 
 void Rogue_PushPopup_AddItem(u16 itemId, u16 amount);
+void Rogue_PushPopup_LostItem(u16 itemId, u16 amount);
 void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount);
 void Rogue_PushPopup_AddMoney(u32 amount);
+void Rogue_PushPopup_LostMoney(u32 amount);
 void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount);
 void Rogue_PushPopup_UnlockedShopItem(u16 itemId);
 void Rogue_PushPopup_AddPokemon(u16 species, bool8 isCustom, bool8 isShiny);

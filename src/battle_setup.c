@@ -1492,6 +1492,11 @@ static void CB2_EndTrainerBattle(void)
     {
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
+    else if(Rogue_IsBattleSimTrainer(gTrainerBattleOpponent_A))
+    {
+        gSpecialVar_Result = !IsPlayerDefeated(gBattleOutcome);
+        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    }
     else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
         if (InBattlePyramid() || InTrainerHillChallenge())

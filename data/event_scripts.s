@@ -859,3 +859,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Encounter_Sign/scripts.inc"
 
 	.include "data/maps/Rogue_Interior_ChallengeFrontier/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_BattleSim/scripts.inc"

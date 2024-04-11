@@ -195,10 +195,11 @@
 #define ADVPATH_ROOM_SHRINE             11
 #define ADVPATH_ROOM_CATCHING_CONTEST   12
 #define ADVPATH_ROOM_SIGN               13
+#define ADVPATH_ROOM_BATTLE_SIM         14
 
-#define ADVPATH_ROOM_BOSS               14
+#define ADVPATH_ROOM_BOSS               15
 
-#define ADVPATH_ROOM_COUNT              15
+#define ADVPATH_ROOM_COUNT              16
 
 
 #define ADVPATH_SUBROOM_ROUTE_CALM          0
@@ -234,20 +235,21 @@
 #define TRAINER_FLAG_CLASS_ROUTE                (1 << 2)
 #define TRAINER_FLAG_CLASS_TEAM                 (1 << 3)
 #define TRAINER_FLAG_CLASS_TEAM_BOSS            (1 << 4)
+#define TRAINER_FLAG_CLASS_SPECIAL              (1 << 5) // e.g. exp trainer
 
-#define TRAINER_FLAG_REGION_KANTO               (1 << 5)
-#define TRAINER_FLAG_REGION_JOHTO               (1 << 6)
-#define TRAINER_FLAG_REGION_HOENN               (1 << 7)
-#define TRAINER_FLAG_REGION_SINNOH              (1 << 8)
-#define TRAINER_FLAG_REGION_UNOVA               (1 << 9)
-#define TRAINER_FLAG_REGION_KALOS               (1 << 10)
-#define TRAINER_FLAG_REGION_ALOLA               (1 << 11)
-#define TRAINER_FLAG_REGION_GALAR               (1 << 12)
-#define TRAINER_FLAG_REGION_PALDEA              (1 << 13) // placeholder
-#define TRAINER_FLAG_REGION_ROGUE               (1 << 14)
+#define TRAINER_FLAG_REGION_KANTO               (1 << 6)
+#define TRAINER_FLAG_REGION_JOHTO               (1 << 7)
+#define TRAINER_FLAG_REGION_HOENN               (1 << 8)
+#define TRAINER_FLAG_REGION_SINNOH              (1 << 9)
+#define TRAINER_FLAG_REGION_UNOVA               (1 << 10)
+#define TRAINER_FLAG_REGION_KALOS               (1 << 11)
+#define TRAINER_FLAG_REGION_ALOLA               (1 << 12)
+#define TRAINER_FLAG_REGION_GALAR               (1 << 13)
+#define TRAINER_FLAG_REGION_PALDEA              (1 << 14) // placeholder
+#define TRAINER_FLAG_REGION_ROGUE               (1 << 15)
 
-#define TRAINER_FLAG_MISC_RAINBOW_ONLY          (1 << 15)
-#define TRAINER_FLAG_MISC_RAINBOW_EXCLUDE       (1 << 16)
+#define TRAINER_FLAG_MISC_RAINBOW_ONLY          (1 << 16)
+#define TRAINER_FLAG_MISC_RAINBOW_EXCLUDE       (1 << 17)
 
 #define TRAINER_FLAG_CLASS_ANY                  (TRAINER_FLAG_CLASS_BOSS | TRAINER_FLAG_CLASS_RIVAL | TRAINER_FLAG_CLASS_ROUTE | TRAINER_FLAG_CLASS_TEAM)
 #define TRAINER_FLAG_REGION_ANY                 (TRAINER_FLAG_REGION_KANTO | TRAINER_FLAG_REGION_JOHTO | TRAINER_FLAG_REGION_HOENN | TRAINER_FLAG_REGION_SINNOH | TRAINER_FLAG_REGION_UNOVA | TRAINER_FLAG_REGION_KALOS | TRAINER_FLAG_REGION_ALOLA | TRAINER_FLAG_REGION_GALAR | TRAINER_FLAG_REGION_ROGUE)
@@ -285,6 +287,10 @@
 
 #define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA)
 
+// TRAINER_FLAG_CLASS_SPECIAL
+//
+#define CLASS_FLAG_EXP_TRAINER                  (1 << 0)
+#define CLASS_FLAG_BATTLE_SIM                   (1 << 1)
 
 // Strings
 #define TRAINER_STRING_PRE_BATTLE_OPENNING      0 // before encounter music (Only supported for gyms)
