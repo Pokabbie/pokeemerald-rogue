@@ -949,11 +949,21 @@ static bool8 IsDebugAltForm(u16 species)
     if(species >= SPECIES_CRAMORANT_GULPING && species <= SPECIES_CRAMORANT_GORGING)
         return TRUE;
 
-    if(species >= SPECIES_ALCREMIE_RUBY_CREAM && species <= SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL)
-        return TRUE;
-
-    if(species >= SPECIES_ALCREMIE_BERRY && species <= SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL)
-        return TRUE;
+    if((species >= SPECIES_ALCREMIE_RUBY_CREAM && species <= SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL) || ((species >= SPECIES_ALCREMIE_BERRY && species <= SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL)))
+    {
+        // These are the forms of alcremie which are shown
+        if(species == SPECIES_ALCREMIE_STRAWBERRY ||
+            species == SPECIES_ALCREMIE_BERRY ||
+            species == SPECIES_ALCREMIE_LOVE ||
+            species == SPECIES_ALCREMIE_STAR ||
+            species == SPECIES_ALCREMIE_CLOVER ||
+            species == SPECIES_ALCREMIE_FLOWER ||
+            species == SPECIES_ALCREMIE_RIBBON
+        )
+            return FALSE;
+        else
+            return TRUE;
+    }
 
     if(species >= SPECIES_OGERPON_TEAL_MASK_TERA && species <= SPECIES_OGERPON_CORNERSTONE_MASK_TERA)
         return TRUE;
