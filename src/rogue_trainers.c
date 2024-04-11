@@ -55,6 +55,17 @@ struct TrainerPartyScratch
     u8 fallbackCount;
 };
 
+struct TrainerTemp
+{
+#ifdef ROGUE_EXPANSION
+    u8 dynamaxSlot;
+#else
+    u8 pad;
+#endif
+};
+
+static EWRAM_DATA struct TrainerTemp sTrainerTemp = {0};
+
 static u32 GetActiveTeamFlag();
 static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch);
 
@@ -64,6 +75,7 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
 static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, u8 monIdx, struct RoguePokemonCompetitiveSet* outPreset);
 static void ModifyTrainerMonPreset(u16 trainerNum, struct RoguePokemonCompetitiveSet* preset, struct RoguePokemonCompetitiveSetRules* presetRules);
 static void ReorderPartyMons(u16 trainerNum, struct Pokemon *party, u8 monCount);
+static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCount);
 static bool8 IsChoiceItem(u16 itemId);
 
 u16 Rogue_GetDynamicTrainer(u16 i)
@@ -652,6 +664,59 @@ bool8 Rogue_ShouldTrainerBeSmart(u16 trainerNum)
     }
 
     return FALSE;
+}
+
+static bool8 ShouldDynamaxBestSlot(u16 trainerNum)
+{
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        // no special behaviour
+        break;
+
+    case DIFFICULTY_LEVEL_AVERAGE:
+        // Only rival will dynamax out of order and only final 2 fights
+        if(Rogue_IsRivalTrainer(trainerNum))
+            return (Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 1);
+        break;
+
+    case DIFFICULTY_LEVEL_HARD:
+        // Rival will dynamax anything after the initial fight
+        if(Rogue_IsRivalTrainer(trainerNum))
+            return (Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY);
+        // Towards final gyms start dynamaxing out of order
+        else if(Rogue_IsKeyTrainer(trainerNum))
+            return (Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 2);
+        break;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        // Everything will dynamax out of order
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_ShouldTrainerSaveAceMon(u16 trainerNum)
+{
+    // Ensure we don't send out the dynamax mon too early
+    if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
+        return !ShouldDynamaxBestSlot(trainerNum);
+
+    return FALSE;
+}
+
+bool8 Rogue_ShouldDynamaxMon(u16 trainerNum, u8 slot, u8 numOthersAlive)
+{
+#ifdef ROGUE_EXPANSION
+    // If all other mons have fainted just bail and dynamax now
+    if(numOthersAlive == 0)
+        return TRUE;
+
+    return (sTrainerTemp.dynamaxSlot == slot);
+#else
+    return FALSE;
+#endif
 }
 
 bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum)
@@ -1718,6 +1783,7 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
     }
 
     ReorderPartyMons(trainerNum, party, monCount);
+    AssignAnySpecialMons(trainerNum, party, monCount);
 
     // Debug steal team
     if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_STEAL_TEAM))
@@ -3018,7 +3084,7 @@ static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party)
 }
 
 // + go to the front - go to the back
-s16 CalulcateMonSortScore(struct Pokemon* mon)
+s16 CalulcateMonSortScore(u16 trainerNum, struct Pokemon* mon)
 {
     s16 score = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
@@ -3043,7 +3109,8 @@ s16 CalulcateMonSortScore(struct Pokemon* mon)
         score -= 15;
     }
 
-    if(IsDynamaxEnabled())
+    // If we're going to dynamax the last mon, move gigantamax mons to final slot to make us see them more often
+    if(IsDynamaxEnabled() && !ShouldDynamaxBestSlot(trainerNum))
     {
         u32 i;
         struct FormChange formChange;
@@ -3204,8 +3271,8 @@ static void ReorderPartyMons(u16 trainerNum, struct Pokemon *party, u8 monCount)
 
             for(i = startIndex; i < monCount - 1; ++i)
             {
-                scoreA = CalulcateMonSortScore(&party[i]);
-                scoreB = CalulcateMonSortScore(&party[i + 1]);
+                scoreA = CalulcateMonSortScore(trainerNum, &party[i]);
+                scoreB = CalulcateMonSortScore(trainerNum, &party[i + 1]);
 
                 if(clampLeadScore)
                 {
@@ -3226,4 +3293,84 @@ static void ReorderPartyMons(u16 trainerNum, struct Pokemon *party, u8 monCount)
                 sortLength = 0;
         }
     }
+}
+
+#ifdef ROGUE_EXPANSION
+static u16 CalculateDynamaxScore(struct Pokemon *mon)
+{
+    u16 score;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u16 item = GetMonData(mon, MON_DATA_HELD_ITEM);
+
+    // Ignore any banned species
+    if (
+        GET_BASE_SPECIES_ID(species) == SPECIES_ZACIAN ||
+        GET_BASE_SPECIES_ID(species) == SPECIES_ZAMAZENTA ||
+        GET_BASE_SPECIES_ID(species) == SPECIES_ETERNATUS
+    )
+        return 0;
+
+    // Ignore any banned items
+    if(
+        (item == ITEM_RED_ORB || item == ITEM_BLUE_ORB) ||
+        (item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) ||
+        (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)
+    )
+        return 0;
+
+    // Initial score is BST so we generally will pick the strongest mon
+    score = RoguePokedex_GetSpeciesBST(species);
+
+    // Choose mons with gigantamax forms ideally
+    {
+        u32 i;
+        struct FormChange formChange;
+
+        for (i = 0; TRUE; i++)
+        {
+            Rogue_ModifyFormChange(species, i, &formChange);
+
+            if(formChange.method == FORM_CHANGE_TERMINATOR)
+                break;
+
+            if(formChange.method == FORM_CHANGE_BATTLE_GIGANTAMAX)
+            {
+                // We have a gigantamax form, so prioritise this
+                score += 200;
+                break;
+            }
+        }
+    }
+
+    return score;
+}
+#endif
+
+static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCount)
+{
+#ifdef ROGUE_EXPANSION
+    // Assign default and handle above
+    sTrainerTemp.dynamaxSlot = PARTY_SIZE;
+
+    if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
+    {
+        if(ShouldDynamaxBestSlot(trainerNum))
+        {
+            u8 i;
+            u16 score;
+            u16 highestScore = CalculateDynamaxScore(&party[0]);
+            sTrainerTemp.dynamaxSlot = 0;
+
+            for(i = 1; i < monCount; ++i)
+            {
+                score = CalculateDynamaxScore(&party[i]);
+                if(score >= highestScore)
+                {
+                    highestScore = score;
+                    sTrainerTemp.dynamaxSlot = i;
+                }
+            }
+        }
+    }
+#endif
 }

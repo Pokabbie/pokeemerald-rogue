@@ -719,12 +719,8 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         if(Rogue_ShouldTrainerBeDoubleAware(trainerNum))
              outTrainer->aiFlags |= AI_FLAG_DOUBLE_BATTLE;
 
-
-        if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
-        {
-            // Ensure we don't send out the dynamax mon too early
+        if(Rogue_ShouldTrainerSaveAceMon(trainerNum))
             outTrainer->aiFlags |= AI_FLAG_ACE_POKEMON;
-        }
 #else
         outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY;
 
