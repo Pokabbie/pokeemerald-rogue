@@ -28,6 +28,8 @@ bool8 Rogue_ShouldTrainerSmartSwitch(u16 trainerNum);
 bool8 Rogue_ShouldTrainerBeDoubleAware(u16 trainerNum);
 bool8 Rogue_ShouldTrainerTrySetup(u16 trainerNum);
 bool8 Rogue_ShouldTrainerBeSmart(u16 trainerNum);
+bool8 Rogue_ShouldTrainerSaveAceMon(u16 trainerNum);
+bool8 Rogue_ShouldDynamaxMon(u16 trainerNum, u8 slot, u8 numOthersAlive);
 
 u8 Rogue_CalculatePlayerMonLvl();
 u8 Rogue_CalculateTrainerMonLvl();
