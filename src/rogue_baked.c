@@ -444,12 +444,28 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
                 break;
 
             case(EVO_FRIENDSHIP_DAY):
-                outEvo->method = EVO_ITEM;
-                outEvo->param = ITEM_SUN_STONE;
+                if(species == SPECIES_EEVEE)
+                {
+                    outEvo->method = EVO_ITEM;
+                    outEvo->param = ITEM_SUN_STONE;
+                }
+                else
+                {
+                    outEvo->method = EVO_LEVEL;
+                    outEvo->param = 30;
+                }
                 break;
             case(EVO_FRIENDSHIP_NIGHT):
-                outEvo->method = EVO_ITEM;
-                outEvo->param = ITEM_MOON_STONE;
+                if(species == SPECIES_EEVEE)
+                {
+                    outEvo->method = EVO_ITEM;
+                    outEvo->param = ITEM_MOON_STONE;
+                }
+                else
+                {
+                    outEvo->method = EVO_LEVEL;
+                    outEvo->param = 30;
+                }
                 break;
 
             case(EVO_TRADE_ITEM):
