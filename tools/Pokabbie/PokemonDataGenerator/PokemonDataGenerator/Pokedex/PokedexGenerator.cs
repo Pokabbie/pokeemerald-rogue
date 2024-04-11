@@ -258,7 +258,7 @@ namespace PokemonDataGenerator.Pokedex
 					// so forcefully insert them here
 					if (isHGSS)
 						AppendDexMon_ExtraHGSS(species, target);
-					else if(isClassicPlus)
+					else if (isClassicPlus)
 						AppendDexMon_ExtraClassicPlus(species, target);
 
 					if (dexId == "blueberry")
@@ -473,6 +473,14 @@ namespace PokemonDataGenerator.Pokedex
 			{
 				target.Mons.Add("kingdra");
 			}
+			else if (species.Equals("persian", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("perrserker");
+			}
+			else if (species.Equals("farfetchd", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("sirfetchd");
+			}
 			else if (species.Equals("mr-mime", StringComparison.CurrentCultureIgnoreCase))
 			{
 				target.Mons[target.Mons.Count - 1] = "mime-jr";
@@ -522,6 +530,18 @@ namespace PokemonDataGenerator.Pokedex
 			else if (species.Equals("togetic", StringComparison.CurrentCultureIgnoreCase))
 			{
 				target.Mons.Add("togekiss");
+			}
+			else if (species.Equals("quagsire", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("clodsire");
+			}
+			else if (species.Equals("qwilfish", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("overqwil");
+			}
+			else if (species.Equals("corsola", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("cursola");
 			}
 			else if (species.Equals("marill", StringComparison.CurrentCultureIgnoreCase))
 			{
@@ -587,6 +607,10 @@ namespace PokemonDataGenerator.Pokedex
 			else if (species.Equals("stantler", StringComparison.CurrentCultureIgnoreCase))
 			{
 				target.Mons.Add("wyrdeer");
+			}
+			else if (species.Equals("linoone", StringComparison.CurrentCultureIgnoreCase))
+			{
+				target.Mons.Add("obstagoon");
 			}
 			else if (species.Equals("gardevoir", StringComparison.CurrentCultureIgnoreCase))
 			{
