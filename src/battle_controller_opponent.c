@@ -39,7 +39,9 @@
 #include "constants/trainers.h"
 #include "trainer_hill.h"
 #include "test_runner.h"
+
 #include "rogue_controller.h"
+#include "rogue_trainers.h"
 
 
 static void OpponentHandleLoadMonSprite(u32 battler);
@@ -578,7 +580,7 @@ static void OpponentHandleChooseMove(u32 battler)
                     else if (CanUltraBurst(battler))
                         BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, (chosenMoveId) | (RET_ULTRA_BURST) | (gBattlerTarget << 8));
                     // If opponent can Dynamax and is on final Pokemon, do it.
-                    else if (CanDynamax(battler) && CountAIAliveNonEggMonsExcept(gBattlerPartyIndexes[battler]) == 0)
+                    else if (CanDynamax(battler) && Rogue_ShouldDynamaxMon(gTrainerBattleOpponent_A, gBattlerPartyIndexes[battler], CountAIAliveNonEggMonsExcept(gBattlerPartyIndexes[battler])))
                         BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, (chosenMoveId) | (RET_DYNAMAX) | (gBattlerTarget << 8));
                     else
                         BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, (chosenMoveId) | (gBattlerTarget << 8));
