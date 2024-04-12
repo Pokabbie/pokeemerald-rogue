@@ -1704,7 +1704,7 @@ void Rogue_BattleSim_WagerItem()
 
     RogueItemQuery_End();
 
-    if(itemId == ITEM_MASTER_BALL || (itemId >= ITEM_TM01 && itemId <= ITEM_HM08))
+    if(itemId == ITEM_MASTER_BALL || (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) || (ItemId_GetPocket(itemId) == POCKET_STONES))
     {
         amount = 1;
     }
