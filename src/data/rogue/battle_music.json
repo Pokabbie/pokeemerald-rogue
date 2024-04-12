@@ -367,6 +367,12 @@
             "battle": "MUS_VS_TRAINER",
             "victory": "MUS_VICTORY_TRAINER"
         },
+        "battle_simulator":
+        {
+            "encounter": "MUS_HG_ENCOUNTER_BOY_1",
+            "battle": "MUS_HG_VS_TRAINER",
+            "victory": "MUS_HG_VICTORY_TRAINER"
+        },
 
         "team_rocket":
         {

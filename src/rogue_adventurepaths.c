@@ -419,6 +419,7 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
     case ADVPATH_ROOM_GAMESHOW:
     case ADVPATH_ROOM_CATCHING_CONTEST:
     case ADVPATH_ROOM_SIGN:
+    case ADVPATH_ROOM_BATTLE_SIM:
         count = CountRoomType(roomType);
         if(count != 0)
             return 0;
@@ -527,6 +528,7 @@ static u8 ReplaceRoomEncounters_CalculateWeight(u16 weightIndex, u16 roomId, voi
 
     case ADVPATH_ROOM_CATCHING_CONTEST:
     case ADVPATH_ROOM_GAMESHOW:
+    case ADVPATH_ROOM_BATTLE_SIM:
         // Don't want to place in first column
         if(existingRoom->coords.x + 1 == gRogueAdvPath.pathLength)
             weight -= 40;
@@ -647,7 +649,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         else
         {
             chance = 5;
-            chanceFalloff = 20;
+            chanceFalloff = 5;
         }
 
         if(GetPathGenerationDifficulty() == 0)
@@ -719,6 +721,10 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     // Shrine
     if(GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SHRINE;
+
+    // Battle sim
+    if(GetPathGenerationDifficulty() >= 1 && RogueRandomChance(33, 0))
+        validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_SIM;
 
     {
         bool8 allowDarkDeal = (GetPathGenerationDifficulty() % 3 != 0);
@@ -829,7 +835,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         {
             chance = 40;
             chanceFalloff = 20;
-            minRouteCount = 1;
+            minRouteCount = 2;
         }
         else
         {
@@ -1475,6 +1481,11 @@ static void ApplyCurrentNodeWarp(struct WarpData *warp)
             warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_SIGN);
             warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_SIGN);
             break;
+
+        case ADVPATH_ROOM_BATTLE_SIM:
+            warp->mapGroup = MAP_GROUP(ROGUE_ENCOUNTER_BATTLE_SIM);
+            warp->mapNum = MAP_NUM(ROGUE_ENCOUNTER_BATTLE_SIM);
+            break;
     }
 }
 
@@ -1718,6 +1729,9 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
 
         case ADVPATH_ROOM_SIGN:
             return OBJ_EVENT_GFX_SMALL_SIGN;
+
+        case ADVPATH_ROOM_BATTLE_SIM:
+            return OBJ_EVENT_GFX_YOUNGSTER;
 
         case ADVPATH_ROOM_BOSS:
             return OBJ_EVENT_GFX_BALL_CUSHION; // ?

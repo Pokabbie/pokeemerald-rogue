@@ -1940,6 +1940,16 @@
       "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/Rogue_Interior_ChallengeFrontier/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Interior_ChallengeFrontier/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_BATTLE_SIM",
+      "name": "Rogue_Encounter_BattleSim_Layout",
+      "width": 12,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_CableClub",
+      "border_filepath": "data/layouts/Rogue_Encounter_BattleSim/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_BattleSim/map.bin"
     }
   ]
 }

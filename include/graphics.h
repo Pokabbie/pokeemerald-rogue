@@ -846,6 +846,7 @@ extern const u32 gBattleTerrainPalette_BuildingGym[];
 extern const u32 gBattleTerrainPalette_BuildingLeader[];
 extern const u32 gBattleTerrainPalette_BuildingShop[];
 extern const u32 gBattleTerrainPalette_BuildingGameshow[];
+extern const u32 gBattleTerrainPalette_BuildingSimulator[];
 extern const u32 gBattleTerrainPalette_StadiumAqua[];
 extern const u32 gBattleTerrainPalette_StadiumMagma[];
 extern const u32 gBattleTerrainPalette_StadiumSidney[];

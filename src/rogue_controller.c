@@ -306,6 +306,15 @@ bool8 Rogue_ForceExpAll(void)
     return Rogue_GetConfigToggle(CONFIG_TOGGLE_EXP_ALL);
 }
 
+bool8 Rogue_EnableExpGain(void)
+{
+    // Don't give exp in battle sim flat battles
+    if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsBattleSimTrainer(gTrainerBattleOpponent_A))
+        return FALSE;
+
+    return TRUE;
+}
+
 bool8 Rogue_EnableAffectionMechanics(void)
 {
 #ifdef ROGUE_EXPANSION
@@ -690,6 +699,12 @@ u16 Rogue_ModifyPlayFanfare(u16 songNum)
 void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
+
+    if(!Rogue_EnableExpGain())
+    {
+        *expGain = 0;
+        return;
+    }
     
     if(Rogue_IsRunActive() && species != SPECIES_NONE)
     {
@@ -4656,6 +4671,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     break;
                 }
 
+                case ADVPATH_ROOM_BATTLE_SIM:
+                {
+                    break;
+                }
+
                 case ADVPATH_ROOM_SIGN:
                 {
                     u8 i;
@@ -5219,6 +5239,13 @@ void Rogue_Battle_StartTrainerBattle(void)
     }
 
     RememberPartyHeldItems();
+
+    if(Rogue_IsBattleSimTrainer(gTrainerBattleOpponent_A))
+    {
+        TempSavePlayerTeam();
+        ClearPlayerTeam();
+    }
+
     RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_START);
 }
 
@@ -5487,6 +5514,11 @@ void EnableRivalEncounterIfRequired()
 void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 {
     if(Rogue_IsFinalQuestFinalBoss())
+    {
+        TempRestorePlayerTeam();
+    }
+
+    if(Rogue_IsBattleSimTrainer(trainerNum))
     {
         TempRestorePlayerTeam();
     }

@@ -69,6 +69,9 @@ script Rogue_AdventurePaths_InteractRoom
         case ADVPATH_ROOM_SIGN:
             msgbox(format("It's a Mysterious Sign.\nEnter this encounter?"), MSGBOX_YESNO)
 
+        case ADVPATH_ROOM_BATTLE_SIM:
+            msgbox(format("It's a Battle Simulator.\nEnter this encounter?"), MSGBOX_YESNO)
+
         case ADVPATH_ROOM_RESTSTOP:
             switch(var(VAR_NODE_PARAM1))
             {

@@ -1659,3 +1659,178 @@ void Rogue_PrepareForTrade()
         CopyMon(&gEnemyParty[0], &gEnemyParty[enemyMonSlot], sizeof(struct Pokemon));
     }
 }
+
+#define VAR_WAGER_PARAM0 VAR_TEMP_1
+#define VAR_WAGER_PARAM1 VAR_TEMP_2
+
+void Rogue_BattleSim_WagerItem()
+{
+    // TODO - Choose special items 
+    // e.g.
+    // -a mega stone that a party mon can use
+    // -rare candies
+    // -master balls
+    // -quick balls / ultra balls for vanilla
+    // -expensive held items?
+    u16 itemId;
+    u16 amount;
+    RAND_TYPE startSeed = gRngRogueValue;
+
+    RogueItemQuery_Begin();
+    RogueItemQuery_Reset(QUERY_FUNC_INCLUDE);
+
+    RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_ITEMS);
+    RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_MEDICINE);
+    RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
+    RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKEBLOCK);
+    RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_KEY_ITEMS);
+
+    RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 2500, 50000);
+    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_RARE_CANDY);
+    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_MASTER_BALL);
+    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_PREMIER_BALL);
+
+#ifdef ROGUE_EXPANSION
+    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_ABILITY_CAPSULE);
+    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_ABILITY_PATCH);
+    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_QUICK_BALL);
+    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_DUSK_BALL);
+#else
+    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_ULTRA_BALL);
+    RogueMiscQuery_EditRange(QUERY_FUNC_INCLUDE, ITEM_HM01, ITEM_HM08);
+#endif
+
+    itemId = RogueMiscQuery_SelectRandomElement(RogueRandom());
+
+    RogueItemQuery_End();
+
+    if(itemId == ITEM_MASTER_BALL || (itemId >= ITEM_TM01 && itemId <= ITEM_HM08))
+    {
+        amount = 1;
+    }
+    else
+    {
+        u32 targetAmount = ItemId_GetPrice(ITEM_RARE_CANDY) * 10;
+        amount = targetAmount / ItemId_GetPrice(itemId);
+    }
+
+    VarSet(VAR_WAGER_PARAM0, itemId);
+    VarSet(VAR_WAGER_PARAM1, amount);
+    gRngRogueValue = startSeed;
+}
+
+void Rogue_BattleSim_HandleItemWager()
+{
+    u16 wagerItem = VarGet(VAR_WAGER_PARAM0);
+    u16 wagerAmount = VarGet(VAR_WAGER_PARAM1);
+
+    // won wager
+    if(gSpecialVar_Result == TRUE)
+    {
+        if(AddBagItem(wagerItem, wagerAmount))
+            Rogue_PushPopup_AddItem(wagerItem, wagerAmount);
+        else
+            Rogue_PushPopup_CannotTakeItem(wagerItem, wagerAmount);
+    }
+    // lost wager
+    else
+    {
+        // Attempt to match the value of the wager
+        u32 p, pocket, i;
+        s32 remainingMoney = min(ItemId_GetPrice(wagerItem) * wagerAmount, ItemId_GetPrice(ITEM_RARE_CANDY) * 10);
+
+        // Populate query with all valid items we can remove
+        RogueItemQuery_Begin();
+        RogueItemQuery_Reset(QUERY_FUNC_EXCLUDE);
+
+        for(p = 0; p < POCKETS_COUNT; ++p)
+        {
+            pocket = p + 1; // conver to POCKET_ variant
+
+            // Ignore these pockets
+            if(pocket == POCKET_KEY_ITEMS)
+                continue;
+
+            for(i = 0; i < gBagPockets[p].capacity; ++i)
+            {
+                u16 itemId = BagGetItemIdByPocketPosition(pocket, i);
+                if(ItemId_GetPrice(itemId) > 50)
+                {
+                    RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, itemId);
+                }
+            }
+        }
+
+        // Attempt to match item cost but at most take 5 item stacks
+        for(i = 0; i < 5 && remainingMoney > 0 && RogueMiscQuery_AnyActiveElements(); ++i)
+        {
+            u16 itemId = RogueMiscQuery_SelectRandomElement(Random());
+            u16 count = GetItemCountInBag(itemId);
+            s32 stackPrice = ItemId_GetPrice(itemId) * count;
+
+            RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, itemId);
+            if(RemoveBagItem(itemId, count))
+            {
+                Rogue_PushPopup_LostItem(itemId, count);
+                remainingMoney -= stackPrice;
+            }
+            ++i;
+        }
+
+        RogueItemQuery_End();
+    }
+}
+
+void Rogue_BattleSim_HandleItemIVs()
+{
+    u32 ivAmount;
+    u32 statId;
+    u32 delta = 10;
+    u16 slot = VarGet(VAR_WAGER_PARAM0);
+
+    for(statId = MON_DATA_HP_IV; statId <= MON_DATA_SPDEF_IV; ++statId)
+    {
+        ivAmount = GetMonData(&gPlayerParty[slot], statId);
+
+        if(gSpecialVar_Result) // won wager: add IVs
+        {
+            ivAmount += delta;
+            ivAmount = min(31, ivAmount);
+        }
+        else // lost wager: Remove IVs
+        {
+            if(ivAmount < delta)
+                ivAmount = 0;
+            else
+                ivAmount -= delta;
+        }
+
+        SetMonData(&gPlayerParty[slot], statId, &ivAmount);
+        CalculateMonStats(&gPlayerParty[slot]);
+    }
+
+    Rogue_PushPopup_MonStatChange(slot, gSpecialVar_Result);
+}
+
+void Rogue_BattleSim_HandleItemMoney()
+{
+    // won wager
+    if(gSpecialVar_Result == TRUE)
+    {
+        // give 20000
+        AddMoney(&gSaveBlock1Ptr->money, 20000);
+        Rogue_PushPopup_AddMoney(20000);
+    }
+    // lost wager
+    else
+    {
+        // take half of money
+        u32 money = GetMoney(&gSaveBlock1Ptr->money) / 2;
+
+        RemoveMoney(&gSaveBlock1Ptr->money, money);
+        Rogue_PushPopup_LostMoney(money);
+    }
+}
+
+#undef VAR_WAGER_PARAM0
+#undef VAR_WAGER_PARAM1

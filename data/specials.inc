@@ -243,6 +243,10 @@ gSpecials::
 	def_special Rogue_WaitForNextPlayerStatus
 	def_special Rogue_WaitForNextPlayerStatusCancellable
 	def_special Rogue_PrepareForTrade
+	def_special Rogue_BattleSim_WagerItem
+	def_special Rogue_BattleSim_HandleItemWager
+	def_special Rogue_BattleSim_HandleItemIVs
+	def_special Rogue_BattleSim_HandleItemMoney
 	def_special Rogue_SetupFollowParterMonObjectEvent
 	def_special Rogue_RegisterRideMon
 	def_special Rogue_RunRewardLvls

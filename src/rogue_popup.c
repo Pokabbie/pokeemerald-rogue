@@ -278,6 +278,8 @@ static const u8 sText_Popup_BagFull[] = _("{COLOR LIGHT_RED}{SHADOW RED}Bag too 
 static const u8 sText_Popup_SingleItem[] = _("{STR_VAR_1}");
 static const u8 sText_Popup_MultipleItem[] = _("{STR_VAR_1} {COLOR LIGHT_GREEN}{SHADOW GREEN}x{STR_VAR_2}");
 static const u8 sText_Popup_Money[] = _("¥{STR_VAR_1}");
+static const u8 sText_Popup_LostItem[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Item.");
+static const u8 sText_Popup_LostMoney[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Money.");
 static const u8 sText_Popup_UnlockedInShops[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Can now be bought!");
 
 static const u8 sText_Popup_BerriesRequipSuccess[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Re-equipped");
@@ -1416,6 +1418,35 @@ void Rogue_PushPopup_AddItem(u16 itemId, u16 amount)
     popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
 }
 
+
+void Rogue_PushPopup_LostItem(u16 itemId, u16 amount)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = itemId;
+
+    popup->soundEffect = SE_NOT_EFFECTIVE;
+    popup->scriptAudioOnly = TRUE;
+
+    if(amount == 1)
+    {
+        popup->titleText = sText_Popup_SingleItem;
+        popup->subtitleText = sText_Popup_LostItem;
+    }
+    else
+    {
+        popup->titleText = sText_Popup_MultipleItem;
+        popup->subtitleText = sText_Popup_LostItem;
+    }
+
+    popup->expandTextData[0] = itemId;
+    popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+
+    popup->expandTextData[1] = amount;
+    popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
 void Rogue_PushPopup_AddBerry(u16 itemId, u16 amount)
 {
     struct PopupRequest* popup = CreateNewPopup();
@@ -1456,6 +1487,23 @@ void Rogue_PushPopup_AddMoney(u32 amount)
 
     popup->titleText = sText_Popup_Money;
     popup->subtitleText = NULL;
+
+    popup->expandTextData[0] = amount;
+    popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_LostMoney(u32 amount)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = ITEM_COIN_CASE;
+
+    popup->soundEffect = SE_NOT_EFFECTIVE;
+    popup->scriptAudioOnly = TRUE;
+
+    popup->titleText = sText_Popup_Money;
+    popup->subtitleText = sText_Popup_LostMoney;
 
     popup->expandTextData[0] = amount;
     popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
