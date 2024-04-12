@@ -92,7 +92,12 @@
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
-                    "subsets": []
+                    "subsets": [],
+                    "weight_script":
+                    [
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
                 }
             }
         ]

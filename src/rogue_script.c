@@ -1817,9 +1817,9 @@ void Rogue_BattleSim_HandleItemMoney()
     // won wager
     if(gSpecialVar_Result == TRUE)
     {
-        // give 20000
-        AddMoney(&gSaveBlock1Ptr->money, 20000);
-        Rogue_PushPopup_AddMoney(20000);
+        // give 15000
+        AddMoney(&gSaveBlock1Ptr->money, 15000);
+        Rogue_PushPopup_AddMoney(15000);
     }
     // lost wager
     else
