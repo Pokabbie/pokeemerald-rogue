@@ -158,8 +158,19 @@ script Rogue_Encounter_BattleSim_ChooseWager_Items
 {
     special(Rogue_BattleSim_WagerItem)
 
+
     bufferitemnameplural(STR_VAR_1, VAR_WAGER_PARAM0, VAR_WAGER_PARAM1)
     msgbox(format("Items?\nSure thing!\pHow about, if you lose, I'll just take a handful of items from your bag.\pIf you win, I'll give you {STR_VAR_1}?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        // Check we can add a stack of a new item (use yellow shard as we won't normally encounter this item)
+        checkitemspace(ITEM_YELLOW_SHARD, 1)
+        if(var(VAR_RESULT) == NO)
+        {
+            msgbox(format("Oh, your bag looks like it's full.\pI wouldn't be able to give you any item, if you win.\pAre you sure you want to continue?"), MSGBOX_YESNO)
+        }
+    }
 }
 
 script Rogue_Encounter_BattleSim_BeginBattle

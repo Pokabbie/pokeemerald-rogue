@@ -55,6 +55,7 @@ const u32 gBattleTerrainPalette_BuildingGym[] = INCBIN_U32("graphics/battle_terr
 const u32 gBattleTerrainPalette_BuildingLeader[] = INCBIN_U32("graphics/battle_terrain/building/leader.gbapal.lz");
 const u32 gBattleTerrainPalette_BuildingShop[] = INCBIN_U32("graphics/battle_terrain/building/shop.gbapal.lz");
 const u32 gBattleTerrainPalette_BuildingGameshow[] = INCBIN_U32("graphics/battle_terrain/building/gameshow.gbapal.lz");
+const u32 gBattleTerrainPalette_BuildingSimulator[] = INCBIN_U32("graphics/battle_terrain/building/simulator.gbapal.lz");
 const u32 gBattleTerrainPalette_StadiumAqua[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_blue.gbapal.lz");
 const u32 gBattleTerrainPalette_StadiumMagma[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_red.gbapal.lz");
 const u32 gBattleTerrainPalette_StadiumSidney[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_grey.gbapal.lz");

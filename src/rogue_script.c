@@ -1769,9 +1769,11 @@ void Rogue_BattleSim_HandleItemWager()
             s32 stackPrice = ItemId_GetPrice(itemId) * count;
 
             RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, itemId);
-            Rogue_PushPopup_LostItem(itemId, count);
-
-            remainingMoney -= stackPrice;
+            if(RemoveBagItem(itemId, count))
+            {
+                Rogue_PushPopup_LostItem(itemId, count);
+                remainingMoney -= stackPrice;
+            }
             ++i;
         }
 
