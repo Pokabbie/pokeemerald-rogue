@@ -1433,6 +1433,12 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
         difficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
     }
 
+    if(Rogue_IsBattleSimTrainer(trainerNum))
+    {
+        scratch->evoLevel = 100;
+        difficulty = ROGUE_ELITE_START_DIFFICULTY;
+    }
+
     // Configure evos, strong presets and legend settings
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
@@ -1913,7 +1919,7 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
             {
                 memset(&presetRules, 0, sizeof(presetRules));
                 ModifyTrainerMonPreset(trainerNum, &preset, &presetRules);
-                Rogue_ApplyMonCompetitiveSet(&party[i], level, &preset, &presetRules);
+                Rogue_ApplyMonCompetitiveSet(&party[i], (Rogue_IsBattleSimTrainer(trainerNum) ? 100 : level), &preset, &presetRules);
             }
 
             ++scratch.partyCount;
