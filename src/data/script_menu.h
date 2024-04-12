@@ -906,6 +906,13 @@ static const struct MenuAction MultichoiceList_BattleWager[] =
     {gText_WagerItems},
 };
 
+static const struct MenuAction MultichoiceList_Expand3[] =
+{
+    {gText_StrVar1},
+    {gText_StrVar2},
+    {gText_StrVar3},
+};
+
 struct MultichoiceListStruct
 {
     const struct MenuAction *list;
@@ -1038,6 +1045,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SELECT_PIE_FILLING]         = MULTICHOICE(MultichoiceList_SelectPieFilling),
     [MULTI_CLASSIC_MODERN]             = MULTICHOICE(MultichoiceList_ClassicModern),
     [MULTI_BATTLE_WAGER]               = MULTICHOICE(MultichoiceList_BattleWager),
+    [MULTI_EXPAND3]                    = MULTICHOICE(MultichoiceList_Expand3),
 };
 
 static const MultichoiceList_Callback sMultichoiceCallback[] =

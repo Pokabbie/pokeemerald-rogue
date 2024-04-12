@@ -301,6 +301,8 @@ gSpecials::
 	def_special GameShow_BufferSpecies
 	def_special GameShow_CheckResultMatchesSpecies
 	def_special GameShow_SelectRewardItem
+	def_special GameShow_IsTeamTriviaRoundValid
+	def_special GameShow_NextTriviaQuestion
 	def_special ReloadWarpSilent
 	def_special GetFirstFreePokeblockSlot
 	def_special DoBerryBlending
