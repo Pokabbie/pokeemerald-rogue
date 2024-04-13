@@ -41,7 +41,7 @@ struct MapInfo
 
 static struct RegionCoords const sHomeRegionCoords[HOME_REGION_COUNT] = 
 {
-    [HOME_REGION_HOUSE] =  { 15, 14, 19, 18 },
+    [HOME_REGION_HOUSE] =  { 15, 14, 19, 19 },
     [HOME_REGION_PLACEABLE_REGION] =  { 4, 4, 31, 31 },
 };
 
@@ -604,7 +604,10 @@ static void BlitPlayerHouse(u16 style, bool8 isUpgraded)
 
     MetatileFill_BlitMapRegion(
         MAP_GROUP(ROGUE_TEMPLATE_HOMES), MAP_NUM(ROGUE_TEMPLATE_HOMES),
-        sHomeRegionCoords[HOME_REGION_HOUSE].xStart, sHomeRegionCoords[HOME_REGION_HOUSE].yStart, sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, sHomeRegionCoords[HOME_REGION_HOUSE].yEnd,
+        sHomeRegionCoords[HOME_REGION_HOUSE].xStart, 
+        sHomeRegionCoords[HOME_REGION_HOUSE].yStart, 
+        sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, 
+        sHomeRegionCoords[HOME_REGION_HOUSE].yEnd - 1, // bottom tile is just to stop things being placed too close
         width * (style * 2 + (isUpgraded ? 0 : 1)),0
     );
 }

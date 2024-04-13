@@ -101,11 +101,23 @@ static void SerializeData(struct SaveBlockStream* block, void* ptr, size_t size)
 
 static void SerializeArray(struct SaveBlockStream* block, void* ptr, size_t elementSize, size_t arraySize)
 {
-    u16 size = arraySize;
-    SerializeData(block, &size, sizeof(size));
+    u16 serializedSize = arraySize;
+    SerializeData(block, &serializedSize, sizeof(serializedSize));
 
-    AGB_ASSERT(size <= arraySize);
-    SerializeData(block, ptr, elementSize * size);
+    if(serializedSize <= arraySize)
+    {
+        SerializeData(block, ptr, elementSize * serializedSize);
+    }
+    else
+    {
+        // Fire this as a warning but tbh it's probably fine
+        // This happens if we reduce an array
+        AGB_ASSERT(FALSE);
+
+        // We have more data in the save than we now have capacity for
+        SerializeData(block, ptr, elementSize * arraySize); // grab as much as we can
+        block->offset += elementSize * (serializedSize - arraySize); // skip over the rest of the data
+    }
 }
 
 void RogueSave_UpdatePointers()
