@@ -38,6 +38,13 @@ struct MapInfo
     u16 num;
 };
 
+struct TileFixup
+{
+    u8 pondWater : 1;
+    u8 grassPath : 1;
+    u8 mountain : 1;
+};
+
 static struct RegionCoords const sHomeRegionCoords[HOME_REGION_COUNT] = 
 {
     [HOME_REGION_TL] = 
@@ -99,6 +106,8 @@ static void RogueHub_UpdateChallengeFrontierAreaMetatiles();
 static void RogueHub_UpdateDayCareAreaMetatiles();
 
 static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea);
+
+static void FixupTileConnections(struct TileFixup* fixupSettings, u8 fromX, u8 toX, u8 fromY, u8 toY);
 
 void RogueHub_Enter()
 {
@@ -616,36 +625,47 @@ static void RogueHub_UpdateHomeAreaMetatiles()
     u8 i;
     struct RogueHubMap* hubMap = GetActiveHubMap();
 
-    for(i = 0; i < HOME_REGION_COUNT; ++i)
+    //for(i = 0; i < HOME_REGION_COUNT; ++i)
+    //{
+    //    if(i == HOME_REGION_HOUSE)
+    //        BlitPlayerHouse(hubMap->homeRegionStyles[i], RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR));
+    //    else
+    //        BlitPlayerHomeRegion(i, hubMap->homeRegionStyles[i]);
+    //}
+
+    // TODO - Place new tiles
+    
+    // Fixup connecting tiles
     {
-        if(i == HOME_REGION_HOUSE)
-            BlitPlayerHouse(hubMap->homeRegionStyles[i], RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR));
-        else
-            BlitPlayerHomeRegion(i, hubMap->homeRegionStyles[i]);
+        struct TileFixup fixupSettings= {0};
+        fixupSettings.pondWater = TRUE;
+        fixupSettings.grassPath = TRUE;
+        fixupSettings.mountain = TRUE;
+        FixupTileConnections(&fixupSettings, 2, 29, 2, 29);
     }
 
 
     // Remove connections
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(1, 0, 5, 0, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(1, 1, 6, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(13, 0, 18, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(13, 1, 18, TREE_TYPE_DENSE);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(28, 25, 29, 30, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(30, 13, 31, 17, TREE_TYPE_DENSE);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(23, 30, 28, 31, TREE_TYPE_DENSE);
-        MetatileFill_TreeCaps(24, 29, 27);
+        MetatileFill_TreesOverlapping(13, 30, 18, 31, TREE_TYPE_DENSE);
+        MetatileFill_TreeCaps(14, 29, 17);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(0, 1, 1, 6, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(0, 13, 1, 18, TREE_TYPE_DENSE);
     }
 
 
@@ -1197,4 +1217,329 @@ const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *posi
     }
 
     return Rogue_Area_Home_DecorateTile;
+}
+
+static bool8 IsCompatibleMetatile(u32 classTile,  u32 checkTile)
+{
+    if(classTile == METATILE_GeneralHub_Pond_Centre)
+    {
+        return (
+            checkTile == METATILE_GeneralHub_Pond_Centre ||
+            checkTile == METATILE_GeneralHub_Pond_Conn_EastWest_South ||
+            checkTile == METATILE_GeneralHub_Pond_Conn_NorthEast ||
+            checkTile == METATILE_GeneralHub_Pond_Conn_NorthSouth_East ||
+            checkTile == METATILE_GeneralHub_Pond_Conn_NorthSouth_West ||
+            checkTile == METATILE_GeneralHub_Pond_Conn_NorthWest ||
+            checkTile == METATILE_GeneralHub_Pond_Conn_SouthEast ||
+            checkTile == METATILE_GeneralHub_Pond_Conn_SouthWest
+        );
+    }
+    else if(classTile == METATILE_GeneralHub_GrassPath_Centre)
+    {
+        return (            
+            checkTile == METATILE_GeneralHub_GrassPath_Centre ||
+            checkTile == METATILE_GeneralHub_GrassPath_Conn_EastWest_North ||
+            checkTile == METATILE_GeneralHub_GrassPath_Conn_EastWest_South ||
+            checkTile == METATILE_GeneralHub_GrassPath_Conn_NorthEast ||
+            checkTile == METATILE_GeneralHub_GrassPath_Conn_NorthSouth_East ||
+            checkTile == METATILE_GeneralHub_GrassPath_Conn_NorthSouth_West ||
+            checkTile == METATILE_GeneralHub_GrassPath_Conn_NorthWest ||
+            checkTile == METATILE_GeneralHub_GrassPath_Conn_SouthEast ||
+            checkTile == METATILE_GeneralHub_GrassPath_Conn_SouthWest
+        );
+    }
+    else if(classTile == METATILE_GeneralHub_Mountain_Centre)
+    {
+        return (
+            checkTile == METATILE_GeneralHub_Mountain_Centre ||
+            checkTile == METATILE_GeneralHub_Mountain_Conn_EastWest_North ||
+            checkTile == METATILE_GeneralHub_Mountain_Conn_EastWest_South ||
+            checkTile == METATILE_GeneralHub_Mountain_Conn_NorthEast ||
+            checkTile == METATILE_GeneralHub_Mountain_Conn_NorthSouth_East ||
+            checkTile == METATILE_GeneralHub_Mountain_Conn_NorthSouth_West ||
+            checkTile == METATILE_GeneralHub_Mountain_Conn_NorthWest ||
+            checkTile == METATILE_GeneralHub_Mountain_Conn_SouthEast ||
+            checkTile == METATILE_GeneralHub_Mountain_Conn_SouthEast_Inside ||
+            checkTile == METATILE_GeneralHub_Mountain_Conn_SouthWest ||
+            checkTile == METATILE_GeneralHub_Mountain_Conn_SouthWest_Inside ||
+            checkTile == METATILE_GeneralHub_MountainRaised_Conn_EastWest_South
+        );
+    }
+
+    return classTile == checkTile;
+}
+
+static bool8 IsCompatibleMetatileAt(u8 x, u8 y, u32 classTile)
+{
+    return IsCompatibleMetatile(classTile, MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET));
+}
+
+// Pond
+//
+
+static void FixupTile_Pond_Horizontal(u8 x, u8 y)
+{
+    bool8 west = IsCompatibleMetatileAt(x - 1, y + 0, METATILE_GeneralHub_Pond_Centre);
+    bool8 east = IsCompatibleMetatileAt(x + 1, y + 0, METATILE_GeneralHub_Pond_Centre);
+
+    if(!west && east)
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Pond_Conn_NorthSouth_East);
+    }
+    else if(west && !east)
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Pond_Conn_NorthSouth_West);
+    }
+}
+
+static void FixupTile_Pond_Vertical(u8 x, u8 y)
+{
+    bool8 north = IsCompatibleMetatileAt(x + 0, y - 1, METATILE_GeneralHub_Pond_Centre);
+    bool8 south = IsCompatibleMetatileAt(x + 0, y + 1, METATILE_GeneralHub_Pond_Centre);
+
+    if(!north && south)
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Pond_Conn_EastWest_South);
+    }
+    else if(!north && !south)
+    {
+        // Also placed if nothing above or below
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Pond_Conn_EastWest_South);
+    }
+}
+
+static void FixupTile_Pond_Fixup(u8 x, u8 y, u32 centreTile)
+{
+    u32 northTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y - 1 + MAP_OFFSET);
+    u32 eastTile =  MapGridGetMetatileIdAt(x + 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
+    u32 southTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y + 1 + MAP_OFFSET);
+    u32 westTile =  MapGridGetMetatileIdAt(x - 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
+
+    if(centreTile == METATILE_GeneralHub_Pond_Centre)
+    {
+        // Inside Corners
+        if(
+            IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, northTile) &&
+            IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, eastTile) &&
+            IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, westTile)
+        )
+        {
+            if(!IsCompatibleMetatileAt(x - 1, y - 1, METATILE_GeneralHub_Pond_Centre))
+                MetatileSet_Tile(x, y, METATILE_GeneralHub_Pond_Conn_NorthWest);
+            else if(!IsCompatibleMetatileAt(x + 1, y - 1, METATILE_GeneralHub_Pond_Centre))
+                MetatileSet_Tile(x, y, METATILE_GeneralHub_Pond_Conn_NorthEast);
+        }
+    }
+    // Outside Corners
+    else if(!IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, northTile) && !IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, westTile))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Pond_Conn_SouthEast);
+    }
+    else if(!IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, northTile) && !IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, eastTile))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Pond_Conn_SouthWest);
+    }
+
+    // Fix up grass
+    if(southTile == METATILE_GeneralHub_Grass)
+        MetatileSet_Tile(x, y + 1, METATILE_GeneralHub_Grass_NorthDrop);
+}
+
+// Grass Path
+//
+
+static void FixupTile_GrassPath_Horizontal(u8 x, u8 y)
+{
+    bool8 west = IsCompatibleMetatileAt(x - 1, y + 0, METATILE_GeneralHub_GrassPath_Centre);
+    bool8 east = IsCompatibleMetatileAt(x + 1, y + 0, METATILE_GeneralHub_GrassPath_Centre);
+
+    if(!west && east)
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_GrassPath_Conn_NorthSouth_East);
+    }
+    else if(west && !east)
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_GrassPath_Conn_NorthSouth_West);
+    }
+}
+
+static void FixupTile_GrassPath_Vertical(u8 x, u8 y)
+{
+    bool8 north = IsCompatibleMetatileAt(x + 0, y - 1, METATILE_GeneralHub_GrassPath_Centre);
+    bool8 south = IsCompatibleMetatileAt(x + 0, y + 1, METATILE_GeneralHub_GrassPath_Centre);
+
+    if(!north && south)
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_GrassPath_Conn_EastWest_South);
+    }
+    else if(north && !south)
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_GrassPath_Conn_EastWest_North);
+    }
+}
+
+static void FixupTile_GrassPath_Fixup(u8 x, u8 y, u32 centreTile)
+{
+    u32 northTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y - 1 + MAP_OFFSET);
+    u32 eastTile =  MapGridGetMetatileIdAt(x + 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
+    u32 southTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y + 1 + MAP_OFFSET);
+    u32 westTile =  MapGridGetMetatileIdAt(x - 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
+
+    // Outside Corners (North)
+    if(!IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, northTile) && !IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, westTile))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_GrassPath_Conn_SouthEast);
+    }
+    else if(!IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, northTile) && !IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, eastTile))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_GrassPath_Conn_SouthWest);
+    }
+    // Outside Corners (South)
+    if(!IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, southTile) && !IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, westTile))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_GrassPath_Conn_NorthEast);
+    }
+    else if(!IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, southTile) && !IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, eastTile))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_GrassPath_Conn_NorthWest);
+    }
+}
+
+// Mountain Path
+//
+
+static void FixupTile_Mountain_Horizontal(u8 x, u8 y)
+{
+    bool8 west = IsCompatibleMetatileAt(x - 1, y + 0, METATILE_GeneralHub_Mountain_Centre);
+    bool8 east = IsCompatibleMetatileAt(x + 1, y + 0, METATILE_GeneralHub_Mountain_Centre);
+
+    if(!west && east)
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Mountain_Conn_NorthSouth_East | MAPGRID_COLLISION_MASK);
+    }
+    else if(west && !east)
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Mountain_Conn_NorthSouth_West | MAPGRID_COLLISION_MASK);
+    }
+}
+
+static void FixupTile_Mountain_Vertical(u8 x, u8 y)
+{
+    bool8 north = IsCompatibleMetatileAt(x + 0, y - 1, METATILE_GeneralHub_Mountain_Centre);
+    bool8 south = IsCompatibleMetatileAt(x + 0, y + 1, METATILE_GeneralHub_Mountain_Centre);
+
+    if(!north && south)
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Mountain_Conn_EastWest_South | MAPGRID_COLLISION_MASK);
+    }
+    else if(north && !south)
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Mountain_Conn_EastWest_North | MAPGRID_COLLISION_MASK);
+    }
+}
+
+static void FixupTile_Mountain_Fixup(u8 x, u8 y, u32 centreTile)
+{
+    u32 northTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y - 1 + MAP_OFFSET);
+    u32 eastTile =  MapGridGetMetatileIdAt(x + 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
+    u32 southTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y + 1 + MAP_OFFSET);
+    u32 westTile =  MapGridGetMetatileIdAt(x - 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
+
+    // Outside Corners (North)
+    if(!IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, northTile) && !IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, westTile))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Mountain_Conn_SouthEast | MAPGRID_COLLISION_MASK);
+    }
+    else if(!IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, northTile) && !IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, eastTile))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Mountain_Conn_SouthWest | MAPGRID_COLLISION_MASK);
+    }
+    // Outside Corners (South)
+    if(!IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, southTile) && !IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, westTile))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Mountain_Conn_NorthEast | MAPGRID_COLLISION_MASK);
+    }
+    else if(!IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, southTile) && !IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, eastTile))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Mountain_Conn_NorthWest | MAPGRID_COLLISION_MASK);
+    }
+    // Inside Corners (Noth)
+    else if(centreTile == METATILE_GeneralHub_Mountain_Centre && IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, westTile) && IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, northTile) && !IsCompatibleMetatileAt(x - 1, y - 1, METATILE_GeneralHub_Mountain_Centre))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_MountainRaised_Conn_EastWest_South);
+    }
+    else if(centreTile == METATILE_GeneralHub_Mountain_Centre && IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, eastTile) && IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, northTile) && !IsCompatibleMetatileAt(x + 1, y - 1, METATILE_GeneralHub_Mountain_Centre))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_MountainRaised_Conn_EastWest_South);
+    }
+    // Inside Corners (South)
+    else if(centreTile == METATILE_GeneralHub_Mountain_Centre && IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, westTile) && IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, southTile) && !IsCompatibleMetatileAt(x - 1, y + 1, METATILE_GeneralHub_Mountain_Centre))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Mountain_Conn_SouthWest_Inside | MAPGRID_COLLISION_MASK);
+    }
+    else if(centreTile == METATILE_GeneralHub_Mountain_Centre && IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, eastTile) && IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, southTile) && !IsCompatibleMetatileAt(x + 1, y + 1, METATILE_GeneralHub_Mountain_Centre))
+    {
+        MetatileSet_Tile(x, y, METATILE_GeneralHub_Mountain_Conn_SouthEast_Inside | MAPGRID_COLLISION_MASK);
+    }
+}
+
+
+static void FixupTileConnections(struct TileFixup* fixupSettings, u8 fromX, u8 toX, u8 fromY, u8 toY)
+{
+    u8 x, y;
+    u16 metatileId;
+
+    // 3 pass system, horizontal, vertical + fixup
+
+    // Horizontal
+    for(y = fromY; y <= toY; ++y)
+    {
+        for(x = fromX; x <= toX; ++x)
+        {
+            metatileId = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
+
+            if(fixupSettings->pondWater && metatileId == METATILE_GeneralHub_Pond_Centre)
+                FixupTile_Pond_Horizontal(x, y);
+            else if(fixupSettings->grassPath && metatileId == METATILE_GeneralHub_GrassPath_Centre)
+                FixupTile_GrassPath_Horizontal(x, y);
+            else if(fixupSettings->mountain && metatileId == METATILE_GeneralHub_Mountain_Centre)
+                FixupTile_Mountain_Horizontal(x, y);
+        }
+    }
+
+    // Vertical + Fixup
+    for(x = fromX; x <= toX; ++x)
+    {
+        for(y = fromY; y <= toY; ++y)
+        {
+            metatileId = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
+
+            if(fixupSettings->pondWater)
+            {
+                if(metatileId == METATILE_GeneralHub_Pond_Centre)
+                    FixupTile_Pond_Vertical(x, y);
+
+                if(IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, metatileId))
+                    FixupTile_Pond_Fixup(x, y, metatileId);
+            }
+
+            if(fixupSettings->grassPath)
+            {
+                if(metatileId == METATILE_GeneralHub_GrassPath_Centre)
+                    FixupTile_GrassPath_Vertical(x, y);
+
+                if(IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, metatileId))
+                    FixupTile_GrassPath_Fixup(x, y, metatileId);
+            }
+
+            if(fixupSettings->mountain)
+            {
+                if(metatileId == METATILE_GeneralHub_Mountain_Centre)
+                    FixupTile_Mountain_Vertical(x, y);
+
+                if(IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, metatileId))
+                    FixupTile_Mountain_Fixup(x, y, metatileId);
+            }
+        }
+    }
 }

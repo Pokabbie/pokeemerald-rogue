@@ -1534,7 +1534,7 @@
     {
       "id": "LAYOUT_ROGUE_AREA_HOME",
       "name": "Rogue_Area_Home_Layout",
-      "width": 30,
+      "width": 32,
       "height": 32,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_PlayerHome",
