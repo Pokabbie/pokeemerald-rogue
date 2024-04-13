@@ -260,6 +260,8 @@ gSpecials::
 	def_special Rogue_CheckBagUpgradeCost
 	def_special Rogue_RemoveBagUpgradeCost
 	def_special Rogue_CheckHubConnectionDir
+	def_special Rogue_PlaceHomeDecor
+	def_special Rogue_RemoveHomeDecor
 	def_special Rogue_AssignDefaultRegion
 	def_special Rogue_IsFinalQuestActive
 	def_special Rogue_TryScatterPokeblockNearHoneyTree

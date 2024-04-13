@@ -15,30 +15,30 @@
   "connections": [
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
-      "offset": 24,
+      "offset": 14,
       "direction": "right"
     },
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
-      "offset": 0,
+      "offset": 14,
       "direction": "left"
     },
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
-      "offset": 22,
+      "offset": 14,
       "direction": "down"
     },
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
-      "offset": 0,
+      "offset": 14,
       "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
-      "x": 14,
-      "y": 17,
+      "x": 16,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -51,64 +51,64 @@
   ],
   "warp_events": [
     {
-      "x": 15,
+      "x": 17,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "0"
     },
     {
-      "x": 16,
+      "x": 18,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "0"
     },
     {
-      "x": 31,
-      "y": 15,
+      "x": 35,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "0"
     },
     {
-      "x": 31,
-      "y": 16,
+      "x": 35,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
-      "y": 31,
+      "x": 17,
+      "y": 35,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "0"
     },
     {
-      "x": 16,
-      "y": 31,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_HOME",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 0,
-      "y": 15,
+      "x": 18,
+      "y": 35,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "0"
     },
     {
       "x": 0,
-      "y": 16,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "0"
     },
     {
-      "x": 16,
-      "y": 16,
+      "x": 0,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_HOME",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_HOME",
       "dest_warp_id": "0"

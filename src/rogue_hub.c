@@ -5,6 +5,7 @@
 
 #include "event_data.h"
 #include "fieldmap.h"
+#include "field_player_avatar.h"
 #include "menu.h"
 #include "overworld.h"
 #include "pokemon.h"
@@ -38,40 +39,10 @@ struct MapInfo
     u16 num;
 };
 
-struct TileFixup
-{
-    u8 pondWater : 1;
-    u8 grassPath : 1;
-    u8 mountain : 1;
-};
-
 static struct RegionCoords const sHomeRegionCoords[HOME_REGION_COUNT] = 
 {
-    [HOME_REGION_TL] = 
-    {
-        1, 1,
-        12, 17
-    },
-    [HOME_REGION_TR] = 
-    {
-        13, 1,
-        28, 12
-    },
-    [HOME_REGION_BL] = 
-    {
-        1, 18,
-        16, 29
-    },
-    [HOME_REGION_BR] = 
-    {
-        16, 13,
-        28, 29
-    },
-    [HOME_REGION_HOUSE] = 
-    {
-        12, 12,
-        16, 16
-    },
+    [HOME_REGION_HOUSE] =  { 15, 14, 19, 18 },
+    [HOME_REGION_PLACEABLE_REGION] =  { 4, 4, 31, 31 },
 };
 
 static struct MapInfo const sHomeAreaStyles[HOME_AREA_STYLE_COUNT] = 
@@ -79,6 +50,24 @@ static struct MapInfo const sHomeAreaStyles[HOME_AREA_STYLE_COUNT] =
     [HOME_AREA_STYLE_OVERGROWN] = {}, // default
     [HOME_AREA_STYLE_FLOWERS] = { MAP_GROUP(ROGUE_TEMPLATE_HOME_FLOWERS), MAP_NUM(ROGUE_TEMPLATE_HOME_FLOWERS) },
     [HOME_AREA_STYLE_PLAIN] = { MAP_GROUP(ROGUE_TEMPLATE_HOME_GRASS), MAP_NUM(ROGUE_TEMPLATE_HOME_GRASS) },
+};
+
+static struct RegionCoords const sHomeDecorEnvRegions[HOME_DECOR_ENV_COUNT] = 
+{
+    [HOME_DECOR_ENV_POND_2x2] = { 0,5, 1,6 },
+    [HOME_DECOR_ENV_POND_3x3] = { 0,5, 2,7 },
+    [HOME_DECOR_ENV_POND_4x4] = { 0,5, 3,8 },
+    [HOME_DECOR_ENV_POND_5x5] = { 0,5, 4,9 },
+
+    [HOME_DECOR_ENV_MOUNTAIN_2x2] = { 5,5, 6,6 },
+    [HOME_DECOR_ENV_MOUNTAIN_3x3] = { 5,5, 7,7 },
+    [HOME_DECOR_ENV_MOUNTAIN_4x4] = { 5,5, 8,8 },
+    [HOME_DECOR_ENV_MOUNTAIN_5x5] = { 5,5, 9,9 },
+
+    [HOME_DECOR_ENV_GRASS_PATH_2x2] = { 10,5, 11,6 },
+    [HOME_DECOR_ENV_GRASS_PATH_3x3] = { 10,5, 12,7 },
+    [HOME_DECOR_ENV_GRASS_PATH_4x4] = { 10,5, 13,8 },
+    [HOME_DECOR_ENV_GRASS_PATH_5x5] = { 10,5, 14,9 },
 };
 
 static void MetatileSet_Tile(u16 xStart, u16 yStart, u16 tile);
@@ -96,6 +85,7 @@ static void RogueHub_UpdateGlobalMetatiles();
 static void RogueHub_UpdateLabsAreaMetatiles();
 static void RogueHub_UpdateAdventureEntranceAreaMetatiles();
 static void RogueHub_UpdateHomeAreaMetatiles();
+static void RogueHub_PlaceHomeEnvironmentDecorations();
 static void RogueHub_UpdateHomeInteriorMetatiles();
 static void RogueHub_UpdateFarmingAreaMetatiles();
 static void RogueHub_UpdateSafariAreaMetatiles();
@@ -107,7 +97,7 @@ static void RogueHub_UpdateDayCareAreaMetatiles();
 
 static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea);
 
-static void FixupTileConnections(struct TileFixup* fixupSettings, u8 fromX, u8 toX, u8 fromY, u8 toY);
+static void FixupPlayerHomeTileConnections();
 
 void RogueHub_Enter()
 {
@@ -619,6 +609,50 @@ static void BlitPlayerHouse(u16 style, bool8 isUpgraded)
     );
 }
 
+static void BlitPlayerHouseEnvDecor(u8 x, u8 y, u16 decor)
+{
+    u8 xStart = sHomeDecorEnvRegions[decor].xStart;
+    u8 yStart = sHomeDecorEnvRegions[decor].yStart;
+    u8 xEnd = sHomeDecorEnvRegions[decor].xEnd;
+    u8 yEnd = sHomeDecorEnvRegions[decor].yEnd;
+
+    AGB_ASSERT(decor < HOME_DECOR_ENV_COUNT);
+
+    // Clip anything which is outside of the placeable region
+    if(x < sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart)
+    {
+        u8 delta = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart - x;
+        x = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart;
+        xStart += delta;
+    }
+
+    if(y < sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart)
+    {
+        u8 delta = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart - y;
+        y = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart;
+        yStart += delta;
+    }
+
+    if(x + (xEnd - xStart) > sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd)
+    {
+        u8 delta = x + (xEnd - xStart) - sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd;
+        xEnd -= delta;
+    }
+
+    if(y + (yEnd - yStart) > sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd)
+    {
+        u8 delta = y + (yEnd - yStart) - sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd;
+        yEnd -= delta;
+    }
+
+    MetatileFill_BlitMapRegion(
+        MAP_GROUP(ROGUE_TEMPLATE_HOMES), MAP_NUM(ROGUE_TEMPLATE_HOMES),
+        x, y, 
+        x + (xEnd - xStart), y + (yEnd - yStart),
+        xStart, yStart
+    );
+}
+
 static void RogueHub_UpdateHomeAreaMetatiles()
 {
     // Blit map styles first
@@ -633,91 +667,63 @@ static void RogueHub_UpdateHomeAreaMetatiles()
     //        BlitPlayerHomeRegion(i, hubMap->homeRegionStyles[i]);
     //}
 
-    // TODO - Place new tiles
-    
-    // Fixup connecting tiles
-    {
-        struct TileFixup fixupSettings= {0};
-        fixupSettings.pondWater = TRUE;
-        fixupSettings.grassPath = TRUE;
-        fixupSettings.mountain = TRUE;
-        FixupTileConnections(&fixupSettings, 2, 29, 2, 29);
-    }
-
+    RogueHub_PlaceHomeEnvironmentDecorations();
 
     // Remove connections
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(13, 0, 18, 0, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(13, 1, 18, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(15, 0, 20, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(15, 1, 20, TREE_TYPE_DENSE);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(30, 13, 31, 17, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(34, 15, 35, 20, TREE_TYPE_DENSE);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(13, 30, 18, 31, TREE_TYPE_DENSE);
-        MetatileFill_TreeCaps(14, 29, 17);
+        MetatileFill_TreesOverlapping(15, 34, 20, 35, TREE_TYPE_DENSE);
+        MetatileFill_TreeCaps(16, 33, 19);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_HOME, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(0, 13, 1, 18, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(0, 15, 1, 20, TREE_TYPE_DENSE);
+    }
+}
+
+static void RogueHub_PlaceHomeEnvironmentDecorations()
+{
+    u8 i;
+    struct RogueHubMap* hubMap = GetActiveHubMap();
+
+    // Reset to default state
+    MetatileFill_BlitMapRegion(
+        MAP_GROUP(ROGUE_AREA_HOME), MAP_NUM(ROGUE_AREA_HOME),
+        sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart,
+        sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd,
+        sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart
+    );
+
+    for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+    {
+        struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
+        if(decor->active)
+        {
+            BlitPlayerHouseEnvDecor(decor->x, decor->y, decor->decorId);
+        }
     }
 
+    //BlitPlayerHouseEnvDecor(7, 6, HOME_DECOR_ENV_POND_2x2);
+    //BlitPlayerHouseEnvDecor(21, 6, HOME_DECOR_ENV_GRASS_PATH_5x5);
+    //BlitPlayerHouseEnvDecor(7, 19, HOME_DECOR_ENV_GRASS_PATH_3x3);
 
-    // Fill right field
-    //if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_GRASS_FIELD))
-    //{
-    //    MetatileFill_TreesOverlapping(8, 2, 19, 9, TREE_TYPE_DENSE);
-    //    MetatileFill_TreeStumps(8, 9, 11, TREE_TYPE_DENSE);
-    //    MetatileFill_TreesOverlapping(12, 10, 19, 12, TREE_TYPE_DENSE);
-    //    MetatileFill_TreeStumps(12, 13, 19, TREE_TYPE_DENSE);
-    //}
-//
-    //// Fill shed (must unlock after field)
-    //else if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_GRASS_FIELD_SHED))
-    //{
-    //    MetatileFill_TreesOverlapping(14, 2, 17, 4, TREE_TYPE_DENSE);
-    //    MetatileFill_TreeStumps(14, 5, 17, TREE_TYPE_DENSE);
-    //}
-//
-    //// Fill left field
-    //if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_BERRY_FIELD1))
-    //{
-    //    // Unlocked no fields
-    //    MetatileFill_TreesOverlapping(0, 5, 7, 8, TREE_TYPE_DENSE);
-    //    MetatileFill_TreeStumps(0, 9, 7, TREE_TYPE_DENSE);
-    //    MetatileFill_Tile(0, 10, 6, 14, METATILE_GeneralHub_Grass);
-    //}
-    //else if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_BERRY_FIELD2))
-    //{
-    //    // Unlocked right field
-    //    MetatileFill_Tile(4, 9, 6, 14, METATILE_GeneralHub_Grass);
-    //}
-//
-    //// Remove house
-    //if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_LOWER_FLOOR))
-    //{
-    //    MetatileFill_Tile(7, 10, 11, 14, METATILE_GeneralHub_Grass);
-    //}
-    //// Remove 2nd storey from house
-    //else if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR))
-    //{
-    //    // back
-    //    MetatileFill_Tile(7, 10, 11, 10, METATILE_GeneralHub_Grass);
-    //    MetatileSet_Tile(7, 11, 0x260); // left 
-    //    MetatileSet_Tile(11, 11, 0x261); // right
-    //    MetatileFill_Tile(8, 11, 10, 11, 0x209); // tiles
-//
-    //    // front
-    //    MetatileSet_Tile(7, 12, 0x268 | MAPGRID_COLLISION_MASK); // left 
-    //    MetatileSet_Tile(11, 12, 0x269 | MAPGRID_COLLISION_MASK); // right
-    //    MetatileFill_Tile(8, 12, 10, 12, 0x211 | MAPGRID_COLLISION_MASK); // tiles
-    //}
+    // Replace this now, but need to tell fixup to ignore it
+    BlitPlayerHouse(hubMap->homeRegionStyles[HOME_REGION_HOUSE], RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR));
+
+    // Fixup connecting tiles
+    FixupPlayerHomeTileConnections();
 }
 
 static void RogueHub_UpdateHomeInteriorMetatiles()
@@ -1187,6 +1193,16 @@ void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, 
 extern u8 const Rogue_Area_Home_InteractWithWorkbench[];
 extern u8 const Rogue_Area_Home_DecorateTile[];
 
+bool8 IsCoordInHomeRegion(u8 x, u8 y, u8 region)
+{
+    return (
+        x >= sHomeRegionCoords[region].xStart &&
+        x <= sHomeRegionCoords[region].xEnd &&
+        y >= sHomeRegionCoords[region].yStart &&
+        y <= sHomeRegionCoords[region].yEnd
+    );
+}
+
 const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* existingScript)
 {
     if(existingScript == Rogue_Area_Home_InteractWithWorkbench)
@@ -1194,29 +1210,116 @@ const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *posi
         return existingScript;
     }
 
-    if(layoutId == LAYOUT_ROGUE_AREA_HOME)
-    {
-        u8 i;
+    //if(layoutId == LAYOUT_ROGUE_AREA_HOME)
+    //{
+    //    u8 i;
+//
+    //    for(i = 0; i < HOME_REGION_COUNT; ++i)
+    //    {
+    //        if(
+    //            position->x - MAP_OFFSET >= sHomeRegionCoords[i].xStart &&
+    //            position->x - MAP_OFFSET <= sHomeRegionCoords[i].xEnd &&
+    //            position->y - MAP_OFFSET >= sHomeRegionCoords[i].yStart &&
+    //            position->y - MAP_OFFSET <= sHomeRegionCoords[i].yEnd
+    //        )
+    //            break;
+    //    }
+//
+    //    gSpecialVar_0x8004 = i;
+    //}
+    //else
+    //{
+    //    gSpecialVar_0x8004 = HOME_REGION_COUNT;
+    //}
 
-        for(i = 0; i < HOME_REGION_COUNT; ++i)
-        {
-            if(
-                position->x - MAP_OFFSET >= sHomeRegionCoords[i].xStart &&
-                position->x - MAP_OFFSET <= sHomeRegionCoords[i].xEnd &&
-                position->y - MAP_OFFSET >= sHomeRegionCoords[i].yStart &&
-                position->y - MAP_OFFSET <= sHomeRegionCoords[i].yEnd
-            )
-                break;
-        }
-
-        gSpecialVar_0x8004 = i;
-    }
-    else
-    {
-        gSpecialVar_0x8004 = HOME_REGION_COUNT;
-    }
+    gSpecialVar_0x800A = position->x - MAP_OFFSET;
+    gSpecialVar_0x800B = position->y - MAP_OFFSET;
 
     return Rogue_Area_Home_DecorateTile;
+}
+
+static void UpdatePlaceCoords(u8* placeX, u8* placeY, u8 decorId)
+{
+    u8 faceDir = GetPlayerFacingDirection();
+    u8 width = 1 + (sHomeDecorEnvRegions[decorId].xEnd - sHomeDecorEnvRegions[decorId].xStart);
+    u8 height = 1 + (sHomeDecorEnvRegions[decorId].yEnd - sHomeDecorEnvRegions[decorId].yStart);
+
+    // Coords are auto place from top left corner, so compensate for that and attempt to place in middle
+    switch (faceDir)
+    {
+    case DIR_NORTH:
+        *placeX -= width / 2;
+        *placeY -= height - 1;
+        break;
+    
+    case DIR_EAST:
+        *placeY -= height / 2;
+        break;
+
+    case DIR_SOUTH:
+        *placeX -= width / 2;
+        break;
+
+    case DIR_WEST:
+        *placeX -= width - 1;
+        *placeY -= height / 2;
+        break;
+    }
+}
+
+u8 RogueHub_PlaceHomeDecor(u8 decorId)
+{
+    // TODO - Detect what area and what type player is
+    u8 i;
+    struct RogueHubMap* hubMap = &gRogueSaveBlock->hubMap;
+    u8 placeX = gSpecialVar_0x800A;
+    u8 placeY = gSpecialVar_0x800B;
+
+    AGB_ASSERT(decorId < HOME_DECOR_ENV_COUNT);
+
+    if(IsCoordInHomeRegion(placeX, placeY, HOME_REGION_PLACEABLE_REGION) && !IsCoordInHomeRegion(placeX, placeY, HOME_REGION_HOUSE))
+    {
+        UpdatePlaceCoords(&placeX, &placeY, decorId);
+
+        for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+        {
+            struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
+            if(!decor->active)
+            {
+                decor->x = placeX;
+                decor->y = placeY;
+                decor->decorId = decorId;
+                decor->active = TRUE;
+
+                RogueHub_PlaceHomeEnvironmentDecorations();
+                return HOME_DECOR_OUTSIDE_ENV_OFFSET + i;
+            }
+        }
+    
+        return HOME_DECOR_CODE_NO_ROOM;
+    }
+
+    return HOME_DECOR_CODE_NOT_HERE;
+}
+
+void RogueHub_RemoveHomeDecor(u8 index)
+{
+    AGB_ASSERT(index < HOME_DECOR_TOTAL_COUNT);
+    gRogueSaveBlock->hubMap.homeDecorations[index].active = FALSE;
+    RogueHub_PlaceHomeEnvironmentDecorations();
+}
+
+static u32 GetHomeAreaMetatileAt(u8 x, u8 y)
+{
+    u32 metaTile = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
+
+    if(IsCoordInHomeRegion(x, y, HOME_REGION_HOUSE))
+    {
+        // Override these tiles to avoid fixup odd stuff
+        metaTile = 0;
+    }
+
+    return metaTile;
 }
 
 static bool8 IsCompatibleMetatile(u32 classTile,  u32 checkTile)
@@ -1271,7 +1374,7 @@ static bool8 IsCompatibleMetatile(u32 classTile,  u32 checkTile)
 
 static bool8 IsCompatibleMetatileAt(u8 x, u8 y, u32 classTile)
 {
-    return IsCompatibleMetatile(classTile, MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET));
+    return IsCompatibleMetatile(classTile, GetHomeAreaMetatileAt(x, y));
 }
 
 // Pond
@@ -1310,10 +1413,10 @@ static void FixupTile_Pond_Vertical(u8 x, u8 y)
 
 static void FixupTile_Pond_Fixup(u8 x, u8 y, u32 centreTile)
 {
-    u32 northTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y - 1 + MAP_OFFSET);
-    u32 eastTile =  MapGridGetMetatileIdAt(x + 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
-    u32 southTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y + 1 + MAP_OFFSET);
-    u32 westTile =  MapGridGetMetatileIdAt(x - 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
+    u32 northTile = GetHomeAreaMetatileAt(x + 0, y - 1);
+    u32 eastTile =  GetHomeAreaMetatileAt(x + 1, y + 0);
+    u32 southTile = GetHomeAreaMetatileAt(x + 0, y + 1);
+    u32 westTile =  GetHomeAreaMetatileAt(x - 1, y + 0);
 
     if(centreTile == METATILE_GeneralHub_Pond_Centre)
     {
@@ -1380,10 +1483,10 @@ static void FixupTile_GrassPath_Vertical(u8 x, u8 y)
 
 static void FixupTile_GrassPath_Fixup(u8 x, u8 y, u32 centreTile)
 {
-    u32 northTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y - 1 + MAP_OFFSET);
-    u32 eastTile =  MapGridGetMetatileIdAt(x + 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
-    u32 southTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y + 1 + MAP_OFFSET);
-    u32 westTile =  MapGridGetMetatileIdAt(x - 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
+    u32 northTile = GetHomeAreaMetatileAt(x + 0, y - 1);
+    u32 eastTile =  GetHomeAreaMetatileAt(x + 1, y + 0);
+    u32 southTile = GetHomeAreaMetatileAt(x + 0, y + 1);
+    u32 westTile =  GetHomeAreaMetatileAt(x - 1, y + 0);
 
     // Outside Corners (North)
     if(!IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, northTile) && !IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, westTile))
@@ -1440,10 +1543,10 @@ static void FixupTile_Mountain_Vertical(u8 x, u8 y)
 
 static void FixupTile_Mountain_Fixup(u8 x, u8 y, u32 centreTile)
 {
-    u32 northTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y - 1 + MAP_OFFSET);
-    u32 eastTile =  MapGridGetMetatileIdAt(x + 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
-    u32 southTile = MapGridGetMetatileIdAt(x + 0 + MAP_OFFSET, y + 1 + MAP_OFFSET);
-    u32 westTile =  MapGridGetMetatileIdAt(x - 1 + MAP_OFFSET, y + 0 + MAP_OFFSET);
+    u32 northTile = GetHomeAreaMetatileAt(x + 0, y - 1);
+    u32 eastTile =  GetHomeAreaMetatileAt(x + 1, y + 0);
+    u32 southTile = GetHomeAreaMetatileAt(x + 0, y + 1);
+    u32 westTile =  GetHomeAreaMetatileAt(x - 1, y + 0);
 
     // Outside Corners (North)
     if(!IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, northTile) && !IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, westTile))
@@ -1483,9 +1586,13 @@ static void FixupTile_Mountain_Fixup(u8 x, u8 y, u32 centreTile)
     }
 }
 
-
-static void FixupTileConnections(struct TileFixup* fixupSettings, u8 fromX, u8 toX, u8 fromY, u8 toY)
+static void FixupPlayerHomeTileConnections()
 {
+    u8 const fromX = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart;
+    u8 const fromY = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart;
+    u8 const toX = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd;
+    u8 const toY = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd;
+
     u8 x, y;
     u16 metatileId;
 
@@ -1496,13 +1603,19 @@ static void FixupTileConnections(struct TileFixup* fixupSettings, u8 fromX, u8 t
     {
         for(x = fromX; x <= toX; ++x)
         {
+            // Don't adjust home tiles 
+            if(IsCoordInHomeRegion(x, y, HOME_REGION_HOUSE))
+                continue;
+
             metatileId = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
 
-            if(fixupSettings->pondWater && metatileId == METATILE_GeneralHub_Pond_Centre)
+            if(metatileId == METATILE_GeneralHub_Pond_Centre)
+
                 FixupTile_Pond_Horizontal(x, y);
-            else if(fixupSettings->grassPath && metatileId == METATILE_GeneralHub_GrassPath_Centre)
+            else if(metatileId == METATILE_GeneralHub_GrassPath_Centre)
                 FixupTile_GrassPath_Horizontal(x, y);
-            else if(fixupSettings->mountain && metatileId == METATILE_GeneralHub_Mountain_Centre)
+
+            else if(metatileId == METATILE_GeneralHub_Mountain_Centre)
                 FixupTile_Mountain_Horizontal(x, y);
         }
     }
@@ -1512,34 +1625,31 @@ static void FixupTileConnections(struct TileFixup* fixupSettings, u8 fromX, u8 t
     {
         for(y = fromY; y <= toY; ++y)
         {
+            // Don't adjust home tiles 
+            if(IsCoordInHomeRegion(x, y, HOME_REGION_HOUSE))
+                continue;
+
             metatileId = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
 
-            if(fixupSettings->pondWater)
-            {
-                if(metatileId == METATILE_GeneralHub_Pond_Centre)
-                    FixupTile_Pond_Vertical(x, y);
+            if(metatileId == METATILE_GeneralHub_Pond_Centre)
+                FixupTile_Pond_Vertical(x, y);
 
-                if(IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, metatileId))
-                    FixupTile_Pond_Fixup(x, y, metatileId);
-            }
+            if(IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, metatileId))
+                FixupTile_Pond_Fixup(x, y, metatileId);
 
-            if(fixupSettings->grassPath)
-            {
-                if(metatileId == METATILE_GeneralHub_GrassPath_Centre)
-                    FixupTile_GrassPath_Vertical(x, y);
 
-                if(IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, metatileId))
-                    FixupTile_GrassPath_Fixup(x, y, metatileId);
-            }
+            if(metatileId == METATILE_GeneralHub_GrassPath_Centre)
+                FixupTile_GrassPath_Vertical(x, y);
 
-            if(fixupSettings->mountain)
-            {
-                if(metatileId == METATILE_GeneralHub_Mountain_Centre)
-                    FixupTile_Mountain_Vertical(x, y);
+            if(IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, metatileId))
+                FixupTile_GrassPath_Fixup(x, y, metatileId);
 
-                if(IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, metatileId))
-                    FixupTile_Mountain_Fixup(x, y, metatileId);
-            }
+
+            if(metatileId == METATILE_GeneralHub_Mountain_Centre)
+                FixupTile_Mountain_Vertical(x, y);
+
+            if(IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, metatileId))
+                FixupTile_Mountain_Fixup(x, y, metatileId);
         }
     }
 }

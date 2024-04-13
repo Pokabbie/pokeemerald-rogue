@@ -216,8 +216,9 @@ struct RogueHubDecoration
 {
     u8 x;
     u8 y;
-    u8 objectId;
-    u8 unused;
+    u8 decorId;
+    u8 active : 1;
+    u8 unused : 7;
 };
 
 struct RogueHubMap
