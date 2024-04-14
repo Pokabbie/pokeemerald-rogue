@@ -861,3 +861,11 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Interior_ChallengeFrontier/scripts.inc"
 
 	.include "data/maps/Rogue_Encounter_BattleSim/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_MtChimney/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_MagmaHideout/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_AquaHideout/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_SeafloorCavern/scripts.inc"
