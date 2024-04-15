@@ -392,6 +392,7 @@ struct RogueTeamGeneratorSubset
     u32 excludedGenMask;
     u16 additionalSpeciesCount;
     u8 maxSamples;
+    u8 isDiversitySubset : 1;
 };
 
 struct RogueTeamGenerator

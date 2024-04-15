@@ -85,6 +85,11 @@
                     "subsets":
                     [
                         {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "FLYING", "NORMAL" ]
+                        },
+                        {
                             "max_samples": 6,
                             "include_types": [ "FLYING" ]
                         }
@@ -118,6 +123,11 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "BUG", "FIGHTING" ]
+                        },
                         {
                             "max_samples": 6,
                             "include_types": [ "BUG" ]
@@ -153,6 +163,17 @@
                     "subsets":
                     [
                         {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "NORMAL", "DARK" ],
+                            "exclude_types": [ "FLYING" ]
+                        },
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL", "DARK" ]
+                        },
+                        {
                             "max_samples": 6,
                             "include_types": [ "NORMAL" ],
                             "exclude_types": [ "FLYING" ]
@@ -187,6 +208,17 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "GHOST" ],
+                            "exclude_types": [ "POISON" ]
+                        },
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 2,
+                            "include_types": [ "GHOST", "DARK", "POISON" ]
+                        },
                         {
                             "max_samples": 2,
                             "include_types": [ "GHOST" ],
@@ -262,8 +294,21 @@
                     "subsets":
                     [
                         {
+                            "is_diversity_subset": true,
+                            "max_samples": 5,
+                            "include_types": [ "STEEL", "ELECTRIC" ]
+                        },
+                        {
                             "max_samples": 6,
                             "include_types": [ "STEEL" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GROUND" ]
                         }
                     ],
                     "weight_script":
@@ -295,6 +340,12 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "ICE", "GROUND" ],
+                            "exclude_types": [ "WATER" ]
+                        },
                         {
                             "max_samples": 6,
                             "include_types": [ "ICE" ],
@@ -335,6 +386,17 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "DRAGON", "WATER" ],
+                            "exclude_types": [ "FLYING" ]
+                        },
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "DRAGON", "WATER" ]
+                        },
                         {
                             "max_samples": 5,
                             "include_types": [ "DRAGON" ]
@@ -380,6 +442,12 @@
                     "subsets":
                     [
                         {
+                            "is_diversity_subset": true,
+                            "max_samples": 5,
+                            "include_types": [ "PSYCHIC", "GHOST" ],
+                            "exclude_types": [ "POISON"]
+                        },
+                        {
                             "max_samples": 5,
                             "include_types": [ "PSYCHIC" ]
                         },
@@ -417,6 +485,17 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "POISON", "BUG" ],
+                            "exclude_types": [ "GHOST" ]
+                        },
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "POISON", "FIGHTING" ]
+                        },
                         {
                             "max_samples": 6,
                             "include_types": [ "POISON" ]
@@ -456,15 +535,21 @@
                     "subsets":
                     [
                         {
-                            "max_samples": 1,
-                            "include_types": [ "FIGHTING" ]
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "FIGHTING", "GROUND" ]
+                        },
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "FIGHTING", "STEEL" ]
                         },
                         {
                             "max_samples": 1,
                             "include_types": [ "GROUND" ]
                         },
                         {
-                            "max_samples": 3,
+                            "max_samples": 4,
                             "include_types": [ "FIGHTING" ]
                         },
                         {
@@ -502,6 +587,15 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 5,
+                            "include_types": [ "DARK", "STEEL" ]
+                        },
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 2
+                        },
                         {
                             "max_samples": 6,
                             "include_types": [ "DARK" ]
@@ -546,9 +640,22 @@
                     "subsets":
                     [
                         {
-                            "max_samples": 1,
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "DRAGON", "FLYING" ],
+                            "exclude_types": [ "BUG", "NORMAL" ]
+                        },
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 2,
                             "include_types": [ "DRAGON" ],
-                            "exclude_types": [ "NORMAL" ]
+                            "exclude_types": [ "FLYING" ]
+                        },
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 2,
+                            "include_types": [ "DRAGON", "FLYING" ],
+                            "exclude_types": [ "BUG" ]
                         },
                         {
                             "max_samples": 1,
@@ -556,7 +663,7 @@
                             "exclude_types": [ "BUG", "NORMAL", "DRAGON" ]
                         },
                         {
-                            "max_samples": 4,
+                            "max_samples": 5,
                             "include_types": [ "DRAGON" ],
                             "exclude_types": [ "NORMAL" ]
                         },

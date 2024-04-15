@@ -68,6 +68,7 @@ struct TrainerTemp
 static EWRAM_DATA struct TrainerTemp sTrainerTemp = {0};
 
 static u32 GetActiveTeamFlag();
+static void EnsureSubsetIsValid(struct TrainerPartyScratch* scratch);
 static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch);
 
 static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 monCount, u8 monCapacity, bool8 firstTrainer, u8 startIndex);
@@ -1885,8 +1886,9 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
     scratch.allowStrongLegends = FALSE;
     scratch.allowWeakLegends = FALSE;
     scratch.preferStrongSpecies = FALSE;
-
+    
     ConfigurePartyScratchSettings(trainerNum, &scratch);
+    EnsureSubsetIsValid(&scratch);
 
     // Generate team
     {
@@ -1974,6 +1976,7 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
     {
         ConfigurePartyScratchSettings(trainerNum, &scratch);
     }
+    EnsureSubsetIsValid(&scratch);
 
     // Generate team
     {
@@ -2621,6 +2624,34 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
     return species;
 }
 
+static void EnsureSubsetIsValid(struct TrainerPartyScratch* scratch)
+{
+    struct RogueTrainer const* trainer = &gRogueTrainers[scratch->trainerNum];
+
+    while(TRUE)
+    {
+        if(scratch->subsetIndex < trainer->teamGenerator.subsetCount)
+        {
+            // Skip over diversity sets, if not enabled
+            if(!trainer->teamGenerator.subsets[scratch->subsetIndex].isDiversitySubset || Rogue_GetConfigToggle(CONFIG_TOGGLE_DIVERSE_TRAINERS))
+            {
+                // Found valid subset
+                break;
+            }
+            else
+            {
+                // This subset is current disabled
+                ++scratch->subsetIndex;
+            }
+        }
+        else
+        {
+            // Ran out of subsets
+            break;
+        }
+    }
+}
+
 static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
 {
     u16 species;
@@ -2674,6 +2705,8 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
             if(scratch->subsetSampleCount >= trainer->teamGenerator.subsets[scratch->subsetIndex].maxSamples)
             {
                 ++scratch->subsetIndex;
+                EnsureSubsetIsValid(scratch);
+
                 scratch->subsetSampleCount = 0;
                 scratch->shouldRegenerateQuery = TRUE;
 
