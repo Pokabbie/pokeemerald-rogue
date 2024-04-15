@@ -163,7 +163,9 @@ struct RogueHotTracking
     hot_track_dat triggerAccumulation;
 };
 
+#ifdef ROGUE_FEATURE_HOT_TRACKING
 static struct RogueHotTracking gRogueHotTracking;
+#endif
 
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 
@@ -2875,6 +2877,7 @@ static hot_track_dat HotTrackingLocalRtcToCounter(void)
 
 static void ResetHotTracking()
 {
+#ifdef ROGUE_FEATURE_HOT_TRACKING
     gRogueHotTracking.initSeed = HotTrackingLocalRtcToCounter();
     gRogueHotTracking.rollingSeed = gRogueHotTracking.initSeed;
     gRogueHotTracking.triggerCount = 0;
@@ -2883,10 +2886,12 @@ static void ResetHotTracking()
     gRogueHotTracking.triggerAccumulation = 0;
 
     DebugPrintf("HotTracking init:%d roll:%d", gRogueHotTracking.initSeed, gRogueHotTracking.rollingSeed);
+#endif
 }
 
 static void UpdateHotTracking()
 {
+#ifdef ROGUE_FEATURE_HOT_TRACKING
     hot_track_dat localCounter = HotTrackingLocalRtcToCounter();
     hot_track_dat rollingCounter = localCounter - gRogueHotTracking.rollingSeed;
     DEBUG_CODE(hot_track_dat seedCounter = localCounter - gRogueHotTracking.initSeed);
@@ -2907,6 +2912,7 @@ static void UpdateHotTracking()
     {
         gRogueHotTracking.rollingSeed = localCounter;
     }
+#endif
 }
 
 void Rogue_MainInit(void)
@@ -3041,10 +3047,17 @@ u8 Rogue_GetCachedObjectEventId(u32 localId)
 
 void Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)
 {
+#ifdef ROGUE_FEATURE_HOT_TRACKING
     *count = gRogueHotTracking.triggerCount;
     *average = gRogueHotTracking.triggerAccumulation / gRogueHotTracking.triggerCount;
     *min = gRogueHotTracking.triggerMin;
     *max = gRogueHotTracking.triggerMax;
+#else
+    *count = 0;
+    *average = 0;
+    *min = 0;
+    *max = 0;
+#endif
 }
 
 
