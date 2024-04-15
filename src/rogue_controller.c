@@ -135,6 +135,7 @@ struct RogueLocalData
     u32 totalMoneySpentOnMap;
     u16 cachedObjIds[OBJ_EVENT_ID_MULTIPLAYER_COUNT];
     u16 wildEncounterHistoryBuffer[3];
+    u16 recentObjectEventLoadedLayout;
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
     bool8 hasValidQuickSave : 1;
@@ -4764,6 +4765,9 @@ static bool8 ShouldAdjustRouteObjectEvents()
 
 void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
 {
+    bool8 isLoadingSameMap = (gRogueLocal.recentObjectEventLoadedLayout == mapHeader->mapLayoutId);
+    gRogueLocal.recentObjectEventLoadedLayout = mapHeader->mapLayoutId;
+
     // If we're in run and not trying to exit (gRogueAdvPath.currentRoomType isn't wiped at this point)
     if(Rogue_IsRunActive() && !IsHubMapGroup())
     {
@@ -4884,7 +4888,7 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         }
 
         // We need to reapply this as pending when loading from a save, as we would've already consumed it here
-        if(loadingFromSave)
+        if(loadingFromSave || isLoadingSameMap)
         {
             if(!FlagGet(FLAG_ROGUE_RIVAL_DISABLED))
                 gRogueRun.hasPendingRivalBattle = TRUE;

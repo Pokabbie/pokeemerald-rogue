@@ -783,6 +783,7 @@ const u32 gObjectEventPic_ItemGoldTM[] = INCBIN_U32("graphics/object_events/pics
 const u32 gObjectEventPic_ItemPokeBall[] = INCBIN_U32("graphics/object_events/pics/rogue/item_poke_ball.4bpp");
 const u32 gObjectEventPic_ItemMedicine[] = INCBIN_U32("graphics/object_events/pics/rogue/item_medicine.4bpp");
 const u32 gObjectEventPic_ItemHeldItem[] = INCBIN_U32("graphics/object_events/pics/rogue/item_held_item.4bpp");
+const u32 gObjectEventPic_ItemMasterBall[] = INCBIN_U32("graphics/object_events/pics/rogue/item_master_ball.4bpp");
 const u32 gObjectEventPic_ItemEvoStone[] = INCBIN_U32("graphics/object_events/pics/rogue/item_evo_stone.4bpp");
 const u32 gObjectEventPic_ItemRareCandy[] = INCBIN_U32("graphics/object_events/pics/rogue/item_rare_candy.4bpp");
 const u32 gObjectEventPic_ItemMint[] = INCBIN_U32("graphics/object_events/pics/rogue/item_mint.4bpp");

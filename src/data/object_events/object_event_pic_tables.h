@@ -4754,6 +4754,10 @@ static const struct SpriteFrameImage sPicTable_ItemHeldItem[] = {
     obj_frame_tiles(gObjectEventPic_ItemHeldItem),
 };
 
+static const struct SpriteFrameImage sPicTable_ItemMasterBall[] = {
+    obj_frame_tiles(gObjectEventPic_ItemMasterBall),
+};
+
 static const struct SpriteFrameImage sPicTable_ItemEvoStone[] = {
     obj_frame_tiles(gObjectEventPic_ItemEvoStone),
 };

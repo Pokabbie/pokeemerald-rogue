@@ -522,7 +522,7 @@
       "flag": "FLAG_ROGUE_RIVAL_DISABLED"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_MASTER_BALL",
       "x": 19,
       "y": 60,
       "elevation": 3,
