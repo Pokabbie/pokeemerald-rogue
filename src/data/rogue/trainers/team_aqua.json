@@ -143,9 +143,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
-                        "POST_BATTLE_TAUNT": "There's no way!",
-                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                        "PRE_BATTLE_TAUNT": "The world needs more water!\\pThere's no other way around that!",
+                        "POST_BATTLE_TAUNT": "Don't be so stubborn!",
+                        "POST_BATTLE_CLOSER": "You'll change you're mind one day and then regret getting in our way!"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
@@ -156,9 +156,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
-                        "POST_BATTLE_TAUNT": "There's no way!",
-                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                        "PRE_BATTLE_TAUNT": "You shouldn't be here!",
+                        "POST_BATTLE_TAUNT": "What!?",
+                        "POST_BATTLE_CLOSER": "How did you do that?!"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
@@ -169,9 +169,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
-                        "POST_BATTLE_TAUNT": "There's no way!",
-                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                        "PRE_BATTLE_TAUNT": "Erm… you don't look like you're suppose to be here.",
+                        "POST_BATTLE_TAUNT": "I guess I was wrong",
+                        "POST_BATTLE_CLOSER": "Sorry. You're not wearing the correct uniform so I got confused."
                     }
                 ],
                 "preferred_mon_gender": "MALE"
@@ -182,9 +182,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
-                        "POST_BATTLE_TAUNT": "There's no way!",
-                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                        "PRE_BATTLE_TAUNT": "Calm, it!",
+                        "POST_BATTLE_TAUNT": "Calm, it!",
+                        "POST_BATTLE_CLOSER": "Have you STILL not calmed down?"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
@@ -195,9 +195,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
-                        "POST_BATTLE_TAUNT": "There's no way!",
-                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                        "PRE_BATTLE_TAUNT": "I'll throw intruders straight into the whirlpools!",
+                        "POST_BATTLE_TAUNT": "Too cold!",
+                        "POST_BATTLE_CLOSER": "I… I was joking!\\pDon't worry…!"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
@@ -208,9 +208,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
-                        "POST_BATTLE_TAUNT": "There's no way!",
-                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                        "PRE_BATTLE_TAUNT": "Who are you!?\\nA spy from Team Magma!?",
+                        "POST_BATTLE_TAUNT": "So strong!",
+                        "POST_BATTLE_CLOSER": "You're far too strong for a spy!"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
@@ -221,9 +221,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
-                        "POST_BATTLE_TAUNT": "There's no way!",
-                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                        "PRE_BATTLE_TAUNT": "You're the one knocking out the newbies, huh?",
+                        "POST_BATTLE_TAUNT": "Ouch!",
+                        "POST_BATTLE_CLOSER": "You're knocking us all out!?"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
@@ -234,9 +234,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
-                        "POST_BATTLE_TAUNT": "There's no way!",
-                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                        "PRE_BATTLE_TAUNT": "Look, all I want to do is go swimming.\\pCan you just not.",
+                        "POST_BATTLE_TAUNT": "Really…",
+                        "POST_BATTLE_CLOSER": "You're so rude…"
                     }
                 ],
                 "preferred_mon_gender": "MALE"
@@ -247,9 +247,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "We've got no room for snot nosed kids in Team Aqua!",
-                        "POST_BATTLE_TAUNT": "There's no way!",
-                        "POST_BATTLE_CLOSER": "You better not get in our way again, kid!"
+                        "PRE_BATTLE_TAUNT": "Team Magma thinks we need land?\\pNot a chance!",
+                        "POST_BATTLE_TAUNT": "!?!!",
+                        "POST_BATTLE_CLOSER": "We already have way too much land as is.\\pPeople just need to use it more responsibly."
                     }
                 ],
                 "preferred_mon_gender": "MALE"
@@ -261,9 +261,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
-                        "POST_BATTLE_TAUNT": "So strong…",
-                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                        "PRE_BATTLE_TAUNT": "You can't stop Team Aqua!",
+                        "POST_BATTLE_TAUNT": "Oh, I guess you can…",
+                        "POST_BATTLE_CLOSER": "Please don't get in our way though…"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
@@ -274,9 +274,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
-                        "POST_BATTLE_TAUNT": "So strong…",
-                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                        "PRE_BATTLE_TAUNT": "Now THIS is my colour!",
+                        "POST_BATTLE_TAUNT": "Phew!",
+                        "POST_BATTLE_CLOSER": "Blue is my colour."
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
@@ -287,9 +287,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
-                        "POST_BATTLE_TAUNT": "So strong…",
-                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                        "PRE_BATTLE_TAUNT": "No-one can stop Team Aqua's expansion!",
+                        "POST_BATTLE_TAUNT": "But think of all the clean water!",
+                        "POST_BATTLE_CLOSER": "We'd have so much clean water, if we expanded the Sea!"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
@@ -300,9 +300,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
-                        "POST_BATTLE_TAUNT": "So strong…",
-                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                        "PRE_BATTLE_TAUNT": "Red is out.\\nBlue is in!",
+                        "POST_BATTLE_TAUNT": "Ouch.",
+                        "POST_BATTLE_CLOSER": "Blue is definitely in!"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
@@ -313,9 +313,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
-                        "POST_BATTLE_TAUNT": "So strong…",
-                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                        "PRE_BATTLE_TAUNT": "One more victory and I get a raise!",
+                        "POST_BATTLE_TAUNT": "Well that's just sad.",
+                        "POST_BATTLE_CLOSER": "I guess I'll have to wait until next year."
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
@@ -326,9 +326,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
-                        "POST_BATTLE_TAUNT": "So strong…",
-                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                        "PRE_BATTLE_TAUNT": "You can't possibly think that Team Magma is right!?",
+                        "POST_BATTLE_TAUNT": "So wrong!",
+                        "POST_BATTLE_CLOSER": "Team Magma is soooo in the wrong here!"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
@@ -339,9 +339,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
-                        "POST_BATTLE_TAUNT": "So strong…",
-                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                        "PRE_BATTLE_TAUNT": "Me and my Pokémon will stop you right here!",
+                        "POST_BATTLE_TAUNT": "Or not…",
+                        "POST_BATTLE_CLOSER": "We tried our best, I guess."
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
@@ -352,9 +352,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
-                        "POST_BATTLE_TAUNT": "So strong…",
-                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                        "PRE_BATTLE_TAUNT": "You look far too weak to be in Team Aqua.",
+                        "POST_BATTLE_TAUNT": "Oh, I guess I was wrong",
+                        "POST_BATTLE_CLOSER": "You can sign up at the front desk…\\pI'm not sure where that is."
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"
@@ -365,9 +365,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "You look like a kid trying to meddle in stuff.\\pNot on my watch!",
-                        "POST_BATTLE_TAUNT": "So strong…",
-                        "POST_BATTLE_CLOSER": "You best keep out of the way!\\pI won't hold back next time."
+                        "PRE_BATTLE_TAUNT": "How did a kid get in here!?",
+                        "POST_BATTLE_TAUNT": "Wow!",
+                        "POST_BATTLE_CLOSER": "That's how…"
                     }
                 ],
                 "preferred_mon_gender": "FEMALE"

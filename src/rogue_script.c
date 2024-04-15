@@ -1079,6 +1079,16 @@ void Rogue_CheckHubConnectionDir()
     gSpecialVar_Result = HUB_AREA_CONN_COUNT;
 }
 
+void Rogue_PlaceHomeDecor()
+{
+    gSpecialVar_Result = RogueHub_PlaceHomeDecor(gSpecialVar_0x8004);
+}
+
+void Rogue_RemoveHomeDecor()
+{
+    RogueHub_RemoveHomeDecor(gSpecialVar_0x8004);
+}
+
 void Rogue_AssignDefaultRegion()
 {
     u32 flags = RoguePlayer_GetOutfitTrainerFlags();
@@ -1817,9 +1827,9 @@ void Rogue_BattleSim_HandleItemMoney()
     // won wager
     if(gSpecialVar_Result == TRUE)
     {
-        // give 20000
-        AddMoney(&gSaveBlock1Ptr->money, 20000);
-        Rogue_PushPopup_AddMoney(20000);
+        // give 15000
+        AddMoney(&gSaveBlock1Ptr->money, 15000);
+        Rogue_PushPopup_AddMoney(15000);
     }
     // lost wager
     else

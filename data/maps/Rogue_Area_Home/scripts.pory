@@ -1,10 +1,11 @@
-const FLAG_BERRY_FIELD1 = FLAG_TEMP_1
-const FLAG_BERRY_FIELD2 = FLAG_TEMP_2
-const FLAG_FIELD_MON0 = FLAG_TEMP_3
-const FLAG_FIELD_MON1 = FLAG_TEMP_4
-const FLAG_FIELD_MON2 = FLAG_TEMP_5
-const FLAG_FIELD_MON3 = FLAG_TEMP_6
+//const FLAG_BERRY_FIELD1 = FLAG_TEMP_1
+//const FLAG_BERRY_FIELD2 = FLAG_TEMP_2
+//const FLAG_FIELD_MON0 = FLAG_TEMP_3
+//const FLAG_FIELD_MON1 = FLAG_TEMP_4
+//const FLAG_FIELD_MON2 = FLAG_TEMP_5
+//const FLAG_FIELD_MON3 = FLAG_TEMP_6
 
+const VAR_DECOR_ID = VAR_0x8004
 const VAR_SELECT_REGION = VAR_0x8004
 
 mapscripts Rogue_Area_Home_MapScripts 
@@ -15,50 +16,50 @@ mapscripts Rogue_Area_Home_MapScripts
 script Rogue_Area_Home_OnTransition
 {
     // Hide everything first
-    setflag(FLAG_BERRY_FIELD1)
-    setflag(FLAG_BERRY_FIELD2)
-    setflag(FLAG_FIELD_MON0)
-    setflag(FLAG_FIELD_MON1)
-    setflag(FLAG_FIELD_MON2)
-    setflag(FLAG_FIELD_MON3)
-
-    hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD1)
-    if(var(VAR_RESULT) == YES)
-    {
-        clearflag(FLAG_BERRY_FIELD1)
-    }
-
-    hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD2)
-    if(var(VAR_RESULT) == YES)
-    {
-        clearflag(FLAG_BERRY_FIELD2)
-    }
-
-    hubupgradeunlocked(HUB_UPGRADE_HOME_GRASS_FIELD)
-    if(var(VAR_RESULT) == YES)
-    {
-        special(RogueHub_SetRandomFollowMonsFromPC)
-
-        if(var(VAR_FOLLOW_MON_0) != SPECIES_NONE)
-        {
-            clearflag(FLAG_FIELD_MON0)
-        }
-
-        if(var(VAR_FOLLOW_MON_1) != SPECIES_NONE)
-        {
-            clearflag(FLAG_FIELD_MON1)
-        }
-
-        if(var(VAR_FOLLOW_MON_2) != SPECIES_NONE)
-        {
-            clearflag(FLAG_FIELD_MON2)
-        }
-
-        if(var(VAR_FOLLOW_MON_3) != SPECIES_NONE)
-        {
-            clearflag(FLAG_FIELD_MON3)
-        }
-    }
+    //setflag(FLAG_BERRY_FIELD1)
+    //setflag(FLAG_BERRY_FIELD2)
+    //setflag(FLAG_FIELD_MON0)
+    //setflag(FLAG_FIELD_MON1)
+    //setflag(FLAG_FIELD_MON2)
+    //setflag(FLAG_FIELD_MON3)
+//
+    //hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD1)
+    //if(var(VAR_RESULT) == YES)
+    //{
+    //    clearflag(FLAG_BERRY_FIELD1)
+    //}
+//
+    //hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD2)
+    //if(var(VAR_RESULT) == YES)
+    //{
+    //    clearflag(FLAG_BERRY_FIELD2)
+    //}
+//
+    //hubupgradeunlocked(HUB_UPGRADE_HOME_GRASS_FIELD)
+    //if(var(VAR_RESULT) == YES)
+    //{
+    //    special(RogueHub_SetRandomFollowMonsFromPC)
+//
+    //    if(var(VAR_FOLLOW_MON_0) != SPECIES_NONE)
+    //    {
+    //        clearflag(FLAG_FIELD_MON0)
+    //    }
+//
+    //    if(var(VAR_FOLLOW_MON_1) != SPECIES_NONE)
+    //    {
+    //        clearflag(FLAG_FIELD_MON1)
+    //    }
+//
+    //    if(var(VAR_FOLLOW_MON_2) != SPECIES_NONE)
+    //    {
+    //        clearflag(FLAG_FIELD_MON2)
+    //    }
+//
+    //    if(var(VAR_FOLLOW_MON_3) != SPECIES_NONE)
+    //    {
+    //        clearflag(FLAG_FIELD_MON3)
+    //    }
+    //}
 }
 
 script Rogue_Area_Home_InteractWithWorkbench
@@ -103,8 +104,36 @@ script Rogue_Area_Home_DecorateTile
 {
     lock
 
-    buffernumberstring(STR_VAR_1, VAR_SELECT_REGION)
-    msgbox(format("region {STR_VAR_1}"))
+    //setvar(VAR_DECOR_ID, HOME_DECOR_ENV_POND_3x3)
+    setvar(VAR_DECOR_ID, HOME_DECOR_ENV_MOUNTAIN_5x5)
+    special(Rogue_PlaceHomeDecor)
+
+    if(var(VAR_RESULT) == HOME_DECOR_CODE_NO_ROOM)
+    {
+        msgbox(format("The area cannot be decorated any more."))
+    }
+    elif(var(VAR_RESULT) == HOME_DECOR_CODE_NOT_HERE)
+    {
+        msgbox(format("Can't be placed here."))
+    }
+    else
+    {
+        copyvar(VAR_DECOR_ID, VAR_RESULT)
+
+        special(DrawWholeMapView)
+        msgbox(format("Place here?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == NO)
+        {
+            special(Rogue_RemoveHomeDecor)
+            special(DrawWholeMapView)
+        }
+    }
+
+
+
+    //buffernumberstring(STR_VAR_1, VAR_SELECT_REGION)
+    //msgbox(format("region {STR_VAR_1}"))
 
     release
 }

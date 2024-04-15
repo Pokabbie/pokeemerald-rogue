@@ -104,6 +104,7 @@ static u8 const sMenuName_GameMode_Gauntlet[] = _("Gauntlet");
 static u8 const sMenuName_GameMode_RainbowGauntlet[] = _("Rainbow Gauntlet");
 
 static u8 const sMenuName_Affection[] = _("Affection FX");
+static u8 const sMenuName_TrainerDiversity[] = _("Diverse Trainer{PKMN}");
 
 static u8 const sMenuName_TrainerRogue[] = _("Rogue");
 static u8 const sMenuName_TrainerKanto[] = _("Kanto");
@@ -173,6 +174,12 @@ const u8 sMenuNameDesc_Affection[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "{PKMN} with high friendship may have special\n"
     "effects e.g. enduring, extra crits etc."
+);
+
+const u8 sMenuNameDesc_TrainerDiversity[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Trainer's can have wider type specialties\n"
+    "e.g. Brock has a mix of Rock & Steel"
 );
 
 static u8 const sMenuNameDesc_Rogue[] = _(
@@ -289,6 +296,7 @@ enum
     MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
     MENUITEM_MENU_TOGGLE_BAG_WIPE,
     MENUITEM_MENU_TOGGLE_SWITCH_MODE,
+    MENUITEM_MENU_TOGGLE_DIVERSE_TRAINERS,
     MENUITEM_MENU_TOGGLE_AFFECTION,
 
     MENUITEM_MENU_TOGGLE_TRAINER_ROGUE,
@@ -503,6 +511,13 @@ static const struct MenuEntry sOptionMenuItems[] =
     {
         .itemName = gText_DifficultySwitchMode,
         .SINGLE_DESC(gText_DifficultySwitchModeDesc),
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+    [MENUITEM_MENU_TOGGLE_DIVERSE_TRAINERS] = 
+    {
+        .itemName = sMenuName_TrainerDiversity,
+        .SINGLE_DESC(sMenuNameDesc_TrainerDiversity),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
@@ -788,8 +803,9 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         .menuOptions = 
         {
             MENUITEM_MENU_SLIDER_TRAINER,
-            MENUITEM_MENU_SLIDER_ITEM,
-            MENUITEM_MENU_SLIDER_LEGENDARY,
+            MENUITEM_MENU_TOGGLE_DIVERSE_TRAINERS,
+            //MENUITEM_MENU_SLIDER_ITEM,
+            //MENUITEM_MENU_SLIDER_LEGENDARY,
             MENUITEM_MENU_TOGGLE_OVER_LVL,
             MENUITEM_MENU_TOGGLE_EV_GAIN,
 #ifdef ROGUE_EXPANSION
@@ -1698,6 +1714,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_TOGGLE_SWITCH_MODE:
         return Rogue_GetConfigToggle(CONFIG_TOGGLE_SWITCH_MODE);
 
+    case MENUITEM_MENU_TOGGLE_DIVERSE_TRAINERS:
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_DIVERSE_TRAINERS);
+
     case MENUITEM_MENU_TOGGLE_AFFECTION:
         return Rogue_GetConfigToggle(CONFIG_TOGGLE_AFFECTION);
 
@@ -1837,6 +1856,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_TOGGLE_SWITCH_MODE:
         Rogue_SetConfigToggle(CONFIG_TOGGLE_SWITCH_MODE, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_DIVERSE_TRAINERS:
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_DIVERSE_TRAINERS, value);
         break;
 
     case MENUITEM_MENU_TOGGLE_AFFECTION:

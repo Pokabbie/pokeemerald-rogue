@@ -450,6 +450,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemGoldTM;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemPokeBall;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemMedicine;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemHoldItem;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemMasterBall;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemEvoStone;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemRareCandy;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemMint;
@@ -960,6 +961,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ITEM_POKE_BALL] =           &gObjectEventGraphicsInfo_ItemPokeBall,
     [OBJ_EVENT_GFX_ITEM_MEDICINE] =            &gObjectEventGraphicsInfo_ItemMedicine,
     [OBJ_EVENT_GFX_ITEM_HOLD_ITEM] =           &gObjectEventGraphicsInfo_ItemHoldItem,
+    [OBJ_EVENT_GFX_ITEM_MASTER_BALL] =         &gObjectEventGraphicsInfo_ItemMasterBall,
     [OBJ_EVENT_GFX_ITEM_EVO_STONE] =           &gObjectEventGraphicsInfo_ItemEvoStone,
     [OBJ_EVENT_GFX_ITEM_RARE_CANDY] =          &gObjectEventGraphicsInfo_ItemRareCandy,
     [OBJ_EVENT_GFX_ITEM_MINT] =                &gObjectEventGraphicsInfo_ItemMint,

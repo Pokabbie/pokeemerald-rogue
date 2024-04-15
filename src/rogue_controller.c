@@ -135,6 +135,7 @@ struct RogueLocalData
     u32 totalMoneySpentOnMap;
     u16 cachedObjIds[OBJ_EVENT_ID_MULTIPLAYER_COUNT];
     u16 wildEncounterHistoryBuffer[3];
+    u16 recentObjectEventLoadedLayout;
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
     bool8 hasValidQuickSave : 1;
@@ -163,7 +164,9 @@ struct RogueHotTracking
     hot_track_dat triggerAccumulation;
 };
 
+#ifdef ROGUE_FEATURE_HOT_TRACKING
 static struct RogueHotTracking gRogueHotTracking;
+#endif
 
 EWRAM_DATA struct RogueRunData gRogueRun = {};
 
@@ -2875,6 +2878,7 @@ static hot_track_dat HotTrackingLocalRtcToCounter(void)
 
 static void ResetHotTracking()
 {
+#ifdef ROGUE_FEATURE_HOT_TRACKING
     gRogueHotTracking.initSeed = HotTrackingLocalRtcToCounter();
     gRogueHotTracking.rollingSeed = gRogueHotTracking.initSeed;
     gRogueHotTracking.triggerCount = 0;
@@ -2883,10 +2887,12 @@ static void ResetHotTracking()
     gRogueHotTracking.triggerAccumulation = 0;
 
     DebugPrintf("HotTracking init:%d roll:%d", gRogueHotTracking.initSeed, gRogueHotTracking.rollingSeed);
+#endif
 }
 
 static void UpdateHotTracking()
 {
+#ifdef ROGUE_FEATURE_HOT_TRACKING
     hot_track_dat localCounter = HotTrackingLocalRtcToCounter();
     hot_track_dat rollingCounter = localCounter - gRogueHotTracking.rollingSeed;
     DEBUG_CODE(hot_track_dat seedCounter = localCounter - gRogueHotTracking.initSeed);
@@ -2907,6 +2913,7 @@ static void UpdateHotTracking()
     {
         gRogueHotTracking.rollingSeed = localCounter;
     }
+#endif
 }
 
 void Rogue_MainInit(void)
@@ -3041,10 +3048,17 @@ u8 Rogue_GetCachedObjectEventId(u32 localId)
 
 void Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)
 {
+#ifdef ROGUE_FEATURE_HOT_TRACKING
     *count = gRogueHotTracking.triggerCount;
     *average = gRogueHotTracking.triggerAccumulation / gRogueHotTracking.triggerCount;
     *min = gRogueHotTracking.triggerMin;
     *max = gRogueHotTracking.triggerMax;
+#else
+    *count = 0;
+    *average = 0;
+    *min = 0;
+    *max = 0;
+#endif
 }
 
 
@@ -4751,6 +4765,9 @@ static bool8 ShouldAdjustRouteObjectEvents()
 
 void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
 {
+    bool8 isLoadingSameMap = (gRogueLocal.recentObjectEventLoadedLayout == mapHeader->mapLayoutId);
+    gRogueLocal.recentObjectEventLoadedLayout = mapHeader->mapLayoutId;
+
     // If we're in run and not trying to exit (gRogueAdvPath.currentRoomType isn't wiped at this point)
     if(Rogue_IsRunActive() && !IsHubMapGroup())
     {
@@ -4871,7 +4888,7 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         }
 
         // We need to reapply this as pending when loading from a save, as we would've already consumed it here
-        if(loadingFromSave)
+        if(loadingFromSave || isLoadingSameMap)
         {
             if(!FlagGet(FLAG_ROGUE_RIVAL_DISABLED))
                 gRogueRun.hasPendingRivalBattle = TRUE;

@@ -874,6 +874,11 @@ void DrawMainBattleBackground(void)
             LZDecompressVram(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].tilemap, (void*)(BG_SCREEN_ADDR(26)));
             LoadCompressedPalette(SelectPaletteFor(BATTLE_TERRAIN_CAVE), BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
             break;
+        case MAP_BATTLE_SCENE_WARM_UNDERGROUND:
+            LZDecompressVram(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].tileset, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].tilemap, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Groudon, 0x20, 0x60);
+            break;
         case MAP_BATTLE_SCENE_GYM:
             LZDecompressVram(gBattleTerrainTiles_Building, (void *)(BG_CHAR_ADDR(2)));
             LZDecompressVram(gBattleTerrainTilemap_Building, (void *)(BG_SCREEN_ADDR(26)));
@@ -1358,6 +1363,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
                 LZDecompressVram(sBattleTerrainTable[gBattleTerrain].tileset, (void *)(BG_CHAR_ADDR(2)));
                 break;
             case MAP_BATTLE_SCENE_UNDERGROUND:
+            case MAP_BATTLE_SCENE_WARM_UNDERGROUND:
                 LZDecompressVram(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].tileset, (void*)(BG_CHAR_ADDR(2)));
                 break;
             case MAP_BATTLE_SCENE_GYM:
@@ -1424,6 +1430,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
                 LZDecompressVram(sBattleTerrainTable[gBattleTerrain].tilemap, (void *)(BG_SCREEN_ADDR(26)));
                 break;
             case MAP_BATTLE_SCENE_UNDERGROUND:
+            case MAP_BATTLE_SCENE_WARM_UNDERGROUND:
                 LZDecompressVram(sBattleTerrainTable[BATTLE_TERRAIN_CAVE].tilemap, (void*)(BG_SCREEN_ADDR(26)));
                 break;
             case MAP_BATTLE_SCENE_GYM:
@@ -1498,6 +1505,9 @@ bool8 LoadChosenBattleElement(u8 caseId)
                 break;
             case MAP_BATTLE_SCENE_UNDERGROUND:
                 LoadCompressedPalette(SelectPaletteFor(BATTLE_TERRAIN_CAVE), BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+                break;
+            case MAP_BATTLE_SCENE_WARM_UNDERGROUND:
+                LoadCompressedPalette(gBattleTerrainPalette_Groudon, 0x20, 0x60);
                 break;
             case MAP_BATTLE_SCENE_GYM:
                 LoadCompressedPalette(gBattleTerrainPalette_BuildingGym, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);

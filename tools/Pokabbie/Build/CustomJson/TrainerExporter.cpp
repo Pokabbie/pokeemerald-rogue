@@ -185,12 +185,25 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 				exporter.earlyBlock << c_TabSpacing << "{\n";
 				exporter.earlyBlock << c_TabSpacing << ".maxSamples = " << subset["max_samples"].get<int>() << ",\n";
 
+				if (subset.contains("is_diversity_subset"))
+					exporter.earlyBlock << c_TabSpacing << ".isDiversitySubset = " << subset["is_diversity_subset"].get<bool>() << ",\n";
+				else
+					exporter.earlyBlock << c_TabSpacing << ".isDiversitySubset = FALSE,\n";
+
 				// included types
 				exporter.earlyBlock << c_TabSpacing << ".includedTypeMask = 0";
 				if (subset.contains("include_types"))
 				{
 					for (auto type : subset["include_types"])
-						exporter.earlyBlock << " | MON_TYPE_VAL_TO_FLAGS(TYPE_" << type.get<std::string>() << ")";
+					{
+						if(type.get<std::string>() == "FAIRY")
+							exporter.earlyBlock << c_TabSpacing2 << "\n#ifdef ROGUE_EXPANSION";
+
+						exporter.earlyBlock << "\n" << c_TabSpacing2 << "| MON_TYPE_VAL_TO_FLAGS(TYPE_" << type.get<std::string>() << ")";
+
+						if(type.get<std::string>() == "FAIRY")
+							exporter.earlyBlock << c_TabSpacing2 << "\n#endif\n";
+					}
 				}
 				exporter.earlyBlock << ",\n";
 
@@ -199,7 +212,15 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 				if (subset.contains("exclude_types"))
 				{
 					for (auto type : subset["exclude_types"])
-						exporter.earlyBlock << " | MON_TYPE_VAL_TO_FLAGS(TYPE_" << type.get<std::string>() << ")";
+					{
+						if(type.get<std::string>() == "FAIRY")
+							exporter.earlyBlock << c_TabSpacing2 << "\n#ifdef ROGUE_EXPANSION";
+
+						exporter.earlyBlock << "\n" << c_TabSpacing2 << "| MON_TYPE_VAL_TO_FLAGS(TYPE_" << type.get<std::string>() << ")";
+
+						if(type.get<std::string>() == "FAIRY")
+							exporter.earlyBlock << c_TabSpacing2 << "\n#endif\n";
+					}
 				}
 				exporter.earlyBlock << ",\n";
 

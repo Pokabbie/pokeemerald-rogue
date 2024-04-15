@@ -19,6 +19,9 @@
 // Seems to be slower overall
 //#define ROGUE_FEATURE_HQ_RANDOM 1
 
+// Seems to just cause errors and memory stomps atm
+//#define ROGUE_FEATURE_HOT_TRACKING 1
+
 #ifdef ROGUE_EXPANSION
 #define ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
 #endif
@@ -467,20 +470,21 @@
 #define CONFIG_TOGGLE_OVERWORLD_MONS        3
 #define CONFIG_TOGGLE_BAG_WIPE              4
 #define CONFIG_TOGGLE_SWITCH_MODE           5
-#define CONFIG_TOGGLE_AFFECTION             6
-#define CONFIG_TOGGLE_TRAINER_ROGUE         7
-#define CONFIG_TOGGLE_TRAINER_KANTO         8
-#define CONFIG_TOGGLE_TRAINER_JOHTO         9
-#define CONFIG_TOGGLE_TRAINER_HOENN         10
+#define CONFIG_TOGGLE_DIVERSE_TRAINERS      6
+#define CONFIG_TOGGLE_AFFECTION             7
+#define CONFIG_TOGGLE_TRAINER_ROGUE         8
+#define CONFIG_TOGGLE_TRAINER_KANTO         9
+#define CONFIG_TOGGLE_TRAINER_JOHTO         10
+#define CONFIG_TOGGLE_TRAINER_HOENN         11
 #ifdef ROGUE_EXPANSION
-#define CONFIG_TOGGLE_TRAINER_SINNOH        11
-#define CONFIG_TOGGLE_TRAINER_UNOVA         12
-#define CONFIG_TOGGLE_TRAINER_KALOS         13
-#define CONFIG_TOGGLE_TRAINER_ALOLA         14
-#define CONFIG_TOGGLE_TRAINER_GALAR         15
-#define CONFIG_TOGGLE_TRAINER_PALDEA        16 // placeholder
+#define CONFIG_TOGGLE_TRAINER_SINNOH        12
+#define CONFIG_TOGGLE_TRAINER_UNOVA         13
+#define CONFIG_TOGGLE_TRAINER_KALOS         14
+#define CONFIG_TOGGLE_TRAINER_ALOLA         15
+#define CONFIG_TOGGLE_TRAINER_GALAR         16
+#define CONFIG_TOGGLE_TRAINER_PALDEA        17 // placeholder
 #endif
-#define CONFIG_TOGGLE_COUNT                 17
+#define CONFIG_TOGGLE_COUNT                 18
 #define CONFIG_TOGGLE_BYTE_COUNT            (1 + CONFIG_TOGGLE_COUNT / 8)
 
 // CONFIG_RANGE_

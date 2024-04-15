@@ -1534,8 +1534,8 @@
     {
       "id": "LAYOUT_ROGUE_AREA_HOME",
       "name": "Rogue_Area_Home_Layout",
-      "width": 30,
-      "height": 32,
+      "width": 36,
+      "height": 36,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_PlayerHome",
       "border_filepath": "data/layouts/Rogue_Area_Home/border.bin",
@@ -1815,7 +1815,7 @@
       "id": "LAYOUT_ROGUE_TEMPLATE_HOMES",
       "name": "Rogue_Template_Homes_Layout",
       "width": 50,
-      "height": 5,
+      "height": 15,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_PlayerHome",
       "border_filepath": "data/layouts/Rogue_Template_Homes/border.bin",
@@ -1950,6 +1950,46 @@
       "secondary_tileset": "gTileset_CableClub",
       "border_filepath": "data/layouts/Rogue_Encounter_BattleSim/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_BattleSim/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_MT_CHIMNEY",
+      "name": "Rogue_Encounter_MtChimney_Layout",
+      "width": 40,
+      "height": 78,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/Rogue_Encounter_MtChimney/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_MtChimney/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_MAGMA_HIDEOUT",
+      "name": "Rogue_Encounter_MagmaHideout_Layout",
+      "width": 92,
+      "height": 68,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/Rogue_Encounter_MagmaHideout/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_MagmaHideout/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_AQUA_HIDEOUT",
+      "name": "Rogue_Encounter_AquaHideout_Layout",
+      "width": 44,
+      "height": 86,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Rogue_Encounter_AquaHideout/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_AquaHideout/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ENCOUNTER_SEAFLOOR_CAVERN",
+      "name": "Rogue_Encounter_SeafloorCavern_Layout",
+      "width": 48,
+      "height": 74,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Rogue_Encounter_SeafloorCavern/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Encounter_SeafloorCavern/map.bin"
     }
   ]
 }

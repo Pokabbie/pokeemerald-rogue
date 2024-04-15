@@ -738,6 +738,10 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
             allowGameShow = TRUE;
         }
 
+        allowDarkDeal = (allowDarkDeal && RogueRandomChance(33, 0));
+        allowLab = (allowLab && RogueRandomChance(33, 0));
+
+
         if(allowLab)
         {
             // Lab

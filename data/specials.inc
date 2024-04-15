@@ -260,6 +260,8 @@ gSpecials::
 	def_special Rogue_CheckBagUpgradeCost
 	def_special Rogue_RemoveBagUpgradeCost
 	def_special Rogue_CheckHubConnectionDir
+	def_special Rogue_PlaceHomeDecor
+	def_special Rogue_RemoveHomeDecor
 	def_special Rogue_AssignDefaultRegion
 	def_special Rogue_IsFinalQuestActive
 	def_special Rogue_TryScatterPokeblockNearHoneyTree
@@ -300,6 +302,9 @@ gSpecials::
 	def_special GameShow_SelectRandomSpecies
 	def_special GameShow_BufferSpecies
 	def_special GameShow_CheckResultMatchesSpecies
+	def_special GameShow_SelectRewardItem
+	def_special GameShow_IsTeamTriviaRoundValid
+	def_special GameShow_NextTriviaQuestion
 	def_special ReloadWarpSilent
 	def_special GetFirstFreePokeblockSlot
 	def_special DoBerryBlending

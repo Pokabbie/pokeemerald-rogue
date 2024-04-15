@@ -116,6 +116,11 @@
                     "subsets":
                     [
                         {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "BUG", "WATER" ]
+                        },
+                        {
                             "max_samples": 6,
                             "include_types": [ "BUG" ]
                         }
@@ -149,6 +154,12 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "ROCK", "ICE" ],
+                            "exclude_types": [ "GROUND"]
+                        },
                         {
                             "max_samples": 6,
                             "include_types": [ "ROCK" ]
@@ -185,6 +196,11 @@
                     "subsets":
                     [
                         {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "FIGHTING", "FLYING" ]
+                        },
+                        {
                             "max_samples": 6,
                             "include_types": [ "FIGHTING" ]
                         }
@@ -217,6 +233,12 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "GRASS", "GHOST" ],
+                            "exclude_types": [ "POISON" ]
+                        },
                         {
                             "max_samples": 6,
                             "include_types": [ "GRASS" ],
@@ -257,6 +279,11 @@
                     "subsets":
                     [
                         {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "ELECTRIC", "STEEL" ]
+                        },
+                        {
                             "max_samples": 6,
                             "include_types": [ "ELECTRIC" ]
                         }
@@ -290,6 +317,12 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "FAIRY", "POISON" ],
+                            "exclude_types": [ "BUG" ]
+                        },
                         {
                             "max_samples": 6,
                             "include_types": [ "FAIRY" ]
@@ -325,6 +358,11 @@
                     "subsets":
                     [
                         {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "PSYCHIC", "DARK" ]
+                        },
+                        {
                             "max_samples": 6,
                             "include_types": [ "PSYCHIC" ]
                         }
@@ -358,6 +396,12 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "ICE", "GROUND" ],
+                            "exclude_types": [ "WATER" ]
+                        },
                         {
                             "max_samples": 6,
                             "include_types": [ "ICE" ],
@@ -402,6 +446,11 @@
                     "subsets":
                     [
                         {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "FIRE", "DRAGON" ]
+                        },
+                        {
                             "max_samples": 6,
                             "include_types": [ "FIRE" ]
                         }
@@ -435,6 +484,11 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "WATER", "STEEL" ]
+                        },
                         {
                             "max_samples": 6,
                             "include_types": [ "WATER" ]
@@ -471,6 +525,11 @@
                     "subsets":
                     [
                         {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "STEEL", "FIGHTING" ]
+                        },
+                        {
                             "max_samples": 6,
                             "include_types": [ "STEEL" ]
                         }
@@ -505,6 +564,11 @@
                 {
                     "subsets":
                     [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 4,
+                            "include_types": [ "DRAGON", "GRASS" ]
+                        },
                         {
                             "max_samples": 6,
                             "include_types": [ "DRAGON" ]

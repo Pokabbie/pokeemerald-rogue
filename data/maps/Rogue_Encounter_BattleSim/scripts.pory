@@ -126,7 +126,7 @@ script Rogue_Encounter_BattleSim_ChooseWager_Money
 {
     showmoneybox(0,0)
 
-    msgbox(format("Money?\nSure thing!\pHow about, if you lose, I'll take half of your money.\pIf you win, I'll give you ¥20000?"), MSGBOX_YESNO)
+    msgbox(format("Money?\nSure thing!\pHow about, if you lose, I'll take half of your money.\pIf you win, I'll give you ¥15000?"), MSGBOX_YESNO)
 
     hidemoneybox
 }

@@ -1,0 +1,7 @@
+mapscripts Rogue_Encounter_MtChimney_MapScripts 
+{
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+    [
+        VAR_TEMP_1, 0: Rogue_Common_TurnPlayerNorth
+    ]
+}
