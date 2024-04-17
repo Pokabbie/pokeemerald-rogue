@@ -4710,10 +4710,8 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 
     if (species && species != SPECIES_EGG)
     {
-        struct Trainer trainer;
         u8 friendshipLevel = 0;
         s16 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
-        Rogue_ModifyTrainer(gTrainerBattleOpponent_A, &trainer);
 
         if (friendship > 99)
             friendshipLevel++;
