@@ -1829,6 +1829,9 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
 
     ReorderPartyMons(trainerNum, party, monCount);
     AssignAnySpecialMons(trainerNum, party, monCount);
+    
+    CalculateEnemyPartyCount();
+    AGB_ASSERT(gEnemyPartyCount == monCount);
 
     // Debug steal team
     if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_STEAL_TEAM))
@@ -3455,6 +3458,10 @@ static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCo
                     sTrainerTemp.dynamaxSlot = i;
                 }
             }
+        }
+        else
+        {
+            sTrainerTemp.dynamaxSlot = monCount - 1;
         }
     }
 #endif
