@@ -656,6 +656,7 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
             if(rideObjectId)
             {
                 rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_PARTNER, SpriteCallbackDummy, spriteX, spriteY, 0);
+                gSprites[rideObject->monSpriteId].disableAnimOffsets = TRUE;
             }
             else
             {
@@ -671,6 +672,7 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
                 
                 FollowMon_SetGraphics(gfxId, species, isShiny);
                 rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_0 + gfxId, SpriteCallbackDummy, spriteX, spriteY, 0);
+                gSprites[rideObject->monSpriteId].disableAnimOffsets = TRUE;
             }
 
             gSprites[rideObject->monSpriteId].oam.priority = 2;

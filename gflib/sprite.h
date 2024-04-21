@@ -53,6 +53,9 @@ struct AnimFrameCmd
     u32 duration:6;
     u32 hFlip:1;
     u32 vFlip:1;
+    u32 enableOffset:1;
+    u32 xOffset:3;
+    u32 yOffset:3;
 };
 
 struct AnimLoopCmd
@@ -218,7 +221,7 @@ struct Sprite
     /*0x3E*/ bool16 inUse:1;               //1
              bool16 coordOffsetEnabled:1;  //2
              bool16 invisible:1;           //4
-             bool16 flags_3:1;             //8
+             bool16 disableAnimOffsets:1;  //8
              bool16 flags_4:1;             //0x10
              bool16 flags_5:1;             //0x20
              bool16 flags_6:1;             //0x40

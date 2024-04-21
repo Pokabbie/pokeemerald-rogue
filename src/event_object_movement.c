@@ -5134,9 +5134,13 @@ void SetStepAnimHandleAlternation(struct ObjectEvent *objectEvent, struct Sprite
 
         if(sprite->anims == sAnimTable_GenericOverworldMon)
         {
-            // do nothing special?
+            // Jump command is technically broken for sprites, as it skips over the frame it jumps to
+            // Too dangerous to fix, so manual jump here :/
+            //if(sprite->animCmdIndex == stepTable->animPos[3])
+            //    sprite->animCmdIndex = stepTable->animPos[0];
         }
-        else if (stepTable != NULL)
+        else 
+        if (stepTable != NULL)
         {
             if (sprite->animCmdIndex == stepTable->animPos[0])
                 sprite->animCmdIndex  = stepTable->animPos[3];
@@ -5673,6 +5677,8 @@ void UpdateObjectEventCurrentMovement(struct ObjectEvent *objectEvent, struct Sp
     UpdateObjectEventSpriteAnimPause(objectEvent, sprite);
     UpdateObjectEventVisibility(objectEvent, sprite);
     ObjectEventUpdateSubpriority(objectEvent, sprite);
+
+    ///// here?
 
     Rogue_OnObjectEventMovement(sprite->sObjEventId);
 }
@@ -6248,6 +6254,7 @@ static void InitJump(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 
     SetJumpSpriteData(sprite, direction, distance, type);
     sprite->sActionFuncId = 1;
     sprite->animPaused = FALSE;
+    sprite->disableAnimOffsets = TRUE;
     objectEvent->triggerGroundEffectsOnMove = TRUE;
     objectEvent->disableCoveringGroundEffects = TRUE;
 }
@@ -8258,6 +8265,7 @@ u8 MovementAction_Finish(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 bool8 MovementAction_PauseSpriteAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     sprite->animPaused = TRUE;
+    sprite->disableAnimOffsets = FALSE;
     
     if(FollowMon_ShouldAlwaysAnimation(objectEvent) && FollowMon_IsMonObject(objectEvent, FALSE))
     {
