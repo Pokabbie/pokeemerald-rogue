@@ -5131,7 +5131,12 @@ void SetStepAnimHandleAlternation(struct ObjectEvent *objectEvent, struct Sprite
     {
         sprite->animNum = animNum;
         stepTable = GetStepAnimTable(sprite->anims);
-        if (stepTable != NULL)
+
+        if(sprite->anims == sAnimTable_GenericOverworldMon)
+        {
+            // do nothing special?
+        }
+        else if (stepTable != NULL)
         {
             if (sprite->animCmdIndex == stepTable->animPos[0])
                 sprite->animCmdIndex  = stepTable->animPos[3];
@@ -5149,16 +5154,23 @@ void SetStepAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 anim
     if (!objectEvent->inanimate)
     {
         u8 animPos;
-
         sprite->animNum = animNum;
-        stepTable = GetStepAnimTable(sprite->anims);
-        if (stepTable != NULL)
-        {
-            animPos = stepTable->animPos[1];
-            if (sprite->animCmdIndex <= stepTable->animPos[0])
-                animPos = stepTable->animPos[0];
 
-            SeekSpriteAnim(sprite, animPos);
+        if(sprite->anims == sAnimTable_GenericOverworldMon)
+        {
+            // do nothing special?
+        }
+        else
+        {
+            stepTable = GetStepAnimTable(sprite->anims);
+            if (stepTable != NULL)
+            {
+                animPos = stepTable->animPos[1];
+                if (sprite->animCmdIndex <= stepTable->animPos[0])
+                    animPos = stepTable->animPos[0];
+
+                SeekSpriteAnim(sprite, animPos);
+            }
         }
     }
 }
@@ -5809,16 +5821,18 @@ static void FaceDirection(struct ObjectEvent *objectEvent, struct Sprite *sprite
     SetObjectEventDirection(objectEvent, direction);
     ShiftStillObjectEventCoords(objectEvent);
 
-    // Special case for follower mons who we want to animator always
-    if(FollowMon_IsMonObject(objectEvent, FALSE) && FollowMon_ShouldAlwaysAnimation(objectEvent))
+    if(FollowMon_IsMonObject(objectEvent, FALSE))
     {
+        // FaceDir has slower anim for followmons
         SetStepAnim(objectEvent, sprite, GetFaceDirectionAnimNum(objectEvent->facingDirection));
-
-        sprite->animPaused = FALSE;
+        sprite->animPaused = TRUE;
         sprite->sActionFuncId = 1;
 
-        if(FollowMon_ShouldApplyBobbingAnimation(objectEvent))
-            ApplyBobbingAnim(objectEvent, sprite);
+        if(FollowMon_ShouldAlwaysAnimation(objectEvent))
+        {
+            SeekSpriteAnim(sprite, 0);
+            sprite->animPaused = FALSE;
+        }
     }
     else
     {
@@ -5894,6 +5908,10 @@ static bool8 UpdateMovementNormal(struct ObjectEvent *objectEvent, struct Sprite
         ShiftStillObjectEventCoords(objectEvent);
         objectEvent->triggerGroundEffectsOnStop = TRUE;
         sprite->animPaused = TRUE;
+
+        if(FollowMon_ShouldAlwaysAnimation(objectEvent) && FollowMon_IsMonObject(objectEvent, FALSE))
+            sprite->animPaused = FALSE;
+
         return TRUE;
     }
     
@@ -6267,6 +6285,12 @@ static u8 UpdateJumpAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite,
         objectEvent->triggerGroundEffectsOnStop = TRUE;
         objectEvent->landingJump = TRUE;
         sprite->animPaused = TRUE;
+        
+        if(FollowMon_ShouldAlwaysAnimation(objectEvent) && FollowMon_IsMonObject(objectEvent, FALSE))
+        {
+            SetStepAnim(objectEvent, sprite, GetFaceDirectionAnimNum(objectEvent->facingDirection));
+            sprite->animPaused = FALSE;
+        }
     }
     return result;
 }
@@ -6513,6 +6537,13 @@ bool8 MovementAction_WalkInPlace_Step1(struct ObjectEvent *objectEvent, struct S
     {
         sprite->sActionFuncId = 2;
         sprite->animPaused = TRUE;
+        
+        if(FollowMon_ShouldAlwaysAnimation(objectEvent) && FollowMon_IsMonObject(objectEvent, FALSE))
+        {
+            SetStepAnim(objectEvent, sprite, GetFaceDirectionAnimNum(objectEvent->facingDirection));
+            sprite->animPaused = FALSE;
+        }
+
         return TRUE;
     }
     return FALSE;
@@ -8227,6 +8258,13 @@ u8 MovementAction_Finish(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 bool8 MovementAction_PauseSpriteAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     sprite->animPaused = TRUE;
+    
+    if(FollowMon_ShouldAlwaysAnimation(objectEvent) && FollowMon_IsMonObject(objectEvent, FALSE))
+    {
+        SetStepAnim(objectEvent, sprite, GetFaceDirectionAnimNum(objectEvent->facingDirection));
+        sprite->animPaused = FALSE;
+    }
+
     return TRUE;
 }
 
@@ -8234,6 +8272,12 @@ static void UpdateObjectEventSpriteAnimPause(struct ObjectEvent *objectEvent, st
 {
     if (objectEvent->disableAnim)
         sprite->animPaused = TRUE;
+
+    if(FollowMon_ShouldAlwaysAnimation(objectEvent) && FollowMon_IsMonObject(objectEvent, FALSE))
+    {
+        SetStepAnim(objectEvent, sprite, GetFaceDirectionAnimNum(objectEvent->facingDirection));
+        sprite->animPaused = FALSE;
+    }
 }
 
 static void TryEnableObjectEventAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite)

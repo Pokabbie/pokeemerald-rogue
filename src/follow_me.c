@@ -330,7 +330,19 @@ void FollowMe(struct ObjectEvent* npc, u8 state, bool8 ignoreScriptActive)
     }
 
 RESET:
-    ObjectEventClearHeldMovementIfFinished(follower);
+    switch (state)
+    {
+    case MOVEMENT_ACTION_FACE_DOWN:
+    case MOVEMENT_ACTION_FACE_UP:
+    case MOVEMENT_ACTION_FACE_LEFT:
+    case MOVEMENT_ACTION_FACE_RIGHT:
+        // we want to maintain these states so we have anims playing correctly
+        break;
+    
+    default:
+        ObjectEventClearHeldMovementIfFinished(follower);
+        break;
+    }
 }
 
 static void Task_ReallowPlayerMovement(u8 taskId)

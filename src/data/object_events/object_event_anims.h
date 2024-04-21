@@ -1299,9 +1299,9 @@ static const struct StepAnimTable sStepAnimTables[] = {
         .anims = sAnimTable_Fishing,
         .animPos = {1, 3, 0, 2},
     },
-    //{
-    //    .anims = sAnimTable_GenericOverworldMon,
-    //    .animPos =  {1, 3, 0, 2},
-    //},
+    {
+        .anims = sAnimTable_GenericOverworldMon,
+        .animPos =  {0, 1, 0, 1},
+    },
     {},
 };
