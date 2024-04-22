@@ -1527,7 +1527,7 @@ static u32 GetSwitchinHitsToKO(s32 damageTaken, u32 battler)
     s32 currentHP = startingHP;
 
     // No damage being dealt
-    if (damageTaken + statusDamage + recurringDamage == 0)
+    if (damageTaken + statusDamage + recurringDamage < recurringHealing)
         return startingHP;
 
     // Mon fainted to hazards
@@ -1545,7 +1545,7 @@ static u32 GetSwitchinHitsToKO(s32 damageTaken, u32 battler)
         currentHP = currentHP - damageTaken;
 
         // If mon is still alive, apply weather impact first, as it might KO the mon before it can heal with its item (order is weather -> item -> status)
-        if (currentHP != 0)
+        if (currentHP >= 0)
             currentHP = currentHP + weatherImpact;
 
         // Check if we're at a single use healing item threshold

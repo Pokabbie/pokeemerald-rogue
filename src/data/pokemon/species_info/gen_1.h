@@ -7053,6 +7053,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_GENGAR] =
     {
         GENGAR_MISC_INFO,
+        .cryId = CRY_GENGAR,
         .baseHP        = 60,
         .baseAttack    = 65,
         .baseDefense   = 60,
@@ -7087,6 +7088,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_GENGAR_MEGA] =
     {
         GENGAR_MISC_INFO,
+        .cryId = CRY_GENGAR_MEGA,
         .baseHP        = 60,
         .baseAttack    = 65,
         .baseDefense   = 80,
@@ -7123,6 +7125,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_GENGAR_GIGANTAMAX] =
     {
         GENGAR_MISC_INFO,
+        .cryId = CRY_GENGAR,
         .baseHP        = 60,
         .baseAttack    = 65,
         .baseDefense   = 60,
