@@ -515,12 +515,6 @@ bool8 FollowMon_ShouldAlwaysAnimation(struct ObjectEvent *objectEvent)
     //return FALSE;
 }
 
-bool8 FollowMon_ShouldApplyBobbingAnimation(struct ObjectEvent *objectEvent)
-{
-    // not quite correctly hooked up so disabled for now
-    return FALSE;
-}
-
 bool8 FollowMon_ShouldAnimationGrass(struct ObjectEvent *objectEvent)
 {
     if(Rogue_AreWildMonEnabled())

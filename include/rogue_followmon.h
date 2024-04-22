@@ -25,7 +25,6 @@ u16 FollowMon_GetBoxMonGraphics(struct BoxPokemon* mon);
 
 bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon);
 bool8 FollowMon_ShouldAlwaysAnimation(struct ObjectEvent *objectEvent);
-bool8 FollowMon_ShouldApplyBobbingAnimation(struct ObjectEvent *objectEvent);
 bool8 FollowMon_ShouldAnimationGrass(struct ObjectEvent *objectEvent);
 
 bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* collider);
