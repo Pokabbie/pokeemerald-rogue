@@ -656,6 +656,7 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
             if(rideObjectId)
             {
                 rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_PARTNER, SpriteCallbackDummy, spriteX, spriteY, 0);
+                gSprites[rideObject->monSpriteId].disableAnimOffsets = TRUE;
             }
             else
             {
@@ -671,6 +672,7 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
                 
                 FollowMon_SetGraphics(gfxId, species, isShiny);
                 rideObject->monSpriteId = CreateObjectGraphicsSpriteInObjectEventSpace(OBJ_EVENT_GFX_FOLLOW_MON_0 + gfxId, SpriteCallbackDummy, spriteX, spriteY, 0);
+                gSprites[rideObject->monSpriteId].disableAnimOffsets = TRUE;
             }
 
             gSprites[rideObject->monSpriteId].oam.priority = 2;
@@ -853,7 +855,15 @@ static void UpdateRideSpriteInternal(struct RideObjectEvent* rideObject, const s
     const struct RideMonSpriteInfo* rideSpriteInfo;
     struct Sprite* mountSprite = &gSprites[rideObject->monSpriteId];
     struct Sprite* riderSprite = &gSprites[rideObject->riderSpriteId];
+    s16 bobbingAnim = ((mountSprite->animCmdIndex % 2) ? 0 : -1);
     u8 facingDirection = gObjectEvents[rideObject->riderObjectEventId].facingDirection;
+    u16 species = rideObject->state.monGfx;
+    u8 rideSpeed;
+
+    if(species >= FOLLOWMON_SHINY_OFFSET)
+        species -= FOLLOWMON_SHINY_OFFSET;
+
+    rideSpeed = CalculateMovementModeFor(species);
 
 
     AGB_ASSERT(rideObject->monSpriteId != SPRITE_NONE);
@@ -897,54 +907,74 @@ static void UpdateRideSpriteInternal(struct RideObjectEvent* rideObject, const s
         break;
     };
 
-    switch (gObjectEvents[rideObject->riderObjectEventId].movementActionId)
     {
-    case MOVEMENT_ACTION_FACE_DOWN:
-    case MOVEMENT_ACTION_FACE_UP:
-    case MOVEMENT_ACTION_FACE_LEFT:
-    case MOVEMENT_ACTION_FACE_RIGHT:
-        StartSpriteAnimIfDifferent(mountSprite, ANIM_STD_FACE_SOUTH + facingDirection - DIR_SOUTH);
-        //riderSprite->x2 = 0;
-        //riderSprite->y2 = 0;
-        break;
+        u16 idleAnim = ANIM_STD_FACE_SOUTH;
+        u16 movingAnim = ANIM_STD_FACE_SOUTH;
 
-    case MOVEMENT_ACTION_JUMP_2_DOWN:
-    case MOVEMENT_ACTION_JUMP_2_UP:
-    case MOVEMENT_ACTION_JUMP_2_LEFT:
-    case MOVEMENT_ACTION_JUMP_2_RIGHT:
-    case MOVEMENT_ACTION_JUMP_DOWN:
-    case MOVEMENT_ACTION_JUMP_UP:
-    case MOVEMENT_ACTION_JUMP_LEFT:
-    case MOVEMENT_ACTION_JUMP_RIGHT:
-        StartSpriteAnimIfDifferent(mountSprite, ANIM_STD_GO_SOUTH + facingDirection - DIR_SOUTH);
-        // Don't reset xy2 for these movement actions
-        break;
+        if(rideSpeed > RIDE_MOVEMENT_ACCELERATE_AVERAGE)
+        {
+            idleAnim = ANIM_STD_GO_SOUTH;
+            movingAnim = ANIM_STD_GO_SOUTH;
+        }
 
-    case MOVEMENT_ACTION_JUMP_IN_PLACE_DOWN:
-    case MOVEMENT_ACTION_JUMP_IN_PLACE_UP:
-    case MOVEMENT_ACTION_JUMP_IN_PLACE_LEFT:
-    case MOVEMENT_ACTION_JUMP_IN_PLACE_RIGHT:
-    case MOVEMENT_ACTION_JUMP_IN_PLACE_DOWN_UP:
-    case MOVEMENT_ACTION_JUMP_IN_PLACE_UP_DOWN:
-    case MOVEMENT_ACTION_JUMP_IN_PLACE_LEFT_RIGHT:
-    case MOVEMENT_ACTION_JUMP_IN_PLACE_RIGHT_LEFT:
-        StartSpriteAnimIfDifferent(mountSprite, ANIM_STD_FACE_SOUTH + facingDirection - DIR_SOUTH);
-        // Don't reset xy2 for these movement actions
-        break;
+        if(rideSpeed == RIDE_MOVEMENT_FAST)
+        {
+            movingAnim = ANIM_STD_GO_FAST_SOUTH;
+        }
 
-    default:
-        // TODO - Play faster animations for really fast mons?
-        StartSpriteAnimIfDifferent(mountSprite, ANIM_STD_GO_SOUTH + facingDirection - DIR_SOUTH);
-        //riderSprite->x2 = 0;
-        //riderSprite->y2 = 0;
-        break;
+        if(rideObject->state.flyingHeight != 0)
+        {
+            // Increase anims by a phase so it's faster when in the air
+            idleAnim += 4;
+            movingAnim = idleAnim;
+        }
+
+        switch (gObjectEvents[rideObject->riderObjectEventId].movementActionId)
+        {
+        case MOVEMENT_ACTION_FACE_DOWN:
+        case MOVEMENT_ACTION_FACE_UP:
+        case MOVEMENT_ACTION_FACE_LEFT:
+        case MOVEMENT_ACTION_FACE_RIGHT:
+            StartSpriteAnimIfDifferent(mountSprite, idleAnim + facingDirection - DIR_SOUTH);
+            //riderSprite->x2 = 0;
+            //riderSprite->y2 = 0;
+            break;
+
+        case MOVEMENT_ACTION_JUMP_2_DOWN:
+        case MOVEMENT_ACTION_JUMP_2_UP:
+        case MOVEMENT_ACTION_JUMP_2_LEFT:
+        case MOVEMENT_ACTION_JUMP_2_RIGHT:
+        case MOVEMENT_ACTION_JUMP_DOWN:
+        case MOVEMENT_ACTION_JUMP_UP:
+        case MOVEMENT_ACTION_JUMP_LEFT:
+        case MOVEMENT_ACTION_JUMP_RIGHT:
+            StartSpriteAnimIfDifferent(mountSprite, idleAnim + facingDirection - DIR_SOUTH);
+            // Don't reset xy2 for these movement actions
+            break;
+
+        case MOVEMENT_ACTION_JUMP_IN_PLACE_DOWN:
+        case MOVEMENT_ACTION_JUMP_IN_PLACE_UP:
+        case MOVEMENT_ACTION_JUMP_IN_PLACE_LEFT:
+        case MOVEMENT_ACTION_JUMP_IN_PLACE_RIGHT:
+        case MOVEMENT_ACTION_JUMP_IN_PLACE_DOWN_UP:
+        case MOVEMENT_ACTION_JUMP_IN_PLACE_UP_DOWN:
+        case MOVEMENT_ACTION_JUMP_IN_PLACE_LEFT_RIGHT:
+        case MOVEMENT_ACTION_JUMP_IN_PLACE_RIGHT_LEFT:
+            StartSpriteAnimIfDifferent(mountSprite, idleAnim + facingDirection - DIR_SOUTH);
+            // Don't reset xy2 for these movement actions
+            break;
+
+        default:
+            StartSpriteAnimIfDifferent(mountSprite, movingAnim + facingDirection - DIR_SOUTH);
+            break;
+        }
     }
 
     // Move mount sprite
     mountSprite->x = riderSprite->x;
     mountSprite->y = riderSprite->y;
     mountSprite->x2 = riderSprite->x2 + rideSpriteInfo->monX * xFlip;
-    mountSprite->y2 = riderSprite->y2 + rideSpriteInfo->monY;
+    mountSprite->y2 = riderSprite->y2 + rideSpriteInfo->monY + bobbingAnim;
 
     mountSprite->subpriority = riderSprite->subpriority;
 
@@ -959,7 +989,7 @@ static void UpdateRideSpriteInternal(struct RideObjectEvent* rideObject, const s
 
     // Move player
     riderSprite->x2 += rideSpriteInfo->playerX * xFlip;
-    riderSprite->y2 += rideSpriteInfo->playerY;
+    riderSprite->y2 += rideSpriteInfo->playerY + bobbingAnim;
 
     // Offset both for flying anim
     if(rideObject->state.flyingHeight != 0)

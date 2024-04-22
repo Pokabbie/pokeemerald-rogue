@@ -18,6 +18,7 @@ script Rogue_InteractWithPartnerFollowMon
 script Rogue_InteractWithWildFollowMon
 {
     lockall
+    faceplayer
 
     special(Rogue_GetFollowMonSpecies)
 

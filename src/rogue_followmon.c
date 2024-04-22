@@ -494,29 +494,25 @@ static bool8 IsExpensiveWeatherActive()
 
 bool8 FollowMon_ShouldAlwaysAnimation(struct ObjectEvent *objectEvent)
 {
-    if(Rogue_InWildSafari())
-    {
-        // Don't animate in safari
-        return FALSE;
-    }
+    return TRUE;
 
-    if(objectEvent->graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_PARTNER && !IsExpensiveWeatherActive())
-    {
-        return TRUE;
-    }
-
-    if(Rogue_IsRunActive())
-    {
-        // TODO - Enabled for legendaries
-    }
-
-    return FALSE;
-}
-
-bool8 FollowMon_ShouldApplyBobbingAnimation(struct ObjectEvent *objectEvent)
-{
-    // not quite correctly hooked up so disabled for now
-    return FALSE;
+    //if(Rogue_InWildSafari())
+    //{
+    //    // Don't animate in safari
+    //    return FALSE;
+    //}
+//
+    //if(objectEvent->graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_PARTNER && !IsExpensiveWeatherActive())
+    //{
+    //    return TRUE;
+    //}
+//
+    //if(Rogue_IsRunActive())
+    //{
+    //    // TODO - Enabled for legendaries
+    //}
+//
+    //return FALSE;
 }
 
 bool8 FollowMon_ShouldAnimationGrass(struct ObjectEvent *objectEvent)

@@ -162,6 +162,7 @@ static const struct Sprite sDummySprite =
     .affineAnims = gDummySpriteAffineAnimTable,
     .template = &gDummySpriteTemplate,
     .callback = SpriteCallbackDummy,
+    .disableAnimOffsets = FALSE,
     .x = DISPLAY_WIDTH + 64,
     .y = DISPLAY_HEIGHT,
     .subpriority = 0xFF
@@ -922,16 +923,29 @@ void AnimCmd_frame(struct Sprite *sprite)
     u8 duration;
     u8 hFlip;
     u8 vFlip;
+    bool8 enableOffset;
+    s16 xOffset;
+    s16 yOffset;
 
     imageValue = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.imageValue;
     duration = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.duration;
     hFlip = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.hFlip;
     vFlip = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.vFlip;
+    enableOffset = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.enableOffset;
+    xOffset = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.xOffset;
+    yOffset = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.yOffset ? 0 : -1;
 
     if (duration)
         duration--;
 
     sprite->animDelayCounter = duration;
+
+    // This is pretty hacky, but the easiest way to hook up the follow mon hop anims without stepping on the toes of the riding
+    if(enableOffset && !sprite->disableAnimOffsets)
+    {
+        sprite->x2 = xOffset;
+        sprite->y2 = yOffset;
+    }
 
     if (!(sprite->oam.affineMode & ST_OAM_AFFINE_ON_MASK))
         SetSpriteOamFlipBits(sprite, hFlip, vFlip);
@@ -954,26 +968,38 @@ void AnimCmd_jump(struct Sprite *sprite)
     u8 duration;
     u8 hFlip;
     u8 vFlip;
+    bool8 enableOffset;
 
     sprite->animCmdIndex = sprite->anims[sprite->animNum][sprite->animCmdIndex].jump.target;
 
-    imageValue = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.imageValue;
-    duration = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.duration;
-    hFlip = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.hFlip;
-    vFlip = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.vFlip;
+    enableOffset = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.enableOffset;
 
-    if (duration)
-        duration--;
-
-    sprite->animDelayCounter = duration;
-
-    if (!(sprite->oam.affineMode & ST_OAM_AFFINE_ON_MASK))
-        SetSpriteOamFlipBits(sprite, hFlip, vFlip);
-
-    if (sprite->usingSheet)
-        sprite->oam.tileNum = sprite->sheetTileStart + imageValue;
+    if(enableOffset)
+    {
+        // Hack for followmon anims because we technically skip over the frame we jump too and it was risky to apply this universally
+        AnimCmd_frame(sprite);
+    }
     else
-        RequestSpriteFrameImageCopy(imageValue, sprite->oam.tileNum, sprite->images);
+    {
+        imageValue = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.imageValue;
+        duration = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.duration;
+        hFlip = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.hFlip;
+        vFlip = sprite->anims[sprite->animNum][sprite->animCmdIndex].frame.vFlip;
+
+        if (duration)
+            duration--;
+
+        sprite->animDelayCounter = duration;
+
+        if (!(sprite->oam.affineMode & ST_OAM_AFFINE_ON_MASK))
+            SetSpriteOamFlipBits(sprite, hFlip, vFlip);
+
+        if (sprite->usingSheet)
+            sprite->oam.tileNum = sprite->sheetTileStart + imageValue;
+        else
+            RequestSpriteFrameImageCopy(imageValue, sprite->oam.tileNum, sprite->images);
+    }
+
 }
 
 void AnimCmd_loop(struct Sprite *sprite)
