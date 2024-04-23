@@ -256,7 +256,7 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 			for(int y = 0; y < outputImg.Height; ++y)
 				for(int x = 0; x < outputImg.Width; ++x)
 				{
-					outputImg.SetPixel(x, y, c_BackgroundColour);
+					outputImg.SetPixel(x, y, c_PrettyBackgroundColour);
 				}
 
 			// Fill frames
@@ -275,7 +275,7 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 			}
 
 
-			ImagePalette palette = ImagePalette.CreateFromContent(outputImg, 16, ImagePalette.DistanceMethod.HSL, c_BackgroundColour);
+			ImagePalette palette = ImagePalette.CreateFromContent(outputImg, 16, ImagePalette.DistanceMethod.HSL, c_PrettyBackgroundColour);
 			Bitmap indexedOutputImg = palette.CreateIndexedBitmap(outputImg, 0);
 
 			indexedOutputImg.Save(indexedOutPath);
@@ -291,7 +291,7 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 			if (x < img.Width && y < img.Height)
 				outColour = img.GetPixel(x, y);
 
-			return outColour.A == 0 ? c_BackgroundColour : outColour;
+			return outColour.A == 0 ? c_PrettyBackgroundColour : outColour;
 		}
 
 		private static void SafeSplatFrom(this Bitmap dest, Bitmap source, int writeX, int writeY, int x, int y, int width, int height)

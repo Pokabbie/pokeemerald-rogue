@@ -4608,6 +4608,183 @@ static const struct SpriteFrameImage sPicTable_Rival_Trevor[] = {
     overworld_frame(gObjectEventPic_Rival_Trevor, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_Team_Flare_Grunt_F[] = {
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_F, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_F, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_F, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_F, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_F, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_F, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_F, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_F, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_F, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Flare_Grunt_M[] = {
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_M, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_M, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_M, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_M, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_M, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_M, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_M, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_M, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Flare_Grunt_M, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Flare_Lysander[] = {
+    overworld_frame(gObjectEventPic_Team_Flare_Lysander, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Flare_Lysander, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Flare_Lysander, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Flare_Lysander, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Flare_Lysander, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Flare_Lysander, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Flare_Lysander, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Flare_Lysander, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Flare_Lysander, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Galactic_Cyrus[] = {
+    overworld_frame(gObjectEventPic_Team_Galactic_Cyrus, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Galactic_Cyrus, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Galactic_Cyrus, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Galactic_Cyrus, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Galactic_Cyrus, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Galactic_Cyrus, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Galactic_Cyrus, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Galactic_Cyrus, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Galactic_Cyrus, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Galactic_Grunt_F[] = {
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_F, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_F, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_F, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_F, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_F, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_F, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_F, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_F, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_F, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Galactic_Grunt_M[] = {
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_M, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_M, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_M, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_M, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_M, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_M, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_M, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_M, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Galactic_Grunt_M, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Neo_Plasma_Colress[] = {
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Colress, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Colress, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Colress, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Colress, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Colress, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Colress, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Colress, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Colress, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Colress, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Neo_Plasma_Grunt_F[] = {
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_F, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_F, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_F, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_F, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_F, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_F, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_F, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_F, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_F, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Neo_Plasma_Grunt_M[] = {
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_M, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_M, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_M, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_M, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_M, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_M, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_M, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_M, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Neo_Plasma_Grunt_M, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Plasma_Ghetsis[] = {
+    overworld_frame(gObjectEventPic_Team_Plasma_Ghetsis, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Plasma_Ghetsis, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Plasma_Ghetsis, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Plasma_Ghetsis, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Plasma_Ghetsis, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Plasma_Ghetsis, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Plasma_Ghetsis, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Plasma_Ghetsis, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Plasma_Ghetsis, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Plasma_Grunt_F[] = {
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_F, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_F, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_F, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_F, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_F, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_F, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_F, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_F, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_F, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Plasma_Grunt_M[] = {
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_M, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_M, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_M, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_M, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_M, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_M, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_M, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_M, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Plasma_Grunt_M, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Rocket_Archer[] = {
+    overworld_frame(gObjectEventPic_Team_Rocket_Archer, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Rocket_Archer, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Rocket_Archer, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Rocket_Archer, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Rocket_Archer, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Rocket_Archer, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Rocket_Archer, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Rocket_Archer, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Rocket_Archer, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Rocket_Ariana[] = {
+    overworld_frame(gObjectEventPic_Team_Rocket_Ariana, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Rocket_Ariana, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Rocket_Ariana, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Rocket_Ariana, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Rocket_Ariana, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Rocket_Ariana, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Rocket_Ariana, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Rocket_Ariana, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Rocket_Ariana, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Rocket_Petrel[] = {
+    overworld_frame(gObjectEventPic_Team_Rocket_Petrel, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Rocket_Petrel, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Rocket_Petrel, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Rocket_Petrel, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Rocket_Petrel, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Rocket_Petrel, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Rocket_Petrel, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Rocket_Petrel, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Rocket_Petrel, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_Team_Rocket_Proton[] = {
+    overworld_frame(gObjectEventPic_Team_Rocket_Proton, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Team_Rocket_Proton, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Team_Rocket_Proton, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Team_Rocket_Proton, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Team_Rocket_Proton, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Team_Rocket_Proton, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Team_Rocket_Proton, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Team_Rocket_Proton, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Team_Rocket_Proton, 2, 4, 8),
+};
+
 static const struct SpriteFrameImage sPicTable_Glitch_Kate[] = {
     overworld_frame(gObjectEventPic_Glitch_Kate, 2, 4, 0),
     overworld_frame(gObjectEventPic_Glitch_Kate, 2, 4, 1),
