@@ -95,7 +95,7 @@ const u8 gText_DifficultyExpAll[] = _("Exp. All");
 const u8 gText_DifficultyOverLvl[] = _("Over Level");
 const u8 gText_DifficultyEVGain[] = _("EV Gain");
 const u8 gText_DifficultyOverworldMons[] = _("Visible Wild {PKMN}");
-const u8 gText_DifficultyBagWipe[] = _("Scratch Mode");
+const u8 gText_DifficultyBagWipe[] = _("True Roguelike");
 const u8 gText_DifficultySwitchMode[] = _("Switch Mode");
 
 const u8 gText_DifficultyTrainers[] = _("Trainers");
@@ -140,8 +140,8 @@ const u8 gText_DifficultyOverworldMonsDesc[] = _(
 
 const u8 gText_DifficultyBagWipeDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "All progress from outside of Runs will be\n"
-    "ignored e.g. bag will have starter items."
+    "Only your Partner {PKMN} and Key Items will\n"
+    "be taken into runs."
 );
 
 const u8 gText_DifficultySwitchModeDesc[] = _(

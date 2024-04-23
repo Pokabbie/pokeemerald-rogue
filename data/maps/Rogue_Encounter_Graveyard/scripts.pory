@@ -25,7 +25,7 @@ script Rogue_Graveyard_EnterTrigger
     applymovement(OBJ_EVENT_ID_CAMERA, Graveyard_CameraInitialFocus)
     waitmovement(0)
 
-    msgbox(format("???: One... choice..."), MSGBOX_DEFAULT)
+    msgbox(format("???: One… choice…"), MSGBOX_DEFAULT)
 
     applymovement(OBJ_EVENT_ID_CAMERA, Graveyard_CameraInitialUnfocus)
     waitmovement(0)
@@ -46,6 +46,7 @@ script Rogue_Graveyard_SelectOption_Internal {
     {
         // Remove choice
         finditem(VAR_ITEM_ID_VAL, 1)
+        call(Rogue_Common_DisplayPopups)
 
         playse(SE_THUNDER)
 
@@ -56,12 +57,15 @@ script Rogue_Graveyard_SelectOption_Internal {
         special(DoSealedChamberShakingEffect_Long)
         applymovement(NPC_DEVIL_MAN, Graveyard_Devil_Eyes)
 
-        msgbox(format("???: The price this time shall be..."), MSGBOX_DEFAULT)
+        msgbox(format("???: The price this time shall be…"), MSGBOX_DEFAULT)
 
         waitmovement(0)
 
         // Give curse item which isn't one of the charm options
         giveitem(VAR_ROGUE_ITEM10, 1)
+        call(Rogue_Common_DisplayPopups)
+
+        quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
 
         applymovement(NPC_DEVIL_MAN, Graveyard_Devil_Leave)
         waitmovement(0)

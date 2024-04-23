@@ -19,6 +19,30 @@
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_LILLIPUP",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Oh hey!\\pYou look like a strong trainer.\\pYou're {PLAYER}, you say?\\pBy the way, will you have a battle with me?\\pNothing improves your skill as a Trainer like real battles.",
+                        "POST_BATTLE_TAUNT": "Losing to you means\\nthat I still have a lot to learn.",
+                        "POST_BATTLE_CLOSER": "So learning how to use different types of Pokémon is definitely important, then.\\pI'll have to improve for our next battle.\\pWell, good luck with your Adventure, then."
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}, stop!\\pWe both have Gym Badges, so let's see which of us is stronger!",
+                        "POST_BATTLE_TAUNT": "Why do you keep beating me?",
+                        "POST_BATTLE_CLOSER": "I see.\\nSo that's how you battle.\\pI'll have to try and incorporate that into my battling style.\\pSee ya!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: You're heading off to the Pokémon League, right?\\pI need to know if you can handle it, before I let you pass!",
+                        "POST_BATTLE_TAUNT": "Thank you.\\pYou are really great.",
+                        "POST_BATTLE_CLOSER": "Yep, you are something else.\\nAnd I mean that sincerely.\\pI'm sure that you're going to do well!\\pGood luck!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\p{PLAYER}, it's difficult, isn't it?",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: When you confront yourself, you have to notice things about yourself that aren't too flattering…\\pBut even knowing my flaws, I'm going to go all out!\\pOK, {PLAYER}!\\nAccept this Pokémon battle!",
+                        "POST_BATTLE_TAUNT": "Thank you!\\nI saw what was missing in me.",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -46,6 +70,30 @@
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_MUNNA",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Ohhhhh! Hi!\\pSo you're {PLAYER}, right?\\pHey, listen!\\nLet's have a Pokémon battle!\\pPleeeease? The Pokémon I've been raising have become a little stronger!\\pReady or not, here I come!",
+                        "POST_BATTLE_TAUNT": "Aww…\\nI couldn't win…",
+                        "POST_BATTLE_CLOSER": "Woo-hoo!\\pYou are a tough cookie, {PLAYER}.\\pI'm gonna work hard on training my Pokémon so we won't lose anymore!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Heeey, {PLAYER}!\\pI'm the new-and-improved version of me!\\nIt's gonna go great this time!",
+                        "POST_BATTLE_TAUNT": "I trained and trained…\\nBut I still couldn't win…",
+                        "POST_BATTLE_CLOSER": "I'm not sure if I'll ever be a strong Trainer like you, {PLAYER}.\\pBut I can't stop now!\\pI'll be stronger next time, definitely!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: As I've been traveling lately, I've been thinking about things.\\pThings like what I can do with my life, and what I want to do, but…\\pIf I want to do research on Pokémon, I'm gonna have to know a lot about Pokémon.\\pSooooo… would you please battle me?",
+                        "POST_BATTLE_TAUNT": "The Pokémon on both sides tried sooo hard, didn't they?",
+                        "POST_BATTLE_CLOSER": "Yep!\\n{PLAYER}, you're amazing!\\pI'm really, really, really impressed!\\pI've still got so much more to learn, but I know I'm on the right path now, {PLAYER}.\\pAnyway, you know what I mean…\\nYeah… So, bye-bye!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\pWhen I was looking at my Pokédex, I realized something…",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: I met so many Pokémon during my journey.\\pI just want to learn more and more and more about the little darlings!\\pSo, {PLAYER}…\\nWill you battle with me, so I may have a chance to make my Pokémon proud?",
+                        "POST_BATTLE_TAUNT": "Thank you for having a battle with me and my Pokémon!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -69,10 +117,34 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_N",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "kanto_boss",
+                "music_player": "johto_boss",
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_ZORUA",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Your Pokémon…\\pJust now, it was saying…\\pOh…\\nCan you not hear them, either…?\\nHow sad.\\pMy name is N.\\pWell, {PLAYER}, is it?\\nLet me hear your Pokémon's voice again!",
+                        "POST_BATTLE_TAUNT": "I never expected to hear Pokémon say such things…",
+                        "POST_BATTLE_CLOSER": "As long as Pokémon are confined in Poké Balls…\\pPokémon will never become perfect beings.\\pI have to change the world for Pokémon, because they're my friends."
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: I… want to see things no one can see.\\pThe ideals of Pokémon inside Poké Balls.\\pThe truths of how Trainers should be.\\pI think my friends and I should test you to see if you can see this future, too.",
+                        "POST_BATTLE_TAUNT": "I cannot see the future yet…\\nThe world is still to be determined…",
+                        "POST_BATTLE_CLOSER": "Right now, my friends aren't strong enough to save all Pokémon.\\pSo, I need power… Power enough to make anyone agree with me."
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Many different values mix together, and the world becomes grey…\\nThat is unforgivable!\\pI will separate Pokémon and people, and black and white will be clearly distinct!\\pOnly then will Pokémon become perfect beings!\\pYes, that is my dream!\\nThat is the dream I must fulfill!",
+                        "POST_BATTLE_TAUNT": "My friends getting hurt…\\nThat's what a Pokémon battle is.",
+                        "POST_BATTLE_CLOSER": "Tsk! Why?\\pIs it impossible for me to win while feeling bad about being a Trainer?\\pAs if I could pursue my ideals with something as meaningless as a battle!\\pAs if that could make me worthy to become friends with the legendary Pokémon!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\pAh… I see.",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: I guess I shouldn't be surprised that you made it here.\\pBut now…\\pI will create the future I desire!\\pI shall sweep you before me!",
+                        "POST_BATTLE_TAUNT": "Everything's ruined. The ideals I held… The dreams Pokémon shared…",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -100,6 +172,30 @@
                 "trainer_flags": [ "REGION_UNOVA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_BOUFFALANT",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Oh, hi?\\pYou look tough!\\pAll right! Let's see how strong you are! Come at me!",
+                        "POST_BATTLE_TAUNT": "It can't be!",
+                        "POST_BATTLE_CLOSER": "Not bad…\\pYou're thinking about how to bring out your Pokémon's strength.\\pI should be able to count on you for backup!\\pI'm looking forward to next battle already!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Hi, {PLAYER}!\\pI guess it's time again.\\pTime to go all out!",
+                        "POST_BATTLE_TAUNT": "Man! I lost…",
+                        "POST_BATTLE_CLOSER": "You've become way too tough!\\pBut I'm gonna get stronger, too!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Let's see how well we've raised our Pokémon!",
+                        "POST_BATTLE_TAUNT": "I couldn't even draw out my team's real strength… How pathetic!",
+                        "POST_BATTLE_CLOSER": "Great!\\pIf we're this strong, the Elite Four is in the bag!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\pI guess it's come to this…",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: One last battle…\\pWinner takes all…\\pSo, {PLAYER}…\\pTo take the title of Champion of the Pokémon League…\\pLet's battle!",
+                        "POST_BATTLE_TAUNT": "…Phew!\\nYou're really something!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {

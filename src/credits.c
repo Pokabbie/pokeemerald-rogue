@@ -662,7 +662,7 @@ static void Task_CreditsTheEnd6(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        if(gTasks[taskId].tDelay <= 6900)
+        if(gTasks[taskId].tDelay <= 6990)
         {
             if (gTasks[taskId].tDelay == 0 || gMain.newKeys)
             {
@@ -674,7 +674,7 @@ static void Task_CreditsTheEnd6(u8 taskId)
             }
         }
 
-        if (gTasks[taskId].tDelay == 6900) // 6840)
+        if (gTasks[taskId].tDelay == 6990) // 6840)
         {
             DrawTheEnd(0x3800, 0);
             m4aSongNumStart(MUS_HG_END);
@@ -1253,6 +1253,7 @@ static void SetupRogueSprites(u8 snapshotIndex)
                     cMonTemplates[i].x, cMonTemplates[i].y - (FollowMon_IsLargeGfx(sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i]) ? 16 : 0), 
                     cMonTemplates[i].subpriority
             );
+            gSprites[spriteId].disableAnimOffsets = TRUE;
             gSprites[spriteId].oam.priority = 1;
             StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_EAST);
 
@@ -1352,14 +1353,22 @@ static void UpdateRogueSprites()
             else if(gSprites[spriteId].x2 < sRogueCreditsData->rogueSprites[i].desiredX)
                 ++gSprites[spriteId].x2;
 
-            if(sRogueCreditsData->hintAtEvos && i >= ROGUE_SPRITE_MON_START && i <= ROGUE_SPRITE_MON_END)
+            // Bobbing anim
+            if(i >= ROGUE_SPRITE_MON_START && i <= ROGUE_SPRITE_MON_END)
             {
-                // Jump to indicate an evo
-                if(
-                    sRogueCreditsData->previousPartySnapshot.partySpeciesGfx[i - ROGUE_SPRITE_MON_START] != sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i - ROGUE_SPRITE_MON_START] &&
-                    sRogueCreditsData->previousPartySnapshot.partyPersonalities[i - ROGUE_SPRITE_MON_START] == sRogueCreditsData->currentPartySnapshot.partyPersonalities[i - ROGUE_SPRITE_MON_START]
-                )
-                    gSprites[spriteId].y2 = -(((s16)frame / 4) % 2);
+                s16 bobbingAnim = ((gSprites[spriteId].animCmdIndex % 2) ? 0 : -1);
+
+                if(sRogueCreditsData->hintAtEvos && i >= ROGUE_SPRITE_MON_START && i <= ROGUE_SPRITE_MON_END)
+                {
+                    // Jump to indicate an evo
+                    if(
+                        sRogueCreditsData->previousPartySnapshot.partySpeciesGfx[i - ROGUE_SPRITE_MON_START] != sRogueCreditsData->currentPartySnapshot.partySpeciesGfx[i - ROGUE_SPRITE_MON_START] &&
+                        sRogueCreditsData->previousPartySnapshot.partyPersonalities[i - ROGUE_SPRITE_MON_START] == sRogueCreditsData->currentPartySnapshot.partyPersonalities[i - ROGUE_SPRITE_MON_START]
+                    )
+                        bobbingAnim = (bobbingAnim == 0 ? -2 : 0); // flip to make clearer
+                }
+
+                gSprites[spriteId].y2 = bobbingAnim;
             }
         }
     }

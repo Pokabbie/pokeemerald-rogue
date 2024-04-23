@@ -599,8 +599,17 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_RIVAL_VICTOR           0x119C
 #define OBJ_EVENT_PAL_TAG_RIVAL_GLORIA           0x119D
 
-#define OBJ_EVENT_PAL_TAG_MISC_PEONIA            0x119E
-#define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x119F
+#define OBJ_EVENT_PAL_TAG_TEAM_FLARE_LYSANDER     0x119E
+#define OBJ_EVENT_PAL_TAG_TEAM_GALACTIC_CYRUS     0x119F
+#define OBJ_EVENT_PAL_TAG_TEAM_NEO_PLASMA_COLRESS 0x11A0
+#define OBJ_EVENT_PAL_TAG_TEAM_PLASMA_GHETSIS     0x11A1
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARCHER      0x11A2
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARIANA      0x11A3
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PETREL      0x11A4
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PROTON      0x11A5
+
+#define OBJ_EVENT_PAL_TAG_MISC_PEONIA            0x11A6
+#define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x11A7
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
@@ -782,6 +791,15 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_PlayerSeleneBase,      OBJ_EVENT_PAL_TAG_RIVAL_SELENE},
     {gObjectEventPal_PlayerVictorBase,      OBJ_EVENT_PAL_TAG_RIVAL_VICTOR},
     {gObjectEventPal_PlayerGloriaBase,      OBJ_EVENT_PAL_TAG_RIVAL_GLORIA},
+
+    {gObjectEventPal_Team_Flare_Lysander, OBJ_EVENT_PAL_TAG_TEAM_FLARE_LYSANDER},
+    {gObjectEventPal_Team_Galactic_Cyrus, OBJ_EVENT_PAL_TAG_TEAM_GALACTIC_CYRUS},
+    {gObjectEventPal_Team_Neo_Plasma_Colress, OBJ_EVENT_PAL_TAG_TEAM_NEO_PLASMA_COLRESS},
+    {gObjectEventPal_Team_Plasma_Ghetsis, OBJ_EVENT_PAL_TAG_TEAM_PLASMA_GHETSIS},
+    {gObjectEventPal_Team_Rocket_Archer, OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARCHER},
+    {gObjectEventPal_Team_Rocket_Ariana, OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARIANA},
+    {gObjectEventPal_Team_Rocket_Petrel, OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PETREL},
+    {gObjectEventPal_Team_Rocket_Proton, OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PROTON},
 
     {gObjectEventPal_Misc_Peonia,           OBJ_EVENT_PAL_TAG_MISC_PEONIA},
     {gObjectEventPal_RouteExt,              OBJ_EVENT_PAL_TAG_ROUTE_EXT},

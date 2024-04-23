@@ -432,6 +432,23 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Silver;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Tierno;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Trevor;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Flare_Grunt_F;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Flare_Grunt_M;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Flare_Lysander;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Galactic_Cyrus;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Galactic_Grunt_F;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Galactic_Grunt_M;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Neo_Plasma_Colress;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Neo_Plasma_Grunt_F;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Neo_Plasma_Grunt_M;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Plasma_Ghetsis;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Plasma_Grunt_F;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Plasma_Grunt_M;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Rocket_Archer;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Rocket_Ariana;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Rocket_Petrel;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Rocket_Proton;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PCStand;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PhoneBooth;
@@ -942,6 +959,23 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_RIVAL_SILVER] = &gObjectEventGraphicsInfo_Rival_Silver,
     [OBJ_EVENT_GFX_RIVAL_TIERNO] = &gObjectEventGraphicsInfo_Rival_Tierno,
     [OBJ_EVENT_GFX_RIVAL_TREVOR] = &gObjectEventGraphicsInfo_Rival_Trevor,
+
+    [OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F] = &gObjectEventGraphicsInfo_Team_Flare_Grunt_F,
+    [OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M] = &gObjectEventGraphicsInfo_Team_Flare_Grunt_M,
+    [OBJ_EVENT_GFX_TEAM_FLARE_LYSANDER] = &gObjectEventGraphicsInfo_Team_Flare_Lysander,
+    [OBJ_EVENT_GFX_TEAM_GALACTIC_CYRUS] = &gObjectEventGraphicsInfo_Team_Galactic_Cyrus,
+    [OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F] = &gObjectEventGraphicsInfo_Team_Galactic_Grunt_F,
+    [OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M] = &gObjectEventGraphicsInfo_Team_Galactic_Grunt_M,
+    [OBJ_EVENT_GFX_TEAM_NEO_PLASMA_COLRESS] = &gObjectEventGraphicsInfo_Team_Neo_Plasma_Colress,
+    [OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_F] = &gObjectEventGraphicsInfo_Team_Neo_Plasma_Grunt_F,
+    [OBJ_EVENT_GFX_TEAM_NEO_PLASMA_GRUNT_M] = &gObjectEventGraphicsInfo_Team_Neo_Plasma_Grunt_M,
+    [OBJ_EVENT_GFX_TEAM_PLASMA_GHETSIS] = &gObjectEventGraphicsInfo_Team_Plasma_Ghetsis,
+    [OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F] = &gObjectEventGraphicsInfo_Team_Plasma_Grunt_F,
+    [OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M] = &gObjectEventGraphicsInfo_Team_Plasma_Grunt_M,
+    [OBJ_EVENT_GFX_TEAM_ROCKET_ARCHER] = &gObjectEventGraphicsInfo_Team_Rocket_Archer,
+    [OBJ_EVENT_GFX_TEAM_ROCKET_ARIANA] = &gObjectEventGraphicsInfo_Team_Rocket_Ariana,
+    [OBJ_EVENT_GFX_TEAM_ROCKET_PETREL] = &gObjectEventGraphicsInfo_Team_Rocket_Petrel,
+    [OBJ_EVENT_GFX_TEAM_ROCKET_PROTON] = &gObjectEventGraphicsInfo_Team_Rocket_Proton,
 
     [OBJ_EVENT_GFX_PC] =                       &gObjectEventGraphicsInfo_PC,
     [OBJ_EVENT_GFX_PC_STAND] =                 &gObjectEventGraphicsInfo_PCStand,
