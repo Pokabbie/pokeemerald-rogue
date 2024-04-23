@@ -538,6 +538,24 @@
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
                     { "quest": "True Tactics" }
                 ]
+            },
+            {
+                "name": "Mankey's Paw",
+                "description": "Make a dark deal during an Adventure…",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInMap",
+                        "params": [ "MAP_ROGUE_ENCOUNTER_GRAVEYARD" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
             }
         ]
     }
