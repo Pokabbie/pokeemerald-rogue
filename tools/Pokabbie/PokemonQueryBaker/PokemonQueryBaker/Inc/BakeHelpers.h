@@ -45,6 +45,8 @@
 #define GET_MON_COORDS_WIDTH(size)((size >> 4) * 8)
 #define GET_MON_COORDS_HEIGHT(size)((size & 0xF) * 8)
 
+#define GET_BASE_SPECIES_ID(speciesId) (gRogueSpeciesInfo[speciesId].formSpeciesIdTable != NULL ? gRogueSpeciesInfo[speciesId].formSpeciesIdTable[0] : speciesId)
+
 struct Fusion
 {
     u16 fusionStorageIndex;
