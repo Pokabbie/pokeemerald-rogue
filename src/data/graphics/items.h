@@ -40,6 +40,8 @@ const u32 gItemIconPalette_LuxuryBall[] = INCBIN_U32("graphics/items/icon_palett
 
 const u32 gItemIcon_PremierBall[] = INCBIN_U32("graphics/items/icons/premier_ball.4bpp.lz");
 
+const u32 gItemIconPalette_RogueBall[] = INCBIN_U32("graphics/items/icon_palettes/rogue_ball.gbapal.lz");
+
 // Medicine
 
 const u32 gItemIcon_Potion[] = INCBIN_U32("graphics/items/icons/potion.4bpp.lz");

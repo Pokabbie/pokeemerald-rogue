@@ -14,6 +14,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_TIMER_BALL] = {gItemIcon_TimerBall, gItemIconPalette_RepeatBall},
     [ITEM_LUXURY_BALL] = {gItemIcon_LuxuryBall, gItemIconPalette_LuxuryBall},
     [ITEM_PREMIER_BALL] = {gItemIcon_PremierBall, gItemIconPalette_LuxuryBall},
+    [ITEM_ROGUE_BALL] = {gItemIcon_PokeBall, gItemIconPalette_RogueBall},
     // Medicine
     [ITEM_POTION] = {gItemIcon_Potion, gItemIconPalette_Potion},
     [ITEM_ANTIDOTE] = {gItemIcon_Antidote, gItemIconPalette_Antidote},
@@ -56,7 +57,6 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_YELLOW_SHARD] = {gItemIcon_Shard, gItemIconPalette_YellowShard},
     [ITEM_GREEN_SHARD] = {gItemIcon_Shard, gItemIconPalette_GreenShard},
     // ????????
-    [ITEM_034] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_035] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_036] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_037] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},

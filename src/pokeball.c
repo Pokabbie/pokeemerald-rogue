@@ -56,6 +56,7 @@ static u16 GetBattlerPokeballItemId(u8 battlerId);
 #define GFX_TAG_TIMERBALL   55009
 #define GFX_TAG_LUXURYBALL  55010
 #define GFX_TAG_PREMIERBALL 55011
+#define GFX_TAG_ROGUEBALL   55012
 
 const struct CompressedSpriteSheet gBallSpriteSheets[POKEBALL_COUNT] =
 {
@@ -71,6 +72,7 @@ const struct CompressedSpriteSheet gBallSpriteSheets[POKEBALL_COUNT] =
     [BALL_TIMER]   = {gBallGfx_Timer,   384, GFX_TAG_TIMERBALL},
     [BALL_LUXURY]  = {gBallGfx_Luxury,  384, GFX_TAG_LUXURYBALL},
     [BALL_PREMIER] = {gBallGfx_Premier, 384, GFX_TAG_PREMIERBALL},
+    [BALL_ROGUE]   = {gBallGfx_Rogue,   384, GFX_TAG_ROGUEBALL},
 };
 
 const struct CompressedSpritePalette gBallSpritePalettes[POKEBALL_COUNT] =
@@ -87,6 +89,7 @@ const struct CompressedSpritePalette gBallSpritePalettes[POKEBALL_COUNT] =
     [BALL_TIMER]   = {gBallPal_Timer,   GFX_TAG_TIMERBALL},
     [BALL_LUXURY]  = {gBallPal_Luxury,  GFX_TAG_LUXURYBALL},
     [BALL_PREMIER] = {gBallPal_Premier, GFX_TAG_PREMIERBALL},
+    [BALL_ROGUE]   = {gBallPal_Rogue,   GFX_TAG_ROGUEBALL},
 };
 
 static const struct OamData sBallOamData =
@@ -318,6 +321,16 @@ const struct SpriteTemplate gBallSpriteTemplates[POKEBALL_COUNT] =
     {
         .tileTag = GFX_TAG_PREMIERBALL,
         .paletteTag = GFX_TAG_PREMIERBALL,
+        .oam = &sBallOamData,
+        .anims = sBallAnimSequences,
+        .images = NULL,
+        .affineAnims = sAffineAnim_BallRotate,
+        .callback = SpriteCB_BallThrow,
+    },
+    [BALL_ROGUE] =
+    {
+        .tileTag = GFX_TAG_ROGUEBALL,
+        .paletteTag = GFX_TAG_ROGUEBALL,
         .oam = &sBallOamData,
         .anims = sBallAnimSequences,
         .images = NULL,

@@ -169,6 +169,19 @@ const struct Item gItems[] =
         .secondaryId = ITEM_PREMIER_BALL - FIRST_BALL,
     },
 
+    [ITEM_ROGUE_BALL] =
+    {
+        .name = _("ROGUE BALL"),
+        .itemId = ITEM_ROGUE_BALL,
+        .price = 0,
+        .description = sPokeBallDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_ROGUE_BALL - FIRST_BALL,
+        .battleUsage = ITEM_B_USE_OTHER,
+        .battleUseFunc = ItemUseInBattle_PokeBall,
+        .secondaryId = ITEM_ROGUE_BALL - FIRST_BALL,
+    },
+
 // Medicine
 
     [ITEM_POTION] =
@@ -674,17 +687,6 @@ const struct Item gItems[] =
         .itemId = ITEM_GREEN_SHARD,
         .price = 200,
         .description = sGreenShardDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-    },
-
-    [ITEM_034] =
-    {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

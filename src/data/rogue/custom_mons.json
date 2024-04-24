@@ -77,6 +77,7 @@
             {
                 "species": "SPECIES_ELECTRODE",
                 "trainer": "Rndoman",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_SILK_SCARF",
                 "moves":
                 [
@@ -95,6 +96,7 @@
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_FARFETCHD",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -112,6 +114,7 @@
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_FARFETCHD",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -129,6 +132,7 @@
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_SPINARAK",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -146,6 +150,7 @@
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_SPINARAK",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -165,6 +170,7 @@
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_CASTFORM",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -182,6 +188,7 @@
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_CASTFORM",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -202,6 +209,7 @@
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_CARNIVINE",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -221,6 +229,7 @@
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_KLINK",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -240,6 +249,7 @@
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_LITLEO",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -259,6 +269,7 @@
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_DRAMPA",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -278,6 +289,7 @@
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_CLOBBOPUS",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -297,6 +309,7 @@
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_CAPSAKID",
                 "trainer": "Quests",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
@@ -317,6 +330,7 @@
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_WOBBUFFET",
                 "trainer": "Rndoman",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_LEFTOVERS",
                 "moves":
                 [
@@ -339,6 +353,7 @@
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_WOBBUFFET",
                 "trainer": "Rndoman",
+                "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_KINGS_ROCK",
                 "moves":
                 [
