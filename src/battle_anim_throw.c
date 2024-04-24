@@ -188,6 +188,7 @@ static const struct CompressedSpriteSheet sBallParticleSpriteSheets[] =
     [BALL_PARK]     = {gBattleAnimSpriteGfx_Particles,      0x100, TAG_PARTICLES_PARKBALL},
     [BALL_BEAST]    = {gBattleAnimSpriteGfx_Particles,      0x100, TAG_PARTICLES_BEASTBALL},
     [BALL_CHERISH]  = {gBattleAnimSpriteGfx_Particles2,     0x100, TAG_PARTICLES_CHERISHBALL},
+    [BALL_ROGUE]    = {gBattleAnimSpriteGfx_Particles,      0x100, TAG_PARTICLES_MASTERBALL},
 };
 
 static const struct CompressedSpritePalette sBallParticlePalettes[] =
@@ -219,6 +220,7 @@ static const struct CompressedSpritePalette sBallParticlePalettes[] =
     [BALL_PARK]     = {gBattleAnimSpritePal_CircleImpact,   TAG_PARTICLES_PARKBALL},
     [BALL_BEAST]    = {gBattleAnimSpritePal_CircleImpact,   TAG_PARTICLES_BEASTBALL},
     [BALL_CHERISH]  = {gBattleAnimSpritePal_Particles2,     TAG_PARTICLES_CHERISHBALL},
+    [BALL_ROGUE]    = {gBattleAnimSpritePal_CircleImpact,   TAG_PARTICLES_MASTERBALL},
 };
 
 static const union AnimCmd sAnim_RegularBall[] =
@@ -302,6 +304,7 @@ static const u8 sBallParticleAnimNums[POKEBALL_COUNT] =
     [BALL_PARK]    = 5,
     [BALL_BEAST]   = 5,
     [BALL_CHERISH] = 0,
+    [BALL_ROGUE]   = 1,
 };
 
 static const TaskFunc sBallParticleAnimationFuncs[POKEBALL_COUNT] =
@@ -334,6 +337,7 @@ static const TaskFunc sBallParticleAnimationFuncs[POKEBALL_COUNT] =
     [BALL_PARK]    = UltraBallOpenParticleAnimation,
     [BALL_BEAST]   = UltraBallOpenParticleAnimation,
     [BALL_CHERISH] = MasterBallOpenParticleAnimation,
+    [BALL_ROGUE]   = MasterBallOpenParticleAnimation,
 };
 
 static const struct SpriteTemplate sBallParticleSpriteTemplates[POKEBALL_COUNT] =
@@ -581,6 +585,15 @@ static const struct SpriteTemplate sBallParticleSpriteTemplates[POKEBALL_COUNT] 
         .affineAnims = gDummySpriteAffineAnimTable,
         .callback = SpriteCallbackDummy,
     },
+    [BALL_ROGUE] = {
+        .tileTag = TAG_PARTICLES_MASTERBALL,
+        .paletteTag = TAG_PARTICLES_MASTERBALL,
+        .oam = &gOamData_AffineOff_ObjNormal_8x8,
+        .anims = sAnims_BallParticles,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
 };
 
 const u16 gBallOpenFadeColors[] =
@@ -613,6 +626,7 @@ const u16 gBallOpenFadeColors[] =
     [BALL_PARK] = RGB(31, 31, 15),
     [BALL_BEAST] = RGB(31, 31, 15),
     [BALL_CHERISH] = RGB(25, 4, 3),
+    [BALL_ROGUE] = RGB(8, 8, 31),
 };
 
 const struct SpriteTemplate gPokeblockSpriteTemplate =
@@ -1007,6 +1021,8 @@ u8 ItemIdToBallId(u16 ballItem)
         return BALL_BEAST;
     case ITEM_CHERISH_BALL:
         return BALL_CHERISH;
+    case ITEM_ROGUE_BALL:
+        return BALL_ROGUE;
     default:
         return BALL_POKE;
     }

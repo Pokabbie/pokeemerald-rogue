@@ -30,6 +30,7 @@ enum
     BALL_PARK,
     BALL_BEAST,
     BALL_CHERISH,
+    BALL_ROGUE,
     POKEBALL_COUNT
 };
 

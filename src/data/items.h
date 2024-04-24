@@ -331,6 +331,17 @@ const struct Item gItems[] =
         .secondaryId = ITEM_CHERISH_BALL - FIRST_BALL,
     },
 
+    [ITEM_ROGUE_BALL] =
+    {
+        .name = _("Rogue Ball"),
+        .price = 0,
+        .description = sPokeBallDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = ITEM_ROGUE_BALL - FIRST_BALL,
+    },
+
 // Medicine
 
     [ITEM_POTION] =
