@@ -5,9 +5,11 @@
 
 struct PokemonSubstruct0
 {
-    u16 species;
-    u16 heldItem;
-    u32 experience;
+    u32 species:11; // 2047 species.
+    u32 heldItem:10; // 1023 items.
+    u32 unused_0:11;
+    u32 experience:21;
+    u32 unused_1:11;
     u8 ppBonuses;
     u8 friendship;
     u16 filler;
@@ -98,7 +100,8 @@ struct BoxPokemon
     u32 personality;
     u32 otId;
     u8 nickname[POKEMON_NAME_LENGTH];
-    u8 language;
+    u8 language:3;
+    u8 hiddenNatureModifier:5; // 31 natures.
     u8 isBadEgg:1;
     u8 hasSpecies:1;
     u8 isEgg:1;
@@ -130,6 +133,9 @@ struct Pokemon
     u16 spDefense;
     struct RoguePartyMon rogueExtraData;
 };
+
+STATIC_ASSERT(sizeof(struct BoxPokemon) == 80, SizeOfBoxPokemon);
+STATIC_ASSERT(sizeof(struct Pokemon) == 104, SizeOfPokemon);
 
 struct MonSpritesGfxManager
 {

@@ -2906,7 +2906,6 @@ static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
 {                                                               \
     u8 baseStat = gBaseStats[species].base;                     \
     s32 n = (((2 * baseStat + iv + ev / 4) * level) / 100) + 5; \
-    u8 nature = GetNature(mon);                                 \
     n = ModifyStatByNature(nature, n, statIndex);               \
     SetMonData(mon, field, &n);                                 \
 }
@@ -2930,6 +2929,8 @@ void CalculateMonStats(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
+
+    u8 nature = GetNature(mon);
 
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
@@ -3765,6 +3766,8 @@ static void ChangePersonality(struct BoxPokemon *boxMon, u32 personality)
     struct PokemonSubstruct2 srcSubstruct2;
     struct PokemonSubstruct3 srcSubstruct3;
 
+    u32 hiddenNature = GetBoxMonData(boxMon, MON_DATA_HIDDEN_NATURE, NULL);
+
     DecryptBoxMon(boxMon);
 
     // Need to copy all of the substructs as they will likely move around
@@ -3783,6 +3786,8 @@ static void ChangePersonality(struct BoxPokemon *boxMon, u32 personality)
     boxMon->checksum = CalculateBoxMonChecksum(boxMon);
 
     EncryptBoxMon(boxMon);
+
+    SetBoxMonData(boxMon, MON_DATA_HIDDEN_NATURE, &hiddenNature);
 }
 
 void SetMonPersonality(struct Pokemon* mon, u32 personality)
@@ -3962,6 +3967,12 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_CHECKSUM:
         retVal = boxMon->checksum;
         break;
+    case MON_DATA_HIDDEN_NATURE:
+    {
+        u32 nature = GetNatureFromPersonality(boxMon->personality);
+        retVal = nature ^ boxMon->hiddenNatureModifier;
+        break;
+    }
     case MON_DATA_ENCRYPT_SEPARATOR:
         retVal = boxMon->unknown;
         break;
@@ -4334,6 +4345,14 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_CHECKSUM:
         SET16(boxMon->checksum);
         break;
+    case MON_DATA_HIDDEN_NATURE:
+    {
+        u32 nature = GetNatureFromPersonality(boxMon->personality);
+        u32 hiddenNature;
+        SET8(hiddenNature);
+        boxMon->hiddenNatureModifier = nature ^ hiddenNature;
+        break;
+    }
     case MON_DATA_ENCRYPT_SEPARATOR:
         SET16(boxMon->unknown);
         break;
@@ -5661,7 +5680,8 @@ u8 *UseStatIncreaseItem(u16 itemId)
 
 u8 GetNature(struct Pokemon *mon)
 {
-    return GetNatureFromPersonality(GetMonData(mon, MON_DATA_PERSONALITY, 0));
+    u8 hiddenNature = GetMonData(mon, MON_DATA_HIDDEN_NATURE, NULL);
+    return hiddenNature;
 }
 
 void SetNature(struct Pokemon *mon, u8 nature)
@@ -5672,12 +5692,7 @@ void SetNature(struct Pokemon *mon, u8 nature)
 
 void SetNatureBoxMon(struct BoxPokemon *mon, u8 nature)
 {
-    u16 i;
-    u32 personality = GetBoxMonData(mon, MON_DATA_PERSONALITY, 0);
-    u8 origNature = GetNatureFromPersonality(personality);
-
-    personality = (personality - origNature) + nature;
-    ChangePersonality(mon, personality);
+    SetBoxMonData(mon, MON_DATA_HIDDEN_NATURE, &nature);
 }
 
 u8 GetNatureFromPersonality(u32 personality)
