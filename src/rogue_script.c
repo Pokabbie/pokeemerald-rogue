@@ -1844,3 +1844,8 @@ void Rogue_BattleSim_HandleItemMoney()
 
 #undef VAR_WAGER_PARAM0
 #undef VAR_WAGER_PARAM1
+
+void Rogue_FixPartyMonDetails()
+{
+    Rogue_CorrectMonDetails(gPlayerParty, gPlayerPartyCount);
+}
