@@ -21,6 +21,7 @@ enum {
     MON_DATA_OT_NAME,
     MON_DATA_MARKINGS,
     MON_DATA_CHECKSUM,
+    MON_DATA_HIDDEN_NATURE,
     MON_DATA_ENCRYPT_SEPARATOR,
     MON_DATA_SPECIES,
     MON_DATA_HELD_ITEM,
@@ -104,9 +105,11 @@ enum {
 
 struct PokemonSubstruct0
 {
-    /*0x00*/ u16 species;
-    /*0x02*/ u16 heldItem;
-    /*0x04*/ u32 experience;
+    u32 species:11; // 2047 species.
+    u32 heldItem:10; // 1023 items.
+    u32 unused_0:11;
+    u32 experience:21;
+    u32 unused_1:11;
     /*0x08*/ u8 ppBonuses;
     /*0x09*/ u8 friendship;
     /*0x0A*/ u16 pokeball:5; //31 balls
@@ -206,7 +209,8 @@ struct BoxPokemon
     u32 personality;
     u32 otId;
     u8 nickname[POKEMON_NAME_LENGTH];
-    u8 language;
+    u8 language:3;
+    u8 hiddenNatureModifier:5; // 31 natures.
     u8 isBadEgg:1;
     u8 hasSpecies:1;
     u8 isEgg:1;
@@ -239,6 +243,9 @@ struct Pokemon
     u16 spDefense;
     struct RoguePartyMon rogueExtraData;
 };
+
+STATIC_ASSERT(sizeof(struct BoxPokemon) == 80, SizeOfBoxPokemon);
+STATIC_ASSERT(sizeof(struct Pokemon) == 104, SizeOfPokemon);
 
 struct MonSpritesGfxManager
 {
