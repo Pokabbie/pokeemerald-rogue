@@ -7532,6 +7532,30 @@ void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hi
     }
 }
 
+void Rogue_CorrectMonDetails(struct Pokemon* party, u8 count)
+{
+    u8 i;
+
+    for(i = 0; i < count; ++i)
+    {
+        Rogue_CorrectBoxMonDetails(&party[i].box);
+    }
+}
+
+void Rogue_CorrectBoxMonDetails(struct BoxPokemon* mon)
+{
+    // Ensure OT details are updated for all slots, as they can change
+    u32 otId = GetBoxMonData(mon, MON_DATA_OT_ID, NULL);
+
+    if(!IsOtherTrainer(otId))
+    {
+        u16 gender = RoguePlayer_GetTextVariantId();
+
+        SetBoxMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
+        SetBoxMonData(mon, MON_DATA_OT_GENDER, &gender);
+    }
+}
+
 static bool8 IsRareWeightedSpecies(u16 species)
 {
     if(RoguePokedex_GetSpeciesBST(species) >= 500)

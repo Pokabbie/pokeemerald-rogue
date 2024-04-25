@@ -41,6 +41,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_controller.h"
+
 /*
     NOTE: This file is large. Some general groups of functions have
           been labeled with commented headers to make navigation easier.
@@ -6370,6 +6372,7 @@ static void SetPlacedMonData(u8 boxId, u8 position)
     if (boxId == TOTAL_BOXES_COUNT)
     {
         gPlayerParty[position] = sStorage->movingMon;
+        Rogue_CorrectMonDetails(gPlayerParty, position);
     }
     else
     {

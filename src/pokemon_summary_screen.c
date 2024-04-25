@@ -48,6 +48,7 @@
 #include "constants/songs.h"
 
 #include "rogue_baked.h"
+#include "rogue_controller.h"
 
 enum {
     PSS_PAGE_INFO,
@@ -1402,11 +1403,13 @@ static void CopyMonToSummaryStruct(struct Pokemon *mon)
     if (!sMonSummaryScreen->isBoxMon)
     {
         struct Pokemon *partyMon = sMonSummaryScreen->monList.mons;
+        Rogue_CorrectMonDetails(&partyMon[sMonSummaryScreen->curMonIndex], 1);
         *mon = partyMon[sMonSummaryScreen->curMonIndex];
     }
     else
     {
         struct BoxPokemon *boxMon = sMonSummaryScreen->monList.boxMons;
+        Rogue_CorrectBoxMonDetails(&boxMon[sMonSummaryScreen->curMonIndex]);
         BoxMonToMon(&boxMon[sMonSummaryScreen->curMonIndex], mon);
     }
 }
@@ -1415,6 +1418,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
 {
     u32 i;
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
+
     // Spread the data extraction over multiple frames.
     switch (sMonSummaryScreen->switchCounter)
     {
@@ -3256,23 +3260,20 @@ static bool8 DoesMonOTMatchOwner(void)
 {
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
     u32 trainerId;
-    u8 gender;
 
     if (sMonSummaryScreen->monList.mons == gEnemyParty)
     {
         u8 multiID = GetMultiplayerId() ^ 1;
         trainerId = gLinkPlayers[multiID].trainerId & 0xFFFF;
-        gender = gLinkPlayers[multiID].gender;
         StringCopy(gStringVar1, gLinkPlayers[multiID].name);
     }
     else
     {
         trainerId = GetPlayerIDAsU32() & 0xFFFF;
-        gender = gSaveBlock2Ptr->playerGender;
         StringCopy(gStringVar1, gSaveBlock2Ptr->playerName);
     }
 
-    if (gender != sum->OTGender || trainerId != (sum->OTID & 0xFFFF) || StringCompareWithoutExtCtrlCodes(gStringVar1, sum->OTName))
+    if (trainerId != (sum->OTID & 0xFFFF) || StringCompareWithoutExtCtrlCodes(gStringVar1, sum->OTName))
         return FALSE;
     else
         return TRUE;

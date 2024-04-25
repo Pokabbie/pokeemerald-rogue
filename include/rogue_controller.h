@@ -195,4 +195,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice);
 void Rogue_CloseMartQuery();
 void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hiddenCount, u16* moves);
 
+void Rogue_CorrectMonDetails(struct Pokemon* party, u8 count);
+void Rogue_CorrectBoxMonDetails(struct BoxPokemon* mon);
+
 #endif

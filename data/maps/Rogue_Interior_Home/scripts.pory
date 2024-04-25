@@ -86,6 +86,7 @@ script Rogue_Interior_Home_ChangeClothes
         // Fallthrough and exit
     }
 
+    special(Rogue_FixPartyMonDetails)
     releaseall
 }
 
