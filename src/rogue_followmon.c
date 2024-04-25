@@ -123,7 +123,7 @@ static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
         species = SPECIES_MINIOR;
     }
 
-    if(species >= SPECIES_ALCREMIE_RUBY_CREAM && species <= SPECIES_ALCREMIE_RAINBOW_SWIRL)
+    if((species >= SPECIES_ALCREMIE_RUBY_CREAM && species <= SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL) || (species >= SPECIES_ALCREMIE_BERRY && species <= SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL))
     {
         species = SPECIES_ALCREMIE;
     }
@@ -205,6 +205,14 @@ static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
 
     case SPECIES_ZARUDE_DADA:
         species = SPECIES_ZARUDE;
+        break;
+
+    case SPECIES_POLTCHAGEIST_ARTISAN:
+        species = SPECIES_POLTCHAGEIST;
+        break;
+
+    case SPECIES_SINISTCHA_MASTERPIECE:
+        species = SPECIES_SINISTCHA;
         break;
     }
 
