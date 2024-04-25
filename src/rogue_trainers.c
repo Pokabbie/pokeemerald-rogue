@@ -3316,6 +3316,17 @@ s16 CalulcateMonSortScore(u16 trainerNum, struct Pokemon* mon)
     {
         score += 1;
     }
+
+    // We do not want this mon to be in the last slot
+    switch (species)
+    {
+    case SPECIES_ZORUA:
+    case SPECIES_ZOROARK:
+    case SPECIES_ZORUA_HISUIAN:
+    case SPECIES_ZOROARK_HISUIAN:
+        score = max(score, 1);
+        break;
+    }
 #endif
 
     return score;
