@@ -8,6 +8,7 @@
 #include "constants/songs.h"
 #include "data.h"
 #include "decompress.h"
+#include "event_object_movement.h"
 #include "field_weather.h"
 #include "gpu_regs.h"
 #include "graphics.h"
@@ -38,6 +39,10 @@
 #include "trainer_pokemon_sprites.h"
 
 #include "constants/items.h"
+#include "constants/event_objects.h"
+
+#include "rogue_followmon.h"
+#include "rogue_timeofday.h"
 
 #if DEBUG_POKEMON_MENU == TRUE
 extern const struct BattleBackground sBattleTerrainTable[];
@@ -1089,6 +1094,7 @@ void CB2_Debug_Pokemon(void)
             DmaClear32(3, OAM, OAM_SIZE);
             DmaClear16(3, PLTT, PLTT_SIZE);
             gMain.state = 1;
+            RogueToD_SetTempDisableTimeVisuals(TRUE);
             break;
         case 1:
             ScanlineEffect_Stop();
@@ -1166,6 +1172,11 @@ void CB2_Debug_Pokemon(void)
             //Icon Sprite
             data->iconspriteId = CreateMonIcon(species, SpriteCB_MonIcon, DEBUG_ICON_X, DEBUG_ICON_Y, 4, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY), (data->isFemale ? MON_FEMALE : MON_MALE));
             gSprites[data->iconspriteId].oam.priority = 0;
+
+            //Overworld Sprite
+            FollowMon_SetGraphics(0, species, data->isShiny);
+            data->overworldSpriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_FOLLOW_MON_0, SpriteCallbackDummy, DEBUG_OVERWORLD_X, DEBUG_OVERWORLD_Y, 0);
+            gSprites[data->overworldSpriteId].oam.priority = 0;
 
             //Modify Arrows
             SetUpModifyArrows(data);
@@ -1673,6 +1684,7 @@ static void ReloadPokemonSprites(struct PokemonDebugMenu *data)
     DestroySprite(&gSprites[data->frontspriteId]);
     DestroySprite(&gSprites[data->backspriteId]);
     DestroySprite(&gSprites[data->iconspriteId]);
+    DestroySprite(&gSprites[data->overworldSpriteId]);
 
     FreeMonSpritesGfx();
     ResetSpriteData();
@@ -1717,6 +1729,11 @@ static void ReloadPokemonSprites(struct PokemonDebugMenu *data)
     data->iconspriteId = CreateMonIcon(species, SpriteCB_MonIcon, DEBUG_ICON_X, DEBUG_ICON_Y, 4, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY), (data->isFemale ? MON_FEMALE : MON_MALE));
     gSprites[data->iconspriteId].oam.priority = 0;
 
+    //Overworld Sprite
+    FollowMon_SetGraphics(0, species, data->isShiny);
+    data->overworldSpriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_FOLLOW_MON_0, SpriteCallbackDummy, DEBUG_OVERWORLD_X, DEBUG_OVERWORLD_Y, 0);
+    gSprites[data->overworldSpriteId].oam.priority = 0;
+
     //Modify Arrows
     LoadSpritePalette(&gSpritePalette_Arrow);
     data->modifyArrows.arrowSpriteId[0] = CreateSprite(&gSpriteTemplate_Arrow, MODIFY_DIGITS_ARROW_X + (data->modifyArrows.currentDigit * 6), MODIFY_DIGITS_ARROW1_Y, 0);
@@ -1750,6 +1767,7 @@ static void Exit_Debug_Pokemon(u8 taskId)
         FreeMonSpritesGfx();
         DestroyTask(taskId);
         SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
+        RogueToD_SetTempDisableTimeVisuals(FALSE);
         m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0x100);
     }
 }
