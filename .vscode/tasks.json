@@ -29,10 +29,40 @@
                 "command": "${workspaceFolder}/scripts/launch_emu_debug.bat"
             },
         },
+        { 
+            "label": "start emulator (test)",
+            "type": "shell",
+            "isBackground": true,
+            "windows": {
+                "command": "${workspaceFolder}/scripts/launch_emu_test.bat"
+            },
+        },
         {
             "label": "gdb-debug",
             "type": "shell",
             "dependsOn": ["start emulator (debug)"],
+            "isBackground": false,
+            "windows": {
+                "command": "sleep 1; echo debuggerReady"
+            },
+            "presentation": {
+                "clear": true,
+                "reveal": "always",
+                "panel": "new"
+            },
+            "command": "debuggerReady",
+            "problemMatcher": {
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*debuggerReady.*$",
+                    "endsPattern": "^.*debuggerReady.*$"
+                },
+            }
+        },
+        {
+            "label": "gdb-debug-test",
+            "type": "shell",
+            "dependsOn": ["start emulator (test)"],
             "isBackground": false,
             "windows": {
                 "command": "sleep 1; echo debuggerReady"
@@ -124,6 +154,16 @@
             [
                 "build-release",
                 "gdb-debug"
+            ]
+        },
+        { 
+            "label": "build-test & attach",
+            "type":"shell",
+            "dependsOrder": "sequence",
+            "dependsOn":
+            [
+                "build-test",
+                "gdb-debug-test"
             ]
         },
         { 
