@@ -25,7 +25,7 @@
 #include <string.h>
 #include <sys/ioctl.h>
 #include <sys/mman.h>
-#ifndef __APPLE__
+#ifdef __linux__
 #include <sys/prctl.h>
 #endif
 #include <sys/stat.h>
@@ -327,7 +327,7 @@ int main(int argc, char *argv[])
             perror("fork mgba-rom-test failed");
             exit(2);
         } else if (pid == 0) {
-            #ifndef __APPLE__
+            #ifdef __linux__
             if (prctl(PR_SET_PDEATHSIG, SIGTERM) == -1)
             {
                 perror("prctl failed");
