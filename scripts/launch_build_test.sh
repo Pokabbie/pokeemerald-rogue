@@ -1,7 +1,9 @@
 echo Working Directory: $PWD
 
-echo Running Test Build.. [make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0]
-make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0
+testToRunPrefix=""
+
+echo Running Test Build.. [make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"]
+make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"
 
 exitCode=$?
 
