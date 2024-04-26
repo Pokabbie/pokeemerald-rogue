@@ -1,6 +1,6 @@
 echo Working Directory: $PWD
-echo Running Clean..
-make clean -j12
+echo Running Clean.. [make clean -j$(nproc)]
+make clean -j$(nproc)
 
 exitCode=$?
 

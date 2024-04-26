@@ -1,6 +1,6 @@
 echo Working Directory: $PWD
-echo Running Release Build.. [make -j$(nproc) -O RELEASE=1]
-make -j$(nproc) -O RELEASE=1
+echo Running Test Build.. [make -j$(nproc) -O TEST=1 RELEASE=0]
+make -j$(nproc) -O TEST=1 RELEASE=0
 
 exitCode=$?
 
