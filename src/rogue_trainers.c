@@ -150,6 +150,10 @@ bool8 Rogue_IsBattleSimTrainer(u16 trainerNum)
 
 const struct RogueTrainer* Rogue_GetTrainer(u16 trainerNum)
 {
+#ifdef TESTING
+    // Tests always use trainer slot 0 info
+    trainerNum = 0;
+#endif
     AGB_ASSERT(trainerNum < gRogueTrainerCount);
     return &gRogueTrainers[trainerNum];
 }
