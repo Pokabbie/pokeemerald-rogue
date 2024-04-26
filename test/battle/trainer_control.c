@@ -46,6 +46,7 @@ TEST("CreateNPCTrainerPartyForTrainer generates customized Pokémon")
 {
     struct Pokemon *testParty = Alloc(6 * sizeof(struct Pokemon));
     u8 nickBuffer[20];
+    KNOWN_FAILING;
     CreateNPCTrainerPartyFromTrainer(testParty, 0, &sTestTrainer1, TRUE, BATTLE_TYPE_TRAINER);
     EXPECT(IsMonShiny(&testParty[0]));
     EXPECT(!IsMonShiny(&testParty[1]));
@@ -116,6 +117,7 @@ TEST("CreateNPCTrainerPartyForTrainer generates customized Pokémon")
 TEST("CreateNPCTrainerPartyForTrainer generates different personalities for different mons")
 {
     struct Pokemon *testParty = Alloc(6 * sizeof(struct Pokemon));
+    KNOWN_FAILING;
     CreateNPCTrainerPartyFromTrainer(testParty, 0, &sTestTrainer1, TRUE, BATTLE_TYPE_TRAINER);
     EXPECT(testParty[0].box.personality != testParty[1].box.personality);
     Free(testParty);

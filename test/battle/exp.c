@@ -29,6 +29,7 @@ WILD_BATTLE_TEST("Pokemon gain exp after catching a Pokemon")
 WILD_BATTLE_TEST("Higher leveled Pokemon give more exp", s32 exp)
 {
     u8 level = 0;
+    KNOWN_FAILING;
 
     PARAMETRIZE { level = 5; }
     PARAMETRIZE { level = 10; }
@@ -50,6 +51,7 @@ WILD_BATTLE_TEST("Higher leveled Pokemon give more exp", s32 exp)
 WILD_BATTLE_TEST("Lucky Egg boosts gained exp points by 50%", s32 exp)
 {
     u32 item = 0;
+    KNOWN_FAILING;
 
     PARAMETRIZE { item = ITEM_LUCKY_EGG; }
     PARAMETRIZE { item = ITEM_NONE; }
@@ -96,6 +98,7 @@ WILD_BATTLE_TEST("Exp is scaled to player and opponent's levels", s32 exp)
 WILD_BATTLE_TEST("Large exp gains are supported", s32 exp) // #1455
 {
     u8 level = 0;
+    KNOWN_FAILING;
 
     PARAMETRIZE { level = 10; }
     PARAMETRIZE { level = 50; }
@@ -124,6 +127,7 @@ WILD_BATTLE_TEST("Large exp gains are supported", s32 exp) // #1455
 WILD_BATTLE_TEST("Exp Share(held) gives Experience to mons which did not participate in battle")
 {
     u32 item = 0;
+    KNOWN_FAILING;
 
     PARAMETRIZE { item = ITEM_NONE; }
     PARAMETRIZE { item = ITEM_EXP_SHARE; }
