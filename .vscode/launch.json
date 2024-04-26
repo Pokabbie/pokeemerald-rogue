@@ -60,6 +60,13 @@
             "preLaunchTask": "build-release",
         },
         {
+            "name": "Build (Tests)",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/launch_stub.js",
+            "preLaunchTask": "build-test",
+        },
+        {
             "name": "Rebuild (Debug)",
             "type": "node",
             "request": "launch",
@@ -72,13 +79,6 @@
             "request": "launch",
             "program": "${workspaceFolder}/scripts/launch_stub.js",
             "preLaunchTask": "rebuild-release",
-        },
-        {
-            "name": "Build & Run Tests",
-            "type": "node",
-            "request": "launch",
-            "program": "${workspaceFolder}/scripts/launch_stub.js",
-            "preLaunchTask": "build-test",
         },
 
         {
@@ -108,6 +108,25 @@
             "serverLaunchTimeout": 20000,
             //"stopOnEntry": true,
             "program": "${workspaceRoot}/pokeemerald.elf",
+            "args":[
+                "target remote localhost:2345"
+            ],
+            "MIMode": "gdb",
+            "externalConsole": false,
+            "cwd": "${workspaceFolder}",
+            "targetArchitecture": "arm",
+            "miDebuggerServerAddress": "localhost:2345",
+            "serverStarted": "started-mgba-server",
+            "miDebuggerPath": "C:/devkitPro/devkitARM/bin/arm-none-eabi-gdb.exe"
+        },
+        {
+            "name": "Build & Attach (Test)",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "build-test & attach",
+            "serverLaunchTimeout": 20000,
+            //"stopOnEntry": true,
+            "program": "${workspaceRoot}/pokeemerald-test.elf",
             "args":[
                 "target remote localhost:2345"
             ],
