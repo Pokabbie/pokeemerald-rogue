@@ -73,6 +73,13 @@
             "program": "${workspaceFolder}/scripts/launch_stub.js",
             "preLaunchTask": "rebuild-release",
         },
+        {
+            "name": "Build & Run Tests",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/launch_stub.js",
+            "preLaunchTask": "build-test",
+        },
 
         {
             "name": "Build & Attach (Debug)",

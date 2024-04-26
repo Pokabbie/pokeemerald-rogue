@@ -1,6 +1,6 @@
 echo Working Directory: $PWD
-echo Running Debug Build..
-make -j12 RELEASE=0
+echo Running Debug Build.. [make -j$(nproc) RELEASE=0]
+make -j$(nproc) RELEASE=0
 
 exitCode=$?
 

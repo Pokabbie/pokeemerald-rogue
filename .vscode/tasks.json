@@ -77,6 +77,14 @@
             },
         },
         { 
+            "label": "build-test",
+            "type":"shell",
+            "isBackground": false,
+            "windows": {
+                "command": "${workspaceFolder}/scripts/launch_build_test.bat"
+            },
+        },
+        { 
             "label": "rebuild-debug",
             "type":"shell",
             "isBackground": false,
