@@ -9,6 +9,7 @@
 #include "m4a.h"
 #include "main.h"
 #include "sound.h"
+#include "test_runner.h"
 #include "constants/songs.h"
 
 #define AGB_PRINT_FLUSH_ADDR 0x9FE209D
@@ -305,8 +306,7 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
         MgbaPrintfBounded(MGBA_LOG_ERROR, "ASSERTION FAILED  FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
 
 #if TESTING
-        DebugPrint("Testing so Killing..");
-        asm(".hword 0xEFFF");
+        TestRunner_HandleAssertion("ASSERTION FAILED  FILE=[%s] LINE=[%d]  EXP=[%s]", pFile, nLine, pExpression);
 #else
         DebugPrint("A - Skip");
         DebugPrint("B - Break Message");

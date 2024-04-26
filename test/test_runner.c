@@ -331,6 +331,9 @@ top:
             case TEST_RESULT_CRASH:
                 result = "CRASH";
                 break;
+            case TEST_RESULT_ASSERT:
+                result = "ASSERT";
+                break;
             default:
                 result = "UNKNOWN";
                 break;
@@ -674,4 +677,16 @@ void DACSHandle(void)
     gTestRunnerState.result = TEST_RESULT_CRASH;
     ReinitCallbacks();
     DACS_LR = ((uintptr_t)JumpToAgbMainLoop & ~1) + 4;
+}
+
+#if defined(__INTELLISENSE__)
+#undef TestRunner_Battle_GetForcedAbility
+#endif
+
+void TestRunner_HandleAssertion(const char *fmt, ...)
+{
+    gTestRunnerState.state = STATE_REPORT_RESULT;
+    gTestRunnerState.result = TEST_RESULT_ASSERT;
+    ReinitCallbacks();
+    JumpToAgbMainLoop();
 }
