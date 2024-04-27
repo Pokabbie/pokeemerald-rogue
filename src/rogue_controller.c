@@ -3559,7 +3559,7 @@ static void BeginRogueRun(void)
     gRogueRun.megasEnabled = IsMegaEvolutionEnabled();
     gRogueRun.zMovesEnabled = IsZMovesEnabled();
     gRogueRun.dynamaxEnabled = IsDynamaxEnabled();
-    gRogueRun.terastallizeETnabled = IsTerastallizeEnabled();
+    gRogueRun.terastallizeEnabled = IsTerastallizeEnabled();
     // CheckBagHasItem(ITEM_DYNAMAX_BAND, 1)
 #endif
 
