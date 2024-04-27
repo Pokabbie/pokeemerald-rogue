@@ -475,6 +475,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemMegaStone;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemZCrystal;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemDynamaxBall;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemHealing;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemTeraOrb;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemTeraShard;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GoldGrass;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAlt;
@@ -1003,6 +1005,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ITEM_Z_CRYSTAL] =           &gObjectEventGraphicsInfo_ItemZCrystal,
     [OBJ_EVENT_GFX_ITEM_DYNAMAX_BALL] =        &gObjectEventGraphicsInfo_ItemDynamaxBall,
     [OBJ_EVENT_GFX_ITEM_HEALING] =             &gObjectEventGraphicsInfo_ItemHealing,
+    [OBJ_EVENT_GFX_ITEM_TERA_ORB] =            &gObjectEventGraphicsInfo_ItemTeraOrb,
+    [OBJ_EVENT_GFX_ITEM_TERA_SHARD] =          &gObjectEventGraphicsInfo_ItemTeraShard,
     [OBJ_EVENT_GFX_GOLD_GRASS] =               &gObjectEventGraphicsInfo_GoldGrass,
 
     [OBJ_EVENT_GFX_BRENDAN_ALT] =              &gObjectEventGraphicsInfo_BrendanAlt,

@@ -172,8 +172,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_MEGA_STONE",
-      "x": 1,
-      "y": 22,
+      "x": 3,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -185,8 +185,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_Z_CRYSTAL",
-      "x": 3,
-      "y": 21,
+      "x": 1,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -211,8 +211,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_HEALING",
-      "x": 9,
-      "y": 22,
+      "x": 5,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -221,6 +221,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Interior_ChallengeFrontier_HealingFlask",
       "flag": "FLAG_TEMP_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_TERA_ORB",
+      "x": 9,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Interior_ChallengeFrontier_Tera",
+      "flag": "FLAG_TEMP_5"
     }
   ],
   "warp_events": [
@@ -252,16 +265,16 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 1,
-      "y": 22,
+      "x": 3,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Rogue_Interior_ChallengeFrontier_MegaStone"
     },
     {
       "type": "sign",
-      "x": 3,
-      "y": 21,
+      "x": 1,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Rogue_Interior_ChallengeFrontier_ZCrystal"
@@ -276,11 +289,19 @@
     },
     {
       "type": "sign",
+      "x": 5,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Rogue_Interior_ChallengeFrontier_HealingFlask"
+    },
+    {
+      "type": "sign",
       "x": 9,
       "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Rogue_Interior_ChallengeFrontier_HealingFlask"
+      "script": "Rogue_Interior_ChallengeFrontier_Tera"
     }
   ]
 }

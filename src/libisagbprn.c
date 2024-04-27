@@ -313,19 +313,19 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
         DebugPrint("START - Crash Out");
         DebugPrint("SELECT - Mute Asserts");
 
-        PlaySE(SE_LOW_HEALTH);
+        PlaySE(SE_LOW_HEALTH_LOOPING);
 
         while(TRUE)
         {
             if(JOY_NEW(A_BUTTON))
             {
-                m4aSongNumStop(SE_LOW_HEALTH);
+                m4aSongNumStop(SE_LOW_HEALTH_LOOPING);
                 MgbaPrintfBounded(MGBA_LOG_ERROR, "SKIPPED");
                 break;
             }
             else if(JOY_NEW(B_BUTTON))
             {
-                m4aSongNumStop(SE_LOW_HEALTH);
+                m4aSongNumStop(SE_LOW_HEALTH_LOOPING);
                 MgbaPrintfBounded(MGBA_LOG_ERROR, "BREAK PRINT");
                 break;
             }
@@ -335,7 +335,7 @@ void MgbaAssert(const char *pFile, s32 nLine, const char *pExpression, bool32 nS
             }
             else if(JOY_HELD(SELECT_BUTTON))
             {
-                m4aSongNumStop(SE_LOW_HEALTH);
+                m4aSongNumStop(SE_LOW_HEALTH_LOOPING);
                 MgbaPrintfBounded(MGBA_LOG_ERROR, "QUICK SKIP");
                 sDebug_AssertsMuted = TRUE;
                 break;

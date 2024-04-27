@@ -4963,6 +4963,14 @@ static const struct SpriteFrameImage sPicTable_ItemHealing[] = {
     obj_frame_tiles(gObjectEventPic_ItemHealing),
 };
 
+static const struct SpriteFrameImage sPicTable_ItemTeraOrb[] = {
+    obj_frame_tiles(gObjectEventPic_ItemTeraOrb),
+};
+
+static const struct SpriteFrameImage sPicTable_ItemTeraShard[] = {
+    obj_frame_tiles(gObjectEventPic_ItemTeraShard),
+};
+
 static const struct SpriteFrameImage sPicTable_GoldGrass[] = {
     obj_frame_tiles(gObjectEventPic_GoldGrass),
 };
