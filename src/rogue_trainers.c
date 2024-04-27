@@ -60,6 +60,7 @@ struct TrainerTemp
 {
 #ifdef ROGUE_EXPANSION
     u8 dynamaxSlot;
+    u8 teraSlot;
 #else
     u8 pad;
 #endif
@@ -679,7 +680,7 @@ bool8 Rogue_ShouldTrainerBeSmart(u16 trainerNum)
     return FALSE;
 }
 
-static bool8 ShouldDynamaxBestSlot(u16 trainerNum)
+static bool8 ShouldBattleGimicBestSlot(u16 trainerNum)
 {
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
@@ -714,7 +715,10 @@ bool8 Rogue_ShouldTrainerSaveAceMon(u16 trainerNum)
 {
     // Ensure we don't send out the dynamax mon too early
     if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
-        return !ShouldDynamaxBestSlot(trainerNum);
+        return !ShouldBattleGimicBestSlot(trainerNum);
+
+    if(IsTerastallizeEnabled() && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE))
+        return !ShouldBattleGimicBestSlot(trainerNum);
 
     return FALSE;
 }
@@ -723,32 +727,36 @@ bool8 Rogue_ShouldDynamaxMon(u16 trainerNum, u8 slot, u8 numOthersAlive)
 {
 #if TESTING
     // Test use different mechanism
-    return FALSE;
+    // always fail below
 #elif defined(ROGUE_EXPANSION)
-    // If all other mons have fainted just bail and dynamax now
-    if(numOthersAlive == 0)
-        return TRUE;
+    if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
+    {
+        // If all other mons have fainted just bail and dynamax now
+        if(numOthersAlive == 0)
+            return TRUE;
 
-    return (sTrainerTemp.dynamaxSlot == slot);
-#else
-    return FALSE;
+        return (sTrainerTemp.dynamaxSlot == slot);
+    }
 #endif
+    return FALSE;
 }
 
 bool8 Rogue_ShouldTerastallizeMon(u16 trainerNum, u8 slot, u8 numOthersAlive)
 {
 #if TESTING
     // Test use different mechanism
-    return FALSE;
+    // always fail below
 #elif defined(ROGUE_EXPANSION)
-    // If all other mons have fainted just bail and dynamax now
-    if(numOthersAlive == 0)
-        return TRUE;
+    if(IsTerastallizeEnabled() && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE))
+    {
+        // If all other mons have fainted just bail and dynamax now
+        if(numOthersAlive == 0)
+            return TRUE;
 
-    return (sTrainerTemp.dynamaxSlot == slot);
-#else
-    return FALSE;
+        return (sTrainerTemp.teraSlot == slot);
+    }
 #endif
+    return FALSE;
 }
 
 bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum)
@@ -1796,6 +1804,40 @@ static bool8 ShouldTrainerUseValidNatures(u16 trainerNum)
 
     case DIFFICULTY_LEVEL_HARD:
         if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
+            return TRUE;
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_BRUTAL:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 ShouldTrainerUseValidTeraTypes(u16 trainerNum)
+{
+    u8 difficulty = Rogue_GetCurrentDifficulty();
+
+    if(Rogue_GetModeRules()->forceEndGameTrainers)
+    {
+        difficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
+    }
+
+    if(!Rogue_IsKeyTrainer(trainerNum))
+        return FALSE;
+
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
+    {
+    case DIFFICULTY_LEVEL_EASY:
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_AVERAGE:
+        if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
+            return TRUE;
+        return FALSE;
+
+    case DIFFICULTY_LEVEL_HARD:
+        if(difficulty >= ROGUE_GYM_MID_DIFFICULTY - 3)
             return TRUE;
         return FALSE;
 
@@ -3180,6 +3222,9 @@ static void ModifyTrainerMonPreset(u16 trainerNum, struct RoguePokemonCompetitiv
 
     if(!ShouldTrainerUseValidNatures(trainerNum))
         presetRules->skipNature = TRUE;
+
+    if(!ShouldTrainerUseValidTeraTypes(trainerNum))
+        presetRules->skipTeraType = TRUE;
 }
 
 static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party)
@@ -3221,7 +3266,7 @@ s16 CalulcateMonSortScore(u16 trainerNum, struct Pokemon* mon)
     }
 
     // If we're going to dynamax the last mon, move gigantamax mons to final slot to make us see them more often
-    if(IsDynamaxEnabled() && !ShouldDynamaxBestSlot(trainerNum))
+    if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE) && !ShouldBattleGimicBestSlot(trainerNum))
     {
         u32 i;
         struct FormChange formChange;
@@ -3241,6 +3286,22 @@ s16 CalulcateMonSortScore(u16 trainerNum, struct Pokemon* mon)
             }
         }
     }
+
+    // If we're going to tera the last mon, move unique tera-type mons to final slot to make us see them more often
+    if(IsTerastallizeEnabled() && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE) && !ShouldBattleGimicBestSlot(trainerNum))
+    {
+        u16 teraType = GetMonData(mon, MON_DATA_TERA_TYPE, NULL);
+
+        if(
+            GET_BASE_SPECIES_ID(species) == SPECIES_TERAPAGOS ||
+            GET_BASE_SPECIES_ID(species) == SPECIES_OGERPON
+        )
+            score -= 20;
+
+        if(RoguePokedex_GetSpeciesType(species, 0) != teraType && RoguePokedex_GetSpeciesType(species, 1) != teraType)
+            score -= 20;
+    }
+
 #endif
 
     if(RoguePokedex_IsSpeciesLegendary(species))
@@ -3440,6 +3501,13 @@ static u16 CalculateDynamaxScore(struct Pokemon *mon)
     )
         return 0;
 
+    // Ban mega rayquaza
+    if(IsMegaEvolutionEnabled() && GET_BASE_SPECIES_ID(species) == SPECIES_RAYQUAZA)
+    {
+        if(MonKnowsMove(mon, MOVE_DRAGON_ASCENT))
+            return 0;
+    }
+
     // Initial score is BST so we generally will pick the strongest mon
     score = RoguePokedex_GetSpeciesBST(species);
 
@@ -3466,6 +3534,48 @@ static u16 CalculateDynamaxScore(struct Pokemon *mon)
 
     return score;
 }
+
+static u16 CalculateTerastallizeScore(struct Pokemon *mon)
+{
+    u16 score;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u16 item = GetMonData(mon, MON_DATA_HELD_ITEM);
+
+    // Ignore any banned items
+    if(
+        (item == ITEM_RED_ORB || item == ITEM_BLUE_ORB) ||
+        (item >= ITEM_VENUSAURITE && item <= ITEM_DIANCITE) ||
+        (item >= ITEM_NORMALIUM_Z && item <= ITEM_ULTRANECROZIUM_Z)
+    )
+        return 0;
+
+    // Ban mega rayquaza
+    if(IsMegaEvolutionEnabled() && GET_BASE_SPECIES_ID(species) == SPECIES_RAYQUAZA)
+    {
+        if(MonKnowsMove(mon, MOVE_DRAGON_ASCENT))
+            return 0;
+    }
+
+    // Initial score is BST so we generally will pick the strongest mon
+    score = RoguePokedex_GetSpeciesBST(species);
+
+    // Prefer these species as they have unique interactions
+    if(
+        GET_BASE_SPECIES_ID(species) == SPECIES_TERAPAGOS ||
+        GET_BASE_SPECIES_ID(species) == SPECIES_OGERPON
+    )
+        score += 200;
+
+    // Choose mons with unique tera types ideally
+    {
+        u16 teraType = GetMonData(mon, MON_DATA_TERA_TYPE, NULL);
+
+        if(RoguePokedex_GetSpeciesType(species, 0) != teraType && RoguePokedex_GetSpeciesType(species, 1) != teraType)
+            score += 100;
+    }
+
+    return score;
+}
 #endif
 
 static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCount)
@@ -3473,10 +3583,11 @@ static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCo
 #ifdef ROGUE_EXPANSION
     // Assign default and handle above
     sTrainerTemp.dynamaxSlot = PARTY_SIZE;
+    sTrainerTemp.teraSlot = PARTY_SIZE;
 
     if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
     {
-        if(ShouldDynamaxBestSlot(trainerNum))
+        if(ShouldBattleGimicBestSlot(trainerNum))
         {
             u8 i;
             u16 score;
@@ -3496,6 +3607,31 @@ static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCo
         else
         {
             sTrainerTemp.dynamaxSlot = monCount - 1;
+        }
+    }
+
+    if(IsTerastallizeEnabled() && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE))
+    {
+        if(ShouldBattleGimicBestSlot(trainerNum))
+        {
+            u8 i;
+            u16 score;
+            u16 highestScore = CalculateTerastallizeScore(&party[0]);
+            sTrainerTemp.teraSlot = 0;
+
+            for(i = 1; i < monCount; ++i)
+            {
+                score = CalculateTerastallizeScore(&party[i]);
+                if(score >= highestScore)
+                {
+                    highestScore = score;
+                    sTrainerTemp.teraSlot = i;
+                }
+            }
+        }
+        else
+        {
+            sTrainerTemp.teraSlot = monCount - 1;
         }
     }
 #endif

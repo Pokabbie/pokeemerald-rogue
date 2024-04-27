@@ -337,19 +337,14 @@ namespace PokemonDataGenerator.Pokedex
 
 					if (!GameDataHelpers.IsVanillaVersion)
 					{
-						// For now teach hidden power over tera blast
-						if (CanLearnMove("MOVE_TERA_BLAST"))
+						// if we can learn hidden power or tera blast, we actually can have both
+						if (CanLearnMove("MOVE_TERA_BLAST") || CanLearnMove("MOVE_HIDDEN_POWER"))
 						{
-							if(CanLearnMove("MOVE_HIDDEN_POWER"))
-							{
-								// Already have hidden power so just erase tera blast
-								EraseMove("MOVE_TERA_BLAST");
-							}
-							else
-							{
-								// Replace tera with hidden power
-								ReplaceMove("MOVE_TERA_BLAST", "MOVE_HIDDEN_POWER");
-							}
+							if (!TutorMoves.Contains("MOVE_TERA_BLAST"))
+								TutorMoves.Add("MOVE_TERA_BLAST");
+
+							if (!TutorMoves.Contains("MOVE_HIDDEN_POWER"))
+								TutorMoves.Add("MOVE_HIDDEN_POWER");
 						}
 
 						// Replace all instances of hail with snowscape
@@ -384,9 +379,6 @@ namespace PokemonDataGenerator.Pokedex
 							{
 								switch (moveName)
 								{
-									case "MOVE_TERA_BLAST":
-										compSet.Moves[m] = "MOVE_HIDDEN_POWER";
-										break;
 									case "MOVE_HAIL":
 										compSet.Moves[m] = "MOVE_SNOWSCAPE";
 										break;
@@ -420,6 +412,7 @@ namespace PokemonDataGenerator.Pokedex
 			public string Item;
 			public string Nature;
 			public string HiddenPower;
+			public string TeraType;
 			public List<string> SourceTiers = new List<string>();
 
 			public bool IsCompatibleWith(PokemonCompetitiveSet other)
@@ -431,6 +424,8 @@ namespace PokemonDataGenerator.Pokedex
 				if (Nature != other.Nature)
 					return false;
 				if (HiddenPower != other.HiddenPower)
+					return false;
+				if (TeraType != other.TeraType)
 					return false;
 
 				if (Moves.Count != other.Moves.Count)
@@ -485,6 +480,15 @@ namespace PokemonDataGenerator.Pokedex
 						throw new InvalidDataException();
 				}
 
+				if (json.ContainsKey("teraType"))
+				{
+					output.TeraType = json["teraType"].Value<string>().Trim();
+					output.TeraType = "TYPE_" + GameDataHelpers.FormatKeyword(output.TeraType);
+
+					if (!GameDataHelpers.TypesDefines.ContainsKey(output.TeraType))
+						throw new InvalidDataException();
+				}
+
 				foreach (var move in json["moves"])
 				{
 					string moveName = move.Value<string>();
@@ -494,31 +498,6 @@ namespace PokemonDataGenerator.Pokedex
 						output.HiddenPower = moveName.Substring("Hidden Power".Length).Trim();
 						output.HiddenPower = "TYPE_" + GameDataHelpers.FormatKeyword(output.HiddenPower);
 						moveName = "Hidden Power";
-
-						if (!GameDataHelpers.TypesDefines.ContainsKey(output.HiddenPower))
-							throw new InvalidDataException();
-					}
-					// As we are replacing tera blast with hidden power for now, pull out the hidden power here
-					else if (moveName.StartsWith("Tera Blast", StringComparison.CurrentCultureIgnoreCase))
-					{
-						moveName = "Hidden Power";
-
-						if (json.ContainsKey("teraType"))
-						{
-							output.HiddenPower = json["teraType"].Value<string>().Trim();
-							output.HiddenPower = "TYPE_" + GameDataHelpers.FormatKeyword(output.HiddenPower);
-
-							if(output.HiddenPower == "TYPE_STELLAR")
-							{
-								// Not provided by data so expect runtime to just chose the primary type
-								output.HiddenPower = "TYPE_MYSTERY";
-							}
-						}
-						else
-						{
-							// Not provided by data so expect runtime to just chose the primary type
-							output.HiddenPower = "TYPE_MYSTERY";
-						}
 
 						if (!GameDataHelpers.TypesDefines.ContainsKey(output.HiddenPower))
 							throw new InvalidDataException();
@@ -1233,6 +1212,13 @@ namespace PokemonDataGenerator.Pokedex
 
 					if (compSet.HiddenPower != null)
 						upperBlock.AppendLine($"\t\t.hiddenPowerType={compSet.HiddenPower},");
+					else
+						upperBlock.AppendLine($"\t\t.hiddenPowerType=TYPE_NONE,");
+
+					if (compSet.TeraType != null)
+						upperBlock.AppendLine($"\t\t.teraType={compSet.TeraType},");
+					else
+						upperBlock.AppendLine($"\t\t.teraType=TYPE_NONE,");
 
 					if (compSet.Nature != null)
 						upperBlock.AppendLine($"\t\t.nature={compSet.Nature},");
