@@ -1,7 +1,6 @@
 echo Working Directory: $PWD
 
 testToRunPrefix=""
-testToRunPrefix="Damage calculation matches"
 
 echo Running Test Build.. [make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"]
 make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"

@@ -150,7 +150,7 @@ bool8 Rogue_IsBattleSimTrainer(u16 trainerNum)
 
 const struct RogueTrainer* Rogue_GetTrainer(u16 trainerNum)
 {
-#ifdef TESTING
+#if TESTING
     // Tests always use trainer slot 0 info
     trainerNum = 0;
 #endif
@@ -721,7 +721,26 @@ bool8 Rogue_ShouldTrainerSaveAceMon(u16 trainerNum)
 
 bool8 Rogue_ShouldDynamaxMon(u16 trainerNum, u8 slot, u8 numOthersAlive)
 {
-#ifdef ROGUE_EXPANSION
+#if TESTING
+    // Test use different mechanism
+    return FALSE;
+#elif defined(ROGUE_EXPANSION)
+    // If all other mons have fainted just bail and dynamax now
+    if(numOthersAlive == 0)
+        return TRUE;
+
+    return (sTrainerTemp.dynamaxSlot == slot);
+#else
+    return FALSE;
+#endif
+}
+
+bool8 Rogue_ShouldTerastallizeMon(u16 trainerNum, u8 slot, u8 numOthersAlive)
+{
+#if TESTING
+    // Test use different mechanism
+    return FALSE;
+#elif defined(ROGUE_EXPANSION)
     // If all other mons have fainted just bail and dynamax now
     if(numOthersAlive == 0)
         return TRUE;

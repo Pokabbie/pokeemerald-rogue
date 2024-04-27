@@ -838,6 +838,7 @@ struct moveWithPP {
 #define Friendship(friendship) Friendship_(__LINE__, friendship)
 #define Status1(status1) Status1_(__LINE__, status1)
 #define OTName(otName) do {static const u8 otName_[] = _(otName); OTName_(__LINE__, otName_);} while (0)
+#define TeraType(teraType) TeraType_(__LINE__, teraType)
 
 void OpenPokemon(u32 sourceLine, u32 side, u32 species);
 void ClosePokemon(u32 sourceLine);
@@ -862,6 +863,7 @@ void MovesWithPP_(u32 sourceLine, struct moveWithPP moveWithPP[MAX_MON_MOVES]);
 void Friendship_(u32 sourceLine, u32 friendship);
 void Status1_(u32 sourceLine, u32 status1);
 void OTName_(u32 sourceLine, const u8 *otName);
+void TeraType_(u32 sourceLine, u32 teraType);
 
 // Created for easy use of EXPECT_MOVES, so the user can provide 1, 2, 3 or 4 moves for AI which can pass the test.
 struct FourMoves
@@ -933,6 +935,8 @@ struct MoveContext
     // TODO: u8 zMove:1;
     u16 dynamax:1;
     u16 explicitDynamax:1;
+    u16 tera:1;
+    u16 explicitTera:1;
     u16 allowed:1;
     u16 explicitAllowed:1;
     u16 notExpected:1; // Has effect only with EXPECT_MOVE

@@ -534,6 +534,8 @@ extern const u8 BattleScript_EffectRaiseCritAlliesAnim[];
 extern const u8 BattleScript_EffectHealOneSixthAllies[];
 extern const u8 BattleScript_EffectCureStatusAllies[];
 extern const u8 BattleScript_EffectRecycleBerriesAllies[];
+extern const u8 BattleScript_LowerAtkSpAtk[];
+extern const u8 BattleScript_Terastallization[];
 
 // dynamax and max raids
 extern const u8 BattleScript_DynamaxBegins[];

@@ -2458,6 +2458,19 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
                     | (substruct3->worldRibbon << 26);
             }
             break;
+        case MON_DATA_TERA_TYPE:
+        {
+            if (substruct0->teraType == 0)
+            {
+                const u8 *types = gSpeciesInfo[substruct0->species].types;
+                retVal = (boxMon->personality & 0x1) == 0 ? types[0] : types[1];
+            }
+            else
+            {
+                retVal = substruct0->teraType - 1;
+            }
+            break;
+        }
         default:
             break;
         }
@@ -2838,6 +2851,13 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             substruct3->speedIV = (ivs >> 15) & MAX_IV_MASK;
             substruct3->spAttackIV = (ivs >> 20) & MAX_IV_MASK;
             substruct3->spDefenseIV = (ivs >> 25) & MAX_IV_MASK;
+            break;
+        }
+        case MON_DATA_TERA_TYPE:
+        {
+            u32 teraType;
+            SET8(teraType);
+            substruct0->teraType = 1 + teraType;
             break;
         }
         default:
@@ -6293,6 +6313,9 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
     struct PokemonSubstruct3 *old3, *new3;
     struct BoxPokemon old;
 
+    u32 hiddenNature = GetBoxMonData(boxMon, MON_DATA_HIDDEN_NATURE, NULL);
+    u32 teraType = GetBoxMonData(boxMon, MON_DATA_TERA_TYPE, NULL);
+
     old = *boxMon;
     old0 = &(GetSubstruct(&old, old.personality, 0)->type0);
     old1 = &(GetSubstruct(&old, old.personality, 1)->type1);
@@ -6312,6 +6335,9 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
     *new3 = *old3;
     boxMon->checksum = CalculateBoxMonChecksum(boxMon);
     EncryptBoxMon(boxMon);
+
+    SetBoxMonData(boxMon, MON_DATA_HIDDEN_NATURE, &hiddenNature);
+    SetBoxMonData(boxMon, MON_DATA_TERA_TYPE, &teraType);
 }
 
 u16 GetCryIdBySpecies(u16 species)

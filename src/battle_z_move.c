@@ -379,7 +379,9 @@ static u16 GetTypeBasedZMove(u16 move, u8 battler)
     u8 moveType = gBattleMoves[move].type;
 
     // Get z move from type
-    if (moveType < TYPE_FIRE)
+    if (moveType == TYPE_STELLAR)
+        return MOVE_BREAKNECK_BLITZ;
+    else if (moveType < TYPE_FIRE)
         return MOVE_BREAKNECK_BLITZ + moveType;
     else if (moveType >= TYPE_FAIRY)
         return MOVE_TWINKLE_TACKLE + (moveType - TYPE_FAIRY);

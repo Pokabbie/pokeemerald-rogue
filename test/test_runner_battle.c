@@ -1719,6 +1719,12 @@ void OTName_(u32 sourceLine, const u8 *otName)
     SetMonData(DATA.currentMon, MON_DATA_OT_NAME, &otName);
 }
 
+void TeraType_(u32 sourceLine, u32 teraType)
+{
+    INVALID_IF(!DATA.currentMon, "TeraType outside of PLAYER/OPPONENT");
+    SetMonData(DATA.currentMon, MON_DATA_TERA_TYPE, &teraType);
+}
+
 static const char *const sBattlerIdentifiersSingles[] =
 {
     "player",
@@ -1989,6 +1995,9 @@ void MoveGetIdAndSlot(s32 battlerId, struct MoveContext *ctx, u32 *moveId, u32 *
 
     if (ctx->explicitDynamax && ctx->dynamax)
         *moveSlot |= RET_DYNAMAX;
+
+    if (ctx->explicitTera && ctx->tera)
+        *moveSlot |= RET_TERASTAL;
 }
 
 void Move(u32 sourceLine, struct BattlePokemon *battler, struct MoveContext ctx)
@@ -2188,6 +2197,8 @@ void ExpectMoves(u32 sourceLine, struct BattlePokemon *battler, bool32 notExpect
             ctx.move = moves.moves[i];
             ctx.explicitMove = ctx.explicitNotExpected = TRUE;
             ctx.notExpected = notExpected;
+            //ctx.dynamax = FALSE;
+            //ctx.tera = FALSE;
             TryMarkExpectMove(sourceLine, battler, &ctx);
         }
     }

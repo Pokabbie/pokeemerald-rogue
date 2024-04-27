@@ -579,9 +579,12 @@ static void OpponentHandleChooseMove(u32 battler)
                     // If opponent can Ultra Burst, do it.
                     else if (CanUltraBurst(battler))
                         BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, (chosenMoveId) | (RET_ULTRA_BURST) | (gBattlerTarget << 8));
-                    // If opponent can Dynamax and is on final Pokemon, do it.
-                    else if (CanDynamax(battler) && Rogue_ShouldDynamaxMon(gTrainerBattleOpponent_A, gBattlerPartyIndexes[battler], CountAIAliveNonEggMonsExcept(gBattlerPartyIndexes[battler])))
+                    // If opponent can Dynamax and is allowed in the partydata, do it.
+                    else if (CanDynamax(battler) && AI_DATA->shouldDynamax[battler])
                         BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, (chosenMoveId) | (RET_DYNAMAX) | (gBattlerTarget << 8));
+                    // If opponent can Terastal and is allowed in the partydata, do it.
+                    else if (CanTerastallize(battler) && AI_DATA->shouldTerastal[battler])
+                        BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, (chosenMoveId) | (RET_TERASTAL) | (gBattlerTarget << 8));
                     else
                         BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, (chosenMoveId) | (gBattlerTarget << 8));
                 }

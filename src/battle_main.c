@@ -328,6 +328,7 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_DRAGON] = _("Dragon"),
     [TYPE_DARK] = _("Dark"),
     [TYPE_FAIRY] = _("Fairy"),
+    [TYPE_STELLAR] = _("Stelr"),
 };
 
 // This is a factor in how much money you get for beating a trainer.
@@ -4256,6 +4257,7 @@ static void HandleTurnActionSelectionState(void)
                     gBattleStruct->mega.toEvolve &= ~(gBitTable[BATTLE_PARTNER(GetBattlerPosition(battler))]);
                     gBattleStruct->burst.toBurst &= ~(gBitTable[BATTLE_PARTNER(GetBattlerPosition(battler))]);
                     gBattleStruct->dynamax.toDynamax &= ~(gBitTable[BATTLE_PARTNER(GetBattlerPosition(battler))]);
+                    gBattleStruct->tera.toTera &= ~(gBitTable[BATTLE_PARTNER(GetBattlerPosition(battler))]);
                     gBattleStruct->dynamax.usingMaxMove[BATTLE_PARTNER(GetBattlerPosition(battler))] = FALSE;
                     gBattleStruct->zmove.toBeUsed[BATTLE_PARTNER(GetBattlerPosition(battler))] = MOVE_NONE;
                     BtlController_EmitEndBounceEffect(battler, BUFFER_A);
@@ -4346,7 +4348,7 @@ static void HandleTurnActionSelectionState(void)
                             }
 
                             // Get the chosen move position (and thus the chosen move) and target from the returned buffer.
-                            gBattleStruct->chosenMovePositions[battler] = gBattleResources->bufferB[battler][2] & ~(RET_MEGA_EVOLUTION | RET_ULTRA_BURST | RET_DYNAMAX);
+                            gBattleStruct->chosenMovePositions[battler] = gBattleResources->bufferB[battler][2] & ~(RET_MEGA_EVOLUTION | RET_ULTRA_BURST | RET_DYNAMAX | RET_TERASTAL);
                             gChosenMoveByBattler[battler] = gBattleMons[battler].moves[gBattleStruct->chosenMovePositions[battler]];
                             gBattleStruct->moveTarget[battler] = gBattleResources->bufferB[battler][3];
 
@@ -4357,6 +4359,8 @@ static void HandleTurnActionSelectionState(void)
                                 gBattleStruct->burst.toBurst |= gBitTable[battler];
                             else if (gBattleResources->bufferB[battler][2] & RET_DYNAMAX)
                                 gBattleStruct->dynamax.toDynamax |= gBitTable[battler];
+                            else if (gBattleResources->bufferB[battler][2] & RET_TERASTAL)
+                                gBattleStruct->tera.toTera |= gBitTable[battler];
 
                             // Max Move check
                             if (ShouldUseMaxMove(battler, gChosenMoveByBattler[battler]))
@@ -4985,7 +4989,8 @@ static void PopulateArrayWithBattlers(u8 *battlers)
 static bool32 TryDoGimmicksBeforeMoves(void)
 {
     if (!(gHitMarker & HITMARKER_RUN)
-        && (gBattleStruct->mega.toEvolve || gBattleStruct->burst.toBurst || gBattleStruct->dynamax.toDynamax))
+        && (gBattleStruct->mega.toEvolve || gBattleStruct->burst.toBurst 
+            || gBattleStruct->dynamax.toDynamax || gBattleStruct->tera.toTera))
     {
         u32 i, battler;
         u8 order[MAX_BATTLERS_COUNT];
@@ -4994,6 +4999,17 @@ static bool32 TryDoGimmicksBeforeMoves(void)
         SortBattlersBySpeed(order, FALSE);
         for (i = 0; i < gBattlersCount; i++)
         {
+            // Tera Check
+            if (gBattleStruct->tera.toTera & gBitTable[order[i]])
+            {
+                gBattlerAttacker = order[i];
+                gBattleScripting.battler = gBattlerAttacker;
+                gBattleStruct->tera.toTera &= ~(gBitTable[gBattlerAttacker]);
+                PrepareBattlerForTera(gBattlerAttacker);
+                PREPARE_TYPE_BUFFER(gBattleTextBuff1, GetBattlerTeraType(gBattlerAttacker));
+                BattleScriptExecute(BattleScript_Terastallization);
+                return TRUE;
+            }
             // Dynamax Check
             if (gBattleStruct->dynamax.toDynamax & gBitTable[order[i]])
             {
@@ -5655,7 +5671,9 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
     }
     else if (gBattleMoves[move].effect == EFFECT_REVELATION_DANCE)
     {
-        if (gBattleMons[battlerAtk].type1 != TYPE_MYSTERY)
+        if (IsTerastallized(battlerAtk) && GetBattlerTeraType(battlerAtk) != TYPE_STELLAR)
+            gBattleStruct->dynamicMoveType = GetBattlerTeraType(battlerAtk);
+        else if (gBattleMons[battlerAtk].type1 != TYPE_MYSTERY)
             gBattleStruct->dynamicMoveType = gBattleMons[battlerAtk].type1 | F_DYNAMIC_TYPE_SET;
         else if (gBattleMons[battlerAtk].type2 != TYPE_MYSTERY)
             gBattleStruct->dynamicMoveType = gBattleMons[battlerAtk].type2 | F_DYNAMIC_TYPE_SET;
@@ -5690,6 +5708,10 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
                 gBattleStruct->dynamicMoveType = TYPE_NORMAL | F_DYNAMIC_TYPE_SET;
         }
     }
+    else if (gBattleMoves[move].effect == EFFECT_TERA_BLAST && IsTerastallized(battlerAtk))
+    {
+        gBattleStruct->dynamicMoveType = GetBattlerTeraType(battlerAtk) | F_DYNAMIC_TYPE_SET;
+    }
 
     attackerAbility = GetBattlerAbility(battlerAtk);
 
@@ -5698,6 +5720,7 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
              && gBattleMoves[move].effect != EFFECT_WEATHER_BALL
              && gBattleMoves[move].effect != EFFECT_CHANGE_TYPE_ON_ITEM
              && gBattleMoves[move].effect != EFFECT_NATURAL_GIFT
+             && !(gBattleMoves[move].effect == EFFECT_TERA_BLAST && IsTerastallized(battlerAtk))
              && ((attackerAbility == ABILITY_PIXILATE && (ateType = TYPE_FAIRY))
                  || (attackerAbility == ABILITY_REFRIGERATE && (ateType = TYPE_ICE))
                  || (attackerAbility == ABILITY_AERILATE && (ateType = TYPE_FLYING))
