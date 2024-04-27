@@ -454,7 +454,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFocusEnergy             @ EFFECT_DRAGON_CHEER
 	.4byte BattleScript_EffectHit                     @ EFFECT_LAST_RESPECTS
 	.4byte BattleScript_EffectTidyUp                  @ EFFECT_TIDY_UP
-	.4byte BattleScript_EffectPhotonGeyser            @ EFFECT_TERA_BLAST
+	.4byte BattleScript_EffectTeraBlast               @ EFFECT_TERA_BLAST
 
 BattleScript_EffectGlaiveRush::
 	call BattleScript_EffectHit_Ret
@@ -1327,6 +1327,11 @@ BattleScript_EffectShellSideArm:
 	goto BattleScript_EffectHit
 
 BattleScript_EffectPhotonGeyser:
+	setphotongeysercategory
+	goto BattleScript_EffectHit
+
+BattleScript_EffectTeraBlast:
+	setmoveeffect MOVE_EFFECT_TERA_BLAST
 	setphotongeysercategory
 	goto BattleScript_EffectHit
 
