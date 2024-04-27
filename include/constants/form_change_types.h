@@ -120,7 +120,11 @@
 // param1: status
 #define FORM_CHANGE_STATUS                      20
 
+// Form change that activates when terastallized as as a specific type
+// param1: tera type
+#define FORM_CHANGE_BATTLE_TERASTALLIZATION     21
+
 // Form dynamic disable stub
-#define FORM_CHANGE_DISABLED_STUB                        21
+#define FORM_CHANGE_DISABLED_STUB                        22
 
 #endif // GUARD_CONSTANTS_FORM_CHANGE_TYPES_H

@@ -2460,14 +2460,19 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             break;
         case MON_DATA_TERA_TYPE:
         {
-            if (substruct0->teraType == 0)
-            {
-                const u8 *types = gSpeciesInfo[substruct0->species].types;
-                retVal = (boxMon->personality & 0x1) == 0 ? types[0] : types[1];
-            }
+            if(gSpeciesInfo[substruct0->species].forceTeraType != TYPE_NONE && gSpeciesInfo[substruct0->species].forceTeraType != 0)
+                retVal = gSpeciesInfo[substruct0->species].forceTeraType - 1;
             else
             {
-                retVal = substruct0->teraType - 1;
+                if (substruct0->teraType == 0)
+                {
+                    const u8 *types = gSpeciesInfo[substruct0->species].types;
+                    retVal = (boxMon->personality & 0x1) == 0 ? types[0] : types[1];
+                }
+                else
+                {
+                    retVal = substruct0->teraType - 1;
+                }
             }
             break;
         }

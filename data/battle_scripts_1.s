@@ -494,6 +494,21 @@ BattleScript_Terastallization::
 	waitanimation
 	end3
 
+BattleScript_TeraFormChange::
+	@ TODO: no string prints in S/V, but right now this helps with clarity
+	printstring STRINGID_PKMNTERASTALLIZEDINTO
+	@ TODO: replace this animation
+	playanimation BS_ATTACKER, B_ANIM_TOTEM_FLARE
+	waitanimation
+	handleformchange BS_ATTACKER, 0
+	handleformchange BS_ATTACKER, 1
+	playanimation BS_ATTACKER, B_ANIM_FORM_CHANGE
+	waitanimation
+	copybyte sBATTLER, gBattlerAttacker
+	handleformchange BS_ATTACKER, 2
+	switchinabilities BS_ATTACKER
+	end3
+
 BattleScript_LowerAtkSpAtk::
 	jumpifstat BS_EFFECT_BATTLER, CMP_GREATER_THAN, STAT_ATK, MIN_STAT_STAGE, BattleScript_LowerAtkSpAtkDoAnim
 	jumpifstat BS_EFFECT_BATTLER, CMP_EQUAL, STAT_SPATK, MIN_STAT_STAGE, BattleScript_LowerAtkSpAtkEnd

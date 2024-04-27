@@ -331,7 +331,7 @@ struct SpeciesInfo /*0x8C*/
  /* 0x05 */ u8 baseSpDefense;
  /* 0x06 */ u8 types[2];
  /* 0x08 */ u8 catchRate;
- /* 0x09 */ u8 padding1;
+ /* 0x09 */ u8 forceTeraType;
  /* 0x0A */ u16 expYield; // expYield was changed from u8 to u16 for the new Exp System.
  /* 0x0C */ u16 evYield_HP:2;
             u16 evYield_Attack:2;
@@ -400,6 +400,7 @@ struct SpeciesInfo /*0x8C*/
             u32 isPrimalReversion:1;
             u32 isUltraBurst:1;
             u32 isGigantamax:1;
+            u32 isTeraForm:1;
             u32 isAlolanForm:1;
             u32 isGalarianForm:1;
             u32 isHisuianForm:1;
@@ -407,7 +408,7 @@ struct SpeciesInfo /*0x8C*/
             u32 cannotBeTraded:1;
             u32 allPerfectIVs:1;
             u32 dexForceRequired:1; // This species will be taken into account for Pokédex ratings even if they have the "isMythical" flag set.
-            u32 padding4:17;
+            u32 padding4:16;
             // Move Data
  /* 0x88 */ const struct Evolution *evolutions;
  /* 0x84 */ const u16 *formSpeciesIdTable;
