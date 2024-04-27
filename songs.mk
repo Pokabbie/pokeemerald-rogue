@@ -1311,6 +1311,9 @@ $(MID_SUBDIR)/se_rotating_gate.s: %.s: %.mid
 $(MID_SUBDIR)/se_low_health.s: %.s: %.mid
 	$(MID) $< $@ -E -G127 -V100 -P3
 
+$(MID_SUBDIR)/se_low_health_looping.s: %.s: %.mid
+	$(MID) $< $@ -E -G127 -V100 -P3
+
 $(MID_SUBDIR)/se_i.s: %.s: %.mid
 	$(MID) $< $@ -E -G128 -V120 -P4
 
