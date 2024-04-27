@@ -1542,23 +1542,25 @@ void ClosePokemon(u32 sourceLine)
             INVALID_IF(GetMonData(DATA.currentMon, MON_DATA_HP) == 0, "Battlers cannot be fainted");
         }
     }
-    UpdateMonPersonality(&DATA.currentMon->box, GenerateNature(DATA.nature, DATA.gender % NUM_NATURES) | DATA.gender);
+    UpdateMonPersonality(&DATA.currentMon->box, GenerateNature(DATA.nature, 0));
     DATA.currentMon = NULL;
 }
 
 void Gender_(u32 sourceLine, u32 gender)
 {
+    u8 flag = (gender == MON_MALE) ? 1 : 0;
     const struct SpeciesInfo *info;
     INVALID_IF(!DATA.currentMon, "Gender outside of PLAYER/OPPONENT");
     info = &gSpeciesInfo[GetMonData(DATA.currentMon, MON_DATA_SPECIES)];
+
+    SetMonData(DATA.currentMon, MON_DATA_GENDER_FLAG, &flag);
+
     switch (gender)
     {
     case MON_MALE:
-        DATA.gender = 0xFF;
         INVALID_IF(info->genderRatio == MON_GENDERLESS || info->genderRatio == MON_FEMALE, "Illegal male");
         break;
     case MON_FEMALE:
-        DATA.gender = 0x00;
         INVALID_IF(info->genderRatio == MON_GENDERLESS || info->genderRatio == MON_MALE, "Illegal female");
         break;
     case MON_GENDERLESS:

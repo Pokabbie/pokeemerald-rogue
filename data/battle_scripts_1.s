@@ -10868,10 +10868,8 @@ BattleScript_RaiseCritAlliesLoop:
 	setstatchanger STAT_ATK, 0, FALSE @ for animation
 	setgraphicalstatchangevalues
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
-	swapattackerwithtarget
 	printstring STRINGID_PKMNGETTINGPUMPED
 	waitmessage B_WAIT_TIME_LONG
-	swapattackerwithtarget
 BattleScript_RaiseCritAlliesIncrement:
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	jumpifbytenotequal gBattlerTarget, gBattlerAttacker, BattleScript_RaiseCritAlliesEnd
