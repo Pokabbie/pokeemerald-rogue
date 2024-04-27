@@ -603,6 +603,7 @@ struct RoguePokemonCompetitiveSet
     u16 heldItem;
     u16 ability;
     u8 hiddenPowerType;
+    u8 teraType;
     u8 nature;
 };
 
@@ -612,6 +613,7 @@ struct RoguePokemonCompetitiveSetRules
     bool8 skipHeldItem : 1;
     bool8 skipAbility : 1;
     bool8 skipHiddenPowerType : 1;
+    bool8 skipTeraType : 1;
     bool8 skipNature : 1;
     bool8 allowMissingMoves : 1;
 };

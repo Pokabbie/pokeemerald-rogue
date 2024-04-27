@@ -5244,7 +5244,14 @@ static void SetupTrainerBattleInternal(u16 trainerNum)
     else
         FlagClear(FLAG_ROGUE_TERASTALLIZE_BATTLE);
 
-    // todo - safety for if tera and dynamax are both active (maybe it just 50/50 selects one?)
+    // Only allow one to be active at once, but make it random
+    if(FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE) && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE))
+    {
+        if(RogueRandom() % 2)
+            FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
+        else
+            FlagClear(FLAG_ROGUE_TERASTALLIZE_BATTLE);
+    }
 
     switch(Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT))
     {
@@ -6241,6 +6248,17 @@ void Rogue_ApplyMonCompetitiveSet(struct Pokemon* mon, u8 level, struct RoguePok
 
     move = useMaxHappiness ? MAX_FRIENDSHIP : 0;
     SetMonData(mon, MON_DATA_FRIENDSHIP, &move);
+
+#ifdef ROGUE_EXPANSION
+    if(!rules->skipTeraType)
+    {
+        u32 teraType = preset->teraType;
+        if(teraType != TYPE_NONE)
+        {
+            SetMonData(mon, MON_DATA_TERA_TYPE, &teraType);
+        }
+    }
+#endif
 
     if(!rules->skipHiddenPowerType)
     {
