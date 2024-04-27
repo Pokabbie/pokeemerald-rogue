@@ -14,6 +14,8 @@
 #include "constants/hold_effects.h"
 #include "constants/rgb.h"
 
+#include "rogue_controller.h"
+
 // Sets flags and variables upon a battler's Terastallization.
 void PrepareBattlerForTera(u32 battler)
 {
@@ -45,6 +47,9 @@ void PrepareBattlerForTera(u32 battler)
 bool32 CanTerastallize(u32 battler)
 {
     u32 holdEffect = GetBattlerHoldEffect(battler, FALSE);
+
+    if(!IsTerastallizeEnabled())
+        return FALSE;
 
     // Check if Player has Tera Orb and has charge.
     if (B_FLAG_TERA_ORB_CHARGED != 0
