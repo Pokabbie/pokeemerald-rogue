@@ -267,6 +267,22 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
         outEvo->method = EVO_NONE;
     }
 
+    if(species == SPECIES_BASCULIN_WHITE_STRIPED && (evoIdx == 0 || evoIdx == 1))
+    {
+        if(evoIdx == 0)
+        {
+            outEvo->targetSpecies = SPECIES_BASCULEGION_MALE;
+            outEvo->method = EVO_LEVEL_MALE;
+            outEvo->param = 36;
+        }
+        else if(evoIdx == 1)
+        {
+            outEvo->targetSpecies = SPECIES_BASCULEGION_FEMALE;
+            outEvo->method = EVO_LEVEL_FEMALE;
+            outEvo->param = 36;
+        }
+    }
+
     // Alola evos
     if(
         (species == SPECIES_PIKACHU && evoIdx == 1) ||
