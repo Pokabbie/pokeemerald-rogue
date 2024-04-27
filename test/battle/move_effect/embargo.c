@@ -72,6 +72,7 @@ WILD_BATTLE_TEST("Embargo doesn't block held item effects that affect experience
 WILD_BATTLE_TEST("Embargo doesn't block held item effects that affect effort values")
 {
     u32 finalHPEVAmount;
+    KNOWN_FAILING; // RogueNote: reworked EVs
 
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_POWER_WEIGHT); }

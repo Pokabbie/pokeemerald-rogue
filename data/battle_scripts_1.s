@@ -1331,7 +1331,7 @@ BattleScript_EffectPhotonGeyser:
 	goto BattleScript_EffectHit
 
 BattleScript_EffectTeraBlast:
-	setmoveeffect MOVE_EFFECT_TERA_BLAST
+	setmoveeffect MOVE_EFFECT_TERA_BLAST | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	setphotongeysercategory
 	goto BattleScript_EffectHit
 
