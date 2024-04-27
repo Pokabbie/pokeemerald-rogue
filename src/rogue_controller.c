@@ -4858,6 +4858,10 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                         {
                             objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_MINT;
                         }
+                        else if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
+                        {
+                            objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_TERA_SHARD;
+                        }
 #endif
                         else if(Rogue_IsEvolutionItem(itemId))
                         {

@@ -2,6 +2,7 @@ const FLAG_HIDE_MEGA_STONE      = FLAG_TEMP_1
 const FLAG_HIDE_Z_CRYSTAL       = FLAG_TEMP_2
 const FLAG_HIDE_DYNAMAX         = FLAG_TEMP_3
 const FLAG_HIDE_HEALTH_FLASK    = FLAG_TEMP_4
+const FLAG_HIDE_TERA            = FLAG_TEMP_5
 
 const VAR_MAP_LOAD_STATE = VAR_TEMP_0
 
@@ -9,6 +10,7 @@ const NPC_OBJ_MEGA_STONE    = 13
 const NPC_OBJ_Z_CRYSTAL     = 14
 const NPC_OBJ_DYNAMAX       = 15
 const NPC_OBJ_HEALTH_FLASK  = 16
+const NPC_OBJ_TERA_ORB      = 17
 
 mapscripts Rogue_Interior_ChallengeFrontier_MapScripts
 {
@@ -80,6 +82,16 @@ script Rogue_Interior_ChallengeFrontier_UpdateItemVisibility
             else
             {
                 addobject(NPC_OBJ_DYNAMAX)
+            }
+
+            checkitem(ITEM_TERA_ORB)
+            if(var(VAR_RESULT) == YES)
+            {
+                removeobject(NPC_OBJ_TERA_ORB)
+            }
+            else
+            {
+                addobject(NPC_OBJ_TERA_ORB)
             }
         }
     }
@@ -195,6 +207,29 @@ script Rogue_Interior_ChallengeFrontier_ZCrystal
     release
 }
 
+script Rogue_Interior_ChallengeFrontier_TryWarnAboutDynamaxAndTera
+{
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            // do nothing
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            checkitem(ITEM_DYNAMAX_BAND)
+            if(var(VAR_RESULT) == YES)
+            {
+                checkitem(ITEM_TERA_ORB)
+                if(var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("Warning…\pYou are holding both the Dynamax Band and the Tera Orb.\pBoth of these cannot be activated at once.\pSo, at the start of battles where they would be active, one of them of them will be randomly selected to be active and the other will be temporarily deactivated."))
+                }
+            }
+        }
+    }
+}
+
 script Rogue_Interior_ChallengeFrontier_Dynamax
 {
     lock
@@ -227,12 +262,64 @@ script Rogue_Interior_ChallengeFrontier_Dynamax
                 {
                     case 0: // Yes
                         giveitem(ITEM_DYNAMAX_BAND)
+                        call(Rogue_Interior_ChallengeFrontier_TryWarnAboutDynamaxAndTera)
 
                     case 1: // No
                         setvar(VAR_RESULT, NO)
 
                     case 2: // Info
                         msgbox(format("Grants you and other Key Trainer's (e.g. Strong Trainers, Rivals) the ability to Dynamax or Gigantamax, if the Pokémon has a Gigantamax form available."), MSGBOX_DEFAULT)
+
+                    case MULTI_B_PRESSED:
+                        setvar(VAR_RESULT, NO)
+                }
+            }
+            call(Rogue_Interior_ChallengeFrontier_UpdateItemVisibility)
+        }
+    }
+
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_Tera
+{
+    lock
+
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            msgbox(format("It's a Tera Orb!\pThis item is only avaliable in Emerald Rogue EX version."))
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            checkitem(ITEM_TERA_ORB)
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("Would you like to put back the Tera Orb?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    removeitem(ITEM_TERA_ORB)
+                }
+            }
+            else
+            {
+                message("Would you like to take the Tera Orb?")
+                waitmessage
+
+                multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+                switch(var(VAR_RESULT))
+                {
+                    case 0: // Yes
+                        giveitem(ITEM_TERA_ORB)
+                        call(Rogue_Interior_ChallengeFrontier_TryWarnAboutDynamaxAndTera)
+
+                    case 1: // No
+                        setvar(VAR_RESULT, NO)
+
+                    case 2: // Info
+                        msgbox(format("Grants you and other Key Trainer's (e.g. Strong Trainers, Rivals) the ability to Terastallize."), MSGBOX_DEFAULT)
 
                     case MULTI_B_PRESSED:
                         setvar(VAR_RESULT, NO)
