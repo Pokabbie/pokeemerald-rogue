@@ -2192,7 +2192,7 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
 
 bool8 IsMegaEvolutionEnabled(void)
 {
-#if defined(TESTING) && defined(ROGUE_EXPANSION)
+#if TESTING && defined(ROGUE_EXPANSION)
     // todo - once we have Rogue specific tests, should come up with a good way to make this testable
     return TRUE;
 #elif defined(ROGUE_EXPANSION)
@@ -2208,7 +2208,7 @@ bool8 IsMegaEvolutionEnabled(void)
 
 bool8 IsZMovesEnabled(void)
 {
-#if defined(TESTING) && defined(ROGUE_EXPANSION)
+#if TESTING && defined(ROGUE_EXPANSION)
     // todo - once we have Rogue specific tests, should come up with a good way to make this testable
     return TRUE;
 #elif defined(ROGUE_EXPANSION)
@@ -2223,7 +2223,7 @@ bool8 IsZMovesEnabled(void)
 
 bool8 IsDynamaxEnabled(void)
 {
-#if defined(TESTING) && defined(ROGUE_EXPANSION)
+#if TESTING && defined(ROGUE_EXPANSION)
     // todo - once we have Rogue specific tests, should come up with a good way to make this testable
     return TRUE;
 #elif defined(ROGUE_EXPANSION)

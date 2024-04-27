@@ -15,6 +15,9 @@
 #define ROGUE_DEBUG_LOGGING
 #endif
 
+#ifndef TESTING
+#define TESTING 0
+#endif
 
 // Seems to be slower overall
 //#define ROGUE_FEATURE_HQ_RANDOM 1
