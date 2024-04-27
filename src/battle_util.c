@@ -116,6 +116,7 @@ static const u16 sSkillSwapBannedAbilities[] =
     ABILITY_HUNGER_SWITCH,
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
+    ABILITY_TERA_SHIFT,
 };
 
 static const u16 sRolePlayBannedAbilities[] =
@@ -142,6 +143,7 @@ static const u16 sRolePlayBannedAbilities[] =
     ABILITY_HUNGER_SWITCH,
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
+    ABILITY_TERA_SHIFT,
 
     ABILITY_FORECAST_DRIZZLE,
     ABILITY_FORECAST_DROUGHT,
@@ -163,6 +165,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
     ABILITY_ICE_FACE,
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
+    ABILITY_TERA_SHIFT,
 };
 
 static const u16 sWorrySeedBannedAbilities[] =
@@ -180,6 +183,7 @@ static const u16 sWorrySeedBannedAbilities[] =
     ABILITY_ICE_FACE,
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
+    ABILITY_TERA_SHIFT,
 };
 
 static const u16 sGastroAcidBannedAbilities[] =
@@ -199,6 +203,7 @@ static const u16 sGastroAcidBannedAbilities[] =
     ABILITY_STANCE_CHANGE,
     ABILITY_ZEN_MODE,
     ABILITY_ZERO_TO_HERO,
+    ABILITY_TERA_SHIFT,
 };
 
 static const u16 sEntrainmentBannedAttackerAbilities[] =
@@ -218,6 +223,7 @@ static const u16 sEntrainmentBannedAttackerAbilities[] =
     ABILITY_HUNGER_SWITCH,
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
+    ABILITY_TERA_SHIFT,
 
     ABILITY_FORECAST_DRIZZLE,
     ABILITY_FORECAST_DROUGHT,
@@ -238,6 +244,7 @@ static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
     ABILITY_ICE_FACE,
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
+    ABILITY_TERA_SHIFT,
 };
 
 static u8 CalcBeatUpPower(void)
@@ -1034,6 +1041,7 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_TRACE] = 1,
     [ABILITY_ZEN_MODE] = 1,
     [ABILITY_ZERO_TO_HERO] = 1,
+    [ABILITY_TERA_SHIFT] = 1,
 
     [ABILITY_FORECAST_DRIZZLE] = 1,
     [ABILITY_FORECAST_DROUGHT] = 1,
@@ -6388,6 +6396,7 @@ bool32 IsNeutralizingGasBannedAbility(u32 ability)
     case ABILITY_AS_ONE_ICE_RIDER:
     case ABILITY_AS_ONE_SHADOW_RIDER:
     case ABILITY_ZERO_TO_HERO:
+    case ABILITY_TERA_SHIFT:
         return TRUE;
     default:
         return FALSE;
