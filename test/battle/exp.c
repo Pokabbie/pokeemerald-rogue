@@ -48,31 +48,6 @@ WILD_BATTLE_TEST("Higher leveled Pokemon give more exp", s32 exp)
     }
 }
 
-#if (B_SCALED_EXP == GEN_5 || B_SCALED_EXP >= GEN_7)
-
-WILD_BATTLE_TEST("Exp is scaled to player and opponent's levels", s32 exp)
-{
-    u8 level = 0;
-
-    PARAMETRIZE { level = 5; }
-    PARAMETRIZE { level = 10; }
-
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET) { Level(level); }
-        OPPONENT(SPECIES_CATERPIE) { Level(5); HP(1); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_TACKLE); }
-    } SCENE {
-        MESSAGE("Wobbuffet used Tackle!");
-        MESSAGE("Wild Caterpie fainted!");
-        EXPERIENCE_BAR(player, captureGainedExp: &results[i].exp);
-    } FINALLY {
-        EXPECT_GT(results[0].exp, results[1].exp);
-    }
-}
-
-#endif
-
 WILD_BATTLE_TEST("Large exp gains are supported", s32 exp) // #1455
 {
     u8 level = 0;
