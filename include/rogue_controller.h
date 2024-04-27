@@ -87,6 +87,7 @@ bool8 Rogue_IsItemEnabled(u16 item);
 bool8 IsMegaEvolutionEnabled(void);
 bool8 IsZMovesEnabled(void);
 bool8 IsDynamaxEnabled(void);
+bool8 IsTerastallizeEnabled(void);
 
 void Rogue_RandomiseStarters();
 void Rogue_ResetConfigHubSettings(void);
