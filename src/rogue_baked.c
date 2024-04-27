@@ -657,7 +657,7 @@ void Rogue_ModifyFormChange(u16 species, u8 changeIdx, struct FormChange* outFor
 
 const u8* Rogue_GetTrainerName(u16 trainerNum)
 {
-#if defined(TESTING)
+#if TESTING
     // Keep compat with EE tests
     return gText_TrainerName_Leaf;
 #elif !defined(ROGUE_BAKING)

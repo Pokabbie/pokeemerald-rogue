@@ -20,7 +20,7 @@
 //
 
 // (uncomment to enable)
-#if defined(ROGUE_DEBUG) && !defined(TESTING)
+#if defined(ROGUE_DEBUG) && !TESTING
 //#define DEBUG_FEATURE_MEMORY_STOMP_TRACKING
 #define DEBUG_FEATURE_FRAME_TIMERS
 #endif
