@@ -193,6 +193,7 @@ static const u8 sText_Mega[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Mega Evolutio
 static const u8 sText_Primal[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Primal Reversion");
 static const u8 sText_UltraBurst[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Ultra Burst");
 static const u8 sText_Gigantamax[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Gigantamax");
+static const u8 sText_TeraForm[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Tera Form");
 static const u8 sText_Debug[] = _("{COLOR RED}{SHADOW LIGHT_RED}DEBUG VIEW ONLY");
 
 static const u8 sText_NoFormData[] = _("{COLOR RED}{SHADOW LIGHT_RED}No Form data found");
@@ -965,9 +966,6 @@ static bool8 IsDebugAltForm(u16 species)
             return TRUE;
     }
 
-    if(species >= SPECIES_OGERPON_TEAL_MASK_TERA && species <= SPECIES_OGERPON_CORNERSTONE_MASK_TERA)
-        return TRUE;
-
     switch (species)
     {
     case SPECIES_PICHU_SPIKY_EARED:
@@ -978,7 +976,6 @@ static bool8 IsDebugAltForm(u16 species)
     case SPECIES_ETERNATUS_ETERNAMAX:
     case SPECIES_ZARUDE_DADA:
     case SPECIES_GIMMIGHOUL_ROAMING:
-    case SPECIES_TERAPAGOS_STELLAR:
         return TRUE;
     }
 #endif
@@ -994,6 +991,9 @@ static bool8 IsAltFormVisible(u16 baseForm, u16 altForm)
 #ifdef ROGUE_EXPANSION
     // catch case like toxtricity where we have an alt dynamax form not in form change table
     if(gSpeciesInfo[altForm].isGigantamax && !IsDynamaxEnabled())
+        return FALSE;
+
+    if(gSpeciesInfo[altForm].isTeraForm && !IsTerastallizeEnabled())
         return FALSE;
 
     // Hide punching form until the reveal
@@ -1865,6 +1865,10 @@ static void DisplayMonFormsText()
                 else if(gSpeciesInfo[formTable[i]].isGigantamax)
                 {
                     AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_Gigantamax);
+                }
+                else if(gSpeciesInfo[formTable[i]].isTeraForm)
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 35, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, sText_TeraForm);
                 }
                 else if(GET_BASE_SPECIES_ID(sPokedexMenu->viewBaseSpecies) == formTable[i])
                 {
@@ -3865,6 +3869,9 @@ u16 RoguePokedex_RedirectSpeciesGetSetFlag(u16 species)
     if(species >= SPECIES_TATSUGIRI_CURLY && species <= SPECIES_TATSUGIRI_STRETCHY)
         return SPECIES_TATSUGIRI;
 
+    if(species >= SPECIES_OGERPON_TEAL_MASK && species <= SPECIES_OGERPON_CORNERSTONE_MASK_TERA)
+        return SPECIES_OGERPON;
+
     switch (species)
     {
     case SPECIES_PICHU_SPIKY_EARED:
@@ -3879,6 +3886,8 @@ u16 RoguePokedex_RedirectSpeciesGetSetFlag(u16 species)
     case SPECIES_DUDUNSPARCE_THREE_SEGMENT:
     case SPECIES_POLTCHAGEIST_ARTISAN:
     case SPECIES_SINISTCHA_MASTERPIECE:
+    case SPECIES_TERAPAGOS_STELLAR:
+    case SPECIES_TERAPAGOS_TERASTAL:
     case SPECIES_WOBBUFFET_PUNCHING:
         return GET_BASE_SPECIES_ID(species);
     }
