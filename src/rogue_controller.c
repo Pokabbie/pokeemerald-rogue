@@ -2236,6 +2236,21 @@ bool8 IsDynamaxEnabled(void)
 #endif
 }
 
+bool8 IsTerastallizeEnabled(void)
+{
+#if TESTING && defined(ROGUE_EXPANSION)
+    // todo - once we have Rogue specific tests, should come up with a good way to make this testable
+    return TRUE;
+#elif defined(ROGUE_EXPANSION)
+    if(Rogue_IsRunActive())
+        return gRogueRun.terastallizeEnabled; // cached result
+    else
+        return CheckBagHasItem(ITEM_TERA_ORB, 1);
+#else
+    return FALSE;
+#endif
+}
+
 #if defined(ROGUE_DEBUG)
 
 u16 Debug_MiniMenuHeight(void)
@@ -3544,6 +3559,7 @@ static void BeginRogueRun(void)
     gRogueRun.megasEnabled = IsMegaEvolutionEnabled();
     gRogueRun.zMovesEnabled = IsZMovesEnabled();
     gRogueRun.dynamaxEnabled = IsDynamaxEnabled();
+    gRogueRun.terastallizeETnabled = IsTerastallizeEnabled();
     // CheckBagHasItem(ITEM_DYNAMAX_BAND, 1)
 #endif
 
@@ -3616,6 +3632,7 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_RUN_COMPLETED);
     FlagClear(FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP);
     FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
+    FlagClear(FLAG_ROGUE_TERASTALLIZE_BATTLE);
 
     FlagSet(FLAG_ROGUE_DAYCARE_PHONE_CHARGED);
 
@@ -5221,6 +5238,14 @@ static void SetupTrainerBattleInternal(u16 trainerNum)
     else
         FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
 
+    // enable tera for this fight
+    if(IsTerastallizeEnabled() && Rogue_IsKeyTrainer(trainerNum))
+        FlagSet(FLAG_ROGUE_TERASTALLIZE_BATTLE);
+    else
+        FlagClear(FLAG_ROGUE_TERASTALLIZE_BATTLE);
+
+    // todo - safety for if tera and dynamax are both active (maybe it just 50/50 selects one?)
+
     switch(Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT))
     {
         case BATTLE_FORMAT_SINGLES:
@@ -5551,6 +5576,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
     TryRestorePartyHeldItems(FALSE);
     FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
+    FlagClear(FLAG_ROGUE_TERASTALLIZE_BATTLE);
     CheckAndNotifyForFaintedMons();
     RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_END);
 

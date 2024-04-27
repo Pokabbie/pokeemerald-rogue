@@ -300,6 +300,7 @@ struct RogueRunData
     u8 megasEnabled : 1;
     u8 zMovesEnabled : 1;
     u8 dynamaxEnabled : 1;
+    u8 terastallizeEnabled : 1;
 #endif
     bool8 isQuickSaveValid : 1;
     bool8 hasPendingRivalBattle : 1;
