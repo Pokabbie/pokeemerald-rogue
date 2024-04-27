@@ -1603,10 +1603,11 @@ void Level_(u32 sourceLine, u32 level)
 {
     // TODO: Preserve any explicitly-set stats.
     u32 species = GetMonData(DATA.currentMon, MON_DATA_SPECIES);
+    u32 exp = Rogue_ModifyExperienceTables(gSpeciesInfo[species].growthRate, level);
     INVALID_IF(!DATA.currentMon, "Level outside of PLAYER/OPPONENT");
     INVALID_IF(level == 0 || level > MAX_LEVEL, "Illegal level: %d", level);
     SetMonData(DATA.currentMon, MON_DATA_LEVEL, &level);
-    SetMonData(DATA.currentMon, MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][level]);
+    SetMonData(DATA.currentMon, MON_DATA_EXP, &exp);
     CalculateMonStats(DATA.currentMon);
 }
 
