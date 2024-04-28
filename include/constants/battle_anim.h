@@ -405,6 +405,7 @@
 #define ANIM_TAG_SYRUP_SHELL_YELLOW         (ANIM_SPRITES_START + 391)
 #define ANIM_TAG_SYRUP_SPLAT_RED            (ANIM_SPRITES_START + 392)
 #define ANIM_TAG_SYRUP_SPLAT_YELLOW         (ANIM_SPRITES_START + 393)
+#define ANIM_TAG_TERASTALLIZATION_CRYSTALS  (ANIM_SPRITES_START + 394)
 
 // battlers
 #define ANIM_ATTACKER         0
@@ -563,6 +564,7 @@
 #define B_ANIM_RAINBOW                  42
 #define B_ANIM_SEA_OF_FIRE              43
 #define B_ANIM_SWAMP                    44
+#define B_ANIM_TERASTALLIZATION         45
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

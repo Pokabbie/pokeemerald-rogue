@@ -1213,6 +1213,18 @@ const struct SpriteTemplate gMegaSymbolSpriteTemplate =
     .callback = AnimGhostStatusSprite,
 };
 
+
+const struct SpriteTemplate gTerastallizationCrystalSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TERASTALLIZATION_CRYSTALS,
+    .paletteTag = ANIM_TAG_TERASTALLIZATION_CRYSTALS,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_LusterPurgeCircle,
+    .callback = AnimSpriteOnMonPos,
+};
+
 const struct SpriteTemplate gAlphaStoneSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ALPHA_STONE,
