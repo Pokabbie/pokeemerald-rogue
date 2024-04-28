@@ -252,7 +252,7 @@ static const u16 sUnused_Pal[] = INCBIN_U16("graphics/berry_blender/unused.gbapa
 static const u16 sEmpty_Pal[16 * 14] = {0};
 
 // unused text
-static const u8 sUnusedText_YesNo[] = _("YES\nNO");
+static const u8 sUnusedText_YesNo[] = _("Yes\nNo");
 static const u8 sUnusedText_2[] = _("▶");
 static const u8 sUnusedText_Space[] = _(" ");
 static const u8 sUnusedText_Terminating[] = _("Terminating.");
