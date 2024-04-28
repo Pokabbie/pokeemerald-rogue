@@ -771,7 +771,37 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "shop_item": "ITEM_GRACIDEA" }
+                    { "item": "ITEM_GRACIDEA" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Arceus Mastery",
+                "description": "Enter the Hall of Fame with a Arceus in your party.",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_ARCEUS"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "shop_item": "ITEM_FIST_PLATE" },
+                    { "shop_item": "ITEM_SKY_PLATE" },
+                    { "shop_item": "ITEM_TOXIC_PLATE" },
+                    { "shop_item": "ITEM_EARTH_PLATE" },
+                    { "shop_item": "ITEM_STONE_PLATE" },
+                    { "shop_item": "ITEM_INSECT_PLATE" },
+                    { "shop_item": "ITEM_SPOOKY_PLATE" },
+                    { "shop_item": "ITEM_IRON_PLATE" },
+                    { "shop_item": "ITEM_FLAME_PLATE" },
+                    { "shop_item": "ITEM_SPLASH_PLATE" },
+                    { "shop_item": "ITEM_MEADOW_PLATE" },
+                    { "shop_item": "ITEM_ZAP_PLATE" },
+                    { "shop_item": "ITEM_MIND_PLATE" },
+                    { "shop_item": "ITEM_ICICLE_PLATE" },
+                    { "shop_item": "ITEM_DRACO_PLATE" },
+                    { "shop_item": "ITEM_DREAD_PLATE" },
+                    { "shop_item": "ITEM_PIXIE_PLATE" }
                 ]
             },
 
@@ -806,7 +836,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "shop_item": "ITEM_REVEAL_GLASS" }
+                    { "item": "ITEM_REVEAL_GLASS" }
                 ]
             },
             {
@@ -880,7 +910,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "shop_item": "ITEM_PRISON_BOTTLE" }
+                    { "item": "ITEM_PRISON_BOTTLE" }
                 ]
             },
 
@@ -1133,6 +1163,21 @@
                     { "shop_item": "ITEM_CORNERSTONE_MASK" },
                     { "shop_item": "ITEM_WELLSPRING_MASK" },
                     { "shop_item": "ITEM_HEARTHFLAME_MASK" }
+                ]
+            },
+
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Terapagos Mastery",
+                "description": "Enter the Hall of Fame with a Terapagos in your party.",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_TERAPAGOS"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "shop_item": "ITEM_STELLAR_TERA_SHARD" }
                 ]
             }
         ]
