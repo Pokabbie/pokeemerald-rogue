@@ -378,27 +378,27 @@ void DestroyTeraTriggerSprite(void)
 #undef tBattler
 #undef tHide
 
-// TERA INDICATOR:
-static const u16 sTeraIndicatorPal[] = INCBIN_U16("graphics/battle_interface/tera_indicator.gbapal");
-static const u8 ALIGNED(4) sNormalIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/normal_indicator.4bpp");
-static const u8 ALIGNED(4) sFightingIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/fighting_indicator.4bpp");
-static const u8 ALIGNED(4) sFlyingIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/flying_indicator.4bpp");
-static const u8 ALIGNED(4) sPoisonIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/poison_indicator.4bpp");
-static const u8 ALIGNED(4) sGroundIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/ground_indicator.4bpp");
-static const u8 ALIGNED(4) sRockIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/rock_indicator.4bpp");
-static const u8 ALIGNED(4) sBugIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/bug_indicator.4bpp");
-static const u8 ALIGNED(4) sGhostIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/ghost_indicator.4bpp");
-static const u8 ALIGNED(4) sSteelIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/steel_indicator.4bpp");
-static const u8 ALIGNED(4) sFireIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/fire_indicator.4bpp");
-static const u8 ALIGNED(4) sWaterIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/water_indicator.4bpp");
-static const u8 ALIGNED(4) sGrassIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/grass_indicator.4bpp");
-static const u8 ALIGNED(4) sElectricIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/electric_indicator.4bpp");
-static const u8 ALIGNED(4) sPsychicIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/psychic_indicator.4bpp");
-static const u8 ALIGNED(4) sIceIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/ice_indicator.4bpp");
-static const u8 ALIGNED(4) sDragonIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/dragon_indicator.4bpp");
-static const u8 ALIGNED(4) sDarkIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/dark_indicator.4bpp");
-static const u8 ALIGNED(4) sFairyIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/fairy_indicator.4bpp");
-static const u8 ALIGNED(4) sStellarIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/stellar_indicator.4bpp");
+// TERA INDICATOR:f
+static const u16 sTeraIndicatorPal[] = INCBIN_U16("graphics/battle_interface/tera/tera_indicator.gbapal");
+static const u8 ALIGNED(4) sNormalIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/normal_indicator.4bpp");
+static const u8 ALIGNED(4) sFightingIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/fighting_indicator.4bpp");
+static const u8 ALIGNED(4) sFlyingIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/flying_indicator.4bpp");
+static const u8 ALIGNED(4) sPoisonIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/poison_indicator.4bpp");
+static const u8 ALIGNED(4) sGroundIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/ground_indicator.4bpp");
+static const u8 ALIGNED(4) sRockIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/rock_indicator.4bpp");
+static const u8 ALIGNED(4) sBugIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/bug_indicator.4bpp");
+static const u8 ALIGNED(4) sGhostIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/ghost_indicator.4bpp");
+static const u8 ALIGNED(4) sSteelIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/steel_indicator.4bpp");
+static const u8 ALIGNED(4) sFireIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/fire_indicator.4bpp");
+static const u8 ALIGNED(4) sWaterIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/water_indicator.4bpp");
+static const u8 ALIGNED(4) sGrassIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/grass_indicator.4bpp");
+static const u8 ALIGNED(4) sElectricIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/electric_indicator.4bpp");
+static const u8 ALIGNED(4) sPsychicIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/psychic_indicator.4bpp");
+static const u8 ALIGNED(4) sIceIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/ice_indicator.4bpp");
+static const u8 ALIGNED(4) sDragonIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/dragon_indicator.4bpp");
+static const u8 ALIGNED(4) sDarkIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/dark_indicator.4bpp");
+static const u8 ALIGNED(4) sFairyIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/fairy_indicator.4bpp");
+static const u8 ALIGNED(4) sStellarIndicatorGfx[] = INCBIN_U8("graphics/battle_interface/tera/stellar_indicator.4bpp");
 
 static void SpriteCb_TeraIndicator(struct Sprite *sprite);
 static const s8 sIndicatorPositions[][2] =
