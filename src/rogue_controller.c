@@ -1067,6 +1067,9 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
 
             if(itemId >= ITEM_RED_NECTAR && itemId <= ITEM_PURPLE_NECTAR)
                 amount = 1;
+
+            if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
+                amount = 1;
 #endif
         }
     }
@@ -1994,6 +1997,10 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         // No mochi
         if(itemId >= ITEM_HEALTH_MOCHI && itemId <= ITEM_FRESH_START_MOCHI)
             return FALSE;
+            
+        // Only show tera shards if we have teras enabled
+        if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
+            return IsTerastallizeEnabled();
 #endif
 
         if(Rogue_IsRunActive())
