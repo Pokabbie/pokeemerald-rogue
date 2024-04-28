@@ -1235,6 +1235,11 @@ u16 Rogue_GetPrice(u16 itemId)
         applyDefaultHubIncrease = TRUE;
         price = HELD_ITEM_HIGH_PRICE;
     }
+    
+    if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
+    {
+        price = HELD_ITEM_HIGH_PRICE;
+    }
 
 #endif
 
@@ -1505,6 +1510,12 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->pocket = POCKET_STONES;
     }
 
+    if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
+    {
+        outItem->type = ITEM_USE_PARTY_MENU,
+        outItem->fieldUseFunc = ItemUseOutOfBattle_TeraShard,
+        outItem->pocket = POCKET_MEDICINE;
+    }
 #endif
 
     // Individual items
