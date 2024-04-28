@@ -5660,6 +5660,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .baseSpAttack  = 65,
         .baseSpDefense = 85,
         .types = { TYPE_NORMAL },
+        .forceTeraType = 1 + TYPE_STELLAR,
         .catchRate = 255,
         .expYield = 90,
         .evYield_Defense = 1,

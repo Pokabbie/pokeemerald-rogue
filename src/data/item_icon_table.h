@@ -861,7 +861,8 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_FRESH_START_MOCHI] =  {gItemIcon_Mochi, gItemIconPalette_FreshStartMochi},
     [ITEM_GLIMMERING_CHARM] = {gItemIcon_GlimmeringCharm, gItemIconPalette_GlimmeringCharm},
     [ITEM_METAL_ALLOY] =  {gItemIcon_MetalAlloy, gItemIconPalette_MetalAlloy},
-    [ITEM_STELLAR_TERA_SHARD] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, //{gItemIcon_TeraShard, gItemIconPalette_StellarTeraShard},
+    //[ITEM_STELLAR_TERA_SHARD] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark}, //{gItemIcon_TeraShard, gItemIconPalette_StellarTeraShard},
+    [ITEM_STELLAR_TERA_SHARD] = {gItemIcon_TeraShard, gItemIconPalette_NormalTeraShard},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

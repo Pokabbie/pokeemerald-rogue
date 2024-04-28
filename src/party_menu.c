@@ -1192,6 +1192,15 @@ static void DisplayPartyPokemonDataForNatureMint(u8 slot)
     DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_FIRST_NATURE + GetNature(currentPokemon));
 }
 
+static void DisplayPartyPokemonDataForTeraShard(u8 slot)
+{
+    u16 species = GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES_OR_EGG, NULL);
+    if(species == SPECIES_EGG || (gSpeciesInfo[species].forceTeraType != TYPE_NONE && gSpeciesInfo[species].forceTeraType != 0))
+        DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+    else
+        DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+}
+
 static void DisplayPartyPokemonDataToTeachMove(u8 slot, u16 move)
 {
     switch (CanTeachMove(&gPlayerParty[slot], move))
@@ -5424,8 +5433,6 @@ void Task_NatureMint(u8 taskId)
         tState++;
         break;
     case 4:
-        SetNature(mon, nature);
-        RemoveBagItem(gSpecialVar_ItemId, 1);
         StringExpandPlaceholders(gStringVar4, doneText);
         DisplayPartyMenuMessage(gStringVar4, 1);
         ScheduleBgCopyTilemapToVram(2);
@@ -5456,6 +5463,156 @@ void ItemUseCB_NatureMint(u8 taskId, TaskFunc task)
     tMonId = gPartyMenu.slotId;
     SetWordTaskArg(taskId, tOldFunc, (uintptr_t)(gTasks[taskId].func));
     gTasks[taskId].func = Task_NatureMint;
+}
+
+
+
+
+static u8 TeraShardItemToType(u16 item)
+{
+#ifdef ROGUE_EXPANSION
+    switch (item)
+    {
+    case ITEM_BUG_TERA_SHARD:
+        return TYPE_BUG;
+    case ITEM_DARK_TERA_SHARD:
+        return TYPE_DARK;
+    case ITEM_DRAGON_TERA_SHARD:
+        return TYPE_DRAGON;
+    case ITEM_ELECTRIC_TERA_SHARD:
+        return TYPE_ELECTRIC;
+    case ITEM_FAIRY_TERA_SHARD:
+        return TYPE_FAIRY;
+    case ITEM_FIGHTING_TERA_SHARD:
+        return TYPE_FIGHTING;
+    case ITEM_FIRE_TERA_SHARD:
+        return TYPE_FIRE;
+    case ITEM_FLYING_TERA_SHARD:
+        return TYPE_FLYING;
+    case ITEM_GHOST_TERA_SHARD:
+        return TYPE_GHOST;
+    case ITEM_GRASS_TERA_SHARD:
+        return TYPE_GRASS;
+    case ITEM_GROUND_TERA_SHARD:
+        return TYPE_GROUND;
+    case ITEM_ICE_TERA_SHARD:
+        return TYPE_ICE;
+    case ITEM_NORMAL_TERA_SHARD:
+        return TYPE_NORMAL;
+    case ITEM_POISON_TERA_SHARD:
+        return TYPE_POISON;
+    case ITEM_PSYCHIC_TERA_SHARD:
+        return TYPE_PSYCHIC;
+    case ITEM_ROCK_TERA_SHARD:
+        return TYPE_ROCK;
+    case ITEM_STEEL_TERA_SHARD:
+        return TYPE_STEEL;
+    case ITEM_WATER_TERA_SHARD:
+        return TYPE_WATER;
+    case ITEM_STELLAR_TERA_SHARD:
+        return TYPE_STELLAR;
+    }
+#endif
+
+    return TYPE_NONE;
+}
+
+void Task_TeraShard(u8 taskId)
+{
+    static const u8 askText[] = _("Would you like to change {STR_VAR_1}'s\nTera Type to to {STR_VAR_2}?");
+    static const u8 doneText[] = _("{STR_VAR_1}'s Tera Type became\n{STR_VAR_2}!{PAUSE_UNTIL_PRESS}");
+
+    s16 *data = gTasks[taskId].data;
+    struct Pokemon *mon = &gPlayerParty[tMonId];
+    u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL);
+    u16 item = gSpecialVar_ItemId;
+    u8 teraType = TeraShardItemToType(item);
+
+    switch (tState)
+    {
+    case 0:
+        if (GetMonData(mon, MON_DATA_TERA_TYPE) == teraType || species == SPECIES_EGG || (gSpeciesInfo[species].forceTeraType != TYPE_NONE && gSpeciesInfo[species].forceTeraType != 0))
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            return;
+        }
+        gPartyMenuUseExitCallback = TRUE;
+        GetMonNickname(mon, gStringVar1);
+        StringCopy(gStringVar2, gTypeNames[teraType]);
+        StringExpandPlaceholders(gStringVar4, askText);
+        PlaySE(SE_SELECT);
+        DisplayPartyMenuMessage(gStringVar4, 1);
+        ScheduleBgCopyTilemapToVram(2);
+        tState++;
+        break;
+    case 1:
+        if (!IsPartyMenuTextPrinterActive())
+        {
+            PartyMenuDisplayYesNoMenu();
+            tState++;
+        }
+        break;
+    case 2:
+        switch (Menu_ProcessInputNoWrapClearOnChoose())
+        {
+        case 0:
+            tState++;
+            break;
+        case 1:
+        case MENU_B_PRESSED:
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            ScheduleBgCopyTilemapToVram(2);
+            // Don't exit party selections screen, return to choosing a mon.
+            ClearStdWindowAndFrameToTransparent(6, 0);
+            ClearWindowTilemap(6);
+            DisplayPartyMenuStdMessage(5);
+            gTasks[taskId].func = (void *)GetWordTaskArg(taskId, tOldFunc);
+            return;
+        }
+        break;
+    case 3:
+        PlaySE(SE_USE_ITEM);
+        SetMonData(mon, MON_DATA_TERA_TYPE, &teraType);
+        RemoveBagItem(gSpecialVar_ItemId, 1);
+        //UpdateMonDisplayInfoAfterTeraShard(tMonId);
+        tState++;
+        break;
+    case 4:
+        StringExpandPlaceholders(gStringVar4, doneText);
+        DisplayPartyMenuMessage(gStringVar4, 1);
+        ScheduleBgCopyTilemapToVram(2);
+        tState++;
+        break;
+    case 5:
+        if (!IsPartyMenuTextPrinterActive())
+            tState++;
+        break;
+    case 6:
+        gTasks[taskId].func = Task_ClosePartyMenu;
+        break;
+    }
+}
+
+//static void UpdateMonDisplayInfoAfterTeraShard(u8 slot)
+//{
+//    DisplayPartyPokemonDataForTeraShard(slot);
+//    AnimatePartySlot(slot, 1);
+//    ScheduleBgCopyTilemapToVram(0);
+//}
+
+void ItemUseCB_TeraShard(u8 taskId, TaskFunc task)
+{
+    s16 *data = gTasks[taskId].data;
+
+    tState = 0;
+    tMonId = gPartyMenu.slotId;
+    SetWordTaskArg(taskId, tOldFunc, (uintptr_t)(gTasks[taskId].func));
+    gTasks[taskId].func = Task_TeraShard;
 }
 
 #undef tState

@@ -3895,9 +3895,9 @@ static const u8 sTinyBambooShootDesc[] = _(
     "sold to gourmands.");
 
 static const u8 sTeraShardDesc[] = _(
-    "These shards may\n"
-    "form when a Tera\n"
-    "Pokémon faints.");
+    "A shard that may\n"
+    "change the Tera\n"
+    "Type of a {PKMN}.");
 
 static const u8 sAdamantCrystalDesc[] = _(
     "A large, glowing gem\n"
