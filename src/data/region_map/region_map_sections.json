@@ -10,7 +10,7 @@
     },
     {
       "map_section": "MAPSEC_ADVENTURE",
-      "name": "ADVENTURE",
+      "name": "Adventure",
       "x": 4,
       "y": 9,
       "width": 1,
@@ -18,7 +18,7 @@
     },
     {
       "map_section": "MAPSEC_OTHER_POKEMON_HUB",
-      "name": "DISTANT VILLAGE",
+      "name": "Distant Village",
       "x": 2,
       "y": 14,
       "width": 1,
