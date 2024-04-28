@@ -252,7 +252,7 @@
             {
                 "name": "One Last Quest…",
                 "display_group": "starter_quests",
-                "description": "Complete all other Quests in order to unlock the 'Final Quest'",
+                "description": "Complete all other Main Quests in order to unlock the 'Final Quest'",
                 "flags": 
                 [
                     "MAIN_QUEST_DEFAULT",
