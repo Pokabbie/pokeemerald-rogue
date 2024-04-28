@@ -281,6 +281,8 @@ static const u8 sText_Popup_Money[] = _("¥{STR_VAR_1}");
 static const u8 sText_Popup_LostItem[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Item.");
 static const u8 sText_Popup_LostMoney[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Money.");
 static const u8 sText_Popup_UnlockedInShops[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Can now be bought!");
+static const u8 sText_Popup_TypePlateItem[] = _("Type Plates");
+static const u8 sText_Popup_TypeMemoryItem[] = _("Type Memories");
 
 static const u8 sText_Popup_BerriesRequipSuccess[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Re-equipped");
 static const u8 sText_Popup_BerriesRequipSuccessSubtitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Taken from Bag");
@@ -1537,17 +1539,58 @@ void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount)
 
 void Rogue_PushPopup_UnlockedShopItem(u16 itemId)
 {
-    struct PopupRequest* popup = CreateNewPopup();
+    // Hacked special case
+    // We unlock multiple of these items at once, but we only want to display a single popup for "unlocked all of xyz"
+#ifdef ROGUE_EXPANSION
+    if(itemId >= ITEM_FLAME_PLATE && itemId <= ITEM_PIXIE_PLATE)
+    {
+        if(itemId == ITEM_IRON_PLATE)
+        {
+            struct PopupRequest* popup = CreateNewPopup();
 
-    popup->templateId = POPUP_COMMON_FIND_ITEM;
-    popup->iconId = itemId;
-    popup->fanfare = MUS_OBTAIN_ITEM;
+            popup->templateId = POPUP_COMMON_FIND_ITEM;
+            popup->iconId = itemId;
+            popup->fanfare = MUS_OBTAIN_ITEM;
 
-    popup->titleText = sText_Popup_SingleItem;
-    popup->subtitleText = sText_Popup_UnlockedInShops;
+            popup->titleText = sText_Popup_TypePlateItem;
+            popup->subtitleText = sText_Popup_UnlockedInShops;
 
-    popup->expandTextData[0] = itemId;
-    popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+            popup->expandTextData[0] = itemId;
+            popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+        }
+    }
+    else if(itemId >= ITEM_FIRE_MEMORY && itemId <= ITEM_FAIRY_MEMORY)
+    {
+        if(itemId == ITEM_STEEL_MEMORY)
+        {
+            struct PopupRequest* popup = CreateNewPopup();
+
+            popup->templateId = POPUP_COMMON_FIND_ITEM;
+            popup->iconId = itemId;
+            popup->fanfare = MUS_OBTAIN_ITEM;
+
+            popup->titleText = sText_Popup_TypeMemoryItem;
+            popup->subtitleText = sText_Popup_UnlockedInShops;
+
+            popup->expandTextData[0] = itemId;
+            popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+        }
+    }
+    else
+#endif
+    {
+        struct PopupRequest* popup = CreateNewPopup();
+
+        popup->templateId = POPUP_COMMON_FIND_ITEM;
+        popup->iconId = itemId;
+        popup->fanfare = MUS_OBTAIN_ITEM;
+
+        popup->titleText = sText_Popup_SingleItem;
+        popup->subtitleText = sText_Popup_UnlockedInShops;
+
+        popup->expandTextData[0] = itemId;
+        popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+    }
 }
 
 void Rogue_PushPopup_AddPokemon(u16 species, bool8 isCustom, bool8 isShiny)

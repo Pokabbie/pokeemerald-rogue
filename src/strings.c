@@ -307,7 +307,7 @@ const u8 gText_ReturnToVar1[] = _("Return to\n{STR_VAR_1}.");
 #ifdef ROGUE_EXPANSION
 const u8 gText_ItemsPocket[] = _("Items");
 const u8 gText_MedicinePocket[] = _("Medicine");
-const u8 gText_PokeBallsPocket[] = _("Poké BAlls");
+const u8 gText_PokeBallsPocket[] = _("Poké Balls");
 const u8 gText_TMHMPocket[] = _("TMs & TRs");
 const u8 gText_BerriesPocket[] = _("Berries");
 const u8 gText_CharmsPocket[] = _("Charms");

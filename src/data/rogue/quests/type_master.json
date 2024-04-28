@@ -37,7 +37,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "item": "ITEM_SILK_SCARF" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SILK_SCARF" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_NORMALIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_NORMAL_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CHILAN_BERRY" }
@@ -53,7 +53,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_BLACK_BELT" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BLACK_BELT" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIGHTINIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIGHTING_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CHOPLE_BERRY" }
@@ -69,7 +69,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SHARP_BEAK" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SHARP_BEAK" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FLYINIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FLYING_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_COBA_BERRY" }
@@ -85,7 +85,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_POISON_BARB" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_POISON_BARB" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_POISONIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_POISON_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_KEBIA_BERRY" }
@@ -101,7 +101,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SOFT_SAND" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SOFT_SAND" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GROUNDIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GROUND_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SHUCA_BERRY" }
@@ -117,7 +117,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_HARD_STONE" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_HARD_STONE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ROCKIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ROCK_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CHARTI_BERRY" }
@@ -133,7 +133,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SILVER_POWDER" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SILVER_POWDER" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BUGINIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BUG_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_TANGA_BERRY" }
@@ -149,7 +149,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_SPELL_TAG" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SPELL_TAG" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GHOSTIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GHOST_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_KASIB_BERRY" }
@@ -165,7 +165,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_METAL_COAT" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_METAL_COAT" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_STEELIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_STEEL_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BABIRI_BERRY" }
@@ -181,7 +181,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_CHARCOAL" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CHARCOAL" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIRIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_FIRE_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_OCCA_BERRY" }
@@ -197,7 +197,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_MYSTIC_WATER" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MYSTIC_WATER" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_WATERIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_WATER_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PASSHO_BERRY" }
@@ -213,9 +213,9 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_MIRACLE_SEED" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MIRACLE_SEED" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GRASSIUM_Z" },
-                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MEADOW_TERA_SHARD" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GRASS_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_RINDO_BERRY" }
                 ]
             },
@@ -229,7 +229,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_MAGNET" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MAGNET" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ELECTRIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ELECTRIC_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_WACAN_BERRY" }
@@ -245,7 +245,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_TWISTED_SPOON" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_TWISTED_SPOON" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PSYCHIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PSYCHIC_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PAYAPA_BERRY" }
@@ -261,7 +261,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_NEVER_MELT_ICE" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_NEVER_MELT_ICE" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ICIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ICE_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_YACHE_BERRY" }
@@ -277,7 +277,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_DRAGON_FANG" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DRAGON_FANG" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DRAGONIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DRAGON_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_HABAN_BERRY" }
@@ -293,7 +293,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "#if": "!defined(ROGUE_EXPANSION)", "item": "ITEM_BLACK_GLASSES" },
+                    { "#if": "!defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BLACK_GLASSES" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DARKINIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_DARK_TERA_SHARD" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_COLBUR_BERRY" }
