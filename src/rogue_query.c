@@ -1165,9 +1165,6 @@ static bool8 Query_IsGeneralShopItem(u16 itemId)
 
     if(itemId >= ITEM_HEALTH_FEATHER && itemId <= ITEM_SWIFT_FEATHER)
         return FALSE;
-
-    if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
-        return FALSE;
 #endif
 
     return TRUE;

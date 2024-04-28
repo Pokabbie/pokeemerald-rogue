@@ -1514,7 +1514,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     {
         outItem->type = ITEM_USE_PARTY_MENU,
         outItem->fieldUseFunc = ItemUseOutOfBattle_TeraShard,
-        outItem->pocket = POCKET_MEDICINE;
+        outItem->pocket = POCKET_STONES;
     }
 #endif
 

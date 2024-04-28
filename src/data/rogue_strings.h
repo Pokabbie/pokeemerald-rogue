@@ -24,10 +24,10 @@ const u8 gText_RogueVersionSuffix[] = _("The Regional Update");
 
 // UI String
 //
-const u8 gText_StatusRoute[] = _("ROUTE: {STR_VAR_1}\n");
-const u8 gText_StatusBadges[] = _("BADGES: {STR_VAR_1}\n");
-const u8 gText_StatusScore[] = _("SCORE: {STR_VAR_1}\n");
-const u8 gText_StatusTimer[] = _("TIMER: {STR_VAR_1}:{STR_VAR_2}\n");
+const u8 gText_StatusRoute[] = _("Route: {STR_VAR_1}\n");
+const u8 gText_StatusBadges[] = _("Badges: {STR_VAR_1}\n");
+const u8 gText_StatusScore[] = _("Score: {STR_VAR_1}\n");
+const u8 gText_StatusTimer[] = _("Timer: {STR_VAR_1}:{STR_VAR_2}\n");
 const u8 gText_StatusClock[] = _("{STR_VAR_1}:{STR_VAR_2}\n");
 const u8 gText_StatusSeasonSpring[] = _("·Spring·");
 const u8 gText_StatusSeasonSummer[] = _("·Summer·");
@@ -43,11 +43,7 @@ const u8 gText_MoveNotVeryEffective[] = _("{COLOR WHITE}{SHADOW DYNAMIC_COLOR6}N
 
 // Trainers
 //
-#ifdef ROGUE_EXPANSION
 const u8 gText_TrainerName_Default[] = _("Rogue");
-#else
-const u8 gText_TrainerName_Default[] = _("ROGUE");
-#endif
 
 const u8 gText_TrainerName_Brendan[] = _("BRENDAN");
 const u8 gText_TrainerName_May[] = _("MAY");
