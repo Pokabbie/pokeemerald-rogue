@@ -478,6 +478,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemHealing;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemTeraOrb;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemTeraShard;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GoldGrass;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlagAdventure;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAlt;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAlt;
@@ -1008,6 +1009,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ITEM_TERA_ORB] =            &gObjectEventGraphicsInfo_ItemTeraOrb,
     [OBJ_EVENT_GFX_ITEM_TERA_SHARD] =          &gObjectEventGraphicsInfo_ItemTeraShard,
     [OBJ_EVENT_GFX_GOLD_GRASS] =               &gObjectEventGraphicsInfo_GoldGrass,
+    [OBJ_EVENT_GFX_FLAG_ADVENTURE] =           &gObjectEventGraphicsInfo_FlagAdventure,
 
     [OBJ_EVENT_GFX_BRENDAN_ALT] =              &gObjectEventGraphicsInfo_BrendanAlt,
     [OBJ_EVENT_GFX_MAY_ALT] =                  &gObjectEventGraphicsInfo_MayAlt,

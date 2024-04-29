@@ -1013,6 +1013,9 @@ $(OBJEVENTGFXDIR)/rogue/statue_level_2.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/rogue/statue_level_3.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
+$(OBJEVENTGFXDIR)/rogue/flag_adventure.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/rogue/route/bug.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 

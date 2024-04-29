@@ -369,6 +369,8 @@ enum
 
 #define MAX_MENUITEM_COUNT 24
 #define MAX_MENUITEM_TO_DISPLAY 5
+#define XPOS_TITLES       8
+#define XPOS_CHOICES      106
 #define YPOS_SPACING      16
 
 // this file's functions
@@ -1288,12 +1290,12 @@ static void DrawOptionMenuChoice(const u8 *text, u8 x, u8 y, u8 style)
 
 static void ArrowRight_DrawChoices(u8 menuOffset, u8 selection)
 {
-    DrawOptionMenuChoice(gText_DifficultyArrowRight, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_DifficultyArrowRight, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 }
 
 static void UNUSED ArrowLeft_DrawChoices(u8 menuOffset, u8 selection)
 {
-    DrawOptionMenuChoice(gText_DifficultyArrowLeft, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_DifficultyArrowLeft, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 }
 
 static bool8 ShouldSkipInput()
@@ -1339,7 +1341,7 @@ static void Slider_DrawChoices(u8 menuOffset, u8 selection)
     u8 style = 0;
 
     // Hack to wipe tiles????
-    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 
     switch (selection)
     {
@@ -1364,7 +1366,7 @@ static void Slider_DrawChoices(u8 menuOffset, u8 selection)
         break;
     }
 
-    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, style);
+    DrawOptionMenuChoice(text, XPOS_CHOICES, menuOffset * YPOS_SPACING, style);
 }
 
 static u8 Toggle_ProcessInput(u8 menuOffset, u8 selection)
@@ -1384,12 +1386,12 @@ static u8 Toggle_ProcessInput(u8 menuOffset, u8 selection)
 static void Toggle_DrawChoices(u8 menuOffset, u8 selection)
 {
     // Hack to wipe tiles????
-    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 
     if(selection == 0)
-        DrawOptionMenuChoice(gText_DifficultyDisabled, 104, menuOffset * YPOS_SPACING, 0);
+        DrawOptionMenuChoice(gText_DifficultyDisabled, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
     else
-        DrawOptionMenuChoice(gText_DifficultyEnabled, 104, menuOffset * YPOS_SPACING, 0);
+        DrawOptionMenuChoice(gText_DifficultyEnabled, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 }
 
 static u8 ProcessInputRange(u8 menuOffset, u8 selection, u8 range)
@@ -1429,7 +1431,7 @@ static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection)
     u8 style = 0;
 
     // Hack to wipe tiles????
-    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 
     switch (selection)
     {
@@ -1446,7 +1448,7 @@ static void BattleFormat_DrawChoices(u8 menuOffset, u8 selection)
         break;
     }
 
-    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, style);
+    DrawOptionMenuChoice(text, XPOS_CHOICES, menuOffset * YPOS_SPACING, style);
 }
 
 static u8 GameMode_ProcessInput(u8 menuOffset, u8 selection)
@@ -1466,12 +1468,12 @@ static u8 GameMode_ProcessInput(u8 menuOffset, u8 selection)
 static void GameMode_DrawChoices(u8 menuOffset, u8 selection)
 {
     // Hack to wipe tiles????
-    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 
     // Only draw enabled
 
     if(selection != 0)
-        DrawOptionMenuChoice(gText_DifficultyModeActive, 104, menuOffset * YPOS_SPACING, 0);
+        DrawOptionMenuChoice(gText_DifficultyModeActive, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 }
 
 #ifdef ROGUE_DEBUG
@@ -1513,10 +1515,10 @@ static void DebugRange_DrawChoices(u8 menuOffset, u8 selection)
 {
     u8 text[16];
 
-    DrawOptionMenuChoice(gText_32Spaces, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 
     ConvertUIntToDecimalStringN(&text[0], selection, STR_CONV_MODE_LEFT_ALIGN, 3);
-    DrawOptionMenuChoice(text, 104, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(text, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 }
 
 static u8 DebugRange_DifficultySkipProcessInput(u8 menuOffset, u8 selection)
@@ -1670,7 +1672,7 @@ static void DrawOptionMenuTexts(u8 submenu, u8 topIndex)
     {
         u8 menuItem = GetMenuItemFor(submenu, i + topIndex);
 
-        AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, sOptionMenuItems[menuItem].itemName, 8, (i * YPOS_SPACING) + 1, TEXT_SKIP_DRAW, NULL);
+        AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, sOptionMenuItems[menuItem].itemName, XPOS_TITLES, (i * YPOS_SPACING) + 1, TEXT_SKIP_DRAW, NULL);
 
         if(menuItem == MENUITEM_CANCEL)
             break;

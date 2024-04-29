@@ -47,6 +47,7 @@ struct RogueRunRestoreBlock
     struct Pokemon playerParty[PARTY_SIZE];
     struct ItemSlot bagItems[BAG_ITEM_CAPACITY];
     struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
+    struct RogueDifficultyConfig difficultyConfig;
     u32 money;
     u32 playTime;
 };
@@ -209,6 +210,12 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
         struct RogueRideMonState* rideState = Rogue_GetPlayerRideMonStatePtr();
         SerializeData(stream, rideState, sizeof(struct RogueRideMonState));
     }
+
+    // Data below here should be wiped each patch
+    //
+
+    // Adventure Replay
+    SerializeArray(stream, saveBlock->adventureReplay, sizeof(saveBlock->adventureReplay[0]), ARRAY_COUNT(saveBlock->adventureReplay));
 
     // Run Data
     // Don't need to worry about versioning these, as it's not valid to patch midway through a run
@@ -388,7 +395,10 @@ void RogueSave_SaveHubStates()
     {
         CopyMon(&sRunRestoreBlock.daycarePokemon[i], &gRogueSaveBlock->daycarePokemon[i], sizeof(struct BoxPokemon));
     }
-    
+
+    // Remember the default difficulty settings, just incase the adventure overwrote anything
+    memcpy(&sRunRestoreBlock.difficultyConfig, &gRogueSaveBlock->difficultyConfig, sizeof(sRunRestoreBlock.difficultyConfig));
+
     // Put all items into a single big list
     bagItemIdx = 0;
 
@@ -451,6 +461,9 @@ void RogueSave_LoadHubStates()
     {
         CopyMon(&gRogueSaveBlock->daycarePokemon[i], &sRunRestoreBlock.daycarePokemon[i], sizeof(struct BoxPokemon));
     }
+
+    // Restore the default difficulty settings, just incase the adventure overwrote anything
+    memcpy(&gRogueSaveBlock->difficultyConfig, &sRunRestoreBlock.difficultyConfig, sizeof(sRunRestoreBlock.difficultyConfig));
 
     // Restore the bag by just clearing and adding everything back to it
     ClearBag();

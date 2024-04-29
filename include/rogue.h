@@ -636,6 +636,13 @@ struct RogueRideMonState
     bool8 flyingState : 1;
 };
 
+struct AdventureReplay
+{
+    struct RogueDifficultyConfig difficultyConfig;
+    u16 baseSeed;
+    u8 isValid : 1;
+};
+
 struct RogueSaveBlock
 {
     u16 saveVersion;
@@ -648,6 +655,7 @@ struct RogueSaveBlock
     struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
     struct RogueSafariMon safariMons[ROGUE_SAFARI_TOTAL_MONS];
     struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
+    struct AdventureReplay adventureReplay[ROGUE_ADVENTURE_REPLAY_COUNT];
     struct RogueHubMap hubMap;
     struct RogueDifficultyConfig difficultyConfig;
     u16 timeOfDayMinutes;

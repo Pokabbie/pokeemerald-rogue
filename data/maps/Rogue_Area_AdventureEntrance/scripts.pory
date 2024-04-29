@@ -6,6 +6,12 @@ const VAR_INTRO_SCRIPT_STATE = VAR_TEMP_2
 const OBJ_EVENT_ADVENTURE_NURSE = 1
 const OBJ_EVENT_RUIN_MANIAC = 5
 
+const OBJ_EVENT_FLAG = 7
+const OBJ_EVENT_PEONIA = 8
+
+const MOVEMENT_TYPE_FLAG_ENABLED = MOVEMENT_TYPE_WALK_IN_PLACE_LEFT
+const MOVEMENT_TYPE_FLAG_DISABLED = MOVEMENT_TYPE_FACE_UP
+
 mapscripts Rogue_Area_AdventureEntrance_MapScripts 
 {
     MAP_SCRIPT_ON_LOAD: Rogue_Area_AdventureEntrance_MapLoad
@@ -59,6 +65,8 @@ script Rogue_Area_AdventureEntrance_MapLoad
     {
         setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
     }
+
+    call(Rogue_Area_AdventureEntrance_UpdateFlagState)
 }
 
 script Rogue_Area_AdventureEntrance_WarpState0
@@ -444,4 +452,89 @@ script Rogue_ReturnAdventureInternal
     }
     msgbox(format("Come speak to me, once you're ready for your next adventure."), MSGBOX_DEFAULT)
     releaseall
+}
+
+script Rogue_Area_AdventureEntrance_TalkPeonia
+{
+    lock
+    faceplayer
+
+    if(!flag(FLAG_ROGUE_MET_PEONIA))
+    {
+        setflag(FLAG_ROGUE_MET_PEONIA)
+        msgbox(format("Well, hi!\nThe name's Peonia!\pPEONIA: I saw you on that last Adventure of yours.\pIt was…\nReally something.\pI'm really good at remembering paths.\pSo, if you'd like, I can remember a past Adventure for you, so that you can replay it again.\pIf you tell me, whenever you want me to remember an Adventure, I'll keep track of your most recent one!\pThen, in order to replay it, put this flag next to me up.\pOnce you're done and want to return to regular Adventures, you can put the flag back down again.\pYou can put the flag up and down as much as you want!\pSo…"))
+        msgbox(format("Here let me keep track of your last Adventure for you!"))
+        setvar(VAR_RESULT, YES)
+    }
+    else
+    {
+        msgbox(format("PEONIA: Hi {PLAYER}.\pWould you like me to remember your most recent Adventure?"), MSGBOX_YESNO)
+    }
+
+    if(var(VAR_RESULT) == YES)
+    {
+        special(Rogue_RememberAdventure)
+        msgbox(format("OK.\nI've remembered that Adventure path for you!"))
+
+        if(!flag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE))
+        {
+            msgbox(format("You would like me to raise the flag, so you can replay the Adventure right now?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                setflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
+                call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+                special(ReloadWarpSilent)
+            }
+        }
+    }
+
+    release
+}
+
+script Rogue_Area_AdventureEntrance_TalkFlag
+{
+    lock
+    msgbox(format("It's the Replay Adventure flag!"))
+
+    if(flag(FLAG_ROGUE_MET_PEONIA))
+    {
+        if(flag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE))
+        {
+            msgbox(format("You would like to lower the flag, to return to playing normally?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                clearflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
+                call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+                special(ReloadWarpSilent)
+            }
+        }
+        else
+        {
+            msgbox(format("You would like to raise the flag, to play Peonia's Remembered Adventure?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES)
+            {
+                setflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
+                call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+                special(ReloadWarpSilent)
+            }
+        }
+    }
+    else
+    {
+        msgbox(format("I probably shouldn't touch this right now…"))
+    }
+
+    release
+}
+
+script Rogue_Area_AdventureEntrance_UpdateFlagState
+{
+    if(flag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE))
+    {
+        setobjectmovementtype(OBJ_EVENT_FLAG, MOVEMENT_TYPE_FLAG_ENABLED)
+    }
+    else
+    {
+        setobjectmovementtype(OBJ_EVENT_FLAG, MOVEMENT_TYPE_FLAG_DISABLED)
+    }
 }

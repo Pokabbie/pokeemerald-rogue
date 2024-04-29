@@ -55,4 +55,6 @@ void Rogue_PushPopup_NewBadgeGet(u8 difficulty);
 
 void Rogue_PushPopup_WeatherActive(u16 weather);
 
+void Rogue_PushPopup_AdventureReplay();
+
 #endif //QUEST_POPUP_H

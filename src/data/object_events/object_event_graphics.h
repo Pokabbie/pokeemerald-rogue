@@ -820,6 +820,7 @@ const u32 gObjectEventPic_ItemHealing[] = INCBIN_U32("graphics/object_events/pic
 const u32 gObjectEventPic_ItemTeraOrb[] = INCBIN_U32("graphics/object_events/pics/rogue/item_tera_orb.4bpp");
 const u32 gObjectEventPic_ItemTeraShard[] = INCBIN_U32("graphics/object_events/pics/rogue/item_tera_shard.4bpp");
 const u32 gObjectEventPic_GoldGrass[] = INCBIN_U32("graphics/object_events/pics/rogue/grass_golden.4bpp");
+const u32 gObjectEventPic_FlagAdventure[] = INCBIN_U32("graphics/object_events/pics/rogue/flag_adventure.4bpp");
 
 const u32 gObjectEventPic_Route_Bug[] = INCBIN_U32("graphics/object_events/pics/rogue/route/bug.4bpp");
 const u32 gObjectEventPic_Route_Dark[] = INCBIN_U32("graphics/object_events/pics/rogue/route/dark.4bpp");
