@@ -669,7 +669,7 @@
 #define ROGUE_SAFARI_TOTAL_MONS             60
 #define ROGUE_SAFARI_LEGENDS_START_INDEX    45
 
-#define ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST 15
+#define ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST 5
 
 #define DAYCARE_SLOT_COUNT      3
 
@@ -679,7 +679,7 @@
 
 // don't waste a bit on mystery type (shift everything down)
 #define __MON_TYPE_VAL(type)     (type > TYPE_MYSTERY ? (type - 1) : type)
-#define MON_TYPE_VAL_TO_FLAGS(type)     ((u32)(type == TYPE_NONE || type == TYPE_MYSTERY ? 0U : ((u32)1 << (u32)__MON_TYPE_VAL(type))))
+#define MON_TYPE_VAL_TO_FLAGS(type)     ((u32)(!IS_STANDARD_TYPE(type) ? 0U : ((u32)1 << (u32)__MON_TYPE_VAL(type))))
 
 #define __MON_GEN_VAL(gen)      ((gen - 1) % POKEDEX_MAX_GEN)
 #define MON_GEN_TO_FLAGS(gen)   ((u32)1 << (u32)__MON_GEN_VAL(gen))

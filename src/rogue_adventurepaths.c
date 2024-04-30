@@ -906,6 +906,12 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             weights[ADVPATH_SUBROOM_RESTSTOP_DAYCARE] = 15;
             weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 1;
 
+            if(GetPathGenerationDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+            {
+                // Ever so slightly more common during E4 phase
+                weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 20;
+            }
+
             // Prefer showing each rest stop type before having duplicates
             if(CountSubRoomType(ADVPATH_ROOM_RESTSTOP, ADVPATH_SUBROOM_RESTSTOP_BATTLE) != 0)
                 weights[ADVPATH_SUBROOM_RESTSTOP_BATTLE] = 0;
@@ -928,7 +934,8 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
             if(CountSubRoomType(ADVPATH_ROOM_RESTSTOP, ADVPATH_SUBROOM_RESTSTOP_FULL) != 0)
                 weights[ADVPATH_SUBROOM_RESTSTOP_FULL] = 0;
 
-            if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET)
+            // For champ we will always spawn full rest stops, for balance
+            if(Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET || GetPathGenerationDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
             {
                 gRogueAdvPath.rooms[roomId].roomParams.roomIdx = ADVPATH_SUBROOM_RESTSTOP_FULL;
             }

@@ -4190,7 +4190,7 @@ static u8 UNUSED RandomMonType(u16 seedFlag)
     {
         type = RogueRandomRange(NUMBER_OF_MON_TYPES, seedFlag);
     }
-    while(type == TYPE_MYSTERY);
+    while(!IS_STANDARD_TYPE(type));
 
     return type;
 }
@@ -4233,79 +4233,34 @@ u16 Rogue_SelectWildDenEncounterRoom(void)
     return species;
 }
 
-static u32 CalculateHoneyTreeForcedTypeMask()
-{
-    u16 i;
-    u32 mask = 0;
-
-    for(i = 0; i < ARRAY_COUNT(gRogueRun.honeyTreePokeblock); ++i)
-    {
-        // Once we have scattered at least 5 pokeblock we are going to force it in the mask
-        // As we don't want to lose valid mons to the random filter
-        if(gRogueRun.honeyTreePokeblock[i] >= 5)
-        {
-            u16 itemId = FIRST_ITEM_POKEBLOCK + i;
-            u8 type = ItemId_GetSecondaryId(itemId);
-            mask |= MON_TYPE_VAL_TO_FLAGS(type);
-        }
-    }
-
-    return mask;
-}
-
-static u8 HoneyTree_CalculateWeight(u16 weightIndex, u16 species, void* data)
-{
-    u16 i;
-    u16 weight = 1;
-    u8 type1 = RoguePokedex_GetSpeciesType(species, 0);
-    u8 type2 = RoguePokedex_GetSpeciesType(species, 1);
-    u8 typeMatchCount = 0;
-
-    for(i = 0; i < ARRAY_COUNT(gRogueRun.honeyTreePokeblock); ++i)
-    {
-        if(gRogueRun.honeyTreePokeblock[i] != 0)
-        {
-            u16 itemId = FIRST_ITEM_POKEBLOCK + i;
-            u8 type = ItemId_GetSecondaryId(itemId);
-
-            if(type == TYPE_NONE)
-            {
-                // Stat items
-                //u16 statId = itemId - ITEM_POKEBLOCK_HP;
-                //if(RoguePokedex_GetSpeciesBestStat(species))
-                //    weight += gRogueRun.honeyTreePokeblock[i];
-            }
-            else if(type == TYPE_MYSTERY)
-            {
-                // shiny pokeblock
-            }
-            else
-            {
-                if(type1 == type || type2 == type)
-                {
-                    weight += gRogueRun.honeyTreePokeblock[i];
-                    ++typeMatchCount;
-                }
-            }
-        }
-    }
-
-    if(IsRareWeightedSpecies(species))
-    {
-        weight /= 2;
-
-        if(weight == 0)
-            weight = 1;
-    }
-
-    // If both types match give an artificial boost
-    if(typeMatchCount > 1)
-    {
-        return min(255, weight * 2);
-    }
-
-    return min(255, weight);
-}
+//static u8 HoneyTree_CalculateWeight(u16 weightIndex, u16 species, void* data)
+//{
+//    u32 weight;
+//    u8 type1 = RoguePokedex_GetSpeciesType(species, 0);
+//    u8 type2 = RoguePokedex_GetSpeciesType(species, 1);
+//
+//    u8 matchingTypes = 0;
+//    if(IS_STANDARD_TYPE(type1) && (gRogueRun.honeyTreePokeblockTypeFlags & MON_TYPE_VAL_TO_FLAGS(type1)))
+//        ++matchingTypes;
+//
+//    if(type1 != type2 && IS_STANDARD_TYPE(type2) && (gRogueRun.honeyTreePokeblockTypeFlags & MON_TYPE_VAL_TO_FLAGS(type2)))
+//        ++matchingTypes;
+//
+//    if(matchingTypes == 2)
+//        weight = 32;
+//    else
+//        weight = 1;
+//
+//    if(IsRareWeightedSpecies(species))
+//    {
+//        weight /= 2;
+//
+//        if(weight == 0)
+//            weight = 1;
+//    }
+//
+//    return weight;
+//}
 
 u16 Rogue_SelectHoneyTreeEncounterRoom(void)
 {
@@ -4318,37 +4273,69 @@ u16 Rogue_SelectHoneyTreeEncounterRoom(void)
     if(!HasHoneyTreeEncounterPending())
         return SPECIES_NONE;
 
-    typeFlags = CalculateHoneyTreeForcedTypeMask();
+    species = SPECIES_NONE;
+    typeFlags = gRogueRun.honeyTreePokeblockTypeFlags;
 
-    RogueMonQuery_Begin();
-
-    RogueMonQuery_IsSpeciesActive();
-
-    // Prefilter to mons of types we're interested in
-    RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, typeFlags);
-    RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
-
-    RogueMonQuery_TransformIntoEggSpecies();
-    RogueMonQuery_TransformIntoEvos(Rogue_CalculatePlayerMonLvl(), TRUE, FALSE);
-
-    // Now we've evolved we're only caring about mons of this type
-    RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
-
-    // Remove random entries until we can safely calcualte weights without going over
-    while(RogueWeightQuery_IsOverSafeCapacity())
+    while(species == SPECIES_NONE)
     {
-        RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50, 1);
+        RogueMonQuery_Begin();
+
+        RogueMonQuery_IsSpeciesActive();
+
+        // Prefilter to mons of types we're interested in
+        RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, typeFlags);
+        RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+
+        RogueMonQuery_TransformIntoEggSpecies();
+        RogueMonQuery_TransformIntoEvos(Rogue_CalculatePlayerMonLvl(), TRUE, FALSE);
+
+        // Now we've evolved we're only caring about mons of this type
+        //RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
+        {
+            // Go through all types 1 by 1 and filter on top, so we only get matching dual types
+            u8 type;
+
+            for(type = 0; type < NUMBER_OF_MON_TYPES; ++type)
+            {
+                u32 currTypeFlag = MON_TYPE_VAL_TO_FLAGS(type);
+
+                if(IS_STANDARD_TYPE(type) && (typeFlags & currTypeFlag))
+                    RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, currTypeFlag);
+            }
+        }
+
+        // Remove random entries until we can safely calcualte weights without going over
+        while(RogueWeightQuery_IsOverSafeCapacity())
+        {
+            RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50, 1);
+        }
+
+        RogueWeightQuery_Begin();
+        {
+            RogueWeightQuery_FillWeights(1);
+            //RogueWeightQuery_CalculateWeights(HoneyTree_CalculateWeight, NULL);
+
+            if(RogueWeightQuery_HasAnyWeights())
+            {
+                species = RogueWeightQuery_SelectRandomFromWeights(Random());
+            }
+            else
+            {
+                // Randomly remove one of the type flags for the next attempt
+                u8 randType = Random() % NUMBER_OF_MON_TYPES;
+
+                while(!IS_STANDARD_TYPE(randType) || (typeFlags & MON_TYPE_VAL_TO_FLAGS(randType)) == 0)
+                {
+                    randType = Random() % NUMBER_OF_MON_TYPES;
+                }
+
+                typeFlags &= ~MON_TYPE_VAL_TO_FLAGS(randType);
+            }
+        }
+        RogueWeightQuery_End();
+
+        RogueMonQuery_End();
     }
-
-    RogueWeightQuery_Begin();
-    {
-        RogueWeightQuery_CalculateWeights(HoneyTree_CalculateWeight, NULL);
-
-        species = RogueWeightQuery_SelectRandomFromWeights(Random());
-    }
-    RogueWeightQuery_End();
-
-    RogueMonQuery_End();
 
     ClearHoneyTreePokeblock();
     return species;
@@ -7425,7 +7412,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         RogueMiscQuery_EditRange(QUERY_FUNC_INCLUDE, ITEM_LONELY_MINT, ITEM_SERIOUS_MINT);
 #endif
 
-        *minSalePrice = Rogue_IsRunActive() ? 500 : 1000;
+        *minSalePrice = 1500;
         maxPriceRange = 10000;
         applyRandomChance = TRUE;
         break;
@@ -7789,7 +7776,7 @@ static void BeginWildEncounterQuery()
         {
             type = RogueRandom() % NUMBER_OF_MON_TYPES;
         }
-        while(type == TYPE_MYSTERY || type == TYPE_NONE);
+        while(!IS_STANDARD_TYPE(type));
 
         typeFlags = MON_TYPE_VAL_TO_FLAGS(type);
     }
@@ -7920,38 +7907,36 @@ bool8 Rogue_RerollSingleWildSpecies(u8 type)
 
 static bool8 HasHoneyTreeEncounterPending()
 {
-    u8 i;
-
-    for(i = 0; i < ARRAY_COUNT(gRogueRun.honeyTreePokeblock); ++i)
-    {
-        if(gRogueRun.honeyTreePokeblock[i] != 0)
-            return TRUE;
-    }
-
-    return FALSE;
+    return gRogueRun.honeyTreePokeblockTypeFlags != 0;
 }
 
 static void ClearHoneyTreePokeblock()
 {
-    memset(gRogueRun.honeyTreePokeblock, 0, sizeof(gRogueRun.honeyTreePokeblock));
+    gRogueRun.honeyTreePokeblockTypeFlags = 0;
 }
 
 bool8 Rogue_TryAddHoneyTreePokeblock(u16 itemId)
 {
     // Shiny pokeblock isn't supported by honey tree atm for balance concerns
-    if(itemId != ITEM_POKEBLOCK_SHINY)
+    if(itemId >= FIRST_ITEM_POKEBLOCK && itemId <= LAST_ITEM_POKEBLOCK && itemId != ITEM_POKEBLOCK_SHINY)
     {
-        u8 index = itemId - FIRST_ITEM_POKEBLOCK;
-        AGB_ASSERT(index < ARRAY_COUNT(gRogueRun.honeyTreePokeblock));
+        //u16 itemId = FIRST_ITEM_POKEBLOCK + i;
+        u8 type = ItemId_GetSecondaryId(itemId);
+        u32 mask = MON_TYPE_VAL_TO_FLAGS(type);
 
-        if(gRogueRun.honeyTreePokeblock[index] != 255)
+        if(mask != 0)
         {
-            ++gRogueRun.honeyTreePokeblock[index];
-            return TRUE;
+            if((gRogueRun.honeyTreePokeblockTypeFlags & mask) == 0)
+            {
+                gRogueRun.honeyTreePokeblockTypeFlags |= mask;
+                return 1;
+            }
+
+            return 2;
         }
     }
 
-    return FALSE;
+    return 0;
 }
 
 static u8 RandomiseFishingEncounters_CalculateWeight(u16 index, u16 species, void* data)

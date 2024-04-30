@@ -2484,7 +2484,7 @@ static u32 CalculateFallbackTypeFlags(struct TrainerPartyScratch* scratch)
     // If we have a mystery type we want to just pick 1 type
     if(currentType == TYPE_MYSTERY)
     {
-        while(currentType == TYPE_MYSTERY)
+        while(!IS_STANDARD_TYPE(currentType))
         {
             currentType = RogueRandom() % NUMBER_OF_MON_TYPES;
         }

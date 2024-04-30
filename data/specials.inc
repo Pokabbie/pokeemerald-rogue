@@ -266,6 +266,7 @@ gSpecials::
 	def_special Rogue_RemoveHomeDecor
 	def_special Rogue_AssignDefaultRegion
 	def_special Rogue_IsFinalQuestActive
+	def_special Rogue_IsNearHoneyTree
 	def_special Rogue_TryScatterPokeblockNearHoneyTree
 	def_special Rogue_ScatterPokeblockItem
 	def_special Rogue_IsValidPieCrust

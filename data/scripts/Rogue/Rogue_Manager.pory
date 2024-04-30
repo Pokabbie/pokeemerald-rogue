@@ -284,35 +284,50 @@ script Rogue_EventScript_ItemUseHealingFlask
 
 script Rogue_EventScript_ScatterPokeblockItem
 {
-    removeitem(VAR_ITEM_ID)
     bufferitemname(STR_VAR_1, VAR_ITEM_ID)
     copyvar(VAR_ROGUE_ACTIVE_POKEBLOCK, VAR_ITEM_ID)
 
-    special(Rogue_TryScatterPokeblockNearHoneyTree)
+    special(Rogue_IsNearHoneyTree)
 
     if(var(VAR_RESULT) == YES)
     {
-        while(var(VAR_RESULT) == YES)
+        special(Rogue_TryScatterPokeblockNearHoneyTree)
+
+        if(var(VAR_RESULT) == 2)
         {
-            playse(SE_REPEL)
-            waitse
+                msgbox(format("{STR_VAR_1} was already scattered by the Honey Tree…"))
+        }
+        elif(var(VAR_RESULT) == 1)
+        {
+            //while(var(VAR_RESULT) == YES)
+            //{
+                removeitem(VAR_ITEM_ID)
+                playse(SE_REPEL)
+                waitse
 
-            msgbox(format("The {STR_VAR_1} was scattered by the Honey Tree…"))
+                msgbox(format("The {STR_VAR_1} was scattered by the Honey Tree…"))
 
-            checkitem(VAR_ROGUE_ACTIVE_POKEBLOCK)
-            if(var(VAR_RESULT) == YES)
-            {
-                msgbox(format("Would you like to scatter another?"), MSGBOX_YESNO)
-                if(var(VAR_RESULT) == YES)
-                {
-                    removeitem(VAR_ROGUE_ACTIVE_POKEBLOCK)
-                    special(Rogue_TryScatterPokeblockNearHoneyTree)
-                }
-            }
+                //checkitem(VAR_ROGUE_ACTIVE_POKEBLOCK)
+                //if(var(VAR_RESULT) == YES)
+                //{
+                //    msgbox(format("Would you like to scatter another?"), MSGBOX_YESNO)
+                //    if(var(VAR_RESULT) == YES)
+                //    {
+                //        removeitem(VAR_ROGUE_ACTIVE_POKEBLOCK)
+                //        special(Rogue_TryScatterPokeblockNearHoneyTree)
+                //    }
+                //}
+            //}
+        }
+        else
+        {
+            msgbox(format("The {STR_VAR_1} can't be scattered by the Honey Tree…"))
         }
     }
     else
     {
+        removeitem(VAR_ITEM_ID)
+
         playse(SE_REPEL)
         special(Rogue_ScatterPokeblockItem)
         waitse

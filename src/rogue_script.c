@@ -1173,6 +1173,11 @@ void Rogue_IsFinalQuestActive()
     gSpecialVar_Result = Rogue_UseFinalQuestEffects() != 0;
 }
 
+void Rogue_IsNearHoneyTree()
+{
+    gSpecialVar_Result = (Rogue_IsRunActive() && gRogueAdvPath.currentRoomType == ADVPATH_ROOM_HONEY_TREE);
+}
+
 void Rogue_TryScatterPokeblockNearHoneyTree()
 {
     if(Rogue_IsRunActive() && gRogueAdvPath.currentRoomType == ADVPATH_ROOM_HONEY_TREE)
@@ -1205,7 +1210,7 @@ void Rogue_IsValidPieCrust()
     u8 type = ItemId_GetSecondaryId(crustItem);
 
     // Only type pokeblock can be used for crust
-    gSpecialVar_Result = (type != TYPE_MYSTERY && type != TYPE_NONE);
+    gSpecialVar_Result = IS_STANDARD_TYPE(type);
 }
 
 void Rogue_IsValidPieFilling()
@@ -1226,7 +1231,7 @@ static bool8 WillMonLikePieInternal(u16 crustItem, u16 fillingItem, struct Pokem
     u8 type = ItemId_GetSecondaryId(crustItem);
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
 
-    if(type != TYPE_MYSTERY && type != TYPE_NONE)
+    if(!IS_STANDARD_TYPE(type))
     {
         if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
         {
@@ -1243,7 +1248,7 @@ static bool8 WillMonLikePieInternal(u16 crustItem, u16 fillingItem, struct Pokem
     {
         type = ItemId_GetSecondaryId(fillingItem);
 
-        if(type != TYPE_MYSTERY && type != TYPE_NONE)
+        if(!IS_STANDARD_TYPE(type))
         {
             if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
             {
@@ -1444,7 +1449,7 @@ void Rogue_SelectCatchingContestMode()
     u8 type = Random() % NUMBER_OF_MON_TYPES;
     u8 stat = Random() % NUM_STATS;
 
-    while(type == TYPE_NONE || type == TYPE_MYSTERY)
+    while(!IS_STANDARD_TYPE(type))
     {
         type = Random() % NUMBER_OF_MON_TYPES;
     }
@@ -1522,7 +1527,7 @@ static bool8 WillSpeciesLikePokeblockInternal(u16 pokeblockItem, u16 species)
 {
     u8 type = ItemId_GetSecondaryId(pokeblockItem);
 
-    if(type != TYPE_MYSTERY && type != TYPE_NONE)
+    if(!IS_STANDARD_TYPE(type))
     {
         if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
         {
