@@ -302,6 +302,7 @@ struct RogueRunData
     u8 dynamaxEnabled : 1;
     u8 terastallizeEnabled : 1;
 #endif
+    u8 rareShopEnabled : 1;
     bool8 isQuickSaveValid : 1;
     bool8 hasPendingRivalBattle : 1;
     bool8 rivalHasShiny : 1;

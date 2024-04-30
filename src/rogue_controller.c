@@ -2258,6 +2258,34 @@ bool8 IsTerastallizeEnabled(void)
 #endif
 }
 
+static bool8 IsRareShopActive()
+{
+    if(Rogue_IsRunActive())
+        return gRogueRun.rareShopEnabled; // cached result
+    else
+    {
+        u16 itemId;
+
+        for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
+        {
+            if(ItemId_GetPocket(itemId) == POCKET_STONES)
+            {
+                if(Rogue_IsItemEnabled(itemId))
+                    return TRUE;
+            }
+        }
+
+        return FALSE;
+    }
+#ifdef ROGUE_EXPANSION
+    
+
+    return IsMegaEvolutionEnabled() || IsZMovesEnabled();
+#else
+    return FALSE;
+#endif
+}
+
 #if defined(ROGUE_DEBUG)
 
 u16 Debug_MiniMenuHeight(void)
@@ -3571,6 +3599,7 @@ static void BeginRogueRun(void)
     gRogueRun.terastallizeEnabled = IsTerastallizeEnabled();
     // CheckBagHasItem(ITEM_DYNAMAX_BAND, 1)
 #endif
+    gRogueRun.rareShopEnabled = IsRareShopActive();
 
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
 
@@ -4402,15 +4431,6 @@ static void ResetSpecialEncounterStates(void)
 
     // Reset ledgendary encounters
     //FlagSet(FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE);
-}
-
-static bool8 IsRareShopActive()
-{
-#ifdef ROGUE_EXPANSION        
-    return IsMegaEvolutionEnabled() || IsZMovesEnabled();
-#else
-    return FALSE;
-#endif
 }
 
 static bool8 IsQuestRewardShopActive()
