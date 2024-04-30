@@ -1,5 +1,6 @@
 #include "global.h"
 #include "constants/layouts.h"
+#include "event_data.h"
 #include "gba/isagbprint.h"
 #include "random.h"
 #include "string_util.h"
@@ -8,6 +9,7 @@
 #include "rogue_multiplayer.h"
 #include "rogue_save.h"
 #include "rogue_settings.h"
+#include "rogue_quest.h"
 
 #include "data/rogue/pokemon_nicknames.h"
 
@@ -238,6 +240,35 @@ struct GameModeRules const* Rogue_GetModeRules()
     u8 mode = Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM);
     AGB_ASSERT(mode < ROGUE_GAME_MODE_COUNT);
     return &sGameModeRules[mode];
+}
+
+bool8 Rogue_ShouldDisableMainQuests()
+{
+    struct AdventureReplay const* replay = &gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED];
+
+    if(Rogue_GetModeRules()->disableMainQuests)
+        return TRUE;
+
+    if(Rogue_IsRunActive() && FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
+        return TRUE;
+    
+    return FALSE;
+}
+
+bool8 Rogue_ShouldDisableChallengeQuests()
+{
+    struct AdventureReplay const* replay = &gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED];
+
+    if(RogueQuest_HasUnlockedChallenges())
+    {
+        if(Rogue_GetModeRules()->disableChallengeQuests)
+            return TRUE;
+
+        if(Rogue_IsRunActive() && FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
+            return TRUE;
+    }
+    
+    return FALSE;
 }
 
 #ifdef ROGUE_DEBUG
@@ -532,7 +563,8 @@ static void EnsureLevelsAreValid()
 
     if(!gRogueDifficultyLocal.areLevelsValid)
     {
-        gRogueDifficultyLocal.presetLevel = Rogue_CalcDifficultyPreset();
+        // Always assume we're custom as specific settings are ignored otherwise :/
+        gRogueDifficultyLocal.presetLevel = DIFFICULTY_LEVEL_CUSTOM; //Rogue_CalcDifficultyPreset();
         gRogueDifficultyLocal.rewardLevel = Rogue_CalcRewardDifficultyPreset();
         gRogueDifficultyLocal.areLevelsValid = TRUE;
     }
