@@ -25,6 +25,12 @@
 #define TYPE_STELLAR          19
 #define NUMBER_OF_MON_TYPES   20
 
+#ifdef ROGUE_EXPANSION
+#define IS_STANDARD_TYPE(type) (type != TYPE_NONE && type != TYPE_MYSTERY && type != TYPE_STELLAR)
+#else
+#define IS_STANDARD_TYPE(type) (type != TYPE_NONE && type != TYPE_MYSTERY)
+#endif
+
 // Pokemon egg groups
 #define EGG_GROUP_NONE                0
 #define EGG_GROUP_MONSTER             1

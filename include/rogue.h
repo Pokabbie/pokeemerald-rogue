@@ -277,7 +277,6 @@ struct RogueRunData
     u8 teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_COUNT];
     u8 rivalEncounterDifficulties[ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
-    u8 honeyTreePokeblock[POKEBLOCK_ITEM_COUNT];
     u8 activeEvoItemFlags[8];
     u8 activeFormItemFlags[16]; // technically this isn't needed for Vanilla
     union
@@ -285,6 +284,7 @@ struct RogueRunData
         struct RogueCampaignData_Generic generic;
         struct RogueCampaignData_LowBst lowBst;
     } campaignData;
+    u32 honeyTreePokeblockTypeFlags;
     u16 baseSeed;
     u16 rivalTrainerNum;
     u16 teamBossTrainerNum;
