@@ -6011,18 +6011,7 @@ u16 Rogue_GetBagPocketAmountPerItem(u8 pocket)
 
 u32 Rogue_CalcBagUpgradeCost()
 {
-    // First few are hard coded jumps then always jump by 500
-    switch (gSaveBlock1Ptr->bagCapacityUpgrades)
-    {
-    case 0:
-        return 100;
-
-    case 1:
-        return 250;
-
-    default:
-        return 500 * (u32)(gSaveBlock1Ptr->bagCapacityUpgrades - 1);
-    }
+    return 500 + 250 * (u32)(gSaveBlock1Ptr->bagCapacityUpgrades);
 }
 
 void Rogue_AddPartySnapshot()
