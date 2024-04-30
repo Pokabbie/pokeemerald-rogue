@@ -3599,7 +3599,6 @@ static void BeginRogueRun(void)
     gRogueRun.terastallizeEnabled = IsTerastallizeEnabled();
     // CheckBagHasItem(ITEM_DYNAMAX_BAND, 1)
 #endif
-    gRogueRun.rareShopEnabled = IsRareShopActive();
 
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
 
@@ -3676,6 +3675,10 @@ static void BeginRogueRun(void)
     PlayTimeCounter_Start();
 
     BeginRogueRun_ConsiderItems();
+
+    // After we've decided what items are active, cache the rare shop state
+    gRogueRun.rareShopEnabled = IsRareShopActive();
+
     BeginRogueRun_ModifyParty();
     SetupRogueRunBag();
 
