@@ -243,7 +243,8 @@
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MEWTWONITE_X" },
-                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MEWTWONITE_Y" }
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MEWTWONITE_Y" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BERSERK_GENE" }
                 ]
             },
             {
@@ -575,7 +576,6 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     { "shop_item": "ITEM_SOUL_DEW" }
                 ]
             },
@@ -589,6 +589,7 @@
                 },
                 "rewards":
                 [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     { "shop_item": "ITEM_LATIASITE" }
                 ]
             },
@@ -602,6 +603,7 @@
                 },
                 "rewards":
                 [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     { "shop_item": "ITEM_LATIOSITE" }
                 ]
             },

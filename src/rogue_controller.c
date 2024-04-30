@@ -2258,6 +2258,34 @@ bool8 IsTerastallizeEnabled(void)
 #endif
 }
 
+static bool8 IsRareShopActive()
+{
+    if(Rogue_IsRunActive())
+        return gRogueRun.rareShopEnabled; // cached result
+    else
+    {
+        u16 itemId;
+
+        for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
+        {
+            if(ItemId_GetPocket(itemId) == POCKET_STONES)
+            {
+                if(Rogue_IsItemEnabled(itemId))
+                    return TRUE;
+            }
+        }
+
+        return FALSE;
+    }
+#ifdef ROGUE_EXPANSION
+    
+
+    return IsMegaEvolutionEnabled() || IsZMovesEnabled();
+#else
+    return FALSE;
+#endif
+}
+
 #if defined(ROGUE_DEBUG)
 
 u16 Debug_MiniMenuHeight(void)
@@ -3561,6 +3589,8 @@ static void BeginRogueRun(void)
     ClearHoneyTreePokeblock();
     ResetHotTracking();
 
+    RogueSave_SaveHubStates();
+
 #ifdef ROGUE_EXPANSION
     // Cache the results for the run (Must do before ActiveRun flag is set)
     gRogueRun.megasEnabled = IsMegaEvolutionEnabled();
@@ -3569,6 +3599,7 @@ static void BeginRogueRun(void)
     gRogueRun.terastallizeEnabled = IsTerastallizeEnabled();
     // CheckBagHasItem(ITEM_DYNAMAX_BAND, 1)
 #endif
+    gRogueRun.rareShopEnabled = IsRareShopActive();
 
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
 
@@ -3583,7 +3614,22 @@ static void BeginRogueRun(void)
     }
     else
     {
-        gRogueRun.baseSeed = Random();
+        struct AdventureReplay const* replay = &gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED];
+
+        if(FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
+        {
+            gRogueRun.baseSeed = replay->baseSeed;
+            memcpy(&gRogueSaveBlock->difficultyConfig, &replay->difficultyConfig, sizeof(gRogueSaveBlock->difficultyConfig));
+
+            Rogue_PushPopup_AdventureReplay();
+
+            // TODO - Ban challenges
+            // ACTUALLY DO THIS BEFORE FORGET
+        }
+        else
+        {
+            gRogueRun.baseSeed = Random();
+        }
     }
 
     Rogue_SetCurrentDifficulty(GetStartDifficulty());
@@ -3607,8 +3653,6 @@ static void BeginRogueRun(void)
 
     VarSet(VAR_ROGUE_FLASK_HEALS_USED, 0);
     VarSet(VAR_ROGUE_FLASK_HEALS_MAX, 4);
-
-    RogueSave_SaveHubStates();
 
     ClearBerryTreeRange(BERRY_TREE_ROUTE_FIRST, BERRY_TREE_ROUTE_LAST);
     ClearBerryTreeRange(BERRY_TREE_DAYCARE_FIRST, BERRY_TREE_DAYCARE_LAST);
@@ -3689,6 +3733,28 @@ static void BeginRogueRun(void)
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_START);
 
     Rogue_AddPartySnapshot();
+
+    if(Rogue_ShouldDisableMainQuests())
+        Rogue_PushPopup_MainQuestsDisabled();
+
+    if(Rogue_ShouldDisableChallengeQuests())
+        Rogue_PushPopup_ChallengeQuestsDisabled();
+
+    // Remember adventure replay
+    //
+    gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT].isValid = TRUE;
+    gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT].baseSeed = gRogueRun.baseSeed;
+    
+    if(RogueMP_IsActive() && RogueMP_IsClient())
+    {
+        AGB_ASSERT(gRogueMultiplayer != NULL);
+        AGB_ASSERT(gRogueMultiplayer->gameState.adventure.isRunActive);
+        memcpy(&gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT].difficultyConfig, &gRogueMultiplayer->gameState.hub.difficultyConfig, sizeof(gRogueSaveBlock->difficultyConfig));
+    }
+    else
+    {
+        memcpy(&gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT].difficultyConfig, &gRogueSaveBlock->difficultyConfig, sizeof(gRogueSaveBlock->difficultyConfig));
+    }
 }
 
 static void EndRogueRun(void)
@@ -4365,15 +4431,6 @@ static void ResetSpecialEncounterStates(void)
 
     // Reset ledgendary encounters
     //FlagSet(FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE);
-}
-
-static bool8 IsRareShopActive()
-{
-#ifdef ROGUE_EXPANSION        
-    return IsMegaEvolutionEnabled() || IsZMovesEnabled();
-#else
-    return FALSE;
-#endif
 }
 
 static bool8 IsQuestRewardShopActive()

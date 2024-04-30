@@ -7,6 +7,7 @@
 #include "battle_main.h"
 #include "battle_message.h"
 #include "event_data.h"
+#include "event_object_movement.h"
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
 #include "item_menu.h"
@@ -1848,4 +1849,9 @@ void Rogue_BattleSim_HandleItemMoney()
 void Rogue_FixPartyMonDetails()
 {
     Rogue_CorrectMonDetails(gPlayerParty, gPlayerPartyCount);
+}
+
+void Rogue_RememberAdventure()
+{
+    memcpy(&gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED], &gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT], sizeof(struct AdventureReplay));
 }

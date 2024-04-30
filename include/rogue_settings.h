@@ -27,6 +27,8 @@ u8 Rogue_GetConfigRange(u16 elem);
 bool8 Rogue_CanEditConfig();
 
 struct GameModeRules const* Rogue_GetModeRules();
+bool8 Rogue_ShouldDisableMainQuests();
+bool8 Rogue_ShouldDisableChallengeQuests();
 
 void RogueDebug_SetConfigToggle(u16 elem, bool8 state);
 bool8 RogueDebug_GetConfigToggle(u16 elem);

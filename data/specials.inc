@@ -248,6 +248,7 @@ gSpecials::
 	def_special Rogue_BattleSim_HandleItemIVs
 	def_special Rogue_BattleSim_HandleItemMoney
 	def_special Rogue_FixPartyMonDetails
+	def_special Rogue_RememberAdventure
 	def_special Rogue_SetupFollowParterMonObjectEvent
 	def_special Rogue_RegisterRideMon
 	def_special Rogue_RunRewardLvls

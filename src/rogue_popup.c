@@ -281,6 +281,8 @@ static const u8 sText_Popup_Money[] = _("¥{STR_VAR_1}");
 static const u8 sText_Popup_LostItem[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Item.");
 static const u8 sText_Popup_LostMoney[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Money.");
 static const u8 sText_Popup_UnlockedInShops[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Can now be bought!");
+static const u8 sText_Popup_TypePlateItem[] = _("Type Plates");
+static const u8 sText_Popup_TypeMemoryItem[] = _("Type Memories");
 
 static const u8 sText_Popup_BerriesRequipSuccess[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Re-equipped");
 static const u8 sText_Popup_BerriesRequipSuccessSubtitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Taken from Bag");
@@ -331,6 +333,13 @@ static const u8 sText_Popup_GymBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gym
 static const u8 sText_Popup_EliteBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Elite Badge {STR_VAR_1}");
 static const u8 sText_Popup_ChampBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Champion Badge");
 static const u8 sText_Popup_EarnBadge[] = _("Recieved badge!");
+
+static const u8 sText_Popup_AdventureReplay[] = _("Adventure Replay");
+static const u8 sText_Popup_AdventureReplaySubtitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Active");
+
+static const u8 sText_Popup_QuestsDisabled[] = _("{COLOR LIGHT_RED}{SHADOW RED}Quests Inactive");
+static const u8 sText_Popup_ChallengesDisabled[] = _("{COLOR LIGHT_RED}{SHADOW RED}Challenge Inactiv");
+static const u8 sText_Popup_QuestsDisabledSubtitle[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Current Mode");
 
 static const u8 sText_Popup_WeatherActive[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Weather Active");
 
@@ -1537,17 +1546,58 @@ void Rogue_PushPopup_CannotTakeItem(u16 itemId, u16 amount)
 
 void Rogue_PushPopup_UnlockedShopItem(u16 itemId)
 {
-    struct PopupRequest* popup = CreateNewPopup();
+    // Hacked special case
+    // We unlock multiple of these items at once, but we only want to display a single popup for "unlocked all of xyz"
+#ifdef ROGUE_EXPANSION
+    if(itemId >= ITEM_FLAME_PLATE && itemId <= ITEM_PIXIE_PLATE)
+    {
+        if(itemId == ITEM_IRON_PLATE)
+        {
+            struct PopupRequest* popup = CreateNewPopup();
 
-    popup->templateId = POPUP_COMMON_FIND_ITEM;
-    popup->iconId = itemId;
-    popup->fanfare = MUS_OBTAIN_ITEM;
+            popup->templateId = POPUP_COMMON_FIND_ITEM;
+            popup->iconId = itemId;
+            popup->fanfare = MUS_OBTAIN_ITEM;
 
-    popup->titleText = sText_Popup_SingleItem;
-    popup->subtitleText = sText_Popup_UnlockedInShops;
+            popup->titleText = sText_Popup_TypePlateItem;
+            popup->subtitleText = sText_Popup_UnlockedInShops;
 
-    popup->expandTextData[0] = itemId;
-    popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+            popup->expandTextData[0] = itemId;
+            popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+        }
+    }
+    else if(itemId >= ITEM_FIRE_MEMORY && itemId <= ITEM_FAIRY_MEMORY)
+    {
+        if(itemId == ITEM_STEEL_MEMORY)
+        {
+            struct PopupRequest* popup = CreateNewPopup();
+
+            popup->templateId = POPUP_COMMON_FIND_ITEM;
+            popup->iconId = itemId;
+            popup->fanfare = MUS_OBTAIN_ITEM;
+
+            popup->titleText = sText_Popup_TypeMemoryItem;
+            popup->subtitleText = sText_Popup_UnlockedInShops;
+
+            popup->expandTextData[0] = itemId;
+            popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+        }
+    }
+    else
+#endif
+    {
+        struct PopupRequest* popup = CreateNewPopup();
+
+        popup->templateId = POPUP_COMMON_FIND_ITEM;
+        popup->iconId = itemId;
+        popup->fanfare = MUS_OBTAIN_ITEM;
+
+        popup->titleText = sText_Popup_SingleItem;
+        popup->subtitleText = sText_Popup_UnlockedInShops;
+
+        popup->expandTextData[0] = itemId;
+        popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
+    }
 }
 
 void Rogue_PushPopup_AddPokemon(u16 species, bool8 isCustom, bool8 isShiny)
@@ -1743,4 +1793,40 @@ void Rogue_PushPopup_WeatherActive(u16 weather)
         popup->titleText = sWeatherNames[weather];
         popup->subtitleText = sText_Popup_WeatherActive;
     }
+}
+
+void Rogue_PushPopup_AdventureReplay()
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = ITEM_OLD_SEA_MAP;
+    //popup->soundEffect = SE_NOT_EFFECTIVE;
+    
+    popup->titleText = sText_Popup_AdventureReplay;
+    popup->subtitleText = sText_Popup_AdventureReplaySubtitle;
+}
+
+void Rogue_PushPopup_MainQuestsDisabled()
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = ITEM_C_GEAR;
+    popup->soundEffect = SE_UNLOCK;
+    
+    popup->titleText = sText_Popup_QuestsDisabled;
+    popup->subtitleText = sText_Popup_QuestsDisabledSubtitle;
+}
+
+void Rogue_PushPopup_ChallengeQuestsDisabled()
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = ITEM_C_GEAR;
+    popup->soundEffect = SE_UNLOCK;
+    
+    popup->titleText = sText_Popup_ChallengesDisabled;
+    popup->subtitleText = sText_Popup_QuestsDisabledSubtitle;
 }
