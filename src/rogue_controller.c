@@ -3593,7 +3593,9 @@ static void BeginRogueRun(void)
             memcpy(&gRogueSaveBlock->difficultyConfig, &replay->difficultyConfig, sizeof(gRogueSaveBlock->difficultyConfig));
 
             Rogue_PushPopup_AdventureReplay();
+
             // TODO - Ban challenges
+            // ACTUALLY DO THIS BEFORE FORGET
         }
         else
         {
@@ -3702,6 +3704,12 @@ static void BeginRogueRun(void)
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_START);
 
     Rogue_AddPartySnapshot();
+
+    if(Rogue_ShouldDisableMainQuests())
+        Rogue_PushPopup_MainQuestsDisabled();
+
+    if(Rogue_ShouldDisableChallengeQuests())
+        Rogue_PushPopup_ChallengeQuestsDisabled();
 
     // Remember adventure replay
     //

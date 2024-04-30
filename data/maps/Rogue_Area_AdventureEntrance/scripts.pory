@@ -462,7 +462,7 @@ script Rogue_Area_AdventureEntrance_TalkPeonia
     if(!flag(FLAG_ROGUE_MET_PEONIA))
     {
         setflag(FLAG_ROGUE_MET_PEONIA)
-        msgbox(format("Well, hi!\nThe name's Peonia!\pPEONIA: I saw you on that last Adventure of yours.\pIt was…\nReally something.\pI'm really good at remembering paths.\pSo, if you'd like, I can remember a past Adventure for you, so that you can replay it again.\pIf you tell me, whenever you want me to remember an Adventure, I'll keep track of your most recent one!\pThen, in order to replay it, put this flag next to me up.\pOnce you're done and want to return to regular Adventures, you can put the flag back down again.\pYou can put the flag up and down as much as you want!\pSo…"))
+        msgbox(format("Well, hi!\nThe name's Peonia!\pPEONIA: I saw you on that last Adventure of yours.\pIt was…\nReally something.\pI'm really good at remembering paths.\pSo, if you'd like, I can remember a past Adventure for you, so that you can replay it again.\pIf you tell me, whenever you want me to remember an Adventure, I'll keep track of your most recent one!\pThen, in order to replay it, put this flag next to me up.\pOnce you're done and want to return to regular Adventures, you can put the flag back down again.\pYou can put the flag up and down as much as you want!\pAlthough Quests will be disable whilst you're replaying, so it'll just be for your own pride!\pSo…"))
         msgbox(format("Here let me keep track of your last Adventure for you!"))
         setvar(VAR_RESULT, YES)
     }

@@ -176,7 +176,7 @@ static bool8 CanActivateQuest(u16 questId)
     // Challenges can be run again at a higher difficulty
     if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_CHALLENGE))
     {
-        if(Rogue_GetModeRules()->disableChallengeQuests)
+        if(Rogue_ShouldDisableChallengeQuests())
             return FALSE;
 
         if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
@@ -190,7 +190,7 @@ static bool8 CanActivateQuest(u16 questId)
     }
     else // QUEST_CONST_IS_MAIN_QUEST || QUEST_CONST_IS_MON_MASTERY
     {
-        if(Rogue_GetModeRules()->disableMainQuests)
+        if(Rogue_ShouldDisableMainQuests())
             return FALSE;
 
         // Can't repeat main quests
