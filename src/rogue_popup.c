@@ -314,7 +314,7 @@ static const u8 sText_Popup_PokedexUnlock[] = _("{COLOR LIGHT_GREEN}{SHADOW GREE
 static const u8 sText_Popup_PokedexUpgrade[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Pokedex Upgraded!");
 
 static const u8 sText_Popup_BagUpdate[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Bag Upgraded!");
-static const u8 sText_Popup_5Slots[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}+5 slots"); // assuming ITEM_BAG_SLOTS_PER_UPGRADE value
+static const u8 sText_Popup_UpgradeSlots[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}+{STR_VAR_1} ({STR_VAR_2}) slots"); // assuming ITEM_BAG_SLOTS_PER_UPGRADE value
 
 
 static const u8 sText_Popup_RogueAssistant[] = _("Rogue Assistant");
@@ -1699,7 +1699,13 @@ void Rogue_PushPopup_UpgradeBagCapacity()
     popup->fanfare = MUS_LEVEL_UP;
 
     popup->titleText = sText_Popup_BagUpdate;
-    popup->subtitleText = sText_Popup_5Slots;
+    popup->subtitleText = sText_Popup_UpgradeSlots;
+
+    popup->expandTextData[0] = ITEM_BAG_SLOTS_PER_UPGRADE;
+    popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
+
+    popup->expandTextData[1] = GetBagUnreservedTotalSlots();
+    popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
 }
 
 void Rogue_PushPopup_AssistantConnected()

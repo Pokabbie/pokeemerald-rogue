@@ -2018,6 +2018,22 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
                 case ITEM_CORNN_BERRY:
                 case ITEM_MAGOST_BERRY:
                     return FALSE;
+
+#ifdef ROGUE_EXPANSION
+                // Specific held items which don't trigger form changes, so won't be caught by the logic below
+                // we don't want unless the mon is avaliable
+                case ITEM_SOUL_DEW:
+                    return Query_IsSpeciesEnabled(SPECIES_LATIAS) || Query_IsSpeciesEnabled(SPECIES_LATIOS);
+
+                case ITEM_ADAMANT_ORB:
+                    return Query_IsSpeciesEnabled(SPECIES_DIALGA);
+
+                case ITEM_LUSTROUS_ORB:
+                    return Query_IsSpeciesEnabled(SPECIES_PALKIA);
+
+                case ITEM_GRISEOUS_ORB:
+                    return Query_IsSpeciesEnabled(SPECIES_GIRATINA);
+#endif
             }
         }
 
@@ -2258,32 +2274,28 @@ bool8 IsTerastallizeEnabled(void)
 #endif
 }
 
+static bool8 IsRareShopActiveInternal()
+{
+    u16 itemId;
+
+    for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
+    {
+        if(ItemId_GetPocket(itemId) == POCKET_STONES)
+        {
+            if(Rogue_IsItemEnabled(itemId))
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 static bool8 IsRareShopActive()
 {
     if(Rogue_IsRunActive())
         return gRogueRun.rareShopEnabled; // cached result
     else
-    {
-        u16 itemId;
-
-        for(itemId = ITEM_NONE + 1; itemId < ITEMS_COUNT; ++itemId)
-        {
-            if(ItemId_GetPocket(itemId) == POCKET_STONES)
-            {
-                if(Rogue_IsItemEnabled(itemId))
-                    return TRUE;
-            }
-        }
-
-        return FALSE;
-    }
-#ifdef ROGUE_EXPANSION
-    
-
-    return IsMegaEvolutionEnabled() || IsZMovesEnabled();
-#else
-    return FALSE;
-#endif
+        return TRUE; // just assume it's active when in hub
 }
 
 #if defined(ROGUE_DEBUG)
@@ -3677,7 +3689,7 @@ static void BeginRogueRun(void)
     BeginRogueRun_ConsiderItems();
 
     // After we've decided what items are active, cache the rare shop state
-    gRogueRun.rareShopEnabled = IsRareShopActive();
+    gRogueRun.rareShopEnabled = IsRareShopActiveInternal();
 
     BeginRogueRun_ModifyParty();
     SetupRogueRunBag();
@@ -5999,18 +6011,7 @@ u16 Rogue_GetBagPocketAmountPerItem(u8 pocket)
 
 u32 Rogue_CalcBagUpgradeCost()
 {
-    // First few are hard coded jumps then always jump by 500
-    switch (gSaveBlock1Ptr->bagCapacityUpgrades)
-    {
-    case 0:
-        return 100;
-
-    case 1:
-        return 250;
-
-    default:
-        return 500 * (u32)(gSaveBlock1Ptr->bagCapacityUpgrades - 1);
-    }
+    return 500 + 250 * (u32)(gSaveBlock1Ptr->bagCapacityUpgrades);
 }
 
 void Rogue_AddPartySnapshot()

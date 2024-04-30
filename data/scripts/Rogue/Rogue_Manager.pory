@@ -761,42 +761,11 @@ script Rogue_Tutor_TutorMoveLearn
     special(TeachMoveSetContextTutorMove)
     lock
     faceplayer
-    msgbox(format("HYAH!\p I'm a Move Tutor!\p I can teach Pokémon moves some radical moves!\pWho do you want me to teach?"), MSGBOX_DEFAULT)
+    msgbox(format("HYAH!\p I'm a Move Tutor!\p I can teach Pokémon moves some radical moves!\pSo, what do you want me to teach?"), MSGBOX_DEFAULT)
 
-    special(ChooseMonForMoveRelearner)
+    setvar(VAR_0x8004, 0)
+    special(TeachMoveFromContext)
     waitstate
-
-    setvar(VAR_RESULT, YES)
-
-    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
-    {
-        setvar(VAR_RESULT, NO)
-    }
-
-    if(var(VAR_RESULT) == YES)
-    {
-        special(IsSelectedMonEgg)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            setvar(VAR_RESULT, NO)
-        }
-        else
-        {
-            setvar(VAR_RESULT, YES)
-        }
-        
-    }
-
-    if(var(VAR_RESULT) == YES)
-    {
-        special(TeachMoveFromContext)
-        waitstate
-    }
-    else
-    {
-        msgbox(format("You know where to find me, if you change your mind."), MSGBOX_DEFAULT)
-    }
 
     release
 }
