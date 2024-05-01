@@ -77,6 +77,7 @@
 #include "rogue_trainers.h"
 
 STATIC_ASSERT(sizeof(struct BoxPokemon) == sizeof(struct RogueBoxPokemonFacade), SizeOfRogueBoxPokemonFacade);
+STATIC_ASSERT(sizeof(struct Pokemon) == sizeof(struct RoguePokemonFacade), SizeOfRoguePokemonFacade);
 
 #define ROGUE_TRAINER_COUNT (FLAG_ROGUE_TRAINER_END - FLAG_ROGUE_TRAINER_START + 1)
 #define ROGUE_ITEM_COUNT (FLAG_ROGUE_ITEM_END - FLAG_ROGUE_ITEM_START + 1)
@@ -107,8 +108,6 @@ extern const u8 gText_RogueDebug_Y[];
 
 extern const u8 gText_TrainerName_Default[];
 
-#define LAB_MON_COUNT 3
-
 struct RouteMonPreview
 {
     u8 monSpriteId;
@@ -132,6 +131,8 @@ struct RogueLocalData
     struct RogueGameShow gameShow;
     struct RogueCatchingContest catchingContest;
     RAND_TYPE rngSeedToRestore;
+    RAND_TYPE rngToRestore;
+    RAND_TYPE rng2ToRestore;
     u32 totalMoneySpentOnMap;
     u16 cachedObjIds[OBJ_EVENT_ID_MULTIPLAYER_COUNT];
     u16 wildEncounterHistoryBuffer[3];
@@ -145,11 +146,6 @@ struct RogueLocalData
     bool8 hasBattleEventOccurred : 1;
     bool8 hasUsePlayerTeamTempSave : 1;
     bool8 hasUseEnemyTeamTempSave : 1;
-};
-
-struct RogueLabEncounterData
-{
-    struct Pokemon party[LAB_MON_COUNT];
 };
 
 typedef u16 hot_track_dat;
@@ -173,10 +169,6 @@ EWRAM_DATA struct RogueRunData gRogueRun = {};
 // Temporary data, that isn't remembered
 EWRAM_DATA struct RogueLocalData gRogueLocal = {};
 EWRAM_DATA struct RogueAdvPath gRogueAdvPath = {};
-
-// TODO - Fix this and make sure it is tracked in gRogueRun and saved correctly!!! 
-EWRAM_DATA struct RogueLabEncounterData gRogueLabEncounterData = {};
-
 
 static void ResetHotTracking();
 
@@ -325,6 +317,11 @@ bool8 Rogue_EnableAffectionMechanics(void)
 #else
     return FALSE;
 #endif
+}
+
+bool8 Rogue_ShouldReleaseFaintedMons(void)
+{
+    return Rogue_GetConfigToggle(CONFIG_TOGGLE_RELEASE_MONS);
 }
 
 bool8 Rogue_FastBattleAnims(void)
@@ -2039,10 +2036,16 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
 
         switch (itemId)
         {
-        case ITEM_SACRED_ASH:
-        case ITEM_REVIVAL_HERB:
         case ITEM_REVIVE:
         case ITEM_MAX_REVIVE:
+            if(Rogue_IsRunActive() && !Rogue_ShouldReleaseFaintedMons())
+            {
+                return TRUE;
+            }
+            return FALSE;
+
+        case ITEM_SACRED_ASH:
+        case ITEM_REVIVAL_HERB:
         case ITEM_RARE_CANDY:
         case ITEM_HEART_SCALE:
         case ITEM_LUCKY_EGG:
@@ -2272,6 +2275,11 @@ bool8 IsTerastallizeEnabled(void)
 #else
     return FALSE;
 #endif
+}
+
+bool8 IsHealingFlaskEnabled(void)
+{
+    return CheckBagHasItem(ITEM_HEALING_FLASK, 1);
 }
 
 static bool8 IsRareShopActiveInternal()
@@ -3309,11 +3317,17 @@ u16 Rogue_PostRunRewardMoney()
     return amount;
 }
 
+static struct Pokemon* GetLabMon(u8 slot)
+{
+    AGB_ASSERT(slot < LAB_MON_COUNT);
+    return (struct Pokemon*)&gRogueRun.labParty[slot];
+}
+
 static void ResetFaintedLabMonAtSlot(u16 slot)
 {
     u16 species;
 
-    struct Pokemon* mon = &gRogueLabEncounterData.party[slot];
+    struct Pokemon* mon = GetLabMon(slot);
 
     species = VarGet(VAR_ROGUE_STARTER0 + slot);
 
@@ -4753,11 +4767,19 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 case ADVPATH_ROOM_LAB:
                 {
+                    u8 i;
                     RandomiseCharmItems();
 
-                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gRogueLabEncounterData.party[0], MON_DATA_SPECIES));
-                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gRogueLabEncounterData.party[1], MON_DATA_SPECIES));
-                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gRogueLabEncounterData.party[2], MON_DATA_SPECIES));
+                    // Copy lab mons into enemy party, so we can send mons to the lab whilst being inside the lab
+                    for(i = 0; i < LAB_MON_COUNT; ++i)
+                    {
+                        struct Pokemon* labMon = GetLabMon(i);
+                        CopyMon(&gEnemyParty[i], labMon, sizeof(struct Pokemon));
+                    }
+
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1, GetMonData(&gEnemyParty[1], MON_DATA_SPECIES));
+                    VarSet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2, GetMonData(&gEnemyParty[2], MON_DATA_SPECIES));
                     break;
                 }
 
@@ -5059,7 +5081,7 @@ static void PushFaintedMonToLab(struct Pokemon* srcMon)
         return;
     }
 
-    destMon = &gRogueLabEncounterData.party[i];
+    destMon = GetLabMon(i);
     CopyMon(destMon, srcMon, sizeof(*destMon));
 
     temp = max(1, GetMonData(destMon, MON_DATA_MAX_HP) / 2);
@@ -5078,60 +5100,69 @@ static void PushFaintedMonToLab(struct Pokemon* srcMon)
 
 void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst)
 {
-    if(index < LAB_MON_COUNT)
+    AGB_ASSERT(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LAB);
+
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LAB)
     {
-        GetMonData(&gRogueLabEncounterData.party[index], MON_DATA_NICKNAME, dst);
-        StringGet_Nickname(dst);
+        if(index < LAB_MON_COUNT)
+        {
+            GetMonData(&gEnemyParty[index], MON_DATA_NICKNAME, dst);
+            StringGet_Nickname(dst);
+        }
     }
 }
 
 bool8 Rogue_GiveLabEncounterMon(u16 index)
 {
-    if(gPlayerPartyCount < PARTY_SIZE && index < LAB_MON_COUNT)
+    AGB_ASSERT(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LAB);
+
+    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LAB)
     {
-        CopyMon(&gPlayerParty[gPlayerPartyCount], &gRogueLabEncounterData.party[index], sizeof(gPlayerParty[gPlayerPartyCount]));
+        if(gPlayerPartyCount < PARTY_SIZE && index < LAB_MON_COUNT)
+        {
+            CopyMon(&gPlayerParty[gPlayerPartyCount], &gEnemyParty[index], sizeof(gPlayerParty[gPlayerPartyCount]));
 
-        // Already in safari from? (Maybe should track index and then wipe here, as we could have higher priority)
-        gPlayerParty[gPlayerPartyCount].rogueExtraData.isSafariIllegal = TRUE;
+            // Already in safari from? (Maybe should track index and then wipe here, as we could have higher priority)
+            gPlayerParty[gPlayerPartyCount].rogueExtraData.isSafariIllegal = TRUE;
 
-        gPlayerPartyCount = CalculatePlayerPartyCount();
-        ResetFaintedLabMonAtSlot(index);
-        return TRUE;
+            gPlayerPartyCount = CalculatePlayerPartyCount();
+            ResetFaintedLabMonAtSlot(index);
+            return TRUE;
+        }
     }
 
     return FALSE;
 }
 
-void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty, bool8 canSendToLab)
+void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 compactPartySlots)
 {
     if(slot < gPlayerPartyCount)
     {
         if(GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES) != SPECIES_NONE)
         {
-            u32 hp = 0;
-            SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
+            if(keepItems)
+            {
+                u16 heldItem = GetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM);
+
+                // Try to put held item back in bag
+                if(heldItem != ITEM_NONE && AddBagItem(heldItem, 1))
+                {
+                    heldItem = ITEM_NONE;
+                    SetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM, &heldItem);
+                }
+            }
 
             // Forget about re-equipping the held item
             gRogueRun.partyHeldItems[slot] = ITEM_NONE;
 
-            if(shiftUpwardsParty)
-            {
-                RemoveAnyFaintedMons(keepItems, canSendToLab);
-            }
-            else
-            {
-                if(keepItems)
-                {
-                    // Dead so give back held item
-                    u16 heldItem = GetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM);
-                    if(heldItem != ITEM_NONE)
-                        AddBagItem(heldItem, 1);
-                }
+            PushFaintedMonToLab(&gPlayerParty[slot]);
 
-                if(canSendToLab)
-                    PushFaintedMonToLab(&gPlayerParty[slot]);
+            ZeroMonData(&gPlayerParty[slot]);
 
-                ZeroMonData(&gPlayerParty[slot]);
+            if(compactPartySlots)
+            {
+                CompactPartySlots();
+                CalculatePlayerPartyCount();
             }
         }
     }
@@ -5165,7 +5196,7 @@ static void CheckAndNotifyForFaintedMons()
     }
 }
 
-void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
+void RemoveAnyFaintedMons(bool8 keepItems)
 {
     bool8 hasValidSpecies;
     u8 read;
@@ -5182,6 +5213,9 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
         if(Rogue_UseFinalQuestEffects() && Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
             skipReleasing = TRUE;
     }
+
+    if(!Rogue_ShouldReleaseFaintedMons())
+        skipReleasing = TRUE;
 
     if(!skipReleasing)
     {
@@ -5212,15 +5246,13 @@ void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab)
                         AddBagItem(heldItem, 1);
                 }
 
-
                 // Only push mons if run is active
                 if(Rogue_IsRunActive())
                 {
                     RogueSafari_PushMon(&gPlayerParty[read]);
                 }
 
-                if(canSendToLab)
-                    PushFaintedMonToLab(&gPlayerParty[read]);
+                PushFaintedMonToLab(&gPlayerParty[read]);
 
                 ZeroMonData(&gPlayerParty[read]);
             }
@@ -5299,8 +5331,14 @@ static void SetupTrainerBattleInternal(u16 trainerNum)
     gRogueLocal.hasBattleEventOccurred = FALSE;
 
     // Apply trainer specific seed
+    // (seed regular RNG so the internal mon stats are always the same)
     gRogueLocal.rngSeedToRestore = gRngRogueValue;
+    gRogueLocal.rngToRestore = gRngValue;
+    gRogueLocal.rng2ToRestore = gRng2Value;
+    
     SeedRogueRng(RogueRandom() + (trainerNum ^ RogueRandom()));
+    SeedRng(RogueRandom() + (trainerNum ^ RogueRandom()));
+    SeedRng2(RogueRandom() + (trainerNum ^ RogueRandom()));
 
     // enable dyanmax for this fight
     if(IsDynamaxEnabled() && Rogue_IsKeyTrainer(trainerNum))
@@ -5429,6 +5467,8 @@ void Rogue_Battle_TrainerTeamReady(void)
 
     // Can restore the seed now
     gRngRogueValue = gRogueLocal.rngSeedToRestore;
+    gRngValue = gRogueLocal.rngToRestore;
+    gRng2Value = gRogueLocal.rng2ToRestore;
 }
 
 static bool32 IsPlayerDefeated(u32 battleOutcome)
@@ -5725,7 +5765,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             QuestNotify_OnTrainerBattleEnd(isBossTrainer);
-            RemoveAnyFaintedMons(FALSE, TRUE);
+            RemoveAnyFaintedMons(FALSE);
 
             // Reward EVs based on nature
             if(Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
@@ -5837,7 +5877,7 @@ void Rogue_Battle_EndWildBattle(void)
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             QuestNotify_OnWildBattleEnd();
-            RemoveAnyFaintedMons(FALSE, TRUE);
+            RemoveAnyFaintedMons(FALSE);
         }
         else
         {
@@ -7536,23 +7576,30 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     {
         RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 10, maxPriceRange);
 
-        if(Rogue_IsRunActive() && applyRandomChance)
+        if(Rogue_IsRunActive())
         {
-            u8 chance = 100;
+            // Always allow to always buy revives if players have this on
+            if(itemCategory == ROGUE_SHOP_GENERAL && !Rogue_ShouldReleaseFaintedMons())
+                RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_REVIVE);
 
-            if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
+            if(applyRandomChance)
             {
-                chance = 10 + 5 * difficulty;
-            }
-            else if(difficulty < ROGUE_CHAMP_START_DIFFICULTY)
-            {
-                chance = 60 + 10 * (difficulty - ROGUE_ELITE_START_DIFFICULTY);
-            }
+                u8 chance = 100;
 
-            chance = max(randomChanceMinimum, chance);
+                if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
+                {
+                    chance = 10 + 5 * difficulty;
+                }
+                else if(difficulty < ROGUE_CHAMP_START_DIFFICULTY)
+                {
+                    chance = 60 + 10 * (difficulty - ROGUE_ELITE_START_DIFFICULTY);
+                }
 
-            if(chance < 100)
-                RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, chance, 1);
+                chance = max(randomChanceMinimum, chance);
+
+                if(chance < 100)
+                    RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, chance, 1);
+            }
         }
     }
 }

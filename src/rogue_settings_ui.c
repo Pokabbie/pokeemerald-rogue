@@ -104,7 +104,8 @@ static u8 const sMenuName_GameMode_Gauntlet[] = _("Gauntlet");
 static u8 const sMenuName_GameMode_RainbowGauntlet[] = _("Rainbow Gauntlet");
 
 static u8 const sMenuName_Affection[] = _("Affection FX");
-static u8 const sMenuName_TrainerDiversity[] = _("Diverse Trainer{PKMN}");
+static u8 const sMenuName_ReleaseMons[] = _("Release Fainted {PKMN}");
+static u8 const sMenuName_TrainerDiversity[] = _("Diverse Trainer {PKMN}");
 
 static u8 const sMenuName_TrainerRogue[] = _("Rogue");
 static u8 const sMenuName_TrainerKanto[] = _("Kanto");
@@ -152,6 +153,22 @@ static u8 const* const sMenuNameDesc_PresetDescription[] =
 };
 
 
+const u8 sMenuNameDesc_DifficultyOverLvlOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "{PKMN} will stop gaining lvls once they\n"
+    "reach the Level Cap."
+);
+const u8 sMenuNameDesc_DifficultyOverLvlOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "{PKMN} can gain levels over the Level Cap.\n"
+    "(After the Level Cap, will Level slowly)"
+);
+static u8 const* const sMenuNameDesc_DifficultyOverLvl[] = 
+{
+    sMenuNameDesc_DifficultyOverLvlOff,
+    sMenuNameDesc_DifficultyOverLvlOn,
+};
+
 static u8 const sMenuNameDesc_TrainersSubmenu[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enable or Disable groups of Trainers that\n"
@@ -175,6 +192,23 @@ const u8 sMenuNameDesc_Affection[] = _(
     "{PKMN} with high friendship may have special\n"
     "effects e.g. enduring, extra crits etc."
 );
+
+const u8 sMenuNameDesc_ReleaseMonsOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "When {PKMN} faint, they will be released.\n"
+    "from your party."
+);
+
+const u8 sMenuNameDesc_ReleaseMonsOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Fainted {PKMN} will remain in your party, but\n"
+    "can only be revived by Nurses or Revives."
+);
+static u8 const* const sMenuNameDesc_ReleaseMons[] = 
+{
+    sMenuNameDesc_ReleaseMonsOff,
+    sMenuNameDesc_ReleaseMonsOn,
+};
 
 const u8 sMenuNameDesc_TrainerDiversity[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -298,6 +332,7 @@ enum
     MENUITEM_MENU_TOGGLE_SWITCH_MODE,
     MENUITEM_MENU_TOGGLE_DIVERSE_TRAINERS,
     MENUITEM_MENU_TOGGLE_AFFECTION,
+    MENUITEM_MENU_TOGGLE_RELEASE_MONS,
 
     MENUITEM_MENU_TOGGLE_TRAINER_ROGUE,
     MENUITEM_MENU_TOGGLE_TRAINER_KANTO,
@@ -370,7 +405,7 @@ enum
 #define MAX_MENUITEM_COUNT 24
 #define MAX_MENUITEM_TO_DISPLAY 5
 #define XPOS_TITLES       8
-#define XPOS_CHOICES      106
+#define XPOS_CHOICES      111
 #define YPOS_SPACING      16
 
 // this file's functions
@@ -484,7 +519,7 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_TOGGLE_OVER_LVL] = 
     {
         .itemName = gText_DifficultyOverLvl,
-        .SINGLE_DESC(gText_DifficultyOverLvlDesc),
+        .MULTI_DESC(sMenuNameDesc_DifficultyOverLvl),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
@@ -527,6 +562,13 @@ static const struct MenuEntry sOptionMenuItems[] =
     {
         .itemName = sMenuName_Affection,
         .SINGLE_DESC(sMenuNameDesc_Affection),
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
+    [MENUITEM_MENU_TOGGLE_RELEASE_MONS] = 
+    {
+        .itemName = sMenuName_ReleaseMons,
+        .MULTI_DESC(sMenuNameDesc_ReleaseMons),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
@@ -808,6 +850,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_TOGGLE_DIVERSE_TRAINERS,
             //MENUITEM_MENU_SLIDER_ITEM,
             //MENUITEM_MENU_SLIDER_LEGENDARY,
+            MENUITEM_MENU_TOGGLE_RELEASE_MONS,
             MENUITEM_MENU_TOGGLE_OVER_LVL,
             MENUITEM_MENU_TOGGLE_EV_GAIN,
 #ifdef ROGUE_EXPANSION
@@ -1722,6 +1765,9 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_TOGGLE_AFFECTION:
         return Rogue_GetConfigToggle(CONFIG_TOGGLE_AFFECTION);
 
+    case MENUITEM_MENU_TOGGLE_RELEASE_MONS:
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_RELEASE_MONS);
+
     // Trainers
     //
     case MENUITEM_MENU_TOGGLE_TRAINER_ROGUE:
@@ -1866,6 +1912,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_TOGGLE_AFFECTION:
         Rogue_SetConfigToggle(CONFIG_TOGGLE_AFFECTION, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_RELEASE_MONS:
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_RELEASE_MONS, value);
         break;
 
     // Trainers

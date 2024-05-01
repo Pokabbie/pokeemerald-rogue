@@ -1246,6 +1246,13 @@ u16 Rogue_GetPrice(u16 itemId)
     // Individual items
     switch(itemId)
     {
+        case ITEM_REVIVE:
+            price = 2000;
+            break;
+        case ITEM_MAX_REVIVE:
+            price = 4000;
+            break;
+
         case ITEM_PP_UP:
             price = 2000;
             break;

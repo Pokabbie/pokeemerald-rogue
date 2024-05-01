@@ -1639,7 +1639,11 @@ static u8 ShouldTrainerOptimizeCoverage(u16 trainerNum)
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
-        return FALSE;
+        // Rival is the only one who is allowed to spread out their coverage
+        if(Rogue_IsRivalTrainer(trainerNum))
+            return TRUE;
+        else
+            return FALSE;
 
     case DIFFICULTY_LEVEL_AVERAGE:
         if(Rogue_IsRivalTrainer(trainerNum))
@@ -2845,7 +2849,12 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
-        return FALSE;
+        // We allow presets BUT we will later only apply specific things from the preset
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY && Rogue_IsKeyTrainer(scratch->trainerNum))
+            return TRUE;
+        else
+            return FALSE;
+        break;
 
     case DIFFICULTY_LEVEL_AVERAGE:
         if(difficultyLevel == 0)
@@ -3218,6 +3227,13 @@ static void ModifyTrainerMonPreset(u16 trainerNum, struct RoguePokemonCompetitiv
             if(gBattleMoves[preset->moves[i]].power == 0)
                 preset->moves[i] = MOVE_NONE;
         }
+    }
+    
+    if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) == DIFFICULTY_LEVEL_EASY && !Rogue_IsBattleSimTrainer(trainerNum))
+    {
+        // We're basically only interested in giving the mons some held items
+        // (Battle sim we still give everything as it's fine if that's a challenge)
+        presetRules->skipMoves = TRUE;
     }
 
     if(!ShouldTrainerUseValidNatures(trainerNum))

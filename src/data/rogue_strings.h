@@ -91,7 +91,7 @@ const u8 gText_DifficultyExpAll[] = _("Exp. All");
 const u8 gText_DifficultyOverLvl[] = _("Over Level");
 const u8 gText_DifficultyEVGain[] = _("EV Gain");
 const u8 gText_DifficultyOverworldMons[] = _("Visible Wild {PKMN}");
-const u8 gText_DifficultyBagWipe[] = _("True Roguelike");
+const u8 gText_DifficultyBagWipe[] = _("Fresh Start");
 const u8 gText_DifficultySwitchMode[] = _("Switch Mode");
 
 const u8 gText_DifficultyTrainers[] = _("Trainers");
@@ -114,12 +114,6 @@ const u8 gText_DifficultyExpAllDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "All {PKMN} in the party will be awarded Exp.\n"
     "even if they didn't enter the battle."
-);
-
-const u8 gText_DifficultyOverLvlDesc[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Allows {PKMN} to continue gaining lvls\n"
-    "past the current lvl cap."
 );
 
 const u8 gText_DifficultyEVGainDesc[] = _(

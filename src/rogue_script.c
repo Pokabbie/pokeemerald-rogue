@@ -316,17 +316,7 @@ void Rogue_ReleaseMonInSlot(void)
 
     if(monIdx < gPlayerPartyCount)
     {
-        RemoveMonAtSlot(monIdx, TRUE, TRUE, TRUE);
-    }
-}
-
-void Rogue_ReleaseMonInSlot_NoLabBuffering(void)
-{
-    u16 monIdx = gSpecialVar_0x8004;
-
-    if(monIdx < gPlayerPartyCount)
-    {
-        RemoveMonAtSlot(monIdx, TRUE, TRUE, FALSE);
+        RemoveMonAtSlot(monIdx, TRUE, TRUE);
     }
 }
 
@@ -804,32 +794,32 @@ static u16 GetSpeciesComboOutput(u16 speciesA, u16 speciesB, bool8 getItem)
     //    return getItem ? ITEM_PECHA_BERRY : SPECIES_ABSOL;
 
 #ifdef ROGUE_EXPANSION
-    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_KYUREM, SPECIES_RESHIRAM))
-        return getItem ? ITEM_DNA_SPLICERS : SPECIES_KYUREM_WHITE;
-
-    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_KYUREM, SPECIES_ZEKROM))
-        return getItem ? ITEM_DNA_SPLICERS : SPECIES_KYUREM_BLACK;
-
-    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_ZYGARDE_COMPLETE, SPECIES_ZYGARDE_COMPLETE))
-        return getItem ? ITEM_ZYGARDE_CUBE : SPECIES_ZYGARDE_10;
-
-    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_ZYGARDE_10, SPECIES_ZYGARDE_10))
-        return getItem ? ITEM_ZYGARDE_CUBE : SPECIES_ZYGARDE;
-
-    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_ZYGARDE, SPECIES_ZYGARDE))
-        return getItem ? ITEM_ZYGARDE_CUBE : SPECIES_ZYGARDE_COMPLETE;
-
-    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_NECROZMA, SPECIES_SOLGALEO))
-        return getItem ? ITEM_N_SOLARIZER : SPECIES_NECROZMA_DUSK_MANE;
-
-    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_NECROZMA, SPECIES_LUNALA))
-        return getItem ? ITEM_N_LUNARIZER : SPECIES_NECROZMA_DAWN_WINGS;
-
-    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_CALYREX, SPECIES_GLASTRIER))
-        return getItem ? ITEM_REINS_OF_UNITY : SPECIES_CALYREX_ICE_RIDER;
-
-    if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_CALYREX, SPECIES_SPECTRIER))
-        return getItem ? ITEM_REINS_OF_UNITY : SPECIES_CALYREX_SHADOW_RIDER;
+    //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_KYUREM, SPECIES_RESHIRAM))
+    //    return getItem ? ITEM_DNA_SPLICERS : SPECIES_KYUREM_WHITE;
+//
+    //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_KYUREM, SPECIES_ZEKROM))
+    //    return getItem ? ITEM_DNA_SPLICERS : SPECIES_KYUREM_BLACK;
+//
+    //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_ZYGARDE_COMPLETE, SPECIES_ZYGARDE_COMPLETE))
+    //    return getItem ? ITEM_ZYGARDE_CUBE : SPECIES_ZYGARDE_10;
+//
+    //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_ZYGARDE_10, SPECIES_ZYGARDE_10))
+    //    return getItem ? ITEM_ZYGARDE_CUBE : SPECIES_ZYGARDE;
+//
+    //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_ZYGARDE, SPECIES_ZYGARDE))
+    //    return getItem ? ITEM_ZYGARDE_CUBE : SPECIES_ZYGARDE_COMPLETE;
+//
+    //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_NECROZMA, SPECIES_SOLGALEO))
+    //    return getItem ? ITEM_N_SOLARIZER : SPECIES_NECROZMA_DUSK_MANE;
+//
+    //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_NECROZMA, SPECIES_LUNALA))
+    //    return getItem ? ITEM_N_LUNARIZER : SPECIES_NECROZMA_DAWN_WINGS;
+//
+    //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_CALYREX, SPECIES_GLASTRIER))
+    //    return getItem ? ITEM_REINS_OF_UNITY : SPECIES_CALYREX_ICE_RIDER;
+//
+    //if(CheckSpeciesCombo(speciesA, speciesB, SPECIES_CALYREX, SPECIES_SPECTRIER))
+    //    return getItem ? ITEM_REINS_OF_UNITY : SPECIES_CALYREX_SHADOW_RIDER;
 #endif
 
     return 0;
@@ -846,25 +836,28 @@ void Rogue_CheckMonCombo(void)
 
 void Rogue_ApplyMonCombo(void)
 {
-    u16 speciesA = GetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_SPECIES);
-    u16 speciesB = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES);
-    u16 outputSpecies = GetSpeciesComboOutput(speciesA, speciesB, FALSE);
+    // This is broken and we don't want to use it anyway
+    AGB_ASSERT(FALSE);
 
-    if(outputSpecies)
-    {
-        u8 speciesName[POKEMON_NAME_LENGTH + 1];
-        StringCopyN(speciesName, RoguePokedex_GetSpeciesName(outputSpecies), ARRAY_COUNT(speciesName));
-
-        SetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_SPECIES, &outputSpecies);
-        SetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_NICKNAME, speciesName);
-        RemoveMonAtSlot(gSpecialVar_0x8004, TRUE, TRUE, FALSE);
-
-        gSpecialVar_Result = TRUE;
-    }
-    else
-    {
-        gSpecialVar_Result = FALSE;
-    }
+    //u16 speciesA = GetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_SPECIES);
+    //u16 speciesB = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES);
+    //u16 outputSpecies = GetSpeciesComboOutput(speciesA, speciesB, FALSE);
+//
+    //if(outputSpecies)
+    //{
+    //    u8 speciesName[POKEMON_NAME_LENGTH + 1];
+    //    StringCopyN(speciesName, RoguePokedex_GetSpeciesName(outputSpecies), ARRAY_COUNT(speciesName));
+//
+    //    SetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_SPECIES, &outputSpecies);
+    //    SetMonData(&gPlayerParty[gSpecialVar_0x8003], MON_DATA_NICKNAME, speciesName);
+    //    RemoveMonAtSlot(gSpecialVar_0x8004, TRUE, TRUE, FALSE);
+//
+    //    gSpecialVar_Result = TRUE;
+    //}
+    //else
+    //{
+    //    gSpecialVar_Result = FALSE;
+    //}
 }
 
 void Rogue_GetFollowMonSpecies(void)
@@ -1437,8 +1430,11 @@ void Rogue_HealAlivePlayerParty()
 
 void Rogue_FillHealingFlask()
 {
-    VarSet(VAR_ROGUE_FLASK_HEALS_USED, 0);
-    Rogue_PushPopup_FlaskRefilled();
+    if(IsHealingFlaskEnabled())
+    {
+        VarSet(VAR_ROGUE_FLASK_HEALS_USED, 0);
+        Rogue_PushPopup_FlaskRefilled();
+    }
 }
 
 #define VAR_CATCH_CONTEST_TYPE VAR_TEMP_2
