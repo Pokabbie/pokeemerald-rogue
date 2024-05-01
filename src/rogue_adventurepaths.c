@@ -402,6 +402,8 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
         if(count != 0)
             return 0;
         else if((GetPathGenerationDifficulty() % 2) != 0)
+            return 15;
+        else
             return 1;
         break;
 
@@ -411,6 +413,8 @@ static u8 SelectRoomType_CalculateWeight(u16 weightIndex, u16 roomType, void* da
         if(count != 0)
             return 0;
         else if(((GetPathGenerationDifficulty() + 1) % 2) != 0)
+            return 20;
+        else
             return 1;
         break;
 
@@ -707,7 +711,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     }
 
     // Honey tree
-    if(GetPathGenerationDifficulty() >= 1)
+    if(GetPathGenerationDifficulty() >= 1 && RogueRandomChance(60, 0))
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_HONEY_TREE;
 
     // Catching contest
@@ -738,14 +742,14 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
             allowGameShow = TRUE;
         }
 
-        allowDarkDeal = (allowDarkDeal && RogueRandomChance(33, 0));
-        allowLab = (allowLab && RogueRandomChance(33, 0));
+        allowDarkDeal = (allowDarkDeal && RogueRandomChance(25, 0));
+        allowLab = (allowLab && RogueRandomChance(25, 0));
 
 
         if(allowLab)
         {
             // Lab
-            if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1 && RogueRandomChance(10, 0))
+            if(GetPathGenerationDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
                 validEncounterList[validEncounterCount++] = ADVPATH_ROOM_LAB;
         }
 
@@ -833,19 +837,19 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         {
             chance = 60;
             chanceFalloff = 10;
-            minRouteCount = 1;
+            minRouteCount = 2;
         }
         else if(GetPathGenerationDifficulty() >=  1)
         {
             chance = 40;
             chanceFalloff = 20;
-            minRouteCount = 2;
+            minRouteCount = 3;
         }
         else
         {
             chance = 5;
             chanceFalloff = 0;
-            minRouteCount = 2;
+            minRouteCount = 3;
         }
 
         // Always make sure there is at least 1 regular route which can be chosen

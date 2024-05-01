@@ -6,6 +6,8 @@ const FLAG_HIDE_TERA            = FLAG_TEMP_5
 
 const VAR_MAP_LOAD_STATE = VAR_TEMP_0
 
+const NPC_OBJ_SCOTT         = 1
+
 const NPC_OBJ_MEGA_STONE    = 13
 const NPC_OBJ_Z_CRYSTAL     = 14
 const NPC_OBJ_DYNAMAX       = 15
@@ -40,13 +42,12 @@ script Rogue_Interior_ChallengeFrontier_OnMapLoad
 
 script Rogue_Interior_ChallengeFrontier_LoadState0
 {
-    call(Rogue_Interior_ChallengeFrontier_UpdateItemVisibility)
     addvar(VAR_MAP_LOAD_STATE, 1)
+    call(Rogue_Interior_ChallengeFrontier_UpdateItemVisibility)
 }
 
 script Rogue_Interior_ChallengeFrontier_UpdateItemVisibility
 {
-    
     poryswitch(ROGUE_VERSION)
     {
         ROGUE_VERSION_VANILLA
@@ -368,6 +369,221 @@ script Rogue_Interior_ChallengeFrontier_HealingFlask
         }
     }
     call(Rogue_Interior_ChallengeFrontier_UpdateItemVisibility)
+
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_TalkScott
+{
+    lock
+    faceplayer
+
+    if(var(VAR_ROGUE_POST_GAME_TUTORIAL) == 1)
+    {
+        msgbox(format("You've still got plenty of things to find around here!\pDon't you worry!"))
+    }
+
+    //msgbox(format("todo - unlock challenges"))
+//
+    //special(Rogue_UnlockChallengeQuests)
+    //special(Rogue_ShowNewQuests)
+    //waitstate
+
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_ScottIntroLeft
+{
+    lock
+
+    applymovement(NPC_OBJ_SCOTT, PostGameTutorial_Scott0)
+    waitmovement(0)
+
+    msgbox(format("Ah!\nYou must be {PLAYER}!"))
+
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, PostGameTutorial_Player0_Left)
+    waitmovement(0)
+
+    call(Rogue_Interior_ChallengeFrontier_ScottIntroCommon)
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_ScottIntroRight
+{
+    lock
+
+    applymovement(NPC_OBJ_SCOTT, PostGameTutorial_Scott0)
+    waitmovement(0)
+
+    msgbox(format("Ah!\nYou must be {PLAYER}!"))
+
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, PostGameTutorial_Player0_Right)
+    waitmovement(0)
+
+    call(Rogue_Interior_ChallengeFrontier_ScottIntroCommon)
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_ScottIntroCentre
+{
+    lock
+
+    applymovement(NPC_OBJ_SCOTT, PostGameTutorial_Scott0)
+    waitmovement(0)
+
+    msgbox(format("Ah!\nYou must be {PLAYER}!"))
+
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, PostGameTutorial_Player0_Centre)
+    waitmovement(0)
+
+    call(Rogue_Interior_ChallengeFrontier_ScottIntroCommon)
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_ScottIntroCommon
+{
+    addvar(VAR_ROGUE_POST_GAME_TUTORIAL, 1)
+
+    msgbox(format("SCOTT: The name's Scott!\pPokabbie told me to keep an eye out for a Champion in the making.\pI'm guessing that's you, right?"))
+
+    if(flag(FLAG_IS_CHAMPION))
+    {
+        msgbox(format("And would you look at that…\pYou already put your name in the Hall of Fame!\pYou're gonna fit in well around here!"))
+    }
+    else
+    {
+        msgbox(format("You still look a little fresh, but I see the potential!\pI bet you could even enter the Hall of Fame, if you put your mind to it!"))
+    }
+
+    msgbox(format("You see, this Building is an area for those who want to push themselves to complete some of the toughest Challenges imaginable!\pIn fact…\nWhy don't you have a look around?\pI'm sure you'll find plenty of the things around here interesting!"))
+}
+
+movement PostGameTutorial_Scott0
+{
+    emote_exclamation_mark
+}
+
+movement PostGameTutorial_Player0_Centre
+{
+    walk_up * 2
+}
+
+movement PostGameTutorial_Player0_Left
+{
+    walk_up
+    walk_right
+    walk_up * 2
+}
+
+movement PostGameTutorial_Player0_Right
+{
+    walk_up
+    walk_left
+    walk_up * 2
+}
+
+
+script Rogue_Interior_ChallengeFrontier_ScottBlockExit
+{
+    lock
+
+    if(flag(FLAG_SYS_MASTERIES_UNLOCKED) && flag(FLAG_SYS_CHALLENGES_UNLOCKED))
+    {
+        addvar(VAR_ROGUE_POST_GAME_TUTORIAL, 1)
+    }
+    else
+    {
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        msgbox(format("SCOTT: {PLAYER}, you can't head out just yet.\pThere's still way more for you to see!"))
+
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, PostGameTutorial_Player1)
+        waitmovement(0)
+    }
+
+    release
+}
+
+movement PostGameTutorial_Player1
+{
+    walk_up
+}
+
+script Rogue_Interior_ChallengeFrontier_TalkMasteries
+{
+    lock
+    faceplayer
+
+    if(!flag(FLAG_SYS_MASTERIES_UNLOCKED))
+    {
+        msgbox(format("Hello, {PLAYER}.\pI've enjoyed seeing your progress so far!\pI would like to issue you some additional Quests.\pThese Quests will prove your skill with using a variety of Pokémon.\pAs such, they are appropriately named, Pokémon Masteries.\pHere, take a look!"))
+        
+        special(Rogue_UnlockMasteryQuests)
+        special(Rogue_ShowNewQuests)
+        waitstate
+
+    
+        poryswitch(ROGUE_VERSION)
+        {
+            ROGUE_VERSION_VANILLA
+            {
+                msgbox(format("I wish you the best of luck with your Pokémon Masteries, {PLAYER}!"))
+            }
+            ROGUE_VERSION_EXPANSION
+            {
+                msgbox(format("Once, you have completed any of those Quests, their signature items will be available for purchase.\pYou may speak to me, at any time, to buy those items.\pI wish you the best of luck with your Pokémon Masteries, {PLAYER}!"))
+            }
+        }
+    }
+    else
+    {
+        msgbox(format("Hello, {PLAYER}."))
+
+        poryswitch(ROGUE_VERSION)
+        {
+            ROGUE_VERSION_VANILLA
+            {
+                msgbox(format("I hope your Pokémon Masteries are going well!"))
+            }
+            ROGUE_VERSION_EXPANSION
+            {
+                msgbox(format("Hello, {PLAYER}."))
+
+                message(format("Would you like to purchase any Pokémon Mastery rewards?"))
+                waitmessage
+
+                rogue_dynamicpokemart(ROGUE_SHOP_RARE_HELD_ITEMS)
+
+                msgbox(format("Best of luck with you Pokémon Masteries, {PLAYER}."))
+            }
+        }
+    }
+
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_TalkChallenges
+{
+    lock
+    faceplayer
+
+    if(!flag(FLAG_SYS_CHALLENGES_UNLOCKED))
+    {
+        msgbox(format("What's that?\pThat little Quest Book you have there?\pSo you're trying to complete Quests, huh?\pWell, have I got a Challenge for you!\p… … …\pNo, I'm serious I have Challenges for you.\pChallenges are a special type of Quest that can be way more indepth!\pHere, take a look."))
+        
+        special(Rogue_UnlockChallengeQuests)
+        special(Rogue_ShowNewQuests)
+        waitstate
+        
+        msgbox(format("For Challenges, you can even try them again at a higher Difficulty, if you want!\pJust change your settings in the Config Lab to a higher Reward Level than you previously beat it on.\pSome Challenges even give exclusive rewards for beating them on a higher Difficulty too!\pSounds exciting, right?"))
+    }
+    else
+    {
+        msgbox(format("Hi there, {PLAYER}.\pHow have your Challenges been going?"))
+    }
 
     release
 }

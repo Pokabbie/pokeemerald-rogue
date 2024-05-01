@@ -21,8 +21,8 @@ bool8 RogueRandomChance(u8 chance, u16 seedFlag);
 u16 Rogue_GetShinyOdds(void);
 bool8 Rogue_RollShinyState(void);
 
-void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 shiftUpwardsParty, bool8 canSendToLab);
-void RemoveAnyFaintedMons(bool8 keepItems, bool8 canSendToLab);
+void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 compactPartySlots);
+void RemoveAnyFaintedMons(bool8 keepItems);
 
 bool8 Rogue_IsRunActive(void);
 bool8 Rogue_InWildSafari(void);
@@ -34,6 +34,7 @@ void Rogue_SetCurrentDifficulty(u8 difficulty);
 bool8 Rogue_ForceExpAll(void);
 bool8 Rogue_EnableExpGain(void);
 bool8 Rogue_EnableAffectionMechanics(void);
+bool8 Rogue_ShouldReleaseFaintedMons(void);
 bool8 Rogue_FastBattleAnims(void);
 bool8 Rogue_UseKeyBattleAnims(void);
 bool8 Rogue_GetBattleAnimsEnabled(void);
@@ -88,6 +89,7 @@ bool8 IsMegaEvolutionEnabled(void);
 bool8 IsZMovesEnabled(void);
 bool8 IsDynamaxEnabled(void);
 bool8 IsTerastallizeEnabled(void);
+bool8 IsHealingFlaskEnabled(void);
 
 void Rogue_RandomiseStarters();
 void Rogue_ResetConfigHubSettings(void);

@@ -185,7 +185,6 @@ gSpecials::
 	def_special Rogue_AlterMonIVs
 	def_special Rogue_ApplyStatusToMon
 	def_special Rogue_ReleaseMonInSlot
-	def_special Rogue_ReleaseMonInSlot_NoLabBuffering
 	def_special Rogue_CalcMaxPartySize
 	def_special Rogue_GetMonEvoCount
 	def_special Rogue_GetMonEvoParams
@@ -197,6 +196,8 @@ gSpecials::
 	def_special RogueDebug_StartBattle
 	def_special Rogue_QuestCollectNextReward
 	def_special Rogue_HasAnyNewQuests
+	def_special Rogue_UnlockChallengeQuests
+	def_special Rogue_UnlockMasteryQuests
 	def_special Rogue_ShowNewQuests
 	def_special Rogue_DetermineItemPickupCount
 	def_special Rogue_CheckBerryTreat

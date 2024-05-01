@@ -1425,9 +1425,9 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
     Free(temp);
 }
 
-static void ReleasePartyPokemon(u8 slot, bool8 shiftMonsUp)
+static void ReleasePartyPokemon(u8 slot, bool8 compactPartySlots)
 {
-    RemoveMonAtSlot(slot, TRUE, shiftMonsUp, TRUE);
+    RemoveMonAtSlot(slot, TRUE, compactPartySlots);
 }
 
 static void Task_ClosePartyMenu(u8 taskId)

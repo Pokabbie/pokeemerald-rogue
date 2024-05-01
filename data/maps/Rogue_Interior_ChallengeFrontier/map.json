@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Rogue_Interior_ChallengeFrontier_TalkScott",
       "flag": "0"
     },
     {
@@ -42,15 +42,15 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MISC_NPC_MYSTERY_GIFT",
-      "x": 33,
-      "y": 5,
+      "x": 32,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Rogue_Interior_ChallengeFrontier_TalkMasteries",
       "flag": "0"
     },
     {
@@ -68,8 +68,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_UNION_ROOM_NURSE",
-      "x": 36,
-      "y": 21,
+      "x": 35,
+      "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -94,8 +94,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 2,
-      "y": 5,
+      "x": 36,
+      "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -107,8 +107,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 8,
-      "y": 5,
+      "x": 37,
+      "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -159,8 +159,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MISC_LOOKER",
-      "x": 16,
-      "y": 9,
+      "x": 22,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -234,6 +234,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Interior_ChallengeFrontier_Tera",
       "flag": "FLAG_TEMP_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MISC_VETERAN",
+      "x": 34,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Interior_ChallengeFrontier_TalkChallenges",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -260,7 +273,42 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_ROGUE_POST_GAME_TUTORIAL",
+      "var_value": "0",
+      "script": "Rogue_Interior_ChallengeFrontier_ScottIntroCentre"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_ROGUE_POST_GAME_TUTORIAL",
+      "var_value": "0",
+      "script": "Rogue_Interior_ChallengeFrontier_ScottIntroLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_ROGUE_POST_GAME_TUTORIAL",
+      "var_value": "0",
+      "script": "Rogue_Interior_ChallengeFrontier_ScottIntroRight"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_ROGUE_POST_GAME_TUTORIAL",
+      "var_value": "1",
+      "script": "Rogue_Interior_ChallengeFrontier_ScottBlockExit"
+    }
   ],
   "bg_events": [
     {

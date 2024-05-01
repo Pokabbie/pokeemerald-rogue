@@ -111,6 +111,7 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
         {
             { .id=CONFIG_TOGGLE_SWITCH_MODE, .value=FALSE },
             { .id=CONFIG_TOGGLE_AFFECTION, .value=FALSE },
+            { .id=CONFIG_TOGGLE_RELEASE_MONS, .value=TRUE },
             { .id=CONFIG_TOGGLE_COUNT },
         },
         .ranges = 
@@ -129,6 +130,7 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
             { .id=CONFIG_TOGGLE_EV_GAIN, .value=FALSE },
             { .id=CONFIG_TOGGLE_SWITCH_MODE, .value=FALSE },
             { .id=CONFIG_TOGGLE_AFFECTION, .value=FALSE },
+            { .id=CONFIG_TOGGLE_RELEASE_MONS, .value=TRUE },
             { .id=CONFIG_TOGGLE_COUNT },
         },
         .ranges = 
@@ -147,6 +149,7 @@ const struct RogueDifficultyPreset gRogueDifficultyPresets[DIFFICULTY_PRESET_COU
             { .id=CONFIG_TOGGLE_EV_GAIN, .value=FALSE },
             { .id=CONFIG_TOGGLE_SWITCH_MODE, .value=FALSE },
             { .id=CONFIG_TOGGLE_AFFECTION, .value=FALSE },
+            { .id=CONFIG_TOGGLE_RELEASE_MONS, .value=TRUE },
             { .id=CONFIG_TOGGLE_BAG_WIPE, .value=TRUE },
             { .id=CONFIG_TOGGLE_DIVERSE_TRAINERS, .value=TRUE },
             { .id=CONFIG_TOGGLE_COUNT },
@@ -362,6 +365,7 @@ static void Rogue_ResetToDefaults(bool8 difficultySettingsOnly)
     Rogue_SetConfigToggle(CONFIG_TOGGLE_BAG_WIPE, FALSE);
     Rogue_SetConfigToggle(CONFIG_TOGGLE_SWITCH_MODE, TRUE);
     Rogue_SetConfigToggle(CONFIG_TOGGLE_AFFECTION, TRUE);
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_RELEASE_MONS, FALSE);
     Rogue_SetConfigToggle(CONFIG_TOGGLE_DIVERSE_TRAINERS, FALSE);
 
     // Set these all to the lowest

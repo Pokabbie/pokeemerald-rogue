@@ -211,6 +211,7 @@ script Rogue_InteractWithQuestBoard
         {
             msgbox(format("New Quests have been posted!"))
             special(Rogue_ShowNewQuests)
+            waitstate
         }
         elif (var(VAR_0x8004) == 1)
         {
@@ -642,7 +643,7 @@ script Rogue_Shop_RareHeldItems
 {
     lock
     faceplayer
-    message("Welcome to the Travelling Battle Shop!\nI stock Special Held Items.")
+    message("Welcome to the Travelling Battle Shop!\nI stock Special Items.")
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_RARE_HELD_ITEMS)
