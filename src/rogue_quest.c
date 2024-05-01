@@ -59,6 +59,9 @@ static bool8 QuestCondition_RandomanWasUsed(u16 questId, struct RogueQuestTrigge
 static bool8 QuestCondition_RandomanWasActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQuestTrigger const* trigger);
 
+static bool8 IsQuestSurpressed(u16 questId);
+static bool8 CanSurpressedQuestActivate(u16 questId);
+
 bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 
 #define COMPOUND_STRING(str) (const u8[]) _(str)
@@ -173,6 +176,10 @@ static bool8 CanActivateQuest(u16 questId)
     if(RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
         return FALSE;
 
+    // Masteries still work in the background, but challenges don't
+    if(IsQuestSurpressed(questId) && !CanSurpressedQuestActivate(questId))
+        return FALSE;
+
     // Challenges can be run again at a higher difficulty
     if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_CHALLENGE))
     {
@@ -202,7 +209,7 @@ static bool8 CanActivateQuest(u16 questId)
 }
 
 // Surpressed quests are quests which can still activate and be completed, but all UI mentioned are hidden
-// i.e. you can technically complete challenges and masteries without having them unlocked
+// i.e. you can technically complete masteries without having them unlocked
 static bool8 IsQuestSurpressed(u16 questId)
 {
     if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_CHALLENGE))
@@ -220,9 +227,22 @@ static bool8 IsQuestSurpressed(u16 questId)
     return FALSE;
 }
 
+static bool8 CanSurpressedQuestActivate(u16 questId)
+{
+    if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_MON_MASTERY))
+        return TRUE;
+
+    return FALSE;
+}
+
 bool8 RogueQuest_IsQuestUnlocked(u16 questId)
 {
     return RogueQuest_GetStateFlag(questId, QUEST_STATE_UNLOCKED);
+}
+
+bool8 RogueQuest_IsQuestVisible(u16 questId)
+{
+    return RogueQuest_IsQuestUnlocked(questId) && !IsQuestSurpressed(questId);
 }
 
 bool8 RogueQuest_TryUnlockQuest(u16 questId)

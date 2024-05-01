@@ -394,7 +394,7 @@ static void OpenQuestMenu(RogueQuestMenuCallback callback, u8 page)
 
 void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback, bool8 viewQuestBook)
 {
-    OpenQuestMenu(CB2_ReturnToFieldContinueScript, viewQuestBook ? PAGE_BOOK_FRONT : PAGE_QUEST_BOARD);
+    OpenQuestMenu(callback, viewQuestBook ? PAGE_BOOK_FRONT : PAGE_QUEST_BOARD);
 }
 
 static void CB2_InitQuestMenu(void)
@@ -558,7 +558,8 @@ static void Task_QuestFadeOut(u8 taskId)
 
         FreeAllWindowBuffers();
         DestroyTask(taskId);
-        SetMainCallback2(CB2_ReturnToFieldFadeFromBlack);
+        //SetMainCallback2(CB2_ReturnToFieldFadeFromBlack);
+        SetMainCallback2(gMain.savedCallback);
     }
 }
 
@@ -610,7 +611,7 @@ static bool8 IsQuestIndexVisible(u16 questIndex)
 {
     u16 questId = RogueQuest_GetOrderedQuest(questIndex);
 
-    if(!RogueQuest_IsQuestUnlocked(questId))
+    if(!RogueQuest_IsQuestVisible(questId))
         return FALSE;
 
     if(sQuestMenuData->questListConstIncludeFlags != QUEST_CONST_NONE)

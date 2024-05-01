@@ -209,6 +209,7 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
         fadedefaultbgm()
 
         special(Rogue_ShowNewQuests)
+        waitstate
 
         addvar(VAR_ROGUE_INTRO_STATE, 1)
     }
