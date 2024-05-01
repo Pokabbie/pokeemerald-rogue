@@ -534,6 +534,16 @@ void Rogue_HasAnyNewQuests()
     gSpecialVar_Result = RogueQuest_HasPendingNewQuests();
 }
 
+void Rogue_UnlockChallengeQuests()
+{
+    FlagSet(FLAG_SYS_CHALLENGES_UNLOCKED);
+}
+
+void Rogue_UnlockMasteryQuests()
+{
+    FlagSet(FLAG_SYS_MASTERIES_UNLOCKED);
+}
+
 void Rogue_DetermineItemPickupCount()
 {
     u16 itemId = gSpecialVar_0x8001;

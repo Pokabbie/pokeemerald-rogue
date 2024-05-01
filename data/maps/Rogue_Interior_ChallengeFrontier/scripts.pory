@@ -46,7 +46,6 @@ script Rogue_Interior_ChallengeFrontier_LoadState0
 
 script Rogue_Interior_ChallengeFrontier_UpdateItemVisibility
 {
-    
     poryswitch(ROGUE_VERSION)
     {
         ROGUE_VERSION_VANILLA
@@ -368,6 +367,32 @@ script Rogue_Interior_ChallengeFrontier_HealingFlask
         }
     }
     call(Rogue_Interior_ChallengeFrontier_UpdateItemVisibility)
+
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_TalkScott
+{
+    lock
+    faceplayer
+
+    msgbox(format("todo - unlock challenges"))
+
+    special(Rogue_UnlockChallengeQuests)
+    special(Rogue_ShowNewQuests)
+
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_TalkMasteries
+{
+    lock
+    faceplayer
+
+    msgbox(format("todo - unlock masteries"))
+
+    special(Rogue_UnlockMasteryQuests)
+    special(Rogue_ShowNewQuests)
 
     release
 }

@@ -201,6 +201,25 @@ static bool8 CanActivateQuest(u16 questId)
     return TRUE;
 }
 
+// Surpressed quests are quests which can still activate and be completed, but all UI mentioned are hidden
+// i.e. you can technically complete challenges and masteries without having them unlocked
+static bool8 IsQuestSurpressed(u16 questId)
+{
+    if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_CHALLENGE))
+    {
+        if(!RogueQuest_HasUnlockedChallenges())
+            return TRUE;
+    }
+
+    if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_MON_MASTERY))
+    {
+        if(!RogueQuest_HasUnlockedMonMasteries())
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 bool8 RogueQuest_IsQuestUnlocked(u16 questId)
 {
     return RogueQuest_GetStateFlag(questId, QUEST_STATE_UNLOCKED);
@@ -231,7 +250,7 @@ bool8 RogueQuest_HasPendingNewQuests()
 
     for(i = 0; i < QUEST_ID_COUNT; ++i)
     {
-        if(RogueQuest_IsQuestUnlocked(i) && RogueQuest_GetStateFlag(i, QUEST_STATE_NEW_UNLOCK))
+        if(RogueQuest_IsQuestUnlocked(i) && !IsQuestSurpressed(i) && RogueQuest_GetStateFlag(i, QUEST_STATE_NEW_UNLOCK))
             return TRUE;
     }
 
@@ -244,14 +263,14 @@ void RogueQuest_ClearNewUnlockQuests()
 
     for(i = 0; i < QUEST_ID_COUNT; ++i)
     {
-        if(RogueQuest_IsQuestUnlocked(i))
+        if(RogueQuest_IsQuestUnlocked(i) && !IsQuestSurpressed(i))
             RogueQuest_SetStateFlag(i, QUEST_STATE_NEW_UNLOCK, FALSE);
     }
 }
 
 bool8 RogueQuest_HasCollectedRewards(u16 questId)
 {
-    if(RogueQuest_IsQuestUnlocked(questId))
+    if(RogueQuest_IsQuestUnlocked(questId) && !IsQuestSurpressed(questId))
     {
         if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE) && !RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
             return TRUE;
@@ -262,7 +281,7 @@ bool8 RogueQuest_HasCollectedRewards(u16 questId)
 
 bool8 RogueQuest_HasPendingRewards(u16 questId)
 {
-    if(RogueQuest_IsQuestUnlocked(questId))
+    if(RogueQuest_IsQuestUnlocked(questId) && !IsQuestSurpressed(questId))
     {
         if(RogueQuest_GetStateFlag(questId, QUEST_STATE_PENDING_REWARDS))
             return TRUE;
@@ -641,7 +660,8 @@ static void CompleteQuest(u16 questId)
     RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
     RogueQuest_SetStateFlag(questId, QUEST_STATE_HAS_COMPLETE, TRUE);
 
-    Rogue_PushPopup_QuestComplete(questId);
+    if(!IsQuestSurpressed(questId))
+        Rogue_PushPopup_QuestComplete(questId);
 }
 
 void Debug_RogueQuest_CompleteQuest(u16 questId)
@@ -721,12 +741,12 @@ void RogueQuest_OnTrigger(u16 triggerFlag)
 
 bool8 RogueQuest_HasUnlockedChallenges()
 {
-    return TRUE; // todo
+    return FlagGet(FLAG_SYS_CHALLENGES_UNLOCKED);
 }
 
 bool8 RogueQuest_HasUnlockedMonMasteries()
 {
-    return TRUE; // todo
+    return FlagGet(FLAG_SYS_MASTERIES_UNLOCKED);
 }
 
 // QuestCondition
