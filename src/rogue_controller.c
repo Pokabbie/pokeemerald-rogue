@@ -1349,18 +1349,18 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         // Increase by 20%
         *money = (CalculateBattleWinnings(trainerNum) * 120) / 100;
 
+        if(Rogue_IsExpTrainer(trainerNum))
+        {
+            *money = 0;
+            return;
+        }
+
         switch (gRogueAdvPath.currentRoomType)
         {
         case ADVPATH_ROOM_BOSS:
-            if(Rogue_IsKeyTrainer(trainerNum))
             {
                 u8 difficulty = Rogue_GetCurrentDifficulty();
                 *money = (difficulty + 1) * 1000;
-            }
-            else
-            {
-                // EXP trainer
-                *money = 0;
             }
             break;
 

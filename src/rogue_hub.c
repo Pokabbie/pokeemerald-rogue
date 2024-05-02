@@ -1195,6 +1195,7 @@ void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, 
 
 extern u8 const Rogue_Area_Home_InteractWithWorkbench[];
 extern u8 const Rogue_Area_Home_DecorateTile[];
+extern u8 const Rogue_Area_Home_ChooseDecoration[];
 
 bool8 IsCoordInHomeRegion(u8 x, u8 y, u8 region)
 {
@@ -1208,6 +1209,10 @@ bool8 IsCoordInHomeRegion(u8 x, u8 y, u8 region)
 
 const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* existingScript)
 {
+    // Always buffer coordinates so scripts known where we're interacting
+    gSpecialVar_0x800A = position->x - MAP_OFFSET;
+    gSpecialVar_0x800B = position->y - MAP_OFFSET;
+
     if(existingScript == Rogue_Area_Home_InteractWithWorkbench)
     {
         return existingScript;
@@ -1234,6 +1239,8 @@ const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *posi
     //{
     //    gSpecialVar_0x8004 = HOME_REGION_COUNT;
     //}
+
+    return Rogue_Area_Home_ChooseDecoration;
 
     gSpecialVar_0x800A = position->x - MAP_OFFSET;
     gSpecialVar_0x800B = position->y - MAP_OFFSET;

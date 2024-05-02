@@ -53,7 +53,8 @@ static const struct PartyMenuBoxInfoRects sPartyBoxInfoRects[] =
             64, 20,  8,  8, // Gender
             38, 37, 24,  8, // HP
             53, 37, 24,  8, // Max HP
-            24, 35, 48,  3  // HP bar
+            24, 35, 48,  3, // HP bar
+            24, 20, 32,  8, // Evolution Indicator
         },
         12, 34, 64, 16      // Description text (e.g. NO USE)
     },
@@ -67,7 +68,8 @@ static const struct PartyMenuBoxInfoRects sPartyBoxInfoRects[] =
              62, 12,  8,  8, // Gender
             102, 12, 24,  8, // HP
             117, 12, 24,  8, // Max HP
-             88, 10, 48,  3  // HP bar
+             88, 10, 48,  3, // HP bar
+             22, 12, 32,  8, // Evolution Indicator
         },
         77, 4, 64, 16        // Description text
     },

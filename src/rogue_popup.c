@@ -809,7 +809,7 @@ static void Task_QuestPopUpWindow(u8 taskId)
     {
     case 6:
         task->data[4]++;
-        if (task->data[4] > 5)
+        if (task->data[4] > 5 && WaitFanfare(FALSE))
         {
             task->sStateNum = 0;
             task->data[4] = 0;

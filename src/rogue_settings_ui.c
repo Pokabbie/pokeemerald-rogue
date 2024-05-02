@@ -82,6 +82,7 @@ enum
 };
 
 static u8 const sMenuName_Back[] = _("Back");
+static u8 const sMenuName_SaveAndExit[] = _("Save & Exit");
 static u8 const sMenuName_DifficultySubmenu[] = _("Custom Difficulty");
 static u8 const sMenuName_AdventureSubmenu[] = _("Adventure");
 static u8 const sMenuName_TrainersSubmenu[] = _("Trainers");
@@ -380,6 +381,7 @@ enum
 #endif
 
     MENUITEM_CANCEL,
+    MENUITEM_SAVE_AND_EXIT,
 };
 
 enum
@@ -820,6 +822,12 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = Empty_ProcessInput,
         .drawChoices = Empty_DrawChoices
     },
+    [MENUITEM_SAVE_AND_EXIT] = 
+    {
+        .itemName = sMenuName_SaveAndExit,
+        .processInput = Empty_ProcessInput,
+        .drawChoices = Empty_DrawChoices
+    },
 };
 
 #undef SINGLE_DESC
@@ -839,7 +847,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
 #ifdef ROGUE_DEBUG
             MENUITEM_MENU_DEBUG_SUBMENU,
 #endif
-            MENUITEM_CANCEL
+            MENUITEM_SAVE_AND_EXIT
         }
     },
     [SUBMENUITEM_DIFFICULTY] = 
@@ -1128,7 +1136,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     u8 submenuSelection = gTasks[taskId].data[TD_SUBMENU];
     u8 menuItem = GetMenuItemFor(submenuSelection, menuSelection);
 
-    if (JOY_NEW(B_BUTTON) || (JOY_NEW(A_BUTTON) && (menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_DIFFICULTY_PRESET)))
+    if (JOY_NEW(B_BUTTON) || (JOY_NEW(A_BUTTON) && (menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_SAVE_AND_EXIT)))
     {
         if(submenuSelection != SUBMENUITEM_NONE)
         {
@@ -1204,7 +1212,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
         
         for(i = 0; i < repeatAmount; ++i)
         {
-            if(menuItem != MENUITEM_CANCEL)
+            if(menuItem != MENUITEM_CANCEL && menuItem != MENUITEM_SAVE_AND_EXIT)
             {
                 menuSelection++;
                 menuItem = GetMenuItemFor(submenuSelection, menuSelection);
@@ -1225,7 +1233,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
         gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
         gTasks[taskId].data[TD_MENUSELECTION_TOP] = menuSelectionTop;
     }
-    else if(menuItem != MENUITEM_CANCEL)
+    else if(menuItem != MENUITEM_CANCEL && menuItem != MENUITEM_SAVE_AND_EXIT)
     {
         u8 currOption;
         u8 prevOption;
@@ -1343,7 +1351,7 @@ static void UNUSED ArrowLeft_DrawChoices(u8 menuOffset, u8 selection)
 
 static bool8 ShouldSkipInput()
 {
-    if(JOY_NEW((DPAD_RIGHT | DPAD_LEFT)) && !Rogue_CanEditConfig())
+    if(JOY_NEW((DPAD_RIGHT | DPAD_LEFT | A_BUTTON)) && !Rogue_CanEditConfig())
     {
         PlaySE(SE_FAILURE);
         return TRUE;
@@ -1442,7 +1450,7 @@ static u8 ProcessInputRange(u8 menuOffset, u8 selection, u8 range)
     if(ShouldSkipInput())
         return selection;
 
-    if (JOY_NEW(DPAD_RIGHT))
+    if (JOY_NEW(DPAD_RIGHT | A_BUTTON))
     {
         if (selection == range -1)
             selection = 0;
@@ -1523,7 +1531,7 @@ static void GameMode_DrawChoices(u8 menuOffset, u8 selection)
 
 static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection)
 {
-    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT | A_BUTTON))
     {
         selection ^= 1;
         sArrowPressed = TRUE;
@@ -1539,7 +1547,7 @@ static void DebugToggle_DrawChoices(u8 menuOffset, u8 selection)
 
 static u8 DebugRange_ProcessInput(u8 menuOffset, u8 selection)
 {
-    if (JOY_NEW(DPAD_RIGHT))
+    if (JOY_NEW(DPAD_RIGHT | A_BUTTON))
     {
         selection++;
         sArrowPressed = TRUE;
@@ -1566,7 +1574,7 @@ static void DebugRange_DrawChoices(u8 menuOffset, u8 selection)
 
 static u8 DebugRange_DifficultySkipProcessInput(u8 menuOffset, u8 selection)
 {
-    if (JOY_REPEAT(DPAD_RIGHT))
+    if (JOY_REPEAT(DPAD_RIGHT | A_BUTTON))
     {
         if(selection == ROGUE_MAX_BOSS_COUNT - 1)
             selection = 0;
@@ -1590,7 +1598,7 @@ static u8 DebugRange_DifficultySkipProcessInput(u8 menuOffset, u8 selection)
 
 static u8 DebugRange_ForcedRouteProcessInput(u8 menuOffset, u8 selection)
 {
-    if (JOY_REPEAT(DPAD_RIGHT))
+    if (JOY_REPEAT(DPAD_RIGHT | A_BUTTON))
     {
         if(selection == gRogueRouteTable.routeCount)
             selection = 0;
@@ -1717,7 +1725,7 @@ static void DrawOptionMenuTexts(u8 submenu, u8 topIndex)
 
         AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, sOptionMenuItems[menuItem].itemName, XPOS_TITLES, (i * YPOS_SPACING) + 1, TEXT_SKIP_DRAW, NULL);
 
-        if(menuItem == MENUITEM_CANCEL)
+        if(menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_SAVE_AND_EXIT)
             break;
     }
 
@@ -1727,7 +1735,7 @@ static void DrawOptionMenuTexts(u8 submenu, u8 topIndex)
     
         sOptionMenuItems[menuItem].drawChoices(i, GetMenuItemValue(menuItem));
 
-        if(menuItem == MENUITEM_CANCEL)
+        if(menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_SAVE_AND_EXIT)
             break;
     }
 
