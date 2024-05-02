@@ -19,6 +19,30 @@
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_GOOMY",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Oh, hi!\\pWho might you be?\\p{PLAYER}, eh?\\pWell, today's your lucky day, {PLAYER}!\\pYou're gonna be my opponent in my Pokémon-battling debug!",
+                        "POST_BATTLE_TAUNT": "Hey! I wasn't done watching my cute Pokémon yet!",
+                        "POST_BATTLE_CLOSER": "You're amazing, {PLAYER}!\\pI've got some Pokémon to catch, so I'll see you later!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}!\\pLong time no see!\\pAaanndddd-\\pLong time no battle!",
+                        "POST_BATTLE_TAUNT": "Wow!\\nWhat an exciting battle!",
+                        "POST_BATTLE_CLOSER": "That reminded me of our first battle.\\pWhat fun!\\pSpeaking of, I've got some more Pokémon to catch!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Hey, do you know what's about to happen?\\pThat's right! We're going to battle!\\pWe ARE Pokémon Trainers, after all!",
+                        "POST_BATTLE_TAUNT": "Battles with friends are really, really exciting!",
+                        "POST_BATTLE_CLOSER": "You're heading towards the Elite Four, right?\\pWow, how exciting!\\pYou're gonna do amazing, {PLAYER}!\\pGood luck to you and your Pokémon!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Ha!\\pI snuck right past you!\\pThat's right!\\nMe and my Pokémon got all the way here first- hehe.\\pSo, {PLAYER}…\\pYou know what's going down!\\pYou're gonna be my opponent in the best Pokémon battle ever!",
+                        "POST_BATTLE_TAUNT": "What-\\pA-\\pBattle!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -46,6 +70,30 @@
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_CORPHISH",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Even during Pokémon battles, I'm always checkin' out Pokémon's dance moves!\\pAnd then my feet just starting moving, too! I can't even help it, y'know?\\pOh hey!\\pSorry I was lost in my own thought!\\pDo your Pokémon know any sweet moves?\\pShow me in a battle!",
+                        "POST_BATTLE_TAUNT": "That was some nice footwork!",
+                        "POST_BATTLE_CLOSER": "Coming up with the world's best Pokémon dance is my dream.\\pI was born to dance! I won't ever stop! Not with moves like this!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Well hi, {PLAYER}!\\pI hope you've got some new moves to show me!",
+                        "POST_BATTLE_TAUNT": "Whoa… Now THAT was a nice move!",
+                        "POST_BATTLE_CLOSER": "Seeing all those moves…\\pInspired me!\\pI can't wait to work on some new moves with my Pokémon!\\pWe'll dance your socks off, next time!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}!\\pCan we have a Pokémon battle?\\pOh, uh… sorry to just throw that at you…",
+                        "POST_BATTLE_TAUNT": "It's weird, but…\\nI don't get that down when I lose to you.",
+                        "POST_BATTLE_CLOSER": "Seeing all these amazing Trainers working so hard made me think.\\pThat made me want to get to know my Pokémon better, and I thought a battle would be the best way to do that.\\pThank you, {PLAYER}!\\pI think I know what moves we need to work on next!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}!\\pI'm so proud of the work my Pokémon have put in.\\pThey dance their socks off every time we battle!\\pYou KNOW we've gotta show you!\\pCheck out these moves!",
+                        "POST_BATTLE_TAUNT": "Whoa… Now THAT was some nice footwork!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -69,10 +117,34 @@
                 "type_assignment": "NONE",
                 "gfx_suffix": "RIVAL_TREVOR",
                 "trainer_class": "TRAINER_CLASS_RIVAL",
-                "music_player": "sinnoh_boss",
+                "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_KALOS", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_FLABEBE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Uh, pardon me, but I was wondering…\\pIf you would battle with me?\\pI have been trying to understand Pokémon on a much deeper level.\\pAnd- I think we can win this!",
+                        "POST_BATTLE_TAUNT": "So you can't learn everything just from the Pokédex… I see!",
+                        "POST_BATTLE_CLOSER": "Dang!\\pIt looks like I still have some studying up to do!\\pI'll try and fill out my Pokédex more and then…\\pMaybe we can battle again?"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Hello, {PLAYER}!\\pLet's compare our Pokédexes!\\pOh wait, didn't- I say I would battle you again next time we meet?\\pI'm sure I'm going to do better this time!",
+                        "POST_BATTLE_TAUNT": "Looks like I have to fill out my Pokédex some more…",
+                        "POST_BATTLE_CLOSER": "I could've sworn I had studied enough this time…\\pI guess that means I just need to fill out my Pokédex some more.\\pNext time-\\nNext time, we will win, for sure!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}!\\pI've filled out almost 80% of my Pokédex!\\pThis time-\\pThis time we have it in the bag!",
+                        "POST_BATTLE_TAUNT": "How are you so strong!?",
+                        "POST_BATTLE_CLOSER": "No matter how much I fill out my Pokédex, I just can't seem to top you {PLAYER}.\\pYou're really strong!\\pHmm…\\nI wonder if there is more to battling than my Pokédex is letting on?\\pI'll see if I can figure out what we're missing!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\pIt's great when Pokémon Trainers can understand the hearts and minds of other Trainers and their Pokémon through battle.",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: I think I understand now.\\pThis time-\\pThis time, it won't be about the Pokédex.\\pIt will be a Pokémon battle!",
+                        "POST_BATTLE_TAUNT": "You're even stronger than I thought!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
