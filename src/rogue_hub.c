@@ -39,6 +39,13 @@ struct MapInfo
     u16 num;
 };
 
+struct TileFixup
+{
+    u8 path : 1;
+    u8 pond : 1;
+    u8 mountain : 1;
+};
+
 static struct RegionCoords const sHomeRegionCoords[HOME_REGION_COUNT] = 
 {
     [HOME_REGION_HOUSE] =  { 15, 14, 19, 19 },
@@ -78,9 +85,8 @@ static void MetatileFill_TreeCaps(u16 xStart, u16 yStart, u16 xEnd);
 
 static void MetatileFill_CommonWarpExitVertical(u16 xStart, u16 yStart);
 static void MetatileFill_CommonWarpExitHorizontal(u16 xStart, u16 yStart);
+static void MetatileFill_CommonPathRemoval(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd);
 static void MetatileFill_BlitMapRegion(u16 mapGroup, u16 mapNum, u16 destX1, u16 destY1, u16 destX2, u16 destY2, u16 srcX1, u16 srcY1);
-
-static void RogueHub_UpdateGlobalMetatiles();
 
 static void RogueHub_UpdateLabsAreaMetatiles();
 static void RogueHub_UpdateAdventureEntranceAreaMetatiles();
@@ -97,7 +103,7 @@ static void RogueHub_UpdateDayCareAreaMetatiles();
 
 static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea);
 
-static void FixupPlayerHomeTileConnections();
+static void FixupTileCommon(struct TileFixup* settings);
 
 void RogueHub_Enter()
 {
@@ -128,12 +134,12 @@ void RogueHub_ClearProgress()
     memset(&gRogueSaveBlock->hubMap, 0, sizeof(gRogueSaveBlock->hubMap));
 
     // Build default area at 0,0
-    RogueHub_BuildArea(HUB_AREA_TOWN_SQUARE, 0, 0);
+    RogueHub_BuildArea(HUB_AREA_LABS, 0, 0);
 
     // Place required areas randomly (Order matters)
-    BuildAtRandomConnectionFrom(HUB_AREA_TOWN_SQUARE, HUB_AREA_ADVENTURE_ENTRANCE);
+    BuildAtRandomConnectionFrom(HUB_AREA_LABS, HUB_AREA_ADVENTURE_ENTRANCE);
     BuildAtRandomConnectionFrom(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_SAFARI_ZONE);
-    BuildAtRandomConnectionFrom(HUB_AREA_TOWN_SQUARE, HUB_AREA_LABS);
+    BuildAtRandomConnectionFrom(HUB_AREA_LABS, HUB_AREA_TOWN_SQUARE);
 }
 
 bool8 RogueHub_HasUpgrade(u16 upgradeId)
@@ -456,6 +462,8 @@ bool8 RogueHub_AcceptMapConnection(struct MapHeader *mapHeader, const struct Map
 
 void RogueHub_ApplyMapMetatiles()
 {
+    bool8 applyCommonFixup = TRUE;
+
     switch (gMapHeader.mapLayoutId)
     {
     case LAYOUT_ROGUE_AREA_LABS:
@@ -466,9 +474,11 @@ void RogueHub_ApplyMapMetatiles()
         break;
 
     case LAYOUT_ROGUE_AREA_HOME:
+        applyCommonFixup = FALSE;
         RogueHub_UpdateHomeAreaMetatiles();
         break;
     case LAYOUT_ROGUE_INTERIOR_HOME:
+        applyCommonFixup = FALSE;
         RogueHub_UpdateHomeInteriorMetatiles();
         break;
 
@@ -505,7 +515,14 @@ void RogueHub_ApplyMapMetatiles()
         break;
     }
 
-    RogueHub_UpdateGlobalMetatiles();
+    if(applyCommonFixup)
+    {
+        struct TileFixup fixup;
+        fixup.path = TRUE;
+        fixup.pond = FALSE;
+        fixup.mountain = FALSE;
+        FixupTileCommon(&fixup);
+    }
 }
 
 static void UpdateStatueLevel()
@@ -531,11 +548,6 @@ u8 RogueHub_GetStatueLevel()
     return GetActiveHubMap()->statueLevel;
 }
 
-static void RogueHub_UpdateGlobalMetatiles()
-{
-    // TODO - Path options?
-}
-
 static void RogueHub_UpdateLabsAreaMetatiles()
 {
     // Remove connectionss
@@ -543,22 +555,30 @@ static void RogueHub_UpdateLabsAreaMetatiles()
     {
         MetatileFill_TreesOverlapping(12, 0, 15, 0, TREE_TYPE_DENSE);
         MetatileFill_TreeStumps(12, 1, 15, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(12, 2, 15, 7);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(26, 7);
+
+        MetatileFill_CommonPathRemoval(22, 8, 25, 10);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitVertical(12, 12);
         MetatileFill_TreeCaps(12, 13, 15);
+
+        MetatileFill_CommonPathRemoval(12, 11, 15, 11);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(0, 7);
+
+        MetatileFill_CommonPathRemoval(2, 8, 5, 10);
     }
 }
 
@@ -568,17 +588,23 @@ static void RogueHub_UpdateAdventureEntranceAreaMetatiles()
     if(RogueHub_GetAreaAtConnection(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(18, 9);
+
+        MetatileFill_CommonPathRemoval(12, 10, 17, 12);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitVertical(8, 14);
         MetatileFill_TreeCaps(8, 15, 11);
+
+        MetatileFill_CommonPathRemoval(8, 13, 11, 13);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(0, 9);
+
+        MetatileFill_CommonPathRemoval(2, 10, 7, 12);
     }
 }
 
@@ -612,7 +638,7 @@ static void BlitPlayerHouse(u16 style, bool8 isUpgraded)
     );
 }
 
-static void BlitPlayerHouseEnvDecor(u8 x, u8 y, u16 decor)
+static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decor)
 {
     u8 xStart = sHomeDecorEnvRegions[decor].xStart;
     u8 yStart = sHomeDecorEnvRegions[decor].yStart;
@@ -726,7 +752,13 @@ static void RogueHub_PlaceHomeEnvironmentDecorations()
     BlitPlayerHouse(hubMap->homeRegionStyles[HOME_REGION_HOUSE], RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR));
 
     // Fixup connecting tiles
-    FixupPlayerHomeTileConnections();
+    {
+        struct TileFixup fixup;
+        fixup.path = TRUE;
+        fixup.pond = TRUE;
+        fixup.mountain = TRUE;
+        FixupTileCommon(&fixup);
+    }
 }
 
 static void RogueHub_UpdateHomeInteriorMetatiles()
@@ -750,6 +782,8 @@ static void RogueHub_UpdateFarmingAreaMetatiles()
     {
         MetatileFill_TreesOverlapping(1, 0, 6, 2, TREE_TYPE_DENSE);
         MetatileFill_TreeStumps(1, 3, 6, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(2, 4, 5, 5);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
@@ -761,6 +795,8 @@ static void RogueHub_UpdateFarmingAreaMetatiles()
     {
         MetatileFill_CommonWarpExitVertical(32, 10);
         MetatileFill_TreeCaps(32, 11, 35);
+
+        MetatileFill_CommonPathRemoval(32, 9, 35, 9);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
@@ -814,22 +850,30 @@ static void RogueHub_UpdateRideTrainingAreaMetatiles()
     {
         MetatileFill_TreesOverlapping(20, 0, 23, 8, TREE_TYPE_DENSE);
         MetatileFill_TreeStumps(20, 9, 23, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(20, 10, 23, 17);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_RIDE_TRAINING, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(32, 17);
+
+        MetatileFill_CommonPathRemoval(24, 18, 31, 21);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_RIDE_TRAINING, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitVertical(20, 34);
         MetatileFill_TreeCaps(20, 35, 23);
+
+        MetatileFill_CommonPathRemoval(20, 22, 23, 33);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_RIDE_TRAINING, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(0, 17);
+
+        MetatileFill_CommonPathRemoval(2, 18, 19, 21);
     }
 }
 
@@ -840,22 +884,30 @@ static void RogueHub_UpdateMartsAreaMetatiles()
     {
         MetatileFill_TreesOverlapping(16, 0, 19, 0, TREE_TYPE_DENSE);
         MetatileFill_TreeStumps(16, 1, 19, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(16, 2, 19, 13);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_MARTS, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(22, 3);
+        MetatileFill_CommonWarpExitHorizontal(32, 13);
+
+        MetatileFill_CommonPathRemoval(20, 14, 31, 17);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_MARTS, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitVertical(4, 20);
-        MetatileFill_TreeCaps(4, 21, 7);
+        MetatileFill_CommonWarpExitVertical(16, 20);
+        MetatileFill_TreeCaps(16, 21, 21);
+
+        MetatileFill_CommonPathRemoval(16, 18, 19, 19);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_MARTS, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(0, 13);
+
+        MetatileFill_CommonPathRemoval(2, 14, 15, 17);
     }
 }
 
@@ -864,24 +916,32 @@ static void RogueHub_UpdateTownSquareAreaMetatiles()
     // Remove connectionss
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(16, 0, 20, 0, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(16, 1, 20, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(13, 0, 18, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(13, 1, 18, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(14, 2, 17, 8);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(28, 11);
+        MetatileFill_CommonWarpExitHorizontal(26, 11);
+
+        MetatileFill_CommonPathRemoval(18, 12, 25, 14);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitVertical(16, 18);
-        MetatileFill_TreeCaps(16, 19, 19);
+        MetatileFill_CommonWarpExitVertical(14, 18);
+        MetatileFill_TreeCaps(14, 19, 17);
+
+        MetatileFill_CommonPathRemoval(14, 15, 17, 17);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(0, 7);
+
+        MetatileFill_CommonPathRemoval(2, 9, 13, 11);
     }
 }
 
@@ -892,24 +952,33 @@ static void RogueHub_UpdateChallengeFrontierAreaMetatiles()
     {
         MetatileFill_TreesOverlapping(25, 0, 30, 12, TREE_TYPE_DENSE);
         MetatileFill_TreeStumps(25, 13, 30, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(26, 14, 29, 14);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
         MetatileFill_TreesOverlapping(32, 13, 33, 18, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(30, 15, 31, 17);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitVertical(12, 26);
         MetatileFill_TreeCaps(12, 27, 15);
+
+        MetatileFill_CommonPathRemoval(12, 25, 15, 25);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(8, 21);
         MetatileFill_TreesOverlapping(0, 21, 7, 25, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(10, 22, 11, 24);
     }
+    
 }
 
 static void RogueHub_UpdateDayCareAreaMetatiles()
@@ -919,22 +988,30 @@ static void RogueHub_UpdateDayCareAreaMetatiles()
     {
         MetatileFill_TreesOverlapping(17, 0, 22, 0, TREE_TYPE_DENSE);
         MetatileFill_TreeStumps(17, 1, 22, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(18, 2, 21, 9);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_DAY_CARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(36, 9);
+
+        MetatileFill_CommonPathRemoval(22, 10, 35, 12);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_DAY_CARE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitVertical(18, 24);
         MetatileFill_TreeCaps(18, 25, 21);
+
+        MetatileFill_CommonPathRemoval(18, 15, 21, 23);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_DAY_CARE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(0, 11);
+
+        MetatileFill_CommonPathRemoval(2, 12, 17, 14);
     }
 }
 
@@ -1088,6 +1165,11 @@ static void MetatileFill_CommonWarpExitHorizontal(u16 xStart, u16 yStart)
     MetatileFill_CommonWarpExit(xStart, yStart, xStart + 1, yStart + 4);
 }
 
+static void MetatileFill_CommonPathRemoval(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd)
+{
+    MetatileFill_Tile(xStart, yStart, xEnd, yEnd, METATILE_General_Grass);
+}
+
 static void MetatileFill_BlitMapRegion(u16 mapGroup, u16 mapNum, u16 destX1, u16 destY1, u16 destX2, u16 destY2, u16 srcX1, u16 srcY1)
 {
     int i, dx, dy, sx, sy;
@@ -1166,7 +1248,7 @@ static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea)
             IncrementCoordsByDirection(&pos, dir);
 
             // We cannot place the lab next to the safari as it will bork up the tutorial sequence
-            if(buildArea == HUB_AREA_LABS)
+            if(buildArea == HUB_AREA_TOWN_SQUARE)
             {
                 if(
                     RogueHub_FindAreaAtCoord(pos.x + 1, pos.y) == HUB_AREA_SAFARI_ZONE ||
@@ -1197,7 +1279,7 @@ extern u8 const Rogue_Area_Home_InteractWithWorkbench[];
 extern u8 const Rogue_Area_Home_DecorateTile[];
 extern u8 const Rogue_Area_Home_ChooseDecoration[];
 
-bool8 IsCoordInHomeRegion(u8 x, u8 y, u8 region)
+bool8 IsCoordInHomeRegion(s32 x, s32 y, u8 region)
 {
     return (
         x >= sHomeRegionCoords[region].xStart &&
@@ -1319,14 +1401,18 @@ void RogueHub_RemoveHomeDecor(u8 index)
     RogueHub_PlaceHomeEnvironmentDecorations();
 }
 
-static u32 GetHomeAreaMetatileAt(u8 x, u8 y)
+static u32 GetCurrentAreaMetatileAt(s32 x, s32 y)
 {
     u32 metaTile = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
-
-    if(IsCoordInHomeRegion(x, y, HOME_REGION_HOUSE))
+    
+    // Player home cannot auto join to player house
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_HOME)
     {
-        // Override these tiles to avoid fixup odd stuff
-        metaTile = 0;
+        if(IsCoordInHomeRegion(x, y, HOME_REGION_HOUSE))
+        {
+            // Override these tiles to avoid fixup odd stuff
+            metaTile = 0;
+        }
     }
 
     return metaTile;
@@ -1349,7 +1435,7 @@ static bool8 IsCompatibleMetatile(u32 classTile,  u32 checkTile)
     }
     else if(classTile == METATILE_GeneralHub_GrassPath_Centre)
     {
-        return (            
+        return (
             checkTile == METATILE_GeneralHub_GrassPath_Centre ||
             checkTile == METATILE_GeneralHub_GrassPath_Conn_EastWest_North ||
             checkTile == METATILE_GeneralHub_GrassPath_Conn_EastWest_South ||
@@ -1382,15 +1468,15 @@ static bool8 IsCompatibleMetatile(u32 classTile,  u32 checkTile)
     return classTile == checkTile;
 }
 
-static bool8 IsCompatibleMetatileAt(u8 x, u8 y, u32 classTile)
+static bool8 IsCompatibleMetatileAt(s32 x, s32 y, u32 classTile)
 {
-    return IsCompatibleMetatile(classTile, GetHomeAreaMetatileAt(x, y));
+    return IsCompatibleMetatile(classTile, GetCurrentAreaMetatileAt(x, y));
 }
 
 // Pond
 //
 
-static void FixupTile_Pond_Horizontal(u8 x, u8 y)
+static void FixupTile_Pond_Horizontal(s32 x, s32 y)
 {
     bool8 west = IsCompatibleMetatileAt(x - 1, y + 0, METATILE_GeneralHub_Pond_Centre);
     bool8 east = IsCompatibleMetatileAt(x + 1, y + 0, METATILE_GeneralHub_Pond_Centre);
@@ -1405,7 +1491,7 @@ static void FixupTile_Pond_Horizontal(u8 x, u8 y)
     }
 }
 
-static void FixupTile_Pond_Vertical(u8 x, u8 y)
+static void FixupTile_Pond_Vertical(s32 x, s32 y)
 {
     bool8 north = IsCompatibleMetatileAt(x + 0, y - 1, METATILE_GeneralHub_Pond_Centre);
     bool8 south = IsCompatibleMetatileAt(x + 0, y + 1, METATILE_GeneralHub_Pond_Centre);
@@ -1421,12 +1507,12 @@ static void FixupTile_Pond_Vertical(u8 x, u8 y)
     }
 }
 
-static void FixupTile_Pond_Fixup(u8 x, u8 y, u32 centreTile)
+static void FixupTile_Pond_Fixup(s32 x, s32 y, u32 centreTile)
 {
-    u32 northTile = GetHomeAreaMetatileAt(x + 0, y - 1);
-    u32 eastTile =  GetHomeAreaMetatileAt(x + 1, y + 0);
-    u32 southTile = GetHomeAreaMetatileAt(x + 0, y + 1);
-    u32 westTile =  GetHomeAreaMetatileAt(x - 1, y + 0);
+    u32 northTile = GetCurrentAreaMetatileAt(x + 0, y - 1);
+    u32 eastTile =  GetCurrentAreaMetatileAt(x + 1, y + 0);
+    u32 southTile = GetCurrentAreaMetatileAt(x + 0, y + 1);
+    u32 westTile =  GetCurrentAreaMetatileAt(x - 1, y + 0);
 
     if(centreTile == METATILE_GeneralHub_Pond_Centre)
     {
@@ -1461,7 +1547,7 @@ static void FixupTile_Pond_Fixup(u8 x, u8 y, u32 centreTile)
 // Grass Path
 //
 
-static void FixupTile_GrassPath_Horizontal(u8 x, u8 y)
+static void FixupTile_GrassPath_Horizontal(s32 x, s32 y)
 {
     bool8 west = IsCompatibleMetatileAt(x - 1, y + 0, METATILE_GeneralHub_GrassPath_Centre);
     bool8 east = IsCompatibleMetatileAt(x + 1, y + 0, METATILE_GeneralHub_GrassPath_Centre);
@@ -1476,7 +1562,7 @@ static void FixupTile_GrassPath_Horizontal(u8 x, u8 y)
     }
 }
 
-static void FixupTile_GrassPath_Vertical(u8 x, u8 y)
+static void FixupTile_GrassPath_Vertical(s32 x, s32 y)
 {
     bool8 north = IsCompatibleMetatileAt(x + 0, y - 1, METATILE_GeneralHub_GrassPath_Centre);
     bool8 south = IsCompatibleMetatileAt(x + 0, y + 1, METATILE_GeneralHub_GrassPath_Centre);
@@ -1491,12 +1577,12 @@ static void FixupTile_GrassPath_Vertical(u8 x, u8 y)
     }
 }
 
-static void FixupTile_GrassPath_Fixup(u8 x, u8 y, u32 centreTile)
+static void FixupTile_GrassPath_Fixup(s32 x, s32 y, u32 centreTile)
 {
-    u32 northTile = GetHomeAreaMetatileAt(x + 0, y - 1);
-    u32 eastTile =  GetHomeAreaMetatileAt(x + 1, y + 0);
-    u32 southTile = GetHomeAreaMetatileAt(x + 0, y + 1);
-    u32 westTile =  GetHomeAreaMetatileAt(x - 1, y + 0);
+    u32 northTile = GetCurrentAreaMetatileAt(x + 0, y - 1);
+    u32 eastTile =  GetCurrentAreaMetatileAt(x + 1, y + 0);
+    u32 southTile = GetCurrentAreaMetatileAt(x + 0, y + 1);
+    u32 westTile =  GetCurrentAreaMetatileAt(x - 1, y + 0);
 
     // Outside Corners (North)
     if(!IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, northTile) && !IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, westTile))
@@ -1521,7 +1607,7 @@ static void FixupTile_GrassPath_Fixup(u8 x, u8 y, u32 centreTile)
 // Mountain Path
 //
 
-static void FixupTile_Mountain_Horizontal(u8 x, u8 y)
+static void FixupTile_Mountain_Horizontal(s32 x, s32 y)
 {
     bool8 west = IsCompatibleMetatileAt(x - 1, y + 0, METATILE_GeneralHub_Mountain_Centre);
     bool8 east = IsCompatibleMetatileAt(x + 1, y + 0, METATILE_GeneralHub_Mountain_Centre);
@@ -1536,7 +1622,7 @@ static void FixupTile_Mountain_Horizontal(u8 x, u8 y)
     }
 }
 
-static void FixupTile_Mountain_Vertical(u8 x, u8 y)
+static void FixupTile_Mountain_Vertical(s32 x, s32 y)
 {
     bool8 north = IsCompatibleMetatileAt(x + 0, y - 1, METATILE_GeneralHub_Mountain_Centre);
     bool8 south = IsCompatibleMetatileAt(x + 0, y + 1, METATILE_GeneralHub_Mountain_Centre);
@@ -1551,12 +1637,12 @@ static void FixupTile_Mountain_Vertical(u8 x, u8 y)
     }
 }
 
-static void FixupTile_Mountain_Fixup(u8 x, u8 y, u32 centreTile)
+static void FixupTile_Mountain_Fixup(s32 x, s32 y, u32 centreTile)
 {
-    u32 northTile = GetHomeAreaMetatileAt(x + 0, y - 1);
-    u32 eastTile =  GetHomeAreaMetatileAt(x + 1, y + 0);
-    u32 southTile = GetHomeAreaMetatileAt(x + 0, y + 1);
-    u32 westTile =  GetHomeAreaMetatileAt(x - 1, y + 0);
+    u32 northTile = GetCurrentAreaMetatileAt(x + 0, y - 1);
+    u32 eastTile =  GetCurrentAreaMetatileAt(x + 1, y + 0);
+    u32 southTile = GetCurrentAreaMetatileAt(x + 0, y + 1);
+    u32 westTile =  GetCurrentAreaMetatileAt(x - 1, y + 0);
 
     // Outside Corners (North)
     if(!IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, northTile) && !IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, westTile))
@@ -1596,15 +1682,33 @@ static void FixupTile_Mountain_Fixup(u8 x, u8 y, u32 centreTile)
     }
 }
 
-static void FixupPlayerHomeTileConnections()
+static void FixupTileCommon(struct TileFixup* settings)
 {
-    u8 const fromX = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart;
-    u8 const fromY = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart;
-    u8 const toX = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd;
-    u8 const toY = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd;
-
+    s32 fromX, fromY, toX, toY;
     u8 x, y;
     u16 metatileId;
+    bool8 ignoreHouseTiles = FALSE;
+
+    switch (gMapHeader.mapLayoutId)
+    {
+    case LAYOUT_ROGUE_AREA_HOME:
+        ignoreHouseTiles = TRUE;
+        fromX = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart;
+        fromY = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart;
+        toX = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd;
+        toY = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd;
+        break;
+
+    default:
+        {
+            struct MapHeader const * mapHeader = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
+            fromX = 2;
+            fromY = 2;
+            toX = mapHeader->mapLayout->width - 2;
+            toY = mapHeader->mapLayout->height - 1;
+        }
+        break;
+    }
 
     // 3 pass system, horizontal, vertical + fixup
 
@@ -1614,18 +1718,18 @@ static void FixupPlayerHomeTileConnections()
         for(x = fromX; x <= toX; ++x)
         {
             // Don't adjust home tiles 
-            if(IsCoordInHomeRegion(x, y, HOME_REGION_HOUSE))
+            if(ignoreHouseTiles && IsCoordInHomeRegion(x, y, HOME_REGION_HOUSE))
                 continue;
 
             metatileId = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
 
-            if(metatileId == METATILE_GeneralHub_Pond_Centre)
-
+            if(settings->pond && metatileId == METATILE_GeneralHub_Pond_Centre)
                 FixupTile_Pond_Horizontal(x, y);
-            else if(metatileId == METATILE_GeneralHub_GrassPath_Centre)
+
+            else if(settings->path && metatileId == METATILE_GeneralHub_GrassPath_Centre)
                 FixupTile_GrassPath_Horizontal(x, y);
 
-            else if(metatileId == METATILE_GeneralHub_Mountain_Centre)
+            else if(settings->mountain && metatileId == METATILE_GeneralHub_Mountain_Centre)
                 FixupTile_Mountain_Horizontal(x, y);
         }
     }
@@ -1636,30 +1740,37 @@ static void FixupPlayerHomeTileConnections()
         for(y = fromY; y <= toY; ++y)
         {
             // Don't adjust home tiles 
-            if(IsCoordInHomeRegion(x, y, HOME_REGION_HOUSE))
+            if(ignoreHouseTiles && IsCoordInHomeRegion(x, y, HOME_REGION_HOUSE))
                 continue;
 
             metatileId = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
 
-            if(metatileId == METATILE_GeneralHub_Pond_Centre)
-                FixupTile_Pond_Vertical(x, y);
+            if(settings->pond)
+            {
+                if(metatileId == METATILE_GeneralHub_Pond_Centre)
+                    FixupTile_Pond_Vertical(x, y);
 
-            if(IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, metatileId))
-                FixupTile_Pond_Fixup(x, y, metatileId);
+                if(IsCompatibleMetatile(METATILE_GeneralHub_Pond_Centre, metatileId))
+                    FixupTile_Pond_Fixup(x, y, metatileId);
+            }
 
+            if(settings->path)
+            {
+                if(metatileId == METATILE_GeneralHub_GrassPath_Centre)
+                    FixupTile_GrassPath_Vertical(x, y);
 
-            if(metatileId == METATILE_GeneralHub_GrassPath_Centre)
-                FixupTile_GrassPath_Vertical(x, y);
+                if(IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, metatileId))
+                    FixupTile_GrassPath_Fixup(x, y, metatileId);
+            }
 
-            if(IsCompatibleMetatile(METATILE_GeneralHub_GrassPath_Centre, metatileId))
-                FixupTile_GrassPath_Fixup(x, y, metatileId);
+            if(settings->mountain)
+            {
+                if(metatileId == METATILE_GeneralHub_Mountain_Centre)
+                    FixupTile_Mountain_Vertical(x, y);
 
-
-            if(metatileId == METATILE_GeneralHub_Mountain_Centre)
-                FixupTile_Mountain_Vertical(x, y);
-
-            if(IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, metatileId))
-                FixupTile_Mountain_Fixup(x, y, metatileId);
+                if(IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, metatileId))
+                    FixupTile_Mountain_Fixup(x, y, metatileId);
+            }
         }
     }
 }

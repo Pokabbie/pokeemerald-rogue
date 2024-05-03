@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
-      "offset": 14,
+      "offset": 12,
       "direction": "down"
     },
     {
@@ -30,14 +30,14 @@
     },
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
-      "offset": 14,
+      "offset": 12,
       "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
-      "x": 26,
+      "x": 24,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -50,7 +50,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MISC_BACKPACKER_F",
-      "x": 11,
+      "x": 8,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -63,7 +63,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MISC_KALOS_WORKER",
-      "x": 21,
+      "x": 19,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -76,7 +76,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 12,
+      "x": 11,
       "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
@@ -89,7 +89,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPENSER",
-      "x": 9,
+      "x": 8,
       "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -102,7 +102,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 7,
+      "x": 10,
       "y": 4,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -116,42 +116,42 @@
   ],
   "warp_events": [
     {
-      "x": 17,
+      "x": 15,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
-      "x": 18,
+      "x": 16,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
-      "x": 29,
+      "x": 27,
       "y": 13,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
-      "x": 29,
+      "x": 27,
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
-      "x": 17,
+      "x": 15,
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
-      "x": 18,
+      "x": 16,
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
@@ -172,14 +172,14 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 13,
+      "x": 4,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_SCHOOL",
       "dest_warp_id": "0"
     },
     {
-      "x": 23,
+      "x": 21,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
@@ -192,7 +192,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 7,
+      "x": 10,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",

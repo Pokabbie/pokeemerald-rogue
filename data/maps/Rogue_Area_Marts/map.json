@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
-      "offset": 2,
+      "offset": 14,
       "direction": "down"
     },
     {
@@ -170,14 +170,14 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 5,
+      "x": 17,
       "y": 21,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_MARTS",
       "dest_warp_id": "0"
     },
     {
-      "x": 6,
+      "x": 18,
       "y": 21,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_MARTS",

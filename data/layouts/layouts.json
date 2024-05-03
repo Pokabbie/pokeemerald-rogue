@@ -1684,7 +1684,7 @@
     {
       "id": "LAYOUT_ROGUE_AREA_TOWN_SQUARE",
       "name": "Rogue_Area_TownSquare_Layout",
-      "width": 30,
+      "width": 28,
       "height": 20,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Slateport",
