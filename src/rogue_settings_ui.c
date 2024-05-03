@@ -1128,6 +1128,18 @@ static u8 GetMenuItemFor(u8 submenu, u8 index)
     return sOptionMenuEntries[submenu].menuOptions[index];
 }
 
+static bool8 CanExitWithB(u8 submenuSelection)
+{
+    if(submenuSelection != SUBMENUITEM_NONE)
+        return TRUE;
+
+    // In tutorial section, we cannot exit root using B button
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTRO) && gSaveBlock1Ptr->location.mapNum  == MAP_NUM(ROGUE_INTRO))
+        return FALSE;
+
+    return TRUE;
+}
+
 static void Task_OptionMenuProcessInput(u8 taskId)
 {
     bool8 submenuChanged = FALSE;
@@ -1136,7 +1148,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     u8 submenuSelection = gTasks[taskId].data[TD_SUBMENU];
     u8 menuItem = GetMenuItemFor(submenuSelection, menuSelection);
 
-    if (JOY_NEW(B_BUTTON) || (JOY_NEW(A_BUTTON) && (menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_SAVE_AND_EXIT)))
+    if ((CanExitWithB(submenuSelection) && JOY_NEW(B_BUTTON)) || (JOY_NEW(A_BUTTON) && (menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_SAVE_AND_EXIT)))
     {
         if(submenuSelection != SUBMENUITEM_NONE)
         {

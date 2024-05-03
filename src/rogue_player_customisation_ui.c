@@ -477,6 +477,7 @@ static void RoguePlayerUI_VBlankCB(void);
 
 static void RoguePlayerUI_OpenPage(u8 pageId);
 static bool8 RoguePlayerUI_ClosePage();
+static bool8 RoguePlayerUI_HasSubpageOpen();
 
 static void Task_RoguePlayerUIWaitFadeIn(u8 taskId);
 static void Task_RoguePlayerUIMain(u8 taskId);
@@ -706,6 +707,11 @@ static bool8 RoguePlayerUI_ClosePage()
     return FALSE;
 }
 
+static bool8 RoguePlayerUI_HasSubpageOpen()
+{
+    return sPlayerOutfitUIState->pageStackDepth > 1;
+}
+
 static void Task_RoguePlayerUIWaitFadeIn(u8 taskId)
 {
     if (!gPaletteFade.active)
@@ -717,12 +723,24 @@ static void Task_RoguePlayerUIWaitFadeIn(u8 taskId)
     }
 }
 
+static bool8 CanExitWithB()
+{
+    if(RoguePlayerUI_HasSubpageOpen())
+        return TRUE;
+
+    // In tutorial section, we cannot exit root using B button
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTRO) && gSaveBlock1Ptr->location.mapNum  == MAP_NUM(ROGUE_INTRO))
+        return FALSE;
+
+    return TRUE;
+}
+
 static void Task_RoguePlayerUIMain(u8 taskId)
 {
     u8 startPageIdx = sPlayerOutfitUIState->currentPageIdx;
     u8 startOptionIdx = sPlayerOutfitUIState->currentOptionIdx;
 
-    if (JOY_NEW(B_BUTTON) || (JOY_NEW(A_BUTTON) && (sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx] == UI_ENTRY_BACK || sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx] == UI_ENTRY_EXIT)))
+    if ((CanExitWithB() && JOY_NEW(B_BUTTON)) || (JOY_NEW(A_BUTTON) && (sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx] == UI_ENTRY_BACK || sPlayerOutfitUIState->currentPageEntries[sPlayerOutfitUIState->currentOptionIdx] == UI_ENTRY_EXIT)))
     {
         if(!RoguePlayerUI_ClosePage())
         {
