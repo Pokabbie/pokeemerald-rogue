@@ -81,6 +81,7 @@ script Rogue_Area_SafariZone_Tutorial_FrameEnter
     if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_REPORT_TO_PROF)
     {
         lock
+        turnobject(OBJ_EVENT_BIRCH, DIR_SOUTH)
         turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
         msgbox(format("ELM: Good job {PLAYER}!\pThe Pokémon didn't seem too dangerous.\nThey actually seemed rather friendly to me!\pDefinitely not a Pokémon invasion fuhahaha.\pCome on now!\nLet's head back to the lab."))
         warp(MAP_ROGUE_INTERIOR_PROF_LAB, 2)

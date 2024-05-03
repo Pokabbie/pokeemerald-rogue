@@ -624,7 +624,7 @@ u16 Rogue_ModifyPlayBGM(u16 songNum)
     }
     else
     {
-        if(VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
+        if(VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_LEAVE_LAB || VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
         {
             switch (songNum)
             {
