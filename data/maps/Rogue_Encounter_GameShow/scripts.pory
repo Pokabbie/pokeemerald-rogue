@@ -152,8 +152,17 @@ script Rogue_Interact_GiveReward
     }
     else
     {
-        finditem(VAR_CURRENT_REWARD_ITEM, VAR_CURRENT_REWARD_COUNT)
-        removeobject(VAR_LAST_TALKED)
+        checkitemspace(VAR_CURRENT_REWARD_ITEM, VAR_CURRENT_REWARD_COUNT)
+        if(var(VAR_RESULT) == YES)
+        {
+            finditem(VAR_CURRENT_REWARD_ITEM, VAR_CURRENT_REWARD_COUNT)
+            removeobject(VAR_LAST_TALKED)
+        }
+        else
+        {
+            // Call this just so it displays the "can't pick up message"
+            finditem(VAR_CURRENT_REWARD_ITEM, VAR_CURRENT_REWARD_COUNT)
+        }
     }
 
     release
@@ -163,7 +172,7 @@ script Rogue_Encounter_GameShow_WhosThatPokemonFlow
 {
     msgbox(format("Who's that Pokémon?!\pThere will be 6 rounds, you will have to guess the specific Pokémon based on our prompt.\pNow…"), MSGBOX_DEFAULT)
 
-    while(var(VAR_CURRENT_ROUND) <= 6)
+    while(var(VAR_CURRENT_ROUND) <= 50)
     {
         buffernumberstring(STR_VAR_1, VAR_CURRENT_ROUND)
         msgbox(format("Round {STR_VAR_1}!"))
@@ -172,7 +181,7 @@ script Rogue_Encounter_GameShow_WhosThatPokemonFlow
         specialvar(VAR_CURRENT_SPECIES, GameShow_BufferSpecies)
 
         // 3 rounds of sillouettes
-        if(var(VAR_CURRENT_ROUND) <= 50)
+        if(var(VAR_CURRENT_ROUND) <= 3)
         {
             message(format("Which Pokémon does this silhouette belong to?"))
             showmonpic(VAR_CURRENT_SPECIES, 10, 3, TRUE)

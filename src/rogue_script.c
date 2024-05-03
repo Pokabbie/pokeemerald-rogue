@@ -1699,7 +1699,7 @@ void Rogue_BattleSim_WagerItem()
     RAND_TYPE startSeed = gRngRogueValue;
 
     RogueItemQuery_Begin();
-    RogueItemQuery_Reset(QUERY_FUNC_INCLUDE);
+    RogueItemQuery_IsItemActive();
 
     RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_ITEMS);
     RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_MEDICINE);
@@ -1839,9 +1839,21 @@ void Rogue_BattleSim_HandleItemMoney()
     // won wager
     if(gSpecialVar_Result == TRUE)
     {
-        // give 15000
-        AddMoney(&gSaveBlock1Ptr->money, 15000);
-        Rogue_PushPopup_AddMoney(15000);
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+        {
+            AddMoney(&gSaveBlock1Ptr->money, 15000);
+            Rogue_PushPopup_AddMoney(15000);
+        }
+        else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
+        {
+            AddMoney(&gSaveBlock1Ptr->money, 10000);
+            Rogue_PushPopup_AddMoney(10000);
+        }
+        else
+        {
+            AddMoney(&gSaveBlock1Ptr->money, 5000);
+            Rogue_PushPopup_AddMoney(5000);
+        }
     }
     // lost wager
     else

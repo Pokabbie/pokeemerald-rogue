@@ -65,7 +65,7 @@ void GameShow_SelectRewardItem()
     RAND_TYPE startSeed = gRngRogueValue;
 
     RogueItemQuery_Begin();
-    RogueItemQuery_Reset(QUERY_FUNC_INCLUDE);
+    RogueItemQuery_IsItemActive();
 
     RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_BERRIES);
     RogueItemQuery_IsStoredInPocket(QUERY_FUNC_EXCLUDE, POCKET_POKEBLOCK);

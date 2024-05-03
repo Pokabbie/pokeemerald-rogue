@@ -126,8 +126,20 @@ script Rogue_Encounter_BattleSim_ChooseWager_Money
 {
     showmoneybox(0,0)
 
-    msgbox(format("Money?\nSure thing!\pHow about, if you lose, I'll take half of your money.\pIf you win, I'll give you ¥15000?"), MSGBOX_YESNO)
+    if(var(VAR_ROGUE_DIFFICULTY) >= ROGUE_ELITE_START_DIFFICULTY)
+    {
+        msgbox(format("Money?\nSure thing!\pHow about, if you lose, I'll take half of your money.\pIf you win, I'll give you ¥15000?"), MSGBOX_YESNO)
+    }
+    elif(var(VAR_ROGUE_DIFFICULTY) >= ROGUE_GYM_MID_DIFFICULTY)
+    {
+        msgbox(format("Money?\nSure thing!\pHow about, if you lose, I'll take half of your money.\pIf you win, I'll give you ¥10000?"), MSGBOX_YESNO)
+    }
+    else
+    {
+        msgbox(format("Money?\nSure thing!\pHow about, if you lose, I'll take half of your money.\pIf you win, I'll give you ¥5000?"), MSGBOX_YESNO)
+    }
 
+    msgbox(format("Money?\nSure thing!\pHow about, if you lose, I'll take half of your money.\pIf you win, I'll give you ¥15000?"), MSGBOX_YESNO)
     hidemoneybox
 }
 

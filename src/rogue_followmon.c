@@ -441,7 +441,7 @@ u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
 
         for(i = 0; i < gPlayerPartyCount; ++i)
         {
-            if(!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+            if(!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_HP))
             {
                 species = FollowMon_GetMonGraphics(&gPlayerParty[i]);
                 break;

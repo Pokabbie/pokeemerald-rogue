@@ -207,7 +207,7 @@ enum {
 struct PartyMenuBoxInfoRects
 {
     void (*blitFunc)(u8, u8, u8, u8, u8, bool8);
-    u8 dimensions[24];
+    u8 dimensions[28];
     u8 descTextLeft;
     u8 descTextTop;
     u8 descTextWidth;
@@ -308,7 +308,7 @@ static bool8 IsMonAllowedInMinigame(u8);
 static void DisplayPartyPokemonDataToTeachMove(u8, u16);
 static u8 CanTeachMove(struct Pokemon *, u16);
 static void DisplayPartyPokemonBarDetail(u8, const u8 *, u8, const u8 *);
-static void DisplayPartyPokemonLevel(u8, struct PartyMenuBox *);
+static void DisplayPartyPokemonLevel(u8, bool8, struct PartyMenuBox *);
 static void DisplayPartyPokemonNature(u8, struct PartyMenuBox *);
 static void DisplayPartyPokemonGender(u8, u16, u8 *, struct PartyMenuBox *);
 static void DisplayPartyPokemonHP(u16 hp, u16 maxHp, struct PartyMenuBox *menuBox);
@@ -1234,7 +1234,7 @@ static void DisplayPartyPokemonDataForMultiBattle(u8 slot)
         StringGet_Nickname(gStringVar1);
         ConvertInternationalPlayerName(gStringVar1);
         DisplayPartyPokemonBarDetail(menuBox->windowId, gStringVar1, 0, menuBox->infoRects->dimensions);
-        DisplayPartyPokemonLevel(gMultiPartnerParty[actualSlot].level, menuBox);
+        DisplayPartyPokemonLevel(gMultiPartnerParty[actualSlot].level, FALSE, menuBox);
         DisplayPartyPokemonGender(gMultiPartnerParty[actualSlot].gender, gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].nickname, menuBox);
         DisplayPartyPokemonHP(gMultiPartnerParty[actualSlot].hp, gMultiPartnerParty[actualSlot].maxhp, menuBox);
         DisplayPartyPokemonMaxHP(gMultiPartnerParty[actualSlot].maxhp, menuBox);
@@ -2570,18 +2570,32 @@ static void DisplayPartyPokemonLevelCheck(struct Pokemon *mon, struct PartyMenuB
                     // Display nature here instead
                     DisplayPartyPokemonNature(GetNature(mon), menuBox);
                 else
-                    DisplayPartyPokemonLevel(GetMonData(mon, MON_DATA_LEVEL), menuBox);
+                {
+                    u16 evoTargetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE);
+
+                    DisplayPartyPokemonLevel(GetMonData(mon, MON_DATA_LEVEL), (evoTargetSpecies != SPECIES_NONE), menuBox);
+                }
             }
         }
     }
 }
 
-static void DisplayPartyPokemonLevel(u8 level, struct PartyMenuBox *menuBox)
+//static u8 const sText_ReadyToEvolve[] = _("{COLOR 09}{SHADOW 10}{UP_ARROW}");
+static u8 const sText_ReadyToEvolve[] = _("{COLOR 09}{UP_ARROW}");
+
+static void DisplayPartyPokemonLevel(u8 level, bool8 readyToEvolve, struct PartyMenuBox *menuBox)
 {
     ConvertIntToDecimalStringN(gStringVar2, level, STR_CONV_MODE_LEFT_ALIGN, 3);
     StringCopy(gStringVar1, gText_LevelSymbol);
     StringAppend(gStringVar1, gStringVar2);
+
     DisplayPartyPokemonBarDetail(menuBox->windowId, gStringVar1, 0, &menuBox->infoRects->dimensions[4]);
+    
+    // Display evo marker here
+    if(readyToEvolve)
+    {
+        DisplayPartyPokemonBarDetail(menuBox->windowId, sText_ReadyToEvolve, 0, &menuBox->infoRects->dimensions[24]);
+    }
 }
 
 static void DisplayPartyPokemonNature(u8 nature, struct PartyMenuBox *menuBox)

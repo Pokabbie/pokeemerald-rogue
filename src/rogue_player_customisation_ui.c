@@ -922,10 +922,10 @@ static void RoguePlayerUI_InitWindows(void)
     CopyWindowToVram(WIN_INFO_PANEL, 3);
 }
 
-static const u8 sText_RoguePlayerUITitle_Main[] = _("PLAYER OUTFIT");
-static const u8 sText_RoguePlayerUITitle_EditAppearance[] = _("APPEARANCE");
-static const u8 sText_RoguePlayerUITitle_EditPrimary[] = _("PRIMARY COLOUR");
-static const u8 sText_RoguePlayerUITitle_EditSecondary[] = _("SECONDARY COLOUR");
+static const u8 sText_RoguePlayerUITitle_Main[] = _("Player Outfit");
+static const u8 sText_RoguePlayerUITitle_EditAppearance[] = _("Appearance");
+static const u8 sText_RoguePlayerUITitle_EditPrimary[] = _("Primary Colour");
+static const u8 sText_RoguePlayerUITitle_EditSecondary[] = _("Secondary Colour");
 
 static void RoguePlayerUI_PrintTitleText()
 {
@@ -1233,7 +1233,7 @@ static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8 entryIdx, u8 menuOffset)
         RoguePlayerUI_RefreshPageEntries();
         return TRUE;
     }
-    else if(JOY_NEW(DPAD_RIGHT))
+    else if(JOY_NEW(DPAD_RIGHT) || JOY_NEW(A_BUTTON))
     {
         do
         {

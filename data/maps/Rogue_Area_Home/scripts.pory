@@ -137,3 +137,12 @@ script Rogue_Area_Home_DecorateTile
 
     release
 }
+
+script Rogue_Area_Home_ChooseDecoration
+{
+    lock
+
+    msgbox(format("Choose decor"))
+
+    release
+}

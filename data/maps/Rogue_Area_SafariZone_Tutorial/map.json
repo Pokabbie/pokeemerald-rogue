@@ -14,19 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "down",
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
       "offset": 14,
-      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL"
+      "direction": "down"
     },
     {
-      "direction": "left",
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
       "offset": 12,
-      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+      "direction": "left"
     },
     {
-      "direction": "right",
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
       "offset": 12,
-      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL"
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -102,42 +102,42 @@
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_SAFARI_ZONE_TUTORIAL",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 1,
       "y": 16,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_SAFARI_ZONE_TUTORIAL",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 17,
       "y": 30,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_SAFARI_ZONE_TUTORIAL",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 18,
       "y": 30,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_SAFARI_ZONE_TUTORIAL",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 36,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_SAFARI_ZONE_TUTORIAL",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 36,
       "y": 16,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_SAFARI_ZONE_TUTORIAL",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
