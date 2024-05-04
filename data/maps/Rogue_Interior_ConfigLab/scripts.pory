@@ -113,6 +113,7 @@ script Rogue_Interior_ConfigLab_TalkFennel
         }
     }
 
+    waitse
     special(Special_ViewDifficultyConfigMenu)
     waitstate
 
@@ -185,6 +186,7 @@ script Rogue_Interior_ConfigLab_TriggerMeetPokabbie
 
     msgbox(format("POKABBIE: Phew…\nAll done!\pI've got a few upgrades for you!\pFirstly, your Pokédex can now change it's mode to different Regions.\pHere, take a look."))
 
+    waitse
     special(Special_ViewRoguePokedex)
     waitstate
 
@@ -203,6 +205,7 @@ script Rogue_Interior_ConfigLab_TriggerMeetPokabbie
 
     msgbox(format("I upgraded the Config Lab to have new settings for you.\pHere, take a look."))
 
+    waitse
     special(Special_ViewDifficultyConfigMenu)
     waitstate
 

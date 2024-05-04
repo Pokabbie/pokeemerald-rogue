@@ -2,6 +2,7 @@
 #include "option_menu.h"
 #include "main.h"
 #include "menu.h"
+#include "event_data.h"
 #include "scanline_effect.h"
 #include "palette.h"
 #include "sprite.h"
@@ -387,6 +388,7 @@ enum
 enum
 {
     SUBMENUITEM_NONE,
+    SUBMENUITEM_NONE_POSTGAME,
     SUBMENUITEM_DIFFICULTY,
     SUBMENUITEM_ADVENTURE,
     SUBMENUITEM_TRAINERS,
@@ -842,6 +844,19 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_DIFFICULTY_PRESET,
             MENUITEM_MENU_DIFFICULTY_SUBMENU,
             MENUITEM_MENU_ADVENTURE_SUBMENU,
+#ifdef ROGUE_DEBUG
+            MENUITEM_MENU_DEBUG_SUBMENU,
+#endif
+            MENUITEM_SAVE_AND_EXIT
+        }
+    },
+    [SUBMENUITEM_NONE_POSTGAME] = 
+    {
+        .menuOptions = 
+        {
+            MENUITEM_DIFFICULTY_PRESET,
+            MENUITEM_MENU_DIFFICULTY_SUBMENU,
+            MENUITEM_MENU_ADVENTURE_SUBMENU,
             MENUITEM_MENU_TRAINERS_SUBMENU,
             MENUITEM_MENU_GAME_MODES_SUBMENU,
 #ifdef ROGUE_DEBUG
@@ -1125,6 +1140,12 @@ static void Task_OptionMenuFadeIn(u8 taskId)
 
 static u8 GetMenuItemFor(u8 submenu, u8 index)
 {
+    if(submenu == SUBMENUITEM_NONE && FlagGet(FLAG_ROGUE_MET_POKABBIE))
+    {
+        // Override menu itmes
+        submenu = SUBMENUITEM_NONE_POSTGAME;
+    }
+
     return sOptionMenuEntries[submenu].menuOptions[index];
 }
 
