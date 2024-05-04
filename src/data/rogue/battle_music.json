@@ -233,7 +233,7 @@
         },
         "rogue_rival":
         {
-            "encounter": "MUS_HG_ENCOUNTER_GIRL_2",
+            "encounter": "MUS_DP_ENCOUNTER_LADY",
             "battle": "MUS_HG_VS_TRAINER_KANTO",
             "victory": "MUS_DP_VICTORY_TRAINER"
         },
