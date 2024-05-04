@@ -237,7 +237,7 @@
                     {
                         "on": [ "MAP_SPECIFIC_EVENT" ],
                         "condition": "CurrentlyInMap",
-                        "params": [ "MAP_ROGUE_INTERIOR_CONFIG_LAB" ],
+                        "params": [ "MAP_ROGUE_INTERIOR_CHALLENGE_FRONTIER" ],
                         "pass": "SUCCESS"
                     }
                 ],

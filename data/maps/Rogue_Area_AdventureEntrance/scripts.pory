@@ -617,12 +617,12 @@ script Rogue_Area_AdventureEntrance_MeetPokabbie
     waitse
     delay(30)
 
-    playse(SE_M_SELF_DESTRUCT)
+    playse(SE_M_EXPLOSION)
     setvar(VAR_SHAKE_VERTICAL_PAN, -8)
     setvar(VAR_SHAKE_HORIZONTAL_PAN, 8)
     setvar(VAR_SHAKE_NUM_SHAKES, 8)
     setvar(VAR_SHAKE_SHAKE_DELAY, 4)
-    special(ShakeCamera)
+    special(ShakeCameraNoSE)
     waitstate
     waitse
 
@@ -636,7 +636,7 @@ script Rogue_Area_AdventureEntrance_MeetPokabbie
     special(Special_ViewRoguePokedex)
     waitstate
 
-    msgbox(format("If you change your Pokédex mode, you'll start encountering Pokémon from whichever mode you have selected, whilst you're out on Adventures!\pThe next thing I did was upgrade the Config Lab for you!"))
+    msgbox(format("If you change your Pokédex mode, when you next set off on an Adventure, you'll encounter Pokémon only present in that Pokédex mode!\pThe next thing I did was upgrade the Config Lab for you!"))
 
     checkitem(ITEM_C_GEAR)
     if(var(VAR_RESULT) == NO)
@@ -675,7 +675,7 @@ script Rogue_Area_AdventureEntrance_MeetPokabbie
     hideobjectat(OBJ_EVENT_POKABBIE, MAP_ROGUE_AREA_ADVENTURE_ENTRANCE)
     setflag(FLAG_HIDE_POKABBIE)
 
-    fadedefaultbgm()
+    fadedefaultbgm
 }
 
 script Rogue_Area_AdventureEntrance_PokabbieEnterMovement
@@ -749,33 +749,6 @@ movement Rogue_Adventure_PokabbieExit_West
 {
     walk_fast_down * 2
     walk_fast_left * 9
-}
-
-movement Pokabbie_Spin_FaceDown
-{
-    face_right
-    delay_1
-
-    face_up
-    delay_1
-
-    face_left
-    delay_1
-
-    face_down
-    delay_1
-    
-    face_right
-    delay_1
-
-    face_up
-    delay_1
-
-    face_left
-    delay_1
-
-    face_down
-    delay_1
 }
 
 movement Pokabbie_Spin_FaceUp

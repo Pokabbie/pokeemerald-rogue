@@ -79,9 +79,6 @@ script Rogue_Interior_ProfLab_FrameState0
     {
         callnative(Rogue_PushPopup_UnlockPokedex)
         call(Rogue_Common_DisplayPopups)
-//void Rogue_PushPopup_UnlockPokedex()
-//void Rogue_PushPopup_UpgradePokedex()
-
         setflag(FLAG_SYS_POKEDEX_GET)
     }
     setflag(FLAG_SYS_POKEMON_GET)

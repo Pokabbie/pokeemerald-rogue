@@ -72,7 +72,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Rogue_Interior_ConfigLab_TriggerMeetPokabbie"
+    }
   ],
   "bg_events": [
     {

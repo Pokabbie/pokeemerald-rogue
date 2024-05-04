@@ -1,5 +1,15 @@
 const FLAG_CAN_GIVE_C_GEAR = FLAG_TEMP_10
 
+const VAR_TRIGGER_POKABBIE_MEET = VAR_TEMP_0
+
+// Reused vars
+const VAR_SHAKE_VERTICAL_PAN = VAR_0x8004
+const VAR_SHAKE_HORIZONTAL_PAN = VAR_0x8005
+const VAR_SHAKE_NUM_SHAKES = VAR_0x8006
+const VAR_SHAKE_SHAKE_DELAY = VAR_0x8007
+
+const OBJ_EVENT_POKABBIE = 2
+
 mapscripts Rogue_Interior_ConfigLab_MapScripts 
 {
     MAP_SCRIPT_ON_LOAD: Rogue_Interior_ConfigLab_OnLoad
@@ -20,6 +30,15 @@ script Rogue_Interior_ConfigLab_OnLoad
     else
     {
         clearflag(FLAG_CAN_GIVE_C_GEAR)
+    }
+
+    if(!flag(FLAG_ROGUE_MET_POKABBIE))
+    {
+        setvar(VAR_TRIGGER_POKABBIE_MEET, YES)
+    }
+    else
+    {
+        setvar(VAR_TRIGGER_POKABBIE_MEET, NO)
     }
 }
 
@@ -108,18 +127,181 @@ script Rogue_Interior_ConfigLab_TalkFennel
     release
 }
 
+script Rogue_Interior_ConfigLab_TriggerMeetPokabbie
+{
+    lock
+    setflag(FLAG_ROGUE_MET_POKABBIE)
+
+    applymovement(OBJ_EVENT_POKABBIE, Rogue_Interior_ConfigLab_Pokabbie0)
+    waitmovement(0)
+
+    playbgm(MUS_DP_ENCOUNTER_LADY, TRUE)
+
+    msgbox(format("{PLAYER}?!\pWhat are you doing here, I didn't expect you to come so soon?\pWho am I?\pMy name's Pokabbie.\nI'm the Developer of Emerald Rogue!"))
+    closemessage
+
+    applymovement(OBJ_EVENT_POKABBIE, Pokabbie_Spin_FaceLeft)
+    waitmovement(0)
+
+    msgbox(format("POKABBIE: Ta-da!\pI must admit, I didn't expect to be speaking to you until after you had become Champion and entered the Hall of Fame.\pBut I guess we can sequence break a bit…\nLet me remember my speech.\pEhem.\pNow that you're the, {FONT_NARROW}hopefully soon to be{FONT_NORMAL}, Champion, there's sooooo much more fun stuff for you!\pSpeaking of…\nCan you lend me your Pokédex for one second, please."))
+
+    if(!flag(FLAG_SYS_POKEDEX_GET))
+    {
+        msgbox(format("What?\pYou haven't even gotten a Pokédex yet!?\pWow… you are reaaaaallly keen, huh?\pWell, here I guess you can have this one."))
+        
+        callnative(Rogue_PushPopup_UnlockPokedex)
+        call(Rogue_Common_DisplayPopups)
+        setflag(FLAG_SYS_POKEDEX_GET)
+
+        msgbox(format("{FONT_NARROW}Now that's sorted, I can continue with my script…{FONT_NORMAL}\pCan you lend me your Pokédex for one second, please."))
+    }
+
+    closemessage
+    applymovement(OBJ_EVENT_POKABBIE, Rogue_Interior_ConfigLab_Pokabbie1)
+    waitmovement(0)
+
+    delay(30)
+    playse(SE_M_COMET_PUNCH)
+    waitse
+    playse(SE_M_COMET_PUNCH)
+    waitse
+    playse(SE_M_COMET_PUNCH)
+    waitse
+    delay(30)
+
+    playse(SE_M_EXPLOSION)
+    setvar(VAR_SHAKE_VERTICAL_PAN, -8)
+    setvar(VAR_SHAKE_HORIZONTAL_PAN, 8)
+    setvar(VAR_SHAKE_NUM_SHAKES, 8)
+    setvar(VAR_SHAKE_SHAKE_DELAY, 4)
+    special(ShakeCameraNoSE)
+    waitstate
+    waitse
+
+    delay(30)
+
+    applymovement(OBJ_EVENT_POKABBIE, Rogue_Interior_ConfigLab_Pokabbie2)
+    waitmovement(0)
+
+    msgbox(format("POKABBIE: Phew…\nAll done!\pI've got a few upgrades for you!\pFirstly, your Pokédex can now change it's mode to different Regions.\pHere, take a look."))
+
+    special(Special_ViewRoguePokedex)
+    waitstate
+
+    msgbox(format("If you change your Pokédex mode, when you next set off on an Adventure, you'll encounter Pokémon only present in that Pokédex mode!\pThe next thing I did was upgrade the Config Lab for you!"))
+
+    checkitem(ITEM_C_GEAR)
+    if(var(VAR_RESULT) == NO)
+    {
+        bufferitemname(STR_VAR_1, ITEM_C_GEAR)
+
+        msgbox(format("What!?\nYou don't even have a {STR_VAR_1} of your own?\pWe can't have that!\nHere!"))
+        giveitem(ITEM_C_GEAR)
+
+        msgbox(format("The {STR_VAR_1} allows you to remotely access the Config Lab from wherever you are!\pYou can change your settings from wherever you are in {POKEMON_HUB}, or you can even check your settings, in the middle of an Adventure.\pAnyhow, I'm getting distracted!\pThat's not actually the thing I upgraded for you…"))
+    }
+
+    msgbox(format("I upgraded the Config Lab to have new settings for you.\pHere, take a look."))
+
+    special(Special_ViewDifficultyConfigMenu)
+    waitstate
+
+    msgbox(format("Annnnddddd!\pFinally, I've added a new upgrade you may build for {POKEMON_HUB}, the Challenge Area!"))
+
+    if(var(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_LEARN_TO_BUILD)
+    {
+        msgbox(format("Oh, shoot!\nYou haven't even learnt about upgrades yet?\pYou spoke to me so fast, that you hadn't even finished the Tutorial yet!\pNo matter.\nYou'll learn about it, as soon as you return from your first Adventure."))
+    }
+
+    msgbox(format("I won't spoil it for you, but in the Challenge Area there is a lot of stuff that I'm sure you'll find super fun!\pNow, you get going and complete yourself some Adventures!"))
+
+    fadedefaultbgm
+    release
+}
+
 script Rogue_Interior_ConfigLab_TalkPokabbie
 {
     lock
+
+    applymovement(OBJ_EVENT_POKABBIE, Pokabbie_Spin_FaceDown)
+    waitmovement(0)
+
     faceplayer
 
-    msgbox(format("DEBUG - MET POKABBIE"))
-    setflag(FLAG_ROGUE_MET_POKABBIE)
-
-    // give dex here
-    setflag(FLAG_SYS_POKEDEX_GET)
-    
-    quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
+    msgbox(format("POKABBIE: Hi {PLAYER}!\pI hope you're enjoying Emerald Rogue!\pIf not…\nI dunno?\lSorry I guess?"))
 
     release
+}
+
+movement Rogue_Interior_ConfigLab_Pokabbie0
+{
+    face_left
+    emote_exclamation_mark
+    delay_16 * 4
+    walk_left
+}
+
+movement Rogue_Interior_ConfigLab_Pokabbie1
+{
+    walk_fast_right
+    face_up
+}
+
+movement Rogue_Interior_ConfigLab_Pokabbie2
+{
+    walk_fast_left
+}
+
+movement Pokabbie_Spin_FaceDown
+{
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+    
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+}
+
+movement Pokabbie_Spin_FaceLeft
+{
+    face_down
+    delay_1
+    
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
 }
