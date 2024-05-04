@@ -197,6 +197,15 @@
                 }
             ]
         },
+        "paldea_boss":
+        {
+            "conditional_redirects":
+            [
+                {
+                    "music_player": "johto_boss"
+                }
+            ]
+        },
     
         "rogue_boss":
         {

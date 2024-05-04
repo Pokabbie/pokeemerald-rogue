@@ -401,6 +401,7 @@ struct RogueTeamGeneratorSubset
     u16 additionalSpeciesCount;
     u8 maxSamples;
     u8 isDiversitySubset : 1;
+    u8 allowSpeciesDuplicates : 1;
 };
 
 struct RogueTeamGenerator

@@ -119,6 +119,7 @@ static u8 const sMenuName_TrainerUnova[] = _("Unova");
 static u8 const sMenuName_TrainerKalos[] = _("Kalos");
 static u8 const sMenuName_TrainerAlola[] = _("Alola");
 static u8 const sMenuName_TrainerGalar[] = _("Galar");
+static u8 const sMenuName_TrainerPaldea[] = _("Paldea");
 #endif
 
 const u8 sMenuNameDesc_PresetDescription_Easy[] = _(
@@ -264,6 +265,11 @@ static u8 const sMenuNameDesc_Galar[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the Galar region.\n"
 );
+
+static u8 const sMenuNameDesc_Paldea[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables trainers from the Paldea region.\n"
+);
 #endif
 
 static u8 const sMenuNameDesc_GameMode_Standard[] = _(
@@ -346,6 +352,7 @@ enum
      MENUITEM_MENU_TOGGLE_TRAINER_KALOS,
      MENUITEM_MENU_TOGGLE_TRAINER_ALOLA,
      MENUITEM_MENU_TOGGLE_TRAINER_GALAR,
+     MENUITEM_MENU_TOGGLE_TRAINER_PALDEA,
 #endif
 
     MENUITEM_MENU_SLIDER_TRAINER,
@@ -643,6 +650,13 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
+    [MENUITEM_MENU_TOGGLE_TRAINER_PALDEA] = 
+    {
+        .itemName = sMenuName_TrainerPaldea,
+        .SINGLE_DESC(sMenuNameDesc_Paldea),
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
 #endif
 
     [MENUITEM_MENU_SLIDER_TRAINER] = 
@@ -909,6 +923,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_TOGGLE_TRAINER_KALOS,
             MENUITEM_MENU_TOGGLE_TRAINER_ALOLA,
             MENUITEM_MENU_TOGGLE_TRAINER_GALAR,
+            MENUITEM_MENU_TOGGLE_TRAINER_PALDEA,
 #endif
             MENUITEM_MENU_TOGGLE_TRAINER_ROGUE,
             MENUITEM_CANCEL
@@ -1838,6 +1853,9 @@ static u8 GetMenuItemValue(u8 menuItem)
 
     case MENUITEM_MENU_TOGGLE_TRAINER_GALAR:
         return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_PALDEA:
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA);
 #endif
 
 
@@ -1996,6 +2014,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_TOGGLE_TRAINER_GALAR:
         Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_PALDEA:
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA, value);
         break;
 #endif
 

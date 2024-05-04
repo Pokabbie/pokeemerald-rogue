@@ -821,6 +821,9 @@ static void GetGlobalFilter(u8 difficulty, struct TrainerFliter* filter)
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR))
         filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_GALAR;
+
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA))
+        filter->trainerFlagsInclude |= CONFIG_TOGGLE_TRAINER_PALDEA;
 #endif
 
     if(Rogue_GetModeRules()->trainerOrder == TRAINER_ORDER_RAINBOW)
@@ -2540,6 +2543,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 {
     u16 species;
     struct RogueTrainer const* trainer = &gRogueTrainers[scratch->trainerNum];
+    bool8 allowSpeciesDuplicates = FALSE;
 
     if(scratch->shouldRegenerateQuery)
     {
@@ -2552,6 +2556,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         if(scratch->subsetIndex < trainer->teamGenerator.subsetCount)
         {
             currentSubset = &trainer->teamGenerator.subsets[scratch->subsetIndex];
+            allowSpeciesDuplicates = currentSubset->allowSpeciesDuplicates;
         }
 
         // Execute initialisation
@@ -2671,7 +2676,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
     }
 
     // Allow duplicates if we've gone far into fallbacks
-    if(scratch->fallbackCount < 10)
+    if(scratch->fallbackCount < 10 && !allowSpeciesDuplicates)
     {
         // Remove any mons already in the party
         RogueMonQuery_CustomFilter(FilterOutDuplicateMons, scratch);

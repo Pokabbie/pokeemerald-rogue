@@ -190,6 +190,11 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 				else
 					exporter.earlyBlock << c_TabSpacing << ".isDiversitySubset = FALSE,\n";
 
+				if (subset.contains("allow_duplicates"))
+					exporter.earlyBlock << c_TabSpacing << ".allowSpeciesDuplicates = " << subset["allow_duplicates"].get<bool>() << ",\n";
+				else
+					exporter.earlyBlock << c_TabSpacing << ".allowSpeciesDuplicates = FALSE,\n";
+
 				// included types
 				exporter.earlyBlock << c_TabSpacing << ".includedTypeMask = 0";
 				if (subset.contains("include_types"))
@@ -296,16 +301,26 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 			exporter.trainerStructsBlock << c_TabSpacing << ".typeAssignmentGroup = TYPE_" << strutil::to_upper(trainer["type_assignment"].get<std::string>()) << ",\n";
 		}
 
-		if (trainer.contains("gfx_suffix"))
+		// Expect to use gfx_suffix or manual declaration
+		//
+		if (trainer.contains("object_event"))
 		{
-			exporter.trainerStructsBlock << c_TabSpacing << ".objectEventGfx = OBJ_EVENT_GFX_" << trainer["gfx_suffix"].get<std::string>() << ",\n";
-			exporter.trainerStructsBlock << c_TabSpacing << ".trainerPic = TRAINER_PIC_" << trainer["gfx_suffix"].get<std::string>() << ",\n";
+			exporter.trainerStructsBlock << c_TabSpacing << ".objectEventGfx = " << trainer["object_event"].get<std::string>() << ",\n";
 		}
 		else
 		{
-			exporter.trainerStructsBlock << c_TabSpacing << ".objectEventGfx = " << trainer["object_event"].get<std::string>() << ",\n";
+			exporter.trainerStructsBlock << c_TabSpacing << ".objectEventGfx = OBJ_EVENT_GFX_" << trainer["gfx_suffix"].get<std::string>() << ",\n";
+		}
+
+		if (trainer.contains("trainer_pic"))
+		{
 			exporter.trainerStructsBlock << c_TabSpacing << ".trainerPic = " << trainer["trainer_pic"].get<std::string>() << ",\n";
 		}
+		else
+		{
+			exporter.trainerStructsBlock << c_TabSpacing << ".trainerPic = TRAINER_PIC_" << trainer["gfx_suffix"].get<std::string>() << ",\n";
+		}
+
 
 		// Weather
 		if(trainer.contains("weather"))

@@ -13,6 +13,7 @@
         "trainers/kalos.json",
         "trainers/alola.json",
         "trainers/galar.json",
+        "trainers/paldea.json",
 
         "trainers/route.json",
         "trainers/team_rocket.json",
