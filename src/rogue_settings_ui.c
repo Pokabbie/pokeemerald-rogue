@@ -2,6 +2,7 @@
 #include "option_menu.h"
 #include "main.h"
 #include "menu.h"
+#include "event_data.h"
 #include "scanline_effect.h"
 #include "palette.h"
 #include "sprite.h"
@@ -118,6 +119,7 @@ static u8 const sMenuName_TrainerUnova[] = _("Unova");
 static u8 const sMenuName_TrainerKalos[] = _("Kalos");
 static u8 const sMenuName_TrainerAlola[] = _("Alola");
 static u8 const sMenuName_TrainerGalar[] = _("Galar");
+static u8 const sMenuName_TrainerPaldea[] = _("Paldea");
 #endif
 
 const u8 sMenuNameDesc_PresetDescription_Easy[] = _(
@@ -263,6 +265,11 @@ static u8 const sMenuNameDesc_Galar[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the Galar region.\n"
 );
+
+static u8 const sMenuNameDesc_Paldea[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables trainers from the Paldea region.\n"
+);
 #endif
 
 static u8 const sMenuNameDesc_GameMode_Standard[] = _(
@@ -345,6 +352,7 @@ enum
      MENUITEM_MENU_TOGGLE_TRAINER_KALOS,
      MENUITEM_MENU_TOGGLE_TRAINER_ALOLA,
      MENUITEM_MENU_TOGGLE_TRAINER_GALAR,
+     MENUITEM_MENU_TOGGLE_TRAINER_PALDEA,
 #endif
 
     MENUITEM_MENU_SLIDER_TRAINER,
@@ -387,6 +395,7 @@ enum
 enum
 {
     SUBMENUITEM_NONE,
+    SUBMENUITEM_NONE_POSTGAME,
     SUBMENUITEM_DIFFICULTY,
     SUBMENUITEM_ADVENTURE,
     SUBMENUITEM_TRAINERS,
@@ -641,6 +650,13 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
+    [MENUITEM_MENU_TOGGLE_TRAINER_PALDEA] = 
+    {
+        .itemName = sMenuName_TrainerPaldea,
+        .SINGLE_DESC(sMenuNameDesc_Paldea),
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
 #endif
 
     [MENUITEM_MENU_SLIDER_TRAINER] = 
@@ -842,6 +858,19 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_DIFFICULTY_PRESET,
             MENUITEM_MENU_DIFFICULTY_SUBMENU,
             MENUITEM_MENU_ADVENTURE_SUBMENU,
+#ifdef ROGUE_DEBUG
+            MENUITEM_MENU_DEBUG_SUBMENU,
+#endif
+            MENUITEM_SAVE_AND_EXIT
+        }
+    },
+    [SUBMENUITEM_NONE_POSTGAME] = 
+    {
+        .menuOptions = 
+        {
+            MENUITEM_DIFFICULTY_PRESET,
+            MENUITEM_MENU_DIFFICULTY_SUBMENU,
+            MENUITEM_MENU_ADVENTURE_SUBMENU,
             MENUITEM_MENU_TRAINERS_SUBMENU,
             MENUITEM_MENU_GAME_MODES_SUBMENU,
 #ifdef ROGUE_DEBUG
@@ -894,6 +923,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_TOGGLE_TRAINER_KALOS,
             MENUITEM_MENU_TOGGLE_TRAINER_ALOLA,
             MENUITEM_MENU_TOGGLE_TRAINER_GALAR,
+            MENUITEM_MENU_TOGGLE_TRAINER_PALDEA,
 #endif
             MENUITEM_MENU_TOGGLE_TRAINER_ROGUE,
             MENUITEM_CANCEL
@@ -1125,7 +1155,25 @@ static void Task_OptionMenuFadeIn(u8 taskId)
 
 static u8 GetMenuItemFor(u8 submenu, u8 index)
 {
+    if(submenu == SUBMENUITEM_NONE && FlagGet(FLAG_ROGUE_MET_POKABBIE))
+    {
+        // Override menu itmes
+        submenu = SUBMENUITEM_NONE_POSTGAME;
+    }
+
     return sOptionMenuEntries[submenu].menuOptions[index];
+}
+
+static bool8 CanExitWithB(u8 submenuSelection)
+{
+    if(submenuSelection != SUBMENUITEM_NONE)
+        return TRUE;
+
+    // In tutorial section, we cannot exit root using B button
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTRO) && gSaveBlock1Ptr->location.mapNum  == MAP_NUM(ROGUE_INTRO))
+        return FALSE;
+
+    return TRUE;
 }
 
 static void Task_OptionMenuProcessInput(u8 taskId)
@@ -1136,7 +1184,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     u8 submenuSelection = gTasks[taskId].data[TD_SUBMENU];
     u8 menuItem = GetMenuItemFor(submenuSelection, menuSelection);
 
-    if (JOY_NEW(B_BUTTON) || (JOY_NEW(A_BUTTON) && (menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_SAVE_AND_EXIT)))
+    if ((CanExitWithB(submenuSelection) && JOY_NEW(B_BUTTON)) || (JOY_NEW(A_BUTTON) && (menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_SAVE_AND_EXIT)))
     {
         if(submenuSelection != SUBMENUITEM_NONE)
         {
@@ -1805,6 +1853,9 @@ static u8 GetMenuItemValue(u8 menuItem)
 
     case MENUITEM_MENU_TOGGLE_TRAINER_GALAR:
         return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_PALDEA:
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA);
 #endif
 
 
@@ -1963,6 +2014,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_TOGGLE_TRAINER_GALAR:
         Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_PALDEA:
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA, value);
         break;
 #endif
 

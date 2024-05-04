@@ -821,6 +821,9 @@ static void GetGlobalFilter(u8 difficulty, struct TrainerFliter* filter)
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR))
         filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_GALAR;
+
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA))
+        filter->trainerFlagsInclude |= CONFIG_TOGGLE_TRAINER_PALDEA;
 #endif
 
     if(Rogue_GetModeRules()->trainerOrder == TRAINER_ORDER_RAINBOW)
@@ -1542,20 +1545,32 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
-        fixedIV = 0;
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
+                fixedIV = 8;
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
+                fixedIV = 4;
+            else
+                fixedIV = 0;
+        }
+        else
+        {
+            fixedIV = 0;
+        }
         break;
 
     case DIFFICULTY_LEVEL_AVERAGE:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
             if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
-                fixedIV = 16;
+                fixedIV = 20;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
-                fixedIV = 10;
+                fixedIV = 15;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
-                fixedIV = 8;
+                fixedIV = 10;
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
-                fixedIV = 6;
+                fixedIV = 8;
             else
                 fixedIV = 0;
         }
@@ -1716,9 +1731,9 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
                     monCount = Rogue_IsRivalTrainer(trainerNum) ? 2 : 3;
                 else if(Rogue_GetCurrentDifficulty() <= 1)
                     monCount = 3;
-                else if(Rogue_GetCurrentDifficulty() <= ROGUE_GYM_MID_DIFFICULTY)
+                else if(Rogue_GetCurrentDifficulty() <= 2)
                     monCount = 4;
-                else if(Rogue_GetCurrentDifficulty() <= ROGUE_GYM_MID_DIFFICULTY + 2)
+                else if(Rogue_GetCurrentDifficulty() <= ROGUE_GYM_MID_DIFFICULTY)
                     monCount = 5;
                 else
                     monCount = 6;
@@ -2528,6 +2543,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
 {
     u16 species;
     struct RogueTrainer const* trainer = &gRogueTrainers[scratch->trainerNum];
+    bool8 allowSpeciesDuplicates = FALSE;
 
     if(scratch->shouldRegenerateQuery)
     {
@@ -2540,6 +2556,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         if(scratch->subsetIndex < trainer->teamGenerator.subsetCount)
         {
             currentSubset = &trainer->teamGenerator.subsets[scratch->subsetIndex];
+            allowSpeciesDuplicates = currentSubset->allowSpeciesDuplicates;
         }
 
         // Execute initialisation
@@ -2659,7 +2676,7 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
     }
 
     // Allow duplicates if we've gone far into fallbacks
-    if(scratch->fallbackCount < 10)
+    if(scratch->fallbackCount < 10 && !allowSpeciesDuplicates)
     {
         // Remove any mons already in the party
         RogueMonQuery_CustomFilter(FilterOutDuplicateMons, scratch);

@@ -4002,6 +4002,9 @@ static u16 ChooseTeamEncounterNum()
 //
     //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR))
     //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_GALAR;
+//
+    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA))
+    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_PALDEA;
 #endif
 
     if(!RogueMiscQuery_AnyActiveElements())

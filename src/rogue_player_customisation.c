@@ -82,6 +82,8 @@ enum
     PLAYER_OUTFIT_SELENE,
     PLAYER_OUTFIT_VICTOR,
     PLAYER_OUTFIT_GLORIA,
+    PLAYER_OUTFIT_FLORIAN,
+    PLAYER_OUTFIT_JULIANA,
 
     // Secret unlocks
     PLAYER_OUTFIT_POKABBIE,
@@ -655,6 +657,60 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Gloria"),
         .relatedTrainerFlags = TRAINER_FLAG_REGION_GALAR,
         .trainerFrontPic = TRAINER_PIC_GLORIA,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_BLACK,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_GloriaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_GloriaRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerGloriaBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerGloriaLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerGloriaFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerGloriaFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
+        }
+    },
+    
+
+    [PLAYER_OUTFIT_FLORIAN] =
+    {
+        .name = _("Florian"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_PALDEA,
+        .trainerFrontPic = TRAINER_PIC_GLORIA,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_RED_BLACK,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_VictorNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_VictorRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerVictorBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerVictorLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerVictorFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerVictorFrontLayers,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+        .supportedLayers = 
+        {
+            [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
+            [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
+        }
+    },
+    [PLAYER_OUTFIT_JULIANA] =
+    {
+        .name = _("Juliana"),
+        .relatedTrainerFlags = TRAINER_FLAG_REGION_PALDEA,
+        .trainerFrontPic = TRAINER_PIC_VICTOR,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN_BLACK,
         .hasSpritingAnims = FALSE,

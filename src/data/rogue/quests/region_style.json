@@ -217,26 +217,12 @@
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "name": "Paldea Style",
-                "description": "Win a full Standard Run, with the Pokédex set to any Paldea variant.",
-                "triggers":
-                [
-                    {
-                        "on": [ "RUN_START" ],
-                        "condition": "IsStandardRunActive",
-                        "fail": "FAIL"
-                    },
-                    {
-                        "on": [ "RUN_START" ],
-                        "condition": "IsPokedexRegion",
-                        "fail": "FAIL",
-                        "params": [ "POKEDEX_REGION_GALAR" ]
-                    },
-                    {
-                        "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "Always",
-                        "pass": "SUCCESS"
-                    }
-                ],
+                "description": "Win a full Standard Run, with the Pokédex set to any Paldea variant and only Paldea Trainers enabled.",
+                "template_params":
+                {
+                    "POKEDEX_REGION": "POKEDEX_REGION_PALDEA",
+                    "TRAINER_TOGGLE": "CONFIG_TOGGLE_TRAINER_PALDEA"
+                },
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },

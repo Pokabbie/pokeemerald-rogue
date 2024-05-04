@@ -256,6 +256,13 @@ bool8 RogueHub_HasAreaBuildRequirements(u8 area)
     u8 i;
     u8 check;
 
+    // Cannot build until post game
+    if(area == HUB_AREA_CHALLENGE_FRONTIER)
+    {
+        if(!FlagGet(FLAG_ROGUE_MET_POKABBIE))
+            return FALSE;
+    }
+
     for(i = 0; i < HUB_UPGRADE_MAX_REQUIREMENTS; ++i)
     {
         check = gRogueHubAreas[area].requiredUpgrades[i];
