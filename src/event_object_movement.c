@@ -543,58 +543,74 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_GALAR_PIERS            0x1176
 #define OBJ_EVENT_PAL_TAG_GALAR_RAIHAN           0x1177
 
-#define OBJ_EVENT_PAL_TAG_RIVAL_AVERY            0x1178
-#define OBJ_EVENT_PAL_TAG_RIVAL_BARRY            0x1179
-#define OBJ_EVENT_PAL_TAG_RIVAL_BEDE             0x117A
-#define OBJ_EVENT_PAL_TAG_RIVAL_BIANCA           0x117B
-#define OBJ_EVENT_PAL_TAG_RIVAL_CHEREN           0x117C
-#define OBJ_EVENT_PAL_TAG_RIVAL_GLADION          0x117D
-#define OBJ_EVENT_PAL_TAG_RIVAL_HAU              0x117E
-#define OBJ_EVENT_PAL_TAG_RIVAL_HOP              0x117F
-#define OBJ_EVENT_PAL_TAG_RIVAL_HUGH             0x1180
-#define OBJ_EVENT_PAL_TAG_RIVAL_KLARA            0x1181
-#define OBJ_EVENT_PAL_TAG_RIVAL_MARNIE           0x1182
-#define OBJ_EVENT_PAL_TAG_RIVAL_N                0x1183
-#define OBJ_EVENT_PAL_TAG_RIVAL_SHAUNA           0x1184
-#define OBJ_EVENT_PAL_TAG_RIVAL_SILVER           0x1185
-#define OBJ_EVENT_PAL_TAG_RIVAL_TIERNO           0x1186
-#define OBJ_EVENT_PAL_TAG_RIVAL_TREVOR           0x1187
+#define OBJ_EVENT_PAL_TAG_PALDEA_BRASSIUS        0x1178
+#define OBJ_EVENT_PAL_TAG_PALDEA_GRUSHA          0x1179
+#define OBJ_EVENT_PAL_TAG_PALDEA_IONO            0x117A
+#define OBJ_EVENT_PAL_TAG_PALDEA_KATY            0x117B
+#define OBJ_EVENT_PAL_TAG_PALDEA_KOFU            0x117C
+#define OBJ_EVENT_PAL_TAG_PALDEA_LARRY           0x117D
+#define OBJ_EVENT_PAL_TAG_PALDEA_RYME            0x117E
+#define OBJ_EVENT_PAL_TAG_PALDEA_GEETA           0x117F
+#define OBJ_EVENT_PAL_TAG_PALDEA_HASSEL          0x1180
+#define OBJ_EVENT_PAL_TAG_PALDEA_POPPY           0x1182
+#define OBJ_EVENT_PAL_TAG_PALDEA_RIKA            0x1183
+#define OBJ_EVENT_PAL_TAG_PALDEA_TULIP           0x1184
 
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x1188
-#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1189
-//#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN     0x118A
-#define OBJ_EVENT_PAL_TAG_PLAYER                 0x118B
-#define OBJ_EVENT_PAL_TAG_NET_PLAYER             0x118C
+#define OBJ_EVENT_PAL_TAG_RIVAL_AVERY            0x1185
+#define OBJ_EVENT_PAL_TAG_RIVAL_BARRY            0x1186
+#define OBJ_EVENT_PAL_TAG_RIVAL_BEDE             0x1187
+#define OBJ_EVENT_PAL_TAG_RIVAL_BIANCA           0x1188
+#define OBJ_EVENT_PAL_TAG_RIVAL_CHEREN           0x1189
+#define OBJ_EVENT_PAL_TAG_RIVAL_GLADION          0x118A
+#define OBJ_EVENT_PAL_TAG_RIVAL_HAU              0x118B
+#define OBJ_EVENT_PAL_TAG_RIVAL_HOP              0x118C
+#define OBJ_EVENT_PAL_TAG_RIVAL_HUGH             0x118D
+#define OBJ_EVENT_PAL_TAG_RIVAL_KLARA            0x118E
+#define OBJ_EVENT_PAL_TAG_RIVAL_MARNIE           0x118F
+#define OBJ_EVENT_PAL_TAG_RIVAL_N                0x1190
+#define OBJ_EVENT_PAL_TAG_RIVAL_SHAUNA           0x1191
+#define OBJ_EVENT_PAL_TAG_RIVAL_SILVER           0x1192
+#define OBJ_EVENT_PAL_TAG_RIVAL_TIERNO           0x1193
+#define OBJ_EVENT_PAL_TAG_RIVAL_TREVOR           0x1194
+#define OBJ_EVENT_PAL_TAG_RIVAL_NEMONA           0x1195
+#define OBJ_EVENT_PAL_TAG_RIVAL_PENNY            0x1196
+#define OBJ_EVENT_PAL_TAG_RIVAL_ARVEN            0x1197
 
-#define OBJ_EVENT_PAL_TAG_RIVAL_RED              0x118D
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE        0x1198
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1199
+//#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN     0x119A
+#define OBJ_EVENT_PAL_TAG_PLAYER                 0x119B
+#define OBJ_EVENT_PAL_TAG_NET_PLAYER             0x119C
+
+#define OBJ_EVENT_PAL_TAG_RIVAL_RED              0x119D
 #define OBJ_EVENT_PAL_TAG_RIVAL_LEAF             OBJ_EVENT_PAL_TAG_RIVAL_RED
-#define OBJ_EVENT_PAL_TAG_RIVAL_ETHAN            0x118E
-#define OBJ_EVENT_PAL_TAG_RIVAL_LYRA             0x118F
-#define OBJ_EVENT_PAL_TAG_RIVAL_BRENDAN          0x1190
-#define OBJ_EVENT_PAL_TAG_RIVAL_MAY              0x1191
-#define OBJ_EVENT_PAL_TAG_RIVAL_LUCAS            0x1192
-#define OBJ_EVENT_PAL_TAG_RIVAL_DAWN             0x1193
-#define OBJ_EVENT_PAL_TAG_RIVAL_HILBERT          0x1194
-#define OBJ_EVENT_PAL_TAG_RIVAL_HILDA            0x1195
-#define OBJ_EVENT_PAL_TAG_RIVAL_NATE             0x1196
-#define OBJ_EVENT_PAL_TAG_RIVAL_ROSA             0x1197
-#define OBJ_EVENT_PAL_TAG_RIVAL_CALEM            0x1198
-#define OBJ_EVENT_PAL_TAG_RIVAL_SERENA           0x1199
-#define OBJ_EVENT_PAL_TAG_RIVAL_ELIO             0x119A
-#define OBJ_EVENT_PAL_TAG_RIVAL_SELENE           0x119B
-#define OBJ_EVENT_PAL_TAG_RIVAL_VICTOR           0x119C
-#define OBJ_EVENT_PAL_TAG_RIVAL_GLORIA           0x119D
+#define OBJ_EVENT_PAL_TAG_RIVAL_ETHAN            0x119E
+#define OBJ_EVENT_PAL_TAG_RIVAL_LYRA             0x119F
+#define OBJ_EVENT_PAL_TAG_RIVAL_BRENDAN          0x11A0
+#define OBJ_EVENT_PAL_TAG_RIVAL_MAY              0x11A1
+#define OBJ_EVENT_PAL_TAG_RIVAL_LUCAS            0x11A2
+#define OBJ_EVENT_PAL_TAG_RIVAL_DAWN             0x11A3
+#define OBJ_EVENT_PAL_TAG_RIVAL_HILBERT          0x11A4
+#define OBJ_EVENT_PAL_TAG_RIVAL_HILDA            0x11A5
+#define OBJ_EVENT_PAL_TAG_RIVAL_NATE             0x11A6
+#define OBJ_EVENT_PAL_TAG_RIVAL_ROSA             0x11A7
+#define OBJ_EVENT_PAL_TAG_RIVAL_CALEM            0x11A8
+#define OBJ_EVENT_PAL_TAG_RIVAL_SERENA           0x11A9
+#define OBJ_EVENT_PAL_TAG_RIVAL_ELIO             0x11AA
+#define OBJ_EVENT_PAL_TAG_RIVAL_SELENE           0x11AB
+#define OBJ_EVENT_PAL_TAG_RIVAL_VICTOR           0x11AC
+#define OBJ_EVENT_PAL_TAG_RIVAL_GLORIA           0x11AD
 
-#define OBJ_EVENT_PAL_TAG_TEAM_FLARE_LYSANDER     0x119E
-#define OBJ_EVENT_PAL_TAG_TEAM_GALACTIC_CYRUS     0x119F
-#define OBJ_EVENT_PAL_TAG_TEAM_NEO_PLASMA_COLRESS 0x11A0
-#define OBJ_EVENT_PAL_TAG_TEAM_PLASMA_GHETSIS     0x11A1
-#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARCHER      0x11A2
-#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARIANA      0x11A3
-#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PETREL      0x11A4
-#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PROTON      0x11A5
+#define OBJ_EVENT_PAL_TAG_TEAM_FLARE_LYSANDER     0x11AE
+#define OBJ_EVENT_PAL_TAG_TEAM_GALACTIC_CYRUS     0x11AF
+#define OBJ_EVENT_PAL_TAG_TEAM_NEO_PLASMA_COLRESS 0x11B0
+#define OBJ_EVENT_PAL_TAG_TEAM_PLASMA_GHETSIS     0x11B1
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARCHER      0x11B2
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARIANA      0x11B3
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PETREL      0x11B4
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PROTON      0x11B5
 
-#define OBJ_EVENT_PAL_TAG_MISC_PEONIA            0x11A6
+#define OBJ_EVENT_PAL_TAG_MISC_PEONIA            0x11B6
 #define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x11A7
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
@@ -736,6 +752,19 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Galar_Opal, OBJ_EVENT_PAL_TAG_GALAR_OPAL},
     {gObjectEventPal_Galar_Piers, OBJ_EVENT_PAL_TAG_GALAR_PIERS},
     {gObjectEventPal_Galar_Raihan, OBJ_EVENT_PAL_TAG_GALAR_RAIHAN},
+    
+    {gObjectEventPal_Paldea_Brassius, OBJ_EVENT_PAL_TAG_PALDEA_BRASSIUS},
+    {gObjectEventPal_Paldea_Grusha, OBJ_EVENT_PAL_TAG_PALDEA_GRUSHA},
+    {gObjectEventPal_Paldea_Iono, OBJ_EVENT_PAL_TAG_PALDEA_IONO},
+    {gObjectEventPal_Paldea_Katy, OBJ_EVENT_PAL_TAG_PALDEA_KATY},
+    {gObjectEventPal_Paldea_Kofu, OBJ_EVENT_PAL_TAG_PALDEA_KOFU},
+    {gObjectEventPal_Paldea_Larry, OBJ_EVENT_PAL_TAG_PALDEA_LARRY},
+    {gObjectEventPal_Paldea_Ryme, OBJ_EVENT_PAL_TAG_PALDEA_RYME},
+    {gObjectEventPal_Paldea_Geeta, OBJ_EVENT_PAL_TAG_PALDEA_GEETA},
+    {gObjectEventPal_Paldea_Hassel, OBJ_EVENT_PAL_TAG_PALDEA_HASSEL},
+    {gObjectEventPal_Paldea_Poppy, OBJ_EVENT_PAL_TAG_PALDEA_POPPY},
+    {gObjectEventPal_Paldea_Rika, OBJ_EVENT_PAL_TAG_PALDEA_RIKA},
+    {gObjectEventPal_Paldea_Tulip, OBJ_EVENT_PAL_TAG_PALDEA_TULIP},
 
     {gObjectEventPal_Rival_Avery, OBJ_EVENT_PAL_TAG_RIVAL_AVERY},
     {gObjectEventPal_Rival_Barry, OBJ_EVENT_PAL_TAG_RIVAL_BARRY},
@@ -753,6 +782,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Rival_Silver, OBJ_EVENT_PAL_TAG_RIVAL_SILVER},
     {gObjectEventPal_Rival_Tierno, OBJ_EVENT_PAL_TAG_RIVAL_TIERNO},
     {gObjectEventPal_Rival_Trevor, OBJ_EVENT_PAL_TAG_RIVAL_TREVOR},
+    {gObjectEventPal_Rival_Nemona, OBJ_EVENT_PAL_TAG_RIVAL_NEMONA},
+    {gObjectEventPal_Rival_Penny, OBJ_EVENT_PAL_TAG_RIVAL_PENNY},
+    {gObjectEventPal_Rival_Arven, OBJ_EVENT_PAL_TAG_RIVAL_ARVEN},
 
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},
