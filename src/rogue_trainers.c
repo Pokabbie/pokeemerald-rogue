@@ -823,7 +823,7 @@ static void GetGlobalFilter(u8 difficulty, struct TrainerFliter* filter)
         filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_GALAR;
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA))
-        filter->trainerFlagsInclude |= CONFIG_TOGGLE_TRAINER_PALDEA;
+        filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_PALDEA;
 #endif
 
     if(Rogue_GetModeRules()->trainerOrder == TRAINER_ORDER_RAINBOW)
@@ -2316,10 +2316,47 @@ bool8 PartyContainsSimilarSpecies(struct TrainerPartyScratch* scratch, u16 speci
     return FALSE;
 }
 
-static bool8 FilterOutDuplicateMons(u16 elem, void* usrData)
+bool8 PartyContainsSameSpecies(struct TrainerPartyScratch* scratch, u16 species)
+{
+    u8 i;
+    u16 s;
+
+    // For the rival we also want to check any past species (We still have to check the party as we may not have updated this buffer during the selection)
+    if(gRogueRun.rivalTrainerNum == scratch->trainerNum)
+    {
+        for(i = 0; i < ROGUE_RIVAL_TOTAL_MON_COUNT; ++i)
+        {
+            if(gRogueRun.rivalSpecies[i] == SPECIES_NONE)
+                continue;
+
+            s = gRogueRun.rivalSpecies[i];
+
+            if(s == species)
+                return TRUE;
+        }
+    }
+
+    for(i = 0; i < scratch->partyCount; ++i)
+    {
+        s = GetMonData(&scratch->party[i], MON_DATA_SPECIES);
+
+        if(s == species)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 FilterOutSimilarSpecies(u16 elem, void* usrData)
 {
     struct TrainerPartyScratch* scratch = (struct TrainerPartyScratch*)usrData;
     return !PartyContainsSimilarSpecies(scratch, elem);
+}
+
+static bool8 FilterOutSameSpecies(u16 elem, void* usrData)
+{
+    struct TrainerPartyScratch* scratch = (struct TrainerPartyScratch*)usrData;
+    return !PartyContainsSameSpecies(scratch, elem);
 }
 
 static void SetupQueryScriptVars(struct QueryScriptContext* context, struct TrainerPartyScratch* scratch)
@@ -2545,6 +2582,12 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
     struct RogueTrainer const* trainer = &gRogueTrainers[scratch->trainerNum];
     bool8 allowSpeciesDuplicates = FALSE;
 
+    // Always grab this
+    if(scratch->subsetIndex < trainer->teamGenerator.subsetCount)
+    {
+        allowSpeciesDuplicates = trainer->teamGenerator.subsets[scratch->subsetIndex].allowSpeciesDuplicates;
+    }
+
     if(scratch->shouldRegenerateQuery)
     {
         u32 fallbackTypeFlags = 0;
@@ -2556,7 +2599,6 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
         if(scratch->subsetIndex < trainer->teamGenerator.subsetCount)
         {
             currentSubset = &trainer->teamGenerator.subsets[scratch->subsetIndex];
-            allowSpeciesDuplicates = currentSubset->allowSpeciesDuplicates;
         }
 
         // Execute initialisation
@@ -2679,7 +2721,11 @@ static u16 SampleNextSpeciesInternal(struct TrainerPartyScratch* scratch)
     if(scratch->fallbackCount < 10 && !allowSpeciesDuplicates)
     {
         // Remove any mons already in the party
-        RogueMonQuery_CustomFilter(FilterOutDuplicateMons, scratch);
+        RogueMonQuery_CustomFilter(FilterOutSimilarSpecies, scratch);
+    }
+    else
+    {
+        RogueMonQuery_CustomFilter(FilterOutSameSpecies, scratch);
     }
 
     species = SPECIES_NONE;
