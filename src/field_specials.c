@@ -1491,11 +1491,11 @@ void ShakeCamera(void)
 void ShakeCameraNoSE(void)
 {
     u8 taskId = CreateTask(Task_ShakeCamera, 9);
-    gTasks[taskId].horizontalPan = gSpecialVar_0x8005;
-    gTasks[taskId].delayCounter = 0;
-    gTasks[taskId].numShakes = gSpecialVar_0x8006;
-    gTasks[taskId].delay = gSpecialVar_0x8007;
-    gTasks[taskId].verticalPan = gSpecialVar_0x8004;
+    gTasks[taskId].tHorizontalPan = gSpecialVar_0x8005;
+    gTasks[taskId].tDelayCounter = 0;
+    gTasks[taskId].tNumShakes = gSpecialVar_0x8006;
+    gTasks[taskId].tDelay = gSpecialVar_0x8007;
+    gTasks[taskId].tVerticalPan = gSpecialVar_0x8004;
     SetCameraPanningCallback(NULL);
 }
 
