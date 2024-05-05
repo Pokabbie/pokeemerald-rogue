@@ -19,6 +19,30 @@
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_PICHU",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Oh wow, you look tough!\\pI'm Hau.\\lI'm also a tough Trainer!\\pYou will battle me, right?\\lI know you will!\\pThis is gonna be great!",
+                        "POST_BATTLE_TAUNT": "Hoooo-wah!",
+                        "POST_BATTLE_CLOSER": "Hoo-ee! That gave me chicken skin!\\p{PLAYER}, right?\\lYour Pokémon are awesome!\\pNow that settles it!\\pWe're going to battle again, next time we meet.\\pAnd I'm gonna go all out!\\pSee-ya then!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}!\\pHoo-ee, I'm ready to go!\\pAs long as we both have a good time, then I think we can call it a great battle, eh?",
+                        "POST_BATTLE_TAUNT": "What? It's already over?!",
+                        "POST_BATTLE_CLOSER": "Hoo-ee! Another great battle!\\pYou've got a knack for this, {PLAYER}!\\pWe're still gonna battle again, next time, right?\\pWho am I kidding, of course we are!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Hey! {PLAYER}!\\lGlad I ran into you…\\pSo we can see who's stronger now!\\p Awright, team!\\lLet's show this newbie what we've got!",
+                        "POST_BATTLE_TAUNT": "Nice! How'd you come up with that kind of battle plan?\\pYou gotta tell me!",
+                        "POST_BATTLE_CLOSER": "Ma-a-an, that was some kinda battle!\\pOur Pokémon all look like they had a blast, too!\\pYou know, Pokémon battles are just, like, sometimes you win, sometimes you lose.\\pBut you're only really a loser if you don't have any fun while you're at it. Right?\\pAnyway, I'm heading off.\\lI'll catch you later!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\pI saw you were heading for the Elite Four.",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: So, I booked it though them as fast as my Pokémon could battle.\\pThat was, like, the fastest I've ever battled in my life, you know!\\pBut that's not why I'm here.\\p{PLAYER}!\\nWe're gonna decide which one of us'll be the toughest Champion!\\pYou're gonna need to use your full force if you think you're gonna beat me and my team when we're serious about winning!",
+                        "POST_BATTLE_TAUNT": "There may be no winning or losing before true full power!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -46,6 +70,30 @@
                 "trainer_flags": [ "REGION_ALOLA", "CLASS_RIVAL" ],
                 "class_flags": [],
                 "shiny_species": "SPECIES_TYPE_NULL",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: You're {PLAYER}?\\pI'm Gladion.\\pI battle for my partner, to make it strong.\\pBattle me.\\lI won't take no for an answer.",
+                        "POST_BATTLE_TAUNT": "How annoying!",
+                        "POST_BATTLE_CLOSER": "Hmph…\\lIt's not like me to slip up like that.\\pI've got to keep fighting stronger opponents.\\pLooks like I'm still not ready…\\pYet…"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}?\\pAgain?\\pIf you're so insistent on being annoying…\\pI guess I'll battle you again.",
+                        "POST_BATTLE_TAUNT": "How annoying!",
+                        "POST_BATTLE_CLOSER": "Hmph…\\pYou've just been getting lucky, you hear!\\pI've been stuck fighting weak Trainers for too long.\\pI WILL make my partner stronger.\\lMark my words!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: I get so frustrated by useless and weak trainers…\\pArghh! I'll show you how angry they make me!",
+                        "POST_BATTLE_TAUNT": "Hmph…\\lHow annoying!",
+                        "POST_BATTLE_CLOSER": "That was wrong of me…\\pI shouldn't have dragged you into a meaningless battle like that…\\pI'll leave you be and let you tend to your Pokémon."
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\pI've been waiting for you.",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: To thank you.\\pYou've openned my eyes.\\pI appreciate it.\\lMaybe more than you know.\\pAnd the only thing I can offer you in thanks is a great battle.\\pSo I'm going to show my full power…\\pMy real full power this time!",
+                        "POST_BATTLE_TAUNT": "Hmph.\\lThere's nothing more to say.",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
