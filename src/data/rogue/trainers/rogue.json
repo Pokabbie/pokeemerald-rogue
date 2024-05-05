@@ -595,6 +595,65 @@
                         "#endif"
                     ]
                 }
+            },
+
+            {
+                "name": "FLORIAN",
+                "type_group_override": "FINAL_TYPE_9",
+                "gfx_suffix": "RIVAL_FLORIAN",
+                "class_flags": [ "BOSS_GYM_8" ],
+                "shiny_species": "SPECIES_SPRIGATITO",
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12,
+                            "include_gens": [ "9" ]
+                        },
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
+                        "#ifdef ROGUE_EXPANSION",
+                            "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SPRIGATITO", "INC_FAVOUR",
+                        "#endif"
+                    ]
+                }
+            },
+            {
+                "name": "JULIANA",
+                "type_group_override": "FINAL_TYPE_9",
+                "gfx_suffix": "RIVAL_JULIANA",
+                "class_flags": [ "BOSS_GYM_8" ],
+                "shiny_species": "SPECIES_FUECOCO",
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12,
+                            "include_gens": [ "9" ]
+                        },
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "INC_FAVOUR", "ELSE", "DEC_FAVOUR", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR",
+                        "#ifdef ROGUE_EXPANSION",
+                            "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FUECOCO", "INC_FAVOUR",
+                        "#endif"
+                    ]
+                }
             }
         ],
 

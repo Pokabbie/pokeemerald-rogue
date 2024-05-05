@@ -526,6 +526,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Elio;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Selene;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Victor;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Gloria;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Florian;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Juliana;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Bug;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Dark;
@@ -1073,6 +1075,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_RIVAL_SELENE] =             &gObjectEventGraphicsInfo_Rival_Selene,
     [OBJ_EVENT_GFX_RIVAL_VICTOR] =             &gObjectEventGraphicsInfo_Rival_Victor,
     [OBJ_EVENT_GFX_RIVAL_GLORIA] =             &gObjectEventGraphicsInfo_Rival_Gloria,
+    [OBJ_EVENT_GFX_RIVAL_FLORIAN] =            &gObjectEventGraphicsInfo_Rival_Florian,
+    [OBJ_EVENT_GFX_RIVAL_JULIANA] =            &gObjectEventGraphicsInfo_Rival_Juliana,
 
     [OBJ_EVENT_GFX_ROUTE_BUG] =                &gObjectEventGraphicsInfo_Route_Bug,
     [OBJ_EVENT_GFX_ROUTE_DARK] =               &gObjectEventGraphicsInfo_Route_Dark,

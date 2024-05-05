@@ -170,6 +170,11 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VictorRidin
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GloriaNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GloriaRiding;
 
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlorianNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlorianRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JulianaNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JulianaRiding;
+
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokabbieNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokabbieRiding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KateNormal;
@@ -684,45 +689,45 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .name = _("Florian"),
         .relatedTrainerFlags = TRAINER_FLAG_REGION_PALDEA,
-        .trainerFrontPic = TRAINER_PIC_GLORIA,
+        .trainerFrontPic = TRAINER_PIC_FLORIAN,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_RED_BLACK,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_BLACK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
-            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_VictorNormal,
-            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_VictorRiding,
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_FlorianNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_FlorianRiding,
         },
-        .objectEventBasePal = gObjectEventPal_PlayerVictorBase,
-        .objectEventLayerPal = gObjectEventPal_PlayerVictorLayers,
-        .trainerFrontBasePal = gTrainerPalette_PlayerVictorFrontBase,
-        .trainerFrontLayerPal = gTrainerPalette_PlayerVictorFrontLayers,
+        .objectEventBasePal = gObjectEventPal_PlayerFlorianBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerFlorianLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerFlorianFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerFlorianFrontLayers,
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
             [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
-            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
         }
     },
     [PLAYER_OUTFIT_JULIANA] =
     {
         .name = _("Juliana"),
         .relatedTrainerFlags = TRAINER_FLAG_REGION_PALDEA,
-        .trainerFrontPic = TRAINER_PIC_VICTOR,
+        .trainerFrontPic = TRAINER_PIC_JULIANA,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN_BLACK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
-            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_GloriaNormal,
-            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_GloriaRiding,
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_JulianaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_JulianaRiding,
         },
-        .objectEventBasePal = gObjectEventPal_PlayerGloriaBase,
-        .objectEventLayerPal = gObjectEventPal_PlayerGloriaLayers,
-        .trainerFrontBasePal = gTrainerPalette_PlayerGloriaFrontBase,
-        .trainerFrontLayerPal = gTrainerPalette_PlayerGloriaFrontLayers,
+        .objectEventBasePal = gObjectEventPal_PlayerJulianaBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerJulianaLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerJulianaFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerJulianaFrontLayers,
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
         .supportedLayers = 

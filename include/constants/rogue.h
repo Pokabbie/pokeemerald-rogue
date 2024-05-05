@@ -360,6 +360,7 @@
 #define TYPE_FINAL_TYPE_6               TYPE_ROCK
 #define TYPE_FINAL_TYPE_7               TYPE_BUG
 #define TYPE_FINAL_TYPE_8               TYPE_GHOST
+#define TYPE_FINAL_TYPE_9               TYPE_STEEL
 
 // Mon Preset flags
 //
