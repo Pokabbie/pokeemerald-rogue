@@ -107,6 +107,8 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_SELENE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_VICTOR] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_GLORIA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_FLORIAN] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_JULIANA] = {.size = 8, .y_offset = 1},
 
     [TRAINER_PIC_KANTO_BROCK] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_KANTO_MISTY] = {.size = 8, .y_offset = 1},
@@ -214,6 +216,19 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_GALAR_PIERS] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_GALAR_RAIHAN] = {.size = 8, .y_offset = 1},
 
+    [TRAINER_PIC_PALDEA_BRASSIUS] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PALDEA_GEETA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PALDEA_GRUSHA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PALDEA_HASSEL] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PALDEA_IONO] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PALDEA_KATY] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PALDEA_KOFU] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PALDEA_LARRY] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PALDEA_POPPY] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PALDEA_RIKA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PALDEA_RYME] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PALDEA_TULIP] = {.size = 8, .y_offset = 1},
+
     [TRAINER_PIC_POKABBIE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_POKABBIE_JUST_DITTO] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_POKABBIE_AND_DITTO] = {.size = 8, .y_offset = 1},
@@ -244,6 +259,8 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_RIVAL_SELENE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RIVAL_VICTOR] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RIVAL_GLORIA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_RIVAL_FLORIAN] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_RIVAL_JULIANA] = {.size = 8, .y_offset = 1},
 
     [TRAINER_PIC_RIVAL_SILVER] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RIVAL_BARRY] = {.size = 8, .y_offset = 1},
@@ -260,6 +277,9 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_RIVAL_HOP] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RIVAL_MARNIE] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RIVAL_BEDE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_RIVAL_ARVEN] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_RIVAL_NEMONA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_RIVAL_PENNY] = {.size = 8, .y_offset = 1},
 
     [TRAINER_PIC_ROCKET_GRUNT_F] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_ROCKET_GRUNT_M] = {.size = 8, .y_offset = 1},
@@ -379,6 +399,8 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(SELENE, gTrainerFrontPic_Selene),
     TRAINER_SPRITE(VICTOR, gTrainerFrontPic_Victor),
     TRAINER_SPRITE(GLORIA, gTrainerFrontPic_Gloria),
+    TRAINER_SPRITE(FLORIAN, gTrainerFrontPic_Florian),
+    TRAINER_SPRITE(JULIANA, gTrainerFrontPic_Juliana),
 
     TRAINER_SPRITE(KANTO_BROCK, gTrainerFrontPic_LeaderBrock),
     TRAINER_SPRITE(KANTO_MISTY, gTrainerFrontPic_LeaderMisty),
@@ -485,6 +507,19 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(GALAR_PIERS, gTrainerFrontPic_Galar_Piers),
     TRAINER_SPRITE(GALAR_RAIHAN, gTrainerFrontPic_Galar_Raihan),
 
+    TRAINER_SPRITE(PALDEA_BRASSIUS, gTrainerFrontPic_Paldea_Brassius),
+    TRAINER_SPRITE(PALDEA_GEETA, gTrainerFrontPic_Paldea_Geeta),
+    TRAINER_SPRITE(PALDEA_GRUSHA, gTrainerFrontPic_Paldea_Grusha),
+    TRAINER_SPRITE(PALDEA_HASSEL, gTrainerFrontPic_Paldea_Hassel),
+    TRAINER_SPRITE(PALDEA_IONO, gTrainerFrontPic_Paldea_Iono),
+    TRAINER_SPRITE(PALDEA_KATY, gTrainerFrontPic_Paldea_Katy),
+    TRAINER_SPRITE(PALDEA_KOFU, gTrainerFrontPic_Paldea_Kofu),
+    TRAINER_SPRITE(PALDEA_LARRY, gTrainerFrontPic_Paldea_Larry),
+    TRAINER_SPRITE(PALDEA_POPPY, gTrainerFrontPic_Paldea_Poppy),
+    TRAINER_SPRITE(PALDEA_RIKA, gTrainerFrontPic_Paldea_Rika),
+    TRAINER_SPRITE(PALDEA_RYME, gTrainerFrontPic_Paldea_Ryme),
+    TRAINER_SPRITE(PALDEA_TULIP, gTrainerFrontPic_Paldea_Tulip),
+
     TRAINER_SPRITE(POKABBIE, gTrainerFrontPic_Pokabbie),
     TRAINER_SPRITE(POKABBIE_JUST_DITTO, gTrainerFrontPic_PokabbieJustDitto),
     TRAINER_SPRITE(POKABBIE_AND_DITTO, gTrainerFrontPic_PokabbieAndDitto),
@@ -514,6 +549,8 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(RIVAL_SELENE, gTrainerFrontPic_Selene),
     TRAINER_SPRITE(RIVAL_VICTOR, gTrainerFrontPic_Victor),
     TRAINER_SPRITE(RIVAL_GLORIA, gTrainerFrontPic_Gloria),
+    TRAINER_SPRITE(RIVAL_FLORIAN, gTrainerFrontPic_Florian),
+    TRAINER_SPRITE(RIVAL_JULIANA, gTrainerFrontPic_Juliana),
 
     TRAINER_SPRITE(RIVAL_SILVER, gTrainerFrontPic_RivalSilver),
     TRAINER_SPRITE(RIVAL_BARRY, gTrainerFrontPic_RivalBarry),
@@ -530,6 +567,9 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(RIVAL_HOP, gTrainerFrontPic_RivalHop),
     TRAINER_SPRITE(RIVAL_MARNIE, gTrainerFrontPic_RivalMarnie),
     TRAINER_SPRITE(RIVAL_BEDE, gTrainerFrontPic_RivalBede),
+    TRAINER_SPRITE(RIVAL_ARVEN, gTrainerFrontPic_RivalArven),
+    TRAINER_SPRITE(RIVAL_NEMONA, gTrainerFrontPic_RivalNemona),
+    TRAINER_SPRITE(RIVAL_PENNY, gTrainerFrontPic_RivalPenny),
 
     TRAINER_SPRITE(ROCKET_GRUNT_F, gTrainerFrontPic_RocketGruntF),
     TRAINER_SPRITE(ROCKET_GRUNT_M, gTrainerFrontPic_RocketGruntM),
@@ -648,6 +688,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(SELENE, gTrainerPalette_PlayerFrontPlaceholder),
     TRAINER_PAL(VICTOR, gTrainerPalette_PlayerFrontPlaceholder),
     TRAINER_PAL(GLORIA, gTrainerPalette_PlayerFrontPlaceholder),
+    TRAINER_PAL(FLORIAN, gTrainerPalette_PlayerFrontPlaceholder),
+    TRAINER_PAL(JULIANA, gTrainerPalette_PlayerFrontPlaceholder),
     
     TRAINER_PAL(KANTO_BROCK, gTrainerPalette_LeaderBrock),
     TRAINER_PAL(KANTO_MISTY, gTrainerPalette_LeaderMisty),
@@ -754,6 +796,19 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(GALAR_PIERS, gTrainerPalette_Galar_Piers),
     TRAINER_PAL(GALAR_RAIHAN, gTrainerPalette_Galar_Raihan),
 
+    TRAINER_PAL(PALDEA_BRASSIUS, gTrainerPalette_Paldea_Brassius),
+    TRAINER_PAL(PALDEA_GEETA, gTrainerPalette_Paldea_Geeta),
+    TRAINER_PAL(PALDEA_GRUSHA, gTrainerPalette_Paldea_Grusha),
+    TRAINER_PAL(PALDEA_HASSEL, gTrainerPalette_Paldea_Hassel),
+    TRAINER_PAL(PALDEA_IONO, gTrainerPalette_Paldea_Iono),
+    TRAINER_PAL(PALDEA_KATY, gTrainerPalette_Paldea_Katy),
+    TRAINER_PAL(PALDEA_KOFU, gTrainerPalette_Paldea_Kofu),
+    TRAINER_PAL(PALDEA_LARRY, gTrainerPalette_Paldea_Larry),
+    TRAINER_PAL(PALDEA_POPPY, gTrainerPalette_Paldea_Poppy),
+    TRAINER_PAL(PALDEA_RIKA, gTrainerPalette_Paldea_Rika),
+    TRAINER_PAL(PALDEA_RYME, gTrainerPalette_Paldea_Ryme),
+    TRAINER_PAL(PALDEA_TULIP, gTrainerPalette_Paldea_Tulip),
+
     TRAINER_PAL(POKABBIE, gTrainerPalette_Pokabbie),
     TRAINER_PAL(POKABBIE_JUST_DITTO, gTrainerPalette_PokabbieJustDitto),
     TRAINER_PAL(POKABBIE_AND_DITTO, gTrainerPalette_PokabbieAndDitto),
@@ -783,6 +838,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(RIVAL_SELENE, gTrainerPalette_PlayerSeleneFrontBase),
     TRAINER_PAL(RIVAL_VICTOR, gTrainerPalette_PlayerVictorFrontBase),
     TRAINER_PAL(RIVAL_GLORIA, gTrainerPalette_PlayerGloriaFrontBase),
+    TRAINER_PAL(RIVAL_FLORIAN, gTrainerPalette_PlayerGloriaFrontBase), // todo
+    TRAINER_PAL(RIVAL_JULIANA, gTrainerPalette_PlayerGloriaFrontBase), // todo
 
     TRAINER_PAL(RIVAL_SILVER, gTrainerPalette_RivalSilver),
     TRAINER_PAL(RIVAL_BARRY, gTrainerPalette_RivalBarry),
@@ -799,6 +856,9 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(RIVAL_HOP, gTrainerPalette_RivalHop),
     TRAINER_PAL(RIVAL_MARNIE, gTrainerPalette_RivalMarnie),
     TRAINER_PAL(RIVAL_BEDE, gTrainerPalette_RivalBede),
+    TRAINER_PAL(RIVAL_ARVEN, gTrainerPalette_RivalArven),
+    TRAINER_PAL(RIVAL_NEMONA, gTrainerPalette_RivalNemona),
+    TRAINER_PAL(RIVAL_PENNY, gTrainerPalette_RivalPenny),
 
     TRAINER_PAL(ROCKET_GRUNT_F, gTrainerPalette_RocketGruntF),
     TRAINER_PAL(ROCKET_GRUNT_M, gTrainerPalette_RocketGruntM),

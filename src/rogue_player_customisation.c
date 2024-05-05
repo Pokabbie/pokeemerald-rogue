@@ -684,7 +684,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .name = _("Florian"),
         .relatedTrainerFlags = TRAINER_FLAG_REGION_PALDEA,
-        .trainerFrontPic = TRAINER_PIC_GLORIA,
+        .trainerFrontPic = TRAINER_PIC_FLORIAN,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_RED_BLACK,
         .hasSpritingAnims = FALSE,
@@ -710,7 +710,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     {
         .name = _("Juliana"),
         .relatedTrainerFlags = TRAINER_FLAG_REGION_PALDEA,
-        .trainerFrontPic = TRAINER_PIC_VICTOR,
+        .trainerFrontPic = TRAINER_PIC_JULIANA,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN_BLACK,
         .hasSpritingAnims = FALSE,

@@ -481,6 +481,8 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_SELENE] = sAnims_Kanto,
     [TRAINER_PIC_VICTOR] = sAnims_Kanto,
     [TRAINER_PIC_GLORIA] = sAnims_Kanto,
+    [TRAINER_PIC_FLORIAN] = sAnims_Kanto,
+    [TRAINER_PIC_JULIANA] = sAnims_Kanto,
 
     [TRAINER_PIC_RS_BRENDAN] = sAnims_RubySapphireBrendan,
     [TRAINER_PIC_RS_MAY] = sAnims_RubySapphireMay,
@@ -590,6 +592,19 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_GALAR_PIERS] = sAnims_Kanto,
     [TRAINER_PIC_GALAR_RAIHAN] = sAnims_Kanto,
 
+    [TRAINER_PIC_PALDEA_BRASSIUS] = sAnims_Kanto,
+    [TRAINER_PIC_PALDEA_GEETA] = sAnims_Kanto,
+    [TRAINER_PIC_PALDEA_GRUSHA] = sAnims_Kanto,
+    [TRAINER_PIC_PALDEA_HASSEL] = sAnims_Kanto,
+    [TRAINER_PIC_PALDEA_IONO] = sAnims_Kanto,
+    [TRAINER_PIC_PALDEA_KATY] = sAnims_Kanto,
+    [TRAINER_PIC_PALDEA_KOFU] = sAnims_Kanto,
+    [TRAINER_PIC_PALDEA_LARRY] = sAnims_Kanto,
+    [TRAINER_PIC_PALDEA_POPPY] = sAnims_Kanto,
+    [TRAINER_PIC_PALDEA_RIKA] = sAnims_Kanto,
+    [TRAINER_PIC_PALDEA_RYME] = sAnims_Kanto,
+    [TRAINER_PIC_PALDEA_TULIP] = sAnims_Kanto,
+
     [TRAINER_PIC_POKABBIE] = sAnims_Kanto,
     [TRAINER_PIC_POKABBIE_JUST_DITTO] = sAnims_Kanto,
     [TRAINER_PIC_POKABBIE_AND_DITTO] = sAnims_Kanto,
@@ -619,6 +634,8 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_RIVAL_SELENE] = sAnims_Kanto,
     [TRAINER_PIC_RIVAL_VICTOR] = sAnims_Kanto,
     [TRAINER_PIC_RIVAL_GLORIA] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_FLORIAN] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_JULIANA] = sAnims_Kanto,
 
     [TRAINER_PIC_RIVAL_SILVER] = sAnims_Kanto,
     [TRAINER_PIC_RIVAL_BARRY] = sAnims_Kanto,
@@ -635,6 +652,9 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_RIVAL_HOP] = sAnims_Kanto,
     [TRAINER_PIC_RIVAL_MARNIE] = sAnims_Kanto,
     [TRAINER_PIC_RIVAL_BEDE] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_ARVEN] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_NEMONA] = sAnims_Kanto,
+    [TRAINER_PIC_RIVAL_PENNY] = sAnims_Kanto,
     
     [TRAINER_PIC_ROCKET_GRUNT_F] = sAnims_Kanto,
     [TRAINER_PIC_ROCKET_GRUNT_M] = sAnims_Kanto,

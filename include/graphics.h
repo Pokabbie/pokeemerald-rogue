@@ -2978,6 +2978,8 @@ extern const u32 gTrainerFrontPic_Elio[];
 extern const u32 gTrainerFrontPic_Selene[];
 extern const u32 gTrainerFrontPic_Victor[];
 extern const u32 gTrainerFrontPic_Gloria[];
+extern const u32 gTrainerFrontPic_Florian[];
+extern const u32 gTrainerFrontPic_Juliana[];
 
 extern const u32 gTrainerFrontPic_LeaderBrock[];
 extern const u32 gTrainerFrontPic_LeaderMisty[];
@@ -3157,6 +3159,32 @@ extern const u32 gTrainerPalette_Galar_Nessa[];
 extern const u32 gTrainerPalette_Galar_Opal[];
 extern const u32 gTrainerPalette_Galar_Piers[];
 extern const u32 gTrainerPalette_Galar_Raihan[];
+
+extern const u32 gTrainerFrontPic_Paldea_Brassius[];
+extern const u32 gTrainerFrontPic_Paldea_Geeta[];
+extern const u32 gTrainerFrontPic_Paldea_Grusha[];
+extern const u32 gTrainerFrontPic_Paldea_Hassel[];
+extern const u32 gTrainerFrontPic_Paldea_Iono[];
+extern const u32 gTrainerFrontPic_Paldea_Katy[];
+extern const u32 gTrainerFrontPic_Paldea_Kofu[];
+extern const u32 gTrainerFrontPic_Paldea_Larry[];
+extern const u32 gTrainerFrontPic_Paldea_Poppy[];
+extern const u32 gTrainerFrontPic_Paldea_Rika[];
+extern const u32 gTrainerFrontPic_Paldea_Ryme[];
+extern const u32 gTrainerFrontPic_Paldea_Tulip[];
+
+extern const u32 gTrainerPalette_Paldea_Brassius[];
+extern const u32 gTrainerPalette_Paldea_Geeta[];
+extern const u32 gTrainerPalette_Paldea_Grusha[];
+extern const u32 gTrainerPalette_Paldea_Hassel[];
+extern const u32 gTrainerPalette_Paldea_Iono[];
+extern const u32 gTrainerPalette_Paldea_Katy[];
+extern const u32 gTrainerPalette_Paldea_Kofu[];
+extern const u32 gTrainerPalette_Paldea_Larry[];
+extern const u32 gTrainerPalette_Paldea_Poppy[];
+extern const u32 gTrainerPalette_Paldea_Rika[];
+extern const u32 gTrainerPalette_Paldea_Ryme[];
+extern const u32 gTrainerPalette_Paldea_Tulip[];
 
 extern const u32 gTrainerFrontPic_Pokabbie[];
 extern const u32 gTrainerFrontPic_PokabbieAndDitto[];
@@ -3404,6 +3432,12 @@ extern const u32 gTrainerFrontPic_RivalMarnie[];
 extern const u32 gTrainerPalette_RivalMarnie[];
 extern const u32 gTrainerFrontPic_RivalBede[];
 extern const u32 gTrainerPalette_RivalBede[];
+extern const u32 gTrainerFrontPic_RivalArven[];
+extern const u32 gTrainerPalette_RivalArven[];
+extern const u32 gTrainerFrontPic_RivalNemona[];
+extern const u32 gTrainerPalette_RivalNemona[];
+extern const u32 gTrainerFrontPic_RivalPenny[];
+extern const u32 gTrainerPalette_RivalPenny[];
 
 extern const u8 gTrainerBackPic_None[];
 extern const u8 gTrainerBackPic_Brendan[];
