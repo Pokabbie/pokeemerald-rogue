@@ -3347,6 +3347,11 @@ extern const u32 gTrainerPalette_PlayerVictorFrontLayers[];
 extern const u32 gTrainerPalette_PlayerGloriaFrontBase[];
 extern const u32 gTrainerPalette_PlayerGloriaFrontLayers[];
 
+extern const u32 gTrainerPalette_PlayerFlorianFrontBase[];
+extern const u32 gTrainerPalette_PlayerFlorianFrontLayers[];
+extern const u32 gTrainerPalette_PlayerJulianaFrontBase[];
+extern const u32 gTrainerPalette_PlayerJulianaFrontLayers[];
+
 extern const u32 gTrainerPalette_PlayerZefaBackBase[];
 
 extern const u32 gTrainerPalette_LeaderBrock[];

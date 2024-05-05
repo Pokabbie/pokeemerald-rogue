@@ -686,7 +686,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .relatedTrainerFlags = TRAINER_FLAG_REGION_PALDEA,
         .trainerFrontPic = TRAINER_PIC_FLORIAN,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
-        .bagVariant = BAG_GFX_VARIANT_RED_BLACK,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_BLACK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -695,15 +695,15 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         },
         .objectEventBasePal = gObjectEventPal_PlayerVictorBase,
         .objectEventLayerPal = gObjectEventPal_PlayerVictorLayers,
-        .trainerFrontBasePal = gTrainerPalette_PlayerVictorFrontBase,
-        .trainerFrontLayerPal = gTrainerPalette_PlayerVictorFrontLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerFlorianFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerFlorianFrontLayers,
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
             [PLAYER_OUTFIT_STYLE_PRIMARY] = TRUE,
-            [PLAYER_OUTFIT_STYLE_SECONDARY] = FALSE,
+            [PLAYER_OUTFIT_STYLE_SECONDARY] = TRUE,
         }
     },
     [PLAYER_OUTFIT_JULIANA] =
@@ -721,8 +721,8 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         },
         .objectEventBasePal = gObjectEventPal_PlayerGloriaBase,
         .objectEventLayerPal = gObjectEventPal_PlayerGloriaLayers,
-        .trainerFrontBasePal = gTrainerPalette_PlayerGloriaFrontBase,
-        .trainerFrontLayerPal = gTrainerPalette_PlayerGloriaFrontLayers,
+        .trainerFrontBasePal = gTrainerPalette_PlayerJulianaFrontBase,
+        .trainerFrontLayerPal = gTrainerPalette_PlayerJulianaFrontLayers,
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
         .supportedLayers = 

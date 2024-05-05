@@ -838,8 +838,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(RIVAL_SELENE, gTrainerPalette_PlayerSeleneFrontBase),
     TRAINER_PAL(RIVAL_VICTOR, gTrainerPalette_PlayerVictorFrontBase),
     TRAINER_PAL(RIVAL_GLORIA, gTrainerPalette_PlayerGloriaFrontBase),
-    TRAINER_PAL(RIVAL_FLORIAN, gTrainerPalette_PlayerGloriaFrontBase), // todo
-    TRAINER_PAL(RIVAL_JULIANA, gTrainerPalette_PlayerGloriaFrontBase), // todo
+    TRAINER_PAL(RIVAL_FLORIAN, gTrainerPalette_PlayerFlorianFrontBase),
+    TRAINER_PAL(RIVAL_JULIANA, gTrainerPalette_PlayerJulianaFrontBase),
 
     TRAINER_PAL(RIVAL_SILVER, gTrainerPalette_RivalSilver),
     TRAINER_PAL(RIVAL_BARRY, gTrainerPalette_RivalBarry),
