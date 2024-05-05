@@ -2713,6 +2713,51 @@ static const struct SpriteFrameImage sPicTable_GloriaRiding[] = {
     overworld_frame(gObjectEventPic_GloriaRiding, 2, 4, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_FlorianNormal[] = {
+    overworld_frame(gObjectEventPic_FlorianNormal, 2, 4, 0),
+    overworld_frame(gObjectEventPic_FlorianNormal, 2, 4, 1),
+    overworld_frame(gObjectEventPic_FlorianNormal, 2, 4, 2),
+    overworld_frame(gObjectEventPic_FlorianNormal, 2, 4, 3),
+    overworld_frame(gObjectEventPic_FlorianNormal, 2, 4, 4),
+    overworld_frame(gObjectEventPic_FlorianNormal, 2, 4, 5),
+    overworld_frame(gObjectEventPic_FlorianNormal, 2, 4, 6),
+    overworld_frame(gObjectEventPic_FlorianNormal, 2, 4, 7),
+    overworld_frame(gObjectEventPic_FlorianNormal, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_FlorianRiding[] = {
+    overworld_frame(gObjectEventPic_FlorianRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_FlorianRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_FlorianRiding, 2, 4, 2),
+    overworld_frame(gObjectEventPic_FlorianRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_FlorianRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_FlorianRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_FlorianRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_FlorianRiding, 2, 4, 2),
+    overworld_frame(gObjectEventPic_FlorianRiding, 2, 4, 2),
+};
+static const struct SpriteFrameImage sPicTable_JulianaNormal[] = {
+    overworld_frame(gObjectEventPic_JulianaNormal, 2, 4, 0),
+    overworld_frame(gObjectEventPic_JulianaNormal, 2, 4, 1),
+    overworld_frame(gObjectEventPic_JulianaNormal, 2, 4, 2),
+    overworld_frame(gObjectEventPic_JulianaNormal, 2, 4, 3),
+    overworld_frame(gObjectEventPic_JulianaNormal, 2, 4, 4),
+    overworld_frame(gObjectEventPic_JulianaNormal, 2, 4, 5),
+    overworld_frame(gObjectEventPic_JulianaNormal, 2, 4, 6),
+    overworld_frame(gObjectEventPic_JulianaNormal, 2, 4, 7),
+    overworld_frame(gObjectEventPic_JulianaNormal, 2, 4, 8),
+};
+static const struct SpriteFrameImage sPicTable_JulianaRiding[] = {
+    overworld_frame(gObjectEventPic_JulianaRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_JulianaRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_JulianaRiding, 2, 4, 2),
+    overworld_frame(gObjectEventPic_JulianaRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_JulianaRiding, 2, 4, 0),
+    overworld_frame(gObjectEventPic_JulianaRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_JulianaRiding, 2, 4, 1),
+    overworld_frame(gObjectEventPic_JulianaRiding, 2, 4, 2),
+    overworld_frame(gObjectEventPic_JulianaRiding, 2, 4, 2),
+};
+
 static const struct SpriteFrameImage sPicTable_ZefaNormal[] = {
     overworld_frame(gObjectEventPic_ZefaNormal, 2, 4, 0),
     overworld_frame(gObjectEventPic_ZefaNormal, 2, 4, 1),

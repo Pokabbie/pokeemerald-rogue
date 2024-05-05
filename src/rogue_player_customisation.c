@@ -170,6 +170,11 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VictorRidin
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GloriaNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GloriaRiding;
 
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlorianNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlorianRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JulianaNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JulianaRiding;
+
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokabbieNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokabbieRiding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KateNormal;
@@ -690,11 +695,11 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
-            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_VictorNormal,
-            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_VictorRiding,
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_FlorianNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_FlorianRiding,
         },
-        .objectEventBasePal = gObjectEventPal_PlayerVictorBase,
-        .objectEventLayerPal = gObjectEventPal_PlayerVictorLayers,
+        .objectEventBasePal = gObjectEventPal_PlayerFlorianBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerFlorianLayers,
         .trainerFrontBasePal = gTrainerPalette_PlayerFlorianFrontBase,
         .trainerFrontLayerPal = gTrainerPalette_PlayerFlorianFrontLayers,
         .trainerBackBasePal = NULL,
@@ -716,11 +721,11 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
-            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_GloriaNormal,
-            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_GloriaRiding,
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_JulianaNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_JulianaRiding,
         },
-        .objectEventBasePal = gObjectEventPal_PlayerGloriaBase,
-        .objectEventLayerPal = gObjectEventPal_PlayerGloriaLayers,
+        .objectEventBasePal = gObjectEventPal_PlayerJulianaBase,
+        .objectEventLayerPal = gObjectEventPal_PlayerJulianaLayers,
         .trainerFrontBasePal = gTrainerPalette_PlayerJulianaFrontBase,
         .trainerFrontLayerPal = gTrainerPalette_PlayerJulianaFrontLayers,
         .trainerBackBasePal = NULL,

@@ -5577,6 +5577,11 @@ extern const u16 gObjectEventPal_PlayerVictorLayers[];
 extern const u16 gObjectEventPal_PlayerGloriaBase[];
 extern const u16 gObjectEventPal_PlayerGloriaLayers[];
 
+extern const u16 gObjectEventPal_PlayerFlorianBase[];
+extern const u16 gObjectEventPal_PlayerFlorianLayers[];
+extern const u16 gObjectEventPal_PlayerJulianaBase[];
+extern const u16 gObjectEventPal_PlayerJulianaLayers[];
+
 extern const u16 gObjectEventPal_PlayerZefaBase[];
 extern const u16 gObjectEventPal_PlayerLightningStrike7Base[];
 

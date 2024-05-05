@@ -421,6 +421,11 @@ const u16 gObjectEventPal_PlayerVictorLayers[] = INCBIN_U16("graphics/rogue_pale
 const u16 gObjectEventPal_PlayerGloriaBase[] = INCBIN_U16("graphics/rogue_palettes/gloria/object_event_base.gbapal");
 const u16 gObjectEventPal_PlayerGloriaLayers[] = INCBIN_U16("graphics/rogue_palettes/gloria/object_event_layers.gbapal");
 
+const u16 gObjectEventPal_PlayerFlorianBase[] = INCBIN_U16("graphics/rogue_palettes/florian/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerFlorianLayers[] = INCBIN_U16("graphics/rogue_palettes/florian/object_event_layers.gbapal");
+const u16 gObjectEventPal_PlayerJulianaBase[] = INCBIN_U16("graphics/rogue_palettes/juliana/object_event_base.gbapal");
+const u16 gObjectEventPal_PlayerJulianaLayers[] = INCBIN_U16("graphics/rogue_palettes/juliana/object_event_layers.gbapal");
+
 const u16 gObjectEventPal_PlayerZefaBase[] = INCBIN_U16("graphics/object_events/pics/people/zefa/palette.gbapal");
 const u16 gObjectEventPal_PlayerLightningStrike7Base[] = INCBIN_U16("graphics/object_events/pics/people/lightningstrike7/palette.gbapal");
 
@@ -473,6 +478,11 @@ const u32 gObjectEventPic_VictorNormal[] = INCBIN_U32("graphics/object_events/pi
 const u32 gObjectEventPic_VictorRiding[] = INCBIN_U32("graphics/object_events/pics/people/victor/riding.4bpp");
 const u32 gObjectEventPic_GloriaNormal[] = INCBIN_U32("graphics/object_events/pics/people/gloria/walking.4bpp");
 const u32 gObjectEventPic_GloriaRiding[] = INCBIN_U32("graphics/object_events/pics/people/gloria/riding.4bpp");
+
+const u32 gObjectEventPic_FlorianNormal[] = INCBIN_U32("graphics/object_events/pics/people/florian/walking.4bpp");
+const u32 gObjectEventPic_FlorianRiding[] = INCBIN_U32("graphics/object_events/pics/people/florian/riding.4bpp");
+const u32 gObjectEventPic_JulianaNormal[] = INCBIN_U32("graphics/object_events/pics/people/juliana/walking.4bpp");
+const u32 gObjectEventPic_JulianaRiding[] = INCBIN_U32("graphics/object_events/pics/people/juliana/riding.4bpp");
 
 const u32 gObjectEventPic_ZefaNormal[] = INCBIN_U32("graphics/object_events/pics/people/zefa/walking.4bpp");
 const u32 gObjectEventPic_ZefaRunning[] = INCBIN_U32("graphics/object_events/pics/people/zefa/running.4bpp");
@@ -760,7 +770,7 @@ const u16 gObjectEventPal_Rival_Silver[] = INCBIN_U16("graphics/object_events/pi
 const u16 gObjectEventPal_Rival_Tierno[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/tierno.gbapal");
 const u16 gObjectEventPal_Rival_Trevor[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/trevor.gbapal");
 const u16 gObjectEventPal_Rival_Nemona[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/nemona.gbapal");
-const u16 gObjectEventPal_Rival_Penny[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/Penny.gbapal");
+const u16 gObjectEventPal_Rival_Penny[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/penny.gbapal");
 const u16 gObjectEventPal_Rival_Arven[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/arven.gbapal");
 
 const u32 gObjectEventPic_Rival_Avery[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/avery.4bpp");
@@ -780,7 +790,7 @@ const u32 gObjectEventPic_Rival_Silver[] = INCBIN_U32("graphics/object_events/pi
 const u32 gObjectEventPic_Rival_Tierno[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/tierno.4bpp");
 const u32 gObjectEventPic_Rival_Trevor[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/trevor.4bpp");
 const u32 gObjectEventPic_Rival_Nemona[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/nemona.4bpp");
-const u32 gObjectEventPic_Rival_Penny[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/Penny.4bpp");
+const u32 gObjectEventPic_Rival_Penny[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/penny.4bpp");
 const u32 gObjectEventPic_Rival_Arven[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/rival/arven.4bpp");
 
 const u16 gObjectEventPal_Team_Flare_Lysander[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/team/flare_lysander.gbapal");
