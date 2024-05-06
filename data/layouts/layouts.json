@@ -1990,6 +1990,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Rogue_Encounter_SeafloorCavern/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_SeafloorCavern/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_SINNOH_212",
+      "name": "Rogue_Route_Sinnoh_212_Layout",
+      "width": 120,
+      "height": 40,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Rogue_Route_Sinnoh_212/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_212/map.bin"
     }
   ]
 }
