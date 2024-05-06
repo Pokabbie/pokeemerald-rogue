@@ -214,7 +214,7 @@ static bool8 UpdateBlenderLandScreenShake(void);
 static void SetPlayerIdMaps(void);
 static void PrintPlayerNames(void);
 static void InitBlenderBgs(void);
-static void SetPlayerBerryData(u8, u16);
+static void SetPlayerBerryData(u8, u16, u16);
 static void Blender_AddTextPrinter(u8, const u8 *, u8, u8, s32, s32);
 static void ResetLinkCmds(void);
 static void CreateParticleSprites(void);
@@ -229,7 +229,7 @@ static bool8 PrintBlendingResults(void);
 static void CB2_CheckPlayAgainLocal(void);
 static void CB2_CheckPlayAgainLink(void);
 static void UpdateProgressBar(u16, u16);
-static void PrintMadePokeblockString(struct Pokeblock *, u8 *);
+static void PrintMadePokeblockString(u16, u16, u8 *);
 static bool32 TryAddContestLinkTvShow(struct Pokeblock *, struct TvBlenderStruct *);
 
 EWRAM_DATA static struct BerryBlender *sBerryBlender = NULL;
@@ -261,6 +261,7 @@ static const u8 sUnusedText_LinkPartnerNotFound[] = _("Link partner(s) not found
 static const u8 sText_BerryBlenderStart[] = _("Starting up the BERRY BLENDER.\pPlease select a BERRY from your BAG\nto put in the BERRY BLENDER.\p");
 static const u8 sText_NewParagraph[] = _("\p");
 static const u8 sText_WasMade[] = _(" was made!");
+static const u8 sText_WereMade[] = _(" were made!");
 static const u8 sText_Mister[] = _("Novice");
 static const u8 sText_Laddie[] = _("LADDIE");
 static const u8 sText_Lassie[] = _("LASSIE");
@@ -286,13 +287,13 @@ static const u8 sText_RunOutOfBerriesForBlending[] = _("You've run out of BERRIE
 static const u8 sText_YourPokeblockCaseIsFull[] = _("Your {POKEBLOCK} CASE is full.\p");
 static const u8 sText_HasNoBerriesToPut[] = _(" has no BERRIES to put in\nthe BERRY BLENDER.");
 static const u8 sText_ApostropheSPokeblockCaseIsFull[] = _("'s {POKEBLOCK} CASE is full.\p");
-static const u8 sText_BlendingResults[] = _("RESULTS OF BLENDING");
-static const u8 sText_BerryUsed[] = _("BERRY USED");
-static const u8 sText_SpaceBerry[] = _(" BERRY");
+static const u8 sText_BlendingResults[] = _("Results of Blending");
+static const u8 sText_BerryUsed[] = _("Berry used");
+static const u8 sText_SpaceBerry[] = _(" Berry");
 static const u8 sText_Time[] = _("Time:");
 static const u8 sText_Min[] = _(" min. ");
 static const u8 sText_Sec[] = _(" sec.");
-static const u8 sText_MaximumSpeed[] = _("MAXIMUM SPEED");
+static const u8 sText_MaximumSpeed[] = _("Maximum Speed");
 static const u8 sText_RPM[] = _(" RPM");
 static const u8 sText_Dot[] = _(".");
 static const u8 sText_NewLine[] = _("\n");
@@ -1081,6 +1082,9 @@ static void CB2_LoadBerryBlender(void)
         sBerryBlender->loadGfxState = 0;
 
         UpdateBlenderCenter();
+
+        // RogueNote: we already picked a berry
+        StartBlender();
         break;
     case 1:
         if (LoadBerryBlenderGfx())
@@ -1402,7 +1406,7 @@ static void CB2_StartBlenderLink(void)
     case 12:
         if (++sBerryBlender->framesToWait > 60)
         {
-            if (sBerryBlender->currentThrowBerryId >= sBerryBlender->chosenItemCount)
+            if (sBerryBlender->currentThrowBerryId >= min(4, sBerryBlender->chosenItemCount))
             {
                 // Finished throwing berries in
                 sBerryBlender->mainState++;
@@ -1575,7 +1579,7 @@ static void SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct B
             if (berryMasterDiff < ARRAY_COUNT(sBerryMasterBerries))
                 opponentBerryId -= ARRAY_COUNT(sBerryMasterBerries);
         }
-        SetPlayerBerryData(i + 1, opponentBerryId + FIRST_BERRY_INDEX);
+        SetPlayerBerryData(i + 1, opponentBerryId + FIRST_BERRY_INDEX, 1);
     }
 }
 
@@ -1638,7 +1642,7 @@ static void CB2_StartBlenderLocal(void)
     case 0:
         SetWirelessCommType0();
         InitBlenderBgs();
-        SetPlayerBerryData(0, gSpecialVar_ItemId);
+        SetPlayerBerryData(0, gSpecialVar_ItemId, gSpecialVar_0x800A);
         //ConvertItemToBlenderBerry(&sBerryBlender->blendedBerries[0], gSpecialVar_ItemId);
         //SetOpponentsBerryData(gSpecialVar_ItemId, sBerryBlender->numPlayers, &sBerryBlender->blendedBerries[0]);
 
@@ -1695,7 +1699,7 @@ static void CB2_StartBlenderLocal(void)
     case 12:
         if (++sBerryBlender->framesToWait > 60)
         {
-            if (sBerryBlender->currentThrowBerryId >= sBerryBlender->chosenItemCount)
+            if (sBerryBlender->currentThrowBerryId >= min(4, sBerryBlender->chosenItemCount))
             {
                 // Finished throwing berries in
                 sBerryBlender->arrowPos = sArrowStartPos[sArrowStartPosIds[sBerryBlender->numPlayers - 2]] - ARROW_FALL_ROTATION;
@@ -2270,6 +2274,51 @@ static s16 Debug_GetGameTimeStage(void)
     return sDebug_GameTimeStage;
 }
 
+static u32 CalculateGeneratedPokeblockCount(u16 pokeblockItemId, u16 itemCount, u32 frameTime, u16 maxRPM)
+{
+    s32 count;
+    s32 minCount;
+    s32 maxCount;
+
+    if(FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER))
+    {
+        // NOVICE_BERRY_COUNT
+        minCount = 4;
+        maxCount = 10;
+    }
+    else
+    {
+        // MASTER_BERRY_COUNT
+        minCount = 6;
+        maxCount = 30;
+    }
+
+    // Start at max amount
+    count = maxCount;
+
+    // Anything above 30 seconds drops a pokeblock per each 10 seconds over
+    if(frameTime > 30 * 60)
+    {
+        count -= 1 + ((frameTime - 30) / 10);
+    }
+
+    // High max RPM increases min count
+    if(maxRPM >= 12500)
+    {
+        minCount = max(minCount, (maxCount * 9) / 10);
+    }
+    else if(maxRPM >= 10000)
+    {
+        minCount = max(minCount, (maxCount * 6) / 10);
+    }
+    else if(maxRPM >= 9000)
+    {
+        minCount = max(minCount, (maxCount * 3) / 10);
+    }
+
+    return min(maxCount, max(minCount, count));
+}
+
 static void CalculatePokeblock(struct BlenderBerry *berries, struct Pokeblock *pokeblock, u8 numPlayers, u8 *flavors, u16 maxRPM)
 {
     s32 i, j;
@@ -2544,7 +2593,10 @@ static void CB2_EndBlenderGame(void)
             else
                 IncrementGameStat(GAME_STAT_POKEBLOCKS);
 
-            sBerryBlender->gameEndState++;
+            //sBerryBlender->gameEndState++;
+            // RogueNote: always back out here
+            sBerryBlender->yesNoAnswer = 1;
+            sBerryBlender->gameEndState = 11;
         }
         break;
     case 7:
@@ -3098,10 +3150,10 @@ static void SpriteCB_ScoreSymbolBest(struct Sprite* sprite)
         DestroySprite(sprite);
 }
 
-static void SetPlayerBerryData(u8 playerId, u16 itemId)
+static void SetPlayerBerryData(u8 playerId, u16 itemId, u16 count)
 {
     sBerryBlender->chosenItemId = itemId;
-    sBerryBlender->chosenItemCount = 8; // todo
+    sBerryBlender->chosenItemCount = count;
     //ConvertItemToBlenderBerry(&sBerryBlender->blendedBerries[playerId], itemId);
 }
 
@@ -3375,14 +3427,14 @@ static bool8 PrintBlendingResults(void)
         break;
     case 3:
         {
-            struct BlenderBerry blendedBerry;
+            //struct BlenderBerry blendedBerry;
             u16 minutes, seconds;
             u8 *txtPtr;
 
             xPos = GetStringCenterAlignXOffset(FONT_NORMAL, sText_BlendingResults, 0xA8);
             Blender_AddTextPrinter(5, sText_BlendingResults, xPos, 1, TEXT_SKIP_DRAW, 0);
 
-            ConvertItemToBlenderBerry(&blendedBerry, sBerryBlender->chosenItemId);
+            //ConvertItemToBlenderBerry(&blendedBerry, sBerryBlender->chosenItemId);
 
             if (sBerryBlender->numPlayers == BLENDER_MAX_PLAYERS)
                 yPos = 17;
@@ -3399,10 +3451,10 @@ static bool8 PrintBlendingResults(void)
                 StringAppend(sBerryBlender->stringVar, gLinkPlayers[place].name);
                 Blender_AddTextPrinter(5, sBerryBlender->stringVar, 8, yPos, TEXT_SKIP_DRAW, 3);
 
-                StringCopy(sBerryBlender->stringVar, blendedBerry.name);
-                ConvertInternationalString(sBerryBlender->stringVar, gLinkPlayers[place].language);
-                StringAppend(sBerryBlender->stringVar, sText_SpaceBerry);
-                Blender_AddTextPrinter(5, sBerryBlender->stringVar, 0x54, yPos, TEXT_SKIP_DRAW, 3);
+                //StringCopy(sBerryBlender->stringVar, blendedBerry.name);
+                //ConvertInternationalString(sBerryBlender->stringVar, gLinkPlayers[place].language);
+                //StringAppend(sBerryBlender->stringVar, sText_SpaceBerry);
+                //Blender_AddTextPrinter(5, sBerryBlender->stringVar, 0x54, yPos, TEXT_SKIP_DRAW, 3);
             }
 
             Blender_AddTextPrinter(5, sText_MaximumSpeed, 0, 0x51, TEXT_SKIP_DRAW, 3);
@@ -3440,40 +3492,40 @@ static bool8 PrintBlendingResults(void)
             sBerryBlender->mainState++;
         break;
     case 5:
-        ClearStdWindowAndFrameToTransparent(5, 1);
-
-        for (i = 0; i < BLENDER_MAX_PLAYERS; i++)
-        {
-            if (sBerryBlender->arrowIdToPlayerId[i] != NO_PLAYER)
-            {
-                PutWindowTilemap(i);
-                CopyWindowToVram(i, COPYWIN_FULL);
-            }
-        }
-    
-        {
-            struct BlenderBerry blendedBerry;
-            ConvertItemToBlenderBerry(&blendedBerry, sBerryBlender->chosenItemId);
-
-            Debug_SetStageVars();
-            CalculatePokeblock(&blendedBerry, &pokeblock, sBerryBlender->numPlayers, flavors, sBerryBlender->maxRPM);
-            PrintMadePokeblockString(&pokeblock, sBerryBlender->stringVar);
-            TryAddContestLinkTvShow(&pokeblock, &sBerryBlender->tvBlender);
-        }
-
-        CreateTask(Task_PlayPokeblockFanfare, 6);
-        IncrementDailyBerryBlender();
-
-        RemoveBagItem(sBerryBlender->chosenItemId, sBerryBlender->chosenItemCount);
-        // Add Pokeblock Item
-
         {
             u16 pokeblockItemId = Rogue_BerryToPokeblock(sBerryBlender->chosenItemId);
+            u32 pokeblockItemCount = CalculateGeneratedPokeblockCount(pokeblockItemId, sBerryBlender->chosenItemCount, sBerryBlender->gameFrameTime, sBerryBlender->maxRPM);
+            ClearStdWindowAndFrameToTransparent(5, 1);
 
-            if(pokeblockItemId != ITEM_NONE)
+            for (i = 0; i < BLENDER_MAX_PLAYERS; i++)
             {
-                AddBagItem(pokeblockItemId, sBerryBlender->chosenItemCount);
-                Rogue_PushPopup_AddItem(pokeblockItemId, sBerryBlender->chosenItemCount);
+                if (sBerryBlender->arrowIdToPlayerId[i] != NO_PLAYER)
+                {
+                    PutWindowTilemap(i);
+                    CopyWindowToVram(i, COPYWIN_FULL);
+                }
+            }
+        
+            {
+                struct BlenderBerry blendedBerry;
+                ConvertItemToBlenderBerry(&blendedBerry, sBerryBlender->chosenItemId);
+
+                Debug_SetStageVars();
+                CalculatePokeblock(&blendedBerry, &pokeblock, sBerryBlender->numPlayers, flavors, sBerryBlender->maxRPM);
+                PrintMadePokeblockString(pokeblockItemId, pokeblockItemCount, sBerryBlender->stringVar);
+                TryAddContestLinkTvShow(&pokeblock, &sBerryBlender->tvBlender);
+            }
+
+            CreateTask(Task_PlayPokeblockFanfare, 6);
+            IncrementDailyBerryBlender();
+
+            RemoveBagItem(sBerryBlender->chosenItemId, sBerryBlender->chosenItemCount);
+
+            // Add Pokeblock Item
+            if(pokeblockItemId != ITEM_NONE && pokeblockItemCount > 0)
+            {
+                AddBagItem(pokeblockItemId, pokeblockItemCount);
+                Rogue_PushPopup_AddItem(pokeblockItemId, pokeblockItemCount);
             }
         }
 
@@ -3494,28 +3546,18 @@ static bool8 PrintBlendingResults(void)
     return FALSE;
 }
 
-static void PrintMadePokeblockString(struct Pokeblock *pokeblock, u8 *dst)
+static void PrintMadePokeblockString(u16 pokeblockItemId, u16 itemCount, u8 *dst)
 {
     u8 text[12];
     u8 flavorLvl, feel;
 
     dst[0] = EOS;
-    StringCopy(dst, gPokeblockNames[pokeblock->color]);
-    StringAppend(dst, sText_WasMade);
-    StringAppend(dst, sText_NewLine);
+    CopyItemNameHandlePlural(pokeblockItemId, dst, itemCount);
+    if(itemCount > 1)
+        StringAppend(dst, sText_WereMade);
+    else
+        StringAppend(dst, sText_WasMade);
 
-    flavorLvl = GetHighestPokeblocksFlavorLevel(pokeblock);
-    feel = GetPokeblocksFeel(pokeblock);
-
-    StringAppend(dst, sText_TheLevelIs);
-    ConvertIntToDecimalStringN(text, flavorLvl, STR_CONV_MODE_LEFT_ALIGN, 3);
-    StringAppend(dst, text);
-
-    StringAppend(dst, sText_TheFeelIs);
-    ConvertIntToDecimalStringN(text, feel, STR_CONV_MODE_LEFT_ALIGN, 3);
-    StringAppend(dst, text);
-
-    StringAppend(dst, sText_Dot2);
     StringAppend(dst, sText_NewParagraph);
 }
 
