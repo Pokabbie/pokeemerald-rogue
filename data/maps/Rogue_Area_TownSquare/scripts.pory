@@ -1,3 +1,6 @@
+const FLAG_HIDE_LOCAL_WORKBENCH = FLAG_TEMP_1
+
+const OBJ_EVENT_BUILDER = 3
 
 mapscripts Rogue_Area_TownSquare_MapScripts 
 {
@@ -18,6 +21,28 @@ script Rogue_Area_TownSquare_OnMapLoad
             setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_STATUE_LEVEL_1)
         default:
             setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_STATUE_LEVEL_0)
+    }
+
+
+    if(var(VAR_ROGUE_INTRO_STATE) < ROGUE_INTRO_STATE_REPORT_TO_PROF)
+    {
+        // blocking connect centre
+        setflag(FLAG_HIDE_LOCAL_WORKBENCH)
+
+        setobjectxyperm(OBJ_EVENT_BUILDER, 21, 10)
+        setobjectmovementtype(OBJ_EVENT_BUILDER, MOVEMENT_TYPE_FACE_UP)
+    }
+    else
+    {
+        // blocking workbench
+        clearflag(FLAG_HIDE_LOCAL_WORKBENCH)
+
+        if(var(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_LEARN_TO_BUILD)
+        {
+            // blocking workbench
+            setobjectxyperm(OBJ_EVENT_BUILDER, 24, 11)
+            setobjectmovementtype(OBJ_EVENT_BUILDER, MOVEMENT_TYPE_FACE_UP)
+        }
     }
 }
 
@@ -91,4 +116,98 @@ script Rogue_Area_TownSquare_TalkBackpacker
             release
         }
     }
+}
+
+script Rogue_Area_TownSquare_TalkBuilder
+{
+    lock
+    faceplayer
+
+    if(var(VAR_ROGUE_INTRO_STATE) < ROGUE_INTRO_STATE_LEARN_TO_BUILD)
+    {
+        // blocking connect centre or workbench
+        msgbox(format("I'm almost finished up here.\nCome back and check later."))
+
+        turnobject(OBJ_EVENT_BUILDER, DIR_NORTH)
+    }
+    elif(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_LEARN_TO_BUILD)
+    {
+        // do workbench tutorial
+        clearflag(FLAG_ROGUE_HIDE_WORKBENCHES)
+        addvar(VAR_ROGUE_INTRO_STATE, 1)
+        
+        msgbox(format("Ah! {PLAYER}!\nJust the person I was waiting for!\pProfessor Elm told me that you were going on Adventures for {POKEMON_HUB} now.\pWhich means you'll now be in charge of collecting Building Supplies for {POKEMON_HUB} expansion.\pHere, let me show you.\pFirst, take this."))
+        
+        giveitem(ITEM_BUILDING_SUPPLIES)
+
+        msgbox(format("Now if you interact Workbenches like this one here, you'll be able to queue up any expansion work using Building Supplies you've gathered.\pGive it a try!"))
+
+        waitse
+        closemessage
+        
+        specialvar(VAR_RESULT, GetPlayerFacingDirection)
+        switch(var(VAR_RESULT))
+        {
+            case DIR_NORTH:
+                applymovement(OBJ_EVENT_BUILDER, Rogue_Area_TownSquare_WorkbenchBuilder_North)
+                applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Area_TownSquare_WorkbenchPlayer_North)
+                waitmovement(0)
+            case DIR_EAST:
+                applymovement(OBJ_EVENT_BUILDER, Rogue_Area_TownSquare_WorkbenchBuilder_East)
+                applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Area_TownSquare_WorkbenchPlayer_East)
+                waitmovement(0)
+            case DIR_WEST:
+                applymovement(OBJ_EVENT_BUILDER, Rogue_Area_TownSquare_WorkbenchBuilder_West)
+                applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Area_TownSquare_WorkbenchPlayer_West)
+                waitmovement(0)
+        }
+
+        call(Rogue_Area_WorkbenchOptions)
+    }
+    else
+    {
+        // idle
+        msgbox(format("Just walk up to any of the Workbenches and you should be able to queue up build orders for {POKEMON_HUB}."))
+    }
+
+    release
+}
+
+movement Rogue_Area_TownSquare_WorkbenchPlayer_North
+{
+    delay_16
+    walk_up
+    face_up
+}
+
+movement Rogue_Area_TownSquare_WorkbenchBuilder_North
+{
+    walk_right
+    face_left
+}
+
+movement Rogue_Area_TownSquare_WorkbenchPlayer_East
+{
+    delay_16
+    walk_right
+    face_up
+}
+
+movement Rogue_Area_TownSquare_WorkbenchBuilder_East
+{
+    walk_right
+    face_left
+}
+
+movement Rogue_Area_TownSquare_WorkbenchPlayer_West
+{
+    delay_16
+    walk_left
+    face_up
+}
+
+movement Rogue_Area_TownSquare_WorkbenchBuilder_West
+{
+    walk_left
+    face_right
 }
