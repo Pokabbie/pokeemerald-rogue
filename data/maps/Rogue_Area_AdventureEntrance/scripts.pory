@@ -247,6 +247,10 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
 
         addvar(VAR_ROGUE_INTRO_STATE, 1)
     }
+    elif(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_LEARN_TO_BUILD)
+    {
+        msgbox(format("Hi {PLAYER}!\pThe builder was looking for you.\pI believe he said he would wait in the Town Square for you."))
+    }
     else
     {
         if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_GO_ON_ADVENTURE)
@@ -256,7 +260,15 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
         }
         else
         {
-            msgbox(format("Hi {PLAYER}!\pWould you like to set off on an Adventure?"), MSGBOX_YESNO)
+            special(Rogue_HasPendingQuestRewards)
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("Hi {PLAYER}!\pOh.\pIt looks like you still have some Quest Rewards to collect.\pDo you still want to continue and set off on an Adventure?"), MSGBOX_YESNO)
+            }
+            else
+            {
+                msgbox(format("Hi {PLAYER}!\pWould you like to set off on an Adventure?"), MSGBOX_YESNO)
+            }
         }
 
         if(var(VAR_RESULT) == YES)
@@ -270,7 +282,21 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
         }
         else
         {
-            msgbox(format("No worries!\pCome and talk to me, once you're ready."), MSGBOX_DEFAULT)
+            special(Rogue_HasPendingQuestRewards)
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("No worries!"), MSGBOX_DEFAULT)
+                turnobject(OBJ_EVENT_ADVENTURE_NURSE, DIR_WEST)
+
+                msgbox(format("You can collect any Quest rewards from the Quest Board over there."), MSGBOX_DEFAULT)
+                turnobject(OBJ_EVENT_ADVENTURE_NURSE, DIR_SOUTH)
+
+                msgbox(format("Come and talk to me, once you're ready."), MSGBOX_DEFAULT)
+            }
+            else
+            {
+                msgbox(format("No worries!\pCome and talk to me, once you're ready."), MSGBOX_DEFAULT)
+            }
         }
     }
 

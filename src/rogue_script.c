@@ -534,6 +534,21 @@ void Rogue_HasAnyNewQuests()
     gSpecialVar_Result = RogueQuest_HasPendingNewQuests();
 }
 
+void Rogue_HasPendingQuestRewards()
+{
+    u16 questId;
+    gSpecialVar_Result = FALSE;
+
+    for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
+    {
+        if(RogueQuest_HasPendingRewards(questId))
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+}
+
 void Rogue_UnlockChallengeQuests()
 {
     FlagSet(FLAG_SYS_CHALLENGES_UNLOCKED);

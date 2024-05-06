@@ -24,7 +24,7 @@
                     {
                         "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Oh wow, you look tough!\\pI'm Hau.\\lI'm also a tough Trainer!\\pYou will battle me, right?\\lI know you will!\\pThis is gonna be great!",
                         "POST_BATTLE_TAUNT": "Hoooo-wah!",
-                        "POST_BATTLE_CLOSER": "Hoo-ee! That gave me chicken skin!\\p{PLAYER}, right?\\lYour Pokémon are awesome!\\pNow that settles it!\\pWe're going to battle again, next time we meet.\\pAnd I'm gonna go all out!\\pSee-ya then!"
+                        "POST_BATTLE_CLOSER": "Hoo-ee! That gave me chicken skin!\\p{PLAYER}, right?\\nYour Pokémon are awesome!\\pNow that settles it!\\pWe're going to battle again, next time we meet.\\pAnd I'm gonna go all out!\\pSee-ya then!"
                     },
                     {
                         "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}!\\pHoo-ee, I'm ready to go!\\pAs long as we both have a good time, then I think we can call it a great battle, eh?",
