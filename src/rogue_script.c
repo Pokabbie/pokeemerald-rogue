@@ -1228,6 +1228,11 @@ void Rogue_ScatterPokeblockItem()
     }
 }
 
+void Rogue_IsValidPokeblockBerry()
+{
+    gSpecialVar_Result = (Rogue_BerryToPokeblock(gSpecialVar_ItemId) != ITEM_NONE);
+}
+
 void Rogue_IsValidPieCrust()
 {
     u16 crustItem = gSpecialVar_ItemId;
@@ -1554,7 +1559,7 @@ static bool8 WillSpeciesLikePokeblockInternal(u16 pokeblockItem, u16 species)
 {
     u8 type = ItemId_GetSecondaryId(pokeblockItem);
 
-    if(!IS_STANDARD_TYPE(type))
+    if(IS_STANDARD_TYPE(type))
     {
         if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
         {

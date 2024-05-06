@@ -271,6 +271,7 @@ gSpecials::
 	def_special Rogue_IsNearHoneyTree
 	def_special Rogue_TryScatterPokeblockNearHoneyTree
 	def_special Rogue_ScatterPokeblockItem
+	def_special Rogue_IsValidPokeblockBerry
 	def_special Rogue_IsValidPieCrust
 	def_special Rogue_IsValidPieFilling
 	def_special Rogue_CanMakeShinyPieFor
