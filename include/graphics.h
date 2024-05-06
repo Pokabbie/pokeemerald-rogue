@@ -3396,8 +3396,6 @@ extern const u32 gBattleAnimSpriteGfx_MegaParticles[];
 extern const u32 gBattleAnimSpritePal_MegaParticles[];
 extern const u32 gBattleAnimSpriteGfx_MegaSymbol[];
 extern const u32 gBattleAnimSpritePal_MegaSymbol[];
-extern const u32 gBattleAnimSpriteGfx_TeraCrystal[];
-extern const u32 gBattleAnimSpritePal_TeraCrystal[];
 extern const u32 gBattleAnimSpriteGfx_FlashCannonBall[];
 extern const u32 gBattleAnimSpritePal_FlashCannonBall[];
 extern const u32 gBattleAnimSpriteGfx_WaterGun[];
@@ -3406,6 +3404,10 @@ extern const u32 gBattleAnimSpriteGfx_Punishment[];
 extern const u32 gBattleAnimSpritePal_Punishment[];
 extern const u32 gBattleAnimSpriteGfx_QuickGuard[];
 extern const u32 gBattleAnimSpritePal_QuickGuard[];
+extern const u32 gBattleAnimSpriteGfx_TeraCrystal[];
+extern const u32 gBattleAnimSpritePal_TeraCrystal[];
+extern const u32 gBattleAnimSpriteGfx_TeraShatter[];
+extern const u32 gBattleAnimSpritePal_TeraShatter[];
 
 // New Battle Anim Particles
 extern const u32 gBattleAnimSpriteGfx_AlphaStone[];

@@ -5087,7 +5087,7 @@ static void PlayAnimation(u32 battler, u8 animId, const u16 *argPtr, const u8 *n
      || animId == B_ANIM_SUBSTITUTE_FADE
      || animId == B_ANIM_PRIMAL_REVERSION
      || animId == B_ANIM_ULTRA_BURST
-     || animId == B_ANIM_TERASTALLIZATION)
+     || animId == B_ANIM_TERA_CHARGE)
     {
         BtlController_EmitBattleAnimation(battler, BUFFER_A, animId, &gDisableStructs[battler], *argPtr);
         MarkBattlerForControllerExec(battler);
@@ -10735,6 +10735,13 @@ static void Cmd_various(void)
         VARIOUS_ARGS();
         gBattlescriptCurrInstr = cmd->nextInstr;
         AbilityBattleEffects(ABILITYEFFECT_ON_TERRAIN, battler, 0, 0, 0);
+        return;
+    }
+    case VARIOUS_APPLY_TERASTALLIZATION:
+    {
+        VARIOUS_ARGS(u8 insideAnim);
+        gBattlescriptCurrInstr = cmd->nextInstr;
+        ApplyBattlerVisualsForTeraAnim(battler, cmd->insideAnim);
         return;
     }
     case VARIOUS_STORE_HEALING_WISH:

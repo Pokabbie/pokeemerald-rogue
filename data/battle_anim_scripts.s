@@ -1028,7 +1028,8 @@ gBattleAnims_General::
 	.4byte General_Rainbow                  @ B_ANIM_RAINBOW
 	.4byte General_SeaOfFire                @ B_ANIM_SEA_OF_FIRE
 	.4byte General_Swamp                    @ B_ANIM_SWAMP
-	.4byte General_Terastallization         @ B_ANIM_TERASTALLIZATION
+	.4byte General_TeraCharge               @ B_ANIM_TERA_CHARGE
+	.4byte General_TeraActivate             @ B_ANIM_TERA_ACTIVATE
 	.4byte General_TrickRoom                @ B_ANIM_TRICK_ROOM
 	.4byte General_WonderRoom               @ B_ANIM_WONDER_ROOM
 	.4byte General_MagicRoom                @ B_ANIM_MAGIC_ROOM
@@ -28308,8 +28309,9 @@ MegaEvolutionParticles:
 	delay 3
 	return
 
-General_Terastallization:
-	loadspritegfx ANIM_TAG_TERASTALLIZATION_CRYSTALS
+General_TeraCharge:
+	loadspritegfx ANIM_TAG_TERA_CRYSTAL
+	loadspritegfx ANIM_TAG_TERA_SHATTER
 	loadspritegfx ANIM_TAG_FOCUS_ENERGY
 	loadspritegfx ANIM_TAG_WHIP_HIT @green color
 	loadspritegfx ANIM_TAG_SWEAT_BEAD @blue color
@@ -28325,11 +28327,30 @@ General_Terastallization:
 	call RainbowEndureEffect
 	waitforvisualfinish
 	playsewithpan SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER
-	createsprite gTerastallizationCrystalSpriteTemplate, ANIM_ATTACKER, 41, 0, 0, 0, 0
+	createsprite gTeraCrystalSpriteTemplate, ANIM_ATTACKER, 41, 0, 0, 0, 0
 	delay 20
 	createvisualtask AnimTask_BlendBattleAnimPalExclude, 5, 5, 2, 0, 16, RGB_WHITEALPHA
 	waitforvisualfinish
+	call TeraChargeParticles
 	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_ATTACKER
+	clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	end
+	
+TeraChargeParticles:
+	@ createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, -8, -12
+	@ createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 1, 8, -12
+	@ createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 2, -8, 12
+	@ createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 3, 8, 12 
+	createsprite gTeraCrystalSpreadSpriteTemplate, ANIM_TARGET, 0, 0, -5, 8
+	createsprite gTeraCrystalSpreadSpriteTemplate, ANIM_TARGET, 0, 1, 5, 9
+	createsprite gTeraCrystalSpreadSpriteTemplate, ANIM_TARGET, 0, 2, 5, -8
+	createsprite gTeraCrystalSpreadSpriteTemplate, ANIM_TARGET, 0, 2, -5, -8
+	createsprite gTeraCrystalSpreadSpriteTemplate, ANIM_TARGET, 0, 1, -10, 0
+	createsprite gTeraCrystalSpreadSpriteTemplate, ANIM_TARGET, 0, 0, 10, 0
+	return
+
+General_TeraActivate:
 	createvisualtask AnimTask_BlendBattleAnimPalExclude, 5, 5, 2, 16, 0, RGB_WHITEALPHA
 	createvisualtask AnimTask_HorizontalShake, 5, ANIM_TARGET, 5, 14
 	waitforvisualfinish
