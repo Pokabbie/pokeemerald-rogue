@@ -49,6 +49,38 @@ struct QuestReward
 	questUnlockParams;
 };
 
+enum class QuestRequirementType
+{
+	Item,
+	Flag,
+	ConfigToggle,
+};
+
+struct QuestRequirement
+{
+	QuestRequirementType type;
+	std::string preprocessorCondition;
+	struct
+	{
+		std::string item;
+		std::string operation;
+		std::string count;
+	}
+	itemParams;
+	struct
+	{
+		std::string flag;
+		std::string state;
+	}
+	flagParams;
+	struct
+	{
+		std::string configToggle;
+		std::string state;
+	}
+	configToggleParams;
+};
+
 struct QuestTrigger
 {
 	std::string callback;
@@ -71,6 +103,7 @@ struct QuestInfo
 	std::vector<QuestTrigger> triggers;
 	std::vector<std::string> collatedTriggerFlags;
 	std::vector<QuestReward> rewards;
+	std::vector<QuestRequirement> requirements;
 
 	inline std::string GetUniqueWriteId() const
 	{
@@ -215,6 +248,69 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 
 		fileStream << "};\n";
 
+		// Requirements
+		//
+		if (!quest.requirements.empty())
+		{
+			fileStream << "static struct RogueQuestRequirement const sRequirements_" << quest.GetUniqueWriteId() << "[] = \n";
+			fileStream << "{\n";
+
+			for (auto const& requirementInfo : quest.requirements)
+			{
+				if (!requirementInfo.preprocessorCondition.empty())
+					fileStream << "#if " << requirementInfo.preprocessorCondition << "\n";
+
+				fileStream << c_TabSpacing << "{\n";
+
+				switch (requirementInfo.type)
+				{
+				case QuestRequirementType::Item:
+					fileStream << c_TabSpacing2 << ".type = QUEST_REQUIREMENT_TYPE_ITEM,\n";
+					fileStream << c_TabSpacing2 << ".perType = {\n";
+					fileStream << c_TabSpacing3 << ".item = {\n";
+					fileStream << c_TabSpacing4 << ".itemId = " << requirementInfo.itemParams.item << ",\n";
+					fileStream << c_TabSpacing4 << ".operation = QUEST_REQUIREMENT_OPERATION_" << requirementInfo.itemParams.operation << ",\n";
+					fileStream << c_TabSpacing4 << ".count = " << requirementInfo.itemParams.count << ",\n";
+					fileStream << c_TabSpacing3 << "}\n";
+					fileStream << c_TabSpacing2 << "}\n";
+					break;
+
+				case QuestRequirementType::Flag:
+					fileStream << c_TabSpacing2 << ".type = QUEST_REQUIREMENT_TYPE_FLAG,\n";
+					fileStream << c_TabSpacing2 << ".perType = {\n";
+					fileStream << c_TabSpacing3 << ".flag = {\n";
+					fileStream << c_TabSpacing4 << ".flag = " << requirementInfo.flagParams.flag << ",\n";
+					fileStream << c_TabSpacing4 << ".state = " << requirementInfo.flagParams.state << ",\n";
+					fileStream << c_TabSpacing3 << "}\n";
+					fileStream << c_TabSpacing2 << "}\n";
+					break;
+
+				case QuestRequirementType::ConfigToggle:
+					fileStream << c_TabSpacing2 << ".type = QUEST_REQUIREMENT_TYPE_CONFIG_TOGGLE,\n";
+					fileStream << c_TabSpacing2 << ".perType = {\n";
+					fileStream << c_TabSpacing3 << ".configToggle = {\n";
+					fileStream << c_TabSpacing4 << ".toggle = " << requirementInfo.configToggleParams.configToggle << ",\n";
+					fileStream << c_TabSpacing4 << ".state = " << requirementInfo.configToggleParams.state << ",\n";
+					fileStream << c_TabSpacing3 << "}\n";
+					fileStream << c_TabSpacing2 << "}\n";
+					break;
+
+				default:
+					FATAL_ERROR("Unsupported reward type");
+					break;
+				}
+
+				fileStream << c_TabSpacing << "},\n";
+
+				if (!requirementInfo.preprocessorCondition.empty())
+					fileStream << "#endif\n";
+
+			}
+
+			fileStream << "};\n";
+		}
+
+
 		// Triggers
 		// 
 		// Params
@@ -285,6 +381,17 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 
 		fileStream << c_TabSpacing2 << ".rewards = sRewards_" << quest.GetUniqueWriteId() << ",\n";
 		fileStream << c_TabSpacing2 << ".rewardCount = ARRAY_COUNT(sRewards_" << quest.GetUniqueWriteId() << "),\n";
+
+		if (!quest.requirements.empty())
+		{
+			fileStream << c_TabSpacing2 << ".requirements = sRequirements_" << quest.GetUniqueWriteId() << ",\n";
+			fileStream << c_TabSpacing2 << ".requirementCount = ARRAY_COUNT(sRequirements_" << quest.GetUniqueWriteId() << "),\n";
+		}
+		else
+		{
+			fileStream << c_TabSpacing2 << ".requirements = NULL,\n";
+			fileStream << c_TabSpacing2 << ".requirementCount = 0,\n";
+		}
 
 		fileStream << c_TabSpacing << "},\n";
 
@@ -573,6 +680,70 @@ static QuestReward ParseQuestReward(json const& jsonData)
 	return reward;
 }
 
+static QuestRequirement ParseQuestRequirement(json const& jsonData)
+{
+	QuestRequirement requirement;
+
+	// Preprocessor condition
+	if (jsonData.contains("#if"))
+	{
+		requirement.preprocessorCondition = jsonData["#if"].get<std::string>();
+	}
+
+
+	// Per type
+	if (jsonData.contains("item"))
+	{
+		requirement.type = QuestRequirementType::Item;
+
+		requirement.itemParams.item = jsonData["item"].get<std::string>();
+
+		if (jsonData.contains("count"))
+			requirement.itemParams.count = GetAsString(jsonData["count"]);
+		else
+			requirement.itemParams.count = "1";
+
+		if (jsonData.contains("operation"))
+			requirement.itemParams.operation = GetAsString(jsonData["operation"]);
+		else
+			requirement.itemParams.operation = "GREATER_THAN_EQUAL";
+
+		return requirement;
+	}
+
+	if (jsonData.contains("flag"))
+	{
+		requirement.type = QuestRequirementType::Flag;
+
+		requirement.flagParams.flag = jsonData["flag"].get<std::string>();
+
+		if (jsonData.contains("state"))
+			requirement.flagParams.state = GetAsString(jsonData["state"]);
+		else
+			requirement.flagParams.state = "TRUE";
+
+		return requirement;
+	}
+
+	if (jsonData.contains("config_toggle"))
+	{
+		requirement.type = QuestRequirementType::ConfigToggle;
+
+		requirement.configToggleParams.configToggle = jsonData["config_toggle"].get<std::string>();
+
+		if (jsonData.contains("state"))
+			requirement.configToggleParams.state = GetAsString(jsonData["state"]);
+		else
+			requirement.configToggleParams.state = "TRUE";
+
+		return requirement;
+	}
+
+
+	FATAL_ERROR("Unrecognised requirement object:\n'%s'", jsonData.dump().c_str());
+	return requirement;
+}
+
 static void GatherQuests(std::string const& dataPath, json const& rawJsonData, QuestData& outQuestData)
 {
 	json jsonData = ExpandCommonArrayGroup(dataPath, rawJsonData, "quest_groups");
@@ -691,6 +862,16 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, Q
 				{
 					QuestReward reward = ParseQuestReward(rewardObj);
 					quest.rewards.push_back(std::move(reward));
+				}
+			}
+
+			// Requirements
+			if (quest.questObj.contains("requirements"))
+			{
+				for (json requirementObj : quest.questObj["requirements"])
+				{
+					QuestRequirement requirement = ParseQuestRequirement(requirementObj);
+					quest.requirements.push_back(std::move(requirement));
 				}
 			}
 

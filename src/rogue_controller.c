@@ -3414,8 +3414,11 @@ static void BeginRogueRun_ModifyParty(void)
 {
     u16 starterSpecies = VarGet(VAR_STARTER_SWAP_SPECIES);
 
+    FlagClear(FLAG_ROGUE_HAS_RANDOM_STARTER);
+
     if(starterSpecies != SPECIES_NONE)
     {
+        FlagSet(FLAG_ROGUE_HAS_RANDOM_STARTER);
         ClearPlayerTeam();
 
         CreateMon(&gEnemyParty[0], starterSpecies, STARTER_MON_LEVEL, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
@@ -3762,6 +3765,7 @@ static void BeginRogueRun(void)
     RogueQuest_ActivateQuestsFor(QUEST_CONST_ACTIVE_IN_RUN);
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_START);
 
+
     Rogue_AddPartySnapshot();
 
     if(Rogue_ShouldDisableMainQuests())
@@ -3785,6 +3789,8 @@ static void BeginRogueRun(void)
     {
         memcpy(&gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT].difficultyConfig, &gRogueSaveBlock->difficultyConfig, sizeof(gRogueSaveBlock->difficultyConfig));
     }
+
+    RogueQuest_CheckQuestRequirements();
 }
 
 static void EndRogueRun(void)
@@ -3829,6 +3835,8 @@ static void EndRogueRun(void)
         if(VarGet(VAR_ROGUE_DAYCARE_EGG) != SPECIES_NONE)
             FlagSet(FLAG_ROGUE_DAYCARE_EGG_READY);
     }
+    
+    RogueQuest_CheckQuestRequirements();
 }
 
 static u16 SelectLegendarySpecies(u8 legendId)
@@ -7322,6 +7330,7 @@ void Rogue_GetCatchingContestResults(u16* caughtSpecies, bool8* didWin, u16* win
 void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 {
     bool8 applyRandomChance = FALSE;
+    bool8 applyPriceRange = TRUE;
     u16 randomChanceMinimum = 0;
     u16 maxPriceRange = 65000;
     u16 difficulty = Rogue_GetModeRules()->forceFullShopInventory ? ROGUE_FINAL_CHAMP_DIFFICULTY : Rogue_GetCurrentDifficulty();
@@ -7461,18 +7470,16 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         applyRandomChance = TRUE;
         break;
 
+    case ROGUE_SHOP_CURSES:
+        RogueItemQuery_Reset(QUERY_FUNC_EXCLUDE);
+        RogueMiscQuery_EditRange(QUERY_FUNC_INCLUDE, FIRST_ITEM_CURSE, LAST_ITEM_CURSE);
+        applyPriceRange = FALSE;
+        break;
+
     case ROGUE_SHOP_CHARMS:
-        RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_KEY_ITEMS);
-
-            RogueMiscQuery_EditRange(QUERY_FUNC_INCLUDE, 
-                min(FIRST_ITEM_CHARM, FIRST_ITEM_CURSE), 
-                max(LAST_ITEM_CHARM, LAST_ITEM_CURSE)
-            );
-
-        if(!RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_SHOPS))
-        {
-            RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, FIRST_ITEM_CHARM, LAST_ITEM_CHARM);
-        }
+        RogueItemQuery_Reset(QUERY_FUNC_EXCLUDE);
+        RogueMiscQuery_EditRange(QUERY_FUNC_INCLUDE, FIRST_ITEM_CHARM, LAST_ITEM_CHARM);
+        applyPriceRange = FALSE;
         break;
     
     default:
@@ -7566,11 +7573,6 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_HEALTH_FEATHER, ITEM_SWIFT_FEATHER);
 #endif
 
-    // Remove EV held items
-    if(!Rogue_IsRunActive() || !Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
-    {
-    }
-
     // Only show items with a valid price
     if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_SHOPS))
     {
@@ -7578,7 +7580,8 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     }
     else
     {
-        RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 10, maxPriceRange);
+        if(applyPriceRange)
+            RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 10, maxPriceRange);
 
         if(Rogue_IsRunActive())
         {

@@ -75,6 +75,74 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" }
                 ]
+            },
+            {
+                "name": "Roguelocke",
+                "description": "Win a full Run with: Random Starter trade, Embargo Curse, Species Curse & 10x Wild Curses.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "flag": "FLAG_ROGUE_HAS_RANDOM_STARTER", "state": true },
+                    { "item": "ITEM_BATTLE_ITEM_CURSE", "count": 1 },
+                    { "item": "ITEM_SPECIES_CLAUSE_CURSE", "count": 1 },
+                    { "item": "ITEM_WILD_ENCOUNTER_CURSE", "count": 10 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "name": "Iron Mono",
+                "description": "Win a full Run with: 5x Capacity Curses.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_PARTY_CURSE", "count": 5 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "quest": "Iron Kaizo" }
+                ]
+            },
+            {
+                "name": "Iron Kaizo",
+                "description": "Win a full Run with: Fresh Start enabled, Random Starter trade, Embargo Curse, 5x Capacity Curses & 99x Discount Curses.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "flag": "FLAG_ROGUE_HAS_RANDOM_STARTER", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_BAG_WIPE", "state": true },
+                    { "item": "ITEM_BATTLE_ITEM_CURSE", "count": 1 },
+                    { "item": "ITEM_PARTY_CURSE", "count": 5 },
+                    { "item": "ITEM_SHOP_PRICE_CURSE", "count": 99 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
             }
         ]
     }

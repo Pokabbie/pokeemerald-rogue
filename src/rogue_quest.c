@@ -61,6 +61,7 @@ static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQu
 
 static bool8 IsQuestSurpressed(u16 questId);
 static bool8 CanSurpressedQuestActivate(u16 questId);
+static void FailQuest(u16 questId);
 
 bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 
@@ -559,6 +560,71 @@ void RogueQuest_ActivateQuestsFor(u32 flags)
         {
             RogueQuest_SetStateFlag(i, QUEST_STATE_ACTIVE, desiredState);
             // TODO - Trigger for state on activate?
+        }
+    }
+}
+
+static bool8 CheckRequirementCondition(u32 value, u32 conditionValue, u32 condition)
+{
+    switch (condition)
+    {
+    case QUEST_REQUIREMENT_OPERATION_EQUAL:
+        return value == conditionValue;
+    case QUEST_REQUIREMENT_OPERATION_NOT_EQUAL:
+        return value != conditionValue;
+    case QUEST_REQUIREMENT_OPERATION_GREATER_THAN:
+        return value > conditionValue;
+    case QUEST_REQUIREMENT_OPERATION_LESS_THAN:
+        return value < conditionValue;
+    case QUEST_REQUIREMENT_OPERATION_GREATER_THAN_EQUAL:
+        return value >= conditionValue;
+    case QUEST_REQUIREMENT_OPERATION_LESS_THAN_EQUAL:
+        return value <= conditionValue;
+    }
+
+    AGB_ASSERT(FALSE);
+    return FALSE;
+}
+
+static bool8 PassesRequirement(struct RogueQuestRequirement const* requirement)
+{
+    switch (requirement->type)
+    {
+    case QUEST_REQUIREMENT_TYPE_ITEM:
+        return CheckRequirementCondition(
+            GetItemCountInBag(requirement->perType.item.itemId), 
+            requirement->perType.item.count, 
+            requirement->perType.item.operation
+        );
+
+    case QUEST_REQUIREMENT_TYPE_FLAG:
+        return !(FlagGet(requirement->perType.flag.flag) != requirement->perType.flag.state);
+
+    case QUEST_REQUIREMENT_TYPE_CONFIG_TOGGLE:
+        return !(Rogue_GetConfigToggle(requirement->perType.configToggle.toggle) != requirement->perType.configToggle.state);
+    }
+}
+
+void RogueQuest_CheckQuestRequirements()
+{
+    u16 i;
+    u16 questId;
+
+    for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
+    {
+        if(RogueQuest_IsQuestActive(questId))
+        {
+            if(sQuestEntries[questId].requirements != NULL && sQuestEntries[questId].requirementCount != 0)
+            {
+                for(i = 0; i < sQuestEntries[questId].requirementCount; ++i)
+                {
+                    if(!PassesRequirement(&sQuestEntries[questId].requirements[i]))
+                    {
+                        FailQuest(questId);
+                        break;
+                    }
+                }
+            }
         }
     }
 }

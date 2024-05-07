@@ -209,6 +209,8 @@ gSpecials::
 	def_special Rogue_GiveLabMon
 	def_special Rogue_ChooseMiniBossRewardMons
 	def_special Rogue_ClearCharmsAndCurses
+	def_special Rogue_ClearCharms
+	def_special Rogue_ClearCurses
 	def_special Rogue_IsRoamerActive
 	def_special Rogue_BufferRoamerName
 	def_special Rogue_GetActiveCampaign

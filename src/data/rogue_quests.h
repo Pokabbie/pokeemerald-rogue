@@ -497,52 +497,52 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
             { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_DUSKULL, 7, TRUE } },
         },
     },
-    [QUEST_Nuzlocke] = 
-    {
-        .title = _("Roguelocke"),
-        .desc = _(
-                    "Full run with: Bag Wipe\n"
-                    "Random starter trade;\n"
-                    "Embargo, Species & 10\n"
-                    "Wild curses."
-                ),
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ESCAPE_ROPE, 1 } },
-        },
-    },
+//    [QUEST_Nuzlocke] = 
+//    {
+//        .title = _("Roguelocke"),
+//        .desc = _(
+//                    "Full run with: Bag Wipe\n"
+//                    "Random starter trade;\n"
+//                    "Embargo, Species & 10\n"
+//                    "Wild curses."
+//                ),
+//        .rewards = { 
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ESCAPE_ROPE, 1 } },
+//        },
+//    },
 
-    [QUEST_IronMono1] = 
-    {
-        .title = _("True Mono"),
-        .desc = _(
-                    "Accept 5 Capacity\n"
-                    "Curses and complete a\n"
-                    "full run."
-                ),
-        .flags = QUEST_FLAGS_REPEATABLE,
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ULTRA_BALL, 99 } },
-        },
-    },
-    [QUEST_IronMono2] = 
-    {
-        .title = _("Iron Kaizo"),
-        .desc = _(
-                    "Full run with: Bag Wipe,\n"
-                    "Random starter trade,\n"
-                    "Embargo, 5 Capacity, 5 Wild,\n"
-                    "99 Discount curses."
-                ),
-        .flags = QUEST_FLAGS_REPEATABLE,
-        .rewards = { 
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MASTER_BALL, 1 } },
-        },
-    },
+//    [QUEST_IronMono1] = 
+//    {
+//        .title = _("True Mono"),
+//        .desc = _(
+//                    "Accept 5 Capacity\n"
+//                    "Curses and complete a\n"
+//                    "full run."
+//                ),
+//        .flags = QUEST_FLAGS_REPEATABLE,
+//        .rewards = { 
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ULTRA_BALL, 99 } },
+//        },
+//    },
+//    [QUEST_IronMono2] = 
+//    {
+//        .title = _("Iron Kaizo"),
+//        .desc = _(
+//                    "Full run with: Bag Wipe,\n"
+//                    "Random starter trade,\n"
+//                    "Embargo, 5 Capacity, 5 Wild,\n"
+//                    "99 Discount curses."
+//                ),
+//        .flags = QUEST_FLAGS_REPEATABLE,
+//        .rewards = { 
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_RARE_CANDY, 2 } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_MASTER_BALL, 1 } },
+//        },
+//    },
     
     [QUEST_LegendOnly] = 
     {

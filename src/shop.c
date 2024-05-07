@@ -1742,6 +1742,7 @@ static u16 QueryShopItemListCallback(u16 index)
             case ROGUE_SHOP_HELD_ITEMS:
             case ROGUE_SHOP_BATTLE_ENHANCERS:
             case ROGUE_SHOP_CHARMS:
+            case ROGUE_SHOP_CURSES:
             case ROGUE_SHOP_TMS:
                 sortMode = ITEM_SORT_MODE_NAME;
                 break;
@@ -1780,7 +1781,7 @@ void CreateDynamicPokemartMenu(const u16 category)
     {
         u16 martType = MART_TYPE_NORMAL;
 
-        if(category == ROGUE_SHOP_CHARMS)
+        if(category == ROGUE_SHOP_CHARMS || category == ROGUE_SHOP_CURSES)
             martType = MART_TYPE_PURCHASE_ONLY;
 
         CreateShopMenu(martType);

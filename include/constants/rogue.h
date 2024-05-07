@@ -60,8 +60,9 @@
 #define ROGUE_SHOP_QUEST_REWARDS        8
 #define ROGUE_SHOP_BERRIES              9
 #define ROGUE_SHOP_TREATS               10
-#define ROGUE_SHOP_CHARMS               11
-#define ROGUE_SHOP_HUB_UPGRADES         12
+#define ROGUE_SHOP_CURSES               11
+#define ROGUE_SHOP_CHARMS               12
+#define ROGUE_SHOP_HUB_UPGRADES         13
 
 #define ITEM_LINK_CABLE                 (ITEM_ROGUE_ITEM_FIRST + 0)
 #define ITEM_QUEST_LOG                  (ITEM_ROGUE_ITEM_FIRST + 1)

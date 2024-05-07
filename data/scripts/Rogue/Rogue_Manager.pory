@@ -665,27 +665,50 @@ script Rogue_Shop_RarePlates
     release
 }
 
-script Rogue_Shop_Charms
+script Rogue_Shop_Curses
 {
     lock
     faceplayer
 
-    msgbox(format("Oh! Child! You startled me..."), MSGBOX_DEFAULT)
-    msgbox(format("I can offer you some Curses to add some extra challenge in your future Adventures...\pI can inflict you with new Curses..."), MSGBOX_DEFAULT)
+    msgbox(format("Good day, {PLAYER}.\pI can offer you some Curses to add some extra challenge in your future Adventures, if you'd like."), MSGBOX_DEFAULT)
 
     msgbox(format("Would you like me to remove any active Curses?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES)
     {
         playse(SE_SHOP)
-        special(Rogue_ClearCharmsAndCurses)
+        special(Rogue_ClearCurses)
     }
 
-    message(format("So how would you like to adjust your fate...?"))
+    message(format("Which Curses would you like to take with you?"))
+    waitmessage
+
+    rogue_dynamicpokemart(ROGUE_SHOP_CURSES)
+
+    msgbox(format("Good luck child, {PLAYER}!"), MSGBOX_DEFAULT)
+
+    release
+}
+
+script Rogue_Shop_Charms
+{
+    lock
+    faceplayer
+
+    msgbox(format("Greetings, {PLAYER}.\pI can offer you some Charms to make your Adventures easier, if you'd like.\pHowever, all Quests will be disabled if you start with any Charms."), MSGBOX_DEFAULT)
+
+    msgbox(format("Would you like me to remove any active Charms?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        playse(SE_SHOP)
+        special(Rogue_ClearCharms)
+    }
+
+    message(format("Which Charms would you like to take with you?"))
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_CHARMS)
 
-    msgbox(format("Good luck child..."), MSGBOX_DEFAULT)
+    msgbox(format("Have fun, {PLAYER}!"), MSGBOX_DEFAULT)
 
     release
 }
