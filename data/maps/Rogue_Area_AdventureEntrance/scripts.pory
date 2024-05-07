@@ -1,13 +1,20 @@
 const FLAG_HIDE_RUIN_MANIAC = FLAG_TEMP_1
+const FLAG_HIDE_POKABBIE = FLAG_TEMP_2
 
 const VAR_FRAME_STATE = VAR_TEMP_0
 const VAR_INTRO_SCRIPT_STATE = VAR_TEMP_2
 
+// Reused vars
+const VAR_SHAKE_VERTICAL_PAN = VAR_0x8004
+const VAR_SHAKE_HORIZONTAL_PAN = VAR_0x8005
+const VAR_SHAKE_NUM_SHAKES = VAR_0x8006
+const VAR_SHAKE_SHAKE_DELAY = VAR_0x8007
+
 const OBJ_EVENT_ADVENTURE_NURSE = 1
 const OBJ_EVENT_RUIN_MANIAC = 5
-
 const OBJ_EVENT_FLAG = 7
 const OBJ_EVENT_PEONIA = 8
+const OBJ_EVENT_POKABBIE = 9
 
 const MOVEMENT_TYPE_FLAG_ENABLED = MOVEMENT_TYPE_WALK_IN_PLACE_LEFT
 const MOVEMENT_TYPE_FLAG_DISABLED = MOVEMENT_TYPE_FACE_UP
@@ -64,6 +71,33 @@ script Rogue_Area_AdventureEntrance_MapLoad
     else
     {
         setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
+    }
+
+    if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_MET_POKABBIE))
+    {
+        clearflag(FLAG_HIDE_POKABBIE)
+        
+        setvar(VAR_0x8004, HUB_AREA_LABS)
+        special(Rogue_CheckHubConnectionDir)
+
+        switch(var(VAR_RESULT))
+        {
+            case HUB_AREA_CONN_EAST:
+                setobjectxyperm(OBJ_EVENT_POKABBIE, 18, 10)
+                break
+
+            case HUB_AREA_CONN_SOUTH:
+                setobjectxyperm(OBJ_EVENT_POKABBIE, 9, 13)
+                break
+
+            case HUB_AREA_CONN_WEST:
+                setobjectxyperm(OBJ_EVENT_POKABBIE, 0, 10)
+                break
+        }
+    }
+    else
+    {
+        setflag(FLAG_HIDE_POKABBIE)
     }
 
     call(Rogue_Area_AdventureEntrance_UpdateFlagState)
@@ -213,6 +247,10 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
 
         addvar(VAR_ROGUE_INTRO_STATE, 1)
     }
+    elif(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_LEARN_TO_BUILD)
+    {
+        msgbox(format("Hi {PLAYER}!\pThe builder was looking for you.\pI believe he said he would wait in the Town Square for you."))
+    }
     else
     {
         if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_GO_ON_ADVENTURE)
@@ -222,7 +260,15 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
         }
         else
         {
-            msgbox(format("Hi {PLAYER}!\pWould you like to set off on an Adventure?"), MSGBOX_YESNO)
+            special(Rogue_HasPendingQuestRewards)
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("Hi {PLAYER}!\pOh.\pIt looks like you still have some Quest Rewards to collect.\pDo you still want to continue and set off on an Adventure?"), MSGBOX_YESNO)
+            }
+            else
+            {
+                msgbox(format("Hi {PLAYER}!\pWould you like to set off on an Adventure?"), MSGBOX_YESNO)
+            }
         }
 
         if(var(VAR_RESULT) == YES)
@@ -236,7 +282,21 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
         }
         else
         {
-            msgbox(format("No worries!\pCome and talk to me, once you're ready."), MSGBOX_DEFAULT)
+            special(Rogue_HasPendingQuestRewards)
+            if(var(VAR_RESULT) == YES)
+            {
+                msgbox(format("No worries!"), MSGBOX_DEFAULT)
+                turnobject(OBJ_EVENT_ADVENTURE_NURSE, DIR_WEST)
+
+                msgbox(format("You can collect any Quest rewards from the Quest Board over there."), MSGBOX_DEFAULT)
+                turnobject(OBJ_EVENT_ADVENTURE_NURSE, DIR_SOUTH)
+
+                msgbox(format("Come and talk to me, once you're ready."), MSGBOX_DEFAULT)
+            }
+            else
+            {
+                msgbox(format("No worries!\pCome and talk to me, once you're ready."), MSGBOX_DEFAULT)
+            }
         }
     }
 
@@ -446,12 +506,18 @@ script Rogue_ReturnAdventureInternal
     //    }
     //}
     
-    msgbox(format("Would you like to SAVE your progress?"), MSGBOX_YESNO)
+    msgbox(format("Would you like to Save your progress?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES)
     {
         call(Common_EventScript_SaveGame)
     }
     msgbox(format("Come speak to me, once you're ready for your next adventure."), MSGBOX_DEFAULT)
+
+    if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_MET_POKABBIE))
+    {
+        call(Rogue_Area_AdventureEntrance_MeetPokabbie)
+    }
+
     releaseall
 }
 
@@ -538,4 +604,204 @@ script Rogue_Area_AdventureEntrance_UpdateFlagState
     {
         setobjectmovementtype(OBJ_EVENT_FLAG, MOVEMENT_TYPE_FLAG_DISABLED)
     }
+}
+
+script Rogue_Area_AdventureEntrance_MeetPokabbie
+{
+    setflag(FLAG_ROGUE_MET_POKABBIE)
+    setflag(FLAG_ROGUE_UNCOVERRED_POKABBIE)
+
+    closemessage
+    delay(30)
+
+    msgbox(format("{PLAYER}!"))
+    closemessage
+
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+    playbgm(MUS_DP_ENCOUNTER_LADY, TRUE)
+
+    call(Rogue_Area_AdventureEntrance_PokabbieEnterMovement)
+    waitmovement(0)
+
+    msgbox(format("{PLAYER}, that was amazing!\pThat last battle was just- WOW!\pOh… sorry, I'm getting ahead of myself.\pMy name's Pokabbie.\nI'm the Developer of Emerald Rogue!"))
+
+    applymovement(OBJ_EVENT_POKABBIE, Pokabbie_Spin_FaceUp)
+    waitmovement(0)
+
+    msgbox(format("POKABBIE: Ta-da!\pNow that you're the Champion, there's sooooo much more fun stuff for you!\pSpeaking of…\nCan you lend me your Pokédex for one second, please."))
+    closemessage
+
+    call(Rogue_Area_AdventureEntrance_PokabbieExitMovement)
+    waitmovement(0)
+
+    delay(30)
+    playse(SE_M_COMET_PUNCH)
+    waitse
+    playse(SE_M_COMET_PUNCH)
+    waitse
+    playse(SE_M_COMET_PUNCH)
+    waitse
+    delay(30)
+
+    playse(SE_M_EXPLOSION)
+    setvar(VAR_SHAKE_VERTICAL_PAN, -8)
+    setvar(VAR_SHAKE_HORIZONTAL_PAN, 8)
+    setvar(VAR_SHAKE_NUM_SHAKES, 8)
+    setvar(VAR_SHAKE_SHAKE_DELAY, 4)
+    special(ShakeCameraNoSE)
+    waitstate
+    waitse
+
+    delay(30)
+
+    call(Rogue_Area_AdventureEntrance_PokabbieEnterMovement)
+    waitmovement(0)
+
+    msgbox(format("POKABBIE: Phew…\nAll done!\pI've got a few upgrades for you!\pFirstly, your Pokédex can now change it's mode to different Regions.\pHere, take a look."))
+
+    waitse
+    special(Special_ViewRoguePokedex)
+    waitstate
+
+    msgbox(format("If you change your Pokédex mode, when you next set off on an Adventure, you'll encounter Pokémon only present in that Pokédex mode!\pThe next thing I did was upgrade the Config Lab for you!"))
+
+    checkitem(ITEM_C_GEAR)
+    if(var(VAR_RESULT) == NO)
+    {
+        bufferitemname(STR_VAR_1, ITEM_C_GEAR)
+
+        msgbox(format("What!?\nYou don't even have a {STR_VAR_1} of your own?\pWe can't have that!\nHere!"))
+        giveitem(ITEM_C_GEAR)
+
+        msgbox(format("The {STR_VAR_1} allows you to remotely access the Config Lab from wherever you are!\pYou can change your settings from wherever you are in {POKEMON_HUB}, or you can even check your settings, in the middle of an Adventure.\pAnyhow, I'm getting distracted!\pThat's not actually the thing I upgraded for you…"))
+    }
+
+    msgbox(format("I upgraded the Config Lab to have new settings for you.\pHere, take a look."))
+
+    waitse
+    special(Special_ViewDifficultyConfigMenu)
+    waitstate
+
+    msgbox(format("Annnnddddd!\pFinally, I've added a new upgrade you may build for {POKEMON_HUB}, the Challenge Area!"))
+
+    if(var(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_LEARN_TO_BUILD)
+    {
+        msgbox(format("Oh, wow!\nYou haven't even learnt about upgrades yet?\pYou were really quick to enter the Hall of Fame, huh!\pNo matter. I'm sure you'll learn about it very soon."))
+    }
+
+    msgbox(format("I won't spoil it for you, but in the Challenge Area there is a lot of stuff that I'm sure you'll find super fun!\pNow, I must be off.\pI actually have a secret area in the Config Lab where I manage everything from.\pI'll leave the door open for you, for if you ever want to give me a visit."))
+    closemessage
+
+    applymovement(OBJ_EVENT_POKABBIE, Pokabbie_Spin_FaceUp)
+    waitmovement(0)
+
+    call(Rogue_Area_AdventureEntrance_PokabbieExitMovement)
+    waitmovement(0)
+
+    setobjectxy(OBJ_EVENT_POKABBIE, 0, 0)
+    setobjectxyperm(OBJ_EVENT_POKABBIE, 0, 0)
+    hideobjectat(OBJ_EVENT_POKABBIE, MAP_ROGUE_AREA_ADVENTURE_ENTRANCE)
+    setflag(FLAG_HIDE_POKABBIE)
+
+    fadedefaultbgm
+}
+
+script Rogue_Area_AdventureEntrance_PokabbieEnterMovement
+{
+    setvar(VAR_0x8004, HUB_AREA_LABS)
+    special(Rogue_CheckHubConnectionDir)
+
+    switch(var(VAR_RESULT))
+    {
+        case HUB_AREA_CONN_EAST:
+            applymovement(OBJ_EVENT_POKABBIE, Rogue_Adventure_PokabbieEnter_East)
+            break
+
+        case HUB_AREA_CONN_SOUTH:
+            applymovement(OBJ_EVENT_POKABBIE, Rogue_Adventure_PokabbieEnter_South)
+            break
+
+        case HUB_AREA_CONN_WEST:
+            applymovement(OBJ_EVENT_POKABBIE, Rogue_Adventure_PokabbieEnter_West)
+            break
+    }
+}
+
+script Rogue_Area_AdventureEntrance_PokabbieExitMovement
+{
+    setvar(VAR_0x8004, HUB_AREA_LABS)
+    special(Rogue_CheckHubConnectionDir)
+
+    switch(var(VAR_RESULT))
+    {
+        case HUB_AREA_CONN_EAST:
+            applymovement(OBJ_EVENT_POKABBIE, Rogue_Adventure_PokabbieExit_East)
+            break
+
+        case HUB_AREA_CONN_SOUTH:
+            applymovement(OBJ_EVENT_POKABBIE, Rogue_Adventure_PokabbieExit_South)
+            break
+
+        case HUB_AREA_CONN_WEST:
+            applymovement(OBJ_EVENT_POKABBIE, Rogue_Adventure_PokabbieExit_West)
+            break
+    }
+}
+
+movement Rogue_Adventure_PokabbieEnter_East
+{
+    walk_fast_left * 9
+    walk_fast_up * 2
+}
+movement Rogue_Adventure_PokabbieExit_East
+{
+    walk_fast_down * 2
+    walk_fast_right * 9
+}
+
+movement Rogue_Adventure_PokabbieEnter_South
+{
+    walk_fast_up * 5
+}
+movement Rogue_Adventure_PokabbieExit_South
+{
+    walk_fast_down * 5
+}
+
+movement Rogue_Adventure_PokabbieEnter_West
+{
+    walk_fast_right * 9
+    walk_fast_up * 2
+}
+movement Rogue_Adventure_PokabbieExit_West
+{
+    walk_fast_down * 2
+    walk_fast_left * 9
+}
+
+movement Pokabbie_Spin_FaceUp
+{
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+    
+    face_right
+    delay_1
+
+    face_up
+    delay_1
+
+    face_left
+    delay_1
+
+    face_down
+    delay_1
+
+    face_right
+    delay_1
+
+    face_up
+    delay_1
 }

@@ -1,0 +1,517 @@
+{
+    "condition": "defined(ROGUE_EXPANSION)",
+    "defaults":
+    {
+        "trainer_flags": [ "REGION_PALDEA", "CLASS_BOSS" ],
+        "trainer_class": "TRAINER_CLASS_LEADER",
+        "music_player": "paldea_boss"
+    },
+    "trainers":
+    {
+        "rivals":
+        [
+            {
+                "name": "NEMONA",
+                "type_assignment": "NONE",
+                "gfx_suffix": "RIVAL_NEMONA",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "sinnoh_boss",
+                "trainer_flags": [ "REGION_PALDEA", "CLASS_RIVAL" ],
+                "class_flags": [],
+                "shiny_species": "SPECIES_PAWMI",
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_PAWMI", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "ARVEN",
+                "type_assignment": "NONE",
+                "gfx_suffix": "RIVAL_ARVEN",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "hoenn_boss",
+                "trainer_flags": [ "REGION_PALDEA", "CLASS_RIVAL" ],
+                "class_flags": [],
+                "shiny_species": "SPECIES_MASCHIFF",
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MASCHIFF", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "PENNY",
+                "type_assignment": "NONE",
+                "gfx_suffix": "RIVAL_PENNY",
+                "trainer_class": "TRAINER_CLASS_RIVAL",
+                "music_player": "hoenn_boss",
+                "trainer_flags": [ "REGION_PALDEA", "CLASS_RIVAL" ],
+                "class_flags": [],
+                "shiny_species": "SPECIES_EEVEE",
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 12,
+                            "allow_duplicates": true,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "NORMAL" ],
+                            "extra_species":
+                            [
+                                "SPECIES_VAPOREON",
+                                "SPECIES_JOLTEON",
+                                "SPECIES_FLAREON",
+                                "SPECIES_ESPEON",
+                                "SPECIES_UMBREON",
+                                "SPECIES_LEAFEON",
+                                "SPECIES_GLACEON",
+                                "SPECIES_SYLVEON"
+                            ]
+                        },
+                        {
+                            "max_samples": 12
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_EEVEE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "gyms":
+        [
+            {
+                "name": "KATY",
+                "type_assignment": "BUG",
+                "gfx_suffix": "PALDEA_KATY",
+                "class_flags": [ "BOSS_ANY_GYM" ],
+                "shiny_species": "SPECIES_TAROUNTULA",
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "BUG", "NORMAL" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "BUG" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_NYMBLE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TAROUNTULA", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "BRASSIUS",
+                "type_assignment": "GRASS",
+                "gfx_suffix": "PALDEA_BRASSIUS",
+                "class_flags": [ "BOSS_ANY_GYM" ],
+                "shiny_species": "SPECIES_SMOLIV",
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "GRASS", "ROCK" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GRASS" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_SMOLIV", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "IONO",
+                "type_assignment": "ELECTRIC",
+                "gfx_suffix": "PALDEA_IONO",
+                "class_flags": [ "BOSS_ANY_GYM" ],
+                "shiny_species": "SPECIES_TADBULB",
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "ELECTRIC", "GHOST" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ELECTRIC" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TADBULB", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "KOFU",
+                "type_assignment": "WATER",
+                "gfx_suffix": "PALDEA_KOFU",
+                "class_flags": [ "BOSS_ANY_GYM" ],
+                "shiny_species": "SPECIES_CRABRAWLER",
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "WATER", "FIGHTING" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "WATER" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CRABRAWLER", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "LARRY",
+                "type_assignment": "NORMAL",
+                "gfx_suffix": "PALDEA_LARRY",
+                "class_flags": [ "BOSS_ANY_GYM" ],
+                "shiny_species": "SPECIES_DUNSPARCE",
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "NORMAL", "FLYING" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "NORMAL" ],
+                            "exclude_types": [ "FLYING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_DUNSPARCE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "RYME",
+                "type_assignment": "GHOST",
+                "gfx_suffix": "PALDEA_RYME",
+                "class_flags": [ "BOSS_ANY_GYM" ],
+                "shiny_species": "SPECIES_GREAVARD",
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "GHOST", "ELECTRIC", "POISON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GHOST" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GREAVARD", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "TULIP",
+                "type_assignment": "PSYCHIC",
+                "gfx_suffix": "PALDEA_TULIP",
+                "class_flags": [ "BOSS_ANY_GYM" ],
+                "shiny_species": "SPECIES_FLITTLE",
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "PSYCHIC", "FAIRY" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "PSYCHIC" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FLITTLE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "GRUSHA",
+                "type_assignment": "ICE",
+                "gfx_suffix": "PALDEA_GRUSHA",
+                "class_flags": [ "BOSS_ANY_GYM" ],
+                "shiny_species": "SPECIES_CETODDLE",
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "ICE", "DRAGON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "ICE" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CETODDLE", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            }
+        ],
+
+        "elite":
+        [
+            {
+                "name": "RIKA",
+                "type_assignment": "GROUND",
+                "gfx_suffix": "PALDEA_RIKA",
+                "class_flags": [ "BOSS_ELITE_1" ],
+                "shiny_species": "SPECIES_WOOPER_PALDEAN",
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "GROUND", "POISON" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "GROUND" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_WOOPER_PALDEAN", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "POPPY",
+                "type_assignment": "STEEL",
+                "gfx_suffix": "PALDEA_POPPY",
+                "class_flags": [ "BOSS_ELITE_2" ],
+                "shiny_species": "SPECIES_TINKATINK",
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "STEEL", "FAIRY" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "STEEL" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_TINKATINK", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "LARRY",
+                "type_assignment": "FLYING",
+                "gfx_suffix": "PALDEA_LARRY",
+                "class_flags": [ "BOSS_ELITE_3" ],
+                "shiny_species": "SPECIES_STARLY",
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 2,
+                            "include_types": [ "NORMAL", "FLYING" ]
+                        },
+                        {
+                            "max_samples": 3,
+                            "include_types": [ "FLYING" ],
+                            "exclude_types": [ "NORMAL" ]
+                        },
+                        {
+                            "max_samples": 3,
+                            "include_types": [ "FLYING" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_STARLY", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            },
+            {
+                "name": "HASSEL",
+                "type_assignment": "DRAGON",
+                "gfx_suffix": "PALDEA_HASSEL",
+                "class_flags": [ "BOSS_ELITE_4" ],
+                "shiny_species": "SPECIES_FRIGIBAX",
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 3,
+                            "include_types": [ "DRAGON", "ICE" ]
+                        },
+                        {
+                            "max_samples": 6,
+                            "include_types": [ "DRAGON" ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_FRIGIBAX", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            }
+        ],
+        
+        "champ":
+        [
+            {
+                "name": "GEETA",
+                "type_assignment": "NONE",
+                "gfx_suffix": "PALDEA_GEETA",
+                "trainer_flags": [ "REGION_PALDEA", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
+                "class_flags": [ "BOSS_CHAMP" ],
+                "shiny_species": "SPECIES_GLIMMET",
+                "preferred_mon_gender": "FEMALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 6
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GLIMMET", "INC_FAVOUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "9", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -196,6 +196,7 @@ gSpecials::
 	def_special RogueDebug_StartBattle
 	def_special Rogue_QuestCollectNextReward
 	def_special Rogue_HasAnyNewQuests
+	def_special Rogue_HasPendingQuestRewards
 	def_special Rogue_UnlockChallengeQuests
 	def_special Rogue_UnlockMasteryQuests
 	def_special Rogue_ShowNewQuests
@@ -270,6 +271,7 @@ gSpecials::
 	def_special Rogue_IsNearHoneyTree
 	def_special Rogue_TryScatterPokeblockNearHoneyTree
 	def_special Rogue_ScatterPokeblockItem
+	def_special Rogue_IsValidPokeblockBerry
 	def_special Rogue_IsValidPieCrust
 	def_special Rogue_IsValidPieFilling
 	def_special Rogue_CanMakeShinyPieFor
@@ -475,6 +477,7 @@ gSpecials::
 	def_special IsPokerusInParty
 	def_special SetSootopolisGymCrackedIceMetatiles
 	def_special ShakeCamera
+	def_special ShakeCameraNoSE
 	def_special BattleSetup_StartWildBattle
 	def_special BattleSetup_StartLegendaryBattle
 	def_special StartRegiBattle

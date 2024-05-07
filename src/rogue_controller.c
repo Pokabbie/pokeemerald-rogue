@@ -2791,6 +2791,7 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_WILD_SAFARI);
     FlagClear(FLAG_ROGUE_LVL_TUTORIAL);
+    FlagSet(FLAG_ROGUE_HIDE_WORKBENCHES);
 
     FlagClear(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
 
@@ -4002,6 +4003,9 @@ static u16 ChooseTeamEncounterNum()
 //
     //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR))
     //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_GALAR;
+//
+    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA))
+    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_PALDEA;
 #endif
 
     if(!RogueMiscQuery_AnyActiveElements())

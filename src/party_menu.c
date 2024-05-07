@@ -2571,7 +2571,7 @@ static void DisplayPartyPokemonLevelCheck(struct Pokemon *mon, struct PartyMenuB
                     DisplayPartyPokemonNature(GetNature(mon), menuBox);
                 else
                 {
-                    u16 evoTargetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE);
+                    u16 evoTargetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, NULL);
 
                     DisplayPartyPokemonLevel(GetMonData(mon, MON_DATA_LEVEL), (evoTargetSpecies != SPECIES_NONE), menuBox);
                 }

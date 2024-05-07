@@ -2228,6 +2228,11 @@
 	various \battler, VARIOUS_ACTIVATE_TERRAIN_CHANGE_ABILITIES
 	.endm
 
+	.macro applyterastallization battler:req, applyFade:req
+	various \battler, VARIOUS_APPLY_TERASTALLIZATION
+	.byte \applyFade
+	.endm
+
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
 	setbyte sSTATCHANGER, \stat | \stages << 3 | \down << 7

@@ -459,6 +459,8 @@ script Rogue_Interior_ChallengeFrontier_ScottIntroCommon
     }
 
     msgbox(format("You see, this Building is an area for those who want to push themselves to complete some of the toughest Challenges imaginable!\pIn fact…\nWhy don't you have a look around?\pI'm sure you'll find plenty of the things around here interesting!"))
+    
+    quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
 }
 
 movement PostGameTutorial_Scott0

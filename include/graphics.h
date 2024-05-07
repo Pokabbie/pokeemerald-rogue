@@ -175,6 +175,8 @@ extern const u32 gTrainerFrontPic_Elio[];
 extern const u32 gTrainerFrontPic_Selene[];
 extern const u32 gTrainerFrontPic_Victor[];
 extern const u32 gTrainerFrontPic_Gloria[];
+extern const u32 gTrainerFrontPic_Florian[];
+extern const u32 gTrainerFrontPic_Juliana[];
 
 extern const u32 gTrainerFrontPic_LeaderBrock[];
 extern const u32 gTrainerFrontPic_LeaderMisty[];
@@ -355,6 +357,32 @@ extern const u32 gTrainerPalette_Galar_Opal[];
 extern const u32 gTrainerPalette_Galar_Piers[];
 extern const u32 gTrainerPalette_Galar_Raihan[];
 
+extern const u32 gTrainerFrontPic_Paldea_Brassius[];
+extern const u32 gTrainerFrontPic_Paldea_Geeta[];
+extern const u32 gTrainerFrontPic_Paldea_Grusha[];
+extern const u32 gTrainerFrontPic_Paldea_Hassel[];
+extern const u32 gTrainerFrontPic_Paldea_Iono[];
+extern const u32 gTrainerFrontPic_Paldea_Katy[];
+extern const u32 gTrainerFrontPic_Paldea_Kofu[];
+extern const u32 gTrainerFrontPic_Paldea_Larry[];
+extern const u32 gTrainerFrontPic_Paldea_Poppy[];
+extern const u32 gTrainerFrontPic_Paldea_Rika[];
+extern const u32 gTrainerFrontPic_Paldea_Ryme[];
+extern const u32 gTrainerFrontPic_Paldea_Tulip[];
+
+extern const u32 gTrainerPalette_Paldea_Brassius[];
+extern const u32 gTrainerPalette_Paldea_Geeta[];
+extern const u32 gTrainerPalette_Paldea_Grusha[];
+extern const u32 gTrainerPalette_Paldea_Hassel[];
+extern const u32 gTrainerPalette_Paldea_Iono[];
+extern const u32 gTrainerPalette_Paldea_Katy[];
+extern const u32 gTrainerPalette_Paldea_Kofu[];
+extern const u32 gTrainerPalette_Paldea_Larry[];
+extern const u32 gTrainerPalette_Paldea_Poppy[];
+extern const u32 gTrainerPalette_Paldea_Rika[];
+extern const u32 gTrainerPalette_Paldea_Ryme[];
+extern const u32 gTrainerPalette_Paldea_Tulip[];
+
 extern const u32 gTrainerFrontPic_Pokabbie[];
 extern const u32 gTrainerFrontPic_PokabbieAndDitto[];
 extern const u32 gTrainerFrontPic_PokabbieJustDitto[];
@@ -520,6 +548,11 @@ extern const u32 gTrainerPalette_PlayerVictorFrontLayers[];
 extern const u32 gTrainerPalette_PlayerGloriaFrontBase[];
 extern const u32 gTrainerPalette_PlayerGloriaFrontLayers[];
 
+extern const u32 gTrainerPalette_PlayerFlorianFrontBase[];
+extern const u32 gTrainerPalette_PlayerFlorianFrontLayers[];
+extern const u32 gTrainerPalette_PlayerJulianaFrontBase[];
+extern const u32 gTrainerPalette_PlayerJulianaFrontLayers[];
+
 extern const u32 gTrainerPalette_PlayerZefaBackBase[];
 
 extern const u32 gTrainerPalette_LeaderBrock[];
@@ -605,6 +638,12 @@ extern const u32 gTrainerFrontPic_RivalMarnie[];
 extern const u32 gTrainerPalette_RivalMarnie[];
 extern const u32 gTrainerFrontPic_RivalBede[];
 extern const u32 gTrainerPalette_RivalBede[];
+extern const u32 gTrainerFrontPic_RivalArven[];
+extern const u32 gTrainerPalette_RivalArven[];
+extern const u32 gTrainerFrontPic_RivalNemona[];
+extern const u32 gTrainerPalette_RivalNemona[];
+extern const u32 gTrainerFrontPic_RivalPenny[];
+extern const u32 gTrainerPalette_RivalPenny[];
 
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];
@@ -3357,8 +3396,6 @@ extern const u32 gBattleAnimSpriteGfx_MegaParticles[];
 extern const u32 gBattleAnimSpritePal_MegaParticles[];
 extern const u32 gBattleAnimSpriteGfx_MegaSymbol[];
 extern const u32 gBattleAnimSpritePal_MegaSymbol[];
-extern const u32 gBattleAnimSpriteGfx_TeraCrystal[];
-extern const u32 gBattleAnimSpritePal_TeraCrystal[];
 extern const u32 gBattleAnimSpriteGfx_FlashCannonBall[];
 extern const u32 gBattleAnimSpritePal_FlashCannonBall[];
 extern const u32 gBattleAnimSpriteGfx_WaterGun[];
@@ -3367,6 +3404,10 @@ extern const u32 gBattleAnimSpriteGfx_Punishment[];
 extern const u32 gBattleAnimSpritePal_Punishment[];
 extern const u32 gBattleAnimSpriteGfx_QuickGuard[];
 extern const u32 gBattleAnimSpritePal_QuickGuard[];
+extern const u32 gBattleAnimSpriteGfx_TeraCrystal[];
+extern const u32 gBattleAnimSpritePal_TeraCrystal[];
+extern const u32 gBattleAnimSpriteGfx_TeraShatter[];
+extern const u32 gBattleAnimSpritePal_TeraShatter[];
 
 // New Battle Anim Particles
 extern const u32 gBattleAnimSpriteGfx_AlphaStone[];
@@ -4021,6 +4062,11 @@ extern const u16 gObjectEventPal_PlayerVictorBase[];
 extern const u16 gObjectEventPal_PlayerVictorLayers[];
 extern const u16 gObjectEventPal_PlayerGloriaBase[];
 extern const u16 gObjectEventPal_PlayerGloriaLayers[];
+
+extern const u16 gObjectEventPal_PlayerFlorianBase[];
+extern const u16 gObjectEventPal_PlayerFlorianLayers[];
+extern const u16 gObjectEventPal_PlayerJulianaBase[];
+extern const u16 gObjectEventPal_PlayerJulianaLayers[];
 
 extern const u16 gObjectEventPal_PlayerZefaBase[];
 extern const u16 gObjectEventPal_PlayerLightningStrike7Base[];

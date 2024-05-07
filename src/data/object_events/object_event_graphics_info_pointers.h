@@ -388,6 +388,19 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Opal;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Piers;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Galar_Raihan;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Brassius;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Grusha;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Iono;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Katy;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Kofu;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Larry;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Ryme;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Geeta;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Hassel;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Poppy;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Rika;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paldea_Tulip;
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Aroma_Girl;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Backpacker_M;
@@ -431,6 +444,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Shauna;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Silver;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Tierno;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Trevor;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Nemona;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Penny;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Arven;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Flare_Grunt_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Flare_Grunt_M;
@@ -510,6 +526,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Elio;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Selene;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Victor;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Gloria;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Florian;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Juliana;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Bug;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Dark;
@@ -918,6 +936,19 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GALAR_OPAL] = &gObjectEventGraphicsInfo_Galar_Opal,
     [OBJ_EVENT_GFX_GALAR_PIERS] = &gObjectEventGraphicsInfo_Galar_Piers,
     [OBJ_EVENT_GFX_GALAR_RAIHAN] = &gObjectEventGraphicsInfo_Galar_Raihan,
+    
+    [OBJ_EVENT_GFX_PALDEA_BRASSIUS] = &gObjectEventGraphicsInfo_Paldea_Brassius,
+    [OBJ_EVENT_GFX_PALDEA_GRUSHA] = &gObjectEventGraphicsInfo_Paldea_Grusha,
+    [OBJ_EVENT_GFX_PALDEA_IONO] = &gObjectEventGraphicsInfo_Paldea_Iono,
+    [OBJ_EVENT_GFX_PALDEA_KATY] = &gObjectEventGraphicsInfo_Paldea_Katy,
+    [OBJ_EVENT_GFX_PALDEA_KOFU] = &gObjectEventGraphicsInfo_Paldea_Kofu,
+    [OBJ_EVENT_GFX_PALDEA_LARRY] = &gObjectEventGraphicsInfo_Paldea_Larry,
+    [OBJ_EVENT_GFX_PALDEA_RYME] = &gObjectEventGraphicsInfo_Paldea_Ryme,
+    [OBJ_EVENT_GFX_PALDEA_GEETA] = &gObjectEventGraphicsInfo_Paldea_Geeta,
+    [OBJ_EVENT_GFX_PALDEA_HASSEL] = &gObjectEventGraphicsInfo_Paldea_Hassel,
+    [OBJ_EVENT_GFX_PALDEA_POPPY] = &gObjectEventGraphicsInfo_Paldea_Poppy,
+    [OBJ_EVENT_GFX_PALDEA_RIKA] = &gObjectEventGraphicsInfo_Paldea_Rika,
+    [OBJ_EVENT_GFX_PALDEA_TULIP] = &gObjectEventGraphicsInfo_Paldea_Tulip,
 
     [OBJ_EVENT_GFX_MISC_AROMA_GIRL] = &gObjectEventGraphicsInfo_Misc_Aroma_Girl,
     [OBJ_EVENT_GFX_MISC_BACKPACKER_F] = &gObjectEventGraphicsInfo_Misc_Backpacker_F,
@@ -962,6 +993,9 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_RIVAL_SILVER] = &gObjectEventGraphicsInfo_Rival_Silver,
     [OBJ_EVENT_GFX_RIVAL_TIERNO] = &gObjectEventGraphicsInfo_Rival_Tierno,
     [OBJ_EVENT_GFX_RIVAL_TREVOR] = &gObjectEventGraphicsInfo_Rival_Trevor,
+    [OBJ_EVENT_GFX_RIVAL_NEMONA] = &gObjectEventGraphicsInfo_Rival_Nemona,
+    [OBJ_EVENT_GFX_RIVAL_PENNY] = &gObjectEventGraphicsInfo_Rival_Penny,
+    [OBJ_EVENT_GFX_RIVAL_ARVEN] = &gObjectEventGraphicsInfo_Rival_Arven,
 
     [OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F] = &gObjectEventGraphicsInfo_Team_Flare_Grunt_F,
     [OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M] = &gObjectEventGraphicsInfo_Team_Flare_Grunt_M,
@@ -1041,6 +1075,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_RIVAL_SELENE] =             &gObjectEventGraphicsInfo_Rival_Selene,
     [OBJ_EVENT_GFX_RIVAL_VICTOR] =             &gObjectEventGraphicsInfo_Rival_Victor,
     [OBJ_EVENT_GFX_RIVAL_GLORIA] =             &gObjectEventGraphicsInfo_Rival_Gloria,
+    [OBJ_EVENT_GFX_RIVAL_FLORIAN] =            &gObjectEventGraphicsInfo_Rival_Florian,
+    [OBJ_EVENT_GFX_RIVAL_JULIANA] =            &gObjectEventGraphicsInfo_Rival_Juliana,
 
     [OBJ_EVENT_GFX_ROUTE_BUG] =                &gObjectEventGraphicsInfo_Route_Bug,
     [OBJ_EVENT_GFX_ROUTE_DARK] =               &gObjectEventGraphicsInfo_Route_Dark,

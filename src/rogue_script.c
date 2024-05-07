@@ -534,6 +534,21 @@ void Rogue_HasAnyNewQuests()
     gSpecialVar_Result = RogueQuest_HasPendingNewQuests();
 }
 
+void Rogue_HasPendingQuestRewards()
+{
+    u16 questId;
+    gSpecialVar_Result = FALSE;
+
+    for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
+    {
+        if(RogueQuest_HasPendingRewards(questId))
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+}
+
 void Rogue_UnlockChallengeQuests()
 {
     FlagSet(FLAG_SYS_CHALLENGES_UNLOCKED);
@@ -1146,6 +1161,12 @@ void Rogue_AssignDefaultRegion()
         Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_GALAR, TRUE);
         anySet = TRUE;
     }
+
+    if(flags & TRAINER_FLAG_REGION_PALDEA)
+    {
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA, TRUE);
+        anySet = TRUE;
+    }
 #endif
 
     // Fallback to Kanto for "nostalgia" I guess?
@@ -1205,6 +1226,11 @@ void Rogue_ScatterPokeblockItem()
         u8 type = ItemId_GetSecondaryId(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK));
         gSpecialVar_Result = Rogue_RerollSingleWildSpecies(type);
     }
+}
+
+void Rogue_IsValidPokeblockBerry()
+{
+    gSpecialVar_Result = (Rogue_BerryToPokeblock(gSpecialVar_ItemId) != ITEM_NONE);
 }
 
 void Rogue_IsValidPieCrust()
@@ -1533,7 +1559,7 @@ static bool8 WillSpeciesLikePokeblockInternal(u16 pokeblockItem, u16 species)
 {
     u8 type = ItemId_GetSecondaryId(pokeblockItem);
 
-    if(!IS_STANDARD_TYPE(type))
+    if(IS_STANDARD_TYPE(type))
     {
         if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
         {

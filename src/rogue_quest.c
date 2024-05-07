@@ -944,6 +944,9 @@ bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck)
 
     if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_GALAR))
         return FALSE;
+
+    if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_PALDEA))
+        return FALSE;
 #endif
     return TRUE;
 }

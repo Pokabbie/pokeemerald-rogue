@@ -489,27 +489,30 @@ BattleScript_EffectMatchaGotcha::
 BattleScript_Terastallization::
 	@ TODO: no string prints in S/V, but right now this helps with clarity
 	printstring STRINGID_PKMNSTORINGENERGY
-	@ TODO: placeholder Rogue anim
-	playanimation BS_ATTACKER, B_ANIM_TERASTALLIZATION
+	playanimation BS_ATTACKER, B_ANIM_TERA_CHARGE
 	waitanimation
-	@ TODO: no string prints in S/V, but right now this helps with clarity
+	applyterastallization BS_ATTACKER, 1
 	printstring STRINGID_PKMNTERASTALLIZEDINTO
+	playanimation BS_ATTACKER, B_ANIM_TERA_ACTIVATE
+	waitanimation
 	waitmessage B_WAIT_TIME_ABSOLUTE | B_WAIT_TIME_LONG
 	end3
 
 BattleScript_TeraFormChange::
 	@ TODO: no string prints in S/V, but right now this helps with clarity
 	printstring STRINGID_PKMNSTORINGENERGY
-	@ TODO: placeholder Rogue anim
-	playanimation BS_ATTACKER, B_ANIM_TERASTALLIZATION
+	playanimation BS_ATTACKER, B_ANIM_TERA_CHARGE
 	waitanimation
-	@ TODO: no string prints in S/V, but right now this helps with clarity
+	applyterastallization BS_ATTACKER, 1
 	printstring STRINGID_PKMNTERASTALLIZEDINTO
+	playanimation BS_ATTACKER, B_ANIM_TERA_ACTIVATE
+	waitanimation
 	waitmessage B_WAIT_TIME_ABSOLUTE | B_WAIT_TIME_LONG
 	handleformchange BS_ATTACKER, 0
 	handleformchange BS_ATTACKER, 1
 	playanimation BS_ATTACKER, B_ANIM_FORM_CHANGE
 	waitanimation
+	applyterastallization BS_ATTACKER, 0
 	copybyte sBATTLER, gBattlerAttacker
 	handleformchange BS_ATTACKER, 2
 	switchinabilities BS_ATTACKER

@@ -140,8 +140,23 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 				// Pretty up the file name
 				if (fileName.Contains("_highnoonmoon_"))
 				{
+					string prefix = "trainer_leader_";
+
+					if (fileName.StartsWith("trainer_pokemontrainer_"))
+					{
+						prefix = "trainer_pokemontrainer_";
+					}
+					else if (fileName.StartsWith("trainer_champion_"))
+					{
+						prefix = "trainer_champion_";
+					}
+					else if (fileName.StartsWith("trainer_elitefour_"))
+					{
+						prefix = "trainer_elitefour_";
+					}
+
 					int index = fileName.IndexOf("_highnoonmoon_");
-					fileName = fileName.Substring(0, index).Trim().Substring("trainer_leader_".Length) + Path.GetExtension(fileName);
+					fileName = fileName.Substring(0, index).Trim().Substring(prefix.Length) + Path.GetExtension(fileName);
 				}
 				else if (fileName.Contains("_by_wjj36"))
 				{
@@ -158,6 +173,16 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 						int index = fileName.IndexOf("_ow_");
 						fileName = fileName.Substring(0, index).Trim() + Path.GetExtension(fileName);
 					}
+				}
+				else if (fileName.Contains("_by_LightningStrike7"))
+				{
+					int index = fileName.IndexOf("_by_LightningStrike7");
+					fileName = fileName.Substring(0, index).Trim() + Path.GetExtension(fileName);
+				}
+				else if (fileName.Contains("_by_xdracolich"))
+				{
+					int index = fileName.IndexOf("_pokemon_");
+					fileName = fileName.Substring(0, index).Trim() + Path.GetExtension(fileName);
 				}
 				else if (fileName.StartsWith("_sprite__"))
 				{
@@ -285,8 +310,16 @@ namespace PokemonDataGenerator.OverworldSprites.NPC
 		{
 			Color outColour = Color.Transparent;
 
-			x *= 2;
-			y *= 2;
+			if (img.Width == 64 && img.Height == 96)
+			{
+				// 1 to 1 pixel matching
+			}
+			else
+			{
+				// Assume double size
+				x *= 2;
+				y *= 2;
+			}
 
 			if (x < img.Width && y < img.Height)
 				outColour = img.GetPixel(x, y);

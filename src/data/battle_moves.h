@@ -14492,13 +14492,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_TERA_STARSTORM] =
     {
-        .effect = EFFECT_PLACEHOLDER, //EFFECT_TERA_STARSTORM
+        .effect = EFFECT_TERA_STARSTORM,
         .power = 120,
-        .type = TYPE_NORMAL, // Stellar type if used by Terapagos-Stellar
+        .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED, // MOVE_TARGET_BOTH if used by Terapagos-Stellar
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,

@@ -4,11 +4,20 @@ const VAR_CURR_DIRECTION = VAR_0x8005
 
 script Rogue_Area_InteractWithWorkbench
 {
-    specialvar(VAR_RESULT, GetPlayerFacingDirection)
-    if(var(VAR_RESULT) != DIR_SOUTH) // Can't interact from the top
+    if(var(VAR_ROGUE_INTRO_STATE) > ROGUE_INTRO_STATE_LEARN_TO_BUILD)
+    {
+        specialvar(VAR_RESULT, GetPlayerFacingDirection)
+        if(var(VAR_RESULT) != DIR_SOUTH) // Can't interact from the top
+        {
+            lock
+            call(Rogue_Area_WorkbenchOptions)
+            release
+        }
+    }
+    else
     {
         lock
-        call(Rogue_Area_WorkbenchOptions)
+        msgbox(format("It's a workbench!\pIt's has a bunch of complicated designs and tools on top."))
         release
     }
 }
