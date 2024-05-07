@@ -613,6 +613,9 @@ static bool8 PassesRequirement(struct RogueQuestRequirement const* requirement)
             requirement->perType.configRange.operation
         );
     }
+
+    AGB_ASSERT(FALSE);
+    return FALSE;
 }
 
 void RogueQuest_CheckQuestRequirements()
