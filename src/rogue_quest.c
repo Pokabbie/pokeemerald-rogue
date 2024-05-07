@@ -47,6 +47,7 @@ static bool8 QuestCondition_PartyContainsOnlyLegendaries(u16 questId, struct Rog
 static bool8 QuestCondition_PartyContainsOnlyShinys(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -604,6 +605,13 @@ static bool8 PassesRequirement(struct RogueQuestRequirement const* requirement)
 
     case QUEST_REQUIREMENT_TYPE_CONFIG_TOGGLE:
         return !(Rogue_GetConfigToggle(requirement->perType.configToggle.toggle) != requirement->perType.configToggle.state);
+        
+    case QUEST_REQUIREMENT_TYPE_CONFIG_RANGE:
+        return CheckRequirementCondition(
+            Rogue_GetConfigRange(requirement->perType.configRange.range), 
+            requirement->perType.configRange.value, 
+            requirement->perType.configRange.operation
+        );
     }
 }
 
@@ -1003,6 +1011,22 @@ static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestT
     }
 
     return FALSE;
+}
+
+static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+    u16 species;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        species = trigger->params[i];
+
+        if(!PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, species))
+            return FALSE;
+    }
+
+    return TRUE;
 }
 
 

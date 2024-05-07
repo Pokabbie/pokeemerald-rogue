@@ -72,6 +72,7 @@ enum
     QUEST_REQUIREMENT_TYPE_ITEM,
     QUEST_REQUIREMENT_TYPE_FLAG,
     QUEST_REQUIREMENT_TYPE_CONFIG_TOGGLE,
+    QUEST_REQUIREMENT_TYPE_CONFIG_RANGE,
 };
 
 enum
@@ -105,6 +106,12 @@ struct RogueQuestRequirement
             u16 toggle;
             u8 state;
         } configToggle;
+        struct
+        {
+            u16 range;
+            u8 operation;
+            u8 value;
+        } configRange;
     } perType;
 };
 

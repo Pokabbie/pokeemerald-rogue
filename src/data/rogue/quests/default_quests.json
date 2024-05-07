@@ -246,7 +246,12 @@
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
                     { "quest": "Regional Style" },
-                    { "quest": "One Last Quest…" }
+                    { "quest": "One Last Quest…" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Mega Evolution" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Z-Moves" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Dynamax" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Terastallization" }
+
                 ]
             },
             {
@@ -553,6 +558,91 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Mega Evolution",
+                "description": "Win a full Run with the Mega Ring.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_MEGA_RING", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Z-Moves",
+                "description": "Win a full Run with the Z-Power Ring.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_Z_POWER_RING", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Dynamax",
+                "description": "Win a full Run with the Dynamax Band.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_DYNAMAX_BAND", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Terastallization",
+                "description": "Win a full Run with the Tera Orb.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_TERA_ORB", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
                 ]
             }
         ]

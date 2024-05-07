@@ -544,109 +544,109 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
 //        },
 //    },
     
-    [QUEST_LegendOnly] = 
-    {
-        .title = _("Apotheosis"),
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "enter battle with legendary\n"
-                    "POKéMON in your party."
-                ),
-        .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
-#ifdef ROGUE_EXPANSION
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksPokemonCombiner },
-#endif
-        }
-    },
-    [QUEST_ShinyOnly] = 
-    {
-        .title = _("Aesthetics"),
-        .desc = _(
-                    "Win a full Run, only ever\n"
-                    "entering battle with shiny\n"
-                    "POKéMON in your party."
-                ),
-        .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksBallSwitch },
-        }
-    },
+//    [QUEST_LegendOnly] = 
+//    {
+//        .title = _("Apotheosis"),
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "enter battle with legendary\n"
+//                    "POKéMON in your party."
+//                ),
+//        .rewards = {
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+//#ifdef ROGUE_EXPANSION
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksPokemonCombiner },
+//#endif
+//        }
+//    },
+//    [QUEST_ShinyOnly] = 
+//    {
+//        .title = _("Aesthetics"),
+//        .desc = _(
+//                    "Win a full Run, only ever\n"
+//                    "entering battle with shiny\n"
+//                    "POKéMON in your party."
+//                ),
+//        .rewards = {
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 1000 } },
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksUpgrade, .giveText=gText_GiveUnlocksBallSwitch },
+//        }
+//    },
 
-    [QUEST_WobFate] = 
-    {
-        .title = _("Fate"),
-        .desc = _(
-                    "Have a POKéMON faint whilst\n"
-                    "fighting a wild Wobbuffet."
-                ),
-        .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } },
-            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_WYNAUT, 7, TRUE } },
-        }
-    },
-
-    [QUEST_Hardcore] = 
-    {
-        .title = _("Extreme Mode"),
-        .sortIndex = 5,
-        .desc = _(
-                    "Win a full Run, with\n"
-                    "Embargo Curse."
-                ),
-        .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_MAGIKARP, 7, TRUE } },
-        }
-    },
-    [QUEST_Hardcore2] = 
-    {
-        .title = _("Hardcore Mode"),
-        .sortIndex = 5,
-        .desc = _(
-                    "Extreme Mode rules +\n"
-                    "Hard Trainers enabled."
-                ),
-        .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_DITTO, 7, TRUE } },
-        }
-    },
-    [QUEST_Hardcore3] = 
-    {
-        .title = _("Insane Mode"),
-        .sortIndex = 5,
-        .desc = _(
-                    "Hardcore Mode rules +\n"
-                    "Species Curse & no\n"
-                    "using legendaries."
-                ),
-        .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CELEBI, 7, TRUE } },
-        },
-        .unlockedQuests = {
-            QUEST_IronMono1,
-            QUEST_IronMono2,
-            QUEST_Hardcore4,
-        },
-    },
-    [QUEST_Hardcore4] = 
-    {
-        .title = _("Please Stop..."),
-        .sortIndex = 5,
-        .desc = _(
-                    "Insane Mode rules + Hard\n"
-                    "Items, Bag Wipe, EVs off\n"
-                    "Overlvl off, Random Starter\n"
-                    "trade."
-                ),
-        .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_RAYQUAZA, 7, TRUE } },
-            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ESCAPE_ROPE, 1 } },
-        }
-    },
+//    [QUEST_WobFate] = 
+//    {
+//        .title = _("Fate"),
+//        .desc = _(
+//                    "Have a POKéMON faint whilst\n"
+//                    "fighting a wild Wobbuffet."
+//                ),
+//        .rewards = {
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 2500 } },
+//            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_WYNAUT, 7, TRUE } },
+//        }
+//    },
+//
+//    [QUEST_Hardcore] = 
+//    {
+//        .title = _("Extreme Mode"),
+//        .sortIndex = 5,
+//        .desc = _(
+//                    "Win a full Run, with\n"
+//                    "Embargo Curse."
+//                ),
+//        .rewards = {
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_MAGIKARP, 7, TRUE } },
+//        }
+//    },
+//    [QUEST_Hardcore2] = 
+//    {
+//        .title = _("Hardcore Mode"),
+//        .sortIndex = 5,
+//        .desc = _(
+//                    "Extreme Mode rules +\n"
+//                    "Hard Trainers enabled."
+//                ),
+//        .rewards = {
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_DITTO, 7, TRUE } },
+//        }
+//    },
+//    [QUEST_Hardcore3] = 
+//    {
+//        .title = _("Insane Mode"),
+//        .sortIndex = 5,
+//        .desc = _(
+//                    "Hardcore Mode rules +\n"
+//                    "Species Curse & no\n"
+//                    "using legendaries."
+//                ),
+//        .rewards = {
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CELEBI, 7, TRUE } },
+//        },
+//        .unlockedQuests = {
+//            QUEST_IronMono1,
+//            QUEST_IronMono2,
+//            QUEST_Hardcore4,
+//        },
+//    },
+//    [QUEST_Hardcore4] = 
+//    {
+//        .title = _("Please Stop..."),
+//        .sortIndex = 5,
+//        .desc = _(
+//                    "Insane Mode rules + Hard\n"
+//                    "Items, Bag Wipe, EVs off\n"
+//                    "Overlvl off, Random Starter\n"
+//                    "trade."
+//                ),
+//        .rewards = {
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_RAYQUAZA, 7, TRUE } },
+//            { .type=QUEST_REWARD_GIVE_ITEM, .params={ ITEM_ESCAPE_ROPE, 1 } },
+//        }
+//    },
 
     [QUEST_GauntletMode] = 
     {
@@ -691,20 +691,20 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
 //            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_CLEFAIRY, 7, TRUE } },
 //        }
 //    },
-    [QUEST_OrreMode] = 
-    {
-        .title = _("Orre Style"),
-        .sortIndex = 3,
-        .desc = _(
-                    "Reach the final champion\n"
-                    "in DOUBLES with an ESPEON\n"
-                    "& UMBREON in your party."
-                ),
-        .rewards = {
-            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
-            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_EEVEE, 7, TRUE } },
-        }
-    },
+//    [QUEST_OrreMode] = 
+//    {
+//        .title = _("Orre Style"),
+//        .sortIndex = 3,
+//        .desc = _(
+//                    "Reach the final champion\n"
+//                    "in DOUBLES with an ESPEON\n"
+//                    "& UMBREON in your party."
+//                ),
+//        .rewards = {
+//            { .type=QUEST_REWARD_GIVE_MONEY, .params={ 5000 } },
+//            { .type=QUEST_REWARD_GIVE_POKEMON, .params={ SPECIES_EEVEE, 7, TRUE } },
+//        }
+//    },
 
 //    [QUEST_JohtoMode] = 
 //    {
@@ -851,31 +851,31 @@ const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1] =
 //#endif
 
 #ifdef ROGUE_EXPANSION
-    [QUEST_MegaEvo] = 
-    {
-        .title = _("Mega Evolution"),
-        .sortIndex = 200,
-        .desc = _(
-                    "In the final champion\n"
-                    "battle Mega Evolve a\n"
-                    "POKéMON."
-                ),
-        .rewards = {
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopMegas },
-        }
-    },
-    [QUEST_ZMove] = 
-    {
-        .title = _("Z Power"),
-        .sortIndex = 200,
-        .desc = _(
-                    "In the final champion\n"
-                    "battle use a Z-Move."
-                ),
-        .rewards = {
-            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopZMoves },
-        }
-    },
+//    [QUEST_MegaEvo] = 
+//    {
+//        .title = _("Mega Evolution"),
+//        .sortIndex = 200,
+//        .desc = _(
+//                    "In the final champion\n"
+//                    "battle Mega Evolve a\n"
+//                    "POKéMON."
+//                ),
+//        .rewards = {
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopMegas },
+//        }
+//    },
+//    [QUEST_ZMove] = 
+//    {
+//        .title = _("Z Power"),
+//        .sortIndex = 200,
+//        .desc = _(
+//                    "In the final champion\n"
+//                    "battle use a Z-Move."
+//                ),
+//        .rewards = {
+//            { .type=QUEST_REWARD_CUSTOM_TEXT, .previewText=gText_PreviewUnlocksTravelShopUpgrade, .giveText=gText_GiveTravelShopZMoves },
+//        }
+//    },
 
 //    [QUEST_ShayminItem] = 
 //    {

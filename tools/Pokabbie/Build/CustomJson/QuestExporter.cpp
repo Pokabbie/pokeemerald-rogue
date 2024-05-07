@@ -54,6 +54,7 @@ enum class QuestRequirementType
 	Item,
 	Flag,
 	ConfigToggle,
+	ConfigRange,
 };
 
 struct QuestRequirement
@@ -79,6 +80,13 @@ struct QuestRequirement
 		std::string state;
 	}
 	configToggleParams;
+	struct
+	{
+		std::string configRange;
+		std::string operation;
+		std::string value;
+	}
+	configRangeParams;
 };
 
 struct QuestTrigger
@@ -291,6 +299,17 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 					fileStream << c_TabSpacing3 << ".configToggle = {\n";
 					fileStream << c_TabSpacing4 << ".toggle = " << requirementInfo.configToggleParams.configToggle << ",\n";
 					fileStream << c_TabSpacing4 << ".state = " << requirementInfo.configToggleParams.state << ",\n";
+					fileStream << c_TabSpacing3 << "}\n";
+					fileStream << c_TabSpacing2 << "}\n";
+					break;
+
+				case QuestRequirementType::ConfigRange:
+					fileStream << c_TabSpacing2 << ".type = QUEST_REQUIREMENT_TYPE_CONFIG_RANGE,\n";
+					fileStream << c_TabSpacing2 << ".perType = {\n";
+					fileStream << c_TabSpacing3 << ".configRange = {\n";
+					fileStream << c_TabSpacing4 << ".range = " << requirementInfo.configRangeParams.configRange << ",\n";
+					fileStream << c_TabSpacing4 << ".operation = QUEST_REQUIREMENT_OPERATION_" << requirementInfo.configRangeParams.operation << ",\n";
+					fileStream << c_TabSpacing4 << ".value = " << requirementInfo.configRangeParams.value << ",\n";
 					fileStream << c_TabSpacing3 << "}\n";
 					fileStream << c_TabSpacing2 << "}\n";
 					break;
@@ -735,6 +754,21 @@ static QuestRequirement ParseQuestRequirement(json const& jsonData)
 			requirement.configToggleParams.state = GetAsString(jsonData["state"]);
 		else
 			requirement.configToggleParams.state = "TRUE";
+
+		return requirement;
+	}
+
+	if (jsonData.contains("config_range"))
+	{
+		requirement.type = QuestRequirementType::ConfigRange;
+
+		requirement.configRangeParams.configRange = jsonData["config_range"].get<std::string>();
+		requirement.configRangeParams.value = GetAsString(jsonData["value"]);
+
+		if (jsonData.contains("operation"))
+			requirement.configRangeParams.operation = GetAsString(jsonData["operation"]);
+		else
+			requirement.configRangeParams.operation = "EQUAL";
 
 		return requirement;
 	}
