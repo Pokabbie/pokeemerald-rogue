@@ -19,8 +19,29 @@
         "default_group":
         [
             {
+                "name": "True Tactics",
+                "description": "Win a full Run, without any Pokémon ever fainting.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MON_FAINTED" ],
+                        "condition": "Always",
+                        "pass": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
                 "name": "Chaos Master",
-                "description": "Win a full Run, with a Random Partner Pokémon, always doing a Full Party trade with Mr. Randoman whenever possible.",
+                "description": "Win a full Run with: Random Starter trade & always doing a Full Party trade with Mr. Randoman whenever possible.",
                 "triggers":
                 [
                     {
@@ -50,26 +71,9 @@
                         "pass": "SUCCESS"
                     }
                 ],
-                "rewards":
+                "requirements":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
-                ]
-            },
-            {
-                "name": "True Tactics",
-                "description": "Win a full Run, without any Pokémon ever fainting.",
-                "triggers":
-                [
-                    {
-                        "on": [ "MON_FAINTED" ],
-                        "condition": "Always",
-                        "pass": "FAIL"
-                    },
-                    {
-                        "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "Always",
-                        "pass": "SUCCESS"
-                    }
+                    { "flag": "FLAG_ROGUE_HAS_RANDOM_STARTER", "state": true }
                 ],
                 "rewards":
                 [
@@ -93,6 +97,48 @@
                     { "item": "ITEM_BATTLE_ITEM_CURSE", "count": 1 },
                     { "item": "ITEM_SPECIES_CLAUSE_CURSE", "count": 1 },
                     { "item": "ITEM_WILD_ENCOUNTER_CURSE", "count": 10 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "name": "Apotheosis",
+                "description": "Win a full Run, only ever entering Trainer battles with only Legendary Pokémon in your party.",
+                "triggers":
+                [
+                    {
+                        "on": [ "TRAINER_BATTLE_START" ],
+                        "condition": "PartyContainsOnlyLegendaries",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "name": "Aesthetics",
+                "description": "Win a full Run, only ever entering Trainer battles with only Shiny Pokémon in your party.",
+                "triggers":
+                [
+                    {
+                        "on": [ "TRAINER_BATTLE_START" ],
+                        "condition": "PartyContainsOnlyShinys",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
                 ],
                 "rewards":
                 [

@@ -202,8 +202,13 @@ void Rogue_RemoveCharmsFromBag(void)
     {
         itemId = EffectToCharmItem(effectType);
 
-        while(itemId != ITEM_NONE && CheckBagHasItem(itemId, 1))
-            RemoveBagItem(itemId, 1);
+        if(itemId != ITEM_NONE)
+        {
+            u16 count = GetItemCountInBag(itemId);
+
+            if(count != 0)
+                RemoveBagItem(itemId, count);
+        }
     }
 }
 
@@ -216,8 +221,13 @@ void Rogue_RemoveCursesFromBag(void)
     {
         itemId = EffectToCurseItem(effectType);
 
-        while(itemId != ITEM_NONE && CheckBagHasItem(itemId, 1))
-            RemoveBagItem(itemId, 1);
+        if(itemId != ITEM_NONE)
+        {
+            u16 count = GetItemCountInBag(itemId);
+
+            if(count != 0)
+                RemoveBagItem(itemId, count);
+        }
     }
 }
 

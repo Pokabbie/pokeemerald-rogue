@@ -43,6 +43,8 @@ static bool8 QuestCondition_HasCompletedQuestOR(u16 questId, struct RogueQuestTr
 static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsLegendary(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsOnlyLegendaries(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsOnlyShinys(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -950,6 +952,37 @@ static bool8 QuestCondition_PartyContainsLegendary(u16 questId, struct RogueQues
 
     return FALSE;
 }
+
+static bool8 QuestCondition_PartyContainsOnlyLegendaries(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u8 i;
+    u16 species;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        if(!RoguePokedex_IsSpeciesLegendary(species))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+static bool8 QuestCondition_PartyContainsOnlyShinys(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u8 i;
+    u16 species;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        if(!IsMonShiny(&gPlayerParty[i]))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
 
 static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct RogueQuestTrigger const* trigger)
 {
