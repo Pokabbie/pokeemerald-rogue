@@ -177,6 +177,34 @@ bool8 IsCurseActive(u8 effectType)
     return GetCurseValue(effectType) != 0;
 }
 
+bool8 AnyCharmsActive()
+{
+    u8 effectType;
+    u16 itemId;
+
+    for(effectType = 0; effectType < EFFECT_COUNT; ++effectType)
+    {
+        if(IsCharmActive(effectType))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 AnyCursesActive()
+{
+    u8 effectType;
+    u16 itemId;
+
+    for(effectType = 0; effectType < EFFECT_COUNT; ++effectType)
+    {
+        if(IsCharmActive(effectType))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 u16 GetCharmValue(u8 effectType)
 {
     if(!Rogue_IsRunActive())

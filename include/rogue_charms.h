@@ -32,6 +32,9 @@ void RecalcCharmCurseValues(void);
 bool8 IsCharmActive(u8 effectType);
 bool8 IsCurseActive(u8 effectType);
 
+bool8 AnyCharmsActive();
+bool8 AnyCursesActive();
+
 u16 GetCharmValue(u8 effectType);
 u16 GetCurseValue(u8 effectType);
 

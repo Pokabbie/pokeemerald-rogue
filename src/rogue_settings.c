@@ -6,6 +6,7 @@
 #include "string_util.h"
 
 #include "rogue_controller.h"
+#include "rogue_charms.h"
 #include "rogue_multiplayer.h"
 #include "rogue_save.h"
 #include "rogue_settings.h"
@@ -254,6 +255,9 @@ bool8 Rogue_ShouldDisableMainQuests()
 
     if(Rogue_IsRunActive() && FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
         return TRUE;
+
+    if(Rogue_IsRunActive() && AnyCharmsActive())
+        return TRUE;
     
     return FALSE;
 }
@@ -268,6 +272,9 @@ bool8 Rogue_ShouldDisableChallengeQuests()
             return TRUE;
 
         if(Rogue_IsRunActive() && FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
+            return TRUE;
+
+        if(Rogue_IsRunActive() && AnyCharmsActive())
             return TRUE;
     }
     
