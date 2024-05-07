@@ -67,18 +67,68 @@ struct RogueQuestTrigger
     u8 failState;
 };
 
+enum
+{
+    QUEST_REQUIREMENT_TYPE_ITEM,
+    QUEST_REQUIREMENT_TYPE_FLAG,
+    QUEST_REQUIREMENT_TYPE_CONFIG_TOGGLE,
+    QUEST_REQUIREMENT_TYPE_CONFIG_RANGE,
+};
+
+enum
+{
+    QUEST_REQUIREMENT_OPERATION_EQUAL,
+    QUEST_REQUIREMENT_OPERATION_NOT_EQUAL,
+    QUEST_REQUIREMENT_OPERATION_GREATER_THAN,
+    QUEST_REQUIREMENT_OPERATION_LESS_THAN,
+    QUEST_REQUIREMENT_OPERATION_GREATER_THAN_EQUAL,
+    QUEST_REQUIREMENT_OPERATION_LESS_THAN_EQUAL,
+};
+
+struct RogueQuestRequirement
+{
+    u16 type;
+    union
+    {
+        struct
+        {
+            u16 itemId;
+            u8 operation;
+            u8 count;
+        } item;
+        struct
+        {
+            u16 flag;
+            u8 state;
+        } flag;
+        struct
+        {
+            u16 toggle;
+            u8 state;
+        } configToggle;
+        struct
+        {
+            u16 range;
+            u8 operation;
+            u8 value;
+        } configRange;
+    } perType;
+};
+
 struct RogueQuestEntry
 {
     u8 const* title;
     u8 const* desc;
     struct RogueQuestRewardNEW const* rewards;
     struct RogueQuestTrigger const* triggers;
+    struct RogueQuestRequirement const* requirements;
     u32 flags;
     u32 triggerFlags;
     u16 stateOffset;
     u16 stateSize;
     u16 rewardCount;
     u16 triggerCount;
+    u16 requirementCount;
 };
 
 u8 const* RogueQuest_GetTitle(u16 questId);
@@ -111,6 +161,8 @@ void RogueQuest_EndRewardSequence();
 
 void RogueQuest_ActivateQuestsFor(u32 flags);
 bool8 RogueQuest_IsQuestActive(u16 questId);
+
+void RogueQuest_CheckQuestRequirements();
 
 u16 RogueQuest_GetQuestCompletePercFor(u32 constFlag);
 void RogueQuest_GetQuestCountsFor(u32 constFlag, u16* activeCount, u16* inactiveCount);

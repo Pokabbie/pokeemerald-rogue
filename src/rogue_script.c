@@ -740,6 +740,16 @@ void Rogue_ClearCharmsAndCurses(void)
     Rogue_RemoveCursesFromBag();
 }
 
+void Rogue_ClearCharms(void)
+{
+    Rogue_RemoveCharmsFromBag();
+}
+
+void Rogue_ClearCurses(void)
+{
+    Rogue_RemoveCursesFromBag();
+}
+
 void Rogue_IsRoamerActive(void)
 {
     gSpecialVar_Result = gRogueRun.wildEncounters.roamer.species != SPECIES_NONE;

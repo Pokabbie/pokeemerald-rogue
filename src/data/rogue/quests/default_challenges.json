@@ -19,8 +19,29 @@
         "default_group":
         [
             {
+                "name": "True Tactics",
+                "description": "Win a full Run, without any Pokémon ever fainting.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MON_FAINTED" ],
+                        "condition": "Always",
+                        "pass": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
                 "name": "Chaos Master",
-                "description": "Win a full Run, with a Random Partner Pokémon, always doing a Full Party trade with Mr. Randoman whenever possible.",
+                "description": "Win a full Run with: Random Starter trade & always doing a Full Party trade with Mr. Randoman whenever possible.",
                 "triggers":
                 [
                     {
@@ -50,19 +71,88 @@
                         "pass": "SUCCESS"
                     }
                 ],
+                "requirements":
+                [
+                    { "flag": "FLAG_ROGUE_HAS_RANDOM_STARTER", "state": true }
+                ],
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" }
                 ]
             },
             {
-                "name": "True Tactics",
-                "description": "Win a full Run, without any Pokémon ever fainting.",
+                "name": "Roguelocke",
+                "description": "Win a full Run with: Random Starter trade, Embargo Curse, Species Curse & 10x Wild Curses.",
                 "triggers":
                 [
                     {
-                        "on": [ "MON_FAINTED" ],
+                        "on": [ "ENTER_HALL_OF_FAME" ],
                         "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "flag": "FLAG_ROGUE_HAS_RANDOM_STARTER", "state": true },
+                    { "item": "ITEM_BATTLE_ITEM_CURSE", "count": 1 },
+                    { "item": "ITEM_SPECIES_CLAUSE_CURSE", "count": 1 },
+                    { "item": "ITEM_WILD_ENCOUNTER_CURSE", "count": 10 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "name": "Apotheosis",
+                "description": "Win a full Run, only ever entering Trainer battles with only Legendary Pokémon in your party.",
+                "triggers":
+                [
+                    {
+                        "on": [ "TRAINER_BATTLE_START" ],
+                        "condition": "PartyContainsOnlyLegendaries",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "name": "Aesthetics",
+                "description": "Win a full Run, only ever entering Trainer battles with only Shiny Pokémon in your party.",
+                "triggers":
+                [
+                    {
+                        "on": [ "TRAINER_BATTLE_START" ],
+                        "condition": "PartyContainsOnlyShinys",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "name": "Insane Mode",
+                "description": "Win a full Run with: Fresh Start enabled, Mixed battle format, Random Starter trade, Embargo & Species Curse & never using Legendary {PKMN}.",
+                "triggers":
+                [
+                    {
+                        "on": [ "TRAINER_BATTLE_START" ],
+                        "condition": "PartyContainsLegendary",
                         "pass": "FAIL"
                     },
                     {
@@ -70,6 +160,107 @@
                         "condition": "Always",
                         "pass": "SUCCESS"
                     }
+                ],
+                "requirements":
+                [
+                    { "flag": "FLAG_ROGUE_HAS_RANDOM_STARTER", "state": true },
+                    { "config_range": "CONFIG_RANGE_BATTLE_FORMAT", "value": "BATTLE_FORMAT_MIXED" },
+                    { "config_toggle": "CONFIG_TOGGLE_BAG_WIPE", "state": true },
+                    { "item": "ITEM_BATTLE_ITEM_CURSE", "count": 1 },
+                    { "item": "ITEM_SPECIES_CLAUSE_CURSE", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "name": "Iron Mono",
+                "description": "Win a full Run with: 5x Capacity Curses.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_PARTY_CURSE", "count": 5 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "quest": "Iron Kaizo" }
+                ]
+            },
+            {
+                "name": "Iron Kaizo",
+                "description": "Win a full Run with: Fresh Start enabled, Random Starter trade, Embargo Curse, 5x Capacity Curses & 99x Discount Curses.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "flag": "FLAG_ROGUE_HAS_RANDOM_STARTER", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_BAG_WIPE", "state": true },
+                    { "item": "ITEM_BATTLE_ITEM_CURSE", "count": 1 },
+                    { "item": "ITEM_PARTY_CURSE", "count": 5 },
+                    { "item": "ITEM_SHOP_PRICE_CURSE", "count": 99 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Gimmick Overflow",
+                "description": "Win a full Run with: Mega Ring, Z-Power Ring, Dynamax Band, Tera Orb & Healing Flask.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_MEGA_RING", "count": 1 },
+                    { "item": "ITEM_Z_POWER_RING", "count": 1 },
+                    { "item": "ITEM_DYNAMAX_BAND", "count": 1 },
+                    { "item": "ITEM_TERA_ORB", "count": 1 },
+                    { "item": "ITEM_HEALING_FLASK", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "name": "Orre Style",
+                "display_group": "region_challenges",
+                "description": "Win a full Run with: Doubles battle format & having Umbreon and Espeon in your party when you enter the Hall of Fame.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "PartyContainsAllSpecies",
+                        "params": [ "SPECIES_UMBREON", "SPECIES_ESPEON" ],
+                        "pass": "SUCCESS",
+                        "fail": "FAIL"
+                    }
+                ],
+                "requirements":
+                [
+                    { "config_range": "CONFIG_RANGE_BATTLE_FORMAT", "value": "BATTLE_FORMAT_DOUBLES" }
                 ],
                 "rewards":
                 [

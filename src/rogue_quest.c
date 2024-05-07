@@ -43,8 +43,11 @@ static bool8 QuestCondition_HasCompletedQuestOR(u16 questId, struct RogueQuestTr
 static bool8 QuestCondition_PartyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsLegendary(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsOnlyLegendaries(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsOnlyShinys(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -61,6 +64,7 @@ static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQu
 
 static bool8 IsQuestSurpressed(u16 questId);
 static bool8 CanSurpressedQuestActivate(u16 questId);
+static void FailQuest(u16 questId);
 
 bool8 PartyContainsBaseSpecies(struct Pokemon *party, u8 partyCount, u16 species);
 
@@ -563,6 +567,78 @@ void RogueQuest_ActivateQuestsFor(u32 flags)
     }
 }
 
+static bool8 CheckRequirementCondition(u32 value, u32 conditionValue, u32 condition)
+{
+    switch (condition)
+    {
+    case QUEST_REQUIREMENT_OPERATION_EQUAL:
+        return value == conditionValue;
+    case QUEST_REQUIREMENT_OPERATION_NOT_EQUAL:
+        return value != conditionValue;
+    case QUEST_REQUIREMENT_OPERATION_GREATER_THAN:
+        return value > conditionValue;
+    case QUEST_REQUIREMENT_OPERATION_LESS_THAN:
+        return value < conditionValue;
+    case QUEST_REQUIREMENT_OPERATION_GREATER_THAN_EQUAL:
+        return value >= conditionValue;
+    case QUEST_REQUIREMENT_OPERATION_LESS_THAN_EQUAL:
+        return value <= conditionValue;
+    }
+
+    AGB_ASSERT(FALSE);
+    return FALSE;
+}
+
+static bool8 PassesRequirement(struct RogueQuestRequirement const* requirement)
+{
+    switch (requirement->type)
+    {
+    case QUEST_REQUIREMENT_TYPE_ITEM:
+        return CheckRequirementCondition(
+            GetItemCountInBag(requirement->perType.item.itemId), 
+            requirement->perType.item.count, 
+            requirement->perType.item.operation
+        );
+
+    case QUEST_REQUIREMENT_TYPE_FLAG:
+        return !(FlagGet(requirement->perType.flag.flag) != requirement->perType.flag.state);
+
+    case QUEST_REQUIREMENT_TYPE_CONFIG_TOGGLE:
+        return !(Rogue_GetConfigToggle(requirement->perType.configToggle.toggle) != requirement->perType.configToggle.state);
+        
+    case QUEST_REQUIREMENT_TYPE_CONFIG_RANGE:
+        return CheckRequirementCondition(
+            Rogue_GetConfigRange(requirement->perType.configRange.range), 
+            requirement->perType.configRange.value, 
+            requirement->perType.configRange.operation
+        );
+    }
+}
+
+void RogueQuest_CheckQuestRequirements()
+{
+    u16 i;
+    u16 questId;
+
+    for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
+    {
+        if(RogueQuest_IsQuestActive(questId))
+        {
+            if(sQuestEntries[questId].requirements != NULL && sQuestEntries[questId].requirementCount != 0)
+            {
+                for(i = 0; i < sQuestEntries[questId].requirementCount; ++i)
+                {
+                    if(!PassesRequirement(&sQuestEntries[questId].requirements[i]))
+                    {
+                        FailQuest(questId);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
 bool8 RogueQuest_IsQuestActive(u16 questId)
 {
     return RogueQuest_IsQuestUnlocked(questId) && RogueQuest_GetStateFlag(questId, QUEST_STATE_ACTIVE);
@@ -885,6 +961,37 @@ static bool8 QuestCondition_PartyContainsLegendary(u16 questId, struct RogueQues
     return FALSE;
 }
 
+static bool8 QuestCondition_PartyContainsOnlyLegendaries(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u8 i;
+    u16 species;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        if(!RoguePokedex_IsSpeciesLegendary(species))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+static bool8 QuestCondition_PartyContainsOnlyShinys(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u8 i;
+    u16 species;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        if(!IsMonShiny(&gPlayerParty[i]))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+
 static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     return Rogue_IsPartnerMonInTeam();
@@ -904,6 +1011,22 @@ static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestT
     }
 
     return FALSE;
+}
+
+static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+    u16 species;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        species = trigger->params[i];
+
+        if(!PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, species))
+            return FALSE;
+    }
+
+    return TRUE;
 }
 
 

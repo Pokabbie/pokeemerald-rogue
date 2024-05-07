@@ -177,6 +177,34 @@ bool8 IsCurseActive(u8 effectType)
     return GetCurseValue(effectType) != 0;
 }
 
+bool8 AnyCharmsActive()
+{
+    u8 effectType;
+    u16 itemId;
+
+    for(effectType = 0; effectType < EFFECT_COUNT; ++effectType)
+    {
+        if(IsCharmActive(effectType))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 AnyCursesActive()
+{
+    u8 effectType;
+    u16 itemId;
+
+    for(effectType = 0; effectType < EFFECT_COUNT; ++effectType)
+    {
+        if(IsCharmActive(effectType))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 u16 GetCharmValue(u8 effectType)
 {
     if(!Rogue_IsRunActive())
@@ -202,8 +230,13 @@ void Rogue_RemoveCharmsFromBag(void)
     {
         itemId = EffectToCharmItem(effectType);
 
-        while(itemId != ITEM_NONE && CheckBagHasItem(itemId, 1))
-            RemoveBagItem(itemId, 1);
+        if(itemId != ITEM_NONE)
+        {
+            u16 count = GetItemCountInBag(itemId);
+
+            if(count != 0)
+                RemoveBagItem(itemId, count);
+        }
     }
 }
 
@@ -216,8 +249,13 @@ void Rogue_RemoveCursesFromBag(void)
     {
         itemId = EffectToCurseItem(effectType);
 
-        while(itemId != ITEM_NONE && CheckBagHasItem(itemId, 1))
-            RemoveBagItem(itemId, 1);
+        if(itemId != ITEM_NONE)
+        {
+            u16 count = GetItemCountInBag(itemId);
+
+            if(count != 0)
+                RemoveBagItem(itemId, count);
+        }
     }
 }
 
