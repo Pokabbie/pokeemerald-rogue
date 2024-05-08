@@ -15047,6 +15047,9 @@ static void Cmd_handleballthrow(void)
         BtlController_EmitBallThrowAnim(gBattlerAttacker, BUFFER_A, BALL_TRAINER_BLOCK);
         MarkBattlerForControllerExec(gBattlerAttacker);
         gBattlescriptCurrInstr = BattleScript_AlphaMonBallBlock;
+
+        // Put ball back in bag
+        AddBagItem(gLastUsedItem, 1);
     }
     else if(CurseBlocksPokeball())
     {

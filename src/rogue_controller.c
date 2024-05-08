@@ -3597,11 +3597,6 @@ static void SetupRogueRunBag()
         AddBagItem(ITEM_POTION, 1);
     }
 
-#ifdef ROGUE_DEBUG
-    AddBagItem(ITEM_ESCAPE_ROPE, 255);
-    AddBagItem(ITEM_RARE_CANDY, 255);
-#endif
-
     RecalcCharmCurseValues();
 
     // TODO - Rework this??

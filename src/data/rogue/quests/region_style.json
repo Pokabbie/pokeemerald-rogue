@@ -40,7 +40,7 @@
         [
             {
                 "name": "Regional Style",
-                "description": "Complete any of the 'Region Style' challenges.\\ne.g. Kanto Style, Johto Style etc.",
+                "description": "Complete any of the 'Region Style' challenges.\\ne.g. Kanto Style, Johto Style, Orre Style etc.",
                 "flags": 
                 [
                     "MAIN_QUEST_DEFAULT",

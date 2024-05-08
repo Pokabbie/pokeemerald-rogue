@@ -114,6 +114,7 @@ enum RogueUtilMenu
 {
     DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB,
     DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY,
+    DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS,
 };
 
 enum PartyBoxesMenu
@@ -367,6 +368,7 @@ static void DebugAction_Util_ExpansionVersion(u8 taskId);
 
 static void DebugAction_RogueUtil_ConfigLab(u8 taskId);
 static void DebugAction_RogueUtil_NextDifficulty(u8 taskId);
+static void DebugAction_RogueUtil_GiveCommonItems(u8 taskId);
 
 static void DebugAction_PartyBoxes_AccessPC(u8 taskId);
 static void DebugAction_PartyBoxes_MoveReminder(u8 taskId);
@@ -508,6 +510,7 @@ static const u8 sDebugText_Util_ExpansionVersion[] =         _("Expansion Versio
 // Rogue Util Menu
 static const u8 sDebugText_RogueUtil_ConfigLab[] =           _("Config Lab…{CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_RogueUtil_NextDifficulty[] =      _("Next Difficulty");
+static const u8 sDebugText_RogueUtil_GiveCommonItems[] =      _("Give Common Items");
 // Party/Boxes Menu
 static const u8 sDebugText_PartyBoxes_AccessPC[] =           _("Access PC");
 static const u8 sDebugText_PartyBoxes_MoveReminder[] =       _("Move Reminder");
@@ -685,6 +688,7 @@ static const struct ListMenuItem sDebugMenu_Items_RogueUtilities[] =
 {
     [DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB]          = {sDebugText_RogueUtil_ConfigLab,       DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB},
     [DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY]     = {sDebugText_RogueUtil_NextDifficulty,  DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY},
+    [DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS]   = {sDebugText_RogueUtil_GiveCommonItems, DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS},
 };
 
 static const struct ListMenuItem sDebugMenu_Items_PartyBoxes[] =
@@ -843,6 +847,7 @@ static void (*const sDebugMenu_Actions_RogueUtilities[])(u8) =
 {
     [DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB]      = DebugAction_RogueUtil_ConfigLab,
     [DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY] = DebugAction_RogueUtil_NextDifficulty,
+    [DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS] = DebugAction_RogueUtil_GiveCommonItems,
 };
 
 static void (*const sDebugMenu_Actions_PartyBoxes[])(u8) =
@@ -2276,6 +2281,16 @@ static void DebugAction_RogueUtil_NextDifficulty(u8 taskId)
         EnableRivalEncounterIfRequired();
         RogueAdv_Debug_ForceRegenerateAdventurePaths();
     }
+}
+
+static void DebugAction_RogueUtil_GiveCommonItems(u8 taskId)
+{
+    AddBagItem(ITEM_ESCAPE_ROPE, 999);
+    AddBagItem(ITEM_RARE_CANDY, 999);
+    AddBagItem(ITEM_STAR_PIECE, 999);
+    AddBagItem(ITEM_MASTER_BALL, 999);
+    AddBagItem(ITEM_FULL_RESTORE, 999);
+    PlaySE(SE_SELECT);
 }
 
 void BufferExpansionVersion(struct ScriptContext *ctx)
