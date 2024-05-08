@@ -99,9 +99,9 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsSoundChannelBGM = 10;
     gSaveBlock2Ptr->optionsSoundChannelSE = 10;
     gSaveBlock2Ptr->optionsSoundChannelBattleSE = 10;
-    gSaveBlock2Ptr->optionsWildBattleSceneOff = FALSE;
-    gSaveBlock2Ptr->optionsTrainerBattleSceneOff = FALSE;
-    gSaveBlock2Ptr->optionsBossBattleSceneOff = FALSE;
+    gSaveBlock2Ptr->optionsWildBattleScene = OPTIONS_BATTLE_SCENE_2X;
+    gSaveBlock2Ptr->optionsTrainerBattleScene = OPTIONS_BATTLE_SCENE_1X;
+    gSaveBlock2Ptr->optionsBossBattleScene = OPTIONS_BATTLE_SCENE_1X;
     gSaveBlock2Ptr->optionsAutoRunToggle = FALSE;
     gSaveBlock2Ptr->optionsNicknameMode = OPTIONS_NICKNAME_MODE_ASK;
     gSaveBlock2Ptr->timeOfDayVisuals = TRUE;

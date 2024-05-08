@@ -334,6 +334,49 @@ bool8 Rogue_FastBattleAnims(void)
     return !Rogue_UseKeyBattleAnims();
 }
 
+bool8 InBattleChoosingMoves();
+bool8 InBattleRunningActions();
+
+static u8 GetBattleSceneOption()
+{
+    if(Rogue_UseKeyBattleAnims())
+        return gSaveBlock2Ptr->optionsBossBattleScene;
+    else if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0)
+        return gSaveBlock2Ptr->optionsTrainerBattleScene;
+    else
+        return gSaveBlock2Ptr->optionsWildBattleScene;
+}
+
+u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
+{
+    u8 battleSceneOption = GetBattleSceneOption();
+
+    // Always run at 1x speed here
+    if(InBattleChoosingMoves())
+        return 1;
+
+    // When battle anims are turned off, it's a bit too hard to read text, so force running at normal speed
+    if(!forHealthbar && battleSceneOption == OPTIONS_BATTLE_SCENE_DISABLED && InBattleRunningActions())
+        return 1;
+
+    switch (battleSceneOption)
+    {
+    case OPTIONS_BATTLE_SCENE_1X:
+        return 1;
+
+    case OPTIONS_BATTLE_SCENE_2X:
+        return 2;
+
+    case OPTIONS_BATTLE_SCENE_3X:
+        return 3;
+
+    case OPTIONS_BATTLE_SCENE_DISABLED:
+        return forHealthbar ? 10 : 3;
+    }
+
+    return 1;
+}
+
 bool8 Rogue_UseKeyBattleAnims(void)
 {
     if(Rogue_IsRunActive())
@@ -352,12 +395,7 @@ bool8 Rogue_UseKeyBattleAnims(void)
 
 bool8 Rogue_GetBattleAnimsEnabled(void)
 {
-    if(Rogue_UseKeyBattleAnims())
-        return !gSaveBlock2Ptr->optionsBossBattleSceneOff;
-    else if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0)
-        return !gSaveBlock2Ptr->optionsTrainerBattleSceneOff;
-    else
-        return !gSaveBlock2Ptr->optionsWildBattleSceneOff;
+    return GetBattleSceneOption() != OPTIONS_BATTLE_SCENE_DISABLED;
 }
 
 bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck);

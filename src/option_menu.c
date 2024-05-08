@@ -94,6 +94,8 @@ static u8 TextSpeed_ProcessInput(u8 menuOffset, u8 selection);
 static void TextSpeed_DrawChoices(u8 menuOffset, u8 selection);
 static u8 BattleScene_ProcessInput(u8 menuOffset, u8 selection);
 static void BattleScene_DrawChoices(u8 menuOffset, u8 selection);
+static u8 InvertedToggle_ProcessInput(u8 menuOffset, u8 selection);
+static void InvertedToggle_DrawChoices(u8 menuOffset, u8 selection);
 static u8 AutoRun_ProcessInput(u8 menuOffset, u8 selection);
 static void AutoRun_DrawChoices(u8 menuOffset, u8 selection);
 static u8 NicknameMode_ProcessInput(u8 menuOffset, u8 selection);
@@ -123,6 +125,11 @@ static const u8 sEqualSignGfx[] = INCBIN_U8("graphics/interface/option_menu_equa
 static const u8 sText_HighlightOn[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}");
 static const u8 sText_HighlightOff[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}");
 static const u8 sText_HighlightMid[] = _("{SHADOW LIGHT_GREEN}");
+
+static const u8 sText_BattleScene_1x[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}1x Speed");
+static const u8 sText_BattleScene_2x[] = _("{SHADOW LIGHT_GREEN}2x Speed");
+static const u8 sText_BattleScene_3x[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}3x Speed");
+static const u8 sText_BattleScene_Disabled[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}Disabled");
 
 typedef u8 (*MenuItemInputCallback)(u8, u8);
 typedef void (*MenuItemDrawCallback)(u8, u8);
@@ -229,8 +236,8 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_POPUP_SOUND] = 
     {
         .itemName = gText_PopupSound,
-        .processInput = BattleScene_ProcessInput,
-        .drawChoices = BattleScene_DrawChoices
+        .processInput = InvertedToggle_ProcessInput,
+        .drawChoices = InvertedToggle_DrawChoices
     },
     [MENUITEM_SOUND_CHANNEL_BGM] = 
     {
@@ -718,6 +725,41 @@ static void TextSpeed_DrawChoices(u8 menuOffset, u8 selection)
 
 static u8 BattleScene_ProcessInput(u8 menuOffset, u8 selection)
 {
+    if (JOY_NEW(DPAD_RIGHT))
+    {
+        if (selection < OPTIONS_BATTLE_SCENE_COUNT - 1)
+            selection++;
+        else
+            selection = 0;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_NEW(DPAD_LEFT))
+    {
+        if (selection != 0)
+            selection--;
+        else
+            selection = OPTIONS_BATTLE_SCENE_COUNT - 1;
+
+        sArrowPressed = TRUE;
+    }
+    return selection;
+}
+
+static void BattleScene_DrawChoices(u8 menuOffset, u8 selection)
+{
+    u8 const* options[OPTIONS_BATTLE_SCENE_COUNT] = 
+    {
+        [OPTIONS_BATTLE_SCENE_1X] = sText_BattleScene_1x,
+        [OPTIONS_BATTLE_SCENE_2X] = sText_BattleScene_2x,
+        [OPTIONS_BATTLE_SCENE_3X] = sText_BattleScene_3x,
+        [OPTIONS_BATTLE_SCENE_DISABLED] = sText_BattleScene_Disabled,
+    };
+    DrawChoiceSelection(menuOffset, selection, options, ARRAY_COUNT(options));
+}
+
+static u8 InvertedToggle_ProcessInput(u8 menuOffset, u8 selection)
+{
     if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
     {
         selection ^= 1;
@@ -727,7 +769,7 @@ static u8 BattleScene_ProcessInput(u8 menuOffset, u8 selection)
     return selection;
 }
 
-static void BattleScene_DrawChoices(u8 menuOffset, u8 selection)
+static void InvertedToggle_DrawChoices(u8 menuOffset, u8 selection)
 {
     u8 const* options[] = 
     {
@@ -1066,13 +1108,13 @@ static u8 GetMenuItemValue(u8 menuItem)
         return gSaveBlock2Ptr->optionsTextSpeed;
         
     case MENUITEM_BATTLESCENE_WILD_BATTLES:
-        return gSaveBlock2Ptr->optionsWildBattleSceneOff;
+        return gSaveBlock2Ptr->optionsWildBattleScene;
         
     case MENUITEM_BATTLESCENE_TRAINER_BATTLES:
-        return gSaveBlock2Ptr->optionsTrainerBattleSceneOff;
+        return gSaveBlock2Ptr->optionsTrainerBattleScene;
 
     case MENUITEM_BATTLESCENE_KEY_BATTLES:
-        return gSaveBlock2Ptr->optionsBossBattleSceneOff;
+        return gSaveBlock2Ptr->optionsBossBattleScene;
         
     case MENUITEM_AUTORUN_TOGGLE:
         return gSaveBlock2Ptr->optionsAutoRunToggle;
@@ -1123,15 +1165,15 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         break;
 
     case MENUITEM_BATTLESCENE_WILD_BATTLES:
-        gSaveBlock2Ptr->optionsWildBattleSceneOff = value;
+        gSaveBlock2Ptr->optionsWildBattleScene = value;
         break;
 
     case MENUITEM_BATTLESCENE_TRAINER_BATTLES:
-        gSaveBlock2Ptr->optionsTrainerBattleSceneOff = value;
+        gSaveBlock2Ptr->optionsTrainerBattleScene = value;
         break;
 
     case MENUITEM_BATTLESCENE_KEY_BATTLES:
-        gSaveBlock2Ptr->optionsBossBattleSceneOff = value;
+        gSaveBlock2Ptr->optionsBossBattleScene = value;
         break;
 
     case MENUITEM_AUTORUN_TOGGLE:
