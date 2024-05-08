@@ -36,6 +36,7 @@ bool8 Rogue_EnableExpGain(void);
 bool8 Rogue_EnableAffectionMechanics(void);
 bool8 Rogue_ShouldReleaseFaintedMons(void);
 bool8 Rogue_FastBattleAnims(void);
+u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar);
 bool8 Rogue_UseKeyBattleAnims(void);
 bool8 Rogue_GetBattleAnimsEnabled(void);
 bool8 Rogue_UseFinalQuestEffects(void);

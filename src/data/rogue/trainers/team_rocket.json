@@ -42,6 +42,7 @@
                 "trainer_class": "TRAINER_CLASS_TEAM_ROCKET_LEADER",
                 "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
                 "shiny_species": "SPECIES_MEWTWO",
+                "pokeball": "MASTER_BALL",
                 "encounter_text":
                 [
                     {

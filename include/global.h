@@ -533,9 +533,9 @@ struct SaveBlock2
              u32 optionsSoundChannelSE:4;
              u32 optionsSoundChannelBattleSE:4;
              u32 optionsNicknameMode:3; // //OPTIONS_NICKNAME_MODE_[ASK/ALWAYS/NEVER/RANDOM]
-             u32 optionsWildBattleSceneOff:1; // whether battle animations are disabled
-             u32 optionsTrainerBattleSceneOff:1; // whether battle animations are disabled
-             u32 optionsBossBattleSceneOff:1; // whether battle animations are disabled
+             u32 optionsWildBattleScene:2; // OPTIONS_BATTLE_SCENE_[...]
+             u32 optionsTrainerBattleScene:2; // OPTIONS_BATTLE_SCENE_[...]
+             u32 optionsBossBattleScene:2; // OPTIONS_BATTLE_SCENE_[...]
              u32 optionsAutoRunToggle:1; // whether running is trigger by a B toggle or a hold
              u32 timeOfDayVisuals:1;
              u32 seasonVisuals:1;

@@ -405,6 +405,7 @@
                 "gfx_suffix": "KANTO_GIOVANNI",
                 "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_RHYHORN",
+                "pokeball": "MASTER_BALL",
                 "encounter_text":
                 [
                     {

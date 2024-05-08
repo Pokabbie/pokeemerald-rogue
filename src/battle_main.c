@@ -1866,11 +1866,22 @@ static void CB2_HandleStartMultiBattle(void)
 
 void BattleMainCB2(void)
 {
-    AnimateSprites();
+    u8 s;
+    u8 speedScale = Rogue_GetBattleSpeedScale(FALSE);
+
+    for(s = 0; s < speedScale; ++s)
+    {
+        AnimateSprites();
+    }
+
     BuildOamBuffer();
-    RunTextPrinters();
-    UpdatePaletteFade();
-    RunTasks();
+
+    for(s = 0; s < speedScale; ++s)
+    {
+        RunTextPrinters();
+        UpdatePaletteFade();
+        RunTasks();
+    }
     
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_PushAutomationInputState(AUTO_INPUT_STATE_BATTLE);
@@ -3067,6 +3078,17 @@ void BeginBattleIntro(void)
     gBattleCommunication[1] = 0;
     gBattleMainFunc = BattleIntroGetMonsData;
 }
+
+bool8 InBattleChoosingMoves()
+{
+    return gBattleMainFunc == HandleTurnActionSelectionState;
+}
+
+bool8 InBattleRunningActions()
+{
+    return gBattleMainFunc == RunTurnActionsFunctions;
+}
+
 
 static void BattleMainCB1(void)
 {
