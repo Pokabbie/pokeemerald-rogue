@@ -93,11 +93,11 @@ static struct RogueQuestEntry const* RogueQuest_GetEntry(u16 questId)
         return NULL;
 }
 
-static struct RogueQuestStateNEW* RogueQuest_GetState(u16 questId)
+static struct RogueQuestState* RogueQuest_GetState(u16 questId)
 {
     AGB_ASSERT(questId < QUEST_ID_COUNT);
     if(questId < QUEST_ID_COUNT)
-        return &gRogueSaveBlock->questStatesNEW[questId];
+        return &gRogueSaveBlock->questStates[questId];
 
     return NULL;
 }
@@ -131,13 +131,13 @@ u16 RogueQuest_GetOrderedQuest(u16 index)
 
 bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag)
 {
-    struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+    struct RogueQuestState* questState = RogueQuest_GetState(questId);
     return (questState->stateFlags & flag) != 0;
 }
 
 void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state)
 {
-    struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+    struct RogueQuestState* questState = RogueQuest_GetState(questId);
 
     if(state)
         questState->stateFlags |= flag;
@@ -145,7 +145,7 @@ void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state)
         questState->stateFlags &= ~flag;
 }
 
-struct RogueQuestRewardNEW const* RogueQuest_GetReward(u16 questId, u16 i)
+struct RogueQuestReward const* RogueQuest_GetReward(u16 questId, u16 i)
 {
     struct RogueQuestEntry const* entry = RogueQuest_GetEntry(questId);
     AGB_ASSERT(questId < QUEST_ID_COUNT);
@@ -164,7 +164,7 @@ u8 RogueQuest_GetHighestCompleteDifficulty(u16 questId)
 {
     if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
     {
-        struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+        struct RogueQuestState* questState = RogueQuest_GetState(questId);
         return questState->highestCompleteDifficulty;
     }
 
@@ -193,7 +193,7 @@ static bool8 CanActivateQuest(u16 questId)
         if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
         {
             u8 difficultyLevel = Rogue_GetDifficultyRewardLevel();
-            struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+            struct RogueQuestState* questState = RogueQuest_GetState(questId);
 
             if(questState->highestCompleteDifficulty != DIFFICULTY_LEVEL_NONE && difficultyLevel <= questState->highestCompleteDifficulty)
                 return FALSE;
@@ -327,7 +327,7 @@ bool8 RogueQuest_HasAnyPendingRewards()
     return FALSE;
 }
 
-static bool8 GiveRewardInternal(struct RogueQuestRewardNEW const* rewardInfo)
+static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
 {
     bool8 state = TRUE;
 
@@ -426,7 +426,7 @@ static bool8 GiveRewardInternal(struct RogueQuestRewardNEW const* rewardInfo)
     return state;
 }
 
-static void RemoveRewardInternal(struct RogueQuestRewardNEW const* rewardInfo)
+static void RemoveRewardInternal(struct RogueQuestReward const* rewardInfo)
 {
     switch (rewardInfo->type)
     {
@@ -451,7 +451,7 @@ static void RemoveRewardInternal(struct RogueQuestRewardNEW const* rewardInfo)
     }
 }
 
-static bool8 IsHighPriorityReward(struct RogueQuestRewardNEW const* rewardInfo)
+static bool8 IsHighPriorityReward(struct RogueQuestReward const* rewardInfo)
 {
     // High priority rewards can fail and be refunded
     switch (rewardInfo->type)
@@ -467,8 +467,8 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
 {
     u16 i;
     bool8 state = TRUE;
-    struct RogueQuestRewardNEW const* rewardInfo;
-    struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+    struct RogueQuestReward const* rewardInfo;
+    struct RogueQuestState* questState = RogueQuest_GetState(questId);
     u16 rewardCount = RogueQuest_GetRewardCount(questId);
 
     AGB_ASSERT(RogueQuest_HasPendingRewards(questId));
@@ -735,7 +735,7 @@ static void EnsureUnlockedDefaultQuests()
 
 void RogueQuest_OnNewGame()
 {
-    memset(gRogueSaveBlock->questStatesNEW, 0, sizeof(gRogueSaveBlock->questStatesNEW));
+    memset(gRogueSaveBlock->questStates, 0, sizeof(gRogueSaveBlock->questStates));
     EnsureUnlockedDefaultQuests();
 }
 
@@ -747,7 +747,7 @@ void RogueQuest_OnLoadGame()
 static void CompleteQuest(u16 questId)
 {
     u8 currentDifficulty = Rogue_GetDifficultyRewardLevel();
-    struct RogueQuestStateNEW* questState = RogueQuest_GetState(questId);
+    struct RogueQuestState* questState = RogueQuest_GetState(questId);
 
     questState->highestCompleteDifficulty = currentDifficulty;
     if(!RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))

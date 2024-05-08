@@ -7488,7 +7488,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     if(!Rogue_IsRunActive())
     {
         u16 questId, i, rewardCount;
-        struct RogueQuestRewardNEW const* reward;
+        struct RogueQuestReward const* reward;
 
         for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
         {

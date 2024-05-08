@@ -24,7 +24,7 @@ enum
     QUEST_REWARD_VISIBLITY_OBSCURED,
 };
 
-struct RogueQuestRewardNEW
+struct RogueQuestReward
 {
     u8 type;
     u8 visiblity;
@@ -119,7 +119,7 @@ struct RogueQuestEntry
 {
     u8 const* title;
     u8 const* desc;
-    struct RogueQuestRewardNEW const* rewards;
+    struct RogueQuestReward const* rewards;
     struct RogueQuestTrigger const* triggers;
     struct RogueQuestRequirement const* requirements;
     u32 flags;
@@ -140,7 +140,7 @@ u16 RogueQuest_GetOrderedQuest(u16 index);
 bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag);
 void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state);
 
-struct RogueQuestRewardNEW const* RogueQuest_GetReward(u16 questId, u16 i);
+struct RogueQuestReward const* RogueQuest_GetReward(u16 questId, u16 i);
 u16 RogueQuest_GetRewardCount(u16 questId);
 
 u8 RogueQuest_GetHighestCompleteDifficulty(u16 questId);

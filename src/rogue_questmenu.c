@@ -1409,7 +1409,7 @@ static void Draw_QuestPage()
         {
             u8 spriteIdx;
             u16 currentTag;
-            struct RogueQuestRewardNEW const* reward;
+            struct RogueQuestReward const* reward;
             u16 const rewardCount = RogueQuest_GetRewardCount(questId);
             u8 groupedSpriteIndex[QUEST_SPRITE_CAPACITY];
             u8 spriteLayering[QUEST_SPRITE_CAPACITY];

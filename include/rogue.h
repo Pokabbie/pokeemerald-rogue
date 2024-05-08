@@ -163,7 +163,7 @@ struct RogueAdventureSettings
     u8 phaseCount;
 };
 
-struct RogueQuestStateNEW
+struct RogueQuestState
 {
     u32 stateFlags : 16;
     u32 highestCompleteDifficulty : 3;
@@ -624,7 +624,7 @@ struct RogueSaveBlock
 
     // Everything past this point is not safe to read until the block format
     // has been adjusted
-    struct RogueQuestStateNEW questStatesNEW[QUEST_SAVE_COUNT];
+    struct RogueQuestState questStates[QUEST_SAVE_COUNT];
     struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
     struct RogueSafariMon safariMons[ROGUE_SAFARI_TOTAL_MONS];
     struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
