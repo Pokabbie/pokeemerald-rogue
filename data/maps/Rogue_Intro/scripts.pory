@@ -330,7 +330,16 @@ script Rogue_Intro_MapScripts_LoadFrame_0
     ))
 
     special(Rogue_AssignDefaultRegion)
-    warpsilent(MAP_ROGUE_AREA_LABS, 11)
+    special(Rogue_SafeSmartCheck)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        warpsilent(MAP_ROGUE_AREA_LABS, 11)
+    }
+    else
+    {
+        warpsilent(MAP_INSIDE_OF_TRUCK, 3)
+    }
 
     release
 }
