@@ -76,7 +76,7 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
 static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 monCapacity);
 static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monIdx, u8 totalMonCount);
 static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, u8 monIdx, struct RoguePokemonCompetitiveSet* outPreset);
-static void ModifyTrainerMonPreset(u16 trainerNum, struct RoguePokemonCompetitiveSet* preset, struct RoguePokemonCompetitiveSetRules* presetRules);
+static void ModifyTrainerMonPreset(u16 trainerNum, struct Pokemon* mon, struct RoguePokemonCompetitiveSet* preset, struct RoguePokemonCompetitiveSetRules* presetRules);
 static void ReorderPartyMons(u16 trainerNum, struct Pokemon *party, u8 monCount);
 static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCount);
 static bool8 IsChoiceItem(u16 itemId);
@@ -1478,13 +1478,6 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
-        if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
-        {
-            scratch->allowItemEvos = TRUE;
-            scratch->allowWeakLegends = TRUE;
-        }
-        break;
-
     case DIFFICULTY_LEVEL_AVERAGE:
         if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
         {
@@ -1545,21 +1538,6 @@ static u8 CalculateMonFixedIV(u16 trainerNum)
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
-        if(Rogue_IsKeyTrainer(trainerNum))
-        {
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
-                fixedIV = 8;
-            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
-                fixedIV = 4;
-            else
-                fixedIV = 0;
-        }
-        else
-        {
-            fixedIV = 0;
-        }
-        break;
-
     case DIFFICULTY_LEVEL_AVERAGE:
         if(Rogue_IsKeyTrainer(trainerNum))
         {
@@ -1988,12 +1966,17 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
         {
             species = SampleNextSpecies(&scratch);
 
-            if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_TRAINER_LVL_5))
-                CreateMon(&party[i], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
-            else if(Rogue_IsBattleSimTrainer(trainerNum))
+            if(Rogue_IsBattleSimTrainer(trainerNum))
                 CreateMon(&party[i], species, 50, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
             else
                 CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+                
+            if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_TRAINER_LVL_5) && !Rogue_IsBattleSimTrainer(trainerNum))
+            {
+                u32 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, 5);
+                SetMonData(&party[i], MON_DATA_EXP, &exp);
+                CalculateMonStats(&party[i]);
+            }
 
             if(Rogue_IsValidTrainerShinySpecies(trainerNum, species))
             {
@@ -2007,7 +1990,7 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
             if(UseCompetitiveMoveset(&scratch, i, monCount) && SelectNextPreset(&scratch, species, i, &preset))
             {
                 memset(&presetRules, 0, sizeof(presetRules));
-                ModifyTrainerMonPreset(trainerNum, &preset, &presetRules);
+                ModifyTrainerMonPreset(trainerNum, &party[i], &preset, &presetRules);
                 Rogue_ApplyMonCompetitiveSet(&party[i], (Rogue_IsBattleSimTrainer(trainerNum) ? 100 : level), &preset, &presetRules);
             }
 
@@ -2148,11 +2131,14 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
             }
             RogueMonQuery_End();
 
+            CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 
             if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_TRAINER_LVL_5))
-                CreateMon(&party[i], species, 5, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
-            else
-                CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
+            {
+                u32 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)].growthRate, 5);
+                SetMonData(&party[i], MON_DATA_EXP, &exp);
+                CalculateMonStats(&party[i]);
+            }
 
             if(Rogue_IsValidTrainerShinySpecies(trainerNum, species))
             {
@@ -2166,7 +2152,7 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
             if(UseCompetitiveMoveset(&scratch, i, monCount) && SelectNextPreset(&scratch, species, i, &preset))
             {
                 memset(&presetRules, 0, sizeof(presetRules));
-                ModifyTrainerMonPreset(trainerNum, &preset, &presetRules);
+                ModifyTrainerMonPreset(trainerNum, &party[i], &preset, &presetRules);
                 Rogue_ApplyMonCompetitiveSet(&party[i], level, &preset, &presetRules);
             }
         }
@@ -2911,10 +2897,25 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
 
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
+    // Easy is going to attempt to use comp sets BUT we're going to modify the sets before appling them to make them fairer
     case DIFFICULTY_LEVEL_EASY:
-        // We allow presets BUT we will later only apply specific things from the preset
-        if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY && Rogue_IsKeyTrainer(scratch->trainerNum))
+        if(difficultyLevel == 0)
+            return FALSE;
+        else if(preferCompetitive)
             return TRUE;
+        else if(Rogue_IsKeyTrainer(scratch->trainerNum))
+        {
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 2)
+                return TRUE;
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
+                return !isFirstMon; // Only 1 mons insn't competitive
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_START_DIFFICULTY + 2)
+                return isFirstMon || isLastMon; // 2 mons are competitive
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_START_DIFFICULTY + 1)
+                return isLastMon; // Last mon is competitive
+            else
+                return FALSE;
+        }
         else
             return FALSE;
         break;
@@ -2926,9 +2927,11 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
             return TRUE;
         else if(Rogue_IsKeyTrainer(scratch->trainerNum))
         {
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 1)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY)
                 return TRUE;
-            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_START_DIFFICULTY + 3)
+                return !isFirstMon; // Only 1 mons insn't competitive
+            else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_START_DIFFICULTY + 2)
                 return isFirstMon || isLastMon; // 2 mons are competitive
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_START_DIFFICULTY + 1)
                 return isLastMon; // Last mon is competitive
@@ -2949,7 +2952,7 @@ static bool8 UseCompetitiveMoveset(struct TrainerPartyScratch* scratch, u8 monId
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_START_DIFFICULTY + 1)
                 return isFirstMon || isLastMon; // 2 mons are competitive
             else
-                return FALSE;
+                return isLastMon; // Last mon is competitive
         }
         else
             return FALSE;
@@ -3238,6 +3241,20 @@ static bool8 IsChoiceItem(u16 itemId)
     return FALSE;
 }
 
+
+static bool8 MonPresetContainsMove(struct RoguePokemonCompetitiveSet* preset, u16 move)
+{
+    u8 i;
+
+    for(i = 0; i < MAX_MON_MOVES; ++i)
+    {
+        if(preset->moves[i] == move)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 static u8 MonPresetCountMoves(struct RoguePokemonCompetitiveSet* preset)
 {
     u8 i;
@@ -3270,13 +3287,60 @@ static bool8 MonPresetReplaceMove(struct RoguePokemonCompetitiveSet* preset, u16
 }
 #endif
 
-static void ModifyTrainerMonPreset(u16 trainerNum, struct RoguePokemonCompetitiveSet* preset, struct RoguePokemonCompetitiveSetRules* presetRules)
+static void ModifyTrainerMonPreset(u16 trainerNum, struct Pokemon* mon, struct RoguePokemonCompetitiveSet* preset, struct RoguePokemonCompetitiveSetRules* presetRules)
 {
 #ifndef ROGUE_EXPANSION
     // Vanilla only: AI can't use trick
     if(MonPresetReplaceMove(preset, MOVE_TRICK, MOVE_NONE))
         presetRules->allowMissingMoves = TRUE;
 #endif
+
+    // For battle sim, we're not going to adjust anything
+    if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) == DIFFICULTY_LEVEL_EASY && !Rogue_IsBattleSimTrainer(trainerNum))
+    {
+        u8 i, j;
+        u8 dmgMoveCount = 0;
+        u16 originalPresetMoves[MAX_MON_MOVES];
+        memcpy(originalPresetMoves, preset->moves, sizeof(originalPresetMoves));
+
+        // Don't apply any abilities
+        presetRules->skipAbility = TRUE;
+
+        // Populate the preset with the current moves we know
+        for(i = 0; i < MAX_MON_MOVES; ++i)
+        {
+            preset->moves[i] = GetMonData(mon, MON_DATA_MOVE1 + i);
+
+            if(gBattleMoves[preset->moves[i]].power == 0)
+                ++dmgMoveCount;
+        }
+
+        // Attempt to give 3 damaging moves (prefer moves from level up moves)
+        for(i = 0; i < MAX_MON_MOVES && dmgMoveCount < 3; ++i)
+        {
+            if(gBattleMoves[preset->moves[i]].power == 0)
+            {
+                // Try to find a move to replace this move with
+                for(j = 0; j < MAX_MON_MOVES; ++j)
+                {
+                    if(gBattleMoves[originalPresetMoves[j]].power != 0 && !MonPresetContainsMove(preset, originalPresetMoves[j]))
+                        break;
+                }
+
+                if(j < MAX_MON_MOVES)
+                {
+                    preset->moves[i] = originalPresetMoves[j];
+                    ++dmgMoveCount;
+                }
+                else
+                {
+                    // No valid moved remaining :(
+                    break;
+                }
+            }
+        }
+
+    }
 
     // Edge case to handle scarfed ditto
     if(IsChoiceItem(preset->heldItem) && (MonPresetCountMoves(preset) > 2))
@@ -3290,13 +3354,6 @@ static void ModifyTrainerMonPreset(u16 trainerNum, struct RoguePokemonCompetitiv
             if(gBattleMoves[preset->moves[i]].power == 0)
                 preset->moves[i] = MOVE_NONE;
         }
-    }
-    
-    if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) == DIFFICULTY_LEVEL_EASY && !Rogue_IsBattleSimTrainer(trainerNum))
-    {
-        // We're basically only interested in giving the mons some held items
-        // (Battle sim we still give everything as it's fine if that's a challenge)
-        presetRules->skipMoves = TRUE;
     }
 
     if(!ShouldTrainerUseValidNatures(trainerNum))
