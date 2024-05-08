@@ -371,7 +371,7 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
         return 3;
 
     case OPTIONS_BATTLE_SCENE_DISABLED:
-        return forHealthbar ? 4 : 3;
+        return forHealthbar ? 10 : 3;
     }
 
     return 1;
