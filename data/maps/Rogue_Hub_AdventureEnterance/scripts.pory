@@ -150,25 +150,25 @@ script Rogue_Adventure_SpeakScott
             msgbox(format("SCOTT: Hey {PLAYER}!\pI have some Quest Rewards for you!"))
             while(var(VAR_RESULT) == TRUE)
             {
-                if(var(VAR_0x8000) == QUEST_REWARD_CUSTOM_TEXT)
-                {
-                    playfanfare(MUS_OBTAIN_ITEM)
-                }
-                else
-                {
-                    playse(SE_SHOP)
-                }
+                //if(var(VAR_0x8000) == QUEST_REWARD_CUSTOM_TEXT)
+                //{
+                //    playfanfare(MUS_OBTAIN_ITEM)
+                //}
+                //else
+                //{
+                //    playse(SE_SHOP)
+                //}
 
                 msgbox("{STR_VAR_3}")
                 
-                if(var(VAR_0x8000) == QUEST_REWARD_CUSTOM_TEXT)
-                {
-                    waitfanfare
-                }
-                else
-                {
-                    waitse
-                }
+                //if(var(VAR_0x8000) == QUEST_REWARD_CUSTOM_TEXT)
+                //{
+                //    waitfanfare
+                //}
+                //else
+                //{
+                //    waitse
+                //}
 
                 nextquestreward
             }
@@ -307,7 +307,7 @@ script Rogue_ResetAdventureFlags
 
 script Rogue_StartAdventureCommon
 {
-    special(Rogue_AnyNewQuestsPending)
+    //special(Rogue_AnyNewQuestsPending)
 
     if(var(VAR_RESULT) == TRUE)
     {

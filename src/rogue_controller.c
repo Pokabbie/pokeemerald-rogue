@@ -2826,7 +2826,6 @@ void Rogue_OnNewGame(void)
 
     ClearBerryTrees();
 
-    ResetQuestStateAfter(0);
     Rogue_ResetCampaignAfter(0);
     RogueHub_ClearProgress();
 
@@ -3757,7 +3756,6 @@ static void BeginRogueRun(void)
 
     gRogueRun.shrineSpawnDifficulty = 1 + RogueRandomRange(ROGUE_MAX_BOSS_COUNT, 0);
 
-    QuestNotify_BeginAdventure();
     RogueSafari_CompactEmptyEntries();
 
     // Trigger before and after as we may have hub/run only quests which are interested in this trigger
@@ -3795,8 +3793,6 @@ static void BeginRogueRun(void)
 
 static void EndRogueRun(void)
 {
-    QuestNotify_EndAdventure();
-
     if(Rogue_IsCampaignActive())
         Rogue_DeactivateActiveCampaign();
 
@@ -4461,31 +4457,6 @@ static void ResetSpecialEncounterStates(void)
     //FlagSet(FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE);
 }
 
-static bool8 IsQuestRewardShopActive()
-{
-    // Apply shop reward items (Only applicable in hb)
-    u16 i, j;
-    u16 itemId;
-    
-    if(Rogue_IsRunActive())
-        return FALSE;
-
-    for(i = QUEST_FIRST; i < QUEST_CAPACITY; ++i)
-    {
-        if(IsQuestCollected(i))
-        {
-            for(j = 0; j < QUEST_MAX_ITEM_SHOP_REWARD_COUNT; ++j)
-            {
-                itemId = gRogueQuests[i].unlockedShopRewards[j];
-                if(itemId != ITEM_NONE)
-                    return TRUE;
-            }
-        }
-    }
-
-    return FALSE;
-}
-
 void Rogue_OnWarpIntoMap(void)
 {
     gRogueAdvPath.isOverviewActive = FALSE;
@@ -4496,9 +4467,6 @@ void Rogue_OnWarpIntoMap(void)
 
     if(IsRareShopActive())
         FlagClear(FLAG_ROGUE_RARE_ITEM_MART_DISABLED);
-
-    if(IsQuestRewardShopActive())
-        FlagClear(FLAG_ROGUE_REWARD_ITEM_MART_DISABLED);
 
 
     // Set new safari flag on entering area
@@ -4625,8 +4593,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
         if(warpType == ROGUE_WARP_TO_ADVPATH)
         {
-            if(gRogueRun.enteredRoomCounter == 0)
-                QuestNotify_OnExitHubTransition();
         }
         else if(warpType == ROGUE_WARP_TO_ROOM)
         {
@@ -4854,7 +4820,6 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     gRogueLocal.totalMoneySpentOnMap = 0;
 
     FollowMon_OnWarp();
-    QuestNotify_OnWarp(warp);
 }
 
 void Rogue_ModifyMapHeader(struct MapHeader *mapHeader)
@@ -5776,7 +5741,6 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
-            QuestNotify_OnTrainerBattleEnd(isBossTrainer);
             RemoveAnyFaintedMons(FALSE);
 
             // Reward EVs based on nature
@@ -5793,10 +5757,6 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                     }
                 }
             }
-        }
-        else
-        {
-            QuestNotify_OnMonFainted();
         }
     }
 }
@@ -5888,12 +5848,7 @@ void Rogue_Battle_EndWildBattle(void)
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
-            QuestNotify_OnWildBattleEnd();
             RemoveAnyFaintedMons(FALSE);
-        }
-        else
-        {
-            QuestNotify_OnMonFainted();
         }
     }
 }
@@ -7662,12 +7617,14 @@ void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hi
         }
         else
         {
-            capacity = 5;
+            // TODO - Reimplement moves maybe?
 
-            if(IsQuestCollected(QUEST_NoFainting2) && IsQuestCollected(QUEST_NoFainting3))
-                capacity = 0;
-            else if(IsQuestCollected(QUEST_NoFainting2) || IsQuestCollected(QUEST_NoFainting3))
-                capacity += 5;
+            //capacity = 5;
+//
+            //if(IsQuestCollected(QUEST_NoFainting2) && IsQuestCollected(QUEST_NoFainting3))
+            //    capacity = 0;
+            //else if(IsQuestCollected(QUEST_NoFainting2) || IsQuestCollected(QUEST_NoFainting3))
+            //    capacity += 5;
         }
 
         // TEMP

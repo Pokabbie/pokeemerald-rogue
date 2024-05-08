@@ -2651,8 +2651,6 @@ static void ItemMenu_UseInBattle(u8 taskId)
     {
         RemoveContextWindow();
         ItemId_GetBattleFunc(gSpecialVar_ItemId)(taskId);
-
-        QuestNotify_OnUseBattleItem(gSpecialVar_ItemId);
     }
 }
 

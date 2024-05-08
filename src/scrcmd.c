@@ -2483,15 +2483,9 @@ bool8 ScrCmd_warpwhitefade(struct ScriptContext *ctx)
 
 bool8 ScrCmd_questcompleted(struct ScriptContext *ctx)
 {
-    struct OLDRogueQuestState state;
-    u16 index = ScriptReadHalfword(ctx);
-
+    // RogueNote: unused
+    AGB_ASSERT(FALSE);
     gSpecialVar_Result = FALSE;
-    if (GetQuestState(index, &state))
-    {
-        gSpecialVar_Result = state.isCompleted;
-    }
-
     return FALSE;
 }
 
@@ -2504,24 +2498,17 @@ bool8 ScrCmd_questcollected(struct ScriptContext *ctx)
 
 bool8 ScrCmd_nextquestreward(struct ScriptContext *ctx)
 {
-    u8 type;
-    if(GiveNextRewardAndFormat(gStringVar3, &type))
-    {
-        gSpecialVar_Result = TRUE;
-        gSpecialVar_0x8000 = type;
-    }
-    else
-    {
-        gSpecialVar_Result = FALSE;
-        gSpecialVar_0x8000 = 0;
-    }
+    // RogueNote: unused
+    AGB_ASSERT(FALSE);
+    gSpecialVar_Result = FALSE;
     return FALSE;
 }
 
 bool8 ScrCmd_unlockquest(struct ScriptContext *ctx)
 {
-    u16 index = ScriptReadHalfword(ctx);
-    gSpecialVar_Result = TryUnlockQuest(index);
+    // RogueNote: unused
+    AGB_ASSERT(FALSE);
+    gSpecialVar_Result = FALSE;
     return FALSE;
 }
 

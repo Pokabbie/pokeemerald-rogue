@@ -108,8 +108,6 @@ void AddMoney(u32* moneyPtr, u32 toAdd)
     }
 
     SetMoney(moneyPtr, toSet);
-
-    QuestNotify_OnAddMoney(toAdd);
 }
 
 void RemoveMoney(u32* moneyPtr, u32 toSub)
@@ -123,8 +121,6 @@ void RemoveMoney(u32* moneyPtr, u32 toSub)
         toSet -= toSub;
 
     SetMoney(moneyPtr, toSet);
-
-    QuestNotify_OnRemoveMoney(toSub);
 }
 
 bool8 IsEnoughForCostInVar0x8005(void)

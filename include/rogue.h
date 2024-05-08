@@ -163,40 +163,6 @@ struct RogueAdventureSettings
     u8 phaseCount;
 };
 
-struct RogueQuestReward
-{
-    u8 type;
-    u16 params[3];
-    const u8* previewText;
-    const u8* giveText;
-};
-
-struct RogueQuestConstants
-{
-    const u8 title[QUEST_TITLE_LENGTH];
-    const u8 desc[QUEST_DESC_LENGTH];
-    const u8 sortIndex;
-    const u16 flags;
-    struct RogueQuestReward rewards[QUEST_MAX_REWARD_COUNT];
-    const u16 unlockedQuests[QUEST_MAX_FOLLOWING_QUESTS];
-    const u16 unlockedShopRewards[QUEST_MAX_ITEM_SHOP_REWARD_COUNT]; // Specifically into the ROGUE_SHOP_QUEST_REWARDS shop
-};
-
-struct OLDRogueQuestState
-{
-    union
-    {
-        u8 byte[2];
-        u16 half;
-    } data;
-    u8 isUnlocked : 1;
-    u8 isCompleted : 1;
-    u8 isValid : 1;
-    u8 isPinned : 1;
-    u8 hasPendingRewards : 1;
-    u8 hasNewMarker : 1;
-};
-
 struct RogueQuestStateNEW
 {
     u32 stateFlags : 16;
@@ -658,7 +624,6 @@ struct RogueSaveBlock
 
     // Everything past this point is not safe to read until the block format
     // has been adjusted
-    struct OLDRogueQuestState questStates[QUEST_CAPACITY];
     struct RogueQuestStateNEW questStatesNEW[QUEST_SAVE_COUNT];
     struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
     struct RogueSafariMon safariMons[ROGUE_SAFARI_TOTAL_MONS];
@@ -716,7 +681,6 @@ extern u16 const gRoguePokemonSpecialMoveUsages[MOVES_COUNT];
 extern const struct RoguePokedexVariant gPokedexVariants[POKEDEX_VARIANT_COUNT];
 extern const struct RoguePokedexRegion gPokedexRegions[POKEDEX_REGION_COUNT];
 
-extern const struct RogueQuestConstants gRogueQuests[QUEST_CAPACITY + 1];
 extern const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT];
 extern const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT];
 extern const u8 gRogueTypeWeatherTable[];

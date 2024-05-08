@@ -764,7 +764,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
                         itemCount += count;
                         SetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity, itemCount);
 
-                        QuestNotify_OnAddBagItem(itemId, count);
+                        //QuestNotify_OnAddBagItem(itemId, count);
 
                         if(itemPocket == POCKET_KEY_ITEMS)
                             RecalcCharmCurseValues();
@@ -777,7 +777,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
                         count -= (slotCapacity - itemCount);
                         SetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity, slotCapacity);
 
-                        QuestNotify_OnAddBagItem(itemId, slotCapacity - itemCount);
+                        //QuestNotify_OnAddBagItem(itemId, slotCapacity - itemCount);
 
                         if(itemPocket == POCKET_KEY_ITEMS)
                             RecalcCharmCurseValues();
@@ -803,7 +803,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
                 gSaveBlock1Ptr->bagPockets[i] = currItemSlot;
                 UpdateBagItemsPointers();
 
-                QuestNotify_OnAddBagItem(itemId, count);
+                //QuestNotify_OnAddBagItem(itemId, count);
 
                 if(ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS)
                     RecalcCharmCurseValues();
@@ -880,7 +880,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
             {
                 RemoveEmptyBagItems();
 
-                QuestNotify_OnRemoveBagItem(itemId, count);
+                //QuestNotify_OnRemoveBagItem(itemId, count);
 
                 if(ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS)
                     RecalcCharmCurseValues();
@@ -912,7 +912,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
                 {
                     RemoveEmptyBagItems();
 
-                    QuestNotify_OnRemoveBagItem(itemId, count);
+                    //QuestNotify_OnRemoveBagItem(itemId, count);
 
                     if(ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS)
                         RecalcCharmCurseValues();
@@ -924,7 +924,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
         RemoveEmptyBagItems();
 
-        QuestNotify_OnRemoveBagItem(itemId, count);
+        //QuestNotify_OnRemoveBagItem(itemId, count);
         
         if(ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS)
             RecalcCharmCurseValues();
