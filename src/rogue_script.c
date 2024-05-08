@@ -712,11 +712,6 @@ void Rogue_ChangeMonBall(void)
     SetMonData(&gPlayerParty[monIdx], MON_DATA_POKEBALL, &itemId);
 }
 
-void Rogue_AnyNewQuestsPending(void)
-{
-    gSpecialVar_Result = AnyNewQuestsPending();
-}
-
 void Rogue_BufferLabMonName(void)
 {
     u16 index = gSpecialVar_0x8002;

@@ -24,7 +24,7 @@ enum
     QUEST_REWARD_VISIBLITY_OBSCURED,
 };
 
-struct RogueQuestRewardNEW
+struct RogueQuestReward
 {
     u8 type;
     u8 visiblity;
@@ -119,7 +119,7 @@ struct RogueQuestEntry
 {
     u8 const* title;
     u8 const* desc;
-    struct RogueQuestRewardNEW const* rewards;
+    struct RogueQuestReward const* rewards;
     struct RogueQuestTrigger const* triggers;
     struct RogueQuestRequirement const* requirements;
     u32 flags;
@@ -140,7 +140,7 @@ u16 RogueQuest_GetOrderedQuest(u16 index);
 bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag);
 void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state);
 
-struct RogueQuestRewardNEW const* RogueQuest_GetReward(u16 questId, u16 i);
+struct RogueQuestReward const* RogueQuest_GetReward(u16 questId, u16 i);
 u16 RogueQuest_GetRewardCount(u16 questId);
 
 u8 RogueQuest_GetHighestCompleteDifficulty(u16 questId);
@@ -174,53 +174,5 @@ void RogueQuest_OnTrigger(u16 trigger);
 
 bool8 RogueQuest_HasUnlockedChallenges();
 bool8 RogueQuest_HasUnlockedMonMasteries();
-
-
-// old
-void ResetQuestStateAfter(u16 loadedQuestCapacity);
-bool8 AnyNewQuests(void);
-bool8 AnyQuestRewardsPending(void);
-bool8 AnyNewQuestsPending(void);
-
-u16 GetCompletedQuestCount(void);
-u16 GetUnlockedQuestCount(void);
-u8 GetCompletedQuestPerc(void);
-
-bool8 GetQuestState(u16 questId, struct OLDRogueQuestState* outState);
-void SetQuestState(u16 questId, struct OLDRogueQuestState* state);
-
-bool8 IsQuestRepeatable(u16 questId);
-bool8 IsQuestCollected(u16 questId);
-bool8 IsQuestGloballyTracked(u16 questId);
-bool8 IsQuestActive(u16 questId);
-bool8 DoesQuestHaveUnlocks(u16 questId);
-
-bool8 GiveNextRewardAndFormat(u8* str, u8* type);
-bool8 TryUnlockQuest(u16 questId);
-bool8 TryMarkQuestAsComplete(u16 questId);
-bool8 TryDeactivateQuest(u16 questId);
-void UnlockFollowingQuests(u16 questId);
-
-void QuestNotify_BeginAdventure(void);
-void QuestNotify_EndAdventure(void);
-
-void QuestNotify_OnWildBattleEnd(void);
-void QuestNotify_OnTrainerBattleEnd(bool8 isBossTrainer);
-void QuestNotify_OnMonFainted(void);
-
-void QuestNotify_OnExitHubTransition(void);
-void QuestNotify_OnWarp(struct WarpData* warp);
-void QuestNotify_OnAddMoney(u32 amount);
-void QuestNotify_OnRemoveMoney(u32 amount);
-
-void QuestNotify_OnAddBagItem(u16 itemId, u16 count);
-void QuestNotify_OnRemoveBagItem(u16 itemId, u16 count);
-
-void QuestNotify_OnUseBattleItem(u16 itemId);
-
-void QuestNotify_OnMegaEvolve(u16 species);
-void QuestNotify_OnZMoveUsed(u16 move);
-
-void QuestNotify_StatIncrement(u8 statIndex);
 
 #endif

@@ -243,29 +243,6 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" }
                 ]
-            },
-            {
-                "name": "Orre Style",
-                "display_group": "region_challenges",
-                "description": "Win a full Run with: Doubles battle format & having Umbreon and Espeon in your party when you enter the Hall of Fame.",
-                "triggers":
-                [
-                    {
-                        "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "PartyContainsAllSpecies",
-                        "params": [ "SPECIES_UMBREON", "SPECIES_ESPEON" ],
-                        "pass": "SUCCESS",
-                        "fail": "FAIL"
-                    }
-                ],
-                "requirements":
-                [
-                    { "config_range": "CONFIG_RANGE_BATTLE_FORMAT", "value": "BATTLE_FORMAT_DOUBLES" }
-                ],
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
-                ]
             }
         ]
     }

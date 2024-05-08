@@ -318,7 +318,7 @@ script Rogue_ResetAdventureVars
 
 script Rogue_StartAdventureInternal
 {
-    special(Rogue_AnyNewQuestsPending)
+    //special(Rogue_AnyNewQuestsPending)
 
     if(var(VAR_RESULT) == TRUE)
     {

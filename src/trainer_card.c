@@ -683,8 +683,9 @@ u32 CountPlayerTrainerStars(void)
         stars++;
     if (RogueQuest_GetDisplayCompletePerc() == 100)
         stars++;
-    if (IsQuestCollected(QUEST_GlitchMode))
-        stars++;
+    // TODO - Update stars
+    //if (IsQuestCollected(QUEST_GlitchMode))
+    //    stars++;
     if (Rogue_CheckTrainerCardCampaignCompletion())
         stars++;
 

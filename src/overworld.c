@@ -485,7 +485,6 @@ void IncrementGameStat(u8 index)
             statVal = 0xFFFFFF;
 
         Rogue_CampaignNotify_StatIncrement(index);
-        QuestNotify_StatIncrement(index);
 
         SetGameStat(index, statVal);
     }

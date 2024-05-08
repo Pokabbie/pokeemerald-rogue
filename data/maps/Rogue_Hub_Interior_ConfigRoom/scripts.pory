@@ -949,7 +949,7 @@ script Rogue_ConfigRoom_RedrawMap
     }
 
     // Charms/Curse npc
-    questcollected(QUEST_DevilDeal)
+    //questcollected(QUEST_DevilDeal)
     if(var(VAR_RESULT) == NO)
     {
         setflag(FLAG_ROGUE_TRAINER0)

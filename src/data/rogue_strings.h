@@ -157,43 +157,6 @@ const u8 gText_DifficultyLegendariesDesc[] = _(
     "Legendary {PKMN} encounters."
 );
 
-// Quest Log
-//
-const u8 gText_QuestLogTitleOverview[] = _("QUESTS");
-const u8 gText_QuestLogTitleDesc[] = _("DESCRIPTION");
-const u8 gText_QuestLogTitleRewards[] = _("REWARDS");
-const u8 gText_QuestLogTitlePinned[] = _("Pinned");
-const u8 gText_QuestLogTitleActive[] = _("In progress");
-const u8 gText_QuestLogTitleInactive[] = _("Inactive");
-const u8 gText_QuestLogTitleComplete[] = _("Complete");
-const u8 gText_QuestLogTitleTodo[] = _("To do");
-const u8 gText_QuestLogTitleRepeatable[] = _("Repeatable");
-const u8 gText_QuestLogTitleNew[] = _("New!");
-const u8 gText_QuestLogTitleStatus[] = _("Status:");
-const u8 gText_QuestLogMarkerRepeatable[] = _("REPEATABLE");
-const u8 gText_QuestLogMarkerInactive[] = _("{COLOR RED}{SHADOW LIGHT_RED}INACTIVE");
-const u8 gText_QuestLogStatusIncomplete[] = _("{COLOR RED}{SHADOW LIGHT_RED}INCOMPLETE");
-const u8 gText_QuestLogStatusComplete[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}COMPLETE");
-const u8 gText_QuestLogStatusCollection[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}READY TO COLLECT");
-const u8 gText_QuestLogStatusCollected[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}ALREADY COLLECTED");
-const u8 gText_QuestLogTitleRewardMoney[] = _("¥{STR_VAR_1}");
-const u8 gText_QuestLogTitleRewardPokemon[] = _("{STR_VAR_1}");
-const u8 gText_QuestLogTitleRewardShinyPokemon[] = _("Shiny {STR_VAR_1}");
-const u8 gText_QuestLogTitleQuestUnlocks[] = _("Unlocks new Quests");
-const u8 gText_QuestLogPromptOverview[] = _("Select a Category");
-const u8 gText_QuestLogPromptCategory[] = _("Select a Quest");
-const u8 gText_QuestLogPromptPinQuest[] = _("Pin this Quest?");
-const u8 gText_QuestLogPromptUnpinQuest[] = _("Unpin this Quest?");
-const u8 gText_QuestLogOverviewCompleted[] = _("Completed:");
-const u8 gText_QuestLogOverviewUnlocked[] = _("Unlocked:");
-const u8 gText_QuestLogOverviewRewardsToCollect[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}PENDING REWARDS");
-const u8 gText_QuestLogBack[] = _("Back");
-
-const u8 gText_QuestRewardGive[] = _("Received {STR_VAR_1}!");
-const u8 gText_QuestRewardGiveMon[] = _("Received a {STR_VAR_1}!");
-const u8 gText_QuestRewardGiveShinyMon[] = _("Received a Shiny {STR_VAR_1}!");
-const u8 gText_QuestRewardGiveMoney[] = _("Received ¥{STR_VAR_1}!");
-
 // Campaigns
 //
 const u8 gText_CampaignHofTitle[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}{STR_VAR_1}");

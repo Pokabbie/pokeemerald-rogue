@@ -166,7 +166,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 		fileStream << "extern const u8 gQuestDescText_" << quest.GetUniqueWriteId() << "[];\n";
 
 		// Rewards
-		fileStream << "static struct RogueQuestRewardNEW const sRewards_" << quest.GetUniqueWriteId() << "[] = \n";
+		fileStream << "static struct RogueQuestReward const sRewards_" << quest.GetUniqueWriteId() << "[] = \n";
 		fileStream << "{\n";
 
 		for (auto const& rewardInfo : quest.rewards)

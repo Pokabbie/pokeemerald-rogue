@@ -27,6 +27,51 @@
     {
         "default_group":
         [
+            
+            {
+                "name": "Type Master",
+                "description": "Complete any of the 'Type Master' challenges.\\ne.g. Normal Master, Water Master etc.",
+                "flags": 
+                [
+                    "MAIN_QUEST_DEFAULT",
+                    "ACTIVE_IN_HUB"
+                ],
+                "triggers":
+                [
+                    {
+                        "on": [ "MISC_UPDATE" ],
+                        "condition": "HasCompletedQuestOR",
+                        "params": 
+                        [ 
+                            "QUEST_ID_NORMAL_MASTER",
+                            "QUEST_ID_FIGHTING_MASTER",
+                            "QUEST_ID_FLYING_MASTER",
+                            "QUEST_ID_POISON_MASTER",
+                            "QUEST_ID_GROUND_MASTER",
+                            "QUEST_ID_ROCK_MASTER",
+                            "QUEST_ID_BUG_MASTER",
+                            "QUEST_ID_GHOST_MASTER",
+                            "QUEST_ID_STEEL_MASTER",
+                            "QUEST_ID_FIRE_MASTER",
+                            "QUEST_ID_WATER_MASTER",
+                            "QUEST_ID_GRASS_MASTER",
+                            "QUEST_ID_ELECTRIC_MASTER",
+                            "QUEST_ID_PSYCHIC_MASTER",
+                            "QUEST_ID_ICE_MASTER",
+                            "QUEST_ID_DRAGON_MASTER",
+                            "QUEST_ID_DARK_MASTER",
+                            "#ifdef ROGUE_EXPANSION",
+                                "QUEST_ID_FAIRY_MASTER",
+                            "#endif"
+                        ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" }
+                ]
+            },
             {
                 "name": "Normal Master",
                 "description": "Win a full Run, only ever entering Trainer battles with Normal type Pokémon in your party.",
