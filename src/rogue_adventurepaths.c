@@ -1945,22 +1945,36 @@ void RogueAdv_GetLastInteractedRoomParams()
     }
 }
 
+bool8 Rogue_SafeSmartCheckInternal();
+
 void RogueAdv_WarpLastInteractedRoom()
 {
     struct WarpData warp;
     u8 roomIdx = GetRoomIndexFromLastInteracted();
 
-    // Move to the selected node
-    gRogueRun.adventureRoomId = roomIdx;
-    gRogueAdvPath.currentRoomType = gRogueAdvPath.rooms[roomIdx].roomType;
-    memcpy(&gRogueAdvPath.currentRoomParams, &gRogueAdvPath.rooms[roomIdx].roomParams, sizeof(gRogueAdvPath.currentRoomParams));
+    if(Rogue_SafeSmartCheckInternal())
+    {
+        // Move to the selected node
+        gRogueRun.adventureRoomId = roomIdx;
+        gRogueAdvPath.currentRoomType = gRogueAdvPath.rooms[roomIdx].roomType;
+        memcpy(&gRogueAdvPath.currentRoomParams, &gRogueAdvPath.rooms[roomIdx].roomParams, sizeof(gRogueAdvPath.currentRoomParams));
 
-    // Fill with dud warp
-    warp.mapGroup = MAP_GROUP(ROGUE_HUB_TRANSITION);
-    warp.mapNum = MAP_NUM(ROGUE_HUB_TRANSITION);
-    warp.warpId = 0;
-    warp.x = -1;
-    warp.y = -1;
+        // Fill with dud warp
+        warp.mapGroup = MAP_GROUP(ROGUE_HUB_TRANSITION);
+        warp.mapNum = MAP_NUM(ROGUE_HUB_TRANSITION);
+        warp.warpId = 0;
+        warp.x = -1;
+        warp.y = -1;
+    }
+    else
+    {
+        warp.mapGroup = MAP_GROUP(ROGUE_AREA_ADVENTURE_ENTRANCE);
+        warp.mapNum = MAP_NUM(ROGUE_AREA_ADVENTURE_ENTRANCE);
+        warp.warpId = 0;
+        warp.x = -1;
+        warp.y = -1;
+    }
+
 
     SetWarpDestination(warp.mapGroup, warp.mapNum, warp.warpId, warp.x, warp.y);
     DoWarp();

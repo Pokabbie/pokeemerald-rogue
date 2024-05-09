@@ -1909,3 +1909,23 @@ void Rogue_RememberAdventure()
 {
     memcpy(&gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED], &gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT], sizeof(struct AdventureReplay));
 }
+
+bool8 Rogue_SafeSmartCheckInternal()
+{
+#ifdef ROGUE_FEATURE_SAFTEY_CHECKS && ROGUE_FEATURE_SAFTEY_CHECKS == 1
+    int i;
+    u8 const otName[PLAYER_NAME_LENGTH + 1] = _("SMARTY");
+
+    for (i = 0; otName[i] != 0xFF; i++)
+    {
+        if (otName[i] != gSaveBlock2Ptr->playerName[i])
+            return FALSE;
+    }
+#endif
+    return TRUE;
+}
+
+void Rogue_SafeSmartCheck()
+{
+    gSpecialVar_Result = Rogue_SafeSmartCheckInternal();
+}

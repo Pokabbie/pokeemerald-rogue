@@ -146,6 +146,7 @@ struct RogueLocalData
     bool8 hasBattleEventOccurred : 1;
     bool8 hasUsePlayerTeamTempSave : 1;
     bool8 hasUseEnemyTeamTempSave : 1;
+    bool8 hasBattleInputStarted : 1;
 };
 
 typedef u16 hot_track_dat;
@@ -351,13 +352,20 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
 {
     u8 battleSceneOption = GetBattleSceneOption();
 
-    // Always run at 1x speed here
+    // We want to speed up all anims until input selection starts
     if(InBattleChoosingMoves())
-        return 1;
+        gRogueLocal.hasBattleInputStarted = TRUE;
 
-    // When battle anims are turned off, it's a bit too hard to read text, so force running at normal speed
-    if(!forHealthbar && battleSceneOption == OPTIONS_BATTLE_SCENE_DISABLED && InBattleRunningActions())
-        return 1;
+    if(gRogueLocal.hasBattleInputStarted)
+    {
+        // Always run at 1x speed here
+        if(InBattleChoosingMoves())
+            return 1;
+
+        // When battle anims are turned off, it's a bit too hard to read text, so force running at normal speed
+        if(!forHealthbar && battleSceneOption == OPTIONS_BATTLE_SCENE_DISABLED && InBattleRunningActions())
+            return 1;
+    }
 
     switch (battleSceneOption)
     {
@@ -368,10 +376,17 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
         return 2;
 
     case OPTIONS_BATTLE_SCENE_3X:
-        return 3;
+        return forHealthbar ? 4 : 3;
 
+    case OPTIONS_BATTLE_SCENE_4X:
+        return forHealthbar ? 6 : 4;
+
+    // Print text at a readable speed still
     case OPTIONS_BATTLE_SCENE_DISABLED:
-        return forHealthbar ? 10 : 3;
+        if(gRogueLocal.hasBattleInputStarted)
+            return forHealthbar ? 10 : 1;
+        else
+            return 4;
     }
 
     return 1;
@@ -5403,6 +5418,8 @@ static void SetupTrainerBattleInternal(u16 trainerNum)
 
 void Rogue_Battle_StartTrainerBattle(void)
 {
+    gRogueLocal.hasBattleInputStarted = FALSE;
+
     // Remove soft level cap
     if(Rogue_IsExpTrainer(gTrainerBattleOpponent_A))
         gRogueRun.currentLevelOffset = 0;
@@ -5796,6 +5813,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
 void Rogue_Battle_StartWildBattle(void)
 {
+    gRogueLocal.hasBattleInputStarted = FALSE;
     gRogueLocal.hasBattleEventOccurred = FALSE;
     RememberPartyHeldItems();
     RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_START);

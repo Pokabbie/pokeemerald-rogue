@@ -1774,21 +1774,23 @@ void BattleMainCB2(void)
 {
     u8 s;
     u8 speedScale = Rogue_GetBattleSpeedScale(FALSE);
+    bool8 hasPaletteFadePending = FALSE;
 
-    for(s = 0; s < speedScale; ++s)
+    // Update select entries at higher speed
+    // disable speed up during palette fades otherwise we run into issues with blending 
+    //(e.g. moves that change background like Psychic can get stuck or have their colours overflow)
+    for(s = 0; s < speedScale && !hasPaletteFadePending; ++s)
     {
         AnimateSprites();
-    }
-
-    BuildOamBuffer();
-
-    for(s = 0; s < speedScale; ++s)
-    {
+        // BuildOamBuffer(); // <- original order
         RunTextPrinters();
-        UpdatePaletteFade();
+        hasPaletteFadePending = (UpdatePaletteFade() == PALETTE_FADE_STATUS_LOADING);
         RunTasks();
     }
-    
+
+    // We only need to build this once
+    BuildOamBuffer();
+
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_PushAutomationInputState(AUTO_INPUT_STATE_BATTLE);
 #endif
