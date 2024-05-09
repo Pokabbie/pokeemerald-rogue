@@ -403,6 +403,10 @@ bool8 Rogue_UseKeyBattleAnims(void)
         // Force slow anims for legendaries
         if((gBattleTypeFlags & BATTLE_TYPE_LEGENDARY) != 0)
             return TRUE;
+
+        // If we've encountered a wild shiny mon, we're going to treat it as an important battle
+        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) == 0 && IsMonShiny(&gEnemyParty[0]))
+            return TRUE;
     }
 
     return FALSE;
