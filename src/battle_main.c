@@ -3011,7 +3011,11 @@ static void BattleStartClearSetData(void)
     gBattleWeather = 0;
     gHitMarker = 0;
 
+#if TESTING
+    if (TRUE)
+#else
     if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
+#endif
     {
         if (!(gBattleTypeFlags & BATTLE_TYPE_LINK) && !Rogue_GetBattleAnimsEnabled())
             gHitMarker |= HITMARKER_NO_ANIMATIONS;
