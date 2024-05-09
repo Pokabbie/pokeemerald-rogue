@@ -1,6 +1,6 @@
 echo Working Directory: $PWD
 
-testToRunPrefix=""
+testToRunPrefix="(ROGUE)"
 
 echo Running Test Build.. [make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"]
 make -j$(nproc) -O pokeemerald-test.elf TEST=1 RELEASE=0 TESTS="$testToRunPrefix"

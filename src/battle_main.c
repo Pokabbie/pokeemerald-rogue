@@ -1803,6 +1803,9 @@ void BattleMainCB2(void)
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         SetMainCallback2(CB2_QuitRecordedBattle);
     }
+
+    if (gTestRunnerEnabled)
+        TestRunner_Battle_HandleTurnTimeout();
 }
 
 static void FreeRestoreBattleData(void)

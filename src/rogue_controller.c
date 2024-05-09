@@ -338,7 +338,7 @@ bool8 Rogue_FastBattleAnims(void)
 bool8 InBattleChoosingMoves();
 bool8 InBattleRunningActions();
 
-static u8 GetBattleSceneOption()
+static u8 GetBattleSceneOption() 
 {
     if(Rogue_UseKeyBattleAnims())
         return gSaveBlock2Ptr->optionsBossBattleScene;
@@ -394,6 +394,7 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
 
 bool8 Rogue_UseKeyBattleAnims(void)
 {
+#if !TESTING
     if(Rogue_IsRunActive())
     {
         // Force slow anims for bosses
@@ -408,6 +409,7 @@ bool8 Rogue_UseKeyBattleAnims(void)
         if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) == 0 && IsMonShiny(&gEnemyParty[0]))
             return TRUE;
     }
+#endif
 
     return FALSE;
 }
