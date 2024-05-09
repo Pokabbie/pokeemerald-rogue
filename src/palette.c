@@ -64,6 +64,7 @@ ALIGNED(4) EWRAM_DATA u16 gPlttBufferUnfaded[PLTT_BUFFER_SIZE] = {0};
 ALIGNED(4) EWRAM_DATA u16 gPlttBufferFaded[PLTT_BUFFER_SIZE] = {0};
 static EWRAM_DATA struct PaletteStruct sPaletteStructs[NUM_PALETTE_STRUCTS] = {0};
 EWRAM_DATA struct PaletteFadeControl gPaletteFade = {0};
+static EWRAM_DATA u32 sPlttPreviousUpdateResult = 0;
 static EWRAM_DATA u32 sPlttBufferTransferPending = 0;
 EWRAM_DATA u8 ALIGNED(2) gPaletteDecompressionBuffer[PLTT_SIZE] = {0};
 
@@ -123,6 +124,8 @@ u8 UpdatePaletteFade(void)
     u8 result;
     u8 dummy = 0;
 
+    sPlttPreviousUpdateResult = PALETTE_FADE_STATUS_LOADING;
+
     if (sPlttBufferTransferPending)
         return PALETTE_FADE_STATUS_LOADING;
 
@@ -134,8 +137,14 @@ u8 UpdatePaletteFade(void)
         result = UpdateHardwarePaletteFade();
 
     sPlttBufferTransferPending = gPaletteFade.multipurpose1 | dummy;
+    sPlttPreviousUpdateResult = result;
 
     return result;
+}
+
+u8 PrevPaletteFadeResult(void)
+{
+    return sPlttPreviousUpdateResult;
 }
 
 void ResetPaletteFade(void)
