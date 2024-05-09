@@ -1387,6 +1387,7 @@ static void CB2_BattleTest_NextTrial(void)
         DATA.recordedBattle.rngSeed = ISO_RANDOMIZE1(STATE->runTrial);
         DATA.queuedEvent = 0;
         DATA.lastActionTurn = 0;
+        DATA.turnTimeoutCounter = 0;
         SetVariablesForRecordedBattle(&DATA.recordedBattle);
         SetMainCallback2(CB2_InitBattle);
     }
