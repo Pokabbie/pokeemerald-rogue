@@ -376,7 +376,10 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
         return 2;
 
     case OPTIONS_BATTLE_SCENE_3X:
-        return 3;
+        return forHealthbar ? 4 : 3;
+
+    case OPTIONS_BATTLE_SCENE_4X:
+        return forHealthbar ? 6 : 4;
 
     // Print text at a readable speed still
     case OPTIONS_BATTLE_SCENE_DISABLED:
