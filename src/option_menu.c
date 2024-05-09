@@ -128,8 +128,7 @@ static const u8 sText_HighlightMid[] = _("{SHADOW LIGHT_GREEN}");
 
 static const u8 sText_BattleScene_1x[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}1x Speed");
 static const u8 sText_BattleScene_2x[] = _("{SHADOW LIGHT_GREEN}2x Speed");
-static const u8 sText_BattleScene_3x[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}3x Speed");
-static const u8 sText_BattleScene_4x[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}4x Speed");
+static const u8 sText_BattleScene_3x[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}4x Speed");
 static const u8 sText_BattleScene_Disabled[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}Disabled");
 
 typedef u8 (*MenuItemInputCallback)(u8, u8);
@@ -754,8 +753,7 @@ static void BattleScene_DrawChoices(u8 menuOffset, u8 selection)
     {
         [OPTIONS_BATTLE_SCENE_1X] = sText_BattleScene_1x,
         [OPTIONS_BATTLE_SCENE_2X] = sText_BattleScene_2x,
-        [OPTIONS_BATTLE_SCENE_3X] = sText_BattleScene_3x,
-        [OPTIONS_BATTLE_SCENE_4X] = sText_BattleScene_4x,
+        [OPTIONS_BATTLE_SCENE_4X] = sText_BattleScene_3x,
         [OPTIONS_BATTLE_SCENE_DISABLED] = sText_BattleScene_Disabled,
     };
     DrawChoiceSelection(menuOffset, selection, options, ARRAY_COUNT(options));

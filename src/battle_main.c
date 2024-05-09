@@ -1866,24 +1866,59 @@ static void CB2_HandleStartMultiBattle(void)
 
 void BattleMainCB2(void)
 {
-    u8 s;
     u8 speedScale = Rogue_GetBattleSpeedScale(FALSE);
-    bool8 hasPaletteFadePending = FALSE;
 
-    // Update select entries at higher speed
-    // disable speed up during palette fades otherwise we run into issues with blending 
-    //(e.g. moves that change background like Psychic can get stuck or have their colours overflow)
-    for(s = 0; s < speedScale && !hasPaletteFadePending; ++s)
+    // If we are processing a palette fade we need to temporarily fall back to 1x speed otherwise there is graphical corruption
+    if(PrevPaletteFadeResult() == PALETTE_FADE_STATUS_LOADING)
+        speedScale = 1;
+
+    if(speedScale <= 1)
     {
+        // Maintain OG order for compat
         AnimateSprites();
-        // BuildOamBuffer(); // <- original order
+        BuildOamBuffer();
         RunTextPrinters();
-        hasPaletteFadePending = (UpdatePaletteFade() == PALETTE_FADE_STATUS_LOADING);
+        UpdatePaletteFade();
         RunTasks();
     }
+    else
+    {
+        u8 s;
+        u8 fadeResult;
 
-    // We only need to build this once
-    BuildOamBuffer();
+        // Update select entries at higher speed
+        // disable speed up during palette fades otherwise we run into issues with blending 
+        //(e.g. moves that change background like Psychic can get stuck or have their colours overflow)
+        for(s = 1; s < speedScale; ++s)
+        {
+            AnimateSprites();
+            RunTextPrinters();
+            fadeResult = UpdatePaletteFade();
+
+            if(fadeResult == PALETTE_FADE_STATUS_LOADING)
+            {
+                // minimal final update as we've just started a fade
+                BuildOamBuffer();
+                RunTasks();
+                break;
+            }
+            else
+            {
+                RunTasks();
+                VBlankCB_Battle();
+            }
+        }
+
+        if(fadeResult != PALETTE_FADE_STATUS_LOADING)
+        {
+            // final update
+            AnimateSprites();
+            BuildOamBuffer();
+            RunTextPrinters();
+            UpdatePaletteFade();
+            RunTasks();
+        }
+    }
 
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_PushAutomationInputState(AUTO_INPUT_STATE_BATTLE);

@@ -64,6 +64,7 @@ void LoadPalette(const void *, u16, u16);
 void FillPalette(u16, u16, u16);
 void TransferPlttBuffer(void);
 u8 UpdatePaletteFade(void);
+u8 PrevPaletteFadeResult(void);
 void ResetPaletteFade(void);
 bool8 BeginNormalPaletteFade(u32, s8, u8, u8, u16);
 void PaletteStruct_ResetById(u16);
