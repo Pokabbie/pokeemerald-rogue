@@ -1,5 +1,9 @@
 # JSON files are run through customjson, which is a Pokabbie specific tool that converts JSON data to an output file
 
+AUTO_GEN_TARGETS += $(DATA_SRC_SUBDIR)/rogue/*.h
+AUTO_GEN_TARGETS += include/constants/generated/*.h
+AUTO_GEN_TARGETS += $(ROGUEPORYSCRIPTSDIR)/Generated/*.pory
+
 $(DATA_SRC_SUBDIR)/rogue/battle_music.h: $(DATA_SRC_SUBDIR)/rogue/battle_music.json
 	$(CUSTOMJSON) battle_music_c $^ $@
 
