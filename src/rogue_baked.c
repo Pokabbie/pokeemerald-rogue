@@ -589,31 +589,12 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
         // Apply evo curse
         if(IsCurseActive(EFFECT_EVERSTONE_EVOS))
         {
-            switch (outEvo->method)
-            {
-            case EVO_LEVEL:
-            case EVO_LEVEL_ATK_GT_DEF:
-            case EVO_LEVEL_ATK_EQ_DEF:
-            case EVO_LEVEL_ATK_LT_DEF:
-            case EVO_LEVEL_SILCOON:
-            case EVO_LEVEL_CASCOON:
-            case EVO_LEVEL_NINJASK:
-            //case EVO_LEVEL_SHEDINJA:
 #ifdef ROGUE_EXPANSION
-            case EVO_LEVEL_FEMALE:
-            case EVO_LEVEL_MALE:
-            case EVO_LEVEL_NIGHT:
-            case EVO_LEVEL_DAY:
-            case EVO_LEVEL_DUSK:
-            case EVO_LEVEL_RAIN:
-            case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
-            case EVO_LEVEL_NATURE_AMPED:
-            case EVO_LEVEL_NATURE_LOW_KEY:
+            outEvo->method = EVO_NONE;
+#else
+            outEvo->method = 0;
 #endif
-                outEvo->method = EVO_ITEM;
-                outEvo->param = ITEM_LINK_CABLE;
-                break;
-            }
+            outEvo->targetSpecies = SPECIES_NONE;
         }
     }
 #endif

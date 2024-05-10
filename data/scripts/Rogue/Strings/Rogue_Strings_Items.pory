@@ -196,11 +196,11 @@ text gItemDesc_WildIVCurse
 
 text gItemDesc_CatchingCharm
 {
-    format("BALL effectiveness is increased by 100%.")
+    format("Ball effectiveness is increased by 100%.")
 }
 text gItemDesc_CatchingCurse
 {
-    format("BALL effectiveness is decreased by 25%.")
+    format("Ball effectiveness is decreased by 25%.")
 }
 
 text gItemDesc_GraceCharm
@@ -246,12 +246,12 @@ text gItemDesc_PartyCurse
 
 text gItemDesc_EverstoneCurse
 {
-    format("'LVL UP' Evolutions turn into 'LVL whilst holding LINK CABLE'.")
+    format("All Evolutions are disabled.")
 }
 
 text gItemDesc_BattleItemCurse
 {
-    format("Items cannot be used in battle. (Except POKéBALLS)")
+    format("Items cannot be used in battle. (Except Poké Balls)")
 }
 
 text gItemDesc_SpeciesClauseCurse

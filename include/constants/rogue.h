@@ -493,12 +493,12 @@
 
 // CONFIG_RANGE_
 #define CONFIG_RANGE_TRAINER                0
-#define CONFIG_RANGE_ITEM                   1
-#define CONFIG_RANGE_LEGENDARY              2
+#define CONFIG_RANGE_ITEM                   1 // unused
+#define CONFIG_RANGE_LEGENDARY              2 // unused
 #define CONFIG_RANGE_BATTLE_FORMAT          3
 #define CONFIG_RANGE_POKEDEX_VARIANT        4
 #define CONFIG_RANGE_GAME_MODE_NUM          5
-#define CONFIG_RANGE_UNUSED0                6 // prev TRAINER_ORDER
+#define CONFIG_RANGE_DIFFICULTY_PRESET      6
 #define CONFIG_RANGE_COUNT                  7
 
 #define DEBUG_START_VALUE           0x7FFF

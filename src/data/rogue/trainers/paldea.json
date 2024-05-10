@@ -116,7 +116,7 @@
                 "name": "KATY",
                 "type_assignment": "BUG",
                 "gfx_suffix": "PALDEA_KATY",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_TAROUNTULA",
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
@@ -147,7 +147,7 @@
                 "name": "BRASSIUS",
                 "type_assignment": "GRASS",
                 "gfx_suffix": "PALDEA_BRASSIUS",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_SMOLIV",
                 "preferred_mon_gender": "MALE",
                 "team_generator":
@@ -177,7 +177,7 @@
                 "name": "IONO",
                 "type_assignment": "ELECTRIC",
                 "gfx_suffix": "PALDEA_IONO",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_TADBULB",
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
@@ -207,7 +207,7 @@
                 "name": "KOFU",
                 "type_assignment": "WATER",
                 "gfx_suffix": "PALDEA_KOFU",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_4" ],
                 "shiny_species": "SPECIES_CRABRAWLER",
                 "preferred_mon_gender": "MALE",
                 "team_generator":
@@ -237,7 +237,7 @@
                 "name": "LARRY",
                 "type_assignment": "NORMAL",
                 "gfx_suffix": "PALDEA_LARRY",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_DUNSPARCE",
                 "preferred_mon_gender": "MALE",
                 "team_generator":
@@ -268,7 +268,7 @@
                 "name": "RYME",
                 "type_assignment": "GHOST",
                 "gfx_suffix": "PALDEA_RYME",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_GREAVARD",
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
@@ -298,7 +298,7 @@
                 "name": "TULIP",
                 "type_assignment": "PSYCHIC",
                 "gfx_suffix": "PALDEA_TULIP",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_FLITTLE",
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
@@ -328,7 +328,7 @@
                 "name": "GRUSHA",
                 "type_assignment": "ICE",
                 "gfx_suffix": "PALDEA_GRUSHA",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_CETODDLE",
                 "preferred_mon_gender": "MALE",
                 "team_generator":
