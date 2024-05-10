@@ -1619,10 +1619,12 @@ u8 GetSpecialObjectEventIdByLocalId(u8 localId)
     if (localId == OBJ_EVENT_ID_FOLLOWER)
         return GetFollowerObjectId();
 
+    // Always prefer looking up the object in cache whenever we can
     {
-        u8 result = Rogue_GetCachedObjectEventId(localId);
-        if(result != OBJECT_EVENTS_COUNT)
-            return result;
+        u8 eventObjectId;
+
+        if(Rogue_TryGetCachedObjectEventId(localId, &eventObjectId))
+            return eventObjectId;
     }
 
     return GetObjectEventIdByLocalId(localId);

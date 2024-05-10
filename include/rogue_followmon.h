@@ -20,6 +20,7 @@ bool8 FollowMon_IsLargeGfx(u16 gfxSpecies);
 
 bool8 FollowMon_IsPartnerMonActive();
 u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset);
+void FollowMon_ClearCachedPartnerSpecies();
 u16 FollowMon_GetMonGraphics(struct Pokemon* mon);
 u16 FollowMon_GetBoxMonGraphics(struct BoxPokemon* mon);
 

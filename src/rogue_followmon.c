@@ -44,6 +44,7 @@ struct FollowMonData
     u16 spawnSlot;
     u16 pendingSpawnAnim;
     u16 encounterChainSpecies;
+    u16 cachedPartnerMonGfx;
 };
 
 static EWRAM_DATA struct FollowMonData sFollowMonData = { 0 };
@@ -428,7 +429,7 @@ bool8 FollowMon_IsPartnerMonActive()
     return PlayerHasFollower();
 }
 
-u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
+u16 GetPartnerFollowSpeciesInternal()
 {
     u16 species;
 
@@ -449,10 +450,27 @@ u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
         }
     }
 
+    return species;
+}
+
+u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
+{
+    u16 species;
+
+    if(sFollowMonData.cachedPartnerMonGfx == NUM_SPECIES)
+        sFollowMonData.cachedPartnerMonGfx = GetPartnerFollowSpeciesInternal();
+
+    species = sFollowMonData.cachedPartnerMonGfx;
+
     if(!includeShinyOffset && species >= FOLLOWMON_SHINY_OFFSET)
         species -= FOLLOWMON_SHINY_OFFSET;
 
     return species;
+}
+
+void FollowMon_ClearCachedPartnerSpecies()
+{
+    sFollowMonData.cachedPartnerMonGfx = NUM_SPECIES;
 }
 
 bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon)
@@ -1144,6 +1162,8 @@ void FollowMon_RecountActiveObjects()
     u8 i;
 
     sFollowMonData.activeCount = 0;
+
+    FollowMon_ClearCachedPartnerSpecies();
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {

@@ -3058,6 +3058,8 @@ void Rogue_MainInit(void)
 
     ResetHotTracking();
 
+    FollowMon_ClearCachedPartnerSpecies();
+
     RogueQuery_Init();
     Rogue_RideMonInit();
     Rogue_AssistantInit();
@@ -3169,14 +3171,16 @@ void Rogue_OnResetAllSprites()
     Rogue_OnResetRideMonSprites();
 }
 
-u8 Rogue_GetCachedObjectEventId(u32 localId)
+bool8 Rogue_TryGetCachedObjectEventId(u32 localId, u8* eventObjectId)
 {
     if (localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
     {
-        return gRogueLocal.cachedObjIds[localId - OBJ_EVENT_ID_MULTIPLAYER_FIRST];
+        *eventObjectId = gRogueLocal.cachedObjIds[localId - OBJ_EVENT_ID_MULTIPLAYER_FIRST];
+        return TRUE;
     }
 
-    return OBJECT_EVENTS_COUNT;
+    *eventObjectId = OBJECT_EVENTS_COUNT;
+    return FALSE;
 }
 
 void Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max)

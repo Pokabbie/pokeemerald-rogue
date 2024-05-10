@@ -265,6 +265,8 @@ void RogueMP_MainCB()
 
 void RogueMP_OverworldCB()
 {
+    START_TIMER(ROGUE_MP_UPDATE);
+
     if(RogueMP_IsActive())
     {
         // To split up the processing, only process 1 player per frame
@@ -272,15 +274,12 @@ void RogueMP_OverworldCB()
         //UpdateLocalPlayerState(playerId);
         
         u8 i;
-
-
-        START_TIMER(ROGUE_MP_UPDATE_PLAYER_STATE);
-
         for(i = 0; i < NET_PLAYER_CAPACITY; ++i)
             UpdateLocalPlayerState(i);
 
-        STOP_TIMER(ROGUE_MP_UPDATE_PLAYER_STATE);
     }
+
+    STOP_TIMER(ROGUE_MP_UPDATE);
 }
 
 void RogueMP_RemoveObjectEvents()
@@ -768,9 +767,17 @@ static void UpdateLocalPlayerState(u8 playerId)
     AGB_ASSERT(gRogueMultiplayer != NULL);
 
     if(playerId == gRogueMultiplayer->localPlayerId)
+    {
+        START_TIMER(ROGUE_MP_UPDATE_LOCAL_PLAYER);
         WritePlayerState(&gRogueMultiplayer->playerState[playerId]);
+        STOP_TIMER(ROGUE_MP_UPDATE_LOCAL_PLAYER);
+    }
     else
+    {
+        START_TIMER(ROGUE_MP_UPDATE_REMOTE_PLAYER);
         ObservePlayerState(playerId, &gRogueMultiplayer->playerState[playerId]);
+        STOP_TIMER(ROGUE_MP_UPDATE_REMOTE_PLAYER);
+    }
 }
 
 //#define tConnectAsHost data[1]
