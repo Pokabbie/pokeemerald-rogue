@@ -123,12 +123,17 @@ function Conn_ProcessCmd(msg)
         end
 
         if not success then
-            console:error("Unknown Cmd: " .. req)
+            console:error("Unknown Cmd (Ignoring...)")
+            if constants.debugLog then
+                console:error("Cmd: " .. req)
+            end
             allSuccess = false
         end
     end
-
-    return allSuccess
+    
+    -- we don't really want to disconnect whenever an unknown cmd makes it's way here
+    -- return allSuccess
+    return true
 end
 
 
