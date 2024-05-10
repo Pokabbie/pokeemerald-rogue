@@ -352,6 +352,10 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
 {
     u8 battleSceneOption = GetBattleSceneOption();
 
+    // Hold L to slow down
+    if(JOY_HELD(L_BUTTON))
+        return 1;
+
     // We want to speed up all anims until input selection starts
     if(InBattleChoosingMoves())
         gRogueLocal.hasBattleInputStarted = TRUE;
@@ -1478,33 +1482,37 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     if(*waitTime & B_WAIT_TIME_ABSOLUTE)
     {
         *waitTime &= ~B_WAIT_TIME_ABSOLUTE;
-        return;
     }
-
-    if(Rogue_FastBattleAnims())
+    else
     {
-        *waitTime = awaitingMessage ? 8 : 0;
-    }
-    else if(difficulty < ROGUE_FINAL_CHAMP_DIFFICULTY) // Go at default speed for final fight
-    {
-        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
+        if(Rogue_FastBattleAnims())
         {
-            // Still run faster and default game because it's way too slow :(
-            if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
-                *waitTime = *waitTime / 4;
-            else
-                *waitTime = *waitTime / 2;
+            *waitTime = awaitingMessage ? 8 : 0;
         }
-        else
-            // Go faster, but not quite gym leader slow
-            *waitTime = *waitTime / 6;
+        else if(difficulty < ROGUE_FINAL_CHAMP_DIFFICULTY) // Go at default speed for final fight
+        {
+            if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
+            {
+                // Still run faster and default game because it's way too slow :(
+                if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
+                    *waitTime = *waitTime / 4;
+                else
+                    *waitTime = *waitTime / 2;
+            }
+            else
+                // Go faster, but not quite gym leader slow
+                *waitTime = *waitTime / 6;
+        }
+
+        if(!Rogue_GetBattleAnimsEnabled())
+        {
+            // If we don't have anims on wait message for at least a little bit
+            *waitTime = max(4, *waitTime);
+        }
     }
 
-    if(!Rogue_GetBattleAnimsEnabled())
-    {
-        // If we don't have anims on wait message for at least a little bit
-        *waitTime = max(4, *waitTime);
-    }
+    // Now apply speed scale
+    *waitTime = max(1, *waitTime / Rogue_GetBattleSpeedScale(FALSE));
 }
 
 s16 Rogue_ModifyBattleSlideAnim(s16 rate)
