@@ -258,6 +258,8 @@ static bool8 CalculateInitialRideSpecies()
 // Based on GetOnOffBike
 void Rogue_GetOnOffRideMon(u8 whistleType, bool8 forWarp)
 {
+    FollowMon_ClearCachedPartnerSpecies();
+
     if(!forWarp)
     {
         if(Rogue_IsRideMonFlying() || Rogue_IsRideMonSwimming())
@@ -652,6 +654,9 @@ static void UpdateRideMonSprites(u8 rideObjectId, struct RideObjectEvent* rideOb
             s16 spriteY = gObjectEvents[rideObject->riderObjectEventId].currentCoords.y;
 
             rideObject->state.monGfx = rideObject->state.desiredRideSpecies;
+
+            if(rideObjectId == RIDE_OBJECT_PLAYER)
+                FollowMon_ClearCachedPartnerSpecies();
 
             if(rideObjectId)
             {

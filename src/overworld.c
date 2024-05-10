@@ -2267,6 +2267,7 @@ static void InitObjectEventsLocal(void)
     u16 x, y;
     struct InitialPlayerAvatarState *player;
 
+    FollowMon_ClearCachedPartnerSpecies();
     gTotalCameraPixelOffsetX = 0;
     gTotalCameraPixelOffsetY = 0;
     ResetObjectEvents();
@@ -2284,6 +2285,7 @@ static void InitObjectEventsLocal(void)
 
 static void InitObjectEventsReturnToField(void)
 {
+    FollowMon_ClearCachedPartnerSpecies();
     SpawnObjectEventsOnReturnToField(0, 0);
     RotatingGate_InitPuzzleAndGraphics();
     Rogue_OnObjectEventsInit();
