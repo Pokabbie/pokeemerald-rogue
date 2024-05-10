@@ -435,6 +435,7 @@ static void ArrowRight_DrawChoices(u8 menuOffset, u8 selection);
 static void ArrowLeft_DrawChoices(u8 menuOffset, u8 selection);
 static u8 Slider_ProcessInput(u8 menuOffset, u8 selection);
 static void Slider_DrawChoices(u8 menuOffset, u8 selection);
+static u8 Preset_ProcessInput(u8 menuOffset, u8 selection);
 static u8 Toggle_ProcessInput(u8 menuOffset, u8 selection);
 static void Toggle_DrawChoices(u8 menuOffset, u8 selection);
 static u8 Empty_ProcessInput(u8 menuOffset, u8 selection);
@@ -486,7 +487,7 @@ static const struct MenuEntry sOptionMenuItems[] =
     {
         .itemName = gText_DifficultyPreset,
         .MULTI_DESC(sMenuNameDesc_PresetDescription),
-        .processInput = Slider_ProcessInput,
+        .processInput = Preset_ProcessInput,
         .drawChoices = Slider_DrawChoices
     },
 
@@ -1466,6 +1467,45 @@ static void Slider_DrawChoices(u8 menuOffset, u8 selection)
     }
 
     DrawOptionMenuChoice(text, XPOS_CHOICES, menuOffset * YPOS_SPACING, style);
+}
+
+static u8 Preset_ProcessInput(u8 menuOffset, u8 selection)
+{
+    // Same behaviour as Slider_ProcessInput except for when custom is the option
+
+    if(ShouldSkipInput())
+        return selection;
+
+    if(selection == DIFFICULTY_LEVEL_CUSTOM)
+    {
+        // If we were on custom, first click should be going to the current reward level difficulty
+        if (JOY_NEW(DPAD_RIGHT) || JOY_NEW(DPAD_LEFT))
+        {
+            selection = Rogue_GetDifficultyRewardLevel();
+            sArrowPressed = TRUE;
+            return selection;
+        }
+    }
+
+    if (JOY_NEW(DPAD_RIGHT))
+    {
+        if (selection < DIFFICULTY_LEVEL_BRUTAL)
+            selection++;
+        //else
+        //    selection = DIFFICULTY_LEVEL_EASY;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_NEW(DPAD_LEFT))
+    {
+        if (selection != DIFFICULTY_LEVEL_EASY)
+            selection--;
+        //else
+        //    selection = DIFFICULTY_LEVEL_BRUTAL;
+
+        sArrowPressed = TRUE;
+    }
+    return selection;
 }
 
 static u8 Toggle_ProcessInput(u8 menuOffset, u8 selection)

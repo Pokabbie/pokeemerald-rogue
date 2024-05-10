@@ -116,8 +116,17 @@
                 "name": "KATY",
                 "type_assignment": "BUG",
                 "gfx_suffix": "PALDEA_KATY",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_1" ],
                 "shiny_species": "SPECIES_TAROUNTULA",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Oh? What a lovely Trainer you are.\\pOh? Did I forget to introduce myself?\\nForgive me.\\pAhem. My name is Katy, I am the next Leader you shall face.",
+                        "PRE_BATTLE_TAUNT": "Don't let your guard down unless you would like to find yourself knocked off your feet!",
+                        "POST_BATTLE_TAUNT": "All of my sweet little Pokémon dropped like flies!",
+                        "POST_BATTLE_CLOSER": "Your strength rose during our battle like a nice bread in the oven.\\pI feel that I may need to work on my own strength as well!\\pGood luck to you, in your Adventure!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -147,8 +156,17 @@
                 "name": "BRASSIUS",
                 "type_assignment": "GRASS",
                 "gfx_suffix": "PALDEA_BRASSIUS",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_2" ],
                 "shiny_species": "SPECIES_SMOLIV",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You did well to come this far!\\pI am Brassius-an artist specializing in Grass-type Pokémon.",
+                        "PRE_BATTLE_TAUNT": "Enough talk! We must begin creating our collaborative work of art!",
+                        "POST_BATTLE_TAUNT": "Avant-garde!",
+                        "POST_BATTLE_CLOSER": "Oh! What artistic tactics you employ!\\pThe patterns of your moves! The minute details of your Pokémon's performance!\\pEverything you did was honed to perfection.\\pYou're set for success in the remainder of your Adventure!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -177,8 +195,17 @@
                 "name": "IONO",
                 "type_assignment": "ELECTRIC",
                 "gfx_suffix": "PALDEA_IONO",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_3" ],
                 "shiny_species": "SPECIES_TADBULB",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Ladies and gentlemens! Are you readyyyyy?!\\pYour eyeballs are MINE-caught in my Electroweb! Whosawhatsit? Iono!\\p'Ello, 'ello, hola! Ciao and bonjour!",
+                        "PRE_BATTLE_TAUNT": "It's time for the Iono Zone, everybody!",
+                        "POST_BATTLE_TAUNT": "You're as flashy and bright as a 10,000,000-volt Thunderbolt, friendo!",
+                        "POST_BATTLE_CLOSER": "Our challenger came out victorious! Well done, {PLAYER}!\\pIf any of you found our electrifying battle to be-bzzzt!-shocking, go smash that subscribe button!\\pAnd wish all our luck to my new pal, {PLAYER}, in the rest of their Adventure!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -207,8 +234,17 @@
                 "name": "KOFU",
                 "type_assignment": "WATER",
                 "gfx_suffix": "PALDEA_KOFU",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_4" ],
                 "shiny_species": "SPECIES_CRABRAWLER",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Heya, step right up! I've been waitin' for ya.",
+                        "PRE_BATTLE_TAUNT": "Don' expect me to go easy on ya in our battle here!",
+                        "POST_BATTLE_TAUNT": "Vaultin' Veluza! Yer a lively one, aren't ya!",
+                        "POST_BATTLE_CLOSER": "Gahaha! A loss as refreshing as the air at the morning market!\\pYou got me good, I tell ya! What a great catch you are!\\pBest of luck to ya, in the rest of your battles, kiddo!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -237,8 +273,17 @@
                 "name": "LARRY",
                 "type_assignment": "NORMAL",
                 "gfx_suffix": "PALDEA_LARRY",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_5" ],
                 "shiny_species": "SPECIES_DUNSPARCE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Hello.\\pI'm Larry. I'm assigned to work as the Leader.\\pAnyway, my boss will dock my pay if I spend too much time chitchatting.",
+                        "PRE_BATTLE_TAUNT": "Thank you for doing business with us today.\\nI, Larry, will be at your service.",
+                        "POST_BATTLE_TAUNT": "You certainly threw me for a loop.",
+                        "POST_BATTLE_CLOSER": "You're rather strong, aren't you? Enough to bring out my poker face, even.\\pGood luck with the rest of your Adventure."
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -268,8 +313,17 @@
                 "name": "RYME",
                 "type_assignment": "GHOST",
                 "gfx_suffix": "PALDEA_RYME",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_6" ],
                 "shiny_species": "SPECIES_GREAVARD",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Yo, yo!\\pWell, let's get to it-you're a Pokémon Trainer.\\pSo battle me, and show me who you are!\\pLest you forget it, the name is Ryme, and I'm known as the MC of RIP!",
+                        "PRE_BATTLE_TAUNT": "Dead or alive, let's make this a vibe!",
+                        "POST_BATTLE_TAUNT": "Givin' up the ghost's not really my style.\\pI'll let you have this one, though, baby.",
+                        "POST_BATTLE_CLOSER": "Hah! Great battle-chilling AND thrilling!\\pYou've got spirit, kid.\\pI'm sure you're gonna ACE your next battle!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -298,8 +352,17 @@
                 "name": "TULIP",
                 "type_assignment": "PSYCHIC",
                 "gfx_suffix": "PALDEA_TULIP",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_FLITTLE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Hehe. I must say, you are a cute challenger, {PLAYER}.\\pI'm Tulip, the Leader here.\\pThough I must tell you that being a makeup artist is my main line of work.",
+                        "PRE_BATTLE_TAUNT": "Allow me to put my skills to use to make your cute little Pokémon even more beautiful!",
+                        "POST_BATTLE_TAUNT": "Your strength has a magic to it that cannot be washed away.",
+                        "POST_BATTLE_CLOSER": "I lost the battle? And your beauty rivals even my own? I can't believe it.\\pYou are quite splendid. Yes, truly amazing!\\pI wish you the best of luck, with the rest of your Adventure."
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -328,8 +391,17 @@
                 "name": "GRUSHA",
                 "type_assignment": "ICE",
                 "gfx_suffix": "PALDEA_GRUSHA",
-                "class_flags": [ "BOSS_ANY_GYM" ],
+                "class_flags": [ "BOSS_GYM_8" ],
                 "shiny_species": "SPECIES_CETODDLE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Brrrrr… I'm freezing…\\p…I take it you're a challenger?\\pWell, this is my job… so don't take what I'm about to do personally.",
+                        "PRE_BATTLE_TAUNT": "Get ready to feel the icy bite of reality.",
+                        "POST_BATTLE_TAUNT": "You melted straight through my ice…",
+                        "POST_BATTLE_CLOSER": "That burning passion you have… You strive for the future, no matter what challenges you face.\\pJust like how I used to be…\\pGood luck, in your next battle…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -364,6 +436,15 @@
                 "gfx_suffix": "PALDEA_RIKA",
                 "class_flags": [ "BOSS_ELITE_1" ],
                 "shiny_species": "SPECIES_WOOPER_PALDEAN",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Now then, let's get this started, eh?\\pI'd say I'll go easy on you, but…",
+                        "PRE_BATTLE_TAUNT": "I'd be lying!\\nThink fast!",
+                        "POST_BATTLE_TAUNT": "Not bad, kiddo.",
+                        "POST_BATTLE_CLOSER": "Talk about unfair. No way was I ever gonna win that one.\\pStill, though, what a great battle. Felt good even to lose!\\pGood luck, with the rest of your battles, kiddo!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -394,6 +475,15 @@
                 "gfx_suffix": "PALDEA_POPPY",
                 "class_flags": [ "BOSS_ELITE_2" ],
                 "shiny_species": "SPECIES_TINKATINK",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: It's so cool you made it this far!\\pBut this is where you say bye-bye!\\pI can't wait for you to meet my friends, so…",
+                        "PRE_BATTLE_TAUNT": "Here they come!",
+                        "POST_BATTLE_TAUNT": "Uagh?! Mmmuuuggghhh…",
+                        "POST_BATTLE_CLOSER": "Waaaaaah! Waaaaaah!\\pI wanted to win real bad!\\pBut you're too strong!\\pOh, right…\\pGood luck with the rest of your Adventure…"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
@@ -424,6 +514,15 @@
                 "gfx_suffix": "PALDEA_LARRY",
                 "class_flags": [ "BOSS_ELITE_3" ],
                 "shiny_species": "SPECIES_STARLY",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Hello there… It's me, Larry.",
+                        "PRE_BATTLE_TAUNT": "Anyway, time to get to work.",
+                        "POST_BATTLE_TAUNT": "Well, that took the wind from under our wings…",
+                        "POST_BATTLE_CLOSER": "You're rather strong, aren't you? Enough to bring out my poker face, even.\\pGood luck with the rest of your Adventure."
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -459,6 +558,15 @@
                 "gfx_suffix": "PALDEA_HASSEL",
                 "class_flags": [ "BOSS_ELITE_4" ],
                 "shiny_species": "SPECIES_FRIGIBAX",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Young sprouts truly do grow with astounding speed, yes…\\pNow, a teacher's duty is to guide students and aid their growth.\\pBut I think I shall forget about my role as a teacher for a moment…",
+                        "PRE_BATTLE_TAUNT": "Prepare to learn firsthand how the fiery breath of ferocious battle feels!",
+                        "POST_BATTLE_TAUNT": "The mighty dragon has been felled!",
+                        "POST_BATTLE_CLOSER": "Wo… WONDERFUL!\\pYou battled so wonderfully!\\pYou can do this!\\pI believe you can win all of the battle ahead of you and complete your Adventure!"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -494,6 +602,15 @@
                 "trainer_flags": [ "REGION_PALDEA", "CLASS_BOSS", "MISC_RAINBOW_EXCLUDE" ],
                 "class_flags": [ "BOSS_CHAMP" ],
                 "shiny_species": "SPECIES_GLIMMET",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Welcome, {PLAYER}.\\pBut before we get started, I should apologize for one thing.\\pYou see, I have a trait that some might say is inapproparite for the League Chairwoman…\\pI am utterly incapable of holding back when it comes to Pokémon battles.\\pSo, are you ready for your test?",
+                        "PRE_BATTLE_TAUNT": "I want to see the true measure of your talent!",
+                        "POST_BATTLE_TAUNT": "You go beyond my imagination so easily…",
+                        "POST_BATTLE_CLOSER": "Such overwhelming power… Such amazing skill…\\pCongratulations. I'm sure you'll do well in your final battle!"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {
