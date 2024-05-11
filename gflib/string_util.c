@@ -4,6 +4,7 @@
 #include "strings.h"
 
 #include "rogue_multiplayer.h"
+#include "rogue_hub.h"
 
 EWRAM_DATA u8 gStringVar1[0x100] = {0};
 EWRAM_DATA u8 gStringVar2[0x100] = {0};
@@ -531,7 +532,7 @@ static const u8 *ExpandPlaceholder_Groudon(void)
 static const u8 *ExpandPlaceholder_PokemonHub(void)
 {
     //return gText_ExpandedPlaceholder_PokemonHub;
-    return gSaveBlock2Ptr->pokemonHubName;
+    return RogueHub_GetHubName();
 }
 
 const u8 *GetExpandedPlaceholder(u32 id)

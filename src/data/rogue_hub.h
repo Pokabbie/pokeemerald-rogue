@@ -37,6 +37,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 2, 3 },
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
+
+            [HUB_AREA_CONN_TELEPORT] = { 13 },
         },
         .iconImage = gItemIcon_Pokedex,
         .iconPalette = gItemIconPalette_Pokedex,
@@ -51,9 +53,11 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 4, 5 },
             [HUB_AREA_CONN_SOUTH] = { 2, 3 },
             [HUB_AREA_CONN_WEST] = { 0, 1 },
+
+            [HUB_AREA_CONN_TELEPORT] = { 6 },
         },
-        .iconImage = gItemIcon_DevonGoods,
-        .iconPalette = gItemIconPalette_DevonGoodsBrown,
+        .iconImage = gItemIcon_PokeBall,
+        .iconPalette = gItemIconPalette_PokeBall,
     },
     [HUB_AREA_HOME] = 
     {
@@ -67,6 +71,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 2, 3 },
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
+
+            [HUB_AREA_CONN_TELEPORT] = { 9 },
         },
         .iconImage = gItemIcon_BasementKey,
         .iconPalette = gItemIconPalette_OldKey,
@@ -83,6 +89,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 2, 3 },
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
+
+            [HUB_AREA_CONN_TELEPORT] = { 8 },
         },
         .iconImage = gItemIcon_CheriBerry,
         .iconPalette = gItemIconPalette_CheriBerry,
@@ -97,6 +105,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 4, 5 },
             [HUB_AREA_CONN_SOUTH] = { 2, 3 },
             [HUB_AREA_CONN_WEST] = { 0, 1 },
+
+            [HUB_AREA_CONN_TELEPORT] = { 7 },
         },
         .iconImage = gItemIcon_SafariBall,
         .iconPalette = gItemIconPalette_SafariBall,
@@ -113,6 +123,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 2, 3 },
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
+
+            [HUB_AREA_CONN_TELEPORT] = { 8 },
         },
         .iconImage = gItemIcon_FieldMoves,
         .iconPalette = gItemIconPalette_FieldMoves,
@@ -129,6 +141,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 2, 3 },
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
+
+            [HUB_AREA_CONN_TELEPORT] = { 8 },
         },
         .iconImage = gItemIcon_Potion,
         .iconPalette = gItemIconPalette_Potion,
@@ -145,9 +159,11 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 2, 3 },
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
+
+            [HUB_AREA_CONN_TELEPORT] = { 10 },
         },
-        .iconImage = gItemIcon_PokeBall,
-        .iconPalette = gItemIconPalette_PokeBall,
+        .iconImage = gItemIcon_DevonGoods,
+        .iconPalette = gItemIconPalette_DevonGoodsBrown,
     },
     [HUB_AREA_CHALLENGE_FRONTIER] = 
     {
@@ -161,6 +177,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 2, 3 },
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
+
+            [HUB_AREA_CONN_TELEPORT] = { 10 },
         },
         .iconImage = gItemIcon_MasterBall,
         .iconPalette = gItemIconPalette_MasterBall,
@@ -177,6 +195,8 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_EAST] = { 2, 3 },
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
+
+            [HUB_AREA_CONN_TELEPORT] = { 9 },
         },
         .iconImage = gItemIcon_Egg,
         .iconPalette = gItemIconPalette_Egg,

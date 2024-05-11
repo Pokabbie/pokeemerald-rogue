@@ -60,6 +60,9 @@ script Rogue_Area_TownSquare_TalkTownStatue
             msgbox(format("{POKEMON_HUB}\nThe land of chaotic beginnings…"))
     }
 
+    special(Special_ViewWorldMap)
+    waitstate
+
     release
 }
 
@@ -136,11 +139,18 @@ script Rogue_Area_TownSquare_TalkBuilder
         clearflag(FLAG_ROGUE_HIDE_WORKBENCHES)
         addvar(VAR_ROGUE_INTRO_STATE, 1)
         
-        msgbox(format("Ah! {PLAYER}!\nJust the person I was waiting for!\pProfessor Elm told me that you were going on Adventures for {POKEMON_HUB} now.\pWhich means you'll now be in charge of collecting Building Supplies for {POKEMON_HUB} expansion.\pHere, let me show you.\pFirst, take this."))
+        msgbox(format("Ah! {PLAYER}!\nJust the person I was waiting for!\pProfessor Elm told me that you were going on Adventures for {POKEMON_HUB} now.\pWhich means you'll now be in charge of collecting Building Supplies for {POKEMON_HUB} expansion.\pHere, let me show you.\pFirstly, you can have this Town Map.\pYou can use it to look at the current layout of {POKEMON_HUB}."))
         
-        giveitem(ITEM_BUILDING_SUPPLIES)
+        giveitem(ITEM_TOWN_MAP)
+        waitse
 
-        msgbox(format("Now if you interact Workbenches like this one here, you'll be able to queue up any expansion work using Building Supplies you've gathered.\pGive it a try!"))
+        special(Special_ViewWorldMap)
+        waitstate
+        
+        msgbox(format("That's the current layout of {POKEMON_HUB}.\pYou can build and upgrade areas with Building Supplies you gather from completing Quests.\pHere's some I had left over."))
+        giveitem(ITEM_BUILDING_SUPPLIES)
+    
+        msgbox(format("Now if you interact with Workbenches like this one here, you'll be able to spend the Building Supplies on improving {POKEMON_HUB}.\pGive it a try!"))
 
         waitse
         closemessage

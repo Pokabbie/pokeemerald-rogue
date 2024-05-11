@@ -286,7 +286,7 @@ struct RogueHubArea
     const u32* iconPalette;
     const u8* descText;
     const u8 areaName[ITEM_NAME_LENGTH];
-    u8 connectionWarps[4][2];
+    u8 connectionWarps[6][2];
     u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
     u16 primaryMapNum;
     u16 primaryMapLayout;

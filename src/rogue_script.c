@@ -1912,7 +1912,7 @@ void Rogue_RememberAdventure()
 
 bool8 Rogue_SafeSmartCheckInternal()
 {
-#ifdef ROGUE_FEATURE_SAFTEY_CHECKS && ROGUE_FEATURE_SAFTEY_CHECKS == 1
+#if defined(ROGUE_FEATURE_SAFTEY_CHECKS) && ROGUE_FEATURE_SAFTEY_CHECKS == 1
     int i;
     u8 const otName[PLAYER_NAME_LENGTH + 1] = _("SMARTY");
 

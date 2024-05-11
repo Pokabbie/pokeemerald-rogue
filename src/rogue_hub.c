@@ -133,13 +133,28 @@ void RogueHub_ClearProgress()
 {
     memset(&gRogueSaveBlock->hubMap, 0, sizeof(gRogueSaveBlock->hubMap));
 
-    // Build default area at 0,0
-    RogueHub_BuildArea(HUB_AREA_LABS, 0, 0);
+    // Build default area at away from reserved coords (will recentre in a second)
+    RogueHub_BuildArea(HUB_AREA_LABS, 10, 10);
 
     // Place required areas randomly (Order matters)
     BuildAtRandomConnectionFrom(HUB_AREA_LABS, HUB_AREA_ADVENTURE_ENTRANCE);
     BuildAtRandomConnectionFrom(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_SAFARI_ZONE);
     BuildAtRandomConnectionFrom(HUB_AREA_LABS, HUB_AREA_TOWN_SQUARE);
+
+    // Now recenter so that the adventure enterance is actually at 0,0
+    {
+        u8 i;
+        struct Coords8 offset = gRogueSaveBlock->hubMap.areaCoords[HUB_AREA_ADVENTURE_ENTRANCE];
+
+        for(i = 0; i < HUB_AREA_COUNT; ++i)
+        {
+            if(RogueHub_HasAreaBuilt(i))
+            {
+                gRogueSaveBlock->hubMap.areaCoords[i].x -= offset.x;
+                gRogueSaveBlock->hubMap.areaCoords[i].y -= offset.y;
+            }
+        }
+    }
 }
 
 bool8 RogueHub_HasUpgrade(u16 upgradeId)
@@ -292,6 +307,26 @@ u8 RogueHub_FindAreaAtCoord(s8 x, s8 y)
     return HUB_AREA_NONE;
 }
 
+// Catch unbuildable coordinates
+static bool8 IsReservedCoord(s8 x, s8 y)
+{
+    // Reserve north of adventure entrance
+    if(GetActiveHubMap()->areaCoords[HUB_AREA_ADVENTURE_ENTRANCE].x == x && GetActiveHubMap()->areaCoords[HUB_AREA_ADVENTURE_ENTRANCE].y + 1 == y)
+        return TRUE;
+
+    // Reserve north of safari
+    if(GetActiveHubMap()->areaCoords[HUB_AREA_SAFARI_ZONE].x == x && GetActiveHubMap()->areaCoords[HUB_AREA_SAFARI_ZONE].y + 1 == y)
+        return TRUE;
+
+    return FALSE;
+}
+
+struct Coords8 RogueHub_GetAreaCoords(u8 area)
+{
+    AGB_ASSERT(RogueHub_HasAreaBuilt(area));
+    return GetActiveHubMap()->areaCoords[area];
+}
+
 u8 RogueHub_FindAreaInDir(u8 area, u8 connDir)
 {
     if(RogueHub_HasAreaBuilt(area))
@@ -339,7 +374,7 @@ bool8 RogueHub_AreaHasFreeConnection(u8 area, u8 dir)
         pos.y = GetActiveHubMap()->areaCoords[area].y;
         IncrementCoordsByDirection(&pos, dir);
 
-        return RogueHub_FindAreaAtCoord(pos.x, pos.y) == HUB_AREA_NONE;
+        return !IsReservedCoord(pos.x, pos.y) && RogueHub_FindAreaAtCoord(pos.x, pos.y) == HUB_AREA_NONE;
     }
 
     return FALSE;
@@ -403,6 +438,18 @@ void RogueHub_OnNewDayStarted()
         return;
 
     gRogueSaveBlock->hubMap.weatherState = Random();
+}
+
+u8 const* RogueHub_GetHubName()
+{
+    // TODO - Fix this for multiplayer
+    return gSaveBlock2Ptr->pokemonHubName;
+}
+
+u8 RogueHub_GetHubVariantNumber()
+{
+    // TODO - Fix this for multiplayer
+    return gSaveBlock2Ptr->playerTrainerId[0];
 }
 
 void RogueHub_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp)

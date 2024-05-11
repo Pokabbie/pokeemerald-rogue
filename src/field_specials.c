@@ -71,6 +71,7 @@
 #include "rogue_player_customisation_ui.h"
 #include "rogue_settings.h"
 #include "rogue_voltorbflip.h"
+#include "rogue_worldmap.h"
 
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
 EWRAM_DATA u8 gBikeCollisions = 0;
@@ -183,6 +184,13 @@ void Special_ViewVoltorbFlip(void)
 {
     gMain.savedCallback = CB2_ReturnToField;
     SetMainCallback2(CB2_ShowVoltorbFlip);
+    LockPlayerFieldControls();
+}
+
+void Special_ViewWorldMap(void)
+{
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
+    SetMainCallback2(CB2_ShowWorldMap);
     LockPlayerFieldControls();
 }
 
