@@ -808,8 +808,9 @@ static void Task_QuestPopUpWindow(u8 taskId)
     switch (task->sStateNum)
     {
     case 6:
-        task->data[4]++;
-        if (task->data[4] > 5 && WaitFanfare(FALSE))
+        if (task->data[4] <= 5)
+            task->data[4]++;
+        else if (WaitFanfare(FALSE) && !IsSEPlaying())
         {
             task->sStateNum = 0;
             task->data[4] = 0;
