@@ -8,6 +8,7 @@
 #include "main.h"
 #include "malloc.h"
 #include "decompress.h"
+#include "event_data.h"
 #include "event_object_movement.h"
 #include "field_screen_effect.h"
 #include "bg.h"
@@ -279,10 +280,13 @@ static void InitData()
 
 static bool8 CanTeleport()
 {
-    if(!Rogue_IsRunActive())
+    if(FlagGet(FLAG_ROGUE_UNLOCKED_MAP_TELEPORT))
     {
-        if(sWorldMapData->currentArea != sWorldMapData->playerArea)
-            return TRUE;
+        if(!Rogue_IsRunActive())
+        {
+            if(sWorldMapData->currentArea != sWorldMapData->playerArea)
+                return TRUE;
+        }
     }
 
     return FALSE;

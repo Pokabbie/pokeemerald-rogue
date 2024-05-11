@@ -46,6 +46,7 @@
 #include "rogue_charms.h"
 #include "rogue_hub.h"
 #include "rogue_query.h"
+#include "rogue_quest.h"
 
 typedef void (*ShopCallback)();
 
@@ -450,6 +451,11 @@ static void Task_HandleShopMenuQuit(u8 taskId)
     TryPutSmartShopperOnAir();
     UnlockPlayerFieldControls();
     DestroyTask(taskId);
+
+    if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
+    {
+        RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
+    }
 
     if(sMartInfo.anythingBought)
         VarSet(VAR_RESULT, TRUE);

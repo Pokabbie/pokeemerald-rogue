@@ -17,6 +17,7 @@
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_gifts.h"
+#include "rogue_hub.h"
 #include "rogue_pokedex.h"
 #include "rogue_quest.h"
 #include "rogue_settings.h"
@@ -53,6 +54,7 @@ static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct Rogue
 static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_HasBuiltAllAreas(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PokedexEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_InAdventureEncounterType(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -330,6 +332,14 @@ bool8 RogueQuest_HasAnyPendingRewards()
 static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
 {
     bool8 state = TRUE;
+    bool8 mutePopups = FALSE;
+
+    if(rewardInfo->customPopup != NULL)
+    {
+        mutePopups = TRUE;
+        Rogue_PushPopup_CustomPopup(rewardInfo->customPopup);
+    }
+
 
     switch (rewardInfo->type)
     {
@@ -376,7 +386,8 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
             // Set pokedex flag
             GetSetPokedexSpeciesFlag(rewardInfo->perType.pokemon.species, rewardInfo->perType.pokemon.isShiny ? FLAG_SET_CAUGHT_SHINY : FLAG_SET_CAUGHT);
 
-            Rogue_PushPopup_AddPokemon(rewardInfo->perType.pokemon.species, isCustom, rewardInfo->perType.pokemon.isShiny);
+            if(!mutePopups)
+                Rogue_PushPopup_AddPokemon(rewardInfo->perType.pokemon.species, isCustom, rewardInfo->perType.pokemon.isShiny);
         }
         break;
 
@@ -387,7 +398,7 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
         {
             if(sRogueQuestRewardOutput && rewardInfo->perType.item.item == ITEM_BUILDING_SUPPLIES)
                 sRogueQuestRewardOutput->buildSuppliesCount += rewardInfo->perType.item.count;
-            else
+            else if(!mutePopups)
                 Rogue_PushPopup_AddItem(rewardInfo->perType.item.item, rewardInfo->perType.item.count);
         }
         else
@@ -401,7 +412,8 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
         break;
 
     case QUEST_REWARD_SHOP_ITEM:
-        Rogue_PushPopup_UnlockedShopItem(rewardInfo->perType.shopItem.item);
+        if(!mutePopups)
+            Rogue_PushPopup_UnlockedShopItem(rewardInfo->perType.shopItem.item);
         break;
 
     case QUEST_REWARD_MONEY:
@@ -409,13 +421,17 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
 
         if(sRogueQuestRewardOutput)
             sRogueQuestRewardOutput->moneyCount += rewardInfo->perType.money.amount;
-        else
+        else if(!mutePopups)
             Rogue_PushPopup_AddMoney(rewardInfo->perType.money.amount);
 
         break;
 
     case QUEST_REWARD_QUEST_UNLOCK:
         RogueQuest_TryUnlockQuest(rewardInfo->perType.questUnlock.questId);
+        break;
+
+    case QUEST_REWARD_FLAG:
+        FlagSet(rewardInfo->perType.flag.flagId);
         break;
     
     default:
@@ -1123,6 +1139,19 @@ static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTr
             if(!(RogueQuest_IsQuestUnlocked(i) && RogueQuest_HasCollectedRewards(i)))
                 return FALSE;
         }
+    }
+
+    return TRUE;
+}
+
+static bool8 QuestCondition_HasBuiltAllAreas(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+
+    for(i = 0; i < HUB_AREA_COUNT; ++i)
+    {
+        if(!RogueHub_HasAreaBuilt(i))
+            return FALSE;
     }
 
     return TRUE;

@@ -1837,3 +1837,19 @@ void Rogue_PushPopup_ChallengeQuestsDisabled()
     popup->titleText = sText_Popup_ChallengesDisabled;
     popup->subtitleText = sText_Popup_QuestsDisabledSubtitle;
 }
+
+void Rogue_PushPopup_CustomPopup(struct CustomPopup const* template)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = template->itemIcon;
+
+    if(template->soundEffect != MUS_DUMMY)
+        popup->soundEffect = template->soundEffect;
+    else if(template->fanfare != MUS_DUMMY)
+        popup->fanfare = template->fanfare;
+    
+    popup->titleText = template->titleStr;
+    popup->subtitleText = template->subtitleStr;
+}

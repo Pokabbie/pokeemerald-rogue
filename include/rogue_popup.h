@@ -1,6 +1,15 @@
 #ifndef QUEST_POPUP_H
 #define QUEST_POPUP_H
 
+struct CustomPopup
+{
+    u8 const* titleStr;
+    u8 const* subtitleStr;
+    u16 itemIcon;
+    u16 soundEffect;
+    u16 fanfare;
+};
+
 void Rogue_ClearPopupQueue(void);
 void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled);
 
@@ -58,5 +67,7 @@ void Rogue_PushPopup_WeatherActive(u16 weather);
 void Rogue_PushPopup_AdventureReplay();
 void Rogue_PushPopup_MainQuestsDisabled();
 void Rogue_PushPopup_ChallengeQuestsDisabled();
+
+void Rogue_PushPopup_CustomPopup(struct CustomPopup const* popup);
 
 #endif //QUEST_POPUP_H

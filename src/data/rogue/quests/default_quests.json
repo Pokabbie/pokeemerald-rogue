@@ -28,7 +28,8 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "quest": "Welcome Home" }
                 ]
             },
             
@@ -220,6 +221,39 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "name": "Welcome Home",
+                "description": "Build all of the available areas for {POKEMON_HUB}.",
+                "display_group": "starter_quests",
+                "flags":
+                [
+                    "MAIN_QUEST_DEFAULT",
+                    "ACTIVE_ALWAYS"
+                ],
+                "triggers":
+                [
+                    {
+                        "on": [ "MISC_UPDATE" ],
+                        "condition": "HasBuiltAllAreas",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { 
+                        "flag": "FLAG_ROGUE_UNLOCKED_MAP_TELEPORT",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_TOWN_MAP",
+                            "title": "Town Map Upgrade",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Teleport Unlocked!"
+                        }
+                    }
                 ]
             },
 
