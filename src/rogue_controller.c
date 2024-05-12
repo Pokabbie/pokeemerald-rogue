@@ -2134,6 +2134,9 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         case ITEM_SOOTHE_BELL:
         case ITEM_EVERSTONE:
 
+        case ITEM_SMALL_COIN_CASE:
+        case ITEM_LARGE_COIN_CASE:
+
         case ITEM_PINAP_BERRY:
         case ITEM_NANAB_BERRY:
         case ITEM_RAZZ_BERRY:
@@ -7469,7 +7472,11 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         {
             if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS_STOCK))
             {
+#ifdef ROGUE_EXPANSION
+                maxPriceRange = 15000;
+#else
                 maxPriceRange = 8000;
+#endif
             }
         }
         break;
