@@ -299,6 +299,7 @@ gSpecials::
 	def_special Rogue_EnqueueSafariBattle
 	def_special Rogue_BufferSafariMonInfo
 	def_special Rogue_DisplayPopupsFromScript
+	def_special Rogue_DisplayPopupsFromScriptSkippable
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueHub_GetStatueLevel
 	def_special RogueAdv_ApplyAdventureMetatiles

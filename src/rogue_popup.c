@@ -136,6 +136,7 @@ struct PopupManager
     bool8 forceEnabled : 1;
     bool8 forceEnabledMuteAudio : 1;
     bool8 forceEnabledFromScript : 1;
+    bool8 forceEnabledCanSkip : 1;
 };
 
 struct CustomIcon
@@ -640,17 +641,22 @@ void Rogue_ClearPopupQueue(void)
     sRoguePopups.lastShownId = 0;
 }
 
+
 #define SKIP_POPUP_BUTTONS A_BUTTON | B_BUTTON | START_BUTTON
 
 static bool8 ShouldSkipPopups()
 {
-    // Always skip if pressing
-    if(JOY_NEW(SKIP_POPUP_BUTTONS))
-        return TRUE;
+    // only allow skipping in specifical from script scenarios
+    if(sRoguePopups.forceEnabled && sRoguePopups.forceEnabledCanSkip)
+    {
+        // Always skip if pressing
+        if(JOY_NEW(SKIP_POPUP_BUTTONS))
+            return TRUE;
 
-    // If holding skip after has been on screen for long enough
-    if((JOY_HELD(SKIP_POPUP_BUTTONS) && GetActiveOnScreenDisplayTimer() >= 1))
-        return TRUE;
+        // If holding skip after has been on screen for long enough
+        if((JOY_HELD(SKIP_POPUP_BUTTONS) && GetActiveOnScreenDisplayTimer() >= 1))
+            return TRUE;
+    }
 
     return FALSE;
 }
@@ -743,6 +749,16 @@ void Rogue_DisplayPopupsFromScript()
     sRoguePopups.forceEnabled = TRUE;
     sRoguePopups.forceEnabledMuteAudio = FALSE;
     sRoguePopups.forceEnabledFromScript = TRUE;
+    sRoguePopups.forceEnabledCanSkip = FALSE;
+}
+
+void Rogue_DisplayPopupsFromScriptSkippable()
+{
+    ScriptContext_Stop();
+    sRoguePopups.forceEnabled = TRUE;
+    sRoguePopups.forceEnabledMuteAudio = FALSE;
+    sRoguePopups.forceEnabledFromScript = TRUE;
+    sRoguePopups.forceEnabledCanSkip = TRUE;
 }
 
 static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 useEnterAnim)

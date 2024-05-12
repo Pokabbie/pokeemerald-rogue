@@ -21,6 +21,14 @@ script Rogue_Common_DisplayPopups
     return
 }
 
+script Rogue_Common_DisplaySkippablePopups
+{
+    closemessage
+    special(Rogue_DisplayPopupsFromScriptSkippable)
+    waitstate
+    return
+}
+
 script Rogue_Common_DisplayNewBadgePopup
 {
     call(Rogue_Common_DisplayPopups)
@@ -191,7 +199,7 @@ script Rogue_InteractWithQuestBoard
         while(var(VAR_RESULT) == 1)
         {
             special(Rogue_QuestCollectNextReward)
-            call(Rogue_Common_DisplayPopups)
+            call(Rogue_Common_DisplaySkippablePopups)
 
             switch(var(VAR_RESULT))
             {
