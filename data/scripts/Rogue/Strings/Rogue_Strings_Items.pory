@@ -304,6 +304,16 @@ text gHubUpgradeDesc_Home_FieldShed
 }
 
 
+text gHubUpgradeDesc_AdventureEntrance_RandomStarter
+{
+    format("Starter {PKMN} can be randomised when embarking on Runs.")
+}
+
+text gHubUpgradeDesc_AdventureEntrance_AdventureReplay
+{
+    format("Adventures can be saved and replayed again.")
+}
+
 text gHubUpgradeDesc_BerryField_ExtraField
 {
     format("An additional plot to grown berries in.")

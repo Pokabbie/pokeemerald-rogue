@@ -11,6 +11,8 @@ extern const u8 gHubUpgradeDesc_Home_BerryField1[];
 extern const u8 gHubUpgradeDesc_Home_BerryField2[];
 extern const u8 gHubUpgradeDesc_Home_GrassField[];
 extern const u8 gHubUpgradeDesc_Home_FieldShed[];
+extern const u8 gHubUpgradeDesc_AdventureEntrance_RandomStarter[];
+extern const u8 gHubUpgradeDesc_AdventureEntrance_AdventureReplay[];
 extern const u8 gHubUpgradeDesc_BerryField_ExtraField[];
 extern const u8 gHubUpgradeDesc_BerryField_HigherYeild[];
 
@@ -239,6 +241,24 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .requiredUpgrades = { HUB_UPGRADE_HOME_LOWER_FLOOR, HUB_UPGRADE_NONE }
     },
 
+    // HUB_AREA_ADVENTURE_ENTRANCE
+    //
+    [HUB_UPGRADE_ADVENTURE_ENTRANCE_RANDOM_STARTER] = 
+    {
+        .upgradeName = _("Starter Bag"),
+        .targetArea = HUB_AREA_ADVENTURE_ENTRANCE,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_AdventureEntrance_RandomStarter,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_ADVENTURE_ENTRANCE_ADVENTURE_REPLAY] = 
+    {
+        .upgradeName = _("Adventure Flag"),
+        .targetArea = HUB_AREA_ADVENTURE_ENTRANCE,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_AdventureEntrance_AdventureReplay,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
 
     // HUB_AREA_BERRY_FIELD
     //

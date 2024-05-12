@@ -1,5 +1,7 @@
 const FLAG_HIDE_RUIN_MANIAC = FLAG_TEMP_1
 const FLAG_HIDE_POKABBIE = FLAG_TEMP_2
+const FLAG_HIDE_STARTER_BAG = FLAG_TEMP_3
+const FLAG_HIDE_REPLAY_FLAG = FLAG_TEMP_4
 
 const VAR_FRAME_STATE = VAR_TEMP_0
 const VAR_INTRO_SCRIPT_STATE = VAR_TEMP_2
@@ -63,16 +65,6 @@ script Rogue_Area_AdventureEntrance_MapLoad
         setvar(VAR_INTRO_SCRIPT_STATE, HUB_AREA_CONN_COUNT)
     }
 
-    special(Rogue_HasUnlockedRandomStarterTrade)
-    if(var(VAR_RESULT) == TRUE)
-    {
-        clearflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
-    }
-    else
-    {
-        setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
-    }
-
     if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_MET_POKABBIE))
     {
         clearflag(FLAG_HIDE_POKABBIE)
@@ -100,7 +92,26 @@ script Rogue_Area_AdventureEntrance_MapLoad
         setflag(FLAG_HIDE_POKABBIE)
     }
 
-    call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+    hubupgradeunlocked(HUB_UPGRADE_ADVENTURE_ENTRANCE_RANDOM_STARTER)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_HIDE_STARTER_BAG)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_STARTER_BAG)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_ADVENTURE_ENTRANCE_ADVENTURE_REPLAY)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_HIDE_REPLAY_FLAG)
+        call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_REPLAY_FLAG)
+    }
 }
 
 script Rogue_Area_AdventureEntrance_WarpState0
@@ -361,7 +372,7 @@ script Rogue_StartAdventureInternal
 
         setvar(VAR_STARTER_SWAP_SPECIES, SPECIES_NONE)
 
-        if(!flag(FLAG_ROGUE_RANDOM_TRADE_DISABLED))
+        if(!flag(FLAG_HIDE_STARTER_BAG))
         {
             applymovement(OBJ_EVENT_ADVENTURE_NURSE, Rogue_Adventure_WalkNurse)
             applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Adventure_WalkPlayerStarter)

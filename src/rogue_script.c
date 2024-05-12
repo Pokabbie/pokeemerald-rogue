@@ -1534,11 +1534,6 @@ void Rogue_GiveCatchingContestMon()
 #undef VAR_CATCH_CONTEST_TYPE
 #undef VAR_CATCH_CONTEST_STAT
 
-void Rogue_HasUnlockedRandomStarterTrade()
-{
-    gSpecialVar_Result = RogueQuest_HasCollectedRewards(QUEST_ID_MR_RANDOMAN);
-}
-
 void Rogue_CanOverLevel()
 {
     gSpecialVar_Result = Rogue_GetConfigToggle(CONFIG_TOGGLE_OVER_LVL);
