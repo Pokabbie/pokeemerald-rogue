@@ -48,10 +48,11 @@
 #define HUB_UPGRADE_MARTS_TRAVELER_BATTLE_ENCHANCERS    (HUB_UPGRADE_FIRST + 16)
 #define HUB_UPGRADE_MARTS_TRAVELER_HELD_ITEMS           (HUB_UPGRADE_FIRST + 17)
 #define HUB_UPGRADE_MARTS_BANK                          (HUB_UPGRADE_FIRST + 18)
-// upgrade to buy master balls
-// update to buy escape ropes
 
-#define HUB_UPGRADE_COUNT                               (HUB_UPGRADE_MARTS_BANK + 1)
+#define HUB_UPGRADE_TOWN_SQUARE_SCHOOL                  (HUB_UPGRADE_FIRST + 19)
+#define HUB_UPGRADE_TOWN_SQUARE_TUTORS                  (HUB_UPGRADE_FIRST + 20)
+
+#define HUB_UPGRADE_COUNT                               (HUB_UPGRADE_TOWN_SQUARE_TUTORS + 1)
 
 // NOTE - Once the next update is out ALWAYS add the upgrades at the bottom of this list
 

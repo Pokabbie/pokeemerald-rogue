@@ -333,3 +333,54 @@ text gHubUpgradeDesc_BerryField_HigherYeild
 {
     format("Increase berries collected both in and out of Adventures.")
 }
+
+text gHubUpgradeDesc_Mart_GeneralStock
+{
+    format("General Shop has more items for sale.")
+}
+
+text gHubUpgradeDesc_Mart_PokeBalls
+{
+    format("An extra Shop which sells Poké Balls.")
+}
+
+text gHubUpgradeDesc_Mart_PokeBallsStock
+{
+    format("Poké Ball Shop has more items for sale.")
+}
+
+text gHubUpgradeDesc_Mart_TMs
+{
+    format("An extra Shop which sells TMs.")
+}
+
+text gHubUpgradeDesc_Mart_TMsStock
+{
+    format("TM Shop has more items for sale.")
+}
+
+text gHubUpgradeDesc_Mart_TravelerBattleEnhancers
+{
+    format("Battle Shop specializing in Battle Enhancers.")
+}
+
+text gHubUpgradeDesc_Mart_TravelerHeldItems
+{
+    format("Battle Shop specializing in Held Items.")
+}
+
+text gHubUpgradeDesc_Mart_Bank
+{
+    format("Increase starting money for Adventures.")
+}
+
+
+text gHubUpgradeDesc_TownSquare_TrainerSchool
+{
+    format("Building for tips & tricks for Adventures.")
+}
+
+text gHubUpgradeDesc_TownSquare_MoveTutors
+{
+    format("Tutor to teach or remove moves for {PKMN}.")
+}

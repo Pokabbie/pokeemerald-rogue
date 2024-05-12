@@ -15,6 +15,16 @@ extern const u8 gHubUpgradeDesc_AdventureEntrance_RandomStarter[];
 extern const u8 gHubUpgradeDesc_AdventureEntrance_AdventureReplay[];
 extern const u8 gHubUpgradeDesc_BerryField_ExtraField[];
 extern const u8 gHubUpgradeDesc_BerryField_HigherYeild[];
+extern const u8 gHubUpgradeDesc_Mart_GeneralStock[];
+extern const u8 gHubUpgradeDesc_Mart_PokeBalls[];
+extern const u8 gHubUpgradeDesc_Mart_PokeBallsStock[];
+extern const u8 gHubUpgradeDesc_Mart_TMs[];
+extern const u8 gHubUpgradeDesc_Mart_TMsStock[];
+extern const u8 gHubUpgradeDesc_Mart_TravelerBattleEnhancers[];
+extern const u8 gHubUpgradeDesc_Mart_TravelerHeldItems[];
+extern const u8 gHubUpgradeDesc_Mart_Bank[];
+extern const u8 gHubUpgradeDesc_TownSquare_TrainerSchool[];
+extern const u8 gHubUpgradeDesc_TownSquare_MoveTutors[];
 
 
 #define SET_UPDATE_AREA(area) \
@@ -328,7 +338,6 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .isHidden = TRUE
     },
 
-
     // HUB_AREA_MARTS
     //
     [HUB_UPGRADE_MARTS_GENERAL_STOCK] = 
@@ -336,7 +345,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .upgradeName = _("General Stock"),
         .targetArea = HUB_AREA_MARTS,
         .buildCost = 1,
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubUpgradeDesc_Mart_GeneralStock,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
     [HUB_UPGRADE_MARTS_POKE_BALLS] = 
@@ -344,7 +353,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .upgradeName = _("PokéBall Shop"),
         .targetArea = HUB_AREA_MARTS,
         .buildCost = 1,
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubUpgradeDesc_Mart_PokeBalls,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
     [HUB_UPGRADE_MARTS_POKE_BALLS_STOCK] = 
@@ -352,7 +361,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .upgradeName = _("PokéBall Stock"),
         .targetArea = HUB_AREA_MARTS,
         .buildCost = 1,
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubUpgradeDesc_Mart_PokeBallsStock,
         .requiredUpgrades = { HUB_UPGRADE_MARTS_POKE_BALLS, HUB_UPGRADE_NONE }
     },
     [HUB_UPGRADE_MARTS_TMS] = 
@@ -360,7 +369,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .upgradeName = _("TM Shop"),
         .targetArea = HUB_AREA_MARTS,
         .buildCost = 1,
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubUpgradeDesc_Mart_TMs,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
     [HUB_UPGRADE_MARTS_TMS_STOCK] = 
@@ -368,7 +377,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .upgradeName = _("TM Stock"),
         .targetArea = HUB_AREA_MARTS,
         .buildCost = 1,
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubUpgradeDesc_Mart_TMsStock,
         .requiredUpgrades = { HUB_UPGRADE_MARTS_TMS, HUB_UPGRADE_NONE }
     },
     [HUB_UPGRADE_MARTS_TRAVELER_BATTLE_ENCHANCERS] = 
@@ -376,15 +385,15 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .upgradeName = _("Battle Shop"),
         .targetArea = HUB_AREA_MARTS,
         .buildCost = 1,
-        .descText = gHubAreaDesc_Todo,
-        .requiredUpgrades = { HUB_UPGRADE_MARTS_GENERAL_STOCK, HUB_UPGRADE_NONE }
+        .descText = gHubUpgradeDesc_Mart_TravelerBattleEnhancers,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
     [HUB_UPGRADE_MARTS_TRAVELER_HELD_ITEMS] = 
     {
         .upgradeName = _("Held Items Shop"),
         .targetArea = HUB_AREA_MARTS,
         .buildCost = 1,
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubUpgradeDesc_Mart_TravelerHeldItems,
         .requiredUpgrades = { HUB_UPGRADE_MARTS_TRAVELER_BATTLE_ENCHANCERS, HUB_UPGRADE_NONE }
     },
     [HUB_UPGRADE_MARTS_BANK] = 
@@ -392,7 +401,26 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .upgradeName = _("Bank"),
         .targetArea = HUB_AREA_MARTS,
         .buildCost = 1,
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubUpgradeDesc_Mart_Bank,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+
+    // HUB_AREA_TOWN_SQUARE
+    //
+    [HUB_UPGRADE_TOWN_SQUARE_SCHOOL] = 
+    {
+        .upgradeName = _("Trainer School"),
+        .targetArea = HUB_AREA_TOWN_SQUARE,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_TownSquare_TrainerSchool,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_TOWN_SQUARE_TUTORS] = 
+    {
+        .upgradeName = _("Move Tutor"),
+        .targetArea = HUB_AREA_TOWN_SQUARE,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_TownSquare_MoveTutors,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
 };

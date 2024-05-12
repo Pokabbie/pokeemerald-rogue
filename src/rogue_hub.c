@@ -1043,6 +1043,24 @@ static void RogueHub_UpdateTownSquareAreaMetatiles()
 
         MetatileFill_CommonPathRemoval(2, 9, 13, 11);
     }
+
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_TOWN_SQUARE_SCHOOL))
+    {
+        MetatileFill_TreesOverlapping(1, 1, 5, 4, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(1, 5, 4, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(6, 1, 6, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(5, 5, 5, TREE_TYPE_SPARSE);
+
+        MetatileFill_Tile(6, 2, 6, 5, METATILE_GeneralHub_Grass);
+        MetatileFill_Tile(3, 6, 5, 6, METATILE_GeneralHub_Grass);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_TOWN_SQUARE_TUTORS))
+    {
+        MetatileFill_Tile(6, 12, 12, 15, METATILE_GeneralHub_Grass);
+        MetatileFill_Tile(9, 16, 12, 16, METATILE_GeneralHub_Grass);
+    }
 }
 
 static void RogueHub_UpdateChallengeFrontierAreaMetatiles()
