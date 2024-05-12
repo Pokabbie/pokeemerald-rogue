@@ -731,11 +731,12 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
     STOP_TIMER(ROGUE_POPUPS);
 }
 
-void Rogue_ForceEnablePopups(bool8 allowAudio)
+void Rogue_ForceEnablePopups(bool8 allowAudio, bool8 canSkip)
 {
     sRoguePopups.forceEnabled = TRUE;
     sRoguePopups.forceEnabledMuteAudio = !allowAudio;
     sRoguePopups.forceEnabledFromScript = TRUE;
+    sRoguePopups.forceEnabledCanSkip = canSkip;
 }
 
 bool8 Rogue_HasPendingPopups()

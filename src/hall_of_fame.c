@@ -830,7 +830,7 @@ static void Task_Hof_DisplayPlayer(u8 taskId)
 
 static void Task_Hof_DoQuestNotifications(u8 taskId)
 {
-    Rogue_ForceEnablePopups(FALSE);
+    Rogue_ForceEnablePopups(FALSE, TRUE);
     gTasks[taskId].func = Task_Hof_WaitForQuestNotifications;
 }
 

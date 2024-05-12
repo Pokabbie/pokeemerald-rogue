@@ -13,7 +13,7 @@ struct CustomPopup
 void Rogue_ClearPopupQueue(void);
 void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled);
 
-void Rogue_ForceEnablePopups(bool8 allowAudio);
+void Rogue_ForceEnablePopups(bool8 allowAudio, bool8 canSkip);
 bool8 Rogue_HasPendingPopups();
 
 void Rogue_PushPopup_NextPartyNotification();

@@ -1075,8 +1075,18 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
 
             switch (pocket)
             {
-            case POCKET_ITEMS:
             case POCKET_BERRIES:
+                if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD2))
+                    amount = 9;
+                else if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD1))
+                    amount = 7;
+                else if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD0))
+                    amount = 5;
+                else
+                    amount = 3;
+                break;
+
+            case POCKET_ITEMS:
             case POCKET_MEDICINE:
                 amount = 3;
                 break;
@@ -1135,8 +1145,14 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
         switch (pocket)
         {
         case POCKET_BERRIES:
-            // TODO - Handle hub upgrades
-            amount = 3;
+            if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD2))
+                amount = 9;
+            else if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD1))
+                amount = 7;
+            else if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD0))
+                amount = 5;
+            else
+                amount = 3;
             break;
         }
     }
@@ -2887,6 +2903,13 @@ void Rogue_OnNewGame(void)
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 
     ClearBerryTrees();
+
+    // Plant default berries (these are the free gifts you get)
+    PlantBerryTree(BERRY_TREE_HUB_11, ItemIdToBerryType(ITEM_ORAN_BERRY), BERRY_STAGE_BERRIES, FALSE);
+    PlantBerryTree(BERRY_TREE_HUB_12, ItemIdToBerryType(ITEM_RAWST_BERRY), BERRY_STAGE_BERRIES, FALSE);
+    PlantBerryTree(BERRY_TREE_HUB_13, ItemIdToBerryType(ITEM_CHERI_BERRY), BERRY_STAGE_BERRIES, FALSE);
+    PlantBerryTree(BERRY_TREE_HUB_14, ItemIdToBerryType(ITEM_CHESTO_BERRY), BERRY_STAGE_BERRIES, FALSE);
+    PlantBerryTree(BERRY_TREE_HUB_15, ItemIdToBerryType(ITEM_PECHA_BERRY), BERRY_STAGE_BERRIES, FALSE);
 
     Rogue_ResetCampaignAfter(0);
     RogueHub_ClearProgress();
@@ -4660,7 +4683,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             ++gRogueRun.enteredRoomCounter;
 
             // Grow berries based on progress in runs (This will grow in run berries and hub berries)
-            BerryTreeTimeUpdate(90);
+            BerryTreeTimeUpdate(120);
 
             VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 

@@ -1,1 +1,41 @@
-mapscripts Rogue_Area_FarmingField_MapScripts {}
+const FLAG_HIDE_BERRIES0 = FLAG_TEMP_1
+const FLAG_HIDE_BERRIES1 = FLAG_TEMP_2
+const FLAG_HIDE_BERRIES2 = FLAG_TEMP_3
+
+mapscripts Rogue_Area_FarmingField_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_FarmingField_OnMapLoad
+}
+
+script Rogue_Area_FarmingField_OnMapLoad
+{
+    hubupgradeunlocked(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD0)
+    if(var(VAR_RESULT))
+    {
+        clearflag(FLAG_HIDE_BERRIES0)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_BERRIES0)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD1)
+    if(var(VAR_RESULT))
+    {
+        clearflag(FLAG_HIDE_BERRIES1)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_BERRIES1)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD2)
+    if(var(VAR_RESULT))
+    {
+        clearflag(FLAG_HIDE_BERRIES2)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_BERRIES2)
+    }
+}

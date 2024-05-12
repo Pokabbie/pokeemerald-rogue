@@ -3,6 +3,8 @@
 
 #include "rogue_hub_strings.h"
 
+extern const u8 gHubAreaDesc_Todo[];
+
 extern const u8 gHubUpgradeDesc_Home_LowerFloor[];
 extern const u8 gHubUpgradeDesc_Home_UpperFloor[];
 extern const u8 gHubUpgradeDesc_Home_BerryField1[];
@@ -30,6 +32,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_LABS),
         .areaName = _("Labs"),
+        .descText = gHubAreaDesc_Todo,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {
@@ -47,6 +50,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_ADVENTURE_ENTRANCE),
         .areaName = _("Town Exit"),
+        .descText = gHubAreaDesc_Todo,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {
@@ -63,6 +67,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_HOME),
         .areaName = _("Player Home"),
+        .descText = gHubAreaDesc_Todo,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .buildCost = 1,
         .connectionWarps = 
@@ -81,8 +86,9 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_FARMING_FIELD),
         .areaName = _("Berry Fields"),
+        .descText = gHubAreaDesc_Todo,
         .buildCost = 1,
-        .requiredUpgrades = { HUB_UPGRADE_HOME_BERRY_FIELD2, HUB_UPGRADE_NONE },
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {
             [HUB_AREA_CONN_NORTH] = { 0, 1 },
@@ -99,6 +105,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_SAFARI_ZONE),
         .areaName = _("Safari Area"),
+        .descText = gHubAreaDesc_Todo,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {
@@ -115,6 +122,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_RIDE_TRAINING),
         .areaName = _("Park"),
+        .descText = gHubAreaDesc_Todo,
         .buildCost = 1,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -133,6 +141,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_MARTS),
         .areaName = _("Poké Marts"),
+        .descText = gHubAreaDesc_Todo,
         .buildCost = 1,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -151,6 +160,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_TOWN_SQUARE),
         .areaName = _("Town Square"),
+        .descText = gHubAreaDesc_Todo,
         .buildCost = 1,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -169,6 +179,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_CHALLENGE_FRONTIER),
         .areaName = _("Challenge Area"),
+        .descText = gHubAreaDesc_Todo,
         .buildCost = 0,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -187,6 +198,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_DAY_CARE),
         .areaName = _("Day Care"),
+        .descText = gHubAreaDesc_Todo,
         .buildCost = 1,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -208,16 +220,6 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
 
 const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] = 
 {
-    // HUB_AREA_LABS
-    //
-    [HUB_UPGRADE_LABS_POKE_CONNECT] = 
-    {
-        .upgradeName = _("Poké Connect"),
-        .targetArea = HUB_AREA_LABS,
-        .buildCost = 1,
-        .requiredUpgrades = { HUB_UPGRADE_NONE }
-    },
-
     // HUB_AREA_HOME
     //
     [HUB_UPGRADE_HOME_LOWER_FLOOR] = 
@@ -237,63 +239,53 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .requiredUpgrades = { HUB_UPGRADE_HOME_LOWER_FLOOR, HUB_UPGRADE_NONE }
     },
 
-    [HUB_UPGRADE_HOME_BERRY_FIELD1] = 
-    {
-        .upgradeName = _("Berry Field"),
-        .targetArea = HUB_AREA_HOME,
-        .buildCost = 1,
-        .descText = gHubUpgradeDesc_Home_BerryField1,
-        .requiredUpgrades = { HUB_UPGRADE_HOME_LOWER_FLOOR, HUB_UPGRADE_NONE }
-    },
-    [HUB_UPGRADE_HOME_BERRY_FIELD2] = 
-    {
-        .upgradeName = _("Berry Field 2"),
-        .targetArea = HUB_AREA_HOME,
-        .buildCost = 1,
-        .descText = gHubUpgradeDesc_Home_BerryField2,
-        .requiredUpgrades = { HUB_UPGRADE_HOME_BERRY_FIELD1, HUB_UPGRADE_NONE }
-    },
-
-    [HUB_UPGRADE_HOME_GRASS_FIELD] = 
-    {
-        .upgradeName = _("Play Garden"),
-        .targetArea = HUB_AREA_HOME,
-        .buildCost = 1,
-        .descText = gHubUpgradeDesc_Home_GrassField,
-        .requiredUpgrades = { HUB_UPGRADE_HOME_LOWER_FLOOR, HUB_UPGRADE_NONE }
-    },
-
-    [HUB_UPGRADE_HOME_GRASS_FIELD_SHED] = 
-    {
-        .upgradeName = _("Shed"),
-        .targetArea = HUB_AREA_HOME,
-        .buildCost = 1,
-        .descText = gHubUpgradeDesc_Home_FieldShed,
-        .requiredUpgrades = { HUB_UPGRADE_HOME_GRASS_FIELD, HUB_UPGRADE_NONE }
-    },
-
 
     // HUB_AREA_BERRY_FIELD
     //
-    [HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD] = 
+    [HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD0] = 
     {
-        .upgradeName = _("Extra Field"),
+        .upgradeName = _("Berry Field (2)"),
         .targetArea = HUB_AREA_BERRY_FIELD,
         .buildCost = 1,
         .descText = gHubUpgradeDesc_BerryField_ExtraField,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
-    [HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD1] = 
+    [HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD1] = 
     {
-        .upgradeName = _("Berry Yield"),
+        .upgradeName = _("Berry Field (3)"),
+        .targetArea = HUB_AREA_BERRY_FIELD,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_BerryField_ExtraField,
+        .requiredUpgrades = { HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD0, HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD2] = 
+    {
+        .upgradeName = _("Berry Field (4)"),
+        .targetArea = HUB_AREA_BERRY_FIELD,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_BerryField_ExtraField,
+        .requiredUpgrades = { HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD1, HUB_UPGRADE_NONE }
+    },
+
+    [HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD0] = 
+    {
+        .upgradeName = _("Berry Yield+"),
         .targetArea = HUB_AREA_BERRY_FIELD,
         .buildCost = 1,
         .descText = gHubUpgradeDesc_BerryField_HigherYeild,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
+    [HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD1] = 
+    {
+        .upgradeName = _("Berry Yield++"),
+        .targetArea = HUB_AREA_BERRY_FIELD,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_BerryField_HigherYeild,
+        .requiredUpgrades = { HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD0, HUB_UPGRADE_NONE }
+    },
     [HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD2] = 
     {
-        .upgradeName = _("Berry Yield 2"),
+        .upgradeName = _("Berry Yield+++"),
         .targetArea = HUB_AREA_BERRY_FIELD,
         .buildCost = 1,
         .descText = gHubUpgradeDesc_BerryField_HigherYeild,

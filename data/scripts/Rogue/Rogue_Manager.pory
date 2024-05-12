@@ -31,8 +31,10 @@ script Rogue_Common_DisplaySkippablePopups
 
 script Rogue_Common_DisplayNewBadgePopup
 {
-    call(Rogue_Common_DisplayPopups)
+    delay(10) // pause to let SE catch up
+    call(Rogue_Common_DisplaySkippablePopups)
     
+    delay(10) // pause to let SE catch up
     special(Popup_NewBadgeGet)
     call(Rogue_Common_DisplayPopups)
     return
