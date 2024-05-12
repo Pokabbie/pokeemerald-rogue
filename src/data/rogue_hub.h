@@ -319,8 +319,76 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     {
         .upgradeName = _("Legend Cave"),
         .targetArea = HUB_AREA_SAFARI_ZONE,
-        .buildCost = 1,
+        .buildCost = 0,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .isHidden = TRUE
+    },
+
+
+    // HUB_AREA_MARTS
+    //
+    [HUB_UPGRADE_MARTS_GENERAL_STOCK] = 
+    {
+        .upgradeName = _("General Stock"),
+        .targetArea = HUB_AREA_MARTS,
+        .buildCost = 1,
+        .descText = gHubAreaDesc_Todo,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_MARTS_POKE_BALLS] = 
+    {
+        .upgradeName = _("PokéBall Shop"),
+        .targetArea = HUB_AREA_MARTS,
+        .buildCost = 1,
+        .descText = gHubAreaDesc_Todo,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_MARTS_POKE_BALLS_STOCK] = 
+    {
+        .upgradeName = _("PokéBall Stock"),
+        .targetArea = HUB_AREA_MARTS,
+        .buildCost = 1,
+        .descText = gHubAreaDesc_Todo,
+        .requiredUpgrades = { HUB_UPGRADE_MARTS_POKE_BALLS, HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_MARTS_TMS] = 
+    {
+        .upgradeName = _("TM Shop"),
+        .targetArea = HUB_AREA_MARTS,
+        .buildCost = 1,
+        .descText = gHubAreaDesc_Todo,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_MARTS_TMS_STOCK] = 
+    {
+        .upgradeName = _("TM Stock"),
+        .targetArea = HUB_AREA_MARTS,
+        .buildCost = 1,
+        .descText = gHubAreaDesc_Todo,
+        .requiredUpgrades = { HUB_UPGRADE_MARTS_TMS, HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_MARTS_TRAVELER_BATTLE_ENCHANCERS] = 
+    {
+        .upgradeName = _("Battle Shop"),
+        .targetArea = HUB_AREA_MARTS,
+        .buildCost = 1,
+        .descText = gHubAreaDesc_Todo,
+        .requiredUpgrades = { HUB_UPGRADE_MARTS_GENERAL_STOCK, HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_MARTS_TRAVELER_HELD_ITEMS] = 
+    {
+        .upgradeName = _("Held Items Shop"),
+        .targetArea = HUB_AREA_MARTS,
+        .buildCost = 1,
+        .descText = gHubAreaDesc_Todo,
+        .requiredUpgrades = { HUB_UPGRADE_MARTS_TRAVELER_BATTLE_ENCHANCERS, HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_MARTS_BANK] = 
+    {
+        .upgradeName = _("Bank"),
+        .targetArea = HUB_AREA_MARTS,
+        .buildCost = 1,
+        .descText = gHubAreaDesc_Todo,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
 };

@@ -48,6 +48,16 @@ text gItemDesc_TR
     format("Single use machine for teaching {PKMN} one specific move.")
 }
 
+text gItemDesc_SmallCoinCase
+{
+    format("Coin Case provides ¥1000 on start of Adventure.")
+}
+
+text gItemDesc_LargeCoinCase
+{
+    format("Coin Case provides ¥20000 on start of Adventure.")
+}
+
 text gItemDesc_NormalPokeblock
 {
     format("{POKEBLOCK} enjoyed by Normal type {PKMN}.")

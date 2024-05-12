@@ -29,7 +29,7 @@ script Rogue_Area_TownSquare_OnMapLoad
         // blocking connect centre
         setflag(FLAG_HIDE_LOCAL_WORKBENCH)
 
-        setobjectxyperm(OBJ_EVENT_BUILDER, 21, 10)
+        setobjectxyperm(OBJ_EVENT_BUILDER, 21, 8)
         setobjectmovementtype(OBJ_EVENT_BUILDER, MOVEMENT_TYPE_FACE_UP)
     }
     else
@@ -40,7 +40,7 @@ script Rogue_Area_TownSquare_OnMapLoad
         if(var(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_LEARN_TO_BUILD)
         {
             // blocking workbench
-            setobjectxyperm(OBJ_EVENT_BUILDER, 24, 11)
+            setobjectxyperm(OBJ_EVENT_BUILDER, 24, 9)
             setobjectmovementtype(OBJ_EVENT_BUILDER, MOVEMENT_TYPE_FACE_UP)
         }
     }
@@ -172,6 +172,7 @@ script Rogue_Area_TownSquare_TalkBuilder
                 waitmovement(0)
         }
 
+        setobjectxyperm(OBJ_EVENT_BUILDER, 25, 9)
         call(Rogue_Area_WorkbenchOptions)
     }
     else

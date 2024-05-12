@@ -1239,6 +1239,10 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
         if(sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
         {
             maxQuantity = min(maxQuantity, Rogue_GetBagPocketAmountPerItem(ItemId_GetPocket(tItemId) - 1));
+
+            // Can only buy 1 of infinite items
+            if(tItemId <= ITEM_TM01 && tItemId >= ITEM_HM08)
+                maxQuantity = 1;
         }
 
         if (maxQuantity > MAX_SHOP_ITEM_CAPACITY)

@@ -3675,7 +3675,20 @@ static void SetupRogueRunBag()
         
         if(itemId != ITEM_NONE && CanEnterWithItem(itemId, isBasicBagEnabled))
         {
-            AddBagItem(itemId, quantity);
+            switch (itemId)
+            {
+            case ITEM_SMALL_COIN_CASE:
+                AddMoney(&gSaveBlock1Ptr->money, 1000);
+                break;
+
+            case ITEM_LARGE_COIN_CASE:
+                AddMoney(&gSaveBlock1Ptr->money, 20000);
+                break;
+
+            default:
+                AddBagItem(itemId, quantity);
+                break;
+            }
         }
     }
 
@@ -7410,6 +7423,14 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         {
             maxPriceRange =  300 + difficulty * 400;
         }
+        else
+        {
+            if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_GENERAL_STOCK))
+            {
+                maxPriceRange = 1200;
+                RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_FULL_HEAL);
+            }
+        }
         break;
 
     case ROGUE_SHOP_BALLS:
@@ -7429,12 +7450,28 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
             else if(difficulty < 11)
                 maxPriceRange = 2000;
         }
+        else
+        {
+            if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_POKE_BALLS_STOCK))
+            {
+                RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 10, 600);
+                RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_ULTRA_BALL);
+            }
+        }
         break;
 
     case ROGUE_SHOP_TMS:
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_TM_HM);
         *minSalePrice = 0;
         applyRandomChance = TRUE;
+
+        if(!Rogue_IsRunActive())
+        {
+            if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS_STOCK))
+            {
+                maxPriceRange = 8000;
+            }
+        }
         break;
 
     case ROGUE_SHOP_BATTLE_ENHANCERS:

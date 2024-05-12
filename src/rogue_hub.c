@@ -969,11 +969,51 @@ static void RogueHub_UpdateMartsAreaMetatiles()
 
         MetatileFill_CommonPathRemoval(2, 14, 15, 17);
     }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_GENERAL_STOCK))
+    {
+        MetatileFill_Tile(9, 8, 9, 10, METATILE_GeneralHub_Grass);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_POKE_BALLS))
+    {
+        MetatileFill_Tile(4, 9, 7, 11, METATILE_GeneralHub_Grass);
+    }
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_POKE_BALLS_STOCK))
+    {
+        MetatileFill_Tile(2, 8, 3, 11, METATILE_GeneralHub_Grass);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS))
+    {
+        MetatileFill_Tile(4, 4, 7, 6, METATILE_GeneralHub_Grass);
+    }
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS_STOCK))
+    {
+        MetatileFill_Tile(2, 3, 3, 6, METATILE_GeneralHub_Grass);
+        MetatileFill_Tile(4, 3, 7, 3, METATILE_GeneralHub_Grass);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TRAVELER_BATTLE_ENCHANCERS))
+    {
+        MetatileFill_Tile(9, 3, 14, 6, METATILE_GeneralHub_Grass);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_BANK))
+    {
+        MetatileFill_Tile(21, 4, 31, 12, METATILE_GeneralHub_Grass);
+
+        MetatileFill_TreesOverlapping(22, 3, 31, 10, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(23, 11, 31, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(22, 11, 22, TREE_TYPE_SPARSE);
+
+        MetatileFill_Tile(23, 13, 28, 13, METATILE_GeneralHub_Grass);
+    }
 }
 
 static void RogueHub_UpdateTownSquareAreaMetatiles()
 {
-    // Remove connectionss
+    // Remove connections
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
         MetatileFill_TreesOverlapping(13, 0, 18, 0, TREE_TYPE_DENSE);
@@ -984,9 +1024,9 @@ static void RogueHub_UpdateTownSquareAreaMetatiles()
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(26, 11);
+        MetatileFill_CommonWarpExitHorizontal(26, 9);
 
-        MetatileFill_CommonPathRemoval(18, 12, 25, 14);
+        MetatileFill_CommonPathRemoval(23, 10, 25, 12);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
