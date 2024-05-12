@@ -292,13 +292,13 @@ gSpecials::
 	def_special Rogue_CatchingContestBegin
 	def_special Rogue_CatchingContestEnd
 	def_special Rogue_GiveCatchingContestMon
-	def_special Rogue_HasUnlockedRandomStarterTrade
 	def_special Rogue_CanOverLevel
 	def_special Rogue_AnyLegendsInSafari
 	def_special Rogue_CheckSafariMonLikesPokeblock
 	def_special Rogue_EnqueueSafariBattle
 	def_special Rogue_BufferSafariMonInfo
 	def_special Rogue_DisplayPopupsFromScript
+	def_special Rogue_DisplayPopupsFromScriptSkippable
 	def_special RogueHub_SetRandomFollowMonsFromPC
 	def_special RogueHub_GetStatueLevel
 	def_special RogueAdv_ApplyAdventureMetatiles
@@ -429,6 +429,7 @@ gSpecials::
 	def_special Special_SelectSafariMonInPokedex
 	def_special Special_ViewPlayerCustomisationMenu
 	def_special Special_ViewVoltorbFlip
+	def_special Special_ViewWorldMap
 	def_special CheckLeadMonCool
 	def_special CheckLeadMonBeauty
 	def_special CheckLeadMonCute

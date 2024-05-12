@@ -48,6 +48,16 @@ text gItemDesc_TR
     format("Single use machine for teaching {PKMN} one specific move.")
 }
 
+text gItemDesc_SmallCoinCase
+{
+    format("Coin Case provides ¥1000 on start of Adventure.")
+}
+
+text gItemDesc_LargeCoinCase
+{
+    format("Coin Case provides ¥20000 on start of Adventure.")
+}
+
 text gItemDesc_NormalPokeblock
 {
     format("{POKEBLOCK} enjoyed by Normal type {PKMN}.")
@@ -268,6 +278,11 @@ text gItemDesc_ItemShuffleCurse
 // (Appear in item shop layout)
 //
 
+text gHubAreaDesc_Todo
+{
+    format("todo - area desc")
+}
+
 text gHubUpgradeDesc_Home_LowerFloor
 {
     format("A cozy home used to store items and change outfits.")
@@ -299,6 +314,16 @@ text gHubUpgradeDesc_Home_FieldShed
 }
 
 
+text gHubUpgradeDesc_AdventureEntrance_RandomStarter
+{
+    format("Starter {PKMN} can be randomised when embarking on Runs.")
+}
+
+text gHubUpgradeDesc_AdventureEntrance_AdventureReplay
+{
+    format("Adventures can be saved and replayed again.")
+}
+
 text gHubUpgradeDesc_BerryField_ExtraField
 {
     format("An additional plot to grown berries in.")
@@ -306,5 +331,5 @@ text gHubUpgradeDesc_BerryField_ExtraField
 
 text gHubUpgradeDesc_BerryField_HigherYeild
 {
-    format("Increased yield when picking berries.")
+    format("Increase berries collected both in and out of Adventures.")
 }

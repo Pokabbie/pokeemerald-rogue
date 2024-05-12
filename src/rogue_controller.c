@@ -352,6 +352,10 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
 {
     u8 battleSceneOption = GetBattleSceneOption();
 
+    // Hold L to slow down
+    if(JOY_HELD(L_BUTTON))
+        return 1;
+
     // We want to speed up all anims until input selection starts
     if(InBattleChoosingMoves())
         gRogueLocal.hasBattleInputStarted = TRUE;
@@ -1073,8 +1077,18 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
 
             switch (pocket)
             {
-            case POCKET_ITEMS:
             case POCKET_BERRIES:
+                if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD2))
+                    amount = 9;
+                else if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD1))
+                    amount = 7;
+                else if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD0))
+                    amount = 5;
+                else
+                    amount = 3;
+                break;
+
+            case POCKET_ITEMS:
             case POCKET_MEDICINE:
                 amount = 3;
                 break;
@@ -1133,8 +1147,14 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount)
         switch (pocket)
         {
         case POCKET_BERRIES:
-            // TODO - Handle hub upgrades
-            amount = 3;
+            if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD2))
+                amount = 9;
+            else if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD1))
+                amount = 7;
+            else if(RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_HIGHER_YEILD0))
+                amount = 5;
+            else
+                amount = 3;
             break;
         }
     }
@@ -1480,33 +1500,37 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     if(*waitTime & B_WAIT_TIME_ABSOLUTE)
     {
         *waitTime &= ~B_WAIT_TIME_ABSOLUTE;
-        return;
     }
-
-    if(Rogue_FastBattleAnims())
+    else
     {
-        *waitTime = awaitingMessage ? 8 : 0;
-    }
-    else if(difficulty < ROGUE_FINAL_CHAMP_DIFFICULTY) // Go at default speed for final fight
-    {
-        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
+        if(Rogue_FastBattleAnims())
         {
-            // Still run faster and default game because it's way too slow :(
-            if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
-                *waitTime = *waitTime / 4;
-            else
-                *waitTime = *waitTime / 2;
+            *waitTime = awaitingMessage ? 8 : 0;
         }
-        else
-            // Go faster, but not quite gym leader slow
-            *waitTime = *waitTime / 6;
+        else if(difficulty < ROGUE_FINAL_CHAMP_DIFFICULTY) // Go at default speed for final fight
+        {
+            if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
+            {
+                // Still run faster and default game because it's way too slow :(
+                if(difficulty < ROGUE_ELITE_START_DIFFICULTY)
+                    *waitTime = *waitTime / 4;
+                else
+                    *waitTime = *waitTime / 2;
+            }
+            else
+                // Go faster, but not quite gym leader slow
+                *waitTime = *waitTime / 6;
+        }
+
+        if(!Rogue_GetBattleAnimsEnabled())
+        {
+            // If we don't have anims on wait message for at least a little bit
+            *waitTime = max(4, *waitTime);
+        }
     }
 
-    if(!Rogue_GetBattleAnimsEnabled())
-    {
-        // If we don't have anims on wait message for at least a little bit
-        *waitTime = max(4, *waitTime);
-    }
+    // Now apply speed scale
+    *waitTime = max(1, *waitTime / Rogue_GetBattleSpeedScale(FALSE));
 }
 
 s16 Rogue_ModifyBattleSlideAnim(s16 rate)
@@ -2882,6 +2906,13 @@ void Rogue_OnNewGame(void)
 
     ClearBerryTrees();
 
+    // Plant default berries (these are the free gifts you get)
+    PlantBerryTree(BERRY_TREE_HUB_11, ItemIdToBerryType(ITEM_ORAN_BERRY), BERRY_STAGE_BERRIES, FALSE);
+    PlantBerryTree(BERRY_TREE_HUB_12, ItemIdToBerryType(ITEM_RAWST_BERRY), BERRY_STAGE_BERRIES, FALSE);
+    PlantBerryTree(BERRY_TREE_HUB_13, ItemIdToBerryType(ITEM_CHERI_BERRY), BERRY_STAGE_BERRIES, FALSE);
+    PlantBerryTree(BERRY_TREE_HUB_14, ItemIdToBerryType(ITEM_CHESTO_BERRY), BERRY_STAGE_BERRIES, FALSE);
+    PlantBerryTree(BERRY_TREE_HUB_15, ItemIdToBerryType(ITEM_PECHA_BERRY), BERRY_STAGE_BERRIES, FALSE);
+
     Rogue_ResetCampaignAfter(0);
     RogueHub_ClearProgress();
 
@@ -3646,7 +3677,20 @@ static void SetupRogueRunBag()
         
         if(itemId != ITEM_NONE && CanEnterWithItem(itemId, isBasicBagEnabled))
         {
-            AddBagItem(itemId, quantity);
+            switch (itemId)
+            {
+            case ITEM_SMALL_COIN_CASE:
+                AddMoney(&gSaveBlock1Ptr->money, 1000);
+                break;
+
+            case ITEM_LARGE_COIN_CASE:
+                AddMoney(&gSaveBlock1Ptr->money, 20000);
+                break;
+
+            default:
+                AddBagItem(itemId, quantity);
+                break;
+            }
         }
     }
 
@@ -4654,7 +4698,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
             ++gRogueRun.enteredRoomCounter;
 
             // Grow berries based on progress in runs (This will grow in run berries and hub berries)
-            BerryTreeTimeUpdate(90);
+            BerryTreeTimeUpdate(120);
 
             VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
 
@@ -7381,6 +7425,14 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         {
             maxPriceRange =  300 + difficulty * 400;
         }
+        else
+        {
+            if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_GENERAL_STOCK))
+            {
+                maxPriceRange = 1200;
+                RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_FULL_HEAL);
+            }
+        }
         break;
 
     case ROGUE_SHOP_BALLS:
@@ -7400,12 +7452,28 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
             else if(difficulty < 11)
                 maxPriceRange = 2000;
         }
+        else
+        {
+            if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_POKE_BALLS_STOCK))
+            {
+                RogueItemQuery_InPriceRange(QUERY_FUNC_INCLUDE, 10, 600);
+                RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_ULTRA_BALL);
+            }
+        }
         break;
 
     case ROGUE_SHOP_TMS:
         RogueItemQuery_IsStoredInPocket(QUERY_FUNC_INCLUDE, POCKET_TM_HM);
         *minSalePrice = 0;
         applyRandomChance = TRUE;
+
+        if(!Rogue_IsRunActive())
+        {
+            if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS_STOCK))
+            {
+                maxPriceRange = 8000;
+            }
+        }
         break;
 
     case ROGUE_SHOP_BATTLE_ENHANCERS:

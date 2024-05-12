@@ -52,6 +52,7 @@
 #include "rogue_ridemon.h"
 #include "rogue_questmenu.h"
 #include "rogue_settings.h"
+#include "rogue_worldmap.h"
 
 static void SetUpItemUseCallback(u8);
 static void FieldCB_UseItemOnField(void);
@@ -828,6 +829,42 @@ void ItemUseOutOfBattle_CGear(u8 taskId)
         gFieldCallback = FieldCB_ReturnToFieldNoScript;
         FadeScreen(FADE_TO_BLACK, 0);
         gTasks[taskId].func = Task_OpenRegisteredCGear;
+    }
+}
+
+static void CB2_OpenWorldMapFromBag(void)
+{
+    Rogue_OpenWorldMap(CB2_ReturnToBagMenuPocket);
+}
+
+static void Task_OpenRegisteredWorldMap(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        Rogue_OpenWorldMap(CB2_ReturnToField);
+        DestroyTask(taskId);
+    }
+}
+
+void ItemUseOutOfBattle_WorldMap(u8 taskId)
+{
+    if(!WaitFanfare(FALSE))
+    {
+        return;
+    }
+
+    PlaySE(SE_SELECT);
+    if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    {
+        gBagMenu->newScreenCallback = CB2_OpenWorldMapFromBag;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else
+    {
+        gFieldCallback = FieldCB_ReturnToFieldNoScript;
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_OpenRegisteredWorldMap;
     }
 }
 

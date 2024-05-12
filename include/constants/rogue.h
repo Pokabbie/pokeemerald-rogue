@@ -73,6 +73,8 @@
 #define ITEM_ALOLA_STONE                (ITEM_ROGUE_ITEM_FIRST + 8)
 #define ITEM_GALAR_STONE                (ITEM_ROGUE_ITEM_FIRST + 9)
 #define ITEM_HISUI_STONE                (ITEM_ROGUE_ITEM_FIRST + 10)
+#define ITEM_SMALL_COIN_CASE            (ITEM_ROGUE_ITEM_FIRST + 11)
+#define ITEM_LARGE_COIN_CASE            (ITEM_ROGUE_ITEM_FIRST + 12)
 
 // Free 10 - 19
 

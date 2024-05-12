@@ -15,6 +15,7 @@ void RogueHub_BuildAreaInConnDir(u8 area, u8 connDir);
 bool8 RogueHub_HasAreaBuildRequirements(u8 area);
 
 u8 RogueHub_FindAreaAtCoord(s8 x, s8 y);
+struct Coords8 RogueHub_GetAreaCoords(u8 area);
 u8 RogueHub_FindAreaInDir(u8 area, u8 dir);
 bool8 RogueHub_AreaHasFreeConnection(u8 area, u8 dir);
 u8 RogueHub_GetAreaAtConnection(u8 area, u8 dir);
@@ -22,6 +23,8 @@ bool8 RogueHub_CanBuildConnectionBetween(u8 fromArea, u8 toArea, u8 dir);
 
 u8 RogueHub_GetAreaFromCurrentMap();
 
+u8 const* RogueHub_GetHubName();
+u8 RogueHub_GetHubVariantNumber();
 void RogueHub_OnNewDayStarted();
 void RogueHub_UpdateWarpStates();
 u16 RogueHub_GetWeatherState();

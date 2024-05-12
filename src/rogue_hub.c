@@ -133,13 +133,28 @@ void RogueHub_ClearProgress()
 {
     memset(&gRogueSaveBlock->hubMap, 0, sizeof(gRogueSaveBlock->hubMap));
 
-    // Build default area at 0,0
-    RogueHub_BuildArea(HUB_AREA_LABS, 0, 0);
+    // Build default area at away from reserved coords (will recentre in a second)
+    RogueHub_BuildArea(HUB_AREA_LABS, 10, 10);
 
     // Place required areas randomly (Order matters)
     BuildAtRandomConnectionFrom(HUB_AREA_LABS, HUB_AREA_ADVENTURE_ENTRANCE);
     BuildAtRandomConnectionFrom(HUB_AREA_ADVENTURE_ENTRANCE, HUB_AREA_SAFARI_ZONE);
     BuildAtRandomConnectionFrom(HUB_AREA_LABS, HUB_AREA_TOWN_SQUARE);
+
+    // Now recenter so that the adventure enterance is actually at 0,0
+    {
+        u8 i;
+        struct Coords8 offset = gRogueSaveBlock->hubMap.areaCoords[HUB_AREA_ADVENTURE_ENTRANCE];
+
+        for(i = 0; i < HUB_AREA_COUNT; ++i)
+        {
+            if(RogueHub_HasAreaBuilt(i))
+            {
+                gRogueSaveBlock->hubMap.areaCoords[i].x -= offset.x;
+                gRogueSaveBlock->hubMap.areaCoords[i].y -= offset.y;
+            }
+        }
+    }
 }
 
 bool8 RogueHub_HasUpgrade(u16 upgradeId)
@@ -292,6 +307,26 @@ u8 RogueHub_FindAreaAtCoord(s8 x, s8 y)
     return HUB_AREA_NONE;
 }
 
+// Catch unbuildable coordinates
+static bool8 IsReservedCoord(s8 x, s8 y)
+{
+    // Reserve north of adventure entrance
+    if(GetActiveHubMap()->areaCoords[HUB_AREA_ADVENTURE_ENTRANCE].x == x && GetActiveHubMap()->areaCoords[HUB_AREA_ADVENTURE_ENTRANCE].y + 1 == y)
+        return TRUE;
+
+    // Reserve north of safari
+    if(GetActiveHubMap()->areaCoords[HUB_AREA_SAFARI_ZONE].x == x && GetActiveHubMap()->areaCoords[HUB_AREA_SAFARI_ZONE].y + 1 == y)
+        return TRUE;
+
+    return FALSE;
+}
+
+struct Coords8 RogueHub_GetAreaCoords(u8 area)
+{
+    AGB_ASSERT(RogueHub_HasAreaBuilt(area));
+    return GetActiveHubMap()->areaCoords[area];
+}
+
 u8 RogueHub_FindAreaInDir(u8 area, u8 connDir)
 {
     if(RogueHub_HasAreaBuilt(area))
@@ -339,7 +374,7 @@ bool8 RogueHub_AreaHasFreeConnection(u8 area, u8 dir)
         pos.y = GetActiveHubMap()->areaCoords[area].y;
         IncrementCoordsByDirection(&pos, dir);
 
-        return RogueHub_FindAreaAtCoord(pos.x, pos.y) == HUB_AREA_NONE;
+        return !IsReservedCoord(pos.x, pos.y) && RogueHub_FindAreaAtCoord(pos.x, pos.y) == HUB_AREA_NONE;
     }
 
     return FALSE;
@@ -403,6 +438,18 @@ void RogueHub_OnNewDayStarted()
         return;
 
     gRogueSaveBlock->hubMap.weatherState = Random();
+}
+
+u8 const* RogueHub_GetHubName()
+{
+    // TODO - Fix this for multiplayer
+    return gSaveBlock2Ptr->pokemonHubName;
+}
+
+u8 RogueHub_GetHubVariantNumber()
+{
+    // TODO - Fix this for multiplayer
+    return gSaveBlock2Ptr->playerTrainerId[0];
 }
 
 void RogueHub_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp)
@@ -560,8 +607,8 @@ static void RogueHub_UpdateLabsAreaMetatiles()
     // Remove connectionss
     if(RogueHub_GetAreaAtConnection(HUB_AREA_LABS, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(12, 0, 15, 0, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(12, 1, 15, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(11, 0, 16, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(11, 1, 16, TREE_TYPE_DENSE);
 
         MetatileFill_CommonPathRemoval(12, 2, 15, 7);
     }
@@ -787,40 +834,46 @@ static void RogueHub_UpdateFarmingAreaMetatiles()
     // Remove connectionss
     if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(1, 0, 6, 2, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(1, 3, 6, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(17, 0, 22, 1, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(17, 0, 22, TREE_TYPE_DENSE);
 
-        MetatileFill_CommonPathRemoval(2, 4, 5, 5);
+        MetatileFill_CommonPathRemoval(18, 2, 21, 2);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(38, 5);
+        MetatileFill_TreesOverlapping(38, 5, 39, 9, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(22, 6, 37, 8);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitVertical(32, 10);
-        MetatileFill_TreeCaps(32, 11, 35);
+        MetatileFill_CommonPathRemoval(18, 9, 21, 9);
 
-        MetatileFill_CommonPathRemoval(32, 9, 35, 9);
+        MetatileFill_TreesOverlapping(15, 10, 24, 11, TREE_TYPE_DENSE);
+        MetatileFill_TreeCaps(16, 9, 23);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(0, 5);
+        MetatileFill_TreesOverlapping(0, 1, 1, 8, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(2, 3, 14, 5);
     }
 
-
-    // Fill right field
-    //if(!RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD))
-    //{
-    //    MetatileFill_TreesOverlapping(12, 1, 19, 6, TREE_TYPE_DENSE);
-    //    MetatileFill_TreeStumps(13, 7, 19, TREE_TYPE_DENSE);
-    //    MetatileFill_TreeStumps(12, 7, 12, TREE_TYPE_SPARSE);
-    //    
-    //    MetatileFill_Tile(12, 8, 19, 8, METATILE_GeneralHub_Grass);
-    //}
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD0))
+    {
+        MetatileFill_Tile(29, 3, 36, 5, METATILE_GeneralHub_Grass);
+    }
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD1))
+    {
+        MetatileFill_Tile(10, 6, 16, 8, METATILE_GeneralHub_Grass);
+    }
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD2))
+    {
+        MetatileFill_Tile(2, 6, 8, 8, METATILE_GeneralHub_Grass);
+    }
 }
 
 static void RogueHub_UpdateSafariAreaMetatiles()
@@ -916,11 +969,51 @@ static void RogueHub_UpdateMartsAreaMetatiles()
 
         MetatileFill_CommonPathRemoval(2, 14, 15, 17);
     }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_GENERAL_STOCK))
+    {
+        MetatileFill_Tile(9, 8, 9, 10, METATILE_GeneralHub_Grass);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_POKE_BALLS))
+    {
+        MetatileFill_Tile(4, 9, 7, 11, METATILE_GeneralHub_Grass);
+    }
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_POKE_BALLS_STOCK))
+    {
+        MetatileFill_Tile(2, 8, 3, 11, METATILE_GeneralHub_Grass);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS))
+    {
+        MetatileFill_Tile(4, 4, 7, 6, METATILE_GeneralHub_Grass);
+    }
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS_STOCK))
+    {
+        MetatileFill_Tile(2, 3, 3, 6, METATILE_GeneralHub_Grass);
+        MetatileFill_Tile(4, 3, 7, 3, METATILE_GeneralHub_Grass);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TRAVELER_BATTLE_ENCHANCERS))
+    {
+        MetatileFill_Tile(9, 3, 14, 6, METATILE_GeneralHub_Grass);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_BANK))
+    {
+        MetatileFill_Tile(21, 4, 31, 12, METATILE_GeneralHub_Grass);
+
+        MetatileFill_TreesOverlapping(22, 3, 31, 10, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(23, 11, 31, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(22, 11, 22, TREE_TYPE_SPARSE);
+
+        MetatileFill_Tile(23, 13, 28, 13, METATILE_GeneralHub_Grass);
+    }
 }
 
 static void RogueHub_UpdateTownSquareAreaMetatiles()
 {
-    // Remove connectionss
+    // Remove connections
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
         MetatileFill_TreesOverlapping(13, 0, 18, 0, TREE_TYPE_DENSE);
@@ -931,9 +1024,9 @@ static void RogueHub_UpdateTownSquareAreaMetatiles()
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(26, 11);
+        MetatileFill_CommonWarpExitHorizontal(26, 9);
 
-        MetatileFill_CommonPathRemoval(18, 12, 25, 14);
+        MetatileFill_CommonPathRemoval(23, 10, 25, 12);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)

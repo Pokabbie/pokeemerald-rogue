@@ -15,6 +15,7 @@ enum
     QUEST_REWARD_SHOP_ITEM,
     QUEST_REWARD_MONEY,
     QUEST_REWARD_QUEST_UNLOCK,
+    QUEST_REWARD_FLAG,
 };
 
 enum
@@ -28,6 +29,7 @@ struct RogueQuestReward
 {
     u8 type;
     u8 visiblity;
+    struct CustomPopup const* customPopup;
     union
     {
         struct
@@ -54,6 +56,10 @@ struct RogueQuestReward
         {
             u16 questId;
         } questUnlock;
+        struct
+        {
+            u16 flagId;
+        } flag;
     } perType;
 };
 

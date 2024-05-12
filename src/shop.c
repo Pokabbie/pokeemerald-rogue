@@ -46,6 +46,7 @@
 #include "rogue_charms.h"
 #include "rogue_hub.h"
 #include "rogue_query.h"
+#include "rogue_quest.h"
 
 typedef void (*ShopCallback)();
 
@@ -525,6 +526,11 @@ static void Task_HandleShopMenuQuit(u8 taskId)
     TryPutSmartShopperOnAir();
     UnlockPlayerFieldControls();
     DestroyTask(taskId);
+
+    if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
+    {
+        RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
+    }
 
     if(sMartInfo.anythingBought)
         VarSet(VAR_RESULT, TRUE);
@@ -1291,6 +1297,10 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
         if(sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
         {
             maxQuantity = min(maxQuantity, Rogue_GetBagPocketAmountPerItem(ItemId_GetPocket(tItemId) - 1));
+
+            // Can only buy 1 of infinite items
+            if(tItemId <= ITEM_TM01 && tItemId >= ITEM_HM08)
+                maxQuantity = 1;
         }
 
         if (maxQuantity > MAX_SHOP_ITEM_CAPACITY)

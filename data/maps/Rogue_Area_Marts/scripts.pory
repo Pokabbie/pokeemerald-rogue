@@ -1,21 +1,91 @@
-const FLAG_SP_HELD_ITEMS_DISABLED = FLAG_TEMP_1
+const FLAG_HIDE_POKEBALL_SHOP = FLAG_TEMP_1
+const FLAG_HIDE_TM_SHOP = FLAG_TEMP_2
+const FLAG_HIDE_BATTLE_ENCHANCERS = FLAG_TEMP_3
+const FLAG_HIDE_HELD_ITEMS = FLAG_TEMP_4
+const FLAG_HIDE_BANK = FLAG_TEMP_5
 
 mapscripts Rogue_Area_Marts_MapScripts 
 {
-    MAP_SCRIPT_ON_LOAD: Rogue_Area_Marts_OnTransition
+    MAP_SCRIPT_ON_LOAD: Rogue_Area_Marts_OnMapLoad
 }
 
-script Rogue_Area_Marts_OnTransition
+script Rogue_Area_Marts_OnMapLoad
 {
-    poryswitch(ROGUE_VERSION)
+    hubupgradeunlocked(HUB_UPGRADE_MARTS_POKE_BALLS)
+    if(var(VAR_RESULT) == YES)
     {
-        ROGUE_VERSION_VANILLA
-        {
-            setflag(FLAG_SP_HELD_ITEMS_DISABLED)
-        }
-        ROGUE_VERSION_EXPANSION
-        {
-            clearflag(FLAG_SP_HELD_ITEMS_DISABLED)
-        }
+        clearflag(FLAG_HIDE_POKEBALL_SHOP)
     }
+    else
+    {
+        setflag(FLAG_HIDE_POKEBALL_SHOP)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_MARTS_TMS)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_HIDE_TM_SHOP)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_TM_SHOP)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_MARTS_TRAVELER_BATTLE_ENCHANCERS)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_HIDE_BATTLE_ENCHANCERS)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_BATTLE_ENCHANCERS)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_MARTS_TRAVELER_HELD_ITEMS)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_HIDE_HELD_ITEMS)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_HELD_ITEMS)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_MARTS_BANK)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_HIDE_BANK)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_BANK)
+    }
+}
+
+script Rogue_Area_Marts_ShopBank
+{
+    lock
+    faceplayer
+    message(format("Welcome to the Bank!\pI can provide you with Coin Cases which will convert into instantaneous Pokédollars whenever you embark on an Adventure.\pWould you like to buy and Coin Cases?"))
+    waitmessage
+
+    pokemart(BankMart)
+
+    msgbox("Come again soon!")
+    release
+}
+
+script Rogue_Area_Marts_BankSign
+{
+    hubupgradeunlocked(HUB_UPGRADE_MARTS_BANK)
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("The Bank"), MSGBOX_SIGN)
+    }
+}
+
+mart BankMart
+{
+    ITEM_SMALL_COIN_CASE
+    ITEM_LARGE_COIN_CASE
 }

@@ -486,7 +486,7 @@
 #define FLAG_ROGUE_DAYCARE_EGG_READY         0x1BB
 #define FLAG_ROGUE_HIDE_WORKBENCHES          0x1BC
 #define FLAG_ROGUE_HAS_RANDOM_STARTER        0x1BD
-#define FLAG_UNUSED_0x1BE                    0x1BE
+#define FLAG_ROGUE_UNLOCKED_MAP_TELEPORT     0x1BE
 #define FLAG_UNUSED_0x1BF                    0x1BF
 #define FLAG_UNUSED_0x1C0                    0x1C0
 #define FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE 0x1C1

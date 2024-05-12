@@ -153,6 +153,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_DEBUG",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_PROF_LAB",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

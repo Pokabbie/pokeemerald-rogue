@@ -8,6 +8,8 @@ extern const u8 gItemDesc_GoldRidingWhistle[];
 extern const u8 gItemDesc_CGear[];
 extern const u8 gItemDesc_DaycarePhone[];
 extern const u8 gItemDesc_BuildingSupplies[];
+extern const u8 gItemDesc_SmallCoinCase[];
+extern const u8 gItemDesc_LargeCoinCase[];
 
 extern const u8 gItemDesc_NormalPokeblock[];
 extern const u8 gItemDesc_FightingPokeblock[];
@@ -235,6 +237,34 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .iconPalette = gItemIconPalette_HisuiStone,
     },
 #endif
+    [ITEM_SMALL_COIN_CASE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Small Coin Case"),
+#else
+        .name = _("SMALL COIN CASE"),
+#endif
+        .itemId = ITEM_SMALL_COIN_CASE,
+        .price = 1500,
+        .description = gItemDesc_SmallCoinCase,
+        .pocket = POCKET_ITEMS,
+        .iconImage = gItemIcon_CoinCase,
+        .iconPalette = gItemIconPalette_CoinCase,
+    },
+    [ITEM_LARGE_COIN_CASE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Large Coin Case"),
+#else
+        .name = _("LARGE COIN CASE"),
+#endif
+        .itemId = ITEM_LARGE_COIN_CASE,
+        .price = 20000,
+        .description = gItemDesc_LargeCoinCase,
+        .pocket = POCKET_ITEMS,
+        .iconImage = gItemIcon_CoinCase,
+        .iconPalette = gItemIconPalette_CoinCase,
+    },
 
     // Pokeblock
     //

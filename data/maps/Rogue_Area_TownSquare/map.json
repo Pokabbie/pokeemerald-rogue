@@ -25,7 +25,7 @@
     },
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
-      "offset": 10,
+      "offset": 8,
       "direction": "right"
     },
     {
@@ -38,7 +38,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
       "x": 24,
-      "y": 10,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -64,7 +64,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MISC_KALOS_WORKER",
       "x": 19,
-      "y": 10,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -131,14 +131,14 @@
     },
     {
       "x": 27,
-      "y": 13,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
       "x": 27,
-      "y": 14,
+      "y": 12,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
@@ -180,9 +180,16 @@
     },
     {
       "x": 21,
-      "y": 9,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     }
   ],

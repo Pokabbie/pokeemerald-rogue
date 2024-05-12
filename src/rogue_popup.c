@@ -136,6 +136,7 @@ struct PopupManager
     bool8 forceEnabled : 1;
     bool8 forceEnabledMuteAudio : 1;
     bool8 forceEnabledFromScript : 1;
+    bool8 forceEnabledCanSkip : 1;
 };
 
 struct CustomIcon
@@ -640,17 +641,22 @@ void Rogue_ClearPopupQueue(void)
     sRoguePopups.lastShownId = 0;
 }
 
+
 #define SKIP_POPUP_BUTTONS A_BUTTON | B_BUTTON | START_BUTTON
 
 static bool8 ShouldSkipPopups()
 {
-    // Always skip if pressing
-    if(JOY_NEW(SKIP_POPUP_BUTTONS))
-        return TRUE;
+    // only allow skipping in specifical from script scenarios
+    if(sRoguePopups.forceEnabled && sRoguePopups.forceEnabledCanSkip)
+    {
+        // Always skip if pressing
+        if(JOY_NEW(SKIP_POPUP_BUTTONS))
+            return TRUE;
 
-    // If holding skip after has been on screen for long enough
-    if((JOY_HELD(SKIP_POPUP_BUTTONS) && GetActiveOnScreenDisplayTimer() >= 1))
-        return TRUE;
+        // If holding skip after has been on screen for long enough
+        if((JOY_HELD(SKIP_POPUP_BUTTONS) && GetActiveOnScreenDisplayTimer() >= 1))
+            return TRUE;
+    }
 
     return FALSE;
 }
@@ -725,11 +731,12 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
     STOP_TIMER(ROGUE_POPUPS);
 }
 
-void Rogue_ForceEnablePopups(bool8 allowAudio)
+void Rogue_ForceEnablePopups(bool8 allowAudio, bool8 canSkip)
 {
     sRoguePopups.forceEnabled = TRUE;
     sRoguePopups.forceEnabledMuteAudio = !allowAudio;
     sRoguePopups.forceEnabledFromScript = TRUE;
+    sRoguePopups.forceEnabledCanSkip = canSkip;
 }
 
 bool8 Rogue_HasPendingPopups()
@@ -743,6 +750,16 @@ void Rogue_DisplayPopupsFromScript()
     sRoguePopups.forceEnabled = TRUE;
     sRoguePopups.forceEnabledMuteAudio = FALSE;
     sRoguePopups.forceEnabledFromScript = TRUE;
+    sRoguePopups.forceEnabledCanSkip = FALSE;
+}
+
+void Rogue_DisplayPopupsFromScriptSkippable()
+{
+    ScriptContext_Stop();
+    sRoguePopups.forceEnabled = TRUE;
+    sRoguePopups.forceEnabledMuteAudio = FALSE;
+    sRoguePopups.forceEnabledFromScript = TRUE;
+    sRoguePopups.forceEnabledCanSkip = TRUE;
 }
 
 static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 useEnterAnim)
@@ -808,8 +825,9 @@ static void Task_QuestPopUpWindow(u8 taskId)
     switch (task->sStateNum)
     {
     case 6:
-        task->data[4]++;
-        if (task->data[4] > 5 && WaitFanfare(FALSE))
+        if (task->data[4] <= 5)
+            task->data[4]++;
+        else if (WaitFanfare(FALSE) && !IsSEPlaying())
         {
             task->sStateNum = 0;
             task->data[4] = 0;
@@ -1835,4 +1853,20 @@ void Rogue_PushPopup_ChallengeQuestsDisabled()
     
     popup->titleText = sText_Popup_ChallengesDisabled;
     popup->subtitleText = sText_Popup_QuestsDisabledSubtitle;
+}
+
+void Rogue_PushPopup_CustomPopup(struct CustomPopup const* template)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_ITEM_TEXT;
+    popup->iconId = template->itemIcon;
+
+    if(template->soundEffect != MUS_DUMMY)
+        popup->soundEffect = template->soundEffect;
+    else if(template->fanfare != MUS_DUMMY)
+        popup->fanfare = template->fanfare;
+    
+    popup->titleText = template->titleStr;
+    popup->subtitleText = template->subtitleStr;
 }

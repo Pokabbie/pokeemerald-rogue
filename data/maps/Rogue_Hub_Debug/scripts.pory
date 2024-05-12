@@ -195,6 +195,15 @@ script Rogue_Debug_DisplayVoltorbFlip
     release
 }
 
+script Rogue_Debug_DisplayWorldMap
+{
+    lock
+    msgbox(format("Hub map"))
+    special(Special_ViewWorldMap)
+    waitstate
+    release
+}
+
 script Rogue_Debug_GiveMegaRing
 {
     lock

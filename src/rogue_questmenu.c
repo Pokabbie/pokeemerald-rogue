@@ -27,6 +27,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_gifts.h"
+#include "rogue_popup.h"
 #include "rogue_quest.h"
 #include "rogue_questmenu.h"
 
@@ -1450,6 +1451,16 @@ static void Draw_QuestPage()
                     gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = -4;
                     gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = -8;
 
+                    groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                    spriteLayering[spriteIdx] = 0;
+                    ++spriteIdx;
+                }
+                else if(reward->customPopup)
+                {
+                    // Display the custom popup item icon here for consistency
+                    currentTag = TAG_REWARD_ICON_ITEM + reward->customPopup->itemIcon;
+                    
+                    sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->customPopup->itemIcon);
                     groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
                     spriteLayering[spriteIdx] = 0;
                     ++spriteIdx;

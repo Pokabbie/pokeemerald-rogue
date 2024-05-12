@@ -1525,6 +1525,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->holdEffect = 0;
             break;
     
+        case ITEM_TOWN_MAP:
+            outItem->type = ITEM_USE_FIELD;
+            outItem->fieldUseFunc = ItemUseOutOfBattle_WorldMap;
+            break;
+
         case ITEM_SOUL_DEW:
 #ifdef ROGUE_EXPANSION
             outItem->pocket = POCKET_STONES;

@@ -74,6 +74,7 @@
 #include "rogue_player_customisation_ui.h"
 #include "rogue_settings.h"
 #include "rogue_voltorbflip.h"
+#include "rogue_worldmap.h"
 
 #define TAG_ITEM_ICON 5500
 
@@ -193,6 +194,13 @@ void Special_ViewVoltorbFlip(void)
 {
     gMain.savedCallback = CB2_ReturnToField;
     SetMainCallback2(CB2_ShowVoltorbFlip);
+    LockPlayerFieldControls();
+}
+
+void Special_ViewWorldMap(void)
+{
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
+    SetMainCallback2(CB2_ShowWorldMap);
     LockPlayerFieldControls();
 }
 

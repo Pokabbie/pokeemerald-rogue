@@ -1534,11 +1534,6 @@ void Rogue_GiveCatchingContestMon()
 #undef VAR_CATCH_CONTEST_TYPE
 #undef VAR_CATCH_CONTEST_STAT
 
-void Rogue_HasUnlockedRandomStarterTrade()
-{
-    gSpecialVar_Result = RogueQuest_HasCollectedRewards(QUEST_ID_MR_RANDOMAN);
-}
-
 void Rogue_CanOverLevel()
 {
     gSpecialVar_Result = Rogue_GetConfigToggle(CONFIG_TOGGLE_OVER_LVL);
@@ -1912,7 +1907,7 @@ void Rogue_RememberAdventure()
 
 bool8 Rogue_SafeSmartCheckInternal()
 {
-#ifdef ROGUE_FEATURE_SAFTEY_CHECKS && ROGUE_FEATURE_SAFTEY_CHECKS == 1
+#if defined(ROGUE_FEATURE_SAFTEY_CHECKS) && ROGUE_FEATURE_SAFTEY_CHECKS == 1
     int i;
     u8 const otName[PLAYER_NAME_LENGTH + 1] = _("SMARTY");
 
