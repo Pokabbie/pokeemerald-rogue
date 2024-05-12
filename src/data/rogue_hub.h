@@ -174,7 +174,11 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
 
             [HUB_AREA_CONN_TELEPORT] = { 10 },
         },
+#ifdef ROGUE_EXPANSION
+        .iconImage = gItemIcon_DevonParts,
+#else
         .iconImage = gItemIcon_DevonGoods,
+#endif
         .iconPalette = gItemIconPalette_DevonGoodsBrown,
     },
     [HUB_AREA_CHALLENGE_FRONTIER] = 
