@@ -226,7 +226,7 @@
 
             {
                 "name": "Welcome Home",
-                "description": "Build all of the available areas for {POKEMON_HUB}.",
+                "description": "Build all of the available areas.",
                 "display_group": "starter_quests",
                 "flags":
                 [

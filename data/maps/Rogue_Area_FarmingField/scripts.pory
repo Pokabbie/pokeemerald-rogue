@@ -10,7 +10,7 @@ mapscripts Rogue_Area_FarmingField_MapScripts
 script Rogue_Area_FarmingField_OnMapLoad
 {
     hubupgradeunlocked(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD0)
-    if(var(VAR_RESULT))
+    if(var(VAR_RESULT) == TRUE)
     {
         clearflag(FLAG_HIDE_BERRIES0)
     }
@@ -20,7 +20,7 @@ script Rogue_Area_FarmingField_OnMapLoad
     }
 
     hubupgradeunlocked(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD1)
-    if(var(VAR_RESULT))
+    if(var(VAR_RESULT) == TRUE)
     {
         clearflag(FLAG_HIDE_BERRIES1)
     }
@@ -30,7 +30,7 @@ script Rogue_Area_FarmingField_OnMapLoad
     }
 
     hubupgradeunlocked(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD2)
-    if(var(VAR_RESULT))
+    if(var(VAR_RESULT) == TRUE)
     {
         clearflag(FLAG_HIDE_BERRIES2)
     }

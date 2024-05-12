@@ -1,5 +1,11 @@
 const VAR_OBJ_GFX_TEA_SHOP = VAR_OBJ_GFX_ID_0
 
+const FLAG_HIDE_BREEDER = FLAG_TEMP_1
+const FLAG_HIDE_PHONE = FLAG_TEMP_2
+const FLAG_HIDE_POKEBLOCK = FLAG_TEMP_3
+const FLAG_HIDE_TREATS = FLAG_TEMP_4
+const FLAG_HIDE_TEA = FLAG_TEMP_5
+
 mapscripts Rogue_Area_DayCare_MapScripts 
 {
     MAP_SCRIPT_ON_LOAD: Rogue_Area_DayCare_OnMapLoad
@@ -15,6 +21,56 @@ script Rogue_Area_DayCare_OnMapLoad
     else
     {
         setvar(VAR_OBJ_GFX_TEA_SHOP, OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_F)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_BREEDER)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        clearflag(FLAG_HIDE_BREEDER)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_BREEDER)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_PHONE)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        clearflag(FLAG_HIDE_PHONE)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_PHONE)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_POKEBLOCK_BLENDERS)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        clearflag(FLAG_HIDE_POKEBLOCK)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_POKEBLOCK)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_TREAT_SHOP)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        clearflag(FLAG_HIDE_TREATS)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_TREATS)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_TEA_SHOP)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        clearflag(FLAG_HIDE_TEA)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_TEA)
     }
 }
 
@@ -291,11 +347,17 @@ script Rogue_Area_DayCare_InteractWithPhoneBooth
 
             if(var(VAR_RESULT) == NO)
             {
-                msgbox(format("Oh?\nThere's a small package with a note attached.\pIt reads…\p'Dear {PLAYER}, please accept this Pokégear.\pYou can use it to remotely make requests with the Day Care, whilst you're out on Adventures.\pBest of luck!\p - The Day Care Staff'"))
-                giveitem(ITEM_DAYCARE_PHONE)
+                call(Rogue_Area_DayCare_GiveDayCarePhone)
             }
         }
 
         release
     }
+}
+
+script Rogue_Area_DayCare_GiveDayCarePhone
+{
+    msgbox(format("Oh?\nThere's a small package with a note attached.\pIt reads…\p'Dear {PLAYER}, please accept this Pokégear.\pYou can use it to remotely make requests with the Day Care, whilst you're out on Adventures.\pBest of luck!\p - The Day Care Staff'"))
+    giveitem(ITEM_DAYCARE_PHONE)
+    call(Rogue_Common_DisplayPopups)
 }

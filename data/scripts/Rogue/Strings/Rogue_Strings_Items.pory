@@ -30,7 +30,7 @@ text gItemDesc_CGear
 
 text gItemDesc_DaycarePhone
 {
-    format("A Phone which can be used to directly call the Day Care")
+    format("A Phone which can remotely access the Day Care.")
 }
 
 text gItemDesc_BuildingSupplies
@@ -383,4 +383,45 @@ text gHubUpgradeDesc_TownSquare_TrainerSchool
 text gHubUpgradeDesc_TownSquare_MoveTutors
 {
     format("Tutor to teach or remove moves for {PKMN}.")
+}
+
+
+text gHubUpgradeDesc_DayCare_DayCareSlots
+{
+    format("Adds an extra Day Care {PKMN} slot.")
+}
+
+text gHubUpgradeDesc_DayCare_Breeder
+{
+    format("Use data from Pokédex to find {PKMN} Eggs.")
+}
+
+text gHubUpgradeDesc_DayCare_Phone
+{
+    format("Remotely access Day Care in and out of Adventures.")
+}
+
+text gHubUpgradeDesc_DayCare_Bakery
+{
+    format("Bake {POKEBLOCK} into snacks used to improve IVs.")
+}
+
+text gHubUpgradeDesc_DayCare_PokeblockBlenders
+{
+    format("Blend berries into {POKEBLOCK}.")
+}
+
+text gHubUpgradeDesc_DayCare_TreatShop
+{
+    format("Shop for Mints to change {PKMN} natures.")
+}
+
+text gHubUpgradeDesc_DayCare_TreatShopStock
+{
+    format("Treat Shop will now also sell {POKEBLOCK}.")
+}
+
+text gHubUpgradeDesc_DayCare_TeaShop
+{
+    format("Shop for changing the gender of {PKMN}.")
 }

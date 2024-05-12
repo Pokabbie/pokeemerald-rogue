@@ -1129,7 +1129,43 @@ static void RogueHub_UpdateDayCareAreaMetatiles()
     {
         MetatileFill_CommonWarpExitHorizontal(0, 11);
 
-        MetatileFill_CommonPathRemoval(2, 12, 17, 14);
+        MetatileFill_CommonPathRemoval(2, 12, 3, 14);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_BREEDER))
+    {
+        MetatileFill_Tile(10, 10, 10, 10, 0x291); // place wooden fence
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_BAKERY) && !RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_POKEBLOCK_BLENDERS))
+    {
+        MetatileFill_Tile(23, 2, 35, 9, METATILE_GeneralHub_Grass);
+
+        MetatileFill_TreesOverlapping(24, 1, 36, 6, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(24, 7, 36, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(24, 7, 24, TREE_TYPE_SPARSE);
+    }
+    else
+    {
+        if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_BAKERY))
+        {
+            MetatileFill_Tile(23, 2, 27, 9, METATILE_GeneralHub_Grass);
+        }
+
+        if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_POKEBLOCK_BLENDERS))
+        {
+            MetatileFill_Tile(28, 2, 35, 9, METATILE_GeneralHub_Grass);
+        }
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_TREAT_SHOP))
+    {
+        MetatileFill_Tile(22, 14, 27, 18, METATILE_GeneralHub_Grass);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_TEA_SHOP))
+    {
+        MetatileFill_Tile(12, 16, 17, 19, METATILE_GeneralHub_Grass);
     }
 }
 

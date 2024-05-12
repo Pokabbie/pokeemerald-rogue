@@ -1,1 +1,20 @@
-mapscripts Rogue_Encounter_DayCare_MapScripts {}
+
+const FLAG_HIDE_PHONE = FLAG_TEMP_1
+
+mapscripts Rogue_Encounter_DayCare_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Encounter_DayCare_OnMapLoad
+}
+
+script Rogue_Encounter_DayCare_OnMapLoad
+{
+    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_PHONE)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        clearflag(FLAG_HIDE_PHONE)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_PHONE)
+    }
+}
