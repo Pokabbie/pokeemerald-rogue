@@ -1869,6 +1869,10 @@ static u32 GetBestMonIntegrated(struct Pokemon *party, int firstId, int lastId, 
 
         else if (damageMonId != PARTY_SIZE)
             return damageMonId;
+
+        // We have no other options left, so we have to swap in the aceMon here
+        else if(aceMonId != PARTY_SIZE && aliveCount == 0)
+            return aceMonId;
     }
     else
     {
