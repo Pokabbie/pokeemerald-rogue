@@ -219,7 +219,7 @@ void CB2_ShowWorldMap(void)
     ResetPaletteFade();
     FreeAllSpritePalettes();
     LoadPalette(sWorldMapPalette, BG_PLTT_ID(BG_PAL_ID_WORLD_MAP), sizeof(sWorldMapPalette));
-    sWorldMapTilemapPtr = malloc(0x1000);
+    sWorldMapTilemapPtr = Alloc(0x1000);
     InitData();
     InitWorldMapBg();
     InitWorldMapWindow();
