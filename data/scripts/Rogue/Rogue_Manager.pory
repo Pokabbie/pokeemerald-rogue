@@ -15,6 +15,8 @@ script Rogue_GiveItem_Internal
 
 script Rogue_Common_DisplayPopups
 {
+    waitse
+    waitfanfare
     closemessage
     special(Rogue_DisplayPopupsFromScript)
     waitstate
@@ -23,6 +25,8 @@ script Rogue_Common_DisplayPopups
 
 script Rogue_Common_DisplaySkippablePopups
 {
+    waitse
+    waitfanfare
     closemessage
     special(Rogue_DisplayPopupsFromScriptSkippable)
     waitstate
@@ -389,7 +393,7 @@ script Rogue_EventScript_UseDayCarePhoneItem
             msgbox(format("{PLAYER}? Is that you?\pYou'd like to swap out one of your Pokémon, would you?"))
         }
 
-        message(format("Which daycare slot are you interested in?"))
+        message(format("Which {PKMN} slot are you interested in?"))
         waitmessage
 
         multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)
@@ -869,9 +873,9 @@ script Rogue_SpeakDaycareLady
 {
     lock
     faceplayer
-    msgbox(format("Why hello dear!\nI'm the Daycare Lady.\pI can hold onto Pokémon for you, if you'd like."), MSGBOX_DEFAULT)
+    msgbox(format("Why hello dear!\nI'm the Day Care Lady.\pI can hold onto Pokémon for you, if you'd like."), MSGBOX_DEFAULT)
 
-    message(format("Which daycare slot are you interested in?"))
+    message(format("Which {PKMN} slot are you interested in?"))
     waitmessage
 
     multichoice(1, 1, MULTI_ROGUE_DAYCARE, NO)

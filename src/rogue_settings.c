@@ -219,19 +219,23 @@ void Rogue_SetConfigToggle(u16 elem, bool8 state)
 
     AGB_ASSERT(elem < CONFIG_TOGGLE_COUNT);
     AGB_ASSERT(idx < ARRAY_COUNT(config->toggleBits));
-    if(state)
-    {
-        config->toggleBits[idx] |= bitMask;
-    }
-    else
-    {
-        config->toggleBits[idx] &= ~bitMask;
-    }
 
-    gRogueDifficultyLocal.areLevelsValid = FALSE;
+    if(elem < CONFIG_TOGGLE_COUNT)
+    {
+        if(state)
+        {
+            config->toggleBits[idx] |= bitMask;
+        }
+        else
+        {
+            config->toggleBits[idx] &= ~bitMask;
+        }
 
-    if(IsDifficultyToggle(elem))
-        Rogue_SetConfigRange(CONFIG_RANGE_DIFFICULTY_PRESET, DIFFICULTY_LEVEL_CUSTOM);
+        gRogueDifficultyLocal.areLevelsValid = FALSE;
+
+        if(IsDifficultyRange(elem))
+            config->rangeValues[CONFIG_RANGE_DIFFICULTY_PRESET] = DIFFICULTY_LEVEL_CUSTOM;
+    }
 }
 
 bool8 Rogue_GetConfigToggle(u16 elem)
@@ -251,11 +255,14 @@ void Rogue_SetConfigRange(u16 elem, u8 value)
     struct RogueDifficultyConfig* config = GetWritableDifficultyConfig();
     AGB_ASSERT(elem < CONFIG_RANGE_COUNT);
 
-    config->rangeValues[elem] = value;
-    gRogueDifficultyLocal.areLevelsValid = FALSE;
+    if(elem < CONFIG_RANGE_COUNT)
+    {
+        config->rangeValues[elem] = value;
+        gRogueDifficultyLocal.areLevelsValid = FALSE;
 
-    if(IsDifficultyRange(elem))
-        Rogue_SetConfigRange(CONFIG_RANGE_DIFFICULTY_PRESET, DIFFICULTY_LEVEL_CUSTOM);
+        if(IsDifficultyRange(elem))
+            config->rangeValues[CONFIG_RANGE_DIFFICULTY_PRESET] = DIFFICULTY_LEVEL_CUSTOM;
+    }
 }
 
 u8 Rogue_GetConfigRange(u16 elem)

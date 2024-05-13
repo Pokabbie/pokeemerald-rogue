@@ -271,6 +271,19 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
         }
         else
         {
+            // Give player the daycare phone if they didn't pick it up before exiting
+            hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_PHONE)
+            if(var(VAR_RESULT) == TRUE)
+            {
+                checkitem(ITEM_DAYCARE_PHONE)
+
+                if(var(VAR_RESULT) == NO)
+                {
+                    msgbox(format("{PLAYER}!\pI have a package I was asked to hand to you."))
+                    call(Rogue_Area_DayCare_GiveDayCarePhone)
+                }
+            }
+
             special(Rogue_HasPendingQuestRewards)
             if(var(VAR_RESULT) == YES)
             {
@@ -325,17 +338,6 @@ script Rogue_ResetAdventureVars
 
 script Rogue_StartAdventureInternal
 {
-    //special(Rogue_AnyNewQuestsPending)
-
-    if(var(VAR_RESULT) == TRUE)
-    {
-        msgbox(format("Before you head out, I should mention, you have pending Quest rewards to collect.\pDo you still want to continue?"), MSGBOX_YESNO)
-        if(var(VAR_RESULT) == NO)
-        {
-            return
-        }
-    }
-
     special(Rogue_EnterPartnerMonCapacity)
     copyvar(VAR_0x8004, VAR_RESULT)
 

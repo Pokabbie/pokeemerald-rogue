@@ -192,8 +192,8 @@ struct RogueHubMap
     struct Coords8 areaCoords[HUB_AREA_COUNT];
     struct RogueHubDecoration homeDecorations[HOME_DECOR_TOTAL_COUNT];
     u8 homeRegionStyles[HOME_REGION_COUNT];
-    u8 areaBuiltFlags[1 + HUB_AREA_COUNT / 8];
-    u8 upgradeFlags[1 + HUB_UPGRADE_COUNT / 8];
+    u8 areaBuiltFlags[1 + ((HUB_AREA_COUNT - 1) / 8)];
+    u8 upgradeFlags[1 + ((HUB_UPGRADE_COUNT - 1) / 8)];
     u16 weatherState;
     u8 statueLevel;
 };

@@ -46,7 +46,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Area_DayCare_TalkBerryBlender",
-      "flag": "0"
+      "flag": "FLAG_TEMP_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
@@ -59,7 +59,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Area_DayCare_BlendPokeblockMaster",
-      "flag": "0"
+      "flag": "FLAG_TEMP_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
@@ -72,7 +72,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Area_DayCare_BlendPokeblockNovice",
-      "flag": "0"
+      "flag": "FLAG_TEMP_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
@@ -85,7 +85,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Area_DayCare_TalkBerryBlender",
-      "flag": "0"
+      "flag": "FLAG_TEMP_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
@@ -111,7 +111,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Shop_Treats",
-      "flag": "0"
+      "flag": "FLAG_TEMP_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
@@ -124,7 +124,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Area_DayCare_SwapMonGender",
-      "flag": "0"
+      "flag": "FLAG_TEMP_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
@@ -150,7 +150,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Area_DayCare_TalkEggBreeder",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FOLLOW_MON_2",
@@ -202,7 +202,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Area_DayCare_InteractWithPhoneBooth",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     }
   ],
   "warp_events": [

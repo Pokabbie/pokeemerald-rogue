@@ -371,16 +371,20 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
             return 1;
     }
 
+    // We don't need to speed up health bar anymore as that passively happens now
     switch (battleSceneOption)
     {
     case OPTIONS_BATTLE_SCENE_1X:
-        return 1;
+        return forHealthbar ? 1 : 1;
 
     case OPTIONS_BATTLE_SCENE_2X:
-        return 2;
+        return forHealthbar ? 1 : 2;
+
+    case OPTIONS_BATTLE_SCENE_3X:
+        return forHealthbar ? 1 : 3;
 
     case OPTIONS_BATTLE_SCENE_4X:
-        return 4;
+        return forHealthbar ? 1 : 4;
 
     // Print text at a readable speed still
     case OPTIONS_BATTLE_SCENE_DISABLED:
@@ -1530,7 +1534,7 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     }
 
     // Now apply speed scale
-    *waitTime = max(1, *waitTime / Rogue_GetBattleSpeedScale(FALSE));
+    //*waitTime = max(1, *waitTime / Rogue_GetBattleSpeedScale(FALSE));
 }
 
 s16 Rogue_ModifyBattleSlideAnim(s16 rate)
@@ -2135,6 +2139,9 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         case ITEM_FLUFFY_TAIL:
         case ITEM_SOOTHE_BELL:
         case ITEM_EVERSTONE:
+
+        case ITEM_SMALL_COIN_CASE:
+        case ITEM_LARGE_COIN_CASE:
 
         case ITEM_PINAP_BERRY:
         case ITEM_NANAB_BERRY:
@@ -7210,9 +7217,12 @@ struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot)
 
 u8 Rogue_GetCurrentDaycareSlotCount()
 {
-    // TODO
-    return 1;
-    //return DAYCARE_SLOT_COUNT;
+    if(RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_CAPACITY1))
+        return 3;
+    else if(RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_CAPACITY0))
+        return 2;
+    else
+        return 1;
 }
 
 void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycareMon)
@@ -7471,7 +7481,11 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
         {
             if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS_STOCK))
             {
+#ifdef ROGUE_EXPANSION
+                maxPriceRange = 15000;
+#else
                 maxPriceRange = 8000;
+#endif
             }
         }
         break;
@@ -7541,6 +7555,12 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
             // No need to sell these in the hub
             RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_POKEBLOCK_HP, ITEM_POKEBLOCK_SPDEF);
         }
+        else
+        {
+            if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_TREAT_SHOP_STOCK))
+                RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, FIRST_ITEM_POKEBLOCK, LAST_ITEM_POKEBLOCK);
+        }
+        
 
 #ifdef ROGUE_EXPANSION
         RogueMiscQuery_EditRange(QUERY_FUNC_INCLUDE, ITEM_LONELY_MINT, ITEM_SERIOUS_MINT);

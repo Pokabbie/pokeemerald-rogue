@@ -1,4 +1,6 @@
 const FLAG_HIDE_LOCAL_WORKBENCH = FLAG_TEMP_1
+const FLAG_HIDE_MOVE_TUTORS = FLAG_TEMP_2
+const FLAG_HIDE_BACK_PACKER = FLAG_TEMP_3
 
 const OBJ_EVENT_BUILDER = 3
 
@@ -31,11 +33,15 @@ script Rogue_Area_TownSquare_OnMapLoad
 
         setobjectxyperm(OBJ_EVENT_BUILDER, 21, 8)
         setobjectmovementtype(OBJ_EVENT_BUILDER, MOVEMENT_TYPE_FACE_UP)
+
+        setflag(FLAG_HIDE_BACK_PACKER)
     }
     else
     {
         // blocking workbench
         clearflag(FLAG_HIDE_LOCAL_WORKBENCH)
+
+        clearflag(FLAG_HIDE_BACK_PACKER)
 
         if(var(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_LEARN_TO_BUILD)
         {
@@ -43,6 +49,16 @@ script Rogue_Area_TownSquare_OnMapLoad
             setobjectxyperm(OBJ_EVENT_BUILDER, 24, 9)
             setobjectmovementtype(OBJ_EVENT_BUILDER, MOVEMENT_TYPE_FACE_UP)
         }
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_TOWN_SQUARE_TUTORS)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_HIDE_MOVE_TUTORS)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_MOVE_TUTORS)
     }
 }
 
