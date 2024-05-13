@@ -371,16 +371,20 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
             return 1;
     }
 
+    // We don't need to speed up health bar anymore as that passively happens now
     switch (battleSceneOption)
     {
     case OPTIONS_BATTLE_SCENE_1X:
-        return 1;
+        return forHealthbar ? 1 : 1;
 
     case OPTIONS_BATTLE_SCENE_2X:
-        return 2;
+        return forHealthbar ? 1 : 2;
+
+    case OPTIONS_BATTLE_SCENE_3X:
+        return forHealthbar ? 1 : 3;
 
     case OPTIONS_BATTLE_SCENE_4X:
-        return 4;
+        return forHealthbar ? 1 : 4;
 
     // Print text at a readable speed still
     case OPTIONS_BATTLE_SCENE_DISABLED:
@@ -1528,7 +1532,7 @@ void Rogue_ModifyBattleWaitTime(u16* waitTime, bool8 awaitingMessage)
     }
 
     // Now apply speed scale
-    *waitTime = max(1, *waitTime / Rogue_GetBattleSpeedScale(FALSE));
+    //*waitTime = max(1, *waitTime / Rogue_GetBattleSpeedScale(FALSE));
 }
 
 s16 Rogue_ModifyBattleSlideAnim(s16 rate)

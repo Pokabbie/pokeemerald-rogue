@@ -1906,6 +1906,10 @@ void BattleMainCB2(void)
             {
                 RunTasks();
                 VBlankCB_Battle();
+
+                // Call it again to make sure everything is behaving as it should (this is crazy town now)
+                if (gMain.callback1)
+                    gMain.callback1();
             }
         }
 
