@@ -433,7 +433,8 @@
 #define EFFECT_TIDY_UP                      427
 #define EFFECT_TERA_BLAST                   428
 #define EFFECT_TERA_STARSTORM               429
+#define EFFECT_ELECTRO_SHOT                 430
 
-#define NUM_BATTLE_MOVE_EFFECTS             430
+#define NUM_BATTLE_MOVE_EFFECTS             431
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

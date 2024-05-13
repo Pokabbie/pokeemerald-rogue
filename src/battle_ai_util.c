@@ -1619,6 +1619,7 @@ bool32 ShouldSetRain(u32 battlerAtk, u32 atkAbility, u32 holdEffect)
       || atkAbility == ABILITY_HYDRATION
       || atkAbility == ABILITY_RAIN_DISH
       || atkAbility == ABILITY_DRY_SKIN
+      || HasMoveEffect(battlerAtk, EFFECT_ELECTRO_SHOT)
       || HasMoveEffect(battlerAtk, EFFECT_THUNDER)
       || HasMoveEffect(battlerAtk, EFFECT_HURRICANE)
       || HasMoveEffect(battlerAtk, EFFECT_WEATHER_BALL)
@@ -2294,6 +2295,9 @@ bool32 IsChargingMove(u32 battlerAtk, u32 effect)
     {
     case EFFECT_SOLAR_BEAM:
         if (AI_GetWeather(AI_DATA) & B_WEATHER_SUN)
+            return FALSE;
+    case EFFECT_ELECTRO_SHOT:
+        if (AI_GetWeather(AI_DATA) & B_WEATHER_RAIN)
             return FALSE;
     case EFFECT_SKULL_BASH:
     case EFFECT_METEOR_BEAM:
