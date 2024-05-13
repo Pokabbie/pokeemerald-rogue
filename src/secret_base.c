@@ -418,7 +418,8 @@ static void EnterNewlyCreatedSecretBase_WaitFadeIn(u8 taskId)
 
 static void UNUSED EnterNewlyCreatedSecretBase_StartFadeIn(void)
 {
-    s16 x, y;
+    s16 x = 0;
+    s16 y = 0;
 
     LockPlayerFieldControls();
     HideMapNamePopUpWindow();
