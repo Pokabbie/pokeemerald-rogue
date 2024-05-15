@@ -447,13 +447,21 @@ void RogueHub_UpdateWeatherState()
 
 u8 const* RogueHub_GetHubName()
 {
-    // TODO - Fix this for multiplayer
+    if(RogueMP_IsActive() && !RogueMP_IsHost())
+    {
+        return RogueMP_GetPlayerHubName(RogueMP_GetRemotePlayerId());
+    }
+
     return gSaveBlock2Ptr->pokemonHubName;
 }
 
 u8 RogueHub_GetHubVariantNumber()
 {
-    // TODO - Fix this for multiplayer
+    if(RogueMP_IsActive() && !RogueMP_IsHost())
+    {
+        return RogueMP_GetPlayerTrainerId(RogueMP_GetRemotePlayerId())[0];
+    }
+
     return gSaveBlock2Ptr->playerTrainerId[0];
 }
 
