@@ -414,6 +414,12 @@ bool8 Rogue_UseKeyBattleAnims(void)
         if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) == 0 && IsMonShiny(&gEnemyParty[0]))
             return TRUE;
     }
+    else
+    {
+        // First catch is an important battle
+        if(VarGet(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_REPORT_TO_PROF)
+            return TRUE;
+    }
 #endif
 
     return FALSE;
