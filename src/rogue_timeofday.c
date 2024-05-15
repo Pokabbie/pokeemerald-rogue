@@ -154,13 +154,24 @@ void RogueToD_SetTime(u16 time)
     u16 prevMins = gRogueSaveBlock->timeOfDayMinutes;
     gRogueSaveBlock->timeOfDayMinutes = time % CALC_TIME(24, 00);
 
+    //RogueHub_UpdateWeatherState
+
     // Just changed day
     if(prevMins > gRogueSaveBlock->timeOfDayMinutes)
     {
         RogueToD_SetSeasonCounter(gRogueSaveBlock->seasonCounter + 1);
 
         if(!Rogue_IsRunActive())
+        {
+            RogueHub_UpdateWeatherState();
             RogueHub_OnNewDayStarted();
+        }
+    }
+    else if(prevMins < CALC_TIME(12, 0) && gRogueSaveBlock->timeOfDayMinutes >= CALC_TIME(12, 0))
+    {
+        // Each half day update the weather state
+        if(!Rogue_IsRunActive())
+            RogueHub_UpdateWeatherState();
     }
 
     sTimeOfDay.areCalcsValid = FALSE;

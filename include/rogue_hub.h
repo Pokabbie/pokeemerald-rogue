@@ -26,6 +26,7 @@ u8 RogueHub_GetAreaFromCurrentMap();
 u8 const* RogueHub_GetHubName();
 u8 RogueHub_GetHubVariantNumber();
 void RogueHub_OnNewDayStarted();
+void RogueHub_UpdateWeatherState();
 void RogueHub_UpdateWarpStates();
 u16 RogueHub_GetWeatherState();
 

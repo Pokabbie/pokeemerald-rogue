@@ -132,6 +132,7 @@ script Rogue_Interior_ConfigLab_TriggerMeetPokabbie
 {
     lock
     setflag(FLAG_ROGUE_MET_POKABBIE)
+    setvar(VAR_TRIGGER_POKABBIE_MEET, NO)
 
     applymovement(OBJ_EVENT_POKABBIE, Rogue_Interior_ConfigLab_Pokabbie0)
     waitmovement(0)

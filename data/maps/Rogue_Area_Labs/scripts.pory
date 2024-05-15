@@ -15,9 +15,9 @@ mapscripts Rogue_Area_Labs_MapScripts
 
 script Rogue_Area_Labs_OnMapLoad
 {
-    if(flag(FLAG_ROGUE_DEBUG_DISABLED))
+    if(!flag(FLAG_ROGUE_DEBUG_DISABLED))
     {
-        fillmetatile(22, 6, 23, 6, METATILE_GeneralHub_Grass, FALSE)
+        fillmetatile(23, 6, 23, 6, METATILE_Petalburg_Door_BirchsLab, TRUE)
     }
 
     if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_SPAWN)

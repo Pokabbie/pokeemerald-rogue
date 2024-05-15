@@ -1591,14 +1591,13 @@ u16 Rogue_ModifyOverworldMapWeather(u16 weather)
                 return VarGet(VAR_ROGUE_DESIRED_WEATHER);
             }
         }
-        else if(VarGet(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_GO_ON_ADVENTURE)
+        else if(VarGet(VAR_ROGUE_INTRO_STATE) < ROGUE_INTRO_STATE_COMPLETE)
         {
-            // Don't have any special weather until player has embarked on first adventure
+            // Don't have any special weather until player has completed tutorial
             return WEATHER_NONE;
         }
         else
         {
-            
             u16 weatherState = RogueHub_GetWeatherState();
 
             switch(RogueToD_GetSeason())
@@ -2912,6 +2911,7 @@ void Rogue_OnNewGame(void)
     EnableNationalPokedex();
 
     RogueToD_SetTime(60 * 10);
+    RogueHub_UpdateWeatherState();
 
     SetLastHealLocationWarp(HEAL_LOCATION_ROGUE_HUB);
 

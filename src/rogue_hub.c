@@ -433,6 +433,11 @@ u16 RogueHub_GetWeatherState()
 
 void RogueHub_OnNewDayStarted()
 {
+    //RogueHub_UpdateWeatherState
+}
+
+void RogueHub_UpdateWeatherState()
+{
     // Ignore this if client
     if(RogueMP_IsActive() && !RogueMP_IsHost())
         return;
