@@ -206,7 +206,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
     u8 secondMoveIndex;
     bool8 lockMovesFlag; // This is used to prevent the player from changing position of moves in a battle or when trading.
     u8 bgDisplayOrder; // Determines the order page backgrounds are loaded while scrolling between them
-    u8 filler40CA;
+    u8 doneMoveLearnHack;
     u8 windowIds[8];
     u8 spriteIds[SPRITE_ARR_ID_COUNT];
     bool8 handleDeoxys;
@@ -1259,7 +1259,7 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
         sMonSummaryScreen->lockMovesFlag = TRUE;
         break;
     case SUMMARY_MODE_SELECT_MOVE:
-        sMonSummaryScreen->minPageIndex = PSS_PAGE_BATTLE_MOVES; // PSS_PAGE_SKILLS (This bugs it out, so need to fix the input and drawing)
+        sMonSummaryScreen->minPageIndex = 0;
         sMonSummaryScreen->maxPageIndex = PSS_PAGE_BATTLE_MOVES;//PSS_PAGE_COUNT - 1;
         sMonSummaryScreen->currPageIndex = PSS_PAGE_BATTLE_MOVES;
         sMonSummaryScreen->lockMonFlag = TRUE;
@@ -1649,8 +1649,8 @@ static void SetDefaultTilemaps(void)
     {
         DrawContestMoveHearts(sMonSummaryScreen->summary.moves[sMonSummaryScreen->firstMoveIndex]);
         TilemapFiveMovesDisplay(sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_BATTLE_MOVES][0], 0, FALSE);
-        TilemapFiveMovesDisplay(sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_CONTEST_MOVES][0], 1, FALSE);
-        SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_CONTEST_MOVES][0]);
+        //TilemapFiveMovesDisplay(sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][0], 1, FALSE);
+        SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][0]);
         SetBgTilemapBuffer(2, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_BATTLE_MOVES][0]);
         ChangeBgX(2, 0x10000, BG_COORD_ADD);
         ClearWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_SPECIES);
@@ -2050,6 +2050,22 @@ static void PssScrollLeft(u8 taskId) // Scroll left
         else
             data[1] = 1;
         ChangeBgX(data[1], 0x10000, BG_COORD_SET);
+
+        if(sMonSummaryScreen->mode == SUMMARY_MODE_SELECT_MOVE && !sMonSummaryScreen->doneMoveLearnHack)
+        {
+            // Make sure the page graphics are setup correctly
+            sMonSummaryScreen->doneMoveLearnHack = TRUE;
+            
+            SetBgAttribute(2, BG_ATTR_PRIORITY, 1);
+            SetBgAttribute(1, BG_ATTR_PRIORITY, 2);
+            ScheduleBgCopyTilemapToVram(2);
+            
+            SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[sMonSummaryScreen->currPageIndex - 1][0]);
+            ShowBg(1);
+            ShowBg(2);
+
+            ChangeBgX(1, 0x10000, BG_COORD_SET);
+        }
     }
     ChangeBgX(data[1], 0x2000, BG_COORD_SUB);
     data[0] += 32;
@@ -2414,12 +2430,14 @@ static void Task_HandleReplaceMoveInput(u8 taskId)
     {
         if (gPaletteFade.active != TRUE)
         {
-            if (JOY_NEW(DPAD_UP))
+            bool8 onMovesPage = (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES);
+
+            if (onMovesPage && JOY_NEW(DPAD_UP))
             {
                 data[0] = 4;
                 ChangeSelectedMove(data, -1, &sMonSummaryScreen->firstMoveIndex);
             }
-            else if (JOY_NEW(DPAD_DOWN))
+            else if (onMovesPage && JOY_NEW(DPAD_DOWN))
             {
                 data[0] = 4;
                 ChangeSelectedMove(data, 1, &sMonSummaryScreen->firstMoveIndex);
@@ -2434,18 +2452,25 @@ static void Task_HandleReplaceMoveInput(u8 taskId)
             }
             else if (JOY_NEW(A_BUTTON))
             {
-                if (CanReplaceMove() == TRUE)
+                if(onMovesPage)
                 {
-                    StopPokemonAnimations();
-                    PlaySE(SE_SELECT);
-                    sMoveSlotToReplace = sMonSummaryScreen->firstMoveIndex;
-                    gSpecialVar_0x8005 = sMoveSlotToReplace;
-                    BeginCloseSummaryScreen(taskId);
+                    if (CanReplaceMove() == TRUE)
+                    {
+                        StopPokemonAnimations();
+                        PlaySE(SE_SELECT);
+                        sMoveSlotToReplace = sMonSummaryScreen->firstMoveIndex;
+                        gSpecialVar_0x8005 = sMoveSlotToReplace;
+                        BeginCloseSummaryScreen(taskId);
+                    }
+                    else
+                    {
+                        PlaySE(SE_FAILURE);
+                        ShowCantForgetHMsWindow(taskId);
+                    }
                 }
-                else
+                else if(sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
                 {
-                    PlaySE(SE_FAILURE);
-                    ShowCantForgetHMsWindow(taskId);
+                    ChangeTab(taskId, 1);
                 }
             }
             else if (JOY_NEW(B_BUTTON))
@@ -3114,7 +3139,10 @@ static void PutPageWindowTilemaps(u8 page)
     {
     case PSS_PAGE_INFO:
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TITLE);
-        PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_CANCEL);
+        if (sMonSummaryScreen->mode != SUMMARY_MODE_SELECT_MOVE)
+        {
+            PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_CANCEL);
+        }
         if (InBattleFactory() == TRUE || InSlateportBattleTent() == TRUE)
             PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL);
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TYPE);
@@ -3165,7 +3193,10 @@ static void ClearPageWindowTilemaps(u8 page)
     switch (page)
     {
     case PSS_PAGE_INFO:
-        ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_CANCEL);
+        if (sMonSummaryScreen->mode != SUMMARY_MODE_SELECT_MOVE)
+        {
+            ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_CANCEL);
+        }
         if (InBattleFactory() == TRUE || InSlateportBattleTent() == TRUE)
             ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL);
         ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TYPE);
@@ -4476,6 +4507,13 @@ static void SpriteCB_MoveSelector(struct Sprite *sprite)
         sprite->data[1] = 0;
         sprite->invisible = FALSE;
     }
+    
+    if(sMonSummaryScreen->mode == SUMMARY_MODE_SELECT_MOVE && sMonSummaryScreen->currPageIndex != PSS_PAGE_BATTLE_MOVES)
+    {
+        // Always hide on other screens
+        sprite->invisible = TRUE;
+    }
+
 
     if (sprite->data[0] == SPRITE_ARR_ID_MOVE_SELECTOR1)
         sprite->y2 = sMonSummaryScreen->firstMoveIndex * 16;

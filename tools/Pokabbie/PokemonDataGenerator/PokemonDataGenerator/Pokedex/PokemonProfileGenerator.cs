@@ -600,8 +600,6 @@ namespace PokemonDataGenerator.Pokedex
 				//case "MOVE_TERA_BLAST": <- is replaced by hidden power
 				case "MOVE_ORDER_UP":
 				case "MOVE_SPICY_EXTRACT":
-				case "MOVE_ELECTRO_SHOT":
-				case "MOVE_TERA_STARSTORM":
 				case "MOVE_ALLURING_VOICE":
 				case "MOVE_PSYCHIC_NOISE":
 				case "MOVE_UPPER_HAND":
