@@ -593,21 +593,21 @@
       "y": 134,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_WATER_FRONT0",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 6,
       "y": 32,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_WATER_FRONT0",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 17,
       "y": 81,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_WATER_FRONT0",
-      "dest_warp_id": 55
+      "dest_warp_id": "55"
     }
   ],
   "coord_events": [
