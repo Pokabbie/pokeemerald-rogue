@@ -935,6 +935,36 @@
 	.byte \ignoreBPress
 	.endm
 
+	.macro scrollingmultichoice id:req, x:req, y:req, show:req, b:req
+	setvar VAR_0x8004, \id,
+	setvar VAR_0x8005, \x,
+	setvar VAR_0x8006, \y,
+	setvar VAR_0x8007, \show,
+	setvar VAR_0x8008, \b,
+	callnative ScriptMenu_ScrollingMultichoice
+	waitstate
+	.endm
+
+	.macro begindynamicmultichoice capacity=16
+	.byte 0xc7
+	.2byte \capacity
+	.endm
+
+	.macro appenddynamicmultichoice name:req, id:req
+	.byte 0xc8
+	.4byte \name
+	.2byte \id
+	.endm
+
+	.macro enddynamicmultichoice x:req, y:req, show:req, b:req
+	setvar VAR_0x8005, \x,
+	setvar VAR_0x8006, \y,
+	setvar VAR_0x8007, \show,
+	setvar VAR_0x8008, \b,
+	callnative ScriptMenu_ScrollingMultichoiceDynamicEnd
+	waitstate
+	.endm
+
 	@ Nopped in Emerald.
 	.macro drawbox
 	.byte 0x72

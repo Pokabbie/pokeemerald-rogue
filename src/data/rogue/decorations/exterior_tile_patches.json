@@ -6,6 +6,7 @@
     {
         "display_group": "Patches",
         "source_map": "ROGUE_TEMPLATE_HOMES",
+        "bottom_layer": true,
         "variants":
         [
             {
@@ -71,7 +72,7 @@
                 }
             },
             {
-                "name": "Patchy Grass",
+                "name": "Grass Patchy",
                 "source_tiles":
                 {
                     "x": 30,
@@ -87,7 +88,7 @@
                 }
             },
             {
-                "name": "Patchy Flowers",
+                "name": "Flowers Patchy",
                 "source_tiles":
                 {
                     "x": 20,
@@ -114,7 +115,7 @@
                 "name": "Pond",
                 "source_tiles":
                 {
-                    "x": 5,
+                    "x": 0,
                     "y": 5
                 }
             }

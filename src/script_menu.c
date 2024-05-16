@@ -4,6 +4,8 @@
 #include "field_effect.h"
 #include "field_specials.h"
 #include "item.h"
+#include "list_menu.h"
+#include "malloc.h"
 #include "menu.h"
 #include "palette.h"
 #include "script.h"
@@ -807,4 +809,136 @@ int ScriptMenu_AdjustLeftCoordFromWidth(int left, int width)
     }
 
     return adjustedLeft;
+}
+
+// Multichoice lists
+//
+static void Task_ScrollingMultichoiceInput(u8 taskId);
+
+static const struct ListMenuTemplate sMultichoiceListTemplate =
+{
+    .header_X = 0,
+    .item_X = 8,
+    .cursor_X = 0,
+    .upText_Y = 1,
+    .cursorPal = 2,
+    .fillValue = 1,
+    .cursorShadowPal = 3,
+    .lettersSpacing = 1,
+    .itemVerticalPadding = 0,
+    .scrollMultiple = LIST_MULTIPLE_SCROLL_L_R,
+    .fontId = 1,
+    .cursorKind = 0
+};
+
+static EWRAM_DATA struct ListMenuItem* sDynamicScrollingMultichoiceList = NULL;
+static EWRAM_DATA u16 sDynamicScrollingMultichoiceCount = 0;
+#ifdef ROGUE_DEBUG
+static EWRAM_DATA u16 sDynamicScrollingMultichoiceCapacity = 0;
+#endif
+
+// 0x8004 = set id
+// 0x8005 = window X
+// 0x8006 = window y
+// 0x8007 = showed at once
+// 0x8008 = Allow B press
+static void ScriptMenu_ScrollingMultichoiceInternal(const struct ListMenuItem *list, u16 listCount)
+{
+    int i, windowId, taskId, width = 0;
+    int left = gSpecialVar_0x8005;
+    int top = gSpecialVar_0x8006;
+    int maxShowed = gSpecialVar_0x8007;
+
+    for (i = 0; i < listCount; i++)
+        width = DisplayTextAndGetWidth(list[i].name, width);
+
+    width = ConvertPixelWidthToTileWidth(width);
+    left = ScriptMenu_AdjustLeftCoordFromWidth(left, width);
+    windowId = CreateWindowFromRect(left, top, width, maxShowed * 2);
+    SetStandardWindowBorderStyle(windowId, 0);
+    CopyWindowToVram(windowId, 3);
+
+    gMultiuseListMenuTemplate = sMultichoiceListTemplate;
+    gMultiuseListMenuTemplate.windowId = windowId;
+    gMultiuseListMenuTemplate.items = list;
+    gMultiuseListMenuTemplate.totalItems = listCount;
+    gMultiuseListMenuTemplate.maxShowed = maxShowed;
+
+    taskId = CreateTask(Task_ScrollingMultichoiceInput, 0);
+    gTasks[taskId].data[0] = ListMenuInit(&gMultiuseListMenuTemplate, 0, 0);
+    gTasks[taskId].data[1] = gSpecialVar_0x8008;
+    gTasks[taskId].data[2] = windowId;
+}
+
+void ScriptMenu_ScrollingMultichoice(void)
+{
+    int setId = gSpecialVar_0x8004;
+    ScriptMenu_ScrollingMultichoiceInternal(sScrollingMultichoiceLists[setId].list, sScrollingMultichoiceLists[setId].count);
+}
+
+void ScriptMenu_ScrollingMultichoiceDynamicBegin(u16 capacity)
+{
+    AGB_ASSERT(sDynamicScrollingMultichoiceList == NULL);
+    sDynamicScrollingMultichoiceList = malloc(sizeof(struct ListMenuItem) * capacity);
+    sDynamicScrollingMultichoiceCount = 0;
+#ifdef ROGUE_DEBUG
+    sDynamicScrollingMultichoiceCapacity = capacity;
+#endif
+}
+
+void ScriptMenu_ScrollingMultichoiceDynamicAppendOption(u8 const* str, u16 value)
+{
+    AGB_ASSERT(sDynamicScrollingMultichoiceList != NULL);
+#ifdef ROGUE_DEBUG
+    AGB_ASSERT(sDynamicScrollingMultichoiceCount < sDynamicScrollingMultichoiceCapacity);
+#endif
+
+    sDynamicScrollingMultichoiceList[sDynamicScrollingMultichoiceCount].name = str;
+    sDynamicScrollingMultichoiceList[sDynamicScrollingMultichoiceCount].id = value;
+    sDynamicScrollingMultichoiceCount++;
+}
+
+void ScriptMenu_ScrollingMultichoiceDynamicEnd(void)
+{
+    AGB_ASSERT(sDynamicScrollingMultichoiceList != NULL);
+    ScriptMenu_ScrollingMultichoiceInternal(sDynamicScrollingMultichoiceList, sDynamicScrollingMultichoiceCount);
+}
+
+static void Task_ScrollingMultichoiceInput(u8 taskId)
+{
+    bool32 done = FALSE;
+    s32 input = ListMenu_ProcessInput(gTasks[taskId].data[0]);
+
+    switch (input)
+    {
+    case LIST_HEADER:
+    case LIST_NOTHING_CHOSEN:
+        break;
+    case LIST_CANCEL:
+        if (gTasks[taskId].data[1])
+        {
+            gSpecialVar_Result = 0x7F;
+            done = TRUE;
+        }
+        break;
+    default:
+        gSpecialVar_Result = input;
+        done = TRUE;
+        break;
+    }
+
+    if (done)
+    {
+        DestroyListMenuTask(gTasks[taskId].data[0], NULL, NULL);
+        ClearStdWindowAndFrame(gTasks[taskId].data[2], TRUE);
+        RemoveWindow(gTasks[taskId].data[2]);
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+
+        if(sDynamicScrollingMultichoiceList != NULL)
+        {
+            Free(sDynamicScrollingMultichoiceList);
+            sDynamicScrollingMultichoiceList = NULL;
+        }
+    }
 }

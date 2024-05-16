@@ -11,6 +11,7 @@
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
+#include "script_menu.h"
 #include "strings.h"
 #include "string_util.h"
 
@@ -78,6 +79,7 @@ struct RogueDecorationVariant
     u8 type;
     u8 srcMapGroup;
     u8 srcMapNum;
+    u8 isBottomLayer : 1;
     union
     {
         struct
@@ -825,14 +827,28 @@ static void RogueHub_PlaceHomeEnvironmentDecorations()
         sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart
     );
 
+    // Place all of the bottom layers first
     for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
     {
         struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
-        if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_TILE)
-        {
+        if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_TILE && sDecorationVariants[decor->decorVariant].isBottomLayer)
             BlitPlayerHouseEnvDecor(decor->x, decor->y, decor->decorVariant);
-        }
     }
+
+    // Place all others
+    for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+    {
+        struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
+        if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_TILE && !sDecorationVariants[decor->decorVariant].isBottomLayer)
+            BlitPlayerHouseEnvDecor(decor->x, decor->y, decor->decorVariant);
+    }
+
+    // Fill house area with grass to avoid overlap from stuff getting placed in this region
+    MetatileFill_Tile(
+        sHomeRegionCoords[HOME_REGION_HOUSE].xStart, sHomeRegionCoords[HOME_REGION_HOUSE].yStart,
+        sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, sHomeRegionCoords[HOME_REGION_HOUSE].yEnd,
+        METATILE_General_Grass
+    );
 
     // Replace this now, but need to tell fixup to ignore it
     BlitPlayerHouse(hubMap->homeRegionStyles[HOME_REGION_HOUSE], RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR));
@@ -1462,7 +1478,6 @@ void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, 
 }
 
 extern u8 const Rogue_Area_Home_InteractWithWorkbench[];
-extern u8 const Rogue_Area_Home_DecorateTile[];
 extern u8 const Rogue_Area_Home_ChooseDecoration[];
 
 bool8 IsCoordInHomeRegion(s32 x, s32 y, u8 region)
@@ -1473,49 +1488,6 @@ bool8 IsCoordInHomeRegion(s32 x, s32 y, u8 region)
         y >= sHomeRegionCoords[region].yStart &&
         y <= sHomeRegionCoords[region].yEnd
     );
-}
-
-const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* existingScript)
-{
-    // Always buffer coordinates so scripts known where we're interacting
-    gSpecialVar_0x800A = position->x - MAP_OFFSET;
-    gSpecialVar_0x800B = position->y - MAP_OFFSET;
-
-    if(existingScript == Rogue_Area_Home_InteractWithWorkbench)
-    {
-        return existingScript;
-    }
-
-    //if(layoutId == LAYOUT_ROGUE_AREA_HOME)
-    //{
-    //    u8 i;
-//
-    //    for(i = 0; i < HOME_REGION_COUNT; ++i)
-    //    {
-    //        if(
-    //            position->x - MAP_OFFSET >= sHomeRegionCoords[i].xStart &&
-    //            position->x - MAP_OFFSET <= sHomeRegionCoords[i].xEnd &&
-    //            position->y - MAP_OFFSET >= sHomeRegionCoords[i].yStart &&
-    //            position->y - MAP_OFFSET <= sHomeRegionCoords[i].yEnd
-    //        )
-    //            break;
-    //    }
-//
-    //    gSpecialVar_0x8004 = i;
-    //}
-    //else
-    //{
-    //    gSpecialVar_0x8004 = HOME_REGION_COUNT;
-    //}
-
-
-
-    //return Rogue_Area_Home_ChooseDecoration;
-
-    gSpecialVar_0x800A = position->x - MAP_OFFSET;
-    gSpecialVar_0x800B = position->y - MAP_OFFSET;
-
-    return Rogue_Area_Home_DecorateTile;
 }
 
 static void UpdatePlaceCoords(u8* placeX, u8* placeY, u8 decorVariant)
@@ -1547,16 +1519,148 @@ static void UpdatePlaceCoords(u8* placeX, u8* placeY, u8 decorVariant)
     }
 }
 
-u8 RogueHub_PlaceHomeDecor(u8 decorVariant)
+// Scripts
+//
+
+// TODO - Keep in sync with data\maps\Rogue_Area_Home\scripts.pory
+enum
 {
-    // TODO - Detect what area and what type player is
+    MENU_DEPTH_CHOOSE_GROUP,
+    MENU_DEPTH_CHOOSE_DECOR,
+    MENU_DEPTH_CHOOSE_VARIANT,
+    MENU_DEPTH_PLACE_DECORATION,
+};
+
+#define VAR_MENU_DEPTH                  VAR_TEMP_F
+#define VAR_SELECTED_GROUP              VAR_TEMP_E
+#define VAR_SELECTED_DECOR_ID           VAR_TEMP_D
+#define VAR_SELECTED_DECOR_VARIANT      VAR_TEMP_C
+#define VAR_PREVIOUS_DECOR_INDEX        VAR_TEMP_B
+
+#define VAR_PLACE_X                     VAR_TEMP_A
+#define VAR_PLACE_Y                     VAR_TEMP_9
+
+static u8 const sText_Exit[] = _("Exit");
+static u8 const sText_Back[] = _("Back");
+
+
+const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* existingScript)
+{
+    // Always buffer coordinates so scripts known where we're interacting
+    VarSet(VAR_PLACE_X, position->x - MAP_OFFSET);
+    VarSet(VAR_PLACE_Y, position->y - MAP_OFFSET);
+
+    if(existingScript == Rogue_Area_Home_InteractWithWorkbench)
+    {
+        return existingScript;
+    }
+
+    return Rogue_Area_Home_ChooseDecoration;
+}
+
+void RogueHub_SetupDecorationMultichoice()
+{
+    u16 i;
+    u16 menuDepth = VarGet(VAR_MENU_DEPTH);
+    u16 selectedGroup = VarGet(VAR_SELECTED_GROUP);
+    u16 selectedDecorId = VarGet(VAR_SELECTED_DECOR_ID);
+    u16 selectedDecorVariant = VarGet(VAR_SELECTED_DECOR_VARIANT);
+
+    switch (menuDepth)
+    {
+    case MENU_DEPTH_CHOOSE_GROUP:
+        for(i = 0; i < DECOR_GROUP_COUNT; ++i)
+        {
+            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorationGroups[i].name, i);
+        }
+        ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Exit, MULTI_B_PRESSED);
+        break;
+
+    case MENU_DEPTH_CHOOSE_DECOR:
+        for(i = 0; i < sDecorationGroups[selectedGroup].decorationCount; ++i)
+        {
+            u16 decorId = sDecorationGroups[selectedGroup].decorationIds[i];
+            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorations[decorId].name, decorId);
+        }
+        ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
+        break;
+
+    case MENU_DEPTH_CHOOSE_VARIANT:
+        for(i = sDecorations[selectedDecorId].firstVariantId; i <= sDecorations[selectedDecorId].lastVariantId; ++i)
+        {
+            u16 decorVariant = i;
+            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorationVariants[decorVariant].name, decorVariant);
+        }
+        ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
+        break;
+
+    case MENU_DEPTH_PLACE_DECORATION:
+        AGB_ASSERT(FALSE); // don't process here
+        break;
+    }
+}
+
+void RogueHub_HandleDecorationMultichoiceResult()
+{
+    u16 menuDepth = VarGet(VAR_MENU_DEPTH);
+    u16 result = gSpecialVar_Result;
+
+    // VAR_RESULT is "shouldContinueLooping" (Continue looping by default)
+    gSpecialVar_Result = TRUE;
+
+    switch (menuDepth)
+    {
+    case MENU_DEPTH_CHOOSE_GROUP:
+        if(result == MULTI_B_PRESSED)
+        {
+            // stop looping
+            gSpecialVar_Result = FALSE;
+        }
+        else
+        {
+            VarSet(VAR_SELECTED_GROUP, result);
+            VarSet(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_DECOR);
+        }
+        break;
+
+    case MENU_DEPTH_CHOOSE_DECOR:
+        if(result == MULTI_B_PRESSED)
+        {
+            VarSet(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_GROUP);
+        }
+        else
+        {
+            VarSet(VAR_SELECTED_DECOR_ID, result);
+            VarSet(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_VARIANT);
+        }
+        break;
+
+    case MENU_DEPTH_CHOOSE_VARIANT:
+        if(result == MULTI_B_PRESSED)
+        {
+            VarSet(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_DECOR);
+        }
+        else
+        {
+            VarSet(VAR_SELECTED_DECOR_VARIANT, result);
+            VarSet(VAR_MENU_DEPTH, MENU_DEPTH_PLACE_DECORATION);
+            gSpecialVar_Result = FALSE; // stop choosing and begin decorating
+        }
+        break;
+
+    case MENU_DEPTH_PLACE_DECORATION:
+        AGB_ASSERT(FALSE); // don't process here
+        break;
+    }
+}
+
+u16 RogueHub_PlaceHomeDecor()
+{
     u8 i;
     struct RogueHubMap* hubMap = &gRogueSaveBlock->hubMap;
-    u8 placeX = gSpecialVar_0x800A;
-    u8 placeY = gSpecialVar_0x800B;
-
-    // TEMP HACK
-    decorVariant = DECOR_VARIANT_PATH_3X3;
+    u16 decorVariant = VarGet(VAR_SELECTED_DECOR_VARIANT);
+    u8 placeX = VarGet(VAR_PLACE_X);
+    u8 placeY = VarGet(VAR_PLACE_Y);
 
     AGB_ASSERT(decorVariant < DECOR_VARIANT_COUNT);
 
@@ -1585,12 +1689,25 @@ u8 RogueHub_PlaceHomeDecor(u8 decorVariant)
     return HOME_DECOR_CODE_NOT_HERE;
 }
 
-void RogueHub_RemoveHomeDecor(u8 index)
+void RogueHub_RemoveHomeDecor()
 {
+    u16 index = VarGet(VAR_PREVIOUS_DECOR_INDEX);
+
     AGB_ASSERT(index < HOME_DECOR_TOTAL_COUNT);
     gRogueSaveBlock->hubMap.homeDecorations[index].active = FALSE;
     RogueHub_PlaceHomeEnvironmentDecorations();
 }
+
+#undef VAR_MENU_DEPTH
+#undef VAR_SELECTED_GROUP
+#undef VAR_SELECTED_DECOR_ID
+#undef VAR_SELECTED_DECOR_VARIANT
+#undef VAR_PREVIOUS_DECOR_INDEX
+#undef VAR_PLACE_X
+#undef VAR_PLACE_Y
+
+//
+
 
 static u32 GetCurrentAreaMetatileAt(s32 x, s32 y)
 {

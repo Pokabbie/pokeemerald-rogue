@@ -1103,16 +1103,6 @@ void Rogue_CheckHubConnectionDir()
     gSpecialVar_Result = HUB_AREA_CONN_COUNT;
 }
 
-void Rogue_PlaceHomeDecor()
-{
-    gSpecialVar_Result = RogueHub_PlaceHomeDecor(gSpecialVar_0x8004);
-}
-
-void Rogue_RemoveHomeDecor()
-{
-    RogueHub_RemoveHomeDecor(gSpecialVar_0x8004);
-}
-
 void Rogue_AssignDefaultRegion()
 {
     u32 flags = RoguePlayer_GetOutfitTrainerFlags();

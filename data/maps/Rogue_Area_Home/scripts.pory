@@ -5,8 +5,24 @@
 //const FLAG_FIELD_MON2 = FLAG_TEMP_5
 //const FLAG_FIELD_MON3 = FLAG_TEMP_6
 
-const VAR_DECOR_ID = VAR_0x8004
+//const VAR_DECOR_ID = VAR_0x8004
 const VAR_SELECT_REGION = VAR_0x8004
+
+//const VAR_MENU_GROUP_CHOICE = VAR_TEMP_D
+//const VAR_MENU_GROUP_PAGE = VAR_TEMP_E
+//const VAR_DECOR_ID = VAR_TEMP_F
+
+
+const MENU_DEPTH_CHOOSE_GROUP           = 0
+const MENU_DEPTH_CHOOSE_DECOR           = 1
+const MENU_DEPTH_CHOOSE_VARIANT         = 2
+const MENU_DEPTH_PLACE_DECORATION       = 3
+
+const VAR_MENU_DEPTH                    = VAR_TEMP_F
+const VAR_SELECTED_GROUP                = VAR_TEMP_E
+const VAR_SELECTED_DECOR_ID             = VAR_TEMP_D
+const VAR_SELECTED_DECOR_VARIANT        = VAR_TEMP_C
+const VAR_PREVIOUS_DECOR_INDEX          = VAR_TEMP_B
 
 mapscripts Rogue_Area_Home_MapScripts 
 {
@@ -100,49 +116,85 @@ script Rogue_Area_Home_InteractWithWorkbench
     }
 }
 
-script Rogue_Area_Home_DecorateTile
-{
-    lock
-
-    //setvar(VAR_DECOR_ID, HOME_DECOR_ENV_POND_3x3)
-    setvar(VAR_DECOR_ID, 0) // todo
-    special(Rogue_PlaceHomeDecor)
-
-    if(var(VAR_RESULT) == HOME_DECOR_CODE_NO_ROOM)
-    {
-        msgbox(format("The area cannot be decorated any more."))
-    }
-    elif(var(VAR_RESULT) == HOME_DECOR_CODE_NOT_HERE)
-    {
-        msgbox(format("Can't be placed here."))
-    }
-    else
-    {
-        copyvar(VAR_DECOR_ID, VAR_RESULT)
-
-        special(DrawWholeMapView)
-        msgbox(format("Place here?"), MSGBOX_YESNO)
-
-        if(var(VAR_RESULT) == NO)
-        {
-            special(Rogue_RemoveHomeDecor)
-            special(DrawWholeMapView)
-        }
-    }
-
-
-
-    //buffernumberstring(STR_VAR_1, VAR_SELECT_REGION)
-    //msgbox(format("region {STR_VAR_1}"))
-
-    release
-}
-
 script Rogue_Area_Home_ChooseDecoration
 {
     lock
 
-    msgbox(format("Choose decor"))
+    //msgbox(format("Choose decor"))
+
+    call(Rogue_Area_Home_ChooseDecoration_Internal)
 
     release
+}
+
+script Rogue_Area_Home_ChooseDecoration_Internal
+{
+    setvar(VAR_RESULT, YES)
+
+    while(var(VAR_RESULT) == YES)
+    {
+        if(var(VAR_MENU_DEPTH) == MENU_DEPTH_PLACE_DECORATION)
+        {
+            call(Rogue_Area_Home_PlaceDecoration)
+        }
+        else
+        {
+            message(format("What would you like to place?"))
+            waitmessage
+
+            begindynamicmultichoice(32)
+            special(RogueHub_SetupDecorationMultichoice)
+            enddynamicmultichoice(20, 2, 5, TRUE)
+
+            special(RogueHub_HandleDecorationMultichoiceResult)
+        }
+    }
+}
+
+script Rogue_Area_Home_PlaceDecoration
+{
+    specialvar(VAR_PREVIOUS_DECOR_INDEX, RogueHub_PlaceHomeDecor)
+
+    if(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_CODE_NO_ROOM)
+    {
+        msgbox(format("The area cannot be decorated any more."))
+        setvar(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_GROUP)
+        setvar(VAR_RESULT, NO)
+    }
+    elif(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_CODE_NOT_HERE)
+    {
+        msgbox(format("Decor can't be placed here."))
+        setvar(VAR_RESULT, NO)
+    }
+    else
+    {
+        special(DrawWholeMapView)
+
+        message(format("Would you like to place this here?"))
+        waitmessage
+
+        begindynamicmultichoice
+        appenddynamicmultichoice("Place Here", 0)
+        appenddynamicmultichoice("Change Decor", 1)
+        appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+        enddynamicmultichoice(20, 6, 3, TRUE)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // place
+                setvar(VAR_RESULT, NO)
+
+            case 1: // change decor
+                special(RogueHub_RemoveHomeDecor)
+                special(DrawWholeMapView)
+                setvar(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_GROUP)
+                setvar(VAR_RESULT, YES)
+
+            case MULTI_B_PRESSED: // exit
+                // without placing
+                special(RogueHub_RemoveHomeDecor)
+                special(DrawWholeMapView)
+                setvar(VAR_RESULT, NO)
+        }
+    }
 }

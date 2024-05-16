@@ -1432,6 +1432,22 @@ bool8 ScrCmd_multichoicedefault(struct ScriptContext *ctx)
     }
 }
 
+bool8 ScrCmd_begindynamicmultichoice(struct ScriptContext *ctx)
+{
+    u16 capacity = ScriptReadHalfword(ctx);
+    ScriptMenu_ScrollingMultichoiceDynamicBegin(capacity);
+    return FALSE;
+}
+
+bool8 ScrCmd_appenddynamicmultichoice(struct ScriptContext *ctx)
+{
+    const u8 *name = (const u8*) ScriptReadWord(ctx);
+    u16 value = ScriptReadHalfword(ctx);
+
+    ScriptMenu_ScrollingMultichoiceDynamicAppendOption(name, value);
+    return FALSE;
+}
+
 bool8 ScrCmd_drawbox(struct ScriptContext *ctx)
 {
     /*u8 left = ScriptReadByte(ctx);
