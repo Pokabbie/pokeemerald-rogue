@@ -1,0 +1,123 @@
+{
+    "includes":
+    [
+    ],
+    "defaults":
+    {
+        "display_group": "Patches",
+        "source_map": "ROGUE_TEMPLATE_HOMES",
+        "variants":
+        [
+            {
+                "name": "5x5",
+                "source_tiles":
+                {
+                    "width": 5,
+                    "height": 5
+                }
+            },
+            {
+                "name": "4x4",
+                "source_tiles":
+                {
+                    "width": 4,
+                    "height": 4
+                }
+            },
+            {
+                "name": "3x3",
+                "source_tiles":
+                {
+                    "width": 3,
+                    "height": 3
+                }
+            },
+            {
+                "name": "2x2",
+                "source_tiles":
+                {
+                    "width": 2,
+                    "height": 2
+                }
+            },
+            {
+                "name": "1x1",
+                "source_tiles":
+                {
+                    "width": 1,
+                    "height": 1
+                }
+            }
+        ]
+    },
+    "decorations":
+    {
+        "exterior_patches":
+        [
+            {
+                "name": "Path",
+                "source_tiles":
+                {
+                    "x": 10,
+                    "y": 5
+                }
+            },
+            {
+                "name": "Grass",
+                "source_tiles":
+                {
+                    "x": 25,
+                    "y": 5
+                }
+            },
+            {
+                "name": "Patchy Grass",
+                "source_tiles":
+                {
+                    "x": 30,
+                    "y": 5
+                }
+            },
+            {
+                "name": "Flowers",
+                "source_tiles":
+                {
+                    "x": 15,
+                    "y": 5
+                }
+            },
+            {
+                "name": "Patchy Flowers",
+                "source_tiles":
+                {
+                    "x": 20,
+                    "y": 5
+                }
+            },
+            {
+                "name": "Crops",
+                "source_tiles":
+                {
+                    "x": 35,
+                    "y": 5
+                }
+            },
+            {
+                "name": "Mountain",
+                "source_tiles":
+                {
+                    "x": 5,
+                    "y": 5
+                }
+            },
+            {
+                "name": "Pond",
+                "source_tiles":
+                {
+                    "x": 5,
+                    "y": 5
+                }
+            }
+        ]
+    }
+}

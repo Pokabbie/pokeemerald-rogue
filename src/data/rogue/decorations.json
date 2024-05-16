@@ -1,0 +1,13 @@
+{
+    "includes":
+    [
+        "decorations/exterior_tile.json",
+        "decorations/exterior_tile_patches.json"
+    ],
+    "defaults":
+    {
+    },
+    "decorations":
+    {
+    }
+}

@@ -59,23 +59,45 @@ static struct MapInfo const sHomeAreaStyles[HOME_AREA_STYLE_COUNT] =
     [HOME_AREA_STYLE_PLAIN] = { MAP_GROUP(ROGUE_TEMPLATE_HOME_GRASS), MAP_NUM(ROGUE_TEMPLATE_HOME_GRASS) },
 };
 
-static struct RegionCoords const sHomeDecorEnvRegions[HOME_DECOR_ENV_COUNT] = 
+enum
 {
-    [HOME_DECOR_ENV_POND_2x2] = { 0,5, 1,6 },
-    [HOME_DECOR_ENV_POND_3x3] = { 0,5, 2,7 },
-    [HOME_DECOR_ENV_POND_4x4] = { 0,5, 3,8 },
-    [HOME_DECOR_ENV_POND_5x5] = { 0,5, 4,9 },
-
-    [HOME_DECOR_ENV_MOUNTAIN_2x2] = { 5,5, 6,6 },
-    [HOME_DECOR_ENV_MOUNTAIN_3x3] = { 5,5, 7,7 },
-    [HOME_DECOR_ENV_MOUNTAIN_4x4] = { 5,5, 8,8 },
-    [HOME_DECOR_ENV_MOUNTAIN_5x5] = { 5,5, 9,9 },
-
-    [HOME_DECOR_ENV_GRASS_PATH_2x2] = { 10,5, 11,6 },
-    [HOME_DECOR_ENV_GRASS_PATH_3x3] = { 10,5, 12,7 },
-    [HOME_DECOR_ENV_GRASS_PATH_4x4] = { 10,5, 13,8 },
-    [HOME_DECOR_ENV_GRASS_PATH_5x5] = { 10,5, 14,9 },
+    DECOR_TYPE_TILE,
+    //DECOR_TYPE_OBJECT_EVENT, todo
 };
+
+struct RogueDecorationGroup
+{
+    u8 const* name;
+    u16 const* decorationIds;
+    u16 decorationCount;
+};
+
+struct RogueDecorationVariant
+{
+    u8 const* name;
+    u8 type;
+    u8 srcMapGroup;
+    u8 srcMapNum;
+    union
+    {
+        struct
+        {
+            u8 x;
+            u8 y;
+            u8 width;
+            u8 height;
+        } tile;
+    } perType;
+};
+
+struct RogueDecoration
+{
+    u8 const* name;
+    u16 firstVariantId;
+    u16 lastVariantId;
+};
+
+#include "data/rogue/decorations.h"
 
 static void MetatileSet_Tile(u16 xStart, u16 yStart, u16 tile);
 static void MetatileFill_Tile(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd, u16 tile);
@@ -705,14 +727,15 @@ static void BlitPlayerHouse(u16 style, bool8 isUpgraded)
     );
 }
 
-static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decor)
+static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decorVariant)
 {
-    u8 xStart = sHomeDecorEnvRegions[decor].xStart;
-    u8 yStart = sHomeDecorEnvRegions[decor].yStart;
-    u8 xEnd = sHomeDecorEnvRegions[decor].xEnd;
-    u8 yEnd = sHomeDecorEnvRegions[decor].yEnd;
+    u8 xStart = sDecorationVariants[decorVariant].perType.tile.x;
+    u8 yStart = sDecorationVariants[decorVariant].perType.tile.y;
+    u8 xEnd = xStart + sDecorationVariants[decorVariant].perType.tile.width - 1;
+    u8 yEnd = yStart + sDecorationVariants[decorVariant].perType.tile.height - 1;
 
-    AGB_ASSERT(decor < HOME_DECOR_ENV_COUNT);
+    AGB_ASSERT(decorVariant < DECOR_VARIANT_COUNT);
+    AGB_ASSERT(sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE);
 
     // Clip anything which is outside of the placeable region
     if(x < sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart)
@@ -742,7 +765,7 @@ static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decor)
     }
 
     MetatileFill_BlitMapRegion(
-        MAP_GROUP(ROGUE_TEMPLATE_HOMES), MAP_NUM(ROGUE_TEMPLATE_HOMES),
+        sDecorationVariants[decorVariant].srcMapGroup, sDecorationVariants[decorVariant].srcMapNum,
         x, y, 
         x + (xEnd - xStart), y + (yEnd - yStart),
         xStart, yStart
@@ -805,15 +828,11 @@ static void RogueHub_PlaceHomeEnvironmentDecorations()
     for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
     {
         struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
-        if(decor->active)
+        if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_TILE)
         {
-            BlitPlayerHouseEnvDecor(decor->x, decor->y, decor->decorId);
+            BlitPlayerHouseEnvDecor(decor->x, decor->y, decor->decorVariant);
         }
     }
-
-    //BlitPlayerHouseEnvDecor(7, 6, HOME_DECOR_ENV_POND_2x2);
-    //BlitPlayerHouseEnvDecor(21, 6, HOME_DECOR_ENV_GRASS_PATH_5x5);
-    //BlitPlayerHouseEnvDecor(7, 19, HOME_DECOR_ENV_GRASS_PATH_3x3);
 
     // Replace this now, but need to tell fixup to ignore it
     BlitPlayerHouse(hubMap->homeRegionStyles[HOME_REGION_HOUSE], RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR));
@@ -1489,7 +1508,9 @@ const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *posi
     //    gSpecialVar_0x8004 = HOME_REGION_COUNT;
     //}
 
-    return Rogue_Area_Home_ChooseDecoration;
+
+
+    //return Rogue_Area_Home_ChooseDecoration;
 
     gSpecialVar_0x800A = position->x - MAP_OFFSET;
     gSpecialVar_0x800B = position->y - MAP_OFFSET;
@@ -1497,11 +1518,11 @@ const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *posi
     return Rogue_Area_Home_DecorateTile;
 }
 
-static void UpdatePlaceCoords(u8* placeX, u8* placeY, u8 decorId)
+static void UpdatePlaceCoords(u8* placeX, u8* placeY, u8 decorVariant)
 {
     u8 faceDir = GetPlayerFacingDirection();
-    u8 width = 1 + (sHomeDecorEnvRegions[decorId].xEnd - sHomeDecorEnvRegions[decorId].xStart);
-    u8 height = 1 + (sHomeDecorEnvRegions[decorId].yEnd - sHomeDecorEnvRegions[decorId].yStart);
+    u8 width = sDecorationVariants[decorVariant].perType.tile.width;
+    u8 height = sDecorationVariants[decorVariant].perType.tile.height;
 
     // Coords are auto place from top left corner, so compensate for that and attempt to place in middle
     switch (faceDir)
@@ -1526,7 +1547,7 @@ static void UpdatePlaceCoords(u8* placeX, u8* placeY, u8 decorId)
     }
 }
 
-u8 RogueHub_PlaceHomeDecor(u8 decorId)
+u8 RogueHub_PlaceHomeDecor(u8 decorVariant)
 {
     // TODO - Detect what area and what type player is
     u8 i;
@@ -1534,11 +1555,14 @@ u8 RogueHub_PlaceHomeDecor(u8 decorId)
     u8 placeX = gSpecialVar_0x800A;
     u8 placeY = gSpecialVar_0x800B;
 
-    AGB_ASSERT(decorId < HOME_DECOR_ENV_COUNT);
+    // TEMP HACK
+    decorVariant = DECOR_VARIANT_PATH_3X3;
+
+    AGB_ASSERT(decorVariant < DECOR_VARIANT_COUNT);
 
     if(IsCoordInHomeRegion(placeX, placeY, HOME_REGION_PLACEABLE_REGION) && !IsCoordInHomeRegion(placeX, placeY, HOME_REGION_HOUSE))
     {
-        UpdatePlaceCoords(&placeX, &placeY, decorId);
+        UpdatePlaceCoords(&placeX, &placeY, decorVariant);
 
         for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
         {
@@ -1547,7 +1571,7 @@ u8 RogueHub_PlaceHomeDecor(u8 decorId)
             {
                 decor->x = placeX;
                 decor->y = placeY;
-                decor->decorId = decorId;
+                decor->decorVariant = decorVariant;
                 decor->active = TRUE;
 
                 RogueHub_PlaceHomeEnvironmentDecorations();

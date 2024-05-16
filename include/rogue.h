@@ -182,7 +182,7 @@ struct RogueHubDecoration
 {
     u8 x;
     u8 y;
-    u8 decorId;
+    u8 decorVariant;
     u8 active : 1;
     u8 unused : 7;
 };

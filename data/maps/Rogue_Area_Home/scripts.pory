@@ -105,7 +105,7 @@ script Rogue_Area_Home_DecorateTile
     lock
 
     //setvar(VAR_DECOR_ID, HOME_DECOR_ENV_POND_3x3)
-    setvar(VAR_DECOR_ID, HOME_DECOR_ENV_MOUNTAIN_5x5)
+    setvar(VAR_DECOR_ID, 0) // todo
     special(Rogue_PlaceHomeDecor)
 
     if(var(VAR_RESULT) == HOME_DECOR_CODE_NO_ROOM)

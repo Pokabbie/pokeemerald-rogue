@@ -1,0 +1,48 @@
+{
+    "includes":
+    [
+    ],
+    "defaults":
+    {
+        "display_group": "Tiles",
+        "source_map": "ROGUE_TEMPLATE_HOMES"
+    },
+    "decorations":
+    {
+        "exterior_patches":
+        [
+            {
+                "name": "Boulder",
+                "source_tiles":
+                {
+                    "x": 2,
+                    "y": 10
+                }
+            },
+            {
+                "name": "Bush",
+                "source_tiles":
+                {
+                    "x": 3,
+                    "y": 10
+                }
+            },
+            {
+                "name": "Wood Sign",
+                "source_tiles":
+                {
+                    "x": 0,
+                    "y": 10
+                }
+            },
+            {
+                "name": "Fancy Sign",
+                "source_tiles":
+                {
+                    "x": 1,
+                    "y": 10
+                }
+            }
+        ]
+    }
+}
