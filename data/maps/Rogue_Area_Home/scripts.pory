@@ -169,15 +169,44 @@ script Rogue_Area_Home_PlaceDecoration
     else
     {
         special(DrawWholeMapView)
-
-        message(format("Would you like to place this here?"))
-        waitmessage
+        specialvar(VAR_0x8000, RogueHub_IsRemovingDecor)
 
         begindynamicmultichoice
-        appenddynamicmultichoice("Place Here", 0)
-        appenddynamicmultichoice("Change Decor", 1)
-        appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
-        enddynamicmultichoice(20, 6, 3, TRUE)
+        if(var(VAR_0x8000) == YES)
+        {
+            if(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_CANNOT_REMOVE)
+            {
+                appenddynamicmultichoice("Change Decor", 1)
+                appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+                message(format("There's nothing to remove here.\nWhat would you like to do?"))
+                waitmessage
+
+                enddynamicmultichoice(20, 6, 2, TRUE)
+            }
+            else
+            {
+                appenddynamicmultichoice("Remove This", 0)
+                appenddynamicmultichoice("Change Decor", 1)
+                appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+                message(format("Would you like to remove this decor?"))
+                waitmessage
+
+                enddynamicmultichoice(20, 6, 3, TRUE)
+            }
+        }
+        else
+        {
+            appenddynamicmultichoice("Place Here", 0)
+            appenddynamicmultichoice("Change Decor", 1)
+            appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+            message(format("Would you like to place this here?"))
+            waitmessage
+
+            enddynamicmultichoice(20, 6, 3, TRUE)
+        }
 
         switch(var(VAR_RESULT))
         {

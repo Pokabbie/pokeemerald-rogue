@@ -303,6 +303,7 @@ gSpecials::
 	def_special RogueHub_HandleDecorationMultichoiceResult
 	def_special RogueHub_PlaceHomeDecor
 	def_special RogueHub_RemoveHomeDecor
+	def_special RogueHub_IsRemovingDecor
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetLastInteractedRoomParams
 	def_special RogueAdv_WarpLastInteractedRoom

@@ -4,7 +4,7 @@
     ],
     "defaults":
     {
-        "display_group": "Patches",
+        "display_group": "Environment",
         "source_map": "ROGUE_TEMPLATE_HOMES",
         "bottom_layer": true,
         "variants":
@@ -39,14 +39,6 @@
                 {
                     "width": 2,
                     "height": 2
-                }
-            },
-            {
-                "name": "1x1",
-                "source_tiles":
-                {
-                    "width": 1,
-                    "height": 1
                 }
             }
         ]
@@ -118,6 +110,41 @@
                     "x": 0,
                     "y": 5
                 }
+            },
+            {
+                "name": "Tree",
+                "source_tiles":
+                {
+                    "x": 15,
+                    "y": 10
+                },
+                "variants":
+                [
+                    {
+                        "name": "3x3",
+                        "source_tiles":
+                        {
+                            "width": 6,
+                            "height": 6
+                        }
+                    },
+                    {
+                        "name": "2x2",
+                        "source_tiles":
+                        {
+                            "width": 4,
+                            "height": 4
+                        }
+                    },
+                    {
+                        "name": "1x1",
+                        "source_tiles":
+                        {
+                            "width": 2,
+                            "height": 2
+                        }
+                    }
+                ]
             }
         ]
     }

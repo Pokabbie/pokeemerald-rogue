@@ -41,6 +41,7 @@ struct Decoration
 struct DecorationData
 {
 	std::vector<Decoration> decorations;
+	std::vector<std::string> groups;
 	std::map<std::string, std::vector<Decoration*>> decorationsByGroup;
 	std::vector<std::string> uniqueStrings;
 	std::unordered_map<std::string, int> uniqueStringLookup;
@@ -193,9 +194,9 @@ void ExportDecorationData_H(std::ofstream& fileStream, std::string const& dataPa
 
 	// Grooup Enum define
 	fileStream << "enum\n{\n";
-	for (auto it = decorData.decorationsByGroup.begin(); it != decorData.decorationsByGroup.end(); ++it)
+	for (auto it = decorData.groups.begin(); it != decorData.groups.end(); ++it)
 	{
-		fileStream << c_TabSpacing << "DECOR_GROUP_" << FormatUniqueId(it->first) << ",\n";
+		fileStream << c_TabSpacing << "DECOR_GROUP_" << FormatUniqueId(*it) << ",\n";
 	}
 	fileStream << c_TabSpacing << "DECOR_GROUP_COUNT,\n";
 	fileStream << "};\n\n";
@@ -400,6 +401,9 @@ static void GatherDecorations(std::string const& dataPath, json const& rawJsonDa
 	// Populate decorations by group
 	for (auto& decor : outDecorData.decorations)
 	{
+		if (outDecorData.decorationsByGroup[decor.displayGroup].empty())
+			outDecorData.groups.push_back(decor.displayGroup);
+
 		outDecorData.decorationsByGroup[decor.displayGroup].push_back(&decor);
 	}
 

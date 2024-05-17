@@ -1535,7 +1535,7 @@ enum
 #define VAR_SELECTED_GROUP              VAR_TEMP_E
 #define VAR_SELECTED_DECOR_ID           VAR_TEMP_D
 #define VAR_SELECTED_DECOR_VARIANT      VAR_TEMP_C
-#define VAR_PREVIOUS_DECOR_INDEX        VAR_TEMP_B
+#define VAR_ACTIVE_DECOR_INDEX          VAR_TEMP_B
 
 #define VAR_PLACE_X                     VAR_TEMP_A
 #define VAR_PLACE_Y                     VAR_TEMP_9
@@ -1631,7 +1631,18 @@ void RogueHub_HandleDecorationMultichoiceResult()
         else
         {
             VarSet(VAR_SELECTED_DECOR_ID, result);
-            VarSet(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_VARIANT);
+
+            // Has only 1 variant, so just start placing
+            if(sDecorations[result].firstVariantId == sDecorations[result].lastVariantId)
+            {
+                VarSet(VAR_SELECTED_DECOR_VARIANT, sDecorations[result].firstVariantId);
+                VarSet(VAR_MENU_DEPTH, MENU_DEPTH_PLACE_DECORATION);
+                gSpecialVar_Result = FALSE; // stop choosing and begin decorating
+            }
+            else
+            {
+                VarSet(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_VARIANT);
+            }
         }
         break;
 
@@ -1654,9 +1665,32 @@ void RogueHub_HandleDecorationMultichoiceResult()
     }
 }
 
+static bool8 IsCoordOnDecor(struct RogueHubDecoration* decor, u8 x, u8 y)
+{
+    u8 xStart = decor->x;
+    u8 yStart = decor->y;
+    u8 xEnd = xStart;
+    u8 yEnd = yStart;
+
+    switch (sDecorationVariants[decor->decorVariant].type)
+    {
+    case DECOR_TYPE_TILE:
+        xEnd += sDecorationVariants[decor->decorVariant].perType.tile.width - 1;
+        yEnd += sDecorationVariants[decor->decorVariant].perType.tile.height - 1;
+        break;
+    }
+
+    return (
+        x >= xStart &&
+        x <= xEnd &&
+        y >= yStart &&
+        y <= yEnd
+    );
+}
+
 u16 RogueHub_PlaceHomeDecor()
 {
-    u8 i;
+    u16 i;
     struct RogueHubMap* hubMap = &gRogueSaveBlock->hubMap;
     u16 decorVariant = VarGet(VAR_SELECTED_DECOR_VARIANT);
     u8 placeX = VarGet(VAR_PLACE_X);
@@ -1664,22 +1698,62 @@ u16 RogueHub_PlaceHomeDecor()
 
     AGB_ASSERT(decorVariant < DECOR_VARIANT_COUNT);
 
-    if(IsCoordInHomeRegion(placeX, placeY, HOME_REGION_PLACEABLE_REGION) && !IsCoordInHomeRegion(placeX, placeY, HOME_REGION_HOUSE))
+    if(IsCoordInHomeRegion(placeX, placeY, HOME_REGION_PLACEABLE_REGION) && !IsCoordInHomeRegion(placeX, placeY, HOME_REGION_HOUSE)) // todo - map region specific
     {
-        UpdatePlaceCoords(&placeX, &placeY, decorVariant);
-
-        for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+        // Special behaviour for removing
+        if(decorVariant == DECOR_VARIANT_REMOVE_DECOR_DEFAULT)
         {
-            struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
-            if(!decor->active)
-            {
-                decor->x = placeX;
-                decor->y = placeY;
-                decor->decorVariant = decorVariant;
-                decor->active = TRUE;
+            // Attempt to remove the decor that's on top
 
-                RogueHub_PlaceHomeEnvironmentDecorations();
-                return HOME_DECOR_OUTSIDE_ENV_OFFSET + i;
+            // top layer
+            for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+            {
+                u16 invI = HOME_DECOR_OUTSIDE_ENV_COUNT - i - 1;
+
+                struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + invI];
+
+                if(decor->active && !sDecorationVariants[decor->decorVariant].isBottomLayer && IsCoordOnDecor(decor, placeX, placeY))
+                {
+                    decor->active = FALSE; // deactivate for preview
+                    RogueHub_PlaceHomeEnvironmentDecorations();
+                    return HOME_DECOR_OUTSIDE_ENV_OFFSET + invI;
+                }
+            }
+
+            // bottom layer
+            for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+            {
+                u16 invI = HOME_DECOR_OUTSIDE_ENV_COUNT - i - 1;
+
+                struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + invI];
+
+                if(decor->active && sDecorationVariants[decor->decorVariant].isBottomLayer && IsCoordOnDecor(decor, placeX, placeY))
+                {
+                    decor->active = FALSE; // deactivate for preview
+                    RogueHub_PlaceHomeEnvironmentDecorations();
+                    return HOME_DECOR_OUTSIDE_ENV_OFFSET + invI;
+                }
+            }
+
+            return HOME_DECOR_CANNOT_REMOVE;
+        }
+        else
+        {
+            UpdatePlaceCoords(&placeX, &placeY, decorVariant);
+
+            for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+            {
+                struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
+                if(!decor->active)
+                {
+                    decor->x = placeX;
+                    decor->y = placeY;
+                    decor->decorVariant = decorVariant;
+                    decor->active = TRUE;
+
+                    RogueHub_PlaceHomeEnvironmentDecorations();
+                    return HOME_DECOR_OUTSIDE_ENV_OFFSET + i;
+                }
             }
         }
     
@@ -1691,18 +1765,39 @@ u16 RogueHub_PlaceHomeDecor()
 
 void RogueHub_RemoveHomeDecor()
 {
-    u16 index = VarGet(VAR_PREVIOUS_DECOR_INDEX);
+    u16 index = VarGet(VAR_ACTIVE_DECOR_INDEX);
+    u16 decorVariant = VarGet(VAR_SELECTED_DECOR_VARIANT);
+
+    // This case falls through here, so ignore it
+    if(index == HOME_DECOR_CANNOT_REMOVE)
+        return;
 
     AGB_ASSERT(index < HOME_DECOR_TOTAL_COUNT);
-    gRogueSaveBlock->hubMap.homeDecorations[index].active = FALSE;
-    RogueHub_PlaceHomeEnvironmentDecorations();
+
+    // Special behaviour for removing
+    if(decorVariant == DECOR_VARIANT_REMOVE_DECOR_DEFAULT)
+    {
+        // We didn't want to remove it, so re-enable it
+        gRogueSaveBlock->hubMap.homeDecorations[index].active = TRUE;
+        RogueHub_PlaceHomeEnvironmentDecorations();
+    }
+    else
+    {
+        gRogueSaveBlock->hubMap.homeDecorations[index].active = FALSE;
+        RogueHub_PlaceHomeEnvironmentDecorations();
+    }
+}
+
+u16 RogueHub_IsRemovingDecor()
+{
+    return VarGet(VAR_MENU_DEPTH) == MENU_DEPTH_PLACE_DECORATION && VarGet(VAR_SELECTED_DECOR_VARIANT) == DECOR_VARIANT_REMOVE_DECOR_DEFAULT;
 }
 
 #undef VAR_MENU_DEPTH
 #undef VAR_SELECTED_GROUP
 #undef VAR_SELECTED_DECOR_ID
 #undef VAR_SELECTED_DECOR_VARIANT
-#undef VAR_PREVIOUS_DECOR_INDEX
+#undef VAR_ACTIVE_DECOR_INDEX
 #undef VAR_PLACE_X
 #undef VAR_PLACE_Y
 
