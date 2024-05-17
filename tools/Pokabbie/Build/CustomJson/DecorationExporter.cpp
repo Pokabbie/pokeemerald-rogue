@@ -15,17 +15,17 @@ struct DecorationVariant
 	DecorationType type;
 	std::string name;
 	std::string sourceMap;
-	std::string isBottomLayer = "FALSE";
 	struct
 	{
 		int x;
 		int y;
 		int width = 1;
 		int height = 1;
+		std::string isBottomLayer = "FALSE";
 	} tileParams;
 	struct
 	{
-		// todo
+		int localId;
 	} objectEventParams;
 };
 
@@ -134,18 +134,24 @@ void ExportDecorationData_C(std::ofstream& fileStream, std::string const& dataPa
 					fileStream << c_TabSpacing2 << ".type = DECOR_TYPE_TILE,\n";
 					fileStream << c_TabSpacing2 << ".srcMapGroup = MAP_GROUP(" << variant.sourceMap << "),\n";
 					fileStream << c_TabSpacing2 << ".srcMapNum = MAP_NUM(" << variant.sourceMap << "),\n";
-					fileStream << c_TabSpacing2 << ".isBottomLayer = " << variant.isBottomLayer << ",\n";
 					fileStream << c_TabSpacing2 << ".perType = { .tile =\n";
 					fileStream << c_TabSpacing2 << "{\n";
 					fileStream << c_TabSpacing3 << ".x = " << variant.tileParams.x << ",\n";
 					fileStream << c_TabSpacing3 << ".y = " << variant.tileParams.y << ",\n";
 					fileStream << c_TabSpacing3 << ".width = " << variant.tileParams.width << ",\n";
 					fileStream << c_TabSpacing3 << ".height = " << variant.tileParams.height << ",\n";
+					fileStream << c_TabSpacing3 << ".isBottomLayer = " << variant.tileParams.isBottomLayer << ",\n";
 					fileStream << c_TabSpacing2 << "} }\n";
 					break;
 
 				case DecorationType::ObjectEvent:
-					// todo
+					fileStream << c_TabSpacing2 << ".type = DECOR_TYPE_OBJECT_EVENT,\n";
+					fileStream << c_TabSpacing2 << ".srcMapGroup = MAP_GROUP(" << variant.sourceMap << "),\n";
+					fileStream << c_TabSpacing2 << ".srcMapNum = MAP_NUM(" << variant.sourceMap << "),\n";
+					fileStream << c_TabSpacing2 << ".perType = { .objectEvent =\n";
+					fileStream << c_TabSpacing2 << "{\n";
+					fileStream << c_TabSpacing3 << ".localId = " << variant.objectEventParams.localId << ",\n";
+					fileStream << c_TabSpacing2 << "} }\n";
 					break;
 				}
 
@@ -265,9 +271,6 @@ static DecorationVariant ParseDecorationVariant(json const& jsonData, Decoration
 	if(jsonData.contains("source_map"))
 		outVariant.sourceMap = jsonData["source_map"].get<std::string>();
 
-	if(jsonData.contains("bottom_layer"))
-		outVariant.isBottomLayer = GetAsString(jsonData["bottom_layer"]);
-
 	if (jsonData.contains("source_tiles"))
 	{
 		json sourceTilesJson = jsonData["source_tiles"];
@@ -286,8 +289,23 @@ static DecorationVariant ParseDecorationVariant(json const& jsonData, Decoration
 		if (sourceTilesJson.contains("height"))
 			outVariant.tileParams.height = sourceTilesJson["height"].get<int>();
 
+		if (jsonData.contains("bottom_layer"))
+			outVariant.tileParams.isBottomLayer = GetAsString(sourceTilesJson["bottom_layer"]);
+
 		return outVariant;
 	}
+
+	if (jsonData.contains("source_object"))
+	{
+		json sourceObjectJson = jsonData["source_object"];
+
+		outVariant.type = DecorationType::ObjectEvent;
+
+		outVariant.objectEventParams.localId = sourceObjectJson["local_id"].get<int>();
+
+		return outVariant;
+	}
+
 
 	FATAL_ERROR("Unrecognised variant object:\n'%s'", jsonData.dump().c_str());
 	return outVariant;

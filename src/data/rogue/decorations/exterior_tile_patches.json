@@ -6,7 +6,10 @@
     {
         "display_group": "Environment",
         "source_map": "ROGUE_TEMPLATE_HOMES",
-        "bottom_layer": true,
+        "source_tiles":
+        {
+            "bottom_layer": true
+        },
         "variants":
         [
             {

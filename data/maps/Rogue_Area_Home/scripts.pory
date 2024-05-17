@@ -166,6 +166,30 @@ script Rogue_Area_Home_PlaceDecoration
         msgbox(format("Decor can't be placed here."))
         setvar(VAR_RESULT, NO)
     }
+    elif(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_TOO_MANY_OBJECTS_NEAR)
+    {
+        begindynamicmultichoice
+        appenddynamicmultichoice("Change Decor", 1)
+        appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+        message(format("Too many other Objects nearby.\nTry placing elsewhere."))
+        waitmessage
+
+        enddynamicmultichoice(20, 6, 2, TRUE)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // place
+                setvar(VAR_RESULT, NO)
+
+            case 1: // change decor
+                setvar(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_GROUP)
+                setvar(VAR_RESULT, YES)
+
+            case MULTI_B_PRESSED: // exit
+                // without placing
+                setvar(VAR_RESULT, NO)
+        }
+    }
     else
     {
         special(DrawWholeMapView)

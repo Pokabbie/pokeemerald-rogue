@@ -1815,7 +1815,7 @@
       "id": "LAYOUT_ROGUE_TEMPLATE_HOMES",
       "name": "Rogue_Template_Homes_Layout",
       "width": 50,
-      "height": 16,
+      "height": 17,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_PlayerHome",
       "border_filepath": "data/layouts/Rogue_Template_Homes/border.bin",

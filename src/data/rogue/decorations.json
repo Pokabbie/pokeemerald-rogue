@@ -1,9 +1,10 @@
 {
     "includes":
     [
-        "decorations/misc.json",
         "decorations/exterior_tile_patches.json",
-        "decorations/exterior_tile.json"
+        "decorations/exterior_tile.json",
+        "decorations/objects.json",
+        "decorations/misc.json"
     ],
     "defaults":
     {

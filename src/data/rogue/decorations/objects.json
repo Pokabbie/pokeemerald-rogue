@@ -1,0 +1,23 @@
+{
+    "includes":
+    [
+    ],
+    "defaults":
+    {
+        "display_group": "Objects",
+        "source_map": "ROGUE_TEMPLATE_HOMES"
+    },
+    "decorations":
+    {
+        "exterior_patches":
+        [
+            {
+                "name": "Test Object",
+                "source_object":
+                {
+                    "local_id": 1
+                }
+            }
+        ]
+    }
+}
