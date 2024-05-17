@@ -1,6 +1,8 @@
 #include "main.h"
 
 #include <functional>
+#include <iomanip>
+#include <sstream>
 #include <unordered_map>
 
 typedef std::function<void(std::ofstream&, std::string const&, json const&)> ExporterFunc;
@@ -159,7 +161,7 @@ static std::string GetSourceDirectory(std::string path)
     return path + '\\';
 }
 
-json ExpandCommonArrayGroup(std::string const& sourcePath, json const& rawData, std::string const& groupName)
+static json ExpandCommonArrayGroupInternal(std::string const& sourcePath, json const& rawData, std::string const& groupName, int* counter)
 {
     json outputData;
     json& outputGroup = outputData[groupName] = json::object();
@@ -216,7 +218,7 @@ json ExpandCommonArrayGroup(std::string const& sourcePath, json const& rawData, 
             std::string fullPath = sourceDir + it.value().get<std::string>();
             strutil::replace_all(fullPath, "\\", "/");
 
-            json parsedInclude = ExpandCommonArrayGroup(fullPath, ReadJsonFile(fullPath), groupName);
+            json parsedInclude = ExpandCommonArrayGroupInternal(fullPath, ReadJsonFile(fullPath), groupName, counter);
             json parsedInnerGroups = parsedInclude[groupName];
 
             for (auto inputGroupIt = parsedInnerGroups.begin(); inputGroupIt != parsedInnerGroups.end(); ++inputGroupIt)
@@ -224,10 +226,21 @@ json ExpandCommonArrayGroup(std::string const& sourcePath, json const& rawData, 
                 std::string sourceName = inputGroupIt.key();
                 json const& sourceGroups = inputGroupIt.value();
 
-                outputGroup[sourceName + " // [" + fullPath + "]"] = sourceGroups;
+                // Prepend a number so we maintain the order they're included elsewhere in the code
+                std::stringstream ss;
+                ss << std::setw(6) << std::setfill('0') << (*counter)++;
+                std::string prefixString = ss.str() + "_";
+
+                outputGroup[prefixString + sourceName + " // [" + fullPath + "]"] = sourceGroups;
             }
         }
     }
 
     return outputData;
+}
+
+json ExpandCommonArrayGroup(std::string const& sourcePath, json const& rawData, std::string const& groupName)
+{
+    int counter = 0;
+    return ExpandCommonArrayGroupInternal(sourcePath, rawData, groupName, &counter);
 }
