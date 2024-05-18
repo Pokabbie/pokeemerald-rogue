@@ -26,6 +26,7 @@ struct DecorationVariant
 	struct
 	{
 		int localId;
+		int editorLocalId = -1;
 	} objectEventParams;
 };
 
@@ -151,6 +152,7 @@ void ExportDecorationData_C(std::ofstream& fileStream, std::string const& dataPa
 					fileStream << c_TabSpacing2 << ".perType = { .objectEvent =\n";
 					fileStream << c_TabSpacing2 << "{\n";
 					fileStream << c_TabSpacing3 << ".localId = " << variant.objectEventParams.localId << ",\n";
+					fileStream << c_TabSpacing3 << ".editorLocalId = " << (variant.objectEventParams.editorLocalId > 0 ? variant.objectEventParams.editorLocalId : variant.objectEventParams.localId) << ",\n";
 					fileStream << c_TabSpacing2 << "} }\n";
 					break;
 				}
@@ -302,6 +304,9 @@ static DecorationVariant ParseDecorationVariant(json const& jsonData, Decoration
 		outVariant.type = DecorationType::ObjectEvent;
 
 		outVariant.objectEventParams.localId = sourceObjectJson["local_id"].get<int>();
+
+		if (sourceObjectJson.contains("editor_local_id"))
+			outVariant.objectEventParams.editorLocalId = sourceObjectJson["editor_local_id"].get<int>();
 
 		return outVariant;
 	}

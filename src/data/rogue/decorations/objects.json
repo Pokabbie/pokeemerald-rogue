@@ -12,10 +12,18 @@
         "exterior_patches":
         [
             {
-                "name": "Test Object",
+                "name": "Statue",
                 "source_object":
                 {
                     "local_id": 1
+                }
+            },
+            {
+                "name": "Editor Test",
+                "source_object":
+                {
+                    "local_id": 1,
+                    "editor_local_id": 2
                 }
             }
         ]

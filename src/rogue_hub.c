@@ -94,6 +94,7 @@ struct RogueDecorationVariant
         struct
         {
             u8 localId;
+            u8 editorLocalId;
         } objectEvent;
     } perType;
 };
@@ -1499,6 +1500,14 @@ bool8 RogueHub_IsPlayerBaseLayout(u16 layoutId)
 
 #define DECOR_TO_LOCAL_ID(x) (x + 1)  // +1 is for the reserved work bench
 
+static u8 SelectSourceVariantLocalId(u16 decorVariant)
+{
+    if(VarGet(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+        return sDecorationVariants[decorVariant].perType.objectEvent.editorLocalId;
+
+    return sDecorationVariants[decorVariant].perType.objectEvent.localId;
+}
+
 void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
 {
     u8 i;
@@ -1509,7 +1518,7 @@ void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, 
         struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
         if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_OBJECT_EVENT)
         {
-            u8 srcLocalId = sDecorationVariants[decor->decorVariant].perType.objectEvent.localId - 1;
+            u8 srcLocalId = SelectSourceVariantLocalId(decor->decorVariant) - 1;
             struct MapHeader const* srcMapHeader = Overworld_GetMapHeaderByGroupAndId(sDecorationVariants[decor->decorVariant].srcMapGroup, sDecorationVariants[decor->decorVariant].srcMapNum);
         
             AGB_ASSERT(srcLocalId < srcMapHeader->events->objectEventCount);
