@@ -689,6 +689,18 @@ static bool8 HandleStartMenuInput(void)
         sStartMenuCursorPos = Menu_MoveCursor(1);
     }
 
+    if (JOY_NEW(L_BUTTON) && !sBufferedAButton)
+    {
+        PlaySE(SE_SELECT);
+        sStartMenuCursorPos = Menu_MoveCursorNoWrapAround(-4);
+    }
+
+    if (JOY_NEW(R_BUTTON) && !sBufferedAButton)
+    {
+        PlaySE(SE_SELECT);
+        sStartMenuCursorPos = Menu_MoveCursorNoWrapAround(4);
+    }
+
     if (JOY_NEW(A_BUTTON) || sBufferedAButton)
     {
         // RogueNote: Audio music bug, wait for fanfare music to stop
