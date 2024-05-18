@@ -56,14 +56,14 @@
   ],
   "warp_events": [
     {
-      "x": 7,
+      "x": 8,
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ENCOUNTER_SIGN",
       "dest_warp_id": "0"
     },
     {
-      "x": 8,
+      "x": 7,
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ENCOUNTER_SIGN",

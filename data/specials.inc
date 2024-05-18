@@ -313,6 +313,7 @@ gSpecials::
 	def_special GameShow_SelectRandomSpecies
 	def_special GameShow_BufferSpecies
 	def_special GameShow_CheckResultMatchesSpecies
+	def_special GameShow_AppendSpeciesMultichoiceOptions
 	def_special GameShow_SelectRewardItem
 	def_special GameShow_IsTeamTriviaRoundValid
 	def_special GameShow_NextTriviaQuestion

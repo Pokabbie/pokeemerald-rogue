@@ -79,24 +79,27 @@ script Rogue_Encounter_GameShow_TriggerIntro
     special(GameShow_IsTeamTriviaRoundValid)
     if(var(VAR_RESULT) == YES)
     {
-        random(4)
+        random(5)
     }
     else
     {
-        random(3)
+        random(4)
     }
 
     switch(var(VAR_RESULT))
     {
         // Weight this higher as it's more accessible
         case 0:
-        case 1:
             call(Rogue_Encounter_GameShow_WhosThatPokemonFlow)
 
+        case 1:
         case 2:
-            call(Rogue_Encounter_GameShow_VoltorbFlip)
+            call(Rogue_Encounter_GameShow_WhosThatCryFlow)
 
         case 3:
+            call(Rogue_Encounter_GameShow_VoltorbFlip)
+
+        case 4:
             call(Rogue_Encounter_GameShow_TeamTrivia)
     }
 
@@ -180,47 +183,86 @@ script Rogue_Encounter_GameShow_WhosThatPokemonFlow
         special(GameShow_SelectRandomSpecies)
         specialvar(VAR_CURRENT_SPECIES, GameShow_BufferSpecies)
 
-        // 3 rounds of sillouettes
-        if(var(VAR_CURRENT_ROUND) <= 3)
+        //  rounds of sillouettes
+        message(format("Which Pokémon does this silhouette belong to?"))
+        showmonpic(VAR_CURRENT_SPECIES, 10, 3, TRUE)
+        delay(20)
+        waitmessage
+        waitbuttonpress
+        hidemonpic
+
+
+        message(format("Which Pokémon was that?"))
+        waitmessage
+
+        begindynamicmultichoice
+        special(GameShow_AppendSpeciesMultichoiceOptions)
+        enddynamicmultichoice(19, 4, 4, FALSE)
+
+        msgbox(format("That answer is…"))
+
+        if(var(VAR_RESULT) == YES)
         {
-            message(format("Which Pokémon does this silhouette belong to?"))
-            showmonpic(VAR_CURRENT_SPECIES, 10, 3, TRUE)
-            delay(20)
-            waitmessage
-            waitbuttonpress
-            hidemonpic
+            playse(SE_DING_DONG)
+            waitse
+
+            msgbox(format("Correct!"))
+            addvar(VAR_CURRENT_ROUND, 1)
+            addvar(VAR_CURRENT_REWARD_COUNTER, 1)
+
+            call(Rogue_Encounter_GameShow_DisplayReward)
         }
-        // 3 rounds of guess the cry
         else
         {
-            message(format("Which Pokémon does this cry belong to?"))
-            waitmessage
-            delay(30)
+            playse(SE_BOO)
+            waitse
 
-            playmoncry(VAR_CURRENT_SPECIES, CRY_MODE_NORMAL)
-            waitmoncry
-            delay(90)
+            bufferspeciesname(STR_VAR_1, VAR_CURRENT_SPECIES)
 
-            playmoncry(VAR_CURRENT_SPECIES, CRY_MODE_NORMAL)
-            waitmoncry
-            delay(90)
-
-            playmoncry(VAR_CURRENT_SPECIES, CRY_MODE_NORMAL)
-            waitmoncry
-            delay(90)
+            msgbox(format("Incorrect!\nThe answer was {STR_VAR_1}."))
+            setvar(VAR_CURRENT_ROUND, FAIL_ROUND_COUNTER)
         }
+    }
+}
 
-        special(Special_SelectMonInPokedex)
-        waitstate
+script Rogue_Encounter_GameShow_WhosThatCryFlow
+{
+    msgbox(format("What's that Cry?!\pThere will be 6 rounds, you will have to guess the specific Pokémon based on their Cry.\pNow…"), MSGBOX_DEFAULT)
 
-        //setvar(VAR_0x8004, EASY_CHAT_TYPE_ROGUE_GAMESHOW_CHOOSE_MON)
-        //call(Common_ShowEasyChatScreen)
+    while(var(VAR_CURRENT_ROUND) <= 50)
+    {
+        buffernumberstring(STR_VAR_1, VAR_CURRENT_ROUND)
+        msgbox(format("Round {STR_VAR_1}!"))
 
-        if(var(VAR_RESULT) != SPECIES_NONE)
-        {
-            msgbox(format("That answer is…"))
-            special(GameShow_CheckResultMatchesSpecies)
-        }
+        special(GameShow_SelectRandomSpecies)
+        specialvar(VAR_CURRENT_SPECIES, GameShow_BufferSpecies)
+
+        // rounds of guess the cry
+        message(format("Which Pokémon does this cry belong to?"))
+        waitmessage
+        delay(30)
+
+        playmoncry(VAR_CURRENT_SPECIES, CRY_MODE_NORMAL)
+        waitmoncry
+        delay(90)
+
+        playmoncry(VAR_CURRENT_SPECIES, CRY_MODE_NORMAL)
+        waitmoncry
+        delay(90)
+
+        playmoncry(VAR_CURRENT_SPECIES, CRY_MODE_NORMAL)
+        waitmoncry
+        delay(90)
+
+
+        message(format("Which Pokémon did that Cry belong to?"))
+        waitmessage
+
+        begindynamicmultichoice
+        special(GameShow_AppendSpeciesMultichoiceOptions)
+        enddynamicmultichoice(19, 4, 4, FALSE)
+
+        msgbox(format("That answer is…"))
 
         if(var(VAR_RESULT) == YES)
         {
@@ -376,7 +418,7 @@ script Rogue_Encounter_GameShow_DisplayReward
 
     if(var(VAR_CURRENT_REWARD_ITEM) == ITEM_NONE)
     {
-        msgbox(format("If you stop now, you can win yourself…\p{STR_VAR_1}!\pOr you can risk it to win…\p{STR_VAR_2}!\nOr even better!\nAll or nothing!\pSo, do you want to risk it and play another round?"), MSGBOX_YESNO)
+        msgbox(format("If you stop now, you can win yourself…\p{STR_VAR_1}!\pOr you can risk it to upgrade your prize to…\p{STR_VAR_2}!\nOr even better!\nAll or nothing!\pSo, do you want to risk it and play another round?"), MSGBOX_YESNO)
     
         if(var(VAR_RESULT) == NO)
         {
@@ -397,7 +439,7 @@ script Rogue_Encounter_GameShow_DisplayReward
         }
         else
         {
-            msgbox(format("You just won yourself…\p{STR_VAR_1}!\pNext round you could win…\p{STR_VAR_2}!\pDo you want to risk it and play another round?"), MSGBOX_YESNO)
+            msgbox(format("You just won yourself…\p{STR_VAR_1}!\pNext round you could upgrade your prize to…\p{STR_VAR_2}!\pDo you want to risk it and play another round?"), MSGBOX_YESNO)
         
             if(var(VAR_RESULT) == NO)
             {
