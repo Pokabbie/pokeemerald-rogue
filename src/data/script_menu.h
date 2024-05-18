@@ -1058,6 +1058,56 @@ static const MultichoiceList_Callback sMultichoiceCallback[] =
     [MULTI_ROGUE_DAYCARE] = Rogue_DaycareMultichoiceCallback,
 };
 
+// Text displayed as options.
+static const u8 sText_Example1[] = _("Example 1");
+static const u8 sText_Example2[] = _("Example 2");
+static const u8 sText_Example3[] = _("Example 3");
+static const u8 sText_Example4[] = _("Example 4");
+static const u8 sText_Example5[] = _("Example 5");
+static const u8 sText_Example6[] = _("Example 6");
+static const u8 sText_Example7[] = _("Example 7");
+static const u8 sText_Example8[] = _("Example 8");
+static const u8 sText_Example9[] = _("Example 9");
+
+// Sets of multichoices.
+static const struct ListMenuItem ScrollingMultichoiceList_Test0[] =
+{
+    {sText_Example1, 0},
+    {sText_Example2, 1},
+    {sText_Example3, 2},
+    {sText_Example4, 3},
+    {sText_Example5, 4},
+    {sText_Example6, 5},
+    {sText_Example7, 6},
+    {sText_Example8, 7},
+    {sText_Example9, 8},
+};
+
+static const struct ListMenuItem ScrollingMultichoiceList_Test1[] =
+{
+    {sText_Example9, 0},
+    {sText_Example8, 1},
+    {sText_Example7, 2},
+    {sText_Example6, 3},
+    {sText_Example5, 4},
+    {sText_Example4, 5},
+    {sText_Example3, 6},
+    {sText_Example2, 7},
+    {sText_Example1, 8},
+};
+
+struct ScrollingMultichoiceListStruct
+{
+    const struct ListMenuItem *list;
+    u16 count;
+};
+
+static const struct ScrollingMultichoiceListStruct sScrollingMultichoiceLists[] =
+{
+    [MULTI_SCROLL_TEST0] = MULTICHOICE(ScrollingMultichoiceList_Test0),
+    [MULTI_SCROLL_TEST1] = MULTICHOICE(ScrollingMultichoiceList_Test1),
+};
+
 const u8 *const gStdStrings[] =
 {
     [STDSTRING_COOL] = gText_Cool,

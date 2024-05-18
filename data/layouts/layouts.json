@@ -1544,10 +1544,10 @@
     {
       "id": "LAYOUT_ROGUE_INTERIOR_HOME",
       "name": "Rogue_Interior_Home_Layout",
-      "width": 10,
-      "height": 10,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "width": 16,
+      "height": 16,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseShrub",
       "border_filepath": "data/layouts/Rogue_Interior_Home/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Interior_Home/map.bin"
     },
@@ -1815,7 +1815,7 @@
       "id": "LAYOUT_ROGUE_TEMPLATE_HOMES",
       "name": "Rogue_Template_Homes_Layout",
       "width": 50,
-      "height": 15,
+      "height": 17,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_PlayerHome",
       "border_filepath": "data/layouts/Rogue_Template_Homes/border.bin",

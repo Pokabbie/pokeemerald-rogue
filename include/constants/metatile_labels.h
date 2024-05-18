@@ -524,7 +524,6 @@
 #define METATILE_SecretBase_BigPlant_BaseRight2         0x2EF
 #define METATILE_SecretBase_BigPlant_TopLeft            0x2E4
 #define METATILE_SecretBase_BigPlant_TopLeftWall        0x2E5
-#define METATILE_SecretBase_BigPlant_TopRight           0x2E6
 #define METATILE_SecretBase_BigPlant_TopRightWall       0x2E6
 #define METATILE_SecretBase_BlueBalloon                 0x33C
 #define METATILE_SecretBase_BlueBrick_Bottom            0x22F

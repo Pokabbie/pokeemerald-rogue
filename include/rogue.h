@@ -182,7 +182,7 @@ struct RogueHubDecoration
 {
     u8 x;
     u8 y;
-    u8 decorId;
+    u8 decorVariant;
     u8 active : 1;
     u8 unused : 7;
 };
@@ -445,6 +445,8 @@ struct RogueNetGameState
 struct RogueNetPlayerProfile
 {
     u8 trainerName[PLAYER_NAME_LENGTH + 1];
+    u8 playerTrainerId[TRAINER_ID_LENGTH];
+    u8 pokemonHubName[POKEMON_HUB_NAME_LENGTH + 1];
     u16 preferredOutfitStyle[3]; // PLAYER_OUTFIT_STYLE_COUNT
     u8 networkId; // assigned by host
     u8 preferredOutfit;

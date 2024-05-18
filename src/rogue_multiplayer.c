@@ -159,6 +159,9 @@ static void CreatePlayerProfile(struct RogueNetPlayerProfile* profile)
 
     // Setup profile that we want to connect using
     StringCopy_PlayerName(profile->trainerName, gSaveBlock2Ptr->playerName);
+    StringCopyN(profile->pokemonHubName, gSaveBlock2Ptr->pokemonHubName, POKEMON_HUB_NAME_LENGTH + 1);
+    memcpy(profile->playerTrainerId, gSaveBlock2Ptr->playerTrainerId, sizeof(gSaveBlock2Ptr->playerTrainerId));
+
     profile->isActive = TRUE;
     profile->preferredOutfit = RoguePlayer_GetOutfitId();
 
@@ -212,6 +215,18 @@ u8 const* RogueMP_GetPlayerName(u8 playerId)
 {
     AGB_ASSERT(gRogueMultiplayer != NULL);
     return gRogueMultiplayer->playerProfiles[playerId].trainerName;
+}
+
+u8 const* RogueMP_GetPlayerHubName(u8 playerId)
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+    return gRogueMultiplayer->playerProfiles[playerId].pokemonHubName;
+}
+
+u8 const* RogueMP_GetPlayerTrainerId(u8 playerId)
+{
+    AGB_ASSERT(gRogueMultiplayer != NULL);
+    return gRogueMultiplayer->playerProfiles[playerId].playerTrainerId;
 }
 
 u8 RogueMP_GetPlayerStatus(u8 playerId)

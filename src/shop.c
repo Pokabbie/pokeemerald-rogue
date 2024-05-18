@@ -211,8 +211,8 @@ static const struct MenuAction sShopMenuActions_BuyQuit[] =
 
 static const struct MenuAction sShopMenuActions_BuildQuit[] =
 {
-    { gText_ShopAreas, {.void_u8=Task_HandleShopMenuAreas} },
     { gText_ShopUpgrade, {.void_u8=Task_HandleShopMenuUpgrades} },
+    { gText_ShopAreas, {.void_u8=Task_HandleShopMenuAreas} },
     { gText_ShopQuit, {.void_u8=Task_HandleShopMenuQuit} }
 };
 

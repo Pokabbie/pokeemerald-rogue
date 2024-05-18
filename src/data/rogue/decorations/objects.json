@@ -1,0 +1,52 @@
+{
+    "includes":
+    [
+    ],
+    "defaults":
+    {
+        "display_group": "Objects",
+        "source_map": "ROGUE_TEMPLATE_HOMES"
+    },
+    "decorations":
+    {
+        "exterior_patches":
+        [
+            {
+                "name": "Statue",
+                "source_object":
+                {
+                    "local_id": 1
+                }
+            },
+            {
+                "name": "Quest Board",
+                "source_object":
+                {
+                    "local_id": 4
+                }
+            },
+            {
+                "name": "PC",
+                "source_object":
+                {
+                    "local_id": 3
+                }
+            },
+            {
+                "name": "Flag",
+                "source_object":
+                {
+                    "local_id": 5
+                }
+            },
+            {
+                "name": "Editor Test",
+                "source_object":
+                {
+                    "local_id": 1,
+                    "editor_local_id": 2
+                }
+            }
+        ]
+    }
+}
