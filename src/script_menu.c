@@ -876,7 +876,7 @@ void ScriptMenu_ScrollingMultichoice(void)
 void ScriptMenu_ScrollingMultichoiceDynamicBegin(u16 capacity)
 {
     AGB_ASSERT(sDynamicScrollingMultichoiceList == NULL);
-    sDynamicScrollingMultichoiceList = malloc(sizeof(struct ListMenuItem) * capacity);
+    sDynamicScrollingMultichoiceList = Alloc(sizeof(struct ListMenuItem) * capacity);
     sDynamicScrollingMultichoiceCount = 0;
 #ifdef ROGUE_DEBUG
     sDynamicScrollingMultichoiceCapacity = capacity;
