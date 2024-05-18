@@ -52,7 +52,6 @@ struct Decoration
     const u16 *tiles;
 };
 
-extern const struct Decoration gDecorations[];
 extern u8 *gCurDecorationItems;
 extern u8 gCurDecorationIndex;
 

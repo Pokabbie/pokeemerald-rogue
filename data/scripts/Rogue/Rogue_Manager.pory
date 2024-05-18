@@ -65,6 +65,8 @@ script Rogue_QuickSaveRun
 {
     lockall
 
+    msgbox(format("WARNING!\nYou can only reload Quicksaves once.\pWhen the game next reloads, this Quicksave will be wiped."))
+
     call(Common_EventScript_SaveGame)
 
     if(var(VAR_RESULT) == YES)
@@ -172,7 +174,7 @@ script Rogue_AskNicknameMon
 script Rogue_RetireFromRun
 {
     lockall
-    msgbox(format("Are you sure you'd like to return to {POKEMON_HUB}?"), MSGBOX_YESNO)
+    msgbox(format("Are you sure you'd like to abandon the Adventure and return to {POKEMON_HUB}?"), MSGBOX_YESNO)
 
     if(var(VAR_RESULT) == YES)
     {

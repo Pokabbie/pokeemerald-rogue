@@ -1885,7 +1885,7 @@ static void CopyShopItemName(u16 item, u8* name)
     }
     else
     {
-        StringCopyN(name, gDecorations[item].name, ITEM_NAME_LENGTH + 4);
+        //StringCopyN(name, gDecorations[item].name, ITEM_NAME_LENGTH + 4);
         return;
     }
 
@@ -1908,8 +1908,8 @@ static const u8* GetShopItemDescription(u16 item)
     {
         str = gRogueHubUpgrades[item].descText;
     }
-    else
-        str = gDecorations[item].description;
+    //else
+        //str = gDecorations[item].description;
 
     if(str == NULL)
         str = gText_EmptyString7;
@@ -1942,7 +1942,7 @@ static u32 GetShopItemPrice(u16 item)
     }
     else
     {
-        return gDecorations[item].price;
+        //return gDecorations[item].price;
     }
 
     return 0;

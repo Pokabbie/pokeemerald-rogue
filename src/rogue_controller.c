@@ -7094,6 +7094,10 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
                 Rogue_ApplyMonCompetitiveSet(mon, GetMonData(mon, MON_DATA_LEVEL), &gRoguePokemonProfiles[species].competitiveSets[presetIndex], &rules);
             }
 
+            // Clear friendship
+            temp = 0;
+            SetMonData(mon, MON_DATA_FRIENDSHIP, &temp);
+
             // Bump 2 of the IVs to max
             SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
             SetMonData(mon, MON_DATA_HP_IV + statB, &temp);

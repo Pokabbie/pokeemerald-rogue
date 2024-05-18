@@ -217,7 +217,7 @@ script Rogue_PreIntro
         }
         ROGUE_VERSION_EXPANSION
         {
-            message(format("{COLOR BLUE}Finally, for your first Adventure, what types of Pokémon would you like to encounter?"))
+            message(format("{COLOR BLUE}Finally, for your first Adventure, what types of Pokémon would you like to encounter?\n(Select an option to learn more)"))
             setvar(VAR_RESULT, NO)
 
             while(var(VAR_RESULT) == NO)

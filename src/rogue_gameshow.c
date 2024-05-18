@@ -4,8 +4,10 @@
 #include "event_data.h"
 #include "item.h"
 #include "random.h"
+#include "script_menu.h"
 #include "string_util.h"
 
+#include "rogue_baked.h"
 #include "rogue_gameshow.h"
 #include "rogue_pokedex.h"
 #include "rogue_query.h"
@@ -30,17 +32,20 @@ void GameShow_RestartGameShow()
     gSaveBlock1Ptr->dewfordTrends[2].words[0] = 0;
 }
 
+static void BeginGameshowSpeciesQuery()
+{
+    RogueMonQuery_Begin();
+    RogueMonQuery_IsSpeciesActive();
+    RogueMonQuery_IsBaseSpeciesInCurrentDex(QUERY_FUNC_INCLUDE);
+    //RogueMonQuery_IsSeenInPokedex(QUERY_FUNC_INCLUDE);
+}
+
 void GameShow_SelectRandomSpecies()
 {
     struct RogueGameShow* gameShow = Rogue_GetGameShow();
 
-    RogueMonQuery_Begin();
-    RogueMonQuery_IsSpeciesActive();
-    RogueMonQuery_IsBaseSpeciesInCurrentDex(QUERY_FUNC_INCLUDE);
-    RogueMonQuery_IsSeenInPokedex(QUERY_FUNC_INCLUDE);
-
+    BeginGameshowSpeciesQuery();
     gameShow->recentSpecies = RogueMiscQuery_SelectRandomElement(Random());
-
     RogueMonQuery_End();
 }
 
@@ -54,6 +59,45 @@ void GameShow_CheckResultMatchesSpecies()
 {
     struct RogueGameShow* gameShow = Rogue_GetGameShow();
     gSpecialVar_Result = gSpecialVar_Result == gameShow->recentSpecies;
+}
+
+void GameShow_AppendSpeciesMultichoiceOptions()
+{
+    u8 i;
+    struct RogueGameShow* gameShow = Rogue_GetGameShow();
+    u16 currentRound = VarGet(VAR_CURRENT_ROUND);
+    u8 optionCount = 3 + currentRound;
+    u8 correctAnswerIndex = Random() % optionCount;
+
+    BeginGameshowSpeciesQuery();
+
+    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gameShow->recentSpecies);
+
+    for(i = 0; i < optionCount; ++i)
+    {
+        if(!RogueMiscQuery_AnyActiveElements())
+            break;
+
+        if(i == correctAnswerIndex)
+        {
+            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(RoguePokedex_GetSpeciesName(gameShow->recentSpecies), TRUE);
+        }
+        else
+        {
+            u16 species = RogueMiscQuery_SelectRandomElement(Random());
+            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(RoguePokedex_GetSpeciesName(species), FALSE);
+            RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, species);
+
+        }
+    }
+
+    if(i < correctAnswerIndex)
+    {
+        // Ran out of mons, so put it on the end
+        ScriptMenu_ScrollingMultichoiceDynamicAppendOption(RoguePokedex_GetSpeciesName(gameShow->recentSpecies), TRUE);
+    }
+
+    RogueMonQuery_End();
 }
 
 void GameShow_SelectRewardItem()

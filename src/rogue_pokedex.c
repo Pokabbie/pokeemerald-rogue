@@ -304,6 +304,8 @@ struct PokedexMenu
     u8 currentPage;
     u8 desiredPage;
     u8 pageSprites[MAX_SPRITE_COUNT];
+    u8 displayArrowTask;
+    u16 displayArrowOffset;
 
     // Title screen
     bool8 titleScreenInEditMode;
@@ -456,6 +458,8 @@ static void CB2_Rogue_ShowPokedex(void)
     sPokedexMenu->viewBaseSpecies = SPECIES_NONE;
     sPokedexMenu->viewOtId = 0;
     sPokedexMenu->partySlot = PARTY_SIZE;
+
+    sPokedexMenu->displayArrowTask = TASK_NONE;
 
     if(sPokedexViewReq.view == DEX_VIEW_SPECIFIC_MON)
     {
@@ -2030,6 +2034,57 @@ static void DestroyMonEntryWindows(void)
 
 // Title screen
 //
+static const struct ScrollArrowsTemplate sTitleScreen_ModeArrowsTemplate_Region =
+{
+    .firstArrowType = SCROLL_ARROW_LEFT,
+    .firstX = 63,
+    .firstY = 64,
+    .secondArrowType = SCROLL_ARROW_RIGHT,
+    .secondX = 184,
+    .secondY = 64,
+    .fullyUpThreshold = -1,
+    .fullyDownThreshold = -1,
+    .tileTag = 5325,
+    .palTag = 5325,
+    .palNum = 0,
+};
+
+static const struct ScrollArrowsTemplate sTitleScreen_ModeArrowsTemplate_Game =
+{
+    .firstArrowType = SCROLL_ARROW_LEFT,
+    .firstX = 63,
+    .firstY = 88,
+    .secondArrowType = SCROLL_ARROW_RIGHT,
+    .secondX = 184,
+    .secondY = 88,
+    .fullyUpThreshold = -1,
+    .fullyDownThreshold = -1,
+    .tileTag = 5325,
+    .palTag = 5325,
+    .palNum = 0,
+};
+
+static void TitleScreen_AddScrollArrows(void)
+{
+    AGB_ASSERT(sPokedexMenu != NULL);
+    if (sPokedexMenu->displayArrowTask == TASK_NONE)
+    {
+        if(sPokedexMenu->titleScreenCursorIdx == 0)
+            sPokedexMenu->displayArrowTask = AddScrollIndicatorArrowPair(&sTitleScreen_ModeArrowsTemplate_Region, &sPokedexMenu->displayArrowOffset);
+        else
+            sPokedexMenu->displayArrowTask = AddScrollIndicatorArrowPair(&sTitleScreen_ModeArrowsTemplate_Game, &sPokedexMenu->displayArrowOffset);
+    }
+}
+
+static void TitleScreen_RemoveScrollArrows(void)
+{
+    AGB_ASSERT(sPokedexMenu != NULL);
+    if (sPokedexMenu->displayArrowTask != TASK_NONE)
+    {
+        RemoveScrollIndicatorArrowPair(sPokedexMenu->displayArrowTask);
+        sPokedexMenu->displayArrowTask = TASK_NONE;
+    }
+}
 
 static void TitleScreen_HandleInput(u8 taskId)
 {
@@ -2042,12 +2097,15 @@ static void TitleScreen_HandleInput(u8 taskId)
 
             //DisplayTitleScreenCountersText();
             DisplayTitleDexVariantText();
+            TitleScreen_RemoveScrollArrows();
         }
         else if(JOY_NEW(DPAD_UP | DPAD_DOWN))
         {
             PlaySE(SE_SELECT);
             sPokedexMenu->titleScreenCursorIdx = (sPokedexMenu->titleScreenCursorIdx + 1) % 2;
             DisplayTitleDexVariantText();
+            TitleScreen_RemoveScrollArrows();
+            TitleScreen_AddScrollArrows();
         }
         else if(JOY_REPEAT(DPAD_LEFT))
         {
@@ -2205,6 +2263,7 @@ static void TitleScreen_HandleInput(u8 taskId)
 
             //DisplayTitleScreenCountersText();
             DisplayTitleDexVariantText();
+            TitleScreen_AddScrollArrows();
         }
     }
 }
