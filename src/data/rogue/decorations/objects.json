@@ -19,6 +19,27 @@
                 }
             },
             {
+                "name": "Quest Board",
+                "source_object":
+                {
+                    "local_id": 4
+                }
+            },
+            {
+                "name": "PC",
+                "source_object":
+                {
+                    "local_id": 3
+                }
+            },
+            {
+                "name": "Flag",
+                "source_object":
+                {
+                    "local_id": 5
+                }
+            },
+            {
                 "name": "Editor Test",
                 "source_object":
                 {
