@@ -51,63 +51,21 @@ s8 GetFirstEmptyDecorSlot(u8 category)
 
 bool8 CheckHasDecoration(u8 decor)
 {
-    u8 i;
-    u8 category;
-
-    category = gDecorations[decor].category;
-    for (i = 0; i < gDecorationInventories[category].size; i ++)
-    {
-        if (gDecorationInventories[category].items[i] == decor)
-            return TRUE;
-    }
-
     return FALSE;
 }
 
 bool8 DecorationAdd(u8 decor)
 {
-    u8 category;
-    s8 idx;
-
-    if (decor == DECOR_NONE)
-        return FALSE;
-    category = gDecorations[decor].category;
-    idx = GetFirstEmptyDecorSlot(category);
-    if (idx == -1)
-        return FALSE;
-    gDecorationInventories[category].items[idx] = decor;
-    return TRUE;
+    return FALSE;
 }
 
 bool8 DecorationCheckSpace(u8 decor)
 {
-    if (decor == DECOR_NONE)
-        return FALSE;
-    if (GetFirstEmptyDecorSlot(gDecorations[decor].category) == -1)
-        return FALSE;
-    return TRUE;
+    return FALSE;
 }
 
 s8 DecorationRemove(u8 decor)
 {
-    u8 i;
-    u8 category;
-
-    i = 0;
-    if (decor == DECOR_NONE)
-        return 0;
-
-    for (i = 0; i < gDecorationInventories[gDecorations[decor].category].size; i ++)
-    {
-        category = gDecorations[decor].category;
-        if (gDecorationInventories[category].items[i] == decor)
-        {
-            gDecorationInventories[category].items[i] = DECOR_NONE;
-            CondenseDecorationsInCategory(category);
-            return 1;
-        }
-    }
-
     return 0;
 }
 

@@ -52,7 +52,6 @@ struct Decoration
     const u16 *tiles;
 };
 
-extern const struct Decoration gDecorations[];
 extern EWRAM_DATA u8 *gCurDecorationItems;
 extern EWRAM_DATA u8 gCurDecorationIndex;
 

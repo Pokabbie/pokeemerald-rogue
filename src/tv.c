@@ -5509,14 +5509,12 @@ static void DoTVShowSecretBaseVisit(void)
             sTVShowState = 1;
         break;
     case 1:
-        StringCopy(gStringVar2, gDecorations[show->secretBaseVisit.decorations[0]].name);
         if (show->secretBaseVisit.numDecorations == 1)
             sTVShowState = 4;
         else
             sTVShowState = 3;
         break;
     case 3:
-        StringCopy(gStringVar2, gDecorations[show->secretBaseVisit.decorations[1]].name);
         switch (show->secretBaseVisit.numDecorations)
         {
         case 2:
@@ -5531,12 +5529,9 @@ static void DoTVShowSecretBaseVisit(void)
         }
         break;
     case 5:
-        StringCopy(gStringVar2, gDecorations[show->secretBaseVisit.decorations[2]].name);
-        StringCopy(gStringVar3, gDecorations[show->secretBaseVisit.decorations[3]].name);
         sTVShowState = 8;
         break;
     case 6:
-        StringCopy(gStringVar2, gDecorations[show->secretBaseVisit.decorations[2]].name);
         sTVShowState = 8;
         break;
     case 2:
