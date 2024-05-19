@@ -1396,7 +1396,16 @@ static void BuyMenuTryMakePurchase(u8 taskId)
     {
         if (BuyShopItem(tItemId, tItemCount) != FALSE)
         {
-            BuyMenuDisplayMessage(taskId, gText_ThankYouBuildOrderSent, BuyMenuSubtractMoney);
+            if(sMartInfo.martType == MART_TYPE_HUB_AREAS)
+            {
+                StringCopyN(gStringVar1, gRogueHubAreas[tItemId].areaName, ITEM_NAME_LENGTH + 4);
+                BuyMenuDisplayMessage(taskId, gText_ThankYouBuildOrderSent, BuyMenuSubtractMoney);
+            }
+            else
+            {
+                StringCopyN(gStringVar1, gRogueHubAreas[gRogueHubUpgrades[tItemId].targetArea].areaName, ITEM_NAME_LENGTH + 4);
+                BuyMenuDisplayMessage(taskId, gText_ThankYouUpgradeOrderSent, BuyMenuSubtractMoney);
+            }
         }
         else
         {
@@ -1486,8 +1495,25 @@ static void BuyMenuReturnToItemList(u8 taskId)
     // Recontruct if shop content is dynamic (Force always on after purchase?)
     //if(sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
+        u16 previousItemCount = sMartInfo.itemCount;
+
         BuyMenuBuildListMenuTemplate();
         DestroyListMenuTask(tListTaskId, &sShopData->scrollOffset, &sShopData->selectedRow);
+
+        if(sMartInfo.itemCount < previousItemCount)
+        {
+            // Need to shift cursor up to avoid overflowing the bottom of the list
+            if(sShopData->scrollOffset == 0)
+            {
+                //if(sShopData->selectedRow != 0)
+                //    --sShopData->selectedRow;
+            }
+            else
+            {
+                --sShopData->scrollOffset;
+            }
+        }
+
         tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, sShopData->scrollOffset, sShopData->selectedRow);
     }
 
