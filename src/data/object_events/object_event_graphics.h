@@ -850,6 +850,7 @@ const u16 gObjectEventPal_RouteExt[] = INCBIN_U16("graphics/object_events/palett
 
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");
 const u32 gObjectEventPic_PCStand[] = INCBIN_U32("graphics/object_events/pics/rogue/pc_stand.4bpp");
+const u32 gObjectEventPic_BattleStatue[] = INCBIN_U32("graphics/object_events/pics/rogue/battle_statue.4bpp");
 const u32 gObjectEventPic_PhoneBooth[] = INCBIN_U32("graphics/object_events/pics/rogue/phone_booth.4bpp");
 const u32 gObjectEventPic_PokeblockMixer[] = INCBIN_U32("graphics/object_events/pics/rogue/pokeblock_mixer.4bpp");
 const u32 gObjectEventPic_FoodPie[] = INCBIN_U32("graphics/object_events/pics/rogue/food_pie.4bpp");
@@ -876,6 +877,7 @@ const u32 gObjectEventPic_ItemDynamaxBall[] = INCBIN_U32("graphics/object_events
 const u32 gObjectEventPic_ItemHealing[] = INCBIN_U32("graphics/object_events/pics/rogue/item_healing.4bpp");
 const u32 gObjectEventPic_ItemTeraOrb[] = INCBIN_U32("graphics/object_events/pics/rogue/item_tera_orb.4bpp");
 const u32 gObjectEventPic_ItemTeraShard[] = INCBIN_U32("graphics/object_events/pics/rogue/item_tera_shard.4bpp");
+const u32 gObjectEventPic_GrassDefault[] = INCBIN_U32("graphics/object_events/pics/rogue/grass_default.4bpp");
 const u32 gObjectEventPic_GoldGrass[] = INCBIN_U32("graphics/object_events/pics/rogue/grass_golden.4bpp");
 const u32 gObjectEventPic_FlagAdventure[] = INCBIN_U32("graphics/object_events/pics/rogue/flag_adventure.4bpp");
 

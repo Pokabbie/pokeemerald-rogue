@@ -1036,6 +1036,9 @@ $(OBJEVENTGFXDIR)/rogue/pc.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/rogue/pc_stand.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/rogue/battle_statue.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/rogue/phone_booth.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 	

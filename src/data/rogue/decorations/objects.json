@@ -71,7 +71,7 @@
                 }
             },
             {
-                "name": "Wandering {PKMN}",
+                "name": "PC wandering {PKMN}",
                 "source_object":
                 {
                     "local_id": 14,

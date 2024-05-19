@@ -1520,7 +1520,7 @@ static bool8 IsVariantHidden(u16 decorVariant, u8* wanderingPkmnCount)
     if(VarGet(VAR_ROGUE_SPECIAL_MODE) != ROGUE_SPECIAL_MODE_DECORATING)
     {
         // Only show mons if we have the slots active
-        if(decorVariant == DECOR_VARIANT_WANDERING_PKMN_DEFAULT)
+        if(decorVariant == DECOR_VARIANT_PC_WANDERING_PKMN_DEFAULT)
         {
             struct RogueHubMap* hubMap = GetActiveHubMap();
             u16 baseIndex = HUB_WANDER_MON_EXTERIOR_SLOT1;
@@ -1571,7 +1571,7 @@ void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, 
                 objectEvents[writeIndex].x = decor->x;
                 objectEvents[writeIndex].y = decor->y;
 
-                if(decor->decorVariant == DECOR_VARIANT_WANDERING_PKMN_DEFAULT && objectEvents[writeIndex].graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_0)
+                if(decor->decorVariant == DECOR_VARIANT_PC_WANDERING_PKMN_DEFAULT && objectEvents[writeIndex].graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_0)
                 {
                     objectEvents[writeIndex].graphicsId = OBJ_EVENT_GFX_FOLLOW_MON_0 + wanderingPkmnCount;
                     wanderingPkmnCount++;

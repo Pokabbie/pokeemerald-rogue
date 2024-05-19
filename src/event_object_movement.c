@@ -36,6 +36,7 @@
 #include "constants/union_room.h"
 #include "constants/metatile_behaviors.h"
 
+#include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 #include "rogue_player_customisation.h"
@@ -2146,6 +2147,13 @@ u8 CreateVirtualObject(u16 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevati
     return spriteId;
 }
 
+static bool8 ShouldSpawnObjectEventsLeftToRight()
+{
+    // If adventure path screen, there can sometimes be too many objects
+    // so prioritise spawning earliest objects
+    return RogueAdv_IsViewingPath();
+}
+
 void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
 {
     u8 i;
@@ -2165,15 +2173,51 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
         else
             objectCount = gSaveBlock1Ptr->objectEventTemplatesCount;
 
-        for (i = 0; i < objectCount; i++)
+        if(ShouldSpawnObjectEventsLeftToRight())
         {
-            struct ObjectEventTemplate *template = &gSaveBlock1Ptr->objectEventTemplates[i];
-            s16 npcX = template->x + MAP_OFFSET;
-            s16 npcY = template->y + MAP_OFFSET;
+            s16 currX;
+            s16 minX = 0;
+            s16 maxX = 0;
 
-            if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX
-                && !FlagGet(template->flagId))
-                TrySpawnObjectEventTemplate(template, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, cameraX, cameraY);
+            for (i = 0; i < objectCount; i++)
+            {
+                const struct ObjectEventTemplate *template = &gSaveBlock1Ptr->objectEventTemplates[i];
+                s16 npcX = template->x + MAP_OFFSET;
+                minX = min(minX, npcX);
+                maxX = max(maxX, npcX);
+            }
+
+            // Process coord at a time
+            for(currX = minX; currX <= maxX; ++currX)
+            {
+                for (i = 0; i < objectCount; i++)
+                {
+                    struct ObjectEventTemplate *template = &gSaveBlock1Ptr->objectEventTemplates[i];
+                    s16 npcX = template->x + MAP_OFFSET;
+                    s16 npcY = template->y + MAP_OFFSET;
+
+                    if(currX == npcX)
+                    {
+                        if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX
+                            && !FlagGet(template->flagId))
+                            TrySpawnObjectEventTemplate(template, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, cameraX, cameraY);
+                    }
+                }
+            }
+            
+        }
+        else
+        {
+            for (i = 0; i < objectCount; i++)
+            {
+                struct ObjectEventTemplate *template = &gSaveBlock1Ptr->objectEventTemplates[i];
+                s16 npcX = template->x + MAP_OFFSET;
+                s16 npcY = template->y + MAP_OFFSET;
+
+                if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX
+                    && !FlagGet(template->flagId))
+                    TrySpawnObjectEventTemplate(template, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, cameraX, cameraY);
+            }
         }
     }
 }

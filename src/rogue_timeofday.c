@@ -394,6 +394,12 @@ bool8 RogueToD_ApplySeasonVisuals()
 
 bool8 RogueToD_ApplyTimeVisuals()
 {
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS)
+    {
+        // Time of day is bad for visibility on adventure paths screen so just disable it
+        return FALSE;
+    }
+
     return gSaveBlock2Ptr->timeOfDayVisuals && gMapHeader.mapType != MAP_TYPE_INDOOR && !sTimeOfDay.timeVisualsTempDisabled;
 }
 
@@ -425,11 +431,11 @@ void RogueToD_ModifyOverworldPalette(u16 offset, u16 size)
     bool8 isObjectPal = offset >= OBJ_PLTT_ID(0);
     bool8 isDirty = FALSE;
 
-    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS && isObjectPal)
-    {
-        // We don't want to tint the overworld sprites in the adventure paths screen
-        return;
-    }
+    //if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_ADVENTURE_PATHS && isObjectPal)
+    //{
+    //    // We don't want to tint the overworld sprites in the adventure paths screen
+    //    return;
+    //}
 
     if(RogueToD_ApplySeasonVisuals())
     {

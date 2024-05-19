@@ -467,6 +467,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Rocket_Proton
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PCStand;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BattleStatue;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PhoneBooth;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeblockMixer;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FoodPie;
@@ -493,6 +494,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemDynamaxBall;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemHealing;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemTeraOrb;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemTeraShard;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GrassDefault;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GoldGrass;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlagAdventure;
 
@@ -1025,6 +1027,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 
     [OBJ_EVENT_GFX_PC] =                       &gObjectEventGraphicsInfo_PC,
     [OBJ_EVENT_GFX_PC_STAND] =                 &gObjectEventGraphicsInfo_PCStand,
+    [OBJ_EVENT_GFX_BATTLE_STATUE] =            &gObjectEventGraphicsInfo_BattleStatue,
     [OBJ_EVENT_GFX_PHONE_BOOTH] =              &gObjectEventGraphicsInfo_PhoneBooth,
     [OBJ_EVENT_GFX_POKEBLOCK_MIXER] =          &gObjectEventGraphicsInfo_PokeblockMixer,
     [OBJ_EVENT_GFX_FOOD_PIE] =                 &gObjectEventGraphicsInfo_FoodPie,
@@ -1051,6 +1054,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ITEM_HEALING] =             &gObjectEventGraphicsInfo_ItemHealing,
     [OBJ_EVENT_GFX_ITEM_TERA_ORB] =            &gObjectEventGraphicsInfo_ItemTeraOrb,
     [OBJ_EVENT_GFX_ITEM_TERA_SHARD] =          &gObjectEventGraphicsInfo_ItemTeraShard,
+    [OBJ_EVENT_GFX_GRASS_DEFAULT] =            &gObjectEventGraphicsInfo_GrassDefault,
     [OBJ_EVENT_GFX_GOLD_GRASS] =               &gObjectEventGraphicsInfo_GoldGrass,
     [OBJ_EVENT_GFX_FLAG_ADVENTURE] =           &gObjectEventGraphicsInfo_FlagAdventure,
 
