@@ -21,6 +21,8 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 
+#include "rogue_trainers.h"
+
 // this file's functions
 static bool8 HasSuperEffectiveMoveAgainstOpponents(u32 battler, bool8 noRng);
 static bool8 FindMonWithFlagsAndSuperEffective(u32 battler, u16 flags, u8 moduloPercent);
@@ -1746,6 +1748,7 @@ static u32 GetBestMonIntegrated(struct Pokemon *party, int firstId, int lastId, 
 
         aiMonSpeed = AI_DATA->switchinCandidate.battleMon.speed;
 
+        aiMonSpeed /= Rogue_GetSwitchAISpeedDivisor(gTrainerBattleOpponent_A, i);
         // Check through current mon's moves
         for (j = 0; j < MAX_MON_MOVES; j++)
         {
@@ -1754,6 +1757,8 @@ static u32 GetBestMonIntegrated(struct Pokemon *party, int firstId, int lastId, 
             // Only do damage calc if switching after KO, don't need it otherwise and saves ~0.02s per turn
             if (isSwitchAfterKO && aiMove != MOVE_NONE && gBattleMoves[aiMove].power != 0)
                 damageDealt = AI_CalcPartyMonDamage(aiMove, battler, opposingBattler, AI_DATA->switchinCandidate.battleMon, TRUE);
+
+            damageDealt /= Rogue_GetSwitchAIDamageDivisor(gTrainerBattleOpponent_A, i);
 
             // Check for Baton Pass; hitsToKO requirements mean mon can boost and BP without dying whether it's slower or not
             if (aiMove == MOVE_BATON_PASS && ((hitsToKO > hitsToKOThreshold + 1 && AI_DATA->switchinCandidate.battleMon.speed < playerMonSpeed) || (hitsToKO > hitsToKOThreshold && AI_DATA->switchinCandidate.battleMon.speed > playerMonSpeed)))

@@ -759,6 +759,44 @@ bool8 Rogue_ShouldTerastallizeMon(u16 trainerNum, u8 slot, u8 numOthersAlive)
     return FALSE;
 }
 
+s32 Rogue_GetSwitchAIDamageDivisor(u16 trainerNum, u8 slot)
+{
+#if !TESTING
+    if(Rogue_IsKeyTrainer(trainerNum))
+    {
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+        {
+            // Try to hold onto the final mons for longer for more dramatic effect
+            if(slot == gEnemyPartyCount - 1)
+                return 3;
+            if(slot == gEnemyPartyCount - 2)
+                return 2;
+        }
+    }
+#endif
+
+    return 1;
+}
+
+s32 Rogue_GetSwitchAISpeedDivisor(u16 trainerNum, u8 slot)
+{
+#if !TESTING
+    if(Rogue_IsKeyTrainer(trainerNum))
+    {
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY)
+        {
+            // Try to hold onto the final mons for longer for more dramatic effect
+            if(slot == gEnemyPartyCount - 1)
+                return 3;
+            if(slot == gEnemyPartyCount - 2)
+                return 2;
+        }
+    }
+#endif
+
+    return 1;
+}
+
 bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum)
 {
     return TRUE;
