@@ -71,78 +71,13 @@
                 }
             },
             {
-                "name": "{PKMN} Spawn Location",
+                "name": "Wandering {PKMN}",
                 "source_object":
                 {
-                    "local_id": 2
-                },
-                "variants":
-                [
-                    {
-                        "name": "Slot 1 (From Box 1)",
-                        "source_object":
-                        {
-                            "local_id": 14,
-                            "editor_local_id": 2
-                        }
-                    },
-                    {
-                        "name": "Slot 2 (From Box 1)",
-                        "source_object":
-                        {
-                            "local_id": 14,
-                            "editor_local_id": 2
-                        }
-                    },
-                    {
-                        "name": "Slot 3 (From Box 1)",
-                        "source_object":
-                        {
-                            "local_id": 14,
-                            "editor_local_id": 2
-                        }
-                    },
-                    {
-                        "name": "Slot 4 (From Box 1)",
-                        "source_object":
-                        {
-                            "local_id": 14,
-                            "editor_local_id": 2
-                        }
-                    },
-                    {
-                        "name": "Slot 1 (From Box 10)",
-                        "source_object":
-                        {
-                            "local_id": 14,
-                            "editor_local_id": 2
-                        }
-                    },
-                    {
-                        "name": "Slot 2 (From Box 10)",
-                        "source_object":
-                        {
-                            "local_id": 14,
-                            "editor_local_id": 2
-                        }
-                    },
-                    {
-                        "name": "Slot 3 (From Box 10)",
-                        "source_object":
-                        {
-                            "local_id": 14,
-                            "editor_local_id": 2
-                        }
-                    },
-                    {
-                        "name": "Slot 4 (From Box 10)",
-                        "source_object":
-                        {
-                            "local_id": 14,
-                            "editor_local_id": 2
-                        }
-                    }
-                ]
+                    "local_id": 14,
+                    "editor_local_id": 2,
+                    "capacity_per_area": 4
+                }
             },
             {
                 "name": "Appliances",

@@ -21,6 +21,7 @@
 #include "rogue_hub.h"
 #include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
+#include "rogue_query.h"
 #include "rogue_quest.h"
 
 #define TREE_TYPE_DENSE     0
@@ -95,6 +96,7 @@ struct RogueDecorationVariant
         {
             u8 localId;
             u8 editorLocalId;
+            u8 capacityPerArea;
         } objectEvent;
     } perType;
 };
@@ -460,6 +462,57 @@ u8 RogueHub_GetAreaFromCurrentMap()
 u16 RogueHub_GetWeatherState()
 {
     return GetActiveHubMap()->weatherState;
+}
+
+static void BeginQueryForBoxMons(u8 boxId)
+{
+    u8 i;
+
+    RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, 0, IN_BOX_COUNT - 1);
+
+    for(i = 0; i < IN_BOX_COUNT; ++i)
+    {
+        if(GetBoxMonDataAt(boxId, i, MON_DATA_SPECIES) != SPECIES_NONE && GetBoxMonDataAt(boxId, i, MON_DATA_SPECIES2) != SPECIES_EGG)
+        {
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
+        }
+    }
+}
+
+void RogueHub_UpdateWanderMons()
+{
+    u8 i;
+    u16 pos;
+    u16 boxId = 0;
+    u8 monCount = 0;
+
+    RogueCustomQuery_Begin();
+
+    for(i = 0; i < TOTAL_BOXES_COUNT && monCount < HUB_WANDER_MON_COUNT; ++i)
+    {
+        // Prioritise mons in box 10 first then work right
+        boxId = (TOTAL_BOXES_COUNT - 1 + i) % TOTAL_BOXES_COUNT;
+
+        BeginQueryForBoxMons(boxId);
+
+        for(; monCount < HUB_WANDER_MON_COUNT;)
+        {
+            if(!RogueMiscQuery_AnyActiveStates(0, IN_BOX_COUNT - 1))
+                break;
+
+            pos = RogueMiscQuery_SelectRandomElement(Random());
+            RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, pos);
+
+            BoxMonAtToMon(boxId, pos, &gEnemyParty[0]);
+            gRogueSaveBlock->hubMap.homeWanderingMonSpecies[monCount++] = FollowMon_GetMonGraphics(&gEnemyParty[0]);
+        }
+    }
+
+    // Fill remaining slots with empty
+    for(; monCount < HUB_WANDER_MON_COUNT; ++monCount)
+        gRogueSaveBlock->hubMap.homeWanderingMonSpecies[monCount] = SPECIES_NONE;
+
+    RogueCustomQuery_End();
 }
 
 void RogueHub_OnNewDayStarted()
@@ -1415,52 +1468,6 @@ static void MetatileFill_BlitMapRegion(u16 mapGroup, u16 mapNum, u16 destX1, u16
     }
 }
 
-void RogueHub_SetRandomFollowMonsFromPC()
-{
-    // Try get from current box first
-    u8 tryCount;
-    u16 species;
-    u32 checkMask;
-    u32 tryMask = 0;
-    u8 foundCount = 0;
-
-    // Start with the final box as thats where most players keep their "cool" mons
-    u8 boxId = TOTAL_BOXES_COUNT - 1;
-
-    for(tryCount = 0; tryCount < 64; ++tryCount)
-    {
-        u8 pos = Random() % IN_BOX_COUNT;
-        checkMask = (1 << pos);
-
-        // If we've gotten this far, just try to take from the current box
-        if(tryCount == 32 && boxId != StorageGetCurrentBox())
-        {
-            tryMask = 0;
-            boxId = StorageGetCurrentBox();
-        }
-
-        // If we haven't already tried this pos
-        if((tryMask & checkMask) == 0)
-        {
-            tryMask |= checkMask;
-            species = GetBoxMonDataAt(boxId, pos, MON_DATA_SPECIES);
-
-            if(species != SPECIES_NONE)
-            {
-                FollowMon_SetGraphics(foundCount, species, GetBoxMonDataAt(boxId, pos, MON_DATA_IS_SHINY));
-                if(++foundCount >= HOME_AREA_DISPLAY_MONS)
-                    break;
-            }
-        }
-    }
-
-    // Fill in the rest of the slots with nothing
-    for(; foundCount < HOME_AREA_DISPLAY_MONS; ++foundCount)
-    {
-        FollowMon_SetGraphics(foundCount, SPECIES_NONE, FALSE);
-    }
-}
-
 static void BuildAtRandomConnectionFrom(u8 fromArea, u8 buildArea)
 {
     while (TRUE)
@@ -1508,15 +1515,47 @@ static u8 SelectSourceVariantLocalId(u16 decorVariant)
     return sDecorationVariants[decorVariant].perType.objectEvent.localId;
 }
 
+static bool8 IsVariantHidden(u16 decorVariant, u8* wanderingPkmnCount)
+{
+    if(VarGet(VAR_ROGUE_SPECIAL_MODE) != ROGUE_SPECIAL_MODE_DECORATING)
+    {
+        // Only show mons if we have the slots active
+        if(decorVariant == DECOR_VARIANT_WANDERING_PKMN_DEFAULT)
+        {
+            struct RogueHubMap* hubMap = GetActiveHubMap();
+            u16 baseIndex = HUB_WANDER_MON_EXTERIOR_SLOT1;
+
+            if(hubMap->homeWanderingMonSpecies[baseIndex + *wanderingPkmnCount] == SPECIES_NONE)
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+static void SetupHomeAreaFollowMons(u16 layoutId, struct RogueHubMap* hubMap)
+{
+    u16 baseIndex = HUB_WANDER_MON_EXTERIOR_SLOT1;
+
+    // TODO - Setup for different areas
+    FollowMon_SetGraphicsRaw(0, hubMap->homeWanderingMonSpecies[baseIndex + 0]);
+    FollowMon_SetGraphicsRaw(1, hubMap->homeWanderingMonSpecies[baseIndex + 1]);
+    FollowMon_SetGraphicsRaw(2, hubMap->homeWanderingMonSpecies[baseIndex + 2]);
+    FollowMon_SetGraphicsRaw(3, hubMap->homeWanderingMonSpecies[baseIndex + 3]);
+}
+
 void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
 {
     u8 i;
+    u8 wanderingPkmnCount = 0;
     struct RogueHubMap* hubMap = GetActiveHubMap();
+
+    SetupHomeAreaFollowMons(layoutId, hubMap);
 
     for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
     {
         struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
-        if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_OBJECT_EVENT)
+        if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_OBJECT_EVENT && !IsVariantHidden(decor->decorVariant, &wanderingPkmnCount))
         {
             u8 srcLocalId = SelectSourceVariantLocalId(decor->decorVariant) - 1;
             struct MapHeader const* srcMapHeader = Overworld_GetMapHeaderByGroupAndId(sDecorationVariants[decor->decorVariant].srcMapGroup, sDecorationVariants[decor->decorVariant].srcMapNum);
@@ -1531,6 +1570,12 @@ void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, 
                 objectEvents[writeIndex].localId = DECOR_TO_LOCAL_ID(HOME_DECOR_OUTSIDE_ENV_OFFSET + i);
                 objectEvents[writeIndex].x = decor->x;
                 objectEvents[writeIndex].y = decor->y;
+
+                if(decor->decorVariant == DECOR_VARIANT_WANDERING_PKMN_DEFAULT && objectEvents[writeIndex].graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_0)
+                {
+                    objectEvents[writeIndex].graphicsId = OBJ_EVENT_GFX_FOLLOW_MON_0 + wanderingPkmnCount;
+                    wanderingPkmnCount++;
+                }
             }
         }
     }
@@ -1816,6 +1861,28 @@ static bool8 CanPlaceObjectEventInArea(u8 x, u8 y)
     return TRUE;
 }
 
+bool8 HasReachedCapacityInArea(struct RogueHubMap* hubMap, u16 decorVariant)
+{
+    if(sDecorationVariants[decorVariant].type == DECOR_TYPE_OBJECT_EVENT && sDecorationVariants[decorVariant].perType.objectEvent.capacityPerArea != 0)
+    {
+        u16 i;
+        u8 count = 0;
+
+        for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+        {
+            struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
+            if(decor->active && decor->decorVariant == decorVariant)
+            {
+                count++;
+                if(count >= sDecorationVariants[decorVariant].perType.objectEvent.capacityPerArea)
+                    return TRUE;
+            }
+        }
+    }
+
+    return FALSE;
+}
+
 u16 RogueHub_PlaceHomeDecor()
 {
     u16 i;
@@ -1884,6 +1951,10 @@ u16 RogueHub_PlaceHomeDecor()
         else if(sDecorationVariants[decorVariant].type == DECOR_TYPE_OBJECT_EVENT && !CanPlaceObjectEventInArea(placeX, placeY))
         {
             return HOME_DECOR_TOO_MANY_OBJECTS_NEAR;
+        }
+        else if(sDecorationVariants[decorVariant].type == DECOR_TYPE_OBJECT_EVENT && HasReachedCapacityInArea(hubMap, decorVariant))
+        {
+            return HOME_DECOR_TOO_MANY_OF_TYPE;
         }
         else
         {

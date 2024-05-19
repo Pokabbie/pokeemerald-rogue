@@ -3943,6 +3943,7 @@ static void EndRogueRun(void)
     }
     
     RogueQuest_CheckQuestRequirements();
+    RogueHub_UpdateWanderMons();
 }
 
 static u16 SelectLegendarySpecies(u8 legendId)

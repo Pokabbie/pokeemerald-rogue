@@ -31,6 +31,7 @@ void RogueHub_OnNewDayStarted();
 void RogueHub_UpdateWeatherState();
 void RogueHub_UpdateWarpStates();
 u16 RogueHub_GetWeatherState();
+void RogueHub_UpdateWanderMons();
 
 void RogueHub_ModifyMapWarpEvent(struct MapHeader *mapHeader, u8 warpId, struct WarpEvent *warp);
 bool8 RogueHub_AcceptMapConnection(struct MapHeader *mapHeader, const struct MapConnection *connection);

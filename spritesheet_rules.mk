@@ -1013,9 +1013,6 @@ $(OBJEVENTGFXDIR)/rogue/work_table.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/rogue/quest_board.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
-$(OBJEVENTGFXDIR)/rogue/quest_board.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 4 -mheight 4
-
 $(OBJEVENTGFXDIR)/rogue/decor_bed.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 

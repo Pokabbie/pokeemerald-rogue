@@ -189,6 +189,7 @@ struct RogueHubDecoration
 
 struct RogueHubMap
 {
+    u16 homeWanderingMonSpecies[HUB_WANDER_MON_COUNT];
     struct Coords8 areaCoords[HUB_AREA_COUNT];
     struct RogueHubDecoration homeDecorations[HOME_DECOR_TOTAL_COUNT];
     u8 homeRegionStyles[HOME_REGION_COUNT];

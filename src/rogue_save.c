@@ -168,6 +168,7 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     SerializeArray(stream, saveBlock->hubMap.upgradeFlags, sizeof(saveBlock->hubMap.upgradeFlags[0]), ARRAY_COUNT(saveBlock->hubMap.upgradeFlags));
     SerializeArray(stream, saveBlock->hubMap.homeDecorations, sizeof(saveBlock->hubMap.homeDecorations[0]), ARRAY_COUNT(saveBlock->hubMap.homeDecorations));
     SerializeArray(stream, saveBlock->hubMap.homeRegionStyles, sizeof(saveBlock->hubMap.homeRegionStyles[0]), ARRAY_COUNT(saveBlock->hubMap.homeRegionStyles));
+    SerializeArray(stream, saveBlock->hubMap.homeWanderingMonSpecies, sizeof(saveBlock->hubMap.homeWanderingMonSpecies[0]), ARRAY_COUNT(saveBlock->hubMap.homeWanderingMonSpecies));
     SerializeData(stream, &saveBlock->hubMap.weatherState, sizeof(saveBlock->hubMap.weatherState));
 
     // Time/Seasons
