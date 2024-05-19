@@ -182,7 +182,7 @@ script Rogue_Area_Home_PlaceDecoration
                 setvar(VAR_RESULT, NO)
 
             case 1: // change decor
-                setvar(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_GROUP)
+                setvar(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_VARIANT)
                 setvar(VAR_RESULT, YES)
 
             case MULTI_B_PRESSED: // exit
@@ -240,7 +240,7 @@ script Rogue_Area_Home_PlaceDecoration
             case 1: // change decor
                 special(RogueHub_RemoveHomeDecor)
                 special(DrawWholeMapView)
-                setvar(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_GROUP)
+                setvar(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_VARIANT)
                 setvar(VAR_RESULT, YES)
 
             case MULTI_B_PRESSED: // exit
@@ -250,4 +250,86 @@ script Rogue_Area_Home_PlaceDecoration
                 setvar(VAR_RESULT, NO)
         }
     }
+}
+
+script Rogue_Area_Home_ChangeClothes
+{
+    lock
+
+    specialvar(VAR_RESULT, RoguePlayer_HandleEasterEggOutfitUnlocks)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        call(Rogue_Common_DisplayPopups)
+    }
+
+    message(format("What would you like to do?"))
+    waitmessage
+
+    multichoice(20, 6, MULTI_CHANGE_CLOTHES, NO)
+    
+    switch(var(VAR_RESULT))
+    {
+        case 0: // change outfit
+            fadescreen(FADE_TO_BLACK)
+            special(Special_ViewPlayerCustomisationMenu)
+            waitstate
+
+        case 1: // change name
+            fadescreen(FADE_TO_BLACK)
+            special(ChangePlayerNickname)
+            waitstate
+
+        // Fallthrough and exit
+    }
+
+    special(Rogue_FixPartyMonDetails)
+    release
+}
+
+script Rogue_Area_Home_EnterBed
+{
+    lock
+
+    message(format("What time would you like to wake up?"))
+    waitmessage
+
+    multichoice(21, 4, MULTI_SELECT_TIME, NO)
+
+    // Copy season selection
+    copyvar(VAR_0x8004, VAR_RESULT)
+    setvar(VAR_0x8005, MULTI_B_PRESSED)
+
+    if(var(VAR_RESULT) != MULTI_B_PRESSED)
+    {
+        message(format("Which season would you like to wake up in?"))
+        waitmessage
+
+        multichoice(21, 4, MULTI_SELECT_SEASON, NO)
+
+        copyvar(VAR_0x8005, VAR_RESULT)
+    }
+
+    special(Rogue_SetTimeAndSeason)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        closemessage
+
+        fadescreen(FADE_TO_BLACK)
+
+        fadeoutbgm(1)
+        playbgm(MUS_NONE, FALSE)
+        delay(30)
+
+        //playse(SE_M_GRASSWHISTLE)
+        //waitse
+        playse(SE_M_SNORE)
+        waitse
+        delay(50)
+
+        special(ReloadWarpSilent)
+    }
+
+    release
 }

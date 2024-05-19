@@ -373,6 +373,10 @@ static std::string FormatUniqueId(std::string const& prettyName)
 	strutil::replace_all(uniqueId, "/", "");
 	strutil::replace_all(uniqueId, "[", "");
 	strutil::replace_all(uniqueId, "]", "");
+	strutil::replace_all(uniqueId, "{", "");
+	strutil::replace_all(uniqueId, "}", "");
+	strutil::replace_all(uniqueId, "(", "");
+	strutil::replace_all(uniqueId, ")", "");
 	strutil::replace_all(uniqueId, "'", "");
 	strutil::replace_all(uniqueId, "+", "PLUS");
 	strutil::replace_all(uniqueId, c_Elipsies, "");

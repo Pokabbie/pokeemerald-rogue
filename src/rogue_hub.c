@@ -1633,6 +1633,13 @@ void RogueHub_SetupDecorationMultichoice()
     u16 selectedDecorId = VarGet(VAR_SELECTED_DECOR_ID);
     u16 selectedDecorVariant = VarGet(VAR_SELECTED_DECOR_VARIANT);
 
+    // QoL hide variant menu if has only 1
+    if(menuDepth == MENU_DEPTH_CHOOSE_VARIANT && sDecorations[selectedDecorId].firstVariantId == sDecorations[selectedDecorId].lastVariantId)
+    {
+        menuDepth = MENU_DEPTH_CHOOSE_DECOR;
+        VarSet(VAR_MENU_DEPTH, menuDepth);
+    }
+
     switch (menuDepth)
     {
     case MENU_DEPTH_CHOOSE_GROUP:
