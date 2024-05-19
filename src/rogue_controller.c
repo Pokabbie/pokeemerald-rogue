@@ -4330,7 +4330,15 @@ static u8 UNUSED RandomMonType(u16 seedFlag)
 static u8 WildDenEncounter_CalculateWeight(u16 index, u16 species, void* data)
 {
     if(IsRareWeightedSpecies(species))
-        return 1;
+    {
+        // Rare species become more common into late game
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 1)
+            return 3;
+        else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
+            return 2;
+        else
+            return 1;
+    }
 
     return 3;
 }
@@ -7905,7 +7913,15 @@ static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* 
 #endif
 
     if(IsRareWeightedSpecies(species))
-        return 1;
+    {
+        // Rare species become more common into late game
+        if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY + 1)
+            return 3;
+        else if(Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY - 1)
+            return 2;
+        else
+            return 1;
+    }
 
     return 3;
 }

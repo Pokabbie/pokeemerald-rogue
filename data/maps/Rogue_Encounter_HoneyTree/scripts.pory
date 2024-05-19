@@ -16,6 +16,13 @@ script Rogue_Encounter_HoneyTree_OnLoad
 script Rogue_Encounter_HoneyTree_ScatterPokeblock
 {
     lock
-    msgbox(format("It's a Honey Tree!\pPokémon are known to gather and eat fruit and berries scattered at the base of these trees."), MSGBOX_DEFAULT)
+    msgbox(format("It's a Honey Tree!\pThere are {POKEBLOCK} crumbs among with tracks from all sorts of Pokémon."), MSGBOX_DEFAULT)
+    release
+}
+
+script Rogue_Encounter_HoneyTree_TrainerTips
+{
+    lock
+    msgbox(format("Trainer Tips.\nPokémon often visit Honey Trees, which makes them a prime location to scatter {POKEBLOCK}.\pIt's simple!\nScatter one or more {POKEBLOCK} near the Tree.\pThen, the next time you visit the Honey Tree, you will likely find a Pokémon who enjoys the flavours of {POKEBLOCK} you scattered."), MSGBOX_SIGN)
     release
 }

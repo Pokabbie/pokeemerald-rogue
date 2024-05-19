@@ -71,6 +71,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Rogue_Encounter_HoneyTree_ScatterPokeblock"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Rogue_Encounter_HoneyTree_TrainerTips"
     }
   ]
 }
