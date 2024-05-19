@@ -5073,6 +5073,10 @@ static const struct SpriteFrameImage sPicTable_PCStand[] = {
     obj_frame_tiles(gObjectEventPic_PCStand),
 };
 
+static const struct SpriteFrameImage sPicTable_BattleStatue[] = {
+    obj_frame_tiles(gObjectEventPic_BattleStatue),
+};
+
 static const struct SpriteFrameImage sPicTable_PhoneBooth[] = {
     obj_frame_tiles(gObjectEventPic_PhoneBooth),
 };
@@ -5180,6 +5184,10 @@ static const struct SpriteFrameImage sPicTable_ItemTeraOrb[] = {
 
 static const struct SpriteFrameImage sPicTable_ItemTeraShard[] = {
     obj_frame_tiles(gObjectEventPic_ItemTeraShard),
+};
+
+static const struct SpriteFrameImage sPicTable_GrassDefault[] = {
+    obj_frame_tiles(gObjectEventPic_GrassDefault),
 };
 
 static const struct SpriteFrameImage sPicTable_GoldGrass[] = {

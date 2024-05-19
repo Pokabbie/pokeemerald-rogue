@@ -1727,7 +1727,7 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
             return OBJ_EVENT_GFX_NOLAND;
 
         case ADVPATH_ROOM_WILD_DEN:
-            return OBJ_EVENT_GFX_GRASS_CUSHION;
+            return OBJ_EVENT_GFX_GRASS_DEFAULT;
 
         case ADVPATH_ROOM_HONEY_TREE:
             return OBJ_EVENT_GFX_GOLD_GRASS;
@@ -1754,7 +1754,7 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
             return OBJ_EVENT_GFX_YOUNGSTER;
 
         case ADVPATH_ROOM_BOSS:
-            return OBJ_EVENT_GFX_BALL_CUSHION; // ?
+            return OBJ_EVENT_GFX_BATTLE_STATUE;
     }
 
     return 0;
