@@ -1013,10 +1013,10 @@ static void ShowDecorationCategorySummaryWindow(u8 category)
 
 static void PrintDecorationItemDescription(s32 itemIndex)
 {
-    u8 windowId;
-    const u8 *str;
-    str = gText_GoBackPrevMenu;
-    AddTextPrinterParameterized(windowId, FONT_NORMAL, str, 0, 1, 0, 0);
+    //u8 windowId;
+    //const u8 *str;
+    //str = gText_GoBackPrevMenu;
+    //AddTextPrinterParameterized(windowId, FONT_NORMAL, str, 0, 1, 0, 0);
 }
 
 static void RemoveDecorationItemsOtherWindows(void)
@@ -1187,7 +1187,7 @@ static u16 GetDecorationElevation(u8 decoration, u8 tileIndex)
     }
 }
 
-static void ShowDecorationOnMap_(u16 mapX, u16 mapY, u8 decWidth, u8 decHeight, u16 decoration)
+static UNUSED void ShowDecorationOnMap_(u16 mapX, u16 mapY, u8 decWidth, u8 decHeight, u16 decoration)
 {
 }
 
@@ -1385,7 +1385,7 @@ static bool8 IsFloorOrBoardAndHole(u16 behaviorAt, const struct Decoration *deco
     return FALSE;
 }
 
-static bool8 CanPlaceDecoration(u8 taskId, const struct Decoration *decoration)
+static UNUSED bool8 CanPlaceDecoration(u8 taskId, const struct Decoration *decoration)
 {
     u8 i;
     u8 j;
@@ -1503,7 +1503,7 @@ static void AttemptPlaceDecoration_(u8 taskId)
 {
 }
 
-static void PlaceDecorationPrompt(u8 taskId)
+static UNUSED void PlaceDecorationPrompt(u8 taskId)
 {
     DisplayYesNoMenuDefaultYes();
     DoYesNoFuncWithChoice(taskId, &sPlaceDecorationYesNoFunctions);
@@ -1750,7 +1750,7 @@ static void ContinueDecorating(u8 taskId)
     gTasks[taskId].func = Task_SelectLocation;
 }
 
-static void CantPlaceDecorationPrompt(u8 taskId)
+static UNUSED void CantPlaceDecorationPrompt(u8 taskId)
 {
     if (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
         ContinueDecorating(taskId);
@@ -1975,7 +1975,7 @@ u8 AddDecorationIconObject(u8 decor, s16 x, s16 y, u8 priority, u16 tilesTag, u1
     return spriteId;
 }
 
-static void ClearDecorationContextIndex(u8 idx)
+static UNUSED void ClearDecorationContextIndex(u8 idx)
 {
     sDecorationContext.items[idx] = DECOR_NONE;
     sDecorationContext.pos[idx] = 0;
@@ -2206,7 +2206,7 @@ static bool8 DecorationIsUnderCursor(u8 taskId, u8 idx, struct DecorRearrangemen
     return FALSE;
 }
 
-static void SetDecorRearrangementFlagIdIfFlagUnset(void)
+static UNUSED void SetDecorRearrangementFlagIdIfFlagUnset(void)
 {
     u8 xOff;
     u8 yOff;
@@ -2385,7 +2385,7 @@ static void DecorationItemsMenuAction_AttemptToss(u8 taskId)
 {
 }
 
-static void TossDecorationPrompt(u8 taskId)
+static UNUSED void TossDecorationPrompt(u8 taskId)
 {
     DisplayYesNoMenuDefaultYes();
     DoYesNoFuncWithChoice(taskId, &sTossDecorationYesNoFunctions);
