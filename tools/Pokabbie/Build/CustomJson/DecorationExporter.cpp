@@ -27,6 +27,7 @@ struct DecorationVariant
 	{
 		int localId;
 		int editorLocalId = -1;
+		int capacityPerArea;
 	} objectEventParams;
 };
 
@@ -153,6 +154,7 @@ void ExportDecorationData_C(std::ofstream& fileStream, std::string const& dataPa
 					fileStream << c_TabSpacing2 << "{\n";
 					fileStream << c_TabSpacing3 << ".localId = " << variant.objectEventParams.localId << ",\n";
 					fileStream << c_TabSpacing3 << ".editorLocalId = " << (variant.objectEventParams.editorLocalId > 0 ? variant.objectEventParams.editorLocalId : variant.objectEventParams.localId) << ",\n";
+					fileStream << c_TabSpacing3 << ".capacityPerArea = " << variant.objectEventParams.capacityPerArea << ",\n";
 					fileStream << c_TabSpacing2 << "} }\n";
 					break;
 				}
@@ -308,6 +310,9 @@ static DecorationVariant ParseDecorationVariant(json const& jsonData, Decoration
 		if (sourceObjectJson.contains("editor_local_id"))
 			outVariant.objectEventParams.editorLocalId = sourceObjectJson["editor_local_id"].get<int>();
 
+		if (sourceObjectJson.contains("capacity_per_area"))
+			outVariant.objectEventParams.capacityPerArea = sourceObjectJson["capacity_per_area"].get<int>();
+
 		return outVariant;
 	}
 
@@ -373,6 +378,10 @@ static std::string FormatUniqueId(std::string const& prettyName)
 	strutil::replace_all(uniqueId, "/", "");
 	strutil::replace_all(uniqueId, "[", "");
 	strutil::replace_all(uniqueId, "]", "");
+	strutil::replace_all(uniqueId, "{", "");
+	strutil::replace_all(uniqueId, "}", "");
+	strutil::replace_all(uniqueId, "(", "");
+	strutil::replace_all(uniqueId, ")", "");
 	strutil::replace_all(uniqueId, "'", "");
 	strutil::replace_all(uniqueId, "+", "PLUS");
 	strutil::replace_all(uniqueId, c_Elipsies, "");

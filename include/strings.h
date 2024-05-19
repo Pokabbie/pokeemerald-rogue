@@ -1109,6 +1109,7 @@ extern const u8 gText_AlreadyOwnThis[];
 extern const u8 gText_ThankYouIllSendItHome[];
 extern const u8 gText_ThanksIllSendItHome[];
 extern const u8 gText_ThankYouBuildOrderSent[];
+extern const u8 gText_ThankYouUpgradeOrderSent[];
 extern const u8 gText_SpaceForVar1Full[];
 extern const u8 gText_ThrowInPremierBall[];
 extern const u8 gText_ThrowInPremierBalls[];

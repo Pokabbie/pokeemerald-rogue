@@ -25,6 +25,7 @@ void RogueQuery_Init();
 void RogueMiscQuery_EditElement(u8 func, u16 elem);
 void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId);
 bool8 RogueMiscQuery_CheckState(u16 elem);
+bool8 RogueMiscQuery_AnyActiveStates(u16 fromId, u16 toId);
 void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount);
 bool8 RogueMiscQuery_AnyActiveElements();
 u16 RogueMiscQuery_SelectRandomElement(u16 rngValue);

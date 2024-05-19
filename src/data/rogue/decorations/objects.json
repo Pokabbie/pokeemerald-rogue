@@ -9,7 +9,7 @@
     },
     "decorations":
     {
-        "exterior_patches":
+        "objects":
         [
             {
                 "name": "Statue",
@@ -33,6 +33,37 @@
                 }
             },
             {
+                "name": "Bed",
+                "source_object":
+                {
+                    "local_id": 6
+                }
+            },
+            {
+                "name": "Outfit Changing",
+                "source_object":
+                {
+                    "local_id": 8
+                },
+                "variants":
+                [
+                    {
+                        "name": "Wardrobe",
+                        "source_object":
+                        {
+                            "local_id": 8
+                        }
+                    },
+                    {
+                        "name": "Drawers",
+                        "source_object":
+                        {
+                            "local_id": 7
+                        }
+                    }
+                ]
+            },
+            {
                 "name": "Flag",
                 "source_object":
                 {
@@ -40,12 +71,58 @@
                 }
             },
             {
-                "name": "Editor Test",
+                "name": "Wandering {PKMN}",
                 "source_object":
                 {
-                    "local_id": 1,
-                    "editor_local_id": 2
+                    "local_id": 14,
+                    "editor_local_id": 2,
+                    "capacity_per_area": 4
                 }
+            },
+            {
+                "name": "Appliances",
+                "source_object":
+                {
+                    "local_id": 9
+                },
+                "variants":
+                [
+                    {
+                        "name": "Fan",
+                        "source_object":
+                        {
+                            "local_id": 9
+                        }
+                    },
+                    {
+                        "name": "Fridge",
+                        "source_object":
+                        {
+                            "local_id": 10
+                        }
+                    },
+                    {
+                        "name": "Microwave",
+                        "source_object":
+                        {
+                            "local_id": 11
+                        }
+                    },
+                    {
+                        "name": "Lawn Mower",
+                        "source_object":
+                        {
+                            "local_id": 12
+                        }
+                    },
+                    {
+                        "name": "Washing Machine",
+                        "source_object":
+                        {
+                            "local_id": 13
+                        }
+                    }
+                ]
             }
         ]
     }

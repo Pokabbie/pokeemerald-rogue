@@ -187,6 +187,19 @@ bool8 RogueMiscQuery_CheckState(u16 elem)
     return GetQueryBitFlag(elem);
 }
 
+bool8 RogueMiscQuery_AnyActiveStates(u16 fromId, u16 toId)
+{
+    u16 i;
+
+    for(i = fromId; i <= toId; ++i)
+    {
+        if(RogueMiscQuery_CheckState(i))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount)
 {
     u16 elem;
