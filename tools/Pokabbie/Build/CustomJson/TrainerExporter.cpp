@@ -61,9 +61,31 @@ static void ExportTrainerGroupData_C(TrainerDataExport_C& exporter, json const& 
 	std::string trainerGroupPrefix = "// START " + trainerGroup + "\n";
 	std::string trainerGroupSuffix = "// END " + trainerGroup + "\n";
 
-	if (strutil::starts_with(trainerGroup, "#if"))
+	// Remove number prefix e.g. 00000_
+	std::string trainerGroupRemovedPrefix = trainerGroup;
+	size_t splitIndex = trainerGroup.find('_');
+	if (splitIndex != std::string::npos)
 	{
-		trainerGroupPrefix = trainerGroup + "\n";
+		std::string leftHalf = trainerGroup.substr(0, splitIndex);
+
+		// Check the left half of the string only contains numbers (Could just be any old underscore
+		bool isValid = true;
+		for (char c : leftHalf)
+		{
+			if (!(c >= '0' && c <= '9'))
+			{
+				isValid = false;
+				break;
+			}
+		}
+
+		if(isValid)
+			trainerGroupRemovedPrefix = trainerGroup.substr(splitIndex + 1);
+	}
+
+	if (strutil::starts_with(trainerGroupRemovedPrefix, "#if"))
+	{
+		trainerGroupPrefix = trainerGroupRemovedPrefix + "\n";
 		trainerGroupSuffix = "#endif\n";
 
 		strutil::replace_all(trainerGroup, "#if", "");
