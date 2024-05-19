@@ -283,7 +283,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHealPulse               @ EFFECT_HEAL_PULSE
 	.4byte BattleScript_EffectQuash                   @ EFFECT_QUASH
 	.4byte BattleScript_EffectIonDeluge               @ EFFECT_ION_DELUGE
-#if B_USE_FROSTBITE == TRUE
+#if 0 @B_USE_FROSTBITE == TRUE
 	.4byte BattleScript_EffectFrostbiteHit            @ EFFECT_FREEZE_DRY
 #else
 	.4byte BattleScript_EffectFreezeHit               @ EFFECT_FREEZE_DRY
