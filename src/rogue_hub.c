@@ -472,7 +472,7 @@ static void BeginQueryForBoxMons(u8 boxId)
 
     for(i = 0; i < IN_BOX_COUNT; ++i)
     {
-        if(GetBoxMonDataAt(boxId, i, MON_DATA_SPECIES) != SPECIES_NONE && GetBoxMonDataAt(boxId, i, MON_DATA_SPECIES2) != SPECIES_EGG)
+        if(GetBoxMonDataAt(boxId, i, MON_DATA_SPECIES) != SPECIES_NONE && GetBoxMonDataAt(boxId, i, MON_DATA_SPECIES_OR_EGG) != SPECIES_EGG)
         {
             RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
         }
