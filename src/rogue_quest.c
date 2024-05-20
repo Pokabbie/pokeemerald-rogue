@@ -3,6 +3,7 @@
 #include "constants/game_stat.h"
 #include "constants/items.h"
 #include "constants/region_map_sections.h"
+#include "constants/songs.h"
 
 #include "battle.h"
 #include "event_data.h"
@@ -436,6 +437,11 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
 
     case QUEST_REWARD_FLAG:
         FlagSet(rewardInfo->perType.flag.flagId);
+        break;
+
+    case QUEST_REWARD_HUB_UPGRADE:
+        RogueHub_SetUpgrade(rewardInfo->perType.hubUpgrade.upgradeId, TRUE);
+        AGB_ASSERT(mutePopups); // force custom popups for now, as this is already an edge case anyway
         break;
     
     default:

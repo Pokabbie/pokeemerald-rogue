@@ -1584,6 +1584,15 @@ static void Draw_QuestPage()
                         spriteLayering[spriteIdx] = 0;
                         ++spriteIdx;
                         break;
+
+                    case QUEST_REWARD_HUB_UPGRADE:
+                        currentTag = TAG_REWARD_ICON_ITEM + ITEM_TOWN_MAP;
+
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_TOWN_MAP);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+                        break;
                     }
                 }
             }

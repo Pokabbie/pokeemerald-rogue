@@ -5939,15 +5939,6 @@ void Rogue_Battle_EndWildBattle(void)
             }
         }
 
-        if(gBattleOutcome == B_OUTCOME_CAUGHT)
-        {
-            if(!RogueHub_HasUpgrade(HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE) && RoguePokedex_IsSpeciesLegendary(wildSpecies))
-            {
-                // This is like a hidden reward, we open up the cave as soon as a legend is caught
-                RogueHub_SetUpgrade(HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE, TRUE);
-            }
-        }
-
         if(Rogue_IsBattleRoamerMon(wildSpecies))
         {
             if(gBattleOutcome == B_OUTCOME_CAUGHT || gBattleOutcome == B_OUTCOME_WON)

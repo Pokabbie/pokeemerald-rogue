@@ -16,6 +16,7 @@ enum
     QUEST_REWARD_MONEY,
     QUEST_REWARD_QUEST_UNLOCK,
     QUEST_REWARD_FLAG,
+    QUEST_REWARD_HUB_UPGRADE,
 };
 
 enum
@@ -60,6 +61,10 @@ struct RogueQuestReward
         {
             u16 flagId;
         } flag;
+        struct
+        {
+            u16 upgradeId;
+        } hubUpgrade;
     } perType;
 };
 

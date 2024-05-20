@@ -251,7 +251,8 @@
                         {
                             "item_icon": "ITEM_TOWN_MAP",
                             "title": "Town Map Upgrade",
-                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Teleport Unlocked!"
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Teleport Unlocked!",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
                         }
                     }
                 ]
@@ -430,31 +431,31 @@
             },
             {
                 "name": "Collector X",
-                "description": "Defeat any Elite Four Trainer with a Pokémon of Legends in your party.",
+                "description": "Defeat every Elite Four Trainers with a Pokémon of Legends in your party.",
                 "triggers":
                 [
                     {
                         "on": [ "EARN_BADGE" ],
                         "condition": "DifficultyGreaterThan",
-                        "params": [ "ROGUE_ELITE_START_DIFFICULTY" ],
-                        "fail": "BREAK"
-                    },
-                    {
-                        "on": [ "EARN_BADGE" ],
-                        "condition": "DifficultyLessThan",
-                        "params": [ "ROGUE_CHAMP_START_DIFFICULTY + 1" ],
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY - 1" ],
                         "fail": "BREAK"
                     },
                     {
                         "on": [ "EARN_BADGE" ],
                         "condition": "PartyContainsLegendary",
-                        "pass": "SUCCESS",
                         "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY + 4" ],
+                        "pass": "SUCCESS"
                     }
                 ],
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "shop_item": "ITEM_MASTER_BALL" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
@@ -594,8 +595,17 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "shop_item": "ITEM_MASTER_BALL" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { 
+                        "hub_upgrade": "HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_SAFARI_BALL",
+                            "title": "Safari Area",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Mountains shift…",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
                 ]
             },
             {
