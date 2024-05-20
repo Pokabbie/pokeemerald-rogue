@@ -201,37 +201,52 @@ script Rogue_InteractWithQuestBoard
     }
     else
     {
-        setvar(VAR_0x8004, 0)
-        setvar(VAR_RESULT, 1)
+        special(Rogue_HasPendingQuestRewards)
 
-        while(var(VAR_RESULT) == 1)
-        {
-            special(Rogue_QuestCollectNextReward)
-            call(Rogue_Common_DisplaySkippablePopups)
-
-            switch(var(VAR_RESULT))
-            {
-                //case 0:
-                //    msgbox(format("finished."))
-
-                case 1:
-                    setvar(VAR_0x8004, 1) // flag that we've collected some results
-
-                case 2:
-                    msgbox(format("Unable to collect the remaining rewards."))
-            }
-        }
-
-        special(Rogue_HasAnyNewQuests)
         if(var(VAR_RESULT) == 1)
         {
-            msgbox(format("New Quests have been posted!"))
-            special(Rogue_ShowNewQuests)
-            waitstate
-        }
-        elif (var(VAR_0x8004) == 1)
-        {
-            msgbox(format("All rewards have been collected!"))
+            fadeoutbgm(1)
+            delay(15)
+
+            setvar(VAR_0x8004, 0)
+            setvar(VAR_RESULT, 1)
+
+            while(var(VAR_RESULT) == 1)
+            {
+                special(Rogue_QuestCollectNextReward)
+                call(Rogue_Common_DisplaySkippablePopups)
+
+                switch(var(VAR_RESULT))
+                {
+                    //case 0:
+                    //    msgbox(format("finished."))
+
+                    case 1:
+                        setvar(VAR_0x8004, 1) // flag that we've collected some results
+
+                    case 2:
+                        msgbox(format("Unable to collect the remaining rewards."))
+                }
+            }
+
+            fadeinbgm(1)
+            delay(15)
+
+            special(Rogue_HasAnyNewQuests)
+            if(var(VAR_RESULT) == 1)
+            {
+                msgbox(format("New Quests have been posted!"))
+                special(Rogue_ShowNewQuests)
+                waitstate
+            }
+            elif (var(VAR_0x8004) == 1)
+            {
+                msgbox(format("All rewards have been collected!"))
+            }
+            else
+            {
+                msgbox(format("There are no New Quests or Rewards to collect."))
+            }
         }
         else
         {
@@ -1218,6 +1233,8 @@ script Rogue_Battle_TeamBoss
 
     call(Rogue_ClearWeather)
     msgbox(gPlaceholder_Trainer_PostBattleCloser)
+
+    quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
 
     playse(SE_EXIT)
     removeobject(VAR_LAST_TALKED)

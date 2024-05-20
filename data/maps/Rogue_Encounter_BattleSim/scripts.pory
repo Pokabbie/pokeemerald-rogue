@@ -193,6 +193,7 @@ script Rogue_Encounter_BattleSim_BeginBattle
     if(var(VAR_RESULT) == YES)
     {
         msgbox(format("Oh wow!\nYou're such a great Battler!\pHere you go!"))
+        quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
     }
     else
     {

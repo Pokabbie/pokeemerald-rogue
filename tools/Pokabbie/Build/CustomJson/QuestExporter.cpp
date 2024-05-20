@@ -645,10 +645,17 @@ static std::string FormatQuestId(std::string const& prettyName)
 	strutil::replace_all(questId, "-", "_");
 	strutil::replace_all(questId, "!", "EMARK");
 	strutil::replace_all(questId, "?", "QMARK");
+	strutil::replace_all(questId, "é", "E");
 	strutil::replace_all(questId, ",", "");
 	strutil::replace_all(questId, ".", "");
 	strutil::replace_all(questId, "\"", "");
 	strutil::replace_all(questId, "'", "");
+	strutil::replace_all(questId, "(", "");
+	strutil::replace_all(questId, ")", "");
+	strutil::replace_all(questId, "[", "");
+	strutil::replace_all(questId, "]", "");
+	strutil::replace_all(questId, "{", "");
+	strutil::replace_all(questId, "}", "");
 	strutil::replace_all(questId, "+", "PLUS");
 	strutil::replace_all(questId, c_Elipsies, "");
 	return questId;

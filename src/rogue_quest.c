@@ -51,6 +51,7 @@ static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct Rogu
 static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_CurrentlyInRoomType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -1125,6 +1126,13 @@ static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger
 
     ASSERT_PARAM_COUNT(1);
     return gSaveBlock1Ptr->location.mapNum == mapNum || gSaveBlock1Ptr->location.mapGroup == mapGroup;
+}
+
+static bool8 QuestCondition_CurrentlyInRoomType(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 roomtType = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
+    return gRogueAdvPath.currentRoomType == roomtType;
 }
 
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger)

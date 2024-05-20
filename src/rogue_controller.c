@@ -1055,6 +1055,8 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
 
             if(IsMonShiny(mon))
                 RogueQuest_OnTrigger(QUEST_TRIGGER_MON_SHINY_CAUGHT);
+            else
+                RogueQuest_OnTrigger(QUEST_TRIGGER_MON_NON_SHINY_CAUGHT);
         }
 
         // Make sure we log if we end up replacing a fainted mon
