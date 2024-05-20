@@ -845,6 +845,9 @@ static const struct OamData sOamData_MoveTypes =
     .paletteNum = 0,
     .affineParam = 0,
 };
+
+#define TERA_TYPE_OFFSET (NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_TOUGH + 1)
+
 static const union AnimCmd sSpriteAnim_TypeNormal[] = {
     ANIMCMD_FRAME(TYPE_NORMAL * 8, 0, FALSE, FALSE),
     ANIMCMD_END
@@ -945,7 +948,90 @@ static const union AnimCmd sSpriteAnim_CategoryTough[] = {
     ANIMCMD_FRAME((CONTEST_CATEGORY_TOUGH + NUMBER_OF_MON_TYPES) * 8, 0, FALSE, FALSE),
     ANIMCMD_END
 };
-static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT] = {
+
+static const union AnimCmd sSpriteAnim_TeraTypeNormal[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_NORMAL) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeFighting[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_FIGHTING) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeFlying[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_FLYING) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypePoison[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_POISON) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeGround[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_GROUND) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeRock[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_ROCK) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeBug[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_BUG) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeGhost[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_GHOST) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeSteel[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_STEEL) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeMystery[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_MYSTERY) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeFire[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_FIRE) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeWater[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_WATER) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeGrass[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_GRASS) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeElectric[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_ELECTRIC) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypePsychic[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_PSYCHIC) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeIce[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_ICE) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeDragon[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_DRAGON) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeDark[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_DARK) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeFairy[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_FAIRY) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeStellar[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_STELLAR) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+
+
+static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT + NUMBER_OF_MON_TYPES] = {
     sSpriteAnim_TypeNormal,
     sSpriteAnim_TypeFighting,
     sSpriteAnim_TypeFlying,
@@ -971,12 +1057,32 @@ static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_MON_TYPES
     sSpriteAnim_CategoryCute,
     sSpriteAnim_CategorySmart,
     sSpriteAnim_CategoryTough,
+    sSpriteAnim_TeraTypeNormal,
+    sSpriteAnim_TeraTypeFighting,
+    sSpriteAnim_TeraTypeFlying,
+    sSpriteAnim_TeraTypePoison,
+    sSpriteAnim_TeraTypeGround,
+    sSpriteAnim_TeraTypeRock,
+    sSpriteAnim_TeraTypeBug,
+    sSpriteAnim_TeraTypeGhost,
+    sSpriteAnim_TeraTypeSteel,
+    sSpriteAnim_TeraTypeMystery,
+    sSpriteAnim_TeraTypeFire,
+    sSpriteAnim_TeraTypeWater,
+    sSpriteAnim_TeraTypeGrass,
+    sSpriteAnim_TeraTypeElectric,
+    sSpriteAnim_TeraTypePsychic,
+    sSpriteAnim_TeraTypeIce,
+    sSpriteAnim_TeraTypeDragon,
+    sSpriteAnim_TeraTypeDark,
+    sSpriteAnim_TeraTypeFairy,
+    sSpriteAnim_TeraTypeStellar,
 };
 
 const struct CompressedSpriteSheet gSpriteSheet_MoveTypes =
 {
     .data = gMoveTypes_Gfx,
-    .size = (NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) * 0x100,
+    .size = (NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT + NUMBER_OF_MON_TYPES) * 0x100,
     .tag = TAG_MOVE_TYPES
 };
 const struct SpriteTemplate gSpriteTemplate_MoveTypes =
@@ -989,7 +1095,8 @@ const struct SpriteTemplate gSpriteTemplate_MoveTypes =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCallbackDummy
 };
-static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT] =
+
+static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT + NUMBER_OF_MON_TYPES] =
 {
     [TYPE_NORMAL] = 13,
     [TYPE_FIGHTING] = 13,
@@ -1016,6 +1123,26 @@ static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIE
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_CUTE] = 14,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_SMART] = 15,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_TOUGH] = 13,
+    [TERA_TYPE_OFFSET + TYPE_NORMAL] = 13,
+    [TERA_TYPE_OFFSET + TYPE_FIGHTING] = 13,
+    [TERA_TYPE_OFFSET + TYPE_FLYING] = 14,
+    [TERA_TYPE_OFFSET + TYPE_POISON] = 14,
+    [TERA_TYPE_OFFSET + TYPE_GROUND] = 13,
+    [TERA_TYPE_OFFSET + TYPE_ROCK] = 13,
+    [TERA_TYPE_OFFSET + TYPE_BUG] = 15,
+    [TERA_TYPE_OFFSET + TYPE_GHOST] = 14,
+    [TERA_TYPE_OFFSET + TYPE_STEEL] = 13,
+    [TERA_TYPE_OFFSET + TYPE_MYSTERY] = 15,
+    [TERA_TYPE_OFFSET + TYPE_FIRE] = 13,
+    [TERA_TYPE_OFFSET + TYPE_WATER] = 14,
+    [TERA_TYPE_OFFSET + TYPE_GRASS] = 15,
+    [TERA_TYPE_OFFSET + TYPE_ELECTRIC] = 13,
+    [TERA_TYPE_OFFSET + TYPE_PSYCHIC] = 14,
+    [TERA_TYPE_OFFSET + TYPE_ICE] = 14,
+    [TERA_TYPE_OFFSET + TYPE_DRAGON] = 15,
+    [TERA_TYPE_OFFSET + TYPE_DARK] = 13,
+    [TERA_TYPE_OFFSET + TYPE_FAIRY] = 14,
+    [TERA_TYPE_OFFSET + TYPE_STELLAR] = 15,
 };
 static const struct OamData sOamData_MoveSelector =
 {
@@ -4203,7 +4330,7 @@ static void SetMonTypeIcons(void)
         //if (P_SHOW_TERA_TYPE >= GEN_9)
         if(IsTerastallizeEnabled()) // todo - should show this even if tera is disabled, only in hub and only after having unlocked it
         {
-            SetTypeSpritePosAndPal(summary->teraType, 200, 48, SPRITE_ARR_ID_TYPE + 2);
+            SetTypeSpritePosAndPal(TERA_TYPE_OFFSET + summary->teraType, 200, 48, SPRITE_ARR_ID_TYPE + 2);
         }
     }
 }
