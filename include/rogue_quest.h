@@ -176,7 +176,7 @@ u16 RogueQuest_GetDisplayCompletePerc();
 
 void RogueQuest_OnNewGame();
 void RogueQuest_OnLoadGame();
-void RogueQuest_OnTrigger(u16 trigger);
+void RogueQuest_OnTrigger(u32 trigger);
 
 bool8 RogueQuest_HasUnlockedChallenges();
 bool8 RogueQuest_HasUnlockedMonMasteries();

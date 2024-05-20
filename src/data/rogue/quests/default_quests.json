@@ -260,7 +260,7 @@
             {
                 "name": "Post Game?",
                 "display_group": "starter_quests",
-                "description": "Meet ??? in ??? to active post-game content.",
+                "description": "Meet ??? in ??? and then meet ??? to active all post game content.",
                 "flags": 
                 [
                     "MAIN_QUEST_DEFAULT",
@@ -460,6 +460,76 @@
             },
 
             {
+                "name": "Care Tactics",
+                "description": "Defeat the first 4 Gym Leaders, without your Partner Pokémon ever fainting.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ANY_BATTLE_END" ],
+                        "condition": "PartyContainsInitialPartner",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_GYM_MID_DIFFICULTY - 1" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Smart Tactics",
+                "description": "Defeat all 8 Gym Leaders, without any Pokémon ever fainting.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MON_FAINTED" ],
+                        "condition": "Always",
+                        "pass": "FAIL"
+                    },
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY - 1" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "name": "Mr. Randoman",
+                "description": "Trade a Pokémon with Mr. Randoman.",
+                "triggers":
+                [
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "InAdventureEncounterType",
+                        "params": [ "ADVPATH_ROOM_RESTSTOP" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "RandomanWasUsed",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
                 "name": "Shopping Spree",
                 "description": "Spend at least ¥20000 in shops during a single visit to any Rest Stop.",
                 "triggers":
@@ -508,75 +578,46 @@
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },
+
+
             {
-                "name": "Mr. Randoman",
-                "description": "Trade a Pokémon with Mr. Randoman.",
+                "name": "True Legend",
+                "description": "Capture any Legendary Pokémon.",
                 "triggers":
                 [
                     {
-                        "on": [ "EXIT_ENCOUNTER" ],
-                        "condition": "InAdventureEncounterType",
-                        "params": [ "ADVPATH_ROOM_RESTSTOP" ],
-                        "fail": "BREAK"
-                    },
-                    {
-                        "on": [ "EXIT_ENCOUNTER" ],
-                        "condition": "RandomanWasUsed",
-                        "pass": "SUCCESS"
-                    }
-                ],
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
-                ]
-            },
-            {
-                "name": "Care Tactics",
-                "description": "Defeat the first 4 Gym Leaders, without your Partner Pokémon ever fainting.",
-                "triggers":
-                [
-                    {
-                        "on": [ "ANY_BATTLE_END" ],
-                        "condition": "PartyContainsInitialPartner",
-                        "fail": "FAIL"
-                    },
-                    {
-                        "on": [ "EARN_BADGE" ],
-                        "condition": "DifficultyGreaterThan",
-                        "params": [ "ROGUE_GYM_MID_DIFFICULTY - 1" ],
-                        "pass": "SUCCESS"
-                    }
-                ],
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
-                ]
-            },
-            {
-                "name": "Smart Tactics",
-                "description": "Defeat all 8 Gym Leaders, without any Pokémon ever fainting.",
-                "triggers":
-                [
-                    {
-                        "on": [ "MON_FAINTED" ],
+                        "on": [ "MON_LEGEND_CAUGHT" ],
                         "condition": "Always",
-                        "pass": "FAIL"
-                    },
-                    {
-                        "on": [ "EARN_BADGE" ],
-                        "condition": "DifficultyGreaterThan",
-                        "params": [ "ROGUE_ELITE_START_DIFFICULTY - 1" ],
                         "pass": "SUCCESS"
                     }
                 ],
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_MASTER_BALL" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },
+            {
+                "name": "Shiny a Day",
+                "description": "Capture any Shiny Pokémon.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MON_SHINY_CAUGHT" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_STARF_BERRY" },
+                    { "item": "ITEM_STARF_BERRY", "count": "5", "visibility": "INVISIBLE" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
             {
                 "name": "Mankey's Paw",
                 "description": "Make a dark deal during an Adventure…",
@@ -592,6 +633,32 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "name": "Not Today!",
+                "description": "Use an Escape Rope to avoid a Rival battle.",
+                "triggers":
+                [
+                    {
+                        "on": [ "FIELD_ITEM_USED" ],
+                        "condition": "LastItemWasAny",
+                        "params": [ "ITEM_ESCAPE_ROPE" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "FIELD_ITEM_USED" ],
+                        "condition": "FlagGet",
+                        "params": [ "FLAG_ROGUE_RIVAL_DISABLED" ],
+                        "fail": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_ESCAPE_ROPE" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },

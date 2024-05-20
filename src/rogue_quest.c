@@ -8,6 +8,7 @@
 #include "event_data.h"
 #include "data.h"
 #include "item.h"
+#include "item_menu.h"
 #include "malloc.h"
 #include "money.h"
 #include "pokedex.h"
@@ -63,6 +64,8 @@ static bool8 QuestCondition_PlayerMoneyGreaterThan(u16 questId, struct RogueQues
 static bool8 QuestCondition_RandomanWasUsed(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_RandomanWasActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_LastItemWasAny(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const* trigger);
 
 static bool8 IsQuestSurpressed(u16 questId);
 static bool8 CanSurpressedQuestActivate(u16 questId);
@@ -794,7 +797,7 @@ static void FailQuest(u16 questId)
         Rogue_PushPopup_QuestFail(questId);
 }
 
-static void ExecuteQuestTriggers(u16 questId, u16 triggerFlag)
+static void ExecuteQuestTriggers(u16 questId, u32 triggerFlag)
 {
     u16 i;
     struct RogueQuestTrigger const* trigger;
@@ -839,7 +842,7 @@ static void ExecuteQuestTriggers(u16 questId, u16 triggerFlag)
     }
 }
 
-void RogueQuest_OnTrigger(u16 triggerFlag)
+void RogueQuest_OnTrigger(u32 triggerFlag)
 {
     u16 i;
 
@@ -1215,4 +1218,23 @@ static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQu
 {
     ASSERT_PARAM_COUNT(0);
     return !!FlagGet(FLAG_ROGUE_RANDOM_TRADE_WAS_FULL_PARTY);
+}
+
+static bool8 QuestCondition_LastItemWasAny(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        if(trigger->params[i] == gSpecialVar_ItemId)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(1);
+    return FlagGet(trigger->params[0]);
 }

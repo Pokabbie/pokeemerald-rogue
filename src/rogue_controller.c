@@ -24,6 +24,7 @@
 #include "field_effect.h"
 #include "graphics.h"
 #include "item.h"
+#include "item_menu.h"
 #include "event_object_movement.h"
 #include "fieldmap.h"
 #include "field_player_avatar.h"
@@ -251,7 +252,7 @@ static u16 GetEncounterChainShinyOdds(u8 count)
 {
     u16 baseOdds = Rogue_GetShinyOdds();
 
-    // By the time we reach 24 encounters, we want to be at max odds
+    // By the time we reach 48 encounters, we want to be at max odds
     // Don't start increasing shiny rate until we pass 4 encounters
     if(count <= 4)
     {
@@ -259,9 +260,9 @@ static u16 GetEncounterChainShinyOdds(u8 count)
     }
     else
     {
-        u16 const range = 24 - 4;
+        u16 range = ((VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK) == ITEM_POKEBLOCK_SHINY) ? 24 : 48) - 4;
         u16 t = min(count - 4, range);
-        u16 targetOdds = 16; // always target these odds regardless of the base odds
+        u16 targetOdds = 16;
 
         return (targetOdds * t + baseOdds * (range - t)) / range;
     }
@@ -1047,6 +1048,13 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
             {
                 ++gRogueRun.wildEncounters.catchCounts[index];
             }
+
+            // Quest notifies
+            if(RoguePokedex_IsSpeciesLegendary(species))
+                RogueQuest_OnTrigger(QUEST_TRIGGER_MON_LEGEND_CAUGHT);
+
+            if(IsMonShiny(mon))
+                RogueQuest_OnTrigger(QUEST_TRIGGER_MON_SHINY_CAUGHT);
         }
 
         // Make sure we log if we end up replacing a fainted mon
@@ -5899,7 +5907,10 @@ void Rogue_Battle_EndWildBattle(void)
     RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_END);
 
     if(DidCompleteWildChain(gBattleOutcome))
+    {
         UpdateWildEncounterChain(wildSpecies);
+        DebugPrintf("ShinyOdds n:%d odds:%d", GetWildChainCount(), GetEncounterChainShinyOdds(GetWildChainCount()));
+    }
     else if(DidFailWildChain(gBattleOutcome, wildSpecies))
         UpdateWildEncounterChain(SPECIES_NONE);
 
@@ -6092,9 +6103,17 @@ bool8 Rogue_AllowItemUse(u16 itemId)
 
 void Rogue_OnItemUse(u16 itemId)
 {
-    //if (gMain.inBattle)
-    //{
-    //}
+    // Expected to be called in such a way that we can check the var
+    AGB_ASSERT(itemId == gSpecialVar_ItemId);
+
+    if (gMain.inBattle)
+    {
+        RogueQuest_OnTrigger(QUEST_TRIGGER_BATTLE_ITEM_USED);
+    }
+    else
+    {
+        RogueQuest_OnTrigger(QUEST_TRIGGER_FIELD_ITEM_USED);
+    }
 }
 
 void Rogue_OnSpendMoney(u32 money)
@@ -7611,10 +7630,10 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     }
 
     // Run only items
-    if(!Rogue_IsRunActive())
-    {
-        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_ESCAPE_ROPE);
-    }
+    //if(!Rogue_IsRunActive())
+    //{
+    //    RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_ESCAPE_ROPE);
+    //}
 
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_TINY_MUSHROOM);
     RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, ITEM_BIG_MUSHROOM);

@@ -1019,6 +1019,7 @@ static void UseTMHM(u8 taskId)
 
 static void RemoveUsedItem(void)
 {
+    Rogue_OnItemUse(gSpecialVar_ItemId);
     RemoveBagItem(gSpecialVar_ItemId, 1);
     CopyItemName(gSpecialVar_ItemId, gStringVar2);
     StringExpandPlaceholders(gStringVar4, gText_PlayerUsedVar2);
