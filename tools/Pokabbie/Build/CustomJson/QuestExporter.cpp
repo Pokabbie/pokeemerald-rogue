@@ -498,7 +498,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 		[&](QuestInfo const& a, QuestInfo const& b) -> bool
 		{
 			auto const& groupA = questData.displayGroups[a.displayGroup];
-			auto const& groupB = questData.displayGroups[a.displayGroup];
+			auto const& groupB = questData.displayGroups[b.displayGroup];
 
 			if (groupA.m_GroupIndex != groupB.m_GroupIndex)
 			{
@@ -512,7 +512,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 					// Sort alphabetically in same display order index
 					int compare = a.questId.compare(b.questId);
 
-					if (compare <= 0)
+					if (compare < 0)
 						return true;
 
 					return false;
@@ -1032,12 +1032,12 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, Q
 	}
 
 	// Figure out the display order here based on the groups
-	json displayGroups = jsonData["display_groups"];
+	json displayGroups = rawJsonData["display_groups"];
 	counter = 0;
 
 	for (auto displayIt = displayGroups.begin(); displayIt != displayGroups.end(); ++displayIt)
 	{
-		json groupObj = displayGroups;
+		json groupObj = *displayIt;
 		DisplayGroup group;
 
 		std::string id = groupObj["id"].get<std::string>();
@@ -1045,7 +1045,7 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, Q
 		group.m_SortAlphabetically = false;
 
 		if (groupObj.contains("sort_alphabetically"))
-			group.m_SortAlphabetically = groupObj.get<bool>();
+			group.m_SortAlphabetically = groupObj["sort_alphabetically"].get<bool>();
 
 		outQuestData.displayGroups[id] = group;
 	}

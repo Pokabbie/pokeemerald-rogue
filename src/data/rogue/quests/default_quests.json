@@ -283,6 +283,8 @@
                     { "quest": "Regional Style" },
                     { "quest": "Type Master" },
                     { "quest": "One Last Quest…" },
+                    { "quest": "Taste the Rainbow" },
+                    { "quest": "Long Haul" },
                     { "#if": "defined(ROGUE_EXPANSION)", "quest": "Mega Evolution" },
                     { "#if": "defined(ROGUE_EXPANSION)", "quest": "Z-Moves" },
                     { "#if": "defined(ROGUE_EXPANSION)", "quest": "Dynamax" },
@@ -719,7 +721,7 @@
                 ]
             },
             {
-                "name": "Hello there!",
+                "name": "Fateful Encounter",
                 "description": "During an Adventure, visit the Lab and reunite with a Friend from the past.",
                 "triggers":
                 [
@@ -813,6 +815,121 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_ESCAPE_ROPE" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "name": "Double Trouble",
+                "description": "Win a full Run with Double battle format enabled in the Config Lab.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "config_range": "CONFIG_RANGE_BATTLE_FORMAT", "value": "BATTLE_FORMAT_DOUBLES" }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "name": "Taste the Rainbow",
+                "description": "Enable and all 3 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
+                "triggers":
+                [
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsConfigRangeEqualToAny",
+                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_RAINBOW", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_KANTO", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_JOHTO", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_HOENN", "state": true }
+
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Taste the Rainbow",
+                "description": "Enable and all 9 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
+                "triggers":
+                [
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsConfigRangeEqualToAny",
+                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_RAINBOW", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_KANTO", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_JOHTO", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_HOENN", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_SINNOH", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_UNOVA", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_KALOS", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_ALOLA", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_GALAR", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_PALDEA", "state": true }
+
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "name": "Long Haul",
+                "description": "Bring up to 6 Pokémon into a Gauntlet Mode Adventure and enter the Hall of Fame.",
+                "triggers":
+                [
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsConfigRangeEqualToAny",
+                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_GAUNTLET", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },

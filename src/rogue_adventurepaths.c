@@ -711,7 +711,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     }
 
     // Honey tree
-    if(GetPathGenerationDifficulty() >= 1 && RogueRandomChance(60, 0))
+    if(Rogue_GetModeRules()->adventureGenerator != ADV_GENERATOR_GAUNTLET && GetPathGenerationDifficulty() >= 1 && RogueRandomChance(60, 0))
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_HONEY_TREE;
 
     // Catching contest
@@ -719,15 +719,15 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_CATCHING_CONTEST;
 
     // Mysterious Sign
-    if(GetPathGenerationDifficulty() < ROGUE_ELITE_START_DIFFICULTY && RogueRandomChance(40, 0))
+    if(Rogue_GetModeRules()->adventureGenerator != ADV_GENERATOR_GAUNTLET && GetPathGenerationDifficulty() < ROGUE_ELITE_START_DIFFICULTY && RogueRandomChance(40, 0))
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SIGN;
 
-    // Shrine
-    if(GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
+    // Shrine (Gauntlet will always offer this encounter)
+    if((Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET) || GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SHRINE;
 
     // Battle sim
-    if(GetPathGenerationDifficulty() >= 1 && RogueRandomChance(33, 0))
+    if(Rogue_GetModeRules()->adventureGenerator != ADV_GENERATOR_GAUNTLET && GetPathGenerationDifficulty() >= 1 && RogueRandomChance(33, 0))
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_SIM;
 
     {
@@ -739,7 +739,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         {
             allowDarkDeal = TRUE;
             allowLab = FALSE;
-            allowGameShow = TRUE;
+            allowGameShow = FALSE;
         }
 
         allowDarkDeal = (allowDarkDeal && RogueRandomChance(25, 0));
