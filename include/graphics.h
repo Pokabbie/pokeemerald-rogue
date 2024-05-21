@@ -4245,6 +4245,8 @@ extern const u32 gItemIcon_Pokedex[];
 extern const u32 gItemIconPalette_Pokedex[];
 extern const u32 gItemIcon_Cloud[];
 extern const u32 gItemIconPalette_Cloud[];
+extern const u32 gItemIcon_GoldenSeed[];
+extern const u32 gItemIconPalette_GoldenSeed[];
 extern const u32 gItemIcon_TypeNormal[];
 extern const u32 gItemIconPalette_TypeNormal[];
 extern const u32 gItemIcon_TypeFighting[];

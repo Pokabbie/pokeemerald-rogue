@@ -58,6 +58,11 @@ text gItemDesc_LargeCoinCase
     format("Coin Case provides ¥20000 on start of Adventure.")
 }
 
+text gItemDesc_GoldenSeed
+{
+    format("todo - golden seed")
+}
+
 text gItemDesc_NormalPokeblock
 {
     format("{POKEBLOCK} enjoyed by Normal type {PKMN}.")

@@ -75,6 +75,7 @@
 #define ITEM_HISUI_STONE                (ITEM_ROGUE_ITEM_FIRST + 10)
 #define ITEM_SMALL_COIN_CASE            (ITEM_ROGUE_ITEM_FIRST + 11)
 #define ITEM_LARGE_COIN_CASE            (ITEM_ROGUE_ITEM_FIRST + 12)
+#define ITEM_GOLDEN_SEED                (ITEM_ROGUE_ITEM_FIRST + 13)
 
 // Free 10 - 19
 

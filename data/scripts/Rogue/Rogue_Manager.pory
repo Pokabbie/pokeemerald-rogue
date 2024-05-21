@@ -514,6 +514,22 @@ script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
     }
 }
 
+script Rogue_EventScript_UseGoldenSeedItem
+{
+    lock
+
+    if(flag(FLAG_ROGUE_RUN_ACTIVE))
+    {
+
+    }
+    else
+    {
+        msgbox(format("It has have no effect, outside of Adventures."))
+    }
+
+    release
+}
+
 script Rogue_EventScript_AttemptPostGymHeal
 {
     // Don't heal if we're in the healing flask mode
