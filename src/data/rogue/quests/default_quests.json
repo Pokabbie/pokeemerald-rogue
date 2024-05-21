@@ -313,7 +313,17 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
-                    { "quest": "The Final Run." }
+                    { "quest": "The Final Run." },
+                    {
+                        "flag": "FLAG_ROGUE_STUB",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_C_GEAR",
+                            "title": "Rogue Trainers",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Unlocked in Config Lab",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
                 ]
             },
             {

@@ -131,10 +131,19 @@ bool8 RogueQuest_GetConstFlag(u16 questId, u32 flag)
     return (entry->flags & flag) != 0;
 }
 
-u16 RogueQuest_GetOrderedQuest(u16 index)
+u16 RogueQuest_GetOrderedQuest(u16 index, bool8 alphabetical)
 {
-    AGB_ASSERT(index < ARRAY_COUNT(sQuestDisplayOrder));
-    return sQuestDisplayOrder[index];
+    if(alphabetical)
+    {
+        AGB_ASSERT(index < ARRAY_COUNT(sQuestAlphabeticalOrder));
+        return sQuestAlphabeticalOrder[index];
+    }
+    else
+    {
+
+        AGB_ASSERT(index < ARRAY_COUNT(sQuestDisplayOrder));
+        return sQuestDisplayOrder[index];
+    }
 }
 
 bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag)

@@ -141,6 +141,14 @@ script Rogue_Area_AdventureEntrance_WarpState0
     {
         call(Rogue_ReturnAdventureInternal)
     }
+
+    if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_MET_POKABBIE))
+    {
+        lockall
+        call(Rogue_Area_AdventureEntrance_MeetPokabbie)
+        releaseall
+    }
+
     setvar(VAR_FRAME_STATE, 1)
 }
 
@@ -527,11 +535,6 @@ script Rogue_ReturnAdventureInternal
     }
     msgbox(format("Come speak to me, once you're ready for your next adventure."), MSGBOX_DEFAULT)
 
-    if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_MET_POKABBIE))
-    {
-        call(Rogue_Area_AdventureEntrance_MeetPokabbie)
-    }
-
     releaseall
 }
 
@@ -658,8 +661,8 @@ script Rogue_Area_AdventureEntrance_MeetPokabbie
     delay(30)
 
     playse(SE_M_EXPLOSION)
-    setvar(VAR_SHAKE_VERTICAL_PAN, -8)
-    setvar(VAR_SHAKE_HORIZONTAL_PAN, 8)
+    setvar(VAR_SHAKE_VERTICAL_PAN, -5)
+    setvar(VAR_SHAKE_HORIZONTAL_PAN, 5)
     setvar(VAR_SHAKE_NUM_SHAKES, 8)
     setvar(VAR_SHAKE_SHAKE_DELAY, 4)
     special(ShakeCameraNoSE)

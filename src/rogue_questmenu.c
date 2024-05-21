@@ -124,6 +124,7 @@ struct QuestMenuData
     u8 currentPage;
     u8 previousPage;
     u8 menuOptionsBufferCount;
+    u8 alphabeticalSort : 1;
 };
 
 struct PageData
@@ -342,7 +343,7 @@ static u8 const sText_Todo[] = _("To-do");
 static u8 const sText_Complete[] = _("Complete");
 static u8 const sText_Back[] = _("Back");
 static u8 const sText_Progress[] = _("Progress");
-static u8 const sText_AButtonPin[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}{A_BUTTON} Pin Quest");
+static u8 const sText_AButtonPin[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}{A_BUTTON} Pin  {SELECT_BUTTON} Sort");
 
 static u8 const sText_MarkerInProgress[] = _("{COLOR BLUE}·In Progress·");
 static u8 const sText_MarkerInactive[] = _("{COLOR RED}·Inactive·");
@@ -610,7 +611,7 @@ static u16 GetCurrentListIndex()
 
 static bool8 IsQuestIndexVisible(u16 questIndex)
 {
-    u16 questId = RogueQuest_GetOrderedQuest(questIndex);
+    u16 questId = RogueQuest_GetOrderedQuest(questIndex, sQuestMenuData->alphabeticalSort);
 
     if(!RogueQuest_IsQuestVisible(questId))
         return FALSE;
@@ -834,7 +835,7 @@ static void DrawQuestScrollList()
         }
         else
         {
-            u16 questId = RogueQuest_GetOrderedQuest(questIndex);
+            u16 questId = RogueQuest_GetOrderedQuest(questIndex, sQuestMenuData->alphabeticalSort);
             AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_NARROW, 8, 4 + 16 * i, 0, 0, color, TEXT_SKIP_DRAW, RogueQuest_GetTitle(questId));
 
             IterateNextVisibleQuestIndex(&questIndex);
@@ -1316,9 +1317,10 @@ static void HandleInput_QuestPage(u8 taskId)
         else
         {
             // Toggle pinned
-            u16 questId = RogueQuest_GetOrderedQuest(questIndex);
+            u16 questId = RogueQuest_GetOrderedQuest(questIndex, sQuestMenuData->alphabeticalSort);
             RogueQuest_SetStateFlag(questId, QUEST_STATE_PINNED, !RogueQuest_GetStateFlag(questId, QUEST_STATE_PINNED));
             Draw_QuestPage();
+            PlaySE(SE_CLICK);
         }
     }
 
@@ -1331,6 +1333,13 @@ static void HandleInput_QuestPage(u8 taskId)
         }
         else
             SetupPage(PAGE_BOOK_INDEX);
+    }
+
+    if(JOY_NEW(SELECT_BUTTON))
+    {
+        sQuestMenuData->alphabeticalSort ^= 1;
+        Draw_QuestPage();
+        PlaySE(SE_SWITCH);
     }
 }
 
@@ -1360,7 +1369,7 @@ static void Draw_QuestPage()
 
     if(questIndex != QUEST_ID_COUNT)
     {
-        u16 questId = RogueQuest_GetOrderedQuest(questIndex);
+        u16 questId = RogueQuest_GetOrderedQuest(questIndex, sQuestMenuData->alphabeticalSort);
 
         // Place desc/tracking text
         AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_NORMAL, 0, 1, 0, 0, color, TEXT_SKIP_DRAW, RogueQuest_GetTitle(questId));
@@ -1637,7 +1646,7 @@ static void Draw_QuestPage()
 
         for(i = 0 ; i < SCROLL_ITEMS_IN_VIEW; ++i)
         {
-            if(questIndex != QUEST_ID_COUNT && RogueQuest_GetStateFlag(RogueQuest_GetOrderedQuest(questIndex), QUEST_STATE_PINNED))
+            if(questIndex != QUEST_ID_COUNT && RogueQuest_GetStateFlag(RogueQuest_GetOrderedQuest(questIndex, sQuestMenuData->alphabeticalSort), QUEST_STATE_PINNED))
             {
                 tileNum = sQuestMenuData->currentPage == PAGE_QUEST_BOARD ? TILE_BOARD_PIN_ACTIVE : TILE_BOOK_PIN_ACTIVE;
             }

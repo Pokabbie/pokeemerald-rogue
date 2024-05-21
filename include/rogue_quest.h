@@ -146,7 +146,7 @@ u8 const* RogueQuest_GetTitle(u16 questId);
 u8 const* RogueQuest_GetDesc(u16 questId);
 bool8 RogueQuest_GetConstFlag(u16 questId, u32 flag);
 
-u16 RogueQuest_GetOrderedQuest(u16 index);
+u16 RogueQuest_GetOrderedQuest(u16 index, bool8 alphabetical);
 
 bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag);
 void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state);

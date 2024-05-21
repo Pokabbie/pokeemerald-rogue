@@ -172,8 +172,8 @@ script Rogue_Interior_ConfigLab_TriggerMeetPokabbie
     delay(30)
 
     playse(SE_M_EXPLOSION)
-    setvar(VAR_SHAKE_VERTICAL_PAN, -8)
-    setvar(VAR_SHAKE_HORIZONTAL_PAN, 8)
+    setvar(VAR_SHAKE_VERTICAL_PAN, -5)
+    setvar(VAR_SHAKE_HORIZONTAL_PAN, 5)
     setvar(VAR_SHAKE_NUM_SHAKES, 8)
     setvar(VAR_SHAKE_SHAKE_DELAY, 4)
     special(ShakeCameraNoSE)
