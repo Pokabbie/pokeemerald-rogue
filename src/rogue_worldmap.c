@@ -28,6 +28,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_hub.h"
+#include "rogue_timeofday.h"
 #include "rogue_worldmap.h"
 
 #define TAG_ITEM_ICON_BASE 2110
@@ -195,6 +196,8 @@ void Rogue_OpenWorldMap(MainCallback callback)
 
 void CB2_ShowWorldMap(void)
 {
+    RogueToD_SetTempDisableTimeVisuals(TRUE);
+
     SetVBlankCallback(NULL);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0);
     SetGpuReg(REG_OFFSET_BG3CNT, 0);
@@ -360,6 +363,7 @@ static void Task_WorldMapFadeOut(u8 taskId)
         FreeAllWindowBuffers();
         ResetSpriteData();
         DestroyTask(taskId);
+        RogueToD_SetTempDisableTimeVisuals(FALSE);
         SetMainCallback2(gMain.savedCallback);
     }
 }
@@ -378,6 +382,7 @@ static void Task_WorldMapWarpOut(u8 taskId)
         FreeAllWindowBuffers();
         ResetSpriteData();
         DestroyTask(taskId);
+        RogueToD_SetTempDisableTimeVisuals(FALSE);
         //SetMainCallback2(CB2_ReturnToFieldFadeFromBlack);
 
         // Fill warp
