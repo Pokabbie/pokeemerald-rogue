@@ -1239,7 +1239,11 @@ u16 Rogue_GetPrice(u16 itemId)
             break;
 
         case ITEM_ESCAPE_ROPE:
-            price = 8000;
+            price = Rogue_IsRunActive() ? 8000 : 16000;
+            break;
+
+        case ITEM_MASTER_BALL:
+            price = 50000;
             break;
 
         case ITEM_NUGGET:
@@ -1331,7 +1335,6 @@ u16 Rogue_GetPrice(u16 itemId)
         case ITEM_PARK_BALL:
 #endif
         case ITEM_SAFARI_BALL:
-        case ITEM_MASTER_BALL:
             price = 0;
             break;
     }

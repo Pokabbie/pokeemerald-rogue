@@ -436,6 +436,8 @@ script Rogue_Encounter_GameShow_DisplayReward
             copyvar(VAR_CURRENT_REWARD_ITEM, VAR_0x8004)
             copyvar(VAR_CURRENT_REWARD_COUNT, VAR_0x8005)
             setvar(VAR_CURRENT_ROUND, STOP_ROUND_COUNTER)
+
+            quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
         }
         else
         {

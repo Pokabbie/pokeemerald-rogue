@@ -118,6 +118,8 @@ script Rogue_Encounter_CatchingContest_EndContest
             waitfanfare
             waitmessage
 
+            quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
+
             msgbox(format("As for your special prize…"))
 
             if(var(VAR_ROGUE_DIFFICULTY) >= ROGUE_ELITE_START_DIFFICULTY)

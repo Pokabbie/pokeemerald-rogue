@@ -16,6 +16,7 @@ enum
     QUEST_REWARD_MONEY,
     QUEST_REWARD_QUEST_UNLOCK,
     QUEST_REWARD_FLAG,
+    QUEST_REWARD_HUB_UPGRADE,
 };
 
 enum
@@ -60,6 +61,10 @@ struct RogueQuestReward
         {
             u16 flagId;
         } flag;
+        struct
+        {
+            u16 upgradeId;
+        } hubUpgrade;
     } perType;
 };
 
@@ -176,7 +181,7 @@ u16 RogueQuest_GetDisplayCompletePerc();
 
 void RogueQuest_OnNewGame();
 void RogueQuest_OnLoadGame();
-void RogueQuest_OnTrigger(u16 trigger);
+void RogueQuest_OnTrigger(u32 trigger);
 
 bool8 RogueQuest_HasUnlockedChallenges();
 bool8 RogueQuest_HasUnlockedMonMasteries();

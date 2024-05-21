@@ -12,6 +12,7 @@ enum class QuestRewardType
 	Money,
 	QuestUnlock,
 	Flag,
+	HubUpgrade,
 };
 
 struct QuestReward
@@ -61,6 +62,10 @@ struct QuestReward
 	{
 		std::string flag;
 	} flagParams;
+	struct
+	{
+		std::string upgradeId;
+	} hubUpgrade;
 };
 
 enum class QuestRequirementType
@@ -295,6 +300,15 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 				fileStream << c_TabSpacing2 << ".perType = {\n";
 				fileStream << c_TabSpacing3 << ".flag = {\n";
 				fileStream << c_TabSpacing4 << ".flagId = " << rewardInfo.flagParams.flag << ",\n";
+				fileStream << c_TabSpacing3 << "}\n";
+				fileStream << c_TabSpacing2 << "}\n";
+				break;
+
+			case QuestRewardType::HubUpgrade:
+				fileStream << c_TabSpacing2 << ".type = QUEST_REWARD_HUB_UPGRADE,\n";
+				fileStream << c_TabSpacing2 << ".perType = {\n";
+				fileStream << c_TabSpacing3 << ".hubUpgrade = {\n";
+				fileStream << c_TabSpacing4 << ".upgradeId = " << rewardInfo.hubUpgrade.upgradeId << ",\n";
 				fileStream << c_TabSpacing3 << "}\n";
 				fileStream << c_TabSpacing2 << "}\n";
 				break;
@@ -645,10 +659,17 @@ static std::string FormatQuestId(std::string const& prettyName)
 	strutil::replace_all(questId, "-", "_");
 	strutil::replace_all(questId, "!", "EMARK");
 	strutil::replace_all(questId, "?", "QMARK");
+	strutil::replace_all(questId, "é", "E");
 	strutil::replace_all(questId, ",", "");
 	strutil::replace_all(questId, ".", "");
 	strutil::replace_all(questId, "\"", "");
 	strutil::replace_all(questId, "'", "");
+	strutil::replace_all(questId, "(", "");
+	strutil::replace_all(questId, ")", "");
+	strutil::replace_all(questId, "[", "");
+	strutil::replace_all(questId, "]", "");
+	strutil::replace_all(questId, "{", "");
+	strutil::replace_all(questId, "}", "");
 	strutil::replace_all(questId, "+", "PLUS");
 	strutil::replace_all(questId, c_Elipsies, "");
 	return questId;
@@ -770,6 +791,15 @@ static QuestReward ParseQuestReward(json const& jsonData)
 		reward.type = QuestRewardType::QuestUnlock;
 
 		reward.questUnlockParams.questId = FormatQuestId(jsonData["quest"].get<std::string>());
+
+		return reward;
+	}
+
+	if (jsonData.contains("hub_upgrade"))
+	{
+		reward.type = QuestRewardType::HubUpgrade;
+
+		reward.hubUpgrade.upgradeId = jsonData["hub_upgrade"].get<std::string>();
 
 		return reward;
 	}

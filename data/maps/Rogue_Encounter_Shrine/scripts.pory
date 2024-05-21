@@ -93,7 +93,9 @@ script Rogue_Encounter_Shrine_TalkAccept
             giveitem(ITEM_PARTY_CURSE)
             call(Rogue_Common_DisplayPopups)
 
-            msgbox(format("There you are!\nI hope that can be helpful to you!"))
+            quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
+
+            msgbox(format("There you are!\nI hope it can be of use to you!"))
             setflag(FLAG_ACCEPTED_GIFT)
         }
     }

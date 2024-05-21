@@ -10,6 +10,7 @@ extern const u8 gItemDesc_DaycarePhone[];
 extern const u8 gItemDesc_BuildingSupplies[];
 extern const u8 gItemDesc_SmallCoinCase[];
 extern const u8 gItemDesc_LargeCoinCase[];
+extern const u8 gItemDesc_GoldenSeed[];
 
 extern const u8 gItemDesc_NormalPokeblock[];
 extern const u8 gItemDesc_FightingPokeblock[];
@@ -201,6 +202,8 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .registrability = FALSE,
         .iconImage = gItemIcon_BuildResources,
         .iconPalette = gItemIconPalette_BuildResources,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         //.iconImage = gItemIcon_OaksParcel,
         //.iconPalette = gItemIconPalette_OaksParcel,
     },
@@ -250,6 +253,8 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .pocket = POCKET_ITEMS,
         .iconImage = gItemIcon_CoinCase,
         .iconPalette = gItemIconPalette_CoinCase,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
     [ITEM_LARGE_COIN_CASE - ITEM_ROGUE_ITEM_FIRST] =
     {
@@ -264,6 +269,25 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .pocket = POCKET_ITEMS,
         .iconImage = gItemIcon_CoinCase,
         .iconPalette = gItemIconPalette_CoinCase,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_GOLDEN_SEED - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Golden Seed"),
+#else
+        .name = _("GOLDEN SEED"),
+#endif
+        .itemId = ITEM_GOLDEN_SEED,
+        .price = 0,
+        .description = gItemDesc_GoldenSeed,
+        .pocket = POCKET_KEY_ITEMS,
+        .iconImage = gItemIcon_GoldenSeed,
+        .iconPalette = gItemIconPalette_GoldenSeed,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_GoldenSeed,
     },
 
     // Pokeblock

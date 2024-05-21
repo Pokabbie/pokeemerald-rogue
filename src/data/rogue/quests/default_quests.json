@@ -251,7 +251,8 @@
                         {
                             "item_icon": "ITEM_TOWN_MAP",
                             "title": "Town Map Upgrade",
-                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Teleport Unlocked!"
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Teleport Unlocked!",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
                         }
                     }
                 ]
@@ -260,7 +261,7 @@
             {
                 "name": "Post Game?",
                 "display_group": "starter_quests",
-                "description": "Meet ??? in ??? to active post-game content.",
+                "description": "Meet ??? in ??? and then meet ??? to active all post game content.",
                 "flags": 
                 [
                     "MAIN_QUEST_DEFAULT",
@@ -430,35 +431,105 @@
             },
             {
                 "name": "Collector X",
-                "description": "Defeat any Elite Four Trainer with a Pokémon of Legends in your party.",
+                "description": "Defeat every Elite Four Trainers with a Pokémon of Legends in your party.",
                 "triggers":
                 [
                     {
                         "on": [ "EARN_BADGE" ],
                         "condition": "DifficultyGreaterThan",
-                        "params": [ "ROGUE_ELITE_START_DIFFICULTY" ],
-                        "fail": "BREAK"
-                    },
-                    {
-                        "on": [ "EARN_BADGE" ],
-                        "condition": "DifficultyLessThan",
-                        "params": [ "ROGUE_CHAMP_START_DIFFICULTY + 1" ],
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY - 1" ],
                         "fail": "BREAK"
                     },
                     {
                         "on": [ "EARN_BADGE" ],
                         "condition": "PartyContainsLegendary",
-                        "pass": "SUCCESS",
                         "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY + 4" ],
+                        "pass": "SUCCESS"
                     }
                 ],
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "shop_item": "ITEM_MASTER_BALL" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
 
+            {
+                "name": "Care Tactics",
+                "description": "Defeat the first 4 Gym Leaders, without your Partner Pokémon ever fainting.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ANY_BATTLE_END" ],
+                        "condition": "PartyContainsInitialPartner",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_GYM_MID_DIFFICULTY - 1" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Smart Tactics",
+                "description": "Defeat all 8 Gym Leaders, without your Partner Pokémon ever fainting.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ANY_BATTLE_END" ],
+                        "condition": "PartyContainsInitialPartner",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY - 1" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "name": "Mr. Randoman",
+                "description": "Trade a Pokémon with Mr. Randoman.",
+                "triggers":
+                [
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "InAdventureEncounterType",
+                        "params": [ "ADVPATH_ROOM_RESTSTOP" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "RandomanWasUsed",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
             {
                 "name": "Shopping Spree",
                 "description": "Spend at least ¥20000 in shops during a single visit to any Rest Stop.",
@@ -508,66 +579,172 @@
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },
+
+
             {
-                "name": "Mr. Randoman",
-                "description": "Trade a Pokémon with Mr. Randoman.",
+                "name": "True Legend",
+                "description": "During an Adventure, catch any Pokémon of Legends (Mythicals and other forms count as Legends too).",
                 "triggers":
                 [
                     {
-                        "on": [ "EXIT_ENCOUNTER" ],
-                        "condition": "InAdventureEncounterType",
-                        "params": [ "ADVPATH_ROOM_RESTSTOP" ],
-                        "fail": "BREAK"
-                    },
-                    {
-                        "on": [ "EXIT_ENCOUNTER" ],
-                        "condition": "RandomanWasUsed",
-                        "pass": "SUCCESS"
-                    }
-                ],
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
-                ]
-            },
-            {
-                "name": "Care Tactics",
-                "description": "Defeat the first 4 Gym Leaders, without your Partner Pokémon ever fainting.",
-                "triggers":
-                [
-                    {
-                        "on": [ "ANY_BATTLE_END" ],
-                        "condition": "PartyContainsInitialPartner",
-                        "fail": "FAIL"
-                    },
-                    {
-                        "on": [ "EARN_BADGE" ],
-                        "condition": "DifficultyGreaterThan",
-                        "params": [ "ROGUE_GYM_MID_DIFFICULTY - 1" ],
-                        "pass": "SUCCESS"
-                    }
-                ],
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
-                ]
-            },
-            {
-                "name": "Smart Tactics",
-                "description": "Defeat all 8 Gym Leaders, without any Pokémon ever fainting.",
-                "triggers":
-                [
-                    {
-                        "on": [ "MON_FAINTED" ],
+                        "on": [ "MON_LEGEND_CAUGHT" ],
                         "condition": "Always",
-                        "pass": "FAIL"
-                    },
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { 
+                        "hub_upgrade": "HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_SAFARI_BALL",
+                            "title": "Safari Area",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Mountains shift…",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Shiny a Day",
+                "description": "During an Adventure, catch any Shiny Pokémon.",
+                "triggers":
+                [
                     {
-                        "on": [ "EARN_BADGE" ],
-                        "condition": "DifficultyGreaterThan",
-                        "params": [ "ROGUE_ELITE_START_DIFFICULTY - 1" ],
+                        "on": [ "MON_SHINY_CAUGHT" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_STARF_BERRY" },
+                    { "item": "ITEM_STARF_BERRY", "count": "5", "visibility": "INVISIBLE" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "name": "Hidden Grotto",
+                "description": "During an Adventure, catch a Trained Pokémon from a secluded den.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ANY_MON_CAUGHT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_WILD_DEN" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Poké Ball, Go!",
+                "description": "During an Adventure, win a Pokémon Catching Contest.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_CATCHING_CONTEST" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Enticing {POKEBLOCK}",
+                "description": "During an Adventure, attract a Pokémon to a Honey Tree and catch it.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_HONEY_TREE" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Elo Climb",
+                "description": "Win a fight in the Battle Simulator.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_BATTLE_SIM" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "All Skill",
+                "description": "Win every single round in the Game Show.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_GAMESHOW" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Hello there!",
+                "description": "During an Adventure, visit the Lab and reunite with a Friend from the past.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_LAB" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Blasting Off",
+                "description": "Put a stop to an Evil Team, by defeating their Leader.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
                         "pass": "SUCCESS"
                     }
                 ],
@@ -579,19 +756,63 @@
             },
             {
                 "name": "Mankey's Paw",
-                "description": "Make a dark deal during an Adventure…",
+                "description": "Make a Dark Deal, during an Adventure…",
                 "triggers":
                 [
                     {
                         "on": [ "MAP_SPECIFIC_EVENT" ],
-                        "condition": "CurrentlyInMap",
-                        "params": [ "MAP_ROGUE_ENCOUNTER_GRAVEYARD" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_DARK_DEAL" ],
                         "pass": "SUCCESS"
                     }
                 ],
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Blessing's Favour",
+                "description": "Find some Sacred Ash, during an Adventure.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_SHRINE" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "name": "Not Today!",
+                "description": "Use an Escape Rope to avoid a Rival battle.",
+                "triggers":
+                [
+                    {
+                        "on": [ "FIELD_ITEM_USED" ],
+                        "condition": "LastItemWasAny",
+                        "params": [ "ITEM_ESCAPE_ROPE" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "FIELD_ITEM_USED" ],
+                        "condition": "FlagGet",
+                        "params": [ "FLAG_ROGUE_RIVAL_DISABLED" ],
+                        "fail": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_ESCAPE_ROPE" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },

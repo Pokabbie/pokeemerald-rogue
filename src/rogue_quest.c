@@ -3,11 +3,13 @@
 #include "constants/game_stat.h"
 #include "constants/items.h"
 #include "constants/region_map_sections.h"
+#include "constants/songs.h"
 
 #include "battle.h"
 #include "event_data.h"
 #include "data.h"
 #include "item.h"
+#include "item_menu.h"
 #include "malloc.h"
 #include "money.h"
 #include "pokedex.h"
@@ -50,6 +52,7 @@ static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct Rogu
 static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_CurrentlyInRoomType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -63,6 +66,8 @@ static bool8 QuestCondition_PlayerMoneyGreaterThan(u16 questId, struct RogueQues
 static bool8 QuestCondition_RandomanWasUsed(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_RandomanWasActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_LastItemWasAny(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const* trigger);
 
 static bool8 IsQuestSurpressed(u16 questId);
 static bool8 CanSurpressedQuestActivate(u16 questId);
@@ -433,6 +438,11 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
     case QUEST_REWARD_FLAG:
         FlagSet(rewardInfo->perType.flag.flagId);
         break;
+
+    case QUEST_REWARD_HUB_UPGRADE:
+        RogueHub_SetUpgrade(rewardInfo->perType.hubUpgrade.upgradeId, TRUE);
+        AGB_ASSERT(mutePopups); // force custom popups for now, as this is already an edge case anyway
+        break;
     
     default:
         AGB_ASSERT(FALSE);
@@ -794,7 +804,7 @@ static void FailQuest(u16 questId)
         Rogue_PushPopup_QuestFail(questId);
 }
 
-static void ExecuteQuestTriggers(u16 questId, u16 triggerFlag)
+static void ExecuteQuestTriggers(u16 questId, u32 triggerFlag)
 {
     u16 i;
     struct RogueQuestTrigger const* trigger;
@@ -839,7 +849,7 @@ static void ExecuteQuestTriggers(u16 questId, u16 triggerFlag)
     }
 }
 
-void RogueQuest_OnTrigger(u16 triggerFlag)
+void RogueQuest_OnTrigger(u32 triggerFlag)
 {
     u16 i;
 
@@ -1124,6 +1134,13 @@ static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger
     return gSaveBlock1Ptr->location.mapNum == mapNum || gSaveBlock1Ptr->location.mapGroup == mapGroup;
 }
 
+static bool8 QuestCondition_CurrentlyInRoomType(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 roomtType = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
+    return gRogueAdvPath.currentRoomType == roomtType;
+}
+
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     u16 i;
@@ -1215,4 +1232,23 @@ static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQu
 {
     ASSERT_PARAM_COUNT(0);
     return !!FlagGet(FLAG_ROGUE_RANDOM_TRADE_WAS_FULL_PARTY);
+}
+
+static bool8 QuestCondition_LastItemWasAny(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        if(trigger->params[i] == gSpecialVar_ItemId)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(1);
+    return FlagGet(trigger->params[0]);
 }

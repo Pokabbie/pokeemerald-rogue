@@ -44,9 +44,15 @@
 #define QUEST_TRIGGER_ENTER_ENCOUNTER       (1 << 12) // on warp into encounter map
 #define QUEST_TRIGGER_EXIT_ENCOUNTER        (1 << 13) // on warp out of encounter map
 #define QUEST_TRIGGER_MON_FAINTED           (1 << 14)
+#define QUEST_TRIGGER_MON_LEGEND_CAUGHT     (1 << 15)
+#define QUEST_TRIGGER_MON_SHINY_CAUGHT      (1 << 16)
+#define QUEST_TRIGGER_MON_NON_SHINY_CAUGHT  (1 << 17)
+#define QUEST_TRIGGER_FIELD_ITEM_USED       (1 << 18) // expect to condition against gSpecialVar_ItemId
+#define QUEST_TRIGGER_BATTLE_ITEM_USED      (1 << 19) // expect to condition against gSpecialVar_ItemId
 
 #define QUEST_TRIGGER_ANY_BATTLE_START      (QUEST_TRIGGER_WILD_BATTLE_START | QUEST_TRIGGER_TRAINER_BATTLE_START)
 #define QUEST_TRIGGER_ANY_BATTLE_END        (QUEST_TRIGGER_WILD_BATTLE_END | QUEST_TRIGGER_TRAINER_BATTLE_END)
+#define QUEST_TRIGGER_ANY_MON_CAUGHT        (QUEST_TRIGGER_MON_SHINY_CAUGHT | QUEST_TRIGGER_MON_NON_SHINY_CAUGHT)
 
 // States
 //

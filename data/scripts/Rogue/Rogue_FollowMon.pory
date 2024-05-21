@@ -67,6 +67,12 @@ script Rogue_InteractWithDynamicWildFollowMon
 script Rogue_InteractWithWildDenMon
 {
     call(Rogue_InteractWithWildFollowMon)
+
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    if(var(VAR_RESULT) == B_OUTCOME_CAUGHT)
+    {
+        quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
+    }
 }
 
 script Rogue_InteractWithWildLegendMon
