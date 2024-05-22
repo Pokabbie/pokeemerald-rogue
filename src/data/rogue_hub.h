@@ -89,7 +89,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
         .areaName = _("Player Home"),
         .descText = gHubAreaDesc_Todo,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
-        .buildCost = 1,
+        .buildCost = 15,
         .connectionWarps = 
         {
             [HUB_AREA_CONN_NORTH] = { 0, 1 },
@@ -107,7 +107,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_FARMING_FIELD),
         .areaName = _("Berry Fields"),
         .descText = gHubAreaDesc_Todo,
-        .buildCost = 1,
+        .buildCost = 15,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {
@@ -143,7 +143,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_RIDE_TRAINING),
         .areaName = _("Park"),
         .descText = gHubAreaDesc_Todo,
-        .buildCost = 1,
+        .buildCost = 15,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {
@@ -162,7 +162,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_MARTS),
         .areaName = _("Poké Marts"),
         .descText = gHubAreaDesc_Todo,
-        .buildCost = 1,
+        .buildCost = 15,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {
@@ -181,7 +181,6 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_TOWN_SQUARE),
         .areaName = _("Town Square"),
         .descText = gHubAreaDesc_Todo,
-        .buildCost = 1,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {
@@ -223,7 +222,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_DAY_CARE),
         .areaName = _("Day Care"),
         .descText = gHubAreaDesc_Todo,
-        .buildCost = 1,
+        .buildCost = 15,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
         {

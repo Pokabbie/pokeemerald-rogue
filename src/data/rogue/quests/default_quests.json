@@ -201,7 +201,7 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },
@@ -219,7 +219,7 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },
@@ -243,8 +243,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" },
                     { 
                         "flag": "FLAG_ROGUE_UNLOCKED_MAP_TELEPORT",
                         "custom_popup":
@@ -279,7 +279,6 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
                     { "quest": "Regional Style" },
                     { "quest": "Type Master" },
                     { "quest": "One Last Quest…" },
@@ -311,8 +310,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" },
                     { "quest": "The Final Run." },
                     {
                         "flag": "FLAG_ROGUE_STUB",
@@ -346,8 +345,7 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { "money": "QUEST_REWARD_LARGEST_MONEY" },
                     {
                         "species": "SPECIES_MAREEP",
                         "custom_mon_id": "CUSTOM_MON_ABBIE_MAREEP"
@@ -379,8 +377,7 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { "money": "QUEST_REWARD_LARGEST_MONEY" },
                     {
                         "species": "SPECIES_MAREEP",
                         "custom_mon_id": "CUSTOM_MON_ABBIE_MAREEP"
@@ -437,7 +434,7 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
@@ -466,9 +463,9 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     { "shop_item": "ITEM_MASTER_BALL" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" }
                 ]
             },
 
@@ -491,8 +488,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" }
                 ]
             },
             {
@@ -514,8 +511,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
 
@@ -588,7 +585,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" }
                 ]
             },
 
@@ -846,8 +843,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
 
@@ -878,8 +875,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
             {
@@ -915,8 +912,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
 
@@ -939,8 +936,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
 
@@ -962,7 +959,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
             {
@@ -983,7 +981,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
             {
@@ -1004,7 +1003,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
             {
@@ -1025,7 +1025,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             }
         ]
