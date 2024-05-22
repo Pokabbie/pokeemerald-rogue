@@ -1505,7 +1505,7 @@ bool8 RogueHub_IsPlayerBaseLayout(u16 layoutId)
     return layoutId == LAYOUT_ROGUE_AREA_HOME || layoutId == LAYOUT_ROGUE_INTERIOR_HOME || layoutId == LAYOUT_ROGUE_INTERIOR_HOME_UPPER;
 }
 
-#define DECOR_TO_LOCAL_ID(x) (x + 1)  // +1 is for the reserved work bench
+#define DECOR_TO_LOCAL_ID(x) (x + 2)  // 1 is for the reserved work bench
 
 static u8 SelectSourceVariantLocalId(u16 decorVariant)
 {

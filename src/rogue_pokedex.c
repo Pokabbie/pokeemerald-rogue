@@ -1183,18 +1183,12 @@ static void DisplayTitleDexVariantText(void)
     if(RoguePokedex_IsVariantEditUnlocked())
     {
         u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
-        bool8 arrowActive = sPokedexMenu->titleScreenInEditMode;
 
         FillWindowPixelBuffer(WIN_TITLE_VARIANT_SELECT, PIXEL_FILL(0));
 
-        AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4 + (arrowActive ? 8 : 0), 0, 0, 0, color, TEXT_SKIP_DRAW, GetDexRegionName());
+        AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4, 0, 0, 0, color, TEXT_SKIP_DRAW, GetDexRegionName());
 
-        AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4 + (arrowActive ? 8 : 0), 24, 0, 0, color, TEXT_SKIP_DRAW, GetDexVariantName());
-
-        if(arrowActive)
-        {
-            AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4, 24 * sPokedexMenu->titleScreenCursorIdx, 0, 0, color, TEXT_SKIP_DRAW, gText_SelectorArrow);
-        }
+        AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4, 24, 0, 0, color, TEXT_SKIP_DRAW, GetDexVariantName());
 
         PutWindowTilemap(WIN_TITLE_VARIANT_SELECT);
         CopyWindowToVram(WIN_TITLE_VARIANT_SELECT, COPYWIN_FULL);

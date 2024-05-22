@@ -1112,10 +1112,14 @@ static bool8 LoadBagMenu_Graphics(void)
         }
         break;
     case 2:
+<<<<<<< HEAD
         if((RoguePlayer_GetTextVariantId() % 2) == 0)
             LoadCompressedPalette(gBagScreenMale_Pal, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
         else
             LoadCompressedPalette(gBagScreenFemale_Pal, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+=======
+        LoadCompressedPalette(gBagScreenMale_Pal, 0, 0x40);
+>>>>>>> remotes/origin/vanilla-dev
         gBagMenu->graphicsLoadState++;
         break;
     case 3:

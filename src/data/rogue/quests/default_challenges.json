@@ -197,7 +197,7 @@
             },
             {
                 "name": "Iron Kaizo",
-                "description": "Win a full Run with: Fresh Start enabled, Random Starter trade, Embargo Curse, 5x Capacity Curses & 99x Discount Curses.",
+                "description": "Win a full Run with: Fresh Start enabled, Random Starter, Embargo Curse, 5x Capacity Curses & 99x Discount Curses.",
                 "triggers":
                 [
                     {

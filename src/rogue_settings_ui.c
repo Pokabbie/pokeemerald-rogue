@@ -1,6 +1,7 @@
 #include "global.h"
 #include "option_menu.h"
 #include "main.h"
+#include "malloc.h"
 #include "menu.h"
 #include "event_data.h"
 #include "scanline_effect.h"
@@ -24,6 +25,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_settings.h"
+#include "rogue_quest.h"
 
 #define QUICK_JUMP_AMOUNT 4
 
@@ -395,7 +397,6 @@ enum
 enum
 {
     SUBMENUITEM_NONE,
-    SUBMENUITEM_NONE_POSTGAME,
     SUBMENUITEM_DIFFICULTY,
     SUBMENUITEM_ADVENTURE,
     SUBMENUITEM_TRAINERS,
@@ -418,6 +419,14 @@ enum
 #define XPOS_TITLES       8
 #define XPOS_CHOICES      111
 #define YPOS_SPACING      16
+
+struct RogueSettingsMenu
+{
+    u8 activeSubmenu;
+    u8 dynamicMenuOptions[MAX_MENUITEM_COUNT];
+};
+
+EWRAM_DATA static struct RogueSettingsMenu *sRogueSettingsMenu = NULL;
 
 // this file's functions
 static void Task_OptionMenuFadeIn(u8 taskId);
@@ -859,19 +868,6 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_DIFFICULTY_PRESET,
             MENUITEM_MENU_DIFFICULTY_SUBMENU,
             MENUITEM_MENU_ADVENTURE_SUBMENU,
-#ifdef ROGUE_DEBUG
-            MENUITEM_MENU_DEBUG_SUBMENU,
-#endif
-            MENUITEM_SAVE_AND_EXIT
-        }
-    },
-    [SUBMENUITEM_NONE_POSTGAME] = 
-    {
-        .menuOptions = 
-        {
-            MENUITEM_DIFFICULTY_PRESET,
-            MENUITEM_MENU_DIFFICULTY_SUBMENU,
-            MENUITEM_MENU_ADVENTURE_SUBMENU,
             MENUITEM_MENU_TRAINERS_SUBMENU,
             MENUITEM_MENU_GAME_MODES_SUBMENU,
 #ifdef ROGUE_DEBUG
@@ -1128,6 +1124,10 @@ void CB2_InitDifficultyConfigMenu(void)
     {
         u8 taskId = CreateTask(Task_OptionMenuFadeIn, 0);
 
+        AGB_ASSERT(sRogueSettingsMenu == NULL);
+        sRogueSettingsMenu = AllocZeroed(sizeof(struct RogueSettingsMenu));
+        sRogueSettingsMenu->activeSubmenu = SUBMENUITEM_COUNT;
+
         gTasks[taskId].data[TD_MENUSELECTION] = 0;
         gTasks[taskId].data[TD_MENUSELECTION_TOP] = 0;
         gTasks[taskId].data[TD_SUBMENU] = 0;
@@ -1154,15 +1154,44 @@ static void Task_OptionMenuFadeIn(u8 taskId)
         gTasks[taskId].func = Task_OptionMenuProcessInput;
 }
 
-static u8 GetMenuItemFor(u8 submenu, u8 index)
+static bool8 IsMenuOptionActive(u8 menuOption)
 {
-    if(submenu == SUBMENUITEM_NONE && FlagGet(FLAG_ROGUE_MET_POKABBIE))
+    switch (menuOption)
     {
-        // Override menu itmes
-        submenu = SUBMENUITEM_NONE_POSTGAME;
+    case MENUITEM_MENU_TRAINERS_SUBMENU:
+    case MENUITEM_MENU_GAME_MODES_SUBMENU:
+        return FlagGet(FLAG_ROGUE_MET_POKABBIE);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_ROGUE:
+        return RogueQuest_HasCollectedRewards(QUEST_ID_ONE_LAST_QUEST);
     }
 
-    return sOptionMenuEntries[submenu].menuOptions[index];
+    return TRUE;
+}
+
+static u8 GetMenuItemFor(u8 submenu, u8 index)
+{
+    if(sRogueSettingsMenu->activeSubmenu != submenu)
+    {
+        u8 i;
+        u8 write = 0;
+
+        memset(sRogueSettingsMenu->dynamicMenuOptions, 0, sizeof(sRogueSettingsMenu->dynamicMenuOptions));
+
+        for(i = 0; i < MAX_MENUITEM_COUNT; ++i)
+        {
+            u8 menuOption = sOptionMenuEntries[submenu].menuOptions[i];
+
+            if(IsMenuOptionActive(menuOption))
+            {
+                sRogueSettingsMenu->dynamicMenuOptions[write++] = menuOption;
+            }
+        }
+
+        sRogueSettingsMenu->activeSubmenu = submenu;
+    }
+
+    return sRogueSettingsMenu->dynamicMenuOptions[index];
 }
 
 static bool8 CanExitWithB(u8 submenuSelection)
@@ -1352,6 +1381,10 @@ static void Task_OptionMenuFadeOut(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
+        AGB_ASSERT(sRogueSettingsMenu != NULL);
+        Free(sRogueSettingsMenu);
+        sRogueSettingsMenu = NULL;
+
         DestroyTask(taskId);
         FreeAllWindowBuffers();
         SetMainCallback2(gMain.savedCallback);

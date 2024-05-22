@@ -68,6 +68,7 @@ static bool8 QuestCondition_RandomanWasActive(u16 questId, struct RogueQuestTrig
 static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_LastItemWasAny(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_IsConfigRangeEqualToAny(u16 questId, struct RogueQuestTrigger const* trigger);
 
 static bool8 IsQuestSurpressed(u16 questId);
 static bool8 CanSurpressedQuestActivate(u16 questId);
@@ -130,10 +131,19 @@ bool8 RogueQuest_GetConstFlag(u16 questId, u32 flag)
     return (entry->flags & flag) != 0;
 }
 
-u16 RogueQuest_GetOrderedQuest(u16 index)
+u16 RogueQuest_GetOrderedQuest(u16 index, bool8 alphabetical)
 {
-    AGB_ASSERT(index < ARRAY_COUNT(sQuestDisplayOrder));
-    return sQuestDisplayOrder[index];
+    if(alphabetical)
+    {
+        AGB_ASSERT(index < ARRAY_COUNT(sQuestAlphabeticalOrder));
+        return sQuestAlphabeticalOrder[index];
+    }
+    else
+    {
+
+        AGB_ASSERT(index < ARRAY_COUNT(sQuestDisplayOrder));
+        return sQuestDisplayOrder[index];
+    }
 }
 
 bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag)
@@ -1251,4 +1261,20 @@ static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const*
 {
     ASSERT_PARAM_COUNT(1);
     return FlagGet(trigger->params[0]);
+}
+
+static bool8 QuestCondition_IsConfigRangeEqualToAny(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+    u16 configRange = trigger->params[0];
+
+    AGB_ASSERT(trigger->paramCount > 1);
+
+    for(i = 1; i < trigger->paramCount; ++i)
+    {
+        if(Rogue_GetConfigRange(configRange) == trigger->params[i])
+            return TRUE;
+    }
+
+    return FALSE;
 }

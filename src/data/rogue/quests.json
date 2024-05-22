@@ -11,19 +11,19 @@
         },
         {
             "id": "default_quests",
-            "sort_alphabetically": true
+            "sort_alphabetically": false
         },
         {
             "id": "starter_challenges",
             "sort_alphabetically": false
         },
         {
-            "id": "region_challenges",
+            "id": "default_challenges",
             "sort_alphabetically": false
         },
         {
-            "id": "default_challenges",
-            "sort_alphabetically": true
+            "id": "region_challenges",
+            "sort_alphabetically": false
         },
         {
             "id": "type_challenges",
