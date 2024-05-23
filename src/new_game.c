@@ -85,7 +85,7 @@ void CopyTrainerId(u8 *dst, u8 *src)
 
 static void InitPlayerTrainerId(void)
 {
-    u32 trainerId = (u32)(Random() << 16) | (u32)Random();
+    u32 trainerId = ((u32)(Random() << 16) | (u32)Random()) & OTID_FLAG_STANDARD_MASK;
     SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
 }
 

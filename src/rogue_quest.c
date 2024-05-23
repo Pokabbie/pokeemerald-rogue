@@ -367,8 +367,7 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
             if(rewardInfo->perType.pokemon.customMonId != CUSTOM_MON_NONE)
             {
                 isCustom = TRUE;
-                RogueGift_CreateMon(rewardInfo->perType.pokemon.customMonId, mon, STARTER_MON_LEVEL, USE_RANDOM_IVS);
-                AGB_ASSERT(rewardInfo->perType.pokemon.species == GetMonData(mon, MON_DATA_SPECIES));
+                RogueGift_CreateMon(rewardInfo->perType.pokemon.customMonId, mon, rewardInfo->perType.pokemon.species, STARTER_MON_LEVEL, USE_RANDOM_IVS);
             }
             else
             {

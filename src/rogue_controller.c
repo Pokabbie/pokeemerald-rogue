@@ -501,7 +501,7 @@ bool8 Rogue_ApplyFinalQuestFinalBossTeamSwap(void)
             }
 
             // Create custom wobbuffet
-            RogueGift_CreateMon(CUSTOM_MON_RNDOMAN_WOBBUFFET, &gEnemyParty[i], MAX_LEVEL, fixedIVs);
+            RogueGift_CreateMon(CUSTOM_MON_WAHEY_WOBBUFFET, &gEnemyParty[i], SPECIES_WOBBUFFET, MAX_LEVEL, fixedIVs);
 
             // Apply different music ??
             //PlayBGM();
@@ -7096,7 +7096,7 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_GAMESHOW)
         {
-            RogueGift_CreateMon(CUSTOM_MON_RNDOMAN_ELECTRODE, mon, GetMonData(mon, MON_DATA_LEVEL), 31);
+            RogueGift_CreateMon(CUSTOM_MON_WAHEY_ELECTRODE, mon, SPECIES_ELECTRODE, GetMonData(mon, MON_DATA_LEVEL), 31);
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
         {
@@ -7227,7 +7227,7 @@ void Rogue_ModifyGiveMon(struct Pokemon* mon)
                 u32 temp;
 
                 ZeroMonData(mon);
-                RogueGift_CreateMon(CUSTOM_MON_CLOWN_STANTLER, mon, STARTER_MON_LEVEL, USE_RANDOM_IVS);
+                RogueGift_CreateMon(CUSTOM_MON_CLOWN_STANTLER, mon, SPECIES_STANTLER, STARTER_MON_LEVEL, USE_RANDOM_IVS);
 
                 temp = 0;
                 SetMonData(mon, MON_DATA_GENDER_FLAG, &temp);

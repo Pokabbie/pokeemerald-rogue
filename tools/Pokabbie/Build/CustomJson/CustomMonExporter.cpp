@@ -84,7 +84,7 @@ void ExportCustomMonData_C(std::ofstream& fileStream, std::string const& dataPat
 		if (!trainer.preprocessorCondition.empty())
 			fileStream << "#if " << trainer.preprocessorCondition << "\n";
 
-		fileStream << "#define TRAINER_ID_" << trainer.GetCodeId() << " " << trainer.trainerId << "\n";
+		fileStream << "#define TRAINER_ID_" << trainer.GetCodeId() << " (OTID_FLAG_CUSTOM_MON | " << trainer.trainerId << ")\n";
 
 		fileStream << "#ifdef ROGUE_EXPANSION\n";
 		fileStream << "static u8 const sTrainerName_" << trainer.GetCodeId() << "[PLAYER_NAME_LENGTH + 1] = _(\"" << trainer.name << "\");\n";

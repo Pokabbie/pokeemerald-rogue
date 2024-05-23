@@ -87,7 +87,7 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_FARFETCHD",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_FARFETCHD"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_FARFETCHD"
                     }
                 ]
             },
@@ -104,7 +104,7 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_SPINARAK",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_SPINARAK"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_SPINARAK"
                     }
                 ]
             },
@@ -121,7 +121,7 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_CASTFORM",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_CASTFORM"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_CASTFORM"
                     }
                 ]
             },
@@ -139,7 +139,7 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_CARNIVINE",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_CARNIVINE"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_CARNIVINE"
                     }
                 ]
             },
@@ -157,7 +157,7 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_KLINK",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_KLINK"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_KLINK"
                     }
                 ]
             },
@@ -175,7 +175,7 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_LITLEO",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_LITLEO"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_LITLEO"
                     }
                 ]
             },
@@ -193,7 +193,7 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_DRAMPA",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_DRAMPA"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_DRAMPA"
                     }
                 ]
             },
@@ -211,7 +211,7 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_CLOBBOPUS",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_CLOBBOPUS"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_CLOBBOPUS"
                     }
                 ]
             },
@@ -229,7 +229,7 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_CAPSAKID",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_CAPSAKID"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_CAPSAKID"
                     }
                 ]
             },

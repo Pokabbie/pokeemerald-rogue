@@ -3072,18 +3072,25 @@ u8 GetMonsStateToDoubles_2(void)
     return (aliveCount > 1) ? PLAYER_HAS_TWO_USABLE_MONS : PLAYER_HAS_ONE_USABLE_MON;
 }
 
-u16 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
+u8 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 {
+#ifdef ROGUE_EXPANSION
     int i;
-    u16 const* abilities = gSpeciesInfo[species].abilities;
+    u16 abilities[NUM_ABILITY_SLOTS] =
+    {
+        gSpeciesInfo[species].abilities[0],
+        gSpeciesInfo[species].abilities[1],
+        gSpeciesInfo[species].abilities[2]
+    };
 
     if(IsOtherTrainer(otId))
     {
-        u16 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
-        u16 const* customAbilities = RogueGift_GetCustomMonAbilites(customMonId);
-        if(customAbilities != NULL)
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
+        if(customMonId != 0 && RogueGift_GetCustomMonAbilityCount(customMonId) != 0)
         {
-            abilities = customAbilities;
+            abilities[0] = RogueGift_GetCustomMonAbility(customMonId, 0);
+            abilities[1] = RogueGift_GetCustomMonAbility(customMonId, 1);
+            abilities[2] = RogueGift_GetCustomMonAbility(customMonId, 2);
         }
     }
 
@@ -3106,6 +3113,30 @@ u16 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
     }
 
     return gLastUsedAbility;
+#else
+    u16 abilities[2] =
+    {
+        gBaseStats[species].abilities[0],
+        gBaseStats[species].abilities[1]
+    };
+
+    if(IsOtherTrainer(otId))
+    {
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
+        if(customMonId != 0 && RogueGift_GetCustomMonAbilityCount(customMonId) != 0)
+        {
+            abilities[0] = RogueGift_GetCustomMonAbility(customMonId, 0);
+            abilities[1] = RogueGift_GetCustomMonAbility(customMonId, 1);
+        }
+    }
+
+    if (abilityNum)
+        gLastUsedAbility = abilities[1];
+    else
+        gLastUsedAbility = abilities[0];
+
+    return gLastUsedAbility;
+#endif
 }
 
 u16 GetMonAbility(struct Pokemon *mon)
@@ -5149,7 +5180,7 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
-    u16 rewardMonId = RogueGift_GetCustomMonId(mon);
+    u32 rewardMonId = RogueGift_GetCustomMonId(mon);
     int i, j, k;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -5158,24 +5189,25 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     if(rewardMonId != 0)
     {
         // This is a custom mon so make sure it can relearn it's special moves
-        u16 const* customMoves = RogueGift_GetCustomMonMoves(rewardMonId);
         u16 moveCount = RogueGift_GetCustomMonMoveCount(rewardMonId);
 
-        if(customMoves != NULL)
+        if(moveCount != 0)
         {
             for(i = 0; i < moveCount; ++i)
             {
-                if(customMoves[i] == MOVE_NONE)
+                u16 customMove = RogueGift_GetCustomMonMove(rewardMonId, i);
+
+                if(customMove == MOVE_NONE)
                     break;
 
                 for(j = 0; j < MAX_MON_MOVES; ++j)
                 {
-                    if(customMoves[i] == learnedMoves[j])
+                    if(customMove == learnedMoves[j])
                         break;
                 }
 
                 if(j == MAX_MON_MOVES)
-                    moves[numMoves++] = customMoves[i];
+                    moves[numMoves++] = customMove;
             }
         }
     }
