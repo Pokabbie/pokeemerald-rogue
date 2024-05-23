@@ -647,6 +647,14 @@
 #define POKEDEX_MAX_GEN                 3
 #endif
 
+// Gift Mons
+//
+#define OTID_FLAG_CUSTOM_MON            (1 << 31)
+#define OTID_FLAG_DYNAMIC_CUSTOM_MON    (1 << 30)
+
+// Dynamic custom mon flag is only valid if the first is set
+#define OTID_FLAG_STANDARD_MASK         (~OTID_FLAG_CUSTOM_MON)
+
 // Misc.
 //
 // Number of bytes needed to cover all species

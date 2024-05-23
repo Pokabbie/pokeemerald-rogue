@@ -49,6 +49,7 @@
 
 #include "rogue_baked.h"
 #include "rogue_controller.h"
+#include "rogue_gifts.h"
 
 enum {
     PSS_PAGE_INFO,
@@ -3176,18 +3177,30 @@ static void Task_PrintInfoPage(u8 taskId)
     data[0]++;
 }
 
+static u8 const sText_UniqueMon[] = _("Unique {PKMN}");
+
 static void PrintMonOTName(void)
 {
     int x, windowId;
     if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE)
     {
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.OTID);
         windowId = AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER);
-        PrintTextOnWindow(windowId, gText_OTSlash, 0, 1, 0, 1);
-        x = GetStringWidth(FONT_NORMAL, gText_OTSlash, 0);
-        if (sMonSummaryScreen->summary.OTGender == 0)
-            PrintTextOnWindow(windowId, sMonSummaryScreen->summary.OTName, x, 1, 0, 5);
+
+        if(customMonId != 0 && RogueGift_DisplayCustomMonRarity(customMonId))
+        {
+            // Print "Unique Pokémon"
+            PrintTextOnWindow(windowId, sText_UniqueMon, 0, 1, 0, 1);
+        }
         else
-            PrintTextOnWindow(windowId, sMonSummaryScreen->summary.OTName, x, 1, 0, 6);
+        {
+            PrintTextOnWindow(windowId, gText_OTSlash, 0, 1, 0, 1);
+            x = GetStringWidth(FONT_NORMAL, gText_OTSlash, 0);
+            if (sMonSummaryScreen->summary.OTGender == 0)
+                PrintTextOnWindow(windowId, sMonSummaryScreen->summary.OTName, x, 1, 0, 5);
+            else
+                PrintTextOnWindow(windowId, sMonSummaryScreen->summary.OTName, x, 1, 0, 6);
+        }
     }
 }
 
@@ -3196,9 +3209,24 @@ static void PrintMonOTID(void)
     int xPos;
     if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE)
     {
-        ConvertIntToDecimalStringN(StringCopy(gStringVar1, gText_IDNumber2), (u16)sMonSummaryScreen->summary.OTID, STR_CONV_MODE_LEADING_ZEROS, 5);
-        xPos = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 56);
-        PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ID), gStringVar1, xPos, 1, 0, 1);
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.OTID);
+
+        if(customMonId != 0 && RogueGift_DisplayCustomMonRarity(customMonId))
+        {
+            StringCopy(gStringVar1, sMonSummaryScreen->summary.OTName);
+            xPos = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 56);
+            
+            if (sMonSummaryScreen->summary.OTGender == 0)
+                PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ID), gStringVar1, xPos, 1, 0, 5);
+            else
+                PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ID), gStringVar1, xPos, 1, 0, 6);
+        }
+        else
+        {
+            ConvertIntToDecimalStringN(StringCopy(gStringVar1, gText_IDNumber2), (u16)sMonSummaryScreen->summary.OTID, STR_CONV_MODE_LEADING_ZEROS, 5);
+            xPos = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 56);
+            PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ID), gStringVar1, xPos, 1, 0, 1);
+        }
     }
 }
 

@@ -4708,27 +4708,58 @@ u8 GetMonsStateToDoubles_2(void)
 u8 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 {
 #ifdef ROGUE_EXPANSION
-    u16 const* abilities =  gBaseStats[species].abilities;
+    int i;
+    u16 abilities[NUM_ABILITY_SLOTS] =
+    {
+        gSpeciesInfo[species].abilities[0],
+        gSpeciesInfo[species].abilities[1],
+        gSpeciesInfo[species].abilities[2]
+    };
+
+    if(IsOtherTrainer(otId))
+    {
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
+        if(customMonId != 0 && RogueGift_GetCustomMonAbilityCount(customMonId) != 0)
+        {
+            abilities[0] = RogueGift_GetCustomMonAbility(customMonId, 0);
+            abilities[1] = RogueGift_GetCustomMonAbility(customMonId, 1);
+            abilities[2] = RogueGift_GetCustomMonAbility(customMonId, 2);
+        }
+    }
+
+    if (abilityNum < NUM_ABILITY_SLOTS)
+        gLastUsedAbility = abilities[abilityNum];
+    else
+        gLastUsedAbility = ABILITY_NONE;
+
+    if (abilityNum >= NUM_NORMAL_ABILITY_SLOTS) // if abilityNum is empty hidden ability, look for other hidden abilities
+    {
+        for (i = NUM_NORMAL_ABILITY_SLOTS; i < NUM_ABILITY_SLOTS && gLastUsedAbility == ABILITY_NONE; i++)
+        {
+            gLastUsedAbility = abilities[i];
+        }
+    }
+
+    for (i = 0; i < NUM_ABILITY_SLOTS && gLastUsedAbility == ABILITY_NONE; i++) // look for any non-empty ability
+    {
+        gLastUsedAbility = abilities[i];
+    }
+
+    return gLastUsedAbility;
 #else
     u16 abilities[2] =
     {
         gBaseStats[species].abilities[0],
         gBaseStats[species].abilities[1]
     };
-#endif
 
     if(IsOtherTrainer(otId))
     {
-        u16 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
-        u16 const* customAbilities = RogueGift_GetCustomMonAbilites(customMonId);
-        if(customAbilities != NULL)
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
+        if(customMonId != 0 && RogueGift_GetCustomMonAbilityCount(customMonId) != 0)
         {
-#ifdef ROGUE_EXPANSION
-            abilities = customAbilities;
-#else
-            abilities[0] = customAbilities[0];
-            abilities[1] = customAbilities[1];
-#endif
+            abilities[0] = RogueGift_GetCustomMonAbility(customMonId, 0);
+            abilities[1] = RogueGift_GetCustomMonAbility(customMonId, 1);
         }
     }
 
@@ -4738,6 +4769,7 @@ u8 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
         gLastUsedAbility = abilities[0];
 
     return gLastUsedAbility;
+#endif
 }
 
 u8 GetMonAbility(struct Pokemon *mon)
@@ -6540,7 +6572,7 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
-    u16 rewardMonId = RogueGift_GetCustomMonId(mon);
+    u32 rewardMonId = RogueGift_GetCustomMonId(mon);
     int i, j, k;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -6549,24 +6581,25 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     if(rewardMonId != 0)
     {
         // This is a custom mon so make sure it can relearn it's special moves
-        u16 const* customMoves = RogueGift_GetCustomMonMoves(rewardMonId);
         u16 moveCount = RogueGift_GetCustomMonMoveCount(rewardMonId);
 
-        if(customMoves != NULL)
+        if(moveCount != 0)
         {
             for(i = 0; i < moveCount; ++i)
             {
-                if(customMoves[i] == MOVE_NONE)
+                u16 customMove = RogueGift_GetCustomMonMove(rewardMonId, i);
+
+                if(customMove == MOVE_NONE)
                     break;
 
                 for(j = 0; j < MAX_MON_MOVES; ++j)
                 {
-                    if(customMoves[i] == learnedMoves[j])
+                    if(customMove == learnedMoves[j])
                         break;
                 }
 
                 if(j == MAX_MON_MOVES)
-                    moves[numMoves++] = customMoves[i];
+                    moves[numMoves++] = customMove;
             }
         }
     }

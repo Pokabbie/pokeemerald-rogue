@@ -194,6 +194,7 @@ gSpecials::
 	def_special RogueDebug_CompleteAvaliableQuests
 	def_special RogueDebug_CollectAllQuests
 	def_special RogueDebug_StartBattle
+	def_special RogueDebug_GiveDynamicUniqueMon
 	def_special Rogue_QuestCollectNextReward
 	def_special Rogue_HasAnyNewQuests
 	def_special Rogue_HasPendingQuestRewards

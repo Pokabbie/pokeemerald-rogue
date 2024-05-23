@@ -1336,21 +1336,12 @@ static u16 GetMaxMoveScrollOffset()
     u8 i;
     u16 count = 0;
     u16 species = sPokedexMenu->viewBaseSpecies;
-    u16 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
+    u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
     
     // Custom moves
     if(customMonId)
     {
-        u16 const* customMoves = RogueGift_GetCustomMonMoves(customMonId);
-        u16 customMoveCount = RogueGift_GetCustomMonMoveCount(customMonId);
-
-        if(customMoves)
-        {
-            for (i = 0; i < customMoveCount; i++)
-            {
-                ++count;
-            }
-        }
+        count += RogueGift_GetCustomMonMoveCount(customMonId);
     }
 
     // Level up
@@ -1388,16 +1379,15 @@ static void DisplayMonMovesText()
     // Custom moves
     if(sPokedexMenu->viewOtId)
     {
-        u16 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
-        u16 const* customMoves = RogueGift_GetCustomMonMoves(customMonId);
-        u16 customMoveCount = RogueGift_GetCustomMonMoveCount(customMonId);
-        
-        if(customMoves)
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
+        if(customMonId != 0)
         {
+            u16 customMoveCount = RogueGift_GetCustomMonMoveCount(customMonId);
+            
             for (i = 0; i < customMoveCount; i++)
             {
                 // Is custom move
-                StringCopy(gStringVar1, gMoveNames[customMoves[i]]);
+                StringCopy(gStringVar1, gMoveNames[RogueGift_GetCustomMonMove(customMonId, i)]);
                 StringExpandPlaceholders(gStringVar3, gText_PokedexMovesCustom);
                 
                 if(listIndex >= sPokedexMenu->listScrollAmount)

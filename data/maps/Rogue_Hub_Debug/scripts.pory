@@ -203,6 +203,36 @@ script Rogue_Debug_DisplayWorldMap
     release
 }
 
+script Rogue_Debug_GiveDynamicUniqueMon
+{
+    lock
+    msgbox(format("Give Dynamic Unique Common?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_0x8004, 0)
+        special(RogueDebug_GiveDynamicUniqueMon)
+    }
+
+    msgbox(format("Give Dynamic Unique Rare?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_0x8004, 1)
+        special(RogueDebug_GiveDynamicUniqueMon)
+    }
+
+    msgbox(format("Give Dynamic Unique Epic?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_0x8004, 2)
+        special(RogueDebug_GiveDynamicUniqueMon)
+    }
+
+    release
+}
+
 script Rogue_Debug_GiveMegaRing
 {
     lock

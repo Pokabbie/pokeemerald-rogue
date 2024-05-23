@@ -32,6 +32,7 @@
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_followmon.h"
+#include "rogue_gifts.h"
 #include "rogue_hub.h"
 #include "rogue_safari.h"
 #include "rogue_script.h"
@@ -492,6 +493,17 @@ void RogueDebug_StartBattle(void)
 
     gSpecialVar_0x8004 = SPECIAL_BATTLE_AUTOMATION;
     DoSpecialTrainerBattle();
+#endif
+}
+
+void RogueDebug_GiveDynamicUniqueMon()
+{
+#ifdef ROGUE_DEBUG
+    struct Pokemon* mon = &gEnemyParty[0];
+    u32 customMonId = RogueGift_CreateDynamicMonId(gSpecialVar_0x8004, SPECIES_AIPOM);
+
+    RogueGift_CreateMon(customMonId, mon, SPECIES_AIPOM, STARTER_MON_LEVEL, 0);
+    GiveTradedMonToPlayer(mon);
 #endif
 }
 

@@ -3,9 +3,11 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/region_map_sections.h"
+#include "random.h"
 
 #include "rogue_baked.h"
 #include "rogue_gifts.h"
+#include "rogue_query.h"
 
 struct CustomTrainerData
 {
@@ -28,113 +30,413 @@ struct CustomMonData
     u16 isShiny : 1;
 };
 
+static u8 const sRarityToCustomTrainerIndex[] = 
+{
+    [UNIQUE_RARITY_COMMON]      = CUSTOM_TRAINER_COMMON,
+    [UNIQUE_RARITY_RARE]        = CUSTOM_TRAINER_RARE,
+    [UNIQUE_RARITY_EPIC]        = CUSTOM_TRAINER_EPIC,
+    [UNIQUE_RARITY_EXOTIC]      = CUSTOM_TRAINER_EXOTIC,
+};
+
+static u16 const sDynamicCustomMonAbilities[] = 
+{
+    ABILITY_DRIZZLE,
+    ABILITY_SPEED_BOOST,
+    ABILITY_BATTLE_ARMOR,
+    ABILITY_LIMBER,
+    ABILITY_SAND_VEIL,
+    ABILITY_STATIC,
+    ABILITY_VOLT_ABSORB,
+    ABILITY_WATER_ABSORB,
+    ABILITY_CLOUD_NINE,
+    ABILITY_COMPOUND_EYES,
+    ABILITY_COLOR_CHANGE,
+    ABILITY_FLASH_FIRE,
+    ABILITY_SHIELD_DUST,
+    ABILITY_SUCTION_CUPS,
+    ABILITY_INTIMIDATE,
+    ABILITY_SHADOW_TAG,
+    ABILITY_ROUGH_SKIN,
+    ABILITY_LEVITATE,
+    ABILITY_EFFECT_SPORE,
+    ABILITY_CLEAR_BODY,
+    ABILITY_SERENE_GRACE,
+    ABILITY_SWIFT_SWIM,
+    ABILITY_CHLOROPHYLL,
+    ABILITY_HUGE_POWER,
+    ABILITY_INNER_FOCUS,
+    ABILITY_SOUNDPROOF,
+    ABILITY_RAIN_DISH,
+    ABILITY_SAND_STREAM,
+    ABILITY_PRESSURE,
+    ABILITY_THICK_FAT,
+    ABILITY_FLAME_BODY,
+    ABILITY_RUN_AWAY,
+    ABILITY_PICKUP,
+    ABILITY_HUSTLE,
+    ABILITY_CUTE_CHARM,
+    ABILITY_SHED_SKIN,
+    ABILITY_GUTS,
+    ABILITY_MARVEL_SCALE,
+    ABILITY_ROCK_HEAD,
+    ABILITY_DROUGHT,
+    ABILITY_WHITE_SMOKE,
+    ABILITY_PURE_POWER,
+    ABILITY_SHELL_ARMOR,
+    ABILITY_AIR_LOCK,
+};
+
+static u16 const sDynamicCustomMonMoves[] = 
+{
+    MOVE_PAY_DAY,
+    MOVE_FIRE_PUNCH,
+    MOVE_ICE_PUNCH,
+    MOVE_THUNDER_PUNCH,
+    MOVE_SWORDS_DANCE,
+    MOVE_FLY,
+    MOVE_BODY_SLAM,
+    MOVE_SURF,
+    MOVE_ICE_BEAM,
+    MOVE_COUNTER,
+    MOVE_DRAGON_RAGE,
+    MOVE_EARTHQUAKE,
+    MOVE_PSYCHIC,
+    MOVE_METRONOME,
+    MOVE_MIRROR_MOVE,
+    MOVE_FIRE_BLAST,
+    MOVE_SOFT_BOILED,
+    MOVE_TRANSFORM,
+    MOVE_SUBSTITUTE,
+    MOVE_CURSE,
+    MOVE_AEROBLAST,
+    MOVE_MACH_PUNCH,
+    MOVE_BELLY_DRUM,
+    MOVE_ZAP_CANNON,
+    MOVE_OUTRAGE,
+    MOVE_GIGA_DRAIN,
+    MOVE_ROLLOUT,
+    MOVE_SACRED_FIRE,
+    MOVE_MEGAHORN,
+    MOVE_SYNTHESIS,
+    MOVE_CRUNCH,
+    MOVE_EXTREME_SPEED,
+    MOVE_ANCIENT_POWER,
+    MOVE_SHADOW_BALL,
+    MOVE_FUTURE_SIGHT,
+    MOVE_FAKE_OUT,
+    MOVE_UPROAR,
+    MOVE_WILL_O_WISP,
+    MOVE_WISH,
+    MOVE_ASSIST,
+    MOVE_SUPERPOWER,
+    MOVE_MAGIC_COAT,
+    MOVE_BRICK_BREAK,
+    MOVE_KNOCK_OFF,
+    MOVE_SKILL_SWAP,
+    MOVE_LUSTER_PURGE,
+    MOVE_HYPER_VOICE,
+    MOVE_BLAST_BURN,
+    MOVE_HYDRO_CANNON,
+    MOVE_OVERHEAT,
+    MOVE_SIGNAL_BEAM,
+    MOVE_AERIAL_ACE,
+    MOVE_ICICLE_SPEAR,
+    MOVE_FRENZY_PLANT,
+    MOVE_BULK_UP,
+    MOVE_VOLT_TACKLE,
+    MOVE_CALM_MIND,
+    MOVE_DRAGON_DANCE,
+    MOVE_PSYCHO_BOOST,
+    MOVE_ROCK_BLAST,
+    MOVE_ERUPTION,
+    MOVE_RECYCLE,
+    MOVE_FACADE,
+};
+
+STATIC_ASSERT(ARRAY_COUNT(sDynamicCustomMonAbilities) <= 63, SizeOfDynamicCustomMonAbilities);
+STATIC_ASSERT(ARRAY_COUNT(sDynamicCustomMonMoves) <= 63, SizeOfDynamicCustomMonMoves);
+
 #include "data/rogue/custom_mons.h"
 
-u16 RogueGift_GetCustomMonId(struct Pokemon* mon)
+struct CompressedDynamicData
+{
+    u32 move1:6; // 63 indices
+    u32 move2:6; // 63 indices
+    u32 move3:6; // 63 indices
+    u32 move4:6; // 63 indices
+    u32 ability:6; // 63 indices
+    u32 reserved:2; // reserved for bitmask OTID_FLAG_CUSTOM_MON etc.
+};
+
+struct DynamicMonData
+{
+    u16 moves[MAX_MON_MOVES];
+    u16 movesCount;
+    u16 ability;
+};
+
+STATIC_ASSERT(sizeof(struct CompressedDynamicData) == sizeof(u32), SizeOfDynamicCustomMonData);
+
+static void UncompressDynamicMonData(u32 customMonId, struct DynamicMonData* outData)
+{
+    struct CompressedDynamicData* compressedData = (struct CompressedDynamicData*)&customMonId;
+
+    outData->ability = ((compressedData->ability - 1) < ARRAY_COUNT(sDynamicCustomMonAbilities)) ? sDynamicCustomMonAbilities[compressedData->ability - 1] : ABILITY_NONE;
+    outData->movesCount = 0;
+
+    if(compressedData->move1 != 0 && (compressedData->move1 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
+        outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move1 - 1];
+
+    if(compressedData->move2 != 0 && (compressedData->move2 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
+        outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move2 - 1];
+
+    if(compressedData->move3 != 0 && (compressedData->move3 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
+        outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move3 - 1];
+
+    if(compressedData->move4 != 0 && (compressedData->move4 - 1) < ARRAY_COUNT(sDynamicCustomMonMoves))
+        outData->moves[outData->movesCount++] = sDynamicCustomMonMoves[compressedData->move4 - 1];
+};
+
+static u32 CompressedDynamicDataToCustomMonId(struct CompressedDynamicData* inData)
+{
+    u32 id;
+    id = *((u32*)inData);
+    return id;
+}
+
+u32 RogueGift_GetCustomMonId(struct Pokemon* mon)
 {
     return RogueGift_GetCustomMonIdBySpecies(GetMonData(mon, MON_DATA_SPECIES), GetMonData(mon, MON_DATA_OT_ID));
 }
 
-u16 RogueGift_GetCustomMonIdBySpecies(u16 species, u32 otId)
+u32 RogueGift_GetCustomMonIdBySpecies(u16 species, u32 otId)
 {
-    u16 i;
+    u32 i;
 
-    species = Rogue_GetEggSpecies(species);
-
-    for(i = CUSTOM_MON_NONE + 1; i < CUSTOM_MON_COUNT; ++i)
+    if((otId & OTID_FLAG_CUSTOM_MON) && (otId & OTID_FLAG_DYNAMIC_CUSTOM_MON))
     {
-        struct CustomMonData const* monData = &sCustomPokemon[i];
-        
-        if(monData->otId == otId && Rogue_GetEggSpecies(monData->species) == species)
-            return i;
+        // otId is the custom mon id, as it encodes the data into it
+        return otId;
+    }
+    if(otId & OTID_FLAG_CUSTOM_MON)
+    {
+        species = Rogue_GetEggSpecies(species);
+
+        for(i = CUSTOM_MON_NONE + 1; i < CUSTOM_MON_COUNT; ++i)
+        {
+            struct CustomMonData const* monData = &sCustomPokemon[i];
+            
+            if(monData->otId == otId && Rogue_GetEggSpecies(monData->species) == species)
+                return i;
+        }
     }
 
     return CUSTOM_MON_NONE;
 }
 
-u16 const* RogueGift_GetCustomMonMoves(u16 id)
+u16 RogueGift_GetCustomMonMove(u32 id, u8 i)
 {
-    AGB_ASSERT(id < CUSTOM_MON_COUNT);
-
-    if(id != CUSTOM_MON_NONE)
+    if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
     {
-        struct CustomMonData const* monData = &sCustomPokemon[id];
-        return monData->movesCount != 0 ? monData->moves : NULL;
+        struct DynamicMonData dynamicData;
+        UncompressDynamicMonData(id, &dynamicData);
+        return i < dynamicData.movesCount ? dynamicData.moves[i] : MOVE_NONE;
+    }
+    else
+    {
+        AGB_ASSERT(id < CUSTOM_MON_COUNT);
+
+        if(id != CUSTOM_MON_NONE)
+        {
+            struct CustomMonData const* monData = &sCustomPokemon[id];
+            return i < monData->movesCount ? monData->moves[i] : MOVE_NONE;
+        }
     }
 
-    return NULL;
+    return MOVE_NONE;
 }
 
-u16 RogueGift_GetCustomMonMoveCount(u16 id)
+u16 RogueGift_GetCustomMonMoveCount(u32 id)
 {
-    AGB_ASSERT(id < CUSTOM_MON_COUNT);
-
-    if(id != CUSTOM_MON_NONE)
+    if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
     {
-        struct CustomMonData const* monData = &sCustomPokemon[id];
-        return monData->movesCount;
+        struct DynamicMonData dynamicData;
+        UncompressDynamicMonData(id, &dynamicData);
+        return dynamicData.movesCount;
+    }
+    else
+    {
+        AGB_ASSERT(id < CUSTOM_MON_COUNT);
+
+        if(id != CUSTOM_MON_NONE)
+        {
+            struct CustomMonData const* monData = &sCustomPokemon[id];
+            return monData->movesCount;
+        }
     }
 
     return 0;
 }
 
-u16 const* RogueGift_GetCustomMonAbilites(u16 id)
+u16 RogueGift_GetCustomMonAbility(u32 id, u8 i)
 {
-    AGB_ASSERT(id < CUSTOM_MON_COUNT);
-
-    if(id != CUSTOM_MON_NONE)
+    if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
     {
-        struct CustomMonData const* monData = &sCustomPokemon[id];
-        return monData->abilities;
+        struct DynamicMonData dynamicData;
+        UncompressDynamicMonData(id, &dynamicData);
+        return i == 0 ? dynamicData.ability : ABILITY_NONE;
+    }
+    else
+    {
+        AGB_ASSERT(id < CUSTOM_MON_COUNT);
+
+        if(id != CUSTOM_MON_NONE)
+        {
+            struct CustomMonData const* monData = &sCustomPokemon[id];
+            return (monData->abilities != NULL && i < NUM_ABILITY_SLOTS) ? monData->abilities[i] : ABILITY_NONE;
+        }
     }
 
-    return NULL;
+    return ABILITY_NONE;
 }
 
-void RogueGift_CreateMon(u16 customMonId, struct Pokemon* mon, u8 level, u8 fixedIV)
+u16 RogueGift_GetCustomMonAbilityCount(u32 id)
 {
-    struct CustomMonData const* monData = &sCustomPokemon[customMonId]; 
-    struct CustomTrainerData const* trainerData = &sCustomTrainers[monData->customTrainerId];
+    if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
+    {
+        struct DynamicMonData dynamicData;
+        UncompressDynamicMonData(id, &dynamicData);
+        return dynamicData.ability != ABILITY_NONE ? NUM_ABILITY_SLOTS : 0;
+    }
+    else
+    {
+        struct CustomMonData const* monData = &sCustomPokemon[id];
+        AGB_ASSERT(id < CUSTOM_MON_COUNT);
+
+        return (monData->abilities != NULL) ? NUM_ABILITY_SLOTS : 0;
+    }
+}
+
+bool8 RogueGift_DisplayCustomMonRarity(u32 id)
+{
+    if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
+        return TRUE;
+    else
+    {
+        struct CustomMonData const* monData = &sCustomPokemon[id]; 
+        if(monData->customTrainerId == CUSTOM_TRAINER_EXOTIC)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+u8 RogueGift_GetCustomMonRarity(u32 id)
+{
+    if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
+    {
+        u16 moveCount = RogueGift_GetCustomMonMoveCount(id);
+        u16 abilityCount = RogueGift_GetCustomMonAbilityCount(id);
+
+        if(abilityCount != 0)
+            return UNIQUE_RARITY_EPIC;
+
+        if(moveCount > 2)
+            return UNIQUE_RARITY_RARE;
+
+        return UNIQUE_RARITY_COMMON;
+    }
+    else
+    {
+        struct CustomMonData const* monData = &sCustomPokemon[id]; 
+        AGB_ASSERT(id < CUSTOM_MON_COUNT);
+
+        switch (monData->customTrainerId)
+        {
+        case CUSTOM_TRAINER_COMMON:
+            return UNIQUE_RARITY_COMMON;
+        
+        case CUSTOM_TRAINER_RARE:
+            return UNIQUE_RARITY_RARE;
+        
+        case CUSTOM_TRAINER_EPIC:
+            return UNIQUE_RARITY_EPIC;
+        
+        case CUSTOM_TRAINER_EXOTIC:
+            return UNIQUE_RARITY_EXOTIC;
+        }
+    }
+
+    // Should never get here
+    AGB_ASSERT(FALSE);
+    return UNIQUE_RARITY_COMMON;
+}
+
+void RogueGift_CreateMon(u32 customMonId, struct Pokemon* mon, u16 species, u8 level, u8 fixedIV)
+{
+    struct CustomTrainerData const* trainerData = NULL;
     u32 temp = 0;
+    u16 customMoveCount = RogueGift_GetCustomMonMoveCount(customMonId);
+    u16 customAbilityCount = RogueGift_GetCustomMonAbilityCount(customMonId);
 
-    AGB_ASSERT(customMonId < CUSTOM_MON_COUNT);
+    if(customMonId & OTID_FLAG_DYNAMIC_CUSTOM_MON)
+    {
+        u8 customTrainerId = sRarityToCustomTrainerIndex[RogueGift_GetCustomMonRarity(customMonId)];
+        trainerData = &sCustomTrainers[customTrainerId];
 
-    ZeroMonData(mon);
-    CreateMon(mon, monData->species, level, fixedIV, 0, 0, OT_ID_PRESET, trainerData->trainerId);
+        ZeroMonData(mon);
+        CreateMon(mon, species, level, fixedIV, 0, 0, OT_ID_PRESET, customMonId);
+
+        // Assign pokeball
+        temp = ITEM_ROGUE_BALL;
+        SetMonData(mon, MON_DATA_POKEBALL, &temp);
+    }
+    else
+    {
+        struct CustomMonData const* monData = &sCustomPokemon[customMonId]; 
+        trainerData = &sCustomTrainers[monData->customTrainerId];
+
+        AGB_ASSERT(customMonId < CUSTOM_MON_COUNT);
+        AGB_ASSERT(species == monData->species);
+
+        ZeroMonData(mon);
+        CreateMon(mon, monData->species, level, fixedIV, 0, 0, OT_ID_PRESET, trainerData->trainerId);
+
+        // Update nickname
+        if(monData->nickname != NULL)
+        {
+            SetMonData(mon, MON_DATA_NICKNAME, monData->nickname);
+        }
+
+        // Assign pokeball
+        temp = monData->pokeball;
+        SetMonData(mon, MON_DATA_POKEBALL, &temp);
+
+        // Set shiny state
+        temp = monData->isShiny ? 1 : 0;
+        SetMonData(mon, MON_DATA_IS_SHINY, &temp);
+    }
 
     // Met location
     temp = METLOC_FATEFUL_ENCOUNTER;
     SetMonData(mon, MON_DATA_MET_LOCATION, &temp);
 
-    // Update nickname
-    if(monData->nickname != NULL)
-    {
-        SetMonData(mon, MON_DATA_NICKNAME, monData->nickname);
-    }
-
     // Update OT name
     SetMonData(mon, MON_DATA_OT_NAME, trainerData->name);
 
+    // Update OT colour
     temp = trainerData->trainerColour;
     SetMonData(mon, MON_DATA_OT_GENDER, &temp);
 
-    // Assign pokeball
-    temp = monData->pokeball;
-    SetMonData(mon, MON_DATA_POKEBALL, &temp);
-
-    // Set shiny state
-    temp = monData->isShiny ? 1 : 0;
-    SetMonData(mon, MON_DATA_IS_SHINY, &temp);
-
     // Default moveset is first 4 moves from custom moveset
-    if(monData->movesCount != 0)
+    if(customMoveCount)
     {
         u8 m, j;
         u16 moves[MAX_MON_MOVES];
 
-        for(m = 0; m < MAX_MON_MOVES && m < monData->movesCount; ++m)
+        for(m = 0; m < MAX_MON_MOVES && m < customMoveCount; ++m)
         {
-            moves[m] = monData->moves[m];
+            moves[m] = RogueGift_GetCustomMonMove(customMonId, m);
         }
 
         // Fill the rest of the moves with default moves
@@ -153,10 +455,141 @@ void RogueGift_CreateMon(u16 customMonId, struct Pokemon* mon, u8 level, u8 fixe
     }
 
     // Default custom ability
-    if(monData->abilities != NULL)
+    if(customAbilityCount)
     {
-        // If we have a custom ability, always assign abilityNum 0
-        temp = 0;
+        temp = (RogueGift_GetCustomMonAbility(customMonId, 1) != ABILITY_NONE) ? (Random() % 2) : 0;
         SetMonData(mon, MON_DATA_ABILITY_NUM, &temp);
     }
+}
+
+static u32 SelectNextMoveIndex(struct CompressedDynamicData* compressedData, u16 species)
+{
+    if(RogueMiscQuery_AnyActiveElements())
+    {
+        u32 i;
+        u16 moveId = RogueMiscQuery_SelectRandomElement(Random());
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, moveId);
+
+        for (i = 0; i < ARRAY_COUNT(sDynamicCustomMonMoves); i++)
+        {
+            if(sDynamicCustomMonMoves[i] == moveId)
+                return 1 + i;
+        }
+
+        // Should never get here
+        AGB_ASSERT(FALSE);
+        return 1;
+    }
+
+    // Can get here if we've ran out of move options, as everything else is already known
+    return 0;
+}
+
+static u32 SelectNextAbilityIndex(struct CompressedDynamicData* compressedData, u16 species)
+{
+    u8 i;
+
+    // Give the mon a new ability for it
+    while(TRUE)
+    {
+        u32 idx = (Random() % ARRAY_COUNT(sDynamicCustomMonAbilities));
+
+        for(i = 0; i < NUM_ABILITY_SLOTS; ++i)
+        {
+            if(GetAbilityBySpecies(species, i, 0) == sDynamicCustomMonAbilities[idx])
+            {
+                idx = 10000;
+                break;
+            }
+        }
+
+        if(idx != 10000)
+            return 1 + idx;
+    }
+
+    return 0;
+}
+
+u32 RogueGift_CreateDynamicMonId(u8 rarity, u16 species)
+{
+    u16 i;
+    u32 temp;
+    struct CompressedDynamicData compressedData = {0};
+    struct CustomTrainerData const* trainerData = &sCustomTrainers[sRarityToCustomTrainerIndex[rarity]];
+
+    // Start query with moves which are valid
+    RogueCustomQuery_Begin();
+
+    for (i = 0; i < ARRAY_COUNT(sDynamicCustomMonMoves); i++)
+    {
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, sDynamicCustomMonMoves[i]);
+    }
+
+    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+    {
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRoguePokemonProfiles[species].levelUpMoves[i].move);
+    }
+
+    for (i = 0; gRoguePokemonProfiles[species].tutorMoves[i] != MOVE_NONE; i++)
+    {
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRoguePokemonProfiles[species].tutorMoves[i]);
+    }
+
+    switch (rarity)
+    {
+    case UNIQUE_RARITY_COMMON:
+        compressedData.move1 = SelectNextMoveIndex(&compressedData, species);
+        compressedData.move2 = SelectNextMoveIndex(&compressedData, species);
+        break;
+
+    case UNIQUE_RARITY_RARE:
+        compressedData.move1 = SelectNextMoveIndex(&compressedData, species);
+        compressedData.move2 = SelectNextMoveIndex(&compressedData, species);
+        compressedData.move3 = SelectNextMoveIndex(&compressedData, species);
+        compressedData.move4 = SelectNextMoveIndex(&compressedData, species);
+        break;
+
+    case UNIQUE_RARITY_EPIC:
+        compressedData.move1 = SelectNextMoveIndex(&compressedData, species);
+        compressedData.move2 = SelectNextMoveIndex(&compressedData, species);
+        compressedData.move3 = SelectNextMoveIndex(&compressedData, species);
+        compressedData.move4 = SelectNextMoveIndex(&compressedData, species);
+        compressedData.ability = SelectNextAbilityIndex(&compressedData, species);
+        break;
+
+    default:
+        AGB_ASSERT(FALSE);
+        break;
+    }
+
+    RogueCustomQuery_End();
+
+    temp = CompressedDynamicDataToCustomMonId(&compressedData);
+    temp |= (OTID_FLAG_CUSTOM_MON | OTID_FLAG_DYNAMIC_CUSTOM_MON);
+
+#ifdef ROGUE_DEBUG
+    // Ensure data (un)compresses correctly
+    {
+        struct DynamicMonData dynamicData = {0};
+        u16 ability = (compressedData.ability == 0) ? ABILITY_NONE : sDynamicCustomMonAbilities[compressedData.ability - 1];
+        u16 moves[MAX_MON_MOVES] = 
+        {
+            (compressedData.move1 == 0) ? MOVE_NONE : sDynamicCustomMonMoves[compressedData.move1 - 1],
+            (compressedData.move2 == 0) ? MOVE_NONE : sDynamicCustomMonMoves[compressedData.move2 - 1],
+            (compressedData.move3 == 0) ? MOVE_NONE : sDynamicCustomMonMoves[compressedData.move3 - 1],
+            (compressedData.move4 == 0) ? MOVE_NONE : sDynamicCustomMonMoves[compressedData.move4 - 1],
+        };
+
+        UncompressDynamicMonData(temp, &dynamicData);
+
+        AGB_ASSERT(moves[0] == dynamicData.moves[0]);
+        AGB_ASSERT(moves[1] == dynamicData.moves[1]);
+        AGB_ASSERT(moves[2] == dynamicData.moves[2]);
+        AGB_ASSERT(moves[3] == dynamicData.moves[3]);
+
+        AGB_ASSERT(ability == dynamicData.ability);
+    }
+
+#endif
+    return temp;
 }
