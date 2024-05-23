@@ -3072,7 +3072,7 @@ u8 GetMonsStateToDoubles_2(void)
     return (aliveCount > 1) ? PLAYER_HAS_TWO_USABLE_MONS : PLAYER_HAS_ONE_USABLE_MON;
 }
 
-u8 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
+u16 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 {
 #ifdef ROGUE_EXPANSION
     int i;
