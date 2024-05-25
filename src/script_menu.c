@@ -1,5 +1,7 @@
 #include "global.h"
 #include "main.h"
+#include "battle_main.h"
+#include "data.h"
 #include "event_data.h"
 #include "field_effect.h"
 #include "field_specials.h"
@@ -22,7 +24,9 @@
 #include "constants/songs.h"
 
 #include "rogue_controller.h"
+#include "rogue_gifts.h"
 #include "rogue_hub.h"
+#include "rogue_pokedex.h"
 
 #include "data/script_menu.h"
 
@@ -941,4 +945,119 @@ static void Task_ScrollingMultichoiceInput(u8 taskId)
             sDynamicScrollingMultichoiceList = NULL;
         }
     }
+}
+
+static u8 CreateWindowFromRectWithBaseBlockOffset(u8 x, u8 y, u8 width, u8 height, u16 baseBlockOffset)
+{
+    struct WindowTemplate template = CreateWindowTemplate(0, x + 1, y + 1, width, height, 15, 100 + baseBlockOffset);
+    u8 windowId = AddWindow(&template);
+    PutWindowTilemap(windowId);
+    return windowId;
+}
+
+static void Task_DisplayTextInWindowInput(u8 taskId)
+{
+    if(JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
+    {
+        u8 windowId = gTasks[taskId].data[0];
+
+        ClearStdWindowAndFrame(windowId, TRUE);
+        RemoveWindow(windowId);
+
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+    }
+}
+
+void ScriptMenu_DisplayTextInWindow(const u8* str, u8 x, u8 y, u8 width, u8 height)
+{
+    u8 taskId;
+    u8 windowId = CreateWindowFromRectWithBaseBlockOffset(x, y, width, height, 8 * 8);
+    SetStandardWindowBorderStyle(windowId, 0);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, str, 2, 0, TEXT_SKIP_DRAW, NULL);
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+
+    taskId = CreateTask(Task_DisplayTextInWindowInput, 0);
+    gTasks[taskId].data[0] = windowId;
+}
+
+static u8 const sText_UniqueMonTitle[] = _("{STR_VAR_1} {FONT_SMALL_NARROW}{COLOR BLUE}({STR_VAR_2})");
+static u8 const sText_UniqueMonTitleRare[] = _("{STR_VAR_1} {FONT_SMALL_NARROW}{COLOR RED}({STR_VAR_2})");
+static u8 const sText_UniqueMonAbility[] = _("A/ {COLOR GREEN}{STR_VAR_1}");
+static u8 const sText_UniqueMonMove[] = _(" -{STR_VAR_1}");
+
+static void PrintUniqueMonInfoToWindow(u8 windowId)
+{
+    u8 i, line;
+    u16 species = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->species;
+    u32 customMonId = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->customMonId;
+    u8 rarity = RogueGift_GetCustomMonRarity(customMonId);
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
+    SetStandardWindowBorderStyle(windowId, 0);
+
+    // Title
+    StringCopy(gStringVar1, RoguePokedex_GetSpeciesName(species));
+    StringCopy(gStringVar2, RogueGift_GetRarityName(rarity));
+    StringExpandPlaceholders(gStringVar4, rarity >= UNIQUE_RARITY_EPIC ? sText_UniqueMonTitleRare : sText_UniqueMonTitle);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar4, 2, 0, TEXT_SKIP_DRAW, NULL);
+
+    line = 0;
+
+    // Ability
+    if(RogueGift_GetCustomMonAbilityCount(customMonId) != 0)
+    {
+        u16 ability = RogueGift_GetCustomMonAbility(customMonId, 0);
+
+        StringCopy(gStringVar1, gAbilityNames[ability]);
+        StringExpandPlaceholders(gStringVar4, sText_UniqueMonAbility);
+        AddTextPrinterParameterized(windowId, FONT_SMALL, gStringVar4, 2, 13 + 13 * (line++), TEXT_SKIP_DRAW, NULL);
+    }
+
+    // Moves
+    for(i = 0; i < RogueGift_GetCustomMonMoveCount(customMonId); ++i)
+    {
+        u16 moveId = RogueGift_GetCustomMonMove(customMonId, i);
+        
+        StringCopy(gStringVar1, gMoveNames[moveId]);
+        StringExpandPlaceholders(gStringVar4, sText_UniqueMonMove);
+        AddTextPrinterParameterized(windowId, FONT_SMALL, gStringVar4, 2, 13 + 13 * (line++), TEXT_SKIP_DRAW, NULL);
+    }
+
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+}
+
+static void Task_DisplayUniqueMonInfoWindowInput(u8 taskId)
+{
+    u8 windowId = gTasks[taskId].data[0];
+
+    if(JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
+    {
+        ClearStdWindowAndFrame(windowId, TRUE);
+        RemoveWindow(windowId);
+
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+    }
+    //else
+    //{
+    //    u8 countDown = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->countDown;
+    //    if(gTasks[taskId].data[1] != countDown)
+    //    {
+    //        gTasks[taskId].data[1] = countDown;
+    //        PrintUniqueMonInfoToWindow(windowId);
+    //    }
+    //}
+}
+
+void ScriptMenu_DisplayUniqueMonInfo()
+{
+    u8 taskId;
+    u8 windowId = CreateWindowFromRectWithBaseBlockOffset(12, 1, 14, 10, 8 * 8);
+
+    PrintUniqueMonInfoToWindow(windowId);
+
+    taskId = CreateTask(Task_DisplayUniqueMonInfoWindowInput, 0);
+    gTasks[taskId].data[0] = windowId;
+    gTasks[taskId].data[1] = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->countDown;
 }

@@ -1007,6 +1007,10 @@ bool8 Query_IsSpeciesEnabled(u16 species)
             // If we've gotten here then we're not interested in this form
             return FALSE;
         }
+#else
+        if(species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z)
+            return FALSE;
+
 #endif
 
         return Query_IsSpeciesEnabledInternal(species);

@@ -56,6 +56,7 @@
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
 #include "rogue_charms.h"
+#include "rogue_gifts.h"
 #include "rogue_popup.h"
 #include "rogue_script.h"
 #include "rogue_settings.h"
@@ -10235,7 +10236,19 @@ static void Cmd_rogue_caughtmon(void)
 
 static void Cmd_givecaughtmon(void)
 {
-    if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]) != MON_GIVEN_TO_PARTY)
+    u32 customMonId = RogueGift_GetCustomMonId(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+    u8 giveSlot;
+
+    if(customMonId == 0)
+    {
+        giveSlot = GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+    }
+    else
+    {
+        giveSlot = GiveTradedMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+    }
+
+    if (giveSlot != MON_GIVEN_TO_PARTY)
     {
         if (!ShouldShowBoxWasFullMessage())
         {

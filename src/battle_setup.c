@@ -334,6 +334,9 @@ static void DoStandardWildBattle(void)
         gBattleTypeFlags |= BATTLE_TYPE_PYRAMID;
     }
 
+    if(Rogue_IsBattleAlphaMon(species))
+        gBattleTypeFlags |= BATTLE_TYPE_ALPHA_MON;
+
     if(Rogue_IsBattleRoamerMon(species))
         gBattleTypeFlags |= BATTLE_TYPE_ROAMER;
 

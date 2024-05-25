@@ -135,6 +135,7 @@ struct RogueLocalData
     RAND_TYPE rngToRestore;
     RAND_TYPE rng2ToRestore;
     u32 totalMoneySpentOnMap;
+    u32 wildBattleCustomMonId;
     u16 cachedObjIds[OBJ_EVENT_ID_MULTIPLAYER_COUNT];
     u16 wildEncounterHistoryBuffer[3];
     u16 recentObjectEventLoadedLayout;
@@ -410,8 +411,8 @@ bool8 Rogue_UseKeyBattleAnims(void)
         if((gBattleTypeFlags & BATTLE_TYPE_LEGENDARY) != 0)
             return TRUE;
 
-        // If we've encountered a wild shiny mon, we're going to treat it as an important battle
-        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) == 0 && IsMonShiny(&gEnemyParty[0]))
+        // If we've encountered a wild shiny or unique mon, we're going to treat it as an important battle
+        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) == 0 && (IsMonShiny(&gEnemyParty[0]) || gRogueLocal.wildBattleCustomMonId != 0))
             return TRUE;
     }
     else
@@ -985,6 +986,35 @@ void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier)
     }
 }
 
+static void ModifyExistingMonToCustomMon(u32 customMonId, struct Pokemon* mon)
+{
+    u32 species = GetMonData(mon, MON_DATA_SPECIES);
+    u32 level = GetMonData(mon, MON_DATA_LEVEL);
+    u32 hpIV = GetMonData(mon, MON_DATA_HP_IV);
+    u32 atkIV = GetMonData(mon, MON_DATA_ATK_IV);
+    u32 defIV = GetMonData(mon, MON_DATA_DEF_IV);
+    u32 speedIV = GetMonData(mon, MON_DATA_SPEED_IV);
+    u32 spAtkIV = GetMonData(mon, MON_DATA_SPATK_IV);
+    u32 spDefIV = GetMonData(mon, MON_DATA_SPDEF_IV);
+    u32 isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
+    u32 isGenderFlag = GetMonData(mon, MON_DATA_GENDER_FLAG);
+    u32 metLocation = GetMonData(mon, MON_DATA_MET_LOCATION);
+    u32 metLevel = GetMonData(mon, MON_DATA_MET_LEVEL);
+
+    RogueGift_CreateMon(customMonId, mon, species, level, 0);
+    
+    SetMonData(mon, MON_DATA_HP_IV, &hpIV);
+    SetMonData(mon, MON_DATA_ATK_IV, &atkIV);
+    SetMonData(mon, MON_DATA_DEF_IV, &defIV);
+    SetMonData(mon, MON_DATA_SPEED_IV, &speedIV);
+    SetMonData(mon, MON_DATA_SPATK_IV, &spAtkIV);
+    SetMonData(mon, MON_DATA_SPDEF_IV, &spDefIV);
+    SetMonData(mon, MON_DATA_IS_SHINY, &isShiny);
+    SetMonData(mon, MON_DATA_GENDER_FLAG, &isGenderFlag);
+    SetMonData(mon, MON_DATA_MET_LOCATION, &metLocation);
+    SetMonData(mon, MON_DATA_MET_LEVEL, &metLevel);
+}
+
 void Rogue_ModifyCaughtMon(struct Pokemon *mon)
 {
     if(Rogue_IsRunActive())
@@ -992,6 +1022,13 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
         u16 hp = GetMonData(mon, MON_DATA_HP);
         u16 maxHp = GetMonData(mon, MON_DATA_MAX_HP);
         u32 statusAilment = 0; // STATUS1_NONE
+
+        if(gRogueLocal.wildBattleCustomMonId != 0)
+        {
+            ModifyExistingMonToCustomMon(gRogueLocal.wildBattleCustomMonId, mon);
+            RogueGift_RemoveDynamicCustomMon(gRogueLocal.wildBattleCustomMonId);
+            gRogueLocal.wildBattleCustomMonId = 0;
+        }
 
         hp = max(maxHp / 2, hp);
 
@@ -2943,6 +2980,9 @@ void Rogue_OnNewGame(void)
     FlagSet(FLAG_ROGUE_DEBUG_DISABLED);
 #endif
 
+    memset(gRogueSaveBlock->dynamicUniquePokemon, 0, sizeof(gRogueSaveBlock->dynamicUniquePokemon));
+    memset(gRogueSaveBlock->daycarePokemon, 0, sizeof(gRogueSaveBlock->daycarePokemon));
+
     Rogue_ClearPopupQueue();
 }
 
@@ -2994,6 +3034,21 @@ void Rogue_NotifySaveLoaded(void)
     }
 
     RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
+}
+
+void Rogue_OnSecondPassed(void)
+{
+
+}
+
+void Rogue_OnMinutePassed(void)
+{
+    RogueGift_CountDownDynamicCustomMons();
+}
+
+void Rogue_OnHourPassed(void)
+{
+
 }
 
 bool8 Rogue_OnProcessPlayerFieldInput(void)
@@ -3738,6 +3793,7 @@ static void BeginRogueRun(void)
     ClearHoneyTreePokeblock();
     ResetHotTracking();
 
+    RogueGift_EnsureDynamicCustomMonsAreValid();
     RogueSave_SaveHubStates();
 
 #ifdef ROGUE_EXPANSION
@@ -3937,6 +3993,7 @@ static void EndRogueRun(void)
     }
 
     RogueSave_LoadHubStates();
+    RogueGift_EnsureDynamicCustomMonsAreValid();
 
     // Trigger before and after as we may have hub/run only quests which are interested in this trigger
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_END);
@@ -4241,7 +4298,6 @@ u8 Rogue_GetCurrentTeamHideoutEncounterId(void)
 bool8 Rogue_IsBattleAlphaMon(u16 species)
 {
     // Roamer legend fight is not an alpha fight
-
     if(gRogueRun.legendarySpecies[ADVPATH_LEGEND_MINOR] == species && gRogueRun.legendaryDifficulties[ADVPATH_LEGEND_MINOR] == Rogue_GetCurrentDifficulty())
         return TRUE;
 
@@ -4251,6 +4307,9 @@ bool8 Rogue_IsBattleAlphaMon(u16 species)
     if(Rogue_IsRunActive())
     {
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_GAMESHOW && species == SPECIES_ELECTRODE)
+            return TRUE;
+
+        if(gRogueLocal.wildBattleCustomMonId != 0)
             return TRUE;
     }
     
@@ -7038,8 +7097,31 @@ static void FillWithRoamerState(struct Pokemon* mon, u8 level)
     SetMonData(mon, MON_DATA_HP, &temp);
 }
 
+static bool8 TryApplyCustomMon(u16 species, struct Pokemon* mon)
+{
+    // Only a chance to apply
+    if((Random() % 3) == 0)
+    {
+        u32 customMonId = RogueGift_TryFindEnabledDynamicCustomMonForSpecies(species);
+
+        if(customMonId != 0)
+        {
+            // Make sure shiny state isn't changed
+            u32 shinyState = GetMonData(mon, MON_DATA_IS_SHINY);
+
+            ModifyExistingMonToCustomMon(customMonId, mon);
+
+            SetMonData(mon, MON_DATA_IS_SHINY, &shinyState);
+
+            gRogueLocal.wildBattleCustomMonId = customMonId;
+        }
+    }
+}
+
 void Rogue_ModifyWildMon(struct Pokemon* mon)
 {
+    gRogueLocal.wildBattleCustomMonId = 0;
+
     if(Rogue_InWildSafari())
     {
         if(VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
@@ -7091,6 +7173,9 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
         if(species == gRogueRun.wildEncounters.roamer.species)
         {
             FillWithRoamerState(mon, GetMonData(mon, MON_DATA_LEVEL));
+
+            // TODO - Consider interaction for roamer 
+            //TryApplyCustomMon(species, mon);
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_GAMESHOW)
         {
@@ -7124,11 +7209,16 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
             // Clear held item
             temp = 0;
             SetMonData(mon, MON_DATA_HELD_ITEM, &temp);
+            
+            TryApplyCustomMon(species, mon);
         }
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_LEGENDARY)
         {
             u8 i;
             u16 moveId;
+
+            // TODO - Consider interaction for roamer 
+            //TryApplyCustomMon(species, mon);
 
             // Replace roar with hidden power to avoid pokemon roaring itself out of battle
             for (i = 0; i < MAX_MON_MOVES; i++)
@@ -7145,6 +7235,10 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
                     SetMonData(mon, MON_DATA_PP1 + i, &gBattleMoves[moveId].pp);
                 }
             }
+        }
+        else
+        {
+            TryApplyCustomMon(species, mon);
         }
     }
 }

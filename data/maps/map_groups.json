@@ -59,7 +59,8 @@
     "Rogue_Interior_Restaurant",
     "Rogue_Interior_Cafe",
     "Rogue_Interior_School",
-    "Rogue_Interior_ChallengeFrontier"
+    "Rogue_Interior_ChallengeFrontier",
+    "Rogue_Interior_BillsLab"
   ],
   "gMapGroup_RogueHubTemplates": [
     "Rogue_Template_Homes",

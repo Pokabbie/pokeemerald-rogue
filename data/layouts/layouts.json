@@ -1575,7 +1575,7 @@
       "id": "LAYOUT_ROGUE_AREA_LABS",
       "name": "Rogue_Area_Labs_Layout",
       "width": 28,
-      "height": 14,
+      "height": 24,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Rogue_Area_Labs/border.bin",
@@ -2000,6 +2000,16 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Rogue_Route_Sinnoh_212/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_212/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_INTERIOR_BILLS_LAB",
+      "name": "Rogue_Interior_BillsLab_Layout",
+      "width": 17,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFactory",
+      "border_filepath": "data/layouts/Rogue_Interior_BillsLab/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Interior_BillsLab/map.bin"
     }
   ]
 }

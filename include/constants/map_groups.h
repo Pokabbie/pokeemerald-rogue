@@ -55,6 +55,7 @@
 #define MAP_ROGUE_INTERIOR_CAFE               (7 | (3 << 8))
 #define MAP_ROGUE_INTERIOR_SCHOOL             (8 | (3 << 8))
 #define MAP_ROGUE_INTERIOR_CHALLENGE_FRONTIER (9 | (3 << 8))
+#define MAP_ROGUE_INTERIOR_BILLS_LAB          (10 | (3 << 8))
 
 // gMapGroup_RogueHubTemplates
 #define MAP_ROGUE_TEMPLATE_HOMES        (0 | (4 << 8))

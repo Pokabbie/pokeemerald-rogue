@@ -251,6 +251,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Biker;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OldMan2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketF;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketM;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bill;
 
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Leaf;
@@ -803,6 +804,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_OLD_MAN_2] =                &gObjectEventGraphicsInfo_OldMan2,
     [OBJ_EVENT_GFX_ROCKET_F] =                 &gObjectEventGraphicsInfo_RocketF,
     [OBJ_EVENT_GFX_ROCKET_M] =                 &gObjectEventGraphicsInfo_RocketM,
+    [OBJ_EVENT_GFX_BILL] =                     &gObjectEventGraphicsInfo_Bill,
 
     // Placeholder GFX (Will be expanded later)
     [OBJ_EVENT_GFX_PLAYER_NORMAL] =            &gObjectEventGraphicsInfo_BrendanNormal,

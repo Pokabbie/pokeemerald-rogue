@@ -1323,7 +1323,8 @@ bool8 ScrCmd_messageinstant(struct ScriptContext *ctx)
         msg = (const u8 *)ctx->data[0];
     LoadMessageBoxAndBorderGfx();
     DrawDialogueFrame(0, 1);
-    AddTextPrinterParameterized(0, FONT_NORMAL, msg, 0, 1, 0, NULL);
+    StringExpandPlaceholders(gStringVar4, msg);
+    AddTextPrinterParameterized(0, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
     return FALSE;
 }
 
@@ -1445,6 +1446,18 @@ bool8 ScrCmd_appenddynamicmultichoice(struct ScriptContext *ctx)
     u16 value = ScriptReadHalfword(ctx);
 
     ScriptMenu_ScrollingMultichoiceDynamicAppendOption(name, value);
+    return FALSE;
+}
+
+bool8 ScrCmd_showtextbox(struct ScriptContext *ctx)
+{
+    const u8 *text = (const u8*) ScriptReadWord(ctx);
+    u8 x = ScriptReadByte(ctx);
+    u8 y = ScriptReadByte(ctx);
+    u8 width = ScriptReadByte(ctx);
+    u8 height = ScriptReadByte(ctx);
+
+    ScriptMenu_DisplayTextInWindow(text, x, y, width, height);
     return FALSE;
 }
 

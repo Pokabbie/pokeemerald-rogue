@@ -7,7 +7,9 @@
 
 #include "rogue_baked.h"
 #include "rogue_gifts.h"
+#include "rogue_pokedex.h"
 #include "rogue_query.h"
+#include "rogue_save.h"
 
 struct CustomTrainerData
 {
@@ -504,13 +506,34 @@ u8 RogueGift_GetCustomMonRarity(u32 id)
     return UNIQUE_RARITY_COMMON;
 }
 
+u8 const* RogueGift_GetRarityName(u8 rarity)
+{
+    switch (rarity)
+    {
+    case UNIQUE_RARITY_COMMON:
+        return sCustomTrainers[CUSTOM_TRAINER_COMMON].name;
+    
+    case UNIQUE_RARITY_RARE:
+        return sCustomTrainers[CUSTOM_TRAINER_RARE].name;
+    
+    case UNIQUE_RARITY_EPIC:
+        return sCustomTrainers[CUSTOM_TRAINER_EPIC].name;
+    
+    case UNIQUE_RARITY_EXOTIC:
+        return sCustomTrainers[CUSTOM_TRAINER_EXOTIC].name;
+    }
+
+    AGB_ASSERT(FALSE);
+    return sCustomTrainers[CUSTOM_TRAINER_QUESTS].name;
+}
+
 void RogueGift_CreateMon(u32 customMonId, struct Pokemon* mon, u16 species, u8 level, u8 fixedIV)
 {
     struct CustomTrainerData const* trainerData = NULL;
     u32 temp = 0;
     u16 customMoveCount = RogueGift_GetCustomMonMoveCount(customMonId);
     u16 customAbilityCount = RogueGift_GetCustomMonAbilityCount(customMonId);
-
+    
     if(customMonId & OTID_FLAG_DYNAMIC_CUSTOM_MON)
     {
         u8 customTrainerId = sRarityToCustomTrainerIndex[RogueGift_GetCustomMonRarity(customMonId)];
@@ -724,4 +747,170 @@ u32 RogueGift_CreateDynamicMonId(u8 rarity, u16 species)
 
 #endif
     return temp;
+}
+
+static bool8 IsDynamicUniqueMonValid(struct UniqueMon* mon)
+{
+    return !(mon->species == SPECIES_NONE || mon->customMonId == 0 || mon->countDown == 0);
+}
+
+static u8 RandomRarity()
+{
+    switch (Random() % 10)
+    {
+    case 0:
+        return UNIQUE_RARITY_EPIC;
+
+    case 1:
+    case 2:
+        return UNIQUE_RARITY_RARE;
+    
+    default:
+        return UNIQUE_RARITY_COMMON;
+    }
+
+    // todo - support exotic too
+}
+
+void RogueGift_EnsureDynamicCustomMonsAreValid()
+{
+    u8 i, write;
+    u16 newSpecies[DYNAMIC_UNIQUE_MON_COUNT];
+    u8 dexVariant = RoguePokedex_GetDexVariant();
+
+    // We use query below, so grab some new unique species now
+    {
+        // Override dex variant to our max nat dex
+        u8 dexVariantToRestore = RoguePokedex_GetDexVariant();
+        RoguePokedex_SetDexVariant(POKEDEX_VARIANT_DEFAULT);
+
+        RogueMonQuery_Begin();
+        RogueMonQuery_IsSpeciesActive();
+        RogueMonQuery_TransformIntoEggSpecies();
+        RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+        
+        for(i = 0; i < DYNAMIC_UNIQUE_MON_COUNT; ++i)
+        {
+            if(IsDynamicUniqueMonValid(&gRogueSaveBlock->dynamicUniquePokemon[i]))
+            {
+                RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRogueSaveBlock->dynamicUniquePokemon[i].species);
+            }
+        }
+
+        // Remove random entries until we can safely calcualte weights without going over
+        while(RogueWeightQuery_IsOverSafeCapacity())
+        {
+            RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50, DYNAMIC_UNIQUE_MON_COUNT);
+        }
+
+        RogueWeightQuery_Begin();
+        RogueWeightQuery_FillWeights(1);
+
+        for(i = 0; i < DYNAMIC_UNIQUE_MON_COUNT; ++i)
+        {
+            newSpecies[i] = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(Random(), 0);
+        }
+
+        RogueWeightQuery_End();
+
+        RogueMonQuery_End();
+
+        RoguePokedex_SetDexVariant(dexVariantToRestore);
+    }
+
+    // Shift all the empty slots up 
+    write = 0;
+    for(i = 0; i < DYNAMIC_UNIQUE_MON_COUNT; ++i)
+    {
+        if(IsDynamicUniqueMonValid(&gRogueSaveBlock->dynamicUniquePokemon[i]))
+        {
+            if(write != i)
+            {
+                memcpy(&gRogueSaveBlock->dynamicUniquePokemon[write], &gRogueSaveBlock->dynamicUniquePokemon[i], sizeof(struct UniqueMon));
+                memset(&gRogueSaveBlock->dynamicUniquePokemon[i], 0, sizeof(struct UniqueMon));
+            }
+
+            write++;
+        }
+        else
+        {
+            memset(&gRogueSaveBlock->dynamicUniquePokemon[i], 0, sizeof(struct UniqueMon));
+        }
+    }
+
+    // Replace invalid mons
+    for(i = 0; i < DYNAMIC_UNIQUE_MON_COUNT; ++i)
+    {
+        // We don't want to populate slots that aren't active
+        // TODO - hookup to upgrade unlocks for this
+        if(i >= 3)
+            continue;
+
+        if(!IsDynamicUniqueMonValid(&gRogueSaveBlock->dynamicUniquePokemon[i]))
+        {
+            gRogueSaveBlock->dynamicUniquePokemon[i].countDown = 60 + 30 * i; // Time remaining is based on the slot
+            gRogueSaveBlock->dynamicUniquePokemon[i].species = newSpecies[i];
+            gRogueSaveBlock->dynamicUniquePokemon[i].customMonId = RogueGift_CreateDynamicMonId(RandomRarity(), newSpecies[i]);
+        }
+    }
+
+}
+
+struct UniqueMon* RogueGift_GetDynamicUniqueMon(u8 slot)
+{
+    AGB_ASSERT(slot < DYNAMIC_UNIQUE_MON_COUNT);
+    return &gRogueSaveBlock->dynamicUniquePokemon[slot];
+}
+
+void RogueGift_CountDownDynamicCustomMons()
+{
+    u8 i;
+
+    for(i = 0; i < DYNAMIC_UNIQUE_MON_COUNT; ++i)
+    {
+        if(gRogueSaveBlock->dynamicUniquePokemon[i].countDown != 0)
+            --gRogueSaveBlock->dynamicUniquePokemon[i].countDown;
+    }
+}
+
+void RogueGift_RemoveDynamicCustomMon(u32 customMonId)
+{
+    u8 i;
+
+    for(i = 0; i < DYNAMIC_UNIQUE_MON_COUNT; ++i)
+    {
+        if(gRogueSaveBlock->dynamicUniquePokemon[i].customMonId == customMonId)
+        {
+            memset(&gRogueSaveBlock->dynamicUniquePokemon[i], 0, sizeof(struct UniqueMon));
+        }
+    }
+}
+
+bool8 RogueGift_IsDynamicMonSlotEnabled(u8 slot)
+{
+    AGB_ASSERT(slot < DYNAMIC_UNIQUE_MON_COUNT);
+
+    // TODO - hookup to upgrade unlocks for this
+    if(slot >= 3)
+        return FALSE;
+
+    return IsDynamicUniqueMonValid(&gRogueSaveBlock->dynamicUniquePokemon[slot]);
+}
+
+u32 RogueGift_TryFindEnabledDynamicCustomMonForSpecies(u16 species)
+{
+    u8 i;
+
+    species = Rogue_GetEggSpecies(species);
+
+    for(i = 0; i < DYNAMIC_UNIQUE_MON_COUNT; ++i)
+    {
+        if(RogueGift_IsDynamicMonSlotEnabled(i))
+        {
+            if(gRogueSaveBlock->dynamicUniquePokemon[i].species == species)
+                return gRogueSaveBlock->dynamicUniquePokemon[i].customMonId;
+        }
+    }
+
+    return 0;
 }

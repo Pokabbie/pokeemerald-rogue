@@ -195,6 +195,9 @@ gSpecials::
 	def_special RogueDebug_CollectAllQuests
 	def_special RogueDebug_StartBattle
 	def_special RogueDebug_GiveDynamicUniqueMon
+	def_special RogueGift_EnsureDynamicCustomMonsAreValid
+	def_special Rogue_GetDynamicUniqueMonSpecies
+	def_special Rogue_BufferDynamicUniqueMonCountDown
 	def_special Rogue_QuestCollectNextReward
 	def_special Rogue_HasAnyNewQuests
 	def_special Rogue_HasPendingQuestRewards

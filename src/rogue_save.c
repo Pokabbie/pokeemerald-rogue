@@ -185,6 +185,9 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     SerializeArray(stream, saveBlock->difficultyConfig.toggleBits, sizeof(saveBlock->difficultyConfig.toggleBits[0]), ARRAY_COUNT(saveBlock->difficultyConfig.toggleBits));
     SerializeArray(stream, saveBlock->difficultyConfig.rangeValues, sizeof(saveBlock->difficultyConfig.rangeValues[0]), ARRAY_COUNT(saveBlock->difficultyConfig.rangeValues));
 
+    // Dynamic Unique Mons
+    SerializeArray(stream, saveBlock->dynamicUniquePokemon, sizeof(saveBlock->dynamicUniquePokemon[0]), ARRAY_COUNT(saveBlock->dynamicUniquePokemon));
+
     // Serialize debug data
     {
         bool8 isDebug = FALSE;
@@ -430,15 +433,13 @@ void RogueSave_LoadHubStates()
 
     totalTime += sRunRestoreBlock.playTime;
 
-
     gSaveBlock2Ptr->playTimeSeconds = totalTime % 60;
     totalTime /= 60;
 
     gSaveBlock2Ptr->playTimeMinutes = totalTime % 60;
     totalTime /= 60;
 
-    gSaveBlock2Ptr->playTimeHours = totalTime % 60;
-    totalTime /= 60;
+    gSaveBlock2Ptr->playTimeHours = totalTime;
 
     if(gSaveBlock2Ptr->playTimeHours > 999)
     {

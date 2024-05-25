@@ -965,6 +965,15 @@
 	waitstate
 	.endm
 
+	.macro showtextbox text:req, x:req, y:req, w:req, h:req
+	.byte 0xc9
+	.4byte \text
+	.byte \x
+	.byte \y
+	.byte \w
+	.byte \h
+	.endm
+
 	@ Nopped in Emerald.
 	.macro drawbox
 	.byte 0x72

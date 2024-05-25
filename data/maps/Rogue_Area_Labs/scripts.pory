@@ -171,3 +171,8 @@ script Rogue_Area_Labs_ConfigSign
 {
     msgbox(format("Config Lab"), MSGBOX_SIGN)
 }
+
+script Rogue_Area_Labs_UniqueMonSign
+{
+    msgbox(format("The sign is worse for wear…\nOnly a few words can be made out.\p???'s Lab"), MSGBOX_SIGN)
+}
