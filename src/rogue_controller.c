@@ -7099,7 +7099,7 @@ static void FillWithRoamerState(struct Pokemon* mon, u8 level)
     SetMonData(mon, MON_DATA_HP, &temp);
 }
 
-static bool8 TryApplyCustomMon(u16 species, struct Pokemon* mon)
+static void TryApplyCustomMon(u16 species, struct Pokemon* mon)
 {
     // Only a chance to apply
     if((Random() % 3) == 0)
