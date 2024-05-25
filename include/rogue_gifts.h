@@ -22,8 +22,17 @@ u16 RogueGift_GetCustomMonAbilityCount(u32 id);
 
 bool8 RogueGift_DisplayCustomMonRarity(u32 id);
 u8 RogueGift_GetCustomMonRarity(u32 id);
+u8 const* RogueGift_GetRarityName(u8 rarity);
 
 void RogueGift_CreateMon(u32 customMonId, struct Pokemon* mon, u16 species, u8 level, u8 fixedIV);
 u32 RogueGift_CreateDynamicMonId(u8 rarity, u16 species);
+
+void RogueGift_EnsureDynamicCustomMonsAreValid();
+void RogueGift_CountDownDynamicCustomMons();
+void RogueGift_RemoveDynamicCustomMon(u32 customMonId);
+struct UniqueMon* RogueGift_GetDynamicUniqueMon(u8 slot);
+bool8 RogueGift_IsDynamicMonSlotEnabled(u8 slot);
+
+u32 RogueGift_TryFindEnabledDynamicCustomMonForSpecies(u16 species);
 
 #endif // ROGUE_GIFTS_H

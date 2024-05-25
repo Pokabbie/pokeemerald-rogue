@@ -1,6 +1,8 @@
 #include "global.h"
 #include "play_time.h"
 
+#include "rogue_controller.h"
+
 enum
 {
     STOPPED,
@@ -45,18 +47,21 @@ void PlayTimeCounter_Update(void)
 
     gSaveBlock2Ptr->playTimeVBlanks = 0;
     gSaveBlock2Ptr->playTimeSeconds++;
+    Rogue_OnSecondPassed();
 
     if (gSaveBlock2Ptr->playTimeSeconds < 60)
         return;
 
     gSaveBlock2Ptr->playTimeSeconds = 0;
     gSaveBlock2Ptr->playTimeMinutes++;
+    Rogue_OnMinutePassed();
 
     if (gSaveBlock2Ptr->playTimeMinutes < 60)
         return;
 
     gSaveBlock2Ptr->playTimeMinutes = 0;
     gSaveBlock2Ptr->playTimeHours++;
+    Rogue_OnHourPassed();
 
     if (gSaveBlock2Ptr->playTimeHours > 999)
         PlayTimeCounter_SetToMax();

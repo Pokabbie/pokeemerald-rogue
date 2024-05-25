@@ -160,6 +160,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_PROF_LAB",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_BILLS_LAB",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -181,6 +188,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Rogue_Area_Labs_ConfigSign"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Rogue_Area_Labs_UniqueMonSign"
     }
   ]
 }

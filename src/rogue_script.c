@@ -507,6 +507,37 @@ void RogueDebug_GiveDynamicUniqueMon()
 #endif
 }
 
+void Rogue_GetDynamicUniqueMonSpecies()
+{
+    AGB_ASSERT(gSpecialVar_0x8004 < DYNAMIC_UNIQUE_MON_COUNT);
+
+    if(RogueGift_IsDynamicMonSlotEnabled(gSpecialVar_0x8004))
+    {
+        gSpecialVar_Result = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->species;
+    }
+    else
+    {
+        gSpecialVar_Result = SPECIES_NONE;
+    }
+}
+
+static u8 const sText_Timer[] = _("{STR_VAR_1}:{STR_VAR_2} hours");
+
+void Rogue_BufferDynamicUniqueMonCountDown()
+{
+    u32 countDown = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->countDown;
+    u32 hours = countDown / 60;
+    u32 minutes = countDown % 60;
+    
+    AGB_ASSERT(gSpecialVar_0x8004 < DYNAMIC_UNIQUE_MON_COUNT);
+
+    ConvertUIntToDecimalStringN(gStringVar1, hours, STR_CONV_MODE_LEFT_ALIGN, 4);
+    ConvertUIntToDecimalStringN(gStringVar2, minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+
+    StringExpandPlaceholders(gStringVar3, sText_Timer);
+    gSpecialVar_Result = (countDown != 0);
+}
+
 void Rogue_ShowNewQuests()
 {
     Rogue_OpenQuestMenu(CB2_ReturnToFieldContinueScript, FALSE);

@@ -99,6 +99,9 @@ void Rogue_GameClear(void);
 void Rogue_SetDefaultOptions(void);
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber);
 void Rogue_NotifySaveLoaded(void);
+void Rogue_OnSecondPassed(void);
+void Rogue_OnMinutePassed(void);
+void Rogue_OnHourPassed(void);
 
 bool8 Rogue_OnProcessPlayerFieldInput(void);
 bool8 Rogue_IsPartnerMonInTeam(void);
