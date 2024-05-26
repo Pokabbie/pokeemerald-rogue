@@ -1022,6 +1022,7 @@ void Rogue_EnterPartnerMonCapacity()
 
 void Rogue_SetupFollowParterMonObjectEvent()
 {
+    FollowMon_ClearCachedPartnerSpecies();
     SetupFollowParterMonObjectEvent();
 }
 

@@ -340,7 +340,7 @@ bool8 Rogue_FastBattleAnims(void)
 bool8 InBattleChoosingMoves();
 bool8 InBattleRunningActions();
 
-static u8 GetBattleSceneOption()
+static u8 GetBattleSceneOption() 
 {
     if(Rogue_UseKeyBattleAnims())
         return gSaveBlock2Ptr->optionsBossBattleScene;
@@ -401,6 +401,7 @@ u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar)
 
 bool8 Rogue_UseKeyBattleAnims(void)
 {
+#if !TESTING
     if(Rogue_IsRunActive())
     {
         // Force slow anims for bosses
@@ -421,6 +422,7 @@ bool8 Rogue_UseKeyBattleAnims(void)
         if(VarGet(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_REPORT_TO_PROF)
             return TRUE;
     }
+#endif
 
     return FALSE;
 }
@@ -4555,11 +4557,12 @@ void Rogue_ResetAdventurePathBuffers()
     memset(&gRogueAdvPath.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer));
 }
 
-static u8 SelectRouteRoom_CalculateWeight(u16 index, u16 routeId, void* data)
+static u8 SelectRouteRoom_CalculateWeight(u16 index, u16 routeId, void* data, bool8 applyDelaySeeds)
 {
-    u8 const roomDelay = 4;
+    u8 const roomDelay = 3; // maybe can increase this once added more routes
     u8 difficulty = *((u8*)data);
-    u16 roomSeed = (gRogueRun.baseSeed * 2135 ^ 13890 *routeId);
+    u16 currentSeed = difficulty % roomDelay;
+    u16 roomSeed = (gRogueRun.baseSeed * 2135 ^ (13890 * routeId)) % roomDelay;
 
     if(HistoryBufferContains(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId))
     {
@@ -4567,11 +4570,28 @@ static u8 SelectRouteRoom_CalculateWeight(u16 index, u16 routeId, void* data)
         return 0;
     }
 
-    if((roomSeed % roomDelay) == (difficulty % roomDelay))
-        return 255;
+    if(applyDelaySeeds)
+    {
+        if(roomSeed == currentSeed)
+            return 255;
+        else
+            // Don't place routes we've recently seen
+            return 0;
+    }
     else
-        // Don't place routes we've recently seend
-        return 0;
+    {
+        return 255;
+    }
+}
+
+static u8 SelectRouteRoom_CalculateWeightDefault(u16 index, u16 routeId, void* data)
+{
+    return SelectRouteRoom_CalculateWeight(index, routeId, data, TRUE);
+}
+
+static u8 SelectRouteRoom_CalculateWeightFallback(u16 index, u16 routeId, void* data)
+{
+    return SelectRouteRoom_CalculateWeight(index, routeId, data, FALSE);
 }
 
 u8 Rogue_SelectRouteRoom(u8 difficulty)
@@ -4589,12 +4609,12 @@ u8 Rogue_SelectRouteRoom(u8 difficulty)
 
         RogueWeightQuery_Begin();
         {
-            RogueWeightQuery_CalculateWeights(SelectRouteRoom_CalculateWeight, &difficulty);
+            RogueWeightQuery_CalculateWeights(SelectRouteRoom_CalculateWeightDefault, &difficulty);
 
             if(!RogueWeightQuery_HasAnyWeights())
             {
                 // Fallback and include all routes
-                RogueWeightQuery_FillWeights(1);
+                RogueWeightQuery_CalculateWeights(SelectRouteRoom_CalculateWeightFallback, &difficulty);
             }
 
             routeId = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
@@ -4603,6 +4623,8 @@ u8 Rogue_SelectRouteRoom(u8 difficulty)
     }
     RogueCustomQuery_End();
 
+    // Sanity check that we haven't already placed this route on this path
+    AGB_ASSERT(!HistoryBufferContains(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId));
 
     HistoryBufferPush(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId);
 
@@ -5183,7 +5205,7 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         FlagSet(FLAG_ROGUE_RIVAL_DISABLED);
 
         // Don't place rival battle on first encounter for first fight, otherwise place at earliest convenience :3
-        if(gRogueRun.hasPendingRivalBattle && (Rogue_GetCurrentDifficulty() < 2 || gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1))
+        if(gRogueRun.hasPendingRivalBattle && (Rogue_GetCurrentDifficulty() >= 2 || gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1))
         {
             u8 i;
 
@@ -5913,22 +5935,26 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             EnableRivalEncounterIfRequired();
         }
 
-        // Adjust this after the boss reset
-        if(gRogueRun.currentLevelOffset)
+        // Don't adjust soft cap for battle sim
+        if(!Rogue_IsBattleSimTrainer(trainerNum))
         {
-            u8 levelOffsetDelta = Rogue_GetModeRules()->levelOffsetInterval;
-            
-            if(levelOffsetDelta == 0)
+            // Adjust this after the boss reset
+            if(gRogueRun.currentLevelOffset)
             {
-                // Apply default
-                levelOffsetDelta = 4;
-            }
+                u8 levelOffsetDelta = Rogue_GetModeRules()->levelOffsetInterval;
+                
+                if(levelOffsetDelta == 0)
+                {
+                    // Apply default
+                    levelOffsetDelta = 4;
+                }
 
-            // Every trainer battle drops level cap slightly
-            if(gRogueRun.currentLevelOffset < levelOffsetDelta)
-                gRogueRun.currentLevelOffset = 0;
-            else
-                gRogueRun.currentLevelOffset -= levelOffsetDelta;
+                // Every trainer battle drops level cap slightly
+                if(gRogueRun.currentLevelOffset < levelOffsetDelta)
+                    gRogueRun.currentLevelOffset = 0;
+                else
+                    gRogueRun.currentLevelOffset -= levelOffsetDelta;
+            }
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -8536,7 +8562,7 @@ static bool8 RogueRandomChanceTrainer()
     else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
     {
         // We want a good number of trainers in the hideout
-        chance = (difficultyLevel >= ROGUE_GYM_MID_DIFFICULTY + 2) ? 75 : 50;
+        chance = max(33, chance);
     }
     else
     {
