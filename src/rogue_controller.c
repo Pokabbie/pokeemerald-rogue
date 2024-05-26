@@ -5182,8 +5182,8 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         // Attempt to find and activate the rival object
         FlagSet(FLAG_ROGUE_RIVAL_DISABLED);
 
-        // Don't place rival battle on first encounter
-        if(gRogueRun.hasPendingRivalBattle && gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1)
+        // Don't place rival battle on first encounter for first fight, otherwise place at earliest convenience :3
+        if(gRogueRun.hasPendingRivalBattle && (Rogue_GetCurrentDifficulty() < 2 || gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1))
         {
             u8 i;
 
@@ -8536,7 +8536,7 @@ static bool8 RogueRandomChanceTrainer()
     else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
     {
         // We want a good number of trainers in the hideout
-        chance = max(33, chance);
+        chance = (difficultyLevel >= ROGUE_GYM_MID_DIFFICULTY + 2) ? 75 : 50;
     }
     else
     {
