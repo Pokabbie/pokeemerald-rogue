@@ -37,6 +37,8 @@
 enum {
     TAG_REWARD_ICON_POKEMON_SHINY = 100,
     TAG_REWARD_ICON_POKEMON_CUSTOM,
+    TAG_REWARD_ICON_SHOP_ITEM,
+    TAG_REWARD_ICON_MONEY,
     TAG_REWARD_ICON_ITEM,
 };
 
@@ -1350,6 +1352,8 @@ static void HandleInput_QuestPage(u8 taskId)
 
 extern const u32 gItemIcon_RogueStatusStar[];
 extern const u32 gItemIcon_RogueStatusCustom[];
+extern const u32 gItemIcon_RogueStatusShop[];
+extern const u32 gItemIcon_RogueStatusMoney[];
 extern const u32 gItemIconPalette_RogueStatusStarCustom[];
 
 static void Draw_QuestPage()
@@ -1507,6 +1511,14 @@ static void Draw_QuestPage()
                         break;
 
                     case QUEST_REWARD_SHOP_ITEM:
+                    
+                        {
+                            sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_SHOP_ITEM, TAG_REWARD_ICON_SHOP_ITEM, gItemIcon_RogueStatusShop, gItemIconPalette_RogueStatusStarCustom);
+                            groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                            spriteLayering[spriteIdx] = 0;
+                            ++spriteIdx;
+                        }
+
                         currentTag = TAG_REWARD_ICON_ITEM + reward->perType.shopItem.item;
                         
                         sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.shopItem.item);
@@ -1516,17 +1528,14 @@ static void Draw_QuestPage()
                         break;
 
                     case QUEST_REWARD_MONEY:
-                        // TODO - Actual icon for money
-                        currentTag = TAG_REWARD_ICON_ITEM + ITEM_COIN_CASE;
-
-                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                        sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_MONEY, TAG_REWARD_ICON_MONEY, gItemIcon_RogueStatusMoney, gItemIconPalette_RogueStatusStarCustom);
                         groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
                         spriteLayering[spriteIdx] = 0;
                         ++spriteIdx;
 
                         if(reward->perType.money.amount >= QUEST_REWARD_MEDIUM_MONEY)
                         {
-                            sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                            sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_MONEY, TAG_REWARD_ICON_MONEY, gItemIcon_RogueStatusMoney, gItemIconPalette_RogueStatusStarCustom);
                             gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 3;
                             gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 1;
                             groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
@@ -1535,7 +1544,7 @@ static void Draw_QuestPage()
                         }
                         if(reward->perType.money.amount >= QUEST_REWARD_LARGE_MONEY)
                         {
-                            sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                            sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_MONEY, TAG_REWARD_ICON_MONEY, gItemIcon_RogueStatusMoney, gItemIconPalette_RogueStatusStarCustom);
                             gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 6;
                             gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 2;
                             groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
