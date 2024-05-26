@@ -1743,6 +1743,7 @@ const u8 gText_MenuRest[] = _("Rest");
 const u8 gText_MenuQuickSave[] = _("Quicksave");
 const u8 gText_MenuRetireRun[] = _("Forfeit");
 const u8 gText_MenuQuests[] = _("?????????"); // QUESTS - Intentionally named strangely as can be a nice red herring for invalid cheats?
+const u8 gText_MenuDecorate[] = _("Decorate");
 const u8 gText_SafariBallStock[] = _("Safari Balls\nStock: {STR_VAR_1}");
 const u8 gText_BattlePyramidFloor[] = _("Battle Pyramid\n{STR_VAR_1}");
 const u8 gText_Floor1[] = _("Floor 1");

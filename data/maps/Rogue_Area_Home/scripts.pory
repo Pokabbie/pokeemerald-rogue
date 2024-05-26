@@ -31,52 +31,25 @@ mapscripts Rogue_Area_Home_MapScripts
 
 script Rogue_Area_Home_OnTransition
 {
-    // Hide everything first
-    //setflag(FLAG_BERRY_FIELD1)
-    //setflag(FLAG_BERRY_FIELD2)
-    //setflag(FLAG_FIELD_MON0)
-    //setflag(FLAG_FIELD_MON1)
-    //setflag(FLAG_FIELD_MON2)
-    //setflag(FLAG_FIELD_MON3)
-//
-    //hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD1)
-    //if(var(VAR_RESULT) == YES)
-    //{
-    //    clearflag(FLAG_BERRY_FIELD1)
-    //}
-//
-    //hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD2)
-    //if(var(VAR_RESULT) == YES)
-    //{
-    //    clearflag(FLAG_BERRY_FIELD2)
-    //}
-//
-    //hubupgradeunlocked(HUB_UPGRADE_HOME_GRASS_FIELD)
-    //if(var(VAR_RESULT) == YES)
-    //{
-    //    special(RogueHub_SetRandomFollowMonsFromPC)
-//
-    //    if(var(VAR_FOLLOW_MON_0) != SPECIES_NONE)
-    //    {
-    //        clearflag(FLAG_FIELD_MON0)
-    //    }
-//
-    //    if(var(VAR_FOLLOW_MON_1) != SPECIES_NONE)
-    //    {
-    //        clearflag(FLAG_FIELD_MON1)
-    //    }
-//
-    //    if(var(VAR_FOLLOW_MON_2) != SPECIES_NONE)
-    //    {
-    //        clearflag(FLAG_FIELD_MON2)
-    //    }
-//
-    //    if(var(VAR_FOLLOW_MON_3) != SPECIES_NONE)
-    //    {
-    //        clearflag(FLAG_FIELD_MON3)
-    //    }
-    //}
 }
+
+script Rogue_Area_Home_DecorateFromMenu
+{
+    lock
+
+    if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+    {
+        setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE)
+    }
+    else
+    {
+        setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_DECORATING)
+    }
+
+    special(ReloadWarpSilent)
+    release
+}
+
 
 script Rogue_Area_Home_InteractWithWorkbench
 {
@@ -85,32 +58,41 @@ script Rogue_Area_Home_InteractWithWorkbench
     {
         lock
 
-        if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
-        {
-            setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE)
-        }
-        else
-        {
-            setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_DECORATING)
-        }
-
-        //playbgm(MUS_LITTLEROOT, TRUE)
-        //special(Rogue_SetupFollowParterMonObjectEvent)
+        begindynamicmultichoice
+        appenddynamicmultichoice("Build / Upgrade", 0)
 
         if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
         {
-            msgbox(format("Start Decorating!"))
+            appenddynamicmultichoice("Stop Decorating", 1)
         }
         else
         {
-            msgbox(format("Stopped Decorating"))
+            appenddynamicmultichoice("Start Decorating", 1)
         }
-        
-        special(ReloadWarpSilent)
+        appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
 
-        // TODO - give choice
+        message(format("What would you like to do?"))
+        waitmessage
+        enddynamicmultichoice(1, 0, 3, TRUE)
+    
 
-        //call(Rogue_Area_WorkbenchOptions)
+        switch(var(VAR_RESULT))
+        {
+            case 0:
+                call(Rogue_Area_WorkbenchOptions)
+
+            case 1:
+                if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+                {
+                    setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE)
+                }
+                else
+                {
+                    setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_DECORATING)
+                }
+
+                special(ReloadWarpSilent)
+        }
 
         release
     }
