@@ -2662,14 +2662,6 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
 
         switch (field)
         {
-        case MON_DATA_HIDDEN_NATURE:
-        {
-            u32 nature = GetNatureFromPersonality(boxMon->personality);
-            u32 hiddenNature;
-            SET8(hiddenNature);
-            boxMon->hiddenNatureModifier = nature ^ hiddenNature;
-            break;
-        }
         case MON_DATA_SPECIES:
         {
             SET16(substruct0->species);
@@ -2880,6 +2872,14 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         case MON_DATA_OT_ID:
             SET32(boxMon->otId);
             break;
+        case MON_DATA_HIDDEN_NATURE:
+        {
+            u32 nature = GetNatureFromPersonality(boxMon->personality);
+            u32 hiddenNature;
+            SET8(hiddenNature);
+            boxMon->hiddenNatureModifier = nature ^ hiddenNature;
+            break;
+        }
         case MON_DATA_NICKNAME:
         {
             s32 i;
