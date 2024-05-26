@@ -276,7 +276,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .targetArea = HUB_AREA_LABS,
         .buildCost = 0,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
-        //.isHidden = TRUE
+        .isHidden = TRUE
     },
 
     [HUB_UPGRADE_LAB_UNIQUE_MON_SLOTS0] = 

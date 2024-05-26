@@ -71,7 +71,18 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { 
+                        "hub_upgrade": "HUB_UPGRADE_LAB_UNIQUE_MON_LAB",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_TOWN_MAP",
+                            "title": "Labs",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Path Uncovered…",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
                 ]
             },
             {
