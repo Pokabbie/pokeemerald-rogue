@@ -17,6 +17,7 @@
 
 #include "rogue.h"
 #include "rogue_adventurepaths.h"
+#include "rogue_baked.h"
 #include "rogue_controller.h"
 #include "rogue_gifts.h"
 #include "rogue_hub.h"
@@ -49,6 +50,7 @@ static bool8 QuestCondition_PartyContainsLegendary(u16 questId, struct RogueQues
 static bool8 QuestCondition_PartyContainsOnlyLegendaries(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsOnlyShinys(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsOnlyStarters(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsOnlyUniqueTypes(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -1094,6 +1096,29 @@ static bool8 QuestCondition_PartyContainsOnlyStarters(u16 questId, struct RogueQ
 
         if(!IsStarterSpecies(species))
             return FALSE;
+    }
+
+    return TRUE;
+}
+
+static bool8 QuestCondition_PartyContainsOnlyUniqueTypes(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u8 i;
+    u32 partyTypeFlags = 0;
+    u32 checkTypeFlags;
+    u16 species;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        checkTypeFlags = 0;
+        Rogue_AppendSpeciesTypeFlags(species, &checkTypeFlags);
+
+        if(partyTypeFlags & checkTypeFlags)
+            return FALSE;
+
+        partyTypeFlags |= checkTypeFlags;
     }
 
     return TRUE;

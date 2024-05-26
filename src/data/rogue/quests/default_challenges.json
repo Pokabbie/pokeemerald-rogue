@@ -125,6 +125,27 @@
                 ]
             },
             {
+                "name": "Diversity",
+                "description": "Win a full Run, only ever entering Trainer battles with only Unqiue Types in your party e.g. Can't have a Bulbasaur and a Grimer at the same time.",
+                "triggers":
+                [
+                    {
+                        "on": [ "TRAINER_BATTLE_START" ],
+                        "condition": "PartyContainsOnlyUniqueTypes",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
                 "name": "Apotheosis",
                 "description": "Win a full Run, only ever entering Trainer battles with only Legendary Pokémon in your party.",
                 "triggers":
