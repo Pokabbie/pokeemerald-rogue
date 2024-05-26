@@ -58,7 +58,17 @@ script Rogue_Area_RideTraining_SetDittoGraphics
 
 script Rogue_Area_RideTraining_FindItemFieldMoves
 {
-    finditem(ITEM_LEFTOVERS, 1)
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+            finditem(ITEM_CHOICE_BAND, 1)
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            finditem(ITEM_EVIOLITE, 1)
+        }
+    }
 }
 
 script Rogue_Area_RideTraining_FindItemLedgeJump
@@ -78,7 +88,7 @@ script Rogue_Area_RideTraining_FindItemLedgeJump
 
 script Rogue_Area_RideTraining_FindItemSurf
 {
-    finditem(ITEM_CHOICE_BAND, 1)
+    finditem(ITEM_LEFTOVERS, 1)
 }
 
 script Rogue_Area_RideTraining_FindItemFly
