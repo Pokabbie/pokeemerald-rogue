@@ -5,8 +5,8 @@
 void Rogue_ShowPokedexFromMenu(void);
 void Rogue_ShowPokedexFromScript(void);
 void Rogue_ShowPokedexForPartySlot(u8 slot);
-void Rogue_SelectPokemonInPokedexFromDex(bool8 ignoreDexSeen);
-void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 ignoreDexSeen);
+void Rogue_SelectPokemonInPokedexFromDex(bool8 requireSeen, bool8 requireCaught);
+void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 requireSeen, bool8 requireCaught);
 void Rogue_SelectPokemonInSafari();
 
 u8 RoguePokedex_GetDexRegion();

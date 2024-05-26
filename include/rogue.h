@@ -228,6 +228,12 @@ struct RoguePokemonFacade
     u8 data[104];
 };
 
+struct RogueDaycarePokemon
+{
+    struct RogueBoxPokemonFacade boxMonFacade;
+    u8 isSafariIllegal : 1;
+};
+
 struct RoguePartySnapshot
 {
     u32 partyPersonalities[PARTY_SIZE];
@@ -637,7 +643,7 @@ struct RogueSaveBlock
     struct RogueQuestState questStates[QUEST_SAVE_COUNT];
     struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
     struct RogueSafariMon safariMons[ROGUE_SAFARI_TOTAL_MONS];
-    struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
+    struct RogueDaycarePokemon daycarePokemon[DAYCARE_SLOT_COUNT];
     struct UniqueMon dynamicUniquePokemon[DYNAMIC_UNIQUE_MON_COUNT];
     struct AdventureReplay adventureReplay[ROGUE_ADVENTURE_REPLAY_COUNT];
     struct RogueHubMap hubMap;

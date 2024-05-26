@@ -2923,6 +2923,7 @@ void Rogue_OnNewGame(void)
 
     StringCopy(gSaveBlock2Ptr->playerName, gText_TrainerName_Default);
     StringCopy(gSaveBlock2Ptr->pokemonHubName, gText_ExpandedPlaceholder_PokemonHub);
+    memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
     
     SetMoney(&gSaveBlock1Ptr->money, 0);
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
@@ -3631,6 +3632,12 @@ static void BeginRogueRun_ModifyParty(void)
 
                 CalculateMonStats(&gPlayerParty[i]);
             }
+        }
+
+        // Update daycare mons
+        for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+        {
+            gRogueSaveBlock->daycarePokemon[i].isSafariIllegal = TRUE;
         }
     }
 }
@@ -4557,11 +4564,12 @@ void Rogue_ResetAdventurePathBuffers()
     memset(&gRogueAdvPath.routeHistoryBuffer[0], (u16)-1, sizeof(u16) * ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer));
 }
 
-static u8 SelectRouteRoom_CalculateWeight(u16 index, u16 routeId, void* data)
+static u8 SelectRouteRoom_CalculateWeight(u16 index, u16 routeId, void* data, bool8 applyDelaySeeds)
 {
-    u8 const roomDelay = 4;
+    u8 const roomDelay = 3; // maybe can increase this once added more routes
     u8 difficulty = *((u8*)data);
-    u16 roomSeed = (gRogueRun.baseSeed * 2135 ^ 13890 *routeId);
+    u16 currentSeed = difficulty % roomDelay;
+    u16 roomSeed = (gRogueRun.baseSeed * 2135 ^ (13890 * routeId)) % roomDelay;
 
     if(HistoryBufferContains(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId))
     {
@@ -4569,11 +4577,28 @@ static u8 SelectRouteRoom_CalculateWeight(u16 index, u16 routeId, void* data)
         return 0;
     }
 
-    if((roomSeed % roomDelay) == (difficulty % roomDelay))
-        return 255;
+    if(applyDelaySeeds)
+    {
+        if(roomSeed == currentSeed)
+            return 255;
+        else
+            // Don't place routes we've recently seen
+            return 0;
+    }
     else
-        // Don't place routes we've recently seend
-        return 0;
+    {
+        return 255;
+    }
+}
+
+static u8 SelectRouteRoom_CalculateWeightDefault(u16 index, u16 routeId, void* data)
+{
+    return SelectRouteRoom_CalculateWeight(index, routeId, data, TRUE);
+}
+
+static u8 SelectRouteRoom_CalculateWeightFallback(u16 index, u16 routeId, void* data)
+{
+    return SelectRouteRoom_CalculateWeight(index, routeId, data, FALSE);
 }
 
 u8 Rogue_SelectRouteRoom(u8 difficulty)
@@ -4591,12 +4616,12 @@ u8 Rogue_SelectRouteRoom(u8 difficulty)
 
         RogueWeightQuery_Begin();
         {
-            RogueWeightQuery_CalculateWeights(SelectRouteRoom_CalculateWeight, &difficulty);
+            RogueWeightQuery_CalculateWeights(SelectRouteRoom_CalculateWeightDefault, &difficulty);
 
             if(!RogueWeightQuery_HasAnyWeights())
             {
                 // Fallback and include all routes
-                RogueWeightQuery_FillWeights(1);
+                RogueWeightQuery_CalculateWeights(SelectRouteRoom_CalculateWeightFallback, &difficulty);
             }
 
             routeId = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
@@ -4605,6 +4630,8 @@ u8 Rogue_SelectRouteRoom(u8 difficulty)
     }
     RogueCustomQuery_End();
 
+    // Sanity check that we haven't already placed this route on this path
+    AGB_ASSERT(!HistoryBufferContains(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId));
 
     HistoryBufferPush(&gRogueAdvPath.routeHistoryBuffer[0], ARRAY_COUNT(gRogueAdvPath.routeHistoryBuffer), routeId);
 
@@ -5184,8 +5211,8 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         // Attempt to find and activate the rival object
         FlagSet(FLAG_ROGUE_RIVAL_DISABLED);
 
-        // Don't place rival battle on first encounter
-        if(gRogueRun.hasPendingRivalBattle && gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1)
+        // Don't place rival battle on first encounter for first fight, otherwise place at earliest convenience :3
+        if(gRogueRun.hasPendingRivalBattle && (Rogue_GetCurrentDifficulty() >= 2 || gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1))
         {
             u8 i;
 
@@ -5915,22 +5942,26 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             EnableRivalEncounterIfRequired();
         }
 
-        // Adjust this after the boss reset
-        if(gRogueRun.currentLevelOffset)
+        // Don't adjust soft cap for battle sim
+        if(!Rogue_IsBattleSimTrainer(trainerNum))
         {
-            u8 levelOffsetDelta = Rogue_GetModeRules()->levelOffsetInterval;
-            
-            if(levelOffsetDelta == 0)
+            // Adjust this after the boss reset
+            if(gRogueRun.currentLevelOffset)
             {
-                // Apply default
-                levelOffsetDelta = 4;
-            }
+                u8 levelOffsetDelta = Rogue_GetModeRules()->levelOffsetInterval;
+                
+                if(levelOffsetDelta == 0)
+                {
+                    // Apply default
+                    levelOffsetDelta = 4;
+                }
 
-            // Every trainer battle drops level cap slightly
-            if(gRogueRun.currentLevelOffset < levelOffsetDelta)
-                gRogueRun.currentLevelOffset = 0;
-            else
-                gRogueRun.currentLevelOffset -= levelOffsetDelta;
+                // Every trainer battle drops level cap slightly
+                if(gRogueRun.currentLevelOffset < levelOffsetDelta)
+                    gRogueRun.currentLevelOffset = 0;
+                else
+                    gRogueRun.currentLevelOffset -= levelOffsetDelta;
+            }
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
@@ -7339,7 +7370,7 @@ void Rogue_ModifyGiveMon(struct Pokemon* mon)
 struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot)
 {
     AGB_ASSERT(slot < DAYCARE_SLOT_COUNT);
-    return (struct BoxPokemon*)&gRogueSaveBlock->daycarePokemon[slot];
+    return (struct BoxPokemon*)&gRogueSaveBlock->daycarePokemon[slot].boxMonFacade;
 }
 
 u8 Rogue_GetCurrentDaycareSlotCount()
@@ -7352,15 +7383,26 @@ u8 Rogue_GetCurrentDaycareSlotCount()
         return 1;
 }
 
-void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycareMon)
+void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, u8 daycareSlot)
 {
     u16 species;
+    u8 wasSafariIllegal = (GetMonData(partyMon, MON_DATA_SPECIES) == SPECIES_NONE) ? FALSE : partyMon->rogueExtraData.isSafariIllegal;
+    struct BoxPokemon* daycareMon = (struct BoxPokemon*)&gRogueSaveBlock->daycarePokemon[daycareSlot].boxMonFacade;
     struct BoxPokemon temp = *daycareMon;
+
+    AGB_ASSERT(daycareSlot < DAYCARE_SLOT_COUNT);
+
     *daycareMon = partyMon->box;
     BoxMonRestorePP(daycareMon);
 
     ZeroMonData(partyMon);
     BoxMonToMon(&temp, partyMon);
+
+    if(Rogue_IsRunActive())
+    {
+        partyMon->rogueExtraData.isSafariIllegal = gRogueSaveBlock->daycarePokemon[daycareSlot].isSafariIllegal;
+        gRogueSaveBlock->daycarePokemon[daycareSlot].isSafariIllegal = wasSafariIllegal;
+    }
 
     species = GetMonData(partyMon, MON_DATA_SPECIES);
 

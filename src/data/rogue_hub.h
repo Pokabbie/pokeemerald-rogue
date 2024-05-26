@@ -33,6 +33,7 @@ extern const u8 gHubUpgradeDesc_TownSquare_TrainerSchool[];
 extern const u8 gHubUpgradeDesc_TownSquare_MoveTutors[];
 extern const u8 gHubUpgradeDesc_DayCare_DayCareSlots[];
 extern const u8 gHubUpgradeDesc_DayCare_Breeder[];
+extern const u8 gHubUpgradeDesc_DayCare_BreederSeenDex[];
 extern const u8 gHubUpgradeDesc_DayCare_Phone[];
 extern const u8 gHubUpgradeDesc_DayCare_Bakery[];
 extern const u8 gHubUpgradeDesc_DayCare_PokeblockBlenders[];
@@ -524,6 +525,24 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .descText = gHubUpgradeDesc_DayCare_Breeder,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
+    [HUB_UPGRADE_DAY_CARE_BREEDER_SEEN_DEX] = 
+    {
+        .upgradeName = _("{PKMN} Breeder+"),
+        .targetArea = HUB_AREA_DAY_CARE,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_DayCare_BreederSeenDex,
+        .requiredUpgrades = { HUB_UPGRADE_DAY_CARE_BREEDER, HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_DAY_CARE_BREEDER_LEGENDS] = 
+    {
+        .upgradeName = _("{PKMN} Breeder++"),
+        .targetArea = HUB_AREA_DAY_CARE,
+        .buildCost = 0,
+        .descText = gHubAreaDesc_Todo,
+        .requiredUpgrades = { HUB_UPGRADE_DAY_CARE_BREEDER_LEGENDS, HUB_UPGRADE_NONE },
+        .isHidden = TRUE,
+    },
+
     [HUB_UPGRADE_DAY_CARE_PHONE] = 
     {
         .upgradeName = _("Day Care Phone"),

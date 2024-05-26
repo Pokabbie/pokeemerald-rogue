@@ -307,8 +307,18 @@ script Rogue_Area_DayCare_TalkEggBreeder
 
         if(var(VAR_RESULT) == YES)
         {
-            special(Special_SelectMonInPokedex)
-            waitstate
+            hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_BREEDER_SEEN_DEX)
+
+            if(var(VAR_RESULT) == YES)
+            {
+                special(Special_SelectMonInPokedex)
+                waitstate
+            }
+            else
+            {
+                special(Special_SelectCaughtMonInPokedex)
+                waitstate
+            }
 
             if(var(VAR_RESULT) != SPECIES_NONE)
             {

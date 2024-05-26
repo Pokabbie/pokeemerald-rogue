@@ -347,7 +347,8 @@ struct PokedexViewRequest
         } specificMon;
         struct
         {
-            bool8 ignoreDexSeen;
+            bool8 requireSeen;
+            bool8 requireCaught;
         } selectMon;
     } perView;
 };
@@ -420,17 +421,18 @@ void Rogue_ShowPokedexForPartySlot(u8 slot)
     sPokedexViewReq.perView.specificMon.partySlot = slot;
 }
 
-void Rogue_SelectPokemonInPokedexFromDex(bool8 ignoreDexSeen)
+void Rogue_SelectPokemonInPokedexFromDex(bool8 requireSeen, bool8 requireCaught)
 {
-    Rogue_SelectPokemonInPokedexFromDexVariant(RoguePokedex_GetDexVariant(), ignoreDexSeen);
+    Rogue_SelectPokemonInPokedexFromDexVariant(RoguePokedex_GetDexVariant(), requireSeen, requireCaught);
 }
 
-void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 ignoreDexSeen)
+void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 requireSeen, bool8 requireCaught)
 {
     SetupPokedexViewDefault();
 
     sPokedexViewReq.view = DEX_VIEW_SELECT_MON;
-    sPokedexViewReq.perView.selectMon.ignoreDexSeen = ignoreDexSeen;
+    sPokedexViewReq.perView.selectMon.requireSeen = requireSeen;
+    sPokedexViewReq.perView.selectMon.requireCaught = requireCaught;
 
     sPokedexViewReq.dexVariantToRestore = RoguePokedex_GetDexVariant();
     RoguePokedex_SetDexVariant(variant);
@@ -438,7 +440,7 @@ void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 ignoreDexSeen)
 
 void Rogue_SelectPokemonInSafari()
 {
-    Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI, TRUE);
+    Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI, FALSE, FALSE);
     sPokedexViewReq.view = DEX_VIEW_SELECT_SAFARI_MON;
 }
 
@@ -2435,12 +2437,25 @@ static u8 Overview_GetEntryType(s8 entryX, s8 entryY, s8 deltaX, s8 deltaY)
     // We don't care if we've seen this mon or not
     if(IsCurrentlySelectingMon())
     {
-        if(sPokedexViewReq.perView.selectMon.ignoreDexSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
-            return ENTRY_TYPE_EMPTY;
-
-        if(sPokedexViewReq.view == DEX_VIEW_SELECT_SAFARI_MON)
+        if(
+            (!sPokedexViewReq.perView.selectMon.requireSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN)) &&
+            (!sPokedexViewReq.perView.selectMon.requireCaught || GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+        )
         {
-            // todo - display shiny state here
+            if(sPokedexViewReq.view == DEX_VIEW_SELECT_SAFARI_MON)
+            {
+                return ENTRY_TYPE_EMPTY;
+            }
+            else
+            {
+                // Display icons based on dex state
+                if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT_SHINY))
+                    return ENTRY_TYPE_CAUGHT_SHINY;
+                else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+                    return ENTRY_TYPE_CAUGHT;
+                else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+                    return ENTRY_TYPE_SEEN;
+            }
         }
     }
     else
@@ -2806,7 +2821,10 @@ static void Overview_HandleInput(u8 taskId)
 
         if(IsCurrentlySelectingMon())
         {
-            if(sPokedexViewReq.perView.selectMon.ignoreDexSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+            if(
+                (!sPokedexViewReq.perView.selectMon.requireSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN)) &&
+                (!sPokedexViewReq.perView.selectMon.requireCaught || GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+            )
             {
                 if(sPokedexViewReq.view == DEX_VIEW_SELECT_SAFARI_MON)
                 {
@@ -3018,12 +3036,15 @@ static void Overview_CreateSprites()
             {
                 if(IsCurrentlySelectingMon())
                 {
-                    if(sPokedexViewReq.perView.selectMon.ignoreDexSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
-                    {
-                        // Always display in select mon view
-                        // Non animated
-                        sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
-                    }
+                    if(sPokedexViewReq.perView.selectMon.requireSeen && !GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+                        continue;
+
+                    if(sPokedexViewReq.perView.selectMon.requireCaught && !GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+                        continue;
+
+                    // Always display in select mon view
+                    // Non animated
+                    sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
                 }
                 else
                 {

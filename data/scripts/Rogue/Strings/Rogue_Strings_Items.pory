@@ -431,6 +431,11 @@ text gHubUpgradeDesc_DayCare_Breeder
     format("Use data from Pokédex to find {PKMN} Eggs.")
 }
 
+text gHubUpgradeDesc_DayCare_BreederSeenDex
+{
+    format("Only need Seen Pokédex data can be used to find {PKMN} Eggs.")
+}
+
 text gHubUpgradeDesc_DayCare_Phone
 {
     format("Remotely access Day Care in and out of Adventures.")

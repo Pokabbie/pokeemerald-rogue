@@ -948,7 +948,7 @@ bool8 FieldEffectActiveListContains(u8 id)
     return FALSE;
 }
 
-struct TrainerSpriteInfo CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
+struct TrainerSpriteInfo CreateTrainerSprite(u16 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
 {
     struct SpriteTemplate spriteTemplate;
     struct TrainerSpriteInfo outInfo;
@@ -968,7 +968,7 @@ struct TrainerSpriteInfo CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u
     return outInfo;
 }
 
-struct TrainerSpriteInfo UpdateTrainerSprite(u8 spriteID, u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
+struct TrainerSpriteInfo UpdateTrainerSprite(u8 spriteID, u16 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
 {
     struct SpriteTemplate spriteTemplate;
     struct TrainerSpriteInfo outInfo;

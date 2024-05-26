@@ -362,7 +362,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 #endif
 
 #ifndef ROGUE_BAKING
-    if(outEvo->targetSpecies != SPECIES_NONE && !RoguePokedex_IsSpeciesEnabled(outEvo->targetSpecies))
+    if(outEvo->targetSpecies != SPECIES_NONE && (Rogue_IsRunActive() && !RoguePokedex_IsSpeciesEnabled(outEvo->targetSpecies)))
     {
         // Invalid evo
         outEvo->targetSpecies = SPECIES_NONE;
