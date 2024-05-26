@@ -48,6 +48,7 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
 static bool8 QuestCondition_PartyContainsLegendary(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsOnlyLegendaries(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsOnlyShinys(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsOnlyStarters(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -1029,6 +1030,74 @@ static bool8 QuestCondition_PartyContainsOnlyShinys(u16 questId, struct RogueQue
     return TRUE;
 }
 
+static bool8 IsStarterSpecies(u16 species)
+{
+    species = Rogue_GetEggSpecies(species);
+
+    switch (species)
+    {
+
+    case SPECIES_PICHU:
+    case SPECIES_EEVEE:
+
+    case SPECIES_BULBASAUR:
+    case SPECIES_SQUIRTLE:
+    case SPECIES_CHARMANDER:
+
+    case SPECIES_CHIKORITA:
+    case SPECIES_TOTODILE:
+    case SPECIES_CYNDAQUIL:
+
+    case SPECIES_TREECKO:
+    case SPECIES_MUDKIP:
+    case SPECIES_TORCHIC:
+
+#ifdef ROGUE_EXPANSION
+    case SPECIES_TURTWIG:
+    case SPECIES_PIPLUP:
+    case SPECIES_CHIMCHAR:
+
+    case SPECIES_SNIVY:
+    case SPECIES_OSHAWOTT:
+    case SPECIES_TEPIG:
+
+    case SPECIES_CHESPIN:
+    case SPECIES_FROAKIE:
+    case SPECIES_FENNEKIN:
+
+    case SPECIES_ROWLET:
+    case SPECIES_LITTEN:
+    case SPECIES_POPPLIO:
+
+    case SPECIES_GROOKEY:
+    case SPECIES_SCORBUNNY:
+    case SPECIES_SOBBLE:
+
+    case SPECIES_SPRIGATITO:
+    case SPECIES_FUECOCO:
+    case SPECIES_QUAXLY:
+#endif
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_PartyContainsOnlyStarters(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u8 i;
+    u16 species;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        if(!IsStarterSpecies(species))
+            return FALSE;
+    }
+
+    return TRUE;
+}
 
 static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct RogueQuestTrigger const* trigger)
 {
