@@ -4547,7 +4547,6 @@ u16 Rogue_SelectHoneyTreeEncounterRoom(void)
         RogueMonQuery_End();
     }
 
-    ClearHoneyTreePokeblock();
     return species;
 }
 
@@ -4928,6 +4927,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                         gRogueAdvPath.currentRoomParams.perType.honeyTree.species, 
                         gRogueAdvPath.currentRoomParams.perType.honeyTree.shinyState
                     );
+
+                    // Only clear the last scattered Pokeblock once we've actually entered the encounter
+                    ClearHoneyTreePokeblock();
                     break;
                 }
 
