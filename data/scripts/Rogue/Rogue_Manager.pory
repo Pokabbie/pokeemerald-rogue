@@ -201,73 +201,96 @@ script Rogue_InteractWithQuestBoard
     }
     else
     {
-        special(Rogue_HasPendingQuestRewards)
-
-        if(var(VAR_RESULT) == 1)
+        specialvar(VAR_RESULT, GetPlayerFacingDirection)
+        if(var(VAR_RESULT) == DIR_NORTH)
         {
-            msgbox(format("There's Quest rewards to collect!"))
-
-            //fadeoutbgm(1)
-            //delay(1)
-
-            setvar(VAR_0x8004, 0)
-            setvar(VAR_RESULT, 1)
-
-            while(var(VAR_RESULT) == 1)
-            {
-                special(Rogue_QuestCollectNextReward)
-
-                switch(var(VAR_RESULT))
-                {
-                    //case 0:
-                    //    msgbox(format("finished."))
-
-                    case 1:
-                        setvar(VAR_0x8004, 1) // flag that we've collected some results
-
-                    case 2:
-                        msgbox(format("Unable to collect the remaining rewards."))
-                }
-            }
-
-            call(Rogue_Common_DisplaySkippablePopups)
-
-            //fadeinbgm(1)
-            //delay(1)
-
-            waitfanfare
-            waitse
-
-            special(Rogue_HasAnyNewQuests)
-            if(var(VAR_RESULT) == 1)
-            {
-                msgbox(format("New Quests have been posted!"))
-                special(Rogue_ShowNewQuests)
-                waitstate
-            }
-            elif (var(VAR_0x8004) == 1)
-            {
-                msgbox(format("All rewards have been collected!"))
-            }
-            else
-            {
-                msgbox(format("There are no New Quests or Rewards to collect."))
-            }
+            call(Rogue_InteractWithQuestBoardInternal)
         }
         else
         {
-            msgbox(format("There are no New Quests or Rewards to collect."))
+            msgbox(format("It's the Quest Board!\pShame you can't read the postings from this side…"))
         }
     }
 
     releaseall
 }
 
+script Rogue_InteractWithQuestBoardInternal
+{
+    special(Rogue_HasPendingQuestRewards)
+
+    if(var(VAR_RESULT) == 1)
+    {
+        msgbox(format("There's Quest rewards to collect!"))
+
+        //fadeoutbgm(1)
+        //delay(1)
+
+        setvar(VAR_0x8004, 0)
+        setvar(VAR_RESULT, 1)
+
+        while(var(VAR_RESULT) == 1)
+        {
+            special(Rogue_QuestCollectNextReward)
+
+            switch(var(VAR_RESULT))
+            {
+                //case 0:
+                //    msgbox(format("finished."))
+
+                case 1:
+                    setvar(VAR_0x8004, 1) // flag that we've collected some results
+
+                case 2:
+                    msgbox(format("Unable to collect the remaining rewards."))
+            }
+        }
+
+        call(Rogue_Common_DisplaySkippablePopups)
+
+        //fadeinbgm(1)
+        //delay(1)
+
+        waitfanfare
+        waitse
+
+        special(Rogue_HasAnyNewQuests)
+        if(var(VAR_RESULT) == 1)
+        {
+            msgbox(format("New Quests have been posted!"))
+            special(Rogue_ShowNewQuests)
+            waitstate
+        }
+        elif (var(VAR_0x8004) == 1)
+        {
+            msgbox(format("All rewards have been collected!"))
+        }
+        else
+        {
+            msgbox(format("There are no New Quests or Rewards to collect."))
+        }
+    }
+    else
+    {
+        msgbox(format("There are no New Quests or Rewards to collect."))
+    }
+}
+
 script Rogue_InteractWithPC
 {
     if(flag(FLAG_SYS_POKEMON_GET))
     {
-        goto(EventScript_PC)
+        specialvar(VAR_RESULT, GetPlayerFacingDirection)
+        if(var(VAR_RESULT) == DIR_NORTH)
+        {
+            goto(EventScript_PC)
+        }
+        else
+        {
+            lock
+            msgbox(format("It's a PC!\pShame you can't see the screen from this side…"))
+            release
+        }
     }
     else
     {
@@ -462,7 +485,17 @@ script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
 
             if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
             {
+                if(var(VAR_0x8004) == 0)
+                {
+                    call(Rogue_ScriptHideFollower)
+                }
+
                 special(Rogue_SwapDaycareMon)
+
+                if(var(VAR_0x8004) == 0)
+                {
+                    call(Rogue_ScriptShowFollower)
+                }
                 msgbox(format("I'll make sure to take good care of them!\pSee you in a moment."), MSGBOX_DEFAULT)
 
                 fadescreen(FADE_TO_BLACK)
@@ -477,21 +510,29 @@ script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
     }
     else
     {
-        msgbox(format("So you would like to withdraw your Pokémon?\nI see, that's no problem at all!"), MSGBOX_DEFAULT)
-
         specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
         specialvar(VAR_TEMP_1, Rogue_CalcMaxPartySize)
         
         if(var(VAR_TEMP_0) >= VAR_TEMP_1)
         {
-            msgbox(format("It looks like your party is full!\pYou'll need to leave a member of your party with me, in order to withdraw any Pokémon."))
+            msgbox(format("So you would like to withdraw your Pokémon?\pIt looks like your party is full!\pYou'll need to leave a member of your party with me, in order to withdraw any Pokémon."))
             fadescreen(FADE_TO_BLACK)
             special(ChooseSendDaycareMon)
             waitstate
 
             if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
             {
+                if(var(VAR_0x8004) == 0)
+                {
+                    call(Rogue_ScriptHideFollower)
+                }
+
                 special(Rogue_SwapDaycareMon)
+
+                if(var(VAR_0x8004) == 0)
+                {
+                    call(Rogue_ScriptShowFollower)
+                }
                 msgbox(format("I'll make sure to take good care of them!\pSee you in a moment."), MSGBOX_DEFAULT)
 
                 fadescreen(FADE_TO_BLACK)
@@ -505,17 +546,22 @@ script Rogue_EventScript_UseDayCarePhoneItem_TrySwapMon
         }
         else
         {
-            setvar(VAR_0x8004, 5)
-            special(Rogue_SwapDaycareMon)
-            msgbox(format("See you in a moment."), MSGBOX_DEFAULT)
+            msgbox(format("So you would like to withdraw your Pokémon?"), MSGBOX_YESNO)
 
-            fadescreen(FADE_TO_BLACK)
-            playse(SE_WARP_OUT)
-            waitse
+            if(var(VAR_RESULT) == YES)
+            {
+                setvar(VAR_0x8004, 5)
+                special(Rogue_SwapDaycareMon)
+                msgbox(format("See you in a moment."), MSGBOX_DEFAULT)
 
-            closemessage
-            fadescreen(FADE_FROM_BLACK)
-            clearflag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED)
+                fadescreen(FADE_TO_BLACK)
+                playse(SE_WARP_OUT)
+                waitse
+
+                closemessage
+                fadescreen(FADE_FROM_BLACK)
+                clearflag(FLAG_ROGUE_DAYCARE_PHONE_CHARGED)
+            }
         }
     }
 }
@@ -952,36 +998,59 @@ script Rogue_SpeakDaycareLady_TrySwapMon
 
             if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
             {
+                if(var(VAR_0x8004) == 0)
+                {
+                    call(Rogue_ScriptHideFollower)
+                }
+
                 special(Rogue_SwapDaycareMon)
+
+                if(var(VAR_0x8004) == 0)
+                {
+                    call(Rogue_ScriptShowFollower)
+                }
                 msgbox(format("I'll make sure to take good care of them!\pTake care!"), MSGBOX_DEFAULT)
             }
         }
     }
     else
     {
-        msgbox(format("So you would like to withdraw your Pokémon?\nI see, that's no problem at all!"), MSGBOX_DEFAULT)
-
         specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
         specialvar(VAR_TEMP_1, Rogue_CalcMaxPartySize)
         
         if(var(VAR_TEMP_0) >= VAR_TEMP_1)
         {
-            msgbox(format("It looks like your party is full!\pYou'll need to leave a member of your party with me, in order to withdraw any Pokémon."))
+            msgbox(format("So you would like to withdraw your Pokémon?\pIt looks like your party is full!\pYou'll need to leave a member of your party with me, in order to withdraw any Pokémon."))
             fadescreen(FADE_TO_BLACK)
             special(ChooseSendDaycareMon)
             waitstate
 
             if(var(VAR_0x8004) != PARTY_NOTHING_CHOSEN)
             {
+                if(var(VAR_0x8004) == 0)
+                {
+                    call(Rogue_ScriptHideFollower)
+                }
+
                 special(Rogue_SwapDaycareMon)
+
+                if(var(VAR_0x8004) == 0)
+                {
+                    call(Rogue_ScriptShowFollower)
+                }
                 msgbox(format("I'll make sure to take good care of them!\pTake care!"), MSGBOX_DEFAULT)
             }
         }
         else
         {
-            setvar(VAR_0x8004, 5)
-            special(Rogue_SwapDaycareMon)
-            msgbox(format("There you are!\pTake care!"), MSGBOX_DEFAULT)
+            msgbox(format("So you would like to withdraw your Pokémon?"), MSGBOX_YESNO)
+
+            if(var(VAR_RESULT) == YES)
+            {
+                setvar(VAR_0x8004, 5)
+                special(Rogue_SwapDaycareMon)
+                msgbox(format("There you are!\pTake care!"), MSGBOX_DEFAULT)
+            }
         }
     }
 }

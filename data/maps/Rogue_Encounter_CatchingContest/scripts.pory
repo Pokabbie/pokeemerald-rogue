@@ -49,25 +49,33 @@ script Rogue_Encounter_CatchingContest_StartContest
 
     if(var(VAR_RESULT) == YES)
     {
-        special(Rogue_CatchingContestBegin)
+        checkitemspace(ITEM_CATCHING_CONTEST_POKEBALL, 3)
+        if(var(VAR_RESULT) == NO)
+        {
+            msgbox(format("Oh, it looks like you Bag is full.\pYou need to free up some space, in order to take part, I'm afraid."))
+        }
+        else
+        {
+            special(Rogue_CatchingContestBegin)
 
-        closemessage
-        applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Enter)
-        applymovement(NPC_OBJ_HOST, Movement_Host_Enter)
-        waitmovement(0)
+            closemessage
+            applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Enter)
+            applymovement(NPC_OBJ_HOST, Movement_Host_Enter)
+            waitmovement(0)
 
-        setobjectxyperm(NPC_OBJ_HOST, 12, 36)
-        setobjectmovementtype(NPC_OBJ_HOST, MOVEMENT_TYPE_FACE_UP)
-        turnobject(NPC_OBJ_HOST, DIR_NORTH)
+            setobjectxyperm(NPC_OBJ_HOST, 12, 36)
+            setobjectmovementtype(NPC_OBJ_HOST, MOVEMENT_TYPE_FACE_UP)
+            turnobject(NPC_OBJ_HOST, DIR_NORTH)
 
-        msgbox(format("If you can catch the Pokémon with the highest Base {STR_VAR_2}, you will win a special reward!\pHere are some Poké Balls for you."), MSGBOX_DEFAULT)
-        giveitem(ITEM_CATCHING_CONTEST_POKEBALL, 3)
+            msgbox(format("If you can catch the Pokémon with the highest Base {STR_VAR_2}, you will win a special reward!\pHere are some Poké Balls for you."), MSGBOX_DEFAULT)
+            giveitem(ITEM_CATCHING_CONTEST_POKEBALL, 3)
 
-        msgbox(format("Good luck!"), MSGBOX_DEFAULT)
-        playbgm(MUS_HG_BUG_CATCHING_CONTEST, TRUE)
+            msgbox(format("Good luck!"), MSGBOX_DEFAULT)
+            playbgm(MUS_HG_BUG_CATCHING_CONTEST, TRUE)
 
-        setflag(FLAG_SYS_SAVE_DISABLED)
-        addvar(VAR_CONTEST_STATE, 1)
+            setflag(FLAG_SYS_SAVE_DISABLED)
+            addvar(VAR_CONTEST_STATE, 1)
+        }
     }
 }
 
@@ -95,6 +103,8 @@ script Rogue_Encounter_CatchingContest_EndContest
     }
     else
     {
+        call(Rogue_ScriptHideFollower)
+
         closemessage
         applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Exit)
         applymovement(NPC_OBJ_HOST, Movement_Host_Exit)
@@ -198,6 +208,8 @@ script Rogue_Encounter_CatchingContest_EndContest
 
         msgbox(format("Good luck on your adventure!"))
         playbgm(MUS_HG_NATIONAL_PARK, TRUE)
+
+        call(Rogue_ScriptShowFollower)
     }
 }
 

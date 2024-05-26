@@ -46,7 +46,7 @@ struct RogueRunRestoreBlock
 {
     struct Pokemon playerParty[PARTY_SIZE];
     struct ItemSlot bagItems[BAG_ITEM_CAPACITY];
-    struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
+    struct RogueDaycarePokemon daycarePokemon[DAYCARE_SLOT_COUNT];
     struct RogueDifficultyConfig difficultyConfig;
     u32 money;
     u32 playTime;
@@ -397,7 +397,7 @@ void RogueSave_SaveHubStates()
 
     for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
     {
-        CopyMon(&sRunRestoreBlock.daycarePokemon[i], &gRogueSaveBlock->daycarePokemon[i], sizeof(struct BoxPokemon));
+        CopyMon(&sRunRestoreBlock.daycarePokemon[i], &gRogueSaveBlock->daycarePokemon[i], sizeof(struct RogueDaycarePokemon));
     }
 
     // Remember the default difficulty settings, just incase the adventure overwrote anything
@@ -461,7 +461,7 @@ void RogueSave_LoadHubStates()
 
     for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
     {
-        CopyMon(&gRogueSaveBlock->daycarePokemon[i], &sRunRestoreBlock.daycarePokemon[i], sizeof(struct BoxPokemon));
+        CopyMon(&gRogueSaveBlock->daycarePokemon[i], &sRunRestoreBlock.daycarePokemon[i], sizeof(struct RogueDaycarePokemon));
     }
 
     // Restore the default difficulty settings, just incase the adventure overwrote anything

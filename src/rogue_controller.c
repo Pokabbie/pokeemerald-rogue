@@ -2923,6 +2923,7 @@ void Rogue_OnNewGame(void)
 
     StringCopy(gSaveBlock2Ptr->playerName, gText_TrainerName_Default);
     StringCopy(gSaveBlock2Ptr->pokemonHubName, gText_ExpandedPlaceholder_PokemonHub);
+    memset(&gRogueRun.completedBadges[0], TYPE_NONE, sizeof(gRogueRun.completedBadges));
     
     SetMoney(&gSaveBlock1Ptr->money, 0);
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
@@ -3631,6 +3632,12 @@ static void BeginRogueRun_ModifyParty(void)
 
                 CalculateMonStats(&gPlayerParty[i]);
             }
+        }
+
+        // Update daycare mons
+        for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+        {
+            gRogueSaveBlock->daycarePokemon[i].isSafariIllegal = TRUE;
         }
     }
 }
@@ -7363,7 +7370,7 @@ void Rogue_ModifyGiveMon(struct Pokemon* mon)
 struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot)
 {
     AGB_ASSERT(slot < DAYCARE_SLOT_COUNT);
-    return (struct BoxPokemon*)&gRogueSaveBlock->daycarePokemon[slot];
+    return (struct BoxPokemon*)&gRogueSaveBlock->daycarePokemon[slot].boxMonFacade;
 }
 
 u8 Rogue_GetCurrentDaycareSlotCount()
@@ -7376,15 +7383,26 @@ u8 Rogue_GetCurrentDaycareSlotCount()
         return 1;
 }
 
-void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycareMon)
+void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, u8 daycareSlot)
 {
     u16 species;
+    u8 wasSafariIllegal = (GetMonData(partyMon, MON_DATA_SPECIES) == SPECIES_NONE) ? FALSE : partyMon->rogueExtraData.isSafariIllegal;
+    struct BoxPokemon* daycareMon = (struct BoxPokemon*)&gRogueSaveBlock->daycarePokemon[daycareSlot].boxMonFacade;
     struct BoxPokemon temp = *daycareMon;
+
+    AGB_ASSERT(daycareSlot < DAYCARE_SLOT_COUNT);
+
     *daycareMon = partyMon->box;
     BoxMonRestorePP(daycareMon);
 
     ZeroMonData(partyMon);
     BoxMonToMon(&temp, partyMon);
+
+    if(Rogue_IsRunActive())
+    {
+        partyMon->rogueExtraData.isSafariIllegal = gRogueSaveBlock->daycarePokemon[daycareSlot].isSafariIllegal;
+        gRogueSaveBlock->daycarePokemon[daycareSlot].isSafariIllegal = wasSafariIllegal;
+    }
 
     species = GetMonData(partyMon, MON_DATA_SPECIES);
 
