@@ -170,7 +170,13 @@ void Special_ViewRoguePokedex(void)
 
 void Special_SelectMonInPokedex(void)
 {
-    Rogue_SelectPokemonInPokedexFromDex(FALSE);
+    Rogue_SelectPokemonInPokedexFromDex(TRUE, FALSE);
+    LockPlayerFieldControls();
+}
+
+void Special_SelectCaughtMonInPokedex(void)
+{
+    Rogue_SelectPokemonInPokedexFromDex(TRUE, TRUE);
     LockPlayerFieldControls();
 }
 
