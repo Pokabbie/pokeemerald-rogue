@@ -609,7 +609,7 @@
                         "hub_upgrade": "HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE",
                         "custom_popup":
                         {
-                            "item_icon": "ITEM_SAFARI_BALL",
+                            "item_icon": "ITEM_TOWN_MAP",
                             "title": "Safari Area",
                             "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Mountains shift…",
                             "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"

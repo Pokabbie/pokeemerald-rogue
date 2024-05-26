@@ -7,6 +7,7 @@
 
 #include "rogue_baked.h"
 #include "rogue_gifts.h"
+#include "rogue_hub.h"
 #include "rogue_pokedex.h"
 #include "rogue_query.h"
 #include "rogue_save.h"
@@ -473,10 +474,12 @@ u8 RogueGift_GetCustomMonRarity(u32 id)
         u16 abilityCount = RogueGift_GetCustomMonAbilityCount(id);
 
         if(abilityCount != 0)
-            return UNIQUE_RARITY_EPIC;
-
-        if(moveCount > 2)
-            return UNIQUE_RARITY_RARE;
+        {
+            if(moveCount <= 1)
+                return UNIQUE_RARITY_RARE;
+            else
+                return UNIQUE_RARITY_EPIC;
+        }
 
         return UNIQUE_RARITY_COMMON;
     }
@@ -699,9 +702,7 @@ u32 RogueGift_CreateDynamicMonId(u8 rarity, u16 species)
 
     case UNIQUE_RARITY_RARE:
         compressedData.move1 = SelectNextMoveIndex(&compressedData, species);
-        compressedData.move2 = SelectNextMoveIndex(&compressedData, species);
-        compressedData.move3 = SelectNextMoveIndex(&compressedData, species);
-        compressedData.move4 = SelectNextMoveIndex(&compressedData, species);
+        compressedData.ability = SelectNextAbilityIndex(&compressedData, species);
         break;
 
     case UNIQUE_RARITY_EPIC:
@@ -756,20 +757,56 @@ static bool8 IsDynamicUniqueMonValid(struct UniqueMon* mon)
 
 static u8 RandomRarity()
 {
+    u8 rarity;
+
     switch (Random() % 10)
     {
     case 0:
-        return UNIQUE_RARITY_EPIC;
+        rarity = UNIQUE_RARITY_EXOTIC;
+        break;
 
     case 1:
+        rarity = UNIQUE_RARITY_EPIC;
+        break;
+
     case 2:
-        return UNIQUE_RARITY_RARE;
+    case 3:
+        rarity = UNIQUE_RARITY_RARE;
+        break;
     
     default:
-        return UNIQUE_RARITY_COMMON;
+        rarity = UNIQUE_RARITY_COMMON;
+        break;
     }
 
-    // todo - support exotic too
+    if(rarity == UNIQUE_RARITY_EXOTIC && !RogueHub_HasUpgrade(HUB_UPGRADE_LAB_UNIQUE_MON_RARITY_EXOTIC))
+        rarity = UNIQUE_RARITY_EPIC;
+
+    if(rarity == UNIQUE_RARITY_EPIC && !RogueHub_HasUpgrade(HUB_UPGRADE_LAB_UNIQUE_MON_RARITY_EPIC))
+        rarity = UNIQUE_RARITY_RARE;
+
+    if(rarity == UNIQUE_RARITY_RARE && !RogueHub_HasUpgrade(HUB_UPGRADE_LAB_UNIQUE_MON_RARITY_RARE))
+        rarity = UNIQUE_RARITY_COMMON;
+
+    return rarity;
+}
+
+static bool8 IsSlotUnlocked(u8 slot)
+{
+    if(RogueHub_HasUpgrade(HUB_UPGRADE_LAB_UNIQUE_MON_LAB))
+    {
+        // 3 slots unlocked by default
+        if(slot <= 2)
+            return TRUE;
+
+        if(slot == 3)
+            return RogueHub_HasUpgrade(HUB_UPGRADE_LAB_UNIQUE_MON_SLOTS0);
+
+        if(slot == 4)
+            return RogueHub_HasUpgrade(HUB_UPGRADE_LAB_UNIQUE_MON_SLOTS1);
+    }
+
+    return FALSE;
 }
 
 void RogueGift_EnsureDynamicCustomMonsAreValid()
@@ -842,15 +879,22 @@ void RogueGift_EnsureDynamicCustomMonsAreValid()
     for(i = 0; i < DYNAMIC_UNIQUE_MON_COUNT; ++i)
     {
         // We don't want to populate slots that aren't active
-        // TODO - hookup to upgrade unlocks for this
-        if(i >= 3)
+        if(!IsSlotUnlocked(i))
             continue;
 
         if(!IsDynamicUniqueMonValid(&gRogueSaveBlock->dynamicUniquePokemon[i]))
         {
+            u8 rarity = RandomRarity();
+
+            if(rarity == UNIQUE_RARITY_EXOTIC)
+            {
+                // todo - select quest reward
+                rarity = UNIQUE_RARITY_EPIC;
+            }
+
             gRogueSaveBlock->dynamicUniquePokemon[i].countDown = 60 + 30 * i; // Time remaining is based on the slot
             gRogueSaveBlock->dynamicUniquePokemon[i].species = newSpecies[i];
-            gRogueSaveBlock->dynamicUniquePokemon[i].customMonId = RogueGift_CreateDynamicMonId(RandomRarity(), newSpecies[i]);
+            gRogueSaveBlock->dynamicUniquePokemon[i].customMonId = RogueGift_CreateDynamicMonId(rarity, newSpecies[i]);
         }
     }
 
@@ -890,8 +934,7 @@ bool8 RogueGift_IsDynamicMonSlotEnabled(u8 slot)
 {
     AGB_ASSERT(slot < DYNAMIC_UNIQUE_MON_COUNT);
 
-    // TODO - hookup to upgrade unlocks for this
-    if(slot >= 3)
+    if(!IsSlotUnlocked(slot))
         return FALSE;
 
     return IsDynamicUniqueMonValid(&gRogueSaveBlock->dynamicUniquePokemon[slot]);

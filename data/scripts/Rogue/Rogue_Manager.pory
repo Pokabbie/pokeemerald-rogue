@@ -205,8 +205,10 @@ script Rogue_InteractWithQuestBoard
 
         if(var(VAR_RESULT) == 1)
         {
-            fadeoutbgm(1)
-            delay(15)
+            msgbox(format("There's Quest rewards to collect!"))
+
+            //fadeoutbgm(1)
+            //delay(1)
 
             setvar(VAR_0x8004, 0)
             setvar(VAR_RESULT, 1)
@@ -214,7 +216,6 @@ script Rogue_InteractWithQuestBoard
             while(var(VAR_RESULT) == 1)
             {
                 special(Rogue_QuestCollectNextReward)
-                call(Rogue_Common_DisplaySkippablePopups)
 
                 switch(var(VAR_RESULT))
                 {
@@ -229,8 +230,13 @@ script Rogue_InteractWithQuestBoard
                 }
             }
 
-            fadeinbgm(1)
-            delay(15)
+            call(Rogue_Common_DisplaySkippablePopups)
+
+            //fadeinbgm(1)
+            //delay(1)
+
+            waitfanfare
+            waitse
 
             special(Rogue_HasAnyNewQuests)
             if(var(VAR_RESULT) == 1)

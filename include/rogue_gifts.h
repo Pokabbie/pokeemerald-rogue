@@ -6,7 +6,7 @@
 enum
 {
     UNIQUE_RARITY_COMMON,   // 2 moves
-    UNIQUE_RARITY_RARE,     // 4 moves
+    UNIQUE_RARITY_RARE,     // 1 moves & ability
     UNIQUE_RARITY_EPIC,     // 4 moves & ability
     UNIQUE_RARITY_EXOTIC,   // bespoke made mons for Quest rewards
 };

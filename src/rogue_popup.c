@@ -36,7 +36,7 @@
 #include "rogue_quest.h"
 #include "rogue_timeofday.h"
 
-#define POPUP_QUEUE_CAPACITY 8
+#define POPUP_QUEUE_CAPACITY 16
 
 enum
 {
@@ -137,6 +137,7 @@ struct PopupManager
     bool8 forceEnabledMuteAudio : 1;
     bool8 forceEnabledFromScript : 1;
     bool8 forceEnabledCanSkip : 1;
+    bool8 hasPopupBeenSkipped : 1;
 };
 
 struct CustomIcon
@@ -373,6 +374,7 @@ static const u8 sWeatherNames[22][14] = {
 
 #define DEFAULT_ANIM_DURATION 15
 #define DEFAULT_DISPLAY_DURATION 90
+#define SKIP_DISPLAY_DURATION 20
 #define sStateNum           data[0]
 #define tOnscreenTimer      data[1]
 #define sDisplayTimer       data[2]
@@ -580,6 +582,7 @@ static void RemoveQuestPopUpWindow(void)
 static u8 AddQuestPopUpWindow(struct PopupRequest* request)
 {
     struct PopupRequestTemplate const* template = &sPopupRequestTemplates[request->templateId];
+    sRoguePopups.hasPopupBeenSkipped = FALSE;
 
     RemoveQuestPopUpWindow();
 
@@ -716,8 +719,13 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
             // If held wait a few frames before moving on
             if(ShouldSkipPopups())
             {
-                if (FuncIsActiveTask(Task_QuestPopUpWindow))
-                    HideQuestPopUpWindow();
+                sRoguePopups.hasPopupBeenSkipped = TRUE;
+
+                //if (FuncIsActiveTask(Task_QuestPopUpWindow))
+                //{
+                //    sRoguePopups.hasPopupBeenSkipped = TRUE;
+                //    //HideQuestPopUpWindow();
+                //}
             }
         }
     }
@@ -821,13 +829,15 @@ static void Task_QuestPopUpWindow(u8 taskId)
     struct PopupRequest* popupRequest = GetCurrentPopup();
     struct PopupRequestTemplate const* template = &sPopupRequestTemplates[popupRequest->templateId];
     bool8 useEnterAnim = FALSE;
+    u16 animDuration = sRoguePopups.hasPopupBeenSkipped ? 1 : template->animDuration;
+    u16 displayDuration = sRoguePopups.hasPopupBeenSkipped ? SKIP_DISPLAY_DURATION : popupRequest->displayDuration;
 
     switch (task->sStateNum)
     {
     case 6:
         if (task->data[4] <= 5)
             task->data[4]++;
-        else if (WaitFanfare(FALSE) && !IsSEPlaying())
+        else if (sRoguePopups.hasPopupBeenSkipped || (WaitFanfare(FALSE) && !IsSEPlaying()))
         {
             task->sStateNum = 0;
             task->data[4] = 0;
@@ -846,7 +856,7 @@ static void Task_QuestPopUpWindow(u8 taskId)
         break;
     case 1:
         task->tOnscreenTimer++;
-        if (task->tOnscreenTimer > popupRequest->displayDuration )
+        if (task->tOnscreenTimer > displayDuration)
         {
             task->tOnscreenTimer = 0;
             task->sStateNum = 2;
@@ -854,9 +864,9 @@ static void Task_QuestPopUpWindow(u8 taskId)
         break;
     case 2:
         task->sDisplayTimer++;
-        if (task->sDisplayTimer >= template->animDuration)
+        if (task->sDisplayTimer >= animDuration)
         {
-            task->sDisplayTimer = template->animDuration;
+            task->sDisplayTimer = animDuration;
             if (task->tIncomingPopUp)
             {
                 task->sStateNum = 6;
@@ -1133,8 +1143,8 @@ static void ShowQuestPopUpWindow(void)
     {
         bool8 playAudio = !popupRequest->scriptAudioOnly || sRoguePopups.forceEnabled;
 
-        if(JOY_HELD(SKIP_POPUP_BUTTONS))
-            playAudio = FALSE;
+        //if(JOY_HELD(SKIP_POPUP_BUTTONS))
+        //    playAudio = FALSE;
 
         if(sRoguePopups.forceEnabled && sRoguePopups.forceEnabledMuteAudio)
             playAudio = FALSE;

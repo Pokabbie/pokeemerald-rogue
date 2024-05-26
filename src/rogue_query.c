@@ -251,7 +251,7 @@ u16 RogueMiscQuery_SelectRandomElement(u16 rngValue)
 
     currIndex = 0;
 
-    for(elem = 1; elem < count; ++elem)
+    for(elem = 0; elem < count; ++elem)
     {
         if(GetQueryBitFlag(elem))
         {
