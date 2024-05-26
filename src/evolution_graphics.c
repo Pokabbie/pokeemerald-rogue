@@ -153,7 +153,21 @@ static void UNUSED SpriteCB_Sparkle_SpiralUpward(struct Sprite *sprite)
         DestroySprite(sprite);
 }
 
-static void SpriteCB_Sparkle_ArcDown(struct Sprite *sprite)
+static void CreateSparkle_SpiralUpward(u8 trigIdx)
+{
+    u8 spriteId = CreateSprite(&sEvoSparkleSpriteTemplate, DISPLAY_WIDTH / 2, 88, 0);
+    if (spriteId != MAX_SPRITES)
+    {
+        gSprites[spriteId].sAmplitude = 48;
+        gSprites[spriteId].sTrigIdx = trigIdx;
+        gSprites[spriteId].sTimer = 0;
+        gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
+        gSprites[spriteId].oam.matrixNum = 31;
+        gSprites[spriteId].callback = SpriteCB_Sparkle_SpiralUpward;
+    }
+}
+
+static void SpriteCB_Sparkle_ArcDown(struct Sprite* sprite)
 {
     if (sprite->y < 88)
     {
@@ -167,7 +181,7 @@ static void SpriteCB_Sparkle_ArcDown(struct Sprite *sprite)
         DestroySprite(sprite);
 }
 
-static void CreateSparkle_SpiralUpward(u8 trigIdx)
+static void CreateSparkle_ArcDown(u8 trigIdx)
 {
     u8 spriteId = CreateSprite(&sEvoSparkleSpriteTemplate, DISPLAY_WIDTH / 2, 8, 0);
     if (spriteId != MAX_SPRITES)
