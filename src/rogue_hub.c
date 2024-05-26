@@ -721,6 +721,8 @@ static void RogueHub_UpdateLabsAreaMetatiles()
     {
         MetatileFill_CommonWarpExitVertical(12, 12);
         MetatileFill_TreeCaps(12, 13, 15);
+        
+        MetatileFill_TreesOverlapping(12, 14, 15, 23, TREE_TYPE_DENSE);
 
         MetatileFill_CommonPathRemoval(12, 11, 15, 11);
     }
@@ -730,6 +732,18 @@ static void RogueHub_UpdateLabsAreaMetatiles()
         MetatileFill_CommonWarpExitHorizontal(0, 7);
 
         MetatileFill_CommonPathRemoval(2, 8, 5, 10);
+    }
+
+    // Remove unique mon lab
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_LAB_UNIQUE_MON_LAB))
+    {
+        MetatileFill_TreesOverlapping(0, 12, 9, 19, TREE_TYPE_DENSE);
+
+        MetatileFill_TreesOverlapping(9, 12, 9, 12, TREE_TYPE_SPARSE);
+
+        MetatileFill_TreeCaps(8, 11, 9);
+
+        MetatileFill_Tile(10, 11, 10, 11, METATILE_General_Grass);
     }
 }
 
@@ -961,8 +975,8 @@ static void RogueHub_UpdateFarmingAreaMetatiles()
     // Remove connectionss
     if(RogueHub_GetAreaAtConnection(HUB_AREA_BERRY_FIELD, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(17, 0, 22, 1, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(17, 0, 22, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(17, 0, 22, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(17, 1, 22, TREE_TYPE_DENSE);
 
         MetatileFill_CommonPathRemoval(18, 2, 21, 2);
     }

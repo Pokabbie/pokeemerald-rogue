@@ -11,6 +11,12 @@ extern const u8 gHubUpgradeDesc_Home_BerryField1[];
 extern const u8 gHubUpgradeDesc_Home_BerryField2[];
 extern const u8 gHubUpgradeDesc_Home_GrassField[];
 extern const u8 gHubUpgradeDesc_Home_FieldShed[];
+extern const u8 gHubUpgradeDesc_Lab_UniqueMonSlots0[];
+extern const u8 gHubUpgradeDesc_Lab_UniqueMonSlots1[];
+extern const u8 gHubUpgradeDesc_Lab_UniqueMonRarity0[];
+extern const u8 gHubUpgradeDesc_Lab_UniqueMonRarity1[];
+extern const u8 gHubUpgradeDesc_Lab_UniqueMonRarity2[];
+extern const u8 gHubUpgradeDesc_Lab_UniqueMonRarity3[];
 extern const u8 gHubUpgradeDesc_AdventureEntrance_RandomStarter[];
 extern const u8 gHubUpgradeDesc_AdventureEntrance_AdventureReplay[];
 extern const u8 gHubUpgradeDesc_BerryField_ExtraField[];
@@ -260,6 +266,67 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .buildCost = 1,
         .descText = gHubUpgradeDesc_Home_UpperFloor,
         .requiredUpgrades = { HUB_UPGRADE_HOME_LOWER_FLOOR, HUB_UPGRADE_NONE }
+    },
+
+    // HUB_AREA_LABS
+    //
+    [HUB_UPGRADE_LAB_UNIQUE_MON_LAB] = 
+    {
+        .upgradeName = _("Unique Lab"),
+        .targetArea = HUB_AREA_LABS,
+        .buildCost = 0,
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        //.isHidden = TRUE
+    },
+
+    [HUB_UPGRADE_LAB_UNIQUE_MON_SLOTS0] = 
+    {
+        .upgradeName = _("Unique{PKMN} Slots"),
+        .targetArea = HUB_AREA_LABS,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_Lab_UniqueMonSlots0,
+        .requiredUpgrades = { HUB_UPGRADE_LAB_UNIQUE_MON_LAB, HUB_UPGRADE_NONE },
+    },
+    [HUB_UPGRADE_LAB_UNIQUE_MON_SLOTS1] = 
+    {
+        .upgradeName = _("Unique{PKMN} Slots+"),
+        .targetArea = HUB_AREA_LABS,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_Lab_UniqueMonSlots1,
+        .requiredUpgrades = { HUB_UPGRADE_LAB_UNIQUE_MON_SLOTS0, HUB_UPGRADE_NONE },
+    },
+
+    [HUB_UPGRADE_LAB_UNIQUE_MON_RARITY_RARE] = 
+    {
+        .upgradeName = _("Rare Unique{PKMN}"),
+        .targetArea = HUB_AREA_LABS,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_Lab_UniqueMonRarity0,
+        .requiredUpgrades = { HUB_UPGRADE_LAB_UNIQUE_MON_LAB, HUB_UPGRADE_NONE },
+    },
+    [HUB_UPGRADE_LAB_UNIQUE_MON_RARITY_EPIC] = 
+    {
+        .upgradeName = _("Epic Unique{PKMN}"),
+        .targetArea = HUB_AREA_LABS,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_Lab_UniqueMonRarity1,
+        .requiredUpgrades = { HUB_UPGRADE_LAB_UNIQUE_MON_RARITY_RARE, HUB_UPGRADE_NONE },
+    },
+    [HUB_UPGRADE_LAB_UNIQUE_MON_RARITY_EXOTIC] = 
+    {
+        .upgradeName = _("Exotic Unique{PKMN}"),
+        .targetArea = HUB_AREA_LABS,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_Lab_UniqueMonRarity2,
+        .requiredUpgrades = { HUB_UPGRADE_LAB_UNIQUE_MON_RARITY_EPIC, HUB_UPGRADE_NONE },
+    },
+    [HUB_UPGRADE_LAB_UNIQUE_MON_RARITY_LEGENDARY] = // placeholder for supporting legendaries
+    {
+        .upgradeName = _("Legend Unique{PKMN}"),
+        .targetArea = HUB_AREA_LABS,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_Lab_UniqueMonRarity3,
+        .requiredUpgrades = { HUB_UPGRADE_LAB_UNIQUE_MON_RARITY_LEGENDARY, HUB_UPGRADE_NONE }, // requiring self will mean it's never built
     },
 
     // HUB_AREA_ADVENTURE_ENTRANCE

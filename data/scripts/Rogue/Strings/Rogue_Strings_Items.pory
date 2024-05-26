@@ -318,6 +318,36 @@ text gHubUpgradeDesc_Home_FieldShed
     format("TODO - Desc")
 }
 
+text gHubUpgradeDesc_Lab_UniqueMonSlots0
+{
+    format("Increase number of Unique {PKMN} that can be tracked.")
+}
+
+text gHubUpgradeDesc_Lab_UniqueMonSlots1
+{
+    format("Increase number of Unique {PKMN} that can be tracked.")
+}
+
+text gHubUpgradeDesc_Lab_UniqueMonRarity0
+{
+    format("Allows Rare Unique {PKMN} to be tracked. (+Abilities)")
+}
+
+text gHubUpgradeDesc_Lab_UniqueMonRarity1
+{
+    format("Allows Epic Unique {PKMN} to be tracked. (+4 Moves)")
+}
+
+text gHubUpgradeDesc_Lab_UniqueMonRarity2
+{
+    format("Allows Exotic Unique {PKMN} to be tracked. (Quest Reward {PKMN})")
+}
+
+text gHubUpgradeDesc_Lab_UniqueMonRarity3
+{
+    format("Allows Legendary Unique {PKMN} to be tracked.")
+}
+
 
 text gHubUpgradeDesc_AdventureEntrance_RandomStarter
 {
