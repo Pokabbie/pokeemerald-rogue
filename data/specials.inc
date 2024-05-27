@@ -223,6 +223,7 @@ gSpecials::
 	def_special Rogue_BufferCampaignName
 	def_special Rogue_CheckMonCombo
 	def_special Rogue_ApplyMonCombo
+	def_special Rogue_TryInteractFormChange
 	def_special Rogue_GetFollowMonSpecies
 	def_special Rogue_SetupFollowMonFromParty
 	def_special Rogue_TryEnqueueWildBattleMon

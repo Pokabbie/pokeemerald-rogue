@@ -6933,6 +6933,11 @@ static void ShiftMoveSlot(struct Pokemon *mon, u8 slotTo, u8 slotFrom)
     SetMonData(mon, MON_DATA_PP_BONUSES, &ppBonuses);
 }
 
+void ShiftMoveSlotExtern(struct Pokemon *mon, u8 slotTo, u8 slotFrom)
+{
+    ShiftMoveSlot(mon, slotTo, slotFrom);
+}
+
 void IsSelectedMonEgg(void)
 {
     if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_IS_EGG))

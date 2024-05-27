@@ -1,1 +1,100 @@
+const VAR_FORM_SPECIES = VAR_0x8005
+
 mapscripts Rogue_Template_Homes_MapScripts {}
+
+script Rogue_Template_Homes_CommonFormChange
+{
+    lock
+
+    setvar(VAR_0x8004, 0)
+    special(BufferMonNickname)
+
+    special(Rogue_TryInteractFormChange)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("{STR_VAR_1} is reacting!"))
+        special(ReloadWarpSilent)
+    }
+    else
+    {
+        msgbox(format("{STR_VAR_1} doesn't seem interested in it."))
+    }
+
+    release
+}
+
+script Rogue_Template_Homes_TalkRotomFan
+{
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            setvar(VAR_FORM_SPECIES, SPECIES_ROTOM_FAN)
+            call(Rogue_Template_Homes_CommonFormChange)
+        }
+    }
+}
+
+script Rogue_Template_Homes_TalkRotomFrost
+{
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            setvar(VAR_FORM_SPECIES, SPECIES_ROTOM_FROST)
+            call(Rogue_Template_Homes_CommonFormChange)
+        }
+    }
+}
+
+script Rogue_Template_Homes_TalkRotomHeat
+{
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            setvar(VAR_FORM_SPECIES, SPECIES_ROTOM_FROST)
+            call(Rogue_Template_Homes_CommonFormChange)
+        }
+    }
+}
+
+script Rogue_Template_Homes_TalkRotomMow
+{
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            setvar(VAR_FORM_SPECIES, SPECIES_ROTOM_MOW)
+            call(Rogue_Template_Homes_CommonFormChange)
+        }
+    }
+}
+
+script Rogue_Template_Homes_TalkRotomWash
+{
+    poryswitch(ROGUE_VERSION)
+    {
+        ROGUE_VERSION_VANILLA
+        {
+        }
+        ROGUE_VERSION_EXPANSION
+        {
+            setvar(VAR_FORM_SPECIES, SPECIES_ROTOM_WASH)
+            call(Rogue_Template_Homes_CommonFormChange)
+        }
+    }
+}
