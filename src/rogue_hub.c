@@ -814,6 +814,7 @@ static void BlitPlayerHouse(u16 style, bool8 isUpgraded)
 
 static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decorVariant)
 {
+    u8 placeableRegion = 0;
     u8 xStart = sDecorationVariants[decorVariant].perType.tile.x;
     u8 yStart = sDecorationVariants[decorVariant].perType.tile.y;
     u8 xEnd = xStart + sDecorationVariants[decorVariant].perType.tile.width - 1;
@@ -823,29 +824,42 @@ static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decorVariant)
     AGB_ASSERT(sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE);
 
     // Clip anything which is outside of the placeable region
-    if(x < sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart)
+
+    switch (gMapHeader.mapLayoutId)
     {
-        u8 delta = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart - x;
-        x = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart;
+    case LAYOUT_ROGUE_AREA_HOME:
+        placeableRegion = HOME_REGION_PLACEABLE_REGION;
+        break;
+    
+    case LAYOUT_ROGUE_INTERIOR_HOME:
+        placeableRegion = HOME_REGION_PLACEABLE_REGION_INTERIOR;
+        break;
+    }
+
+
+    if(x < sHomeRegionCoords[placeableRegion].xStart)
+    {
+        u8 delta = sHomeRegionCoords[placeableRegion].xStart - x;
+        x = sHomeRegionCoords[placeableRegion].xStart;
         xStart += delta;
     }
 
-    if(y < sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart)
+    if(y < sHomeRegionCoords[placeableRegion].yStart)
     {
-        u8 delta = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart - y;
-        y = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart;
+        u8 delta = sHomeRegionCoords[placeableRegion].yStart - y;
+        y = sHomeRegionCoords[placeableRegion].yStart;
         yStart += delta;
     }
 
-    if(x + (xEnd - xStart) > sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd)
+    if(x + (xEnd - xStart) > sHomeRegionCoords[placeableRegion].xEnd)
     {
-        u8 delta = x + (xEnd - xStart) - sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd;
+        u8 delta = x + (xEnd - xStart) - sHomeRegionCoords[placeableRegion].xEnd;
         xEnd -= delta;
     }
 
-    if(y + (yEnd - yStart) > sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd)
+    if(y + (yEnd - yStart) > sHomeRegionCoords[placeableRegion].yEnd)
     {
-        u8 delta = y + (yEnd - yStart) - sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd;
+        u8 delta = y + (yEnd - yStart) - sHomeRegionCoords[placeableRegion].yEnd;
         yEnd -= delta;
     }
 
@@ -1707,6 +1721,13 @@ static void UpdatePlaceCoords(u8* placeX, u8* placeY, u8 decorVariant)
     }
 }
 
+static bool8 CanPlaceDecorAt(u8 decorVariant, u8 x, u8 y)
+{
+    // Maybe want to avoid overlapping?
+    // Could use a bit mask?
+    return TRUE;
+}
+
 // Scripts
 //
 
@@ -1769,18 +1790,18 @@ void RogueHub_SetupDecorationMultichoice()
             // Ignore illegal groups for this layout
             if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_HOME)
             {
-                //switch (i)
-                //{
-                //case DECOR_GROUP_ENVIRONMENT:
-                //    continue;
-                //}
+                switch (i)
+                {
+                case DECOR_GROUP_TILES_INTERIOR:
+                    continue;
+                }
             }
             else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_INTERIOR_HOME)
             {
                 switch (i)
                 {
                 case DECOR_GROUP_ENVIRONMENT:
-                case DECOR_GROUP_TILES:
+                case DECOR_GROUP_TILES_EXTERIOR:
                     continue;
                 }
             }
@@ -2066,7 +2087,7 @@ u16 RogueHub_PlaceHomeDecor()
         {
             return HOME_DECOR_TOO_MANY_OF_TYPE;
         }
-        else
+        else if(CanPlaceDecorAt(decorVariant, placeX, placeY))
         {
             UpdatePlaceCoords(&placeX, &placeY, decorVariant);
 
@@ -2084,6 +2105,11 @@ u16 RogueHub_PlaceHomeDecor()
                     return GetCurrentDecorOffset(i);
                 }
             }
+        }
+        else
+        {
+            // TODO - Cannot place on top
+            return HOME_DECOR_TOO_MANY_OBJECTS_NEAR;
         }
     
         return HOME_DECOR_CODE_NO_ROOM;

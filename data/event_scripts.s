@@ -873,3 +873,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Route_Sinnoh_212/scripts.inc"
 
 	.include "data/maps/Rogue_Interior_BillsLab/scripts.inc"
+
+	.include "data/maps/Rogue_Template_Home_Interior/scripts.inc"

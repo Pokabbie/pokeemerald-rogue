@@ -2010,6 +2010,16 @@
       "secondary_tileset": "gTileset_BattleFactory",
       "border_filepath": "data/layouts/Rogue_Interior_BillsLab/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Interior_BillsLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_TEMPLATE_HOME_INTERIOR",
+      "name": "Rogue_Template_Home_Interior_Layout",
+      "width": 22,
+      "height": 12,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseYellowCave",
+      "border_filepath": "data/layouts/Rogue_Template_Home_Interior/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Template_Home_Interior/map.bin"
     }
   ]
 }

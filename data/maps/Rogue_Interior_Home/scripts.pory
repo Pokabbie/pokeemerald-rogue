@@ -1,5 +1,11 @@
 mapscripts Rogue_Interior_Home_MapScripts 
 {
+    MAP_SCRIPT_ON_RESUME: Rogue_Interior_Home_OnResume
+}
+
+script Rogue_Interior_Home_OnResume
+{
+    setstepcallback(STEP_CB_SECRET_BASE)
 }
 
 script Rogue_Interior_Home_TurnOnPC
