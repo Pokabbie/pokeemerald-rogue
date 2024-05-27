@@ -304,6 +304,7 @@ gSpecials::
 	def_special RogueHub_GetStatueLevel
 	def_special RogueHub_SetupDecorationMultichoice
 	def_special RogueHub_HandleDecorationMultichoiceResult
+	def_special RogueHub_ClearAllDecorations
 	def_special RogueHub_PlaceHomeDecor
 	def_special RogueHub_RemoveHomeDecor
 	def_special RogueHub_IsRemovingDecor

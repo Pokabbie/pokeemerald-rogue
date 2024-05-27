@@ -69,11 +69,13 @@ script Rogue_Area_Home_InteractWithWorkbench
         {
             appenddynamicmultichoice("Start Decorating", 1)
         }
+        appenddynamicmultichoice("Clear Decorations", 2)
         appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
 
         message(format("What would you like to do?"))
         waitmessage
-        enddynamicmultichoice(1, 0, 3, TRUE)
+        enddynamicmultichoice(1, 0, 4, TRUE)
     
 
         switch(var(VAR_RESULT))
@@ -92,6 +94,14 @@ script Rogue_Area_Home_InteractWithWorkbench
                 }
 
                 special(ReloadWarpSilent)
+
+            case 2:
+                msgbox(format("This will clear all currently placed decorations.\nThere is no way to undo this.\pAre you sure you want to clear all decorations?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    special(RogueHub_ClearAllDecorations)
+                    special(ReloadWarpSilent)
+                }
         }
 
         release
@@ -124,7 +134,7 @@ script Rogue_Area_Home_ChooseDecoration_Internal
             message(format("What would you like to place?"))
             waitmessage
 
-            begindynamicmultichoice(32)
+            begindynamicmultichoice(48)
             special(RogueHub_SetupDecorationMultichoice)
             enddynamicmultichoice(20, 2, 5, TRUE)
 

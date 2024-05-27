@@ -119,6 +119,10 @@ struct RogueDecoration
 
 #include "data/rogue/decorations.h"
 
+// We need to reserve a specific variant ID annoyingly :( so multichoice doesn't break
+// (could work around this by having it be an offset from first enable variant?)
+STATIC_ASSERT(DECOR_VARIANT_RESERVED_FOR_127_DEFAULT == MULTI_B_PRESSED, ReservedFor127Matches);
+
 static void MetatileSet_Tile(u16 xStart, u16 yStart, u16 tile);
 static void MetatileFill_Tile(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd, u16 tile);
 static void MetatileFill_TreesOverlapping(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd, u8 treeType);
@@ -1815,6 +1819,13 @@ void RogueHub_SetupDecorationMultichoice()
         for(i = 0; i < sDecorationGroups[selectedGroup].decorationCount; ++i)
         {
             u16 decorId = sDecorationGroups[selectedGroup].decorationIds[i];
+
+            switch (decorId)
+            {
+            case DECOR_ID_RESERVED_FOR_127:
+                continue;
+            }
+
             ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorations[decorId].name, decorId);
         }
         ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
@@ -1824,6 +1835,13 @@ void RogueHub_SetupDecorationMultichoice()
         for(i = sDecorations[selectedDecorId].firstVariantId; i <= sDecorations[selectedDecorId].lastVariantId; ++i)
         {
             u16 decorVariant = i;
+
+            switch (decorVariant)
+            {
+            case DECOR_VARIANT_RESERVED_FOR_127_DEFAULT:
+                continue;
+            }
+
             ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorationVariants[decorVariant].name, decorVariant);
         }
         ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
@@ -1834,7 +1852,6 @@ void RogueHub_SetupDecorationMultichoice()
         break;
     }
 }
-
 void RogueHub_HandleDecorationMultichoiceResult()
 {
     u16 menuDepth = VarGet(VAR_MENU_DEPTH);
@@ -1898,6 +1915,11 @@ void RogueHub_HandleDecorationMultichoiceResult()
         AGB_ASSERT(FALSE); // don't process here
         break;
     }
+}
+
+void RogueHub_ClearAllDecorations()
+{
+    memset(gRogueSaveBlock->hubMap.homeDecorations, 0, sizeof(gRogueSaveBlock->hubMap.homeDecorations));
 }
 
 static bool8 IsCoordOnDecor(struct RogueHubDecoration* decor, u8 x, u8 y)
