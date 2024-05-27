@@ -35,6 +35,7 @@ static u32 GetSwitchinHazardsDamage(u32 battler, struct BattlePokemon *battleMon
 static void InitializeSwitchinCandidate(struct Pokemon *mon)
 {
     PokemonToBattleMon(mon, &AI_DATA->switchinCandidate.battleMon);
+    Rogue_ModifyBattleMon(0, &AI_DATA->switchinCandidate.battleMon, FALSE);
     AI_DATA->switchinCandidate.hypotheticalStatus = FALSE;
 }
 

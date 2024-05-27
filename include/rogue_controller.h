@@ -73,6 +73,7 @@ void Rogue_ModifyBattlePalette(u16 offset, u16 count);
 
 const u8* Rogue_ModifyFieldMessage(const u8* str);
 const u8* Rogue_ModifyBattleMessage(const u8* str);
+void Rogue_ModifyBattleMon(u8 monId, struct BattlePokemon* battleMon, bool8 isPlayer);
 
 const u8* Rogue_ModifyOverworldInteractionScript(struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* script);
 u16 Rogue_ModifyOverworldMapWeather(u16 weather);

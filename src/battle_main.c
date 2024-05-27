@@ -3164,7 +3164,7 @@ void SwitchInClearSetData(u32 battler)
     {
         gBattleMons[battler].status2 = 0;
         gStatuses3[battler] = 0;
-        gStatuses4[battler] = 0;
+        Rogue_ModifyBattleMon(0, &gBattleMons[battler], GetBattlerSide(battler) == B_SIDE_PLAYER);
     }
 
     for (i = 0; i < gBattlersCount; i++)
@@ -3473,6 +3473,7 @@ static void DoBattleIntro(void)
                 gBattleMons[battler].status2 = 0;
                 for (i = 0; i < NUM_BATTLE_STATS; i++)
                     gBattleMons[battler].statStages[i] = DEFAULT_STAT_STAGE;
+                Rogue_ModifyBattleMon(0, &gBattleMons[battler], GetBattlerSide(battler) == B_SIDE_PLAYER);
             }
 
             // Draw sprite.
