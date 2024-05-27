@@ -969,7 +969,7 @@ static void HandleRotomFormChange(u16 fromSpecies, u16 toSpecies)
         // Replace move with appropriate form
         if(toSpecies != SPECIES_ROTOM)
         {
-            SetMonMoveSlot(&gPlayerParty[0], MOVE_NONE, sRotomMovesPerForm[toSpecies - SPECIES_ROTOM_HEAT]);
+            SetMonMoveSlot(&gPlayerParty[0], sRotomMovesPerForm[toSpecies - SPECIES_ROTOM_HEAT], moveToReplace);
         }
         // Just remove move
         else
@@ -986,7 +986,7 @@ void Rogue_TryInteractFormChange(void)
 {
     u16 leadSpecies = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
     u16 formSpecies = gSpecialVar_0x8005;
-    u16 leadBaseSpecies = GET_BASE_SPECIES_ID(leadBaseSpecies);
+    u16 leadBaseSpecies = GET_BASE_SPECIES_ID(leadSpecies);
     u16 formBaseSpecies = GET_BASE_SPECIES_ID(formSpecies);
 
     gSpecialVar_Result = FALSE;

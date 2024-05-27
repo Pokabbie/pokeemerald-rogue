@@ -63,7 +63,7 @@ script Rogue_Template_Homes_TalkRotomHeat
         }
         ROGUE_VERSION_EXPANSION
         {
-            setvar(VAR_FORM_SPECIES, SPECIES_ROTOM_FROST)
+            setvar(VAR_FORM_SPECIES, SPECIES_ROTOM_HEAT)
             call(Rogue_Template_Homes_CommonFormChange)
         }
     }
