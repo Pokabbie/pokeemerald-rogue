@@ -79,6 +79,8 @@ u16 Rogue_ModifyOverworldMapWeather(u16 weather);
 
 const struct Tileset * Rogue_ModifyOverworldTileset(const struct Tileset * tileset);
 
+bool8 Rogue_CanRenameMon(struct Pokemon* mon);
+
 bool8 Rogue_ShouldShowMiniMenu(void);
 u16 Rogue_MiniMenuHeight(void);
 u8* Rogue_GetMiniMenuContent(void);

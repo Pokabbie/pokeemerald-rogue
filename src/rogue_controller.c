@@ -1735,6 +1735,22 @@ const struct Tileset * Rogue_ModifyOverworldTileset(const struct Tileset * tiles
     }
 }
 
+bool8 Rogue_CanRenameMon(struct Pokemon* mon)
+{
+    u32 customMonId;
+    u32 otId = GetMonData(mon, MON_DATA_OT_ID);
+    
+    if(!IsOtherTrainer(otId))
+        return TRUE;
+
+    customMonId = RogueGift_GetCustomMonId(mon);
+
+    if(customMonId)
+        return RogueGift_CanRenameCustomMon(customMonId);
+
+    return FALSE;
+}
+
 u8 SpeciesToGen(u16 species)
 {
     if(species >= SPECIES_BULBASAUR && species <= SPECIES_MEW)
