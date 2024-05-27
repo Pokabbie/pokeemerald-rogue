@@ -76,6 +76,7 @@ struct SecretBaseEntranceMetatiles
 };
 
 static EWRAM_DATA u8 sCurSecretBaseId = 0;
+static EWRAM_DATA bool8 sInFriendSecretBase = FALSE;
 static EWRAM_DATA struct SecretBaseRegistryMenu *sRegistryMenu = NULL;
 
 static void Task_ShowSecretBaseRegistryMenu(u8);
