@@ -1723,6 +1723,18 @@ u16 Rogue_ModifyOverworldMapWeather(u16 weather)
     return weather;
 }
 
+const struct Tileset * Rogue_ModifyOverworldTileset(const struct Tileset * tileset)
+{
+    if(Rogue_IsRunActive())
+    {
+        return tileset;
+    }
+    else
+    {
+        return RogueHub_ModifyOverworldTileset(tileset);
+    }
+}
+
 u8 SpeciesToGen(u16 species)
 {
     if(species >= SPECIES_BULBASAUR && species <= SPECIES_MEW)

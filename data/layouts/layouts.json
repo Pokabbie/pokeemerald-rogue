@@ -1547,7 +1547,7 @@
       "width": 16,
       "height": 16,
       "primary_tileset": "gTileset_SecretBase",
-      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "secondary_tileset": "gTileset_SecretBaseRedCave",
       "border_filepath": "data/layouts/Rogue_Interior_Home/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Interior_Home/map.bin"
     },
@@ -1814,7 +1814,7 @@
     {
       "id": "LAYOUT_ROGUE_TEMPLATE_HOMES",
       "name": "Rogue_Template_Homes_Layout",
-      "width": 50,
+      "width": 55,
       "height": 17,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_PlayerHome",
@@ -2010,6 +2010,16 @@
       "secondary_tileset": "gTileset_BattleFactory",
       "border_filepath": "data/layouts/Rogue_Interior_BillsLab/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Interior_BillsLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_TEMPLATE_HOME_INTERIOR",
+      "name": "Rogue_Template_Home_Interior_Layout",
+      "width": 22,
+      "height": 12,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseBrownCave",
+      "border_filepath": "data/layouts/Rogue_Template_Home_Interior/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Template_Home_Interior/map.bin"
     }
   ]
 }

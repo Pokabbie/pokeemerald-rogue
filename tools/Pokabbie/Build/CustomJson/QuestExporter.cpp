@@ -13,6 +13,8 @@ enum class QuestRewardType
 	QuestUnlock,
 	Flag,
 	HubUpgrade,
+	Decor,
+	DecorVariant,
 };
 
 struct QuestReward
@@ -66,6 +68,14 @@ struct QuestReward
 	{
 		std::string upgradeId;
 	} hubUpgrade;
+	struct
+	{
+		std::string decorId;
+	} decor;
+	struct
+	{
+		std::string decorVariantId;
+	} decorVariant;
 };
 
 enum class QuestRequirementType
@@ -313,6 +323,24 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 				fileStream << c_TabSpacing2 << "}\n";
 				break;
 
+
+			case QuestRewardType::Decor:
+				fileStream << c_TabSpacing2 << ".type = QUEST_REWARD_DECOR,\n";
+				fileStream << c_TabSpacing2 << ".perType = {\n";
+				fileStream << c_TabSpacing3 << ".decor = {\n";
+				fileStream << c_TabSpacing4 << ".decorId = " << rewardInfo.decor.decorId << ",\n";
+				fileStream << c_TabSpacing3 << "}\n";
+				fileStream << c_TabSpacing2 << "}\n";
+				break;
+
+			case QuestRewardType::DecorVariant:
+				fileStream << c_TabSpacing2 << ".type = QUEST_REWARD_DECOR_VARIANT,\n";
+				fileStream << c_TabSpacing2 << ".perType = {\n";
+				fileStream << c_TabSpacing3 << ".decorVariant = {\n";
+				fileStream << c_TabSpacing4 << ".decorVariantId = " << rewardInfo.decorVariant.decorVariantId << ",\n";
+				fileStream << c_TabSpacing3 << "}\n";
+				fileStream << c_TabSpacing2 << "}\n";
+				break;
 
 			default:
 				FATAL_ERROR("Unsupported reward type");
@@ -659,6 +687,7 @@ static std::string FormatQuestId(std::string const& prettyName)
 	strutil::replace_all(questId, "-", "_");
 	strutil::replace_all(questId, "!", "EMARK");
 	strutil::replace_all(questId, "?", "QMARK");
+	strutil::replace_all(questId, "Ã©", "E"); // code for é
 	strutil::replace_all(questId, "é", "E");
 	strutil::replace_all(questId, ",", "");
 	strutil::replace_all(questId, ".", "");
@@ -809,6 +838,24 @@ static QuestReward ParseQuestReward(json const& jsonData)
 		reward.type = QuestRewardType::Flag;
 
 		reward.flagParams.flag = FormatQuestId(jsonData["flag"].get<std::string>());
+
+		return reward;
+	}
+
+	if (jsonData.contains("decor"))
+	{
+		reward.type = QuestRewardType::Decor;
+
+		reward.decor.decorId = jsonData["decor"].get<std::string>();
+
+		return reward;
+	}
+
+	if (jsonData.contains("decor_variant"))
+	{
+		reward.type = QuestRewardType::DecorVariant;
+
+		reward.decorVariant.decorVariantId = jsonData["decor_variant"].get<std::string>();
 
 		return reward;
 	}

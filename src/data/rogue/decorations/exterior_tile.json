@@ -4,12 +4,12 @@
     ],
     "defaults":
     {
-        "display_group": "Tiles",
+        "display_group": "Tiles#Exterior",
         "source_map": "ROGUE_TEMPLATE_HOMES"
     },
     "decorations":
     {
-        "exterior_patches":
+        "tiles_exterior":
         [
             {
                 "name": "Boulder",

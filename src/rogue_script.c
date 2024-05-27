@@ -933,6 +933,94 @@ void Rogue_ApplyMonCombo(void)
     //}
 }
 
+#ifdef ROGUE_EXPANSION
+static u16 const sRotomMovesPerForm[] = 
+{
+    [SPECIES_ROTOM_HEAT - SPECIES_ROTOM_HEAT] = MOVE_OVERHEAT,
+    [SPECIES_ROTOM_WASH - SPECIES_ROTOM_HEAT] = MOVE_HYDRO_PUMP,
+    [SPECIES_ROTOM_FROST - SPECIES_ROTOM_HEAT] = MOVE_BLIZZARD,
+    [SPECIES_ROTOM_FAN - SPECIES_ROTOM_HEAT] = MOVE_AIR_SLASH,
+    [SPECIES_ROTOM_MOW - SPECIES_ROTOM_HEAT] = MOVE_LEAF_STORM,
+};
+
+void ShiftMoveSlotExtern(struct Pokemon *mon, u8 slotTo, u8 slotFrom);
+
+static void HandleRotomFormChange(u16 fromSpecies, u16 toSpecies)
+{
+    u8 i;
+    u8 moveToReplace = MAX_MON_MOVES;
+
+    if(fromSpecies != SPECIES_ROTOM)
+    {
+        for(i = 0; i < MAX_MON_MOVES; ++i)
+        {
+            u16 move = GetMonData(&gPlayerParty[0], MON_DATA_MOVE1 + i);
+
+            if(move == sRotomMovesPerForm[fromSpecies - SPECIES_ROTOM_HEAT])
+            {
+                moveToReplace = i;
+                break;
+            }
+        }
+    }
+
+    if(moveToReplace != MAX_MON_MOVES)
+    {
+        // Replace move with appropriate form
+        if(toSpecies != SPECIES_ROTOM)
+        {
+            SetMonMoveSlot(&gPlayerParty[0], MOVE_NONE, sRotomMovesPerForm[toSpecies - SPECIES_ROTOM_HEAT]);
+        }
+        // Just remove move
+        else
+        {
+            SetMonMoveSlot(&gPlayerParty[0], MOVE_NONE, moveToReplace);
+            RemoveMonPPBonus(&gPlayerParty[0], moveToReplace);
+            for (i = moveToReplace; i < MAX_MON_MOVES - 1; i++)
+                ShiftMoveSlotExtern(&gPlayerParty[0], i, i + 1);
+        }
+    }
+}
+
+void Rogue_TryInteractFormChange(void)
+{
+    u16 leadSpecies = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
+    u16 formSpecies = gSpecialVar_0x8005;
+    u16 leadBaseSpecies = GET_BASE_SPECIES_ID(leadBaseSpecies);
+    u16 formBaseSpecies = GET_BASE_SPECIES_ID(formSpecies);
+
+    gSpecialVar_Result = FALSE;
+
+    if(leadSpecies == formSpecies)
+    {
+        // Switch from form
+        SetMonData(&gPlayerParty[0], MON_DATA_SPECIES, &leadBaseSpecies);
+
+        if(leadBaseSpecies == SPECIES_ROTOM)
+            HandleRotomFormChange(leadSpecies, leadBaseSpecies);
+    
+        gSpecialVar_Result = TRUE;
+    }
+    else if(leadBaseSpecies == formBaseSpecies)
+    {
+        SetMonData(&gPlayerParty[0], MON_DATA_SPECIES, &formSpecies);
+
+        if(leadBaseSpecies == SPECIES_ROTOM)
+            HandleRotomFormChange(leadSpecies, formSpecies);
+
+        gSpecialVar_Result = TRUE;
+    }
+}
+
+#else
+
+void Rogue_TryInteractFormChange(void)
+{
+    gSpecialVar_Result = FALSE;
+}
+
+#endif
+
 void Rogue_GetFollowMonSpecies(void)
 {
     u16 species;

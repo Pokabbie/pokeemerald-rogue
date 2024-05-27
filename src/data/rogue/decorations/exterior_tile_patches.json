@@ -17,7 +17,8 @@
                 "source_tiles":
                 {
                     "width": 5,
-                    "height": 5
+                    "height": 5,
+                    "bottom_layer": true
                 }
             },
             {
@@ -25,7 +26,8 @@
                 "source_tiles":
                 {
                     "width": 4,
-                    "height": 4
+                    "height": 4,
+                    "bottom_layer": true
                 }
             },
             {
@@ -33,7 +35,8 @@
                 "source_tiles":
                 {
                     "width": 3,
-                    "height": 3
+                    "height": 3,
+                    "bottom_layer": true
                 }
             },
             {
@@ -41,7 +44,8 @@
                 "source_tiles":
                 {
                     "width": 2,
-                    "height": 2
+                    "height": 2,
+                    "bottom_layer": true
                 }
             }
         ]

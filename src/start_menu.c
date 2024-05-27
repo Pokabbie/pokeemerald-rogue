@@ -380,7 +380,7 @@ static void BuildNormalStartMenu(void)
         AddStartMenuAction(MENU_ACTION_QUESTS);
     }
 
-    if (RogueHub_GetAreaFromCurrentMap() == HUB_AREA_HOME)
+    if (RogueHub_IsPlayerBaseLayout(gMapHeader.mapLayoutId))
     {
         AddStartMenuAction(MENU_ACTION_DECORATE);
     }
@@ -415,7 +415,7 @@ static void BuildRogueRunStartMenu(void)
         AddStartMenuAction(MENU_ACTION_QUESTS);
     }
 
-    if (RogueHub_GetAreaFromCurrentMap() == HUB_AREA_HOME)
+    if (RogueHub_IsPlayerBaseLayout(gMapHeader.mapLayoutId))
     {
         AddStartMenuAction(MENU_ACTION_DECORATE);
     }

@@ -290,12 +290,17 @@ text gHubAreaDesc_Todo
 
 text gHubUpgradeDesc_Home_LowerFloor
 {
-    format("A cozy home used to store items and change outfits.")
+    format("An Interior space to decorate in the Home Base.")
 }
 
 text gHubUpgradeDesc_Home_UpperFloor
 {
     format("A 2nd floor with a bed allowing you to rest until a specific time.")
+}
+
+text gHubUpgradeDesc_Home_TownStyle
+{
+    format("Change styles from Home Base e.g. Path")
 }
 
 text gHubUpgradeDesc_Home_BerryField1

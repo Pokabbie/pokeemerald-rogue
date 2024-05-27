@@ -58,10 +58,11 @@
 #define MAP_ROGUE_INTERIOR_BILLS_LAB          (10 | (3 << 8))
 
 // gMapGroup_RogueHubTemplates
-#define MAP_ROGUE_TEMPLATE_HOMES        (0 | (4 << 8))
-#define MAP_ROGUE_TEMPLATE_HOME_BASE    (1 | (4 << 8))
-#define MAP_ROGUE_TEMPLATE_HOME_FLOWERS (2 | (4 << 8))
-#define MAP_ROGUE_TEMPLATE_HOME_GRASS   (3 | (4 << 8))
+#define MAP_ROGUE_TEMPLATE_HOMES         (0 | (4 << 8))
+#define MAP_ROGUE_TEMPLATE_HOME_BASE     (1 | (4 << 8))
+#define MAP_ROGUE_TEMPLATE_HOME_FLOWERS  (2 | (4 << 8))
+#define MAP_ROGUE_TEMPLATE_HOME_GRASS    (3 | (4 << 8))
+#define MAP_ROGUE_TEMPLATE_HOME_INTERIOR (4 | (4 << 8))
 
 // gMapGroup_RogueHubTesting
 #define MAP_ROGUE_TILE_TEST1              (0 | (5 << 8))

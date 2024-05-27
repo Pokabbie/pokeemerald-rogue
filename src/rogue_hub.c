@@ -48,12 +48,22 @@ struct TileFixup
     u8 path : 1;
     u8 pond : 1;
     u8 mountain : 1;
+    u8 pathStyle : 1;
+};
+
+enum
+{
+    HOME_REGION_HOUSE,
+    HOME_REGION_PLACEABLE_REGION,
+    HOME_REGION_PLACEABLE_REGION_INTERIOR,
+    HOME_REGION_COUNT
 };
 
 static struct RegionCoords const sHomeRegionCoords[HOME_REGION_COUNT] = 
 {
     [HOME_REGION_HOUSE] =  { 15, 14, 19, 19 },
     [HOME_REGION_PLACEABLE_REGION] =  { 4, 4, 31, 31 },
+    [HOME_REGION_PLACEABLE_REGION_INTERIOR] =  { 1, 1, 14, 14 },
 };
 
 static struct MapInfo const sHomeAreaStyles[HOME_AREA_STYLE_COUNT] = 
@@ -108,7 +118,96 @@ struct RogueDecoration
     u16 lastVariantId;
 };
 
+enum
+{
+    PATH_STYLE_GRASS,
+    PATH_STYLE_SAND,
+    PATH_STYLE_STONE,
+    PATH_STYLE_PEBBLES,
+    PATH_STYLE_MUDDY_TRACKS,
+    PATH_STYLE_COUNT,
+};
+
+enum
+{
+    EXTERIOR_STYLE_CAVE,
+    EXTERIOR_STYLE_TREES,
+    EXTERIOR_STYLE_BRICK_HOUSE,
+    EXTERIOR_STYLE_WOODEN_HOUSE,
+    EXTERIOR_STYLE_GYM_BUILDING,
+    EXTERIOR_STYLE_COUNT,
+};
+
+enum
+{
+    INTERIOR_STYLE_RED_CAVE,
+    INTERIOR_STYLE_BLUE_CAVE,
+    INTERIOR_STYLE_BROWN_CAVE,
+    INTERIOR_STYLE_DESERT_CAVE,
+    INTERIOR_STYLE_SHRUB,
+    INTERIOR_STYLE_TREE,
+    INTERIOR_STYLE_COUNT,
+};
+
+static u8 const sText_PathStyle_Grass[] = _("Grass");
+static u8 const sText_PathStyle_Sand[] = _("Sand");
+static u8 const sText_PathStyle_Stone[] = _("Stone");
+static u8 const sText_PathStyle_Pebbles[] = _("Pebbles");
+static u8 const sText_PathStyle_MuddyTracks[] = _("Muddy Tracks");
+
+static u8 const* const sOptions_PathStyle[PATH_STYLE_COUNT] =
+{
+    [PATH_STYLE_GRASS] = sText_PathStyle_Grass,
+    [PATH_STYLE_SAND] = sText_PathStyle_Sand,
+    [PATH_STYLE_STONE] = sText_PathStyle_Stone,
+    [PATH_STYLE_PEBBLES] = sText_PathStyle_Pebbles,
+    [PATH_STYLE_MUDDY_TRACKS] = sText_PathStyle_MuddyTracks,
+};
+
+static u8 const sText_ExteriorStyle_Cave[] = _("Cave");
+static u8 const sText_ExteriorStyle_Trees[] = _("Trees");
+static u8 const sText_ExteriorStyle_BrickHouse[] = _("Brick House");
+static u8 const sText_ExteriorStyle_WoodHouse[] = _("Wooden House");
+static u8 const sText_ExteriorStyle_Gym[] = _("Gym Building");
+
+static u8 const* const sOptions_ExteriorStyle[EXTERIOR_STYLE_COUNT] =
+{
+    [EXTERIOR_STYLE_CAVE] = sText_ExteriorStyle_Cave,
+    [EXTERIOR_STYLE_TREES] = sText_ExteriorStyle_Trees,
+    [EXTERIOR_STYLE_BRICK_HOUSE] = sText_ExteriorStyle_BrickHouse,
+    [EXTERIOR_STYLE_WOODEN_HOUSE] = sText_ExteriorStyle_WoodHouse,
+    [EXTERIOR_STYLE_GYM_BUILDING] = sText_ExteriorStyle_Gym,
+};
+
+static u8 const sText_InteriorStyle_BlueCave[] = _("Blue Cave");
+static u8 const sText_InteriorStyle_BrownCave[] = _("Brown Cave");
+static u8 const sText_InteriorStyle_RedCave[] = _("Red Cave");
+static u8 const sText_InteriorStyle_DesertCave[] = _("Desert Cave");
+static u8 const sText_InteriorStyle_Shrub[] = _("Shrub");
+static u8 const sText_InteriorStyle_Tree[] = _("Tree");
+
+static u8 const* const sOptions_InteriorStyle[INTERIOR_STYLE_COUNT] =
+{
+    [INTERIOR_STYLE_BLUE_CAVE] = sText_InteriorStyle_BlueCave,
+    [INTERIOR_STYLE_BROWN_CAVE] = sText_InteriorStyle_BrownCave,
+    [INTERIOR_STYLE_RED_CAVE] = sText_InteriorStyle_RedCave,
+    [INTERIOR_STYLE_DESERT_CAVE] = sText_InteriorStyle_DesertCave,
+    [INTERIOR_STYLE_SHRUB] = sText_InteriorStyle_Shrub,
+    [INTERIOR_STYLE_TREE] = sText_InteriorStyle_Tree,
+};
+
+extern const struct Tileset gTileset_SecretBaseBlueCave;
+extern const struct Tileset gTileset_SecretBaseBrownCave;
+extern const struct Tileset gTileset_SecretBaseRedCave;
+extern const struct Tileset gTileset_SecretBaseYellowCave;
+extern const struct Tileset gTileset_SecretBaseShrub;
+extern const struct Tileset gTileset_SecretBaseTree;
+
 #include "data/rogue/decorations.h"
+
+// We need to reserve a specific variant ID annoyingly :( so multichoice doesn't break
+// (could work around this by having it be an offset from first enable variant?)
+STATIC_ASSERT(DECOR_VARIANT_RESERVED_FOR_127_DEFAULT == MULTI_B_PRESSED, ReservedFor127Matches);
 
 static void MetatileSet_Tile(u16 xStart, u16 yStart, u16 tile);
 static void MetatileFill_Tile(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd, u16 tile);
@@ -188,6 +287,12 @@ void RogueHub_ClearProgress()
             }
         }
     }
+
+    // Place default decor
+    gRogueSaveBlock->hubMap.homeDecorations[HOME_DECOR_OUTSIDE_OFFSET + 0].active = TRUE;
+    gRogueSaveBlock->hubMap.homeDecorations[HOME_DECOR_OUTSIDE_OFFSET + 0].decorVariant = DECOR_VARIANT_OUTFIT_CHANGING_WARDROBE;
+    gRogueSaveBlock->hubMap.homeDecorations[HOME_DECOR_OUTSIDE_OFFSET + 0].x = 21;
+    gRogueSaveBlock->hubMap.homeDecorations[HOME_DECOR_OUTSIDE_OFFSET + 0].y = 19;
 }
 
 bool8 RogueHub_HasUpgrade(u16 upgradeId)
@@ -672,6 +777,7 @@ void RogueHub_ApplyMapMetatiles()
         fixup.path = TRUE;
         fixup.pond = FALSE;
         fixup.mountain = FALSE;
+        fixup.pathStyle = TRUE;
         FixupTileCommon(&fixup);
     }
 }
@@ -791,20 +897,37 @@ static void BlitPlayerHomeRegion(u16 region, u16 style)
 static void BlitPlayerHouse(u16 style, bool8 isUpgraded)
 {
     u16 const width = (sHomeRegionCoords[HOME_REGION_HOUSE].xEnd - sHomeRegionCoords[HOME_REGION_HOUSE].xStart + 1);
-    AGB_ASSERT(style < HOME_BUILDING_STYLE_COUNT);
 
-    MetatileFill_BlitMapRegion(
-        MAP_GROUP(ROGUE_TEMPLATE_HOMES), MAP_NUM(ROGUE_TEMPLATE_HOMES),
-        sHomeRegionCoords[HOME_REGION_HOUSE].xStart, 
-        sHomeRegionCoords[HOME_REGION_HOUSE].yStart, 
-        sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, 
-        sHomeRegionCoords[HOME_REGION_HOUSE].yEnd - 1, // bottom tile is just to stop things being placed too close
-        width * (style * 2 + (isUpgraded ? 0 : 1)),0
-    );
+    if(RogueHub_HasUpgrade(HUB_UPGRADE_HOME_LOWER_FLOOR))
+    {
+        AGB_ASSERT(style < HOME_BUILDING_STYLE_COUNT);
+
+        MetatileFill_BlitMapRegion(
+            MAP_GROUP(ROGUE_TEMPLATE_HOMES), MAP_NUM(ROGUE_TEMPLATE_HOMES),
+            sHomeRegionCoords[HOME_REGION_HOUSE].xStart, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].yStart, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].yEnd - 1, // bottom tile is just to stop things being placed too close
+            width * (1 + style * 2 + (isUpgraded ? 0 : 1)), 0
+        );
+    }
+    else
+    {
+        // Blit the empty plot
+        MetatileFill_BlitMapRegion(
+            MAP_GROUP(ROGUE_TEMPLATE_HOMES), MAP_NUM(ROGUE_TEMPLATE_HOMES),
+            sHomeRegionCoords[HOME_REGION_HOUSE].xStart, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].yStart, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].yEnd - 1, // bottom tile is just to stop things being placed too close
+            0,0
+        );
+    }
 }
 
 static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decorVariant)
 {
+    u8 placeableRegion = 0;
     u8 xStart = sDecorationVariants[decorVariant].perType.tile.x;
     u8 yStart = sDecorationVariants[decorVariant].perType.tile.y;
     u8 xEnd = xStart + sDecorationVariants[decorVariant].perType.tile.width - 1;
@@ -814,29 +937,42 @@ static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decorVariant)
     AGB_ASSERT(sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE);
 
     // Clip anything which is outside of the placeable region
-    if(x < sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart)
+
+    switch (gMapHeader.mapLayoutId)
     {
-        u8 delta = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart - x;
-        x = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart;
+    case LAYOUT_ROGUE_AREA_HOME:
+        placeableRegion = HOME_REGION_PLACEABLE_REGION;
+        break;
+    
+    case LAYOUT_ROGUE_INTERIOR_HOME:
+        placeableRegion = HOME_REGION_PLACEABLE_REGION_INTERIOR;
+        break;
+    }
+
+
+    if(x < sHomeRegionCoords[placeableRegion].xStart)
+    {
+        u8 delta = sHomeRegionCoords[placeableRegion].xStart - x;
+        x = sHomeRegionCoords[placeableRegion].xStart;
         xStart += delta;
     }
 
-    if(y < sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart)
+    if(y < sHomeRegionCoords[placeableRegion].yStart)
     {
-        u8 delta = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart - y;
-        y = sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart;
+        u8 delta = sHomeRegionCoords[placeableRegion].yStart - y;
+        y = sHomeRegionCoords[placeableRegion].yStart;
         yStart += delta;
     }
 
-    if(x + (xEnd - xStart) > sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd)
+    if(x + (xEnd - xStart) > sHomeRegionCoords[placeableRegion].xEnd)
     {
-        u8 delta = x + (xEnd - xStart) - sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd;
+        u8 delta = x + (xEnd - xStart) - sHomeRegionCoords[placeableRegion].xEnd;
         xEnd -= delta;
     }
 
-    if(y + (yEnd - yStart) > sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd)
+    if(y + (yEnd - yStart) > sHomeRegionCoords[placeableRegion].yEnd)
     {
-        u8 delta = y + (yEnd - yStart) - sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd;
+        u8 delta = y + (yEnd - yStart) - sHomeRegionCoords[placeableRegion].yEnd;
         yEnd -= delta;
     }
 
@@ -853,14 +989,6 @@ static void RogueHub_UpdateHomeAreaMetatiles()
     // Blit map styles first
     u8 i;
     struct RogueHubMap* hubMap = GetActiveHubMap();
-
-    //for(i = 0; i < HOME_REGION_COUNT; ++i)
-    //{
-    //    if(i == HOME_REGION_HOUSE)
-    //        BlitPlayerHouse(hubMap->homeRegionStyles[i], RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR));
-    //    else
-    //        BlitPlayerHomeRegion(i, hubMap->homeRegionStyles[i]);
-    //}
 
     RogueHub_PlaceHomeEnvironmentDecorations(TRUE, FALSE);
 
@@ -893,55 +1021,109 @@ static bool8 IsBottomLayerVariant(u16 decorVariant)
     return sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE && sDecorationVariants[decorVariant].perType.tile.isBottomLayer;
 }
 
+static u16 GetCurrentDecorOffset(u16 i)
+{
+    switch (gMapHeader.mapLayoutId)
+    {
+    case LAYOUT_ROGUE_AREA_HOME:
+        return HOME_DECOR_OUTSIDE_OFFSET + i;
+    
+    case LAYOUT_ROGUE_INTERIOR_HOME:
+        return HOME_DECOR_INSIDE_OFFSET + i;
+    }
+
+    AGB_ASSERT(FALSE);
+    return 0;
+}
+
+static u16 GetCurrentDecorCount()
+{
+    switch (gMapHeader.mapLayoutId)
+    {
+    case LAYOUT_ROGUE_AREA_HOME:
+        return HOME_DECOR_OUTSIDE_COUNT;
+    
+    case LAYOUT_ROGUE_INTERIOR_HOME:
+        return HOME_DECOR_INSIDE_COUNT;
+    }
+
+    AGB_ASSERT(FALSE);
+    return 0;
+}
+
 
 static void RogueHub_PlaceHomeEnvironmentDecorations(bool8 placeTiles, bool8 placeObjects)
 {
     u8 i;
     struct RogueHubMap* hubMap = GetActiveHubMap();
+    u16 currDecorCount = GetCurrentDecorCount();
 
     if(placeTiles)
     {
         // Reset to default state
-        MetatileFill_BlitMapRegion(
-            MAP_GROUP(ROGUE_AREA_HOME), MAP_NUM(ROGUE_AREA_HOME),
-            sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart,
-            sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd,
-            sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart
-        );
+        switch (gMapHeader.mapLayoutId)
+        {
+        case LAYOUT_ROGUE_AREA_HOME:
+            MetatileFill_BlitMapRegion(
+                MAP_GROUP(ROGUE_AREA_HOME), MAP_NUM(ROGUE_AREA_HOME),
+                sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart,
+                sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xEnd, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yEnd,
+                sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].xStart, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION].yStart
+            );
+            break;
+
+        case LAYOUT_ROGUE_INTERIOR_HOME:
+            MetatileFill_BlitMapRegion(
+                MAP_GROUP(ROGUE_INTERIOR_HOME), MAP_NUM(ROGUE_INTERIOR_HOME),
+                sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION_INTERIOR].xStart, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION_INTERIOR].yStart,
+                sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION_INTERIOR].xEnd, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION_INTERIOR].yEnd,
+                sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION_INTERIOR].xStart, sHomeRegionCoords[HOME_REGION_PLACEABLE_REGION_INTERIOR].yStart
+            );
+            break;
+        
+        default:
+            AGB_ASSERT(FALSE);
+            break;
+        }
 
         // Place all of the bottom layers first
-        for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+        for(i = 0; i < currDecorCount; ++i)
         {
-            struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
+            struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
             if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_TILE && IsBottomLayerVariant(decor->decorVariant))
                 BlitPlayerHouseEnvDecor(decor->x, decor->y, decor->decorVariant);
         }
 
         // Place all others
-        for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+        for(i = 0; i < currDecorCount; ++i)
         {
-            struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
+            struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
             if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_TILE && !IsBottomLayerVariant(decor->decorVariant))
                 BlitPlayerHouseEnvDecor(decor->x, decor->y, decor->decorVariant);
         }
 
-        // Fill house area with grass to avoid overlap from stuff getting placed in this region
-        MetatileFill_Tile(
-            sHomeRegionCoords[HOME_REGION_HOUSE].xStart, sHomeRegionCoords[HOME_REGION_HOUSE].yStart,
-            sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, sHomeRegionCoords[HOME_REGION_HOUSE].yEnd,
-            METATILE_General_Grass
-        );
-
-        // Replace this now, but need to tell fixup to ignore it
-        BlitPlayerHouse(hubMap->homeRegionStyles[HOME_REGION_HOUSE], RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR));
-
-        // Fixup connecting tiles
+        // House specific behaviour
+        if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_HOME)
         {
-            struct TileFixup fixup;
-            fixup.path = TRUE;
-            fixup.pond = TRUE;
-            fixup.mountain = TRUE;
-            FixupTileCommon(&fixup);
+            // Fill house area with grass to avoid overlap from stuff getting placed in this region
+            MetatileFill_Tile(
+                sHomeRegionCoords[HOME_REGION_HOUSE].xStart, sHomeRegionCoords[HOME_REGION_HOUSE].yStart,
+                sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, sHomeRegionCoords[HOME_REGION_HOUSE].yEnd,
+                METATILE_General_Grass
+            );
+
+            // Replace this now, but need to tell fixup to ignore it
+            BlitPlayerHouse(hubMap->homeStyles[HOME_STYLE_HOUSE_EXTERIOR], RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR));
+
+            // Fixup connecting tiles
+            {
+                struct TileFixup fixup;
+                fixup.path = TRUE;
+                fixup.pond = TRUE;
+                fixup.mountain = TRUE;
+                fixup.pathStyle = TRUE;
+                FixupTileCommon(&fixup);
+            }
         }
     }
 
@@ -958,16 +1140,7 @@ static void RogueHub_PlaceHomeEnvironmentDecorations(bool8 placeTiles, bool8 pla
 
 static void RogueHub_UpdateHomeInteriorMetatiles()
 {
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_HOME_UPPER_FLOOR))
-    {
-        // Replace with back wall
-        MetatileSet_Tile(7, 0, 0x254 | MAPGRID_COLLISION_MASK);
-        MetatileSet_Tile(7, 1, 0x25C | MAPGRID_COLLISION_MASK);
-        MetatileSet_Tile(8, 0, 0x21E | MAPGRID_COLLISION_MASK);
-        MetatileSet_Tile(8, 1, 0x226 | MAPGRID_COLLISION_MASK);
-        MetatileSet_Tile(9, 0, 0x254 | MAPGRID_COLLISION_MASK);
-        MetatileSet_Tile(9, 1, 0x25C | MAPGRID_COLLISION_MASK);
-    }
+    RogueHub_PlaceHomeEnvironmentDecorations(TRUE, FALSE);
 }
 
 static void RogueHub_UpdateFarmingAreaMetatiles()
@@ -1539,7 +1712,9 @@ static bool8 IsVariantHidden(u16 decorVariant, u8* wanderingPkmnCount)
             struct RogueHubMap* hubMap = GetActiveHubMap();
             u16 baseIndex = HUB_WANDER_MON_EXTERIOR_SLOT1;
 
-            if(hubMap->homeWanderingMonSpecies[baseIndex + *wanderingPkmnCount] == SPECIES_NONE)
+            u8 slot = (*wanderingPkmnCount)++;
+
+            if(hubMap->homeWanderingMonSpecies[baseIndex + slot] == SPECIES_NONE || !FollowMon_IsSlotEnabled(slot))
                 return TRUE;
         }
     }
@@ -1549,26 +1724,42 @@ static bool8 IsVariantHidden(u16 decorVariant, u8* wanderingPkmnCount)
 
 static void SetupHomeAreaFollowMons(u16 layoutId, struct RogueHubMap* hubMap)
 {
-    u16 baseIndex = HUB_WANDER_MON_EXTERIOR_SLOT1;
+    u16 baseIndex = 0;
 
-    // TODO - Setup for different areas
+    switch (gMapHeader.mapLayoutId)
+    {
+    case LAYOUT_ROGUE_AREA_HOME:
+        baseIndex = HUB_WANDER_MON_EXTERIOR_SLOT1;
+        break;
+
+    case LAYOUT_ROGUE_INTERIOR_HOME:
+        baseIndex = HUB_WANDER_MON_INTERIOR_SLOT1;
+        break;
+    
+    default:
+        AGB_ASSERT(FALSE);
+        break;
+    }
+
     FollowMon_SetGraphicsRaw(0, hubMap->homeWanderingMonSpecies[baseIndex + 0]);
     FollowMon_SetGraphicsRaw(1, hubMap->homeWanderingMonSpecies[baseIndex + 1]);
     FollowMon_SetGraphicsRaw(2, hubMap->homeWanderingMonSpecies[baseIndex + 2]);
     FollowMon_SetGraphicsRaw(3, hubMap->homeWanderingMonSpecies[baseIndex + 3]);
+    FollowMon_SetGraphicsRaw(4, hubMap->homeWanderingMonSpecies[baseIndex + 4]);
 }
 
 void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity)
 {
     u8 i;
     u8 wanderingPkmnCount = 0;
+    u16 currDecorCount = GetCurrentDecorCount();
     struct RogueHubMap* hubMap = GetActiveHubMap();
 
     SetupHomeAreaFollowMons(layoutId, hubMap);
 
-    for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+    for(i = 0; i < currDecorCount; ++i)
     {
-        struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
+        struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
         if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_OBJECT_EVENT && !IsVariantHidden(decor->decorVariant, &wanderingPkmnCount))
         {
             u8 srcLocalId = SelectSourceVariantLocalId(decor->decorVariant) - 1;
@@ -1581,14 +1772,13 @@ void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, 
                 u8 writeIndex = (*objectEventCount)++;
                 memcpy(&objectEvents[writeIndex], &srcMapHeader->events->objectEvents[srcLocalId], sizeof(struct ObjectEventTemplate));
 
-                objectEvents[writeIndex].localId = DECOR_TO_LOCAL_ID(HOME_DECOR_OUTSIDE_ENV_OFFSET + i);
+                objectEvents[writeIndex].localId = DECOR_TO_LOCAL_ID(GetCurrentDecorOffset(i));
                 objectEvents[writeIndex].x = decor->x;
                 objectEvents[writeIndex].y = decor->y;
 
                 if(decor->decorVariant == DECOR_VARIANT_PC_WANDERING_PKMN_DEFAULT && objectEvents[writeIndex].graphicsId == OBJ_EVENT_GFX_FOLLOW_MON_0)
                 {
-                    objectEvents[writeIndex].graphicsId = OBJ_EVENT_GFX_FOLLOW_MON_0 + wanderingPkmnCount;
-                    wanderingPkmnCount++;
+                    objectEvents[writeIndex].graphicsId = OBJ_EVENT_GFX_FOLLOW_MON_0 + (wanderingPkmnCount - 1);
                 }
             }
         }
@@ -1645,6 +1835,42 @@ static void UpdatePlaceCoords(u8* placeX, u8* placeY, u8 decorVariant)
     }
 }
 
+static bool8 CanPlaceDecorAt(u8 decorVariant, u8 x, u8 y)
+{
+    // Maybe want to avoid overlapping?
+    // Could use a bit mask?
+    return TRUE;
+}
+
+const struct Tileset* RogueHub_ModifyOverworldTileset(const struct Tileset* tileset)
+{
+    if(tileset == &gTileset_SecretBaseRedCave)
+    {
+        switch (GetActiveHubMap()->homeStyles[HOME_STYLE_HOUSE_INTERIOR])
+        {
+        case INTERIOR_STYLE_BLUE_CAVE:
+            return &gTileset_SecretBaseBlueCave;
+
+        case INTERIOR_STYLE_BROWN_CAVE:
+            return &gTileset_SecretBaseBrownCave;
+
+        case INTERIOR_STYLE_RED_CAVE:
+            return &gTileset_SecretBaseRedCave;
+
+        case INTERIOR_STYLE_DESERT_CAVE:
+            return &gTileset_SecretBaseYellowCave;
+
+        case INTERIOR_STYLE_SHRUB:
+            return &gTileset_SecretBaseShrub;
+
+        case INTERIOR_STYLE_TREE:
+            return &gTileset_SecretBaseTree;
+        }
+    }
+
+    return tileset;
+}
+
 // Scripts
 //
 
@@ -1684,6 +1910,18 @@ const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *posi
     return Rogue_Area_Home_ChooseDecoration;
 }
 
+u8 const* RogueHub_GetDecorName(u16 decorId)
+{
+    AGB_ASSERT(decorId < DECOR_ID_COUNT);
+    return sDecorations[decorId].name;
+}
+
+u8 const* RogueHub_GetDecorVariantName(u16 decorVariantId)
+{
+    AGB_ASSERT(decorVariantId < DECOR_VARIANT_COUNT);
+    return sDecorationVariants[decorVariantId].name;
+}
+
 void RogueHub_SetupDecorationMultichoice()
 {
     u16 i;
@@ -1704,27 +1942,123 @@ void RogueHub_SetupDecorationMultichoice()
     case MENU_DEPTH_CHOOSE_GROUP:
         for(i = 0; i < DECOR_GROUP_COUNT; ++i)
         {
+            // Ignore illegal groups for this layout
+            if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_HOME)
+            {
+                switch (i)
+                {
+                case DECOR_GROUP_TILES_INTERIOR:
+                    continue;
+                }
+            }
+            else if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_INTERIOR_HOME)
+            {
+                switch (i)
+                {
+                case DECOR_GROUP_ENVIRONMENT:
+                case DECOR_GROUP_TILES_EXTERIOR:
+                    continue;
+                }
+            }
+
             ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorationGroups[i].name, i);
         }
         ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Exit, MULTI_B_PRESSED);
         break;
 
     case MENU_DEPTH_CHOOSE_DECOR:
-        for(i = 0; i < sDecorationGroups[selectedGroup].decorationCount; ++i)
         {
-            u16 decorId = sDecorationGroups[selectedGroup].decorationIds[i];
-            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorations[decorId].name, decorId);
+            u16 questId, rewardCount;
+            struct RogueQuestReward const* reward;
+
+            // Setup the query to contain disabled decor
+            RogueCustomQuery_Begin();
+
+            for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
+            {
+                if(!RogueQuest_HasCollectedRewards(questId))
+                {
+                    rewardCount = RogueQuest_GetRewardCount(questId);
+
+                    for(i = 0; i < rewardCount; ++i)
+                    {
+                        reward = RogueQuest_GetReward(questId, i);
+                        if(reward->type == QUEST_REWARD_DECOR)
+                            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, reward->perType.decor.decorId);
+                    }
+                }
+            }
+
+            for(i = 0; i < sDecorationGroups[selectedGroup].decorationCount; ++i)
+            {
+                u16 decorId = sDecorationGroups[selectedGroup].decorationIds[i];
+
+                switch (decorId)
+                {
+                case DECOR_ID_RESERVED_FOR_127:
+                    continue;
+
+                #ifndef ROGUE_EXPANSION
+                case DECOR_ID_APPLIANCES:
+                    continue;
+                #endif
+                }
+
+                // Hasn't unlocked yet
+                if(RogueMiscQuery_CheckState(decorId))
+                    continue;
+
+                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorations[decorId].name, decorId);
+            }
+
+            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
+            RogueCustomQuery_End();
         }
-        ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
         break;
 
     case MENU_DEPTH_CHOOSE_VARIANT:
-        for(i = sDecorations[selectedDecorId].firstVariantId; i <= sDecorations[selectedDecorId].lastVariantId; ++i)
         {
-            u16 decorVariant = i;
-            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorationVariants[decorVariant].name, decorVariant);
+            u16 questId, rewardCount;
+            struct RogueQuestReward const* reward;
+
+            // Setup the query to contain disabled decor
+            RogueCustomQuery_Begin();
+
+            for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
+            {
+                if(!RogueQuest_HasCollectedRewards(questId))
+                {
+                    rewardCount = RogueQuest_GetRewardCount(questId);
+
+                    for(i = 0; i < rewardCount; ++i)
+                    {
+                        reward = RogueQuest_GetReward(questId, i);
+                        if(reward->type == QUEST_REWARD_DECOR_VARIANT)
+                            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, reward->perType.decorVariant.decorVariantId);
+                    }
+                }
+            }
+
+            for(i = sDecorations[selectedDecorId].firstVariantId; i <= sDecorations[selectedDecorId].lastVariantId; ++i)
+            {
+                u16 decorVariant = i;
+
+                switch (decorVariant)
+                {
+                case DECOR_VARIANT_RESERVED_FOR_127_DEFAULT:
+                    continue;
+                }
+
+                // Hasn't unlocked yet
+                if(RogueMiscQuery_CheckState(decorVariant))
+                    continue;
+
+                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorationVariants[decorVariant].name, decorVariant);
+            }
+
+            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
+            RogueCustomQuery_End();
         }
-        ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
         break;
 
     case MENU_DEPTH_PLACE_DECORATION:
@@ -1732,7 +2066,6 @@ void RogueHub_SetupDecorationMultichoice()
         break;
     }
 }
-
 void RogueHub_HandleDecorationMultichoiceResult()
 {
     u16 menuDepth = VarGet(VAR_MENU_DEPTH);
@@ -1798,6 +2131,11 @@ void RogueHub_HandleDecorationMultichoiceResult()
     }
 }
 
+void RogueHub_ClearAllDecorations()
+{
+    memset(gRogueSaveBlock->hubMap.homeDecorations, 0, sizeof(gRogueSaveBlock->hubMap.homeDecorations));
+}
+
 static bool8 IsCoordOnDecor(struct RogueHubDecoration* decor, u8 x, u8 y)
 {
     u8 xStart = decor->x;
@@ -1845,6 +2183,7 @@ static bool8 CanPlaceObjectEventInArea(u8 x, u8 y)
 
 
     u16 i;
+    u16 currDecorCount = GetCurrentDecorCount();
     struct RogueHubMap* hubMap = &gRogueSaveBlock->hubMap;
     s16 xStart = x - MAX_OBJECTS_CHECK_RANGE_X;
     s16 yStart = y - MAX_OBJECTS_CHECK_RANGE_Y;
@@ -1853,9 +2192,9 @@ static bool8 CanPlaceObjectEventInArea(u8 x, u8 y)
 
     u8 counter = 0;
 
-    for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+    for(i = 0; i < currDecorCount; ++i)
     {
-        struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
+        struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
         if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_OBJECT_EVENT)
         {
             if(
@@ -1881,10 +2220,11 @@ bool8 HasReachedCapacityInArea(struct RogueHubMap* hubMap, u16 decorVariant)
     {
         u16 i;
         u8 count = 0;
+        u16 currDecorCount = GetCurrentDecorCount();
 
-        for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+        for(i = 0; i < currDecorCount; ++i)
         {
-            struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
+            struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
             if(decor->active && decor->decorVariant == decorVariant)
             {
                 count++;
@@ -1897,9 +2237,22 @@ bool8 HasReachedCapacityInArea(struct RogueHubMap* hubMap, u16 decorVariant)
     return FALSE;
 }
 
+static bool8 IsCoordLegalForPlacement(u8 placeX, u8 placeY)
+{
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_HOME)
+    {
+        return IsCoordInHomeRegion(placeX, placeY, HOME_REGION_PLACEABLE_REGION) && !IsCoordInHomeRegion(placeX, placeY, HOME_REGION_HOUSE);
+    }
+    else
+    {
+        return IsCoordInHomeRegion(placeX, placeY, HOME_REGION_PLACEABLE_REGION_INTERIOR);
+    }
+}
+
 u16 RogueHub_PlaceHomeDecor()
 {
     u16 i;
+    u16 currDecorCount = GetCurrentDecorCount();
     struct RogueHubMap* hubMap = &gRogueSaveBlock->hubMap;
     u16 decorVariant = VarGet(VAR_SELECTED_DECOR_VARIANT);
     u8 placeX = VarGet(VAR_PLACE_X);
@@ -1907,7 +2260,7 @@ u16 RogueHub_PlaceHomeDecor()
 
     AGB_ASSERT(decorVariant < DECOR_VARIANT_COUNT);
 
-    if(IsCoordInHomeRegion(placeX, placeY, HOME_REGION_PLACEABLE_REGION) && !IsCoordInHomeRegion(placeX, placeY, HOME_REGION_HOUSE)) // todo - map region specific
+    if(IsCoordLegalForPlacement(placeX, placeY))
     {
         // Special behaviour for removing
         if(decorVariant == DECOR_VARIANT_REMOVE_DECOR_DEFAULT)
@@ -1915,48 +2268,48 @@ u16 RogueHub_PlaceHomeDecor()
             // Attempt to remove the decor that's on top
 
             // object layer
-            for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+            for(i = 0; i < currDecorCount; ++i)
             {
-                u16 invI = HOME_DECOR_OUTSIDE_ENV_COUNT - i - 1;
+                u16 invI = currDecorCount - i - 1;
 
-                struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + invI];
+                struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(invI)];
 
                 if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_OBJECT_EVENT && IsCoordOnDecor(decor, placeX, placeY))
                 {
                     decor->active = FALSE; // deactivate for preview
-                    RemoveObjectEventByLocalIdAndMap(DECOR_TO_LOCAL_ID(HOME_DECOR_OUTSIDE_ENV_OFFSET + invI), gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+                    RemoveObjectEventByLocalIdAndMap(DECOR_TO_LOCAL_ID(GetCurrentDecorOffset(invI)), gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
                     RogueHub_PlaceHomeEnvironmentDecorations(FALSE, TRUE);
-                    return HOME_DECOR_OUTSIDE_ENV_OFFSET + invI;
+                    return GetCurrentDecorOffset(invI);
                 }
             }
             
             // top layer
-            for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+            for(i = 0; i < currDecorCount; ++i)
             {
-                u16 invI = HOME_DECOR_OUTSIDE_ENV_COUNT - i - 1;
+                u16 invI = currDecorCount - i - 1;
 
-                struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + invI];
+                struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(invI)];
 
                 if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_TILE && !IsBottomLayerVariant(decor->decorVariant) && IsCoordOnDecor(decor, placeX, placeY))
                 {
                     decor->active = FALSE; // deactivate for preview
                     RogueHub_PlaceHomeEnvironmentDecorations(TRUE, FALSE);
-                    return HOME_DECOR_OUTSIDE_ENV_OFFSET + invI;
+                    return GetCurrentDecorOffset(invI);
                 }
             }
 
             // bottom layer
-            for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+            for(i = 0; i < currDecorCount; ++i)
             {
-                u16 invI = HOME_DECOR_OUTSIDE_ENV_COUNT - i - 1;
+                u16 invI = currDecorCount - i - 1;
 
-                struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + invI];
+                struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(invI)];
 
                 if(decor->active && sDecorationVariants[decor->decorVariant].type == DECOR_TYPE_TILE && IsBottomLayerVariant(decor->decorVariant) && IsCoordOnDecor(decor, placeX, placeY))
                 {
                     decor->active = FALSE; // deactivate for preview
                     RogueHub_PlaceHomeEnvironmentDecorations(TRUE, FALSE);
-                    return HOME_DECOR_OUTSIDE_ENV_OFFSET + invI;
+                    return GetCurrentDecorOffset(invI);
                 }
             }
 
@@ -1970,13 +2323,13 @@ u16 RogueHub_PlaceHomeDecor()
         {
             return HOME_DECOR_TOO_MANY_OF_TYPE;
         }
-        else
+        else if(CanPlaceDecorAt(decorVariant, placeX, placeY))
         {
             UpdatePlaceCoords(&placeX, &placeY, decorVariant);
 
-            for(i = 0; i < HOME_DECOR_OUTSIDE_ENV_COUNT; ++i)
+            for(i = 0; i < currDecorCount; ++i)
             {
-                struct RogueHubDecoration* decor = &hubMap->homeDecorations[HOME_DECOR_OUTSIDE_ENV_OFFSET + i];
+                struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
                 if(!decor->active)
                 {
                     decor->x = placeX;
@@ -1985,9 +2338,14 @@ u16 RogueHub_PlaceHomeDecor()
                     decor->active = TRUE;
 
                     RogueHub_PlaceHomeEnvironmentDecorations(sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE, sDecorationVariants[decorVariant].type == DECOR_TYPE_OBJECT_EVENT);
-                    return HOME_DECOR_OUTSIDE_ENV_OFFSET + i;
+                    return GetCurrentDecorOffset(i);
                 }
             }
+        }
+        else
+        {
+            // TODO - Cannot place on top
+            return HOME_DECOR_TOO_MANY_OBJECTS_NEAR;
         }
     
         return HOME_DECOR_CODE_NO_ROOM;
@@ -2040,6 +2398,50 @@ u16 RogueHub_IsRemovingDecor()
 
 //
 
+//#define HOME_STYLE_HOUSE_EXTERIOR   0
+//#define HOME_STYLE_HOUSE_INTERIOR   1
+//#define HOME_STYLE_PATH             2
+
+static void AppendCommon(u8 const* const* options, u8 count)
+{
+    u8 i = 0;
+    for(i = 0; i < count; ++i)
+    {
+        ScriptMenu_ScrollingMultichoiceDynamicAppendOption(options[i], i);
+    }
+}
+
+void RogueHub_AppendChangeStyle_Paths()
+{
+    AppendCommon(sOptions_PathStyle, PATH_STYLE_COUNT);
+}
+
+void RogueHub_HandleChangeStyle_Paths()
+{
+    gRogueSaveBlock->hubMap.homeStyles[HOME_STYLE_PATH] = min(gSpecialVar_Result, PATH_STYLE_COUNT - 1);
+}
+
+void RogueHub_AppendChangeStyle_Exterior()
+{
+    AppendCommon(sOptions_ExteriorStyle, EXTERIOR_STYLE_COUNT);
+}
+
+void RogueHub_HandleChangeStyle_Exterior()
+{
+    gRogueSaveBlock->hubMap.homeStyles[HOME_STYLE_HOUSE_EXTERIOR] = min(gSpecialVar_Result, EXTERIOR_STYLE_COUNT - 1);
+}
+
+void RogueHub_AppendChangeStyle_Interior()
+{
+    AppendCommon(sOptions_InteriorStyle, INTERIOR_STYLE_COUNT);
+}
+
+void RogueHub_HandleChangeStyle_Interior()
+{
+    gRogueSaveBlock->hubMap.homeStyles[HOME_STYLE_HOUSE_INTERIOR] = min(gSpecialVar_Result, INTERIOR_STYLE_COUNT - 1);
+}
+
+//
 
 static u32 GetCurrentAreaMetatileAt(s32 x, s32 y)
 {
@@ -2328,6 +2730,7 @@ static void FixupTileCommon(struct TileFixup* settings)
     u8 x, y;
     u16 metatileId;
     bool8 ignoreHouseTiles = FALSE;
+    u8 pathStyle = GetActiveHubMap()->homeStyles[HOME_STYLE_PATH];
 
     switch (gMapHeader.mapLayoutId)
     {
@@ -2410,6 +2813,218 @@ static void FixupTileCommon(struct TileFixup* settings)
 
                 if(IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, metatileId))
                     FixupTile_Mountain_Fixup(x, y, metatileId);
+            }
+        }
+    }
+    
+    // Final fixup to do path replacement
+    if(settings->pathStyle && pathStyle != PATH_STYLE_GRASS)
+    {
+        u16 oldMetatileId;
+
+        for(x = fromX; x <= toX; ++x)
+        {
+            for(y = fromY; y <= toY; ++y)
+            {
+                // Don't adjust home tiles 
+                if(ignoreHouseTiles && IsCoordInHomeRegion(x, y, HOME_REGION_HOUSE))
+                    continue;
+
+                metatileId = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
+                oldMetatileId = metatileId;
+
+                if(metatileId == METATILE_GeneralHub_GrassPath_Centre)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Centre;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Centre;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_EastWest_North)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_EastWest_North;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_EastWest_North;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_EastWest_South)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_EastWest_South;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_EastWest_South;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_NorthEast)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_NorthEast;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_NorthEast;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_NorthSouth_East)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_NorthSouth_East;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_NorthSouth_East;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_NorthSouth_West)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_NorthSouth_West;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_NorthSouth_West;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_NorthWest)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_NorthWest;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_NorthWest;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_SouthEast)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_SouthEast;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_SouthEast;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_SouthWest)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_SouthWest;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_SouthWest;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
+                    }
+                }
+
+                if(oldMetatileId != metatileId)
+                    MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, metatileId);
             }
         }
     }

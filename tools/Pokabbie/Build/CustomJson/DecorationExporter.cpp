@@ -70,7 +70,9 @@ void ExportDecorationData_C(std::ofstream& fileStream, std::string const& dataPa
 					return a->uniqueId.compare(b->uniqueId) == -1;
 				});
 
-			fileStream << "static u8 const sText_GroupName_" << FormatUniqueId(groupName) << "[] = _(\"" + groupName + "\");\n";
+			std::string prettyName = strutil::split(groupName, "#")[0];
+
+			fileStream << "static u8 const sText_GroupName_" << FormatUniqueId(groupName) << "[] = _(\"" + prettyName + "\");\n";
 			fileStream << "static u16 const sText_Group_" << FormatUniqueId(groupName) << "[] =\n{\n";
 
 			for (Decoration* decor : sortedDecorations)
@@ -293,7 +295,7 @@ static DecorationVariant ParseDecorationVariant(json const& jsonData, Decoration
 		if (sourceTilesJson.contains("height"))
 			outVariant.tileParams.height = sourceTilesJson["height"].get<int>();
 
-		if (jsonData.contains("bottom_layer"))
+		if (sourceTilesJson.contains("bottom_layer"))
 			outVariant.tileParams.isBottomLayer = GetAsString(sourceTilesJson["bottom_layer"]);
 
 		return outVariant;
@@ -369,6 +371,7 @@ static std::string FormatUniqueId(std::string const& prettyName)
 	std::string uniqueId = strutil::to_upper(prettyName);
 	strutil::replace_all(uniqueId, " ", "_");
 	strutil::replace_all(uniqueId, "-", "_");
+	strutil::replace_all(uniqueId, "Ã©", "E"); // code for é
 	strutil::replace_all(uniqueId, "!", "EMARK");
 	strutil::replace_all(uniqueId, "?", "QMARK");
 	strutil::replace_all(uniqueId, ",", "");
@@ -384,6 +387,7 @@ static std::string FormatUniqueId(std::string const& prettyName)
 	strutil::replace_all(uniqueId, ")", "");
 	strutil::replace_all(uniqueId, "'", "");
 	strutil::replace_all(uniqueId, "+", "PLUS");
+	strutil::replace_all(uniqueId, "#", "_");
 	strutil::replace_all(uniqueId, c_Elipsies, "");
 	return uniqueId;
 }

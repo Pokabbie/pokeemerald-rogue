@@ -773,8 +773,15 @@ static bool8 IsSpawnSlotValid(u16 slot)
     // 4 : normal pal index 10
     if(slot == 4)
     {
-        // TODO - Only enable this in routes where rival isn't active
-        return FALSE;
+        if(Rogue_IsRunActive())
+        {
+            // Only enable if we aren't using the pal10 slot for rival
+            return FlagGet(FLAG_ROGUE_RIVAL_DISABLED);
+        }
+        else
+        {
+            return TRUE;
+        }
     }
 
     // 5 : normal pal index 1 (partner slot)
@@ -784,6 +791,11 @@ static bool8 IsSpawnSlotValid(u16 slot)
     }
 
     return FALSE;
+}
+
+bool8 FollowMon_IsSlotEnabled(u8 slot)
+{
+    return IsSpawnSlotValid(slot);
 }
 
 static u16 ActiveSpawnSlotCount()

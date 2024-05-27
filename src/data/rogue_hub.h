@@ -7,6 +7,7 @@ extern const u8 gHubAreaDesc_Todo[];
 
 extern const u8 gHubUpgradeDesc_Home_LowerFloor[];
 extern const u8 gHubUpgradeDesc_Home_UpperFloor[];
+extern const u8 gHubUpgradeDesc_Home_TownStyle[];
 extern const u8 gHubUpgradeDesc_Home_BerryField1[];
 extern const u8 gHubUpgradeDesc_Home_BerryField2[];
 extern const u8 gHubUpgradeDesc_Home_GrassField[];
@@ -93,7 +94,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     [HUB_AREA_HOME] = 
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_HOME),
-        .areaName = _("Player Home"),
+        .areaName = _("Home Base"),
         .descText = gHubAreaDesc_Todo,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .buildCost = 15,
@@ -254,7 +255,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     //
     [HUB_UPGRADE_HOME_LOWER_FLOOR] = 
     {
-        .upgradeName = _("House"),
+        .upgradeName = _("Interior Base"),
         .targetArea = HUB_AREA_HOME,
         .buildCost = 1,
         .descText = gHubUpgradeDesc_Home_LowerFloor,
@@ -266,6 +267,14 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .targetArea = HUB_AREA_HOME,
         .buildCost = 1,
         .descText = gHubUpgradeDesc_Home_UpperFloor,
+        .requiredUpgrades = { HUB_UPGRADE_HOME_UPPER_FLOOR, HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_HOME_EDIT_STYLE] = 
+    {
+        .upgradeName = _("Town Style"),
+        .targetArea = HUB_AREA_HOME,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_Home_TownStyle,
         .requiredUpgrades = { HUB_UPGRADE_HOME_LOWER_FLOOR, HUB_UPGRADE_NONE }
     },
 

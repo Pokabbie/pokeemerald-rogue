@@ -31,12 +31,16 @@
 #include "rogue_controller.h"
 #include "rogue_debug.h"
 #include "rogue_followmon.h"
+#include "rogue_hub.h"
 #include "rogue_pokedex.h"
 #include "rogue_popup.h"
 #include "rogue_quest.h"
 #include "rogue_timeofday.h"
 
 #define POPUP_QUEUE_CAPACITY 16
+
+extern const u32 gItemIcon_RogueStatusMoney[];
+extern const u32 gItemIconPalette_RogueStatusStarCustom[];
 
 enum
 {
@@ -66,6 +70,7 @@ enum
 {
     POPUP_CUSTOM_ICON_POKEDEX,
     POPUP_CUSTOM_ICON_CLOUD,
+    POPUP_CUSTOM_ICON_MONEY,
     POPUP_CUSTOM_ICON_TYPE_NORMAL,
     POPUP_CUSTOM_ICON_TYPE_FIGHTING,
     POPUP_CUSTOM_ICON_TYPE_FLYING,
@@ -157,6 +162,11 @@ static struct CustomIcon const sRoguePopupCustomIcons[POPUP_CUSTOM_ICON_COUNT] =
     {
         .icon = gItemIcon_Cloud,
         .palette = gItemIconPalette_Cloud
+    },
+    [POPUP_CUSTOM_ICON_MONEY] = 
+    {
+        .icon = gItemIcon_RogueStatusMoney,
+        .palette = gItemIconPalette_RogueStatusStarCustom
     },
     [POPUP_CUSTOM_ICON_TYPE_NORMAL] = 
     {
@@ -283,6 +293,7 @@ static const u8 sText_Popup_Money[] = _("¥{STR_VAR_1}");
 static const u8 sText_Popup_LostItem[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Item.");
 static const u8 sText_Popup_LostMoney[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Money.");
 static const u8 sText_Popup_UnlockedInShops[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Can now be bought!");
+static const u8 sText_Popup_UnlockedDecor[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Decor Unlocked!");
 static const u8 sText_Popup_TypePlateItem[] = _("Type Plates");
 static const u8 sText_Popup_TypeMemoryItem[] = _("Type Memories");
 
@@ -1516,8 +1527,8 @@ void Rogue_PushPopup_AddMoney(u32 amount)
 {
     struct PopupRequest* popup = CreateNewPopup();
 
-    popup->templateId = POPUP_COMMON_FIND_ITEM;
-    popup->iconId = ITEM_COIN_CASE;
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_SLIDE_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_MONEY;
 
     popup->fanfare = MUS_OBTAIN_ITEM;
     popup->scriptAudioOnly = TRUE;
@@ -1533,8 +1544,8 @@ void Rogue_PushPopup_LostMoney(u32 amount)
 {
     struct PopupRequest* popup = CreateNewPopup();
 
-    popup->templateId = POPUP_COMMON_FIND_ITEM;
-    popup->iconId = ITEM_COIN_CASE;
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_SLIDE_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_MONEY;
 
     popup->soundEffect = SE_NOT_EFFECTIVE;
     popup->scriptAudioOnly = TRUE;
@@ -1626,6 +1637,30 @@ void Rogue_PushPopup_UnlockedShopItem(u16 itemId)
         popup->expandTextData[0] = itemId;
         popup->expandTextType[0] = TEXT_EXPAND_ITEM_NAME;
     }
+}
+
+void Rogue_PushPopup_UnlockedDecor(u16 decorId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = ITEM_BASEMENT_KEY;
+    popup->fanfare = MUS_OBTAIN_ITEM;
+
+    popup->titleText = RogueHub_GetDecorName(decorId);
+    popup->subtitleText = sText_Popup_UnlockedDecor;
+}
+
+void Rogue_PushPopup_UnlockedDecorVariant(u16 decorVariantId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = ITEM_BASEMENT_KEY;
+    popup->fanfare = MUS_OBTAIN_ITEM;
+
+    popup->titleText = RogueHub_GetDecorVariantName(decorVariantId);
+    popup->subtitleText = sText_Popup_UnlockedDecor;
 }
 
 void Rogue_PushPopup_AddPokemon(u16 species, bool8 isCustom, bool8 isShiny)

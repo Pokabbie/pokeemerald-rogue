@@ -843,12 +843,17 @@ static EWRAM_DATA u16 sDynamicScrollingMultichoiceCapacity = 0;
 // 0x8006 = window y
 // 0x8007 = showed at once
 // 0x8008 = Allow B press
-static void ScriptMenu_ScrollingMultichoiceInternal(const struct ListMenuItem *list, u16 listCount)
+static void ScriptMenu_ScrollingMultichoiceInternal(const struct ListMenuItem *list, u16 listCount, bool8 hasSetSize)
 {
     int i, windowId, taskId, width = 0;
     int left = gSpecialVar_0x8005;
     int top = gSpecialVar_0x8006;
     int maxShowed = gSpecialVar_0x8007;
+
+    if(!hasSetSize)
+    {
+        maxShowed = min(maxShowed, listCount);
+    }
 
     for (i = 0; i < listCount; i++)
         width = DisplayTextAndGetWidth(list[i].name, width);
@@ -874,7 +879,7 @@ static void ScriptMenu_ScrollingMultichoiceInternal(const struct ListMenuItem *l
 void ScriptMenu_ScrollingMultichoice(void)
 {
     int setId = gSpecialVar_0x8004;
-    ScriptMenu_ScrollingMultichoiceInternal(sScrollingMultichoiceLists[setId].list, sScrollingMultichoiceLists[setId].count);
+    ScriptMenu_ScrollingMultichoiceInternal(sScrollingMultichoiceLists[setId].list, sScrollingMultichoiceLists[setId].count, TRUE);
 }
 
 void ScriptMenu_ScrollingMultichoiceDynamicBegin(u16 capacity)
@@ -902,7 +907,7 @@ void ScriptMenu_ScrollingMultichoiceDynamicAppendOption(u8 const* str, u16 value
 void ScriptMenu_ScrollingMultichoiceDynamicEnd(void)
 {
     AGB_ASSERT(sDynamicScrollingMultichoiceList != NULL);
-    ScriptMenu_ScrollingMultichoiceInternal(sDynamicScrollingMultichoiceList, sDynamicScrollingMultichoiceCount);
+    ScriptMenu_ScrollingMultichoiceInternal(sDynamicScrollingMultichoiceList, sDynamicScrollingMultichoiceCount, FALSE);
 }
 
 static void Task_ScrollingMultichoiceInput(u8 taskId)

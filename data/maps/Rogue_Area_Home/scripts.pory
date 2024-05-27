@@ -69,11 +69,20 @@ script Rogue_Area_Home_InteractWithWorkbench
         {
             appenddynamicmultichoice("Start Decorating", 1)
         }
+    
+        hubupgradeunlocked(HUB_UPGRADE_HOME_EDIT_STYLE)
+        if(var(VAR_RESULT) == YES)
+        {
+            appenddynamicmultichoice("Edit Styles", 2)
+        }
+
+        appenddynamicmultichoice("Clear Decorations", 3)
         appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
 
         message(format("What would you like to do?"))
         waitmessage
-        enddynamicmultichoice(1, 0, 3, TRUE)
+        enddynamicmultichoice(1, 0, 6, TRUE)
     
 
         switch(var(VAR_RESULT))
@@ -92,9 +101,110 @@ script Rogue_Area_Home_InteractWithWorkbench
                 }
 
                 special(ReloadWarpSilent)
+
+            case 2:
+                call(Rogue_Area_Home_EditStyles)
+
+            case 3:
+                msgbox(format("This will clear all currently placed decorations.\nThere is no way to undo this.\pAre you sure you want to clear all decorations?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    special(RogueHub_ClearAllDecorations)
+                    special(ReloadWarpSilent)
+                }
         }
 
         release
+    }
+}
+
+script Rogue_Area_Home_EditStyles
+{
+    begindynamicmultichoice
+
+    appenddynamicmultichoice("Paths", 0)
+    appenddynamicmultichoice("Base Exterior", 1)
+    appenddynamicmultichoice("Base Interior", 2)
+    appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+    message(format("What style would you like to change?"))
+    waitmessage
+    enddynamicmultichoice(1, 0, 6, TRUE)
+    
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            call(Rogue_Area_Home_EditPathStyles)
+
+        case 1:
+            call(Rogue_Area_Home_EditExteriorStyles)
+
+        case 2:
+            call(Rogue_Area_Home_EditInteriorStyles)
+    }
+}
+
+script Rogue_Area_Home_EditPathStyles
+{
+    begindynamicmultichoice
+    special(RogueHub_AppendChangeStyle_Paths)
+    appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+    message(format("What style would you like to use?"))
+    waitmessage
+    enddynamicmultichoice(1, 0, 6, TRUE)
+    
+    switch(var(VAR_RESULT))
+    {
+        default:
+            special(RogueHub_HandleChangeStyle_Paths)
+            special(ReloadWarpSilent)
+
+        case MULTI_B_PRESSED:
+            return
+    }
+}
+
+script Rogue_Area_Home_EditExteriorStyles
+{
+    begindynamicmultichoice
+    special(RogueHub_AppendChangeStyle_Exterior)
+    appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+    message(format("What style would you like to use?"))
+    waitmessage
+    enddynamicmultichoice(1, 0, 6, TRUE)
+    
+    switch(var(VAR_RESULT))
+    {
+        default:
+            special(RogueHub_HandleChangeStyle_Exterior)
+            special(ReloadWarpSilent)
+
+
+        case MULTI_B_PRESSED:
+            return
+    }
+}
+
+script Rogue_Area_Home_EditInteriorStyles
+{
+    begindynamicmultichoice
+    special(RogueHub_AppendChangeStyle_Interior)
+    appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+    message(format("What style would you like to use?"))
+    waitmessage
+    enddynamicmultichoice(1, 0, 6, TRUE)
+    
+    switch(var(VAR_RESULT))
+    {
+        default:
+            special(RogueHub_HandleChangeStyle_Interior)
+            special(ReloadWarpSilent)
+
+        case MULTI_B_PRESSED:
+            return
     }
 }
 
@@ -124,7 +234,7 @@ script Rogue_Area_Home_ChooseDecoration_Internal
             message(format("What would you like to place?"))
             waitmessage
 
-            begindynamicmultichoice(32)
+            begindynamicmultichoice(48)
             special(RogueHub_SetupDecorationMultichoice)
             enddynamicmultichoice(20, 2, 5, TRUE)
 

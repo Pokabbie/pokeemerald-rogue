@@ -31,6 +31,7 @@ bool8 FollowMon_ShouldAnimationGrass(struct ObjectEvent *objectEvent);
 bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* collider);
 bool8 FollowMon_ProcessMonInteraction();
 void FollowMon_GetSpeciesFromLastInteracted(u16* species, bool8* isShiny, u8* spawnSlot);
+bool8 FollowMon_IsSlotEnabled(u8 slot);
 
 void FollowMon_OverworldCB();
 void FollowMon_OnWarp();
