@@ -4892,6 +4892,25 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                         VarSet(VAR_ROGUE_DESIRED_WEATHER, weatherType);
                     }
+
+                    // Push notification for unique mon
+                    {
+                        u8 i;
+                        u32 customMonId;
+                        u16 species;
+                        u16 count = GetCurrentWildEncounterCount();
+
+                        for(i = 0; i < count; ++i)
+                        {
+                            species = GetWildGrassEncounter(i);
+                            customMonId = RogueGift_TryFindEnabledDynamicCustomMonForSpecies(species);
+
+                            if(customMonId)
+                            {
+                                Rogue_PushPopup_UniquePokemonDetected(species);
+                            }
+                        }
+                    }
                     break;
                 }
 
@@ -7162,21 +7181,39 @@ static void FillWithRoamerState(struct Pokemon* mon, u8 level)
 
 static void TryApplyCustomMon(u16 species, struct Pokemon* mon)
 {
-    // Only a chance to apply
-    if((Random() % 3) == 0)
+    if(Rogue_IsRunActive())
     {
-        u32 customMonId = RogueGift_TryFindEnabledDynamicCustomMonForSpecies(species);
-
-        if(customMonId != 0)
+        switch (gRogueAdvPath.currentRoomType)
         {
-            // Make sure shiny state isn't changed
-            u32 shinyState = GetMonData(mon, MON_DATA_IS_SHINY);
+        case ADVPATH_ROOM_ROUTE:
+        case ADVPATH_ROOM_WILD_DEN:
+        case ADVPATH_ROOM_LEGENDARY:
+            // Allow these
+            break;
+        
+        default:
+            // Don't allow any
+            return;
+        }
 
-            ModifyExistingMonToCustomMon(customMonId, mon);
+        // If we're here, we're allowed to apply unique species
 
-            SetMonData(mon, MON_DATA_IS_SHINY, &shinyState);
+        // Only a chance to apply
+        if((Random() % 3) == 0)
+        {
+            u32 customMonId = RogueGift_TryFindEnabledDynamicCustomMonForSpecies(species);
 
-            gRogueLocal.wildBattleCustomMonId = customMonId;
+            if(customMonId != 0)
+            {
+                // Make sure shiny state isn't changed
+                u32 shinyState = GetMonData(mon, MON_DATA_IS_SHINY);
+
+                ModifyExistingMonToCustomMon(customMonId, mon);
+
+                SetMonData(mon, MON_DATA_IS_SHINY, &shinyState);
+
+                gRogueLocal.wildBattleCustomMonId = customMonId;
+            }
         }
     }
 }

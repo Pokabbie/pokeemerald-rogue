@@ -278,6 +278,8 @@ static const u8 sText_Popup_GiftPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}
 static const u8 sText_Popup_GiftShinyPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gift Shiny {PKMN}!");
 static const u8 sText_Popup_GiftCustomPokemon[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Gift Unique {PKMN}!");
 static const u8 sText_Popup_DaycarePokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Pokémon Egg");
+static const u8 sText_Popup_UniquePokemon[] = _("Unique Pokémon");
+static const u8 sText_Popup_UniquePokemonSubtitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Detected nearby!");
 static const u8 sText_Popup_None[] = _("");
 
 static const u8 sText_Popup_NewMoves[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}New Moves!");
@@ -1684,6 +1686,17 @@ void Rogue_PushPopup_AddPokemon(u16 species, bool8 isCustom, bool8 isShiny)
     }
     else
         popup->subtitleText = sText_Popup_GiftPokemon;
+}
+
+void Rogue_PushPopup_UniquePokemonDetected(u16 species)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    
+    popup->titleText = sText_Popup_UniquePokemon;
+    popup->subtitleText = sText_Popup_UniquePokemonSubtitle;
 }
 
 void Rogue_PushPopup_RequipBerrySuccess(u16 itemId)

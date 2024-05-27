@@ -6712,6 +6712,11 @@ u16 GetBattleBGM(void)
     else
     {
         u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
+        u32 customMonId = RogueGift_GetCustomMonId(&gEnemyParty[0]);
+
+        // Play custom music of uniques
+        if(customMonId && (gBattleTypeFlags & BATTLE_TYPE_ALPHA_MON))
+            return MUS_DP_VS_LEGEND;
 
         Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_WILD, species, &music);
         return music.battleMusic;
