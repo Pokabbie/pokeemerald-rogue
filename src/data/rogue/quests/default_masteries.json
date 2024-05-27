@@ -719,6 +719,20 @@
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Rotom Mastery",
+                "description": "Enter the Hall of Fame with a Rotom in your party.",
+                "template_params":
+                {
+                    "MON_SPECIES": "SPECIES_ROTOM"
+                },
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "decor": "DECOR_ID_APPLIANCES" }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
                 "name": "Dialga Mastery",
                 "description": "Enter the Hall of Fame with a Dialga in your party.",
                 "template_params":

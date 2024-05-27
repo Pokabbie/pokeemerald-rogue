@@ -411,6 +411,7 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_PC" },
                     { "quest": "Collector +" },
                     { "quest": "Collector X" }
                 ]
@@ -435,7 +436,8 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_CUSHIONS" }
                 ]
             },
             {
@@ -489,7 +491,8 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_DOLL" }
                 ]
             },
             {
@@ -512,7 +515,8 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_PC_WANDERING_PKMN" }
                 ]
             },
 
@@ -561,6 +565,7 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_CUSHIONS" },
                     { "quest": "Big Saver" }
                 ]
             },
@@ -778,7 +783,8 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_FLAG" }
                 ]
             },
             {
@@ -796,7 +802,8 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_BED" }
                 ]
             },
 

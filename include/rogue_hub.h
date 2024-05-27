@@ -42,4 +42,7 @@ bool8 RogueHub_IsPlayerBaseLayout(u16 layoutId);
 void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, struct ObjectEventTemplate *objectEvents, u8* objectEventCount, u8 objectEventCapacity);
 const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* existingScript);
 
+u8 const* RogueHub_GetDecorName(u16 decorId);
+u8 const* RogueHub_GetDecorVariantName(u16 decorVariantId);
+
 #endif

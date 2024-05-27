@@ -1611,6 +1611,16 @@ static void Draw_QuestPage()
                         spriteLayering[spriteIdx] = 0;
                         ++spriteIdx;
                         break;
+                        
+                    case QUEST_REWARD_DECOR:
+                    case QUEST_REWARD_DECOR_VARIANT:
+                        currentTag = TAG_REWARD_ICON_ITEM + ITEM_BASEMENT_KEY;
+                        
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_BASEMENT_KEY);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+                        break;
                     }
                 }
             }

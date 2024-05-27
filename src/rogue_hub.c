@@ -1771,6 +1771,18 @@ const u8* RogueHub_GetDecoratingScriptFor(u16 layoutId, struct MapPosition *posi
     return Rogue_Area_Home_ChooseDecoration;
 }
 
+u8 const* RogueHub_GetDecorName(u16 decorId)
+{
+    AGB_ASSERT(decorId < DECOR_ID_COUNT);
+    return sDecorations[decorId].name;
+}
+
+u8 const* RogueHub_GetDecorVariantName(u16 decorVariantId)
+{
+    AGB_ASSERT(decorVariantId < DECOR_VARIANT_COUNT);
+    return sDecorationVariants[decorVariantId].name;
+}
+
 void RogueHub_SetupDecorationMultichoice()
 {
     u16 i;
@@ -1816,35 +1828,98 @@ void RogueHub_SetupDecorationMultichoice()
         break;
 
     case MENU_DEPTH_CHOOSE_DECOR:
-        for(i = 0; i < sDecorationGroups[selectedGroup].decorationCount; ++i)
         {
-            u16 decorId = sDecorationGroups[selectedGroup].decorationIds[i];
+            u16 questId, rewardCount;
+            struct RogueQuestReward const* reward;
 
-            switch (decorId)
+            // Setup the query to contain disabled decor
+            RogueCustomQuery_Begin();
+
+            for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
             {
-            case DECOR_ID_RESERVED_FOR_127:
-                continue;
+                if(!RogueQuest_HasCollectedRewards(questId))
+                {
+                    rewardCount = RogueQuest_GetRewardCount(questId);
+
+                    for(i = 0; i < rewardCount; ++i)
+                    {
+                        reward = RogueQuest_GetReward(questId, i);
+                        if(reward->type == QUEST_REWARD_DECOR)
+                            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, reward->perType.decor.decorId);
+                    }
+                }
             }
 
-            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorations[decorId].name, decorId);
+            for(i = 0; i < sDecorationGroups[selectedGroup].decorationCount; ++i)
+            {
+                u16 decorId = sDecorationGroups[selectedGroup].decorationIds[i];
+
+                switch (decorId)
+                {
+                case DECOR_ID_RESERVED_FOR_127:
+                    continue;
+
+                #ifndef ROGUE_EXPANSION
+                case DECOR_ID_APPLIANCES:
+                    continue;
+                #endif
+                }
+
+                // Hasn't unlocked yet
+                if(RogueMiscQuery_CheckState(decorId))
+                    continue;
+
+                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorations[decorId].name, decorId);
+            }
+
+            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
+            RogueCustomQuery_End();
         }
-        ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
         break;
 
     case MENU_DEPTH_CHOOSE_VARIANT:
-        for(i = sDecorations[selectedDecorId].firstVariantId; i <= sDecorations[selectedDecorId].lastVariantId; ++i)
         {
-            u16 decorVariant = i;
+            u16 questId, rewardCount;
+            struct RogueQuestReward const* reward;
 
-            switch (decorVariant)
+            // Setup the query to contain disabled decor
+            RogueCustomQuery_Begin();
+
+            for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
             {
-            case DECOR_VARIANT_RESERVED_FOR_127_DEFAULT:
-                continue;
+                if(!RogueQuest_HasCollectedRewards(questId))
+                {
+                    rewardCount = RogueQuest_GetRewardCount(questId);
+
+                    for(i = 0; i < rewardCount; ++i)
+                    {
+                        reward = RogueQuest_GetReward(questId, i);
+                        if(reward->type == QUEST_REWARD_DECOR_VARIANT)
+                            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, reward->perType.decorVariant.decorVariantId);
+                    }
+                }
             }
 
-            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorationVariants[decorVariant].name, decorVariant);
+            for(i = sDecorations[selectedDecorId].firstVariantId; i <= sDecorations[selectedDecorId].lastVariantId; ++i)
+            {
+                u16 decorVariant = i;
+
+                switch (decorVariant)
+                {
+                case DECOR_VARIANT_RESERVED_FOR_127_DEFAULT:
+                    continue;
+                }
+
+                // Hasn't unlocked yet
+                if(RogueMiscQuery_CheckState(decorVariant))
+                    continue;
+
+                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorationVariants[decorVariant].name, decorVariant);
+            }
+
+            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
+            RogueCustomQuery_End();
         }
-        ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
         break;
 
     case MENU_DEPTH_PLACE_DECORATION:
