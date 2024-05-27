@@ -123,6 +123,8 @@ enum
     PATH_STYLE_GRASS,
     PATH_STYLE_SAND,
     PATH_STYLE_STONE,
+    PATH_STYLE_PEBBLES,
+    PATH_STYLE_MUDDY_TRACKS,
     PATH_STYLE_COUNT,
 };
 
@@ -150,12 +152,16 @@ enum
 static u8 const sText_PathStyle_Grass[] = _("Grass");
 static u8 const sText_PathStyle_Sand[] = _("Sand");
 static u8 const sText_PathStyle_Stone[] = _("Stone");
+static u8 const sText_PathStyle_Pebbles[] = _("Pebbles");
+static u8 const sText_PathStyle_MuddyTracks[] = _("Muddy Tracks");
 
 static u8 const* const sOptions_PathStyle[PATH_STYLE_COUNT] =
 {
     [PATH_STYLE_GRASS] = sText_PathStyle_Grass,
     [PATH_STYLE_SAND] = sText_PathStyle_Sand,
     [PATH_STYLE_STONE] = sText_PathStyle_Stone,
+    [PATH_STYLE_PEBBLES] = sText_PathStyle_Pebbles,
+    [PATH_STYLE_MUDDY_TRACKS] = sText_PathStyle_MuddyTracks,
 };
 
 static u8 const sText_ExteriorStyle_Cave[] = _("Cave");
@@ -2802,6 +2808,14 @@ static void FixupTileCommon(struct TileFixup* settings)
                     case PATH_STYLE_STONE:
                         metatileId = METATILE_GeneralHub_StonePath_Centre;
                         break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
                     }
                 }
                 else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_EastWest_North)
@@ -2814,6 +2828,14 @@ static void FixupTileCommon(struct TileFixup* settings)
 
                     case PATH_STYLE_STONE:
                         metatileId = METATILE_GeneralHub_StonePath_Conn_EastWest_North;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
                         break;
                     }
                 }
@@ -2828,6 +2850,14 @@ static void FixupTileCommon(struct TileFixup* settings)
                     case PATH_STYLE_STONE:
                         metatileId = METATILE_GeneralHub_StonePath_Conn_EastWest_South;
                         break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
                     }
                 }
                 else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_NorthEast)
@@ -2840,6 +2870,14 @@ static void FixupTileCommon(struct TileFixup* settings)
 
                     case PATH_STYLE_STONE:
                         metatileId = METATILE_GeneralHub_StonePath_Conn_NorthEast;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
                         break;
                     }
                 }
@@ -2854,6 +2892,14 @@ static void FixupTileCommon(struct TileFixup* settings)
                     case PATH_STYLE_STONE:
                         metatileId = METATILE_GeneralHub_StonePath_Conn_NorthSouth_East;
                         break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
                     }
                 }
                 else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_NorthSouth_West)
@@ -2866,6 +2912,14 @@ static void FixupTileCommon(struct TileFixup* settings)
 
                     case PATH_STYLE_STONE:
                         metatileId = METATILE_GeneralHub_StonePath_Conn_NorthSouth_West;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
                         break;
                     }
                 }
@@ -2880,6 +2934,14 @@ static void FixupTileCommon(struct TileFixup* settings)
                     case PATH_STYLE_STONE:
                         metatileId = METATILE_GeneralHub_StonePath_Conn_NorthWest;
                         break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
                     }
                 }
                 else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_SouthEast)
@@ -2893,6 +2955,14 @@ static void FixupTileCommon(struct TileFixup* settings)
                     case PATH_STYLE_STONE:
                         metatileId = METATILE_GeneralHub_StonePath_Conn_SouthEast;
                         break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
+                        break;
                     }
                 }
                 else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_SouthWest)
@@ -2905,6 +2975,14 @@ static void FixupTileCommon(struct TileFixup* settings)
 
                     case PATH_STYLE_STONE:
                         metatileId = METATILE_GeneralHub_StonePath_Conn_SouthWest;
+                        break;
+
+                    case PATH_STYLE_PEBBLES:
+                        metatileId = METATILE_GeneralHub_Pebbles;
+                        break;
+
+                    case PATH_STYLE_MUDDY_TRACKS:
+                        metatileId = METATILE_GeneralHub_MuddyTracks;
                         break;
                     }
                 }

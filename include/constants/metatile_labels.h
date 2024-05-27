@@ -237,6 +237,8 @@
 #define METATILE_GeneralHub_Mountain_Conn_SouthEast_Inside      0x074
 #define METATILE_GeneralHub_Mountain_Conn_SouthWest             0x06A
 #define METATILE_GeneralHub_Mountain_Conn_SouthWest_Inside      0x089
+#define METATILE_GeneralHub_MuddyTracks                         0x055
+#define METATILE_GeneralHub_Pebbles                             0x04D
 #define METATILE_GeneralHub_Pond_Centre                         0x0A1
 #define METATILE_GeneralHub_Pond_Conn_EastWest_South            0x0B1
 #define METATILE_GeneralHub_Pond_Conn_NorthEast                 0x0C2
