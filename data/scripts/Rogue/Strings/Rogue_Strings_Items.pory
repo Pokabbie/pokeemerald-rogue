@@ -254,6 +254,15 @@ text gItemDesc_EndureCurse
     format("Opponent Pokémon have a 20% chance to endure OHKOs.")
 }
 
+text gItemDesc_TormentCharm
+{
+    format("Opponent Pokémon are under the effect of Torment.")
+}
+text gItemDesc_TormentCurse
+{
+    format("Friendly Pokémon are under the effect of Torment.")
+}
+
 text gItemDesc_PartyCurse
 {
     format("The maximum number of Pokémon in your party is reduced.")

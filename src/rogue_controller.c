@@ -1437,6 +1437,20 @@ const u8* Rogue_ModifyBattleMessage(const u8* str)
     return overrideStr != NULL ? overrideStr : str;
 }
 
+void Rogue_ModifyBattleMon(u8 monId, struct BattlePokemon* battleMon, bool8 isPlayer)
+{
+    if(isPlayer)
+    {
+        if(IsCurseActive(EFFECT_TORMENT_STATUS))
+            battleMon->status2 |= STATUS2_TORMENT;
+    }
+    else
+    {
+        if(IsCharmActive(EFFECT_TORMENT_STATUS))
+            battleMon->status2 |= STATUS2_TORMENT;
+    }
+}
+
 // Base on Vanilla calcs
 static u32 CalculateBattleWinnings(u16 trainerNum)
 {

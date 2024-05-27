@@ -132,8 +132,9 @@
 #define ITEM_WILD_ENCOUNTER_CHARM       (FIRST_ITEM_CHARM + 7)
 #define ITEM_MOVE_PRIORITY_CHARM        (FIRST_ITEM_CHARM + 8)
 #define ITEM_ENDURE_CHARM               (FIRST_ITEM_CHARM + 9)
+#define ITEM_TORMENT_CHARM              (FIRST_ITEM_CHARM + 10)
 
-#define LAST_ITEM_CHARM                 (ITEM_ENDURE_CHARM)
+#define LAST_ITEM_CHARM                 (ITEM_TORMENT_CHARM)
 
 
 #define FIRST_ITEM_CURSE                (ITEM_ROGUE_ITEM_FIRST + 80)
@@ -153,8 +154,9 @@
 #define ITEM_ITEM_SHUFFLE_CURSE         (FIRST_ITEM_CURSE + 12)
 #define ITEM_MOVE_PRIORITY_CURSE        (FIRST_ITEM_CURSE + 13)
 #define ITEM_ENDURE_CURSE               (FIRST_ITEM_CURSE + 14)
+#define ITEM_TORMENT_CURSE              (FIRST_ITEM_CURSE + 15)
 
-#define LAST_ITEM_CURSE                 (ITEM_ENDURE_CURSE)
+#define LAST_ITEM_CURSE                 (ITEM_TORMENT_CURSE)
 
 #define ITEM_TR01                       (LAST_ITEM_CURSE + 1)
 #define ITEM_TR50                       (LAST_ITEM_CURSE + 50)

@@ -48,6 +48,9 @@ static u16 EffectToCharmItem(u8 effectType)
         case EFFECT_ENDURE_CHANCE:
             return ITEM_ENDURE_CHARM;
 
+        case EFFECT_TORMENT_STATUS:
+            return ITEM_TORMENT_CHARM;
+
         case EFFECT_EXTRA_LIFE:
             return ITEM_SACRED_ASH;
 
@@ -95,6 +98,9 @@ static u16 EffectToCurseItem(u8 effectType)
 
         case EFFECT_ENDURE_CHANCE:
             return ITEM_ENDURE_CURSE;
+
+        case EFFECT_TORMENT_STATUS:
+            return ITEM_TORMENT_CURSE;
 
         // Just curse effects
         case EFFECT_PARTY_SIZE:

@@ -3296,6 +3296,7 @@ void SwitchInClearSetData(void)
     {
         gBattleMons[gActiveBattler].status2 = 0;
         gStatuses3[gActiveBattler] = 0;
+        Rogue_ModifyBattleMon(0, &gBattleMons[gActiveBattler], GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER);
     }
 
     for (i = 0; i < gBattlersCount; i++)
@@ -3529,6 +3530,7 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
             for (i = 0; i < NUM_BATTLE_STATS; i++)
                 gBattleMons[gActiveBattler].statStages[i] = DEFAULT_STAT_STAGE;
             gBattleMons[gActiveBattler].status2 = 0;
+            Rogue_ModifyBattleMon(0, &gBattleMons[gActiveBattler], GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER);
         }
 
         if (GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_LEFT)

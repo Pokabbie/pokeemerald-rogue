@@ -4947,6 +4947,8 @@ void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
         gBattleMons[battlerId].statStages[i] = DEFAULT_STAT_STAGE;
 
     gBattleMons[battlerId].status2 = 0;
+    Rogue_ModifyBattleMon(0, &gBattleMons[battlerId], GetBattlerSide(battlerId) == B_SIDE_PLAYER);
+
     UpdateSentPokesToOpponentValue(battlerId);
     ClearTemporarySpeciesSpriteData(battlerId, FALSE);
 }
