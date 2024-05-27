@@ -48,6 +48,7 @@ struct TileFixup
     u8 path : 1;
     u8 pond : 1;
     u8 mountain : 1;
+    u8 pathStyle : 1;
 };
 
 enum
@@ -115,6 +116,78 @@ struct RogueDecoration
     u8 const* name;
     u16 firstVariantId;
     u16 lastVariantId;
+};
+
+enum
+{
+    PATH_STYLE_GRASS,
+    PATH_STYLE_SAND,
+    PATH_STYLE_STONE,
+    PATH_STYLE_COUNT,
+};
+
+enum
+{
+    EXTERIOR_STYLE_CAVE,
+    EXTERIOR_STYLE_TREES,
+    EXTERIOR_STYLE_BRICK_HOUSE,
+    EXTERIOR_STYLE_WOODEN_HOUSE,
+    EXTERIOR_STYLE_GYM_BUILDING,
+    EXTERIOR_STYLE_COUNT,
+};
+
+enum
+{
+    INTERIOR_STYLE_BLUE_CAVE,
+    INTERIOR_STYLE_BROWN_CAVE,
+    INTERIOR_STYLE_RED_CAVE,
+    INTERIOR_STYLE_DESERT_CAVE,
+    INTERIOR_STYLE_SHRUB,
+    INTERIOR_STYLE_TREE,
+    INTERIOR_STYLE_COUNT,
+};
+
+static u8 const sText_PathStyle_Grass[] = _("Grass");
+static u8 const sText_PathStyle_Sand[] = _("Sand");
+static u8 const sText_PathStyle_Stone[] = _("Stone");
+
+static u8 const* const sOptions_PathStyle[PATH_STYLE_COUNT] =
+{
+    [PATH_STYLE_GRASS] = sText_PathStyle_Grass,
+    [PATH_STYLE_SAND] = sText_PathStyle_Sand,
+    [PATH_STYLE_STONE] = sText_PathStyle_Stone,
+};
+
+static u8 const sText_ExteriorStyle_Cave[] = _("Cave");
+static u8 const sText_ExteriorStyle_Trees[] = _("Trees");
+static u8 const sText_ExteriorStyle_BrickHouse[] = _("Brick House");
+static u8 const sText_ExteriorStyle_WoodHouse[] = _("Wooden House");
+static u8 const sText_ExteriorStyle_Gym[] = _("Gym Building");
+
+static u8 const* const sOptions_ExteriorStyle[EXTERIOR_STYLE_COUNT] =
+{
+    [EXTERIOR_STYLE_CAVE] = sText_ExteriorStyle_Cave,
+    [EXTERIOR_STYLE_TREES] = sText_ExteriorStyle_Trees,
+    [EXTERIOR_STYLE_BRICK_HOUSE] = sText_ExteriorStyle_BrickHouse,
+    [EXTERIOR_STYLE_WOODEN_HOUSE] = sText_ExteriorStyle_WoodHouse,
+    [EXTERIOR_STYLE_GYM_BUILDING] = sText_ExteriorStyle_Gym,
+};
+
+static u8 const sText_InteriorStyle_BlueCave[] = _("Blue Cave");
+static u8 const sText_InteriorStyle_BrownCave[] = _("Brown Cave");
+static u8 const sText_InteriorStyle_RedCave[] = _("Red Cave");
+static u8 const sText_InteriorStyle_DesertCave[] = _("Desert Cave");
+static u8 const sText_InteriorStyle_Shrub[] = _("Shrub");
+static u8 const sText_InteriorStyle_Tree[] = _("Tree");
+
+static u8 const* const sOptions_InteriorStyle[INTERIOR_STYLE_COUNT] =
+{
+    [INTERIOR_STYLE_BLUE_CAVE] = sText_InteriorStyle_BlueCave,
+    [INTERIOR_STYLE_BROWN_CAVE] = sText_InteriorStyle_BrownCave,
+    [INTERIOR_STYLE_RED_CAVE] = sText_InteriorStyle_RedCave,
+    [INTERIOR_STYLE_DESERT_CAVE] = sText_InteriorStyle_DesertCave,
+    [INTERIOR_STYLE_SHRUB] = sText_InteriorStyle_Shrub,
+    [INTERIOR_STYLE_TREE] = sText_InteriorStyle_Tree,
 };
 
 #include "data/rogue/decorations.h"
@@ -201,6 +274,12 @@ void RogueHub_ClearProgress()
             }
         }
     }
+
+    // Place default decor
+    gRogueSaveBlock->hubMap.homeDecorations[HOME_DECOR_OUTSIDE_OFFSET + 0].active = TRUE;
+    gRogueSaveBlock->hubMap.homeDecorations[HOME_DECOR_OUTSIDE_OFFSET + 0].decorVariant = DECOR_VARIANT_OUTFIT_CHANGING_WARDROBE;
+    gRogueSaveBlock->hubMap.homeDecorations[HOME_DECOR_OUTSIDE_OFFSET + 0].x = 21;
+    gRogueSaveBlock->hubMap.homeDecorations[HOME_DECOR_OUTSIDE_OFFSET + 0].y = 19;
 }
 
 bool8 RogueHub_HasUpgrade(u16 upgradeId)
@@ -685,6 +764,7 @@ void RogueHub_ApplyMapMetatiles()
         fixup.path = TRUE;
         fixup.pond = FALSE;
         fixup.mountain = FALSE;
+        fixup.pathStyle = TRUE;
         FixupTileCommon(&fixup);
     }
 }
@@ -804,16 +884,32 @@ static void BlitPlayerHomeRegion(u16 region, u16 style)
 static void BlitPlayerHouse(u16 style, bool8 isUpgraded)
 {
     u16 const width = (sHomeRegionCoords[HOME_REGION_HOUSE].xEnd - sHomeRegionCoords[HOME_REGION_HOUSE].xStart + 1);
-    AGB_ASSERT(style < HOME_BUILDING_STYLE_COUNT);
 
-    MetatileFill_BlitMapRegion(
-        MAP_GROUP(ROGUE_TEMPLATE_HOMES), MAP_NUM(ROGUE_TEMPLATE_HOMES),
-        sHomeRegionCoords[HOME_REGION_HOUSE].xStart, 
-        sHomeRegionCoords[HOME_REGION_HOUSE].yStart, 
-        sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, 
-        sHomeRegionCoords[HOME_REGION_HOUSE].yEnd - 1, // bottom tile is just to stop things being placed too close
-        width * (style * 2 + (isUpgraded ? 0 : 1)),0
-    );
+    if(RogueHub_HasUpgrade(HUB_UPGRADE_HOME_LOWER_FLOOR))
+    {
+        AGB_ASSERT(style < HOME_BUILDING_STYLE_COUNT);
+
+        MetatileFill_BlitMapRegion(
+            MAP_GROUP(ROGUE_TEMPLATE_HOMES), MAP_NUM(ROGUE_TEMPLATE_HOMES),
+            sHomeRegionCoords[HOME_REGION_HOUSE].xStart, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].yStart, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].yEnd - 1, // bottom tile is just to stop things being placed too close
+            width * (1 + style * 2 + (isUpgraded ? 0 : 1)), 0
+        );
+    }
+    else
+    {
+        // Blit the empty plot
+        MetatileFill_BlitMapRegion(
+            MAP_GROUP(ROGUE_TEMPLATE_HOMES), MAP_NUM(ROGUE_TEMPLATE_HOMES),
+            sHomeRegionCoords[HOME_REGION_HOUSE].xStart, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].yStart, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].xEnd, 
+            sHomeRegionCoords[HOME_REGION_HOUSE].yEnd - 1, // bottom tile is just to stop things being placed too close
+            0,0
+        );
+    }
 }
 
 static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decorVariant)
@@ -1012,6 +1108,7 @@ static void RogueHub_PlaceHomeEnvironmentDecorations(bool8 placeTiles, bool8 pla
                 fixup.path = TRUE;
                 fixup.pond = TRUE;
                 fixup.mountain = TRUE;
+                fixup.pathStyle = TRUE;
                 FixupTileCommon(&fixup);
             }
         }
@@ -2259,6 +2356,50 @@ u16 RogueHub_IsRemovingDecor()
 
 //
 
+//#define HOME_STYLE_HOUSE_EXTERIOR   0
+//#define HOME_STYLE_HOUSE_INTERIOR   1
+//#define HOME_STYLE_PATH             2
+
+static void AppendCommon(u8 const* const* options, u8 count)
+{
+    u8 i = 0;
+    for(i = 0; i < count; ++i)
+    {
+        ScriptMenu_ScrollingMultichoiceDynamicAppendOption(options[i], i);
+    }
+}
+
+void RogueHub_AppendChangeStyle_Paths()
+{
+    AppendCommon(sOptions_PathStyle, PATH_STYLE_COUNT);
+}
+
+void RogueHub_HandleChangeStyle_Paths()
+{
+    gRogueSaveBlock->hubMap.homeStyles[HOME_STYLE_PATH] = min(gSpecialVar_Result, PATH_STYLE_COUNT - 1);
+}
+
+void RogueHub_AppendChangeStyle_Exterior()
+{
+    AppendCommon(sOptions_ExteriorStyle, EXTERIOR_STYLE_COUNT);
+}
+
+void RogueHub_HandleChangeStyle_Exterior()
+{
+    gRogueSaveBlock->hubMap.homeStyles[HOME_STYLE_HOUSE_EXTERIOR] = min(gSpecialVar_Result, EXTERIOR_STYLE_COUNT - 1);
+}
+
+void RogueHub_AppendChangeStyle_Interior()
+{
+    AppendCommon(sOptions_InteriorStyle, INTERIOR_STYLE_COUNT);
+}
+
+void RogueHub_HandleChangeStyle_Interior()
+{
+    gRogueSaveBlock->hubMap.homeStyles[HOME_STYLE_HOUSE_INTERIOR] = min(gSpecialVar_Result, INTERIOR_STYLE_COUNT - 1);
+}
+
+//
 
 static u32 GetCurrentAreaMetatileAt(s32 x, s32 y)
 {
@@ -2547,6 +2688,7 @@ static void FixupTileCommon(struct TileFixup* settings)
     u8 x, y;
     u16 metatileId;
     bool8 ignoreHouseTiles = FALSE;
+    u8 pathStyle = GetActiveHubMap()->homeStyles[HOME_STYLE_PATH];
 
     switch (gMapHeader.mapLayoutId)
     {
@@ -2629,6 +2771,146 @@ static void FixupTileCommon(struct TileFixup* settings)
 
                 if(IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, metatileId))
                     FixupTile_Mountain_Fixup(x, y, metatileId);
+            }
+        }
+    }
+    
+    // Final fixup to do path replacement
+    if(settings->pathStyle && pathStyle != PATH_STYLE_GRASS)
+    {
+        u16 oldMetatileId;
+
+        for(x = fromX; x <= toX; ++x)
+        {
+            for(y = fromY; y <= toY; ++y)
+            {
+                // Don't adjust home tiles 
+                if(ignoreHouseTiles && IsCoordInHomeRegion(x, y, HOME_REGION_HOUSE))
+                    continue;
+
+                metatileId = MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET);
+                oldMetatileId = metatileId;
+
+                if(metatileId == METATILE_GeneralHub_GrassPath_Centre)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Centre;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Centre;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_EastWest_North)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_EastWest_North;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_EastWest_North;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_EastWest_South)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_EastWest_South;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_EastWest_South;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_NorthEast)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_NorthEast;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_NorthEast;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_NorthSouth_East)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_NorthSouth_East;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_NorthSouth_East;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_NorthSouth_West)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_NorthSouth_West;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_NorthSouth_West;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_NorthWest)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_NorthWest;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_NorthWest;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_SouthEast)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_SouthEast;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_SouthEast;
+                        break;
+                    }
+                }
+                else if(metatileId == METATILE_GeneralHub_GrassPath_Conn_SouthWest)
+                {
+                    switch (pathStyle)
+                    {
+                    case PATH_STYLE_SAND:
+                        metatileId = METATILE_GeneralHub_SandPath_Conn_SouthWest;
+                        break;
+
+                    case PATH_STYLE_STONE:
+                        metatileId = METATILE_GeneralHub_StonePath_Conn_SouthWest;
+                        break;
+                    }
+                }
+
+                if(oldMetatileId != metatileId)
+                    MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, metatileId);
             }
         }
     }
