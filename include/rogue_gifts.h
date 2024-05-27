@@ -12,6 +12,7 @@ enum
 };
 
 u32 RogueGift_GetCustomMonId(struct Pokemon* mon);
+u32 RogueGift_GetCustomBoxMonId(struct BoxPokemon* mon);
 u32 RogueGift_GetCustomMonIdBySpecies(u16 species, u32 otId);
 
 u16 RogueGift_GetCustomMonMove(u32 id, u8 i);

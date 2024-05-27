@@ -37,7 +37,7 @@ struct RogueSafariMon
     // Adding this makes it jump from 8 bytes per mon to 20
     u8 nickname[POKEMON_NAME_LENGTH];
     u8 priorityCounter;
-    u8 unused2;
+    u8 customMonLookup; // (We can only store a limited number of custom mons in the safari)
 };
 
 //STATIC_ASSERT(sizeof(struct RogueSafariMon) == 8, SizeOfRogueSafariMon);
@@ -646,6 +646,7 @@ struct RogueSaveBlock
     struct RogueDaycarePokemon daycarePokemon[DAYCARE_SLOT_COUNT];
     struct UniqueMon dynamicUniquePokemon[DYNAMIC_UNIQUE_MON_COUNT];
     struct AdventureReplay adventureReplay[ROGUE_ADVENTURE_REPLAY_COUNT];
+    u32 safariMonCustomIds[ROGUE_SAFARI_TOTAL_CUSTOM_MONS];
     struct RogueHubMap hubMap;
     struct RogueDifficultyConfig difficultyConfig;
     u16 timeOfDayMinutes;

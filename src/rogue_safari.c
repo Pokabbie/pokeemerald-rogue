@@ -6,6 +6,7 @@
 #include "string_util.h"
 
 #include "rogue_controller.h"
+#include "rogue_gifts.h"
 #include "rogue_pokedex.h"
 #include "rogue_save.h"
 #include "rogue_safari.h"
@@ -24,14 +25,22 @@ static EWRAM_DATA struct SafariData sSafariData = {0};
 static void ZeroSafariMon(struct RogueSafariMon* mon);
 static u8 AllocSafariMonSlotFor(struct BoxPokemon* mon);
 static u8 FreeSafariMonSlotCount();
+static u8 AllocCustomMonSafariSlot(u32 customMonId, u8 forSafariIndex);
 
 static void PushBoxMonInternal(struct BoxPokemon* monToCopy, bool32 isLowPriority)
 {
+    u32 customMonId;
     u8 index = AllocSafariMonSlotFor(monToCopy);
     struct RogueSafariMon* writeMon = &gRogueSaveBlock->safariMons[index];
 
     ZeroSafariMon(writeMon);
     RogueSafari_CopyToSafariMon(monToCopy, writeMon);
+
+    customMonId = RogueGift_GetCustomBoxMonId(monToCopy);
+    if(customMonId)
+    {
+        writeMon->customMonLookup = 1 + AllocCustomMonSafariSlot(customMonId, index);
+    }
 
     if(isLowPriority)
     {
@@ -309,6 +318,73 @@ static u8 AllocSafariMonSlotFor(struct BoxPokemon* mon)
     }
 
     // Should never reach here
+    AGB_ASSERT(FALSE);
+    return 0;
+}
+
+static u8 AllocCustomMonSafariSlot(u32 customMonId, u8 forSafariIndex)
+{
+    u8 i;
+    bool8 customMonSlotInUse[ROGUE_SAFARI_TOTAL_CUSTOM_MONS] = {0};
+
+    // To avoid desync issues we're just gonna check which slots are actively in use
+    for(i = 0; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
+    {
+        if(gRogueSaveBlock->safariMons[i].species != SPECIES_NONE && gRogueSaveBlock->safariMons[i].customMonLookup != 0)
+        {
+            u8 lookupIdx = gRogueSaveBlock->safariMons[i].customMonLookup - 1;
+            customMonSlotInUse[lookupIdx] = TRUE;
+        }
+    }
+
+    // Try to find a free slot
+    for(i = 0; i < ROGUE_SAFARI_TOTAL_CUSTOM_MONS; ++i)
+    {
+        if(!customMonSlotInUse[i])
+        {
+            // Found free slot
+            gRogueSaveBlock->safariMonCustomIds[i] = customMonId;
+            return i;
+        }
+    }
+
+    // If we got here, that means we need to get rid of a mon and take it's custom mon slot
+    {
+        u8 lowestPriority = 255;
+        u16 idx, offset;
+
+        // Count down priorities
+        for(i = 0; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
+        {
+            if(i == forSafariIndex || gRogueSaveBlock->safariMons[i].customMonLookup == 0)
+                continue;
+
+            // Keep track of lowest priority in case there isn't a free slot
+            lowestPriority = min(lowestPriority, gRogueSaveBlock->safariMons[i].priorityCounter);
+        }
+
+        offset = Random();
+
+        // Find first mon of priority and give back it's slot
+        for(i = 0; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
+        {
+            if(i == forSafariIndex || gRogueSaveBlock->safariMons[i].customMonLookup == 0)
+                continue;
+
+            idx = (offset + i) % ROGUE_SAFARI_TOTAL_MONS;
+
+            if(gRogueSaveBlock->safariMons[idx].priorityCounter == lowestPriority)
+            {
+                u8 lookupIdx = gRogueSaveBlock->safariMons[idx].customMonLookup - 1;
+                ZeroSafariMon(&gRogueSaveBlock->safariMons[idx]);
+
+                gRogueSaveBlock->safariMonCustomIds[lookupIdx] = customMonId;
+                return lookupIdx;
+            }
+        }
+    }
+
+    // Shouldn't reach here
     AGB_ASSERT(FALSE);
     return 0;
 }
