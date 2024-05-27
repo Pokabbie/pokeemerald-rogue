@@ -140,9 +140,9 @@ enum
 
 enum
 {
+    INTERIOR_STYLE_RED_CAVE,
     INTERIOR_STYLE_BLUE_CAVE,
     INTERIOR_STYLE_BROWN_CAVE,
-    INTERIOR_STYLE_RED_CAVE,
     INTERIOR_STYLE_DESERT_CAVE,
     INTERIOR_STYLE_SHRUB,
     INTERIOR_STYLE_TREE,
@@ -195,6 +195,13 @@ static u8 const* const sOptions_InteriorStyle[INTERIOR_STYLE_COUNT] =
     [INTERIOR_STYLE_SHRUB] = sText_InteriorStyle_Shrub,
     [INTERIOR_STYLE_TREE] = sText_InteriorStyle_Tree,
 };
+
+extern const struct Tileset gTileset_SecretBaseBlueCave;
+extern const struct Tileset gTileset_SecretBaseBrownCave;
+extern const struct Tileset gTileset_SecretBaseRedCave;
+extern const struct Tileset gTileset_SecretBaseYellowCave;
+extern const struct Tileset gTileset_SecretBaseShrub;
+extern const struct Tileset gTileset_SecretBaseTree;
 
 #include "data/rogue/decorations.h"
 
@@ -1833,6 +1840,35 @@ static bool8 CanPlaceDecorAt(u8 decorVariant, u8 x, u8 y)
     // Maybe want to avoid overlapping?
     // Could use a bit mask?
     return TRUE;
+}
+
+const struct Tileset* RogueHub_ModifyOverworldTileset(const struct Tileset* tileset)
+{
+    if(tileset == &gTileset_SecretBaseRedCave)
+    {
+        switch (GetActiveHubMap()->homeStyles[HOME_STYLE_HOUSE_INTERIOR])
+        {
+        case INTERIOR_STYLE_BLUE_CAVE:
+            return &gTileset_SecretBaseBlueCave;
+
+        case INTERIOR_STYLE_BROWN_CAVE:
+            return &gTileset_SecretBaseBrownCave;
+
+        case INTERIOR_STYLE_RED_CAVE:
+            return &gTileset_SecretBaseRedCave;
+
+        case INTERIOR_STYLE_DESERT_CAVE:
+            return &gTileset_SecretBaseYellowCave;
+
+        case INTERIOR_STYLE_SHRUB:
+            return &gTileset_SecretBaseShrub;
+
+        case INTERIOR_STYLE_TREE:
+            return &gTileset_SecretBaseTree;
+        }
+    }
+
+    return tileset;
 }
 
 // Scripts
