@@ -2652,7 +2652,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     {
         AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_POKEDEX);
 
-        if(!IsOtherTrainer(GetMonData(&mons[slotId], MON_DATA_OT_ID)))
+        if(Rogue_CanRenameMon(&mons[slotId]))
         {
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RENAME);
         }

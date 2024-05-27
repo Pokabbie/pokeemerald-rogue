@@ -452,6 +452,22 @@ u16 RogueGift_GetCustomMonAbilityCount(u32 id)
     }
 }
 
+bool8 RogueGift_CanRenameCustomMon(u32 id)
+{
+    if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
+    {
+        return TRUE;
+    }
+    else
+    {
+        // We're allowed to rename exotics, as they're technically dynamic custom mons too
+        struct CustomMonData const* monData = &sCustomPokemon[id];
+        AGB_ASSERT(id < CUSTOM_MON_COUNT);
+
+        return monData->customTrainerId == CUSTOM_TRAINER_EXOTIC;
+    }
+}
+
 bool8 RogueGift_DisplayCustomMonRarity(u32 id)
 {
     if(id & OTID_FLAG_DYNAMIC_CUSTOM_MON)
@@ -543,7 +559,7 @@ void RogueGift_CreateMon(u32 customMonId, struct Pokemon* mon, u16 species, u8 l
         trainerData = &sCustomTrainers[customTrainerId];
 
         ZeroMonData(mon);
-        CreateMon(mon, species, level, fixedIV, 0, 0, OT_ID_PRESET, customMonId);
+        CreateMon(mon, species, level, fixedIV, 0, 0, OT_ID_CUSTOM_MON, customMonId);
 
         // Assign pokeball
         temp = ITEM_ROGUE_BALL;
@@ -556,9 +572,11 @@ void RogueGift_CreateMon(u32 customMonId, struct Pokemon* mon, u16 species, u8 l
 
         AGB_ASSERT(customMonId < CUSTOM_MON_COUNT);
         AGB_ASSERT(species == monData->species);
+        AGB_ASSERT(trainerData->trainerId & OTID_FLAG_CUSTOM_MON);
+        AGB_ASSERT(!(trainerData->trainerId & OTID_FLAG_DYNAMIC_CUSTOM_MON));
 
         ZeroMonData(mon);
-        CreateMon(mon, monData->species, level, fixedIV, 0, 0, OT_ID_PRESET, trainerData->trainerId);
+        CreateMon(mon, monData->species, level, fixedIV, 0, 0, OT_ID_CUSTOM_MON, trainerData->trainerId);
 
         // Update nickname
         if(monData->nickname != NULL)

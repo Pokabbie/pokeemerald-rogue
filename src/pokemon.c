@@ -2283,9 +2283,17 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     if (otIdType == OT_ID_RANDOM_NO_SHINY)
     {
         value = Random32();
+        value &= OTID_FLAG_STANDARD_MASK;
     }
     else if (otIdType == OT_ID_PRESET)
     {
+        value = fixedOtId;
+        value &= OTID_FLAG_STANDARD_MASK;
+    }
+    else if (otIdType == OT_ID_CUSTOM_MON)
+    {
+        // Allow extra bits via this path 
+        // (split out from OT_ID_PRESET for saftey)
         value = fixedOtId;
     }
     else // Player is the OT
@@ -2294,9 +2302,9 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
               | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
               | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
               | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+        value &= OTID_FLAG_STANDARD_MASK;
     }
 
-    value &= OTID_FLAG_STANDARD_MASK;
     SetBoxMonData(boxMon, MON_DATA_OT_ID, &value);
 
     checksum = CalculateBoxMonChecksum(boxMon);
