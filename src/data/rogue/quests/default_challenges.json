@@ -121,7 +121,17 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "#if": "!defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_PIKACHU",
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_PIKACHU"
+                    },
+                    {
+                        "#if": "defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_PIKACHU_ORIGINAL_CAP",
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_PIKACHU_ORIGINAL_CAP"
+                    }
                 ]
             },
             {

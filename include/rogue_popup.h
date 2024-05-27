@@ -46,6 +46,7 @@ void Rogue_PushPopup_UnlockedShopItem(u16 itemId);
 void Rogue_PushPopup_UnlockedDecor(u16 decorId);
 void Rogue_PushPopup_UnlockedDecorVariant(u16 decorVariantId);
 void Rogue_PushPopup_AddPokemon(u16 species, bool8 isCustom, bool8 isShiny);
+void Rogue_PushPopup_UniquePokemonDetected(u16 species);
 
 void Rogue_PushPopup_RequipBerrySuccess(u16 itemId);
 void Rogue_PushPopup_RequipBerryFail(u16 itemId);

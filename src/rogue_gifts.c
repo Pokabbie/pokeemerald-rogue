@@ -344,6 +344,11 @@ u32 RogueGift_GetCustomMonId(struct Pokemon* mon)
     return RogueGift_GetCustomMonIdBySpecies(GetMonData(mon, MON_DATA_SPECIES), GetMonData(mon, MON_DATA_OT_ID));
 }
 
+u32 RogueGift_GetCustomBoxMonId(struct BoxPokemon* mon)
+{
+    return RogueGift_GetCustomMonIdBySpecies(GetBoxMonData(mon, MON_DATA_SPECIES), GetBoxMonData(mon, MON_DATA_OT_ID));
+}
+
 u32 RogueGift_GetCustomMonIdBySpecies(u16 species, u32 otId)
 {
     u32 i;

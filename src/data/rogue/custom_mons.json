@@ -339,6 +339,43 @@
 
             {
                 "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_PIKACHU",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_FLY",
+                    "MOVE_EXTREME_SPEED",
+                    "MOVE_CALM_MIND",
+                    "MOVE_ICY_WIND"
+                ],
+                "abilities":
+                [
+                    "ABILITY_VOLT_ABSORB"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_PIKACHU_ORIGINAL_CAP",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_FLY",
+                    "MOVE_FLIP_TURN",
+                    "MOVE_EXTREME_SPEED",
+                    "MOVE_MOONBLAST"
+                ],
+                "abilities":
+                [
+                    "ABILITY_PROTEAN"
+                ]
+            },
+
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_WOBBUFFET",
                 "trainer": "Wahey",
                 "pokeball": "ITEM_ROGUE_BALL",
