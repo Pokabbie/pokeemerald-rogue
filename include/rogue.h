@@ -192,7 +192,7 @@ struct RogueHubMap
     u16 homeWanderingMonSpecies[HUB_WANDER_MON_COUNT];
     struct Coords8 areaCoords[HUB_AREA_COUNT];
     struct RogueHubDecoration homeDecorations[HOME_DECOR_TOTAL_COUNT];
-    u8 homeRegionStyles[HOME_REGION_COUNT];
+    u8 homeStyles[HOME_STYLE_COUNT];
     u8 areaBuiltFlags[1 + ((HUB_AREA_COUNT - 1) / 8)];
     u8 upgradeFlags[1 + ((HUB_UPGRADE_COUNT - 1) / 8)];
     u16 weatherState;

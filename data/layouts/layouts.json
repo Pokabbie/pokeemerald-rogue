@@ -1547,7 +1547,7 @@
       "width": 16,
       "height": 16,
       "primary_tileset": "gTileset_SecretBase",
-      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "secondary_tileset": "gTileset_SecretBaseTree",
       "border_filepath": "data/layouts/Rogue_Interior_Home/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Interior_Home/map.bin"
     },
