@@ -1357,7 +1357,7 @@ static void RogueHub_UpdateTownSquareAreaMetatiles()
         MetatileFill_CommonWarpExitVertical(14, 18);
         MetatileFill_TreeCaps(14, 19, 17);
 
-        MetatileFill_CommonPathRemoval(14, 15, 17, 17);
+        MetatileFill_CommonPathRemoval(13, 13, 17, 17);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)

@@ -482,5 +482,5 @@ text gHubUpgradeDesc_DayCare_TreatShopStock
 
 text gHubUpgradeDesc_DayCare_TeaShop
 {
-    format("Shop for changing the gender of {PKMN}.")
+    format("Tea used for changing the gender of {PKMN}.")
 }

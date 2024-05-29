@@ -573,7 +573,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     },
     [HUB_UPGRADE_DAY_CARE_TEA_SHOP] = 
     {
-        .upgradeName = _("Tea Shop"),
+        .upgradeName = _("Tea Room"),
         .targetArea = HUB_AREA_DAY_CARE,
         .buildCost = 1,
         .descText = gHubUpgradeDesc_DayCare_TeaShop,
