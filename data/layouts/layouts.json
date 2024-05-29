@@ -1664,8 +1664,8 @@
     {
       "id": "LAYOUT_ROGUE_AREA_MARTS",
       "name": "Rogue_Area_Marts_Layout",
-      "width": 34,
-      "height": 22,
+      "width": 22,
+      "height": 20,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Rogue_Area_Marts/border.bin",
@@ -1904,8 +1904,8 @@
     {
       "id": "LAYOUT_ROGUE_AREA_DAY_CARE",
       "name": "Rogue_Area_DayCare_Layout",
-      "width": 38,
-      "height": 26,
+      "width": 32,
+      "height": 18,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Rogue_Area_DayCare/border.bin",
@@ -2020,6 +2020,16 @@
       "secondary_tileset": "gTileset_SecretBaseBrownCave",
       "border_filepath": "data/layouts/Rogue_Template_Home_Interior/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Template_Home_Interior/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_AREA_MARKET",
+      "name": "Rogue_Area_Market_Layout",
+      "width": 34,
+      "height": 24,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/Rogue_Area_Market/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Area_Market/map.bin"
     }
   ]
 }

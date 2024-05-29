@@ -40,6 +40,7 @@ extern const u8 gHubUpgradeDesc_DayCare_Bakery[];
 extern const u8 gHubUpgradeDesc_DayCare_PokeblockBlenders[];
 extern const u8 gHubUpgradeDesc_DayCare_TreatShop[];
 extern const u8 gHubUpgradeDesc_DayCare_TreatShopStock[];
+extern const u8 gHubUpgradeDesc_DayCare_TreatShop_Vanilla[];
 extern const u8 gHubUpgradeDesc_DayCare_TeaShop[];
 
 
@@ -239,10 +240,29 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
             [HUB_AREA_CONN_SOUTH] = { 4, 5 },
             [HUB_AREA_CONN_WEST] = { 6, 7 },
 
-            [HUB_AREA_CONN_TELEPORT] = { 9 },
+            [HUB_AREA_CONN_TELEPORT] = { 8 },
         },
         .iconImage = gItemIcon_Egg,
         .iconPalette = gItemIconPalette_Egg,
+    },
+    [HUB_AREA_MARKET] = 
+    {
+        SET_AREA_PRIMARY_MAP(ROGUE_AREA_MARKET),
+        .areaName = _("Market"),
+        .descText = gHubAreaDesc_Todo,
+        .buildCost = 15,
+        .requiredUpgrades = { HUB_UPGRADE_NONE },
+        .connectionWarps = 
+        {
+            [HUB_AREA_CONN_NORTH] = { 0, 1 },
+            [HUB_AREA_CONN_EAST] = { 2, 3 },
+            [HUB_AREA_CONN_SOUTH] = { 4, 5 },
+            [HUB_AREA_CONN_WEST] = { 6, 7 },
+
+            [HUB_AREA_CONN_TELEPORT] = { 9 },
+        },
+        .iconImage = gItemIcon_PokeblockShiny,
+        .iconPalette = gItemIconPalette_PokeblockShiny,
     },
 };
 
@@ -480,14 +500,6 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .descText = gHubUpgradeDesc_Mart_TravelerHeldItems,
         .requiredUpgrades = { HUB_UPGRADE_MARTS_TRAVELER_BATTLE_ENCHANCERS, HUB_UPGRADE_NONE }
     },
-    [HUB_UPGRADE_MARTS_BANK] = 
-    {
-        .upgradeName = _("Bank"),
-        .targetArea = HUB_AREA_MARTS,
-        .buildCost = 1,
-        .descText = gHubUpgradeDesc_Mart_Bank,
-        .requiredUpgrades = { HUB_UPGRADE_NONE }
-    },
 
     // HUB_AREA_TOWN_SQUARE
     //
@@ -551,7 +563,6 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .requiredUpgrades = { HUB_UPGRADE_DAY_CARE_BREEDER_LEGENDS, HUB_UPGRADE_NONE },
         .isHidden = TRUE,
     },
-
     [HUB_UPGRADE_DAY_CARE_PHONE] = 
     {
         .upgradeName = _("Day Care Phone"),
@@ -560,44 +571,75 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .descText = gHubUpgradeDesc_DayCare_Phone,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
-    [HUB_UPGRADE_DAY_CARE_POKEBLOCK_BLENDERS] = 
-    {
-        .upgradeName = _("{POKEBLOCK} Blenders"),
-        .targetArea = HUB_AREA_DAY_CARE,
-        .buildCost = 1,
-        .descText = gHubUpgradeDesc_DayCare_PokeblockBlenders,
-        .requiredUpgrades = { HUB_UPGRADE_NONE }
-    },
-    [HUB_UPGRADE_DAY_CARE_BAKERY] = 
-    {
-        .upgradeName = _("Bakery"),
-        .targetArea = HUB_AREA_DAY_CARE,
-        .buildCost = 1,
-        .descText = gHubUpgradeDesc_DayCare_Bakery,
-        .requiredUpgrades = { HUB_UPGRADE_DAY_CARE_POKEBLOCK_BLENDERS, HUB_UPGRADE_NONE }
-    },
-    [HUB_UPGRADE_DAY_CARE_TREAT_SHOP] = 
-    {
-        .upgradeName = _("Treat Shop"),
-        .targetArea = HUB_AREA_DAY_CARE,
-        .buildCost = 1,
-        .descText = gHubUpgradeDesc_DayCare_TreatShop,
-        .requiredUpgrades = { HUB_UPGRADE_NONE }
-    },
-    [HUB_UPGRADE_DAY_CARE_TREAT_SHOP_STOCK] = 
-    {
-        .upgradeName = _("{POKEBLOCK} Shop"),
-        .targetArea = HUB_AREA_DAY_CARE,
-        .buildCost = 1,
-        .descText = gHubUpgradeDesc_DayCare_TreatShopStock,
-        .requiredUpgrades = { HUB_UPGRADE_DAY_CARE_TREAT_SHOP, HUB_UPGRADE_DAY_CARE_POKEBLOCK_BLENDERS } //, HUB_UPGRADE_NONE }
-    },
     [HUB_UPGRADE_DAY_CARE_TEA_SHOP] = 
     {
         .upgradeName = _("Tea Shop"),
         .targetArea = HUB_AREA_DAY_CARE,
         .buildCost = 1,
         .descText = gHubUpgradeDesc_DayCare_TeaShop,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+
+
+    [HUB_UPGRADE_MARKET_POKEBLOCK_BLENDERS] = 
+    {
+        .upgradeName = _("{POKEBLOCK} Blender+"),
+        .targetArea = HUB_AREA_MARKET,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_DayCare_PokeblockBlenders,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_MARKET_BAKERY] = 
+    {
+        .upgradeName = _("Bakery"),
+        .targetArea = HUB_AREA_MARKET,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_DayCare_Bakery,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+
+#ifdef ROGUE_EXPANSION
+    [HUB_UPGRADE_MARKET_TREAT_SHOP] = 
+    {
+        .upgradeName = _("Treat Shop"),
+        .targetArea = HUB_AREA_MARKET,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_DayCare_TreatShop,
+        .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_MARKET_TREAT_SHOP_STOCK] = 
+    {
+        .upgradeName = _("{POKEBLOCK} Shop"),
+        .targetArea = HUB_AREA_MARKET,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_DayCare_TreatShopStock,
+        .requiredUpgrades = { HUB_UPGRADE_MARKET_TREAT_SHOP, HUB_UPGRADE_NONE }
+    },
+#else
+    // In Vanilla we only have 1 upgrade
+    [HUB_UPGRADE_MARKET_TREAT_SHOP] = 
+    {
+        .upgradeName = _("Treat Shop"),
+        .targetArea = HUB_AREA_MARKET,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_DayCare_TreatShop_Vanilla,
+        .requiredUpgrades = { HUB_UPGRADE_MARKET_POKEBLOCK_BLENDERS, HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_MARKET_TREAT_SHOP_STOCK] = 
+    {
+        .upgradeName = _("{POKEBLOCK} Shop"),
+        .targetArea = HUB_AREA_MARKET,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_DayCare_TreatShopStock,
+        .requiredUpgrades = { HUB_UPGRADE_MARKET_TREAT_SHOP_STOCK, HUB_UPGRADE_NONE } // unobtainable in Vanilla
+    },
+#endif
+    [HUB_UPGRADE_MARKET_BANK] = 
+    {
+        .upgradeName = _("Bank"),
+        .targetArea = HUB_AREA_MARKET,
+        .buildCost = 1,
+        .descText = gHubUpgradeDesc_Mart_Bank,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
 };

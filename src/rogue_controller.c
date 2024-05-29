@@ -1439,6 +1439,8 @@ const u8* Rogue_ModifyBattleMessage(const u8* str)
 
 void Rogue_ModifyBattleMon(u8 monId, struct BattlePokemon* battleMon, bool8 isPlayer)
 {
+    // Note monId is a relic and is always 0
+
     if(isPlayer)
     {
         if(IsCurseActive(EFFECT_TORMENT_STATUS))
@@ -7808,13 +7810,16 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 
         if(Rogue_IsRunActive())
         {
-            // No need to sell these in the hub
+            // No need to sell these in run
             RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, ITEM_POKEBLOCK_HP, ITEM_POKEBLOCK_SPDEF);
         }
         else
         {
-            if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_TREAT_SHOP_STOCK))
+            // In Vanilla this shop only sells pokeblock
+#ifdef ROGUE_EXPANSION
+            if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARKET_TREAT_SHOP_STOCK))
                 RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, FIRST_ITEM_POKEBLOCK, LAST_ITEM_POKEBLOCK);
+#endif
         }
         
 

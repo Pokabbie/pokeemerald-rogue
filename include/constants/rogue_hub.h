@@ -13,8 +13,9 @@
 #define HUB_AREA_TOWN_SQUARE            (HUB_AREA_FIRST + 7)
 #define HUB_AREA_CHALLENGE_FRONTIER     (HUB_AREA_FIRST + 8)
 #define HUB_AREA_DAY_CARE               (HUB_AREA_FIRST + 9)
+#define HUB_AREA_MARKET                 (HUB_AREA_FIRST + 10)
 
-#define HUB_AREA_COUNT                  (HUB_AREA_DAY_CARE + 1)
+#define HUB_AREA_COUNT                  (HUB_AREA_MARKET + 1)
 
 #define HUB_AREA_NONE 255
 
@@ -56,24 +57,25 @@
 #define HUB_UPGRADE_MARTS_TMS_STOCK                     (HUB_UPGRADE_FIRST + 23)
 #define HUB_UPGRADE_MARTS_TRAVELER_BATTLE_ENCHANCERS    (HUB_UPGRADE_FIRST + 24)
 #define HUB_UPGRADE_MARTS_TRAVELER_HELD_ITEMS           (HUB_UPGRADE_FIRST + 25)
-#define HUB_UPGRADE_MARTS_BANK                          (HUB_UPGRADE_FIRST + 26)
 
-#define HUB_UPGRADE_TOWN_SQUARE_SCHOOL                  (HUB_UPGRADE_FIRST + 27)
-#define HUB_UPGRADE_TOWN_SQUARE_TUTORS                  (HUB_UPGRADE_FIRST + 28)
+#define HUB_UPGRADE_TOWN_SQUARE_SCHOOL                  (HUB_UPGRADE_FIRST + 26)
+#define HUB_UPGRADE_TOWN_SQUARE_TUTORS                  (HUB_UPGRADE_FIRST + 27)
 
-#define HUB_UPGRADE_DAY_CARE_CAPACITY0                  (HUB_UPGRADE_FIRST + 29)
-#define HUB_UPGRADE_DAY_CARE_CAPACITY1                  (HUB_UPGRADE_FIRST + 30)
-#define HUB_UPGRADE_DAY_CARE_BREEDER                    (HUB_UPGRADE_FIRST + 31)
-#define HUB_UPGRADE_DAY_CARE_BREEDER_SEEN_DEX           (HUB_UPGRADE_FIRST + 32)
-#define HUB_UPGRADE_DAY_CARE_BREEDER_LEGENDS            (HUB_UPGRADE_FIRST + 33) // reserved not actually planned to be used
-#define HUB_UPGRADE_DAY_CARE_PHONE                      (HUB_UPGRADE_FIRST + 34)
-#define HUB_UPGRADE_DAY_CARE_POKEBLOCK_BLENDERS         (HUB_UPGRADE_FIRST + 35)
-#define HUB_UPGRADE_DAY_CARE_BAKERY                     (HUB_UPGRADE_FIRST + 36)
-#define HUB_UPGRADE_DAY_CARE_TREAT_SHOP                 (HUB_UPGRADE_FIRST + 37)
-#define HUB_UPGRADE_DAY_CARE_TREAT_SHOP_STOCK           (HUB_UPGRADE_FIRST + 38)
-#define HUB_UPGRADE_DAY_CARE_TEA_SHOP                   (HUB_UPGRADE_FIRST + 39)
+#define HUB_UPGRADE_DAY_CARE_CAPACITY0                  (HUB_UPGRADE_FIRST + 28)
+#define HUB_UPGRADE_DAY_CARE_CAPACITY1                  (HUB_UPGRADE_FIRST + 29)
+#define HUB_UPGRADE_DAY_CARE_BREEDER                    (HUB_UPGRADE_FIRST + 30)
+#define HUB_UPGRADE_DAY_CARE_BREEDER_SEEN_DEX           (HUB_UPGRADE_FIRST + 31)
+#define HUB_UPGRADE_DAY_CARE_BREEDER_LEGENDS            (HUB_UPGRADE_FIRST + 32) // reserved not actually planned to be used
+#define HUB_UPGRADE_DAY_CARE_PHONE                      (HUB_UPGRADE_FIRST + 33)
+#define HUB_UPGRADE_DAY_CARE_TEA_SHOP                   (HUB_UPGRADE_FIRST + 34)
 
-#define HUB_UPGRADE_COUNT                               (HUB_UPGRADE_DAY_CARE_TEA_SHOP + 1)
+#define HUB_UPGRADE_MARKET_POKEBLOCK_BLENDERS           (HUB_UPGRADE_FIRST + 35)
+#define HUB_UPGRADE_MARKET_BAKERY                       (HUB_UPGRADE_FIRST + 36)
+#define HUB_UPGRADE_MARKET_TREAT_SHOP                   (HUB_UPGRADE_FIRST + 37)
+#define HUB_UPGRADE_MARKET_TREAT_SHOP_STOCK             (HUB_UPGRADE_FIRST + 38)
+#define HUB_UPGRADE_MARKET_BANK                         (HUB_UPGRADE_FIRST + 39)
+
+#define HUB_UPGRADE_COUNT                               (HUB_UPGRADE_MARKET_BANK + 1)
 
 // NOTE - Once the next update is out ALWAYS add the upgrades at the bottom of this list
 
