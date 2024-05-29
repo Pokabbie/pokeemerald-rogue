@@ -50,6 +50,7 @@ enum
     MENUITEM_SOUND_CHANNEL_BGM,
     MENUITEM_SOUND_CHANNEL_SE,
     MENUITEM_SOUND_CHANNEL_BATTLE_SE,
+    MENUITEM_SOUND_LOW_HEALTH,
     MENUITEM_BUTTONMODE,
     MENUITEM_FRAMETYPE,
     MENUITEM_CANCEL,
@@ -108,6 +109,8 @@ static u8 SoundChannelBGM_ProcessInput(u8 menuOffset, u8 selection);
 static void SoundChannelBGM_DrawChoices(u8 menuOffset, u8 selection);
 static u8 SoundChannelSE_ProcessInput(u8 menuOffset, u8 selection);
 static void SoundChannelSE_DrawChoices(u8 menuOffset, u8 selection);
+static u8 SoundLowHealth_ProcessInput(u8 menuOffset, u8 selection);
+static void SoundLowHealth_DrawChoices(u8 menuOffset, u8 selection);
 static u8 ButtonMode_ProcessInput(u8 menuOffset, u8 selection);
 static void ButtonMode_DrawChoices(u8 menuOffset, u8 selection);
 static u8 FrameType_ProcessInput(u8 menuOffset, u8 selection);
@@ -258,6 +261,12 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = SoundChannelSE_ProcessInput,
         .drawChoices = SoundChannelSE_DrawChoices
     },
+    [MENUITEM_SOUND_LOW_HEALTH] = 
+    {
+        .itemName = gText_SoundLowHealth,
+        .processInput = SoundLowHealth_ProcessInput,
+        .drawChoices = SoundLowHealth_DrawChoices
+    },
     [MENUITEM_BUTTONMODE] = 
     {
         .itemName = gText_ButtonMode,
@@ -334,6 +343,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
         {
             MENUITEM_SOUND,
             MENUITEM_POPUP_SOUND,
+            MENUITEM_SOUND_LOW_HEALTH,
             MENUITEM_SOUND_CHANNEL_BGM,
             MENUITEM_SOUND_CHANNEL_SE,
             MENUITEM_SOUND_CHANNEL_BATTLE_SE,
@@ -963,6 +973,40 @@ static void SoundChannelSE_DrawChoices(u8 menuOffset, u8 selection)
     DrawOptionMenuChoice(text, VALUE_X_OFFSET, menuOffset * YPOS_SPACING, 0);
 }
 
+static u8 SoundLowHealth_ProcessInput(u8 menuOffset, u8 selection)
+{
+    if (JOY_NEW(DPAD_RIGHT))
+    {
+        if (selection < OPTIONS_HEALTH_BEEP_COUNT - 1)
+            selection++;
+        else
+            selection = 0;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_NEW(DPAD_LEFT))
+    {
+        if (selection != 0)
+            selection--;
+        else
+            selection = OPTIONS_HEALTH_BEEP_COUNT - 1;
+
+        sArrowPressed = TRUE;
+    }
+    return selection;
+}
+
+static void SoundLowHealth_DrawChoices(u8 menuOffset, u8 selection)
+{
+    u8 const* options[] = 
+    {
+        [OPTIONS_HEALTH_BEEP_OFF] = gText_TextLowHealthOff,
+        [OPTIONS_HEALTH_BEEP_3_BEEPS] = gText_TextLowHealth3Beeps,
+        [OPTIONS_HEALTH_BEEP_LOOPING] = gText_TextLowHealthLooping,
+    };
+    DrawChoiceSelection(menuOffset, selection, options, ARRAY_COUNT(options));
+}
+
 static u8 FrameType_ProcessInput(u8 menuOffset, u8 selection)
 {
     if (JOY_NEW(DPAD_RIGHT))
@@ -1148,6 +1192,9 @@ static u8 GetMenuItemValue(u8 menuItem)
 
     case MENUITEM_SOUND_CHANNEL_BATTLE_SE:
         return gSaveBlock2Ptr->optionsSoundChannelBattleSE;
+
+    case MENUITEM_SOUND_LOW_HEALTH:
+        return gSaveBlock2Ptr->optionsLowHealthBeep;
         
     case MENUITEM_BUTTONMODE:
         return gSaveBlock2Ptr->optionsButtonMode;
@@ -1232,6 +1279,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         m4aMPlayVolumeControl(&gMPlayInfo_SE1, TRACKS_ALL, 256);
         m4aMPlayVolumeControl(&gMPlayInfo_SE2, TRACKS_ALL, 256);
         m4aMPlayVolumeControl(&gMPlayInfo_SE3, TRACKS_ALL, 256);
+        break;
+
+    case MENUITEM_SOUND_LOW_HEALTH:
+        gSaveBlock2Ptr->optionsLowHealthBeep = value;
         break;
         
     case MENUITEM_BUTTONMODE:

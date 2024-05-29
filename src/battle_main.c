@@ -1867,6 +1867,7 @@ static void CB2_HandleStartMultiBattle(void)
 void BattleMainCB2(void)
 {
     u8 speedScale = Rogue_GetBattleSpeedScale(FALSE);
+    gMain.nativeSpeedUpActive = FALSE;
 
     // If we are processing a palette fade we need to temporarily fall back to 1x speed otherwise there is graphical corruption
     if(PrevPaletteFadeResult() == PALETTE_FADE_STATUS_LOADING)
@@ -1885,6 +1886,8 @@ void BattleMainCB2(void)
     {
         u8 s;
         u8 fadeResult;
+
+        gMain.nativeSpeedUpActive = TRUE;
 
         // Update select entries at higher speed
         // disable speed up during palette fades otherwise we run into issues with blending 
@@ -1912,9 +1915,12 @@ void BattleMainCB2(void)
                     gMain.callback1();
             }
         }
+        
+        gMain.nativeSpeedUpActive = FALSE;
 
         if(fadeResult != PALETTE_FADE_STATUS_LOADING)
         {
+            
             // final update
             AnimateSprites();
             BuildOamBuffer();
