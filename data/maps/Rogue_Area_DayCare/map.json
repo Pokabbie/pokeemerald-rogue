@@ -25,7 +25,7 @@
     },
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
-      "offset": 8,
+      "offset": 10,
       "direction": "right"
     },
     {
@@ -35,58 +35,6 @@
     }
   ],
   "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
-      "x": 29,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Area_DayCare_TalkBerryBlender",
-      "flag": "FLAG_TEMP_3"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
-      "x": 30,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Area_DayCare_BlendPokeblockMaster",
-      "flag": "FLAG_TEMP_3"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
-      "x": 33,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Area_DayCare_BlendPokeblockNovice",
-      "flag": "FLAG_TEMP_3"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
-      "x": 34,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Area_DayCare_TalkBerryBlender",
-      "flag": "FLAG_TEMP_3"
-    },
     {
       "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
       "x": 16,
@@ -101,22 +49,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
-      "x": 25,
-      "y": 18,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Shop_Treats",
-      "flag": "FLAG_TEMP_4"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 14,
-      "y": 20,
+      "x": 27,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -124,7 +59,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Rogue_Area_DayCare_SwapMonGender",
-      "flag": "FLAG_TEMP_5"
+      "flag": "FLAG_TEMP_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
@@ -221,29 +156,29 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 37,
-      "y": 11,
+      "x": 31,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": "0"
     },
     {
-      "x": 37,
-      "y": 12,
+      "x": 31,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": "0"
     },
     {
       "x": 20,
-      "y": 25,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": "0"
     },
     {
       "x": 19,
-      "y": 25,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
       "dest_warp_id": "0"
@@ -260,13 +195,6 @@
       "y": 13,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_LABS",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 25,
-      "y": 5,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_INTERIOR_RESTAURANT",
       "dest_warp_id": "0"
     },
     {

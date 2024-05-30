@@ -462,7 +462,12 @@ text gHubUpgradeDesc_DayCare_Bakery
 
 text gHubUpgradeDesc_DayCare_PokeblockBlenders
 {
-    format("Blend berries into {POKEBLOCK}.")
+    format("Create more {POKEBLOCK} at once.")
+}
+
+text gHubUpgradeDesc_DayCare_TreatShop_Vanilla
+{
+    format("Shop for {POKEBLOCK}.")
 }
 
 text gHubUpgradeDesc_DayCare_TreatShop
@@ -477,5 +482,5 @@ text gHubUpgradeDesc_DayCare_TreatShopStock
 
 text gHubUpgradeDesc_DayCare_TeaShop
 {
-    format("Shop for changing the gender of {PKMN}.")
+    format("Tea used for changing the gender of {PKMN}.")
 }

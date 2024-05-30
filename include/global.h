@@ -545,10 +545,8 @@ struct SaveBlock2
     /*0x11*/ u8 playTimeSeconds;
     /*0x12*/ u8 playTimeVBlanks;
     /*0x13*/ u8 optionsButtonMode;  // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
-    /*0x14*/ u32 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
              u32 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
-             u32 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
-             u32 optionsPopupSoundOff:1;
+             u32 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
              u32 optionsSoundChannelBGM:4;
              u32 optionsSoundChannelSE:4;
              u32 optionsSoundChannelBattleSE:4;
@@ -556,11 +554,16 @@ struct SaveBlock2
              u32 optionsWildBattleScene:3; // OPTIONS_BATTLE_SCENE_[...]
              u32 optionsTrainerBattleScene:3; // OPTIONS_BATTLE_SCENE_[...]
              u32 optionsBossBattleScene:3; // OPTIONS_BATTLE_SCENE_[...]
+             // ...
+             u32 optionsLowHealthBeep:2; // OPTIONS_HEALTH_BEEP_[...]
              u32 optionsAutoRunToggle:1; // whether running is trigger by a B toggle or a hold
+             u32 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
+             u32 optionsPopupSoundOff:1;
              u32 timeOfDayVisuals:1;
              u32 seasonVisuals:1;
              u32 weatherVisuals:1;
              u32 regionMapZoom:1; // whether the map is zoomed in
+             u32 settingsReserved:25; // unused/reserved bits
     /*0x18*/ struct Pokedex pokedex;
              s8 playerStyles[8];
              u32 playerOutfitUnlockFlags;

@@ -230,6 +230,7 @@ static void RogueHub_UpdateSafariAreaMetatiles();
 static void RogueHub_UpdateRideTrainingAreaMetatiles();
 static void RogueHub_UpdateMartsAreaMetatiles();
 static void RogueHub_UpdateTownSquareAreaMetatiles();
+static void RogueHub_UpdateMarketAreaMetatiles();
 static void RogueHub_UpdateChallengeFrontierAreaMetatiles();
 static void RogueHub_UpdateDayCareAreaMetatiles();
 
@@ -759,6 +760,10 @@ void RogueHub_ApplyMapMetatiles()
         RogueHub_UpdateTownSquareAreaMetatiles();
         break;
 
+    case LAYOUT_ROGUE_AREA_MARKET:
+        RogueHub_UpdateMarketAreaMetatiles();
+        break;
+
     case LAYOUT_ROGUE_AREA_CHALLENGE_FRONTIER:
         RogueHub_UpdateChallengeFrontierAreaMetatiles();
         break;
@@ -1256,72 +1261,76 @@ static void RogueHub_UpdateMartsAreaMetatiles()
     // Remove connectionss
     if(RogueHub_GetAreaAtConnection(HUB_AREA_MARTS, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(16, 0, 19, 0, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(16, 1, 19, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(7, 0, 12, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(7, 1, 12, TREE_TYPE_DENSE);
 
-        MetatileFill_CommonPathRemoval(16, 2, 19, 13);
+        MetatileFill_CommonPathRemoval(8, 2, 11, 11);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_MARTS, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(32, 13);
+        MetatileFill_TreesOverlapping(20, 11, 21, 16, TREE_TYPE_DENSE);
 
-        MetatileFill_CommonPathRemoval(20, 14, 31, 17);
+        MetatileFill_CommonPathRemoval(17, 12, 19, 15);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_MARTS, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitVertical(16, 20);
-        MetatileFill_TreeCaps(16, 21, 21);
+        MetatileFill_TreesOverlapping(5, 18, 14, 19, TREE_TYPE_DENSE);
+        MetatileFill_TreeCaps(5, 17, 19);
 
-        MetatileFill_CommonPathRemoval(16, 18, 19, 19);
+        MetatileFill_CommonPathRemoval(8, 16, 11, 16);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_MARTS, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(0, 13);
+        MetatileFill_TreesOverlapping(0, 11, 1, 16, TREE_TYPE_DENSE);
 
-        MetatileFill_CommonPathRemoval(2, 14, 15, 17);
+        MetatileFill_CommonPathRemoval(2, 12, 7, 15);
     }
 
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_GENERAL_STOCK))
     {
-        MetatileFill_Tile(9, 8, 9, 10, METATILE_GeneralHub_Grass);
+        MetatileFill_Tile(13, 8, 13, 10, METATILE_GeneralHub_Grass);
     }
 
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_POKE_BALLS))
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_POKE_BALLS) && !RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS))
     {
-        MetatileFill_Tile(4, 9, 7, 11, METATILE_GeneralHub_Grass);
+        MetatileFill_TreesOverlapping(2, 1, 7, 10, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(1, 11, 6, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(7, 11, 7, TREE_TYPE_SPARSE);
     }
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_POKE_BALLS_STOCK))
+    else
     {
-        MetatileFill_Tile(2, 8, 3, 11, METATILE_GeneralHub_Grass);
-    }
+        if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_POKE_BALLS))
+        {
+            MetatileFill_TreesOverlapping(1, 8, 7, 10, TREE_TYPE_DENSE);
+            MetatileFill_TreeCaps(2, 7, 7);
+            MetatileFill_TreeStumps(1, 11, 6, TREE_TYPE_DENSE);
+            MetatileFill_TreeStumps(7, 11, 7, TREE_TYPE_SPARSE);
+        }
+        else if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_POKE_BALLS_STOCK))
+        {
+            MetatileFill_Tile(2, 7, 3, 10, METATILE_GeneralHub_Grass);
+        }
 
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS))
-    {
-        MetatileFill_Tile(4, 4, 7, 6, METATILE_GeneralHub_Grass);
-    }
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS_STOCK))
-    {
-        MetatileFill_Tile(2, 3, 3, 6, METATILE_GeneralHub_Grass);
-        MetatileFill_Tile(4, 3, 7, 3, METATILE_GeneralHub_Grass);
+        if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS))
+        {
+            MetatileFill_TreesOverlapping(2, 1, 7, 4, TREE_TYPE_DENSE);
+            MetatileFill_TreeStumps(2, 5, 6, TREE_TYPE_DENSE);
+            MetatileFill_TreeStumps(7, 5, 7, TREE_TYPE_SPARSE);
+
+        }
+        else if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TMS_STOCK))
+        {
+            MetatileFill_Tile(2, 2, 3, 5, METATILE_GeneralHub_Grass);
+            MetatileFill_Tile(4, 2, 7, 2, METATILE_GeneralHub_Grass);
+        }
     }
 
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_TRAVELER_BATTLE_ENCHANCERS))
     {
-        MetatileFill_Tile(9, 3, 14, 6, METATILE_GeneralHub_Grass);
-    }
-
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARTS_BANK))
-    {
-        MetatileFill_Tile(21, 4, 31, 12, METATILE_GeneralHub_Grass);
-
-        MetatileFill_TreesOverlapping(22, 3, 31, 10, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(23, 11, 31, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(22, 11, 22, TREE_TYPE_SPARSE);
-
-        MetatileFill_Tile(23, 13, 28, 13, METATILE_GeneralHub_Grass);
+        MetatileFill_Tile(13, 2, 18, 5, METATILE_GeneralHub_Grass);
     }
 }
 
@@ -1348,7 +1357,7 @@ static void RogueHub_UpdateTownSquareAreaMetatiles()
         MetatileFill_CommonWarpExitVertical(14, 18);
         MetatileFill_TreeCaps(14, 19, 17);
 
-        MetatileFill_CommonPathRemoval(14, 15, 17, 17);
+        MetatileFill_CommonPathRemoval(13, 13, 17, 17);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_TOWN_SQUARE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
@@ -1374,6 +1383,85 @@ static void RogueHub_UpdateTownSquareAreaMetatiles()
     {
         MetatileFill_Tile(6, 12, 12, 15, METATILE_GeneralHub_Grass);
         MetatileFill_Tile(9, 16, 12, 16, METATILE_GeneralHub_Grass);
+    }
+}
+
+static void RogueHub_UpdateMarketAreaMetatiles()
+{
+    // Remove connections
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_MARKET, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_TreesOverlapping(16, 0, 20, 0, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(16, 1, 19, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(16, 2, 19, 11);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_MARKET, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+    {
+        MetatileFill_TreesOverlapping(32, 9, 33, 15, TREE_TYPE_DENSE);
+
+        MetatileFill_CommonPathRemoval(28, 12, 31, 14);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_MARKET, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
+    {
+        MetatileFill_TreesOverlapping(15, 22, 20, 23, TREE_TYPE_DENSE);
+        MetatileFill_TreeCaps(16, 21, 19);
+
+        MetatileFill_CommonPathRemoval(16, 15, 19, 20);
+    }
+
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_MARKET, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
+    {
+        MetatileFill_CommonWarpExitHorizontal(0, 11);
+
+        MetatileFill_CommonPathRemoval(2, 12, 9, 14);
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARKET_BAKERY))
+    {
+        MetatileFill_TreesOverlapping(0, 1, 7, 8, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(0, 9, 7, TREE_TYPE_DENSE);
+
+        if(RogueHub_GetAreaAtConnection(HUB_AREA_MARKET, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
+        {
+            MetatileFill_TreesOverlapping(0, 9, 7, 15, TREE_TYPE_DENSE);
+        }
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARKET_TREAT_SHOP))
+    {
+        if(RogueHub_GetAreaAtConnection(HUB_AREA_MARKET, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
+        {
+            MetatileFill_TreesOverlapping(10, 16, 22, 21, TREE_TYPE_DENSE);
+            MetatileFill_TreeCaps(10, 15, 21);
+        }
+        else
+        {
+            MetatileFill_TreesOverlapping(10, 16, 13, 21, TREE_TYPE_DENSE);
+            MetatileFill_TreeCaps(10, 15, 13);
+
+            MetatileFill_Tile(14, 16, 14, 19, METATILE_GeneralHub_Grass);
+        }
+    }
+
+    if(!RogueHub_HasUpgrade(HUB_UPGRADE_MARKET_BANK))
+    {
+        MetatileFill_TreesOverlapping(22, 1, 38, 8, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(23, 9, 31, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(22, 9, 22, TREE_TYPE_SPARSE);
+
+        MetatileFill_Tile(21, 2, 21, 10, METATILE_GeneralHub_Grass);
+        MetatileFill_Tile(22, 10, 31, 10, METATILE_GeneralHub_Grass);
+        MetatileFill_Tile(23, 11, 28, 11, METATILE_GeneralHub_Grass);
+
+        if(RogueHub_GetAreaAtConnection(HUB_AREA_MARKET, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+        {
+            MetatileFill_TreesOverlapping(22, 9, 31, 16, TREE_TYPE_DENSE);
+
+            MetatileFill_CommonPathRemoval(20, 12, 21, 14);
+        }
     }
 }
 
@@ -1421,29 +1509,27 @@ static void RogueHub_UpdateDayCareAreaMetatiles()
         MetatileFill_TreesOverlapping(17, 0, 22, 0, TREE_TYPE_DENSE);
         MetatileFill_TreeStumps(17, 1, 22, TREE_TYPE_DENSE);
 
-        MetatileFill_CommonPathRemoval(18, 2, 21, 9);
+        MetatileFill_CommonPathRemoval(18, 2, 21, 11);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_DAY_CARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitHorizontal(36, 9);
+        MetatileFill_CommonWarpExitHorizontal(30, 11);
 
-        MetatileFill_CommonPathRemoval(22, 10, 35, 12);
+        MetatileFill_CommonPathRemoval(22, 12, 29, 14);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_DAY_CARE, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
     {
-        MetatileFill_CommonWarpExitVertical(18, 24);
-        MetatileFill_TreeCaps(18, 25, 21);
-
-        MetatileFill_CommonPathRemoval(18, 15, 21, 23);
+        MetatileFill_TreesOverlapping(17, 16, 22, 17, TREE_TYPE_DENSE);
+        MetatileFill_TreeCaps(18, 15, 21);
     }
 
     if(RogueHub_GetAreaAtConnection(HUB_AREA_DAY_CARE, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
         MetatileFill_CommonWarpExitHorizontal(0, 11);
 
-        MetatileFill_CommonPathRemoval(2, 12, 3, 14);
+        MetatileFill_CommonPathRemoval(2, 12, 4, 14);
     }
 
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_BREEDER))
@@ -1451,35 +1537,27 @@ static void RogueHub_UpdateDayCareAreaMetatiles()
         MetatileFill_Tile(10, 10, 10, 10, 0x291); // place wooden fence
     }
 
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_BAKERY) && !RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_POKEBLOCK_BLENDERS))
-    {
-        MetatileFill_Tile(23, 2, 35, 9, METATILE_GeneralHub_Grass);
-
-        MetatileFill_TreesOverlapping(24, 1, 36, 6, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(24, 7, 36, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(24, 7, 24, TREE_TYPE_SPARSE);
-    }
-    else
-    {
-        if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_BAKERY))
-        {
-            MetatileFill_Tile(23, 2, 27, 9, METATILE_GeneralHub_Grass);
-        }
-
-        if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_POKEBLOCK_BLENDERS))
-        {
-            MetatileFill_Tile(28, 2, 35, 9, METATILE_GeneralHub_Grass);
-        }
-    }
-
-    if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_TREAT_SHOP))
-    {
-        MetatileFill_Tile(22, 14, 27, 18, METATILE_GeneralHub_Grass);
-    }
-
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_TEA_SHOP))
     {
-        MetatileFill_Tile(12, 16, 17, 19, METATILE_GeneralHub_Grass);
+        // Default to remove and look nice-ish
+        MetatileFill_Tile(24, 6, 29, 9, METATILE_GeneralHub_Grass);
+
+        MetatileFill_TreesOverlapping(26, 5, 39, 6, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(27, 7, 29, TREE_TYPE_DENSE);
+        MetatileFill_TreeStumps(26, 7, 26, TREE_TYPE_SPARSE);
+
+        // Place big block of trees instead
+        if(RogueHub_GetAreaAtConnection(HUB_AREA_DAY_CARE, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
+        {
+            MetatileFill_TreesOverlapping(18, 0, 29, 8, TREE_TYPE_DENSE);
+            MetatileFill_TreeStumps(18, 10, 29, TREE_TYPE_DENSE);
+        }
+
+        // Place big block of trees instead
+        if(RogueHub_GetAreaAtConnection(HUB_AREA_DAY_CARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+        {
+            MetatileFill_TreesOverlapping(24, 5, 29, 15, TREE_TYPE_DENSE);
+        }
     }
 }
 

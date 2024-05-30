@@ -2,9 +2,7 @@ const VAR_OBJ_GFX_TEA_SHOP = VAR_OBJ_GFX_ID_0
 
 const FLAG_HIDE_BREEDER = FLAG_TEMP_1
 const FLAG_HIDE_PHONE = FLAG_TEMP_2
-const FLAG_HIDE_POKEBLOCK = FLAG_TEMP_3
-const FLAG_HIDE_TREATS = FLAG_TEMP_4
-const FLAG_HIDE_TEA = FLAG_TEMP_5
+const FLAG_HIDE_TEA = FLAG_TEMP_4
 
 mapscripts Rogue_Area_DayCare_MapScripts 
 {
@@ -43,26 +41,6 @@ script Rogue_Area_DayCare_OnMapLoad
         setflag(FLAG_HIDE_PHONE)
     }
 
-    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_POKEBLOCK_BLENDERS)
-    if(var(VAR_RESULT) == TRUE)
-    {
-        clearflag(FLAG_HIDE_POKEBLOCK)
-    }
-    else
-    {
-        setflag(FLAG_HIDE_POKEBLOCK)
-    }
-
-    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_TREAT_SHOP)
-    if(var(VAR_RESULT) == TRUE)
-    {
-        clearflag(FLAG_HIDE_TREATS)
-    }
-    else
-    {
-        setflag(FLAG_HIDE_TREATS)
-    }
-
     hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_TEA_SHOP)
     if(var(VAR_RESULT) == TRUE)
     {
@@ -72,180 +50,6 @@ script Rogue_Area_DayCare_OnMapLoad
     {
         setflag(FLAG_HIDE_TEA)
     }
-}
-
-script Rogue_Area_DayCare_BlendPokeblockNovice
-{
-    setflag(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER)
-    
-    lock
-
-    // NOVICE_BERRY_COUNT
-    msgbox(format("Hello!\nI'm a {POKEBLOCK} Blending Novice.\pI can help you produce up to 10 {POKEBLOCK} per 20 berries.\pWould you like to blend some {POKEBLOCK} with me?"), MSGBOX_YESNO)
-
-    if(var(VAR_RESULT) == YES)
-    {
-        specialvar(VAR_RESULT, PlayerHasBerries)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            // NOVICE_BERRY_COUNT
-            setvar(VAR_0x800A, 20) // num berries
-
-            setvar(VAR_RESULT, YES)
-            while(var(VAR_RESULT) == YES)
-            {
-                call(Rogue_Area_DayCare_BlendPokeblockMasterLoop)
-            }
-        }
-        else
-        {
-            msgbox(format("Oh.\pIt doesn't look like you have any berries to blend."))
-        }
-    }
-    else
-    {
-        msgbox(format("I see.\nIf you change your mind feel free to speak with me again."))
-    }
-
-    release
-}
-
-script Rogue_Area_DayCare_BlendPokeblockNoviceLoop
-{
-    msgbox(format("Which berry would you like to blend?"))
-
-    fadescreen(FADE_TO_BLACK)
-    special(Bag_ChooseBerry)
-    waitstate
-
-    if(var(VAR_ITEM_ID) != 0)
-    {
-        special(Rogue_IsValidPokeblockBerry)
-        if(var(VAR_RESULT) == YES)
-        {
-            // NOVICE_BERRY_COUNT
-            checkitem(VAR_ITEM_ID, 20)
-
-            if(var(VAR_RESULT) == YES)
-            {
-                msgbox(format("OK.\pLet's blend!"))
-
-                waitse
-                setvar(VAR_0x8004, 1) // NUM_OPPONENTS
-                fadescreen(FADE_TO_BLACK)
-                special(DoBerryBlending)
-                waitstate
-
-                call(Rogue_Common_DisplayPopups)
-
-                msgbox(format("Would you like to blend more berries?"), MSGBOX_YESNO)
-            }
-            else
-            {
-                // NOVICE_BERRY_COUNT
-                msgbox(format("You don't have enough berries.\pYou need 20 berries to blend with me."))
-            }
-        }
-        else
-        {
-            msgbox(format("I'm afraid that berry won't produce any {POKEBLOCK}.\pYou can use the Check Tag option in your Bag to see which {POKEBLOCK} a berry will produce when blended."))
-        }
-    }
-    else
-    {
-        setvar(VAR_RESULT, NO)
-    }
-}
-
-script Rogue_Area_DayCare_BlendPokeblockMaster
-{
-    clearflag(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER)
-    
-    lock
-
-    // MASTER_BERRY_COUNT
-    msgbox(format("Hello!\nI'm a {POKEBLOCK} Blending Master.\pI can help you produce up to 30 {POKEBLOCK} per 70 berries.\pWould you like to blend some {POKEBLOCK} with me?"), MSGBOX_YESNO)
-
-    if(var(VAR_RESULT) == YES)
-    {
-        specialvar(VAR_RESULT, PlayerHasBerries)
-
-        if(var(VAR_RESULT) == YES)
-        {
-            // MASTER_BERRY_COUNT
-            setvar(VAR_0x800A, 70) // num berries
-
-            setvar(VAR_RESULT, YES)
-            while(var(VAR_RESULT) == YES)
-            {
-                call(Rogue_Area_DayCare_BlendPokeblockMasterLoop)
-            }
-        }
-        else
-        {
-            msgbox(format("Oh.\pIt doesn't look like you have any berries to blend."))
-        }
-    }
-    else
-    {
-        msgbox(format("I see.\nIf you change your mind feel free to speak with me again."))
-    }
-
-    release
-}
-
-script Rogue_Area_DayCare_BlendPokeblockMasterLoop
-{
-    msgbox(format("Which berry would you like to blend?"))
-
-    fadescreen(FADE_TO_BLACK)
-    special(Bag_ChooseBerry)
-    waitstate
-
-    if(var(VAR_ITEM_ID) != 0)
-    {
-        special(Rogue_IsValidPokeblockBerry)
-        if(var(VAR_RESULT) == YES)
-        {
-            // MASTER_BERRY_COUNT
-            checkitem(VAR_ITEM_ID, 70)
-
-            if(var(VAR_RESULT) == YES)
-            {
-                msgbox(format("OK.\pLet's blend!"))
-
-                waitse
-                setvar(VAR_0x8004, 1) // NUM_OPPONENTS
-                fadescreen(FADE_TO_BLACK)
-                special(DoBerryBlending)
-                waitstate
-
-                call(Rogue_Common_DisplayPopups)
-
-                msgbox(format("Would you like to blend more berries?"), MSGBOX_YESNO)
-            }
-            else
-            {
-                msgbox(format("You don't have enough berries.\pYou need 70 berries to blend with me."))
-            }
-        }
-        else
-        {
-            msgbox(format("I'm afraid that berry won't produce any {POKEBLOCK}.\pYou can use the Check Tag option in your Bag to see which {POKEBLOCK} a berry will produce when blended."))
-        }
-    }
-    else
-    {
-        setvar(VAR_RESULT, NO)
-    }
-}
-
-script Rogue_Area_DayCare_TalkBerryBlender
-{
-    lock
-    msgbox(format("They're intensely focusing on using the Berry Blending Machine."))
-    release
 }
 
 script Rogue_Area_DayCare_SwapMonGender

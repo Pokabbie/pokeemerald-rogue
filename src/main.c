@@ -121,6 +121,7 @@ void AgbMain()
     SetDefaultFontsPointer();
     InitHeap(gHeap, HEAP_SIZE);
 
+    gMain.nativeSpeedUpActive = FALSE;
     gSoftResetDisabled = FALSE;
 
     if (gFlashMemoryPresent != TRUE)

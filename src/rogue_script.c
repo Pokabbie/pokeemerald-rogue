@@ -1387,7 +1387,7 @@ static bool8 WillMonLikePieInternal(u16 crustItem, u16 fillingItem, struct Pokem
     u8 type = ItemId_GetSecondaryId(crustItem);
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
 
-    if(!IS_STANDARD_TYPE(type))
+    if(IS_STANDARD_TYPE(type))
     {
         if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
         {
@@ -1404,7 +1404,7 @@ static bool8 WillMonLikePieInternal(u16 crustItem, u16 fillingItem, struct Pokem
     {
         type = ItemId_GetSecondaryId(fillingItem);
 
-        if(!IS_STANDARD_TYPE(type))
+        if(IS_STANDARD_TYPE(type))
         {
             if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
             {
@@ -1454,7 +1454,7 @@ void Rogue_FeedMonPie()
                 break;
 
             case PIE_SIZE_MEDIUM:
-                temp = min(temp + 10, 31);
+                temp = min(temp + 5, 31);
                 break;
 
             case PIE_SIZE_LARGE:

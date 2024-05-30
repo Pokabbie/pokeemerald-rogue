@@ -55,10 +55,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
-      "x": 12,
+      "x": 9,
       "y": 9,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -68,10 +68,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 9,
+      "x": 12,
       "y": 9,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -137,14 +137,14 @@
       "x": 7,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_DAY_CARE",
+      "dest_map": "MAP_ROGUE_AREA_MARKET",
       "dest_warp_id": "8"
     },
     {
       "x": 6,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_DAY_CARE",
+      "dest_map": "MAP_ROGUE_AREA_MARKET",
       "dest_warp_id": "8"
     }
   ],
