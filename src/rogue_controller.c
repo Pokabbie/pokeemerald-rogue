@@ -2955,6 +2955,45 @@ void Rogue_ResetConfigHubSettings(void)
     VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
 }
 
+static void ChooseRandomPokeballReward()
+{
+    if(VarGet(VAR_ROGUE_FREE_POKE_BALL) == ITEM_NONE)
+    {
+        RogueItemQuery_Begin();
+
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_POKE_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_GREAT_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_ULTRA_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_PREMIER_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_LUXURY_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_TIMER_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_REPEAT_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_NEST_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_DIVE_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_NET_BALL);
+
+#ifdef ROGUE_EXPANSION
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_HEAL_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_DUSK_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_QUICK_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_LEVEL_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_LURE_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_MOON_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_FRIEND_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_LOVE_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_FAST_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_HEAVY_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_DREAM_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_BEAST_BALL);
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, ITEM_CHERISH_BALL);
+#endif
+
+        VarSet(VAR_ROGUE_FREE_POKE_BALL, RogueMiscQuery_SelectRandomElement(Random()));
+
+        RogueItemQuery_End();
+    }
+}
+
 void Rogue_OnNewGame(void)
 {
     RogueSave_ClearData();
@@ -2990,6 +3029,7 @@ void Rogue_OnNewGame(void)
 
     Rogue_ResetSettingsToDefaults();
     Rogue_ResetConfigHubSettings();
+    ChooseRandomPokeballReward();
 
     VarSet(VAR_ROGUE_DIFFICULTY, 0);
     VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, 0);
@@ -4060,6 +4100,8 @@ static void EndRogueRun(void)
         // If we got at least 1 badge mark the daycare egg as ready to collect
         if(VarGet(VAR_ROGUE_DAYCARE_EGG) != SPECIES_NONE)
             FlagSet(FLAG_ROGUE_DAYCARE_EGG_READY);
+
+        ChooseRandomPokeballReward();
     }
     
     RogueQuest_CheckQuestRequirements();

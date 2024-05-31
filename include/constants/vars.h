@@ -73,7 +73,7 @@
 #define VAR_PC_BOX_TO_SEND_MON               0x4036
 #define VAR_ROGUE_INITIAL_DEX_SELECTION      0x4037
 #define VAR_ROGUE_POST_GAME_TUTORIAL         0x4038
-#define VAR_UNUSED_0x4039                    0x4039
+#define VAR_ROGUE_FREE_POKE_BALL             0x4039
 #define VAR_FARAWAY_ISLAND_STEP_COUNTER      0x403A
 #define VAR_REGICE_STEPS_1                   0x403B
 #define VAR_REGICE_STEPS_2                   0x403C
