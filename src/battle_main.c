@@ -3170,6 +3170,7 @@ void SwitchInClearSetData(u32 battler)
     {
         gBattleMons[battler].status2 = 0;
         gStatuses3[battler] = 0;
+        gStatuses4[battler] = 0;
         Rogue_ModifyBattleMon(0, &gBattleMons[battler], GetBattlerSide(battler) == B_SIDE_PLAYER);
     }
 
