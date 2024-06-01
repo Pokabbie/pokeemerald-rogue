@@ -370,7 +370,7 @@ static u8 const sText_Index_Challenge[] = _("Challenge");
 static u8 const sText_Index_Mastery[] = _("Mastery");
 static u8 const sText_Index_Total[] = _("Total");
 static u8 const sText_Index_ActiveQuests[] = _("Active Quests");
-static u8 const sText_Index_MasteryDifficulty[] = _("Mastery Difficulty");
+static u8 const sText_Index_ChallengeDifficulty[] = _("Challenges");
 static u8 const sText_Index_Easy[] = _("Easy");
 static u8 const sText_Index_Average[] = _("Average");
 static u8 const sText_Index_Hard[] = _("Hard");
@@ -1225,7 +1225,7 @@ static void Draw_IndexPage()
         if(RogueQuest_HasUnlockedMonMasteries())
         {
             ++y;
-            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_MasteryDifficulty);
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_ChallengeDifficulty);
             ++y;
 
             // Easy
