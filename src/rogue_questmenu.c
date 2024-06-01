@@ -150,7 +150,9 @@ static u32 const sInnerTilemap[] = INCBIN_U32("graphics/rogue_quest/inner_page.b
 static u32 const sQuestboardTilemap[] = INCBIN_U32("graphics/rogue_quest/quest_board.bin.lz");
 
 static u32 const sQuestTiles[] = INCBIN_U32("graphics/rogue_quest/tiles.4bpp.lz");
-static u16 const sQuestPalette[] = INCBIN_U16("graphics/rogue_quest/tiles.gbapal");
+static u16 const sQuestPalette_Blue[] = INCBIN_U16("graphics/rogue_quest/pal_blue.gbapal");
+static u16 const sQuestPalette_Green[] = INCBIN_U16("graphics/rogue_quest/pal_green.gbapal");
+static u16 const sQuestPalette_Gold[] = INCBIN_U16("graphics/rogue_quest/pal_gold.gbapal");
 
 static const struct PageData sPageData[PAGE_COUNT] =
 {
@@ -368,6 +370,11 @@ static u8 const sText_Index_Challenge[] = _("Challenge");
 static u8 const sText_Index_Mastery[] = _("Mastery");
 static u8 const sText_Index_Total[] = _("Total");
 static u8 const sText_Index_ActiveQuests[] = _("Active Quests");
+static u8 const sText_Index_MasteryDifficulty[] = _("Mastery Difficulty");
+static u8 const sText_Index_Easy[] = _("Easy");
+static u8 const sText_Index_Average[] = _("Average");
+static u8 const sText_Index_Hard[] = _("Hard");
+static u8 const sText_Index_Brutal[] = _("Brutal");
 
 static u8 const sText_Index_PendingRewards[] = _("{COLOR GREEN}Rewards ready to\nbe Collected!");
 
@@ -434,7 +441,12 @@ static void CB2_InitQuestMenu(void)
     InitQuestBg();
     InitQuestWindows();
 
-    LoadPalette(sQuestPalette, 0, 1 * 32);
+    if(Rogue_Use200PercEffects())
+        LoadPalette(sQuestPalette_Gold, 0, 1 * 32);
+    else if(Rogue_Use100PercEffects())
+        LoadPalette(sQuestPalette_Green, 0, 1 * 32);
+    else
+        LoadPalette(sQuestPalette_Blue, 0, 1 * 32);
 
     DecompressAndCopyTileDataToVram(1, sQuestTiles, 0, 0, 0);
     while (FreeTempTileDataBuffersIfPossible())
@@ -869,7 +881,22 @@ static void HandleInput_FrontPage(u8 taskId)
 
 static void Draw_FrontPage()
 {
+    u8* txtPtr;
+    u8 const color[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+    u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
 
+    FillWindowPixelBuffer(WIN_RIGHT_PAGE, PIXEL_FILL(0));
+
+    // Trainer name
+    AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 4, 111 + 9, 0, 0, color, TEXT_SKIP_DRAW, gSaveBlock2Ptr->playerName);
+
+    // Trainer number
+    ConvertIntToDecimalStringN(gStringVar4, trainerId, STR_CONV_MODE_LEADING_ZEROS, 5);
+    AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 4, 111 + 18, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+
+
+    PutWindowTilemap(WIN_RIGHT_PAGE);
+    CopyWindowToVram(WIN_RIGHT_PAGE, COPYWIN_FULL);
 }
 
 // Index page
@@ -1195,6 +1222,45 @@ static void Draw_IndexPage()
     }
     else
     {
+        if(RogueQuest_HasUnlockedMonMasteries())
+        {
+            ++y;
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_MasteryDifficulty);
+            ++y;
+
+            // Easy
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Easy);
+            BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercAtDifficultyFor(QUEST_CONST_IS_CHALLENGE, DIFFICULTY_LEVEL_EASY), 100);
+
+            x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+            ++y;
+
+            // Average
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Average);
+            BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercAtDifficultyFor(QUEST_CONST_IS_CHALLENGE, DIFFICULTY_LEVEL_AVERAGE), 100);
+
+            x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+            ++y;
+
+            // Hard
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Hard);
+            BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercAtDifficultyFor(QUEST_CONST_IS_CHALLENGE, DIFFICULTY_LEVEL_HARD), 100);
+
+            x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+            ++y;
+
+            // Brutal
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Brutal);
+            BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercAtDifficultyFor(QUEST_CONST_IS_CHALLENGE, DIFFICULTY_LEVEL_BRUTAL), 100);
+
+            x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+            ++y;
+        }
+
         // Pending rewards to collect
         if(RogueQuest_HasAnyPendingRewards())
             AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * 14, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_PendingRewards);

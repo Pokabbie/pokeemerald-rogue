@@ -717,6 +717,29 @@ u16 RogueQuest_GetQuestCompletePercFor(u32 constFlag)
     return (complete * 100) / total;
 }
 
+u16 RogueQuest_GetQuestCompletePercAtDifficultyFor(u32 constFlag, u8 difficultyLevel)
+{
+    u16 i;
+    u16 complete = 0;
+    u16 total = 0;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_GetConstFlag(i, constFlag))
+        {
+            ++total;
+
+            if(RogueQuest_GetStateFlag(i, QUEST_STATE_HAS_COMPLETE))
+            {
+                if(RogueQuest_GetState(i)->highestCompleteDifficulty >= difficultyLevel)
+                    ++complete;
+            }
+        }
+    }
+
+    return (complete * 100) / total;
+}
+
 void RogueQuest_GetQuestCountsFor(u32 constFlag, u16* activeCount, u16* inactiveCount)
 {
     u16 i;
@@ -731,7 +754,7 @@ void RogueQuest_GetQuestCountsFor(u32 constFlag, u16* activeCount, u16* inactive
             {
                 active++;
             }
-            else
+            else if(RogueQuest_GetStateFlag(i, QUEST_STATE_UNLOCKED))
             {
                 inactive++;
             }
