@@ -768,6 +768,7 @@ const u32 gObjectEventPic_Misc_Unova_Scientist_F[] = INCBIN_U32("graphics/object
 const u32 gObjectEventPic_Misc_Veteran[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/veteran.4bpp");
 const u32 gObjectEventPic_Misc_Young_Couple_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/young_couple_f.4bpp");
 const u32 gObjectEventPic_Misc_Young_Couple_M[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/young_couple_m.4bpp");
+const u32 gObjectEventPic_Misc_BallGuy[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/ball_guy.4bpp");
 
 const u16 gObjectEventPal_Rival_Avery[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/avery.gbapal");
 const u16 gObjectEventPal_Rival_Barry[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/barry.gbapal");

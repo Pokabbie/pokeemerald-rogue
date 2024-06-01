@@ -238,3 +238,32 @@ movement Rogue_Area_TownSquare_WorkbenchBuilder_West
     walk_left
     face_right
 }
+
+script Rogue_Area_TownSquare_TalkBallGuy
+{
+    lock
+    faceplayer
+
+    if(var(VAR_ROGUE_FREE_POKE_BALL) == ITEM_NONE)
+    {
+        msgbox(format("Hey there! Thanks for rolling by to have a chat with your mate- the Ball Guy.\pDon't worry.\nNext time, I'll give you yet another Poké Ball!\pYou ain't stopping, so neither am I!"))
+    }
+    else
+    {
+        msgbox(format("Hey there! Thanks for rolling by to have a chat with your mate- the Ball Guy.\pI've got the perfect Poké Ball for you!"))
+    
+        checkitemspace(VAR_ROGUE_FREE_POKE_BALL, 1)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            giveitem(VAR_ROGUE_FREE_POKE_BALL, 1)
+            setvar(VAR_ROGUE_FREE_POKE_BALL, ITEM_NONE)
+        }
+        else
+        {
+            msgbox(format("Oh, bud.\nYou've got no space in your Bag.\pFree up some space and then I'll be happy to give you a Poké Ball!"))
+        }
+    }
+
+    release
+}

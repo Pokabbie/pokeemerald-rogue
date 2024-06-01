@@ -428,6 +428,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Unova_Scienti
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Veteran;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Young_Couple_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Young_Couple_M;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_BallGuy;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Avery;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Barry;
@@ -989,6 +990,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MISC_VETERAN] = &gObjectEventGraphicsInfo_Misc_Veteran,
     [OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_F] = &gObjectEventGraphicsInfo_Misc_Young_Couple_F,
     [OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_M] = &gObjectEventGraphicsInfo_Misc_Young_Couple_M,
+    [OBJ_EVENT_GFX_MISC_BALL_GUY] = &gObjectEventGraphicsInfo_Misc_BallGuy,
 
     [OBJ_EVENT_GFX_RIVAL_AVERY] = &gObjectEventGraphicsInfo_Rival_Avery,
     [OBJ_EVENT_GFX_RIVAL_BARRY] = &gObjectEventGraphicsInfo_Rival_Barry,
