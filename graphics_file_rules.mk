@@ -1,3 +1,4 @@
+PARTYMENUGFXDIR := graphics/party_menu
 CASTFORMGFXDIR := graphics/pokemon/castform
 TILESETGFXDIR := data/tilesets
 FONTGFXDIR := graphics/fonts
@@ -24,6 +25,20 @@ STARTERGFXDIR := graphics/starter_choose
 types := normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark
 contest_types := cool beauty cute smart tough
 
+###  ###
+
+$(PARTYMENUGFXDIR)/bg.gbapal: $(PARTYMENUGFXDIR)/bg0.gbapal \
+                                $(PARTYMENUGFXDIR)/bg1.gbapal \
+                                $(PARTYMENUGFXDIR)/bg2.gbapal \
+                                $(PARTYMENUGFXDIR)/bg3.gbapal \
+                                $(PARTYMENUGFXDIR)/bg4.gbapal \
+                                $(PARTYMENUGFXDIR)/bg5.gbapal \
+                                $(PARTYMENUGFXDIR)/bg6.gbapal \
+                                $(PARTYMENUGFXDIR)/bg7.gbapal \
+                                $(PARTYMENUGFXDIR)/bg8.gbapal \
+                                $(PARTYMENUGFXDIR)/bg9.gbapal \
+                                $(PARTYMENUGFXDIR)/bg10.gbapal
+	@cat $^ >$@
 
 
 ### Castform ###
