@@ -186,6 +186,11 @@ static const struct RogueRouteEncounter sRogueRouteTable[] = {
         .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_212),
         .wildTypeTable = { TYPE_WATER, TYPE_POISON, TYPE_GROUND }
     },
+    {
+        .mapFlags = ROUTE_FLAG_SINNOH,
+        .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_217),
+        .wildTypeTable = { TYPE_ICE, TYPE_FIGHTING, TYPE_DARK }
+    },
 };
 
 const struct RogueRouteData gRogueRouteTable = 

@@ -194,6 +194,14 @@ u8 RogueToD_GetSeasonCounter()
     return gRogueSaveBlock->seasonCounter;
 }
 
+static u8 GetVisualSeason()
+{
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_ROUTE_SINNOH_217) || gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_ROUTE_SINNOH_217))
+        return SEASON_WINTER;
+
+    return RogueToD_GetSeason();
+}
+
 void RogueToD_SetSeasonCounter(u8 value)
 {
     gRogueSaveBlock->seasonCounter = (value) % (DAYS_PER_SEASON * SEASON_COUNT);
@@ -354,7 +362,7 @@ static void UNUSED TintPalette_CompareOverrideWithMultiplyFallback(u16 *palette,
 
 static void TintPalette_Season(u16 *palette, u16 size)
 {
-    switch (RogueToD_GetSeason())
+    switch (GetVisualSeason())
     {
     case SEASON_SPRING:
         break;
