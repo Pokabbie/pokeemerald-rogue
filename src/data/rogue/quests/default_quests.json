@@ -293,7 +293,7 @@
             },
             {
                 "name": "One Last Quest…",
-                "display_group": "starter_quests",
+                "display_group": "final_quests",
                 "description": "Complete all other Main Quests in order to unlock the 'Final Quest'",
                 "flags": 
                 [
@@ -328,7 +328,7 @@
             {
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "name": "The Final Run.",
-                "display_group": "starter_quests",
+                "display_group": "final_quests",
                 "description": "Win a full Standard Run, with the Pokédex set to National Gen3 and only Rogue Trainers enabled.",
                 "triggers":
                 [
@@ -442,13 +442,13 @@
             },
             {
                 "name": "Collector X",
-                "description": "Defeat every Elite Four Trainers with a Pokémon of Legends in your party.",
+                "description": "Defeat every Elite Four Trainer with a Pokémon of Legends in your party.",
                 "triggers":
                 [
                     {
                         "on": [ "EARN_BADGE" ],
                         "condition": "DifficultyGreaterThan",
-                        "params": [ "ROGUE_ELITE_START_DIFFICULTY - 1" ],
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY" ],
                         "fail": "BREAK"
                     },
                     {
@@ -459,7 +459,7 @@
                     {
                         "on": [ "EARN_BADGE" ],
                         "condition": "DifficultyGreaterThan",
-                        "params": [ "ROGUE_ELITE_START_DIFFICULTY + 4" ],
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY + 3" ],
                         "pass": "SUCCESS"
                     }
                 ],
@@ -571,7 +571,7 @@
             },
             {
                 "name": "Big Saver",
-                "description": "Exit a Rest Stop with at least ¥50000 in you pocket.",
+                "description": "Exit a Rest Stop with at least ¥50000 in your pocket.",
                 "triggers":
                 [
                     {

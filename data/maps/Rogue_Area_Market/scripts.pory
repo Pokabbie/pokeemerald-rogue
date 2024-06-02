@@ -94,7 +94,7 @@ script Rogue_Area_Market_BlendPokeblockNovice
             setvar(VAR_RESULT, YES)
             while(var(VAR_RESULT) == YES)
             {
-                call(Rogue_Area_Market_BlendPokeblockMasterLoop)
+                call(Rogue_Area_Market_BlendPokeblockNoviceLoop)
             }
         }
         else

@@ -887,3 +887,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Template_Home_Interior/scripts.inc"
 
 	.include "data/maps/Rogue_Area_Market/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_217/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_210/scripts.inc"

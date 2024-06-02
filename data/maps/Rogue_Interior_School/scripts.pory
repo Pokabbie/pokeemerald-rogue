@@ -1,1 +1,28 @@
 mapscripts Rogue_Interior_School_MapScripts {}
+
+
+script Rogue_Interior_School_ShowSetRecommendation
+{
+    lock
+    faceplayer
+    
+    msgbox(format("Oh hey, you look like a Trainer.\pHere, let me give you my advice on what to teach your Pokémon!"))
+
+    setvar(VAR_0x8004, 0)
+
+    while(var(VAR_0x8004) != PARTY_SIZE)
+    {
+        specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+        showmonpic(VAR_RESULT, 2, 2)
+        playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
+
+        callnative(ScriptMenu_DisplayRecommendedMonSet)
+        messageinstant(format("{DPAD_LEFTRIGHT} Cycle Party Pokémon"))
+        waitstate
+        hidemonpic
+    }
+
+    msgbox(format("If you need any more help, don't hesitate to ask!"))
+
+    release
+}

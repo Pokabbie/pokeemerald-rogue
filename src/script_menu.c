@@ -10,6 +10,8 @@
 #include "malloc.h"
 #include "menu.h"
 #include "palette.h"
+#include "party_menu.h"
+#include "pokemon_summary_screen.h"
 #include "script.h"
 #include "script_menu.h"
 #include "sound.h"
@@ -1029,29 +1031,6 @@ static void PrintUniqueMonInfoToWindow(u8 windowId)
     CopyWindowToVram(windowId, COPYWIN_FULL);
 }
 
-static void Task_DisplayUniqueMonInfoWindowInput(u8 taskId)
-{
-    u8 windowId = gTasks[taskId].data[0];
-
-    if(JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
-    {
-        ClearStdWindowAndFrame(windowId, TRUE);
-        RemoveWindow(windowId);
-
-        ScriptContext_Enable();
-        DestroyTask(taskId);
-    }
-    //else
-    //{
-    //    u8 countDown = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->countDown;
-    //    if(gTasks[taskId].data[1] != countDown)
-    //    {
-    //        gTasks[taskId].data[1] = countDown;
-    //        PrintUniqueMonInfoToWindow(windowId);
-    //    }
-    //}
-}
-
 void ScriptMenu_DisplayUniqueMonInfo()
 {
     u8 taskId;
@@ -1059,7 +1038,199 @@ void ScriptMenu_DisplayUniqueMonInfo()
 
     PrintUniqueMonInfoToWindow(windowId);
 
-    taskId = CreateTask(Task_DisplayUniqueMonInfoWindowInput, 0);
+    taskId = CreateTask(Task_DisplayTextInWindowInput, 0);
     gTasks[taskId].data[0] = windowId;
     gTasks[taskId].data[1] = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->countDown;
+}
+
+static u8 const sText_PresetMonAbility_Has[] = _("Ability/ {COLOR GREEN}{STR_VAR_1}");
+static u8 const sText_PresetMonAbility_Missing[] = _("Ability/ {COLOR RED}{STR_VAR_1}");
+static u8 const sText_PresetMonItem_Has[] = _("Item/ {COLOR GREEN}{STR_VAR_1}");
+static u8 const sText_PresetMonItem_Missing[] = _("Item/ {COLOR RED}{STR_VAR_1}");
+static u8 const sText_PresetMonNature_Has[] = _("Nature/ {COLOR GREEN}{STR_VAR_1}");
+static u8 const sText_PresetMonNature_Missing[] = _("Nature/ {COLOR RED}{STR_VAR_1}");
+static u8 const sText_PresetMonMove_Has[] = _(" -{COLOR GREEN}{STR_VAR_1}");
+static u8 const sText_PresetMonMove_Missing[] = _(" -{COLOR RED}{STR_VAR_1}");
+static u8 const sText_PresetMonNoData[] = _("No recommendations for\nthis Pokémon.\n\n\n(This Pokémon may need\nto evolve in order to\nget recomendations)");
+
+static void PrintRecommendedMonSetToWindow(u8 windowId, struct Pokemon* mon, struct RoguePokemonCompetitiveSet const* preset)
+{
+    u8 i, line;
+    gSpecialVar_Result = GetMonData(mon, MON_DATA_SPECIES, NULL);
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
+    SetStandardWindowBorderStyle(windowId, 0);
+
+    line = 0;
+
+    if(preset != NULL)
+    {
+        // Ability
+        if(preset->ability == ITEM_NONE)
+        {
+            StringCopyN(gStringVar1, gText_None, ABILITY_NAME_LENGTH);
+            StringExpandPlaceholders(gStringVar4, sText_PresetMonAbility_Has);
+            AddTextPrinterParameterized(windowId, FONT_SMALL_NARROW, gStringVar4, 2, 12 * (line++), TEXT_SKIP_DRAW, NULL);
+        }
+        else
+        {
+            StringCopyN(gStringVar1, gAbilityNames[preset->ability], ABILITY_NAME_LENGTH);
+            StringExpandPlaceholders(gStringVar4, GetMonAbility(mon) == preset->ability ? sText_PresetMonAbility_Has : sText_PresetMonAbility_Missing);
+            AddTextPrinterParameterized(windowId, FONT_SMALL_NARROW, gStringVar4, 2, 12 * (line++), TEXT_SKIP_DRAW, NULL);
+        }
+
+        // Item
+        if(preset->heldItem == ITEM_NONE)
+        {
+            StringCopyN(gStringVar1, gText_None, ITEM_NAME_LENGTH);
+            StringExpandPlaceholders(gStringVar4, sText_PresetMonItem_Has);
+            AddTextPrinterParameterized(windowId, FONT_SMALL_NARROW, gStringVar4, 2, 12 * (line++), TEXT_SKIP_DRAW, NULL);
+        }
+        else
+        {
+            StringCopyN(gStringVar1, ItemId_GetName(preset->heldItem), ITEM_NAME_LENGTH);
+            StringExpandPlaceholders(gStringVar4, GetMonData(mon, MON_DATA_HELD_ITEM) == preset->heldItem ? sText_PresetMonItem_Has : sText_PresetMonItem_Missing);
+            AddTextPrinterParameterized(windowId, FONT_SMALL_NARROW, gStringVar4, 2, 12 * (line++), TEXT_SKIP_DRAW, NULL);
+        }
+
+        // Nature
+        StringCopy(gStringVar1, gNatureNamePointers[preset->nature]);
+        StringExpandPlaceholders(gStringVar4, GetNature(mon) == preset->nature ? sText_PresetMonNature_Has : sText_PresetMonNature_Missing);
+        AddTextPrinterParameterized(windowId, FONT_SMALL_NARROW, gStringVar4, 2, 12 * (line++), TEXT_SKIP_DRAW, NULL);
+
+        // Moves
+        for(i = 0; i < MAX_MON_MOVES; ++i)
+        {
+            u16 moveId = preset->moves[i];
+
+            if(moveId != MOVE_NONE)
+            {
+                StringCopy(gStringVar1, gMoveNames[moveId]);
+                StringExpandPlaceholders(gStringVar4, MonKnowsMove(mon, moveId) ? sText_PresetMonMove_Has : sText_PresetMonMove_Missing);
+                AddTextPrinterParameterized(windowId, FONT_SMALL_NARROW, gStringVar4, 2, 12 * (line++), TEXT_SKIP_DRAW, NULL);
+            }
+        }
+    }
+    else
+    {
+        AddTextPrinterParameterized(windowId, FONT_SMALL, sText_PresetMonNoData, 2, 12 * (line++), TEXT_SKIP_DRAW, NULL);
+    }
+
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+}
+
+static void Task_DisplayRecommendedMonSetInput(u8 taskId)
+{
+    u8 windowId = gTasks[taskId].data[0];
+
+    if(JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
+    {
+        gSpecialVar_0x8004 = PARTY_SIZE;
+
+        ClearStdWindowAndFrame(windowId, TRUE);
+        RemoveWindow(windowId);
+
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+    }
+    else if(JOY_NEW(DPAD_LEFT))
+    {
+        if(gSpecialVar_0x8004 == 0)
+            gSpecialVar_0x8004 = gPlayerPartyCount - 1;
+        else
+            --gSpecialVar_0x8004; 
+
+        ClearStdWindowAndFrame(windowId, TRUE);
+        RemoveWindow(windowId);
+
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+    }
+    else if(JOY_NEW(DPAD_RIGHT))
+    {
+        gSpecialVar_0x8004 = (gSpecialVar_0x8004 + 1 ) % gPlayerPartyCount;
+
+        ClearStdWindowAndFrame(windowId, TRUE);
+        RemoveWindow(windowId);
+
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+    }
+}
+
+static u32 CalculatePresetDisplayScore(struct Pokemon* mon, struct RoguePokemonCompetitiveSet const* preset)
+{
+    u8 i;
+    u32 score = 0;
+
+#ifdef ROGUE_EXPANSION
+    if(GetNature(mon) == preset->nature)
+        score += 3;
+
+    if(GetMonAbility(mon) == preset->ability)
+        score += 3;
+#else
+    // Rate much higher, as cannot change in Vanilla
+    if(GetNature(mon) == preset->nature)
+        score += 6;
+
+    if(GetMonAbility(mon) == preset->ability)
+        score += 6;
+#endif
+
+    if(GetMonData(mon, MON_DATA_HELD_ITEM) == preset->heldItem)
+        score += 1;
+
+    for(i = 0; i < MAX_MON_MOVES; ++i)
+    {
+        u16 moveId = preset->moves[i];
+
+        if(moveId != MOVE_NONE)
+        {
+            if(MonKnowsMove(mon, moveId))
+                moveId += 2;
+        }
+    }
+
+    return score;
+}
+
+static struct RoguePokemonCompetitiveSet const* SelectMonPreset(struct Pokemon* mon)
+{
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+
+    if(gRoguePokemonProfiles[species].competitiveSetCount != 0)
+    {
+        u16 i;
+        u16 bestIdx = 0;
+        u32 bestScore = CalculatePresetDisplayScore(mon, &gRoguePokemonProfiles[species].competitiveSets[0]);
+
+        for(i = 1; i < gRoguePokemonProfiles[species].competitiveSetCount; ++i)
+        {
+            u32 score = CalculatePresetDisplayScore(mon, &gRoguePokemonProfiles[species].competitiveSets[i]);
+
+            if(score > bestScore)
+            {
+                bestIdx = i;
+                bestScore = score;
+            }
+        }
+
+        return &gRoguePokemonProfiles[species].competitiveSets[bestIdx];
+    }
+
+    return NULL;
+}
+
+void ScriptMenu_DisplayRecommendedMonSet()
+{
+    u8 taskId;
+    u8 windowId = CreateWindowFromRectWithBaseBlockOffset(12, 1, 14, 11, 8 * 8);
+    struct Pokemon* mon = &gPlayerParty[gSpecialVar_0x8004];
+    struct RoguePokemonCompetitiveSet const* preset = SelectMonPreset(mon);
+
+    PrintRecommendedMonSetToWindow(windowId, mon, preset);
+
+    taskId = CreateTask(Task_DisplayRecommendedMonSetInput, 0);
+    gTasks[taskId].data[0] = windowId;
 }

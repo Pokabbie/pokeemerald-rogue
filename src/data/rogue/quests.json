@@ -6,6 +6,10 @@
     "display_groups":
     [
         {
+            "id": "final_quests",
+            "sort_alphabetically": false
+        },
+        {
             "id": "starter_quests",
             "sort_alphabetically": false
         },
