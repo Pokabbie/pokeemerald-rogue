@@ -134,8 +134,9 @@
 #define ITEM_ENDURE_CHARM               (FIRST_ITEM_CHARM + 9)
 #define ITEM_TORMENT_CHARM              (FIRST_ITEM_CHARM + 10)
 #define ITEM_PRESSURE_CHARM             (FIRST_ITEM_CHARM + 11)
+#define ITEM_ADAPTABILITY_CHARM         (FIRST_ITEM_CHARM + 12)
 
-#define LAST_ITEM_CHARM                 (ITEM_PRESSURE_CHARM)
+#define LAST_ITEM_CHARM                 (ITEM_ADAPTABILITY_CHARM)
 
 
 #define FIRST_ITEM_CURSE                (ITEM_ROGUE_ITEM_FIRST + 80)
@@ -157,8 +158,9 @@
 #define ITEM_ENDURE_CURSE               (FIRST_ITEM_CURSE + 14)
 #define ITEM_TORMENT_CURSE              (FIRST_ITEM_CURSE + 15)
 #define ITEM_PRESSURE_CURSE             (FIRST_ITEM_CURSE + 16)
+#define ITEM_ADAPTABILITY_CURSE         (FIRST_ITEM_CURSE + 17)
 
-#define LAST_ITEM_CURSE                 (ITEM_PRESSURE_CURSE)
+#define LAST_ITEM_CURSE                 (ITEM_ADAPTABILITY_CURSE)
 
 #define ITEM_TR01                       (LAST_ITEM_CURSE + 1)
 #define ITEM_TR50                       (LAST_ITEM_CURSE + 50)

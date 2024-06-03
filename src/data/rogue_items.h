@@ -57,6 +57,8 @@ extern const u8 gItemDesc_TormentCharm[];
 extern const u8 gItemDesc_TormentCurse[];
 extern const u8 gItemDesc_PressureCharm[];
 extern const u8 gItemDesc_PressureCurse[];
+extern const u8 gItemDesc_AdaptabilityCharm[];
+extern const u8 gItemDesc_AdaptabilityCurse[];
 extern const u8 gItemDesc_PartyCurse[];
 extern const u8 gItemDesc_EverstoneCurse[];
 extern const u8 gItemDesc_BattleItemCurse[];
@@ -948,6 +950,23 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .iconPalette = gItemIconPalette_RogueCharm,
     },
 
+    [ITEM_ADAPTABILITY_CHARM - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("AdaptbltyCharm"),
+#else
+        .name = _("ADAPTBLTYCHARM"),
+#endif
+        .itemId = ITEM_ADAPTABILITY_CHARM,
+        .price = 0,
+        .description = gItemDesc_AdaptabilityCharm,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
 
     [ITEM_SHOP_PRICE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
     {
@@ -1231,6 +1250,23 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .itemId = ITEM_PRESSURE_CURSE,
         .price = 0,
         .description = gItemDesc_PressureCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_ADAPTABILITY_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("AdaptbltyCurse"),
+#else
+        .name = _("ADAPTBLTYCURSE"),
+#endif
+        .itemId = ITEM_ADAPTABILITY_CURSE,
+        .price = 0,
+        .description = gItemDesc_AdaptabilityCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,

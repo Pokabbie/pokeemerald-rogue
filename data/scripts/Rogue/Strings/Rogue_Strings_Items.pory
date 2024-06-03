@@ -272,6 +272,15 @@ text gItemDesc_PressureCurse
     format("Friendly Pokémon are under the effect of Pressure.")
 }
 
+text gItemDesc_AdaptabilityCharm
+{
+    format("Opponent Pokémon STAB increased by 50%.")
+}
+text gItemDesc_AdaptabilityCurse
+{
+    format("Friendly Pokémon STAB increased by 50%.")
+}
+
 text gItemDesc_PartyCurse
 {
     format("The maximum number of Pokémon in your party is reduced.")

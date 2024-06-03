@@ -5255,7 +5255,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
     case ABILITYEFFECT_ABSORBING: // 3
         if (move != MOVE_NONE)
         {
-            u8 statId;
+            u8 statId = STAT_HP;
             u8 statAmount = 1;
             switch (gLastUsedAbility)
             {
@@ -9861,13 +9861,37 @@ static inline uq4_12_t GetParentalBondModifier(u32 battlerAtk)
     return B_PARENTAL_BOND_DMG >= GEN_7 ? UQ_4_12(0.25) : UQ_4_12(0.5);
 }
 
+static inline uq4_12_t GetAdaptabilityCharmBoost(u32 battlerAtk)
+{
+    u16 adaptabilityBoost = 0;
+    uq4_12_t charmModifier = UQ_4_12(0.0);
+
+    if(GetBattlerSide(battlerAtk) == B_SIDE_PLAYER)
+    {
+        adaptabilityBoost = GetCharmValue(EFFECT_ADAPTABILITY_RATE);
+    }
+    else // if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+    {
+        adaptabilityBoost = GetCurseValue(EFFECT_ADAPTABILITY_RATE);
+    }
+
+    if(adaptabilityBoost != 0)
+    {
+        // Boost is in multiples of 10%
+        charmModifier = uq4_12_divide(UQ_4_12(adaptabilityBoost), UQ_4_12(10.0));
+    }
+
+    return charmModifier;
+}
+
 static inline uq4_12_t GetSameTypeAttackBonusModifier(u32 battlerAtk, u32 moveType, u32 move, u32 abilityAtk)
 {
     if (gBattleStruct->pledgeMove && IS_BATTLER_OF_TYPE(BATTLE_PARTNER(battlerAtk), moveType))
-        return (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
+        return uq4_12_add((abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5), GetAdaptabilityCharmBoost(battlerAtk));
     else if (!IS_BATTLER_OF_TYPE(battlerAtk, moveType) || move == MOVE_STRUGGLE || move == MOVE_NONE)
         return UQ_4_12(1.0);
-    return (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
+    else
+        return uq4_12_add((abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5), GetAdaptabilityCharmBoost(battlerAtk));
 }
 
 // Utility Umbrella holders take normal damage from what would be rain- and sun-weakened attacks.
