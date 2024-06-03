@@ -306,6 +306,11 @@ text gItemDesc_ItemShuffleCurse
     format("Entering a Battle will shuffle Held Items between {PKMN}.")
 }
 
+text gItemDesc_SnowballCurse
+{
+    format("For every badge, you gain an extra Random Curse.")
+}
+
 // Hub upgrades
 // (Appear in item shop layout)
 //

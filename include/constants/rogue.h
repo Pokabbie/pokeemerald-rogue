@@ -153,14 +153,15 @@
 #define ITEM_EVERSTONE_CURSE            (FIRST_ITEM_CURSE + 9)
 #define ITEM_BATTLE_ITEM_CURSE          (FIRST_ITEM_CURSE + 10)
 #define ITEM_SPECIES_CLAUSE_CURSE       (FIRST_ITEM_CURSE + 11)
-#define ITEM_ITEM_SHUFFLE_CURSE         (FIRST_ITEM_CURSE + 12)
+#define ITEM_SHUFFLE_CURSE              (FIRST_ITEM_CURSE + 12)
 #define ITEM_MOVE_PRIORITY_CURSE        (FIRST_ITEM_CURSE + 13)
 #define ITEM_ENDURE_CURSE               (FIRST_ITEM_CURSE + 14)
 #define ITEM_TORMENT_CURSE              (FIRST_ITEM_CURSE + 15)
 #define ITEM_PRESSURE_CURSE             (FIRST_ITEM_CURSE + 16)
 #define ITEM_ADAPTABILITY_CURSE         (FIRST_ITEM_CURSE + 17)
+#define ITEM_SNOWBALL_CURSE             (FIRST_ITEM_CURSE + 18)
 
-#define LAST_ITEM_CURSE                 (ITEM_ADAPTABILITY_CURSE)
+#define LAST_ITEM_CURSE                 (ITEM_SNOWBALL_CURSE)
 
 #define ITEM_TR01                       (LAST_ITEM_CURSE + 1)
 #define ITEM_TR50                       (LAST_ITEM_CURSE + 50)

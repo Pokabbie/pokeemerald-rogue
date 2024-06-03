@@ -6045,6 +6045,17 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(Rogue_GetCurrentDifficulty(), VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
 
             EnableRivalEncounterIfRequired();
+
+            if(IsCurseActive(EFFECT_SNOWBALL_CURSES))
+            {
+                // Add new curse
+                u16 tempBuffer[5];
+                u16 tempBufferCount = 0;
+                u16 itemId = Rogue_NextCurseItem(tempBuffer, tempBufferCount++);
+
+                AddBagItem(itemId, 1);
+                Rogue_PushPopup_AddItem(itemId, 1);
+            }
         }
 
         // Don't adjust soft cap for battle sim

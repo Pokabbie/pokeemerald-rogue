@@ -71,6 +71,7 @@ static u16 EffectToCharmItem(u8 effectType)
         // EFFECT_BATTLE_ITEM_BAN
         // EFFECT_SPECIES_CLAUSE
         // EFFECT_ITEM_SHUFFLE
+        // EFFECT_SNOWBALL_CURSES
     }
 
     return ITEM_NONE;
@@ -133,7 +134,10 @@ static u16 EffectToCurseItem(u8 effectType)
             return ITEM_SPECIES_CLAUSE_CURSE;
         
         case EFFECT_ITEM_SHUFFLE:
-            return ITEM_ITEM_SHUFFLE_CURSE;
+            return ITEM_SHUFFLE_CURSE;
+        
+        case EFFECT_SNOWBALL_CURSES:
+            return ITEM_SNOWBALL_CURSE;
     }
 
     return ITEM_NONE;
@@ -326,8 +330,10 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
     //
     switch(effectType)
     {
+        // Globally disabled effects (Can only be intentionally given)
         case EFFECT_PARTY_SIZE:
         case EFFECT_EXTRA_LIFE:
+        case EFFECT_SNOWBALL_CURSES:
             return TRUE;
 
         // Disable these effects, once we already have one (They don't stack)
