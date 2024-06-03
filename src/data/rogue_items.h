@@ -963,8 +963,8 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,
-        .iconImage = gItemIcon_RogueCurse,
-        .iconPalette = gItemIconPalette_RogueCurse,
+        .iconImage = gItemIcon_RogueCharm,
+        .iconPalette = gItemIconPalette_RogueCharm,
     },
 
 

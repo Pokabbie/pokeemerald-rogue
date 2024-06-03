@@ -11,8 +11,13 @@
 #include "rogue_charms.h"
 #include "rogue_popup.h"
 
-EWRAM_DATA u16 gCharmValues[EFFECT_COUNT];
-EWRAM_DATA u16 gCurseValues[EFFECT_COUNT];
+struct CharmCurseCounts
+{
+    u8 charmItems;
+    u8 curseItems;
+};
+
+EWRAM_DATA struct CharmCurseCounts gCharmItemCounts[EFFECT_COUNT];
 
 static u16 EffectToCharmItem(u8 effectType)
 {
@@ -134,10 +139,8 @@ static u16 EffectToCurseItem(u8 effectType)
     return ITEM_NONE;
 }
 
-static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
+static u16 CalcValueInternal(u8 effectType, u16 itemCount, bool8 isCurse)
 {
-    u32 itemCount = min(100, (itemId == ITEM_NONE ? 0 : GetItemCountInBag(itemId)));
-
     // Custom rate scaling
     switch(effectType)
     {
@@ -175,6 +178,11 @@ static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
     return itemCount;
 }
 
+static u8 GetItemCountForEffectItem(u16 itemId)
+{
+    return min(100, (itemId == ITEM_NONE ? 0 : GetItemCountInBag(itemId)));
+}
+
 void RecalcCharmCurseValues(void)
 {
     u8 effectType;
@@ -182,9 +190,15 @@ void RecalcCharmCurseValues(void)
 
     for(effectType = 0; effectType < EFFECT_COUNT; ++effectType)
     {
-        gCharmValues[effectType] = CalcValueInternal(effectType, EffectToCharmItem(effectType), FALSE);
-        gCurseValues[effectType] = CalcValueInternal(effectType, EffectToCurseItem(effectType), TRUE);
-        DebugPrintf("[%d] charm:%d curse:%d", effectType, gCharmValues[effectType], gCurseValues[effectType]);
+        gCharmItemCounts[effectType].charmItems = GetItemCountForEffectItem(EffectToCharmItem(effectType));
+        gCharmItemCounts[effectType].curseItems = GetItemCountForEffectItem(EffectToCurseItem(effectType));
+        DebugPrintf("[%d] charm_item:%d curse_item:%d charm_value:%d curse_value:%d", 
+            effectType,
+            gCharmItemCounts[effectType].charmItems, 
+            gCharmItemCounts[effectType].curseItems,
+            CalcValueInternal(effectType, gCharmItemCounts[effectType].charmItems, FALSE),
+            CalcValueInternal(effectType, gCharmItemCounts[effectType].curseItems, TRUE)
+        );
     }
 }
 
@@ -231,7 +245,7 @@ u16 GetCharmValue(u8 effectType)
     if(!Rogue_IsRunActive())
         return 0;
 
-    return gCharmValues[effectType];
+    return CalcValueInternal(effectType, gCharmItemCounts[effectType].charmItems, FALSE);
 }
 
 u16 GetCurseValue(u8 effectType)
@@ -239,7 +253,7 @@ u16 GetCurseValue(u8 effectType)
     if(!Rogue_IsRunActive())
         return 0;
 
-    return gCurseValues[effectType];
+    return CalcValueInternal(effectType, gCharmItemCounts[effectType].curseItems, TRUE);
 }
 
 void Rogue_RemoveCharmsFromBag(void)
