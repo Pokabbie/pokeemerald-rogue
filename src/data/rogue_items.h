@@ -55,6 +55,8 @@ extern const u8 gItemDesc_EndureCharm[];
 extern const u8 gItemDesc_EndureCurse[];
 extern const u8 gItemDesc_TormentCharm[];
 extern const u8 gItemDesc_TormentCurse[];
+extern const u8 gItemDesc_PressureCharm[];
+extern const u8 gItemDesc_PressureCurse[];
 extern const u8 gItemDesc_PartyCurse[];
 extern const u8 gItemDesc_EverstoneCurse[];
 extern const u8 gItemDesc_BattleItemCurse[];
@@ -929,6 +931,23 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .iconPalette = gItemIconPalette_RogueCharm,
     },
 
+    [ITEM_PRESSURE_CHARM - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Pressure Charm"),
+#else
+        .name = _("PRESSURE CHARM"),
+#endif
+        .itemId = ITEM_PRESSURE_CHARM,
+        .price = 0,
+        .description = gItemDesc_PressureCharm,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCharm,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
+
 
     [ITEM_SHOP_PRICE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
     {
@@ -1195,6 +1214,23 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .itemId = ITEM_TORMENT_CURSE,
         .price = 0,
         .description = gItemDesc_TormentCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_PRESSURE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Pressure Curse"),
+#else
+        .name = _("PRESSURE CURSE"),
+#endif
+        .itemId = ITEM_PRESSURE_CURSE,
+        .price = 0,
+        .description = gItemDesc_PressureCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .registrability = FALSE,

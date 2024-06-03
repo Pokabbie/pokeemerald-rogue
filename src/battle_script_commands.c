@@ -1892,11 +1892,23 @@ static void Cmd_ppreduce(void)
             if (GetBattlerSide(i) != GetBattlerSide(gBattlerAttacker) && IsBattlerAlive(i))
                 ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
         }
+
+        if(GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER && IsCurseActive(EFFECT_PRESSURE_STATUS))
+            ppToDeduct++;
+
+        if(GetBattlerSide(gBattlerAttacker) != B_SIDE_PLAYER && IsCharmActive(EFFECT_PRESSURE_STATUS))
+            ppToDeduct++;
     }
     else if (moveTarget != MOVE_TARGET_OPPONENTS_FIELD)
     {
         if (gBattlerAttacker != gBattlerTarget && GetBattlerAbility(gBattlerTarget) == ABILITY_PRESSURE)
              ppToDeduct++;
+
+        if(GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER && IsCurseActive(EFFECT_PRESSURE_STATUS))
+            ppToDeduct++;
+
+        if(GetBattlerSide(gBattlerAttacker) != B_SIDE_PLAYER && IsCharmActive(EFFECT_PRESSURE_STATUS))
+            ppToDeduct++;
     }
 
     if (!(gHitMarker & (HITMARKER_NO_PPDEDUCT | HITMARKER_NO_ATTACKSTRING)) && gBattleMons[gBattlerAttacker].pp[gCurrMovePos])

@@ -51,6 +51,9 @@ static u16 EffectToCharmItem(u8 effectType)
         case EFFECT_TORMENT_STATUS:
             return ITEM_TORMENT_CHARM;
 
+        case EFFECT_PRESSURE_STATUS:
+            return ITEM_PRESSURE_CHARM;
+
         case EFFECT_EXTRA_LIFE:
             return ITEM_SACRED_ASH;
 
@@ -101,6 +104,9 @@ static u16 EffectToCurseItem(u8 effectType)
 
         case EFFECT_TORMENT_STATUS:
             return ITEM_TORMENT_CURSE;
+
+        case EFFECT_PRESSURE_STATUS:
+            return ITEM_PRESSURE_CURSE;
 
         // Just curse effects
         case EFFECT_PARTY_SIZE:
@@ -306,6 +312,9 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
         case EFFECT_BATTLE_ITEM_BAN:
         case EFFECT_SPECIES_CLAUSE:
         case EFFECT_ITEM_SHUFFLE:
+        case EFFECT_ENDURE_CHANCE:
+        case EFFECT_TORMENT_STATUS:
+        case EFFECT_PRESSURE_STATUS:
             if(isCurse)
                 return CheckBagHasItem(EffectToCurseItem(effectType), 1);
     }
