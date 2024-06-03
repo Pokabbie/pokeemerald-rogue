@@ -37,10 +37,13 @@ script Rogue_Graveyard_EnterTrigger
 
 script Rogue_Graveyard_SelectOption_Internal {
     lockall
-
-    bufferitemname(STR_VAR_1, VAR_ITEM_ID_VAL)
     
-    msgbox(format("Choose {STR_VAR_1}?"), MSGBOX_YESNO)
+    copyvar(VAR_0x8004, VAR_ITEM_ID_VAL)
+    callnative(ScriptMenu_ShowItemDescription)
+
+    msgbox(format("Choose this Charm?"), MSGBOX_YESNO)
+
+    callnative(ScriptMenu_HideItemDescription)
 
     if(var(VAR_RESULT) == YES)
     {
@@ -64,6 +67,12 @@ script Rogue_Graveyard_SelectOption_Internal {
         // Give curse item which isn't one of the charm options
         giveitem(VAR_ROGUE_ITEM10, 1)
         call(Rogue_Common_DisplayPopups)
+        
+        copyvar(VAR_0x8004, VAR_ROGUE_ITEM10)
+        callnative(ScriptMenu_ShowItemDescription)
+        msgbox(format("You have been afflicted with a new Curse."), MSGBOX_DEFAULT)
+        closemessage
+        callnative(ScriptMenu_HideItemDescription)
 
         quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
 

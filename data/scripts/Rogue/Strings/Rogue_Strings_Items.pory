@@ -220,11 +220,11 @@ text gItemDesc_CatchingCurse
 
 text gItemDesc_GraceCharm
 {
-    format("Friendly moves have an extra 75% for extra effects.")
+    format("Friendly moves have x1.75 to chance for effects.")
 }
 text gItemDesc_GraceCurse
 {
-    format("Opponent moves have an extra 50% for extra effects.")
+    format("Opponent moves have x1.5 to chance for effects.")
 }
 
 text gItemDesc_WildCharm

@@ -1237,3 +1237,43 @@ void ScriptMenu_DisplayRecommendedMonSet()
     taskId = CreateTask(Task_DisplayRecommendedMonSetInput, 0);
     gTasks[taskId].data[0] = windowId;
 }
+
+static void Task_ShowItemDescriptionInput(u8 taskId)
+{
+}
+
+static void PrintItemDescriptionToWindow(u8 windowId, u16 itemId)
+{
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
+    SetStandardWindowBorderStyle(windowId, 0);
+
+    gTextFlags.replaceScrollWithNewLine = TRUE;
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, ItemId_GetName(itemId), 0, 0, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, ItemId_GetDescription(itemId), 0, 14, TEXT_SKIP_DRAW, NULL);
+    gTextFlags.replaceScrollWithNewLine = FALSE;
+
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+}
+
+void ScriptMenu_ShowItemDescription()
+{
+    u8 taskId;
+    u8 windowId = CreateWindowFromRect(1, 4, 13, 8);
+
+    PrintItemDescriptionToWindow(windowId, gSpecialVar_0x8004);
+
+    taskId = CreateTask(Task_ShowItemDescriptionInput, 0);
+    gTasks[taskId].data[0] = windowId;
+}
+
+void ScriptMenu_HideItemDescription()
+{
+    u8 taskId = FindTaskIdByFunc(Task_ShowItemDescriptionInput);
+
+    if (taskId == TASK_NONE)
+        return;
+
+    ClearStdWindowAndFrame(gTasks[taskId].data[0], TRUE);
+    RemoveWindow(gTasks[taskId].data[0]);
+    DestroyTask(taskId);
+}
