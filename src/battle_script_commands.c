@@ -1403,8 +1403,27 @@ static void Cmd_typecalc(void)
     // check stab
     if (IS_BATTLER_OF_TYPE(gBattlerAttacker, moveType))
     {
-        gBattleMoveDamage = gBattleMoveDamage * 15;
-        gBattleMoveDamage = gBattleMoveDamage / 10;
+        s32 adaptabilityBoost = 0;
+
+        if(GET_BATTLER_SIDE(gBattlerAttacker) == B_SIDE_PLAYER)
+        {
+            adaptabilityBoost = GetCharmValue(EFFECT_ADAPTABILITY_RATE);
+        }
+        else // if(GET_BATTLER_SIDE(gBattlerAttacker) == B_SIDE_OPPONENT)
+        {
+            adaptabilityBoost = GetCurseValue(EFFECT_ADAPTABILITY_RATE);
+        }
+
+        if(adaptabilityBoost != 0)
+        {
+            gBattleMoveDamage = gBattleMoveDamage * (15 + adaptabilityBoost);
+            gBattleMoveDamage = gBattleMoveDamage / 10;
+        }
+        else
+        {
+            gBattleMoveDamage = gBattleMoveDamage * 15;
+            gBattleMoveDamage = gBattleMoveDamage / 10;
+        }
     }
 
     if (gBattleMons[gBattlerTarget].ability == ABILITY_LEVITATE && moveType == TYPE_GROUND)
@@ -1581,8 +1600,27 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     // check stab
     if (IS_BATTLER_OF_TYPE(attacker, moveType))
     {
-        gBattleMoveDamage = gBattleMoveDamage * 15;
-        gBattleMoveDamage = gBattleMoveDamage / 10;
+        s32 adaptabilityBoost = 0;
+
+        if(GET_BATTLER_SIDE(gBattlerAttacker) == B_SIDE_PLAYER)
+        {
+            adaptabilityBoost = GetCharmValue(EFFECT_ADAPTABILITY_RATE);
+        }
+        else // if(GET_BATTLER_SIDE(gBattlerAttacker) == B_SIDE_OPPONENT)
+        {
+            adaptabilityBoost = GetCurseValue(EFFECT_ADAPTABILITY_RATE);
+        }
+
+        if(adaptabilityBoost != 0)
+        {
+            gBattleMoveDamage = gBattleMoveDamage * (15 + adaptabilityBoost);
+            gBattleMoveDamage = gBattleMoveDamage / 10;
+        }
+        else
+        {
+            gBattleMoveDamage = gBattleMoveDamage * 15;
+            gBattleMoveDamage = gBattleMoveDamage / 10;
+        }
     }
 
     if (gBattleMons[defender].ability == ABILITY_LEVITATE && moveType == TYPE_GROUND)

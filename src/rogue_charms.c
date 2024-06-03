@@ -54,6 +54,9 @@ static u16 EffectToCharmItem(u8 effectType)
         case EFFECT_PRESSURE_STATUS:
             return ITEM_PRESSURE_CHARM;
 
+        case EFFECT_ADAPTABILITY_RATE:
+            return ITEM_ADAPTABILITY_CHARM;
+
         case EFFECT_EXTRA_LIFE:
             return ITEM_SACRED_ASH;
 
@@ -108,6 +111,9 @@ static u16 EffectToCurseItem(u8 effectType)
         case EFFECT_PRESSURE_STATUS:
             return ITEM_PRESSURE_CURSE;
 
+        case EFFECT_ADAPTABILITY_RATE:
+            return ITEM_ADAPTABILITY_CURSE;
+
         // Just curse effects
         case EFFECT_PARTY_SIZE:
             return ITEM_PARTY_CURSE;
@@ -158,6 +164,9 @@ static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
 
         case EFFECT_MOVE_PRIORITY_CHANCE:
             return itemCount * (isCurse ? 10 : 10);
+
+        case EFFECT_ADAPTABILITY_RATE:
+            return min(itemCount, 3) * 5; // 5 means 50%
 
         case EFFECT_ENDURE_CHANCE:
             return itemCount * (isCurse ? 20 : 20);
