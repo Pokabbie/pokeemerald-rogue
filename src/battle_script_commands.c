@@ -1237,6 +1237,12 @@ static void Cmd_ppreduce(void)
                 ppToDeduct++;
             break;
         }
+
+        if(GET_BATTLER_SIDE(gBattlerAttacker) == B_SIDE_PLAYER && IsCurseActive(EFFECT_PRESSURE_STATUS))
+            ppToDeduct++;
+
+        if(GET_BATTLER_SIDE(gBattlerAttacker) != B_SIDE_PLAYER && IsCharmActive(EFFECT_PRESSURE_STATUS))
+            ppToDeduct++;
     }
 
     if (!(gHitMarker & (HITMARKER_NO_PPDEDUCT | HITMARKER_NO_ATTACKSTRING)) && gBattleMons[gBattlerAttacker].pp[gCurrMovePos])

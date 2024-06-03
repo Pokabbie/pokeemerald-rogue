@@ -263,6 +263,15 @@ text gItemDesc_TormentCurse
     format("Friendly Pokémon are under the effect of Torment.")
 }
 
+text gItemDesc_PressureCharm
+{
+    format("Opponent Pokémon are under the effect of Pressure.")
+}
+text gItemDesc_PressureCurse
+{
+    format("Friendly Pokémon are under the effect of Pressure.")
+}
+
 text gItemDesc_PartyCurse
 {
     format("The maximum number of Pokémon in your party is reduced.")

@@ -751,7 +751,15 @@ void PressurePPLose(u8 target, u8 attacker, u16 move)
 {
     int moveIndex;
 
-    if (gBattleMons[target].ability != ABILITY_PRESSURE)
+    if(GET_BATTLER_SIDE(attacker) == B_SIDE_PLAYER && IsCurseActive(EFFECT_PRESSURE_STATUS))
+    {
+        // fallthrough
+    }
+    else if(GET_BATTLER_SIDE(attacker) == B_SIDE_PLAYER && IsCurseActive(EFFECT_PRESSURE_STATUS))
+    {
+        // fallthrough
+    }
+    else if (gBattleMons[target].ability != ABILITY_PRESSURE)
         return;
 
     for (moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
