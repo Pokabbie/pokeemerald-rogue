@@ -166,7 +166,7 @@ text gItemDesc_StatPokeblock
 
 text gItemDesc_ShopPriceCharm
 {
-    format("Shop prices are reduced by 40%")
+    format("Shop prices are reduced by 50%")
 }
 text gItemDesc_ShopPriceCurse
 {
@@ -175,11 +175,11 @@ text gItemDesc_ShopPriceCurse
 
 text gItemDesc_FlinchCharm
 {
-    format("Friendly moves have an extra 10% chance to flinch.")
+    format("Friendly moves have a 15% chance to flinch.")
 }
 text gItemDesc_FlinchCurse
 {
-    format("Opponent moves have an extra 10% chance to flinch.")
+    format("Opponent moves have a 10% chance to flinch.")
 }
 
 text gItemDesc_CritCharm
@@ -193,7 +193,7 @@ text gItemDesc_CritCurse
 
 text gItemDesc_ShedSkinCharm
 {
-    format("Friendly Pokémon have a 20% chance to cure status.")
+    format("Friendly Pokémon have a 25% chance to cure status.")
 }
 text gItemDesc_ShedSkinCurse
 {
@@ -211,11 +211,11 @@ text gItemDesc_WildIVCurse
 
 text gItemDesc_CatchingCharm
 {
-    format("Ball effectiveness is increased by 100%.")
+    format("Ball effectiveness is increased by 200%.")
 }
 text gItemDesc_CatchingCurse
 {
-    format("Ball effectiveness is decreased by 25%.")
+    format("Ball effectiveness is decreased by 40%.")
 }
 
 text gItemDesc_GraceCharm
@@ -238,7 +238,7 @@ text gItemDesc_WildCurse
 
 text gItemDesc_PriorityCharm
 {
-    format("Friendly moves have 10% chance to apply Quick Claw.")
+    format("Friendly moves have 15% chance to apply Quick Claw.")
 }
 text gItemDesc_PriorityCurse
 {
@@ -247,7 +247,7 @@ text gItemDesc_PriorityCurse
 
 text gItemDesc_EndureCharm
 {
-    format("Friendly Pokémon have a 20% chance to endure OHKOs.")
+    format("Friendly Pokémon have a 40% chance to endure OHKOs.")
 }
 text gItemDesc_EndureCurse
 {
@@ -274,11 +274,11 @@ text gItemDesc_PressureCurse
 
 text gItemDesc_AdaptabilityCharm
 {
-    format("Opponent Pokémon STAB increased by 50%.")
+    format("Friendly Pokémon STAB increased by 50%.")
 }
 text gItemDesc_AdaptabilityCurse
 {
-    format("Friendly Pokémon STAB increased by 50%.")
+    format("Opponent Pokémon STAB increased by 50%.")
 }
 
 text gItemDesc_PartyCurse
@@ -288,7 +288,7 @@ text gItemDesc_PartyCurse
 
 text gItemDesc_EverstoneCurse
 {
-    format("All Evolutions are disabled.")
+    format("All regular Evolutions are disabled.")
 }
 
 text gItemDesc_BattleItemCurse

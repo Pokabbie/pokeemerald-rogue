@@ -145,34 +145,34 @@ static u16 CalcValueInternal(u8 effectType, u16 itemCount, bool8 isCurse)
     switch(effectType)
     {
         case EFFECT_SHOP_PRICE:
-            return itemCount * (isCurse ? 40 : 40);
+            return itemCount * (isCurse ? 40 : 50);
 
         case EFFECT_FLINCH_CHANCE:
-            return min(itemCount * (isCurse ? 10 : 10), 90);
+            return min(itemCount * (isCurse ? 10 : 15), 90);
 
         case EFFECT_SHED_SKIN_CHANCE:
-            return min(itemCount * (isCurse ? 15 : 20), 100);
+            return min(itemCount * (isCurse ? 15 : 25), 90);
 
         case EFFECT_WILD_IV_RATE:
             return itemCount * 20;
             
         case EFFECT_CATCH_RATE:
-            return itemCount * (isCurse ? 25 : 100);
+            return itemCount * (isCurse ? 40 : 200);
 
         case EFFECT_SERENE_GRACE_CHANCE:
-            return itemCount * (isCurse ? 50 : 75);
+            return min(itemCount * (isCurse ? 50 : 75), 90);
 
         case EFFECT_WILD_ENCOUNTER_COUNT:
             return itemCount * (isCurse ? 1 : 2);
 
         case EFFECT_MOVE_PRIORITY_CHANCE:
-            return itemCount * (isCurse ? 10 : 10);
+            return min(itemCount * (isCurse ? 10 : 15), 90);
 
         case EFFECT_ADAPTABILITY_RATE:
-            return min(itemCount, 3) * 5; // 5 means 50%
+            return min(itemCount * 5, 15); // 5 means 50%
 
         case EFFECT_ENDURE_CHANCE:
-            return itemCount * (isCurse ? 20 : 20);
+            return min(itemCount * (isCurse ? 20 : 40), 90);
     }
 
     return itemCount;
