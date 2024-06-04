@@ -1349,6 +1349,9 @@ void RogueAdv_ApplyAdventureMetatiles()
         u8 minY = (u8)-1;
         u8 maxY = 0;
 
+        x = 0;
+        y = 0;
+
         for(i = 0; i < gRogueAdvPath.roomCount; ++i)
         {
             // Count if in first column
