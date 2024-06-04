@@ -11,8 +11,13 @@
 #include "rogue_charms.h"
 #include "rogue_popup.h"
 
-EWRAM_DATA u16 gCharmValues[EFFECT_COUNT];
-EWRAM_DATA u16 gCurseValues[EFFECT_COUNT];
+struct CharmCurseCounts
+{
+    u8 charmItems;
+    u8 curseItems;
+};
+
+EWRAM_DATA struct CharmCurseCounts gCharmItemCounts[EFFECT_COUNT];
 
 static u16 EffectToCharmItem(u8 effectType)
 {
@@ -66,6 +71,9 @@ static u16 EffectToCharmItem(u8 effectType)
         // EFFECT_BATTLE_ITEM_BAN
         // EFFECT_SPECIES_CLAUSE
         // EFFECT_ITEM_SHUFFLE
+        // EFFECT_SNOWBALL_CURSES
+        // EFFECT_RANDOMAN_ROUTE_SPAWN,
+        // EFFECT_RANDOMAN_ALWAYS_SPAWN,
     }
 
     return ITEM_NONE;
@@ -128,51 +136,63 @@ static u16 EffectToCurseItem(u8 effectType)
             return ITEM_SPECIES_CLAUSE_CURSE;
         
         case EFFECT_ITEM_SHUFFLE:
-            return ITEM_ITEM_SHUFFLE_CURSE;
+            return ITEM_SHUFFLE_CURSE;
+        
+        case EFFECT_SNOWBALL_CURSES:
+            return ITEM_SNOWBALL_CURSE;
+        
+        case EFFECT_RANDOMAN_ROUTE_SPAWN:
+            return ITEM_RANDOMAN_ROUTE_SPAWN_CURSE;
+        
+        case EFFECT_RANDOMAN_ALWAYS_SPAWN:
+            return ITEM_RANDOMAN_ALWAYS_SPAWN_CURSE;
     }
 
     return ITEM_NONE;
 }
 
-static u16 CalcValueInternal(u8 effectType, u16 itemId, bool8 isCurse)
+static u16 CalcValueInternal(u8 effectType, u16 itemCount, bool8 isCurse)
 {
-    u32 itemCount = min(100, (itemId == ITEM_NONE ? 0 : GetItemCountInBag(itemId)));
-
     // Custom rate scaling
     switch(effectType)
     {
         case EFFECT_SHOP_PRICE:
-            return itemCount * (isCurse ? 40 : 40);
+            return itemCount * (isCurse ? 40 : 50);
 
         case EFFECT_FLINCH_CHANCE:
-            return min(itemCount * (isCurse ? 10 : 10), 90);
+            return min(itemCount * (isCurse ? 10 : 15), 90);
 
         case EFFECT_SHED_SKIN_CHANCE:
-            return min(itemCount * (isCurse ? 15 : 20), 100);
+            return min(itemCount * (isCurse ? 15 : 25), 90);
 
         case EFFECT_WILD_IV_RATE:
             return itemCount * 20;
             
         case EFFECT_CATCH_RATE:
-            return itemCount * (isCurse ? 25 : 100);
+            return itemCount * (isCurse ? 40 : 200);
 
         case EFFECT_SERENE_GRACE_CHANCE:
-            return itemCount * (isCurse ? 50 : 75);
+            return min(itemCount * (isCurse ? 50 : 75), 90);
 
         case EFFECT_WILD_ENCOUNTER_COUNT:
             return itemCount * (isCurse ? 1 : 2);
 
         case EFFECT_MOVE_PRIORITY_CHANCE:
-            return itemCount * (isCurse ? 10 : 10);
+            return min(itemCount * (isCurse ? 10 : 15), 90);
 
         case EFFECT_ADAPTABILITY_RATE:
-            return min(itemCount, 3) * 5; // 5 means 50%
+            return min(itemCount * 5, 15); // 5 means 50%
 
         case EFFECT_ENDURE_CHANCE:
-            return itemCount * (isCurse ? 20 : 20);
+            return min(itemCount * (isCurse ? 20 : 40), 90);
     }
 
     return itemCount;
+}
+
+static u8 GetItemCountForEffectItem(u16 itemId)
+{
+    return min(100, (itemId == ITEM_NONE ? 0 : GetItemCountInBag(itemId)));
 }
 
 void RecalcCharmCurseValues(void)
@@ -182,9 +202,15 @@ void RecalcCharmCurseValues(void)
 
     for(effectType = 0; effectType < EFFECT_COUNT; ++effectType)
     {
-        gCharmValues[effectType] = CalcValueInternal(effectType, EffectToCharmItem(effectType), FALSE);
-        gCurseValues[effectType] = CalcValueInternal(effectType, EffectToCurseItem(effectType), TRUE);
-        DebugPrintf("[%d] charm:%d curse:%d", effectType, gCharmValues[effectType], gCurseValues[effectType]);
+        gCharmItemCounts[effectType].charmItems = GetItemCountForEffectItem(EffectToCharmItem(effectType));
+        gCharmItemCounts[effectType].curseItems = GetItemCountForEffectItem(EffectToCurseItem(effectType));
+        DebugPrintf("[%d] charm_item:%d curse_item:%d charm_value:%d curse_value:%d", 
+            effectType,
+            gCharmItemCounts[effectType].charmItems, 
+            gCharmItemCounts[effectType].curseItems,
+            CalcValueInternal(effectType, gCharmItemCounts[effectType].charmItems, FALSE),
+            CalcValueInternal(effectType, gCharmItemCounts[effectType].curseItems, TRUE)
+        );
     }
 }
 
@@ -231,7 +257,7 @@ u16 GetCharmValue(u8 effectType)
     if(!Rogue_IsRunActive())
         return 0;
 
-    return gCharmValues[effectType];
+    return CalcValueInternal(effectType, gCharmItemCounts[effectType].charmItems, FALSE);
 }
 
 u16 GetCurseValue(u8 effectType)
@@ -239,7 +265,7 @@ u16 GetCurseValue(u8 effectType)
     if(!Rogue_IsRunActive())
         return 0;
 
-    return gCurseValues[effectType];
+    return CalcValueInternal(effectType, gCharmItemCounts[effectType].curseItems, TRUE);
 }
 
 void Rogue_RemoveCharmsFromBag(void)
@@ -312,8 +338,11 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
     //
     switch(effectType)
     {
+        // Globally disabled effects (Can only be intentionally given)
         case EFFECT_PARTY_SIZE:
         case EFFECT_EXTRA_LIFE:
+        case EFFECT_SNOWBALL_CURSES:
+        case EFFECT_RANDOMAN_ALWAYS_SPAWN:
             return TRUE;
 
         // Disable these effects, once we already have one (They don't stack)
@@ -324,6 +353,7 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
         case EFFECT_ENDURE_CHANCE:
         case EFFECT_TORMENT_STATUS:
         case EFFECT_PRESSURE_STATUS:
+        case EFFECT_RANDOMAN_ROUTE_SPAWN:
             if(isCurse)
                 return CheckBagHasItem(EffectToCurseItem(effectType), 1);
     }

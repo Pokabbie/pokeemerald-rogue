@@ -40,7 +40,7 @@
                 ]
             },
             {
-                "name": "Chaos Master",
+                "name": "Chaos Novice",
                 "description": "Win a full Run with: Random Starter trade & always doing a Full Party trade with Mr. Randoman whenever possible.",
                 "triggers":
                 [
@@ -74,6 +74,28 @@
                 "requirements":
                 [
                     { "flag": "FLAG_ROGUE_HAS_RANDOM_STARTER", "state": true }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "quest": "Chaos Master" }
+                ]
+            },
+            {
+                "name": "Chaos Master",
+                "description": "Win a full Run with: Wahey Curse & Wahey+ Curse.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_RANDOMAN_ROUTE_SPAWN_CURSE", "count": 1 },
+                    { "item": "ITEM_RANDOMAN_ALWAYS_SPAWN_CURSE", "count": 1 }
                 ],
                 "rewards":
                 [
@@ -191,6 +213,26 @@
                         "condition": "Always",
                         "pass": "SUCCESS"
                     }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
+                "name": "Cursed Body",
+                "description": "Win a full Run with: Snowball Curse.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_SNOWBALL_CURSE", "count": 1 }
                 ],
                 "rewards":
                 [

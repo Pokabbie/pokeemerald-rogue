@@ -3,6 +3,13 @@
 
 #include "rogue_baked.h"
 
+enum
+{
+    SHINY_ROLL_DYNAMIC,
+    SHINY_ROLL_STATIC,
+    SHINY_ROLL_SHINY_LOCKED,
+};
+
 struct MenuAction;
 struct MusicPlayerInfo;
 
@@ -18,8 +25,8 @@ extern EWRAM_DATA struct RogueDebugConfig gRogueDebug;
 u16 RogueRandomRange(u16 range, u8 seedFlag);
 bool8 RogueRandomChance(u8 chance, u16 seedFlag);
 
-u16 Rogue_GetShinyOdds(void);
-bool8 Rogue_RollShinyState(void);
+u16 Rogue_GetShinyOdds(u8 shinyRoll);
+bool8 Rogue_RollShinyState(u8 shinyRoll);
 
 void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 compactPartySlots);
 void RemoveAnyFaintedMons(bool8 keepItems);

@@ -232,9 +232,28 @@ bool8 RogueRandomChance(u8 chance, u16 seedFlag)
     return (RogueRandomRange(100, seedFlag) + 1) <= chance;
 }
 
-u16 Rogue_GetShinyOdds(void)
+u16 Rogue_GetShinyOdds(u8 shinyRoll)
 {
-    u16 baseOdds = 400;
+    u16 baseOdds = 0;
+
+    switch (shinyRoll)
+    {
+    case SHINY_ROLL_DYNAMIC:
+        baseOdds = 400;
+        break;
+    
+    case SHINY_ROLL_STATIC:
+        baseOdds = 100;
+        break;
+    
+    case SHINY_ROLL_SHINY_LOCKED:
+        baseOdds = 0;
+        break;
+
+    default:
+        AGB_ASSERT(FALSE);
+        break;
+    }
     
     if(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK) == ITEM_POKEBLOCK_SHINY)
         baseOdds /= 2;
@@ -242,16 +261,17 @@ u16 Rogue_GetShinyOdds(void)
     return baseOdds;
 }
 
-bool8 Rogue_RollShinyState(void)
+bool8 Rogue_RollShinyState(u8 shinyRoll)
 {
     // Intentionally don't see shiny state
-    return (Random() % Rogue_GetShinyOdds()) == 0;
+    u16 shinyOdds = Rogue_GetShinyOdds(shinyRoll);
+    return shinyOdds == 0 ? FALSE : (Random() % shinyOdds) == 0;
 }
 
 
 static u16 GetEncounterChainShinyOdds(u8 count)
 {
-    u16 baseOdds = Rogue_GetShinyOdds();
+    u16 baseOdds = Rogue_GetShinyOdds(SHINY_ROLL_DYNAMIC);
 
     // By the time we reach 48 encounters, we want to be at max odds
     // Don't start increasing shiny rate until we pass 4 encounters
@@ -2892,7 +2912,7 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
                 }
 
                 starters.species[i] = RogueWeightQuery_SelectRandomFromWeights(isSeeded ? RogueRandom() : Random());
-                starters.shinyState[i] = (Random() % Rogue_GetShinyOdds()) == 0;
+                starters.shinyState[i] = Rogue_RollShinyState(SHINY_ROLL_DYNAMIC);
             }
             RogueWeightQuery_End();
 
@@ -3095,6 +3115,7 @@ extern const u8 Rogue_QuickSaveVersionWarning[];
 extern const u8 Rogue_QuickSaveVersionUpdate[];
 extern const u8 Rogue_ForceNicknameMon[];
 extern const u8 Rogue_AskNicknameMon[];
+extern const u8 Rogue_Encounter_RestStop_RandomMan[];
 
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 {
@@ -4847,6 +4868,41 @@ void Rogue_OnWarpIntoMap(void)
     }
 }
 
+static void TryRandomanSpawn(u8 chance)
+{
+    if(Rogue_GetModeRules()->forceRandomanAlwaysActive || IsCurseActive(EFFECT_RANDOMAN_ALWAYS_SPAWN) || RogueRandomChance(chance, OVERWORLD_FLAG))
+    {
+        // Enable random trader
+        FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+        // Update tracking flags
+        FlagSet(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
+    }
+    else
+    {
+        FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+        FlagClear(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
+    }
+}
+
+static void TryOptionalRandomanSpawn()
+{
+    if(IsCurseActive(EFFECT_RANDOMAN_ROUTE_SPAWN))
+    {
+        if(gRogueRun.hasPendingRivalBattle)
+        {
+            // Force off in scenario where rival would be here
+            FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+            FlagClear(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
+        }
+        else
+        {
+            TryRandomanSpawn(20);
+        }
+    }
+}
 
 void Rogue_OnSetWarpData(struct WarpData *warp)
 {
@@ -4912,21 +4968,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 case ADVPATH_ROOM_RESTSTOP:
                 {
                     FlagSet(FLAG_ROGUE_DAYCARE_PHONE_CHARGED);
-
-                    if(Rogue_GetModeRules()->forceRandomanAlwaysActive || RogueRandomChance(33, OVERWORLD_FLAG))
-                    {
-                        // Enable random trader
-                        FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-
-                        // Update tracking flags
-                        FlagSet(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
-                    }
-                    else
-                    {
-                        FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-
-                        FlagClear(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
-                    }
+                    TryRandomanSpawn(33);
                     break;
                 }
 
@@ -4941,6 +4983,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     RandomiseBerryTrees();
                     RandomiseEnabledTrainers();
                     RandomiseEnabledItems();
+                    TryOptionalRandomanSpawn();
 
                     if(Rogue_GetCurrentDifficulty() != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
                     {
@@ -4979,6 +5022,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     ResetTrainerBattles();
                     RandomiseEnabledTrainers();
                     RandomiseEnabledItems();
+                    TryOptionalRandomanSpawn();
 
                     FlagClear(FLAG_ROGUE_TEAM_BOSS_DISABLED);
 
@@ -5317,25 +5361,45 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         FlagSet(FLAG_ROGUE_RIVAL_DISABLED);
 
         // Don't place rival battle on first encounter for first fight, otherwise place at earliest convenience :3
-        if(gRogueRun.hasPendingRivalBattle && (Rogue_GetCurrentDifficulty() >= 2 || gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1))
+        if(Rogue_GetCurrentDifficulty() >= 1 || gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1)
         {
-            u8 i;
-
-            for(i = 0; i < originalObjectCount; ++i)
+            if(gRogueRun.hasPendingRivalBattle)
             {
-                // Found rival, so make visible and clear pending
-                if(objectEvents[i].flagId == FLAG_ROGUE_RIVAL_DISABLED)
+                u8 i;
+
+                for(i = 0; i < originalObjectCount; ++i)
                 {
-                    const struct RogueTrainer* trainer = Rogue_GetTrainer(gRogueRun.rivalTrainerNum);
-
-                    FlagClear(FLAG_ROGUE_RIVAL_DISABLED);
-                    gRogueRun.hasPendingRivalBattle = FALSE; // TODO - Need to make sure this works when warping within a map e.g. rocket base?
-
-                    if(trainer != NULL)
+                    // Found rival, so make visible and clear pending
+                    if(objectEvents[i].flagId == FLAG_ROGUE_RIVAL_DISABLED)
                     {
-                        objectEvents[i].graphicsId = trainer->objectEventGfx;
+                        const struct RogueTrainer* trainer = Rogue_GetTrainer(gRogueRun.rivalTrainerNum);
+
+                        FlagClear(FLAG_ROGUE_RIVAL_DISABLED);
+                        gRogueRun.hasPendingRivalBattle = FALSE; // TODO - Need to make sure this works when warping within a map e.g. rocket base?
+
+                        if(trainer != NULL)
+                        {
+                            objectEvents[i].graphicsId = trainer->objectEventGfx;
+                        }
+                        break;
                     }
-                    break;
+                }
+            }
+            // Place randoman where rival would be
+            else if(IsCurseActive(EFFECT_RANDOMAN_ROUTE_SPAWN) && gRogueAdvPath.currentRoomType != ADVPATH_ROOM_RESTSTOP)
+            {
+                u8 i;
+
+                for(i = 0; i < originalObjectCount; ++i)
+                {
+                    // Found rival, so make visible and clear pending
+                    if(objectEvents[i].flagId == FLAG_ROGUE_RIVAL_DISABLED)
+                    {
+                        objectEvents[i].flagId = FLAG_ROGUE_RANDOM_TRADE_DISABLED;
+                        objectEvents[i].graphicsId = OBJ_EVENT_GFX_CONTEST_JUDGE;
+                        objectEvents[i].script = Rogue_Encounter_RestStop_RandomMan;
+                        break;
+                    }
                 }
             }
         }
@@ -6045,6 +6109,17 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(Rogue_GetCurrentDifficulty(), VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
 
             EnableRivalEncounterIfRequired();
+
+            if(IsCurseActive(EFFECT_SNOWBALL_CURSES) && Rogue_GetCurrentDifficulty() < ROGUE_MAX_BOSS_COUNT)
+            {
+                // Add new curse
+                u16 tempBuffer[5];
+                u16 tempBufferCount = 0;
+                u16 itemId = Rogue_NextCurseItem(tempBuffer, tempBufferCount++);
+
+                AddBagItem(itemId, 1);
+                Rogue_PushPopup_AddItem(itemId, 1);
+            }
         }
 
         // Don't adjust soft cap for battle sim
@@ -7055,7 +7130,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
     // Note: Don't seed individual encounters
     else if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
-        u16 shinyOdds = Rogue_GetShinyOdds();
+        u16 shinyOdds = Rogue_GetShinyOdds(SHINY_ROLL_DYNAMIC);
 
         if(GetSafariZoneFlag())
             *level  = CalculateWildLevel(3);
@@ -7125,7 +7200,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
             HistoryBufferPush(&gRogueLocal.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
         }
 
-        *forceShiny = (Random() % shinyOdds) == 0;
+        *forceShiny = (shinyOdds == 0) ? FALSE : (Random() % shinyOdds) == 0;
     }
 }
 
