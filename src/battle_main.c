@@ -1791,7 +1791,7 @@ void BattleMainCB2(void)
     else
     {
         u8 s;
-        u8 fadeResult;
+        u8 fadeResult = PALETTE_FADE_STATUS_DONE;
 
         gMain.nativeSpeedUpActive = TRUE;
 
@@ -1826,7 +1826,6 @@ void BattleMainCB2(void)
 
         if(fadeResult != PALETTE_FADE_STATUS_LOADING)
         {
-            
             // final update
             AnimateSprites();
             BuildOamBuffer();
