@@ -232,9 +232,28 @@ bool8 RogueRandomChance(u8 chance, u16 seedFlag)
     return (RogueRandomRange(100, seedFlag) + 1) <= chance;
 }
 
-u16 Rogue_GetShinyOdds(void)
+u16 Rogue_GetShinyOdds(u8 shinyRoll)
 {
-    u16 baseOdds = 400;
+    u16 baseOdds = 0;
+
+    switch (shinyRoll)
+    {
+    case SHINY_ROLL_DYNAMIC:
+        baseOdds = 400;
+        break;
+    
+    case SHINY_ROLL_STATIC:
+        baseOdds = 100;
+        break;
+    
+    case SHINY_ROLL_SHINY_LOCKED:
+        baseOdds = 0;
+        break;
+
+    default:
+        AGB_ASSERT(FALSE);
+        break;
+    }
     
     if(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK) == ITEM_POKEBLOCK_SHINY)
         baseOdds /= 2;
@@ -242,16 +261,17 @@ u16 Rogue_GetShinyOdds(void)
     return baseOdds;
 }
 
-bool8 Rogue_RollShinyState(void)
+bool8 Rogue_RollShinyState(u8 shinyRoll)
 {
     // Intentionally don't see shiny state
-    return (Random() % Rogue_GetShinyOdds()) == 0;
+    u16 shinyOdds = Rogue_GetShinyOdds(shinyRoll);
+    return shinyOdds == 0 ? FALSE : (Random() % shinyOdds) == 0;
 }
 
 
 static u16 GetEncounterChainShinyOdds(u8 count)
 {
-    u16 baseOdds = Rogue_GetShinyOdds();
+    u16 baseOdds = Rogue_GetShinyOdds(SHINY_ROLL_DYNAMIC);
 
     // By the time we reach 48 encounters, we want to be at max odds
     // Don't start increasing shiny rate until we pass 4 encounters
@@ -2892,7 +2912,7 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
                 }
 
                 starters.species[i] = RogueWeightQuery_SelectRandomFromWeights(isSeeded ? RogueRandom() : Random());
-                starters.shinyState[i] = (Random() % Rogue_GetShinyOdds()) == 0;
+                starters.shinyState[i] = Rogue_RollShinyState(SHINY_ROLL_DYNAMIC);
             }
             RogueWeightQuery_End();
 
@@ -7110,7 +7130,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
     // Note: Don't seed individual encounters
     else if(Rogue_IsRunActive() || GetSafariZoneFlag())
     {
-        u16 shinyOdds = Rogue_GetShinyOdds();
+        u16 shinyOdds = Rogue_GetShinyOdds(SHINY_ROLL_DYNAMIC);
 
         if(GetSafariZoneFlag())
             *level  = CalculateWildLevel(3);
@@ -7180,7 +7200,7 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
             HistoryBufferPush(&gRogueLocal.wildEncounterHistoryBuffer[0], historyBufferCount, *species);
         }
 
-        *forceShiny = (Random() % shinyOdds) == 0;
+        *forceShiny = (shinyOdds == 0) ? FALSE : (Random() % shinyOdds) == 0;
     }
 }
 
