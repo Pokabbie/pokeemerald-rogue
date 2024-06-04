@@ -72,6 +72,8 @@ static u16 EffectToCharmItem(u8 effectType)
         // EFFECT_SPECIES_CLAUSE
         // EFFECT_ITEM_SHUFFLE
         // EFFECT_SNOWBALL_CURSES
+        // EFFECT_RANDOMAN_ROUTE_SPAWN,
+        // EFFECT_RANDOMAN_ALWAYS_SPAWN,
     }
 
     return ITEM_NONE;
@@ -138,6 +140,12 @@ static u16 EffectToCurseItem(u8 effectType)
         
         case EFFECT_SNOWBALL_CURSES:
             return ITEM_SNOWBALL_CURSE;
+        
+        case EFFECT_RANDOMAN_ROUTE_SPAWN:
+            return ITEM_RANDOMAN_ROUTE_SPAWN_CURSE;
+        
+        case EFFECT_RANDOMAN_ALWAYS_SPAWN:
+            return ITEM_RANDOMAN_ALWAYS_SPAWN_CURSE;
     }
 
     return ITEM_NONE;
@@ -334,6 +342,7 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
         case EFFECT_PARTY_SIZE:
         case EFFECT_EXTRA_LIFE:
         case EFFECT_SNOWBALL_CURSES:
+        case EFFECT_RANDOMAN_ALWAYS_SPAWN:
             return TRUE;
 
         // Disable these effects, once we already have one (They don't stack)
@@ -344,6 +353,7 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
         case EFFECT_ENDURE_CHANCE:
         case EFFECT_TORMENT_STATUS:
         case EFFECT_PRESSURE_STATUS:
+        case EFFECT_RANDOMAN_ROUTE_SPAWN:
             if(isCurse)
                 return CheckBagHasItem(EffectToCurseItem(effectType), 1);
     }

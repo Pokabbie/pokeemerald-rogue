@@ -3095,6 +3095,7 @@ extern const u8 Rogue_QuickSaveVersionWarning[];
 extern const u8 Rogue_QuickSaveVersionUpdate[];
 extern const u8 Rogue_ForceNicknameMon[];
 extern const u8 Rogue_AskNicknameMon[];
+extern const u8 Rogue_Encounter_RestStop_RandomMan[];
 
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 {
@@ -4847,6 +4848,41 @@ void Rogue_OnWarpIntoMap(void)
     }
 }
 
+static void TryRandomanSpawn(u8 chance)
+{
+    if(Rogue_GetModeRules()->forceRandomanAlwaysActive || IsCurseActive(EFFECT_RANDOMAN_ALWAYS_SPAWN) || RogueRandomChance(chance, OVERWORLD_FLAG))
+    {
+        // Enable random trader
+        FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+        // Update tracking flags
+        FlagSet(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
+    }
+    else
+    {
+        FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+        FlagClear(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
+    }
+}
+
+static void TryOptionalRandomanSpawn()
+{
+    if(IsCurseActive(EFFECT_RANDOMAN_ROUTE_SPAWN))
+    {
+        if(gRogueRun.hasPendingRivalBattle)
+        {
+            // Force off in scenario where rival would be here
+            FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
+
+            FlagClear(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
+        }
+        else
+        {
+            TryRandomanSpawn(20);
+        }
+    }
+}
 
 void Rogue_OnSetWarpData(struct WarpData *warp)
 {
@@ -4912,21 +4948,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 case ADVPATH_ROOM_RESTSTOP:
                 {
                     FlagSet(FLAG_ROGUE_DAYCARE_PHONE_CHARGED);
-
-                    if(Rogue_GetModeRules()->forceRandomanAlwaysActive || RogueRandomChance(33, OVERWORLD_FLAG))
-                    {
-                        // Enable random trader
-                        FlagClear(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-
-                        // Update tracking flags
-                        FlagSet(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
-                    }
-                    else
-                    {
-                        FlagSet(FLAG_ROGUE_RANDOM_TRADE_DISABLED);
-
-                        FlagClear(FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE);
-                    }
+                    TryRandomanSpawn(33);
                     break;
                 }
 
@@ -4941,6 +4963,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     RandomiseBerryTrees();
                     RandomiseEnabledTrainers();
                     RandomiseEnabledItems();
+                    TryOptionalRandomanSpawn();
 
                     if(Rogue_GetCurrentDifficulty() != 0 && RogueRandomChance(weatherChance, OVERWORLD_FLAG))
                     {
@@ -4979,6 +5002,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                     ResetTrainerBattles();
                     RandomiseEnabledTrainers();
                     RandomiseEnabledItems();
+                    TryOptionalRandomanSpawn();
 
                     FlagClear(FLAG_ROGUE_TEAM_BOSS_DISABLED);
 
@@ -5317,25 +5341,45 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
         FlagSet(FLAG_ROGUE_RIVAL_DISABLED);
 
         // Don't place rival battle on first encounter for first fight, otherwise place at earliest convenience :3
-        if(gRogueRun.hasPendingRivalBattle && (Rogue_GetCurrentDifficulty() >= 2 || gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1))
+        if(Rogue_GetCurrentDifficulty() >= 1 || gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x < gRogueAdvPath.pathLength - 1)
         {
-            u8 i;
-
-            for(i = 0; i < originalObjectCount; ++i)
+            if(gRogueRun.hasPendingRivalBattle)
             {
-                // Found rival, so make visible and clear pending
-                if(objectEvents[i].flagId == FLAG_ROGUE_RIVAL_DISABLED)
+                u8 i;
+
+                for(i = 0; i < originalObjectCount; ++i)
                 {
-                    const struct RogueTrainer* trainer = Rogue_GetTrainer(gRogueRun.rivalTrainerNum);
-
-                    FlagClear(FLAG_ROGUE_RIVAL_DISABLED);
-                    gRogueRun.hasPendingRivalBattle = FALSE; // TODO - Need to make sure this works when warping within a map e.g. rocket base?
-
-                    if(trainer != NULL)
+                    // Found rival, so make visible and clear pending
+                    if(objectEvents[i].flagId == FLAG_ROGUE_RIVAL_DISABLED)
                     {
-                        objectEvents[i].graphicsId = trainer->objectEventGfx;
+                        const struct RogueTrainer* trainer = Rogue_GetTrainer(gRogueRun.rivalTrainerNum);
+
+                        FlagClear(FLAG_ROGUE_RIVAL_DISABLED);
+                        gRogueRun.hasPendingRivalBattle = FALSE; // TODO - Need to make sure this works when warping within a map e.g. rocket base?
+
+                        if(trainer != NULL)
+                        {
+                            objectEvents[i].graphicsId = trainer->objectEventGfx;
+                        }
+                        break;
                     }
-                    break;
+                }
+            }
+            // Place randoman where rival would be
+            else if(IsCurseActive(EFFECT_RANDOMAN_ROUTE_SPAWN) && gRogueAdvPath.currentRoomType != ADVPATH_ROOM_RESTSTOP)
+            {
+                u8 i;
+
+                for(i = 0; i < originalObjectCount; ++i)
+                {
+                    // Found rival, so make visible and clear pending
+                    if(objectEvents[i].flagId == FLAG_ROGUE_RIVAL_DISABLED)
+                    {
+                        objectEvents[i].flagId = FLAG_ROGUE_RANDOM_TRADE_DISABLED;
+                        objectEvents[i].graphicsId = OBJ_EVENT_GFX_CONTEST_JUDGE;
+                        objectEvents[i].script = Rogue_Encounter_RestStop_RandomMan;
+                        break;
+                    }
                 }
             }
         }
