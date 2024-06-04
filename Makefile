@@ -167,11 +167,12 @@ LIBPATH := -L ../../tools/agbcc/lib
 LIB := $(LIBPATH) -lgcc -lc -L../../libagbsyscall -lagbsyscall
 else
 CC1              = $(shell $(PATH_MODERNCC) --print-prog-name=cc1) -quiet
-ifeq ($(RELEASE),1)
+ifeq ($(TEST),1)
 override CFLAGS += -O2
-endif
-ifeq ($(RELEASE),0)
+else ifeq ($(RELEASE),0)
 override CFLAGS += -Og
+else
+override CFLAGS += -O2
 endif
 override CFLAGS += -mthumb -mthumb-interwork -mabi=apcs-gnu -mtune=arm7tdmi -march=armv4t -fno-toplevel-reorder -Wno-pointer-to-int-cast -std=gnu17 -Werror -Wall -Wno-strict-aliasing -Wno-attribute-alias -Woverride-init
 ifeq ($(ANALYZE),1)
