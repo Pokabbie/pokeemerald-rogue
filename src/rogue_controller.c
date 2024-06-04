@@ -6090,7 +6090,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
             EnableRivalEncounterIfRequired();
 
-            if(IsCurseActive(EFFECT_SNOWBALL_CURSES))
+            if(IsCurseActive(EFFECT_SNOWBALL_CURSES) && Rogue_GetCurrentDifficulty() < ROGUE_MAX_BOSS_COUNT)
             {
                 // Add new curse
                 u16 tempBuffer[5];
