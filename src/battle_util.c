@@ -9487,6 +9487,8 @@ bool8 ApplyUnawareCurse(u32 battlerId, s8 statStage)
             return IsCurseActive(EFFECT_UNAWARE_STATUS);
         }
     }
+
+    return FALSE;
 }
 
 static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 moveType, bool32 isCrit, bool32 updateFlags, u32 atkAbility, u32 defAbility, u32 holdEffectAtk)
