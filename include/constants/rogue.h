@@ -165,8 +165,9 @@
 #define ITEM_RANDOMAN_ROUTE_SPAWN_CURSE (FIRST_ITEM_CURSE + 20)
 #define ITEM_RANDOMAN_ALWAYS_SPAWN_CURSE (FIRST_ITEM_CURSE + 21)
 #define ITEM_AUTO_MOVE_CURSE            (FIRST_ITEM_CURSE + 22)
+#define ITEM_ONE_HIT_CURSE              (FIRST_ITEM_CURSE + 23)
 
-#define LAST_ITEM_CURSE                 (ITEM_AUTO_MOVE_CURSE)
+#define LAST_ITEM_CURSE                 (ITEM_ONE_HIT_CURSE)
 
 #define ITEM_TR01                       (LAST_ITEM_CURSE + 1)
 #define ITEM_TR50                       (LAST_ITEM_CURSE + 50)

@@ -1324,7 +1324,7 @@ static void Cmd_damagecalc(void)
     if (gProtectStructs[gBattlerAttacker].helpingHand)
         gBattleMoveDamage = gBattleMoveDamage * 15 / 10;
 
-    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_ONE_HP && gBattleMoveDamage != 0)
+    if((IsCurseActive(EFFECT_ONE_HIT) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_ONE_HP) && gBattleMoveDamage != 0)
     {
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {

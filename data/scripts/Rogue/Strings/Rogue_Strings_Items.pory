@@ -330,9 +330,14 @@ text gItemDesc_RandomanAlwaysSpawnCurse
     format("Mr. Randoman will always appear when possible.")
 }
 
-text gItemDesc_AutoMoveSelect
+text gItemDesc_AutoMoveSelectCurse
 {
     format("Opponent and Friendly {PKMN} pick moves at random.")
+}
+
+text gItemDesc_OneHitCurse
+{
+    format("Friendly {PKMN} will faint in one hit in Trainer Battles.")
 }
 
 // Hub upgrades

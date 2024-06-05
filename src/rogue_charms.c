@@ -78,6 +78,7 @@ static u16 EffectToCharmItem(u8 effectType)
         // EFFECT_RANDOMAN_ROUTE_SPAWN,
         // EFFECT_RANDOMAN_ALWAYS_SPAWN,
         // EFFECT_AUTO_MOVE_SELECT
+        // EFFECT_ONE_HIT
     }
 
     return ITEM_NONE;
@@ -156,6 +157,9 @@ static u16 EffectToCurseItem(u8 effectType)
         
         case EFFECT_AUTO_MOVE_SELECT:
             return ITEM_AUTO_MOVE_CURSE;
+        
+        case EFFECT_ONE_HIT:
+            return ITEM_ONE_HIT_CURSE;
     }
 
     return ITEM_NONE;
@@ -354,6 +358,7 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
         case EFFECT_SNOWBALL_CURSES:
         case EFFECT_RANDOMAN_ALWAYS_SPAWN:
         case EFFECT_AUTO_MOVE_SELECT:
+        case EFFECT_ONE_HIT:
             return TRUE;
 
         // Disable these effects, once we already have one (They don't stack)
