@@ -2200,11 +2200,11 @@ static void PlayerChooseMoveInBattlePalace(u32 battler)
     }
 }
 
-static u16 ChooseRandomMoveAndTarget(u32 battler)
+static u32 ChooseRandomMoveAndTarget(u32 battler)
 {
     u32 moveTarget;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
-    u16 chosenMoveId = Random() % MAX_MON_MOVES;
+    u32 chosenMoveId = Random() % MAX_MON_MOVES;
 
     // Force the choiced move to be used
     {
@@ -2241,6 +2241,33 @@ static u16 ChooseRandomMoveAndTarget(u32 battler)
     {
         moveTarget = gBattleMoves[moveInfo->moves[chosenMoveId]].target;
     }
+
+#ifdef ROGUE_EXPANSION
+    if (CanMegaEvolve(battler))
+    {
+        chosenMoveId |= RET_MEGA_EVOLUTION;
+    }
+    else if (CanUltraBurst(battler))
+    {
+        chosenMoveId |= RET_ULTRA_BURST;
+    }
+    else if(IsViableZMove(battler, gBattleMons[battler].moves[chosenMoveId]))
+    {
+        QueueZMove(battler, gBattleMons[battler].moves[chosenMoveId]);
+    }
+    // Dynamax last mon slot
+    else if(gBattlerPartyIndexes[battler] == gPlayerPartyCount - 1)
+    {
+        if (CanDynamax(battler))
+        {
+            chosenMoveId |= RET_DYNAMAX;
+        }
+        else if (CanTerastallize(battler))
+        {
+            chosenMoveId |= RET_TERASTAL;
+        }
+    }
+#endif
 
     if (moveTarget & MOVE_TARGET_USER)
         chosenMoveId |= (battler << 8);
