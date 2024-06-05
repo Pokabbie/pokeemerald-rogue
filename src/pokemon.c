@@ -58,6 +58,7 @@
 #include "constants/weather.h"
 
 #include "rogue_controller.h"
+#include "rogue_charms.h"
 #include "rogue_gifts.h"
 #include "rogue_player_customisation.h"
 #include "rogue_timeofday.h"

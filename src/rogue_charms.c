@@ -59,6 +59,9 @@ static u16 EffectToCharmItem(u8 effectType)
         case EFFECT_PRESSURE_STATUS:
             return ITEM_PRESSURE_CHARM;
 
+        case EFFECT_UNAWARE_STATUS:
+            return ITEM_UNAWARE_CHARM;
+
         case EFFECT_ADAPTABILITY_RATE:
             return ITEM_ADAPTABILITY_CHARM;
 
@@ -118,6 +121,9 @@ static u16 EffectToCurseItem(u8 effectType)
 
         case EFFECT_PRESSURE_STATUS:
             return ITEM_PRESSURE_CURSE;
+
+        case EFFECT_UNAWARE_STATUS:
+            return ITEM_UNAWARE_CURSE;
 
         case EFFECT_ADAPTABILITY_RATE:
             return ITEM_ADAPTABILITY_CURSE;
@@ -353,6 +359,7 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
         case EFFECT_ENDURE_CHANCE:
         case EFFECT_TORMENT_STATUS:
         case EFFECT_PRESSURE_STATUS:
+        case EFFECT_UNAWARE_STATUS:
         case EFFECT_RANDOMAN_ROUTE_SPAWN:
             if(isCurse)
                 return CheckBagHasItem(EffectToCurseItem(effectType), 1);
