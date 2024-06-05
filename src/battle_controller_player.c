@@ -44,6 +44,7 @@
 #include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_campaign.h"
+#include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_player_customisation.h"
 
@@ -2266,7 +2267,7 @@ static void PlayerHandleChooseMove(u32 battler)
     }
     else
 #endif
-    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
+    if(IsCurseActive(EFFECT_AUTO_MOVE_SELECT) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
     {
         gBattlerControllerFuncs[battler] = PlayerChooseMoveInAutoBattle;
     }

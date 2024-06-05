@@ -785,7 +785,7 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
         if(Rogue_ShouldTrainerTrySetup(trainerNum))
              outTrainer->aiFlags |= AI_SCRIPT_SETUP_FIRST_TURN;
 #endif
-        if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
+        if(IsCurseActive(EFFECT_AUTO_MOVE_SELECT) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
         {
             // AI will be dump for this campaign
             outTrainer->aiFlags = 0;

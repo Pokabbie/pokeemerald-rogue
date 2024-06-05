@@ -69,6 +69,7 @@ extern const u8 gItemDesc_ItemShuffleCurse[];
 extern const u8 gItemDesc_SnowballCurse[];
 extern const u8 gItemDesc_RandomanRouteSpawnCurse[];
 extern const u8 gItemDesc_RandomanAlwaysSpawnCurse[];
+extern const u8 gItemDesc_AutoMoveSelect[];
 
 const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
 {
@@ -1284,6 +1285,24 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .itemId = ITEM_RANDOMAN_ALWAYS_SPAWN_CURSE,
         .price = 0,
         .description = gItemDesc_RandomanAlwaysSpawnCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_AUTO_MOVE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Auto Move Curse"),
+#else
+        .name = _("AUTO MOVE CURSE"),
+#endif
+        .itemId = ITEM_AUTO_MOVE_CURSE,
+        .price = 0,
+        .description = gItemDesc_AutoMoveSelect,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
