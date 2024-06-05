@@ -776,6 +776,12 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         if(Rogue_ShouldTrainerSaveAceMon(trainerNum))
             outTrainer->aiFlags |= AI_FLAG_ACE_POKEMON;
+
+        if(IsCurseActive(EFFECT_AUTO_MOVE_SELECT) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
+        {
+            // AI will be dumb for this campaign
+            outTrainer->aiFlags &= ~(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_WILL_SUICIDE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_HELP_PARTNER | AI_FLAG_SMART_MON_CHOICES | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_DOUBLE_BATTLE);
+        }
 #else
         outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY;
 
@@ -784,12 +790,13 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         if(Rogue_ShouldTrainerTrySetup(trainerNum))
              outTrainer->aiFlags |= AI_SCRIPT_SETUP_FIRST_TURN;
-#endif
+
         if(IsCurseActive(EFFECT_AUTO_MOVE_SELECT) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
         {
-            // AI will be dump for this campaign
+            // AI will be dumb for this campaign
             outTrainer->aiFlags = 0;
         }
+#endif
 #ifdef ROGUE_FEATURE_AUTOMATION
         else if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_RANDOM_AI))
         {

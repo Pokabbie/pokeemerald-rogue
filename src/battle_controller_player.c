@@ -2787,16 +2787,16 @@ static void PlayerChooseMoveInBattlePalace(void)
     }
 }
 
-static u16 ChooseRandomMoveAndTarget(void)
+static u32 ChooseRandomMoveAndTarget(u32 battler)
 {
     u32 moveTarget;
-    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][4]);
-    u16 chosenMoveId = Random() % MAX_MON_MOVES;
+    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[battler][4]);
+    u32 chosenMoveId = Random() % MAX_MON_MOVES;
 
     // Force the choiced move to be used
     {
         u16 i;
-        u16 choicedMove = gBattleStruct->choicedMove[gActiveBattler];
+        u16 choicedMove = gBattleStruct->choicedMove[battler];
 
         if (choicedMove != MOVE_NONE && choicedMove != MOVE_UNAVAILABLE)
         {
@@ -2829,19 +2829,46 @@ static u16 ChooseRandomMoveAndTarget(void)
         moveTarget = gBattleMoves[moveInfo->moves[chosenMoveId]].target;
     }
 
+#ifdef ROGUE_EXPANSION
+    if (CanMegaEvolve(battler))
+    {
+        chosenMoveId |= RET_MEGA_EVOLUTION;
+    }
+    else if (CanUltraBurst(battler))
+    {
+        chosenMoveId |= RET_ULTRA_BURST;
+    }
+    else if(IsViableZMove(battler, gBattleMons[battler].moves[chosenMoveId]))
+    {
+        QueueZMove(battler, gBattleMons[battler].moves[chosenMoveId]);
+    }
+    // Dynamax last mon slot
+    else if(gBattlerPartyIndexes[battler] == gPlayerPartyCount - 1)
+    {
+        if (CanDynamax(battler))
+        {
+            chosenMoveId |= RET_DYNAMAX;
+        }
+        else if (CanTerastallize(battler))
+        {
+            chosenMoveId |= RET_TERASTAL;
+        }
+    }
+#endif
+
     if (moveTarget & MOVE_TARGET_USER)
-        chosenMoveId |= (gActiveBattler << 8);
+        chosenMoveId |= (battler << 8);
     else if (moveTarget == MOVE_TARGET_SELECTED)
-        chosenMoveId |= ((gActiveBattler ^ BIT_SIDE) << 8);
+        chosenMoveId |= ((battler ^ BIT_SIDE) << 8);
     else
-        chosenMoveId |= (GetBattlerAtPosition((GetBattlerPosition(gActiveBattler) & BIT_SIDE) ^ BIT_SIDE) << 8);
+        chosenMoveId |= (GetBattlerAtPosition((GetBattlerPosition(battler) & BIT_SIDE) ^ BIT_SIDE) << 8);
 
     return chosenMoveId;
 }
 
 static void PlayerChooseMoveInAutoBattle(void)
 {
-    BtlController_EmitTwoReturnValues(BUFFER_B, 10, ChooseRandomMoveAndTarget());
+    BtlController_EmitTwoReturnValues(BUFFER_B, 10, ChooseRandomMoveAndTarget(gActiveBattler));
     PlayerBufferExecCompleted();
 }
 
