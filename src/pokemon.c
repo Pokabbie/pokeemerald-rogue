@@ -3211,12 +3211,12 @@ static s8 ModifyStatStage(u8 battlerId, s8 stage)
 {
     if(GET_BATTLER_SIDE(battlerId) == B_SIDE_PLAYER)
     {
-        if(stage > DEFAULT_STAT_STAGE && IsCurseActive(EFFECT_UNAWARE_STATUS))
+        if(IsCurseActive(EFFECT_UNAWARE_STATUS))
             stage = DEFAULT_STAT_STAGE;
     }
     else
     {
-        if(stage > DEFAULT_STAT_STAGE && IsCharmActive(EFFECT_UNAWARE_STATUS))
+        if(IsCharmActive(EFFECT_UNAWARE_STATUS))
             stage = DEFAULT_STAT_STAGE;
     }
 

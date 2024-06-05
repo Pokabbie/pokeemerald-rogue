@@ -274,11 +274,11 @@ text gItemDesc_PressureCurse
 
 text gItemDesc_UnawareCharm
 {
-    format("Opponent {PKMN} ignore Friendly {PKMN} stat+ changes.")
+    format("Friendly {PKMN} ignore Opponent {PKMN} stat changes.")
 }
 text gItemDesc_UnawareCurse
 {
-    format("Friendly {PKMN} ignore Opponent {PKMN} stat+ changes.")
+    format("Opponent {PKMN} ignore Friendly {PKMN} stat changes.")
 }
 
 text gItemDesc_AdaptabilityCharm
