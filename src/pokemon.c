@@ -3209,15 +3209,18 @@ void DeleteFirstMoveAndGiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move)
 
 static s8 ModifyStatStage(u8 battlerId, s8 stage)
 {
-    if(GET_BATTLER_SIDE(battlerId) == B_SIDE_PLAYER)
+    if(stage > DEFAULT_STAT_STAGE)
     {
-        if(IsCurseActive(EFFECT_UNAWARE_STATUS))
-            stage = DEFAULT_STAT_STAGE;
-    }
-    else
-    {
-        if(IsCharmActive(EFFECT_UNAWARE_STATUS))
-            stage = DEFAULT_STAT_STAGE;
+        if(GET_BATTLER_SIDE(battlerId) == B_SIDE_PLAYER)
+        {
+            if(IsCurseActive(EFFECT_UNAWARE_STATUS))
+                stage = DEFAULT_STAT_STAGE;
+        }
+        else
+        {
+            if(IsCharmActive(EFFECT_UNAWARE_STATUS))
+                stage = DEFAULT_STAT_STAGE;
+        }
     }
 
     return stage;
