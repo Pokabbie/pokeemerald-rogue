@@ -50,6 +50,7 @@
 #include "constants/trainers.h"
 
 #include "rogue_controller.h"
+#include "rogue_charms.h"
 #include "rogue_gifts.h"
 #include "rogue_player_customisation.h"
 #include "rogue_timeofday.h"
@@ -3206,10 +3207,27 @@ void DeleteFirstMoveAndGiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move)
     SetBoxMonData(boxMon, MON_DATA_PP_BONUSES, &ppBonuses);
 }
 
-#define APPLY_STAT_MOD(var, mon, stat, statIndex)                                   \
+static s8 ModifyStatStage(u8 battlerId, s8 stage)
+{
+    if(GET_BATTLER_SIDE(battlerId) == B_SIDE_PLAYER)
+    {
+        if(stage > DEFAULT_STAT_STAGE && IsCurseActive(EFFECT_UNAWARE_STATUS))
+            stage = DEFAULT_STAT_STAGE;
+    }
+    else
+    {
+        if(stage > DEFAULT_STAT_STAGE && IsCharmActive(EFFECT_UNAWARE_STATUS))
+            stage = DEFAULT_STAT_STAGE;
+    }
+
+    return stage;
+}
+
+#define APPLY_STAT_MOD(var, mon, battlerId, stat, statIndex)                        \
 {                                                                                   \
-    (var) = (stat) * (gStatStageRatios)[(mon)->statStages[(statIndex)]][0];         \
-    (var) /= (gStatStageRatios)[(mon)->statStages[(statIndex)]][1];                 \
+    s8 actualStatStage = ModifyStatStage(battlerId, (mon)->statStages[(statIndex)]);\
+    (var) = (stat) * (gStatStageRatios)[actualStatStage][0];                        \
+    (var) /= (gStatStageRatios)[actualStatStage][1];                                \
 }
 
 s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *defender, u32 move, u16 sideStatus, u16 powerOverride, u8 typeOverride, u8 battlerIdAtk, u8 battlerIdDef)
@@ -3344,12 +3362,12 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         {
             // Critical hit, if attacker has lost attack stat stages then ignore stat drop
             if (attacker->statStages[STAT_ATK] > DEFAULT_STAT_STAGE)
-                APPLY_STAT_MOD(damage, attacker, attack, STAT_ATK)
+                APPLY_STAT_MOD(damage, attacker, battlerIdAtk, attack, STAT_ATK)
             else
                 damage = attack;
         }
         else
-            APPLY_STAT_MOD(damage, attacker, attack, STAT_ATK)
+            APPLY_STAT_MOD(damage, attacker, battlerIdAtk,attack, STAT_ATK)
 
         damage = damage * gBattleMovePower;
         damage *= (2 * attacker->level / 5 + 2);
@@ -3358,12 +3376,12 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         {
             // Critical hit, if defender has gained defense stat stages then ignore stat increase
             if (defender->statStages[STAT_DEF] < DEFAULT_STAT_STAGE)
-                APPLY_STAT_MOD(damageHelper, defender, defense, STAT_DEF)
+                APPLY_STAT_MOD(damageHelper, defender, battlerIdDef, defense, STAT_DEF)
             else
                 damageHelper = defense;
         }
         else
-            APPLY_STAT_MOD(damageHelper, defender, defense, STAT_DEF)
+            APPLY_STAT_MOD(damageHelper, defender, battlerIdDef, defense, STAT_DEF)
 
         damage = damage / damageHelper;
         damage /= 50;
@@ -3399,12 +3417,12 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         {
             // Critical hit, if attacker has lost sp. attack stat stages then ignore stat drop
             if (attacker->statStages[STAT_SPATK] > DEFAULT_STAT_STAGE)
-                APPLY_STAT_MOD(damage, attacker, spAttack, STAT_SPATK)
+                APPLY_STAT_MOD(damage, attacker, battlerIdAtk,spAttack, STAT_SPATK)
             else
                 damage = spAttack;
         }
         else
-            APPLY_STAT_MOD(damage, attacker, spAttack, STAT_SPATK)
+            APPLY_STAT_MOD(damage, attacker, battlerIdAtk,spAttack, STAT_SPATK)
 
         damage = damage * gBattleMovePower;
         damage *= (2 * attacker->level / 5 + 2);
@@ -3413,12 +3431,12 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         {
             // Critical hit, if defender has gained sp. defense stat stages then ignore stat increase
             if (defender->statStages[STAT_SPDEF] < DEFAULT_STAT_STAGE)
-                APPLY_STAT_MOD(damageHelper, defender, spDefense, STAT_SPDEF)
+                APPLY_STAT_MOD(damageHelper, defender, battlerIdDef, spDefense, STAT_SPDEF)
             else
                 damageHelper = spDefense;
         }
         else
-            APPLY_STAT_MOD(damageHelper, defender, spDefense, STAT_SPDEF)
+            APPLY_STAT_MOD(damageHelper, defender, battlerIdDef, spDefense, STAT_SPDEF)
 
         damage = (damage / damageHelper);
         damage /= 50;

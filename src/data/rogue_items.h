@@ -57,6 +57,8 @@ extern const u8 gItemDesc_TormentCharm[];
 extern const u8 gItemDesc_TormentCurse[];
 extern const u8 gItemDesc_PressureCharm[];
 extern const u8 gItemDesc_PressureCurse[];
+extern const u8 gItemDesc_UnawareCharm[];
+extern const u8 gItemDesc_UnawareCurse[];
 extern const u8 gItemDesc_AdaptabilityCharm[];
 extern const u8 gItemDesc_AdaptabilityCurse[];
 extern const u8 gItemDesc_PartyCurse[];
@@ -965,6 +967,24 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .iconPalette = gItemIconPalette_RogueCharm,
     },
 
+    [ITEM_UNAWARE_CHARM - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Unaware Charm"),
+#else
+        .name = _("UNAWARE CHARM"),
+#endif
+        .itemId = ITEM_UNAWARE_CHARM,
+        .price = 0,
+        .description = gItemDesc_UnawareCharm,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCharm,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
+
     [ITEM_ADAPTABILITY_CHARM - ITEM_ROGUE_ITEM_FIRST] =
     {
 #ifdef ROGUE_EXPANSION
@@ -1336,6 +1356,24 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .itemId = ITEM_PRESSURE_CURSE,
         .price = 0,
         .description = gItemDesc_PressureCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_UNAWARE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Unaware Curse"),
+#else
+        .name = _("UNAWARE CURSE"),
+#endif
+        .itemId = ITEM_UNAWARE_CURSE,
+        .price = 0,
+        .description = gItemDesc_UnawareCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

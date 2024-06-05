@@ -256,20 +256,29 @@ text gItemDesc_EndureCurse
 
 text gItemDesc_TormentCharm
 {
-    format("Opponent Pokémon are under the effect of Torment.")
+    format("Opponent {PKMN} cannot use the same move in a row.")
 }
 text gItemDesc_TormentCurse
 {
-    format("Friendly Pokémon are under the effect of Torment.")
+    format("Friendly {PKMN} cannot use the same move in a row.")
 }
 
 text gItemDesc_PressureCharm
 {
-    format("Opponent Pokémon are under the effect of Pressure.")
+    format("Opponent Pokémon consume more PP per move.")
 }
 text gItemDesc_PressureCurse
 {
-    format("Friendly Pokémon are under the effect of Pressure.")
+    format("Friendly Pokémon consume more PP per move.")
+}
+
+text gItemDesc_UnawareCharm
+{
+    format("Opponent {PKMN} ignore Friendly {PKMN} stat+ changes.")
+}
+text gItemDesc_UnawareCurse
+{
+    format("Friendly {PKMN} ignore Opponent {PKMN} stat+ changes.")
 }
 
 text gItemDesc_AdaptabilityCharm
