@@ -330,6 +330,11 @@ text gItemDesc_RandomanAlwaysSpawnCurse
     format("Mr. Randoman will always appear when possible.")
 }
 
+text gItemDesc_AutoMoveSelect
+{
+    format("Opponent and Friendly {PKMN} pick moves at random.")
+}
+
 // Hub upgrades
 // (Appear in item shop layout)
 //
