@@ -241,7 +241,7 @@
             },
             {
                 "name": "Insane Mode",
-                "description": "Win a full Run with: Fresh Start enabled, Mixed battle format, Random Starter trade, Embargo & Species Curse & never using Legendary {PKMN}.",
+                "description": "Win a full Run with: Fresh Start enabled, Mixed battle format, Random Starter trade, Embargo, Unaware & Species Curse & never using Legendary {PKMN}.",
                 "triggers":
                 [
                     {
@@ -261,7 +261,8 @@
                     { "config_range": "CONFIG_RANGE_BATTLE_FORMAT", "value": "BATTLE_FORMAT_MIXED" },
                     { "config_toggle": "CONFIG_TOGGLE_BAG_WIPE", "state": true },
                     { "item": "ITEM_BATTLE_ITEM_CURSE", "count": 1 },
-                    { "item": "ITEM_SPECIES_CLAUSE_CURSE", "count": 1 }
+                    { "item": "ITEM_SPECIES_CLAUSE_CURSE", "count": 1 },
+                    { "item": "ITEM_UNAWARE_CURSE", "count": 1 }
                 ],
                 "rewards":
                 [
