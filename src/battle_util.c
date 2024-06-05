@@ -9474,15 +9474,18 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
     return uq4_12_multiply_by_int_half_down(modifier, basePower);
 }
 
-bool8 ApplyUnawareCurse(u32 battlerId)
+bool8 ApplyUnawareCurse(u32 battlerId, s8 statStage)
 {
-    if(GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+    if(statStage > DEFAULT_STAT_STAGE)
     {
-        return IsCharmActive(EFFECT_UNAWARE_STATUS);
-    }
-    else
-    {
-        return IsCurseActive(EFFECT_UNAWARE_STATUS);
+        if(GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+        {
+            return IsCharmActive(EFFECT_UNAWARE_STATUS);
+        }
+        else
+        {
+            return IsCurseActive(EFFECT_UNAWARE_STATUS);
+        }
     }
 }
 
@@ -9531,7 +9534,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     if (isCrit && atkStage < DEFAULT_STAT_STAGE)
         atkStage = DEFAULT_STAT_STAGE;
     // pokemon with unaware ignore attack stat changes while taking damage
-    if (defAbility == ABILITY_UNAWARE || ApplyUnawareCurse(battlerDef))
+    if (defAbility == ABILITY_UNAWARE || ApplyUnawareCurse(battlerDef, atkStage))
         atkStage = DEFAULT_STAT_STAGE;
 
     atkStat *= gStatStageRatios[atkStage][0];
@@ -9740,7 +9743,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     if (isCrit && defStage > DEFAULT_STAT_STAGE)
         defStage = DEFAULT_STAT_STAGE;
     // pokemon with unaware ignore defense stat changes while dealing damage
-    if (atkAbility == ABILITY_UNAWARE || ApplyUnawareCurse(battlerAtk))
+    if (atkAbility == ABILITY_UNAWARE || ApplyUnawareCurse(battlerAtk, defStage))
         defStage = DEFAULT_STAT_STAGE;
     // certain moves also ignore stat changes
     if (gBattleMoves[move].ignoresTargetDefenseEvasionStages)
