@@ -887,7 +887,7 @@ static u8 CountColumn(u8 x, bool8 countValue)
 
 static void DisplayVoltorbFlipText(void)
 {
-    u8 i;
+    u32 i;
 
     for(i = 0; i < BOARD_HEIGHT; ++i)
     {
