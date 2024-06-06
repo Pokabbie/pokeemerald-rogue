@@ -766,6 +766,23 @@ void RogueQuest_GetQuestCountsFor(u32 constFlag, u16* activeCount, u16* inactive
     *inactiveCount = inactive;
 }
 
+u16 RogueQuest_GetQuestTotalCountFor(u32 constFlag, bool8 includeLocked)
+{
+    u16 i;
+    u16 total = 0;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_GetConstFlag(i, constFlag))
+        {
+            if(includeLocked || RogueQuest_GetStateFlag(i, QUEST_STATE_UNLOCKED))
+                total++;
+        }
+    }
+
+    return total;
+}
+
 u16 RogueQuest_GetDisplayCompletePerc()
 {
     u32 constFlags = QUEST_CONST_IS_MAIN_QUEST;

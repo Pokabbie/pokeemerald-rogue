@@ -93,14 +93,20 @@ void RogueDebug_MainInit(void)
     // Data checks
     {
         DebugPrint("[Quest Verify]");
-        DebugPrintf("[Main] Money:%d", CountMoneyQuestRewards(QUEST_CONST_IS_MAIN_QUEST));
-        DebugPrintf("[Main] BuildingSupplies:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MAIN_QUEST));
+        DebugPrint("    [Counts]");
+        DebugPrintf("        [Main] %d", RogueQuest_GetQuestTotalCountFor(QUEST_CONST_IS_MAIN_QUEST, TRUE));
+        DebugPrintf("        [Challenge] %d", RogueQuest_GetQuestTotalCountFor(QUEST_CONST_IS_CHALLENGE, TRUE));
+        DebugPrintf("        [Mastery] %d", RogueQuest_GetQuestTotalCountFor(QUEST_CONST_IS_MON_MASTERY, TRUE));
 
-        DebugPrintf("[Challenge] Money:%d", CountMoneyQuestRewards(QUEST_CONST_IS_CHALLENGE));
-        DebugPrintf("[Challenge] BuildingSupplies:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_CHALLENGE));
+        DebugPrint("    [Rewards]");
+        DebugPrintf("        [Main] Money:%d", CountMoneyQuestRewards(QUEST_CONST_IS_MAIN_QUEST));
+        DebugPrintf("        [Main] BuildingSupplies:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MAIN_QUEST));
 
-        DebugPrintf("[Mastery] Money:%d", CountMoneyQuestRewards(QUEST_CONST_IS_MON_MASTERY));
-        DebugPrintf("[Mastery] BuildingSupplies:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MON_MASTERY));
+        DebugPrintf("        [Challenge] Money:%d", CountMoneyQuestRewards(QUEST_CONST_IS_CHALLENGE));
+        DebugPrintf("        [Challenge] BuildingSupplies:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_CHALLENGE));
+
+        DebugPrintf("        [Mastery] Money:%d", CountMoneyQuestRewards(QUEST_CONST_IS_MON_MASTERY));
+        DebugPrintf("        [Mastery] BuildingSupplies:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MON_MASTERY));
 
 
         // None of these should give building supplies
@@ -108,8 +114,8 @@ void RogueDebug_MainInit(void)
         AGB_ASSERT(CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MON_MASTERY) == 0);
 
         DebugPrint("[Hub Verify]");
-        DebugPrintf("TotalCost:%d", CountBuildingSuppliesNeededForUpgrades());
-        DebugPrintf("Remainder:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MAIN_QUEST) - CountBuildingSuppliesNeededForUpgrades());
+        DebugPrintf("    TotalCost:%d", CountBuildingSuppliesNeededForUpgrades());
+        DebugPrintf("    Remainder:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MAIN_QUEST) - CountBuildingSuppliesNeededForUpgrades());
 
         AGB_ASSERT(CountBuildingSuppliesNeededForUpgrades() <= CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MAIN_QUEST));
     }
