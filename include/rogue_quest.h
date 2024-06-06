@@ -188,6 +188,7 @@ void RogueQuest_CheckQuestRequirements();
 u16 RogueQuest_GetQuestCompletePercFor(u32 constFlag);
 u16 RogueQuest_GetQuestCompletePercAtDifficultyFor(u32 constFlag, u8 difficultyLevel);
 void RogueQuest_GetQuestCountsFor(u32 constFlag, u16* activeCount, u16* inactiveCount);
+u16 RogueQuest_GetQuestTotalCountFor(u32 constFlag, bool8 includeLocked);
 u16 RogueQuest_GetDisplayCompletePerc();
 
 void RogueQuest_OnNewGame();
