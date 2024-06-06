@@ -17,7 +17,7 @@ script Rogue_Interior_School_ShowSetRecommendation
         playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
 
         callnative(ScriptMenu_DisplayRecommendedMonSet)
-        messageinstant(format("{DPAD_LEFTRIGHT} Cycle Party Pokémon"))
+        messageinstant("{DPAD_LEFTRIGHT} Cycle Party Pokémon\n{A_BUTTON} {B_BUTTON} Exit")
         waitstate
         hidemonpic
     }

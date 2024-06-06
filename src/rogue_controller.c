@@ -7442,14 +7442,15 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
         if(IsCurseActive(EFFECT_SNAG_TRAINER_MON) && FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
         {
             // Save values to restore
+            u8 slot = 0;
             u8 genderFlag = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_GENDER_FLAG);
             u8 shinyFlag = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_IS_SHINY);
             u8 abilityNum = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_ABILITY_NUM);
+            u8 nature = GetNature(&gEnemyParty[gSpecialVar_0x800A]);
             u16 move1 = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_MOVE1);
             u16 move2 = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_MOVE2);
             u16 move3 = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_MOVE3);
             u16 move4 = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_MOVE4);
-            u8 nature = GetNature(&gEnemyParty[gSpecialVar_0x800A]);
 
             // Recreate mon to use a custom OtID
             CreateMon(
@@ -7467,11 +7468,17 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
             SetMonData(mon, MON_DATA_GENDER_FLAG, &genderFlag);
             SetMonData(mon, MON_DATA_IS_SHINY, &shinyFlag);
             SetMonData(mon, MON_DATA_ABILITY_NUM, &abilityNum);
-            SetMonData(mon, MON_DATA_MOVE1, &move1);
-            SetMonData(mon, MON_DATA_MOVE2, &move2);
-            SetMonData(mon, MON_DATA_MOVE3, &move3);
-            SetMonData(mon, MON_DATA_MOVE4, &move4);
             SetNature(mon, nature);
+
+            slot = 0;
+            if(move1 != MOVE_NONE)
+                SetMonMoveSlot(mon, move1, slot++);
+            if(move2 != MOVE_NONE)
+                SetMonMoveSlot(mon, move2, slot++);
+            if(move3 != MOVE_NONE)
+                SetMonMoveSlot(mon, move3, slot++);
+            if(move4 != MOVE_NONE)
+                SetMonMoveSlot(mon, move4, slot++);
         }
         else if(species == gRogueRun.wildEncounters.roamer.species)
         {
