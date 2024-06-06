@@ -246,7 +246,7 @@
             },
             {
                 "name": "Orre Style",
-                "description": "Win a full Run with: Doubles battle format & having Umbreon and Espeon in your party when you enter the Hall of Fame.",
+                "description": "Win a full Run with: Snag Curse, Doubles battle format & having Umbreon and Espeon in your party when you enter the Hall of Fame.",
                 "triggers":
                 [
                     {
@@ -259,7 +259,8 @@
                 ],
                 "requirements":
                 [
-                    { "config_range": "CONFIG_RANGE_BATTLE_FORMAT", "value": "BATTLE_FORMAT_DOUBLES" }
+                    { "config_range": "CONFIG_RANGE_BATTLE_FORMAT", "value": "BATTLE_FORMAT_DOUBLES" },
+                    { "item": "ITEM_SNAG_CURSE", "count": 1 }
                 ],
                 "rewards":
                 [

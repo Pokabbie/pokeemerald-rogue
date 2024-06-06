@@ -10283,13 +10283,13 @@ static void Cmd_givecaughtmon(void)
     u32 customMonId = RogueGift_GetCustomMonId(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
     u8 giveSlot;
 
-    if(customMonId == 0)
+    if(customMonId != 0 || IsCurseActive(EFFECT_SNAG_TRAINER_MON))
     {
-        giveSlot = GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+        giveSlot = GiveTradedMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
     }
     else
     {
-        giveSlot = GiveTradedMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+        giveSlot = GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
     }
 
     if (giveSlot != MON_GIVEN_TO_PARTY)

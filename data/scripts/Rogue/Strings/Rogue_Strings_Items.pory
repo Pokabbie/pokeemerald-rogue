@@ -340,6 +340,11 @@ text gItemDesc_OneHitCurse
     format("Friendly {PKMN} will faint in one hit in Trainer Battles.")
 }
 
+text gItemDesc_SnagCurse
+{
+    format("Can only catch Trainer {PKMN} (After Trainer Battle).")
+}
+
 // Hub upgrades
 // (Appear in item shop layout)
 //

@@ -149,6 +149,7 @@ struct RogueLocalData
     bool8 hasUsePlayerTeamTempSave : 1;
     bool8 hasUseEnemyTeamTempSave : 1;
     bool8 hasBattleInputStarted : 1;
+    bool8 hasPendingSnagBattle : 1;
 };
 
 typedef u16 hot_track_dat;
@@ -258,6 +259,10 @@ u16 Rogue_GetShinyOdds(u8 shinyRoll)
     if(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK) == ITEM_POKEBLOCK_SHINY)
         baseOdds /= 2;
 
+    
+    if(IsCurseActive(EFFECT_SNAG_TRAINER_MON))
+        baseOdds = 0;
+
     return baseOdds;
 }
 
@@ -265,7 +270,8 @@ bool8 Rogue_RollShinyState(u8 shinyRoll)
 {
     // Intentionally don't see shiny state
     u16 shinyOdds = Rogue_GetShinyOdds(shinyRoll);
-    return shinyOdds == 0 ? FALSE : (Random() % shinyOdds) == 0;
+    u16 rngValue = Random();
+    return shinyOdds == 0 ? FALSE : (rngValue % shinyOdds) == 0;
 }
 
 
@@ -1116,6 +1122,12 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
                 RogueQuest_OnTrigger(QUEST_TRIGGER_MON_SHINY_CAUGHT);
             else
                 RogueQuest_OnTrigger(QUEST_TRIGGER_MON_NON_SHINY_CAUGHT);
+        }
+
+        if(IsCurseActive(EFFECT_SNAG_TRAINER_MON) && FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
+        {
+            mon->rogueExtraData.isSafariIllegal = TRUE;
+            SetMonData(mon, MON_DATA_OT_NAME, Rogue_GetTrainerName(gTrainerBattleOpponent_A));
         }
 
         // Make sure we log if we end up replacing a fainted mon
@@ -3116,6 +3128,7 @@ extern const u8 Rogue_QuickSaveVersionUpdate[];
 extern const u8 Rogue_ForceNicknameMon[];
 extern const u8 Rogue_AskNicknameMon[];
 extern const u8 Rogue_Encounter_RestStop_RandomMan[];
+extern const u8 Rogue_EventScript_AttemptSnagBattle[];
 
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 {
@@ -3190,6 +3203,15 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         gRogueRun.isQuickSaveValid = FALSE;
 
         ScriptContext_SetupScript(Rogue_QuickSaveLoad);
+        return TRUE;
+    }
+    else if(gRogueLocal.hasPendingSnagBattle)
+    {
+        gRogueLocal.hasPendingSnagBattle = FALSE;
+        gSpecialVar_0x800A = RogueRandom() % gEnemyPartyCount;
+        gSpecialVar_0x800B = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_SPECIES);
+        StringCopy_Nickname(gStringVar1, RoguePokedex_GetSpeciesName(gSpecialVar_0x800B));
+        ScriptContext_SetupScript(Rogue_EventScript_AttemptSnagBattle);
         return TRUE;
     }
     else if(RogueMP_IsActive() && RogueMP_TryExecuteScripts())
@@ -4006,6 +4028,7 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP);
     FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
     FlagClear(FLAG_ROGUE_TERASTALLIZE_BATTLE);
+    FlagClear(FLAG_ROGUE_IN_SNAG_BATTLE);
 
     FlagSet(FLAG_ROGUE_DAYCARE_PHONE_CHARGED);
 
@@ -6148,6 +6171,9 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
         {
             RemoveAnyFaintedMons(FALSE);
 
+            if(IsCurseActive(EFFECT_SNAG_TRAINER_MON) && !Rogue_IsBattleSimTrainer(trainerNum) && !Rogue_IsExpTrainer(trainerNum))
+                gRogueLocal.hasPendingSnagBattle = TRUE;
+
             // Reward EVs based on nature
             if(Rogue_GetConfigToggle(CONFIG_TOGGLE_EV_GAIN))
             {
@@ -6181,6 +6207,8 @@ void Rogue_Battle_EndWildBattle(void)
     TryRestorePartyHeldItems(TRUE);
     CheckAndNotifyForFaintedMons();
     RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_END);
+
+    FlagClear(FLAG_ROGUE_IN_SNAG_BATTLE);
 
     if(DidCompleteWildChain(gBattleOutcome))
     {
@@ -7411,7 +7439,41 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
     {
         u16 species = GetMonData(mon, MON_DATA_SPECIES);
 
-        if(species == gRogueRun.wildEncounters.roamer.species)
+        if(IsCurseActive(EFFECT_SNAG_TRAINER_MON) && FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
+        {
+            // Save values to restore
+            u8 genderFlag = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_GENDER_FLAG);
+            u8 shinyFlag = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_IS_SHINY);
+            u8 abilityNum = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_ABILITY_NUM);
+            u16 move1 = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_MOVE1);
+            u16 move2 = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_MOVE2);
+            u16 move3 = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_MOVE3);
+            u16 move4 = GetMonData(&gEnemyParty[gSpecialVar_0x800A], MON_DATA_MOVE4);
+            u8 nature = GetNature(&gEnemyParty[gSpecialVar_0x800A]);
+
+            // Recreate mon to use a custom OtID
+            CreateMon(
+                mon,
+                GetMonData(mon, MON_DATA_SPECIES),
+                GetMonData(mon, MON_DATA_LEVEL),
+                USE_RANDOM_IVS,
+                0,
+                0,
+                OT_ID_RANDOM_NO_SHINY,
+                0
+            );
+
+            // Copy over some of the data from the mon the trainer actually used
+            SetMonData(mon, MON_DATA_GENDER_FLAG, &genderFlag);
+            SetMonData(mon, MON_DATA_IS_SHINY, &shinyFlag);
+            SetMonData(mon, MON_DATA_ABILITY_NUM, &abilityNum);
+            SetMonData(mon, MON_DATA_MOVE1, &move1);
+            SetMonData(mon, MON_DATA_MOVE2, &move2);
+            SetMonData(mon, MON_DATA_MOVE3, &move3);
+            SetMonData(mon, MON_DATA_MOVE4, &move4);
+            SetNature(mon, nature);
+        }
+        else if(species == gRogueRun.wildEncounters.roamer.species)
         {
             FillWithRoamerState(mon, GetMonData(mon, MON_DATA_LEVEL));
 

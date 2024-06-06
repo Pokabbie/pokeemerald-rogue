@@ -582,6 +582,29 @@ script Rogue_EventScript_UseGoldenSeedItem
     release
 }
 
+script Rogue_EventScript_AttemptSnagBattle
+{
+    lock
+
+    clearflag(FLAG_ROGUE_IN_SNAG_BATTLE)
+    msgbox(format("Would you like to try to snag the {STR_VAR_1}?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setflag(FLAG_ROGUE_IN_SNAG_BATTLE)
+
+        playmoncry(VAR_0x800B, CRY_MODE_ENCOUNTER)
+        waitmoncry
+
+        seteventmon(VAR_0x800B, 1, ITEMS_COUNT)
+
+        special(BattleSetup_StartLegendaryBattle)
+        waitstate
+    }
+
+    release
+}
+
 script Rogue_EventScript_AttemptPostGymHeal
 {
     // Don't heal if we're in the healing flask mode
