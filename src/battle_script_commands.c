@@ -2055,7 +2055,7 @@ static void Cmd_damagecalc(void)
     {
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
-            if(GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_PLAYER)
+            if(GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER)
             {
                 gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP * 4;
             }
