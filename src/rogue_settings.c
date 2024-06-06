@@ -619,6 +619,12 @@ static bool8 DoesPartyContainNickname(u8 const* str)
 
 bool8 Rogue_ShouldSkipAssignNickname(struct Pokemon* mon)
 {
+    // Never give snagged mons nicknames
+    if(FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
+        return TRUE;
+
+    // TODO - Don't give exotic mons nicknames
+
     switch (GetCurrentNicknameMode())
     {
     case OPTIONS_NICKNAME_MODE_NEVER:

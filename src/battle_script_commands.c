@@ -15407,13 +15407,13 @@ static void Cmd_givecaughtmon(void)
     u8 giveSlot;
     CMD_ARGS();
 
-    if(customMonId == 0)
+    if(customMonId != 0 || IsCurseActive(EFFECT_SNAG_TRAINER_MON))
     {
-        giveSlot = GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]);
+        giveSlot = GiveTradedMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]);
     }
     else
     {
-        giveSlot = GiveTradedMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]);
+        giveSlot = GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]);
     }
 
     if (giveSlot != MON_GIVEN_TO_PARTY)

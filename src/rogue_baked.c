@@ -1573,9 +1573,15 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
     // Check we're not a charm/curse otherwise we can get infinite loops here
     {
-        if(outItem->pocket != POCKET_POKE_BALLS && IsCurseActive(EFFECT_BATTLE_ITEM_BAN))
+        if(outItem->pocket == POCKET_POKE_BALLS)
         {
-            outItem->battleUsage = 0;
+            if(IsCurseActive(EFFECT_SNAG_TRAINER_MON) && !FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
+                outItem->battleUsage = 0;
+        }
+        else
+        {
+            if(IsCurseActive(EFFECT_BATTLE_ITEM_BAN))
+                outItem->battleUsage = 0;
         }
     }
 }
