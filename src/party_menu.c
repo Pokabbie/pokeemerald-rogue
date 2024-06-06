@@ -2687,7 +2687,8 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
             }
         }
 
-        if(slotId != 0)
+        // Cannot release final mon
+        if(gPlayerPartyCount > 1)
         {
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RELEASE_FIELD);
         }
