@@ -2050,6 +2050,18 @@ static void Cmd_damagecalc(void)
 
     GET_MOVE_TYPE(gCurrentMove, moveType);
     gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE);
+
+    if((IsCurseActive(EFFECT_ONE_HIT) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_ONE_HP) && gBattleMoveDamage != 0)
+    {
+        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        {
+            if(GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_PLAYER)
+            {
+                gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP * 4;
+            }
+        }
+    }
+
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

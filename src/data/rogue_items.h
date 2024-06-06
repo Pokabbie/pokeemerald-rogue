@@ -69,7 +69,8 @@ extern const u8 gItemDesc_ItemShuffleCurse[];
 extern const u8 gItemDesc_SnowballCurse[];
 extern const u8 gItemDesc_RandomanRouteSpawnCurse[];
 extern const u8 gItemDesc_RandomanAlwaysSpawnCurse[];
-extern const u8 gItemDesc_AutoMoveSelect[];
+extern const u8 gItemDesc_AutoMoveSelectCurse[];
+extern const u8 gItemDesc_OneHitCurse[];
 
 const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
 {
@@ -1302,7 +1303,25 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
 #endif
         .itemId = ITEM_AUTO_MOVE_CURSE,
         .price = 0,
-        .description = gItemDesc_AutoMoveSelect,
+        .description = gItemDesc_AutoMoveSelectCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_ONE_HIT_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("OHKO Curse"),
+#else
+        .name = _("OHKO CURSE"),
+#endif
+        .itemId = ITEM_ONE_HIT_CURSE,
+        .price = 0,
+        .description = gItemDesc_OneHitCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
