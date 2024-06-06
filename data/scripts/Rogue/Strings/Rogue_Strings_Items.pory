@@ -345,6 +345,11 @@ text gItemDesc_SnagCurse
     format("Can only catch Trainer {PKMN} (After Trainer Battle).")
 }
 
+text gItemDesc_WildEggSpeciesCurse
+{
+    format("Wild {PKMN} appear as their 1st evolution stage.")
+}
+
 // Hub upgrades
 // (Appear in item shop layout)
 //

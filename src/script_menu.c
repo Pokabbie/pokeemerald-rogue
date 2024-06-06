@@ -1225,9 +1225,9 @@ static struct RoguePokemonCompetitiveSet const* SelectMonPreset(struct Pokemon* 
 void ScriptMenu_DisplayRecommendedMonSet()
 {
     u8 taskId;
-    u8 windowId = CreateWindowFromRectWithBaseBlockOffset(12, 1, 14, 11, 8 * 8);
     struct Pokemon* mon = &gPlayerParty[gSpecialVar_0x8004];
     struct RoguePokemonCompetitiveSet const* preset = SelectMonPreset(mon);
+    u8 windowId = CreateWindowFromRectWithBaseBlockOffset(12, 1, 14, 11, 8 * 8);
 
     PrintRecommendedMonSetToWindow(windowId, mon, preset);
 

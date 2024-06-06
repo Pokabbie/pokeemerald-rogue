@@ -54,6 +54,7 @@ static bool8 QuestCondition_PartyContainsOnlyUniqueTypes(u16 questId, struct Rog
 static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyMaxBSTLessThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInRoomType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -1188,6 +1189,24 @@ static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQue
         species = trigger->params[i];
 
         if(!PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, species))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+static bool8 QuestCondition_PartyMaxBSTLessThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+    u16 species;
+    u16 bstValue = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        if(RoguePokedex_GetSpeciesBST(species) >= bstValue)
             return FALSE;
     }
 

@@ -72,6 +72,7 @@ extern const u8 gItemDesc_RandomanAlwaysSpawnCurse[];
 extern const u8 gItemDesc_AutoMoveSelectCurse[];
 extern const u8 gItemDesc_OneHitCurse[];
 extern const u8 gItemDesc_SnagCurse[];
+extern const u8 gItemDesc_WildEggSpeciesCurse[];
 
 const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
 {
@@ -1341,6 +1342,24 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .itemId = ITEM_SNAG_CURSE,
         .price = 0,
         .description = gItemDesc_SnagCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_WILD_EGG_SPECIES_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Baby Curse"),
+#else
+        .name = _("BABY CURSE"),
+#endif
+        .itemId = ITEM_WILD_EGG_SPECIES_CURSE,
+        .price = 0,
+        .description = gItemDesc_WildEggSpeciesCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

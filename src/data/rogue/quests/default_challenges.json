@@ -240,6 +240,38 @@
                 ]
             },
             {
+                "name": "BST Crown",
+                "description": "Win a full Run with: Baby Curse and only using a {PKMN} with 350 or lower Base Stat Total (viewable in the Pokédex) in Trainer Battles.",
+                "triggers":
+                [
+                    {
+                        "on": [ "TRAINER_BATTLE_START" ],
+                        "condition": "PartyMaxBSTLessThan",
+                        "fail": "FAIL",
+                        "params": [ "351" ]
+                    },
+                    {
+                        "on": [ "TRAINER_BATTLE_END_TURN" ],
+                        "condition": "PartyMaxBSTLessThan",
+                        "fail": "FAIL",
+                        "params": [ "351" ]
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_WILD_EGG_SPECIES_CURSE", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+            {
                 "name": "Pro-Building",
                 "description": "Win a full Run with: Auto Move Curse.",
                 "triggers":
