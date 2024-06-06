@@ -196,7 +196,7 @@ u8 RogueToD_GetSeasonCounter()
 
 static u8 GetVisualSeason()
 {
-    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_ROUTE_SINNOH_217) || gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_ROUTE_SINNOH_217))
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_ROUTE_SINNOH_217) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_ROUTE_SINNOH_217))
         return SEASON_WINTER;
 
     return RogueToD_GetSeason();
