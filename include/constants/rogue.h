@@ -167,8 +167,9 @@
 #define ITEM_AUTO_MOVE_CURSE            (FIRST_ITEM_CURSE + 22)
 #define ITEM_ONE_HIT_CURSE              (FIRST_ITEM_CURSE + 23)
 #define ITEM_SNAG_CURSE                 (FIRST_ITEM_CURSE + 24)
+#define ITEM_WILD_EGG_SPECIES_CURSE     (FIRST_ITEM_CURSE + 25)
 
-#define LAST_ITEM_CURSE                 (ITEM_SNAG_CURSE)
+#define LAST_ITEM_CURSE                 (ITEM_WILD_EGG_SPECIES_CURSE)
 
 #define ITEM_TR01                       (LAST_ITEM_CURSE + 1)
 #define ITEM_TR50                       (LAST_ITEM_CURSE + 50)

@@ -80,6 +80,7 @@ static u16 EffectToCharmItem(u8 effectType)
         // EFFECT_AUTO_MOVE_SELECT
         // EFFECT_ONE_HIT
         // EFFECT_SNAG_TRAINER_MON
+        // EFFECT_WILD_EGG_SPECIES
     }
 
     return ITEM_NONE;
@@ -164,6 +165,9 @@ static u16 EffectToCurseItem(u8 effectType)
         
         case EFFECT_SNAG_TRAINER_MON:
             return ITEM_SNAG_CURSE;
+        
+        case EFFECT_WILD_EGG_SPECIES:
+            return ITEM_WILD_EGG_SPECIES_CURSE;
     }
 
     return ITEM_NONE;
@@ -364,6 +368,7 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
         case EFFECT_AUTO_MOVE_SELECT:
         case EFFECT_ONE_HIT:
         case EFFECT_SNAG_TRAINER_MON:
+        case EFFECT_WILD_EGG_SPECIES:
             return TRUE;
 
         // Disable these effects, once we already have one (They don't stack)

@@ -150,6 +150,9 @@ void Rogue_RandomisePartyMon(void)
     {
         RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50, PARTY_SIZE);
     }
+    
+    if(IsCurseActive(EFFECT_WILD_EGG_SPECIES))
+        RogueMonQuery_TransformIntoEggSpecies();
 
     RogueWeightQuery_Begin();
     {

@@ -4569,6 +4569,11 @@ u16 Rogue_SelectWildDenEncounterRoom(void)
         RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, 50, 1);
     }
 
+    // Now transform back into egg species, so the spawning should still be deteministic 
+    // (although the type hints could be invalid)
+    if(IsCurseActive(EFFECT_WILD_EGG_SPECIES))
+        RogueMonQuery_TransformIntoEggSpecies();
+
     RogueWeightQuery_Begin();
     {
         RogueWeightQuery_CalculateWeights(WildDenEncounter_CalculateWeight, NULL);
@@ -4658,6 +4663,11 @@ u16 Rogue_SelectHoneyTreeEncounterRoom(void)
         {
             RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50, 1);
         }
+
+        // Now transform back into egg species, so the spawning should still be deteministic 
+        // (although the type hints could be invalid)
+        if(IsCurseActive(EFFECT_WILD_EGG_SPECIES))
+            RogueMonQuery_TransformIntoEggSpecies();
 
         RogueWeightQuery_Begin();
         {
@@ -7773,6 +7783,11 @@ void Rogue_BeginCatchingContest(u8 type, u8 stat)
     // Now we've evolved we're only caring about mons of this type
     RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, MON_TYPE_VAL_TO_FLAGS(type));
 
+    // Now transform back into egg species, so the spawning should still be deteministic 
+    // (although the type hints could be invalid)
+    if(IsCurseActive(EFFECT_WILD_EGG_SPECIES))
+        RogueMonQuery_TransformIntoEggSpecies();
+
     SetupFollowParterMonObjectEvent();
 }
 
@@ -8410,6 +8425,11 @@ static void BeginWildEncounterQuery()
 
     // Now we've evolved we're only caring about mons of this type
     RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
+
+    // Now transform back into egg species, so the spawning should still be deteministic 
+    // (although the type hints could be invalid)
+    if(IsCurseActive(EFFECT_WILD_EGG_SPECIES))
+        RogueMonQuery_TransformIntoEggSpecies();
 
     // Remove random entries until we can safely calcualte weights without going over
     while(RogueWeightQuery_IsOverSafeCapacity())
