@@ -49,6 +49,7 @@
 
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
+#include "rogue_charms.h"
 #include "rogue_ridemon.h"
 #include "rogue_questmenu.h"
 #include "rogue_settings.h"
@@ -1326,6 +1327,8 @@ static u32 GetBallThrowableState(void)
     else if (B_SEMI_INVULNERABLE_CATCH >= GEN_4 && (gStatuses3[GetCatchingBattler()] & STATUS3_SEMI_INVULNERABLE))
         return BALL_THROW_UNABLE_SEMI_INVULNERABLE;
     else if (FlagGet(B_FLAG_NO_CATCHING))
+        return BALL_THROW_UNABLE_DISABLED_FLAG;
+    else if(IsCurseActive(EFFECT_SNAG_TRAINER_MON) && !FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
         return BALL_THROW_UNABLE_DISABLED_FLAG;
 
     return BALL_THROW_ABLE;
