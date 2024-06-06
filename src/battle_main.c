@@ -67,6 +67,7 @@
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_popup.h"
+#include "rogue_quest.h"
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
 
@@ -5084,6 +5085,11 @@ static void RunTurnActionsFunctions(void)
     {
         gHitMarker &= ~HITMARKER_PASSIVE_DAMAGE;
         gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
+
+        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0)
+            RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_END_TURN);
+        else
+            RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_END_TURN);
 
         if(gBattleMainFunc != HandleEndTurn_ContinueBattle)
         {
