@@ -1113,17 +1113,6 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
             {
                 ++gRogueRun.wildEncounters.catchCounts[index];
             }
-
-            VarSet(VAR_ROGUE_TOTAL_RUN_CATCHES, VarGet(VAR_ROGUE_TOTAL_RUN_CATCHES) + 1);
-
-            // Quest notifies
-            if(RoguePokedex_IsSpeciesLegendary(species))
-                RogueQuest_OnTrigger(QUEST_TRIGGER_MON_LEGEND_CAUGHT);
-
-            if(IsMonShiny(mon))
-                RogueQuest_OnTrigger(QUEST_TRIGGER_MON_SHINY_CAUGHT);
-            else
-                RogueQuest_OnTrigger(QUEST_TRIGGER_MON_NON_SHINY_CAUGHT);
         }
 
         if(IsCurseActive(EFFECT_SNAG_TRAINER_MON) && FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
@@ -1134,6 +1123,25 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
 
         // Make sure we log if we end up replacing a fainted mon
         CheckAndNotifyForFaintedMons();
+    }
+}
+
+void Rogue_OnAcceptCaughtMon(struct Pokemon *mon)
+{
+    if(Rogue_IsRunActive())
+    {
+        u16 species = GetMonData(mon, MON_DATA_SPECIES);
+
+        VarSet(VAR_ROGUE_TOTAL_RUN_CATCHES, VarGet(VAR_ROGUE_TOTAL_RUN_CATCHES) + 1);
+
+        // Quest notifies
+        if(RoguePokedex_IsSpeciesLegendary(species))
+            RogueQuest_OnTrigger(QUEST_TRIGGER_MON_LEGEND_CAUGHT);
+
+        if(IsMonShiny(mon))
+            RogueQuest_OnTrigger(QUEST_TRIGGER_MON_SHINY_CAUGHT);
+        else
+            RogueQuest_OnTrigger(QUEST_TRIGGER_MON_NON_SHINY_CAUGHT);
     }
 }
 
