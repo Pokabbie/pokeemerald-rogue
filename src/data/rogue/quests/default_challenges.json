@@ -265,18 +265,19 @@
 
             {
                 "name": "Limited Capture",
-                "description": "Win a full Run with: Only ever catching no more than 5 {PKMN}.",
+                "description": "Win a full Run with: Catching exactly 5 {PKMN} by before entering the Hall of Fame.",
                 "triggers":
                 [
                     {
                         "on": [ "ANY_MON_CAUGHT" ],
                         "condition": "VarGetGreaterThan",
-                        "pass": "FAIL",
-                        "params": [ "VAR_ROGUE_TOTAL_RUN_CATCHES", "5" ]
+                        "params": [ "VAR_ROGUE_TOTAL_RUN_CATCHES", "5" ],
+                        "pass": "FAIL"
                     },
                     {
                         "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "Always",
+                        "condition": "VarGetEqual",
+                        "params": [ "VAR_ROGUE_TOTAL_RUN_CATCHES", "5" ],
                         "pass": "SUCCESS"
                     }
                 ],
