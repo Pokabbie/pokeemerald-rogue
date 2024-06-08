@@ -66,6 +66,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain);
 void Rogue_ModifyEVGain(int* multiplier);
 void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier);
 void Rogue_ModifyCaughtMon(struct Pokemon *mon);
+void Rogue_OnAcceptCaughtMon(struct Pokemon *mon);
 void Rogue_ModifyEggMon(struct Pokemon *mon);
 void Rogue_DiscardedCaughtMon(struct Pokemon *mon);
 u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount);

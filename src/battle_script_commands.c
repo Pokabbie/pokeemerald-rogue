@@ -15407,6 +15407,8 @@ static void Cmd_givecaughtmon(void)
     u8 giveSlot;
     CMD_ARGS();
 
+    Rogue_OnAcceptCaughtMon(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]);
+
     if(customMonId != 0 || IsCurseActive(EFFECT_SNAG_TRAINER_MON))
     {
         giveSlot = GiveTradedMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]);
