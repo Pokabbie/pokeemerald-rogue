@@ -239,6 +239,30 @@
                     { "money": "QUEST_REWARD_SMALL_MONEY" }
                 ]
             },
+
+            {
+                "name": "Limited Capture",
+                "description": "Win a full Run with: Only ever catching no more than 5 {PKMN}.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ANY_MON_CAUGHT" ],
+                        "condition": "VarGetGreaterThan",
+                        "pass": "FAIL",
+                        "params": [ "VAR_ROGUE_TOTAL_RUN_CATCHES", "5" ]
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                ]
+            },
+
             {
                 "name": "BST Crown",
                 "description": "Win a full Run with: Baby Curse and only using a {PKMN} with 350 or lower Base Stat Total (viewable in the Pokédex) in Trainer Battles.",

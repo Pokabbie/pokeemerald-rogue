@@ -72,6 +72,9 @@ static bool8 QuestCondition_RandomanWasActive(u16 questId, struct RogueQuestTrig
 static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_LastItemWasAny(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_VarGetEqual(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_VarGetLessThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_VarGetGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsConfigRangeEqualToAny(u16 questId, struct RogueQuestTrigger const* trigger);
 
 static bool8 IsQuestSurpressed(u16 questId);
@@ -1423,6 +1426,24 @@ static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const*
 {
     ASSERT_PARAM_COUNT(1);
     return FlagGet(trigger->params[0]);
+}
+
+static bool8 QuestCondition_VarGetEqual(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(2);
+    return VarGet(trigger->params[0]) == trigger->params[1];
+}
+
+static bool8 QuestCondition_VarGetLessThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(2);
+    return VarGet(trigger->params[0]) < trigger->params[1];
+}
+
+static bool8 QuestCondition_VarGetGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(2);
+    return VarGet(trigger->params[0]) > trigger->params[1];
 }
 
 static bool8 QuestCondition_IsConfigRangeEqualToAny(u16 questId, struct RogueQuestTrigger const* trigger)

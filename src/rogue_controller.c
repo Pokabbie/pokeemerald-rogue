@@ -1114,6 +1114,8 @@ void Rogue_ModifyCaughtMon(struct Pokemon *mon)
                 ++gRogueRun.wildEncounters.catchCounts[index];
             }
 
+            VarSet(VAR_ROGUE_TOTAL_RUN_CATCHES, VarGet(VAR_ROGUE_TOTAL_RUN_CATCHES) + 1);
+
             // Quest notifies
             if(RoguePokedex_IsSpeciesLegendary(species))
                 RogueQuest_OnTrigger(QUEST_TRIGGER_MON_LEGEND_CAUGHT);
@@ -3990,6 +3992,7 @@ static void BeginRogueRun(void)
     VarSet(VAR_ROGUE_DIFFICULTY, Rogue_GetCurrentDifficulty());
     VarSet(VAR_ROGUE_CURRENT_ROOM_IDX, 0);
     VarSet(VAR_ROGUE_DESIRED_WEATHER, WEATHER_NONE);
+    VarSet(VAR_ROGUE_TOTAL_RUN_CATCHES, 0);
 
     VarSet(VAR_ROGUE_FLASK_HEALS_USED, 0);
     VarSet(VAR_ROGUE_FLASK_HEALS_MAX, 3);
