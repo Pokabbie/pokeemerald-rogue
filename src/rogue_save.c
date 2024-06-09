@@ -19,10 +19,6 @@
 #include "rogue_ridemon.h"
 #include "rogue_save.h"
 
-// The version to use for tracking/updating internal save game data
-// Update "RogueSave_GetVersionIdFor" every time the save structure changes
-#define ROGUE_SAVE_VERSION 1
-
 #define ROGUE_SAVE_BLOCK_CAPACITY (sizeof(struct BoxPokemon) * IN_BOX_COUNT * LEFTOVER_BOXES_COUNT)
 
 enum
@@ -303,8 +299,18 @@ void RogueSave_FormatForReading()
 
 u16 RogueSave_GetVersionIdFor(u16 saveVersion)
 {
-    // TODO - lookup
-    return SAVE_VER_ID_2_0;
+    switch (saveVersion)
+    {
+    case 0:
+        return SAVE_VER_ID_1_X;
+
+    case 1:
+        return SAVE_VER_ID_2_0_PRERELEASE;
+    
+    default:
+        AGB_ASSERT(FALSE);
+        return SAVE_VER_ID_UNKNOWN;
+    }
 }
 
 u16 RogueSave_GetVersionId()
