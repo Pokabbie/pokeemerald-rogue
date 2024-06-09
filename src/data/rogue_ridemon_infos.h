@@ -164,7 +164,7 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
             {
                 .playerX=0, .playerY=-2,
                 .monX=0, .monY=1,
-                .playerRendersInFront=RIDER_SHOW_BEHIND,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
             },
             [RIDE_SPRITE_DIR_DOWN] =
             {
@@ -1489,7 +1489,7 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
             {
                 .playerX=0, .playerY=-7,
                 .monX=0, .monY=1,
-                .playerRendersInFront=RIDER_SHOW_BEHIND,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
             },
             [RIDE_SPRITE_DIR_DOWN] =
             {

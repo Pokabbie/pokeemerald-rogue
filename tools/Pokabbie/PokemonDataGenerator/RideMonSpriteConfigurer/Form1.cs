@@ -40,9 +40,14 @@ namespace RideMonSpriteConfigurer
 
 		private ExportData m_OutputData = new ExportData();
 
+		private static bool s_ForceEX = false;
+
 		public Form1()
 		{
 			InitializeComponent();
+
+			if(s_ForceEX)
+				GameDataHelpers.IsVanillaVersion = false;
 
 			// Down controls
 			{
@@ -302,12 +307,12 @@ namespace RideMonSpriteConfigurer
 
 		private void prevEntryButton_Click(object sender, EventArgs e)
 		{
-			textBox1.Text = RideMonInfoHelper.GetRelativeSpeciesName(textBox1.Text, -1);
+			textBox1.Text = RideMonInfoHelper.GetRelativeSpeciesName(textBox1.Text, -1, filerAlreadyRideable.Checked);
 		}
 
 		private void nextEntryButton_Click(object sender, EventArgs e)
 		{
-			textBox1.Text = RideMonInfoHelper.GetRelativeSpeciesName(textBox1.Text, 1);
+			textBox1.Text = RideMonInfoHelper.GetRelativeSpeciesName(textBox1.Text, 1, filerAlreadyRideable.Checked);
 		}
 
 		private void saveSourceButton_Click(object sender, EventArgs e)
