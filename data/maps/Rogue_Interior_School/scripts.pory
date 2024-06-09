@@ -6,7 +6,7 @@ script Rogue_Interior_School_ShowSetRecommendation
     lock
     faceplayer
     
-    msgbox(format("Oh hey, you look like a Trainer.\pHere, let me give you my advice on what to teach your Pokémon!"))
+    msgbox(format("Oh hey, you look like a Trainer.\pHere, let me give you my advice on how I would setup your Pokémon, if they were mine."))
 
     setvar(VAR_0x8004, 0)
 
@@ -25,4 +25,88 @@ script Rogue_Interior_School_ShowSetRecommendation
     msgbox(format("If you need any more help, don't hesitate to ask!"))
 
     release
+}
+
+script Rogue_Interior_School_TalkRunningKid0
+{
+    lockall
+    faceplayer
+
+    msgbox(format("I'm double tapping B to run super fast!\pSame as if you want to escape from Wild Pokémon faster!\pSo fast!"))
+
+    releaseall
+}
+
+script Rogue_Interior_School_TalkRunningKid1
+{
+    lockall
+    faceplayer
+
+    msgbox(format("Get back here!\nB B B B B B!"))
+
+    releaseall
+}
+
+script Rogue_Interior_School_TalkRunningStatsHint
+{
+    lockall
+    faceplayer
+
+    msgbox(format("Arrgghhh!\pIt's so much harder to get my optimal EV spreads now!\pI use to just grind against Wild Pokémon, but now all your Pokémon gain EVs after Trainer battles instead.\pThe EV spread they get is based on their Nature.\pSo it' really important to have a good Nature as early as possible, if you want a good EV spread!\pAt least you can check your EVs & IVs at any time!\pYou can inspect them by pressing {A_BUTTON} on the Pokémon's Stats Summary."))
+
+    releaseall
+}
+
+script Rogue_Interior_School_TalkTeacher
+{
+    lockall
+    faceplayer
+
+    msgbox(format("Ah! Welcome!\pI've been making sure to teach my Students as much as possible about Adventuring!\pI'm sure they would be more than happy to share their knowledge with you, if you ask nicely!"))
+
+    releaseall
+}
+
+script Rogue_Interior_School_TalkRouteHint
+{
+    lockall
+    faceplayer
+
+
+    msgbox(format("I've been studying as much as I can about all the different types of encounters!\pI've still go plenty to learn.\pBut I could tell you what I've learnt so far!"))
+
+    setvar(VAR_RESULT, 0)
+
+    while(var(VAR_RESULT) != MULTI_B_PRESSED)
+    {
+        begindynamicmultichoice
+        appenddynamicmultichoice("Route Difficulty", 0)
+        appenddynamicmultichoice("Route Types", 1)
+        appenddynamicmultichoice("Trained Pokémon Habitats", 2)
+        appenddynamicmultichoice("Honey Trees", 3)
+
+        message(format("Is there anything I can tell you about?"))
+        waitmessage
+        enddynamicmultichoice(20, 2, 5, TRUE)
+        
+        switch(var(VAR_RESULT))
+        {
+            case 0:
+                msgbox(format("SO!\nThe Routes are always described by 2 hints.\pFirstly, a Difficulty.\nSecondly, a Type.\pThere are 3 different Difficulties: Calm, Average and Tough.\pOn Calm Routes, you'll find more Wild Pokémon but fewer Items and Trainers.\pOn Tough Routes, you'll find few Wild Pokémon but you'll find there are more Items and Trainers.\pThe Items you find on these routes will typically be more valuable too.\pBut in turn, the Trainers who explore these Routes also tend to be way stronger too!\pThe Average Difficulty, is the middle ground between those 2.\pIt's usually a good safe choice, if you're not desparate to catch new Pokémon!"))
+
+            case 1:
+                msgbox(format("SO!\nThe Routes are always described by 2 hints.\pFirstly, a Difficulty.\nSecondly, a Type.\pThe Type hint is quite simple, each hint refers to a specific Pokémon Type. For example, Warm refers to Fire Type Pokémon, Confusing refers to Psychic Type Pokémon etc.\pThe Type Hint means that we know that at least 1 Pokémon of that Type will appear on the Route.\pIt's usually a safe bet that there will be more than 1 Pokémon that matches the Type Hint, in Calm Routes too."))
+
+            case 2:
+                msgbox(format("SO!\nThe Pokémon that appear at these encounters are very odd!\pIt's almost as if they've already been Trained to battle!\pThey'll usually already have a good nature, ability and moves. They often tend to have at least 1 perfect IV too!\pBecause they're so strong, they prefer to live by themselves though AND there's no knowing what Pokémon it is before entering.\pIt could be a Charizard!\nOr a Magikarp…\pSo it can be a bit of a gamble at times."))
+
+            case 3:
+                msgbox(format("SO!\nHoney Trees are only really useful to you, if you have some {POKEBLOCK}.\pThey're a location that Wild Pokémon like to go to eat and relax, so you'll usually always find a random Pokémon hanging around near it, but the Honey Tree really becomes useful when you Scatter {POKEBLOCK} by it!\pIt's pretty much a guarantee that the next time you visit the Honey Tree, you'll find a Pokémon chowing down on the {POKEBLOCK} you scattered.\pSo lets say I wanted a Bulbasaur, I could scatter some Grass and Poison {POKEBLOCK} by the Honey Tree and then the next time I visit it, there could be a Bulbasaur there!\pThere could also be an Oddish…\nOr a Bellsprout…\pThe effectiveness really depends on how unique the Pokémon's Type combination is, provided you have the necessary {POKEBLOCK} to hand."))
+
+            case MULTI_B_PRESSED:
+                msgbox(format("Oh, OK…\nI've got plenty more to share, if you wanna know!"))
+        }
+    }
+
+    releaseall
 }
