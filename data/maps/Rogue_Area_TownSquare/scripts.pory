@@ -1,6 +1,7 @@
 const FLAG_HIDE_LOCAL_WORKBENCH = FLAG_TEMP_1
 const FLAG_HIDE_MOVE_TUTORS = FLAG_TEMP_2
 const FLAG_HIDE_BACK_PACKER = FLAG_TEMP_3
+const FLAG_HIDE_BALL_GUY = FLAG_TEMP_4
 
 const OBJ_EVENT_BUILDER = 3
 
@@ -35,6 +36,7 @@ script Rogue_Area_TownSquare_OnMapLoad
         setobjectmovementtype(OBJ_EVENT_BUILDER, MOVEMENT_TYPE_FACE_UP)
 
         setflag(FLAG_HIDE_BACK_PACKER)
+        setflag(FLAG_HIDE_BALL_GUY)
     }
     else
     {
@@ -42,9 +44,12 @@ script Rogue_Area_TownSquare_OnMapLoad
         clearflag(FLAG_HIDE_LOCAL_WORKBENCH)
 
         clearflag(FLAG_HIDE_BACK_PACKER)
+        clearflag(FLAG_HIDE_BALL_GUY)
 
         if(var(VAR_ROGUE_INTRO_STATE) <= ROGUE_INTRO_STATE_LEARN_TO_BUILD)
         {
+            setflag(FLAG_HIDE_BALL_GUY)
+
             // blocking workbench
             setobjectxyperm(OBJ_EVENT_BUILDER, 24, 9)
             setobjectmovementtype(OBJ_EVENT_BUILDER, MOVEMENT_TYPE_FACE_UP)

@@ -75,6 +75,7 @@ static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const*
 static bool8 QuestCondition_VarGetEqual(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_VarGetLessThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_VarGetGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_RunTimerLessThanMins(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsConfigRangeEqualToAny(u16 questId, struct RogueQuestTrigger const* trigger);
 
 static bool8 IsQuestSurpressed(u16 questId);
@@ -1444,6 +1445,13 @@ static bool8 QuestCondition_VarGetGreaterThan(u16 questId, struct RogueQuestTrig
 {
     ASSERT_PARAM_COUNT(2);
     return VarGet(trigger->params[0]) > trigger->params[1];
+}
+
+static bool8 QuestCondition_RunTimerLessThanMins(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u32 totalMinutes = gSaveBlock2Ptr->playTimeHours * 60 + gSaveBlock2Ptr->playTimeMinutes;
+    ASSERT_PARAM_COUNT(1);
+    return totalMinutes < trigger->params[0];
 }
 
 static bool8 QuestCondition_IsConfigRangeEqualToAny(u16 questId, struct RogueQuestTrigger const* trigger)
