@@ -520,6 +520,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Raven;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Tails;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_LS7;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Nacho;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Red;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Leaf;
@@ -1082,6 +1084,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GLITCH_ERMA] =              &gObjectEventGraphicsInfo_Glitch_Erma,
     [OBJ_EVENT_GFX_GLITCH_RAVEN] =             &gObjectEventGraphicsInfo_Glitch_Raven,
     [OBJ_EVENT_GFX_GLITCH_TAILS] =             &gObjectEventGraphicsInfo_Glitch_Tails,
+    [OBJ_EVENT_GFX_GLITCH_LS7] =               &gObjectEventGraphicsInfo_Glitch_LS7,
+    [OBJ_EVENT_GFX_GLITCH_NACHO] =             &gObjectEventGraphicsInfo_Glitch_Nacho,
     
     [OBJ_EVENT_GFX_RIVAL_RED] =                &gObjectEventGraphicsInfo_Rival_Red,
     [OBJ_EVENT_GFX_RIVAL_LEAF] =               &gObjectEventGraphicsInfo_Rival_Leaf,
