@@ -1212,6 +1212,295 @@
                         "SPECIES_NONE"
                     ]
                 }
+            },
+
+            {
+                "name": "LS7",
+                "object_event": "OBJ_EVENT_GFX_GLITCH_LS7",
+                "trainer_pic": "TRAINER_PIC_COMMUNITY_LIGHTNINGSTRIKE7",
+                "trainer_class": "TRAINER_CLASS_COMMUNITY_MOD",
+                "class_flags": [ "BOSS_ANY_ELITE" ],
+                "weather": "RAIN_THUNDERSTORM",
+                "shiny_species": "SPECIES_MAGNEMITE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You've made it this far.\\nImpressive.",
+                        "PRE_BATTLE_TAUNT": "But are you strong enough to withstand this power surge?",
+                        "POST_BATTLE_TAUNT": "That was quite the shocking performance!",
+                        "POST_BATTLE_CLOSER": "Only a few more battles left.\\pI'm sure you can do it."
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 10
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MAGNEMITE", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ],
+                    "query_script_override":
+                    [
+                        "TRY_INCLUDE_SPECIES_LIST",
+                        "SPECIES_CHARIZARD",
+                        "SPECIES_RAICHU",
+                        "SPECIES_NIDOKING",
+                        "SPECIES_PRIMEAPE",
+                        "SPECIES_MAGNETON",
+                        "SPECIES_DODRIO",
+                        "SPECIES_EXEGGUTOR",
+                        "SPECIES_STARMIE",
+                        "SPECIES_ZAPDOS",
+
+                        "SPECIES_LANTURN",
+                        "SPECIES_AMPHAROS",
+                        "SPECIES_POLITOED",
+                        "SPECIES_STEELIX",
+                        "SPECIES_SCIZOR",
+                        "SPECIES_HERACROSS",
+                        "SPECIES_SKARMORY",
+                        "SPECIES_RAIKOU",
+
+                        "SPECIES_SWAMPERT",
+                        "SPECIES_PELIPPER",
+                        "SPECIES_BRELOOM",
+                        "SPECIES_MANECTRIC",
+                        "SPECIES_FLYGON",
+                        "SPECIES_WALREIN",
+                        "SPECIES_METAGROSS",
+                        "SPECIES_KYOGRE",
+                        "SPECIES_JIRACHI",
+
+                        "#ifdef ROGUE_EXPANSION",
+                            "SPECIES_TORTERRA",
+                            "SPECIES_EMPOLEON",
+                            "SPECIES_STARAPTOR",
+                            "SPECIES_LUXRAY",
+                            "SPECIES_LUCARIO",
+                            "SPECIES_MAGNEZONE",
+                            "SPECIES_ELECTIVIRE",
+                            "SPECIES_MAMOSWINE",
+                            "SPECIES_GALLADE",
+                            "SPECIES_FROSLASS",
+                            "SPECIES_ROTOM_WASH",
+                            "SPECIES_ROTOM_MOW",
+                            "SPECIES_DIALGA",
+
+                            "SPECIES_EXCADRILL",
+                            "SPECIES_CONKELDURR",
+                            "SPECIES_SCRAFTY",
+                            "SPECIES_JELLICENT",
+                            "SPECIES_GALVANTULA",
+                            "SPECIES_FERROTHORN",
+                            "SPECIES_EELEKTROSS",
+                            "SPECIES_HYDREIGON",
+                            "SPECIES_THUNDURUS_THERIAN",
+                            "SPECIES_ZEKROM",
+                            "SPECIES_KYUREM_BLACK",
+
+                            "SPECIES_AEGISLASH",
+                            "SPECIES_CLAWITZER",
+                            "SPECIES_HELIOLISK",
+                            "SPECIES_HAWLUCHA",
+                            "SPECIES_KLEFKI",
+                            "SPECIES_TREVENANT",
+                            "SPECIES_NOIVERN",
+                            "SPECIES_VOLCANION",
+
+                            "SPECIES_DECIDUEYE",
+                            "SPECIES_VIKAVOLT",
+                            "SPECIES_ORICORIO_POM_POM",
+                            "SPECIES_ARAQUANID",
+                            "SPECIES_TOGEDEMARU",
+                            "SPECIES_KOMMO_O",
+                            "SPECIES_TAPU_KOKO",
+                            "SPECIES_XURKITREE",
+                            "SPECIES_ZERAORA",
+                            "SPECIES_MELMETAL",
+                            "SPECIES_RAICHU_ALOLAN",
+                            "SPECIES_NINETALES_ALOLAN",
+                            "SPECIES_GOLEM_ALOLAN",
+                            "SPECIES_EXEGGUTOR_ALOLAN",
+
+                            "SPECIES_CORVIKNIGHT",
+                            "SPECIES_FLAPPLE",
+                            "SPECIES_CRAMORANT",
+                            "SPECIES_TOXTRICITY",
+                            "SPECIES_PINCURCHIN",
+                            "SPECIES_PINCURCHIN",
+                            "SPECIES_ARCTOZOLT",
+                            "SPECIES_REGIELEKI",
+                            "SPECIES_ZAPDOS_GALARIAN",
+                            "SPECIES_SNEASLER",
+                            "SPECIES_ELECTRODE_HISUIAN",
+                            "SPECIES_SAMUROTT_HISUIAN",
+                            "SPECIES_BRAVIARY_HISUIAN",
+                            "SPECIES_GOODRA_HISUIAN",
+
+                            "SPECIES_QUAQUAVAL",
+                            "SPECIES_PAWMOT",
+                            "SPECIES_KILOWATTREL",
+                            "SPECIES_REVAVROOM",
+                            "SPECIES_ANNIHILAPE",
+                            "SPECIES_SANDY_SHOCKS",
+                            "SPECIES_IRON_TREADS",
+                            "SPECIES_IRON_BUNDLE",
+                            "SPECIES_IRON_HANDS",
+                            "SPECIES_IRON_THORNS",
+                            "SPECIES_IRON_VALIANT",
+                            "SPECIES_MIRAIDON",
+                            "SPECIES_SINISTCHA",
+                            "SPECIES_ARCHALUDON",
+                            "SPECIES_RAGING_BOLT",
+                            "SPECIES_IRON_CROWN",
+                        "#endif",
+                        "SPECIES_NONE"
+                    ]
+                }
+            },
+
+            {
+                "name": "NACHO",
+                "object_event": "OBJ_EVENT_GFX_GLITCH_NACHO",
+                "trainer_pic": "TRAINER_PIC_COMMUNITY_NACHOLORD",
+                "trainer_class": "TRAINER_CLASS_COMMUNITY_MOD",
+                "class_flags": [ "BOSS_ANY_ELITE" ],
+                "weather": "PSYCHIC_FOG",
+                "shiny_species": "SPECIES_MUDKIP",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Ah, you're finally here.\\pI've been watching you battle, truly impressive.\\pSince you've made it this far, there's no reason for me to hold back!",
+                        "PRE_BATTLE_TAUNT": "Show me what you're made of,  {PLAYER}!",
+                        "POST_BATTLE_TAUNT": "Heh… I anticipated this would happen.\\nYou're an incredibly skilled trainer.",
+                        "POST_BATTLE_CLOSER": "Do you think they deliver food here?\\nI'm starving…"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 10
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_MUDKIP", "INC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "ALREADY_HAS_TYPE_IN_TEAM", "DEC_FAVOUR", "ELSE", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ],
+                    "query_script_override":
+                    [
+                        "TRY_INCLUDE_SPECIES_LIST",
+                        "SPECIES_NIDOKING",
+                        "SPECIES_MEWTWO",
+                        "SPECIES_GYARADOS",
+                        "SPECIES_MEW",
+                        "SPECIES_GENGAR",
+                        "SPECIES_ZAPDOS",
+                        "SPECIES_DRAGONITE",
+                        "SPECIES_VENUSAUR",
+
+                        "SPECIES_TYRANITAR",
+                        "SPECIES_HERACROSS",
+                        "SPECIES_HO_OH",
+                        "SPECIES_LUGIA",
+                        "SPECIES_SCIZOR",
+                        "SPECIES_SUICUNE",
+                        "SPECIES_CELEBI",
+                        "SPECIES_RAIKOU",
+                        "SPECIES_ENTEI",
+
+                        "SPECIES_SWAMPERT",
+                        "SPECIES_RAYQUAZA",
+                        "SPECIES_GROUDON",
+                        "SPECIES_KYOGRE",
+                        "SPECIES_METAGROSS",
+                        "SPECIES_SALAMENCE",
+                        "SPECIES_BLAZIKEN",
+                        "SPECIES_LATIOS",
+                        "#ifdef ROGUE_EXPANSION",
+                            "SPECIES_DEOXYS_ATTACK",
+                        "#else",
+                            "SPECIES_DEOXYS",
+                        "#endif",
+
+                        "#ifdef ROGUE_EXPANSION",
+                            "SPECIES_GARCHOMP",
+                            "SPECIES_ARCEUS",
+                            "SPECIES_DIALGA",
+                            "SPECIES_GIRATINA_ORIGIN",
+                            "SPECIES_PALKIA",
+                            "SPECIES_HEATRAN",
+                            "SPECIES_HIPPOWDON",
+                            "SPECIES_DARKRAI",
+
+                            "SPECIES_HYDREIGON",
+                            "SPECIES_KYUREM_BLACK",
+                            "SPECIES_KYUREM_WHITE",
+                            "SPECIES_GENESECT",
+                            "SPECIES_EXCADRILL",
+                            "SPECIES_RESHIRAM",
+                            "SPECIES_LANDORUS_THERIAN",
+                            "SPECIES_THUNDURUS_THERIAN",
+                            "SPECIES_TORNADUS",
+
+                            "SPECIES_AEGISLASH",
+                            "SPECIES_YVELTAL",
+                            "SPECIES_XERNEAS",
+                            "SPECIES_DIANCIE",
+                            "SPECIES_GRENINJA",
+                            "SPECIES_ZYGARDE",
+                            "SPECIES_VOLCANION",
+                            "SPECIES_HOOPA_UNBOUND",
+
+                            "SPECIES_INCINEROAR",
+                            "SPECIES_TAPU_BULU",
+                            "SPECIES_TAPU_FINI",
+                            "SPECIES_TAPU_LELE",
+                            "SPECIES_NECROZMA_DUSK_MANE",
+                            "SPECIES_BUZZWOLE",
+                            "SPECIES_LUNALA",
+                            "SPECIES_CELESTEELA",
+                            "SPECIES_NAGANADEL",
+                            "SPECIES_KARTANA",
+
+                            "SPECIES_RILLABOOM",
+                            "SPECIES_CINDERACE",
+                            "SPECIES_ZACIAN_CROWNED_SWORD",
+                            "SPECIES_ETERNATUS",
+                            "SPECIES_CALYREX_SHADOW_RIDER",
+                            "SPECIES_REGIELEKI",
+                            "SPECIES_URSHIFU_RAPID_STRIKE_STYLE",
+                            "SPECIES_ZAMAZENTA_CROWNED_SHIELD",
+                            "SPECIES_CALYREX_ICE_RIDER",
+
+                            "SPECIES_SKELEDIRGE",
+                            "SPECIES_GHOLDENGO",
+                            "SPECIES_MIRAIDON",
+                            "SPECIES_KORAIDON",
+                            "SPECIES_FLUTTER_MANE",
+                            "SPECIES_TING_LU",
+                            "SPECIES_CHI_YU",
+                            "SPECIES_OGERPON_WELLSPRING_MASK",
+                            "SPECIES_CHIEN_PAO",
+                            "SPECIES_PALAFIN",
+                            "SPECIES_CLODSIRE",
+                        "#endif",
+                        "SPECIES_NONE"
+                    ]
+                }
             }
         ],
 

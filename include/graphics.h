@@ -2010,6 +2010,10 @@ extern const u32 gItemIconPalette_CornnBerry[];
 extern const u32 gItemIcon_MagostBerry[];
 extern const u32 gItemIconPalette_MagostBerry[];
 extern const u32 gItemIcon_RabutaBerry[];
+extern const u32 gTrainerPalette_PlayerNacholordBackBase[];
+extern const u32 gTrainerFrontPic_CommunityNacholord[];
+extern const u32 gTrainerPalette_CommunityNacholord[];
+extern const u8 gTrainerBackPic_CommunityNacholord[];
 extern const u32 gItemIconPalette_RabutaBerry[];
 extern const u32 gItemIcon_NomelBerry[];
 extern const u32 gItemIconPalette_NomelBerry[];
@@ -4071,6 +4075,7 @@ extern const u16 gObjectEventPal_PlayerJulianaLayers[];
 
 extern const u16 gObjectEventPal_PlayerZefaBase[];
 extern const u16 gObjectEventPal_PlayerLightningStrike7Base[];
+extern const u16 gObjectEventPal_PlayerNacholordBase[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];

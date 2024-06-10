@@ -1226,7 +1226,7 @@ u16 Rogue_GetPrice(u16 itemId)
     
     if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
     {
-        price = HELD_ITEM_HIGH_PRICE;
+        price = HELD_ITEM_MID_PRICE + 1000;
     }
 
 #endif

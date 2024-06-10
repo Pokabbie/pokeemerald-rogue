@@ -444,6 +444,7 @@ const u16 gObjectEventPal_PlayerJulianaLayers[] = INCBIN_U16("graphics/rogue_pal
 
 const u16 gObjectEventPal_PlayerZefaBase[] = INCBIN_U16("graphics/object_events/pics/people/zefa/palette.gbapal");
 const u16 gObjectEventPal_PlayerLightningStrike7Base[] = INCBIN_U16("graphics/object_events/pics/people/lightningstrike7/palette.gbapal");
+const u16 gObjectEventPal_PlayerNacholordBase[] = INCBIN_U16("graphics/object_events/pics/people/nacho/palette.gbapal");
 
 const u32 gObjectEventPic_LyraNormal[] = INCBIN_U32("graphics/object_events/pics/people/lyra/walking.4bpp");
 const u32 gObjectEventPic_LyraRunning[] = INCBIN_U32("graphics/object_events/pics/people/lyra/running.4bpp");
@@ -506,6 +507,9 @@ const u32 gObjectEventPic_ZefaRiding[] = INCBIN_U32("graphics/object_events/pics
 
 const u32 gObjectEventPic_LightningStrike7Normal[] = INCBIN_U32("graphics/object_events/pics/people/lightningstrike7/walking.4bpp");
 const u32 gObjectEventPic_LightningStrike7Riding[] = INCBIN_U32("graphics/object_events/pics/people/lightningstrike7/riding.4bpp");
+
+const u32 gObjectEventPic_NacholordNormal[] = INCBIN_U32("graphics/object_events/pics/people/nacho/walking.4bpp");
+const u32 gObjectEventPic_NacholordRiding[] = INCBIN_U32("graphics/object_events/pics/people/nacho/riding.4bpp");
 
 const u16 gObjectEventPal_BirthIslandStone[] = INCBIN_U16("graphics/object_events/palettes/birth_island_stone.gbapal");
 const u32 gObjectEventPic_BirthIslandStone[] = INCBIN_U32("graphics/object_events/pics/misc/birth_island_stone.4bpp");

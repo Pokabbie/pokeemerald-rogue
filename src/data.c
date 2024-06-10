@@ -170,6 +170,14 @@ const struct SpriteFrameImage gTrainerBackPicTable_CommunityZefa[] =
     {gTrainerBackPic_CommunityZefa + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
 };
 
+const struct SpriteFrameImage gTrainerBackPicTable_CommunityNacholord[] =
+{
+    gTrainerBackPic_CommunityNacholord, 0x0800,
+    gTrainerBackPic_CommunityNacholord + 0x0800, 0x0800,
+    gTrainerBackPic_CommunityNacholord + 0x1000, 0x0800,
+    gTrainerBackPic_CommunityNacholord + 0x1800, 0x0800,
+};
+
 const union AnimCmd sAnim_GeneralFrame0[] =
 {
     ANIMCMD_FRAME(0, 0),
