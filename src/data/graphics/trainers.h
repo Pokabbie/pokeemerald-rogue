@@ -362,6 +362,7 @@ const u32 gTrainerPalette_PlayerJulianaFrontBase[] = INCBIN_U32("graphics/rogue_
 const u32 gTrainerPalette_PlayerJulianaFrontLayers[] = INCBIN_U32("graphics/rogue_palettes/juliana/trainer_front_layers.gbapal.lz");
 
 const u32 gTrainerPalette_PlayerZefaBackBase[] = INCBIN_U32("graphics/trainers/back_pics/community/zefa_back_pic.gbapal.lz");
+const u32 gTrainerPalette_PlayerNacholordBackBase[] = INCBIN_U32("graphics/trainers/back_pics/community/nacho_back_pic.gbapal.lz");
 
 const u8 gTrainerBackPic_None[] = INCBIN_U8("graphics/trainers/back_pics/none_back_pic.4bpp");
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan_back_pic.4bpp");
@@ -377,6 +378,7 @@ const u8 gTrainerBackPic_Steven[] = INCBIN_U8("graphics/trainers/back_pics/steve
 const u8 gTrainerBackPic_Lucas[] = INCBIN_U8("graphics/trainers/back_pics/lucas_back_pic.4bpp");
 const u8 gTrainerBackPic_Dawn[] = INCBIN_U8("graphics/trainers/back_pics/dawn_back_pic.4bpp");
 const u8 gTrainerBackPic_CommunityZefa[] = INCBIN_U8("graphics/trainers/back_pics/community/zefa_back_pic.4bpp");
+const u8 gTrainerBackPic_CommunityNacholord[] = INCBIN_U8("graphics/trainers/back_pics/community/nacho_back_pic.4bpp");
 
 //const u32 gTrainerBackPicPalette_Leaf[] = INCBIN_U32("graphics/trainers/palettes/leaf/back/0_red.gbapal.lz");
 
@@ -657,6 +659,9 @@ const u32 gTrainerPalette_CommunityZefa[] = INCBIN_U32("graphics/trainers/front_
 
 const u32 gTrainerFrontPic_CommunityLightningStrike7[] = INCBIN_U32("graphics/trainers/front_pics/community/lightningstrike7_front_pic.4bpp.lz");
 const u32 gTrainerPalette_CommunityLightningStrike7[] = INCBIN_U32("graphics/trainers/front_pics/community/lightningstrike7_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_CommunityNacholord[] = INCBIN_U32("graphics/trainers/front_pics/community/nacho_front_pic.4bpp.lz");
+const u32 gTrainerPalette_CommunityNacholord[] = INCBIN_U32("graphics/trainers/front_pics/community/nacho_front_pic.gbapal.lz");
 
 const u32 gTrainerFrontPic_RivalSilver[] = INCBIN_U32("graphics/trainers/front_pics/rival/silver.4bpp.lz");
 const u32 gTrainerPalette_RivalSilver[] = INCBIN_U32("graphics/trainers/front_pics/rival/silver.gbapal.lz");

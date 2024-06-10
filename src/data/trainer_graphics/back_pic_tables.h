@@ -14,6 +14,7 @@ const struct MonCoords gTrainerBackPicCoords[] =
     [TRAINER_BACK_PIC_LUCAS] = {.size = 8, .y_offset = 5},
     [TRAINER_BACK_PIC_DAWN] = {.size = 8, .y_offset = 5},
     [TRAINER_BACK_PIC_COMMUNITY_ZEFA] = {.size = 8, .y_offset = 5},
+    [TRAINER_BACK_PIC_COMMUNITY_NACHOLORD] = {.size = 8, .y_offset = 5},
 };
 
 // this table goes functionally unused, since none of these pics are compressed
@@ -56,4 +57,5 @@ const struct CompressedSpritePalette gTrainerBackPicPaletteTable[] =
     TRAINER_BACK_PAL(LUCAS, gTrainerPalette_PlayerBackPlaceholder),
     TRAINER_BACK_PAL(DAWN, gTrainerPalette_PlayerBackPlaceholder),
     TRAINER_BACK_PAL(COMMUNITY_ZEFA, gTrainerPalette_PlayerZefaBackBase),
+    TRAINER_BACK_PAL(COMMUNITY_NACHOLORD, gTrainerPalette_PlayerNacholordBackBase),
 };

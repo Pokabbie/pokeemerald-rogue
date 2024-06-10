@@ -95,6 +95,7 @@ enum
     // Community secret unlocks
     PLAYER_OUTFIT_ZEFA,
     PLAYER_OUTFIT_LIGHTNINGSTRIKE7,
+    PLAYER_OUTFIT_NACHOLORD,
 
     PLAYER_OUTFIT_COUNT,
 };
@@ -115,6 +116,7 @@ enum
 
     OUTFIT_UNLOCK_ZEFA,
     OUTFIT_UNLOCK_LIGHTNINGSTRIKE7,
+    OUTFIT_UNLOCK_NACHOLORD,
 
     OUTFIT_UNLOCK_COUNT,
 };
@@ -191,6 +193,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZefaNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZefaRiding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LightningStrike7Normal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LightningStrike7Riding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NacholordNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NacholordRiding;
 
 extern const u16 gObjectEventPal_Npc1[];
 extern const u16 gObjectEventPal_Npc2[];
@@ -878,6 +882,26 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerBackBasePal = NULL,
         .trainerBackLayerPal = NULL,
     },
+    [PLAYER_OUTFIT_NACHOLORD] =
+    {
+        .name = _("Nacho"),
+        .trainerFrontPic = TRAINER_PIC_COMMUNITY_NACHOLORD,
+        .trainerBackPic = TRAINER_BACK_PIC_COMMUNITY_NACHOLORD,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_NACHOLORD,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_NacholordNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_NacholordRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_PlayerNacholordBase,
+        .objectEventLayerPal = NULL,
+        .trainerFrontBasePal = NULL,
+        .trainerFrontLayerPal = NULL,
+        .trainerBackBasePal = NULL,
+        .trainerBackLayerPal = NULL,
+    },
 };
 
 static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] = 
@@ -971,6 +995,18 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             {
                 .name = _("LS7"),
                 .eggSpecies = SPECIES_MAGNEMITE,
+            }
+        }
+    },
+    [OUTFIT_UNLOCK_NACHOLORD] = 
+    {
+        .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
+        .params = 
+        {
+            .easterEgg = 
+            {
+                .name = _("NACHO"),
+                .eggSpecies = SPECIES_MUDKIP,
             }
         }
     },
