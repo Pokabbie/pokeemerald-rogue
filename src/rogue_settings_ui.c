@@ -124,6 +124,8 @@ static u8 const sMenuName_TrainerGalar[] = _("Galar");
 static u8 const sMenuName_TrainerPaldea[] = _("Paldea");
 #endif
 
+static u8 const sText_ErrorInvalidSelection[] = _("Error: {COLOR GREEN}{SHADOW LIGHT_GREEN}Invalid selection.");
+
 const u8 sMenuNameDesc_PresetDescription_Easy[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "For those who want a casual experience,\n"
@@ -1206,6 +1208,39 @@ static bool8 CanExitWithB(u8 submenuSelection)
     return TRUE;
 }
 
+static bool8 TryCloseSubmenu(u8 submenuSelection)
+{
+    if(submenuSelection == SUBMENUITEM_TRAINERS)
+    {
+        u8 i;
+        u32 togglesToCheck[] = 
+        {
+            CONFIG_TOGGLE_TRAINER_ROGUE,
+            CONFIG_TOGGLE_TRAINER_KANTO,
+            CONFIG_TOGGLE_TRAINER_JOHTO,
+            CONFIG_TOGGLE_TRAINER_HOENN,
+#ifdef ROGUE_EXPANSION
+            CONFIG_TOGGLE_TRAINER_SINNOH,
+            CONFIG_TOGGLE_TRAINER_UNOVA,
+            CONFIG_TOGGLE_TRAINER_KALOS,
+            CONFIG_TOGGLE_TRAINER_ALOLA,
+            CONFIG_TOGGLE_TRAINER_GALAR,
+            CONFIG_TOGGLE_TRAINER_PALDEA,
+#endif
+        };
+
+        for(i = 0; i < ARRAY_COUNT(togglesToCheck); ++i)
+        {
+            if(Rogue_GetConfigToggle(togglesToCheck[i]) == TRUE)
+                return TRUE;
+        }
+
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
 static void Task_OptionMenuProcessInput(u8 taskId)
 {
     bool8 submenuChanged = FALSE;
@@ -1218,8 +1253,19 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     {
         if(submenuSelection != SUBMENUITEM_NONE)
         {
-            submenuSelection = SUBMENUITEM_NONE;
-            submenuChanged = TRUE;
+            if(TryCloseSubmenu(submenuSelection))
+            {
+                submenuSelection = SUBMENUITEM_NONE;
+                submenuChanged = TRUE;
+            }
+            else
+            {
+                PlaySE(SE_FAILURE);
+                
+                FillWindowPixelBuffer(WIN_TEXT_OPTION, PIXEL_FILL(1));
+                AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, sText_ErrorInvalidSelection, 8, 1, TEXT_SKIP_DRAW, NULL);
+                CopyWindowToVram(WIN_TEXT_OPTION, COPYWIN_FULL);
+            }
         }
         else
             gTasks[taskId].func = Task_OptionMenuSave;
