@@ -18,14 +18,14 @@
   ],
   "warp_events": [
     {
-      "x": 13,
-      "y": 14,
+      "x": 9,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_HOME",
       "dest_warp_id": "8"
     },
     {
-      "x": 13,
+      "x": 11,
       "y": 0,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_HOME_UPPER",

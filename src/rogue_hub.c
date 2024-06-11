@@ -63,7 +63,7 @@ static struct RegionCoords const sHomeRegionCoords[HOME_REGION_COUNT] =
 {
     [HOME_REGION_HOUSE] =  { 15, 14, 19, 19 },
     [HOME_REGION_PLACEABLE_REGION] =  { 4, 4, 31, 31 },
-    [HOME_REGION_PLACEABLE_REGION_INTERIOR] =  { 1, 1, 14, 14 },
+    [HOME_REGION_PLACEABLE_REGION_INTERIOR] =  { 1, 1, 10, 10 },
 };
 
 static struct MapInfo const sHomeAreaStyles[HOME_AREA_STYLE_COUNT] = 
@@ -204,10 +204,6 @@ extern const struct Tileset gTileset_SecretBaseShrub;
 extern const struct Tileset gTileset_SecretBaseTree;
 
 #include "data/rogue/decorations.h"
-
-// We need to reserve a specific variant ID annoyingly :( so multichoice doesn't break
-// (could work around this by having it be an offset from first enable variant?)
-STATIC_ASSERT(DECOR_VARIANT_RESERVED_FOR_127_DEFAULT == MULTI_B_PRESSED, ReservedFor127Matches);
 
 static void MetatileSet_Tile(u16 xStart, u16 yStart, u16 tile);
 static void MetatileFill_Tile(u16 xStart, u16 yStart, u16 xEnd, u16 yEnd, u16 tile);
@@ -2000,6 +1996,9 @@ u8 const* RogueHub_GetDecorVariantName(u16 decorVariantId)
     return sDecorationVariants[decorVariantId].name;
 }
 
+#define INTERNAL_ID_TO_MULTICHOICE_ID(id) (id >= MULTI_B_PRESSED ? (id + 1) : id)
+#define MULTICHOICE_ID_TO_INTERNAL_ID(id) (id >= (MULTI_B_PRESSED + 1) ? (id - 1) : id)
+
 void RogueHub_SetupDecorationMultichoice()
 {
     u16 i;
@@ -2073,9 +2072,6 @@ void RogueHub_SetupDecorationMultichoice()
 
                 switch (decorId)
                 {
-                case DECOR_ID_RESERVED_FOR_127:
-                    continue;
-
                 #ifndef ROGUE_EXPANSION
                 case DECOR_ID_APPLIANCES:
                     continue;
@@ -2086,7 +2082,7 @@ void RogueHub_SetupDecorationMultichoice()
                 if(RogueMiscQuery_CheckState(decorId))
                     continue;
 
-                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorations[decorId].name, decorId);
+                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorations[decorId].name, INTERNAL_ID_TO_MULTICHOICE_ID(decorId));
             }
 
             ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
@@ -2121,17 +2117,15 @@ void RogueHub_SetupDecorationMultichoice()
             {
                 u16 decorVariant = i;
 
-                switch (decorVariant)
-                {
-                case DECOR_VARIANT_RESERVED_FOR_127_DEFAULT:
-                    continue;
-                }
+                //switch (decorVariant)
+                //{
+                //}
 
                 // Hasn't unlocked yet
                 if(RogueMiscQuery_CheckState(decorVariant))
                     continue;
 
-                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorationVariants[decorVariant].name, decorVariant);
+                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sDecorationVariants[decorVariant].name, INTERNAL_ID_TO_MULTICHOICE_ID(decorVariant));
             }
 
             ScriptMenu_ScrollingMultichoiceDynamicAppendOption(sText_Back, MULTI_B_PRESSED);
@@ -2174,6 +2168,7 @@ void RogueHub_HandleDecorationMultichoiceResult()
         }
         else
         {
+            result = MULTICHOICE_ID_TO_INTERNAL_ID(result);
             VarSet(VAR_SELECTED_DECOR_ID, result);
 
             // Has only 1 variant, so just start placing
@@ -2197,6 +2192,7 @@ void RogueHub_HandleDecorationMultichoiceResult()
         }
         else
         {
+            result = MULTICHOICE_ID_TO_INTERNAL_ID(result);
             VarSet(VAR_SELECTED_DECOR_VARIANT, result);
             VarSet(VAR_MENU_DEPTH, MENU_DEPTH_PLACE_DECORATION);
             gSpecialVar_Result = FALSE; // stop choosing and begin decorating

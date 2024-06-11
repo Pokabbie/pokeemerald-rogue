@@ -1540,7 +1540,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         // Increase by 20%
         *money = (CalculateBattleWinnings(trainerNum) * 120) / 100;
 
-        if(Rogue_IsExpTrainer(trainerNum))
+        if(Rogue_IsExpTrainer(trainerNum) || Rogue_IsBattleSimTrainer(trainerNum))
         {
             *money = 0;
             return;
@@ -5484,6 +5484,12 @@ static void PushFaintedMonToLab(struct Pokemon* srcMon)
     struct Pokemon* destMon;
     u16 i = Random() % (LAB_MON_COUNT + 1);
     
+    if(Rogue_IsCatchingContestActive())
+    {
+        // Don't send temp catching contest mons to the lab
+        return;
+    }
+
     if(i >= LAB_MON_COUNT)
     {
         // Ignore this fainted mon
@@ -5788,6 +5794,9 @@ static void SetupTrainerBattleInternal(u16 trainerNum)
             AGB_ASSERT(FALSE);
             break;
     }
+
+    if(Rogue_IsExpTrainer(trainerNum))
+        shouldDoubleBattle = FALSE;
 
     if(shouldDoubleBattle) //NoOfApproachingTrainers != 2 
     {

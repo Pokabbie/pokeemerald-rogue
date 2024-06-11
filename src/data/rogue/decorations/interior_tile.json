@@ -335,6 +335,16 @@
                         "name": "Colourful",
                         "source_tiles":
                         {
+                            "x": 6,
+                            "y": 6,
+                            "width": 2,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Big",
+                        "source_tiles":
+                        {
                             "x": 8,
                             "y": 6,
                             "width": 2,
@@ -345,7 +355,7 @@
                         "name": "Gorgeous",
                         "source_tiles":
                         {
-                            "x": 8,
+                            "x": 10,
                             "y": 6,
                             "width": 2,
                             "height": 2

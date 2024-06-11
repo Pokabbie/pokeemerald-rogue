@@ -1812,6 +1812,14 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
     //}
 
     monCount = min(monCount, monCapacity);
+
+#if !defined(ROGUE_EXPANSION)
+    if(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+    {
+        monCount = max(2, monCount);
+    }
+#endif
+
     return monCount;
 }
 

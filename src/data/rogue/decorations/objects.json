@@ -79,6 +79,7 @@
                     "capacity_per_area": 5
                 }
             },
+
             {
                 "name": "Appliances",
                 "source_object":
@@ -123,15 +124,6 @@
                         }
                     }
                 ]
-            },
-
-
-            {
-                "name": "Reserved for 127",
-                "source_object":
-                {
-                    "local_id": 0
-                }
             },
 
             {
