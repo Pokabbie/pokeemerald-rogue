@@ -10927,6 +10927,9 @@ bool32 CanBattlerGetOrLoseItem(u32 battler, u16 itemId)
         return FALSE;
     else if (holdEffect == HOLD_EFFECT_Z_CRYSTAL)
         return FALSE;
+    // Cannot lose item when behind sub
+    else if(gBattleMons[battler].status2 & STATUS2_SUBSTITUTE)
+        return FALSE;
     else
         return TRUE;
 }
