@@ -325,7 +325,7 @@ static const u8 sText_Popup_BecameFemale[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN
 static const u8 sText_Popup_EncounterChain[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Encounter Chain");
 static const u8 sText_Popup_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RED}Chain Lost");
 
-static const u8 sText_Popup_PokedexUnlock[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Recieved Pokedex!");
+static const u8 sText_Popup_PokedexUnlock[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Received Pokedex!");
 static const u8 sText_Popup_PokedexUpgrade[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Pokedex Upgraded!");
 
 static const u8 sText_Popup_BagUpdate[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Bag Upgraded!");
@@ -347,7 +347,7 @@ static const u8 sText_Popup_HealingFlaskRefilled[] = _("{COLOR LIGHT_GREEN}{SHAD
 static const u8 sText_Popup_GymBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gym Badge {STR_VAR_1}");
 static const u8 sText_Popup_EliteBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Elite Badge {STR_VAR_1}");
 static const u8 sText_Popup_ChampBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Champion Badge");
-static const u8 sText_Popup_EarnBadge[] = _("Recieved badge!");
+static const u8 sText_Popup_EarnBadge[] = _("Received badge!");
 
 static const u8 sText_Popup_AdventureReplay[] = _("Adventure Replay");
 static const u8 sText_Popup_AdventureReplaySubtitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Active");

@@ -477,7 +477,7 @@ script Rogue_ReturnAdventureInternal
         {
             buffernumberstring(STR_VAR_1, VAR_0x8000)
 
-            message(format("You recieved ¥{STR_VAR_1}"))
+            message(format("You received ¥{STR_VAR_1}"))
             playfanfare(MUS_OBTAIN_ITEM)
             waitmessage
             waitfanfare
@@ -487,12 +487,12 @@ script Rogue_ReturnAdventureInternal
         {
             if(var(VAR_0x8001) == 1)
             {
-                message(format("Party recieved 1 LVL"))
+                message(format("Party received 1 LVL"))
             }
             else
             {
                 buffernumberstring(STR_VAR_1, VAR_0x8001)
-                message(format("Party recieved {STR_VAR_1} LVLs"))
+                message(format("Party received {STR_VAR_1} LVLs"))
             }
 
             playfanfare(FANFARE_LEVEL_UP)
