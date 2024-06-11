@@ -5484,6 +5484,12 @@ static void PushFaintedMonToLab(struct Pokemon* srcMon)
     struct Pokemon* destMon;
     u16 i = Random() % (LAB_MON_COUNT + 1);
     
+    if(Rogue_IsCatchingContestActive())
+    {
+        // Don't send temp catching contest mons to the lab
+        return;
+    }
+
     if(i >= LAB_MON_COUNT)
     {
         // Ignore this fainted mon
