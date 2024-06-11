@@ -307,7 +307,7 @@ script Rogue_Encounter_GameShow_VoltorbFlip
             playse(SE_DING_DONG)
             waitse
 
-            msgbox(format("Congratulation!"))
+            msgbox(format("Congratulations!"))
             addvar(VAR_CURRENT_ROUND, 1)
             addvar(VAR_CURRENT_REWARD_COUNTER, 2)
             addvar(VAR_VOLTORB_FLIP_LVL, 2)

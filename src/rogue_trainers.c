@@ -1551,12 +1551,17 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
         break;
 
     case DIFFICULTY_LEVEL_BRUTAL:
-        if(difficulty >= ROGUE_GYM_START_DIFFICULTY + 2)
+        if(difficulty >= ROGUE_GYM_MID_DIFFICULTY)
         {
             scratch->allowStrongLegends = TRUE;
             scratch->preferStrongSpecies = TRUE;
         }
-        else if(difficulty >= ROGUE_GYM_START_DIFFICULTY + 1)
+        else if(difficulty >= ROGUE_GYM_START_DIFFICULTY + 3)
+        {
+            scratch->allowWeakLegends = TRUE;
+            scratch->preferStrongSpecies = TRUE;
+        }
+        else if(difficulty >= ROGUE_GYM_START_DIFFICULTY + 2)
         {
             scratch->allowWeakLegends = TRUE;
         }
@@ -3656,6 +3661,30 @@ static void ReorderPartyMons(u16 trainerNum, struct Pokemon *party, u8 monCount)
                 --sortLength;
             else
                 sortLength = 0;
+        }
+
+        // Now we're gonna be crazy!
+        // To encourage the AI to send out in a less predicatable order, we going to shift the order around some more!
+        // (This also encourages stuff gimick mons to come out sooner too)
+        if(monCount > 2)
+        {
+            // Never sort away lead
+            i = monCount - 1;
+            
+            if(Rogue_ShouldTrainerSaveAceMon(trainerNum))
+            {
+                // Never sort away ace
+                --i;
+            }
+
+            // Never sort away lead
+            // Sort from last forward
+            for(; i > 1; --i)
+            {
+                // If we pass roll, swap current index with next index (shuffle down party)
+                if(RogueRandom() % 2)
+                    SwapMons(i, i - 1, party);
+            }
         }
     }
 }
