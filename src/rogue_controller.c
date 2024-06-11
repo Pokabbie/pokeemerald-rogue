@@ -1540,7 +1540,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         // Increase by 20%
         *money = (CalculateBattleWinnings(trainerNum) * 120) / 100;
 
-        if(Rogue_IsExpTrainer(trainerNum))
+        if(Rogue_IsExpTrainer(trainerNum) || Rogue_IsBattleSimTrainer(trainerNum))
         {
             *money = 0;
             return;
@@ -5794,6 +5794,9 @@ static void SetupTrainerBattleInternal(u16 trainerNum)
             AGB_ASSERT(FALSE);
             break;
     }
+
+    if(Rogue_IsExpTrainer(trainerNum))
+        shouldDoubleBattle = FALSE;
 
     if(shouldDoubleBattle) //NoOfApproachingTrainers != 2 
     {
