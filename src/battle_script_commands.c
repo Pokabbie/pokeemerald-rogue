@@ -7487,7 +7487,7 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
 {
     u32 moneyReward = 0;
     Rogue_ModifyBattleWinnings(trainerId, &moneyReward);
-    return moneyReward;
+    return moneyReward * gBattleStruct->moneyMultiplier;
 }
 
 static void Cmd_getmoneyreward(void)
