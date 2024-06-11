@@ -3054,8 +3054,8 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
     if(presetCount != 0)
     {
         {
-            u16 currentScore;
-            u16 bestScore = 0; // higher is better
+            u32 currentScore;
+            u32 bestScore = 0; // higher is better
             const struct RoguePokemonCompetitiveSet* currPreset = NULL;
             const struct RoguePokemonCompetitiveSet* bestPreset = NULL;
             u8 randOffset = (presetCount == 1 ? 0 : RogueRandomRange(presetCount, FLAG_SET_SEED_TRAINERS));
@@ -3122,7 +3122,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     if(IsMegaEvolutionEnabled())
                     {
                         if(!scratch->heldItems.hasMegaStone)
-                            currentScore *= 2;
+                            currentScore *= 8;
                         else
                             currentScore /= 4;
                     }
@@ -3137,7 +3137,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     if(IsZMovesEnabled())
                     {
                         if(!scratch->heldItems.hasZCrystal)
-                            currentScore *= 2;
+                            currentScore *= 4;
                         else
                             currentScore /= 4;
                     }
