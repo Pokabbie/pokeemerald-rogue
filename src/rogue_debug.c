@@ -284,6 +284,11 @@ static u32 SampleClock()
     return REG_TM2CNT_L | (REG_TM3CNT_L << 16u);
 }
 
+u32 RogueDebug_SampleClock()
+{
+    return SampleClock();
+}
+
 void RogueDebug_StartTimer(u16 timer)
 {
     AGB_ASSERT(!sFrameTimerManager.timers[timer].hasStarted);
@@ -327,6 +332,11 @@ static u32 GetFrameTimeInDisplayUnits(u32 time)
     // convert to microseconds
     u64 value = ((u64)time * (u64)1000000) / (u64)16777216;
     return (u32)value;
+}
+
+u32 RogueDebug_ClockToDisplayUnits(u32 time)
+{
+    return GetFrameTimeInDisplayUnits(time);
 }
 
 static u32 GetFrameTimeAsPercentage(u32 time)

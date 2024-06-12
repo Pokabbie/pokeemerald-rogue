@@ -95,7 +95,6 @@ bool8 RogueWeightQuery_HasAnyWeights();
 bool8 RogueWeightQuery_HasMultipleWeights();
 void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data);
 void RogueWeightQuery_FillWeights(u8 weight);
-void RogueWeightQuery_UpdateIndividualWeight(u16 elem, u8 weight);
 u16 RogueWeightQuery_SelectRandomFromWeights(u16 randValue);
 u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updatedWeight);
 //u16 RogueWeightQuery_SelectFromWeights();
