@@ -238,6 +238,12 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     memcpy(outEvo, GetBaseEvolution(species, evoIdx), sizeof(*outEvo));
 
     // Any species alterations
+    if(species == SPECIES_AZURILL && evoIdx == 0)
+    {
+        outEvo->method = EVO_LEVEL;
+        outEvo->param = 10;
+    }
+
 #ifdef ROGUE_EXPANSION
     if(species == SPECIES_YAMASK_GALARIAN && evoIdx == 0)
     {

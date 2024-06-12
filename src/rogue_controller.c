@@ -185,6 +185,7 @@ static u8 GetCurrentWaterEncounterCount(void);
 static u16 GetWildGrassEncounter(u8 index);
 static u16 GetWildWaterEncounter(u8 index);
 static u16 GetWildEncounterIndexFor(u16 species);
+static void HandleForfeitingInCatchingContest();
 
 void EnableRivalEncounterIfRequired();
 static void ChooseLegendarysForNewAdventure();
@@ -4117,6 +4118,8 @@ static void BeginRogueRun(void)
 
 static void EndRogueRun(void)
 {
+    HandleForfeitingInCatchingContest();
+
     if(Rogue_IsCampaignActive())
         Rogue_DeactivateActiveCampaign();
 
@@ -7847,6 +7850,17 @@ void Rogue_EndCatchingContest()
     RogueMonQuery_End();
 
     SetupFollowParterMonObjectEvent();
+}
+
+static void HandleForfeitingInCatchingContest()
+{
+    if(gRogueLocal.catchingContest.isActive)
+    {
+        // Handle forfeiting mid catching contest
+        TempRestorePlayerTeam();
+        RogueMonQuery_End();
+        gRogueLocal.catchingContest.isActive = FALSE;
+    }
 }
 
 bool8 Rogue_IsCatchingContestActive()

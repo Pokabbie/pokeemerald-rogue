@@ -514,7 +514,7 @@ $(OBJEVENTGFXDIR)/people/lightningstrike7/riding.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/nacho/walking.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/people/nacho/running.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/people/nacho/riding.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/people/reporter_f.4bpp: %.4bpp: %.png
