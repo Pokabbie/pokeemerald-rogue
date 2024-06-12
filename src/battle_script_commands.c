@@ -1230,6 +1230,8 @@ static bool32 NoTargetPresent(u8 battler, u32 move)
 // TODO: Convert this to a proper FORM_CHANGE type.
 static bool32 TryAegiFormChange(void)
 {
+    u32 side = GetBattlerSide(gBattlerAttacker);
+
     // Only Aegislash with Stance Change can transform, transformed mons cannot.
     if (GetBattlerAbility(gBattlerAttacker) != ABILITY_STANCE_CHANGE
         || gBattleMons[gBattlerAttacker].status2 & STATUS2_TRANSFORMED)
@@ -1242,6 +1244,10 @@ static bool32 TryAegiFormChange(void)
     case SPECIES_AEGISLASH_SHIELD: // Shield -> Blade
         if (IS_MOVE_STATUS(gCurrentMove))
             return FALSE;
+    
+        if (gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[gBattlerAttacker]] == SPECIES_NONE)
+            gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[gBattlerAttacker]] = gBattleMons[gBattlerAttacker].species;
+    
         gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH_BLADE;
         break;
     case SPECIES_AEGISLASH_BLADE: // Blade -> Shield
@@ -1253,6 +1259,10 @@ static bool32 TryAegiFormChange(void)
     case SPECIES_WOBBUFFET: // Regular -> Punching
         if (IS_MOVE_STATUS(gCurrentMove))
             return FALSE;
+
+        if (gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[gBattlerAttacker]] == SPECIES_NONE)
+            gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[gBattlerAttacker]] = gBattleMons[gBattlerAttacker].species;
+
         gBattleMons[gBattlerAttacker].species = SPECIES_WOBBUFFET_PUNCHING;
         break;
     case SPECIES_WOBBUFFET_PUNCHING: // Punching -> Regular
