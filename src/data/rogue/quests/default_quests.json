@@ -404,7 +404,7 @@
                         "on": [ "POKEDEX_UPDATE" ],
                         "condition": "PokedexEntryCountGreaterThan",
                         "pass": "SUCCESS",
-                        "params": [ 15 ]
+                        "params": [ 14 ]
                     }
                 ],
                 "rewards":
@@ -430,7 +430,7 @@
                         "on": [ "POKEDEX_UPDATE" ],
                         "condition": "PokedexEntryCountGreaterThan",
                         "pass": "SUCCESS",
-                        "params": [ 100 ]
+                        "params": [ 99 ]
                     }
                 ],
                 "rewards":
