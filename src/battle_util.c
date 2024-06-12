@@ -458,6 +458,11 @@ bool8 TryRunFromBattle(u8 battler)
                 // Always allow running when on 0 badges
                 effect = TRUE;
             }
+            else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+            {
+                // Always allow forfeit
+                effect = TRUE;
+            }
         }
 
         if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))

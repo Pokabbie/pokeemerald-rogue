@@ -137,7 +137,7 @@ static u32 IncrementActiveIteratorInternal(u32 i)
 {
     // Attempt to avoid uncessary reads by working in steps of 32
     u32* data32 = ((u32*)sRogueQuery.bitFlags);
-    u32 value, mask, offset, newOffset, remainder;
+    u32 value, mask, offset, remainder;
 
     ++i; // always offset by 1
 
