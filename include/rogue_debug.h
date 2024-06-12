@@ -89,6 +89,8 @@ enum
 
 void RogueDebug_StartTimer(u16 timer);
 void RogueDebug_StopTimer(u16 timer);
+u32 RogueDebug_SampleClock();
+u32 RogueDebug_ClockToDisplayUnits(u32 time);
 
 #else // ! DEBUG_FEATURE_FRAME_TIMERS
 
