@@ -3775,6 +3775,15 @@ static void BeginRogueRun_ModifyParty(void)
         // Update daycare mons
         for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
         {
+            struct BoxPokemon* boxMon = Rogue_GetDaycareBoxMon(i);
+            u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
+
+            if(species != SPECIES_NONE)
+            {
+                u32 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[species].growthRate, STARTER_MON_LEVEL);
+                SetBoxMonData(boxMon, MON_DATA_EXP, &exp);
+            }
+
             gRogueSaveBlock->daycarePokemon[i].isSafariIllegal = TRUE;
         }
     }
@@ -7729,8 +7738,10 @@ void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, u8 daycareSlot)
         {
             u32 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[species].growthRate, targetLevel);
             SetMonData(partyMon, MON_DATA_EXP, &exp);
-            CalculateMonStats(partyMon);
         }
+
+        // Always recalc for safety
+        CalculateMonStats(partyMon);
     }
 
     CompactPartySlots();
