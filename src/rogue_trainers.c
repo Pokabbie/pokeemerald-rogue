@@ -1778,9 +1778,12 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
             }
         }
 
-        // Clamp team boss to 5 mons
-        if(Rogue_IsTeamBossTrainer(trainerNum))
-            monCount = min(5, monCount);
+        // Clamp team boss to 5 mons on easy and avg
+        if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD)
+        {
+            if(Rogue_IsTeamBossTrainer(trainerNum))
+                monCount = min(5, monCount);
+        }
     }
     else
     {

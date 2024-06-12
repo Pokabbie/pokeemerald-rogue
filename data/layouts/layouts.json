@@ -2050,6 +2050,16 @@
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/Rogue_Route_Sinnoh_210/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_210/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_SINNOH_201",
+      "name": "Rogue_Route_Sinnoh_201_Layout",
+      "width": 68,
+      "height": 64,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Rogue_Route_Sinnoh_201/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_201/map.bin"
     }
   ]
 }
