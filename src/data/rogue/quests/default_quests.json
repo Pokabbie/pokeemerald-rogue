@@ -637,7 +637,7 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_STARF_BERRY" },
-                    { "item": "ITEM_STARF_BERRY", "count": "5", "visibility": "INVISIBLE" },
+                    { "item": "ITEM_STARF_BERRY", "count": "3", "visibility": "INVISIBLE" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },
@@ -765,6 +765,8 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_SITRUS_BERRY" },
+                    { "item": "ITEM_SITRUS_BERRY", "count": "1", "visibility": "INVISIBLE" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },
@@ -883,6 +885,8 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "shop_item": "ITEM_LUM_BERRY" },
+                    { "item": "ITEM_LUM_BERRY", "count": "1", "visibility": "INVISIBLE" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
@@ -920,6 +924,8 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "shop_item": "ITEM_LUM_BERRY" },
+                    { "item": "ITEM_LUM_BERRY", "count": "1", "visibility": "INVISIBLE" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },

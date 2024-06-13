@@ -5131,6 +5131,10 @@ static const struct SpriteFrameImage sPicTable_PokeblockMixer[] = {
     obj_frame_tiles(gObjectEventPic_PokeblockMixer),
 };
 
+static const struct SpriteFrameImage sPicTable_PokeblockMixerGold[] = {
+    obj_frame_tiles(gObjectEventPic_PokeblockMixerGold),
+};
+
 static const struct SpriteFrameImage sPicTable_FoodPie[] = {
     obj_frame_tiles(gObjectEventPic_FoodPie),
 };
@@ -5275,6 +5279,10 @@ static const struct SpriteFrameImage sPicTable_DecorRotomWash[] = {
 };
 static const struct SpriteFrameImage sPicTable_DecorWardrobe[] = {
     obj_frame_tiles(gObjectEventPic_DecorWardrobe),
+};
+
+static const struct SpriteFrameImage sPicTable_DecorCauldren[] = {
+    obj_frame_tiles(gObjectEventPic_DecorCauldren),
 };
 
 static const struct SpriteFrameImage sPicTable_Route_Bug[] = {

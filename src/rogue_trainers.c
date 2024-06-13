@@ -32,6 +32,7 @@ struct TrainerHeldItemScratch
     bool8 hasShellbell : 1;
     bool8 hasChoiceItem : 1;
 #ifdef ROGUE_EXPANSION
+    bool8 hasBlackSludge : 1;
     bool8 hasMegaStone : 1;
     bool8 hasZCrystal : 1;
 #endif
@@ -3110,6 +3111,11 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                 }
 
 #ifdef ROGUE_EXPANSION
+                if(currPreset->heldItem == ITEM_BLACK_SLUDGE && scratch->heldItems.hasBlackSludge)
+                {
+                    currentScore /= 2;
+                }
+
                 // Special case for primal reversion
                 if(!IsMegaEvolutionEnabled())
                 {
@@ -3217,6 +3223,12 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
         }
 
 #ifdef ROGUE_EXPANSION
+        if(outPreset->heldItem == ITEM_BLACK_SLUDGE && scratch->heldItems.hasBlackSludge)
+        {
+            // Swap left overs to shell bell
+            outPreset->heldItem = ITEM_SHELL_BELL;
+        }
+
         if(!IsMegaEvolutionEnabled())
         {
             // Special case for primal reversion
@@ -3263,6 +3275,17 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
             scratch->heldItems.hasChoiceItem = TRUE;
         }
 #ifdef ROGUE_EXPANSION
+        else if(outPreset->heldItem == ITEM_BLACK_SLUDGE)
+        {
+            scratch->heldItems.hasBlackSludge = TRUE;
+
+            // Replace at last second, as we will allow multiple leftovers for this edge case
+            if(IsTerastallizeEnabled())
+            {
+                // Avoid black sludge during tera because it's a bit silly
+                outPreset->heldItem == ITEM_LEFTOVERS;
+            }
+        }
         else if(outPreset->heldItem >= ITEM_VENUSAURITE && outPreset->heldItem <= ITEM_DIANCITE)
         {
             scratch->heldItems.hasMegaStone = TRUE;
