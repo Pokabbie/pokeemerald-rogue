@@ -1464,37 +1464,59 @@ static void RogueHub_UpdateMarketAreaMetatiles()
 static void RogueHub_UpdateChallengeFrontierAreaMetatiles()
 {
     // Remove connectionss
-    if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_EAST) == HUB_AREA_NONE && RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(25, 0, 30, 12, TREE_TYPE_DENSE);
-        MetatileFill_TreeStumps(25, 13, 30, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(30, 7, 37, 19, TREE_TYPE_DENSE);
 
-        MetatileFill_CommonPathRemoval(26, 14, 29, 14);
+        MetatileFill_Tile(28, 12, 28, 17, 0x075 | MAPGRID_COLLISION_MASK);
+        MetatileFill_Tile(29, 12, 29, 17, 0x072 | MAPGRID_COLLISION_MASK);
+
+        MetatileFill_CommonPathRemoval(21, 13, 27, 15);
+    }
+    else
+    {
+        if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_NORTH) == HUB_AREA_NONE)
+        {
+            MetatileFill_TreesOverlapping(32, 0, 35, 12, TREE_TYPE_DENSE);
+            MetatileFill_TreeStumps(32, 13, 35, TREE_TYPE_DENSE);
+
+            MetatileFill_CommonPathRemoval(32, 14, 35, 14);
+        }
+
+        if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+        {
+            MetatileFill_TreesOverlapping(38, 13, 39, 18, TREE_TYPE_DENSE);
+
+            MetatileFill_CommonPathRemoval(36, 15, 37, 17);
+        }
     }
 
-    if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
+    if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE && RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
     {
-        MetatileFill_TreesOverlapping(32, 13, 33, 18, TREE_TYPE_DENSE);
+        MetatileFill_TreesOverlapping(2, 13, 9, 25, TREE_TYPE_DENSE);
 
-        MetatileFill_CommonPathRemoval(30, 15, 31, 17);
+        MetatileFill_Tile(10, 13, 10, 17, 0x070 | MAPGRID_COLLISION_MASK);
+        MetatileFill_Tile(11, 13, 11, 17, 0x073 | MAPGRID_COLLISION_MASK);
+
+        MetatileFill_CommonPathRemoval(12, 13, 18, 15);
     }
-
-    if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
+    else
     {
-        MetatileFill_CommonWarpExitVertical(12, 26);
-        MetatileFill_TreeCaps(12, 27, 15);
+        if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_SOUTH) == HUB_AREA_NONE)
+        {
+            MetatileFill_TreeCaps(4, 19, 7);
+            MetatileFill_TreesOverlapping(4, 20, 7, 25, TREE_TYPE_DENSE);
 
-        MetatileFill_CommonPathRemoval(12, 25, 15, 25);
+            MetatileFill_CommonPathRemoval(4, 18, 7, 18);
+        }
+
+        if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
+        {
+            MetatileFill_TreesOverlapping(0, 13, 1, 18, TREE_TYPE_DENSE);
+
+            MetatileFill_CommonPathRemoval(2, 15, 3, 17);
+        }
     }
-
-    if(RogueHub_GetAreaAtConnection(HUB_AREA_CHALLENGE_FRONTIER, HUB_AREA_CONN_WEST) == HUB_AREA_NONE)
-    {
-        MetatileFill_CommonWarpExitHorizontal(8, 21);
-        MetatileFill_TreesOverlapping(0, 21, 7, 25, TREE_TYPE_DENSE);
-
-        MetatileFill_CommonPathRemoval(10, 22, 11, 24);
-    }
-    
 }
 
 static void RogueHub_UpdateDayCareAreaMetatiles()

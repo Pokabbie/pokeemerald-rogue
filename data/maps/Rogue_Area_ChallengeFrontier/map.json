@@ -15,12 +15,12 @@
   "connections": [
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
-      "offset": 10,
+      "offset": 2,
       "direction": "down"
     },
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
-      "offset": 20,
+      "offset": 12,
       "direction": "left"
     },
     {
@@ -30,14 +30,14 @@
     },
     {
       "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
-      "offset": 24,
+      "offset": 30,
       "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
-      "x": 9,
+      "x": 15,
       "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -51,77 +51,77 @@
   ],
   "warp_events": [
     {
-      "x": 27,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 28,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
-      "dest_warp_id": "0"
-    },
-    {
       "x": 33,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 34,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
-      "x": 33,
+      "x": 39,
       "y": 16,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
-      "x": 13,
-      "y": 27,
+      "x": 5,
+      "y": 20,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
-      "x": 14,
-      "y": 27,
+      "x": 6,
+      "y": 20,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
-      "x": 8,
-      "y": 23,
+      "x": 0,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
-      "x": 8,
-      "y": 24,
+      "x": 0,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
       "dest_warp_id": "0"
     },
     {
-      "x": 13,
+      "x": 19,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_CHALLENGE_FRONTIER",
       "dest_warp_id": "0"
     },
     {
-      "x": 14,
+      "x": 20,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_INTERIOR_CHALLENGE_FRONTIER",
       "dest_warp_id": "0"
     },
     {
-      "x": 13,
+      "x": 19,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_AREA_TOWN_SQUARE",
