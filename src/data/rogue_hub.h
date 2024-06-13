@@ -383,7 +383,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     //
     [HUB_UPGRADE_BERRY_FIELD_BREWING] = 
     {
-        .upgradeName = _("Potion Cauldren"),
+        .upgradeName = _("Potion Cauldron"),
         .targetArea = HUB_AREA_BERRY_FIELD,
         .buildCost = 3,
         .descText = gHubUpgradeDesc_BerryField_Brewing,

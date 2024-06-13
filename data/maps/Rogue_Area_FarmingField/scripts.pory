@@ -55,7 +55,7 @@ script Rogue_Area_FarmingField_MakePotions
 {
     lock
 
-    msgbox(format("It's a Potion Cauldren!"))
+    msgbox(format("It's a Potion Cauldron!"))
 
     checkitemspace(ITEM_MOOMOO_MILK, 1)
     if(var(VAR_RESULT) == NO)
