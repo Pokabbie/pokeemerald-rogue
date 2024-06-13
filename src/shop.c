@@ -47,6 +47,7 @@
 #include "rogue_hub.h"
 #include "rogue_query.h"
 #include "rogue_quest.h"
+#include "rogue_settings.h"
 
 typedef void (*ShopCallback)();
 
@@ -1776,7 +1777,7 @@ static u16 HubUpgradeShopItemListCallback(u16 index)
 
             for(i = 0; i < HUB_UPGRADE_COUNT; ++i)
             {
-                if(!RogueHub_HasUpgrade(i) && RogueHub_HasUpgradeRequirements(i) && !gRogueHubUpgrades[i].isHidden)
+                if(!RogueHub_HasUpgrade(i) && RogueHub_HasUpgradeRequirements(i) && (RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_SHOPS) || !gRogueHubUpgrades[i].isHidden))
                 {
                     if(listIndex == index)
                         return i;

@@ -36,6 +36,7 @@
 
 #include "rogue_player_customisation.h"
 #include "rogue_player_customisation_ui.h"
+#include "rogue_timeofday.h"
 
 #define TOTAL_UI_PAGE_ENTRIES 9
 #define MAX_UI_PAGE_DEPTH 4
@@ -516,6 +517,8 @@ void CB2_InitPlayerCustomisationMenu()
         SetMainCallback2(gMain.savedCallback);
         return;
     }
+
+    RogueToD_SetTempDisableTimeVisuals(TRUE);
 
     sPlayerOutfitUIState = AllocZeroed(sizeof(struct RoguePlayerUIState));
     
@@ -1157,6 +1160,8 @@ static void RoguePlayerUI_FreeResources(void)
     {
         Free(sBg1TilemapBuffer);
     }
+    
+    RogueToD_SetTempDisableTimeVisuals(FALSE);
     FreeAllWindowBuffers();
     ResetSpriteData();
 }

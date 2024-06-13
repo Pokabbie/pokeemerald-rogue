@@ -255,6 +255,21 @@ static bool8 CalculateInitialRideSpecies()
     return CalculateRideSpecies(0);
 }
 
+static void PlayRideMonCry()
+{
+    if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies != sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.monGfx)
+    {
+        u16 species = sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies;
+
+        if(species >= FOLLOWMON_SHINY_OFFSET)
+            species -= FOLLOWMON_SHINY_OFFSET;
+
+        if(IsCryPlaying())
+            StopCry();
+        PlayCry_Normal(species, 0);
+    }
+}
+
 // Based on GetOnOffBike
 void Rogue_GetOnOffRideMon(u8 whistleType, bool8 forWarp)
 {
@@ -281,6 +296,7 @@ void Rogue_GetOnOffRideMon(u8 whistleType, bool8 forWarp)
         if(CalculateInitialRideSpecies())
         {
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_RIDING);
+            PlayRideMonCry();
         }
         else
         {
@@ -316,6 +332,7 @@ bool8 Rogue_HandleRideMonInput()
                 if(CanCycleRideMons())
                 {
                     CalculateRideSpecies(-1);
+                    PlayRideMonCry();
                 }
                 else
                 {
@@ -327,6 +344,7 @@ bool8 Rogue_HandleRideMonInput()
                 if(CanCycleRideMons())
                 {
                     CalculateRideSpecies(1);
+                    PlayRideMonCry();
                 }
                 else
                 {
@@ -356,22 +374,11 @@ static void UpdatePlayerRideState()
 
     if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].isActive)
     {
-        // When changing mons play a cry here
-        if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies != sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.monGfx)
-        {
-            u16 species = sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies;
-
-            if(species >= FOLLOWMON_SHINY_OFFSET)
-                species -= FOLLOWMON_SHINY_OFFSET;
-
-            if(IsCryPlaying())
-                StopCry();
-            PlayCry_Normal(species, 0);
-        }
+        AGB_ASSERT(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies != SPECIES_NONE);
     }
     else
     {
-        sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = SPECIES_NONE;
+        //sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.desiredRideSpecies = SPECIES_NONE;
         sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.monGfx = SPECIES_NONE;
 
         if(wasActive)
