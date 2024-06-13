@@ -1,6 +1,7 @@
 const FLAG_HIDE_BERRIES0 = FLAG_TEMP_1
 const FLAG_HIDE_BERRIES1 = FLAG_TEMP_2
 const FLAG_HIDE_BERRIES2 = FLAG_TEMP_3
+const FLAG_HIDE_CAULDREN = FLAG_TEMP_4
 
 mapscripts Rogue_Area_FarmingField_MapScripts 
 {
@@ -9,6 +10,16 @@ mapscripts Rogue_Area_FarmingField_MapScripts
 
 script Rogue_Area_FarmingField_OnMapLoad
 {
+    hubupgradeunlocked(HUB_UPGRADE_BERRY_FIELD_BREWING)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        clearflag(FLAG_HIDE_CAULDREN)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_CAULDREN)
+    }
+
     hubupgradeunlocked(HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD0)
     if(var(VAR_RESULT) == TRUE)
     {
@@ -38,4 +49,107 @@ script Rogue_Area_FarmingField_OnMapLoad
     {
         setflag(FLAG_HIDE_BERRIES2)
     }
+}
+
+script Rogue_Area_FarmingField_MakePotions
+{
+    lock
+
+    msgbox(format("It's a Potion Cauldron!"))
+
+    checkitemspace(ITEM_MOOMOO_MILK, 1)
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("You don't have any free room in your Bag."))
+    }
+    else
+    {
+        begindynamicmultichoice
+        appenddynamicmultichoice("Potion", 0)
+        appenddynamicmultichoice("Super Potion", 1)
+        appenddynamicmultichoice("Hyper Potion", 2)
+        appenddynamicmultichoice("Max Potion", 3)
+        appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+        message(format("What would you like to make?"))
+        waitmessage
+        enddynamicmultichoice(1, 0, 6, TRUE)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0:
+                msgbox(format("To make a Potion, 2 Oran Berries are needed."))
+
+                checkitem(ITEM_ORAN_BERRY, 2)
+                if(var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("Would you like to brew a Potion?"), MSGBOX_YESNO)
+                    if(var(VAR_RESULT) == YES)
+                    {
+                        removeitem(ITEM_ORAN_BERRY, 2)
+                        additem(ITEM_POTION, 1)
+                    }
+                }
+                else
+                {
+                    msgbox(format("You don't have enough Berries to brew this."))
+                }
+
+            case 1:
+                msgbox(format("To make a Super Potion, 5 Oran Berries are needed."))
+
+                checkitem(ITEM_ORAN_BERRY, 5)
+                if(var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("Would you like to brew a Super Potion?"), MSGBOX_YESNO)
+                    if(var(VAR_RESULT) == YES)
+                    {
+                        removeitem(ITEM_ORAN_BERRY, 5)
+                        additem(ITEM_SUPER_POTION, 1)
+                    }
+                }
+                else
+                {
+                    msgbox(format("You don't have enough Berries to brew this."))
+                }
+
+            case 2:
+                msgbox(format("To make a Hyper Potion, 20 Oran Berries are needed."))
+
+                checkitem(ITEM_ORAN_BERRY, 20)
+                if(var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("Would you like to brew a Hyper Potion?"), MSGBOX_YESNO)
+                    if(var(VAR_RESULT) == YES)
+                    {
+                        removeitem(ITEM_ORAN_BERRY, 20)
+                        additem(ITEM_HYPER_POTION, 1)
+                    }
+                }
+                else
+                {
+                    msgbox(format("You don't have enough Berries to brew this."))
+                }
+
+            case 3:
+                msgbox(format("To make a Max Potion, 40 Oran Berries are needed."))
+
+                checkitem(ITEM_ORAN_BERRY, 40)
+                if(var(VAR_RESULT) == YES)
+                {
+                    msgbox(format("Would you like to brew a Max Potion?"), MSGBOX_YESNO)
+                    if(var(VAR_RESULT) == YES)
+                    {
+                        removeitem(ITEM_ORAN_BERRY, 40)
+                        additem(ITEM_MAX_POTION, 1)
+                    }
+                }
+                else
+                {
+                    msgbox(format("You don't have enough Berries to brew this."))
+                }
+        }
+    }
+
+    release
 }

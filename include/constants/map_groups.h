@@ -111,6 +111,7 @@
 #define MAP_ROGUE_ROUTE_SINNOH_212           (31 | (6 << 8))
 #define MAP_ROGUE_ROUTE_SINNOH_217           (32 | (6 << 8))
 #define MAP_ROGUE_ROUTE_SINNOH_210           (33 | (6 << 8))
+#define MAP_ROGUE_ROUTE_SINNOH_201           (34 | (6 << 8))
 
 // gMapGroup_RogueAdventureEncounters
 #define MAP_ROGUE_ENCOUNTER_REST_STOP        (0 | (7 << 8))

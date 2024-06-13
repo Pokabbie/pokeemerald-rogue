@@ -1239,13 +1239,18 @@ static void Task_ShowItemDescriptionInput(u8 taskId)
 {
 }
 
+static u8 const sText_ItemName[] = _("{COLOR BLUE}{STR_VAR_1}");
+
 static void PrintItemDescriptionToWindow(u8 windowId, u16 itemId)
 {
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
     SetStandardWindowBorderStyle(windowId, 0);
 
+    StringCopy(gStringVar1, ItemId_GetName(itemId));
+    StringExpandPlaceholders(gStringVar4, sText_ItemName);
+
     gTextFlags.replaceScrollWithNewLine = TRUE;
-    AddTextPrinterParameterized(windowId, FONT_NORMAL, ItemId_GetName(itemId), 0, 0, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar4, 0, 0, TEXT_SKIP_DRAW, NULL);
     AddTextPrinterParameterized(windowId, FONT_NORMAL, ItemId_GetDescription(itemId), 0, 14, TEXT_SKIP_DRAW, NULL);
     gTextFlags.replaceScrollWithNewLine = FALSE;
 

@@ -891,3 +891,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Route_Sinnoh_217/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Sinnoh_210/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_201/scripts.inc"

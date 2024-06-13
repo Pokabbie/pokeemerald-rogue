@@ -859,6 +859,7 @@ const u32 gObjectEventPic_PCStand[] = INCBIN_U32("graphics/object_events/pics/ro
 const u32 gObjectEventPic_BattleStatue[] = INCBIN_U32("graphics/object_events/pics/rogue/battle_statue.4bpp");
 const u32 gObjectEventPic_PhoneBooth[] = INCBIN_U32("graphics/object_events/pics/rogue/phone_booth.4bpp");
 const u32 gObjectEventPic_PokeblockMixer[] = INCBIN_U32("graphics/object_events/pics/rogue/pokeblock_mixer.4bpp");
+const u32 gObjectEventPic_PokeblockMixerGold[] = INCBIN_U32("graphics/object_events/pics/rogue/pokeblock_mixer_gold.4bpp");
 const u32 gObjectEventPic_FoodPie[] = INCBIN_U32("graphics/object_events/pics/rogue/food_pie.4bpp");
 const u32 gObjectEventPic_SmallSign[] = INCBIN_U32("graphics/object_events/pics/rogue/small_sign.4bpp");
 const u32 gObjectEventPic_DevilMan[] = INCBIN_U32("graphics/object_events/pics/rogue/devil_man.4bpp");
@@ -895,6 +896,7 @@ const u32 gObjectEventPic_DecorRotomHeat[] = INCBIN_U32("graphics/object_events/
 const u32 gObjectEventPic_DecorRotomMow[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_rotom_mow.4bpp");
 const u32 gObjectEventPic_DecorRotomWash[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_rotom_wash.4bpp");
 const u32 gObjectEventPic_DecorWardrobe[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_wardrobe.4bpp");
+const u32 gObjectEventPic_DecorCauldren[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_cauldren.4bpp");
 
 const u32 gObjectEventPic_Route_Bug[] = INCBIN_U32("graphics/object_events/pics/rogue/route/bug.4bpp");
 const u32 gObjectEventPic_Route_Dark[] = INCBIN_U32("graphics/object_events/pics/rogue/route/dark.4bpp");

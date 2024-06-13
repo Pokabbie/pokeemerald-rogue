@@ -32,6 +32,7 @@ struct TrainerHeldItemScratch
     bool8 hasShellbell : 1;
     bool8 hasChoiceItem : 1;
 #ifdef ROGUE_EXPANSION
+    bool8 hasBlackSludge : 1;
     bool8 hasMegaStone : 1;
     bool8 hasZCrystal : 1;
 #endif
@@ -1778,9 +1779,12 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
             }
         }
 
-        // Clamp team boss to 5 mons
-        if(Rogue_IsTeamBossTrainer(trainerNum))
-            monCount = min(5, monCount);
+        // Clamp team boss to 5 mons on easy and avg
+        if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) < DIFFICULTY_LEVEL_HARD)
+        {
+            if(Rogue_IsTeamBossTrainer(trainerNum))
+                monCount = min(5, monCount);
+        }
     }
     else
     {
@@ -3107,6 +3111,11 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                 }
 
 #ifdef ROGUE_EXPANSION
+                if(currPreset->heldItem == ITEM_BLACK_SLUDGE && scratch->heldItems.hasBlackSludge)
+                {
+                    currentScore /= 2;
+                }
+
                 // Special case for primal reversion
                 if(!IsMegaEvolutionEnabled())
                 {
@@ -3214,6 +3223,12 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
         }
 
 #ifdef ROGUE_EXPANSION
+        if(outPreset->heldItem == ITEM_BLACK_SLUDGE && scratch->heldItems.hasBlackSludge)
+        {
+            // Swap left overs to shell bell
+            outPreset->heldItem = ITEM_SHELL_BELL;
+        }
+
         if(!IsMegaEvolutionEnabled())
         {
             // Special case for primal reversion
@@ -3260,6 +3275,17 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
             scratch->heldItems.hasChoiceItem = TRUE;
         }
 #ifdef ROGUE_EXPANSION
+        else if(outPreset->heldItem == ITEM_BLACK_SLUDGE)
+        {
+            scratch->heldItems.hasBlackSludge = TRUE;
+
+            // Replace at last second, as we will allow multiple leftovers for this edge case
+            if(IsTerastallizeEnabled())
+            {
+                // Avoid black sludge during tera because it's a bit silly
+                outPreset->heldItem == ITEM_LEFTOVERS;
+            }
+        }
         else if(outPreset->heldItem >= ITEM_VENUSAURITE && outPreset->heldItem <= ITEM_DIANCITE)
         {
             scratch->heldItems.hasMegaStone = TRUE;

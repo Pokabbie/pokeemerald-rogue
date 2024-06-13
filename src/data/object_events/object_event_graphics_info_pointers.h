@@ -472,6 +472,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PCStand;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BattleStatue;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PhoneBooth;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeblockMixer;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeblockMixerGold;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FoodPie;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SmallSign;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DevilMan;
@@ -508,6 +509,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorRotomHeat;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorRotomMow;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotomWash;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorWardrobe;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorCauldren;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAlt;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAlt;
@@ -1036,6 +1038,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BATTLE_STATUE] =            &gObjectEventGraphicsInfo_BattleStatue,
     [OBJ_EVENT_GFX_PHONE_BOOTH] =              &gObjectEventGraphicsInfo_PhoneBooth,
     [OBJ_EVENT_GFX_POKEBLOCK_MIXER] =          &gObjectEventGraphicsInfo_PokeblockMixer,
+    [OBJ_EVENT_GFX_POKEBLOCK_MIXER_GOLD] =     &gObjectEventGraphicsInfo_PokeblockMixerGold,
     [OBJ_EVENT_GFX_FOOD_PIE] =                 &gObjectEventGraphicsInfo_FoodPie,
     [OBJ_EVENT_GFX_SMALL_SIGN] =               &gObjectEventGraphicsInfo_SmallSign,
     [OBJ_EVENT_GFX_DEVIL_MAN] =                &gObjectEventGraphicsInfo_DevilMan,
@@ -1072,6 +1075,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DECOR_ROTOM_MOW] =          &gObjectEventGraphicsInfo_DecorRotomMow,
     [OBJ_EVENT_GFX_DECOR_ROTOM_WASH] =         &gObjectEventGraphicsInfo_RotomWash,
     [OBJ_EVENT_GFX_DECOR_WARDROBE] =           &gObjectEventGraphicsInfo_DecorWardrobe,
+    [OBJ_EVENT_GFX_DECOR_CAULDREN] =           &gObjectEventGraphicsInfo_DecorCauldren,
 
     [OBJ_EVENT_GFX_BRENDAN_ALT] =              &gObjectEventGraphicsInfo_BrendanAlt,
     [OBJ_EVENT_GFX_MAY_ALT] =                  &gObjectEventGraphicsInfo_MayAlt,
