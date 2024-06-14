@@ -127,6 +127,49 @@ script Rogue_QuickSaveVersionUpdateMessage
     msgbox(format("I hope you enjoy Emerald Rogue!"), MSGBOX_DEFAULT)
 }
 
+script Rogue_Debug_SetWeather
+{
+    lock
+
+    begindynamicmultichoice(24)
+    appenddynamicmultichoice("None", WEATHER_NONE)
+    appenddynamicmultichoice("Sunny", WEATHER_SUNNY)
+    appenddynamicmultichoice("Drought", WEATHER_DROUGHT)
+    appenddynamicmultichoice("Rain", WEATHER_RAIN)
+    appenddynamicmultichoice("Rain Thunder", WEATHER_RAIN_THUNDERSTORM)
+    appenddynamicmultichoice("Downpour", WEATHER_DOWNPOUR)
+    appenddynamicmultichoice("Snow", WEATHER_SNOW)
+    appenddynamicmultichoice("Sandstorm", WEATHER_SANDSTORM)
+    appenddynamicmultichoice("Psychic Fog", WEATHER_PSYCHIC_FOG)
+    appenddynamicmultichoice("Misty Fog", WEATHER_MISTY_FOG)
+    appenddynamicmultichoice("Leaves", WEATHER_LEAVES)
+
+    appenddynamicmultichoice("Sunny Clouds", WEATHER_SUNNY_CLOUDS)
+    appenddynamicmultichoice("Volcanic Ash", WEATHER_VOLCANIC_ASH)
+    appenddynamicmultichoice("Under Water", WEATHER_UNDERWATER)
+    appenddynamicmultichoice("Under Water Bubbles", WEATHER_UNDERWATER_BUBBLES)
+    appenddynamicmultichoice("Shade", WEATHER_SHADE)
+
+    message(format("Which Weather?"))
+    waitmessage
+    enddynamicmultichoice(1, 0, 6, TRUE)
+
+    if(var(VAR_RESULT) != MULTI_B_PRESSED)
+    {
+        setweather(VAR_RESULT)
+        doweather
+        setweather(VAR_RESULT)
+        if(var(VAR_ROGUE_DESIRED_WEATHER) != WEATHER_NONE)
+        {
+            setweather(VAR_RESULT)
+            doweather
+        }
+    }
+
+    release
+}
+
+
 //script Rogue_NewGameVersionUpdate
 //{
 //    lockall

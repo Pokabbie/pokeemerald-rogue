@@ -4,6 +4,13 @@
 #include "rogue_hub_strings.h"
 
 extern const u8 gHubAreaDesc_Todo[];
+extern const u8 gHubAreaDesc_ChallengeFrontier[];
+extern const u8 gHubAreaDesc_BerryField[];
+extern const u8 gHubAreaDesc_Home[];
+extern const u8 gHubAreaDesc_Marts[];
+extern const u8 gHubAreaDesc_RideTraining[];
+extern const u8 gHubAreaDesc_DayCare[];
+extern const u8 gHubAreaDesc_Market[];
 
 extern const u8 gHubUpgradeDesc_Home_LowerFloor[];
 extern const u8 gHubUpgradeDesc_Home_UpperFloor[];
@@ -97,7 +104,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_HOME),
         .areaName = _("Home Base"),
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubAreaDesc_Home,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .buildCost = 15,
         .connectionWarps = 
@@ -116,7 +123,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_FARMING_FIELD),
         .areaName = _("Berry Fields"),
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubAreaDesc_BerryField,
         .buildCost = 10,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -152,7 +159,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_RIDE_TRAINING),
         .areaName = _("Park"),
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubAreaDesc_RideTraining,
         .buildCost = 15,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -171,7 +178,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_MARTS),
         .areaName = _("Poké Marts"),
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubAreaDesc_Marts,
         .buildCost = 25,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -212,7 +219,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_CHALLENGE_FRONTIER),
         .areaName = _("Challenge Area"),
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubAreaDesc_ChallengeFrontier,
         .buildCost = 0,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -231,7 +238,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_DAY_CARE),
         .areaName = _("Day Care"),
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubAreaDesc_DayCare,
         .buildCost = 30,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -250,7 +257,7 @@ const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT] =
     {
         SET_AREA_PRIMARY_MAP(ROGUE_AREA_MARKET),
         .areaName = _("Market"),
-        .descText = gHubAreaDesc_Todo,
+        .descText = gHubAreaDesc_Market,
         .buildCost = 25,
         .requiredUpgrades = { HUB_UPGRADE_NONE },
         .connectionWarps = 
@@ -516,7 +523,7 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
     {
         .upgradeName = _("Trainer School"),
         .targetArea = HUB_AREA_TOWN_SQUARE,
-        .buildCost = 1,
+        .buildCost = 0,
         .descText = gHubUpgradeDesc_TownSquare_TrainerSchool,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
