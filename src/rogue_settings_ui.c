@@ -323,7 +323,7 @@ static u8 const sMenuName_DebugToggleDisableAssistantTimeout[] = _("Disable Assi
 
 static u8 const sMenuName_DebugRangeStartDifficulty[] = _("START DIFFICULTY");
 static u8 const sMenuName_DebugRangeForcedRoute[] = _("FORCED ROUTE");
-static u8 const sMenuName_DebugRangeForcedWeather[] = _("FORCED WEATHER");
+static u8 const sMenuName_DebugRangeForcedEvilTeam[] = _("FORCED TEAM");
 #endif
 
 // Menu items
@@ -389,7 +389,7 @@ enum
 
     MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
     MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE,
-    MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER,
+    MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM,
 #endif
 
     MENUITEM_CANCEL,
@@ -463,6 +463,7 @@ static u8 DebugRange_ProcessInput(u8 menuOffset, u8 selection);
 static void DebugRange_DrawChoices(u8 menuOffset, u8 selection);
 static u8 DebugRange_DifficultySkipProcessInput(u8 menuOffset, u8 selection);
 static u8 DebugRange_ForcedRouteProcessInput(u8 menuOffset, u8 selection);
+static u8 DebugRange_ForcedTeamProcessInput(u8 menuOffset, u8 selection);
 #endif
 
 EWRAM_DATA static bool8 sArrowPressed = FALSE;
@@ -835,10 +836,10 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = DebugRange_ForcedRouteProcessInput,
         .drawChoices = DebugRange_DrawChoices
     },
-    [MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER] = 
+    [MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM] = 
     {
-        .itemName = sMenuName_DebugRangeForcedWeather,
-        .processInput = DebugRange_ProcessInput,
+        .itemName = sMenuName_DebugRangeForcedEvilTeam,
+        .processInput = DebugRange_ForcedTeamProcessInput,
         .drawChoices = DebugRange_DrawChoices
     },
 
@@ -961,7 +962,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
 
             MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
             MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE,
-            MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER,
+            MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM,
 
             MENUITEM_CANCEL
         }
@@ -1787,6 +1788,30 @@ static u8 DebugRange_ForcedRouteProcessInput(u8 menuOffset, u8 selection)
     return selection;
 }
 
+static u8 DebugRange_ForcedTeamProcessInput(u8 menuOffset, u8 selection)
+{
+    if (JOY_REPEAT(DPAD_RIGHT | A_BUTTON))
+    {
+        if(selection == TEAM_NUM_COUNT)
+            selection = 0;
+        else
+            selection++;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_REPEAT(DPAD_LEFT))
+    {
+        if (selection == 0)
+            selection = TEAM_NUM_COUNT;
+        else
+            selection--;
+
+        sArrowPressed = TRUE;
+    }
+    
+    return selection;
+}
+
 #endif
 
 static u8 Empty_ProcessInput(u8 menuOffset, u8 selection)
@@ -2044,8 +2069,8 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE:
         return RogueDebug_GetConfigRange(DEBUG_RANGE_FORCED_ROUTE);
 
-    case MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER:
-        return RogueDebug_GetConfigRange(DEBUG_RANGE_FORCED_WEATHER);
+    case MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM:
+        return RogueDebug_GetConfigRange(DEBUG_RANGE_FORCED_EVIL_TEAM);
 #endif
     }
 
@@ -2228,8 +2253,8 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
     case MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE:
         RogueDebug_SetConfigRange(DEBUG_RANGE_FORCED_ROUTE, value);
 
-    case MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER:
-        RogueDebug_SetConfigRange(DEBUG_RANGE_FORCED_WEATHER, value);
+    case MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM:
+        RogueDebug_SetConfigRange(DEBUG_RANGE_FORCED_EVIL_TEAM, value);
         break;
 #endif
     }

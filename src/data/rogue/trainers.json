@@ -18,7 +18,8 @@
         "trainers/route.json",
         "trainers/team_rocket.json",
         "trainers/team_aqua.json",
-        "trainers/team_magma.json"
+        "trainers/team_magma.json",
+        "trainers/team_galactic.json"
     ],
     "defaults":
     {

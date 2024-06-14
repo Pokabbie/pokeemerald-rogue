@@ -1403,6 +1403,9 @@ static u32 GetActiveTeamFlag()
 
         case TEAM_NUM_MAGMA:
             return CLASS_FLAG_TEAM_MAGMA;
+
+        case TEAM_NUM_GALACTIC:
+            return CLASS_FLAG_TEAM_GALACTIC;
     }
 
     AGB_ASSERT(FALSE);

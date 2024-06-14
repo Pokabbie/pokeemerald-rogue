@@ -286,6 +286,10 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_ROCKET_GRUNT_M] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_SCIENTIST] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_BIKER] = {.size = 8, .y_offset = 1},
+
+    [TRAINER_PIC_GALACTIC_GRUNT_M] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_GALACTIC_GRUNT_F] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_GALACTIC_CYRUS] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE_CUSTOM(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -577,6 +581,10 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(ROCKET_GRUNT_M, gTrainerFrontPic_RocketGruntM),
     TRAINER_SPRITE(SCIENTIST, gTrainerFrontPic_Scientist),
     TRAINER_SPRITE(BIKER, gTrainerFrontPic_Biker),
+
+    TRAINER_SPRITE(GALACTIC_GRUNT_M, gTrainerFrontPic_GalacticGruntM),
+    TRAINER_SPRITE(GALACTIC_GRUNT_F, gTrainerFrontPic_GalacticGruntF),
+    TRAINER_SPRITE(GALACTIC_CYRUS, gTrainerFrontPic_GalacticCyrus),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -867,4 +875,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(ROCKET_GRUNT_M, gTrainerPalette_RocketGruntM),
     TRAINER_PAL(SCIENTIST, gTrainerPalette_Scientist),
     TRAINER_PAL(BIKER, gTrainerPalette_Biker),
+
+    TRAINER_PAL(GALACTIC_GRUNT_M, gTrainerPalette_GalacticGruntM),
+    TRAINER_PAL(GALACTIC_GRUNT_F, gTrainerPalette_GalacticGruntF),
+    TRAINER_PAL(GALACTIC_CYRUS, gTrainerPalette_GalacticCyrus),
 };

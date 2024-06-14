@@ -725,3 +725,12 @@ const u32 gTrainerPalette_Scientist[] = INCBIN_U32("graphics/trainers/front_pics
 
 const u32 gTrainerFrontPic_Biker[] = INCBIN_U32("graphics/trainers/front_pics/biker_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Biker[] = INCBIN_U32("graphics/trainers/front_pics/biker_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_GalacticGruntM[] = INCBIN_U32("graphics/trainers/front_pics/team/galactic_grunt_m_front_pic.4bpp.lz");
+const u32 gTrainerPalette_GalacticGruntM[] = INCBIN_U32("graphics/trainers/front_pics/team/galactic_grunt_m_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_GalacticGruntF[] = INCBIN_U32("graphics/trainers/front_pics/team/galactic_grunt_f_front_pic.4bpp.lz");
+const u32 gTrainerPalette_GalacticGruntF[] = INCBIN_U32("graphics/trainers/front_pics/team/galactic_grunt_f_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_GalacticCyrus[] = INCBIN_U32("graphics/trainers/front_pics/team/galactic_cyrus_front_pic.4bpp.lz");
+const u32 gTrainerPalette_GalacticCyrus[] = INCBIN_U32("graphics/trainers/front_pics/team/galactic_cyrus_front_pic.gbapal.lz");

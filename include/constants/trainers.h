@@ -305,9 +305,13 @@
 #define TRAINER_PIC_SCIENTIST             (TRAINER_PIC_COMMUNITY_UNUSED1 + 3)
 #define TRAINER_PIC_BIKER                 (TRAINER_PIC_COMMUNITY_UNUSED1 + 4)
 
+#define TRAINER_PIC_GALACTIC_GRUNT_M      (TRAINER_PIC_BIKER + 1)
+#define TRAINER_PIC_GALACTIC_GRUNT_F      (TRAINER_PIC_BIKER + 2)
+#define TRAINER_PIC_GALACTIC_CYRUS        (TRAINER_PIC_BIKER + 3)
+
 // Special cases
-#define TRAINER_PIC_PLAYER_AVATAR           (TRAINER_PIC_BIKER + 1)
-#define TRAINER_PIC_PLAYER_OPPOSITE_AVATAR  (TRAINER_PIC_BIKER + 2)
+#define TRAINER_PIC_PLAYER_AVATAR           (TRAINER_PIC_GALACTIC_CYRUS + 1)
+#define TRAINER_PIC_PLAYER_OPPOSITE_AVATAR  (TRAINER_PIC_GALACTIC_CYRUS + 2)
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_NONE                   0
@@ -568,6 +572,8 @@
 #define TRAINER_CLASS_TEAM_ROCKET           0x46
 #define TRAINER_CLASS_TEAM_ROCKET_LEADER    0x47
 #define TRAINER_CLASS_BIKER                 0x48
+#define TRAINER_CLASS_TEAM_GALACTIC         0x49
+#define TRAINER_CLASS_TEAM_GALACTIC_LEADER  0x4A
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music

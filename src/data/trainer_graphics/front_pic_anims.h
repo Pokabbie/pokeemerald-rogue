@@ -661,4 +661,8 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_ROCKET_GRUNT_M] = sAnims_Kanto,
     [TRAINER_PIC_SCIENTIST] = sAnims_Kanto,
     [TRAINER_PIC_BIKER] = sAnims_Kanto,
+
+    [TRAINER_PIC_GALACTIC_GRUNT_M] = sAnims_Kanto,
+    [TRAINER_PIC_GALACTIC_GRUNT_F] = sAnims_Kanto,
+    [TRAINER_PIC_GALACTIC_CYRUS] = sAnims_Kanto,
 };
