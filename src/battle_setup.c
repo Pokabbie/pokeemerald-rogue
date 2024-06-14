@@ -959,6 +959,9 @@ u8 GetTrainerBattleTransition(void)
     //if (trainer.trainerClass == TRAINER_CLASS_TEAM_ROCKET
     //    || trainer.trainerClass == TRAINER_CLASS_TEAM_ROCKET_LEADER)
     //    return B_TRANSITION_POKEBALLS_TRAIL;
+    //if (trainer.trainerClass == TRAINER_CLASS_TEAM_GALACTIC
+    //    || trainer.trainerClass == TRAINER_CLASS_TEAM_GALACTIC_LEADER)
+    //    return B_TRANSITION_POKEBALLS_TRAIL;
 
     if(Rogue_IsRunActive())
     {

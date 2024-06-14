@@ -4333,8 +4333,8 @@ static u16 ChooseTeamEncounterNum()
     }
 
 #ifdef ROGUE_EXPANSION
-    //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH))
-    //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_SINNOH;
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH))
+        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, TEAM_NUM_GALACTIC);
 //
     //if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA))
     //    filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_UNOVA;
@@ -4368,6 +4368,11 @@ static u16 ChooseTeamEncounterNum()
     RogueWeightQuery_End();
 
     RogueCustomQuery_End();
+
+    if(RogueDebug_GetConfigRange(DEBUG_RANGE_FORCED_EVIL_TEAM) != 0)
+    {
+        return RogueDebug_GetConfigRange(DEBUG_RANGE_FORCED_EVIL_TEAM) - 1;
+    }
 
     return i;
 }

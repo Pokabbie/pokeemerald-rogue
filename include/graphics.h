@@ -610,6 +610,13 @@ extern const u32 gTrainerPalette_Scientist[];
 extern const u32 gTrainerFrontPic_Biker[];
 extern const u32 gTrainerPalette_Biker[];
 
+extern const u32 gTrainerFrontPic_GalacticGruntM[];
+extern const u32 gTrainerPalette_GalacticGruntM[];
+extern const u32 gTrainerFrontPic_GalacticGruntF[];
+extern const u32 gTrainerPalette_GalacticGruntF[];
+extern const u32 gTrainerFrontPic_GalacticCyrus[];
+extern const u32 gTrainerPalette_GalacticCyrus[];
+
 extern const u32 gTrainerFrontPic_RivalSilver[];
 extern const u32 gTrainerPalette_RivalSilver[];
 extern const u32 gTrainerFrontPic_RivalBarry[];

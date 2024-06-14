@@ -307,8 +307,9 @@
 #define CLASS_FLAG_TEAM_ROCKET                  (1 << 0)
 #define CLASS_FLAG_TEAM_AQUA                    (1 << 1)
 #define CLASS_FLAG_TEAM_MAGMA                   (1 << 2)
+#define CLASS_FLAG_TEAM_GALACTIC                (1 << 3)
 
-#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA)
+#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA | CLASS_FLAG_TEAM_GALACTIC)
 
 // TRAINER_FLAG_CLASS_SPECIAL
 //
@@ -327,7 +328,8 @@
 #define TEAM_NUM_JOHTO_ROCKET   1
 #define TEAM_NUM_AQUA           2
 #define TEAM_NUM_MAGMA          3
-#define TEAM_NUM_COUNT          4
+#define TEAM_NUM_GALACTIC       4
+#define TEAM_NUM_COUNT          5
 
 #define TEAM_PRE_LEGEND_MAP_OFFSET 100
 
@@ -356,6 +358,8 @@
 #define SPECIES_RAVEN_ACE               SPECIES_GOOMY
 #define SPECIES_ERMA_ACE                SPECIES_FOMANTIS
 #define SPECIES_KATE_ACE                SPECIES_TAROUNTULA
+
+#define SPECIES_CYRUS_ACE               SPECIES_GIRATINA
 #else
 #define ITEM_POKABBIE_POKEBALL          ITEM_LUXURY_BALL
 #define ITEM_FINAL_TRAINERS_POKEBALL    ITEM_PREMIER_BALL
@@ -366,6 +370,8 @@
 #define SPECIES_RAVEN_ACE               SPECIES_NONE
 #define SPECIES_ERMA_ACE                SPECIES_NONE
 #define SPECIES_KATE_ACE                SPECIES_GASTLY
+
+#define SPECIES_CYRUS_ACE               SPECIES_RAYQUAZA
 #endif
 
 // For final quest we're going to only show a single rival per "gym gen"
@@ -541,7 +547,8 @@
 // DEBUG_RANGE_
 #define DEBUG_RANGE_START_DIFFICULTY                (DEBUG_START_VALUE + 0)
 #define DEBUG_RANGE_FORCED_ROUTE                    (DEBUG_START_VALUE + 1)
-#define DEBUG_RANGE_FORCED_WEATHER                  (DEBUG_START_VALUE + 3)
+// ...
+#define DEBUG_RANGE_FORCED_EVIL_TEAM                (DEBUG_START_VALUE + 3)
 #define DEBUG_RANGE_COUNT                           4
 
 #define BATTLE_FORMAT_SINGLES   0

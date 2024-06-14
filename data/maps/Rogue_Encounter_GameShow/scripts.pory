@@ -56,7 +56,7 @@ script Rogue_Encounter_GameShow_TriggerIntro
     playse(SE_TRUCK_DOOR)
     delay(30)
 
-    playbgm(MUS_GAME_CORNER, TRUE)
+    playbgm(MUS_HG_GAME_CORNER, TRUE)
 
     msgbox(format("Welcome to my ever so lovingly setup Game Show!"), MSGBOX_DEFAULT)
 

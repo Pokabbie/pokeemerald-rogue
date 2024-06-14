@@ -359,6 +359,41 @@ text gHubAreaDesc_Todo
     format("todo - area desc")
 }
 
+text gHubAreaDesc_ChallengeFrontier
+{
+    format("Access various new Quests and Items…")
+}
+
+text gHubAreaDesc_BerryField
+{
+    format("Grow Berries and craft basic Potions.")
+}
+
+text gHubAreaDesc_Home
+{
+    format("Personal area to Decorate & change Outfits.")
+}
+
+text gHubAreaDesc_Marts
+{
+    format("Shops for TMs, Poké Balls, Held Items etc.")
+}
+
+text gHubAreaDesc_RideTraining
+{
+    format("Train {PKMN} to help you in the Overworld.")
+}
+
+text gHubAreaDesc_DayCare
+{
+    format("Bring extra {PKMN} into Adventures and hatch Eggs.")
+}
+
+text gHubAreaDesc_Market
+{
+    format("Blend {POKEBLOCK} and improve {PKMN} IVs.")
+}
+
 text gHubUpgradeDesc_Home_LowerFloor
 {
     format("An Interior space to decorate in the Home Base.")

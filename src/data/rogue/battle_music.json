@@ -436,6 +436,26 @@
             "victory": "MUS_VICTORY_AQUA_MAGMA"
         },
 
+        "team_galactic_leader":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
+            "battle": "MUS_DP_VS_GALACTIC_BOSS",
+            "victory": "MUS_DP_VICTORY_GALACTIC"
+        },
+        "team_galactic":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_GALACTIC",
+            "battle": "MUS_DP_VS_GALACTIC",
+            "victory": "MUS_DP_VICTORY_GALACTIC",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "TEAM_GALACTIC_LEADER",
+                    "music_player": "team_galactic_leader"
+                }
+            ]
+        },
+
         "wild_battle":
         {
             "battle": "MUS_VS_WILD",
