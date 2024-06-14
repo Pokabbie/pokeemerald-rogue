@@ -536,7 +536,7 @@ script Rogue_Interior_ChallengeFrontier_TalkMasteries
             }
             ROGUE_VERSION_EXPANSION
             {
-                msgbox(format("Once, you have completed any of those Quests, their signature items will be available for purchase.\pYou may speak to me, at any time, to buy those items.\pI wish you the best of luck with your Pokémon Masteries, {PLAYER}!"))
+                msgbox(format("Once, you have completed any of those Quests, their signature items will be available for purchase.\pYou may speak to me, at any time, to buy any Special Items you gain access to through completing Quests.\pI wish you the best of luck with your Pokémon Masteries, {PLAYER}!"))
             }
         }
     }
@@ -552,9 +552,7 @@ script Rogue_Interior_ChallengeFrontier_TalkMasteries
             }
             ROGUE_VERSION_EXPANSION
             {
-                msgbox(format("Hello, {PLAYER}."))
-
-                message(format("Would you like to purchase any Pokémon Mastery rewards?"))
+                message(format("Would you like to purchase any Special Item rewards?"))
                 waitmessage
 
                 rogue_dynamicpokemart(ROGUE_SHOP_RARE_HELD_ITEMS)

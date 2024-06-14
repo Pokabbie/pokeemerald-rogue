@@ -782,7 +782,7 @@ static u8 RandomRarity()
 {
     u8 rarity;
 
-    switch (Random() % 10)
+    switch (Random() % 7)
     {
     case 0:
         rarity = UNIQUE_RARITY_EXOTIC;
@@ -797,7 +797,14 @@ static u8 RandomRarity()
         rarity = UNIQUE_RARITY_RARE;
         break;
     
+    case 4:
+    case 5:
+    case 6:
+        rarity = UNIQUE_RARITY_COMMON;
+        break;
+
     default:
+        AGB_ASSERT(FALSE);
         rarity = UNIQUE_RARITY_COMMON;
         break;
     }

@@ -1894,8 +1894,8 @@
     {
       "id": "LAYOUT_ROGUE_AREA_CHALLENGE_FRONTIER",
       "name": "Rogue_Area_ChallengeFrontier_Layout",
-      "width": 34,
-      "height": 28,
+      "width": 40,
+      "height": 26,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/Rogue_Area_ChallengeFrontier/border.bin",
