@@ -349,9 +349,24 @@ u32 RogueGift_GetCustomBoxMonId(struct BoxPokemon* mon)
     return RogueGift_GetCustomMonIdBySpecies(GetBoxMonData(mon, MON_DATA_SPECIES), GetBoxMonData(mon, MON_DATA_OT_ID));
 }
 
+static u16 TransformCheckSpecies(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    if(!gSpeciesInfo[species].isAlolanForm && !gSpeciesInfo[species].isGalarianForm && !gSpeciesInfo[species].isHisuianForm && !gSpeciesInfo[species].isPaldeanForm)
+    {
+        // Fix for castform/other form changes
+        return GET_BASE_SPECIES_ID(species);
+    }
+#endif
+
+    return species;
+}
+
 u32 RogueGift_GetCustomMonIdBySpecies(u16 species, u32 otId)
 {
     u32 i;
+
+    species = TransformCheckSpecies(species);
 
     if((otId & OTID_FLAG_CUSTOM_MON) && (otId & OTID_FLAG_DYNAMIC_CUSTOM_MON))
     {
