@@ -4773,6 +4773,37 @@ s8 GetChosenMovePriority(u32 battler)
     return GetMovePriority(battler, move);
 }
 
+static bool32 IsWeatherAffectedMove(u16 move)
+{
+    switch(move)
+    {
+        case MOVE_WEATHER_BALL:
+        case MOVE_SOLAR_BEAM:
+        case MOVE_SOLAR_BLADE:
+        case MOVE_HYDRO_STEAM:
+        case MOVE_THUNDER:
+        case MOVE_HURRICANE:
+        case MOVE_SYNTHESIS:
+        case MOVE_GROWTH:
+        case MOVE_SUNNY_DAY:
+        case MOVE_RAIN_DANCE:
+        case MOVE_BLEAKWIND_STORM:
+        case MOVE_WILDBOLT_STORM:
+        case MOVE_SANDSEAR_STORM:
+        case MOVE_MORNING_SUN:
+        case MOVE_MOONLIGHT:
+        case MOVE_HAIL:
+        case MOVE_BLIZZARD:
+        case MOVE_SNOWSCAPE:
+        case MOVE_CHILLY_RECEPTION:
+        case MOVE_SANDSTORM:
+        case MOVE_SHORE_UP:
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 s8 GetMovePriority(u32 battler, u16 move)
 {
     s8 priority;
@@ -4790,6 +4821,10 @@ s8 GetMovePriority(u32 battler, u16 move)
     if (ability == ABILITY_GALE_WINGS
         && (B_GALE_WINGS < GEN_7 || BATTLER_MAX_HP(battler))
         && gBattleMoves[move].type == TYPE_FLYING)
+    {
+        priority++;
+    }
+    else if (ability == ABILITY_FORECAST_PRIORITY && IsWeatherAffectedMove(move))
     {
         priority++;
     }

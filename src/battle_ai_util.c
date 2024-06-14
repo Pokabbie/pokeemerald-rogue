@@ -296,9 +296,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_GORILLA_TACTICS] = 4,
     [ABILITY_EARTH_EATER] = 7,
 
-    [ABILITY_FORECAST_DRIZZLE] = 9,
-    [ABILITY_FORECAST_DROUGHT] = 9,
-    [ABILITY_FORECAST_SNOW] = 9,
+    [ABILITY_FORECAST_PRIORITY] = 9,
 };
 
 static const u16 sEncouragedEncoreEffects[] =
