@@ -215,9 +215,7 @@
                 ],
                 "abilities":
                 [
-                    "ABILITY_FORECAST_DRIZZLE",
-                    "ABILITY_FORECAST_DROUGHT",
-                    "ABILITY_FORECAST_SNOW"
+                    "ABILITY_FORECAST_PRIORITY"
                     
                 ]
             },
