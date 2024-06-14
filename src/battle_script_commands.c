@@ -1971,11 +1971,6 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
 {
     s32 critChance = 0;
 
-    if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
-        critChance += GetCurseValue(EFFECT_CRIT_CHANCE);
-    else
-        critChance += GetCharmValue(EFFECT_CRIT_CHANCE);
-
     if (gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT || gStatuses3[battlerAtk] & STATUS3_CANT_SCORE_A_CRIT
        || abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR)
     {
@@ -1994,7 +1989,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
                     + (holdEffectAtk == HOLD_EFFECT_SCOPE_LENS)
                     + 2 * (holdEffectAtk == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[battlerAtk].species == SPECIES_CHANSEY)
                     + 2 * BENEFITS_FROM_LEEK(battlerAtk, holdEffectAtk)
-                    + 2 * (B_AFFECTION_MECHANICS == TRUE && GetBattlerAffectionHearts(battlerAtk) == AFFECTION_FIVE_HEARTS)
+                    //+ 2 * (B_AFFECTION_MECHANICS == TRUE && GetBattlerAffectionHearts(battlerAtk) == AFFECTION_FIVE_HEARTS) // TODO -MAKE THIS A FLAT 10% BECAUSE THIS IS CRAZY
                     + (abilityAtk == ABILITY_SUPER_LUCK)
                     + gBattleStruct->bonusCritStages[gBattlerAttacker];
 
@@ -2002,6 +1997,21 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
         if (critChance >= 3 && recordAbility && (abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR))
             RecordAbilityBattle(battlerDef, abilityDef);
 
+        if (critChance >= ARRAY_COUNT(sCriticalHitChance))
+            critChance = ARRAY_COUNT(sCriticalHitChance) - 1;
+    }
+
+    if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+    {
+        critChance += GetCurseValue(EFFECT_CRIT_CHANCE);
+
+        if (critChance >= ARRAY_COUNT(sCriticalHitChance))
+            critChance = ARRAY_COUNT(sCriticalHitChance) - 1;
+    }
+    else
+    {
+        critChance += GetCharmValue(EFFECT_CRIT_CHANCE);
+        
         if (critChance >= ARRAY_COUNT(sCriticalHitChance))
             critChance = ARRAY_COUNT(sCriticalHitChance) - 1;
     }
@@ -2041,7 +2051,17 @@ static void Cmd_critcalc(void)
     else if (critChance == -2)
         gIsCriticalHit = TRUE;
     else
-        gIsCriticalHit = RandomWeighted(RNG_CRITICAL_HIT, sCriticalHitChance[critChance] - 1, 1);
+    {
+        u8 currentCritRate = sCriticalHitChance[critChance];
+
+        if(B_AFFECTION_MECHANICS == TRUE && GetBattlerAffectionHearts(gBattlerAttacker) == AFFECTION_FIVE_HEARTS)
+        {
+            currentCritRate = max(1, currentCritRate / 2);
+        }
+
+        gIsCriticalHit = RandomWeighted(RNG_CRITICAL_HIT, currentCritRate - 1, 1);
+
+    }
 
     // Counter for EVO_CRITICAL_HITS.
     partySlot = gBattlerPartyIndexes[gBattlerAttacker];
