@@ -48,10 +48,9 @@ script Rogue_Boss_VictoryLap_LoadFrame_0
 
 script Rogue_Boss_VictoryLap_BattleLoop
 {
-    setvar(VAR_RESULT, YES)
-
     call(Rogue_EventScript_AttemptPostGymHeal)
     special(Rogue_BeginVictoryLap)
+    setvar(VAR_RESULT, YES)
 
     while(var(VAR_RESULT) == YES)
     {
