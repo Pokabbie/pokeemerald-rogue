@@ -2459,6 +2459,15 @@ u8 CastformDataTypeChange(u8 battler)
     return formChange;
 }
 
+static u8 GetInitialBattleWeather()
+{
+    // Instant weather override to avoid anims
+    if(Rogue_IsVictoryLapActive())
+        return VarGet(VAR_ROGUE_DESIRED_WEATHER);
+    else
+        return GetCurrentWeather();
+}
+
 u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveArg)
 {
     u8 effect = 0;
@@ -2525,7 +2534,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             case ABILITYEFFECT_SWITCH_IN_WEATHER:
                 if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
                 {
-                    switch (GetCurrentWeather())
+                    switch (GetInitialBattleWeather())
                     {
                     case WEATHER_RAIN:
                     case WEATHER_RAIN_THUNDERSTORM:
@@ -2569,7 +2578,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 if (effect)
                 {
-                    gBattleCommunication[MULTISTRING_CHOOSER] = GetCurrentWeather();
+                    gBattleCommunication[MULTISTRING_CHOOSER] = GetInitialBattleWeather();
                     BattleScriptPushCursorAndCallback(BattleScript_OverworldWeatherStarts);
                 }
                 break;

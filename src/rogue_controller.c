@@ -138,7 +138,9 @@ struct RogueLocalData
     u32 wildBattleCustomMonId;
     u16 cachedObjIds[OBJ_EVENT_ID_MULTIPLAYER_COUNT];
     u16 wildEncounterHistoryBuffer[3];
+    u16 victoryLapHistoryBuffer[8];
     u16 recentObjectEventLoadedLayout;
+    u16 victoryLapTotalWins;
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
     bool8 hasValidQuickSave : 1;
@@ -301,6 +303,11 @@ bool8 Rogue_IsRunActive(void)
     return FlagGet(FLAG_ROGUE_RUN_ACTIVE);
 }
 
+bool8 Rogue_IsVictoryLapActive(void)
+{
+    return Rogue_IsRunActive() && FlagGet(FLAG_ROGUE_IS_VICTORY_LAP);
+}
+
 bool8 Rogue_InWildSafari(void)
 {
     return FlagGet(FLAG_ROGUE_WILD_SAFARI);
@@ -323,12 +330,22 @@ u8 Rogue_GetCurrentDifficulty(void)
 
 void Rogue_SetCurrentDifficulty(u8 difficulty)
 {
+    AGB_ASSERT(difficulty <= ROGUE_MAX_BOSS_COUNT);
     gRogueRun.currentDifficulty = difficulty;
 }
 
 bool8 Rogue_ForceExpAll(void)
 {
     return Rogue_GetConfigToggle(CONFIG_TOGGLE_EXP_ALL);
+}
+
+u16* Rogue_GetVictoryLapHistoryBufferPtr()
+{
+    return gRogueLocal.victoryLapHistoryBuffer;
+}
+u32 Rogue_GetVictoryLapHistoryBufferSize()
+{
+    return ARRAY_COUNT(gRogueLocal.victoryLapHistoryBuffer);
 }
 
 bool8 Rogue_EnableExpGain(void)
@@ -431,6 +448,9 @@ bool8 Rogue_UseKeyBattleAnims(void)
 #if !TESTING
     if(Rogue_IsRunActive())
     {
+        if(Rogue_IsVictoryLapActive())
+            return FALSE;
+
         // Force slow anims for bosses
         if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0 && Rogue_IsKeyTrainer(gTrainerBattleOpponent_A))
             return TRUE;
@@ -1408,8 +1428,20 @@ const u8* Rogue_ModifyFieldMessage(const u8* str)
 
     if(Rogue_IsRunActive())
     {
+        if(Rogue_IsVictoryLapActive())
+        {
+            u16 trainerNum = VarGet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA);
 
-        if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
+            if(str == gPlaceholder_Gym_PreBattleOpenning)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_PRE_BATTLE_OPENNING);
+            else if(str == gPlaceholder_Gym_PreBattleTaunt)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_PRE_BATTLE_TAUNT);
+            else if(str == gPlaceholder_Gym_PostBattleTaunt)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_TAUNT);
+            else if(str == gPlaceholder_Gym_PostBattleCloser)
+                overrideStr = Rogue_GetTrainerString(trainerNum, TRAINER_STRING_POST_BATTLE_CLOSER);
+        }
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
         {
             u16 trainerNum;
 
@@ -1541,7 +1573,7 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
         // Increase by 20%
         *money = (CalculateBattleWinnings(trainerNum) * 120) / 100;
 
-        if(Rogue_IsExpTrainer(trainerNum) || Rogue_IsBattleSimTrainer(trainerNum))
+        if(Rogue_IsExpTrainer(trainerNum) || Rogue_IsBattleSimTrainer(trainerNum) || Rogue_IsVictoryLapActive())
         {
             *money = 0;
             return;
@@ -3055,6 +3087,7 @@ void Rogue_OnNewGame(void)
     memset(&gRogueLocal, 0, sizeof(gRogueLocal));
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
+    FlagClear(FLAG_ROGUE_IS_VICTORY_LAP);
     FlagClear(FLAG_ROGUE_WILD_SAFARI);
     FlagClear(FLAG_ROGUE_LVL_TUTORIAL);
     FlagSet(FLAG_ROGUE_HIDE_WORKBENCHES);
@@ -3067,7 +3100,6 @@ void Rogue_OnNewGame(void)
     FlagClear(FLAG_ROGUE_EXPANSION_ACTIVE);
 #endif
 
-    FlagClear(FLAG_ROGUE_RUN_ACTIVE);
     VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
 
     Rogue_ResetSettingsToDefaults();
@@ -3565,7 +3597,7 @@ u16 Rogue_PostRunRewardLvls()
         lvlCount = 1;
     }
 
-    lvlCount *= Rogue_GetCurrentDifficulty();
+    lvlCount *= (Rogue_GetCurrentDifficulty() + gRogueLocal.victoryLapTotalWins);
 
     if(lvlCount != 0)
     {
@@ -3599,7 +3631,7 @@ u16 Rogue_PostRunRewardMoney()
 
     if(gRogueRun.enteredRoomCounter > 1)
     {
-        u16 i = gRogueRun.enteredRoomCounter - 1;
+        u16 i = gRogueLocal.victoryLapTotalWins + gRogueRun.enteredRoomCounter - 1;
 
         switch (Rogue_GetDifficultyRewardLevel())
         {
@@ -3962,6 +3994,8 @@ static void BeginRogueRun(void)
 #endif
 
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
+    FlagClear(FLAG_ROGUE_IS_VICTORY_LAP);
+    gRogueLocal.victoryLapTotalWins = 0;
 
     Rogue_PreActivateDesiredCampaign();
 
@@ -4133,6 +4167,7 @@ static void EndRogueRun(void)
         Rogue_DeactivateActiveCampaign();
 
     FlagClear(FLAG_ROGUE_RUN_ACTIVE);
+    FlagClear(FLAG_ROGUE_IS_VICTORY_LAP);
 
     gRogueAdvPath.currentRoomType = ADVPATH_ROOM_NONE;
     gRogueRun.wildEncounters.roamer.species = SPECIES_NONE;
@@ -4972,6 +5007,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         // Warping back to hub must be intentional
         return;
     }
+    else if(warp->mapGroup == MAP_GROUP(ROGUE_BOSS_VICTORY_LAP) && warp->mapNum == MAP_NUM(ROGUE_BOSS_VICTORY_LAP))
+    {
+        // Never override this warp
+        return;
+    }
     else if(warp->mapGroup == MAP_GROUP(ROGUE_BOSS_FINAL) && warp->mapNum == MAP_NUM(ROGUE_BOSS_FINAL))
     {
         // Never override this warp
@@ -5644,6 +5684,10 @@ void RemoveAnyFaintedMons(bool8 keepItems)
         // Don't release any fainted mons for final champ fight
         if(Rogue_UseFinalQuestEffects() && Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
             skipReleasing = TRUE;
+
+        // Leave all mons in party
+        if(Rogue_IsVictoryLapActive())
+            skipReleasing = TRUE;
     }
 
     if(!Rogue_ShouldReleaseFaintedMons())
@@ -5679,7 +5723,7 @@ void RemoveAnyFaintedMons(bool8 keepItems)
                 }
 
                 // Only push mons if run is active
-                if(Rogue_IsRunActive())
+                if(Rogue_IsRunActive() && !Rogue_IsVictoryLapActive())
                 {
                     RogueSafari_PushMon(&gPlayerParty[read]);
                 }
@@ -5844,7 +5888,7 @@ void Rogue_Battle_StartTrainerBattle(void)
 
     SetupTrainerBattleInternal(gTrainerBattleOpponent_A);
 
-    if(Rogue_IsBossTrainer(gTrainerBattleOpponent_A))
+    if(!Rogue_IsVictoryLapActive() && Rogue_IsBossTrainer(gTrainerBattleOpponent_A))
     {
         Rogue_AddPartySnapshot();
     }
@@ -6152,79 +6196,90 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             isBossTrainer = TRUE;
         }
 
-        if (IsPlayerDefeated(gBattleOutcome) != TRUE && isBossTrainer)
+        if(Rogue_IsVictoryLapActive())
         {
-            u8 nextLevel;
-            u8 prevLevel = Rogue_CalculateBossMonLvl();
-
-            // Update badge for trainer card
-            gRogueRun.completedBadges[Rogue_GetCurrentDifficulty()] = Rogue_GetTrainerTypeAssignment(trainerNum);
-
-            if(gRogueRun.completedBadges[Rogue_GetCurrentDifficulty()] == TYPE_NONE)
-                gRogueRun.completedBadges[Rogue_GetCurrentDifficulty()] = TYPE_MYSTERY;
-
-            // Increment difficulty
-            Rogue_SetCurrentDifficulty(Rogue_GetCurrentDifficulty() + 1);
-            nextLevel = Rogue_CalculateBossMonLvl();
-            
-            RogueQuest_OnTrigger(QUEST_TRIGGER_EARN_BADGE);
-
-            gRogueRun.currentLevelOffset = nextLevel - prevLevel;
-            gRogueRun.wildEncounters.roamerActiveThisPath = TRUE;
-
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_MAX_BOSS_COUNT)
-            {
-                // Snapshot HoF team
-                Rogue_AddPartySnapshot();
-
-                FlagSet(FLAG_IS_CHAMPION);
-                FlagSet(FLAG_ROGUE_RUN_COMPLETED);
-                RogueQuest_OnTrigger(QUEST_TRIGGER_ENTER_HALL_OF_FAME);
-                RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
-            }
-
-            VarSet(VAR_ROGUE_DIFFICULTY, Rogue_GetCurrentDifficulty());
-            VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(Rogue_GetCurrentDifficulty(), VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
-
-            EnableRivalEncounterIfRequired();
-
-            if(IsCurseActive(EFFECT_SNOWBALL_CURSES) && Rogue_GetCurrentDifficulty() < ROGUE_MAX_BOSS_COUNT)
-            {
-                // Add new curse
-                u16 tempBuffer[5];
-                u16 tempBufferCount = 0;
-                u16 itemId = Rogue_NextCurseItem(tempBuffer, tempBufferCount++);
-
-                AddBagItem(itemId, 1);
-                Rogue_PushPopup_AddItem(itemId, 1);
-            }
+            ++gRogueLocal.victoryLapTotalWins;
+            Rogue_PushPopup_VictoryLapProgress(Rogue_GetTrainerTypeAssignment(trainerNum), gRogueLocal.victoryLapTotalWins);
         }
-
-        // Don't adjust soft cap for battle sim
-        if(!Rogue_IsBattleSimTrainer(trainerNum))
+        else
         {
-            // Adjust this after the boss reset
-            if(gRogueRun.currentLevelOffset)
+            if (IsPlayerDefeated(gBattleOutcome) != TRUE && isBossTrainer)
             {
-                u8 levelOffsetDelta = Rogue_GetModeRules()->levelOffsetInterval;
+                u8 nextLevel;
+                u8 prevLevel = Rogue_CalculateBossMonLvl();
+
+                // Update badge for trainer card
+                gRogueRun.completedBadges[Rogue_GetCurrentDifficulty()] = Rogue_GetTrainerTypeAssignment(trainerNum);
+
+                if(gRogueRun.completedBadges[Rogue_GetCurrentDifficulty()] == TYPE_NONE)
+                    gRogueRun.completedBadges[Rogue_GetCurrentDifficulty()] = TYPE_MYSTERY;
+
+                // Increment difficulty
+                Rogue_SetCurrentDifficulty(Rogue_GetCurrentDifficulty() + 1);
+                nextLevel = Rogue_CalculateBossMonLvl();
                 
-                if(levelOffsetDelta == 0)
+                RogueQuest_OnTrigger(QUEST_TRIGGER_EARN_BADGE);
+
+                gRogueRun.currentLevelOffset = nextLevel - prevLevel;
+                gRogueRun.wildEncounters.roamerActiveThisPath = TRUE;
+
+                if(Rogue_GetCurrentDifficulty() >= ROGUE_MAX_BOSS_COUNT)
                 {
-                    // Apply default
-                    levelOffsetDelta = 4;
+                    // Snapshot HoF team
+                    Rogue_AddPartySnapshot();
+
+                    FlagSet(FLAG_IS_CHAMPION);
+                    FlagSet(FLAG_ROGUE_RUN_COMPLETED);
+                    RogueQuest_OnTrigger(QUEST_TRIGGER_ENTER_HALL_OF_FAME);
+                    RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
                 }
 
-                // Every trainer battle drops level cap slightly
-                if(gRogueRun.currentLevelOffset < levelOffsetDelta)
-                    gRogueRun.currentLevelOffset = 0;
-                else
-                    gRogueRun.currentLevelOffset -= levelOffsetDelta;
+                VarSet(VAR_ROGUE_DIFFICULTY, Rogue_GetCurrentDifficulty());
+                VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(Rogue_GetCurrentDifficulty(), VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
+
+                EnableRivalEncounterIfRequired();
+            }
+
+            // Don't adjust soft cap for battle sim
+            if(!Rogue_IsBattleSimTrainer(trainerNum))
+            {
+                // Adjust this after the boss reset
+                if(gRogueRun.currentLevelOffset)
+                {
+                    u8 levelOffsetDelta = Rogue_GetModeRules()->levelOffsetInterval;
+                    
+                    if(levelOffsetDelta == 0)
+                    {
+                        // Apply default
+                        levelOffsetDelta = 4;
+                    }
+
+                    // Every trainer battle drops level cap slightly
+                    if(gRogueRun.currentLevelOffset < levelOffsetDelta)
+                        gRogueRun.currentLevelOffset = 0;
+                    else
+                        gRogueRun.currentLevelOffset -= levelOffsetDelta;
+                }
             }
         }
 
         if (IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             RemoveAnyFaintedMons(FALSE);
+            
+            if(isBossTrainer)
+            {
+                if(IsCurseActive(EFFECT_SNOWBALL_CURSES) && Rogue_GetCurrentDifficulty() < ROGUE_MAX_BOSS_COUNT)
+                {
+                    // Add new curse
+                    u16 tempBuffer[5];
+                    u16 tempBufferCount = 0;
+                    u16 itemId = Rogue_NextCurseItem(tempBuffer, tempBufferCount++);
+
+                    AddBagItem(itemId, 1);
+                    Rogue_PushPopup_AddItem(itemId, 1);
+                }
+            }
 
             if(IsCurseActive(EFFECT_SNAG_TRAINER_MON) && !Rogue_IsBattleSimTrainer(trainerNum) && !Rogue_IsExpTrainer(trainerNum))
                 gRogueLocal.hasPendingSnagBattle = TRUE;

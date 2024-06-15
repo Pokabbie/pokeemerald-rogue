@@ -719,7 +719,20 @@ static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass, bool8 forMusic)
 
     if(trainerClass == TRAINER_CLASS_LEADER || trainerClass == TRAINER_CLASS_TOTEM_LEADER)
     {
-        if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
+        if(Rogue_IsVictoryLapActive())
+        {
+            const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+
+            if(trainer->classFlags & CLASS_FLAG_BOSS_CHAMP)
+            {
+                trainerClass = TRAINER_CLASS_CHAMPION;
+            }
+            else if(trainer->classFlags & CLASS_FLAG_BOSS_ANY_ELITE)
+            {
+                trainerClass = TRAINER_CLASS_ELITE_FOUR;
+            }
+        }
+        else if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
         {
             trainerClass = TRAINER_CLASS_CHAMPION;
         }

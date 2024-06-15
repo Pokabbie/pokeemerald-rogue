@@ -1207,6 +1207,18 @@ void Rogue_ChooseTeamBossTrainerForNewAdventure()
     DebugPrintf("Picking team boss = %d", gRogueRun.teamBossTrainerNum);
 }
 
+u16 Rogue_ChooseNextBossTrainerForVictoryLap()
+{
+    //u16 historyBuffer[8];
+    struct TrainerFliter filter;
+    GetDefaultFilter(&filter);
+
+    filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_BOSS;
+    filter.classFlagsInclude = CLASS_FLAG_BOSS_ANY;
+
+    return Rogue_ChooseTrainerId(&filter, 0, Rogue_GetVictoryLapHistoryBufferPtr(), Rogue_GetVictoryLapHistoryBufferSize());
+}
+
 static void SortByBst(u16* speciesBuffer, u16 bufferSize)
 {
     u8 i, j;

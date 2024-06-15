@@ -232,6 +232,9 @@ gSpecials::
 	def_special Rogue_PlayRivalTrainerEncounterBGM
 	def_special Rogue_PlayTeamBossTrainerEncounterBGM
 	def_special Rogue_ShouldSkipTrainerOpenningMsg
+	def_special Rogue_BufferNextVictoryLapTrainer
+	def_special Rogue_BeginVictoryLap
+	def_special Rogue_EndVictoryLap
 	def_special Rogue_EnterPartnerMonCapacity
 	def_special Rogue_IsMultiplayerActive
 	def_special Rogue_IsMultiplayerHost

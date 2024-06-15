@@ -2,6 +2,7 @@
 #include "battle.h"
 #include "battle_setup.h"
 #include "battle_transition.h"
+#include "credits.h"
 #include "main.h"
 #include "task.h"
 #include "safari_zone.h"
@@ -852,6 +853,11 @@ static u8 GetTrainerBattleTransition(void)
         return B_TRANSITION_CHAMPION;
     }
 
+    if(Rogue_IsVictoryLapActive())
+    {
+        return B_TRANSITION_CHAMPION;
+    }
+
     if (trainer.trainerClass == TRAINER_CLASS_CHAMPION || trainer.trainerClass == TRAINER_CLASS_DEVELOPER_CHAMPION)
     {
         if(Rogue_UseFinalQuestEffects())
@@ -1498,7 +1504,7 @@ static void CB2_EndTrainerBattle(void)
     {
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
-    else if(Rogue_IsBattleSimTrainer(gTrainerBattleOpponent_A))
+    else if(Rogue_IsBattleSimTrainer(gTrainerBattleOpponent_A) || Rogue_IsVictoryLapActive())
     {
         gSpecialVar_Result = !IsPlayerDefeated(gBattleOutcome);
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
@@ -1507,6 +1513,8 @@ static void CB2_EndTrainerBattle(void)
     {
         if (InBattlePyramid() || InTrainerHillChallenge())
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        else if(Rogue_IsVictoryLapActive())
+            SetMainCallback2(CB2_StartCreditsSequence);
         else
             SetMainCallback2(CB2_WhiteOut);
     }

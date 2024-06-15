@@ -46,6 +46,7 @@ bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum);
 void Rogue_ChooseBossTrainersForNewAdventure();
 void Rogue_ChooseRivalTrainerForNewAdventure();
 void Rogue_ChooseTeamBossTrainerForNewAdventure();
+u16 Rogue_ChooseNextBossTrainerForVictoryLap();
 void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity);
 void Rogue_ChooseTeamHideoutTrainers(u16* writeBuffer, u16 bufferCapacity);
 void Rogue_ChooseSpectatorTrainers(u16* writeBuffer, u16 bufferCapacity);
