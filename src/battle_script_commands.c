@@ -14568,6 +14568,10 @@ static void Cmd_switchoutabilities(void)
     CMD_ARGS(u8 battler);
 
     u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    // Undo dynamax here to ensure we reset the HP correctly
+    UndoDynamax(battler);
+
     if (gBattleMons[battler].ability == ABILITY_NEUTRALIZING_GAS)
     {
         gBattleMons[battler].ability = ABILITY_NONE;
