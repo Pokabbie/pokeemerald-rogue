@@ -140,7 +140,6 @@ struct RogueLocalData
     u16 wildEncounterHistoryBuffer[3];
     u16 victoryLapHistoryBuffer[8];
     u16 recentObjectEventLoadedLayout;
-    u16 victoryLapTotalWins;
     bool8 runningToggleActive : 1;
     bool8 hasQuickLoadPending : 1;
     bool8 hasValidQuickSave : 1;
@@ -3597,7 +3596,7 @@ u16 Rogue_PostRunRewardLvls()
         lvlCount = 1;
     }
 
-    lvlCount *= (Rogue_GetCurrentDifficulty() + gRogueLocal.victoryLapTotalWins);
+    lvlCount *= (Rogue_GetCurrentDifficulty() + gRogueRun.victoryLapTotalWins);
 
     if(lvlCount != 0)
     {
@@ -3631,7 +3630,7 @@ u16 Rogue_PostRunRewardMoney()
 
     if(gRogueRun.enteredRoomCounter > 1)
     {
-        u16 i = gRogueLocal.victoryLapTotalWins + gRogueRun.enteredRoomCounter - 1;
+        u16 i = gRogueRun.victoryLapTotalWins + gRogueRun.enteredRoomCounter - 1;
 
         switch (Rogue_GetDifficultyRewardLevel())
         {
@@ -3995,7 +3994,7 @@ static void BeginRogueRun(void)
 
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_IS_VICTORY_LAP);
-    gRogueLocal.victoryLapTotalWins = 0;
+    gRogueRun.victoryLapTotalWins = 0;
 
     Rogue_PreActivateDesiredCampaign();
 
@@ -6198,8 +6197,27 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
         if(Rogue_IsVictoryLapActive())
         {
-            ++gRogueLocal.victoryLapTotalWins;
-            Rogue_PushPopup_VictoryLapProgress(Rogue_GetTrainerTypeAssignment(trainerNum), gRogueLocal.victoryLapTotalWins);
+            ++gRogueRun.victoryLapTotalWins;
+            Rogue_PushPopup_VictoryLapProgress(Rogue_GetTrainerTypeAssignment(trainerNum), gRogueRun.victoryLapTotalWins);
+
+            VarSet(VAR_TEMP_1, gRogueRun.victoryLapTotalWins);
+
+            if(gRogueRun.victoryLapTotalWins == 5)
+            {
+                if(!CheckBagHasItem(ITEM_BATTLE_ITEM_CURSE, 1))
+                {
+                    AddBagItem(ITEM_BATTLE_ITEM_CURSE, 1);
+                    Rogue_PushPopup_AddItem(ITEM_BATTLE_ITEM_CURSE, 1);
+                }
+            }
+            else if(gRogueRun.victoryLapTotalWins == 15)
+            {
+                if(!CheckBagHasItem(ITEM_HEALING_FLASK, 1))
+                {
+                    AddBagItem(ITEM_HEALING_FLASK, 1);
+                    Rogue_PushPopup_AddItem(ITEM_HEALING_FLASK, 1);
+                }
+            }
         }
         else
         {

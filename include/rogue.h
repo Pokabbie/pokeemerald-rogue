@@ -270,6 +270,7 @@ struct RogueRunData
     u16 teamEncounterNum;
     u16 enteredRoomCounter;
     u16 currentDifficulty;
+    u16 victoryLapTotalWins;
     u8 shrineSpawnDifficulty;
     u8 adventureRoomId;
     u8 currentRouteIndex;
