@@ -1993,25 +1993,15 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
                     + (abilityAtk == ABILITY_SUPER_LUCK)
                     + gBattleStruct->bonusCritStages[gBattlerAttacker];
 
+        if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+            critChance += (s32)GetCurseValue(EFFECT_CRIT_CHANCE);
+        else
+            critChance += (s32)GetCharmValue(EFFECT_CRIT_CHANCE);
+
         // Record ability only if move had at least +3 chance to get a crit
         if (critChance >= 3 && recordAbility && (abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR))
             RecordAbilityBattle(battlerDef, abilityDef);
 
-        if (critChance >= ARRAY_COUNT(sCriticalHitChance))
-            critChance = ARRAY_COUNT(sCriticalHitChance) - 1;
-    }
-
-    if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
-    {
-        critChance += GetCurseValue(EFFECT_CRIT_CHANCE);
-
-        if (critChance >= ARRAY_COUNT(sCriticalHitChance))
-            critChance = ARRAY_COUNT(sCriticalHitChance) - 1;
-    }
-    else
-    {
-        critChance += GetCharmValue(EFFECT_CRIT_CHANCE);
-        
         if (critChance >= ARRAY_COUNT(sCriticalHitChance))
             critChance = ARRAY_COUNT(sCriticalHitChance) - 1;
     }
