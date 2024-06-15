@@ -920,6 +920,10 @@ void RogueQuest_OnTrigger(u32 triggerFlag)
 {
     u16 i;
 
+    // Don't track any quests during victory lap
+    if(Rogue_IsVictoryLapActive())
+        return;
+
     // Execute quest callback for any active quests which are listening for this trigger
     for(i = 0; i < QUEST_ID_COUNT; ++i)
     {

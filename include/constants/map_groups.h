@@ -143,6 +143,7 @@
 #define MAP_ROGUE_BOSS_12                    (26 | (7 << 8))
 #define MAP_ROGUE_BOSS_13                    (27 | (7 << 8))
 #define MAP_ROGUE_BOSS_FINAL                 (28 | (7 << 8))
+#define MAP_ROGUE_BOSS_VICTORY_LAP           (29 | (7 << 8))
 
 // gMapGroup_RogueAdventureMonEncounters
 #define MAP_ROGUE_SOUTHERN_ISLAND_LATIOS   (0 | (8 << 8))

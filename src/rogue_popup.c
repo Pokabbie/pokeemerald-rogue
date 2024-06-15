@@ -347,6 +347,7 @@ static const u8 sText_Popup_HealingFlaskRefilled[] = _("{COLOR LIGHT_GREEN}{SHAD
 static const u8 sText_Popup_GymBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gym Badge {STR_VAR_1}");
 static const u8 sText_Popup_EliteBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Elite Badge {STR_VAR_1}");
 static const u8 sText_Popup_ChampBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Champion Badge");
+static const u8 sText_Popup_VictoryLapGymBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Victory Badge {STR_VAR_1}");
 static const u8 sText_Popup_EarnBadge[] = _("Received badge!");
 
 static const u8 sText_Popup_AdventureReplay[] = _("Adventure Replay");
@@ -1857,7 +1858,23 @@ void Rogue_PushPopup_NewBadgeGet(u8 difficulty)
         popup->expandTextData[0] = difficulty + 1;
         popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
     }
+}
 
+void Rogue_PushPopup_VictoryLapProgress(u8 type, u16 victories)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    if(type == TYPE_NONE)
+        type = TYPE_MYSTERY;
+
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_TYPE_NORMAL + type;
+    popup->fanfare = MUS_OBTAIN_ITEM;
+    popup->titleText = sText_Popup_VictoryLapGymBadge;
+    popup->subtitleText = sText_Popup_EarnBadge;
+
+    popup->expandTextData[0] = victories;
+    popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
 }
 
 void Rogue_PushPopup_WeatherActive(u16 weather)

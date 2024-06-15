@@ -32,11 +32,14 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 compactPartySlots);
 void RemoveAnyFaintedMons(bool8 keepItems);
 
 bool8 Rogue_IsRunActive(void);
+bool8 Rogue_IsVictoryLapActive(void);
 bool8 Rogue_InWildSafari(void);
 bool8 Rogue_UseSafariBattle(void);
 bool8 Rogue_CanChangeSafariBall(void);
 u8 Rogue_GetCurrentDifficulty(void);
 void Rogue_SetCurrentDifficulty(u8 difficulty);
+u16* Rogue_GetVictoryLapHistoryBufferPtr();
+u32 Rogue_GetVictoryLapHistoryBufferSize();
 
 bool8 Rogue_ForceExpAll(void);
 bool8 Rogue_EnableExpGain(void);

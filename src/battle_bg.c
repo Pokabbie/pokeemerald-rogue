@@ -834,7 +834,7 @@ void DrawMainBattleBackground(void)
             }
             else if (trainer.trainerClass == TRAINER_CLASS_CHAMPION || trainer.trainerClass == TRAINER_CLASS_DEVELOPER_CHAMPION)
             {
-                if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY || Rogue_AssumeFinalQuestFakeChamp())
+                if((Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY || Rogue_AssumeFinalQuestFakeChamp()) && !Rogue_IsVictoryLapActive())
                 {
                     if(Rogue_UseFinalQuestEffects() && !Rogue_AssumeFinalQuestFakeChamp())
                     {
@@ -1485,7 +1485,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
                 }
                 else if (trainer.trainerClass == TRAINER_CLASS_CHAMPION || trainer.trainerClass == TRAINER_CLASS_DEVELOPER_CHAMPION)
                 {
-                    if(Rogue_GetCurrentDifficulty() >= 13)
+                    if(Rogue_GetCurrentDifficulty() >= ROGUE_MAX_BOSS_COUNT - 1 && !Rogue_IsVictoryLapActive())
                     {
                         LoadCompressedPalette(gBattleTerrainPalette_StadiumInverted, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
                     }

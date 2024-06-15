@@ -64,6 +64,7 @@ void Rogue_PushPopup_AssistantDisconnected();
 void Rogue_PushPopup_OutfitUnlocked();
 
 void Rogue_PushPopup_NewBadgeGet(u8 difficulty);
+void Rogue_PushPopup_VictoryLapProgress(u8 type, u16 victories);
 
 void Rogue_PushPopup_WeatherActive(u16 weather);
 

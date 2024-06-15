@@ -4171,6 +4171,15 @@ static bool32 TryChangeBattleTerrain(u32 battler, u32 statusFlag, u8 *timer)
     return FALSE;
 }
 
+static u8 GetInitialBattleWeather()
+{
+    // Instant weather override to avoid anims
+    if(Rogue_IsVictoryLapActive())
+        return VarGet(VAR_ROGUE_DESIRED_WEATHER);
+    else
+        return GetCurrentWeather();
+}
+
 static void ForewarnChooseMove(u32 battler)
 {
     struct Forewarn {
@@ -4330,7 +4339,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             effect++;
         }
         else if (//B_THUNDERSTORM_TERRAIN == TRUE
-            GetCurrentWeather() == WEATHER_RAIN_THUNDERSTORM
+            GetInitialBattleWeather() == WEATHER_RAIN_THUNDERSTORM
             && !(gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN))
         {
             // overworld weather started rain, so just do electric terrain anim
@@ -4340,7 +4349,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             effect++;
         }
         else if (//B_FOG_TERRAIN == TRUE
-            GetCurrentWeather() == WEATHER_MISTY_FOG
+            GetInitialBattleWeather() == WEATHER_MISTY_FOG
             && !(gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN))
         {
             gFieldStatuses = (STATUS_FIELD_MISTY_TERRAIN | STATUS_FIELD_TERRAIN_PERMANENT);
@@ -4349,7 +4358,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             effect++;
         }
         else if (//B_FOG_TERRAIN == TRUE
-            GetCurrentWeather() == WEATHER_PSYCHIC_FOG
+            GetInitialBattleWeather() == WEATHER_PSYCHIC_FOG
             && !(gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN))
         {
             gFieldStatuses = (STATUS_FIELD_PSYCHIC_TERRAIN | STATUS_FIELD_TERRAIN_PERMANENT);
@@ -4358,7 +4367,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             effect++;
         }
         else if (//B_FOG_TERRAIN == TRUE
-            GetCurrentWeather() == WEATHER_LEAVES
+            GetInitialBattleWeather() == WEATHER_LEAVES
             && !(gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN))
         {
             gFieldStatuses = (STATUS_FIELD_GRASSY_TERRAIN | STATUS_FIELD_TERRAIN_PERMANENT);
@@ -4371,7 +4380,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         gBattleScripting.battler = battler;
         if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
         {
-            switch (GetCurrentWeather())
+            switch (GetInitialBattleWeather())
             {
             case WEATHER_RAIN:
             case WEATHER_RAIN_THUNDERSTORM:
@@ -4419,7 +4428,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         }
         if (effect != 0)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = GetCurrentWeather();
+            gBattleCommunication[MULTISTRING_CHOOSER] = GetInitialBattleWeather();
             BattleScriptPushCursorAndCallback(BattleScript_OverworldWeatherStarts);
         }
         break;

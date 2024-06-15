@@ -1106,6 +1106,38 @@ void Rogue_ShouldSkipTrainerOpenningMsg(void)
     gSpecialVar_Result = (str[0] == 0xFF);
 }
 
+u16 Rogue_BufferNextVictoryLapTrainer()
+{
+    u16 trainerNum = Rogue_ChooseNextBossTrainerForVictoryLap();
+    VarSet(VAR_ROGUE_DESIRED_WEATHER, Rogue_GetTrainerWeather(trainerNum));
+    return trainerNum;
+}
+
+void Rogue_BeginVictoryLap()
+{
+    u32 i;
+    u16* historyBuffer = Rogue_GetVictoryLapHistoryBufferPtr();
+    u32 historyBufferSize = Rogue_GetVictoryLapHistoryBufferSize();
+
+    AGB_ASSERT(!Rogue_IsVictoryLapActive());
+    AGB_ASSERT(Rogue_GetCurrentDifficulty() == ROGUE_MAX_BOSS_COUNT);
+
+    FlagSet(FLAG_ROGUE_IS_VICTORY_LAP);
+    Rogue_SetCurrentDifficulty(ROGUE_MAX_BOSS_COUNT - 1);
+
+    // Prepopulate history buffer to avoid the most recent trainers we just fought
+    for(i = 0; i < historyBufferSize; ++i)
+        HistoryBufferPush(historyBuffer, historyBufferSize, gRogueRun.bossTrainerNums[ROGUE_MAX_BOSS_COUNT - 2 - i]);
+}
+
+void Rogue_EndVictoryLap()
+{
+    AGB_ASSERT(Rogue_IsVictoryLapActive());
+
+    FlagClear(FLAG_ROGUE_IS_VICTORY_LAP);
+    Rogue_SetCurrentDifficulty(ROGUE_MAX_BOSS_COUNT);
+}
+
 void Rogue_EnterPartnerMonCapacity()
 {
     gSpecialVar_Result = Rogue_GetStartingMonCapacity();

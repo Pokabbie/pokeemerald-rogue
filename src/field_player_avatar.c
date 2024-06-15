@@ -1521,6 +1521,10 @@ void InitPlayerAvatar(s16 x, s16 y, u8 direction, u8 gender)
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTRO) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_INTRO))
         SetPlayerInvisibility(TRUE);
 
+    // Set invis for victory lap
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_BOSS_VICTORY_LAP) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_BOSS_VICTORY_LAP))
+        SetPlayerInvisibility(TRUE);
+
     // Set invis for final map too
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_BOSS_FINAL) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_BOSS_FINAL))
         SetPlayerInvisibility(TRUE);
