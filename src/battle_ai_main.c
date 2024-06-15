@@ -1456,6 +1456,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-10);
             else if (aiData->abilities[battlerDef] == ABILITY_SUCTION_CUPS)
                 ADJUST_SCORE(-10);
+            else if (IsDynamaxed(battlerDef))
+                ADJUST_SCORE(-10);
             break;
         case EFFECT_TOXIC_THREAD:
             if (!ShouldLowerStat(battlerDef, aiData->abilities[battlerDef], STAT_SPEED))
@@ -1486,6 +1488,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             if (B_SHEER_COLD_IMMUNITY >= GEN_7 && move == MOVE_SHEER_COLD && IS_BATTLER_OF_TYPE(battlerDef, TYPE_ICE))
                 return 0;
             if (!ShouldTryOHKO(battlerAtk, battlerDef, aiData->abilities[battlerAtk], aiData->abilities[battlerDef], move))
+                ADJUST_SCORE(-10);
+            else if (IsDynamaxed(battlerDef))
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_MIST:
@@ -1524,7 +1528,9 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-3);
             break;
         case EFFECT_DISABLE:
-            if (gDisableStructs[battlerDef].disableTimer == 0
+            if (IsDynamaxed(battlerDef))
+                ADJUST_SCORE(-10);
+            else if (gDisableStructs[battlerDef].disableTimer == 0
                 && (B_MENTAL_HERB < GEN_5 || aiData->holdEffects[battlerDef] != HOLD_EFFECT_MENTAL_HERB)
                 && !PartnerHasSameMoveEffectWithoutTarget(BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
             {
@@ -1544,7 +1550,9 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             }
             break;
         case EFFECT_ENCORE:
-            if (gDisableStructs[battlerDef].encoreTimer == 0
+            if (IsDynamaxed(battlerDef))
+                ADJUST_SCORE(-10);
+            else if (gDisableStructs[battlerDef].encoreTimer == 0
                 && (B_MENTAL_HERB < GEN_5 || aiData->holdEffects[battlerDef] != HOLD_EFFECT_MENTAL_HERB)
                 && !DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove))
             {
@@ -1765,7 +1773,9 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             }
             break;
         case EFFECT_TORMENT:
-            if (gBattleMons[battlerDef].status2 & STATUS2_TORMENT
+            if (IsDynamaxed(battlerDef))
+                ADJUST_SCORE(-10);
+            else if (gBattleMons[battlerDef].status2 & STATUS2_TORMENT
               || DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove))
             {
                 ADJUST_SCORE(-10);
@@ -2018,6 +2028,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
         case EFFECT_DESTINY_BOND:
             if (gBattleMons[battlerDef].status2 & STATUS2_DESTINY_BOND)
                 ADJUST_SCORE(-10);
+            else if (IsDynamaxed(battlerDef))
+                ADJUST_SCORE(-10);
             break;
         case EFFECT_FALSE_SWIPE:
             // TODO
@@ -2233,11 +2245,15 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
               || IsSkillSwapBannedAbility(aiData->abilities[battlerAtk]) || IsSkillSwapBannedAbility(aiData->abilities[battlerDef])
               || aiData->holdEffects[battlerDef] == HOLD_EFFECT_ABILITY_SHIELD)
                 ADJUST_SCORE(-10);
+            else if (IsDynamaxed(battlerDef))
+                ADJUST_SCORE(-10);
             break;
         case EFFECT_WORRY_SEED:
             if (aiData->abilities[battlerDef] == ABILITY_INSOMNIA
               || IsWorrySeedBannedAbility(aiData->abilities[battlerDef])
               || aiData->holdEffects[battlerDef] == HOLD_EFFECT_ABILITY_SHIELD)
+                ADJUST_SCORE(-10);
+            else if (IsDynamaxed(battlerDef))
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_GASTRO_ACID:
@@ -2579,6 +2595,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 {
                     ADJUST_SCORE(-10);
                 }
+                else if (IsDynamaxed(battlerDef))
+                    ADJUST_SCORE(-10);
                 else if (isDoubleBattle)
                 {
                     if (!IS_TARGETING_PARTNER(battlerAtk, battlerDef))
@@ -3699,7 +3717,9 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         }
         break;
     case EFFECT_OHKO:
-        if (gStatuses3[battlerAtk] & STATUS3_ALWAYS_HITS)
+        if (IsDynamaxed(battlerDef))
+            break;
+        else if (gStatuses3[battlerAtk] & STATUS3_ALWAYS_HITS)
             ADJUST_SCORE(5);
         break;
     case EFFECT_TRAP:
@@ -3815,7 +3835,9 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
             ADJUST_SCORE(5);
         break;
     case EFFECT_DISABLE:
-        if (gDisableStructs[battlerDef].disableTimer == 0
+        if (IsDynamaxed(battlerDef))
+            break;
+        else if (gDisableStructs[battlerDef].disableTimer == 0
             && (B_MENTAL_HERB < GEN_5 || aiData->holdEffects[battlerDef] != HOLD_EFFECT_MENTAL_HERB))
         {
             if (AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_FASTER) // AI goes first
@@ -3836,6 +3858,8 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         }
         break;
     case EFFECT_ENCORE:
+        if (IsDynamaxed(battlerDef))
+            break;
         if (gDisableStructs[battlerDef].encoreTimer == 0
             && (B_MENTAL_HERB < GEN_5 || aiData->holdEffects[battlerDef] != HOLD_EFFECT_MENTAL_HERB))
         {
@@ -3871,7 +3895,9 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
             ADJUST_SCORE(3);
         break;
     case EFFECT_DESTINY_BOND:
-        if (AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_FASTER && CanTargetFaintAi(battlerDef, battlerAtk))
+        if (IsDynamaxed(battlerDef))
+            break;
+        else if (AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_FASTER && CanTargetFaintAi(battlerDef, battlerAtk))
             ADJUST_SCORE(3);
         break;
     case EFFECT_SPITE:
@@ -4503,7 +4529,9 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         }
         break;
     case EFFECT_SKILL_SWAP:
-        if (GetAbilityRating(aiData->abilities[battlerDef]) > GetAbilityRating(aiData->abilities[battlerAtk]))
+        if (IsDynamaxed(battlerDef))
+            break;
+        else if (GetAbilityRating(aiData->abilities[battlerDef]) > GetAbilityRating(aiData->abilities[battlerAtk]))
             ADJUST_SCORE(1);
         break;
     case EFFECT_WORRY_SEED:
@@ -4513,7 +4541,9 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
             ADJUST_SCORE(2);
         break;
     case EFFECT_ENTRAINMENT:
-        if (IsAbilityOfRating(aiData->abilities[battlerDef], 5) || GetAbilityRating(aiData->abilities[battlerAtk]) <= 0)
+        if (IsDynamaxed(battlerDef))
+            break;
+        else if (IsAbilityOfRating(aiData->abilities[battlerDef], 5) || GetAbilityRating(aiData->abilities[battlerAtk]) <= 0)
         {
             if (aiData->abilities[battlerDef] != aiData->abilities[battlerAtk] && !(gStatuses3[battlerDef] & STATUS3_GASTRO_ACID))
                 ADJUST_SCORE(2);
