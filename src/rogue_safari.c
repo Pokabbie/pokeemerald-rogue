@@ -42,25 +42,29 @@ static void PushBoxMonInternal(struct BoxPokemon* monToCopy, bool32 isLowPriorit
         writeMon->customMonLookup = 1 + AllocCustomMonSafariSlot(customMonId, index);
     }
 
+    // Default priority to max mons so most of the time we're going to free in the order they we last caught
+    writeMon->priorityCounter = ROGUE_SAFARI_TOTAL_MONS;
+
     if(isLowPriority)
     {
+        // We're only gonna keep this mon if it's a shiny
         writeMon->priorityCounter = 0;
     }
     else
     {
         u8 metLevel = GetBoxMonData(monToCopy, MON_DATA_MET_LEVEL);
         u8 currentLevel = GetBoxMonData(monToCopy, MON_DATA_LEVEL);
+        u8 levelsGained = currentLevel - metLevel;
 
-        // For each 10 levels we raised this mon by increase by 4
-        writeMon->priorityCounter = 16 + ((currentLevel - metLevel) / 10) * 4;
+        // For each 5 levels we raise priority by 2
+        // if we caught a mon at the very begining and took it to the end it would have +40 priority
+        writeMon->priorityCounter = (levelsGained * 2) / 5;
     }
-
-    writeMon->priorityCounter = isLowPriority ? 0 : 32;
 
     if(writeMon->shinyFlag)
     {
         // Shinies will last much longer than regular mons
-        writeMon->priorityCounter += 32;
+        writeMon->priorityCounter += ROGUE_SAFARI_TOTAL_MONS / 2;
     }
 }
 
@@ -428,25 +432,27 @@ void RogueSafari_SetActivePokeballType(u16 itemId)
 static void CompactEmptyEntriesInternal(u8 fromIndex, u8 toIndex)
 {
     u8 i;
+    u8 write = fromIndex;
     u8 endIndex = toIndex;
     bool8 loop = TRUE;
     u8 count = 0;
 
-    while(loop && endIndex != 0)
+    for(i = fromIndex; i <= toIndex; ++i)
     {
-        loop = FALSE;
-
-        for(i = fromIndex; i < endIndex - 1; ++i)
+        if(gRogueSaveBlock->safariMons[i].species != SPECIES_NONE)
         {
-            if(gRogueSaveBlock->safariMons[i + 0].species == SPECIES_NONE && gRogueSaveBlock->safariMons[i + 1].species != SPECIES_NONE)
+            if(write != i)
             {
-                memcpy(&gRogueSaveBlock->safariMons[i + 0], &gRogueSaveBlock->safariMons[i + 1], sizeof(gRogueSaveBlock->safariMons[i + 1]));
-                ZeroSafariMon(&gRogueSaveBlock->safariMons[i + 1]);
-                loop = TRUE;
+                memcpy(&gRogueSaveBlock->safariMons[write], &gRogueSaveBlock->safariMons[i], sizeof(struct RogueSafariMon));
             }
-        }
 
-        --endIndex;
+            ++write;
+        }
+    }
+
+    for(i = write; i <= toIndex; ++i)
+    {
+        ZeroSafariMon(&gRogueSaveBlock->safariMons[i]);
     }
 }
 
