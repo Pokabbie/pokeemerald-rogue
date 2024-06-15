@@ -5757,6 +5757,14 @@ static void UNUSED TempRestoreEnemyTeam()
     gRogueLocal.hasUseEnemyTeamTempSave = FALSE;
 }
 
+static bool8 AllowBattleGimics(u16 trainerNum)
+{
+    if(Rogue_IsRunActive())
+        return Rogue_IsKeyTrainer(trainerNum);
+    else
+        return TRUE;
+}
+
 static void SetupTrainerBattleInternal(u16 trainerNum)
 {
     bool8 shouldDoubleBattle = FALSE;
@@ -5773,13 +5781,13 @@ static void SetupTrainerBattleInternal(u16 trainerNum)
     SeedRng2(RogueRandom() + (trainerNum ^ RogueRandom()));
 
     // enable dyanmax for this fight
-    if(IsDynamaxEnabled() && Rogue_IsKeyTrainer(trainerNum))
+    if(IsDynamaxEnabled() && AllowBattleGimics(trainerNum))
         FlagSet(FLAG_ROGUE_DYNAMAX_BATTLE);
     else
         FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
 
     // enable tera for this fight
-    if(IsTerastallizeEnabled() && Rogue_IsKeyTrainer(trainerNum))
+    if(IsTerastallizeEnabled() && AllowBattleGimics(trainerNum))
         FlagSet(FLAG_ROGUE_TERASTALLIZE_BATTLE);
     else
         FlagClear(FLAG_ROGUE_TERASTALLIZE_BATTLE);
