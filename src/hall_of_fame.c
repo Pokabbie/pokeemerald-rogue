@@ -991,14 +991,18 @@ static void Task_Hof_HandleExit(u8 taskId)
 
 static void StartCredits(void)
 {
-    PlayBGM(MUS_NONE);
-    SetWarpDestination(MAP_GROUP(ROGUE_BOSS_VICTORY_LAP), MAP_NUM(ROGUE_BOSS_VICTORY_LAP), WARP_ID_NONE, 9, 5);
-    WarpIntoMap();
+    if(FlagGet(FLAG_ROGUE_UNLOCKED_VICTORY_LAP))
+    {
+        PlayBGM(MUS_NONE);
+        SetWarpDestination(MAP_GROUP(ROGUE_BOSS_VICTORY_LAP), MAP_NUM(ROGUE_BOSS_VICTORY_LAP), WARP_ID_NONE, 9, 5);
+        WarpIntoMap();
 
-    SetMainCallback2(CB2_LoadMap);
-
-
-    //SetMainCallback2(CB2_StartCreditsSequence);
+        SetMainCallback2(CB2_LoadMap);
+    }
+    else
+    {
+        SetMainCallback2(CB2_StartCreditsSequence);
+    }
 }
 
 void VictoryLapStartCredits()

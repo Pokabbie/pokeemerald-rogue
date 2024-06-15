@@ -1,4 +1,5 @@
 const VAR_FRAME_TABLE_IDX = VAR_TEMP_0
+const VAR_TOTAL_VICTORIES = VAR_TEMP_1
 
 mapscripts Rogue_Boss_VictoryLap_MapScripts 
 {
@@ -48,10 +49,9 @@ script Rogue_Boss_VictoryLap_LoadFrame_0
 
 script Rogue_Boss_VictoryLap_BattleLoop
 {
-    setvar(VAR_RESULT, YES)
-
     call(Rogue_EventScript_AttemptPostGymHeal)
     special(Rogue_BeginVictoryLap)
+    setvar(VAR_RESULT, YES)
 
     while(var(VAR_RESULT) == YES)
     {
@@ -69,4 +69,8 @@ script Rogue_Boss_VictoryLap_BattleLoop
     }
 
     special(Rogue_EndVictoryLap)
+
+    buffernumberstring(STR_VAR_1, VAR_TOTAL_VICTORIES)
+    msgbox(format("Victory Lap Badges: {STR_VAR_1}"))
+    call(Common_EventScript_ForceSaveGame)
 }

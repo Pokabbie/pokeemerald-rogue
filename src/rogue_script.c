@@ -1124,10 +1124,7 @@ void Rogue_BeginVictoryLap()
 
     FlagSet(FLAG_ROGUE_IS_VICTORY_LAP);
     Rogue_SetCurrentDifficulty(ROGUE_MAX_BOSS_COUNT - 1);
-
-    // Prepopulate history buffer to avoid the most recent trainers we just fought
-    for(i = 0; i < historyBufferSize; ++i)
-        HistoryBufferPush(historyBuffer, historyBufferSize, gRogueRun.bossTrainerNums[ROGUE_MAX_BOSS_COUNT - 2 - i]);
+    memset(historyBuffer, INVALID_HISTORY_ENTRY, sizeof(u16) * historyBufferSize);
 }
 
 void Rogue_EndVictoryLap()

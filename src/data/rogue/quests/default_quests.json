@@ -220,7 +220,17 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { 
+                        "flag": "FLAG_ROGUE_UNLOCKED_VICTORY_LAP",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_VS_SEEKER",
+                            "title": "Victory Lap",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Feature Unlocked!",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
                 ]
             },
 
