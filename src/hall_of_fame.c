@@ -993,7 +993,7 @@ static void Task_Hof_HandleExit(u8 taskId)
 
 static void StartCredits(void)
 {
-    if(FlagGet(FLAG_ROGUE_UNLOCKED_VICTORY_LAP))
+    if(FlagGet(FLAG_ROGUE_UNLOCKED_VICTORY_LAP) && !Rogue_UseFinalQuestEffects())
     {
         PlayBGM(MUS_NONE);
         SetWarpDestination(MAP_GROUP(ROGUE_BOSS_VICTORY_LAP), MAP_NUM(ROGUE_BOSS_VICTORY_LAP), WARP_ID_NONE, 9, 5);

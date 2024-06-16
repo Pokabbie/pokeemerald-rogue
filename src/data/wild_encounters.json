@@ -4191,7 +4191,7 @@
           "map": "MAP_ROGUE_ENCOUNTER_CATCHING_CONTEST",
           "base_label": "gRogue_Encounter_CatchingContest0",
           "land_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 5,
