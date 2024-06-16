@@ -586,3 +586,18 @@ text gHubUpgradeDesc_DayCare_TeaShop
 {
     format("Tea used for changing the gender of {PKMN}.")
 }
+
+text gHubUpgradeDesc_DayCare_ExpShare0
+{
+    format("Day Care {PKMN} gain 25% of the {LV}s the Partner does.")
+}
+
+text gHubUpgradeDesc_DayCare_ExpShare1
+{
+    format("Day Care {PKMN} gain 50% of the {LV}s the Partner does.")
+}
+
+text gHubUpgradeDesc_DayCare_ExpShare2
+{
+    format("Day Care {PKMN} gain 100% of the {LV}s the Partner does.")
+}
