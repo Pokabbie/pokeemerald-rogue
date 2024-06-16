@@ -4159,7 +4159,6 @@ bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species)
         case SPECIES_YVELTAL:
         case SPECIES_ZYGARDE:
 
-        case SPECIES_COSMOG:
         case SPECIES_COSMOEM:
         case SPECIES_SOLGALEO:
         case SPECIES_LUNALA:
@@ -4239,6 +4238,7 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
         case SPECIES_DIANCIE:
         case SPECIES_HOOPA:
         
+        case SPECIES_COSMOG:
         case SPECIES_NIHILEGO:
         case SPECIES_BUZZWOLE:
         case SPECIES_PHEROMOSA:
