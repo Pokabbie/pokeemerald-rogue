@@ -887,3 +887,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rogue_Boss_VictoryLap/scripts.inc"
 
 	.include "data/maps/Rogue_Encounter_LakeValor/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_214/scripts.inc"

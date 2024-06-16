@@ -2080,6 +2080,16 @@
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/Rogue_Encounter_LakeValor/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Encounter_LakeValor/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_SINNOH_214",
+      "name": "Rogue_Route_Sinnoh_214_Layout",
+      "width": 34,
+      "height": 96,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Rogue_Route_Sinnoh_214/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_214/map.bin"
     }
   ]
 }
