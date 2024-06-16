@@ -69,12 +69,15 @@
 #define HUB_UPGRADE_DAY_CARE_BREEDER_LEGENDS            (HUB_UPGRADE_FIRST + 33) // reserved not actually planned to be used
 #define HUB_UPGRADE_DAY_CARE_PHONE                      (HUB_UPGRADE_FIRST + 34)
 #define HUB_UPGRADE_DAY_CARE_TEA_SHOP                   (HUB_UPGRADE_FIRST + 35)
+#define HUB_UPGRADE_DAY_CARE_EXP_SHARE0                 (HUB_UPGRADE_FIRST + 36)
+#define HUB_UPGRADE_DAY_CARE_EXP_SHARE1                 (HUB_UPGRADE_FIRST + 37)
+#define HUB_UPGRADE_DAY_CARE_EXP_SHARE2                 (HUB_UPGRADE_FIRST + 38)
 
-#define HUB_UPGRADE_MARKET_POKEBLOCK_BLENDERS           (HUB_UPGRADE_FIRST + 36)
-#define HUB_UPGRADE_MARKET_BAKERY                       (HUB_UPGRADE_FIRST + 37)
-#define HUB_UPGRADE_MARKET_TREAT_SHOP                   (HUB_UPGRADE_FIRST + 38)
-#define HUB_UPGRADE_MARKET_TREAT_SHOP_STOCK             (HUB_UPGRADE_FIRST + 39)
-#define HUB_UPGRADE_MARKET_BANK                         (HUB_UPGRADE_FIRST + 40)
+#define HUB_UPGRADE_MARKET_POKEBLOCK_BLENDERS           (HUB_UPGRADE_FIRST + 39)
+#define HUB_UPGRADE_MARKET_BAKERY                       (HUB_UPGRADE_FIRST + 40)
+#define HUB_UPGRADE_MARKET_TREAT_SHOP                   (HUB_UPGRADE_FIRST + 41)
+#define HUB_UPGRADE_MARKET_TREAT_SHOP_STOCK             (HUB_UPGRADE_FIRST + 42)
+#define HUB_UPGRADE_MARKET_BANK                         (HUB_UPGRADE_FIRST + 43)
 
 #define HUB_UPGRADE_COUNT                               (HUB_UPGRADE_MARKET_BANK + 1)
 

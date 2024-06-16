@@ -50,6 +50,9 @@ extern const u8 gHubUpgradeDesc_DayCare_TreatShop[];
 extern const u8 gHubUpgradeDesc_DayCare_TreatShopStock[];
 extern const u8 gHubUpgradeDesc_DayCare_TreatShop_Vanilla[];
 extern const u8 gHubUpgradeDesc_DayCare_TeaShop[];
+extern const u8 gHubUpgradeDesc_DayCare_ExpShare0[];
+extern const u8 gHubUpgradeDesc_DayCare_ExpShare1[];
+extern const u8 gHubUpgradeDesc_DayCare_ExpShare2[];
 
 
 #define SET_UPDATE_AREA(area) \
@@ -594,6 +597,30 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .buildCost = 3,
         .descText = gHubUpgradeDesc_DayCare_TeaShop,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_DAY_CARE_EXP_SHARE0] = 
+    {
+        .upgradeName = _("Day Care Exp"),
+        .targetArea = HUB_AREA_DAY_CARE,
+        .buildCost = 5,
+        .descText = gHubUpgradeDesc_DayCare_ExpShare0,
+        .requiredUpgrades = { HUB_UPGRADE_DAY_CARE_CAPACITY1, HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_DAY_CARE_EXP_SHARE1] = 
+    {
+        .upgradeName = _("Day Care Exp+"),
+        .targetArea = HUB_AREA_DAY_CARE,
+        .buildCost = 9,
+        .descText = gHubUpgradeDesc_DayCare_ExpShare1,
+        .requiredUpgrades = { HUB_UPGRADE_DAY_CARE_EXP_SHARE0, HUB_UPGRADE_NONE }
+    },
+    [HUB_UPGRADE_DAY_CARE_EXP_SHARE2] = 
+    {
+        .upgradeName = _("Day Care Exp++"),
+        .targetArea = HUB_AREA_DAY_CARE,
+        .buildCost = 12,
+        .descText = gHubUpgradeDesc_DayCare_ExpShare2,
+        .requiredUpgrades = { HUB_UPGRADE_DAY_CARE_EXP_SHARE1, HUB_UPGRADE_NONE }
     },
 
 

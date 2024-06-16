@@ -3602,6 +3602,7 @@ u16 Rogue_PostRunRewardLvls()
     {
         u8 i, j;
         u32 exp;
+        u16 daycareLvls = lvlCount;
 
         for(i = 0; i < gPlayerPartyCount; ++i)
         {
@@ -3617,6 +3618,46 @@ u16 Rogue_PostRunRewardLvls()
                 
                 // Increase friendship from these levels
                 AdjustFriendship(&gPlayerParty[i], FRIENDSHIP_EVENT_GROW_LEVEL);
+            }
+        }
+        
+        // Daycare
+        if(RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_EXP_SHARE2))
+        {
+            daycareLvls = max(1, daycareLvls);
+        }
+        else if(RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_EXP_SHARE1))
+        {
+            daycareLvls = max(1, daycareLvls / 2);
+        }
+        else if(RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_EXP_SHARE0))
+        {
+            daycareLvls = max(1, daycareLvls / 4);
+        }
+        else
+        {
+            daycareLvls = 0;
+        }
+
+        if(daycareLvls != 0)
+        {
+            u8 maxSlots = Rogue_GetCurrentDaycareSlotCount();
+
+            for(i = 0; i < maxSlots; ++i)
+            {
+                struct BoxPokemon* mon = Rogue_GetDaycareBoxMon(i);
+
+                // Award levels
+                for(j = 0; j < daycareLvls; ++j)
+                {
+                    if(GetBoxMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE && GetBoxMonData(mon, MON_DATA_LEVEL) != MAX_LEVEL)
+                    {
+                        exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetBoxMonData(mon, MON_DATA_SPECIES, NULL)].growthRate, GetBoxMonData(mon, MON_DATA_LEVEL, NULL) + 1);
+                        SetBoxMonData(mon, MON_DATA_EXP, &exp);
+                    }
+                    
+                    // don't give friendship for daycare mons
+                }
             }
         }
     }
