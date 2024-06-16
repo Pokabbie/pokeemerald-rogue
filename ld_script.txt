@@ -1422,6 +1422,14 @@ SECTIONS {
         sound/songs/midi/mus_dp_lake.o(.rodata);
         sound/songs/midi/mus_dp_level_up.o(.rodata);
         sound/songs/midi/mus_dp_legend_appears.o(.rodata);
+        sound/songs/midi/mus_dp_galactic_eterna_building.o(.rodata);
+        sound/songs/midi/mus_dp_galactic_hq.o(.rodata);
+        sound/songs/midi/mus_dp_galactic_hq_basement.o(.rodata);
+        sound/songs/midi/mus_dp_amity_square.o(.rodata);
+        sound/songs/midi/mus_dp_old_chateau.o(.rodata);
+        sound/songs/midi/mus_dp_rowan.o(.rodata);
+        sound/songs/midi/mus_dp_oreburgh_mine.o(.rodata);
+        sound/songs/midi/mus_pl_mystery_gift.o(.rodata);
         sound/songs/midi/mus_pl_vs_giratina.o(.rodata);
         sound/songs/midi/mus_pl_distortion_world.o(.rodata);
         sound/songs/midi/mus_pl_looker.o(.rodata);

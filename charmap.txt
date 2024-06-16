@@ -1136,14 +1136,21 @@ MUS_DP_GTS                      = DF 02
 MUS_DP_LAKE                     = E0 02
 MUS_DP_LEVEL_UP                 = E1 02
 MUS_DP_LEGEND_APPEARS           = E2 02
+MUS_DP_GALACTIC_ETERNA_BUILDING = E3 02
+MUS_DP_GALACTIC_HQ              = E4 02
+MUS_DP_GALACTIC_HQ_BASEMENT     = E5 02
+MUS_DP_AMITY_SQUARE             = E6 02
+MUS_DP_OLD_CHATEAU              = E7 02
+MUS_DP_ROWAN                    = E8 02
+MUS_DP_OREBURGH_MINE            = E9 02
+MUS_PL_MYSTERY_GIFT             = EA 02
+MUS_PL_VS_GIRATINA              = EB 02
+MUS_PL_DISTORTION_WORLD         = EC 02
+MUS_PL_LOOKER                   = ED 02
+MUS_PL_VS_REGI                  = EE 02
 
-MUS_PL_VS_GIRATINA              = E3 02
-MUS_PL_DISTORTION_WORLD         = E4 02
-MUS_PL_LOOKER                   = E5 02
-MUS_PL_VS_REGI                  = E6 02
-
-MUS_MOVE_DELETED_SLOW           = E7 02
-MUS_DEBUG_TEST                  = E8 02
+MUS_MOVE_DELETED_SLOW           = EF 02
+MUS_DEBUG_TEST                  = F0 02
 
 A_BUTTON = F8 00
 B_BUTTON = F8 01

@@ -635,7 +635,7 @@ script Rogue_Area_AdventureEntrance_MeetPokabbie
     closemessage
 
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
-    playbgm(MUS_DP_ENCOUNTER_LADY, TRUE)
+    playbgm(MUS_PL_MYSTERY_GIFT, TRUE)
 
     call(Rogue_Area_AdventureEntrance_PokabbieEnterMovement)
     waitmovement(0)

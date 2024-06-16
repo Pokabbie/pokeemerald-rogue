@@ -680,14 +680,21 @@
 #define MUS_DP_LAKE                     (MUS_DP_START + 62)
 #define MUS_DP_LEVEL_UP                 (MUS_DP_START + 63)
 #define MUS_DP_LEGEND_APPEARS           (MUS_DP_START + 64)
+#define MUS_DP_GALACTIC_ETERNA_BUILDING (MUS_DP_START + 65)
+#define MUS_DP_GALACTIC_HQ              (MUS_DP_START + 66)
+#define MUS_DP_GALACTIC_HQ_BASEMENT     (MUS_DP_START + 67)
+#define MUS_DP_AMITY_SQUARE             (MUS_DP_START + 68)
+#define MUS_DP_OLD_CHATEAU              (MUS_DP_START + 69)
+#define MUS_DP_ROWAN                    (MUS_DP_START + 70)
+#define MUS_DP_OREBURGH_MINE            (MUS_DP_START + 71)
 
+#define MUS_PL_START                    MUS_DP_OREBURGH_MINE
 
-#define MUS_PL_START                    MUS_DP_LEGEND_APPEARS
-
-#define MUS_PL_VS_GIRATINA              (MUS_PL_START + 1)
-#define MUS_PL_DISTORTION_WORLD         (MUS_PL_START + 2)
-#define MUS_PL_LOOKER                   (MUS_PL_START + 3)
-#define MUS_PL_VS_REGI                  (MUS_PL_START + 4)
+#define MUS_PL_MYSTERY_GIFT             (MUS_PL_START + 1)
+#define MUS_PL_VS_GIRATINA              (MUS_PL_START + 2)
+#define MUS_PL_DISTORTION_WORLD         (MUS_PL_START + 3)
+#define MUS_PL_LOOKER                   (MUS_PL_START + 4)
+#define MUS_PL_VS_REGI                  (MUS_PL_START + 5)
 
 
 #define MUS_EXTRA_START                 MUS_PL_VS_REGI
