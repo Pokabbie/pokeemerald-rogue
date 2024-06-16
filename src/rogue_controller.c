@@ -7337,6 +7337,13 @@ void Rogue_CreateWildMon(u8 area, u16* species, u8* level, bool8* forceShiny)
 
         if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_CATCHING_CONTEST)
         {
+            // Speculative check
+            if(gRogueLocal.catchingContest.isActive && gRogueLocal.catchingContest.spawnsRemaining != 0)
+            {
+                if(!RogueMiscQuery_AnyActiveElements())
+                    gRogueLocal.catchingContest.spawnsRemaining = 0;
+            }
+
             if(gRogueLocal.catchingContest.isActive && gRogueLocal.catchingContest.spawnsRemaining != 0)
             {
                 u8 stats[NUM_STATS];
@@ -7940,7 +7947,7 @@ void Rogue_BeginCatchingContest(u8 type, u8 stat)
     RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
 
     RogueMonQuery_TransformIntoEggSpecies();
-    RogueMonQuery_TransformIntoEvos(Rogue_CalculatePlayerMonLvl(), TRUE, TRUE);
+    RogueMonQuery_TransformIntoEvos(Rogue_CalculatePlayerMonLvl(), TRUE, FALSE);
 
     // Now we've evolved we're only caring about mons of this type
     RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, MON_TYPE_VAL_TO_FLAGS(type));
@@ -8919,7 +8926,7 @@ static void RandomiseEnabledTrainers()
     // May only limited number of trainers active
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
-        while(activeTrainers > 10)
+        while(activeTrainers > 12)
         {
             i = RogueRandom() % ROGUE_MAX_ACTIVE_TRAINER_COUNT;
 
@@ -9088,7 +9095,7 @@ static bool8 RogueRandomChanceTrainer()
     else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
     {
         // We want a good number of trainers in the hideout
-        chance = max(33, chance);
+        chance = max(66, chance);
     }
     else
     {

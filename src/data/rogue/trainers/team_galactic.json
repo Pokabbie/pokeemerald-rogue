@@ -13,16 +13,12 @@
             "subsets": 
             [
                 {
-                    "max_samples": 1,
-                    "include_types": [ "NORMAL" ]
-                },
-                {
-                    "max_samples": 1,
-                    "include_types": [ "GHOST" ]
+                    "max_samples": 2,
+                    "include_types": [ "NORMAL", "DARK", "GHOST" ]
                 },
                 {
                     "max_samples": 6,
-                    "include_types": [ "NORMAL", "GHOST", "DRAGON" ]
+                    "include_types": [ "POISON", "DARK", "GHOST", "DRAGON" ]
                 }
             ],
             "weight_script":
