@@ -886,6 +886,7 @@ script Rogue_Shop_Berries
     waitmessage
 
     rogue_dynamicpokemart(ROGUE_SHOP_BERRIES)
+    lock
 
     msgbox("Please come again!")
     release

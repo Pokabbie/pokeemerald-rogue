@@ -518,7 +518,7 @@
 #define FLAG_ROGUE_UNLOCKED_VICTORY_LAP      0x1DA
 
 #define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
-#define FLAG_UNUSED_0x1DC                    0x1DC
+#define FLAG_ROGUE_COURIER_READY             0x1DC
 #define FLAG_UNUSED_0x1DD                    0x1DD
 
 #define FLAG_DEBUG_NO_ENCOUNTER              0x1DE // Unused Flag

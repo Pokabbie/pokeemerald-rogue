@@ -5068,6 +5068,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 case ADVPATH_ROOM_RESTSTOP:
                 {
                     FlagSet(FLAG_ROGUE_DAYCARE_PHONE_CHARGED);
+                    FlagSet(FLAG_ROGUE_COURIER_READY);
                     TryRandomanSpawn(33);
                     break;
                 }
@@ -7991,8 +7992,40 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     u16 randomChanceMinimum = 0;
     u16 maxPriceRange = 65000;
     u16 difficulty = Rogue_GetModeRules()->forceFullShopInventory ? ROGUE_FINAL_CHAMP_DIFFICULTY : Rogue_GetCurrentDifficulty();
+    u16 originalItemCategory = itemCategory;
 
     gRogueLocal.rngSeedToRestore = gRngRogueValue;
+
+    if(itemCategory == ROGUE_SHOP_COURIER)
+    {
+        u16 range = IsRareShopActive() ? 5 : 4;
+
+        switch (RogueRandomRange(range, 0))
+        {
+        case 0:
+            itemCategory = ROGUE_SHOP_TMS;
+            break;
+        case 1:
+            itemCategory = ROGUE_SHOP_BALLS;
+            break;
+        case 2:
+            itemCategory = ROGUE_SHOP_BATTLE_ENHANCERS;
+            break;
+        case 3:
+            itemCategory = ROGUE_SHOP_HELD_ITEMS;
+            break;
+        case 4:
+            itemCategory = ROGUE_SHOP_RARE_HELD_ITEMS;
+            break;
+        
+        default:
+            AGB_ASSERT(FALSE);
+            itemCategory = ROGUE_SHOP_TMS;
+            break;
+        }
+
+        difficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
+    }
 
     RogueItemQuery_Begin();
     RogueItemQuery_IsItemActive();
@@ -8182,6 +8215,11 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
     }
 
     if(Rogue_GetModeRules()->forceFullShopInventory)
+    {
+        applyRandomChance = FALSE;
+    }
+    
+    if(originalItemCategory == ROGUE_SHOP_COURIER)
     {
         applyRandomChance = FALSE;
     }

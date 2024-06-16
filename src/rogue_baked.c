@@ -1616,6 +1616,13 @@ u32 Rogue_CalculateMovePrice(u16 move)
 
     AGB_ASSERT(move < MOVES_COUNT);
 
+    // Move specific costs
+    switch (move)
+    {
+    case MOVE_BATON_PASS:
+        return 3500;
+    }
+
     switch (move)
     {
     case MOVE_RETURN:

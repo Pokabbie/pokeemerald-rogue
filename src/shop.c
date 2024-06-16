@@ -84,6 +84,7 @@ enum {
     MART_TYPE_DECOR2,
     MART_TYPE_HUB_AREAS,
     MART_TYPE_HUB_UPGRADES,
+    MART_TYPE_SINGLE_PURCHASE,
 };
 
 // shop view window NPC info enum
@@ -404,6 +405,11 @@ static u8 CreateShopMenu(u8 martType)
         sMartInfo.menuActions = sShopMenuActions_BuildQuit;
         numMenuItems = ARRAY_COUNT(sShopMenuActions_BuildQuit);
     }
+    else if(martType == MART_TYPE_SINGLE_PURCHASE)
+    {
+        FadeScreen(FADE_TO_BLACK, 0);
+        return CreateTask(Task_HandleShopMenuBuy, 8);
+    }
     else // MART_TYPE_PURCHASE_ONLY and DECOR
     {
         struct WindowTemplate winTemplate;
@@ -522,8 +528,12 @@ void CB2_ExitSellMenu(void)
 
 static void Task_HandleShopMenuQuit(u8 taskId)
 {
-    ClearStdWindowAndFrameToTransparent(sMartInfo.windowId, 2); // Incorrect use, making it not copy it to vram.
-    RemoveWindow(sMartInfo.windowId);
+    if (sMartInfo.martType != MART_TYPE_SINGLE_PURCHASE)
+    {
+        ClearStdWindowAndFrameToTransparent(sMartInfo.windowId, 2); // Incorrect use, making it not copy it to vram.
+        RemoveWindow(sMartInfo.windowId);
+    }
+
     TryPutSmartShopperOnAir();
     UnlockPlayerFieldControls();
     DestroyTask(taskId);
@@ -562,6 +572,12 @@ static void Task_ReturnToShopMenu(u8 taskId)
 {
     if (IsWeatherNotFadingIn() == TRUE)
     {
+        if(sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
+        {
+            gTasks[taskId].func = Task_HandleShopMenuQuit;
+            return;
+        }
+
         if (sMartInfo.martType == MART_TYPE_DECOR2)
             DisplayItemMessageOnField(taskId, gText_CanIHelpWithAnythingElse, ShowShopMenuAfterExitingBuyOrSellMenu);
         else if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
@@ -852,7 +868,7 @@ static void BuyMenuAddItemIcon(u16 item, u8 iconSlot)
     if (*spriteIdPtr != SPRITE_NONE)
         return;
 
-    if (sMartInfo.martType == MART_TYPE_NORMAL || item == 0xFFFF || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
+    if (sMartInfo.martType == MART_TYPE_NORMAL || item == 0xFFFF || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
     {
         spriteId = AddItemIconSprite(iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE, item);
         if (spriteId != MAX_SPRITES)
@@ -1203,7 +1219,7 @@ static void Task_BuyMenu(u8 taskId)
             {
                 CopyShopItemName(itemId, gStringVar1);
 
-                if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
+                if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
                 {
                     CopyShopItemName(itemId, gStringVar1);
                     //if (ItemId_GetPocket(itemId) == POCKET_TM_HM)
@@ -1299,7 +1315,7 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
             maxQuantity = GetShopCurrencyAmount() / sShopData->totalCost;
 
         // Max quantity is based on item stack size
-        if(sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
+        if(sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
         {
             maxQuantity = min(maxQuantity, Rogue_GetBagPocketAmountPerItem(ItemId_GetPocket(tItemId) - 1));
 
@@ -1455,6 +1471,18 @@ static void BuyMenuTryMakePurchase(u8 taskId)
             BuyMenuDisplayMessage(taskId, gText_NoMoreRoomForThis, BuyMenuReturnToItemList);
         }
     }
+    else if (sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
+    {
+        if (BuyShopItem(tItemId, tItemCount) != FALSE)
+        {
+            BuyMenuDisplayMessage(taskId, gText_ThanksIllGiveLater, BuyMenuSubtractMoney);
+            RecordItemPurchase(taskId);
+        }
+        else
+        {
+            BuyMenuDisplayMessage(taskId, gText_NoMoreRoomForThis, BuyMenuReturnToItemList);
+        }
+    }
     else if (sMartInfo.martType == MART_TYPE_HUB_AREAS || sMartInfo.martType == MART_TYPE_HUB_UPGRADES)
     {
         if (BuyShopItem(tItemId, tItemCount) != FALSE)
@@ -1505,7 +1533,7 @@ static void BuyMenuSubtractMoney(u8 taskId)
     else
         PrintMoneyAmountInMoneyBox(0, GetShopCurrencyAmount(), 0);
 
-    if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
+    if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
     {
         gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;
     }
@@ -1525,19 +1553,30 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
 
     if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
-        u16 ballCount = tItemCount / 10;
-        PlaySE(SE_SELECT);
-        if (ItemId_GetPocket(tItemId) == POCKET_POKE_BALLS && ballCount != 0 && AddBagItem(ITEM_PREMIER_BALL, ballCount) == TRUE)
+        if (sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
         {
-            CopyItemNameHandlePlural(ITEM_PREMIER_BALL, gStringVar1, ballCount);
-            if(ballCount > 1)
-                BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBalls, BuyMenuReturnToItemList);
-            else
-                BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBall, BuyMenuReturnToItemList);
+            ClearDialogWindowAndFrameToTransparent(5, 0);
+            PutWindowTilemap(1);
+            PutWindowTilemap(2);
+            ScheduleBgCopyTilemapToVram(0);
+            ExitBuyMenu(taskId);
         }
         else
         {
-            BuyMenuReturnToItemList(taskId);
+            u16 ballCount = tItemCount / 10;
+            PlaySE(SE_SELECT);
+            if (ItemId_GetPocket(tItemId) == POCKET_POKE_BALLS && ballCount != 0 && AddBagItem(ITEM_PREMIER_BALL, ballCount) == TRUE)
+            {
+                CopyItemNameHandlePlural(ITEM_PREMIER_BALL, gStringVar1, ballCount);
+                if(ballCount > 1)
+                    BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBalls, BuyMenuReturnToItemList);
+                else
+                    BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBall, BuyMenuReturnToItemList);
+            }
+            else
+            {
+                BuyMenuReturnToItemList(taskId);
+            }
         }
     }
 }
@@ -1846,6 +1885,7 @@ static u16 QueryShopItemListCallback(u16 index)
             case ROGUE_SHOP_CHARMS:
             case ROGUE_SHOP_CURSES:
             case ROGUE_SHOP_TMS:
+            case ROGUE_SHOP_COURIER:
                 sortMode = ITEM_SORT_MODE_NAME;
                 break;
 
@@ -1886,6 +1926,9 @@ void CreateDynamicPokemartMenu(const u16 category)
         if(category == ROGUE_SHOP_CHARMS || category == ROGUE_SHOP_CURSES)
             martType = MART_TYPE_PURCHASE_ONLY;
 
+        if(category == ROGUE_SHOP_COURIER)
+            martType = MART_TYPE_SINGLE_PURCHASE;
+
         CreateShopMenu(martType);
         SetShopItemsFromCallback(QueryShopItemListCallback, ITEM_NONE, NULL);
         sMartInfo.dynamicMartCategory = category;
@@ -1899,7 +1942,7 @@ void CreateDynamicPokemartMenu(const u16 category)
 
 static void CopyShopItemName(u16 item, u8* name)
 {
-    if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
+    if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
     {
         CopyItemNameN(item, name, ITEM_NAME_LENGTH + 4);
         return;
@@ -1927,7 +1970,7 @@ static const u8* GetShopItemDescription(u16 item)
 {
     const u8* str = NULL;
 
-    if (sMartInfo.martType == MART_TYPE_NORMAL  || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
+    if (sMartInfo.martType == MART_TYPE_NORMAL  || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
     {
         str = ItemId_GetDescription(item);
     }
@@ -1950,7 +1993,7 @@ static const u8* GetShopItemDescription(u16 item)
 
 static u32 GetShopItemPrice(u16 item)
 {
-    if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
+    if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
     {
         u32 price = Mart_GetItemPrice(item) >> IsPokeNewsActive(POKENEWS_SLATEPORT);
 
@@ -1981,7 +2024,7 @@ static u32 GetShopItemPrice(u16 item)
 
 static bool8 IsZeroPriceMarkedAsFree()
 {
-    if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
+    if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY || sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
     {
         if(sMartInfo.dynamicMartCategory == ROGUE_SHOP_TMS)
         {
@@ -1999,6 +2042,13 @@ static bool8 BuyShopItem(u16 item, u16 count)
     if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
     {
         return AddBagItem(item, count);
+    }
+    else if(sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)
+    {
+        AGB_ASSERT(VarGet(VAR_ROGUE_COURIER_ITEM) == ITEM_NONE);
+        VarSet(VAR_ROGUE_COURIER_ITEM, item);
+        VarSet(VAR_ROGUE_COURIER_COUNT, count);
+        return TRUE;
     }
     else if (sMartInfo.martType == MART_TYPE_HUB_AREAS)
     {

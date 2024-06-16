@@ -18,3 +18,55 @@ script Rogue_Encounter_DayCare_OnMapLoad
         setflag(FLAG_HIDE_PHONE)
     }
 }
+
+script Rogue_Encounter_DayCare_TalkItemCourier
+{
+    lock
+    faceplayer
+
+    if(var(VAR_ROGUE_COURIER_ITEM) != ITEM_NONE)
+    {
+        if(flag(FLAG_ROGUE_COURIER_READY))
+        {
+            msgbox(format("Ah, {PLAYER}!\nI have your order ready for you!"))
+
+            checkitemspace(VAR_ROGUE_COURIER_ITEM, VAR_ROGUE_COURIER_COUNT)
+            if(var(VAR_RESULT) == YES)
+            {
+                giveitem(VAR_ROGUE_COURIER_ITEM, VAR_ROGUE_COURIER_COUNT)
+
+                setvar(VAR_ROGUE_COURIER_ITEM, ITEM_NONE)
+                setvar(VAR_ROGUE_COURIER_COUNT, ITEM_NONE)
+            }
+            else
+            {
+                msgbox(format("Oh. It looks like you need to free up some space in your Bag first."))
+            }
+        }
+        else
+        {
+            bufferitemnameplural(STR_VAR_1, VAR_ROGUE_COURIER_ITEM, VAR_ROGUE_COURIER_COUNT)
+            msgbox(format("I'll be sure to collect your {STR_VAR_1} during my next restock."))
+        }
+    }
+    else
+    {
+        msgbox(format("Hello there.\nI am an Item Courier currently on my way to restock some Poké Marts.\pIf you would like, I could pick you up some extra supplies on my way?"))
+        waitmessage
+
+        rogue_dynamicpokemart(ROGUE_SHOP_COURIER)
+        lock
+
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("I'll make sure to pick that up for you on my next restock!\pPlease come and collect it from me, the next time we meet."))
+            clearflag(FLAG_ROGUE_COURIER_READY)
+        }
+        else
+        {
+            msgbox(format("If you change your mind, feel free to let me know."))
+        }
+    }
+
+    release
+}
