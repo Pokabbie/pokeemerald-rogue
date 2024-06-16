@@ -1179,6 +1179,30 @@ $(MID_SUBDIR)/mus_dp_level_up.s: %.s: %.mid
 $(MID_SUBDIR)/mus_dp_legend_appears.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V100
 
+$(MID_SUBDIR)/mus_dp_galactic_eterna_building.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V100
+
+$(MID_SUBDIR)/mus_dp_galactic_hq.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V086
+
+$(MID_SUBDIR)/mus_dp_galactic_hq_basement.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V127
+
+$(MID_SUBDIR)/mus_dp_amity_square.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V115
+
+$(MID_SUBDIR)/mus_dp_old_chateau.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V127
+
+$(MID_SUBDIR)/mus_dp_rowan.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V127
+
+$(MID_SUBDIR)/mus_dp_oreburgh_mine.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V120
+
+$(MID_SUBDIR)/mus_pl_mystery_gift.s: %.s: %.mid
+	$(MID) $< $@ -E -R0 -G191 -V090
+
 $(MID_SUBDIR)/mus_pl_vs_giratina.s: %.s: %.mid
 	$(MID) $< $@ -E -R0 -G191 -V105
 

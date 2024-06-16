@@ -137,7 +137,7 @@ script Rogue_Interior_ConfigLab_TriggerMeetPokabbie
     applymovement(OBJ_EVENT_POKABBIE, Rogue_Interior_ConfigLab_Pokabbie0)
     waitmovement(0)
 
-    playbgm(MUS_DP_ENCOUNTER_LADY, TRUE)
+    playbgm(MUS_PL_MYSTERY_GIFT, TRUE)
 
     msgbox(format("{PLAYER}?!\pWhat are you doing here, I didn't expect you to come so soon?\pWho am I?\pMy name's Pokabbie.\nI'm the Developer of Emerald Rogue!"))
     closemessage

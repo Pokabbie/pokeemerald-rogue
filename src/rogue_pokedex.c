@@ -440,7 +440,11 @@ void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 requireSeen, b
 
 void Rogue_SelectPokemonInSafari()
 {
-    Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI, FALSE, FALSE);
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTERIOR_SAFARI_CAVE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_INTERIOR_SAFARI_CAVE))
+        Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI, FALSE, FALSE);
+    else
+        Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_NORMAL_SAFARI, FALSE, FALSE);
+
     sPokedexViewReq.view = DEX_VIEW_SELECT_SAFARI_MON;
 }
 
@@ -2834,13 +2838,14 @@ static void Overview_HandleInput(u8 taskId)
                     
                     switch (dexVariant)
                     {
-                        case POKEDEX_DYNAMIC_VARIANT_SAFARI:
+                        case POKEDEX_DYNAMIC_VARIANT_NORMAL_SAFARI:
                         case POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI:
                         {
                             u16 i = (dexVariant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_LEGENDS_START_INDEX : 0;
+                            u16 total = (dexVariant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_TOTAL_MONS : ROGUE_SAFARI_LEGENDS_START_INDEX;
                             u16 count = 0;
 
-                            for(; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
+                            for(; i < total; ++i)
                             {
                                 if(gRogueSaveBlock->safariMons[i].species != SPECIES_NONE)
                                 {
@@ -4154,7 +4159,6 @@ bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species)
         case SPECIES_YVELTAL:
         case SPECIES_ZYGARDE:
 
-        case SPECIES_COSMOG:
         case SPECIES_COSMOEM:
         case SPECIES_SOLGALEO:
         case SPECIES_LUNALA:
@@ -4234,6 +4238,7 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
         case SPECIES_DIANCIE:
         case SPECIES_HOOPA:
         
+        case SPECIES_COSMOG:
         case SPECIES_NIHILEGO:
         case SPECIES_BUZZWOLE:
         case SPECIES_PHEROMOSA:
@@ -4391,18 +4396,19 @@ static u16 GetVariantSpeciesAt(u8 variant, u16 index)
 
         switch (variant)
         {
-            case POKEDEX_DYNAMIC_VARIANT_SAFARI:
+            case POKEDEX_DYNAMIC_VARIANT_NORMAL_SAFARI:
             case POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI:
             {
                 u16 i = (variant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_LEGENDS_START_INDEX : 0;
+                u16 total = (variant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_TOTAL_MONS : ROGUE_SAFARI_LEGENDS_START_INDEX;
                 u16 count = 0;
 
-                for(; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
+                for(; i < total; ++i)
                 {
                     if(gRogueSaveBlock->safariMons[i].species != SPECIES_NONE)
                     {
                         if(index == count++)
-                            return gRogueSaveBlock->safariMons[i].species;
+                            return Rogue_GetEggSpecies(gRogueSaveBlock->safariMons[i].species);
                     }
                 }
 
@@ -4424,13 +4430,14 @@ static u16 GetVariantSpeciesCount(u8 variant)
 
         switch (variant)
         {
-            case POKEDEX_DYNAMIC_VARIANT_SAFARI:
+            case POKEDEX_DYNAMIC_VARIANT_NORMAL_SAFARI:
             case POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI:
             {
                 u16 i = (variant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_LEGENDS_START_INDEX : 0;
+                u16 total = (variant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_TOTAL_MONS : ROGUE_SAFARI_LEGENDS_START_INDEX;
                 u16 count = 0;
 
-                for(; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
+                for(; i < total; ++i)
                 {
                     if(gRogueSaveBlock->safariMons[i].species != SPECIES_NONE)
                         ++count;

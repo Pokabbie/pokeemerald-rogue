@@ -112,6 +112,7 @@
 #define MAP_ROGUE_ROUTE_SINNOH_217           (32 | (6 << 8))
 #define MAP_ROGUE_ROUTE_SINNOH_210           (33 | (6 << 8))
 #define MAP_ROGUE_ROUTE_SINNOH_201           (34 | (6 << 8))
+#define MAP_ROGUE_ROUTE_SINNOH_214           (35 | (6 << 8))
 
 // gMapGroup_RogueAdventureEncounters
 #define MAP_ROGUE_ENCOUNTER_REST_STOP        (0 | (7 << 8))
@@ -144,6 +145,7 @@
 #define MAP_ROGUE_BOSS_13                    (27 | (7 << 8))
 #define MAP_ROGUE_BOSS_FINAL                 (28 | (7 << 8))
 #define MAP_ROGUE_BOSS_VICTORY_LAP           (29 | (7 << 8))
+#define MAP_ROGUE_ENCOUNTER_LAKE_VALOR       (30 | (7 << 8))
 
 // gMapGroup_RogueAdventureMonEncounters
 #define MAP_ROGUE_SOUTHERN_ISLAND_LATIOS   (0 | (8 << 8))

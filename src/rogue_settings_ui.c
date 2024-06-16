@@ -2245,13 +2245,13 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         RogueDebug_SetConfigToggle(DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT, value);
         break;
 
-
     case MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY:
         RogueDebug_SetConfigRange(DEBUG_RANGE_START_DIFFICULTY, value);
         break;
 
     case MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE:
         RogueDebug_SetConfigRange(DEBUG_RANGE_FORCED_ROUTE, value);
+        break;
 
     case MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM:
         RogueDebug_SetConfigRange(DEBUG_RANGE_FORCED_EVIL_TEAM, value);

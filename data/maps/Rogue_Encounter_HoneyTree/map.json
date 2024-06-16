@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_ENCOUNTER_HONEY_TREE",
   "name": "Rogue_Encounter_HoneyTree",
   "layout": "LAYOUT_ROGUE_ENCOUNTER_HONEY_TREE",
-  "music": "MUS_DP_ETERNA_FOREST",
+  "music": "MUS_DP_AMITY_SQUARE",
   "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

@@ -895,3 +895,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Route_Sinnoh_201/scripts.inc"
 
 	.include "data/maps/Rogue_Boss_VictoryLap/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_LakeValor/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_214/scripts.inc"
