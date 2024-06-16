@@ -8919,7 +8919,7 @@ static void RandomiseEnabledTrainers()
     // May only limited number of trainers active
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
-        while(activeTrainers > 10)
+        while(activeTrainers > 12)
         {
             i = RogueRandom() % ROGUE_MAX_ACTIVE_TRAINER_COUNT;
 
@@ -9088,7 +9088,7 @@ static bool8 RogueRandomChanceTrainer()
     else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_TEAM_HIDEOUT)
     {
         // We want a good number of trainers in the hideout
-        chance = max(33, chance);
+        chance = max(66, chance);
     }
     else
     {
