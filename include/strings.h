@@ -1102,6 +1102,7 @@ extern const u8 gText_FromVar1[];
 extern const u8 gText_Var1AndYouWantedVar2[];
 extern const u8 gText_BuildVar1ToVar2ForVar3[];
 extern const u8 gText_HereYouGoThankYou[];
+extern const u8 gText_ThanksIllGiveLater[];
 extern const u8 gText_NoMoreRoomForThis[];
 extern const u8 gText_AlreadyOwnThis[];
 extern const u8 gText_ThankYouIllSendItHome[];

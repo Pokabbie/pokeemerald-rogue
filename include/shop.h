@@ -11,6 +11,7 @@ enum
     MART_TYPE_DECOR2,
     MART_TYPE_HUB_AREAS,
     MART_TYPE_HUB_UPGRADES,
+    MART_TYPE_SINGLE_PURCHASE,
 };
 
 // shop view window NPC info enum

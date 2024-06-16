@@ -87,8 +87,8 @@
 #define VAR_ROGUE_TOTAL_RUN_CATCHES          0x4044
 #define VAR_UNUSED_0x4045                    0x4045
 #define VAR_NATIONAL_DEX                     0x4046
-#define VAR_UNUSED_0x4046                    0x4047
-#define VAR_UNUSED_0x4048                    0x4048
+#define VAR_ROGUE_COURIER_ITEM               0x4047
+#define VAR_ROGUE_COURIER_COUNT              0x4048
 #define VAR_UNUSED_0x4049                    0x4049
 #define VAR_UNUSED_0x404A                    0x404A
 #define VAR_UNUSED_0x404B                    0x404B

@@ -410,6 +410,7 @@ const u8 gText_ThankYouIllSendItHome[] = _("Thank you!\nI'll send it to your hom
 const u8 gText_ThankYouBuildOrderSent[] = _("{POKEMON_HUB} build order submitted.\n{COLOR BLUE}{SHADOW LIGHT_BLUE}{STR_VAR_1} {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}will be built shortly.");
 const u8 gText_ThankYouUpgradeOrderSent[] = _("{POKEMON_HUB} upgrade order submitted.\n{COLOR BLUE}{SHADOW LIGHT_BLUE}{STR_VAR_1} {COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}will be upgraded shortly.");
 const u8 gText_ThanksIllSendItHome[] = _("Thanks!\nI'll send it to your PC at home.");
+const u8 gText_ThanksIllGiveLater[] = _("Thank you very much!\nI'll be sure to grab it for you.");
 const u8 gText_YouDontHaveMoney[] = _("You don't have enough money.{PAUSE_UNTIL_PRESS}");
 const u8 gText_NoMoreRoomForThis[] = _("You have no more room for this\nitem.{PAUSE_UNTIL_PRESS}");
 const u8 gText_AlreadyOwnThis[] = _("You already own this item.{PAUSE_UNTIL_PRESS}");

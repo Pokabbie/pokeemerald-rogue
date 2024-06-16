@@ -1620,8 +1620,7 @@ u32 Rogue_CalculateMovePrice(u16 move)
     switch (move)
     {
     case MOVE_BATON_PASS:
-        power = 3500;
-        break;
+        return 3500;
     }
 
     switch (move)
