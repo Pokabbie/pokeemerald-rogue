@@ -59,6 +59,7 @@ void ApplyBattlerVisualsForTeraAnim(u32 battler, bool32 insideAnim)
 // Returns whether a battler can Terastallize.
 bool32 CanTerastallize(u32 battler)
 {
+    u16 species = gBattleMons[battler].species;
     u32 holdEffect = GetBattlerHoldEffect(battler, FALSE);
 
     if(!IsTerastallizeEnabled())
@@ -78,6 +79,10 @@ bool32 CanTerastallize(u32 battler)
     {
         return FALSE;
     }
+
+    // Check if species isn't allowed to Tera.
+    if (species == SPECIES_RAYQUAZA_MEGA)
+        return FALSE;
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
         && IsPartnerMonFromSameTrainer(battler)
