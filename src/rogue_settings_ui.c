@@ -463,6 +463,7 @@ static u8 DebugRange_ProcessInput(u8 menuOffset, u8 selection);
 static void DebugRange_DrawChoices(u8 menuOffset, u8 selection);
 static u8 DebugRange_DifficultySkipProcessInput(u8 menuOffset, u8 selection);
 static u8 DebugRange_ForcedRouteProcessInput(u8 menuOffset, u8 selection);
+static void DebugRange_ForcedRouteDrawChoices(u8 menuOffset, u8 selection);
 static u8 DebugRange_ForcedTeamProcessInput(u8 menuOffset, u8 selection);
 #endif
 
@@ -834,7 +835,7 @@ static const struct MenuEntry sOptionMenuItems[] =
     {
         .itemName = sMenuName_DebugRangeForcedRoute,
         .processInput = DebugRange_ForcedRouteProcessInput,
-        .drawChoices = DebugRange_DrawChoices
+        .drawChoices = DebugRange_ForcedRouteDrawChoices
     },
     [MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM] = 
     {
@@ -1786,6 +1787,27 @@ static u8 DebugRange_ForcedRouteProcessInput(u8 menuOffset, u8 selection)
     }
     
     return selection;
+}
+
+static void DebugRange_ForcedRouteDrawChoices(u8 menuOffset, u8 selection)
+{
+    u8 text[16];
+
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES + 55, menuOffset * YPOS_SPACING, 0);
+
+    if(selection != 0 && selection <= gRogueRouteTable.routeCount)
+    {
+        // Offset to remove "Rogue_Route_"
+        DrawOptionMenuChoice(&gRogueRouteTable.routes[selection - 1].map.debugName[12], XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
+    }
+    else
+    {
+        ConvertUIntToDecimalStringN(&text[0], selection, STR_CONV_MODE_LEFT_ALIGN, 3);
+        DrawOptionMenuChoice(text, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
+    }
+    
+
 }
 
 static u8 DebugRange_ForcedTeamProcessInput(u8 menuOffset, u8 selection)
