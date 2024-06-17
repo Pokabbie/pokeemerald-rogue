@@ -3,6 +3,7 @@
 #include "constants/battle_frontier.h"
 #include "constants/items.h"
 #include "constants/rogue.h"
+#include "constants/script_menu.h"
 
 #include "battle_main.h"
 #include "battle_message.h"
@@ -19,6 +20,7 @@
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "script.h"
+#include "script_menu.h"
 #include "shop.h"
 #include "sound.h"
 #include "string_util.h"
@@ -1730,6 +1732,82 @@ void Rogue_CheckSafariMonLikesPokeblock()
 {
     u8 safariIndex = gSpecialVar_0x8008;
     gSpecialVar_Result = WillSpeciesLikePokeblockInternal(gSpecialVar_ItemId, gRogueSaveBlock->safariMons[safariIndex].species);
+}
+
+void Rogue_AppendMultichoicePokeblockItems()
+{
+    u16 i;
+
+    // Insert everything into query so we can display in alphabetical order
+    RogueItemQuery_Begin();
+    RogueItemQuery_Reset(QUERY_FUNC_EXCLUDE);
+
+    for(i = FIRST_ITEM_POKEBLOCK; i <= LAST_ITEM_POKEBLOCK; ++i)
+    {
+        if(ItemId_GetDescription(i) != NULL)
+        {
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
+        }
+    }
+
+    {
+        u16 const* itemsList;
+        RogueListQuery_Begin();
+
+        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE);
+
+        for(;*itemsList != ITEM_NONE; ++itemsList)
+        {
+            u16 itemId = *itemsList;
+            u8 type = ItemId_GetSecondaryId(itemId);
+
+            if(IS_STANDARD_TYPE(type))
+                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(gTypeNames[type], itemId - FIRST_ITEM_POKEBLOCK);
+            else
+                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(ItemId_GetName(itemId), itemId - FIRST_ITEM_POKEBLOCK);
+        }
+
+        RogueListQuery_End();
+    }
+    RogueItemQuery_End();
+
+    ScriptMenu_ScrollingMultichoiceDynamicAppendOption(gText_Exit, MULTI_B_PRESSED);
+}
+
+void Rogue_AppendMultichoiceBerriesForPokeblock()
+{
+    u16 i;
+    u16 targetPokeblock = gSpecialVar_0x8004;
+
+    // Insert everything into query so we can display in alphabetical order
+    RogueItemQuery_Begin();
+    RogueItemQuery_Reset(QUERY_FUNC_EXCLUDE);
+
+    for(i = FIRST_BERRY_INDEX; i <= LAST_BERRY_INDEX; ++i)
+    {
+        if(ItemId_GetDescription(i) != NULL && Rogue_BerryToPokeblock(i) == targetPokeblock)
+        {
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
+        }
+    }
+
+    {
+        u16 const* itemsList;
+        RogueListQuery_Begin();
+
+        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE);
+
+        for(;*itemsList != ITEM_NONE; ++itemsList)
+        {
+            u16 itemId = *itemsList;
+            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(ItemId_GetName(itemId), 0);
+        }
+
+        RogueListQuery_End();
+    }
+    RogueItemQuery_End();
+
+    ScriptMenu_ScrollingMultichoiceDynamicAppendOption(gText_Exit, MULTI_B_PRESSED);
 }
 
 void Rogue_EnqueueSafariBattle()
