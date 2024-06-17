@@ -301,6 +301,8 @@ gSpecials::
 	def_special Rogue_CanOverLevel
 	def_special Rogue_AnyLegendsInSafari
 	def_special Rogue_CheckSafariMonLikesPokeblock
+	def_special Rogue_AppendMultichoicePokeblockItems
+	def_special Rogue_AppendMultichoiceBerriesForPokeblock
 	def_special Rogue_EnqueueSafariBattle
 	def_special Rogue_BufferSafariMonInfo
 	def_special Rogue_DisplayPopupsFromScript

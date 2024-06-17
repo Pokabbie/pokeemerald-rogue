@@ -319,6 +319,9 @@ struct RogueRouteMap
     u16 layout;
     u16 group;
     u16 num;
+#ifdef ROGUE_DEBUG
+    const u8 debugName[40];
+#endif
 };
 
 struct RogueRouteEncounter

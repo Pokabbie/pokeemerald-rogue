@@ -2933,6 +2933,7 @@ static void SetPartyMonSelectionActions(struct Pokemon *mons, u8 slotId, u8 acti
 static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 {
     u8 i, j;
+    bool8 inCatchingContest = Rogue_IsCatchingContestActive();
 
     sPartyMenuInternal->numActions = 0;
 
@@ -2943,11 +2944,12 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         if (GetMonData(&mons[1], MON_DATA_SPECIES) != SPECIES_NONE)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SWITCH);
 
-        if (GetNumberOfRelearnableMoves(&mons[slotId]) != 0)
+        if (!inCatchingContest && GetNumberOfRelearnableMoves(&mons[slotId]) != 0)
         {
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RELEARN_MOVE);
         }
 
+        if(!inCatchingContest)
         {
             u16 targetSpecies = GetEvolutionTargetSpecies(&mons[slotId], EVO_MODE_NORMAL, ITEM_NONE, NULL);
 
@@ -2964,9 +2966,12 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     }
     else
     {
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_POKEDEX);
+        if(!inCatchingContest)
+        {
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_POKEDEX);
+        }
 
-        if(Rogue_CanRenameMon(&mons[slotId]))
+        if(!inCatchingContest && Rogue_CanRenameMon(&mons[slotId]))
         {
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RENAME);
         }

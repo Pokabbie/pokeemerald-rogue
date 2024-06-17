@@ -490,6 +490,9 @@ bool8 Rogue_UseFinalQuestEffects(void)
         if(!CheckOnlyTheseTrainersEnabled(CONFIG_TOGGLE_TRAINER_ROGUE))
             return FALSE;
 
+        if(Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM) != ROGUE_GAME_MODE_STANDARD)
+            return FALSE;
+
         return TRUE;
     }
 
@@ -1595,8 +1598,8 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
             }
             else
             {
-                // Give move money here
-                *money *= 2;
+                // Give less money here
+                *money /= 2;
             }
             break;
         }
@@ -3115,7 +3118,6 @@ void Rogue_OnNewGame(void)
     VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
 
     FlagSet(FLAG_SYS_B_DASH);
-    FlagClear(FLAG_SYS_SAVE_DISABLED);
     EnableNationalPokedex();
 
     RogueToD_SetTime(60 * 10);

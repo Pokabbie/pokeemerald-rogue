@@ -246,3 +246,42 @@ script Rogue_Area_Market_TalkBerryBlender
     msgbox(format("They're intensely focusing on using the Berry Blending Machine."))
     release
 }
+
+script Rogue_Area_Market_TalkPokeblockHelper
+{
+    lock
+    faceplayer
+    msgbox(format("You look like a Trainer to me!\pI'm something of a {POKEBLOCK} Expert myself.\pI can help you learn which Berries make what kinds of {POKEBLOCK}, if you'd like."))
+
+    setvar(VAR_RESULT, YES)
+
+    while(var(VAR_RESULT) == YES)
+    {
+        begindynamicmultichoice(32)
+        special(Rogue_AppendMultichoicePokeblockItems)
+        message(format("Which type of {POKEBLOCK} are you interested in?"))
+        waitmessage
+        enddynamicmultichoice(19, 2, 5, TRUE)
+
+        if(var(VAR_RESULT) != MULTI_B_PRESSED)
+        {
+            copyvar(VAR_0x8004, VAR_RESULT)
+            addvar(VAR_0x8004, FIRST_ITEM_POKEBLOCK)
+            bufferitemname(STR_VAR_1, VAR_0x8004)
+
+            begindynamicmultichoice(32)
+            special(Rogue_AppendMultichoiceBerriesForPokeblock)
+            message(format("These are the Berries which produce {STR_VAR_1}."))
+            waitmessage
+            enddynamicmultichoice(19, 2, 5, TRUE)
+            
+            setvar(VAR_RESULT, YES)
+        }
+        else
+        {
+            setvar(VAR_RESULT, NO)
+        }
+    }
+
+    release
+}

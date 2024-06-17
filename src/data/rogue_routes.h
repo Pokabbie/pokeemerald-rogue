@@ -4,7 +4,13 @@
 #include "constants/maps.h"
 #include "constants/weather.h"
 
-#define ROUTE_MAP(map) { .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
+#ifdef ROGUE_DEBUG
+#define ROUTE_MAP(map) { .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), .debugName = _(#map) }
+#else
+#define ROUTE_MAP(map) { .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map) }
+#endif
+
+
 #define ENCOUNTER_MAP(id, map) { .encounterId=id, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map) }
 
 
@@ -209,6 +215,15 @@ static const struct RogueRouteEncounter sRogueRouteTable[] = {
         .mapFlags = ROUTE_FLAG_SINNOH,
         .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_214),
         .wildTypeTable = { TYPE_DARK, TYPE_FIGHTING, TYPE_GRASS }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_SINNOH,
+        .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_209),
+#ifdef ROGUE_EXPANSION
+        .wildTypeTable = { TYPE_FAIRY, TYPE_GHOST, TYPE_ELECTRIC }
+#else
+        .wildTypeTable = { TYPE_NORMAL, TYPE_GHOST, TYPE_ELECTRIC }
+#endif
     },
 };
 

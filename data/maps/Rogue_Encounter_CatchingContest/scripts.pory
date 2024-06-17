@@ -73,7 +73,6 @@ script Rogue_Encounter_CatchingContest_StartContest
             msgbox(format("Good luck!"), MSGBOX_DEFAULT)
             playbgm(MUS_HG_BUG_CATCHING_CONTEST, TRUE)
 
-            setflag(FLAG_SYS_SAVE_DISABLED)
             addvar(VAR_CONTEST_STATE, 1)
         }
     }
@@ -118,7 +117,6 @@ script Rogue_Encounter_CatchingContest_EndContest
 
         fadeoutbgm(1)
         msgbox(format("Now for the result{PAUSE 15}…{PAUSE 15} …{PAUSE 15} …"))
-        clearflag(FLAG_SYS_SAVE_DISABLED)
         addvar(VAR_CONTEST_STATE, 1)
 
         if(var(VAR_RESULT) == TRUE)
