@@ -128,7 +128,8 @@ bool32 CanDynamax(u16 battlerId)
     // Check if species isn't allowed to Dynamax.
     if (GET_BASE_SPECIES_ID(species) == SPECIES_ZACIAN
         || GET_BASE_SPECIES_ID(species) == SPECIES_ZAMAZENTA
-        || GET_BASE_SPECIES_ID(species) == SPECIES_ETERNATUS)
+        || GET_BASE_SPECIES_ID(species) == SPECIES_ETERNATUS
+        || species == SPECIES_RAYQUAZA_MEGA)
         return FALSE;
 
     // Cannot Dynamax if you can Mega Evolve or use a Z-Move
