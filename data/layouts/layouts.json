@@ -2090,6 +2090,16 @@
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/Rogue_Route_Sinnoh_214/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_214/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_SINNOH_209",
+      "name": "Rogue_Route_Sinnoh_209_Layout",
+      "width": 72,
+      "height": 92,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Rogue_Route_Sinnoh_209/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_209/map.bin"
     }
   ]
 }

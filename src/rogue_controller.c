@@ -1598,8 +1598,8 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
             }
             else
             {
-                // Give move money here
-                *money *= 2;
+                // Give less money here
+                *money /= 2;
             }
             break;
         }
