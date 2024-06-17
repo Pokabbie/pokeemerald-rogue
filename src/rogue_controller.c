@@ -3118,7 +3118,6 @@ void Rogue_OnNewGame(void)
     VarSet(VAR_ROGUE_DESIRED_CAMPAIGN, ROGUE_CAMPAIGN_NONE);
 
     FlagSet(FLAG_SYS_B_DASH);
-    FlagClear(FLAG_SYS_SAVE_DISABLED);
     EnableNationalPokedex();
 
     RogueToD_SetTime(60 * 10);

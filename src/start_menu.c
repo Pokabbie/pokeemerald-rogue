@@ -335,7 +335,9 @@ static void AddStartMenuAction(u8 action)
 
 static void BuildNormalStartMenu(void)
 {
-    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+    bool8 inCatchingContest = Rogue_IsCatchingContestActive();
+
+    if (!inCatchingContest && FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
     {
         AddStartMenuAction(MENU_ACTION_POKEDEX);
     }
@@ -344,7 +346,10 @@ static void BuildNormalStartMenu(void)
         AddStartMenuAction(MENU_ACTION_POKEMON);
     }
 
-    AddStartMenuAction(MENU_ACTION_BAG);
+    if(!inCatchingContest)
+    {
+        AddStartMenuAction(MENU_ACTION_BAG);
+    }
 
     if (FlagGet(FLAG_SYS_QUEST_LOG_GET) == TRUE)
     {
@@ -359,7 +364,7 @@ static void BuildNormalStartMenu(void)
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
 
-    if (FlagGet(FLAG_SYS_SAVE_DISABLED) == FALSE)
+    if (!inCatchingContest)
     {
         AddStartMenuAction(MENU_ACTION_SAVE);
     }
@@ -370,7 +375,9 @@ static void BuildNormalStartMenu(void)
 
 static void BuildRogueRunStartMenu(void)
 {
-    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
+    bool8 inCatchingContest = Rogue_IsCatchingContestActive();
+
+    if (!inCatchingContest && FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
     {
         AddStartMenuAction(MENU_ACTION_POKEDEX);
     }
@@ -379,7 +386,10 @@ static void BuildRogueRunStartMenu(void)
         AddStartMenuAction(MENU_ACTION_POKEMON);
     }
 
-    AddStartMenuAction(MENU_ACTION_BAG);
+    if(!inCatchingContest)
+    {
+        AddStartMenuAction(MENU_ACTION_BAG);
+    }
 
     if (FlagGet(FLAG_SYS_QUEST_LOG_GET) == TRUE)
     {
@@ -394,7 +404,7 @@ static void BuildRogueRunStartMenu(void)
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
 
-    if (FlagGet(FLAG_SYS_SAVE_DISABLED) == FALSE)
+    if (!inCatchingContest && FlagGet(FLAG_SYS_SAVE_DISABLED) == FALSE)
     {
         AddStartMenuAction(MENU_ACTION_QUICK_SAVE);
     }

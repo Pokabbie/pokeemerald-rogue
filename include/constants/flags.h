@@ -1363,7 +1363,7 @@
 #define FLAG_SYS_SHOW_POKE_FOLLOWER                  (SYSTEM_FLAGS + 0x3)
 #define FLAG_SYS_GAME_CLEAR                          (SYSTEM_FLAGS + 0x4)
 #define FLAG_SYS_CHAT_USED                           (SYSTEM_FLAGS + 0x5)
-#define FLAG_SYS_SAVE_DISABLED                       (SYSTEM_FLAGS + 0x6)
+#define FLAG_SYS_SAVE_DISABLED                       (SYSTEM_FLAGS + 0x6) // Rogue _UNUSED_
 
 // Badges
 #define FLAG_BADGE01_GET                             (SYSTEM_FLAGS + 0x7)
