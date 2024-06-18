@@ -130,6 +130,8 @@ bool32 CanDynamax(u16 battlerId)
         || GET_BASE_SPECIES_ID(species) == SPECIES_ZAMAZENTA
         || GET_BASE_SPECIES_ID(species) == SPECIES_ETERNATUS
         || species == SPECIES_RAYQUAZA_MEGA
+        || species == SPECIES_KYOGRE_PRIMAL
+        || species == SPECIES_GROUDON_PRIMAL
         || species == SPECIES_PIKIN_MEGA)
         return FALSE;
 

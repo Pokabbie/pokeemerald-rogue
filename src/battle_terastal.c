@@ -81,7 +81,9 @@ bool32 CanTerastallize(u32 battler)
     }
 
     // Check if species isn't allowed to Tera.
-    if (species == SPECIES_RAYQUAZA_MEGA 
+    if (species == SPECIES_RAYQUAZA_MEGA
+        || species == SPECIES_KYOGRE_PRIMAL
+        || species == SPECIES_GROUDON_PRIMAL
         || species == SPECIES_PIKIN_MEGA)
         return FALSE;
 
