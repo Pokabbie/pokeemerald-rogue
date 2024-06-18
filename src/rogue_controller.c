@@ -9122,11 +9122,11 @@ static bool8 RogueRandomChanceItem()
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
     if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM)
-        chance = 50;
+        chance = 65;
     else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH)
         chance = 95;
     else
-        chance = 75;
+        chance = 80;
 
     return RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }

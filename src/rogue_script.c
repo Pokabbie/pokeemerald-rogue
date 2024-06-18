@@ -2156,3 +2156,18 @@ void Rogue_SafeSmartCheck()
 {
     gSpecialVar_Result = Rogue_SafeSmartCheckInternal();
 }
+
+void Rogue_CanActivatePikinEasterEgg()
+{
+    gSpecialVar_Result = FALSE;
+
+    if(!FlagGet(FLAG_ROGUE_UNLOCKED_PIKIN_EASTER_EGG))
+    {
+        u32 customMonId = RogueGift_GetCustomMonId(&gPlayerParty[0]);
+
+        if(customMonId == CUSTOM_MON_ABBIE_MAREEP)
+        {
+            gSpecialVar_Result = TRUE;
+        }
+    }
+}

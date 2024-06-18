@@ -17,7 +17,7 @@ mapscripts Rogue_Interior_ConfigLab_MapScripts
 
 script Rogue_Interior_ConfigLab_OnLoad
 {
-    setvar(VAR_FOLLOW_MON_0, SPECIES_DITTO)
+    setvar(VAR_FOLLOW_MON_0, SPECIES_MAREEP)
     if(flag(FLAG_ROGUE_UNCOVERRED_POKABBIE))
     {
         call(Rogue_Interior_ConfigLab_DrawBasementDoor)
@@ -232,7 +232,29 @@ script Rogue_Interior_ConfigLab_TalkPokabbie
 
     faceplayer
 
-    msgbox(format("POKABBIE: Hi {PLAYER}!\pI hope you're enjoying Emerald Rogue!\pIf not…\nI dunno?\lSorry I guess?"))
+    special(Rogue_CanActivatePikinEasterEgg)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setflag(FLAG_ROGUE_UNLOCKED_PIKIN_EASTER_EGG)
+        msgbox(format("POKABBIE: Hi {PLAYER}!\pIs that-\pThat is!\nIt's one of my Mareep!\pSo it ended up with you, huh?\pI guess you'll at least be able to show it some exciting Adventures!"))
+
+        poryswitch(ROGUE_VERSION)
+        {
+            ROGUE_VERSION_VANILLA
+            {
+                msgbox(format("You know Pikin can also learn Blizzard too?\pHere, you should be able to teach Pikin it now from the Learn Moves menu!\pI hope you show Pikin some exciting Adventures!"))
+            }
+            ROGUE_VERSION_EXPANSION
+            {
+                msgbox(format("You know I once made a challenge hack for a friend of mine where I gave Pikin it's very own Mega!\pA Mega Mareep!\pIt was a bit insane in that ROM hack though…\pOh I forgot, doh!\pYou can Mega Evolve Pikin in Emerald Rogue too!\pYou need to teach it Hurricane and then it will be able to Mega Evolve.\p… … …\pYes… like Mega Rayquaza…\pLook… I love Mareep alright!\pThere!\pYou should be able to teach Pikin Hurricane now from the Learn Moves menu.\pWhy not give Mega Mareep a try for yourself!\pJust be careful not to evolve it, otherwise you're going to have to hunt down yet another Pikin…\pTo be fair…\nThere are many Pikins…\pI hope you show Pikin some exciting Adventures!"))
+            }
+        }
+    }
+    else
+    {
+        msgbox(format("POKABBIE: Hi {PLAYER}!\pI hope you're enjoying Emerald Rogue!\pIf not…\nI dunno?\lSorry I guess?"))
+    }
 
     release
 }

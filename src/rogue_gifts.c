@@ -1,8 +1,10 @@
 #include "global.h"
 #include "constants/abilities.h"
+#include "constants/flags.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/region_map_sections.h"
+#include "event_data.h"
 #include "random.h"
 
 #include "rogue_baked.h"
@@ -426,6 +428,13 @@ u16 RogueGift_GetCustomMonMoveCount(u32 id)
         if(id != CUSTOM_MON_NONE)
         {
             struct CustomMonData const* monData = &sCustomPokemon[id];
+
+            if(id == CUSTOM_MON_ABBIE_MAREEP && !FlagGet(FLAG_ROGUE_UNLOCKED_PIKIN_EASTER_EGG))
+            {
+                // Don't show last move until activated easter egg
+                return monData->movesCount - 1;
+            }
+
             return monData->movesCount;
         }
     }

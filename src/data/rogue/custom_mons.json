@@ -21,6 +21,11 @@
                 "trainer_colour": 0
             },
             {
+                "name": "?????",
+                "trainer_id": 181,
+                "trainer_colour": 1
+            },
+            {
                 "name": "Abbie",
                 "trainer_id": 181,
                 "trainer_colour": 1
@@ -65,7 +70,8 @@
                     "MOVE_DRAGON_BREATH",
                     "MOVE_MAGIC_COAT",
                     "MOVE_THUNDER",
-                    "MOVE_TAIL_GLOW"
+                    "MOVE_TAIL_GLOW",
+                    "MOVE_BLIZZARD"
                 ],
                 "abilities":
                 [
@@ -80,9 +86,10 @@
                 "moves":
                 [
                     "MOVE_METEOR_BEAM",
-                    "MOVE_MAGIC_COAT",
+                    "MOVE_SPLISHY_SPLASH",
                     "MOVE_THUNDERCLAP",
-                    "MOVE_TAIL_GLOW"
+                    "MOVE_TAIL_GLOW",
+                    "MOVE_HURRICANE"
                 ],
                 "abilities":
                 [

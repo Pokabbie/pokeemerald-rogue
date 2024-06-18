@@ -747,6 +747,13 @@ namespace PokemonDataGenerator.Pokedex
 							if (speciesName.EndsWith("_MEGA"))
 							{
 								redirectSpecies = speciesName.Substring(0, speciesName.Length - "_MEGA".Length);
+
+								switch (speciesName)
+								{
+									case "SPECIES_PIKIN_MEGA":
+										redirectSpecies = "SPECIES_MAREEP";
+										break;
+								}
 							}
 							else if (speciesName.EndsWith("_MEGA_X") || speciesName.EndsWith("_MEGA_Y"))
 							{
@@ -945,7 +952,6 @@ namespace PokemonDataGenerator.Pokedex
 										redirectSpecies = "SPECIES_WOBBUFFET";
 										break;
 								}
-
 							}
 						}
 					}

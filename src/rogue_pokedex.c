@@ -1015,6 +1015,14 @@ static bool8 IsAltFormVisible(u16 baseForm, u16 altForm)
             return FALSE;
     }
 
+    if(altForm == SPECIES_PIKIN_MEGA)
+    {
+        if(FlagGet(FLAG_ROGUE_UNLOCKED_PIKIN_EASTER_EGG))
+            return TRUE;
+        else
+            return FALSE;
+    }
+
     {
         u32 i;
         struct FormChange formChange;
@@ -3958,6 +3966,7 @@ u16 RoguePokedex_RedirectSpeciesGetSetFlag(u16 species)
     case SPECIES_TERAPAGOS_STELLAR:
     case SPECIES_TERAPAGOS_TERASTAL:
     case SPECIES_WOBBUFFET_PUNCHING:
+    case SPECIES_PIKIN_MEGA:
         return GET_BASE_SPECIES_ID(species);
     }
 #endif
