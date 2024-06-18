@@ -3024,10 +3024,6 @@ void Rogue_ResetConfigHubSettings(void)
     FlagSet(FLAG_SET_SEED_BOSSES);
     FlagSet(FLAG_SET_SEED_WILDMONS);
     
-    // Basic settings
-    FlagClear(FLAG_ROGUE_EASY_ITEMS);
-    FlagClear(FLAG_ROGUE_HARD_ITEMS);
-
     // Expansion Room settings
     VarSet(VAR_ROGUE_ENABLED_GEN_LIMIT, 3);
     VarSet(VAR_ROGUE_REGION_DEX_LIMIT, 0);
@@ -9061,6 +9057,11 @@ static bool8 RogueRandomChanceTrainer()
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
     s32 chance = 4 * (difficultyLevel + 1);
 
+    if(Rogue_GetModeRules()->disableRouteTrainers)
+    {
+        return FALSE;
+    }
+
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
     {
         // Scale with badge count
@@ -9120,54 +9121,20 @@ static bool8 RogueRandomChanceItem()
     s32 chance;
     u8 difficultyModifier = Rogue_GetEncounterDifficultyModifier();
 
-    if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BOSS)
-    {
-        // Use to give healing items in gym rooms
-        chance = 0;
-    }
+    if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM)
+        chance = 50;
+    else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH)
+        chance = 95;
     else
-    {
-        u8 difficultyLevel = Rogue_GetCurrentDifficulty();
-        
-        if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
-        {
-            chance = max(15, 75 - min(50, 4 * difficultyLevel));
-        }
-        else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-        {
-            chance = max(5, 30 - min(28, 2 * difficultyLevel));
-        }
-        else
-        {
-            chance = max(10, 55 - min(50, 4 * difficultyLevel));
-        }
-    }
+        chance = 75;
 
-    if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_CALM) // Easy
-        chance = max(10, chance - 25);
-    else if(difficultyModifier == ADVPATH_SUBROOM_ROUTE_TOUGH) // Hard
-        chance = min(100, chance + 25);
-
-    return TRUE;//RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
+    return RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
 
 static bool8 RogueRandomChanceBerry()
 {
-    u8 chance;
     u8 difficultyLevel = Rogue_GetCurrentDifficulty();
-
-    if(FlagGet(FLAG_ROGUE_EASY_ITEMS))
-    {
-        chance = max(15, 95 - min(85, 7 * difficultyLevel));
-    }
-    else if(FlagGet(FLAG_ROGUE_HARD_ITEMS))
-    {
-        chance = max(5, 50 - min(48, 5 * difficultyLevel));
-    }
-    else
-    {
-        chance = max(10, 70 - min(65, 5 * difficultyLevel));
-    }
+    u8 chance = max(10, 70 - min(65, 5 * difficultyLevel));
 
     return RogueRandomChance(chance, FLAG_SET_SEED_ITEMS);
 }
@@ -9287,6 +9254,11 @@ static void RandomiseEnabledItems(void)
 {
     s32 i;
     u8 difficultyLevel = Rogue_GetCurrentDifficulty();
+
+    if(Rogue_GetModeRules()->forceEndGameRouteItems)
+    {
+        difficultyLevel = ROGUE_MAX_BOSS_COUNT - 1;
+    }
 
     for(i = 0; i < ROGUE_ITEM_COUNT; ++i)
     {
