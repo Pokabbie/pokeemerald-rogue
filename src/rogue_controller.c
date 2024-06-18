@@ -7608,7 +7608,11 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
                     u8 idx = safariMon->customMonLookup - 1;
                     u32 customMonId = gRogueSaveBlock->safariMonCustomIds[idx];
 
-                    ModifyExistingMonToCustomMon(customMonId, mon);
+                    AGB_ASSERT(customMonId & OTID_FLAG_CUSTOM_MON);
+                    AGB_ASSERT(customMonId & OTID_FLAG_DYNAMIC_CUSTOM_MON);
+
+                    if((customMonId & OTID_FLAG_CUSTOM_MON) && (customMonId & OTID_FLAG_DYNAMIC_CUSTOM_MON))
+                        ModifyExistingMonToCustomMon(customMonId, mon);
                 }
 
                 CalculateMonStats(mon);
