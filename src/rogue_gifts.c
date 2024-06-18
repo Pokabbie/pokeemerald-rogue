@@ -368,6 +368,12 @@ u32 RogueGift_GetCustomMonIdBySpecies(u16 species, u32 otId)
 {
     u32 i;
 
+#ifdef ROGUE_EXPANSION
+    // The mega itself has it's own ability so don't redirect
+    if(species == SPECIES_PIKIN_MEGA)
+        return CUSTOM_MON_NONE;
+#endif
+
     species = TransformCheckSpecies(species);
 
     if((otId & OTID_FLAG_CUSTOM_MON) && (otId & OTID_FLAG_DYNAMIC_CUSTOM_MON))
