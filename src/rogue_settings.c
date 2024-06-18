@@ -56,12 +56,15 @@ static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] =
     {
         .initialLevelOffset = 80,
         .levelOffsetInterval = 10,
+        .enterPartySize = PARTY_SIZE,
         .trainerOrder = TRAINER_ORDER_DEFAULT,
         .disableChallengeQuests = TRUE,
         .disablePerBadgeLvlCaps = TRUE,
         .forceEndGameTrainers = TRUE,
+        .forceEndGameRouteItems = TRUE,
         .forceRandomanAlwaysActive = TRUE,
         .disableRivalEncounters = TRUE,
+        .disableRouteTrainers = TRUE,
         .forceFullShopInventory = TRUE,
         .adventureGenerator = ADV_GENERATOR_GAUNTLET,
     },
@@ -69,12 +72,15 @@ static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] =
     {
         .initialLevelOffset = 80,
         .levelOffsetInterval = 10,
+        .enterPartySize = PARTY_SIZE,
         .trainerOrder = TRAINER_ORDER_RAINBOW,
         .disableChallengeQuests = TRUE,
         .disablePerBadgeLvlCaps = TRUE,
         .forceEndGameTrainers = TRUE,
+        .forceEndGameRouteItems = TRUE,
         .forceRandomanAlwaysActive = TRUE,
         .disableRivalEncounters = TRUE,
+        .disableRouteTrainers = TRUE,
         .forceFullShopInventory = TRUE,
         .adventureGenerator = ADV_GENERATOR_GAUNTLET,
     },
@@ -585,10 +591,14 @@ u8 Rogue_GetDifficultyRewardLevel()
 
 u8 Rogue_GetStartingMonCapacity()
 {
-    if(Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT) == BATTLE_FORMAT_MIXED)
-        return 2;
-    else
-        return 1;
+    u8 partySize = 1;
+
+    if(Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT) == BATTLE_FORMAT_DOUBLES || Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT) == BATTLE_FORMAT_MIXED)
+        partySize = 2;
+
+    partySize = max(partySize, Rogue_GetModeRules()->enterPartySize);
+
+    return partySize;
 }
 
 static u16 GetCurrentNicknameMode()
