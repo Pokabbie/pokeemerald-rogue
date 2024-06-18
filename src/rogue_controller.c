@@ -2934,6 +2934,7 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
             RogueMonQuery_Begin();
 
             RogueMonQuery_IsSpeciesActive();
+            RogueMonQuery_IsBaseSpeciesInCurrentDex(QUERY_FUNC_INCLUDE);
             RogueMonQuery_EvosContainType(QUERY_FUNC_INCLUDE, typeFlags);
             RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
 

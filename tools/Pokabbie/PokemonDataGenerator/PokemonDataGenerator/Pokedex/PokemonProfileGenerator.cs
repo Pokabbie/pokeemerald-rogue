@@ -118,6 +118,52 @@ namespace PokemonDataGenerator.Pokedex
 					}
 
 				});
+
+				// Carry forward toxic nerf from gen8
+				if(!GameDataHelpers.IsVanillaVersion)
+				{
+					if (moveGroupName != "ultra-sun-ultra-moon")
+					{
+						source.Moves.RemoveAll((move) =>
+						{
+							if (move.moveName == "toxic")
+							{
+								if (move.versionName == "scarlet-violet" || move.versionName == "sword-shield")
+								{
+									return false;
+								}
+
+								// Don't accept moveset from before gen8
+								return true;
+							}
+
+							return false;
+						});
+					}
+					else
+					{
+						if (source.Moves.Where((move) => move.moveName == "toxic").Any())
+						{
+							if(source.Types.Where(str => str == "poison").Any())
+							{
+								// allow toxic
+							}
+							else
+							{
+								// remove toxic here (assuming this is what GF will eventually do?)
+								source.Moves.RemoveAll((move) =>
+								{
+									if (move.moveName == "toxic")
+									{
+										return true;
+									}
+
+									return false;
+								});
+							}
+						}
+					}
+				}
 			}
 		}
 
@@ -309,16 +355,61 @@ namespace PokemonDataGenerator.Pokedex
 				}
 			}
 
+			private bool AttemptReplaceMove(PokemonCompetitiveSet target, string move, params string[] orderedReplacements)
+			{
+				foreach(string testMove in orderedReplacements)
+				{
+					if(!target.Moves.Contains(testMove) && CanLearnMove(testMove))
+					{
+						int index = target.Moves.IndexOf(move);
+						target.Moves[index] = testMove;
+						return true;
+					}
+				}
+
+				return false;
+			}
+
 			public void FormatDataForGame()
 			{
 				// Now we've added the sets, add any moves that we can't currently learn as tutor moves
 				foreach (var set in CompetitiveSets)
 				{
-					foreach (var move in set.Moves)
+					foreach (var move in set.Moves.ToArray())
 					{
 						bool canLearnMove = CanLearnMove(move);
 						if (!canLearnMove)
 						{
+							if (!GameDataHelpers.IsVanillaVersion)
+							{
+								if (move == "MOVE_TOXIC")
+								{
+									if (AttemptReplaceMove(set, "MOVE_TOXIC", 
+										"MOVE_THUNDER_WAVE", 
+										"MOVE_WILL_O_WISP",
+										"MOVE_YAWN",
+										"MOVE_HYPNOSIS",
+										"MOVE_STEALTH_ROCK",
+										"MOVE_KNOCK_OFF",
+										"MOVE_IRON_HEAD",
+										"MOVE_SUBSTITUTE",
+										"MOVE_U_TURN",
+										"MOVE_ATTRACT",
+										"MOVE_METRONOME",
+										"MOVE_INFESTATION",
+										"MOVE_SAND_ATTACK"
+									))
+									{
+										// Prevent being added to tutor move list
+										continue;
+									}
+									else
+									{
+										throw new Exception(Species + " no longer supports Toxic!");
+									}
+								}
+							}
+
 							TutorMoves.Add(move);
 						}
 					}
