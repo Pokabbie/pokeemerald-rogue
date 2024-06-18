@@ -2449,6 +2449,12 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u32 gMonBackPic_AmpharosMega[] = INCBIN_U32("graphics/pokemon/ampharos/mega/back.4bpp.lz");
     const u32 gMonShinyPalette_AmpharosMega[] = INCBIN_U32("graphics/pokemon/ampharos/mega/shiny.gbapal.lz");
     const u8 gMonIcon_AmpharosMega[] = INCBIN_U8("graphics/pokemon/ampharos/mega/icon.4bpp");
+
+    const u32 gMonFrontPic_PikinMega[] = INCBIN_U32("graphics/pokemon/mareep/mega_pikin/front.4bpp.lz");
+    const u32 gMonPalette_PikinMega[] = INCBIN_U32("graphics/pokemon/mareep/mega_pikin/normal.gbapal.lz");
+    const u32 gMonBackPic_PikinMega[] = INCBIN_U32("graphics/pokemon/mareep/mega_pikin/back.4bpp.lz");
+    const u32 gMonShinyPalette_PikinMega[] = INCBIN_U32("graphics/pokemon/mareep/mega_pikin/shiny.gbapal.lz");
+    const u8 gMonIcon_PikinMega[] = INCBIN_U8("graphics/pokemon/mareep/mega_pikin/icon.4bpp");
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_MAREEP
 

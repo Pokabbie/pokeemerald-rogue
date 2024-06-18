@@ -9148,6 +9148,12 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8194,
 	},
+	[1524] =
+	{
+		.eggSpecies = 1524,
+		.evolutionCount = 0,
+		.evolutionChainTypeFlags = 4100,
+	},
 };
 
 
@@ -9329,6 +9335,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		4,
 		0,
 		112,
+		0,
 		0,
 		0,
 		0,
@@ -12206,6 +12213,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[2] = 
 	{
@@ -12228,6 +12236,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		255,
 		255,
 		255,
+		0,
 		0,
 		0,
 		0,
@@ -15260,6 +15269,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[4] = 
 	{
@@ -15295,6 +15305,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		255,
 		255,
 		15,
+		0,
 		0,
 		0,
 		0,
@@ -18314,6 +18325,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[6] = 
 	{
@@ -18366,6 +18378,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		255,
 		255,
 		7,
+		0,
 		0,
 		0,
 		0,
@@ -21368,6 +21381,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[8] = 
 	{
@@ -21433,6 +21447,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		31,
 		4,
+		0,
 		0,
 		0,
 		0,
@@ -24422,6 +24437,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[10] = 
 	{
@@ -24507,6 +24523,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		255,
 		255,
 		3,
+		0,
 		0,
 		0,
 		0,
@@ -27476,6 +27493,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[12] = 
 	{
@@ -27569,6 +27587,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		255,
 		255,
 		127,
+		0,
 		0,
 		0,
 		0,
@@ -30530,6 +30549,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[14] = 
 	{
@@ -30634,6 +30654,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		255,
 		255,
 		255,
+		0,
 		0,
 		0,
 		0,
@@ -33584,6 +33605,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[16] = 
 	{
@@ -33699,6 +33721,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		32,
 		0,
 		56,
+		0,
 		0,
 		0,
 		0,
@@ -36638,6 +36661,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[18] = 
 	{
@@ -36754,6 +36778,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		255,
 		255,
 		7,
+		0,
 		0,
 		0,
 		0,
@@ -39692,6 +39717,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[20] = 
 	{
@@ -39873,6 +39899,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		235,
 		1,
+		0,
 		0,
 		0,
 		0,
@@ -42746,6 +42773,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[22] = 
 	{
@@ -44273,6 +44301,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[23] = 
 	{
@@ -44357,6 +44386,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		27,
 		190,
 		24,
+		0,
 		0,
 		0,
 		0,
@@ -47327,6 +47357,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[25] = 
 	{
@@ -47349,6 +47380,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		255,
 		255,
 		255,
+		0,
 		0,
 		0,
 		0,
@@ -50381,6 +50413,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[27] = 
 	{
@@ -50433,6 +50466,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		255,
 		255,
 		7,
+		0,
 		0,
 		0,
 		0,
@@ -53435,6 +53469,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[29] = 
 	{
@@ -53520,6 +53555,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		255,
 		255,
 		1,
+		0,
 		0,
 		0,
 		0,
@@ -56489,6 +56525,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[31] = 
 	{
@@ -56583,6 +56620,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		255,
 		255,
 		3,
+		0,
 		0,
 		0,
 		0,
@@ -59543,6 +59581,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		0,
 		0,
 		0,
+		0,
 	},
 	[33] = 
 	{
@@ -59726,6 +59765,7 @@ const u8 gRogueBake_PokedexVariantBitFlags[POKEDEX_VARIANT_COUNT][SPECIES_FLAGS_
 		1,
 		254,
 		4,
+		0,
 		0,
 		0,
 		0,

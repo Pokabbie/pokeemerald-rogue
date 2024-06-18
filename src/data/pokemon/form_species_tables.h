@@ -458,6 +458,12 @@ static const u16 sTyphlosionFormSpeciesIdTable[] = {
 #endif //P_FAMILY_CYNDAQUIL
 
 #if P_FAMILY_MAREEP
+static const u16 sMareepFormSpeciesIdTable[] = {
+    SPECIES_MAREEP,
+    SPECIES_PIKIN_MEGA,
+    FORM_SPECIES_END,
+};
+
 static const u16 sAmpharosFormSpeciesIdTable[] = {
     SPECIES_AMPHAROS,
     SPECIES_AMPHAROS_MEGA,
