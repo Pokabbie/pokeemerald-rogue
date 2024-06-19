@@ -51,6 +51,66 @@ struct TileFixup
     u8 pathStyle : 1;
 };
 
+struct LayerInfo
+{
+    bool8 placeInBackground : 1;
+    bool8 allowBackgroundTileOverlap : 1;
+    bool8 allowSolidTileOverlap : 1;
+    bool8 allowObjectOverlap : 1;
+};
+
+enum
+{
+    DECOR_LAYER_BACKGROUND,
+    DECOR_LAYER_MOUNTAIN,
+    DECOR_LAYER_SOLID_TILE,
+    DECOR_LAYER_PLACEABLE_SURFACE,
+    DECOR_LAYER_OBJECTS,
+    DECOR_LAYER_COUNT,
+
+    // Default that is used if not specified
+    DECOR_LAYER_DEFAULT = DECOR_LAYER_SOLID_TILE,
+};
+
+struct LayerInfo const sDecorLayers[DECOR_LAYER_COUNT] = 
+{
+    [DECOR_LAYER_BACKGROUND] =
+    {
+        .placeInBackground = TRUE,
+        .allowBackgroundTileOverlap = TRUE,
+        .allowSolidTileOverlap = TRUE,
+        .allowObjectOverlap = TRUE,
+    },
+    [DECOR_LAYER_MOUNTAIN] =
+    {
+        .placeInBackground = TRUE,
+        .allowBackgroundTileOverlap = TRUE,
+        .allowSolidTileOverlap = FALSE,
+        .allowObjectOverlap = FALSE,
+    },
+    [DECOR_LAYER_SOLID_TILE] =
+    {
+        .placeInBackground = FALSE,
+        .allowBackgroundTileOverlap = TRUE,
+        .allowSolidTileOverlap = FALSE,
+        .allowObjectOverlap = FALSE,
+    },
+    [DECOR_LAYER_PLACEABLE_SURFACE] =
+    {
+        .placeInBackground = FALSE,
+        .allowBackgroundTileOverlap = TRUE,
+        .allowSolidTileOverlap = FALSE,
+        .allowObjectOverlap = TRUE,
+    },
+    [DECOR_LAYER_OBJECTS] =
+    {
+        .placeInBackground = FALSE,
+        .allowBackgroundTileOverlap = TRUE,
+        .allowSolidTileOverlap = FALSE,
+        .allowObjectOverlap = FALSE,
+    },
+};
+
 enum
 {
     HOME_REGION_HOUSE,
@@ -92,6 +152,7 @@ struct RogueDecorationVariant
     u8 type;
     u8 srcMapGroup;
     u8 srcMapNum;
+    u8 layer;
     union
     {
         struct
@@ -100,7 +161,6 @@ struct RogueDecorationVariant
             u8 y;
             u8 width;
             u8 height;
-            u8 isBottomLayer : 1;
         } tile;
         struct
         {
@@ -1019,7 +1079,8 @@ static void RogueHub_UpdateHomeAreaMetatiles()
 
 static bool8 IsBottomLayerVariant(u16 decorVariant)
 {
-    return sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE && sDecorationVariants[decorVariant].perType.tile.isBottomLayer;
+    AGB_ASSERT(sDecorationVariants[decorVariant].layer < DECOR_LAYER_COUNT);
+    return sDecorLayers[sDecorationVariants[decorVariant].layer].placeInBackground;
 }
 
 static u16 GetCurrentDecorOffset(u16 i)
@@ -1931,10 +1992,107 @@ static void UpdatePlaceCoords(u8* placeX, u8* placeY, u8 decorVariant)
     }
 }
 
-static bool8 CanPlaceDecorAt(u8 decorVariant, u8 x, u8 y)
+struct DecorBounds
 {
-    // Maybe want to avoid overlapping?
-    // Could use a bit mask?
+    s32 x;
+    s32 y;
+    s32 width;
+    s32 height;
+};
+
+static void GetDecorBounds(struct DecorBounds* outBounds, u8 decorVariant, u8 x, u8 y)
+{
+    outBounds->x = x;
+    outBounds->y = y;
+
+    switch(sDecorationVariants[decorVariant].type)
+    {
+        case DECOR_TYPE_TILE:
+            outBounds->width = sDecorationVariants[decorVariant].perType.tile.width;
+            outBounds->height = sDecorationVariants[decorVariant].perType.tile.height;
+            break;
+
+        case DECOR_TYPE_OBJECT_EVENT:
+            outBounds->width = 1;
+            outBounds->height = 1;
+            break;
+    }
+}
+
+static bool32 DoBoundsOverlapInternal(struct DecorBounds* boundsA, struct DecorBounds* boundsB)
+{
+    s32 xMinA = boundsA->x;
+    s32 xMaxA = boundsA->x + boundsA->width - 1;
+    s32 yMinA = boundsA->y;
+    s32 yMaxA = boundsA->y + boundsA->height - 1;
+
+    s32 xMinB = boundsB->x;
+    s32 xMaxB = boundsB->x + boundsB->width - 1;
+    s32 yMinB = boundsB->y;
+    s32 yMaxB = boundsB->y + boundsB->height - 1;
+
+    //if(
+    //    (xMinA <= xMaxB || xMaxA >= xMinB) &&
+    //    (yMinA <= yMaxB || yMaxA >= yMinB)
+    //)
+    //    return FALSE;
+//
+    //return TRUE;
+    
+    return (xMaxA >= xMinB && xMaxB >= xMinA) && (yMaxA >= yMinB && yMaxB >= yMinA);
+}
+
+static bool32 DoBoundsOverlap(struct DecorBounds* boundsA, struct DecorBounds* boundsB)
+{
+    return DoBoundsOverlapInternal(boundsA, boundsB);// || DoBoundsOverlapInternal(boundsB, boundsA);
+}
+
+static bool32 CanPlaceDecorAt(struct RogueHubMap* hubMap, u8 decorVariant, u8 x, u8 y)
+{
+    // Avoid overlapping
+    u32 i;
+    u32 currDecorCount = GetCurrentDecorCount();
+    struct DecorBounds placingBounds;
+    struct DecorBounds checkBounds;
+    u8 inputLayer = sDecorationVariants[decorVariant].layer;
+
+    GetDecorBounds(&placingBounds, decorVariant, x, y);
+
+    for(i = 0; i < currDecorCount; ++i)
+    {
+        struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
+        if(decor->active)
+        {
+            u8 itCurrLayer = sDecorationVariants[decor->decorVariant].layer;
+
+            switch(sDecorationVariants[decorVariant].type)
+            {
+                case DECOR_TYPE_TILE:
+                    if(sDecorLayers[inputLayer].placeInBackground)
+                    {
+                        if(sDecorLayers[itCurrLayer].allowBackgroundTileOverlap)
+                            continue;
+                    }
+                    else
+                    {
+                        if(sDecorLayers[itCurrLayer].allowSolidTileOverlap)
+                            continue;
+                    }
+                    break;
+
+                case DECOR_TYPE_OBJECT_EVENT:
+                    if(sDecorLayers[itCurrLayer].allowObjectOverlap)
+                        continue;
+                    break;
+            }
+
+            GetDecorBounds(&checkBounds, decor->decorVariant, decor->x, decor->y);
+
+            if(DoBoundsOverlap(&placingBounds, &checkBounds))
+                return FALSE;
+        }
+    }
+
     return TRUE;
 }
 
@@ -2419,29 +2577,32 @@ u16 RogueHub_PlaceHomeDecor()
         {
             return HOME_DECOR_TOO_MANY_OF_TYPE;
         }
-        else if(CanPlaceDecorAt(decorVariant, placeX, placeY))
+        else
         {
             UpdatePlaceCoords(&placeX, &placeY, decorVariant);
 
-            for(i = 0; i < currDecorCount; ++i)
+            if(CanPlaceDecorAt(hubMap, decorVariant, placeX, placeY))
             {
-                struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
-                if(!decor->active)
+                for(i = 0; i < currDecorCount; ++i)
                 {
-                    decor->x = placeX;
-                    decor->y = placeY;
-                    decor->decorVariant = decorVariant;
-                    decor->active = TRUE;
+                    struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
+                    if(!decor->active)
+                    {
+                        decor->x = placeX;
+                        decor->y = placeY;
+                        decor->decorVariant = decorVariant;
+                        decor->active = TRUE;
 
-                    RogueHub_PlaceHomeEnvironmentDecorations(sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE, sDecorationVariants[decorVariant].type == DECOR_TYPE_OBJECT_EVENT);
-                    return GetCurrentDecorOffset(i);
+                        RogueHub_PlaceHomeEnvironmentDecorations(sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE, sDecorationVariants[decorVariant].type == DECOR_TYPE_OBJECT_EVENT);
+                        return GetCurrentDecorOffset(i);
+                    }
                 }
             }
-        }
-        else
-        {
-            // TODO - Cannot place on top
-            return HOME_DECOR_TOO_MANY_OBJECTS_NEAR;
+            else
+            {
+                // TODO - Cannot place on top
+                return HOME_DECOR_TOO_MANY_OBJECTS_NEAR;
+            }
         }
     
         return HOME_DECOR_CODE_NO_ROOM;
