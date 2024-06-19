@@ -859,7 +859,7 @@ script Rogue_Shop_Charms
     lock
     faceplayer
 
-    msgbox(format("Greetings, {PLAYER}.\pI can offer you some Charms to make your Adventures easier, if you'd like.\pHowever, all Quests will be disabled if you start with any Charms."), MSGBOX_DEFAULT)
+    msgbox(format("Greetings, {PLAYER}.\pI can offer you some Charms to customise your Adventures, if you'd like.\pHowever, starting an Adventure with any of these Charms will enter a sort of 'Sandbox' mode.\pAs a result, all Quests will be disabled."), MSGBOX_DEFAULT)
 
     msgbox(format("Would you like me to remove any active Charms?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES)

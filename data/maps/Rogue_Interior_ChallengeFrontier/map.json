@@ -159,8 +159,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MISC_LOOKER",
-      "x": 22,
-      "y": 5,
+      "x": 34,
+      "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -308,6 +308,33 @@
       "var": "VAR_ROGUE_POST_GAME_TUTORIAL",
       "var_value": "1",
       "script": "Rogue_Interior_ChallengeFrontier_ScottBlockExit"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_ROGUE_POST_GAME_TUTORIAL",
+      "var_value": "1",
+      "script": "Rogue_Interior_ChallengeFrontier_VisitedGimicRoom"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 28,
+      "elevation": 0,
+      "var": "VAR_ROGUE_POST_GAME_TUTORIAL",
+      "var_value": "1",
+      "script": "Rogue_Interior_ChallengeFrontier_VisitedGimicRoom"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 28,
+      "elevation": 0,
+      "var": "VAR_ROGUE_POST_GAME_TUTORIAL",
+      "var_value": "1",
+      "script": "Rogue_Interior_ChallengeFrontier_VisitedGimicRoom"
     }
   ],
   "bg_events": [

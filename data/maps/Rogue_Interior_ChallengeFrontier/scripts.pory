@@ -492,20 +492,27 @@ script Rogue_Interior_ChallengeFrontier_ScottBlockExit
 {
     lock
 
-    if(flag(FLAG_SYS_MASTERIES_UNLOCKED) && flag(FLAG_SYS_CHALLENGES_UNLOCKED))
+    if(flag(FLAG_SYS_MASTERIES_UNLOCKED) && flag(FLAG_SYS_CHALLENGES_UNLOCKED) && flag(FLAG_ROGUE_FOUND_GIMIC_ROOM))
     {
         addvar(VAR_ROGUE_POST_GAME_TUTORIAL, 1)
     }
     else
     {
         turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
-        msgbox(format("SCOTT: {PLAYER}, you can't head out just yet.\pThere's still way more for you to see!"))
+        msgbox(format("SCOTT: {PLAYER}, you can't head out just yet.\pThere's still more for you to see!"))
 
         closemessage
         applymovement(OBJ_EVENT_ID_PLAYER, PostGameTutorial_Player1)
         waitmovement(0)
     }
 
+    release
+}
+
+script Rogue_Interior_ChallengeFrontier_VisitedGimicRoom
+{
+    lock
+    setflag(FLAG_ROGUE_FOUND_GIMIC_ROOM)
     release
 }
 

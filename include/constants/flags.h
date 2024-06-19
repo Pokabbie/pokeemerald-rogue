@@ -661,7 +661,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
 // RogueNote: Flag block 2
-#define FLAG_UNUSED_0x264                    0x264
+#define FLAG_ROGUE_FOUND_GIMIC_ROOM          0x264
 #define FLAG_ROGUE_LEFT_ON_RUN               0x265
 #define FLAG_ROGUE_MET_FENNEL                0x266
 #define FLAG_UNUSED_0x267                    0x267
