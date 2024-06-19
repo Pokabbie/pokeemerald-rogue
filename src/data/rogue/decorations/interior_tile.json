@@ -13,7 +13,7 @@
         [
             {
                 "name": "Rug",
-                "layer": "DECOR_LAYER_BACKGROUND",
+                "layer": "DECOR_LAYER_PLACEABLE_SURFACE",
                 "source_tiles":
                 {
                     "y": 9,
