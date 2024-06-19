@@ -337,4 +337,10 @@ script Rogue_Debug_ChooseStarter
     lock
     special(ChooseStarter)
     release
+
+}
+script Rogue_Debug_ClearDynamicCustomMons
+{
+    special(RogueGift_ClearDynamicCustomMons)
+    call(Rogue_Interior_BillsLab_TalkPC)
 }

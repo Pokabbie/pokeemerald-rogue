@@ -12,6 +12,7 @@
 #include "rogue_hub.h"
 #include "rogue_pokedex.h"
 #include "rogue_query.h"
+#include "rogue_quest.h"
 #include "rogue_save.h"
 
 struct CustomTrainerData
@@ -553,11 +554,10 @@ u8 RogueGift_GetCustomMonRarity(u32 id)
         case CUSTOM_TRAINER_EXOTIC:
             return UNIQUE_RARITY_EXOTIC;
         }
-    }
 
-    // Should never get here
-    AGB_ASSERT(FALSE);
-    return UNIQUE_RARITY_COMMON;
+        // We expect most/all of these to be classed as exotic
+        return UNIQUE_RARITY_EXOTIC;
+    }
 }
 
 u8 const* RogueGift_GetRarityName(u8 rarity)
@@ -606,12 +606,12 @@ void RogueGift_CreateMon(u32 customMonId, struct Pokemon* mon, u16 species, u8 l
         trainerData = &sCustomTrainers[monData->customTrainerId];
 
         AGB_ASSERT(customMonId < CUSTOM_MON_COUNT);
-        AGB_ASSERT(species == monData->species);
+        AGB_ASSERT(Rogue_GetEggSpecies(species) == Rogue_GetEggSpecies(monData->species));
         AGB_ASSERT(trainerData->trainerId & OTID_FLAG_CUSTOM_MON);
         AGB_ASSERT(!(trainerData->trainerId & OTID_FLAG_DYNAMIC_CUSTOM_MON));
 
         ZeroMonData(mon);
-        CreateMon(mon, monData->species, level, fixedIV, 0, 0, OT_ID_CUSTOM_MON, trainerData->trainerId);
+        CreateMon(mon, species, level, fixedIV, 0, 0, OT_ID_CUSTOM_MON, trainerData->trainerId);
 
         // Update nickname
         if(monData->nickname != NULL)
@@ -819,15 +819,15 @@ static u8 RandomRarity()
         break;
 
     case 1:
+    case 2:
         rarity = UNIQUE_RARITY_EPIC;
         break;
 
-    case 2:
     case 3:
+    case 4:
         rarity = UNIQUE_RARITY_RARE;
         break;
     
-    case 4:
     case 5:
     case 6:
         rarity = UNIQUE_RARITY_COMMON;
@@ -867,6 +867,54 @@ static bool8 IsSlotUnlocked(u8 slot)
     }
 
     return FALSE;
+}
+
+static bool8 IsCustomMonInUse(u32 customMonId)
+{
+    u32 i;
+
+    for(i = 0; i < DYNAMIC_UNIQUE_MON_COUNT; ++i)
+    {
+        if(IsDynamicUniqueMonValid(&gRogueSaveBlock->dynamicUniquePokemon[i]) && gRogueSaveBlock->dynamicUniquePokemon[i].customMonId == customMonId)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static u32 SelectUnusedUnlockedExoticMon()
+{
+    struct RogueQuestReward const* reward;
+    u32 currentList[CUSTOM_MON_COUNT];
+    u32 listSize = 0;
+    u32 questId, j;
+    u32 questCount;
+
+    // Populate with exotic mons we have already unlocked
+    for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
+    {
+        if(RogueQuest_HasCollectedRewards(questId))
+        {
+            questCount = RogueQuest_GetRewardCount(questId);
+
+            for(j = 0; j < questCount; ++j)
+            {
+                reward = RogueQuest_GetReward(questId, j);
+
+                if(reward->type == QUEST_REWARD_POKEMON && reward->perType.pokemon.customMonId != 0)
+                {
+                    if(!IsCustomMonInUse(reward->perType.pokemon.customMonId))
+                        currentList[listSize++] = reward->perType.pokemon.customMonId;
+                }
+            }
+        }
+    }
+
+    // Pick from random options
+    if(listSize != 0)
+        return currentList[Random() % listSize];
+
+    return 0;
 }
 
 void RogueGift_EnsureDynamicCustomMonsAreValid()
@@ -946,18 +994,36 @@ void RogueGift_EnsureDynamicCustomMonsAreValid()
         {
             u8 rarity = RandomRarity();
 
+            gRogueSaveBlock->dynamicUniquePokemon[i].countDown = 60 + 30 * i; // Time remaining is based on the slot
+
             if(rarity == UNIQUE_RARITY_EXOTIC)
             {
-                // todo - select quest reward
+                u32 customMonId = SelectUnusedUnlockedExoticMon();
+
+                if(customMonId != 0)
+                {
+                    struct CustomMonData const* monData = &sCustomPokemon[customMonId];
+                    AGB_ASSERT(customMonId < CUSTOM_MON_COUNT);
+
+                    gRogueSaveBlock->dynamicUniquePokemon[i].species = Rogue_GetEggSpecies(monData->species);
+                    gRogueSaveBlock->dynamicUniquePokemon[i].customMonId = customMonId;
+                    continue;
+                }
+
+                // Fallback to just have an epic mon in this slot
                 rarity = UNIQUE_RARITY_EPIC;
             }
 
-            gRogueSaveBlock->dynamicUniquePokemon[i].countDown = 60 + 30 * i; // Time remaining is based on the slot
             gRogueSaveBlock->dynamicUniquePokemon[i].species = newSpecies[i];
             gRogueSaveBlock->dynamicUniquePokemon[i].customMonId = RogueGift_CreateDynamicMonId(rarity, newSpecies[i]);
         }
     }
 
+}
+
+void RogueGift_ClearDynamicCustomMons()
+{
+    memset(&gRogueSaveBlock->dynamicUniquePokemon[0], 0, sizeof(struct UniqueMon) * DYNAMIC_UNIQUE_MON_COUNT);
 }
 
 struct UniqueMon* RogueGift_GetDynamicUniqueMon(u8 slot)

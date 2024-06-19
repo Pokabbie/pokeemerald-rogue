@@ -496,7 +496,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_DECOR_ROTOM_WASH",
+      "graphics_id": "OBJ_EVENT_GFX_BILL",
       "x": 7,
       "y": 10,
       "elevation": 3,
@@ -505,7 +505,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Debug_GiveDynamicUniqueMon",
+      "script": "Rogue_Debug_ClearDynamicCustomMons",
       "flag": "0"
     }
   ],
