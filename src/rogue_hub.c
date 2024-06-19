@@ -1552,7 +1552,7 @@ static void RogueHub_UpdateDayCareAreaMetatiles()
 
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_BREEDER))
     {
-        MetatileFill_Tile(10, 10, 10, 10, 0x291); // place wooden fence
+        MetatileFill_Tile(10, 10, 10, 10, 0x291 | MAPGRID_COLLISION_MASK); // place wooden fence
     }
 
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_TEA_SHOP))
