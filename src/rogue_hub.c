@@ -986,6 +986,23 @@ static void BlitPlayerHouse(u16 style, bool8 isUpgraded)
     }
 }
 
+static u8 GetCurrentPlaceableRegion()
+{
+    switch (gMapHeader.mapLayoutId)
+    {
+    case LAYOUT_ROGUE_AREA_HOME:
+        return HOME_REGION_PLACEABLE_REGION;
+    
+    case LAYOUT_ROGUE_INTERIOR_HOME:
+        return HOME_REGION_PLACEABLE_REGION_INTERIOR;
+
+    default:
+        AGB_ASSERT(FALSE);
+        return HOME_REGION_PLACEABLE_REGION;
+        break;
+    }
+}
+
 static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decorVariant)
 {
     u8 placeableRegion = 0;
@@ -998,17 +1015,7 @@ static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decorVariant)
     AGB_ASSERT(sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE);
 
     // Clip anything which is outside of the placeable region
-
-    switch (gMapHeader.mapLayoutId)
-    {
-    case LAYOUT_ROGUE_AREA_HOME:
-        placeableRegion = HOME_REGION_PLACEABLE_REGION;
-        break;
-    
-    case LAYOUT_ROGUE_INTERIOR_HOME:
-        placeableRegion = HOME_REGION_PLACEABLE_REGION_INTERIOR;
-        break;
-    }
+    placeableRegion = GetCurrentPlaceableRegion();
 
 
     if(x < sHomeRegionCoords[placeableRegion].xStart)
@@ -2019,7 +2026,22 @@ static void GetDecorBounds(struct DecorBounds* outBounds, u8 decorVariant, u8 x,
     }
 }
 
-static bool32 DoBoundsOverlapInternal(struct DecorBounds* boundsA, struct DecorBounds* boundsB)
+static bool32 DoBoundsOverlap(struct DecorBounds* boundsA, struct DecorBounds* boundsB)
+{
+    s32 xMinA = boundsA->x;
+    s32 xMaxA = boundsA->x + boundsA->width - 1;
+    s32 yMinA = boundsA->y;
+    s32 yMaxA = boundsA->y + boundsA->height - 1;
+
+    s32 xMinB = boundsB->x;
+    s32 xMaxB = boundsB->x + boundsB->width - 1;
+    s32 yMinB = boundsB->y;
+    s32 yMaxB = boundsB->y + boundsB->height - 1;
+    
+    return (xMaxA >= xMinB && xMaxB >= xMinA) && (yMaxA >= yMinB && yMaxB >= yMinA);
+}
+
+static bool32 DoesBoundsEncapsulate(struct DecorBounds* boundsA, struct DecorBounds* boundsB)
 {
     s32 xMinA = boundsA->x;
     s32 xMaxA = boundsA->x + boundsA->width - 1;
@@ -2031,20 +2053,7 @@ static bool32 DoBoundsOverlapInternal(struct DecorBounds* boundsA, struct DecorB
     s32 yMinB = boundsB->y;
     s32 yMaxB = boundsB->y + boundsB->height - 1;
 
-    //if(
-    //    (xMinA <= xMaxB || xMaxA >= xMinB) &&
-    //    (yMinA <= yMaxB || yMaxA >= yMinB)
-    //)
-    //    return FALSE;
-//
-    //return TRUE;
-    
-    return (xMaxA >= xMinB && xMaxB >= xMinA) && (yMaxA >= yMinB && yMaxB >= yMinA);
-}
-
-static bool32 DoBoundsOverlap(struct DecorBounds* boundsA, struct DecorBounds* boundsB)
-{
-    return DoBoundsOverlapInternal(boundsA, boundsB);// || DoBoundsOverlapInternal(boundsB, boundsA);
+    return (xMinB >= xMinA && xMaxB <= xMaxA && yMinB >= yMinA && yMaxB <= yMaxA);
 }
 
 static bool32 CanPlaceDecorAt(struct RogueHubMap* hubMap, u8 decorVariant, u8 x, u8 y)
@@ -2055,8 +2064,19 @@ static bool32 CanPlaceDecorAt(struct RogueHubMap* hubMap, u8 decorVariant, u8 x,
     struct DecorBounds placingBounds;
     struct DecorBounds checkBounds;
     u8 inputLayer = sDecorationVariants[decorVariant].layer;
+    u8 placeableRegion = GetCurrentPlaceableRegion();
 
     GetDecorBounds(&placingBounds, decorVariant, x, y);
+
+    // Check we're not overlapping the placeable bounds
+    checkBounds.x = sHomeRegionCoords[placeableRegion].xStart;
+    checkBounds.y = sHomeRegionCoords[placeableRegion].yStart;
+    checkBounds.width = 1 + sHomeRegionCoords[placeableRegion].xEnd - sHomeRegionCoords[placeableRegion].xStart;
+    checkBounds.height = 1 + sHomeRegionCoords[placeableRegion].yEnd - sHomeRegionCoords[placeableRegion].yStart;
+
+    if(!DoesBoundsEncapsulate(&checkBounds, &placingBounds))
+        return FALSE;
+
 
     for(i = 0; i < currDecorCount; ++i)
     {
@@ -2600,8 +2620,7 @@ u16 RogueHub_PlaceHomeDecor()
             }
             else
             {
-                // TODO - Cannot place on top
-                return HOME_DECOR_TOO_MANY_OBJECTS_NEAR;
+                return HOME_DECOR_CODE_NOT_HERE;
             }
         }
     
