@@ -7,6 +7,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_charms.h"
+#include "rogue_gifts.h"
 #include "rogue_multiplayer.h"
 #include "rogue_save.h"
 #include "rogue_settings.h"
@@ -629,11 +630,20 @@ static bool8 DoesPartyContainNickname(u8 const* str)
 
 bool8 Rogue_ShouldSkipAssignNickname(struct Pokemon* mon)
 {
+    u32 customMonId;
+
     // Never give snagged mons nicknames
     if(FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
         return TRUE;
 
-    // TODO - Don't give exotic mons nicknames
+    // Don't give exotic mons nicknames
+    customMonId = RogueGift_GetCustomMonId(mon);
+
+    if(customMonId)
+    {
+        if(!RogueGift_CanRenameCustomMon(customMonId))
+            return TRUE;
+    }
 
     switch (GetCurrentNicknameMode())
     {

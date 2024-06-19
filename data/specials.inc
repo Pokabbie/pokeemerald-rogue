@@ -308,6 +308,7 @@ gSpecials::
 	def_special Rogue_BufferSafariMonInfo
 	def_special Rogue_DisplayPopupsFromScript
 	def_special Rogue_DisplayPopupsFromScriptSkippable
+	def_special RogueGift_ClearDynamicCustomMons
 	def_special RogueHub_GetStatueLevel
 	def_special RogueHub_SetupDecorationMultichoice
 	def_special RogueHub_HandleDecorationMultichoiceResult

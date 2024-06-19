@@ -1051,7 +1051,14 @@ static void ModifyExistingMonToCustomMon(u32 customMonId, struct Pokemon* mon)
     u32 isGenderFlag = GetMonData(mon, MON_DATA_GENDER_FLAG);
     u32 metLocation = GetMonData(mon, MON_DATA_MET_LOCATION);
     u32 metLevel = GetMonData(mon, MON_DATA_MET_LEVEL);
+    u8 text[POKEMON_NAME_LENGTH + 1];
+    bool8 hasCustomNickname = FALSE;
 
+    GetMonData(mon, MON_DATA_NICKNAME, text);
+
+    if(StringCompareN(text, RoguePokedex_GetSpeciesName(species), POKEMON_NAME_LENGTH) != 0)
+        hasCustomNickname = TRUE;
+    
     RogueGift_CreateMon(customMonId, mon, species, level, 0);
     
     SetMonData(mon, MON_DATA_HP_IV, &hpIV);
@@ -1064,6 +1071,9 @@ static void ModifyExistingMonToCustomMon(u32 customMonId, struct Pokemon* mon)
     SetMonData(mon, MON_DATA_GENDER_FLAG, &isGenderFlag);
     SetMonData(mon, MON_DATA_MET_LOCATION, &metLocation);
     SetMonData(mon, MON_DATA_MET_LEVEL, &metLevel);
+
+    if(hasCustomNickname)
+        SetMonData(mon, MON_DATA_NICKNAME, text);
 }
 
 void Rogue_ModifyCaughtMon(struct Pokemon *mon)
@@ -7604,11 +7614,17 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
                     u8 idx = safariMon->customMonLookup - 1;
                     u32 customMonId = gRogueSaveBlock->safariMonCustomIds[idx];
 
-                    AGB_ASSERT(customMonId & OTID_FLAG_CUSTOM_MON);
-                    AGB_ASSERT(customMonId & OTID_FLAG_DYNAMIC_CUSTOM_MON);
-
-                    if((customMonId & OTID_FLAG_CUSTOM_MON) && (customMonId & OTID_FLAG_DYNAMIC_CUSTOM_MON))
+                    if(customMonId & OTID_FLAG_DYNAMIC_CUSTOM_MON)
+                    {
+                        AGB_ASSERT(customMonId & OTID_FLAG_CUSTOM_MON);
+                        AGB_ASSERT(customMonId & OTID_FLAG_DYNAMIC_CUSTOM_MON);
                         ModifyExistingMonToCustomMon(customMonId, mon);
+                    }
+                    else
+                    {
+                        // This must be exotic
+                        ModifyExistingMonToCustomMon(customMonId, mon);
+                    }
                 }
 
                 CalculateMonStats(mon);

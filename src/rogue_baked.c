@@ -1303,11 +1303,11 @@ u16 Rogue_GetPrice(u16 itemId)
 
 #ifdef ROGUE_EXPANSION
         case ITEM_ABILITY_CAPSULE:
-            price = 3000;
+            price = 6000;
             break;
 
         case ITEM_ABILITY_PATCH:
-            price = 6000;
+            price = 7000;
             break;
 
         // Weaker versions
