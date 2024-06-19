@@ -48,6 +48,7 @@ struct TileFixup
     u8 path : 1;
     u8 pond : 1;
     u8 mountain : 1;
+    u8 trees : 1;
     u8 pathStyle : 1;
 };
 
@@ -838,6 +839,7 @@ void RogueHub_ApplyMapMetatiles()
         fixup.path = TRUE;
         fixup.pond = FALSE;
         fixup.mountain = FALSE;
+        fixup.trees = FALSE;
         fixup.pathStyle = TRUE;
         FixupTileCommon(&fixup);
     }
@@ -1190,6 +1192,7 @@ static void RogueHub_PlaceHomeEnvironmentDecorations(bool8 placeTiles, bool8 pla
                 fixup.path = TRUE;
                 fixup.pond = TRUE;
                 fixup.mountain = TRUE;
+                fixup.trees = TRUE;
                 fixup.pathStyle = TRUE;
                 FixupTileCommon(&fixup);
             }
@@ -2736,6 +2739,8 @@ static u32 GetCurrentAreaMetatileAt(s32 x, s32 y)
     return metaTile;
 }
 
+#define METATILE_GeneralHub_Tree_Class METATILE_GeneralHub_Tree_TopRight_Sparse
+
 static bool8 IsCompatibleMetatile(u32 classTile,  u32 checkTile)
 {
     if(classTile == METATILE_GeneralHub_Pond_Centre)
@@ -2780,6 +2785,25 @@ static bool8 IsCompatibleMetatile(u32 classTile,  u32 checkTile)
             checkTile == METATILE_GeneralHub_Mountain_Conn_SouthWest ||
             checkTile == METATILE_GeneralHub_Mountain_Conn_SouthWest_Inside ||
             checkTile == METATILE_GeneralHub_MountainRaised_Conn_EastWest_South
+        );
+    }
+    else if(classTile == METATILE_GeneralHub_Tree_Class)
+    {
+        return (
+            checkTile == METATILE_GeneralHub_Tree_BottomLeft_Dense ||
+            checkTile == METATILE_GeneralHub_Tree_BottomLeft_Dense_Overlapped ||
+            checkTile == METATILE_GeneralHub_Tree_BottomLeft_Sparse ||
+            checkTile == METATILE_GeneralHub_Tree_BottomLeft_Sparse_Overlapped ||
+            checkTile == METATILE_GeneralHub_Tree_BottomRight_Dense ||
+            checkTile == METATILE_GeneralHub_Tree_BottomRight_Dense_Overlapped ||
+            checkTile == METATILE_GeneralHub_Tree_BottomRight_Sparse ||
+            checkTile == METATILE_GeneralHub_Tree_BottomRight_Sparse_Overlapped ||
+            checkTile == METATILE_GeneralHub_Tree_TopLeft_CapGrass ||
+            checkTile == METATILE_GeneralHub_Tree_TopLeft_Dense ||
+            checkTile == METATILE_GeneralHub_Tree_TopLeft_Sparse ||
+            checkTile == METATILE_GeneralHub_Tree_TopRight_CapGrass ||
+            checkTile == METATILE_GeneralHub_Tree_TopRight_Dense ||
+            checkTile == METATILE_GeneralHub_Tree_TopRight_Sparse
         );
     }
 
@@ -3000,6 +3024,140 @@ static void FixupTile_Mountain_Fixup(s32 x, s32 y, u32 centreTile)
     }
 }
 
+// Mountain Path
+//
+
+static void FixupTile_Trees_Horizontal(s32 x, s32 y, u32 centreTile)
+{
+    bool8 west = IsCompatibleMetatileAt(x - 1, y + 0, METATILE_GeneralHub_Tree_Class);
+    bool8 east = IsCompatibleMetatileAt(x + 1, y + 0, METATILE_GeneralHub_Tree_Class);
+
+    switch (centreTile)
+    {
+    case METATILE_GeneralHub_Tree_TopLeft_Sparse:
+        if(west)
+            MetatileSet_Tile(x, y, METATILE_GeneralHub_Tree_TopLeft_Dense | MAPGRID_COLLISION_MASK);
+        break;
+    case METATILE_GeneralHub_Tree_BottomLeft_Sparse:
+        if(west)
+            MetatileSet_Tile(x, y, METATILE_GeneralHub_Tree_BottomLeft_Dense | MAPGRID_COLLISION_MASK);
+        break;
+    
+    case METATILE_GeneralHub_Tree_TopRight_Sparse:
+        if(east)
+            MetatileSet_Tile(x, y, METATILE_GeneralHub_Tree_TopRight_Dense | MAPGRID_COLLISION_MASK);
+        break;
+    case METATILE_GeneralHub_Tree_BottomRight_Sparse:
+        if(east)
+            MetatileSet_Tile(x, y, METATILE_GeneralHub_Tree_BottomRight_Dense | MAPGRID_COLLISION_MASK);
+        break;
+    }
+}
+
+static void FixupTile_Trees_Vertical(s32 x, s32 y, u32 centreTile)
+{
+    u32 newTile = centreTile;
+
+    bool8 north = IsCompatibleMetatileAt(x + 0, y - 1, METATILE_GeneralHub_Tree_Class);
+    bool8 south = IsCompatibleMetatileAt(x + 0, y + 1, METATILE_GeneralHub_Tree_Class);
+
+    // Decide on whether we're dense or sparse
+    switch (centreTile)
+    {
+    case METATILE_GeneralHub_Tree_BottomLeft_Sparse:
+        if(south)
+            newTile = METATILE_GeneralHub_Tree_BottomLeft_Dense;
+        break;
+    case METATILE_GeneralHub_Tree_BottomRight_Sparse:
+        if(south)
+            newTile = METATILE_GeneralHub_Tree_BottomRight_Dense;
+        break;
+
+    case METATILE_GeneralHub_Tree_TopLeft_Sparse:
+        if(north)
+            newTile = METATILE_GeneralHub_Tree_TopLeft_Dense;
+        break;
+    case METATILE_GeneralHub_Tree_TopRight_Sparse:
+        if(north)
+            newTile = METATILE_GeneralHub_Tree_TopRight_Dense;
+        break;
+    }
+
+    // Replace with cap variants
+    if(south)
+    {
+        u32 southTile = GetCurrentAreaMetatileAt(x + 0, y + 1);
+
+        switch (newTile)
+        {
+        case METATILE_GeneralHub_Tree_BottomLeft_Sparse:
+            if(southTile == METATILE_GeneralHub_Tree_TopLeft_Dense || southTile == METATILE_GeneralHub_Tree_TopLeft_Sparse)
+                newTile = METATILE_GeneralHub_Tree_BottomLeft_Sparse_Overlapped;
+            else
+                newTile = METATILE_GeneralHub_Tree_BottomLeft_Dense_Overlapped_Alt;
+            break;
+        case METATILE_GeneralHub_Tree_BottomRight_Sparse:
+            if(southTile == METATILE_GeneralHub_Tree_TopRight_Dense || southTile == METATILE_GeneralHub_Tree_TopRight_Sparse)
+                newTile = METATILE_GeneralHub_Tree_BottomRight_Sparse_Overlapped;
+            else
+                newTile = METATILE_GeneralHub_Tree_BottomRight_Dense_Overlapped_Alt;
+            break;
+
+        case METATILE_GeneralHub_Tree_BottomLeft_Dense:
+            if(southTile == METATILE_GeneralHub_Tree_TopLeft_Dense || southTile == METATILE_GeneralHub_Tree_TopLeft_Sparse)
+                newTile = METATILE_GeneralHub_Tree_BottomLeft_Dense_Overlapped;
+            else
+                newTile = METATILE_GeneralHub_Tree_BottomLeft_Dense_Overlapped_Alt;
+            break;
+        case METATILE_GeneralHub_Tree_BottomRight_Dense:
+            if(southTile == METATILE_GeneralHub_Tree_TopRight_Dense || southTile == METATILE_GeneralHub_Tree_TopRight_Sparse)
+                newTile = METATILE_GeneralHub_Tree_BottomRight_Dense_Overlapped;
+            else
+                newTile = METATILE_GeneralHub_Tree_BottomRight_Dense_Overlapped_Alt;
+            break;
+        }
+    }
+
+    if(newTile != centreTile)
+        MetatileSet_Tile(x, y, newTile | MAPGRID_COLLISION_MASK);
+}
+
+static void FixupTile_Trees_Fixup(s32 x, s32 y, u32 centreTile)
+{
+    bool8 north = IsCompatibleMetatileAt(x + 0, y - 1, METATILE_GeneralHub_Tree_Class);
+
+    // Set the tile above this to the tree caps
+    switch (centreTile)
+    {
+    case METATILE_GeneralHub_Tree_TopLeft_Sparse:
+    case METATILE_GeneralHub_Tree_TopLeft_Dense:
+        if(!north)
+        {
+            u32 northTile = GetCurrentAreaMetatileAt(x + 0, y - 1);
+
+            if(northTile == METATILE_GeneralHub_Grass)
+                MetatileSet_Tile(x, y - 1, METATILE_GeneralHub_Tree_TopLeft_CapGrass);
+            else if(northTile == METATILE_GeneralHub_TallGrass)
+                MetatileSet_Tile(x, y - 1, METATILE_GeneralHub_Tree_TopLeft_CapTallGrass);
+        }
+        break;
+    case METATILE_GeneralHub_Tree_TopRight_Sparse:
+    case METATILE_GeneralHub_Tree_TopRight_Dense:
+        if(!north)
+        {
+            u32 northTile = GetCurrentAreaMetatileAt(x + 0, y - 1);
+
+            if(northTile == METATILE_GeneralHub_Grass)
+                MetatileSet_Tile(x, y - 1, METATILE_GeneralHub_Tree_TopRight_CapGrass);
+            else if(northTile == METATILE_GeneralHub_TallGrass)
+                MetatileSet_Tile(x, y - 1, METATILE_GeneralHub_Tree_TopRight_CapTallGrass);
+        }
+        break;
+    }
+}
+
+////
+
 static void FixupTileCommon(struct TileFixup* settings)
 {
     s32 fromX, fromY, toX, toY;
@@ -3050,6 +3208,9 @@ static void FixupTileCommon(struct TileFixup* settings)
 
             else if(settings->mountain && metatileId == METATILE_GeneralHub_Mountain_Centre)
                 FixupTile_Mountain_Horizontal(x, y);
+
+            else if(settings->trees && (metatileId == METATILE_GeneralHub_Tree_TopLeft_Sparse || metatileId == METATILE_GeneralHub_Tree_TopRight_Sparse || metatileId == METATILE_GeneralHub_Tree_BottomLeft_Sparse || metatileId == METATILE_GeneralHub_Tree_BottomRight_Sparse))
+                FixupTile_Trees_Horizontal(x, y, metatileId);
         }
     }
 
@@ -3089,6 +3250,18 @@ static void FixupTileCommon(struct TileFixup* settings)
 
                 if(IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, metatileId))
                     FixupTile_Mountain_Fixup(x, y, metatileId);
+            }
+
+            if(settings->trees)
+            {
+                //if(metatileId == METATILE_GeneralHub_Mountain_Centre)
+                //    FixupTile_Mountain_Vertical(x, y);
+
+                if(IsCompatibleMetatile(METATILE_GeneralHub_Tree_Class, metatileId))
+                {
+                    FixupTile_Trees_Vertical(x, y, metatileId);
+                    FixupTile_Trees_Fixup(x, y, MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET));
+                }
             }
         }
     }
