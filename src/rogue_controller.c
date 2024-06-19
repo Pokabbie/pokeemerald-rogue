@@ -1608,8 +1608,8 @@ void Rogue_ModifyBattleWinnings(u16 trainerNum, u32* money)
             }
             else
             {
-                // Give less money here
-                *money /= 2;
+                // Give slightly more money here
+                *money *= 2;
             }
             break;
         }
@@ -4044,6 +4044,7 @@ static void BeginRogueRun(void)
 
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_IS_VICTORY_LAP);
+    FlagClear(FLAG_ROGUE_MYSTERIOUS_SIGN_KNOWN);
     gRogueRun.victoryLapTotalWins = 0;
 
     Rogue_PreActivateDesiredCampaign();
@@ -6303,6 +6304,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                     RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
                 }
 
+                FlagClear(FLAG_ROGUE_MYSTERIOUS_SIGN_KNOWN);
                 VarSet(VAR_ROGUE_DIFFICULTY, Rogue_GetCurrentDifficulty());
                 VarSet(VAR_ROGUE_FURTHEST_DIFFICULTY, max(Rogue_GetCurrentDifficulty(), VarGet(VAR_ROGUE_FURTHEST_DIFFICULTY)));
 

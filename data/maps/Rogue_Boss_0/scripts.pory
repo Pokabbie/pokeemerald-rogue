@@ -1,6 +1,6 @@
 const BOSS_NPC = 1
 
-const FLAG_SHOW_HINT = FLAG_TEMP_1
+const FLAG_SHOW_HINT = FLAG_ROGUE_MYSTERIOUS_SIGN_KNOWN
 
 mapscripts Rogue_Boss_0_MapScripts
 {
