@@ -253,12 +253,7 @@ script Rogue_Area_Home_PlaceDecoration
         setvar(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_GROUP)
         setvar(VAR_RESULT, NO)
     }
-    elif(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_CODE_NOT_HERE)
-    {
-        msgbox(format("Decor can't be placed here."))
-        setvar(VAR_RESULT, NO)
-    }
-    elif(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_TOO_MANY_OBJECTS_NEAR || var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_TOO_MANY_OF_TYPE)
+    elif(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_TOO_MANY_OBJECTS_NEAR || var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_TOO_MANY_OF_TYPE || var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_CODE_NOT_HERE)
     {
         begindynamicmultichoice
         appenddynamicmultichoice("Change Decor", 1)
@@ -267,6 +262,10 @@ script Rogue_Area_Home_PlaceDecoration
         if(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_TOO_MANY_OF_TYPE)
         {
             message(format("Reached limit for this type of Decor.\nCannot place any more in this area."))
+        }
+        elif(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_CODE_NOT_HERE)
+        {
+            message(format("Decor can't be placed here."))
         }
         else
         {

@@ -48,7 +48,68 @@ struct TileFixup
     u8 path : 1;
     u8 pond : 1;
     u8 mountain : 1;
+    u8 trees : 1;
     u8 pathStyle : 1;
+};
+
+struct LayerInfo
+{
+    bool8 placeInBackground : 1;
+    bool8 allowBackgroundTileOverlap : 1;
+    bool8 allowSolidTileOverlap : 1;
+    bool8 allowObjectOverlap : 1;
+};
+
+enum
+{
+    DECOR_LAYER_BACKGROUND,
+    DECOR_LAYER_MOUNTAIN,
+    DECOR_LAYER_SOLID_TILE,
+    DECOR_LAYER_PLACEABLE_SURFACE,
+    DECOR_LAYER_OBJECTS,
+    DECOR_LAYER_COUNT,
+
+    // Default that is used if not specified
+    DECOR_LAYER_DEFAULT = DECOR_LAYER_SOLID_TILE,
+};
+
+struct LayerInfo const sDecorLayers[DECOR_LAYER_COUNT] = 
+{
+    [DECOR_LAYER_BACKGROUND] =
+    {
+        .placeInBackground = TRUE,
+        .allowBackgroundTileOverlap = TRUE,
+        .allowSolidTileOverlap = TRUE,
+        .allowObjectOverlap = TRUE,
+    },
+    [DECOR_LAYER_MOUNTAIN] =
+    {
+        .placeInBackground = TRUE,
+        .allowBackgroundTileOverlap = TRUE,
+        .allowSolidTileOverlap = FALSE,
+        .allowObjectOverlap = FALSE,
+    },
+    [DECOR_LAYER_SOLID_TILE] =
+    {
+        .placeInBackground = FALSE,
+        .allowBackgroundTileOverlap = TRUE,
+        .allowSolidTileOverlap = FALSE,
+        .allowObjectOverlap = FALSE,
+    },
+    [DECOR_LAYER_PLACEABLE_SURFACE] =
+    {
+        .placeInBackground = FALSE,
+        .allowBackgroundTileOverlap = TRUE,
+        .allowSolidTileOverlap = FALSE,
+        .allowObjectOverlap = TRUE,
+    },
+    [DECOR_LAYER_OBJECTS] =
+    {
+        .placeInBackground = FALSE,
+        .allowBackgroundTileOverlap = TRUE,
+        .allowSolidTileOverlap = FALSE,
+        .allowObjectOverlap = FALSE,
+    },
 };
 
 enum
@@ -92,6 +153,7 @@ struct RogueDecorationVariant
     u8 type;
     u8 srcMapGroup;
     u8 srcMapNum;
+    u8 layer;
     union
     {
         struct
@@ -100,7 +162,6 @@ struct RogueDecorationVariant
             u8 y;
             u8 width;
             u8 height;
-            u8 isBottomLayer : 1;
         } tile;
         struct
         {
@@ -778,6 +839,7 @@ void RogueHub_ApplyMapMetatiles()
         fixup.path = TRUE;
         fixup.pond = FALSE;
         fixup.mountain = FALSE;
+        fixup.trees = FALSE;
         fixup.pathStyle = TRUE;
         FixupTileCommon(&fixup);
     }
@@ -926,6 +988,23 @@ static void BlitPlayerHouse(u16 style, bool8 isUpgraded)
     }
 }
 
+static u8 GetCurrentPlaceableRegion()
+{
+    switch (gMapHeader.mapLayoutId)
+    {
+    case LAYOUT_ROGUE_AREA_HOME:
+        return HOME_REGION_PLACEABLE_REGION;
+    
+    case LAYOUT_ROGUE_INTERIOR_HOME:
+        return HOME_REGION_PLACEABLE_REGION_INTERIOR;
+
+    default:
+        AGB_ASSERT(FALSE);
+        return HOME_REGION_PLACEABLE_REGION;
+        break;
+    }
+}
+
 static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decorVariant)
 {
     u8 placeableRegion = 0;
@@ -938,17 +1017,7 @@ static void BlitPlayerHouseEnvDecor(s32 x, s32 y, u16 decorVariant)
     AGB_ASSERT(sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE);
 
     // Clip anything which is outside of the placeable region
-
-    switch (gMapHeader.mapLayoutId)
-    {
-    case LAYOUT_ROGUE_AREA_HOME:
-        placeableRegion = HOME_REGION_PLACEABLE_REGION;
-        break;
-    
-    case LAYOUT_ROGUE_INTERIOR_HOME:
-        placeableRegion = HOME_REGION_PLACEABLE_REGION_INTERIOR;
-        break;
-    }
+    placeableRegion = GetCurrentPlaceableRegion();
 
 
     if(x < sHomeRegionCoords[placeableRegion].xStart)
@@ -1019,7 +1088,8 @@ static void RogueHub_UpdateHomeAreaMetatiles()
 
 static bool8 IsBottomLayerVariant(u16 decorVariant)
 {
-    return sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE && sDecorationVariants[decorVariant].perType.tile.isBottomLayer;
+    AGB_ASSERT(sDecorationVariants[decorVariant].layer < DECOR_LAYER_COUNT);
+    return sDecorLayers[sDecorationVariants[decorVariant].layer].placeInBackground;
 }
 
 static u16 GetCurrentDecorOffset(u16 i)
@@ -1122,6 +1192,7 @@ static void RogueHub_PlaceHomeEnvironmentDecorations(bool8 placeTiles, bool8 pla
                 fixup.path = TRUE;
                 fixup.pond = TRUE;
                 fixup.mountain = TRUE;
+                fixup.trees = TRUE;
                 fixup.pathStyle = TRUE;
                 FixupTileCommon(&fixup);
             }
@@ -1552,7 +1623,7 @@ static void RogueHub_UpdateDayCareAreaMetatiles()
 
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_BREEDER))
     {
-        MetatileFill_Tile(10, 10, 10, 10, 0x291); // place wooden fence
+        MetatileFill_Tile(10, 10, 10, 10, 0x291 | MAPGRID_COLLISION_MASK); // place wooden fence
     }
 
     if(!RogueHub_HasUpgrade(HUB_UPGRADE_DAY_CARE_TEA_SHOP))
@@ -1931,10 +2002,120 @@ static void UpdatePlaceCoords(u8* placeX, u8* placeY, u8 decorVariant)
     }
 }
 
-static bool8 CanPlaceDecorAt(u8 decorVariant, u8 x, u8 y)
+struct DecorBounds
 {
-    // Maybe want to avoid overlapping?
-    // Could use a bit mask?
+    s32 x;
+    s32 y;
+    s32 width;
+    s32 height;
+};
+
+static void GetDecorBounds(struct DecorBounds* outBounds, u8 decorVariant, u8 x, u8 y)
+{
+    outBounds->x = x;
+    outBounds->y = y;
+
+    switch(sDecorationVariants[decorVariant].type)
+    {
+        case DECOR_TYPE_TILE:
+            outBounds->width = sDecorationVariants[decorVariant].perType.tile.width;
+            outBounds->height = sDecorationVariants[decorVariant].perType.tile.height;
+            break;
+
+        case DECOR_TYPE_OBJECT_EVENT:
+            outBounds->width = 1;
+            outBounds->height = 1;
+            break;
+    }
+}
+
+static bool32 DoBoundsOverlap(struct DecorBounds* boundsA, struct DecorBounds* boundsB)
+{
+    s32 xMinA = boundsA->x;
+    s32 xMaxA = boundsA->x + boundsA->width - 1;
+    s32 yMinA = boundsA->y;
+    s32 yMaxA = boundsA->y + boundsA->height - 1;
+
+    s32 xMinB = boundsB->x;
+    s32 xMaxB = boundsB->x + boundsB->width - 1;
+    s32 yMinB = boundsB->y;
+    s32 yMaxB = boundsB->y + boundsB->height - 1;
+    
+    return (xMaxA >= xMinB && xMaxB >= xMinA) && (yMaxA >= yMinB && yMaxB >= yMinA);
+}
+
+static bool32 DoesBoundsEncapsulate(struct DecorBounds* boundsA, struct DecorBounds* boundsB)
+{
+    s32 xMinA = boundsA->x;
+    s32 xMaxA = boundsA->x + boundsA->width - 1;
+    s32 yMinA = boundsA->y;
+    s32 yMaxA = boundsA->y + boundsA->height - 1;
+
+    s32 xMinB = boundsB->x;
+    s32 xMaxB = boundsB->x + boundsB->width - 1;
+    s32 yMinB = boundsB->y;
+    s32 yMaxB = boundsB->y + boundsB->height - 1;
+
+    return (xMinB >= xMinA && xMaxB <= xMaxA && yMinB >= yMinA && yMaxB <= yMaxA);
+}
+
+static bool32 CanPlaceDecorAt(struct RogueHubMap* hubMap, u8 decorVariant, u8 x, u8 y)
+{
+    // Avoid overlapping
+    u32 i;
+    u32 currDecorCount = GetCurrentDecorCount();
+    struct DecorBounds placingBounds;
+    struct DecorBounds checkBounds;
+    u8 inputLayer = sDecorationVariants[decorVariant].layer;
+    u8 placeableRegion = GetCurrentPlaceableRegion();
+
+    GetDecorBounds(&placingBounds, decorVariant, x, y);
+
+    // Check we're not overlapping the placeable bounds
+    checkBounds.x = sHomeRegionCoords[placeableRegion].xStart;
+    checkBounds.y = sHomeRegionCoords[placeableRegion].yStart;
+    checkBounds.width = 1 + sHomeRegionCoords[placeableRegion].xEnd - sHomeRegionCoords[placeableRegion].xStart;
+    checkBounds.height = 1 + sHomeRegionCoords[placeableRegion].yEnd - sHomeRegionCoords[placeableRegion].yStart;
+
+    if(!DoesBoundsEncapsulate(&checkBounds, &placingBounds))
+        return FALSE;
+
+
+    for(i = 0; i < currDecorCount; ++i)
+    {
+        struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
+        if(decor->active)
+        {
+            u8 itCurrLayer = sDecorationVariants[decor->decorVariant].layer;
+
+            switch(sDecorationVariants[decorVariant].type)
+            {
+                case DECOR_TYPE_TILE:
+                    if(sDecorLayers[inputLayer].placeInBackground)
+                    {
+                        if(sDecorLayers[itCurrLayer].allowBackgroundTileOverlap)
+                            continue;
+                    }
+                    else
+                    {
+                        if(sDecorLayers[itCurrLayer].allowSolidTileOverlap)
+                            continue;
+                    }
+                    break;
+
+                case DECOR_TYPE_OBJECT_EVENT:
+                    if(sDecorLayers[itCurrLayer].allowObjectOverlap)
+                        continue;
+                    break;
+            }
+
+            GetDecorBounds(&checkBounds, decor->decorVariant, decor->x, decor->y);
+
+            if(DoBoundsOverlap(&placingBounds, &checkBounds))
+                return FALSE;
+        }
+    }
+
     return TRUE;
 }
 
@@ -2419,29 +2600,31 @@ u16 RogueHub_PlaceHomeDecor()
         {
             return HOME_DECOR_TOO_MANY_OF_TYPE;
         }
-        else if(CanPlaceDecorAt(decorVariant, placeX, placeY))
+        else
         {
             UpdatePlaceCoords(&placeX, &placeY, decorVariant);
 
-            for(i = 0; i < currDecorCount; ++i)
+            if(CanPlaceDecorAt(hubMap, decorVariant, placeX, placeY))
             {
-                struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
-                if(!decor->active)
+                for(i = 0; i < currDecorCount; ++i)
                 {
-                    decor->x = placeX;
-                    decor->y = placeY;
-                    decor->decorVariant = decorVariant;
-                    decor->active = TRUE;
+                    struct RogueHubDecoration* decor = &hubMap->homeDecorations[GetCurrentDecorOffset(i)];
+                    if(!decor->active)
+                    {
+                        decor->x = placeX;
+                        decor->y = placeY;
+                        decor->decorVariant = decorVariant;
+                        decor->active = TRUE;
 
-                    RogueHub_PlaceHomeEnvironmentDecorations(sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE, sDecorationVariants[decorVariant].type == DECOR_TYPE_OBJECT_EVENT);
-                    return GetCurrentDecorOffset(i);
+                        RogueHub_PlaceHomeEnvironmentDecorations(sDecorationVariants[decorVariant].type == DECOR_TYPE_TILE, sDecorationVariants[decorVariant].type == DECOR_TYPE_OBJECT_EVENT);
+                        return GetCurrentDecorOffset(i);
+                    }
                 }
             }
-        }
-        else
-        {
-            // TODO - Cannot place on top
-            return HOME_DECOR_TOO_MANY_OBJECTS_NEAR;
+            else
+            {
+                return HOME_DECOR_CODE_NOT_HERE;
+            }
         }
     
         return HOME_DECOR_CODE_NO_ROOM;
@@ -2556,6 +2739,8 @@ static u32 GetCurrentAreaMetatileAt(s32 x, s32 y)
     return metaTile;
 }
 
+#define METATILE_GeneralHub_Tree_Class METATILE_GeneralHub_Tree_TopRight_Sparse
+
 static bool8 IsCompatibleMetatile(u32 classTile,  u32 checkTile)
 {
     if(classTile == METATILE_GeneralHub_Pond_Centre)
@@ -2600,6 +2785,25 @@ static bool8 IsCompatibleMetatile(u32 classTile,  u32 checkTile)
             checkTile == METATILE_GeneralHub_Mountain_Conn_SouthWest ||
             checkTile == METATILE_GeneralHub_Mountain_Conn_SouthWest_Inside ||
             checkTile == METATILE_GeneralHub_MountainRaised_Conn_EastWest_South
+        );
+    }
+    else if(classTile == METATILE_GeneralHub_Tree_Class)
+    {
+        return (
+            checkTile == METATILE_GeneralHub_Tree_BottomLeft_Dense ||
+            checkTile == METATILE_GeneralHub_Tree_BottomLeft_Dense_Overlapped ||
+            checkTile == METATILE_GeneralHub_Tree_BottomLeft_Sparse ||
+            checkTile == METATILE_GeneralHub_Tree_BottomLeft_Sparse_Overlapped ||
+            checkTile == METATILE_GeneralHub_Tree_BottomRight_Dense ||
+            checkTile == METATILE_GeneralHub_Tree_BottomRight_Dense_Overlapped ||
+            checkTile == METATILE_GeneralHub_Tree_BottomRight_Sparse ||
+            checkTile == METATILE_GeneralHub_Tree_BottomRight_Sparse_Overlapped ||
+            checkTile == METATILE_GeneralHub_Tree_TopLeft_CapGrass ||
+            checkTile == METATILE_GeneralHub_Tree_TopLeft_Dense ||
+            checkTile == METATILE_GeneralHub_Tree_TopLeft_Sparse ||
+            checkTile == METATILE_GeneralHub_Tree_TopRight_CapGrass ||
+            checkTile == METATILE_GeneralHub_Tree_TopRight_Dense ||
+            checkTile == METATILE_GeneralHub_Tree_TopRight_Sparse
         );
     }
 
@@ -2820,6 +3024,140 @@ static void FixupTile_Mountain_Fixup(s32 x, s32 y, u32 centreTile)
     }
 }
 
+// Mountain Path
+//
+
+static void FixupTile_Trees_Horizontal(s32 x, s32 y, u32 centreTile)
+{
+    bool8 west = IsCompatibleMetatileAt(x - 1, y + 0, METATILE_GeneralHub_Tree_Class);
+    bool8 east = IsCompatibleMetatileAt(x + 1, y + 0, METATILE_GeneralHub_Tree_Class);
+
+    switch (centreTile)
+    {
+    case METATILE_GeneralHub_Tree_TopLeft_Sparse:
+        if(west)
+            MetatileSet_Tile(x, y, METATILE_GeneralHub_Tree_TopLeft_Dense | MAPGRID_COLLISION_MASK);
+        break;
+    case METATILE_GeneralHub_Tree_BottomLeft_Sparse:
+        if(west)
+            MetatileSet_Tile(x, y, METATILE_GeneralHub_Tree_BottomLeft_Dense | MAPGRID_COLLISION_MASK);
+        break;
+    
+    case METATILE_GeneralHub_Tree_TopRight_Sparse:
+        if(east)
+            MetatileSet_Tile(x, y, METATILE_GeneralHub_Tree_TopRight_Dense | MAPGRID_COLLISION_MASK);
+        break;
+    case METATILE_GeneralHub_Tree_BottomRight_Sparse:
+        if(east)
+            MetatileSet_Tile(x, y, METATILE_GeneralHub_Tree_BottomRight_Dense | MAPGRID_COLLISION_MASK);
+        break;
+    }
+}
+
+static void FixupTile_Trees_Vertical(s32 x, s32 y, u32 centreTile)
+{
+    u32 newTile = centreTile;
+
+    bool8 north = IsCompatibleMetatileAt(x + 0, y - 1, METATILE_GeneralHub_Tree_Class);
+    bool8 south = IsCompatibleMetatileAt(x + 0, y + 1, METATILE_GeneralHub_Tree_Class);
+
+    // Decide on whether we're dense or sparse
+    switch (centreTile)
+    {
+    case METATILE_GeneralHub_Tree_BottomLeft_Sparse:
+        if(south)
+            newTile = METATILE_GeneralHub_Tree_BottomLeft_Dense;
+        break;
+    case METATILE_GeneralHub_Tree_BottomRight_Sparse:
+        if(south)
+            newTile = METATILE_GeneralHub_Tree_BottomRight_Dense;
+        break;
+
+    case METATILE_GeneralHub_Tree_TopLeft_Sparse:
+        if(north)
+            newTile = METATILE_GeneralHub_Tree_TopLeft_Dense;
+        break;
+    case METATILE_GeneralHub_Tree_TopRight_Sparse:
+        if(north)
+            newTile = METATILE_GeneralHub_Tree_TopRight_Dense;
+        break;
+    }
+
+    // Replace with cap variants
+    if(south)
+    {
+        u32 southTile = GetCurrentAreaMetatileAt(x + 0, y + 1);
+
+        switch (newTile)
+        {
+        case METATILE_GeneralHub_Tree_BottomLeft_Sparse:
+            if(southTile == METATILE_GeneralHub_Tree_TopLeft_Dense || southTile == METATILE_GeneralHub_Tree_TopLeft_Sparse)
+                newTile = METATILE_GeneralHub_Tree_BottomLeft_Sparse_Overlapped;
+            else
+                newTile = METATILE_GeneralHub_Tree_BottomLeft_Dense_Overlapped_Alt;
+            break;
+        case METATILE_GeneralHub_Tree_BottomRight_Sparse:
+            if(southTile == METATILE_GeneralHub_Tree_TopRight_Dense || southTile == METATILE_GeneralHub_Tree_TopRight_Sparse)
+                newTile = METATILE_GeneralHub_Tree_BottomRight_Sparse_Overlapped;
+            else
+                newTile = METATILE_GeneralHub_Tree_BottomRight_Dense_Overlapped_Alt;
+            break;
+
+        case METATILE_GeneralHub_Tree_BottomLeft_Dense:
+            if(southTile == METATILE_GeneralHub_Tree_TopLeft_Dense || southTile == METATILE_GeneralHub_Tree_TopLeft_Sparse)
+                newTile = METATILE_GeneralHub_Tree_BottomLeft_Dense_Overlapped;
+            else
+                newTile = METATILE_GeneralHub_Tree_BottomLeft_Dense_Overlapped_Alt;
+            break;
+        case METATILE_GeneralHub_Tree_BottomRight_Dense:
+            if(southTile == METATILE_GeneralHub_Tree_TopRight_Dense || southTile == METATILE_GeneralHub_Tree_TopRight_Sparse)
+                newTile = METATILE_GeneralHub_Tree_BottomRight_Dense_Overlapped;
+            else
+                newTile = METATILE_GeneralHub_Tree_BottomRight_Dense_Overlapped_Alt;
+            break;
+        }
+    }
+
+    if(newTile != centreTile)
+        MetatileSet_Tile(x, y, newTile | MAPGRID_COLLISION_MASK);
+}
+
+static void FixupTile_Trees_Fixup(s32 x, s32 y, u32 centreTile)
+{
+    bool8 north = IsCompatibleMetatileAt(x + 0, y - 1, METATILE_GeneralHub_Tree_Class);
+
+    // Set the tile above this to the tree caps
+    switch (centreTile)
+    {
+    case METATILE_GeneralHub_Tree_TopLeft_Sparse:
+    case METATILE_GeneralHub_Tree_TopLeft_Dense:
+        if(!north)
+        {
+            u32 northTile = GetCurrentAreaMetatileAt(x + 0, y - 1);
+
+            if(northTile == METATILE_GeneralHub_Grass)
+                MetatileSet_Tile(x, y - 1, METATILE_GeneralHub_Tree_TopLeft_CapGrass);
+            else if(northTile == METATILE_GeneralHub_TallGrass)
+                MetatileSet_Tile(x, y - 1, METATILE_GeneralHub_Tree_TopLeft_CapTallGrass);
+        }
+        break;
+    case METATILE_GeneralHub_Tree_TopRight_Sparse:
+    case METATILE_GeneralHub_Tree_TopRight_Dense:
+        if(!north)
+        {
+            u32 northTile = GetCurrentAreaMetatileAt(x + 0, y - 1);
+
+            if(northTile == METATILE_GeneralHub_Grass)
+                MetatileSet_Tile(x, y - 1, METATILE_GeneralHub_Tree_TopRight_CapGrass);
+            else if(northTile == METATILE_GeneralHub_TallGrass)
+                MetatileSet_Tile(x, y - 1, METATILE_GeneralHub_Tree_TopRight_CapTallGrass);
+        }
+        break;
+    }
+}
+
+////
+
 static void FixupTileCommon(struct TileFixup* settings)
 {
     s32 fromX, fromY, toX, toY;
@@ -2870,6 +3208,9 @@ static void FixupTileCommon(struct TileFixup* settings)
 
             else if(settings->mountain && metatileId == METATILE_GeneralHub_Mountain_Centre)
                 FixupTile_Mountain_Horizontal(x, y);
+
+            else if(settings->trees && (metatileId == METATILE_GeneralHub_Tree_TopLeft_Sparse || metatileId == METATILE_GeneralHub_Tree_TopRight_Sparse || metatileId == METATILE_GeneralHub_Tree_BottomLeft_Sparse || metatileId == METATILE_GeneralHub_Tree_BottomRight_Sparse))
+                FixupTile_Trees_Horizontal(x, y, metatileId);
         }
     }
 
@@ -2909,6 +3250,18 @@ static void FixupTileCommon(struct TileFixup* settings)
 
                 if(IsCompatibleMetatile(METATILE_GeneralHub_Mountain_Centre, metatileId))
                     FixupTile_Mountain_Fixup(x, y, metatileId);
+            }
+
+            if(settings->trees)
+            {
+                //if(metatileId == METATILE_GeneralHub_Mountain_Centre)
+                //    FixupTile_Mountain_Vertical(x, y);
+
+                if(IsCompatibleMetatile(METATILE_GeneralHub_Tree_Class, metatileId))
+                {
+                    FixupTile_Trees_Vertical(x, y, metatileId);
+                    FixupTile_Trees_Fixup(x, y, MapGridGetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET));
+                }
             }
         }
     }

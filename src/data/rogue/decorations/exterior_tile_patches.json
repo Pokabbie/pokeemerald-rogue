@@ -6,9 +6,9 @@
     {
         "display_group": "Environment",
         "source_map": "ROGUE_TEMPLATE_HOMES",
+        "layer": "DECOR_LAYER_BACKGROUND",
         "source_tiles":
         {
-            "bottom_layer": true
         },
         "variants":
         [
@@ -17,8 +17,7 @@
                 "source_tiles":
                 {
                     "width": 5,
-                    "height": 5,
-                    "bottom_layer": true
+                    "height": 5
                 }
             },
             {
@@ -26,8 +25,7 @@
                 "source_tiles":
                 {
                     "width": 4,
-                    "height": 4,
-                    "bottom_layer": true
+                    "height": 4
                 }
             },
             {
@@ -35,8 +33,7 @@
                 "source_tiles":
                 {
                     "width": 3,
-                    "height": 3,
-                    "bottom_layer": true
+                    "height": 3
                 }
             },
             {
@@ -44,8 +41,7 @@
                 "source_tiles":
                 {
                     "width": 2,
-                    "height": 2,
-                    "bottom_layer": true
+                    "height": 2
                 }
             }
         ]
@@ -104,6 +100,7 @@
             },
             {
                 "name": "Mountain",
+                "layer": "DECOR_LAYER_MOUNTAIN",
                 "source_tiles":
                 {
                     "x": 5,
@@ -120,6 +117,7 @@
             },
             {
                 "name": "Tree",
+                "layer": "DECOR_LAYER_SOLID_TILE",
                 "source_tiles":
                 {
                     "x": 15,

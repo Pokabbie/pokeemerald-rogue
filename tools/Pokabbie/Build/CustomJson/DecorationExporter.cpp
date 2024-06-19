@@ -15,13 +15,13 @@ struct DecorationVariant
 	DecorationType type;
 	std::string name;
 	std::string sourceMap;
+	std::string layer = "DECOR_LAYER_DEFAULT";
 	struct
 	{
 		int x;
 		int y;
 		int width = 1;
 		int height = 1;
-		std::string isBottomLayer = "FALSE";
 	} tileParams;
 	struct
 	{
@@ -131,27 +131,25 @@ void ExportDecorationData_C(std::ofstream& fileStream, std::string const& dataPa
 				fileStream << c_TabSpacing << "[DECOR_VARIANT_" << decor.uniqueId << "_" << FormatUniqueId(variant.name) << "] =\n";
 				fileStream << c_TabSpacing << "{\n";
 				fileStream << c_TabSpacing2 << ".name = sText_Str_" << decorData.uniqueStringLookup[variant.name] << ",\n";
+				fileStream << c_TabSpacing2 << ".srcMapGroup = MAP_GROUP(" << variant.sourceMap << "),\n";
+				fileStream << c_TabSpacing2 << ".srcMapNum = MAP_NUM(" << variant.sourceMap << "),\n";
+				fileStream << c_TabSpacing2 << ".layer = " << variant.layer << ",\n";
 
 				switch (variant.type)
 				{
 				case DecorationType::Tile:
 					fileStream << c_TabSpacing2 << ".type = DECOR_TYPE_TILE,\n";
-					fileStream << c_TabSpacing2 << ".srcMapGroup = MAP_GROUP(" << variant.sourceMap << "),\n";
-					fileStream << c_TabSpacing2 << ".srcMapNum = MAP_NUM(" << variant.sourceMap << "),\n";
 					fileStream << c_TabSpacing2 << ".perType = { .tile =\n";
 					fileStream << c_TabSpacing2 << "{\n";
 					fileStream << c_TabSpacing3 << ".x = " << variant.tileParams.x << ",\n";
 					fileStream << c_TabSpacing3 << ".y = " << variant.tileParams.y << ",\n";
 					fileStream << c_TabSpacing3 << ".width = " << variant.tileParams.width << ",\n";
 					fileStream << c_TabSpacing3 << ".height = " << variant.tileParams.height << ",\n";
-					fileStream << c_TabSpacing3 << ".isBottomLayer = " << variant.tileParams.isBottomLayer << ",\n";
 					fileStream << c_TabSpacing2 << "} }\n";
 					break;
 
 				case DecorationType::ObjectEvent:
 					fileStream << c_TabSpacing2 << ".type = DECOR_TYPE_OBJECT_EVENT,\n";
-					fileStream << c_TabSpacing2 << ".srcMapGroup = MAP_GROUP(" << variant.sourceMap << "),\n";
-					fileStream << c_TabSpacing2 << ".srcMapNum = MAP_NUM(" << variant.sourceMap << "),\n";
 					fileStream << c_TabSpacing2 << ".perType = { .objectEvent =\n";
 					fileStream << c_TabSpacing2 << "{\n";
 					fileStream << c_TabSpacing3 << ".localId = " << variant.objectEventParams.localId << ",\n";
@@ -251,22 +249,22 @@ void ExportDecorationData_H(std::ofstream& fileStream, std::string const& dataPa
 	fileStream << "};\n\n";
 }
 
-static std::string GetAsString(json const& jsonValue)
-{
-	if (jsonValue.is_boolean())
-		return jsonValue.get<bool>() ? "TRUE" : "FALSE";
-
-	if (jsonValue.is_number_integer())
-		return std::to_string(jsonValue.get<int>());
-
-	if (jsonValue.is_number_unsigned())
-		return std::to_string(jsonValue.get<unsigned int>());
-
-	if (jsonValue.is_number_float())
-		return std::to_string(jsonValue.get<float>());
-
-	return jsonValue.get<std::string>();
-}
+//static std::string GetAsString(json const& jsonValue)
+//{
+//	if (jsonValue.is_boolean())
+//		return jsonValue.get<bool>() ? "TRUE" : "FALSE";
+//
+//	if (jsonValue.is_number_integer())
+//		return std::to_string(jsonValue.get<int>());
+//
+//	if (jsonValue.is_number_unsigned())
+//		return std::to_string(jsonValue.get<unsigned int>());
+//
+//	if (jsonValue.is_number_float())
+//		return std::to_string(jsonValue.get<float>());
+//
+//	return jsonValue.get<std::string>();
+//}
 
 static DecorationVariant ParseDecorationVariant(json const& jsonData, DecorationVariant const& defaultValues)
 {
@@ -276,6 +274,9 @@ static DecorationVariant ParseDecorationVariant(json const& jsonData, Decoration
 
 	if(jsonData.contains("source_map"))
 		outVariant.sourceMap = jsonData["source_map"].get<std::string>();
+
+	if (jsonData.contains("layer"))
+		outVariant.layer = jsonData["layer"].get<std::string>();
 
 	if (jsonData.contains("source_tiles"))
 	{
@@ -294,9 +295,6 @@ static DecorationVariant ParseDecorationVariant(json const& jsonData, Decoration
 
 		if (sourceTilesJson.contains("height"))
 			outVariant.tileParams.height = sourceTilesJson["height"].get<int>();
-
-		if (sourceTilesJson.contains("bottom_layer"))
-			outVariant.tileParams.isBottomLayer = GetAsString(sourceTilesJson["bottom_layer"]);
 
 		return outVariant;
 	}
@@ -371,7 +369,7 @@ static std::string FormatUniqueId(std::string const& prettyName)
 	std::string uniqueId = strutil::to_upper(prettyName);
 	strutil::replace_all(uniqueId, " ", "_");
 	strutil::replace_all(uniqueId, "-", "_");
-	strutil::replace_all(uniqueId, "é", "E"); // code for �
+	strutil::replace_all(uniqueId, "é", "E"); // code for �
 	strutil::replace_all(uniqueId, "!", "EMARK");
 	strutil::replace_all(uniqueId, "?", "QMARK");
 	strutil::replace_all(uniqueId, ",", "");

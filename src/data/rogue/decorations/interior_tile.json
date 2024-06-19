@@ -13,12 +13,12 @@
         [
             {
                 "name": "Rug",
+                "layer": "DECOR_LAYER_PLACEABLE_SURFACE",
                 "source_tiles":
                 {
                     "y": 9,
                     "width": 3,
-                    "height": 3,
-                    "bottom_layer": true
+                    "height": 3
                 },
                 "variants":
                 [
@@ -79,8 +79,7 @@
                 {
                     "y": 8,
                     "width": 1,
-                    "height": 1,
-                    "bottom_layer": true
+                    "height": 1
                 },
                 "variants":
                 [
@@ -151,6 +150,7 @@
             },
             {
                 "name": "Desk",
+                "layer": "DECOR_LAYER_PLACEABLE_SURFACE",
                 "source_tiles":
                 {
                     "width": 1,
@@ -637,6 +637,7 @@
             },
             {
                 "name": "Large Tire",
+                "layer": "DECOR_LAYER_PLACEABLE_SURFACE",
                 "source_tiles":
                 {
                     "x": 15,
