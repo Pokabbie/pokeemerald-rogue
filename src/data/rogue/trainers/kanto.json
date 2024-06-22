@@ -688,7 +688,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I am usually a man of research.\\pBut at this moment in time…",
                         "PRE_BATTLE_TAUNT": "I shall battle, as I did in my youth!",
                         "POST_BATTLE_TAUNT": "That was marvelous, {PLAYER}!",
-                        "POST_BATTLE_CLOSER": "You were truely astounding, battling alongside your Pokémon.\\pI wish you the best of luck moving forward!"
+                        "POST_BATTLE_CLOSER": "You were truly astounding, battling alongside your Pokémon.\\pI wish you the best of luck moving forward!"
                     }
                 ],
                 "preferred_mon_gender": "MALE",
