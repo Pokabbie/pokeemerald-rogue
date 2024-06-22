@@ -353,7 +353,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I will do everything in my power to win.",
                         "PRE_BATTLE_TAUNT": "You'd better give it your best shot, too!",
                         "POST_BATTLE_TAUNT": "I… I can't…\\nI can't believe it.",
-                        "POST_BATTLE_CLOSER": "I'm truely shocked.\\pYou definitely have the strength to go far."
+                        "POST_BATTLE_CLOSER": "I'm truly shocked.\\pYou definitely have the strength to go far."
                     }
                 ],
                 "preferred_mon_gender": "MALE",
