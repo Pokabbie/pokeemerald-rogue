@@ -13,6 +13,9 @@ enum class ObservedMemoryID : u16
 	AssitantState,
 	MultiplayerStatePtr,
 	MultiplayerState,
+	HomeBoxStatePtr,
+	HomeBoxState,
+	GamePokemonStorageData,
 };
 
 inline static GameMessageID CreateMessageId(GameMessageChannel channel, ObservedMemoryID param)
@@ -106,6 +109,26 @@ void ObservedGameMemory::Update()
 			// Pointing to null
 			m_MultiplayerState.Clear();
 		}
+
+		// Grab Home Box state
+		//
+		messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::HomeBoxStatePtr);
+		m_Game.ReadRequest(messageId, m_RogueHeader->homeBoxPtr, m_HomeBoxStatePtr.GetSize());
+
+		if (m_HomeBoxStatePtr.IsValid() && m_HomeBoxStatePtr.Get() != 0)
+		{
+			if (m_HomeBoxState.GetSize() != m_RogueHeader->homeBoxSize)
+				m_HomeBoxState.Resize(m_RogueHeader->homeBoxSize);
+
+			messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::HomeBoxState);
+			m_Game.ReadRequest(messageId, m_HomeBoxStatePtr.Get(), m_HomeBoxState.GetSize());
+		}
+		else
+		{
+			// Pointing to null
+			m_HomeBoxState.Clear();
+			m_PokemonStorageData.Clear();
+		}
 	}
 }
 
@@ -152,6 +175,18 @@ void ObservedGameMemory::OnRecieveMessage(GameMessageID messageId, u8 const* dat
 	case ObservedMemoryID::MultiplayerState:
 		m_MultiplayerState.SetData(data, size);
 		break;
+
+	case ObservedMemoryID::HomeBoxStatePtr:
+		m_HomeBoxStatePtr.SetData(data, size);
+		break;
+
+	case ObservedMemoryID::HomeBoxState:
+		m_HomeBoxState.SetData(data, size);
+		break;
+
+	case ObservedMemoryID::GamePokemonStorageData:
+		m_PokemonStorageData.SetData(data, size);
+		break;
 	}
 }
 
@@ -163,4 +198,41 @@ bool ObservedGameMemory::AreHeadersValid() const
 bool ObservedGameMemory::IsMultiplayerStateValid() const
 {
 	return m_MultiplayerStatePtr.IsValid() && m_MultiplayerStatePtr.Get() != 0 && m_MultiplayerState.IsValid();
+}
+
+bool ObservedGameMemory::IsHomeBoxStateValid() const
+{
+	return m_HomeBoxStatePtr.IsValid() && m_HomeBoxStatePtr.Get() != 0 && m_HomeBoxState.IsValid();
+}
+
+GameAddress ObservedGameMemory::GetPokemonStoragePtr() const
+{
+	if (IsHomeBoxStateValid())
+	{
+		u8 const* ptr = &m_HomeBoxState.GetData()[m_RogueHeader->homeDestMonOffset];
+		GameAddress storagePtrAddr = *(GameAddress*)ptr;
+		return storagePtrAddr;
+	}
+
+	return 0;
+}
+
+bool ObservedGameMemory::RequestPokemonStorageData(u32 boxId)
+{
+	m_PokemonStorageData.Clear();
+
+	if (IsHomeBoxStateValid())
+	{
+		GameStructures::RogueAssistantHeader const& rogueHeader = m_Game.GetObservedGameMemory().GetRogueHeader();
+		u8 const* homeBoxState = GetHomeBoxStateBlob();
+
+		GameMessageID messageId = CreateMessageId(GameMessageChannel::CommonRead, ObservedMemoryID::GamePokemonStorageData);
+
+		m_Game.ReadRequest(messageId, GetPokemonStoragePtr() + rogueHeader.homeDestMonSize * boxId, rogueHeader.homeDestMonSize);
+		m_PokemonStorageData.Resize(rogueHeader.homeDestMonSize);
+		return true;
+	}
+
+	return false;
+	//m_PokemonStorageData.Resize()
 }

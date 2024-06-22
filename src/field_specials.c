@@ -66,6 +66,7 @@
 #include "constants/metatile_labels.h"
 #include "palette.h"
 
+#include "rogue_assistantbox.h"
 #include "rogue_controller.h"
 #include "rogue_pokedex.h"
 #include "rogue_player_customisation_ui.h"
@@ -159,6 +160,13 @@ void Special_ViewPlayerCustomisationMenu(void)
 {
     gMain.savedCallback = CB2_ReturnToFieldContinueScript;
     SetMainCallback2(CB2_InitPlayerCustomisationMenu);
+    LockPlayerFieldControls();
+}
+
+void Special_ViewAssistantBox(void)
+{
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
+    SetMainCallback2(CB2_ShowAssitantBoxView);
     LockPlayerFieldControls();
 }
 

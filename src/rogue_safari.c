@@ -310,7 +310,7 @@ static u8 AllocSafariMonSlotFor(struct BoxPokemon* mon)
         offset = Random();
 
         // Find first mon of priority and give back it's slot
-        for(i = startIndex; i < endIndex; ++i)
+        for(i = startIndex; i <= endIndex; ++i)
         {
             idx = startIndex + (offset + i - startIndex) % (endIndex - startIndex + 1);
 

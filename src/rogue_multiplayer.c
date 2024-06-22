@@ -196,6 +196,7 @@ void RogueMP_OpenClient()
 void RogueMP_Close()
 {
     AGB_ASSERT(gRogueMultiplayer != NULL);
+    RogueMP_RemoveObjectEvents();
     gRogueMultiplayer = NULL;
 }
 

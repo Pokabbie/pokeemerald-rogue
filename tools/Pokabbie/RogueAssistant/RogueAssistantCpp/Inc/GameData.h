@@ -111,11 +111,20 @@ namespace GameStructures
 		u32 netPlayerCount;
 		u32 netRequestStateOffset;
 		u32 netCurrentStateOffset;
+		u32 homeLocalBoxCount;
+		u32 homeTotalBoxCount;
+		u32 homeBoxSize;
+		u32 homeMinimalBoxOffset;
+		u32 homeMinimalBoxSize;
+		u32 homeDestMonOffset;
+		u32 homeDestMonSize;
+		u32 homeRemoteIndexOrderOffset;
 		GameAddress saveBlock1Ptr;
 		GameAddress saveBlock2Ptr;
 		GameAddress rogueBlockPtr;
 		GameAddress assistantState;
 		GameAddress multiplayerPtr;
+		GameAddress homeBoxPtr;
 	};
 
 	struct RogueAssistantState

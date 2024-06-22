@@ -1,4 +1,5 @@
 #include "Behaviours/CommonBehaviour.h"
+#include "Behaviours/HomeBoxBehaviour.h"
 #include "Behaviours/MultiplayerBehaviour.h"
 #include "GameConnection.h"
 #include "GameData.h"
@@ -54,6 +55,26 @@ void CommonBehaviour::OnUpdate(GameConnection& game)
 		{
 			game.RemoveBehaviour(multiplayer.get());
 			m_MultiplayerBehaviour.reset();
+		}
+	}
+
+	// Handle home box connect/disconnect
+	//
+	if (game.GetObservedGameMemory().IsHomeBoxStateValid())
+	{
+		if (m_HomeBoxBehaviour.expired())
+		{
+			m_HomeBoxBehaviour = game.AddBehaviour<HomeBoxBehaviour>();
+		}
+	}
+	else
+	{
+		auto homeBox = m_HomeBoxBehaviour.lock();
+
+		if (homeBox != nullptr)
+		{
+			game.RemoveBehaviour(homeBox.get());
+			m_HomeBoxBehaviour.reset();
 		}
 	}
 }

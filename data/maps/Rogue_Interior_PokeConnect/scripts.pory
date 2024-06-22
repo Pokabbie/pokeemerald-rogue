@@ -1,6 +1,6 @@
 mapscripts Rogue_Interior_PokeConnect_MapScripts {}
 
-script Rogue_Interior_PokeConnect_TalkNurse
+script Rogue_Interior_PokeConnect_TalkMultiplayer
 {
     lock
 
@@ -78,9 +78,10 @@ script Rogue_Interior_PokeConnect_TalkNurse
     release
 }
 
-script Rogue_Interior_PokeConnect_TalkNurse2
+script Rogue_Interior_PokeConnect_TalkNurseBox
 {
     lock
     msgbox(format("TODO - Rogue box"))
+    special(Special_ViewAssistantBox)
     release
 }

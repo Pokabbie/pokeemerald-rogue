@@ -50,7 +50,9 @@ public:
 
 	void WriteRequest(GameMessageID messageId, size_t addr, void const* data, size_t size);
 	void ReadRequest(GameMessageID messageId, size_t addr, size_t size);
+	void ManualFlush() { FlushCommands(); }
 
+	ObservedGameMemory& GetObservedGameMemory();
 	ObservedGameMemory const& GetObservedGameMemory() const;
 
 	//template<typename T>

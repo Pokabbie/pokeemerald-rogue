@@ -58,6 +58,15 @@
     <ClCompile Include="Src\Assets.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Behaviours\HomeBoxBehaviour.cpp">
+      <Filter>Src\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\UserData.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\DataStream.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="External\imgui\imstb_truetype.h">
@@ -130,6 +139,15 @@
       <Filter>Inc</Filter>
     </ClInclude>
     <ClInclude Include="Inc\StringUtils.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Behaviours\HomeBoxBehaviour.h">
+      <Filter>Inc\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\UserData.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\DataStream.h">
       <Filter>Inc</Filter>
     </ClInclude>
   </ItemGroup>

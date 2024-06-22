@@ -46,4 +46,12 @@ void Rogue_UpdateAssistantRequestState(u16 state);
 void Rogue_AssistantMainCB();
 void Rogue_AssistantOverworldCB();
 
+void RogueBox_OpenConnection();
+void RogueBox_CloseConnection();
+bool32 RogueBox_IsConnectedAndReady();
+u8 RogueBox_GetCountInBox(u8 i);
+u8 const* RogueBox_GetName(u8 i);
+bool32 RogueBox_IsLocalBox(u8 i);
+void RogueBox_SwapBoxes(u8 a, u8 b);
+
 #endif

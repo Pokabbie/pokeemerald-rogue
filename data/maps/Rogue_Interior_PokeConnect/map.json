@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_INTERIOR_POKE_CONNECT",
   "name": "Rogue_Interior_PokeConnect",
   "layout": "LAYOUT_ROGUE_INTERIOR_POKE_CONNECT",
-  "music": "MUS_RG_NET_CENTER",
+  "music": "MUS_DP_GTS",
   "region_map_section": "MAPSEC_POKEMON_HUB",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Interior_PokeConnect_TalkNurse",
+      "script": "Rogue_Interior_PokeConnect_TalkMultiplayer",
       "flag": "0"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Rogue_Interior_PokeConnect_TalkNurse2",
+      "script": "Rogue_Interior_PokeConnect_TalkNurseBox",
       "flag": "0"
     }
   ],

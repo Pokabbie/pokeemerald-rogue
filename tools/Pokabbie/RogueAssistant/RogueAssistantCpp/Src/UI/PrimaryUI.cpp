@@ -5,6 +5,7 @@
 #include "GameConnection.h"
 #include "GameConnectionManager.h"
 #include "Behaviours/MultiplayerBehaviour.h"
+#include "Behaviours/HomeBoxBehaviour.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -234,8 +235,13 @@ void PrimaryUI::Render(Window& window)
 		bool initialLoad = false;
 
 		MultiplayerBehaviour* multiplayer = game.m_Game->FindBehaviour<MultiplayerBehaviour>();
+		HomeBoxBehaviour* homebox = game.m_Game->FindBehaviour<HomeBoxBehaviour>();
 
-		if (multiplayer != nullptr)
+		if (homebox != nullptr)
+		{
+			newPage = PageUI::HomeBox;
+		}
+		else if (multiplayer != nullptr)
 		{
 			newPage = PageUI::Multiplayer;
 		}
@@ -253,6 +259,10 @@ void PrimaryUI::Render(Window& window)
 		{
 		case PrimaryUI::PageUI::Multiplayer:
 			RenderMultiplayerPage(window, multiplayer, initialLoad);
+			break;
+
+		case PrimaryUI::PageUI::HomeBox:
+			RenderHomeBoxPage(window, homebox, initialLoad);
 			break;
 
 		default:
@@ -388,5 +398,40 @@ void PrimaryUI::RenderMultiplayerPage(Window& window, MultiplayerBehaviour* mult
 				m_Assets->m_LightFontColour
 			);
 		}
+	}
+}
+
+void PrimaryUI::RenderHomeBoxPage(Window& window, HomeBoxBehaviour* homebox, bool initialLoad)
+{
+	sf::RenderWindow& gfx = *window.GetHandle();
+
+	// Print state
+	m_Assets->DrawCenteredText(
+		gfx,
+		"Transferring Pokémon Boxes",
+		c_CentreOffset + sf::Vector2f(0, -55),
+		16,
+		m_Assets->m_LightFontColour
+	);
+
+	if (homebox->IsLoading())
+	{
+		m_Assets->DrawCenteredText(
+			gfx,
+			"Loading" + m_Assets->m_LoadingSpinnerAnimText,
+			c_CentreOffset + sf::Vector2f(0, -40),
+			16,
+			m_Assets->m_LightFontColour
+		);
+	}
+	else if (homebox->IsSaving())
+	{
+		m_Assets->DrawCenteredText(
+			gfx,
+			"Saving" + m_Assets->m_LoadingSpinnerAnimText,
+			c_CentreOffset + sf::Vector2f(0, -40),
+			16,
+			m_Assets->m_DarkFontColour
+		);
 	}
 }

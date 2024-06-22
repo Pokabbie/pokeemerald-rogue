@@ -71,12 +71,20 @@ public:
 
 	bool AreHeadersValid() const;
 	bool IsMultiplayerStateValid() const;
+	bool IsHomeBoxStateValid() const;
 
 	GameStructures::GFRomHeader const& GetGFRomHeader() const { return m_GFRomHeader.Get(); }
 	GameStructures::RogueAssistantHeader const& GetRogueHeader() const { return m_RogueHeader.Get(); }
 	GameStructures::RogueAssistantState const& GetAssistantState() const { return m_AssistantState.Get(); }
 	GameAddress GetMultiplayerStatePtr() const { return m_MultiplayerStatePtr.Get(); }
 	u8 const* GetMultiplayerStateBlob() const { return m_MultiplayerState.GetData(); }
+	GameAddress GetHomeBoxStatePtr() const { return m_HomeBoxStatePtr.Get(); }
+	u8 const* GetHomeBoxStateBlob() const { return m_HomeBoxState.GetData(); }
+
+	GameAddress GetPokemonStoragePtr() const;
+	bool RequestPokemonStorageData(u32 boxId);
+	bool IsPokemonStorageBlobReady() const { return m_PokemonStorageData.IsValid(); }
+	u8 const* GetPokemonStorageBlob() const { return m_PokemonStorageData.GetData(); }
 
 private:
 	GameConnection& m_Game;
@@ -86,4 +94,7 @@ private:
 	ObservedStruct<GameStructures::RogueAssistantState> m_AssistantState;
 	ObservedStruct<GameAddress> m_MultiplayerStatePtr;
 	ObservedBlob m_MultiplayerState;
+	ObservedStruct<GameAddress> m_HomeBoxStatePtr;
+	ObservedBlob m_HomeBoxState;
+	ObservedBlob m_PokemonStorageData;
 };

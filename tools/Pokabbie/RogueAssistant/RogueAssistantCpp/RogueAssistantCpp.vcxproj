@@ -99,6 +99,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;$(ProjectDir)External\ENet\include;$(ProjectDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,6 +138,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;$(ProjectDir)External\ENet\include;$(ProjectDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -175,6 +177,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;$(ProjectDir)External\ENet\include;$(ProjectDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -213,6 +216,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)Inc;$(ProjectDir)External\glfw-3.3.8\include;$(ProjectDir)External\imgui;$(ProjectDir)External\ENet\include;$(ProjectDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -252,7 +256,9 @@
     <ClCompile Include="External\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Src\Assets.cpp" />
     <ClCompile Include="Src\Behaviours\CommonBehaviour.cpp" />
+    <ClCompile Include="Src\Behaviours\HomeBoxBehaviour.cpp" />
     <ClCompile Include="Src\Behaviours\MultiplayerBehaviour.cpp" />
+    <ClCompile Include="Src\DataStream.cpp" />
     <ClCompile Include="Src\GameConnection.cpp" />
     <ClCompile Include="Src\GameConnectionManager.cpp" />
     <ClCompile Include="Src\GameConnectionRPCs.cpp" />
@@ -262,6 +268,7 @@
     <ClCompile Include="Src\Timer.cpp" />
     <ClCompile Include="Src\UI\PrimaryUI.cpp" />
     <ClCompile Include="Src\UI\Window.cpp" />
+    <ClCompile Include="Src\UserData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="External\imgui\imconfig.h" />
@@ -274,7 +281,9 @@
     <ClInclude Include="External\imgui\imstb_truetype.h" />
     <ClInclude Include="Inc\Assets.h" />
     <ClInclude Include="Inc\Behaviours\CommonBehaviour.h" />
+    <ClInclude Include="Inc\Behaviours\HomeBoxBehaviour.h" />
     <ClInclude Include="Inc\Behaviours\MultiplayerBehaviour.h" />
+    <ClInclude Include="Inc\DataStream.h" />
     <ClInclude Include="Inc\Defines.h" />
     <ClInclude Include="Inc\GameConnection.h" />
     <ClInclude Include="Inc\GameConnectionBehaviour.h" />
@@ -288,6 +297,7 @@
     <ClInclude Include="Inc\Timer.h" />
     <ClInclude Include="Inc\UI\PrimaryUI.h" />
     <ClInclude Include="Inc\UI\Window.h" />
+    <ClInclude Include="Inc\UserData.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\RogueAssistant_mGBA.lua" />

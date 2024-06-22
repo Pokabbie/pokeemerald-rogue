@@ -1,6 +1,7 @@
 #pragma once
 #include "GameConnectionBehaviour.h"
 
+class HomeBoxBehaviour;
 class MultiplayerBehaviour;
 
 class CommonBehaviour : public IGameConnectionBehaviour
@@ -12,4 +13,5 @@ public:
 
 private:
 	std::weak_ptr<MultiplayerBehaviour> m_MultiplayerBehaviour;
+	std::weak_ptr<HomeBoxBehaviour> m_HomeBoxBehaviour;
 };

@@ -301,6 +301,33 @@ namespace strutil
     }
 
     /**
+     * @brief Replaces (in-place) all occurrences of target with replacement.
+     *        Taken from: http://stackoverflow.com/questions/3418231/c-replace-part-of-a-string-with-another-string.
+     * @param str - input std::string that will be modified.
+     * @param target - substring that will be replaced with replacement.
+     * @param replacement - substring that will replace target.
+     * @return True if replacement was successfull, false otherwise.
+     */
+    static inline bool replace_all(std::wstring& str, const std::wstring& target, const std::wstring& replacement)
+    {
+        if (target.empty())
+        {
+            return false;
+        }
+
+        size_t start_pos = 0;
+        const bool found_substring = str.find(target, start_pos) != std::wstring::npos;
+
+        while ((start_pos = str.find(target, start_pos)) != std::wstring::npos)
+        {
+            str.replace(start_pos, target.length(), replacement);
+            start_pos += replacement.length();
+        }
+
+        return found_substring;
+    }
+
+    /**
      * @brief Checks if std::string str ends with specified suffix.
      * @param str - input std::string that will be checked.
      * @param suffix - searched suffix in str.

@@ -22,9 +22,12 @@
 #include "intro.h"
 #include "item.h"
 #include "main.h"
+#include "malloc.h"
 #include "overworld.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "script.h"
+#include "string_util.h"
 #include "task.h"
 
 #include "rogue_assistant.h"
@@ -63,7 +66,8 @@ enum
 #define NETPLAYER_FLAGS_ACTIVE      (1 << 0)
 #define NETPLAYER_FLAGS_HOST        (2 << 0)
 
-#define ASSISTANT_CONFIRM_THRESHOLD  (10 * 60) // 10 seconds at 60fps
+#define ASSISTANT_CONFIRM_THRESHOLD         (10 * 60) // 10 seconds at 60fps
+#define ASSISTANT_CONFIRM_THRESHOLD_BOX     (3 * 60) // Used a harsher threshold when in theb ox
 
 // Global states
 //
@@ -84,6 +88,8 @@ struct NetPlayerState
     s8 mapNum;
 };
 
+//TOTAL_BOXES_COUNT
+
 struct RogueAssistantState
 {
     u8 inCommBuffer[16];
@@ -97,7 +103,26 @@ struct RogueAssistantState
 
 // TODO - Should really just use gBlockRecvBuffer and other similar vars for communication
 
+// Lightweight box data
+struct RoguePerBoxData
+{
+    u8 name[BOX_NAME_LENGTH + 1];
+    u8 monCount;
+    u8 wallpaper;
+};
+
+struct RogueBoxGlobalData
+{
+    struct RoguePerBoxData boxData[ASSISTANT_HOME_TOTAL_BOXES];
+    struct BoxPokemon* destBoxMons;
+    u8 boxRemoteIndexOrder[ASSISTANT_HOME_TOTAL_BOXES];
+};
+
+static EWRAM_DATA struct RogueBoxGlobalData* sRogueAssistantBoxData = NULL;
+
 EWRAM_DATA struct RogueAssistantState gRogueAssistantState;
+
+STATIC_ASSERT(TOTAL_BOXES_COUNT == ASSISTANT_HOME_LOCAL_BOXES, SizeOfAssistantLocalBoxes);
 
 const struct RogueAssistantHeader gRogueAssistantHeader =
 {
@@ -112,6 +137,8 @@ const struct RogueAssistantHeader gRogueAssistantHeader =
 #else
     .rogueDebug = 0,
 #endif
+
+    // MP Data
     .multiplayerPtr = &gRogueMultiplayer,
     .netMultiplayerSize = sizeof(struct RogueNetMultiplayer),
 
@@ -134,9 +161,21 @@ const struct RogueAssistantHeader gRogueAssistantHeader =
     .saveBlock2Ptr = &gSaveBlock2Ptr,
     .rogueBlockPtr = &gRogueSaveBlock,
 
+    // Assistant Data
     .assistantState = &gRogueAssistantState,
     .assistantConfirmSize = sizeof(gRogueAssistantState.externalConfirmCounter),
     .assistantConfirmOffset = offsetof(struct RogueAssistantState, externalConfirmCounter),
+
+    // Box Data
+    .homeBoxPtr = &sRogueAssistantBoxData,
+    .homeBoxSize = sizeof(struct RogueBoxGlobalData),
+    .homeLocalBoxCount = ASSISTANT_HOME_LOCAL_BOXES,
+    .homeTotalBoxCount = ASSISTANT_HOME_TOTAL_BOXES,
+    .homeMinimalBoxOffset = offsetof(struct RogueBoxGlobalData, boxData),
+    .homeMinimalBoxSize = sizeof(struct RoguePerBoxData),
+    .homeDestMonOffset = offsetof(struct RogueBoxGlobalData, destBoxMons),
+    .homeDestMonSize = sizeof(struct BoxPokemon) * IN_BOX_COUNT,
+    .homeRemoteIndexOrderOffset = offsetof(struct RogueBoxGlobalData, boxRemoteIndexOrder),
 
     //.inCommCapacity = sizeof(gRogueAssistantState.inCommBuffer),
     //.outCommCapacity = sizeof(gRogueAssistantState.outCommBuffer),
@@ -198,7 +237,9 @@ void Rogue_AssistantMainCB()
     {
         if(!RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT))
         {
-            if(++gRogueAssistantState.externalConfirmCounter >= ASSISTANT_CONFIRM_THRESHOLD)
+            u16 failThreshold = (sRogueAssistantBoxData != NULL) ? ASSISTANT_CONFIRM_THRESHOLD_BOX : ASSISTANT_CONFIRM_THRESHOLD;
+
+            if(++gRogueAssistantState.externalConfirmCounter >= failThreshold)
             {
                 gRogueAssistantState.isAssistantConnected = FALSE;
                 OnAssistantDisconnect();
@@ -255,4 +296,93 @@ void Rogue_AssistantOverworldCB()
 {
     if(RogueMP_IsActiveOrConnecting())
         RogueMP_OverworldCB();
+}
+
+void RogueBox_OpenConnection()
+{
+    AGB_ASSERT(sRogueAssistantBoxData == NULL);
+    if(sRogueAssistantBoxData == NULL)
+    {
+        u32 i;
+        sRogueAssistantBoxData = AllocZeroed(sizeof(struct RogueBoxGlobalData));
+        sRogueAssistantBoxData->destBoxMons = &gPokemonStoragePtr->boxes[0][0];
+
+        memset(sRogueAssistantBoxData->boxRemoteIndexOrder, 255, sizeof(sRogueAssistantBoxData->boxRemoteIndexOrder));
+
+        for(i = 0; i < ASSISTANT_HOME_LOCAL_BOXES; ++i)
+        {
+            StringCopyN(sRogueAssistantBoxData->boxData[i].name, gPokemonStoragePtr->boxNames[i], BOX_NAME_LENGTH);
+            sRogueAssistantBoxData->boxData[i].monCount = CountMonsInBox(i);
+            sRogueAssistantBoxData->boxData[i].wallpaper = gPokemonStoragePtr->boxWallpapers[i];
+
+            sRogueAssistantBoxData->boxRemoteIndexOrder[i] = i;
+        }
+    }
+}
+
+void RogueBox_CloseConnection()
+{
+    AGB_ASSERT(sRogueAssistantBoxData != NULL);
+    if(sRogueAssistantBoxData != NULL)
+    {
+        // Copy name and wallpapers back
+        u32 i;
+
+        for(i = 0; i < ASSISTANT_HOME_LOCAL_BOXES; ++i)
+        {
+            StringCopyN(gPokemonStoragePtr->boxNames[i], RogueBox_GetName(i), BOX_NAME_LENGTH);
+            gPokemonStoragePtr->boxWallpapers[i] = sRogueAssistantBoxData->boxData[i].wallpaper;
+        }
+
+        Free(sRogueAssistantBoxData);
+        sRogueAssistantBoxData = NULL;
+    }
+}
+
+bool32 RogueBox_IsConnectedAndReady()
+{
+    return Rogue_IsAssistantConnected() && sRogueAssistantBoxData != NULL && sRogueAssistantBoxData->boxRemoteIndexOrder[ASSISTANT_HOME_TOTAL_BOXES - 1] != 255;
+}
+
+u8 RogueBox_GetCountInBox(u8 i)
+{
+    AGB_ASSERT(sRogueAssistantBoxData != NULL);
+    //AGB_ASSERT(sRogueAssistantBoxData->boxData[i].isValid);
+    return sRogueAssistantBoxData->boxData[i].monCount;
+}
+
+static u8 const sText_DefaultBoxName[BOX_NAME_LENGTH + 1] = _("UNNAMED");
+
+u8 const* RogueBox_GetName(u8 boxId)
+{
+    u32 i;
+    u8* srcStr = sRogueAssistantBoxData->boxData[boxId].name;
+    AGB_ASSERT(sRogueAssistantBoxData != NULL);
+
+    // External box names come through as all 0's so handle those here
+    for(i = 0; i < BOX_NAME_LENGTH + 1; ++i)
+    {
+        // Found non 0 char so assume this is valid
+        if(srcStr[i] != 0)
+            return srcStr;
+    }
+
+    return sText_DefaultBoxName;
+}
+
+bool32 RogueBox_IsLocalBox(u8 i)
+{
+    return i < ASSISTANT_HOME_LOCAL_BOXES;
+}
+
+void RogueBox_SwapBoxes(u8 a, u8 b)
+{
+    AGB_ASSERT(sRogueAssistantBoxData != NULL);
+    if(a != b && a < ASSISTANT_HOME_TOTAL_BOXES && b < ASSISTANT_HOME_TOTAL_BOXES)
+    {
+        struct RoguePerBoxData tempBoxData;
+        u8 temp8;
+        SWAP(sRogueAssistantBoxData->boxData[a], sRogueAssistantBoxData->boxData[b], tempBoxData);
+        SWAP(sRogueAssistantBoxData->boxRemoteIndexOrder[a], sRogueAssistantBoxData->boxRemoteIndexOrder[b], temp8);
+    }
 }

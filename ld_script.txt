@@ -334,6 +334,7 @@ SECTIONS {
         src/debug.o(.text);
         src/rogue_automation.o(.text);
         src/rogue_assistant.o(.text);
+        src/rogue_assistantbox.o(.text);
         src/rogue_campaign.o(.text);
         src/rogue_controller.o(.text);
         src/rogue_debug.o(.text);
@@ -727,6 +728,7 @@ SECTIONS {
         src/debug.o(.rodata);
         src/rogue_automation.o(.rodata);
         src/rogue_assistant.o(.rodata);
+        src/rogue_assistantbox.o(.rodata);
         src/rogue_campaign.o(.rodata);
         src/rogue_controller.o(.rodata);
         src/rogue_debug.o(.rodata);

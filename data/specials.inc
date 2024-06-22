@@ -451,6 +451,7 @@ gSpecials::
 	def_special Special_SelectCaughtMonInPokedex
 	def_special Special_SelectSafariMonInPokedex
 	def_special Special_ViewPlayerCustomisationMenu
+	def_special Special_ViewAssistantBox
 	def_special Special_ViewVoltorbFlip
 	def_special Special_ViewWorldMap
 	def_special CheckLeadMonCool

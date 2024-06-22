@@ -109,6 +109,12 @@ bool GameConnection::RemoveBehaviourInternal(IGameConnectionBehaviour* behaviour
 	return false;
 }
 
+ObservedGameMemory& GameConnection::GetObservedGameMemory()
+{
+	ASSERT_MSG(m_ObservedGameMemory != nullptr, "Attempt to use observed game memory before initialise");
+	return *m_ObservedGameMemory.get();
+}
+
 ObservedGameMemory const& GameConnection::GetObservedGameMemory() const
 {
 	ASSERT_MSG(m_ObservedGameMemory != nullptr, "Attempt to use observed game memory before initialise");

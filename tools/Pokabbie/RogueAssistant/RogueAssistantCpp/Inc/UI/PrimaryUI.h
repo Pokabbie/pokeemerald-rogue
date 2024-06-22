@@ -3,6 +3,7 @@
 
 struct AssetCollection;
 
+class HomeBoxBehaviour;
 class MultiplayerBehaviour;
 class Window;
 
@@ -19,10 +20,12 @@ private:
 	{
 		Awaiting,
 		Multiplayer,
+		HomeBox,
 	};
 
 	void RenderAwaitingPage(Window& window);
 	void RenderMultiplayerPage(Window& window, MultiplayerBehaviour* multiplayer, bool initialLoad);
+	void RenderHomeBoxPage(Window& window, HomeBoxBehaviour* homebox, bool initialLoad);
 
 	AssetCollection* m_Assets;
 
