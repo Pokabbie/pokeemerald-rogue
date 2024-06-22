@@ -2064,8 +2064,8 @@ static bool32 CanPlaceDecorAt(struct RogueHubMap* hubMap, u8 decorVariant, u8 x,
     // Avoid overlapping
     u32 i;
     u32 currDecorCount = GetCurrentDecorCount();
-    struct DecorBounds placingBounds;
-    struct DecorBounds checkBounds;
+    struct DecorBounds placingBounds = {0};
+    struct DecorBounds checkBounds  = {0};
     u8 inputLayer = sDecorationVariants[decorVariant].layer;
     u8 placeableRegion = GetCurrentPlaceableRegion();
 
