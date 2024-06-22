@@ -298,9 +298,16 @@
     <ClInclude Include="Inc\UI\PrimaryUI.h" />
     <ClInclude Include="Inc\UI\Window.h" />
     <ClInclude Include="Inc\UserData.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\RogueAssistant_mGBA.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RogueAssistantCpp.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\WobbuffetIcon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

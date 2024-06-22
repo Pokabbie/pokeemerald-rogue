@@ -1,4 +1,5 @@
 #include "UI\Window.h"
+#include "Assets.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -20,6 +21,11 @@ bool Window::Create()
     m_WindowHandle = new sf::RenderWindow();
     m_WindowHandle->create(sf::VideoMode(m_Config.width, m_Config.height), m_Config.title);
     m_WindowHandle->setVerticalSyncEnabled(true);
+
+    sf::Image icon;
+    icon.loadFromMemory(bin2cpp::getWobbuffetImagePngFile().getBuffer(), bin2cpp::getWobbuffetImagePngFile().getSize());
+    m_WindowHandle->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+
     return true;
 }
 
