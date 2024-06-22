@@ -203,7 +203,7 @@ script Rogue_PreIntro
 
     msgbox(format("{COLOR BLUE}Welcome to Emerald Rogue {STR_VAR_2}\n{STR_VAR_1} {STR_VAR_3}!\pA few things before you get started…"))
 
-    msgbox(format("{COLOR BLUE}Firstly, please select an initial difficulty.\p(This can be changed later in the Config Lab)"))
+    msgbox(format("{COLOR BLUE}Firstly, please select an initial difficulty.\p(This can be changed in the Config Lab)"))
     special(Special_ViewDifficultyConfigMenu)
     waitstate
 
@@ -217,7 +217,7 @@ script Rogue_PreIntro
         }
         ROGUE_VERSION_EXPANSION
         {
-            message(format("{COLOR BLUE}Finally, for your first Adventure, what types of Pokémon would you like to encounter?\n(Select an option to learn more)"))
+            message(format("{COLOR BLUE}Finally, for your first Adventure-\pWhat encounters would you like?\n(Select an option to learn more)"))
             setvar(VAR_RESULT, NO)
 
             while(var(VAR_RESULT) == NO)
@@ -241,7 +241,7 @@ script Rogue_PreIntro
 
                 if(var(VAR_RESULT) == NO)
                 {
-                    message(format("{COLOR BLUE}For your first Adventure, what types of Pokémon would you like to encounter?"))
+                    message(format("{COLOR BLUE}For your first Adventure-\pWhat encounters would you like?\n(Select an option to learn more)"))
                 }
             }
         }
