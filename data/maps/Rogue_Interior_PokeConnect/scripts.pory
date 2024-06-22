@@ -81,7 +81,51 @@ script Rogue_Interior_PokeConnect_TalkMultiplayer
 script Rogue_Interior_PokeConnect_TalkNurseBox
 {
     lock
-    msgbox(format("TODO - Rogue box"))
-    special(Special_ViewAssistantBox)
+
+    msgbox(format("Hello {PLAYER}!"))
+
+    setvar(VAR_RESULT, 1)
+
+    while(var(VAR_RESULT) == 1)
+    {
+        message(format("Would you like to access the Extended Pokémon Storage?"))
+        waitmessage
+
+        multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // Yes
+                call(Rogue_Interior_PokeConnect_ConnectHomeBox)
+                setvar(VAR_RESULT, 0)
+
+            case 1: // No
+            case MULTI_B_PRESSED:
+                setvar(VAR_RESULT, 0)
+
+            case 2: // Info
+                msgbox(format("By connecting to RogueAssistant, you may access an extended Pokémon Storage similar to Pokémon Home, allowing you to store many more Pokémon!"), MSGBOX_DEFAULT)
+                setvar(VAR_RESULT, 1)
+        }
+    }
+
+    msgbox(format("Take care!"))
     release
+}
+
+script Rogue_Interior_PokeConnect_ConnectHomeBox
+{
+    call(Rogue_Common_WaitForRogueAssistant)
+    
+    if(var(VAR_RESULT) == TRUE)
+    {
+        call(Common_EventScript_SaveGame)
+        if(var(VAR_RESULT) == YES)
+        {
+            special(Special_ViewAssistantBox)
+            waitstate
+
+            call(Common_EventScript_ForceSaveGame)
+        }
+    }
 }

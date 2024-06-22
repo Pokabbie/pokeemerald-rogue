@@ -531,7 +531,7 @@ static void Task_AssitantBoxFadeOut(u8 taskId)
         DestroyTask(taskId);
 
         RogueBox_CloseConnection();
-        SetMainCallback2(CB2_ReturnToFieldFadeFromBlack);
+        SetMainCallback2(CB2_ReturnToFieldContinueScript);
     }
 }
 
