@@ -2173,7 +2173,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
         gBattleTypeFlags |= trainer.doubleBattle;
     }
 
-    Rogue_Battle_TrainerTeamReady();
+    if(gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        Rogue_Battle_TrainerTeamReady();
     return monsCount;
 }
 

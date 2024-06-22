@@ -86,7 +86,7 @@ enum
 
 static u8 const sMenuName_Back[] = _("Back");
 static u8 const sMenuName_SaveAndExit[] = _("Save & Exit");
-static u8 const sMenuName_DifficultySubmenu[] = _("Custom Difficulty");
+static u8 const sMenuName_DifficultySubmenu[] = _("Edit Difficulty");
 static u8 const sMenuName_AdventureSubmenu[] = _("Adventure");
 static u8 const sMenuName_TrainersSubmenu[] = _("Trainers");
 static u8 const sMenuName_GameModesSubmenu[] = _("Game Modes");
