@@ -320,7 +320,7 @@ script Rogue_Interior_ChallengeFrontier_Tera
                         setvar(VAR_RESULT, NO)
 
                     case 2: // Info
-                        msgbox(format("Grants you and other Key Trainer's (e.g. Strong Trainers, Rivals) the ability to Terastallize."), MSGBOX_DEFAULT)
+                        msgbox(format("Grants you and other Trainer's the ability to Terastallize.\pUnlike in Scarlet and Violet, the Tera Orb will be recharged upon entering every encounter/map, so you may Terastallize more freely."), MSGBOX_DEFAULT)
 
                     case MULTI_B_PRESSED:
                         setvar(VAR_RESULT, NO)
