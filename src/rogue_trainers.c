@@ -681,7 +681,13 @@ bool8 Rogue_ShouldTrainerBeSmart(u16 trainerNum)
     return FALSE;
 }
 
-static bool8 ShouldBattleGimicBestSlot(u16 trainerNum)
+enum
+{
+    BATTLE_GIMIC_DYNAMAX,
+    BATTLE_GIMIC_TERA,
+};
+
+static bool8 ShouldBattleGimicBestSlot(u16 trainerNum, u8 gimic)
 {
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
@@ -690,25 +696,28 @@ static bool8 ShouldBattleGimicBestSlot(u16 trainerNum)
         break;
 
     case DIFFICULTY_LEVEL_AVERAGE:
-        // Only rival will dynamax out of order and only final 2 fights
-        if(Rogue_IsRivalTrainer(trainerNum))
-            return (Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 1);
+        if(Rogue_IsKeyTrainer(trainerNum))
+            return (Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY);
         break;
 
     case DIFFICULTY_LEVEL_HARD:
-        // Rival will dynamax anything after the initial fight
-        if(Rogue_IsRivalTrainer(trainerNum))
-            return (Rogue_GetCurrentDifficulty() >= ROGUE_GYM_MID_DIFFICULTY);
-        // Towards final gyms start dynamaxing out of order
-        else if(Rogue_IsKeyTrainer(trainerNum))
-            return (Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 2);
+        if(Rogue_IsKeyTrainer(trainerNum))
+            return (Rogue_GetCurrentDifficulty() > ROGUE_GYM_START_DIFFICULTY);
+        else
+            // Rando trainers will start doing this too
+            return (Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY);
         break;
 
     case DIFFICULTY_LEVEL_BRUTAL:
         // Everything will dynamax out of order
-        return TRUE;
+        if(Rogue_IsKeyTrainer(trainerNum))
+            return TRUE;
+        else
+            // Rando trainers will start doing this too
+            return (Rogue_GetCurrentDifficulty() > ROGUE_GYM_START_DIFFICULTY);
     }
 
+    // Will gimic final slot
     return FALSE;
 }
 
@@ -716,10 +725,10 @@ bool8 Rogue_ShouldTrainerSaveAceMon(u16 trainerNum)
 {
     // Ensure we don't send out the dynamax mon too early
     if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
-        return !ShouldBattleGimicBestSlot(trainerNum);
+        return !ShouldBattleGimicBestSlot(trainerNum, BATTLE_GIMIC_DYNAMAX);
 
     if(IsTerastallizeEnabled() && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE))
-        return !ShouldBattleGimicBestSlot(trainerNum);
+        return !ShouldBattleGimicBestSlot(trainerNum, BATTLE_GIMIC_TERA);
 
     return FALSE;
 }
@@ -3494,7 +3503,7 @@ s16 CalulcateMonSortScore(u16 trainerNum, struct Pokemon* mon)
     }
 
     // If we're going to dynamax the last mon, move gigantamax mons to final slot to make us see them more often
-    if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE) && !ShouldBattleGimicBestSlot(trainerNum))
+    if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE) && !ShouldBattleGimicBestSlot(trainerNum, BATTLE_GIMIC_DYNAMAX))
     {
         u32 i;
         struct FormChange formChange;
@@ -3516,7 +3525,7 @@ s16 CalulcateMonSortScore(u16 trainerNum, struct Pokemon* mon)
     }
 
     // If we're going to tera the last mon, move unique tera-type mons to final slot to make us see them more often
-    if(IsTerastallizeEnabled() && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE) && !ShouldBattleGimicBestSlot(trainerNum))
+    if(IsTerastallizeEnabled() && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE) && !ShouldBattleGimicBestSlot(trainerNum, BATTLE_GIMIC_TERA))
     {
         u16 teraType = GetMonData(mon, MON_DATA_TERA_TYPE, NULL);
 
@@ -3839,7 +3848,7 @@ static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCo
 
     if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
     {
-        if(ShouldBattleGimicBestSlot(trainerNum))
+        if(ShouldBattleGimicBestSlot(trainerNum, BATTLE_GIMIC_DYNAMAX))
         {
             u8 i;
             u16 score;
@@ -3864,7 +3873,7 @@ static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCo
 
     if(IsTerastallizeEnabled() && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE))
     {
-        if(ShouldBattleGimicBestSlot(trainerNum))
+        if(ShouldBattleGimicBestSlot(trainerNum, BATTLE_GIMIC_TERA))
         {
             u8 i;
             u16 score;

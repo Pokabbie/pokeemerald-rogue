@@ -29,8 +29,8 @@ void PrepareBattlerForTera(u32 battler)
 
     // Remove Tera Orb charge.    
     if (B_FLAG_TERA_ORB_CHARGED != 0
-        && B_FLAG_TERA_ORB_NO_COST != 0
-        && !FlagGet(B_FLAG_TERA_ORB_NO_COST)
+        //&& B_FLAG_TERA_ORB_NO_COST != 0
+        //&& !FlagGet(B_FLAG_TERA_ORB_NO_COST)
         && side == B_SIDE_PLAYER
         && !(gBattleTypeFlags & BATTLE_TYPE_DOUBLE && !IsPartnerMonFromSameTrainer(battler)))
     {

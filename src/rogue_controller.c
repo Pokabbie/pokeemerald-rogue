@@ -4136,6 +4136,7 @@ static void BeginRogueRun(void)
     FlagClear(FLAG_ROGUE_IN_SNAG_BATTLE);
 
     FlagSet(FLAG_ROGUE_DAYCARE_PHONE_CHARGED);
+    FlagSet(FLAG_ROGUE_TERA_ORB_CHARGED);
 
     Rogue_PostActivateDesiredCampaign();
 
@@ -5107,6 +5108,8 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
         {
             ++gRogueRun.enteredRoomCounter;
 
+            FlagSet(FLAG_ROGUE_TERA_ORB_CHARGED);
+
             // Grow berries based on progress in runs (This will grow in run berries and hub berries)
             BerryTreeTimeUpdate(120);
 
@@ -5852,10 +5855,18 @@ static void UNUSED TempRestoreEnemyTeam()
     gRogueLocal.hasUseEnemyTeamTempSave = FALSE;
 }
 
-static bool8 AllowBattleGimics(u16 trainerNum)
+static bool8 AllowBattleGimics(u16 trainerNum, bool8 keyBattlesOnly)
 {
     if(Rogue_IsRunActive())
-        return Rogue_IsKeyTrainer(trainerNum);
+    {
+        // Always enable for key trainer
+        if(Rogue_IsKeyTrainer(trainerNum))
+            return TRUE;
+        else if(!keyBattlesOnly)
+            return RogueRandomChance(33, 0); // Only a chance?
+        else
+            return FALSE;
+    }
     else
         return TRUE;
 }
@@ -5876,13 +5887,13 @@ static void SetupTrainerBattleInternal(u16 trainerNum)
     SeedRng2(RogueRandom() + (trainerNum ^ RogueRandom()));
 
     // enable dyanmax for this fight
-    if(IsDynamaxEnabled() && AllowBattleGimics(trainerNum))
+    if(IsDynamaxEnabled() && AllowBattleGimics(trainerNum, TRUE))
         FlagSet(FLAG_ROGUE_DYNAMAX_BATTLE);
     else
         FlagClear(FLAG_ROGUE_DYNAMAX_BATTLE);
 
     // enable tera for this fight
-    if(IsTerastallizeEnabled() && AllowBattleGimics(trainerNum))
+    if(IsTerastallizeEnabled() && AllowBattleGimics(trainerNum, FALSE))
         FlagSet(FLAG_ROGUE_TERASTALLIZE_BATTLE);
     else
         FlagClear(FLAG_ROGUE_TERASTALLIZE_BATTLE);
@@ -6378,6 +6389,11 @@ void Rogue_Battle_StartWildBattle(void)
     gRogueLocal.hasBattleInputStarted = FALSE;
     gRogueLocal.hasBattleEventOccurred = FALSE;
     RememberPartyHeldItems();
+
+    // enable tera for this fight
+    if(IsTerastallizeEnabled())
+        FlagSet(FLAG_ROGUE_TERASTALLIZE_BATTLE);
+
     RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_START);
 }
 
