@@ -629,6 +629,17 @@ static void BuyMenuBuildListMenuTemplate(void)
     }
 
     // Generate lists
+    if(sListMenuItems != NULL)
+    {
+        Free(sListMenuItems);
+        sListMenuItems = NULL;
+    }
+    if(sItemNames != NULL)
+    {
+        Free(sItemNames);
+        sItemNames = NULL;
+    }
+    
     sListMenuItems = Alloc((sMartInfo.itemCount + 1) * sizeof(*sListMenuItems));
     sItemNames = Alloc((sMartInfo.itemCount + 1) * sizeof(*sItemNames));
     for(i = 0; i < sMartInfo.itemCount; ++i)
