@@ -616,6 +616,12 @@
 #define NET_CMD_BUFFER_SIZE                 64
 #define NET_CMD_UNRESERVED_BUFFER_SIZE      62 // 2 bytes at front reserved for cmd ID
 
+// Home
+//
+#define ASSISTANT_HOME_LOCAL_BOXES          10
+#define ASSISTANT_HOME_REMOTE_BOXES         (10 * 5)
+#define ASSISTANT_HOME_TOTAL_BOXES          (ASSISTANT_HOME_LOCAL_BOXES + ASSISTANT_HOME_REMOTE_BOXES)
+
 // Multiplayer
 //
 #define MP_PLAYER_STATUS_NONE               0

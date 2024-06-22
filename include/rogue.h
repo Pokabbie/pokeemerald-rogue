@@ -539,11 +539,21 @@ struct RogueAssistantHeader
     u32 netPlayerCount;
     u32 netRequestStateOffset;
     u32 netCurrentStateOffset;
+    u32 homeLocalBoxCount;
+    u32 homeTotalBoxCount;
+    u32 homeBoxSize;
+    u32 homeMinimalBoxOffset;
+    u32 homeMinimalBoxSize;
+    u32 homeDestMonOffset;
+    u32 homeDestMonSize;
+    u32 homeRemoteIndexOrderOffset;
+    u32 homeTrainerIdOffset;
     void const* saveBlock1Ptr;
     void const* saveBlock2Ptr;
     void const* rogueBlockPtr;
     void const* assistantState;
     void const* multiplayerPtr;
+    void const* homeBoxPtr;
 };
 
 extern const struct RogueAssistantHeader gRogueAssistantHeader;

@@ -1,6 +1,23 @@
-mapscripts Rogue_Interior_PokeConnect_MapScripts {}
+const VAR_STOP_TUTORIAL = VAR_TEMP_0
 
-script Rogue_Interior_PokeConnect_TalkNurse
+mapscripts Rogue_Interior_PokeConnect_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Interior_PokeConnect_OnMapLoad
+}
+
+script Rogue_Interior_PokeConnect_OnMapLoad
+{
+    if(flag(FLAG_ROGUE_ASSISTANT_TUTORIAL))
+    {
+        setvar(VAR_STOP_TUTORIAL, 1)
+    }
+    else
+    {
+        setvar(VAR_STOP_TUTORIAL, 0)
+    }
+}
+
+script Rogue_Interior_PokeConnect_TalkMultiplayer
 {
     lock
 
@@ -78,9 +95,64 @@ script Rogue_Interior_PokeConnect_TalkNurse
     release
 }
 
-script Rogue_Interior_PokeConnect_TalkNurse2
+script Rogue_Interior_PokeConnect_TalkNurseBox
 {
     lock
-    msgbox(format("TODO - Rogue box"))
+
+    msgbox(format("Hello {PLAYER}!"))
+
+    setvar(VAR_RESULT, 1)
+
+    while(var(VAR_RESULT) == 1)
+    {
+        message(format("Would you like to access the Extended Pokémon Storage?"))
+        waitmessage
+
+        multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // Yes
+                call(Rogue_Interior_PokeConnect_ConnectHomeBox)
+                setvar(VAR_RESULT, 0)
+
+            case 1: // No
+            case MULTI_B_PRESSED:
+                setvar(VAR_RESULT, 0)
+
+            case 2: // Info
+                msgbox(format("By connecting to RogueAssistant, you may access an extended Pokémon Storage similar to Pokémon Home, allowing you to store many more Pokémon!"), MSGBOX_DEFAULT)
+                setvar(VAR_RESULT, 1)
+        }
+    }
+
+    msgbox(format("Take care!"))
+    release
+}
+
+script Rogue_Interior_PokeConnect_ConnectHomeBox
+{
+    call(Rogue_Common_WaitForRogueAssistant)
+    
+    if(var(VAR_RESULT) == TRUE)
+    {
+        call(Common_EventScript_SaveGame)
+        if(var(VAR_RESULT) == YES)
+        {
+            special(Special_ViewAssistantBox)
+            waitstate
+
+            call(Common_EventScript_ForceSaveGame)
+        }
+    }
+}
+
+script Rogue_Interior_PokeConnect_Tutorial
+{
+    setflag(FLAG_ROGUE_ASSISTANT_TUTORIAL)
+    setvar(VAR_STOP_TUTORIAL, 1)
+
+    lock
+    msgbox(format("This building grants access to external features such as Extended Storage and Multiplayer.\pCurrently, these features are only supported when playing using mGBA on Windows PC.\pIn order to make use of these features, you will need to download a helper program called Rogue Assistant and connect it to your emulator.\pDownloaded from:\n{COLOR BLUE}https://rogue.assist.pokabbie.com\p{COLOR RED}Never download from other links, otherwise you may open yourself up to installing viruses!"))
     release
 }
