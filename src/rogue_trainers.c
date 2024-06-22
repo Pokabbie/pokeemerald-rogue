@@ -1899,22 +1899,30 @@ static bool8 ShouldTrainerUseValidTeraTypes(u16 trainerNum)
         difficulty = ROGUE_FINAL_CHAMP_DIFFICULTY;
     }
 
-    if(!Rogue_IsKeyTrainer(trainerNum))
-        return FALSE;
-
     switch (Rogue_GetConfigRange(CONFIG_RANGE_TRAINER))
     {
     case DIFFICULTY_LEVEL_EASY:
         return FALSE;
 
     case DIFFICULTY_LEVEL_AVERAGE:
-        if(difficulty >= ROGUE_ELITE_START_DIFFICULTY)
-            return TRUE;
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(difficulty >= ROGUE_GYM_MID_DIFFICULTY)
+                return TRUE;
+        }
         return FALSE;
 
     case DIFFICULTY_LEVEL_HARD:
-        if(difficulty >= ROGUE_GYM_MID_DIFFICULTY - 3)
-            return TRUE;
+        if(Rogue_IsKeyTrainer(trainerNum))
+        {
+            if(difficulty >= ROGUE_GYM_START_DIFFICULTY + 1)
+                return TRUE;
+        }
+        else
+        {
+            if(difficulty >= ROGUE_GYM_MID_DIFFICULTY)
+                return TRUE;
+        }
         return FALSE;
 
     case DIFFICULTY_LEVEL_BRUTAL:
@@ -3462,6 +3470,65 @@ static void ModifyTrainerMonPreset(u16 trainerNum, struct Pokemon* mon, struct R
 
     if(!ShouldTrainerUseValidTeraTypes(trainerNum))
         presetRules->skipTeraType = TRUE;
+#ifdef ROGUE_EXPANSION
+    else if(preset->teraType != TYPE_NONE)
+    {
+        // No tera type provided, so assign something here
+        u16 species = GetMonData(mon, MON_DATA_SPECIES);
+        u8 bestStat = RoguePokedex_GetSpeciesBestStat(species);
+        u16 types[NUMBER_OF_MON_TYPES];
+        u32 typeCount = 0;
+
+        // Pick move from offensive types
+        if(bestStat == STAT_ATK || bestStat == STAT_SPATK || bestStat == STAT_SPEED)
+        {
+            u32 i;
+
+            for(i = 0; i < MAX_MON_MOVES; ++i)
+            {
+                if(preset->moves[i] != MOVE_NONE && gBattleMoves[preset->moves[i]].power != 0 && IS_STANDARD_TYPE(gBattleMoves[preset->moves[i]].type))
+                {
+                    types[typeCount++] = gBattleMoves[preset->moves[i]].type;
+                }
+            }
+
+        }
+        // Pick defensive type
+        else
+        {
+            u16 typeA = RoguePokedex_GetSpeciesType(species, 0);
+            u16 typeB = RoguePokedex_GetSpeciesType(species, 1);
+
+            // This is a bit odd, but just allow it to use any defensive typing
+            if(typeA != TYPE_STEEL && typeB != TYPE_STEEL)
+                types[typeCount++] = TYPE_STEEL;
+
+            if(typeA != TYPE_POISON && typeB != TYPE_POISON)
+                types[typeCount++] = TYPE_POISON;
+
+            if(typeA != TYPE_GHOST && typeB != TYPE_GHOST)
+                types[typeCount++] = TYPE_GHOST;
+
+            if(typeA != TYPE_FLYING && typeB != TYPE_FLYING)
+                types[typeCount++] = TYPE_FLYING;
+
+            if(typeA != TYPE_FAIRY && typeB != TYPE_FAIRY)
+                types[typeCount++] = TYPE_FAIRY;
+
+            if(typeA != TYPE_DRAGON && typeB != TYPE_DRAGON)
+                types[typeCount++] = TYPE_DRAGON;
+
+            if(typeA != TYPE_WATER && typeB != TYPE_WATER)
+                types[typeCount++] = TYPE_WATER;
+
+            if(typeA != TYPE_GRASS && typeB != TYPE_GRASS)
+                types[typeCount++] = TYPE_GRASS;
+        }
+
+        if(typeCount != 0)
+            preset->teraType = types[RogueRandom() % typeCount];
+    }
+#endif
 }
 
 static void SwapMons(u8 aIdx, u8 bIdx, struct Pokemon *party)
