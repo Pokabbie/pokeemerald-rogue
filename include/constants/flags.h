@@ -674,7 +674,7 @@
 #define FLAG_ROGUE_GAUNTLET_MODE             0x26E
 #define FLAG_ROGUE_EXPANSION_ACTIVE          0x26F
 #define FLAG_ROGUE_RARE_ITEM_MART_DISABLED   0x270
-#define FLAG_UNUSED_0x271                    0x271
+#define FLAG_ROGUE_ASSISTANT_TUTORIAL        0x271
 #define FLAG_UNUSED_0x272                    0x272
 #define FLAG_ROGUE_SCOTT_GIFTED_EXTRAS       0x273
 #define FLAG_ROGUE_DEBUG_DISABLED            0x274

@@ -23,6 +23,7 @@
 #include "item.h"
 #include "main.h"
 #include "malloc.h"
+#include "new_game.h"
 #include "overworld.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
@@ -116,6 +117,7 @@ struct RogueBoxGlobalData
     struct RoguePerBoxData boxData[ASSISTANT_HOME_TOTAL_BOXES];
     struct BoxPokemon* destBoxMons;
     u8 boxRemoteIndexOrder[ASSISTANT_HOME_TOTAL_BOXES];
+    u32 trainerId;
 };
 
 static EWRAM_DATA struct RogueBoxGlobalData* sRogueAssistantBoxData = NULL;
@@ -175,6 +177,7 @@ const struct RogueAssistantHeader gRogueAssistantHeader =
     .homeMinimalBoxSize = sizeof(struct RoguePerBoxData),
     .homeDestMonOffset = offsetof(struct RogueBoxGlobalData, destBoxMons),
     .homeDestMonSize = sizeof(struct BoxPokemon) * IN_BOX_COUNT,
+    .homeTrainerIdOffset = offsetof(struct RogueBoxGlobalData, trainerId),
     .homeRemoteIndexOrderOffset = offsetof(struct RogueBoxGlobalData, boxRemoteIndexOrder),
 
     //.inCommCapacity = sizeof(gRogueAssistantState.inCommBuffer),
@@ -306,6 +309,7 @@ void RogueBox_OpenConnection()
         u32 i;
         sRogueAssistantBoxData = AllocZeroed(sizeof(struct RogueBoxGlobalData));
         sRogueAssistantBoxData->destBoxMons = &gPokemonStoragePtr->boxes[0][0];
+        sRogueAssistantBoxData->trainerId = GetTrainerId(gSaveBlock2Ptr->playerTrainerId);
 
         memset(sRogueAssistantBoxData->boxRemoteIndexOrder, 255, sizeof(sRogueAssistantBoxData->boxRemoteIndexOrder));
 

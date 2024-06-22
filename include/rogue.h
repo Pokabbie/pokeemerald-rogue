@@ -547,6 +547,7 @@ struct RogueAssistantHeader
     u32 homeDestMonOffset;
     u32 homeDestMonSize;
     u32 homeRemoteIndexOrderOffset;
+    u32 homeTrainerIdOffset;
     void const* saveBlock1Ptr;
     void const* saveBlock2Ptr;
     void const* rogueBlockPtr;

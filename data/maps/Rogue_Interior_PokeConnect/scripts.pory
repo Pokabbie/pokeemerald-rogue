@@ -1,4 +1,21 @@
-mapscripts Rogue_Interior_PokeConnect_MapScripts {}
+const VAR_STOP_TUTORIAL = VAR_TEMP_0
+
+mapscripts Rogue_Interior_PokeConnect_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Interior_PokeConnect_OnMapLoad
+}
+
+script Rogue_Interior_PokeConnect_OnMapLoad
+{
+    if(flag(FLAG_ROGUE_ASSISTANT_TUTORIAL))
+    {
+        setvar(VAR_STOP_TUTORIAL, 1)
+    }
+    else
+    {
+        setvar(VAR_STOP_TUTORIAL, 0)
+    }
+}
 
 script Rogue_Interior_PokeConnect_TalkMultiplayer
 {
@@ -128,4 +145,14 @@ script Rogue_Interior_PokeConnect_ConnectHomeBox
             call(Common_EventScript_ForceSaveGame)
         }
     }
+}
+
+script Rogue_Interior_PokeConnect_Tutorial
+{
+    setflag(FLAG_ROGUE_ASSISTANT_TUTORIAL)
+    setvar(VAR_STOP_TUTORIAL, 1)
+
+    lock
+    msgbox(format("This building grants access to external features such as Extended Storage and Multiplayer.\pCurrently, these features are only supported when playing using mGBA on Windows PC.\pIn order to make use of these features, you will need to download a helper program called Rogue Assistant and connect it to your emulator.\pDownloaded from:\n{COLOR BLUE}https://rogue.assist.pokabbie.com\p{COLOR RED}Never download from other links, otherwise you may open yourself up to installing viruses!"))
+    release
 }

@@ -49,11 +49,15 @@ script Rogue_Common_WaitForRogueAssistant
     special(Rogue_IsRogueAssistantConnected)
     if(var(VAR_RESULT) == NO)
     {
-        message(format("Please connect Rogue Assistant.\n… … B Button: Cancel"))
+        callnative(ScriptMenu_ShowRogueAssistantNotice)
+
+        message(format("Please connect Rogue Assistant… …\n{B_BUTTON} Cancel"))
         waitmessage
 
         callnative(Rogue_WaitForRogueAssistant)
         waitstate
+        
+        callnative(ScriptMenu_HideRogueAssistantNotice)
 
         call(Rogue_Common_DisplayPopups)
     }

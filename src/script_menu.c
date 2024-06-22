@@ -1282,3 +1282,44 @@ void ScriptMenu_HideItemDescription()
     RemoveWindow(gTasks[taskId].data[0]);
     DestroyTask(taskId);
 }
+
+static u8 const sText_RogueAssistant[] = _("{COLOR BLUE}Rogue Assistant");
+static u8 const sText_RogueAssistantInfo[] = _("Download from:\n{COLOR BLUE}https://rogue.assist.pokabbie.com\n\n{COLOR RED}Never download from other links!");
+
+static void PrintRogueAssistantNoticToWindow(u8 windowId)
+{
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
+    SetStandardWindowBorderStyle(windowId, 0);
+
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, sText_RogueAssistant, 0, 0, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId, FONT_NARROW, sText_RogueAssistantInfo, 0, 14, TEXT_SKIP_DRAW, NULL);
+
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+}
+
+static void Task_ShowRogueAssistantNoticeInput(u8 taskId)
+{
+}
+
+void ScriptMenu_ShowRogueAssistantNotice()
+{
+    u8 taskId;
+    u8 windowId = CreateWindowFromRect(4, 1, 20, 10);
+
+    PrintRogueAssistantNoticToWindow(windowId);
+
+    taskId = CreateTask(Task_ShowRogueAssistantNoticeInput, 0);
+    gTasks[taskId].data[0] = windowId;
+}
+
+void ScriptMenu_HideRogueAssistantNotice()
+{
+    u8 taskId = FindTaskIdByFunc(Task_ShowRogueAssistantNoticeInput);
+
+    if (taskId == TASK_NONE)
+        return;
+
+    ClearStdWindowAndFrame(gTasks[taskId].data[0], TRUE);
+    RemoveWindow(gTasks[taskId].data[0]);
+    DestroyTask(taskId);
+}

@@ -32,7 +32,9 @@ void HomeBoxBehaviour::OnUpdate(GameConnection& game)
 		{
 		case HomeBoxBehaviour::State::OpenOfflineFile:
 		{
-			std::wstring filePath = L"PUT_TID_HERE/boxes.dat";
+			u32 trainerId = *((u32*)&homeBoxState[rogueHeader.homeTrainerIdOffset]);
+
+			std::wstring filePath = std::to_wstring(rogueHeader.rogueVersion) + L"/" + std::to_wstring(trainerId) + L"/boxes.dat";
 
 			// Set defaults
 			m_StoredBoxData.resize(0);

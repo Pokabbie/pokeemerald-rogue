@@ -119,6 +119,7 @@ namespace GameStructures
 		u32 homeDestMonOffset;
 		u32 homeDestMonSize;
 		u32 homeRemoteIndexOrderOffset;
+		u32 homeTrainerIdOffset;
 		GameAddress saveBlock1Ptr;
 		GameAddress saveBlock2Ptr;
 		GameAddress rogueBlockPtr;

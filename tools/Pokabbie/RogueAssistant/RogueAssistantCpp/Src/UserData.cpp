@@ -2,15 +2,26 @@
 #include "StringUtils.h"
 #include "Log.h"
 
-#include <sys/types.h>
-#include <sys/stat.h>
-
+#include <cstdlib>
 #include <filesystem>
 
 #pragma warning( push )
 #pragma warning( disable : 4244)
 
 namespace fs = std::filesystem;
+
+static std::wstring GetEnvVar(std::wstring const& var, std::wstring const& defaultVal)
+{
+	wchar_t* buf = nullptr;
+	size_t sz = 0;
+	if (_wdupenv_s(&buf, &sz, var.c_str()) == 0 && buf != nullptr)
+	{
+		std::wstring output = buf;
+		free(buf);
+		return output;
+	}
+	return defaultVal;
+}
 
 static std::wstring FormatPath(std::wstring const& path)
 {
@@ -19,7 +30,7 @@ static std::wstring FormatPath(std::wstring const& path)
 	if (path.find_first_of(':') == std::wstring::npos)
 	{
 		// Relative path
-		fs::path p = L"save/" + path;
+		fs::path p = GetEnvVar(L"appdata", L"save") + L"/.pokabbie/rogue_assistant/" + path;
 		p = std::filesystem::absolute(p);
 		output = p;
 	}
