@@ -125,7 +125,7 @@
 #define FLAG_MOSSDEEP_GYM_SWITCH_1           0x64 // Leftover from the RS version of Mossdeep Gym, functionally unused
 #define FLAG_MOSSDEEP_GYM_SWITCH_2           0x65 //
 #define FLAG_MOSSDEEP_GYM_SWITCH_3           0x66 //
-#define FLAG_MOSSDEEP_GYM_SWITCH_4           0x67 //
+#define FLAG_ROGUE_TERA_ORB_CHARGED          0x67
 
 #define FLAG_ROGUE_TERASTALLIZE_BATTLE       0x68
 
