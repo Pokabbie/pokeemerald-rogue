@@ -945,6 +945,68 @@ bool8 RogueQuest_HasUnlockedMonMasteries()
     return FlagGet(FLAG_SYS_MASTERIES_UNLOCKED);
 }
 
+extern const u16 gRogueBake_FinalEvoSpecies[];
+extern const u16 gRogueBake_EggSpecies[];
+
+static u32 GetMonMasteryIndex(u16 species)
+{
+    u32 i;
+    u16 eggSpecies = Rogue_GetEggSpecies(species);
+
+    for(i = 0; i < SPECIES_EGG_EVO_STAGE_COUNT; ++i)
+    {
+        if(gRogueBake_EggSpecies[i] == eggSpecies)
+            return i;
+    }
+
+    // TODO - Need to decide what to do here
+    AGB_ASSERT(FALSE);
+    return SPECIES_EGG;
+}
+
+bool8 RogueQuest_GetMonMasteryFlag(u16 species)
+{
+    u32 idx = GetMonMasteryIndex(species);
+    if(idx != SPECIES_EGG)
+    {
+        u32 offset = idx / 8;
+        u8 bit = idx % 8;
+        u8 bitMask = 1 << bit;
+
+        AGB_ASSERT(offset < ARRAY_COUNT(gRogueSaveBlock->monMasteryFlags));
+        return (gRogueSaveBlock->monMasteryFlags[offset] & bitMask) != 0;
+    }
+
+    return FALSE;
+}
+
+void RogueQuest_SetMonMasteryFlag(u16 species)
+{
+    u32 idx = GetMonMasteryIndex(species);
+    if(idx != SPECIES_EGG)
+    {
+        u32 offset = idx / 8;
+        u8 bit = idx % 8;
+        u8 bitMask = 1 << bit;
+
+        AGB_ASSERT(offset < ARRAY_COUNT(gRogueSaveBlock->monMasteryFlags));
+
+        gRogueSaveBlock->monMasteryFlags[offset] |= bitMask;
+    }
+}
+
+void RogueQuest_SetMonMasteryFlagFromParty()
+{
+    u32 i;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        if(species != SPECIES_NONE)
+            RogueQuest_SetMonMasteryFlag(species);
+    }
+}
+
 // QuestCondition
 //
 
