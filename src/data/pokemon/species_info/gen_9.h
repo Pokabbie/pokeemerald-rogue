@@ -5130,7 +5130,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .backPicYOffset = 5,                                                    \
         PALETTES(Poltchageist),                                                 \
         ICON(Poltchageist, 1),                                                  \
-        LEARNSETS(Poltchageist)
+        LEARNSETS(Poltchageist),                                                \
+        .formSpeciesIdTable = sPoltchageistFormSpeciesIdTable
         //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
         //.backAnimId = BACK_ANIM_NONE,
         //.footprint = gMonFootprint_Poltchageist,
@@ -5192,7 +5193,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .backPicYOffset = 13,                                                   \
         PALETTES(Sinistcha),                                                    \
         ICON(Sinistcha, 1),                                                     \
-        LEARNSETS(Sinistcha)
+        LEARNSETS(Sinistcha),                                                   \
+        .formSpeciesIdTable = sSinistchaFormSpeciesIdTable
         //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
         //.backAnimId = BACK_ANIM_NONE,
         //.footprint = gMonFootprint_Sinistcha,
