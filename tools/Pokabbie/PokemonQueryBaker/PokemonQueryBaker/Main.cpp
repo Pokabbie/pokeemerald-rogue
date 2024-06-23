@@ -63,8 +63,21 @@ static bool GetBitFlag(u16 elem, u8* arr)
 static bool IsEvoListSpeciesValid(u16 species)
 {
 #ifdef ROGUE_EXPANSION
-	return gRogueSpeciesInfo[species].baseHP != 0;
+	if (species == SPECIES_DARMANITAN_GALARIAN_ZEN_MODE || species == SPECIES_SINISTCHA_MASTERPIECE)
+		return false;
 
+	if (gRogueSpeciesInfo[species].baseHP == 0)
+		return false;
+
+	// Base species
+	if (gRogueSpeciesInfo[species].formSpeciesIdTable == nullptr || gRogueSpeciesInfo[species].formSpeciesIdTable[0] == species)
+		return true;
+
+	// Or regional form
+	if (gRogueSpeciesInfo[species].isAlolanForm || gRogueSpeciesInfo[species].isGalarianForm || gRogueSpeciesInfo[species].isHisuianForm || gRogueSpeciesInfo[species].isPaldeanForm)
+		return true;
+
+	return false;
 #else
 	if (species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z)
 		return false;
@@ -141,8 +154,43 @@ int main()
 	// Unique lists of final and egg evo species
 	//
 	{
-		file << "const u16 gRogueBake_FinalEvoSpecies[] =\n{\n";
+		std::vector<u16> reorderedSpeciesList;
+		std::set<u16> alreadyAddedSpecies;
+
+#ifdef ROGUE_EXPANSION
+		for (int j = SPECIES_NONE + 1; j < NUM_SPECIES; ++j)
+		{
+			int species = j;
+
+			if (alreadyAddedSpecies.find(species) == alreadyAddedSpecies.end())
+			{
+				reorderedSpeciesList.push_back(species);
+				alreadyAddedSpecies.insert(species);
+
+				if (gRogueSpeciesInfo[species].formSpeciesIdTable != nullptr)
+				{
+					for (int i = 0; gRogueSpeciesInfo[species].formSpeciesIdTable[i] != FORM_SPECIES_END; ++i)
+					{
+						int s = gRogueSpeciesInfo[species].formSpeciesIdTable[i];
+						if (alreadyAddedSpecies.find(s) == alreadyAddedSpecies.end())
+						{
+							reorderedSpeciesList.push_back(s);
+							alreadyAddedSpecies.insert(s);
+						}
+					}
+				}
+			}
+		}
+#else
 		for (int s = SPECIES_NONE + 1; s < NUM_SPECIES; ++s)
+		{
+			reorderedSpeciesList.push_back(s);
+		}
+#endif
+
+
+		file << "const u16 gRogueBake_FinalEvoSpecies[] =\n{\n";
+		for (u16 s : reorderedSpeciesList)
 		{
 			if (IsEvoListSpeciesValid(s) && Rogue_GetMaxEvolutionCount(s) == 0)
 			{
@@ -154,11 +202,20 @@ int main()
 		file << "\n";
 
 		file << "const u16 gRogueBake_EggSpecies[] =\n{\n";
-		for (int s = SPECIES_NONE + 1; s < NUM_SPECIES; ++s)
+		alreadyAddedSpecies.clear();
+
+		for (u16 s : reorderedSpeciesList)
 		{
-			if (IsEvoListSpeciesValid(s) && Rogue_GetEggSpecies(s) == s)
+			int species = Rogue_GetEggSpecies(s);
+
+			if (alreadyAddedSpecies.find(species) == alreadyAddedSpecies.end())
 			{
-				file << "\t" << s << ",\n";
+				alreadyAddedSpecies.insert(species);
+
+				if (IsEvoListSpeciesValid(species) && Rogue_GetEggSpecies(species) == species)
+				{
+					file << "\t" << species << ",\n";
+				}
 			}
 		}
 		file << "};\n";
