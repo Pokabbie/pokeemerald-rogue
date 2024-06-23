@@ -1577,9 +1577,9 @@ static void Draw_QuestPage()
                     // Display the custom popup icon here for consistency
                     if(reward->customPopup->speciesIcon != SPECIES_NONE)
                     {
-                        LoadMonIconPalette(reward->perType.pokemon.species);
+                        LoadMonIconPalette(reward->customPopup->speciesIcon);
                         sQuestMenuData->sprites[spriteIdx] = CreateMonIcon(
-                            reward->perType.pokemon.species,
+                            reward->customPopup->speciesIcon,
                             SpriteCallbackDummy,
                             0, 0,
                             0,
