@@ -115,12 +115,12 @@ script Rogue_Area_DayCare_TalkEggBreeder
 
             if(var(VAR_RESULT) == YES)
             {
-                special(Special_SelectMonInPokedex)
+                special(Special_SelectDayCareMonInPokedex)
                 waitstate
             }
             else
             {
-                special(Special_SelectCaughtMonInPokedex)
+                special(Special_SelectDayCareCaughtMonInPokedex)
                 waitstate
             }
 

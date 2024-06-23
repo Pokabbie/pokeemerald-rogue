@@ -4395,6 +4395,9 @@ void RoguePokedex_GetSpeciesStatArray(u16 species, u8* stats, u8 bufferSize)
     GatherSpeciesStatsArray(species, stats);
 }
 
+extern const u16 gRogueBake_EggSpecies[];
+extern const u16 gRogueBake_FinalEvoSpecies[];
+
 static u16 GetVariantSpeciesAt(u8 variant, u16 index)
 {
     if(variant <= POKEDEX_VARIANT_END)
@@ -4423,6 +4426,18 @@ static u16 GetVariantSpeciesAt(u8 variant, u16 index)
 
                 return SPECIES_NONE;
             }
+
+            case POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES:
+                return gRogueBake_EggSpecies[index];
+                break;
+
+            case POKEDEX_DYNAMIC_VARIANT_FINAL_SPECIES:
+                return gRogueBake_FinalEvoSpecies[index];
+                break;
+
+            default:
+                AGB_ASSERT(FALSE);
+                break;
         }
 
         return SPECIES_BULBASAUR;
@@ -4454,6 +4469,18 @@ static u16 GetVariantSpeciesCount(u8 variant)
 
                 return count;
             }
+
+            case POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES:
+                return SPECIES_EGG_EVO_STAGE_COUNT;
+                break;
+
+            case POKEDEX_DYNAMIC_VARIANT_FINAL_SPECIES:
+                return SPECIES_FINAL_EVO_STAGE_COUNT;
+                break;
+
+            default:
+                AGB_ASSERT(FALSE);
+                break;
         }
 
         return 0;

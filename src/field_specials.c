@@ -188,6 +188,18 @@ void Special_SelectCaughtMonInPokedex(void)
     LockPlayerFieldControls();
 }
 
+void Special_SelectDayCareMonInPokedex(void)
+{
+    Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES, TRUE, FALSE);
+    LockPlayerFieldControls();
+}
+
+void Special_SelectDayCareCaughtMonInPokedex(void)
+{
+    Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES, TRUE, TRUE);
+    LockPlayerFieldControls();
+}
+
 void Special_SelectSafariMonInPokedex(void)
 {
     Rogue_SelectPokemonInSafari();
