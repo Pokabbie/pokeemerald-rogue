@@ -850,23 +850,23 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "shop_item": "ITEM_FIST_PLATE" },
-                    { "shop_item": "ITEM_SKY_PLATE" },
-                    { "shop_item": "ITEM_TOXIC_PLATE" },
-                    { "shop_item": "ITEM_EARTH_PLATE" },
-                    { "shop_item": "ITEM_STONE_PLATE" },
-                    { "shop_item": "ITEM_INSECT_PLATE" },
-                    { "shop_item": "ITEM_SPOOKY_PLATE" },
+                    { "shop_item": "ITEM_FIST_PLATE", "visibility": "INVISIBLE" }, 
+                    { "shop_item": "ITEM_SKY_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_TOXIC_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_EARTH_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_STONE_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_INSECT_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_SPOOKY_PLATE", "visibility": "INVISIBLE" },
                     { "shop_item": "ITEM_IRON_PLATE" },
-                    { "shop_item": "ITEM_FLAME_PLATE" },
-                    { "shop_item": "ITEM_SPLASH_PLATE" },
-                    { "shop_item": "ITEM_MEADOW_PLATE" },
-                    { "shop_item": "ITEM_ZAP_PLATE" },
-                    { "shop_item": "ITEM_MIND_PLATE" },
-                    { "shop_item": "ITEM_ICICLE_PLATE" },
-                    { "shop_item": "ITEM_DRACO_PLATE" },
-                    { "shop_item": "ITEM_DREAD_PLATE" },
-                    { "shop_item": "ITEM_PIXIE_PLATE" }
+                    { "shop_item": "ITEM_FLAME_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_SPLASH_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_MEADOW_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_ZAP_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_MIND_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_ICICLE_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_DRACO_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_DREAD_PLATE", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_PIXIE_PLATE", "visibility": "INVISIBLE" }
                 ]
             },
 
@@ -1058,23 +1058,23 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "shop_item": "ITEM_FIRE_MEMORY" },
-                    { "shop_item": "ITEM_WATER_MEMORY" },
-                    { "shop_item": "ITEM_ELECTRIC_MEMORY" },
-                    { "shop_item": "ITEM_GRASS_MEMORY" },
-                    { "shop_item": "ITEM_ICE_MEMORY" },
-                    { "shop_item": "ITEM_FIGHTING_MEMORY" },
-                    { "shop_item": "ITEM_POISON_MEMORY" },
-                    { "shop_item": "ITEM_GROUND_MEMORY" },
-                    { "shop_item": "ITEM_FLYING_MEMORY" },
-                    { "shop_item": "ITEM_PSYCHIC_MEMORY" },
-                    { "shop_item": "ITEM_BUG_MEMORY" },
-                    { "shop_item": "ITEM_ROCK_MEMORY" },
-                    { "shop_item": "ITEM_GHOST_MEMORY" },
-                    { "shop_item": "ITEM_DRAGON_MEMORY" },
-                    { "shop_item": "ITEM_DARK_MEMORY" },
+                    { "shop_item": "ITEM_FIRE_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_WATER_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_ELECTRIC_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_GRASS_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_ICE_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_FIGHTING_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_POISON_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_GROUND_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_FLYING_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_PSYCHIC_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_BUG_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_ROCK_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_GHOST_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_DRAGON_MEMORY", "visibility": "INVISIBLE" },
+                    { "shop_item": "ITEM_DARK_MEMORY", "visibility": "INVISIBLE" },
                     { "shop_item": "ITEM_STEEL_MEMORY" },
-                    { "shop_item": "ITEM_FAIRY_MEMORY" }
+                    { "shop_item": "ITEM_FAIRY_MEMORY", "visibility": "INVISIBLE" }
                 ]
             },
             {
@@ -1345,17 +1345,7 @@
                             "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Permanently Unlocked!",
                             "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
                         }
-                     },
-                     { 
-                         "flag": "FLAG_ROGUE_STUB",
-                         "custom_popup":
-                         {
-                             "species_icon": "SPECIES_APPLETUN_GIGANTAMAX",
-                             "title": "Gmax Form",
-                             "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Permanently Unlocked!",
-                             "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
-                         }
-                      }
+                     }
                 ]
             },
             {
