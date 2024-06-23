@@ -1934,8 +1934,16 @@ void Rogue_PushPopup_CustomPopup(struct CustomPopup const* template)
 {
     struct PopupRequest* popup = CreateNewPopup();
 
-    popup->templateId = POPUP_COMMON_ITEM_TEXT;
-    popup->iconId = template->itemIcon;
+    if(template->itemIcon != ITEM_NONE)
+    {
+        popup->templateId = POPUP_COMMON_ITEM_TEXT;
+        popup->iconId = template->itemIcon;
+    }
+    else if(template->speciesIcon != ITEM_NONE)
+    {
+        popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+        popup->iconId = template->speciesIcon;
+    }
 
     if(template->soundEffect != MUS_DUMMY)
         popup->soundEffect = template->soundEffect;

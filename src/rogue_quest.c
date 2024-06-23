@@ -77,6 +77,7 @@ static bool8 QuestCondition_VarGetLessThan(u16 questId, struct RogueQuestTrigger
 static bool8 QuestCondition_VarGetGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_RunTimerLessThanMins(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsConfigRangeEqualToAny(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_SpeciesMasteryComplete(u16 questId, struct RogueQuestTrigger const* trigger);
 
 static bool8 IsQuestSurpressed(u16 questId);
 static bool8 CanSurpressedQuestActivate(u16 questId);
@@ -951,13 +952,47 @@ extern const u16 gRogueBake_EggSpecies[];
 static u32 GetMonMasteryIndex(u16 species)
 {
     u32 i;
-    u16 eggSpecies = Rogue_GetEggSpecies(species);
+    u16 eggSpecies;
+
+#ifdef ROGUE_EXPANSION
+    if(species == SPECIES_DARMANITAN_GALARIAN_ZEN_MODE)
+        species = SPECIES_DARMANITAN_GALARIAN;
+
+    if(!gRogueSpeciesInfo[species].isAlolanForm && !gRogueSpeciesInfo[species].isGalarianForm && !gRogueSpeciesInfo[species].isHisuianForm && !gRogueSpeciesInfo[species].isPaldeanForm)
+    {
+        species = GET_BASE_SPECIES_ID(species);
+    }
+
+    if(gRogueSpeciesInfo[species].baseHP == 0)
+        return SPECIES_EGG;
+#else
+    if(species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z)
+        return SPECIES_EGG;
+#endif
+
+    eggSpecies = Rogue_GetEggSpecies(species);
 
     for(i = 0; i < SPECIES_EGG_EVO_STAGE_COUNT; ++i)
     {
         if(gRogueBake_EggSpecies[i] == eggSpecies)
             return i;
     }
+
+#ifdef ROGUE_EXPANSION
+    // Failed to get this species so try grab the base egg species
+    species = eggSpecies;
+    eggSpecies = GET_BASE_SPECIES_ID(eggSpecies);
+
+    if(eggSpecies != species)
+    {
+        for(i = 0; i < SPECIES_EGG_EVO_STAGE_COUNT; ++i)
+        {
+            if(gRogueBake_EggSpecies[i] == eggSpecies)
+                return i;
+        }
+    }
+
+#endif
 
     // TODO - Need to decide what to do here
     AGB_ASSERT(FALSE);
@@ -1548,6 +1583,22 @@ static bool8 QuestCondition_IsConfigRangeEqualToAny(u16 questId, struct RogueQue
     for(i = 1; i < trigger->paramCount; ++i)
     {
         if(Rogue_GetConfigRange(configRange) == trigger->params[i])
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_SpeciesMasteryComplete(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+    u16 species;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        species = trigger->params[i];
+
+        if(RogueQuest_GetMonMasteryFlag(species))
             return TRUE;
     }
 
