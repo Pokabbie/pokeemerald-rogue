@@ -7,6 +7,7 @@
 #include "string.h"
 #include "string_util.h"
 
+#include "rogue_baked.h"
 #include "rogue_debug.h"
 #include "rogue_quest.h"
 
@@ -129,6 +130,19 @@ void RogueDebug_MainInit(void)
 
         AGB_ASSERT(gRogueBake_FinalEvoSpecies_Count == SPECIES_FINAL_EVO_STAGE_COUNT);
         AGB_ASSERT(gRogueBake_EggSpecies_Count == SPECIES_EGG_EVO_STAGE_COUNT);
+
+        {
+            // Comment in to debug
+            //DebugPrint("[Mastery Flag]");
+
+            u32 i;
+            for(i = SPECIES_NONE + 1; i < NUM_SPECIES; ++i)
+            {
+                //u32 eggSpecies = Rogue_GetEggSpecies(i);
+                //DebugPrintf("    check %d (egg:%d)", i, eggSpecies);
+                RogueQuest_GetMonMasteryFlag(i);
+            }
+        }
     }
 }
 
