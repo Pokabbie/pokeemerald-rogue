@@ -1007,6 +1007,24 @@ void RogueQuest_SetMonMasteryFlagFromParty()
     }
 }
 
+u32 RogueQuest_GetMonMasteryTotalPerc()
+{
+    u32 i;
+    u32 complete = 0;
+
+    for(i = 0; i < MON_MASTERY_BYTE_COUNT; ++i)
+    {
+        u32 offset = i / 8;
+        u8 bit = i % 8;
+        u8 bitMask = 1 << bit;
+
+        if((gRogueSaveBlock->monMasteryFlags[offset] & bitMask) != 0)
+            ++complete;
+    }
+
+    return (complete * 100) / MON_MASTERY_BYTE_COUNT;
+}
+
 // QuestCondition
 //
 

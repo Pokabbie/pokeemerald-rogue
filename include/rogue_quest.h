@@ -201,5 +201,6 @@ bool8 RogueQuest_HasUnlockedMonMasteries();
 bool8 RogueQuest_GetMonMasteryFlag(u16 species);
 void RogueQuest_SetMonMasteryFlag(u16 species);
 void RogueQuest_SetMonMasteryFlagFromParty();
+u32 RogueQuest_GetMonMasteryTotalPerc();
 
 #endif
