@@ -63,7 +63,7 @@ static bool GetBitFlag(u16 elem, u8* arr)
 static bool IsEvoListSpeciesValid(u16 species)
 {
 #ifdef ROGUE_EXPANSION
-	if (species == SPECIES_DARMANITAN_GALARIAN_ZEN_MODE || species == SPECIES_SINISTCHA_MASTERPIECE)
+	if (species == SPECIES_DARMANITAN_GALARIAN_ZEN_MODE || species == SPECIES_POLTCHAGEIST_ARTISAN || species == SPECIES_SINISTCHA_MASTERPIECE)
 		return false;
 
 	if (gRogueSpeciesInfo[species].baseHP == 0)
