@@ -60,6 +60,19 @@ static bool GetBitFlag(u16 elem, u8* arr)
 	return (arr[idx] & bitMask) != 0;
 }
 
+static bool IsEvoListSpeciesValid(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+	return gRogueSpeciesInfo[species].baseHP != 0;
+
+#else
+	if (species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z)
+		return false;
+
+	return true;
+#endif
+}
+
 int main()
 {
 	for (int s = SPECIES_NONE; s < NUM_SPECIES; ++s)
@@ -122,6 +135,34 @@ int main()
 			file << "\t},\n";
 		}
 		file << "};\n";
+		file << "\n";
+	}
+
+	// Unique lists of final and egg evo species
+	//
+	{
+		file << "const u16 gRogueBake_FinalEvoSpecies[] =\n{\n";
+		for (int s = SPECIES_NONE + 1; s < NUM_SPECIES; ++s)
+		{
+			if (IsEvoListSpeciesValid(s) && Rogue_GetMaxEvolutionCount(s) == 0)
+			{
+				file << "\t" << s << ",\n";
+			}
+		}
+		file << "};\n";
+		file << "const u16 gRogueBake_FinalEvoSpecies_Count = ARRAY_COUNT(gRogueBake_FinalEvoSpecies);\n";
+		file << "\n";
+
+		file << "const u16 gRogueBake_EggSpecies[] =\n{\n";
+		for (int s = SPECIES_NONE + 1; s < NUM_SPECIES; ++s)
+		{
+			if (IsEvoListSpeciesValid(s) && Rogue_GetEggSpecies(s) == s)
+			{
+				file << "\t" << s << ",\n";
+			}
+		}
+		file << "};\n";
+		file << "const u16 gRogueBake_EggSpecies_Count = ARRAY_COUNT(gRogueBake_EggSpecies);\n";
 		file << "\n";
 	}
 

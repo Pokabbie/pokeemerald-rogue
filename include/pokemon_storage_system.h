@@ -31,6 +31,22 @@ struct PokemonStorage
     /*0x8432*/ struct Pokemon fusions[MAX_FUSION_STORAGE];
 };
 
+struct __UseablePokemonStorage
+{
+    u8 currentBox;
+    struct BoxPokemon boxes[TOTAL_BOXES_COUNT][IN_BOX_COUNT];
+    u8 boxNames[TOTAL_BOXES_COUNT][BOX_NAME_LENGTH + 1];
+    u8 boxWallpapers[TOTAL_BOXES_COUNT];
+};
+
+struct __LeftoverPokemonStorage
+{
+    struct BoxPokemon boxes[LEFTOVER_BOXES_COUNT][IN_BOX_COUNT];
+    u8 boxNames[LEFTOVER_BOXES_COUNT][BOX_NAME_LENGTH + 1];
+    u8 boxWallpapers[LEFTOVER_BOXES_COUNT];
+};
+
+
 extern struct PokemonStorage *gPokemonStoragePtr;
 
 void DrawTextWindowAndBufferTiles(const u8 *string, void *dst, u8 zero1, u8 zero2, s32 bytesToBuffer);

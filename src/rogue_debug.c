@@ -86,6 +86,9 @@ static u32 CountBuildingSuppliesNeededForUpgrades()
     return total;
 }
 
+extern const u16 gRogueBake_FinalEvoSpecies_Count;
+extern const u16 gRogueBake_EggSpecies_Count;
+
 void RogueDebug_MainInit(void)
 {
     MEMORY_STOMP_TRACKING_SET_TARGET(NULL, 0);
@@ -118,6 +121,14 @@ void RogueDebug_MainInit(void)
         DebugPrintf("    Remainder:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MAIN_QUEST) - CountBuildingSuppliesNeededForUpgrades());
 
         AGB_ASSERT(CountBuildingSuppliesNeededForUpgrades() <= CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MAIN_QUEST));
+
+
+        DebugPrint("[Bake Verify]");
+        DebugPrintf("    FinalEvoSpecies_Count:%d", gRogueBake_FinalEvoSpecies_Count);
+        DebugPrintf("    EggSpecies_Count:%d", gRogueBake_EggSpecies_Count);
+
+        AGB_ASSERT(gRogueBake_FinalEvoSpecies_Count == SPECIES_FINAL_EVO_STAGE_COUNT);
+        AGB_ASSERT(gRogueBake_EggSpecies_Count == SPECIES_EGG_EVO_STAGE_COUNT);
     }
 }
 

@@ -73,6 +73,11 @@ extern const u16 gRogueBake_EvoItems[];
 extern const u16 gRogueBake_EvoItems_Count;
 extern const u16 gRogueBake_FormItems[];
 extern const u16 gRogueBake_FormItems_Count;
+
+extern const u16 gRogueBake_FinalEvoSpecies[];
+extern const u16 gRogueBake_FinalEvoSpecies_Count;
+extern const u16 gRogueBake_EggSpecies[];
+extern const u16 gRogueBake_EggSpecies_Count;
 #endif
 
 void HistoryBufferPush(u16* buffer, u16 capacity, u16 value)
