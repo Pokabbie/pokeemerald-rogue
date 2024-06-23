@@ -2425,6 +2425,42 @@ static u8 Overview_SelectDigitTile(u8 digit)
     return HEADER_EMPTY;
 }
 
+static bool32 CheckIfAnyEvosMatch(u16 species, u8 dexFlag)
+{
+    if(GetSetPokedexSpeciesFlag(species, dexFlag))
+        return TRUE;
+
+    {
+        struct Evolution evo;
+        u32 i;
+        u32 evoCount = Rogue_GetMaxEvolutionCount(species);
+
+        for(i = 0; i < evoCount; ++i)
+        {
+            Rogue_ModifyEvolution(species, i, &evo);
+
+            if(evo.targetSpecies != SPECIES_NONE)
+            {
+                if(CheckIfAnyEvosMatch(evo.targetSpecies, dexFlag))
+                    return TRUE;
+            }
+        }
+    }
+
+    return FALSE;
+}
+
+static bool32 GetSpeciesDisplayDexFlag(u16 species, u8 dexFlag)
+{
+    u8 dexVariant = RoguePokedex_GetDexVariant();
+    
+    // Daycare variant, we want to display based on if we have any data in the evo chain
+    if(dexVariant == POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES)
+        return CheckIfAnyEvosMatch(species, dexFlag);
+    else
+        return GetSetPokedexSpeciesFlag(species, dexFlag);
+}
+
 static u8 Overview_GetEntryType(s8 entryX, s8 entryY, s8 deltaX, s8 deltaY)
 {
     u8 idx;
@@ -2449,9 +2485,21 @@ static u8 Overview_GetEntryType(s8 entryX, s8 entryY, s8 deltaX, s8 deltaY)
     // We don't care if we've seen this mon or not
     if(IsCurrentlySelectingMon())
     {
+        //u8 dexVariant = RoguePokedex_GetDexVariant();
+//
+        //if(dexVariant == POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES)
+        //{
+        //    // This view is used for daycare egg selection, so display mons we have seen/caught to hatch regardless of where in the evo chain we have dex data
+        //    if(CheckIfAnyEvosMatch(species, FLAG_GET_CAUGHT))
+        //        return ENTRY_TYPE_CAUGHT;
+        //    else if(CheckIfAnyEvosMatch(species, FLAG_GET_SEEN))
+        //        return ENTRY_TYPE_SEEN;
+        //}
+        //else 
+        
         if(
-            (!sPokedexViewReq.perView.selectMon.requireSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN)) &&
-            (!sPokedexViewReq.perView.selectMon.requireCaught || GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+            (!sPokedexViewReq.perView.selectMon.requireSeen || GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN)) &&
+            (!sPokedexViewReq.perView.selectMon.requireCaught || GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
         )
         {
             if(sPokedexViewReq.view == DEX_VIEW_SELECT_SAFARI_MON)
@@ -2461,11 +2509,11 @@ static u8 Overview_GetEntryType(s8 entryX, s8 entryY, s8 deltaX, s8 deltaY)
             else
             {
                 // Display icons based on dex state
-                if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT_SHINY))
+                if(GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT_SHINY))
                     return ENTRY_TYPE_CAUGHT_SHINY;
-                else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+                else if(GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
                     return ENTRY_TYPE_CAUGHT;
-                else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+                else if(GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
                     return ENTRY_TYPE_SEEN;
             }
         }
@@ -2473,11 +2521,11 @@ static u8 Overview_GetEntryType(s8 entryX, s8 entryY, s8 deltaX, s8 deltaY)
     else
     {
         // Display icons based on dex state
-        if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT_SHINY))
+        if(GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT_SHINY))
             return ENTRY_TYPE_CAUGHT_SHINY;
-        else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+        else if(GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
             return ENTRY_TYPE_CAUGHT;
-        else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+        else if(GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
             return ENTRY_TYPE_SEEN;
     }
 
@@ -2834,8 +2882,8 @@ static void Overview_HandleInput(u8 taskId)
         if(IsCurrentlySelectingMon())
         {
             if(
-                (!sPokedexViewReq.perView.selectMon.requireSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN)) &&
-                (!sPokedexViewReq.perView.selectMon.requireCaught || GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+                (!sPokedexViewReq.perView.selectMon.requireSeen || GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN)) &&
+                (!sPokedexViewReq.perView.selectMon.requireCaught || GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
             )
             {
                 if(sPokedexViewReq.view == DEX_VIEW_SELECT_SAFARI_MON)
@@ -2894,7 +2942,7 @@ static void Overview_HandleInput(u8 taskId)
         }
         else
         {
-            if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+            if(GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
             {
                 // Swap to the stats page
                 sPokedexMenu->desiredPage = PAGE_MON_STATS;
@@ -3049,10 +3097,10 @@ static void Overview_CreateSprites()
             {
                 if(IsCurrentlySelectingMon())
                 {
-                    if(sPokedexViewReq.perView.selectMon.requireSeen && !GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+                    if(sPokedexViewReq.perView.selectMon.requireSeen && !GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
                         continue;
 
-                    if(sPokedexViewReq.perView.selectMon.requireCaught && !GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+                    if(sPokedexViewReq.perView.selectMon.requireCaught && !GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
                         continue;
 
                     // Always display in select mon view
@@ -3061,12 +3109,12 @@ static void Overview_CreateSprites()
                 }
                 else
                 {
-                    if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+                    if(GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
                     {
                         // Animated
                         sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCB_MonIcon, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
                     }
-                    else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+                    else if(GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
                     {
                         // Non animated
                         sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
@@ -3150,7 +3198,7 @@ void DestroyMonTypIcon(u8 spriteId);
 static void MonInfo_CreateSprites(bool8 includeType)
 {
     // display as shiny if we have seen it
-    bool8 isShiny = GetSetPokedexSpeciesFlag(sPokedexMenu->viewBaseSpecies, FLAG_GET_CAUGHT_SHINY);
+    bool8 isShiny = GetSpeciesDisplayDexFlag(sPokedexMenu->viewBaseSpecies, FLAG_GET_CAUGHT_SHINY);
 
     LoadMoveTypesSpritesheetAndPalette(); // TODO - move
 
@@ -3298,7 +3346,7 @@ static u16 MonStats_GetMonNeighbour(u16 currViewSpecies, s8 offset)
                 checkSpecies = GetVariantSpeciesAt(dexVariant, checkIdx);
 
                 // Only allowed to jump to seen mons
-                if(!GetSetPokedexSpeciesFlag(checkSpecies, FLAG_GET_SEEN))
+                if(!GetSpeciesDisplayDexFlag(checkSpecies, FLAG_GET_SEEN))
                     continue;
 
 #ifdef ROGUE_DEBUG
@@ -3600,7 +3648,7 @@ static void MonEvos_HandleInput(u8 taskId)
     {
         u16 species = GetActiveEvoSpecies();
 
-        if(species == SPECIES_NONE || !GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+        if(species == SPECIES_NONE || !GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
         {
             PlaySE(SE_FAILURE);
         }
@@ -3643,7 +3691,7 @@ static void MonEvos_CreateSprites()
 
         if(listIndex >= sPokedexMenu->listScrollAmount)
         {
-            if(GetSetPokedexSpeciesFlag(evo.targetSpecies, FLAG_GET_SEEN))
+            if(GetSpeciesDisplayDexFlag(evo.targetSpecies, FLAG_GET_SEEN))
                 sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(evo.targetSpecies, SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, MON_MALE);
             else
                 sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMissingMonIcon(SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0);
@@ -3703,7 +3751,7 @@ static void MonForms_HandleInput(u8 taskId)
     {
         u16 species = GetActiveFormSpecies();
 
-        if(species == SPECIES_NONE || !GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+        if(species == SPECIES_NONE || !GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
         {
             PlaySE(SE_FAILURE);
         }
@@ -3743,7 +3791,7 @@ static void MonForms_CreateSprites()
         {
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
-                if(GetSetPokedexSpeciesFlag(formTable[i], FLAG_GET_SEEN))
+                if(GetSpeciesDisplayDexFlag(formTable[i], FLAG_GET_SEEN))
                     sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(formTable[i], SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, MON_MALE);
                 else
                     sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMissingMonIcon(SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0);
