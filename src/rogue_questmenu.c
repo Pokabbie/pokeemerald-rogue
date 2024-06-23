@@ -1574,10 +1574,28 @@ static void Draw_QuestPage()
                 }
                 else if(reward->customPopup)
                 {
-                    // Display the custom popup item icon here for consistency
-                    currentTag = TAG_REWARD_ICON_ITEM + reward->customPopup->itemIcon;
-                    
-                    sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->customPopup->itemIcon);
+                    // Display the custom popup icon here for consistency
+                    if(reward->customPopup->speciesIcon != SPECIES_NONE)
+                    {
+                        LoadMonIconPalette(reward->perType.pokemon.species);
+                        sQuestMenuData->sprites[spriteIdx] = CreateMonIcon(
+                            reward->perType.pokemon.species,
+                            SpriteCallbackDummy,
+                            0, 0,
+                            0,
+                            0,
+                            MON_MALE
+                        );
+
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = -4;
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = -8;
+                    }
+                    else
+                    {
+                        currentTag = TAG_REWARD_ICON_ITEM + reward->customPopup->itemIcon;
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->customPopup->itemIcon);
+                    }
+
                     groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
                     spriteLayering[spriteIdx] = 0;
                     ++spriteIdx;

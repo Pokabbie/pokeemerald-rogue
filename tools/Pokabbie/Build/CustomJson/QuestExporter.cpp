@@ -246,14 +246,14 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 				if (!rewardInfo.preprocessorCondition.empty())
 					fileStream << "#if " << rewardInfo.preprocessorCondition << "\n";
 
-				fileStream << "static u8 const sCustomPopupTitle_" << quest.GetUniqueWriteId() << "[] = _(\"" << rewardInfo.customPopup.title << "\");\n";
-				fileStream << "static u8 const sCustomPopupSubtitle_" << quest.GetUniqueWriteId() << "[] = _(\"" << rewardInfo.customPopup.subtitle << "\");\n";
+				fileStream << "static u8 const sCustomPopupTitle_" << quest.GetUniqueWriteId() << "_" << rewardIndex << "[] = _(\"" << rewardInfo.customPopup.title << "\");\n";
+				fileStream << "static u8 const sCustomPopupSubtitle_" << quest.GetUniqueWriteId() << "_" << rewardIndex << "[] = _(\"" << rewardInfo.customPopup.subtitle << "\");\n";
 				fileStream << "\n";
 
 				fileStream << "static struct CustomPopup const sCustomPopup_" << quest.GetUniqueWriteId() << "_" << rewardIndex << " = \n";
 				fileStream << "{\n";
-				fileStream << c_TabSpacing << ".titleStr = sCustomPopupTitle_" << quest.GetUniqueWriteId() << ",\n";
-				fileStream << c_TabSpacing << ".subtitleStr = sCustomPopupSubtitle_" << quest.GetUniqueWriteId() << ",\n";
+				fileStream << c_TabSpacing << ".titleStr = sCustomPopupTitle_" << quest.GetUniqueWriteId() << "_" << rewardIndex << ",\n";
+				fileStream << c_TabSpacing << ".subtitleStr = sCustomPopupSubtitle_" << quest.GetUniqueWriteId() << "_" << rewardIndex << ",\n";
 
 				if(!rewardInfo.customPopup.itemIcon.empty())
 					fileStream << c_TabSpacing << ".itemIcon = " << rewardInfo.customPopup.itemIcon << ",\n";
