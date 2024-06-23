@@ -132,14 +132,14 @@ void RogueDebug_MainInit(void)
         AGB_ASSERT(gRogueBake_EggSpecies_Count == SPECIES_EGG_EVO_STAGE_COUNT);
 
         {
+            u32 i;
+
             // Comment in to debug
             //DebugPrint("[Mastery Flag]");
 
-            u32 i;
             for(i = SPECIES_NONE + 1; i < NUM_SPECIES; ++i)
             {
-                //u32 eggSpecies = Rogue_GetEggSpecies(i);
-                //DebugPrintf("    check %d (egg:%d)", i, eggSpecies);
+                //DebugPrintf("    check %d (egg:%d)", i, Rogue_GetEggSpecies(i));
                 RogueQuest_GetMonMasteryFlag(i);
             }
         }

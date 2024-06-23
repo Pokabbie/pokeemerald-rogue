@@ -162,6 +162,45 @@ struct QuestData
 
 static void GatherQuests(std::string const& dataPath, json const& jsonData, QuestData& outQuestData);
 
+static std::string QuestExpandString(QuestInfo const& quest, std::string target)
+{
+	// Allow templating desc params
+	if (quest.questObj.contains("template_params"))
+	{
+		json templateParams = quest.questObj["template_params"];
+
+		for (auto it = templateParams.begin(); it != templateParams.end(); it++)
+		{
+			std::string replaceKey = "%" + it.key() + "%";
+			std::string replaceValue = it.value().get<std::string>();
+
+			// Pretty print hacks
+			if (replaceKey == "%MON_SPECIES%")
+			{
+				if (strutil::starts_with(replaceValue, "SPECIES_"))
+				{
+					replaceValue = replaceValue.substr(std::string("SPECIES_").length());
+					replaceValue = strutil::capitalize(strutil::to_lower(replaceValue));
+				}
+			}
+
+			strutil::replace_all(target, replaceKey, replaceValue);
+		}
+	}
+
+	return target;
+}
+
+static std::string GetQuestName(QuestInfo const& quest)
+{
+	return QuestExpandString(quest, quest.questObj["name"].get<std::string>());
+}
+
+static std::string GetQuestDescription(QuestInfo const& quest)
+{
+	return QuestExpandString(quest, quest.questObj["description"].get<std::string>());
+}
+
 static std::string FlagsToString(std::string const& prefix, std::vector<std::string> const flags)
 {
 	std::string output = "0";
@@ -191,7 +230,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 		if (!quest.preprocessorCondition.empty())
 			fileStream << "#if " << quest.preprocessorCondition << "\n";
 
-		fileStream << "static u8 const sTitle_" << quest.GetUniqueWriteId() << "[] = _(\"" << quest.questObj["name"].get<std::string>() << "\");\n";
+		fileStream << "static u8 const sTitle_" << quest.GetUniqueWriteId() << "[] = _(\"" << GetQuestName(quest) << "\");\n";
 		fileStream << "extern const u8 gQuestDescText_" << quest.GetUniqueWriteId() << "[];\n";
 		fileStream << "\n";
 
@@ -675,7 +714,7 @@ void ExportQuestData_Pory(std::ofstream& fileStream, std::string const& dataPath
 		auto const& quest = *it;
 
 		fileStream << "text gQuestDescText_" << quest.GetUniqueWriteId() << "\n{\n";
-		fileStream << c_TabSpacing << "format(\"" << quest.questObj["description"].get<std::string>() << "\")\n";
+		fileStream << c_TabSpacing << "format(\"" << GetQuestDescription(quest) << "\")\n";
 		fileStream << "}\n\n";
 	}
 }
@@ -958,7 +997,7 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, Q
 			QuestInfo quest = { groupIt.value(), questIt };
 
 			// Quest ID
-			quest.questId = FormatQuestId(quest.questObj["name"].get<std::string>());
+			quest.questId = FormatQuestId(GetQuestName(quest));
 			quest.importIndex = counter++;
 
 			// Display Group Name

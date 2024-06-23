@@ -2,6 +2,8 @@
     "condition": "",
     "defaults":
     {
+        "name": "%MON_SPECIES% Mastery",
+        "description": "Enter the Hall of Fame with a Pokémon from the %MON_SPECIES% line in your party.",
         "display_group": "mon_masteries",
         "flags": 
         [
@@ -12,7 +14,7 @@
         [
             {
                 "on": [ "ENTER_HALL_OF_FAME" ],
-                "condition": "PartyContainsSpecies",
+                "condition": "SpeciesMasteryComplete",
                 "template_params": [ "MON_SPECIES" ],
                 "pass": "SUCCESS",
                 "fail": "FAIL"
@@ -24,551 +26,460 @@
         "default_group":
         [
             {
-                "name": "Venusaur Mastery",
-                "description": "Enter the Hall of Fame with a Venusaur in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_VENUSAUR"
+                    "MON_SPECIES": "SPECIES_BULBASAUR"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_VENUSAURITE" }
                 ]
             },
             {
-                "name": "Charizard Mastery",
-                "description": "Enter the Hall of Fame with a Charizard in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_CHARIZARD"
+                    "MON_SPECIES": "SPECIES_CHARMANDER"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CHARIZARDITE_X" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CHARIZARDITE_Y" }
                 ]
             },
             {
-                "name": "Blastoise Mastery",
-                "description": "Enter the Hall of Fame with a Blastoise in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_BLASTOISE"
+                    "MON_SPECIES": "SPECIES_SQUIRTLE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BLASTOISINITE" }
                 ]
             },
             {
-                "name": "Beedrill Mastery",
-                "description": "Enter the Hall of Fame with a Beedrill in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_BEEDRILL"
+                    "MON_SPECIES": "SPECIES_WEEDLE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BEEDRILLITE" }
                 ]
             },
             {
-                "name": "Pidgeot Mastery",
-                "description": "Enter the Hall of Fame with a Pidgeot in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_PIDGEOT"
+                    "MON_SPECIES": "SPECIES_PIDGEY"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PIDGEOTITE" }
                 ]
             },
             {
-                "name": "Pikachu Mastery",
-                "description": "Enter the Hall of Fame with a Pikachu in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_PIKACHU"
+                    "MON_SPECIES": "SPECIES_PICHU"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PIKANIUM_Z" }
-                ]
-            },
-            {
-                "name": "Raichu Mastery",
-                "description": "Enter the Hall of Fame with a Raichu in your party.",
-                "template_params":
-                {
-                    "MON_SPECIES": "SPECIES_RAICHU"
-                },
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PIKANIUM_Z" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ALORAICHIUM_Z" }
                 ]
             },
             {
-                "name": "Alakazam Mastery",
-                "description": "Enter the Hall of Fame with a Alakazam in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_ALAKAZAM"
+                    "MON_SPECIES": "SPECIES_ABRA"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ALAKAZITE" }
                 ]
             },
             {
-                "name": "Slowbro Mastery",
-                "description": "Enter the Hall of Fame with a Slowbro in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_SLOWBRO"
+                    "MON_SPECIES": "SPECIES_SLOWPOKE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SLOWBRONITE" }
                 ]
             },
             {
-                "name": "Gengar Mastery",
-                "description": "Enter the Hall of Fame with a Gengar in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_GENGAR"
+                    "MON_SPECIES": "SPECIES_GASTLY"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GENGARITE" }
                 ]
             },
             {
-                "name": "Kangaskhan Mastery",
-                "description": "Enter the Hall of Fame with a Kangaskhan in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_KANGASKHAN"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_KANGASKHANITE" }
                 ]
             },
             {
-                "name": "Pinsir Mastery",
-                "description": "Enter the Hall of Fame with a Pinsir in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_PINSIR"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_PINSIRITE" }
                 ]
             },
             {
-                "name": "Gyarados Mastery",
-                "description": "Enter the Hall of Fame with a Gyarados in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_GYARADOS"
+                    "MON_SPECIES": "SPECIES_MAGIKARP"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GYARADOSITE" }
                 ]
             },
             {
-                "name": "Eevee Mastery",
-                "description": "Enter the Hall of Fame with a Eevee in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_EEVEE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_EEVIUM_Z" }
                 ]
             },
             {
-                "name": "Aerodactyl Mastery",
-                "description": "Enter the Hall of Fame with a Aerodactyl in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_AERODACTYL"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_AERODACTYLITE" }
                 ]
             },
             {
-                "name": "Snorlax Mastery",
-                "description": "Enter the Hall of Fame with a Snorlax in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_SNORLAX"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SNORLIUM_Z" }
                 ]
             },
             {
-                "name": "Mewtwo Mastery",
-                "description": "Enter the Hall of Fame with a Mewtwo in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_MEWTWO"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MEWTWONITE_X" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MEWTWONITE_Y" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BERSERK_GENE" }
                 ]
             },
             {
-                "name": "Mew Mastery",
-                "description": "Enter the Hall of Fame with a Mew in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_MEW"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MEWNIUM_Z" }
                 ]
             },
 
             {
-                "name": "Ampharos Mastery",
-                "description": "Enter the Hall of Fame with a Ampharos in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_AMPHAROS"
+                    "MON_SPECIES": "SPECIES_MAREEP"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_AMPHAROSITE" }
                 ]
             },
             {
-                "name": "Steelix Mastery",
-                "description": "Enter the Hall of Fame with a Steelix in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_STEELIX"
+                    "MON_SPECIES": "SPECIES_ONIX"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_STEELIXITE" }
                 ]
             },
             {
-                "name": "Scizor Mastery",
-                "description": "Enter the Hall of Fame with a Scizor in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_SCIZOR"
+                    "MON_SPECIES": "SPECIES_SCYTHER"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SCIZORITE" }
                 ]
             },
             {
-                "name": "Heracross Mastery",
-                "description": "Enter the Hall of Fame with a Heracross in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_HERACROSS"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_HERACRONITE" }
                 ]
             },
             {
-                "name": "Houndoom Mastery",
-                "description": "Enter the Hall of Fame with a Houndoom in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_HOUNDOOM"
+                    "MON_SPECIES": "SPECIES_HOUNDOUR"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_HOUNDOOMINITE" }
                 ]
             },
             {
-                "name": "Tyranitar Mastery",
-                "description": "Enter the Hall of Fame with a Tyranitar in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_TYRANITAR"
+                    "MON_SPECIES": "SPECIES_LARVITAR"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_TYRANITARITE" }
                 ]
             },
 
             {
-                "name": "Sceptile Mastery",
-                "description": "Enter the Hall of Fame with a Sceptile in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_SCEPTILE"
+                    "MON_SPECIES": "SPECIES_TREECKO"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SCEPTILITE" }
                 ]
             },
             {
-                "name": "Blaziken Mastery",
-                "description": "Enter the Hall of Fame with a Blaziken in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_BLAZIKEN"
+                    "MON_SPECIES": "SPECIES_TORCHIC"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BLAZIKENITE" }
                 ]
             },
             {
-                "name": "Swampert Mastery",
-                "description": "Enter the Hall of Fame with a Swampert in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_SWAMPERT"
+                    "MON_SPECIES": "SPECIES_MUDKIP"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SWAMPERTITE" }
                 ]
             },
             {
-                "name": "Gardevoir Mastery",
-                "description": "Enter the Hall of Fame with a Gardevoir in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_GARDEVOIR"
+                    "MON_SPECIES": "SPECIES_RALTS"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GARDEVOIRITE" }
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GARDEVOIRITE" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GALLADITE" }
                 ]
             },
             {
-                "name": "Sableye Mastery",
-                "description": "Enter the Hall of Fame with a Sableye in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_SABLEYE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SABLENITE" }
                 ]
             },
             {
-                "name": "Mawile Mastery",
-                "description": "Enter the Hall of Fame with a Mawile in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_MAWILE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MAWILITE" }
                 ]
             },
             {
-                "name": "Aggron Mastery",
-                "description": "Enter the Hall of Fame with a Aggron in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_AGGRON"
+                    "MON_SPECIES": "SPECIES_ARON"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_AGGRONITE" }
                 ]
             },
             {
-                "name": "Medicham Mastery",
-                "description": "Enter the Hall of Fame with a Medicham in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_MEDICHAM"
+                    "MON_SPECIES": "SPECIES_MEDITITE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MEDICHAMITE" }
                 ]
             },
             {
-                "name": "Manectric Mastery",
-                "description": "Enter the Hall of Fame with a Manectric in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_MANECTRIC"
+                    "MON_SPECIES": "SPECIES_ELECTRIKE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_MANECTITE" }
                 ]
             },
             {
-                "name": "Sharpedo Mastery",
-                "description": "Enter the Hall of Fame with a Sharpedo in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_SHARPEDO"
+                    "MON_SPECIES": "SPECIES_CARVANHA"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SHARPEDONITE" }
                 ]
             },
             {
-                "name": "Camerupt Mastery",
-                "description": "Enter the Hall of Fame with a Camerupt in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_CAMERUPT"
+                    "MON_SPECIES": "SPECIES_NUMEL"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_CAMERUPTITE" }
                 ]
             },
             {
-                "name": "Altaria Mastery",
-                "description": "Enter the Hall of Fame with a Altaria in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_ALTARIA"
+                    "MON_SPECIES": "SPECIES_SWABLU"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ALTARIANITE" }
                 ]
             },
             {
-                "name": "Banette Mastery",
-                "description": "Enter the Hall of Fame with a Banette in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_BANETTE"
+                    "MON_SPECIES": "SPECIES_SHUPPET"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BANETTITE" }
                 ]
             },
             {
-                "name": "Absol Mastery",
-                "description": "Enter the Hall of Fame with a Absol in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_ABSOL"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_ABSOLITE" }
                 ]
             },
             {
-                "name": "Glalie Mastery",
-                "description": "Enter the Hall of Fame with a Glalie in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_GLALIE"
+                    "MON_SPECIES": "SPECIES_SNORUNT"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_GLALITITE" }
                 ]
             },
             {
-                "name": "Salamence Mastery",
-                "description": "Enter the Hall of Fame with a Salamence in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_SALAMENCE"
+                    "MON_SPECIES": "SPECIES_BAGON"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_SALAMENCITE" }
                 ]
             },
             {
-                "name": "Metagross Mastery",
-                "description": "Enter the Hall of Fame with a Metagross in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_METAGROSS"
+                    "MON_SPECIES": "SPECIES_BELDUM"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_METAGROSSITE" }
                 ]
             },
             {
                 "name": "Lati Mastery",
-                "description": "Enter the Hall of Fame with a Latias or Latios in your party.",
+                "description": "Enter the Hall of Fame with Latias or Latios in your party.",
                 "triggers":
                 [
                     {
                         "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "PartyContainsSpecies",
+                        "condition": "SpeciesMasteryComplete",
                         "params": [ "SPECIES_LATIAS", "SPECIES_LATIOS" ],
                         "pass": "SUCCESS",
                         "fail": "FAIL"
@@ -581,226 +492,182 @@
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Latias Mastery",
-                "description": "Enter the Hall of Fame with a Latias in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_LATIAS"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_LATIASITE" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Latios Mastery",
-                "description": "Enter the Hall of Fame with a Latios in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_LATIOS"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_LATIOSITE" }
                 ]
             },
             {
-                "name": "Kyogre Mastery",
-                "description": "Enter the Hall of Fame with a Kyogre in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_KYOGRE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_BLUE_ORB" }
                 ]
             },
             {
-                "name": "Groudon Mastery",
-                "description": "Enter the Hall of Fame with a Groudon in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_GROUDON"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "shop_item": "ITEM_RED_ORB" }
                 ]
             },
             {
-                "name": "Deoxys Mastery",
-                "description": "Enter the Hall of Fame with a Deoxys in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_DEOXYS"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "#if": "defined(ROGUE_EXPANSION)", "item": "ITEM_METEORITE" }
                 ]
             },
 
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Lopunny Mastery",
-                "description": "Enter the Hall of Fame with a Lopunny in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_LOPUNNY"
+                    "MON_SPECIES": "SPECIES_BUNEARY"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_LOPUNNITE" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Garchomp Mastery",
-                "description": "Enter the Hall of Fame with a Garchomp in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_GARCHOMP"
+                    "MON_SPECIES": "SPECIES_GIBLE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_GARCHOMPITE" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Lucario Mastery",
-                "description": "Enter the Hall of Fame with a Lucario in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_LUCARIO"
+                    "MON_SPECIES": "SPECIES_RIOLU"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_LUCARIONITE" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Abomasnow Mastery",
-                "description": "Enter the Hall of Fame with a Abomasnow in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_ABOMASNOW"
+                    "MON_SPECIES": "SPECIES_SNOVER"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_ABOMASITE" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Gallade Mastery",
-                "description": "Enter the Hall of Fame with a Gallade in your party.",
-                "template_params":
-                {
-                    "MON_SPECIES": "SPECIES_GALLADE"
-                },
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "shop_item": "ITEM_GALLADITE" }
-                ]
-            },
-            {
-                "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Rotom Mastery",
-                "description": "Enter the Hall of Fame with a Rotom in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_ROTOM"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "decor": "DECOR_ID_APPLIANCES" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Dialga Mastery",
-                "description": "Enter the Hall of Fame with a Dialga in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_DIALGA"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_ADAMANT_ORB" },
                     { "shop_item": "ITEM_ADAMANT_CRYSTAL" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Palkia Mastery",
-                "description": "Enter the Hall of Fame with a Palkia in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_PALKIA"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_LUSTROUS_ORB" },
                     { "shop_item": "ITEM_LUSTROUS_GLOBE" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Giratina Mastery",
-                "description": "Enter the Hall of Fame with a Giratina in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_GIRATINA"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_GRISEOUS_ORB" },
                     { "shop_item": "ITEM_GRISEOUS_CORE" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Shaymin Mastery",
-                "description": "Enter the Hall of Fame with a Shaymin in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_SHAYMIN"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_GRACIDEA" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Arceus Mastery",
-                "description": "Enter the Hall of Fame with a Arceus in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_ARCEUS"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_FIST_PLATE" },
                     { "shop_item": "ITEM_SKY_PLATE" },
                     { "shop_item": "ITEM_TOXIC_PLATE" },
@@ -823,27 +690,25 @@
 
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Audino Mastery",
-                "description": "Enter the Hall of Fame with a Audino in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_AUDINO"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_AUDINITE" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Genies Mastery",
-                "description": "Enter the Hall of Fame with a Tornadus, Thundurus, Landorus or Enamorus in your party.",
+                "name": "Genie Mastery",
+                "description": "Enter the Hall of Fame with Tornadus, Thundurus, Landorus or Enamorus in your party.",
                 "triggers":
                 [
                     {
                         "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "PartyContainsSpecies",
+                        "condition": "SpeciesMasteryComplete",
                         "params": [ "SPECIES_TORNADUS", "SPECIES_THUNDURUS", "SPECIES_LANDORUS", "SPECIES_ENAMORUS" ],
                         "pass": "SUCCESS",
                         "fail": "FAIL"
@@ -851,21 +716,19 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_REVEAL_GLASS" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Genesect Mastery",
-                "description": "Enter the Hall of Fame with a Genesect in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_GENESECT"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_SHOCK_DRIVE" },
                     { "shop_item": "ITEM_BURN_DRIVE" },
                     { "shop_item": "ITEM_CHILL_DRIVE" },
@@ -875,143 +738,123 @@
 
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Greninja Mastery",
-                "description": "Enter the Hall of Fame with a Greninja in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_GRENINJA"
+                    "MON_SPECIES": "SPECIES_FROAKIE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "species": "SPECIES_GRENINJA_BATTLE_BOND", "shiny": false }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Zygarde Mastery",
-                "description": "Enter the Hall of Fame with a Zygarde in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_ZYGARDE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_ZYGARDE_CUBE" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Diancie Mastery",
-                "description": "Enter the Hall of Fame with a Diancie in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_DIANCIE"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_DIANCITE" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Hoopa Mastery",
-                "description": "Enter the Hall of Fame with a Hoopa in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_HOOPA"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_PRISON_BOTTLE" }
                 ]
             },
 
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Decidueye Mastery",
-                "description": "Enter the Hall of Fame with a Decidueye in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_DECIDUEYE"
+                    "MON_SPECIES": "SPECIES_ROWLET"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_DECIDIUM_Z" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Incineroar Mastery",
-                "description": "Enter the Hall of Fame with a Incineroar in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_INCINEROAR"
+                    "MON_SPECIES": "SPECIES_LITTEN"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_INCINIUM_Z" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Primarina Mastery",
-                "description": "Enter the Hall of Fame with a Primarina in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_PRIMARINA"
+                    "MON_SPECIES": "SPECIES_POPPLIO"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_PRIMARIUM_Z" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Lycanroc Mastery",
-                "description": "Enter the Hall of Fame with a Lycanroc in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_LYCANROC"
+                    "MON_SPECIES": "SPECIES_ROCKRUFF"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "species": "SPECIES_ROCKRUFF_OWN_TEMPO", "shiny": false },
                     { "shop_item": "ITEM_LYCANIUM_Z" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Mimikyu Mastery",
-                "description": "Enter the Hall of Fame with a Mimikyu in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_MIMIKYU"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_MIMIKIUM_Z" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Silvally Mastery",
-                "description": "Enter the Hall of Fame with a Silvally in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_SILVALLY"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_FIRE_MEMORY" },
                     { "shop_item": "ITEM_WATER_MEMORY" },
                     { "shop_item": "ITEM_ELECTRIC_MEMORY" },
@@ -1033,15 +876,13 @@
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Kommo-o Mastery",
-                "description": "Enter the Hall of Fame with a Kommo-o in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_KOMMO_O"
+                    "MON_SPECIES": "SPECIES_JANGMO_O"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_KOMMONIUM_Z" }
                 ]
             },
@@ -1053,7 +894,7 @@
                 [
                     {
                         "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "PartyContainsSpecies",
+                        "condition": "SpeciesMasteryComplete",
                         "params": [ "SPECIES_TAPU_KOKO", "SPECIES_TAPU_LELE", "SPECIES_TAPU_BULU", "SPECIES_TAPU_FINI" ],
                         "pass": "SUCCESS",
                         "fail": "FAIL"
@@ -1061,121 +902,94 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_TAPUNIUM_Z" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Solgaleo Mastery",
-                "description": "Enter the Hall of Fame with a Solgaleo in your party.",
                 "template_params":
                 {
-                    "MON_SPECIES": "SPECIES_SOLGALEO"
+                    "MON_SPECIES": "SPECIES_COSMOG"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "shop_item": "ITEM_SOLGANIUM_Z" }
-                ]
-            },
-            {
-                "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Lunala Mastery",
-                "description": "Enter the Hall of Fame with a Lunala in your party.",
-                "template_params":
-                {
-                    "MON_SPECIES": "SPECIES_LUNALA"
-                },
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_SOLGANIUM_Z" },
                     { "shop_item": "ITEM_LUNALIUM_Z" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Necrozma Mastery",
-                "description": "Enter the Hall of Fame with a Necrozma in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_NECROZMA"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_ULTRANECROZIUM_Z" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Magearna Mastery",
-                "description": "Enter the Hall of Fame with a Magearna in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_MAGEARNA"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "species": "SPECIES_MAGEARNA_ORIGINAL_COLOR", "shiny": false }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Marshadow Mastery",
-                "description": "Enter the Hall of Fame with a Marshadow in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_MARSHADOW"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_MARSHADIUM_Z" }
                 ]
             },
 
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Zacian Mastery",
-                "description": "Enter the Hall of Fame with a Zacian in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_ZACIAN"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_RUSTED_SWORD" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Zamazenta Mastery",
-                "description": "Enter the Hall of Fame with a Zamazenta in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_ZAMAZENTA"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_RUSTED_SHIELD" }
                 ]
             },
 
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Ogerpon Mastery",
-                "description": "Enter the Hall of Fame with a Ogerpon in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_OGERPON"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_CORNERSTONE_MASK" },
                     { "shop_item": "ITEM_WELLSPRING_MASK" },
                     { "shop_item": "ITEM_HEARTHFLAME_MASK" }
@@ -1184,15 +998,13 @@
 
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Terapagos Mastery",
-                "description": "Enter the Hall of Fame with a Terapagos in your party.",
                 "template_params":
                 {
                     "MON_SPECIES": "SPECIES_TERAPAGOS"
                 },
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "shop_item": "ITEM_STELLAR_TERA_SHARD" }
                 ]
             }
