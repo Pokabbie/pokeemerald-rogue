@@ -661,6 +661,7 @@ struct RogueSaveBlock
     struct UniqueMon dynamicUniquePokemon[DYNAMIC_UNIQUE_MON_COUNT];
     struct AdventureReplay adventureReplay[ROGUE_ADVENTURE_REPLAY_COUNT];
     u32 safariMonCustomIds[ROGUE_SAFARI_TOTAL_CUSTOM_MONS];
+    u8 monMasteryFlags[MON_MASTERY_BYTE_COUNT];
     struct RogueHubMap hubMap;
     struct RogueDifficultyConfig difficultyConfig;
     u16 timeOfDayMinutes;

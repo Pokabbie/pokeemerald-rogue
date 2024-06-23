@@ -3150,8 +3150,11 @@ void Rogue_OnNewGame(void)
     FlagSet(FLAG_ROGUE_DEBUG_DISABLED);
 #endif
 
+    memset(gRogueSaveBlock->safariMons, 0, sizeof(gRogueSaveBlock->safariMons));
     memset(gRogueSaveBlock->dynamicUniquePokemon, 0, sizeof(gRogueSaveBlock->dynamicUniquePokemon));
     memset(gRogueSaveBlock->daycarePokemon, 0, sizeof(gRogueSaveBlock->daycarePokemon));
+    memset(gRogueSaveBlock->adventureReplay, 0, sizeof(gRogueSaveBlock->adventureReplay));
+    memset(gRogueSaveBlock->monMasteryFlags, 0, sizeof(gRogueSaveBlock->monMasteryFlags));
 
     Rogue_ClearPopupQueue();
 }
@@ -6311,6 +6314,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
 
                     FlagSet(FLAG_IS_CHAMPION);
                     FlagSet(FLAG_ROGUE_RUN_COMPLETED);
+                    RogueQuest_SetMonMasteryFlagFromParty();
                     RogueQuest_OnTrigger(QUEST_TRIGGER_ENTER_HALL_OF_FAME);
                     RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
                 }

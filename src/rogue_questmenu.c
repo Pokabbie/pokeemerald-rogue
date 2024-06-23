@@ -28,6 +28,7 @@
 #include "rogue_controller.h"
 #include "rogue_gifts.h"
 #include "rogue_popup.h"
+#include "rogue_pokedex.h"
 #include "rogue_quest.h"
 #include "rogue_questmenu.h"
 
@@ -64,14 +65,20 @@ static void Setup_FrontPage();
 static void Setup_IndexPage();
 static void Setup_QuestPage();
 static void Setup_QuestBoard();
+static void Setup_MasteryLandingPage();
+static void Setup_MasteryTrackerPage();
 
 static void HandleInput_FrontPage(u8 taskId);
 static void HandleInput_IndexPage(u8 taskId);
 static void HandleInput_QuestPage(u8 taskId);
+static void HandleInput_MasteryLandingPage(u8 taskId);
+static void HandleInput_MasteryTrackerPage(u8 taskId);
 
 static void Draw_FrontPage();
 static void Draw_IndexPage();
 static void Draw_QuestPage();
+static void Draw_MasteryLandingPage();
+static void Draw_MasteryTrackerPage();
 
 enum
 {
@@ -90,6 +97,8 @@ enum
     PAGE_BOOK_CHALLENGE_INACTIVE,
     PAGE_BOOK_CHALLENGE_COMPLETE,
 
+    PAGE_BOOK_MON_MASTERY_LANDING,
+    PAGE_BOOK_MON_MASTERY_TRACKER,
     PAGE_BOOK_MON_MASTERY_TODO,
     PAGE_BOOK_MON_MASTERY_ACTIVE,
     PAGE_BOOK_MON_MASTERY_INACTIVE,
@@ -147,6 +156,7 @@ struct MenuOption
 static u32 const sFrontpageTilemap[] = INCBIN_U32("graphics/rogue_quest/front_page.bin.lz");
 static u32 const sIndexTilemap[] = INCBIN_U32("graphics/rogue_quest/index_page.bin.lz");
 static u32 const sInnerTilemap[] = INCBIN_U32("graphics/rogue_quest/inner_page.bin.lz");
+static u32 const sLinedTilemap[] = INCBIN_U32("graphics/rogue_quest/lined_page.bin.lz");
 static u32 const sQuestboardTilemap[] = INCBIN_U32("graphics/rogue_quest/quest_board.bin.lz");
 
 static u32 const sQuestTiles[] = INCBIN_U32("graphics/rogue_quest/tiles.4bpp.lz");
@@ -237,6 +247,20 @@ static const struct PageData sPageData[PAGE_COUNT] =
         .drawCallback = Draw_QuestPage,
     },
 
+    [PAGE_BOOK_MON_MASTERY_LANDING] = 
+    {
+        .tilemap = sIndexTilemap,
+        .setupCallback = Setup_MasteryLandingPage,
+        .inputCallback = HandleInput_MasteryLandingPage,
+        .drawCallback = Draw_MasteryLandingPage,
+    },
+    [PAGE_BOOK_MON_MASTERY_TRACKER] = 
+    {
+        .tilemap = sLinedTilemap,
+        .setupCallback = Setup_MasteryTrackerPage,
+        .inputCallback = HandleInput_MasteryTrackerPage,
+        .drawCallback = Draw_MasteryTrackerPage,
+    },
     [PAGE_BOOK_MON_MASTERY_TODO] = 
     {
         .tilemap = sInnerTilemap,
@@ -335,8 +359,10 @@ static u8 const sText_ChallengesComplete[] = _("Challenge·{FONT_SMALL_NARROW}{C
 static u8 const sText_ChallengesActive[] = _("Challenge·{FONT_SMALL_NARROW}{COLOR BLUE}Active");
 static u8 const sText_ChallengesInactive[] = _("Challenge·{FONT_SMALL_NARROW}{COLOR RED}Inactiv");
 
-static u8 const sText_MonMasteryTodo[] = _("Mastery·{FONT_SMALL_NARROW}{COLOR BLUE}To-Do");
-static u8 const sText_MonMasteryComplete[] = _("Mastery·{FONT_SMALL_NARROW}{COLOR GREEN}Done");
+static u8 const sText_MonMastery[] = _("{PKMN} Mastery");
+static u8 const sText_MonMasteryTracker[] = _("{PKMN} Tracker");
+static u8 const sText_MonMasteryTodo[] = _("Quests·{FONT_SMALL_NARROW}{COLOR BLUE}To-Do");
+static u8 const sText_MonMasteryComplete[] = _("Quests·{FONT_SMALL_NARROW}{COLOR GREEN}Done");
 static u8 const sText_MonMasteryActive[] = _("Mastery·{FONT_SMALL_NARROW}{COLOR BLUE}Active");
 static u8 const sText_MonMasteryInactive[] = _("Mastery·{FONT_SMALL_NARROW}{COLOR RED}Inactive");
 
@@ -359,13 +385,15 @@ static u8 const sText_MarkerCompleteHard[] = _("{COLOR GREEN}·Complete Hard·")
 static u8 const sText_MarkerCompleteBrutal[] = _("{COLOR GREEN}·Complete Brutal·");
 static u8 const sText_MarkerRewards[] = _("{COLOR DARK_GRAY}Rewards");
 
+static u8 const sText_PkmnMastery[] = _("{PKMN} Mastery");
+
 // Index Page
 static u8 const sText_Index_InProgressPerc[] = _("{COLOR BLUE}{STR_VAR_1}%");
 static u8 const sText_Index_FinishedPerc[] = _("{COLOR GREEN}{STR_VAR_1}%");
 static u8 const sText_Index_ActiveCount[] = _("{COLOR BLUE}{STR_VAR_1} / {STR_VAR_2}");
 static u8 const sText_Index_NoneActiveCount[] = _("{COLOR RED}{STR_VAR_1} / {STR_VAR_2}");
 
-static u8 const sText_Index_Quest[] = _("Main");
+static u8 const sText_Index_Main[] = _("Main");
 static u8 const sText_Index_Challenge[] = _("Challenge");
 static u8 const sText_Index_Mastery[] = _("Mastery");
 static u8 const sText_Index_Total[] = _("Total");
@@ -375,6 +403,7 @@ static u8 const sText_Index_Easy[] = _("Easy");
 static u8 const sText_Index_Average[] = _("Average");
 static u8 const sText_Index_Hard[] = _("Hard");
 static u8 const sText_Index_Brutal[] = _("Brutal");
+static u8 const sText_Index_Quests[] = _("Quests");
 
 static u8 const sText_Index_PendingRewards[] = _("{COLOR GREEN}Rewards ready to\nbe Collected!");
 
@@ -476,6 +505,18 @@ static void SetupPage(u8 page)
 {
     u16 prevScrollListHead = sQuestMenuData->scrollListHead;
     u16 prevScrollListOffset = sQuestMenuData->scrollListOffset;
+
+    if(page == PAGE_BOOK_INDEX)
+    {
+        // Redirect these pages
+        switch (sQuestMenuData->currentPage)
+        {
+        case PAGE_BOOK_MON_MASTERY_TODO:
+        case PAGE_BOOK_MON_MASTERY_COMPLETE:
+            page = PAGE_BOOK_MON_MASTERY_LANDING;
+            break;
+        }
+    }
     
     if(sQuestMenuData->previousPage == page)
     {
@@ -931,14 +972,9 @@ static struct MenuOption const sMenuOptionsHub[] =
     },
 
     {
-        .text = sText_MonMasteryTodo,
+        .text = sText_MonMastery,
         .callback = SetupPage,
-        .param = PAGE_BOOK_MON_MASTERY_TODO,
-    },
-    {
-        .text = sText_MonMasteryComplete,
-        .callback = SetupPage,
-        .param = PAGE_BOOK_MON_MASTERY_COMPLETE,
+        .param = PAGE_BOOK_MON_MASTERY_LANDING,
     },
 
     {
@@ -1006,6 +1042,8 @@ static bool8 IsIndexPageVisible(u8 page)
     case PAGE_BOOK_CHALLENGE_COMPLETE:
         return RogueQuest_HasUnlockedChallenges();
  
+    case PAGE_BOOK_MON_MASTERY_LANDING:
+    case PAGE_BOOK_MON_MASTERY_TRACKER:
     case PAGE_BOOK_MON_MASTERY_TODO:
     case PAGE_BOOK_MON_MASTERY_ACTIVE:
     case PAGE_BOOK_MON_MASTERY_INACTIVE:
@@ -1122,7 +1160,7 @@ static void Draw_IndexPage()
 {
     u8 x, y;
     u8 str[32];
-    u8 const* textMainQuest = (RogueQuest_HasUnlockedChallenges() || RogueQuest_HasUnlockedMonMasteries()) ? sText_Index_Quest : sText_Index_Total;
+    u8 const* textMainQuest = (RogueQuest_HasUnlockedChallenges() || RogueQuest_HasUnlockedMonMasteries()) ? sText_Index_Main : sText_Index_Total;
     u8 const color[3] = {0, 2, 3};
 
     // Draw current quest info
@@ -1754,4 +1792,251 @@ static void Draw_QuestPage()
     gTextFlags.replaceScrollWithNewLine = FALSE;
 
     ScheduleBgCopyTilemapToVram(1);
+}
+
+// Mastery Custom Pages
+//
+
+static struct MenuOption const sMasteryLandingOptions[] = 
+{
+    {
+        .text = sText_MonMasteryTracker,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_MON_MASTERY_TRACKER,
+    },
+    {
+        .text = sText_MonMasteryTodo,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_MON_MASTERY_TODO,
+    },
+    {
+        .text = sText_MonMasteryComplete,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_MON_MASTERY_COMPLETE,
+    },
+
+    {
+        .text = sText_Back,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_INDEX,
+    },
+};
+
+
+static void Setup_MasteryLandingPage()
+{
+    sQuestMenuData->scrollListCount = ARRAY_COUNT(sMasteryLandingOptions);
+}
+
+static void HandleInput_MasteryLandingPage(u8 taskId)
+{
+    if(HandleScrollBehaviour())
+        Draw_MasteryLandingPage();
+
+    if (JOY_NEW(A_BUTTON))
+    {
+        AGB_ASSERT(GetCurrentListIndex() < ARRAY_COUNT(sMasteryLandingOptions));
+
+        sMasteryLandingOptions[GetCurrentListIndex()].callback(sMasteryLandingOptions[GetCurrentListIndex()].param);
+    }
+
+    if (JOY_NEW(B_BUTTON))
+        SetupPage(PAGE_BOOK_INDEX);
+}
+
+
+static u8 const sText_Mastery_LandingDesc[] = _("Enter the Hall of\nFame with any {PKMN}\nfrom it's Evolution\nline to Complete\nit's Mastery!\n\nSpecific {PKMN} have\nRewards/Quests\nassociated with\nthem.");
+
+static void Draw_MasteryLandingPage()
+{
+    u8 x, y;
+    u8 str[32];
+    u8 const color[3] = {0, 2, 3};
+
+    FillWindowPixelBuffer(WIN_LEFT_PAGE, PIXEL_FILL(0));
+
+    y = 2;
+    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_NORMAL, 0, 1, 0, 0, color, TEXT_SKIP_DRAW, sText_PkmnMastery);
+
+    // Total
+    {
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Total);
+        BufferQuestPercValueFor(str, RogueQuest_GetMonMasteryTotalPerc(), 100);
+
+        x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+        ++y;
+    }
+
+    // Quests
+    {
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Quests);
+        BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_MON_MASTERY), 100);
+
+        x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+        ++y;
+    }
+
+    // Print Description
+    ++y;
+    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Mastery_LandingDesc);
+    ++y;
+
+    PutWindowTilemap(WIN_LEFT_PAGE);
+    CopyWindowToVram(WIN_LEFT_PAGE, COPYWIN_FULL);
+
+    // Draw scroll list
+    DrawGenericScrollList(sMasteryLandingOptions, ARRAY_COUNT(sMasteryLandingOptions));
+}
+
+#define TRACKER_ENTRY_WIDTH         2
+#define TRACKER_ENTRY_HEIGHT        8
+#define TRACKER_ENTRY_PER_PAGE      (TRACKER_ENTRY_WIDTH * TRACKER_ENTRY_HEIGHT)
+
+static void Setup_MasteryTrackerPage()
+{
+    sQuestMenuData->scrollListOffset = 0;
+}
+
+static void HandleInput_MasteryTrackerPage(u8 taskId)
+{
+    //if(HandleScrollBehaviour())
+    //    Draw_MasteryLandingPage();
+
+    if(JOY_REPEAT(DPAD_LEFT))
+    {
+        if(sQuestMenuData->scrollListOffset == 0)
+            sQuestMenuData->scrollListOffset = SPECIES_EGG_EVO_STAGE_COUNT / TRACKER_ENTRY_PER_PAGE;
+        else
+            --sQuestMenuData->scrollListOffset;
+
+        PlaySE(SE_DEX_SCROLL);
+        Draw_MasteryTrackerPage();
+    }
+
+    if(JOY_REPEAT(DPAD_RIGHT))
+    {
+        sQuestMenuData->scrollListOffset++;
+
+        if(sQuestMenuData->scrollListOffset * TRACKER_ENTRY_PER_PAGE >= SPECIES_EGG_EVO_STAGE_COUNT)
+            sQuestMenuData->scrollListOffset = 0;
+
+        PlaySE(SE_DEX_SCROLL);
+        Draw_MasteryTrackerPage();
+    }
+
+    //if (JOY_NEW(A_BUTTON))
+    //{
+    //    AGB_ASSERT(GetCurrentListIndex() < ARRAY_COUNT(sMasteryLandingOptions));
+//
+    //    sMasteryLandingOptions[GetCurrentListIndex()].callback(sMasteryLandingOptions[GetCurrentListIndex()].param);
+    //}
+
+    if (JOY_NEW(B_BUTTON))
+        SetupPage(PAGE_BOOK_MON_MASTERY_LANDING);
+}
+
+extern const u16 gRogueBake_EggSpecies[];
+
+static u8 const sText_PageMarker[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}");
+static u8 const sText_ChangePageLeft[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}{DPAD_LEFT} back");
+static u8 const sText_ChangePageRight[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}next {DPAD_RIGHT}");
+
+static void Draw_MasteryTrackerPage()
+{
+    u8 x, y;
+    u32 i, counter, species;
+    u8 const color[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+    u8 const completedColor[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_GREEN, TEXT_COLOR_LIGHT_GRAY};
+    //u8 const todoColor[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_LIGHT_GRAY};
+
+    FillWindowPixelBuffer(WIN_LEFT_PAGE, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_RIGHT_PAGE, PIXEL_FILL(0));
+
+    // Remove previous sprites if we have any
+    FreeAllSpritePalettes();
+    ResetSpriteData();
+
+    LoadMonIconPalettes();
+
+    counter = 0;
+    
+    for(x = 0; x < TRACKER_ENTRY_WIDTH; ++x)
+    {
+        for(y = 0; y < TRACKER_ENTRY_HEIGHT; ++y)
+        {
+            i = sQuestMenuData->scrollListOffset * TRACKER_ENTRY_PER_PAGE + counter++;
+
+            if(i >= SPECIES_EGG_EVO_STAGE_COUNT)
+                break;
+
+            species = gRogueBake_EggSpecies[i];
+
+            if(RogueQuest_GetMonMasteryFlag(species))
+            {
+                AddTextPrinterParameterized4(
+                    x == 0 ? WIN_LEFT_PAGE : WIN_RIGHT_PAGE,
+                    FONT_NORMAL,
+                    24,
+                    4 + 16 * y,
+                    0, 0,
+                    completedColor,
+                    TEXT_SKIP_DRAW,
+                    RoguePokedex_GetSpeciesName(species)
+                );
+
+                CreateMonIcon(
+                    species,
+                    SpriteCallbackDummy,
+                    25 + 120 * x,
+                    14 + 16 * y,
+                    0, 0, 
+                    MON_MALE
+                );
+            }
+            else
+            {
+                AddTextPrinterParameterized4(
+                    x == 0 ? WIN_LEFT_PAGE : WIN_RIGHT_PAGE,
+                    FONT_NORMAL,
+                    24,
+                    4 + 16 * y,
+                    0, 0,
+                    color,
+                    TEXT_SKIP_DRAW,
+                    gText_ThreeQuestionMarks
+                );
+
+                //CreateMissingMonIcon(
+                //    SpriteCallbackDummy,
+                //    25 + 120 * x,
+                //    14 + 16 * y,
+                //    0,
+                //    0
+                //);
+            }
+        }
+    }
+
+    // Page numbers
+    {
+        u8* str;
+        
+        str = StringCopy(gStringVar4, sText_PageMarker);
+        ConvertIntToDecimalStringN(str, sQuestMenuData->scrollListOffset * 2 + 1, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 60, 131, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+        
+        str = StringCopy(gStringVar4, sText_PageMarker);
+        ConvertIntToDecimalStringN(str, sQuestMenuData->scrollListOffset * 2 + 2, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 4, 131, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+    }
+
+    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 131, 0, 0, color, TEXT_SKIP_DRAW, sText_ChangePageLeft);
+    AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 57, 131, 0, 0, color, TEXT_SKIP_DRAW, sText_ChangePageRight);
+
+    PutWindowTilemap(WIN_LEFT_PAGE);
+    PutWindowTilemap(WIN_RIGHT_PAGE);
+    CopyWindowToVram(WIN_LEFT_PAGE, COPYWIN_FULL);
+    CopyWindowToVram(WIN_RIGHT_PAGE, COPYWIN_FULL);
 }
