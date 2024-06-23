@@ -26,6 +26,7 @@ struct QuestReward
 	{
 		bool isValid;
 		std::string itemIcon;
+		std::string speciesIcon;
 		std::string title;
 		std::string subtitle;
 		std::string soundEffect;
@@ -250,7 +251,13 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 				fileStream << "{\n";
 				fileStream << c_TabSpacing << ".titleStr = sCustomPopupTitle_" << quest.GetUniqueWriteId() << ",\n";
 				fileStream << c_TabSpacing << ".subtitleStr = sCustomPopupSubtitle_" << quest.GetUniqueWriteId() << ",\n";
-				fileStream << c_TabSpacing << ".itemIcon = " << rewardInfo.customPopup.itemIcon << ",\n";
+
+				if(!rewardInfo.customPopup.itemIcon.empty())
+					fileStream << c_TabSpacing << ".itemIcon = " << rewardInfo.customPopup.itemIcon << ",\n";
+
+				if (!rewardInfo.customPopup.speciesIcon.empty())
+					fileStream << c_TabSpacing << ".speciesIcon = " << rewardInfo.customPopup.speciesIcon << ",\n";
+
 				fileStream << c_TabSpacing << ".soundEffect = " << rewardInfo.customPopup.soundEffect << ",\n";
 				fileStream << c_TabSpacing << ".fanfare = " << rewardInfo.customPopup.fanfare << ",\n";
 				fileStream << "};\n";
@@ -782,7 +789,12 @@ static QuestReward ParseQuestReward(json const& jsonData)
 
 		reward.customPopup.isValid = true;
 
-		reward.customPopup.itemIcon = customPopup["item_icon"].get<std::string>();
+		if (customPopup.contains("item_icon"))
+			reward.customPopup.itemIcon = customPopup["item_icon"].get<std::string>();
+
+		if (customPopup.contains("species_icon"))
+			reward.customPopup.speciesIcon = customPopup["species_icon"].get<std::string>();
+
 		reward.customPopup.title = customPopup["title"].get<std::string>();
 		reward.customPopup.subtitle = customPopup["subtitle"].get<std::string>();
 

@@ -6,6 +6,7 @@ struct CustomPopup
     u8 const* titleStr;
     u8 const* subtitleStr;
     u16 itemIcon;
+    u16 speciesIcon;
     u16 soundEffect;
     u16 fanfare;
 };
