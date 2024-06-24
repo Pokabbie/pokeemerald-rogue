@@ -39,6 +39,8 @@ enum {
     TAG_REWARD_ICON_POKEMON_SHINY = 100,
     TAG_REWARD_ICON_POKEMON_CUSTOM,
     TAG_REWARD_ICON_SHOP_ITEM,
+    TAG_REWARD_ICON_DIFFICULTY_HARD,
+    TAG_REWARD_ICON_DIFFICULTY_BRUTAL,
     TAG_REWARD_ICON_MONEY,
     TAG_REWARD_ICON_ITEM,
 };
@@ -1459,6 +1461,9 @@ extern const u32 gItemIcon_RogueStatusCustom[];
 extern const u32 gItemIcon_RogueStatusShop[];
 extern const u32 gItemIcon_RogueStatusMoney[];
 extern const u32 gItemIconPalette_RogueStatusStarCustom[];
+extern const u32 gItemIcon_RogueHardLock[];
+extern const u32 gItemIcon_RogueBrutalLock[];
+extern const u32 gItemIconPalette_RogueStatusLock[];
 
 static void Draw_QuestPage()
 {
@@ -1553,6 +1558,24 @@ static void Draw_QuestPage()
                     currentSpriteGroup = groupedSpriteIndex[spriteIdx - 1] + 1;
                 else
                     currentSpriteGroup = 0;
+
+                // Attach difficulty tag above main sprite
+                {
+                    if(reward->requiredDifficulty >= DIFFICULTY_LEVEL_BRUTAL)
+                    {
+                        sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_DIFFICULTY_BRUTAL, TAG_REWARD_ICON_DIFFICULTY_HARD, gItemIcon_RogueBrutalLock, gItemIconPalette_RogueStatusLock);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+                    }
+                    else if(reward->requiredDifficulty >= DIFFICULTY_LEVEL_HARD)
+                    {
+                        sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_DIFFICULTY_HARD, TAG_REWARD_ICON_DIFFICULTY_HARD, gItemIcon_RogueHardLock, gItemIconPalette_RogueStatusLock);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+                    }
+                }
 
                 if(reward->visiblity == QUEST_REWARD_VISIBLITY_OBSCURED)
                 {

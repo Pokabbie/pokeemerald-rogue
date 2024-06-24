@@ -46,7 +46,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My aim is to rid our world of the vague and incomplete thing we call spirit.\\pBy freeing ourselves of that, our world can be made complete.",
                         "PRE_BATTLE_TAUNT": "That is my justice!\\nNo one can interfere!",
                         "POST_BATTLE_TAUNT": "I won't accept this!\\nThis can't be!",
-                        "POST_BATTLE_CLOSER": "I can't accept this!\\pNot after all the sacrifices we've made to get this far!\\pWhat of my new world?!\\nOf my new galaxy?!\\pI'll never accept this!\\pMark my words!"
+                        "POST_BATTLE_CLOSER": "I can't accept this!\\pNot after all the sacrifices we've made to get this far!\\pWhat of my new world?!\\nOf my new galaxy?!\\pI'll never accept this!\\pI shall never stop!\\pMark my words!"
                     }
                 ],
                 "preferred_mon_gender": "MALE",

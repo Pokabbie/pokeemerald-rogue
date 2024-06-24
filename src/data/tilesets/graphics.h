@@ -1727,3 +1727,20 @@ const u16 gTilesetPalettes_Restaurant[][16] =
 };
 
 const u32 gTilesetTiles_Restaurant[] = INCBIN_U32("data/tilesets/secondary/restaurant/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_FacilityGalactic[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/12.gbapal"),
+};

@@ -36,7 +36,12 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "species": "SPECIES_SHEDINJA",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -77,8 +82,13 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "quest": "Chaos Master" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "quest": "Chaos Master" },
+                    {
+                        "species": "SPECIES_CHIMECHO",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -99,7 +109,12 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "species": "SPECIES_ABSOL",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -122,12 +137,17 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_CLEFAIRY",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
                 "name": "Can't Pick!?",
-                "description": "Win a full Run, only ever entering Trainer battles with only Starter Pokémon in your party e.g. Charmander, Totodile, Treecko, Pikachu, Eevee etc.",
+                "description": "Win a full Run, only ever entering Trainer battles with only Starters in your party e.g. Charmander, Totodile, Treecko, Pikachu, Eevee etc.",
                 "triggers":
                 [
                     {
@@ -153,6 +173,11 @@
                         "#if": "defined(ROGUE_EXPANSION)",
                         "species": "SPECIES_PIKACHU_ORIGINAL_CAP",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_PIKACHU_ORIGINAL_CAP"
+                    },
+                    {
+                        "species": "SPECIES_PIKACHU",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -174,7 +199,12 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "species": "SPECIES_KECLEON",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -195,7 +225,12 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_ARCANINE",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -216,7 +251,12 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_GYARADOS",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -239,7 +279,12 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_NINJASK",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -259,7 +304,19 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "#if": "!defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_NINETALES",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    },
+                    {
+                        "#if": "defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_NINETALES_ALOLAN",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
 
@@ -283,7 +340,19 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "#if": "!defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_VOLTORB",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    },
+                    {
+                        "#if": "defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_VOLTORB_HISUIAN",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
 
@@ -316,7 +385,12 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "species": "SPECIES_SUNKERN",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -336,7 +410,12 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_SMEARGLE",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
 
@@ -367,7 +446,12 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "species": "SPECIES_BANETTE",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -387,8 +471,13 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "quest": "Iron Kaizo" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "quest": "Iron Kaizo" },
+                    {
+                        "species": "SPECIES_CHANSEY",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -412,7 +501,19 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "#if": "!defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_TOGEPI",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    },
+                    {
+                        "#if": "defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_KINGAMBIT",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -437,7 +538,12 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_CHARIZARD",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             }
         ]

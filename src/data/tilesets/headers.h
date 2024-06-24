@@ -880,3 +880,14 @@ const struct Tileset gTileset_Restaurant =
     .metatileAttributes = gMetatileAttributes_Restaurant,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FacilityGalactic =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Facility,
+    .palettes = gTilesetPalettes_FacilityGalactic,
+    .metatiles = gMetatiles_FacilityGalactic,
+    .metatileAttributes = gMetatileAttributes_FacilityGalactic,
+    .callback = NULL,
+};
