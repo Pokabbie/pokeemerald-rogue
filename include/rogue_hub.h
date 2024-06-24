@@ -8,6 +8,8 @@ void RogueHub_Exit();
 void RogueHub_ClearProgress();
 
 bool8 RogueHub_HasUpgrade(u16 upgradeId);
+bool8 RogueHub_HasLocalUpgrade(u16 upgradeId);
+bool8 RogueHub_HasAllLocalUpgrades();
 void RogueHub_SetUpgrade(u16 upgradeId, bool8 state);
 bool8 RogueHub_HasUpgradeRequirements(u16 upgradeId);
 
