@@ -71,6 +71,7 @@ static bool8 QuestCondition_RandomanWasUsed(u16 questId, struct RogueQuestTrigge
 static bool8 QuestCondition_RandomanWasActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_LastItemWasAny(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_BagContainsItemsOR(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_VarGetEqual(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_VarGetLessThan(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -1589,6 +1590,19 @@ static bool8 QuestCondition_LastItemWasAny(u16 questId, struct RogueQuestTrigger
     for(i = 0; i < trigger->paramCount; ++i)
     {
         if(trigger->params[i] == gSpecialVar_ItemId)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_BagContainsItemsOR(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        if(CheckBagHasItem(trigger->params[i], 1))
             return TRUE;
     }
 

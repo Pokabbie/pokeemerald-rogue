@@ -294,10 +294,12 @@
                     { "quest": "One Last Quest…" },
                     { "quest": "Taste the Rainbow" },
                     { "quest": "Long Haul" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Battle Gimmick" },
                     { "#if": "defined(ROGUE_EXPANSION)", "quest": "Mega Evolution" },
                     { "#if": "defined(ROGUE_EXPANSION)", "quest": "Z-Moves" },
                     { "#if": "defined(ROGUE_EXPANSION)", "quest": "Dynamax" },
-                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Terastallization" }
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Terastallization" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Gimmick Overflow" }
 
                 ]
             },
@@ -966,89 +968,20 @@
 
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Mega Evolution",
-                "description": "Win a full Run with the Mega Ring.",
+                "name": "Battle Gimmick",
+                "description": "Win a full Run with any of: Mega Ring, Z-Power Ring, Dynamax Band or Tera Orb.",
                 "triggers":
                 [
                     {
                         "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "Always",
+                        "condition": "BagContainsItemsOR",
+                        "params": [ "ITEM_MEGA_RING", "ITEM_Z_POWER_RING", "ITEM_DYNAMAX_BAND", "ITEM_TERA_ORB" ],
                         "pass": "SUCCESS"
                     }
                 ],
-                "requirements":
-                [
-                    { "item": "ITEM_MEGA_RING", "count": 1 }
-                ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
-                ]
-            },
-            {
-                "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Z-Moves",
-                "description": "Win a full Run with the Z-Power Ring.",
-                "triggers":
-                [
-                    {
-                        "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "Always",
-                        "pass": "SUCCESS"
-                    }
-                ],
-                "requirements":
-                [
-                    { "item": "ITEM_Z_POWER_RING", "count": 1 }
-                ],
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
-                ]
-            },
-            {
-                "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Dynamax",
-                "description": "Win a full Run with the Dynamax Band.",
-                "triggers":
-                [
-                    {
-                        "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "Always",
-                        "pass": "SUCCESS"
-                    }
-                ],
-                "requirements":
-                [
-                    { "item": "ITEM_DYNAMAX_BAND", "count": 1 }
-                ],
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
-                ]
-            },
-            {
-                "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Terastallization",
-                "description": "Win a full Run with the Tera Orb.",
-                "triggers":
-                [
-                    {
-                        "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "Always",
-                        "pass": "SUCCESS"
-                    }
-                ],
-                "requirements":
-                [
-                    { "item": "ITEM_TERA_ORB", "count": 1 }
-                ],
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             }
