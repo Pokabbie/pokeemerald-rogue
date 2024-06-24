@@ -1395,7 +1395,7 @@ static void PrintPokemonIconsOnCard(void)
     u8 paletteSlots[PARTY_SIZE] = {5, 6, 7, 8, 9, 10};
     u8 xOffsets[PARTY_SIZE] = {0, 4, 8, 12, 16, 20};
 
-    if (sData->trainerCard.monSpecies[i] != SPECIES_NONE)
+    if (sData->trainerCard.monSpecies[0] != SPECIES_NONE)
     {
         for (i = 0; i < PARTY_SIZE; i++)
         {
