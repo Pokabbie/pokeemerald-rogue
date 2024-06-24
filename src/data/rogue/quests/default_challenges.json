@@ -19,6 +19,141 @@
         "default_group":
         [
             {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Mega Evolution",
+                "description": "Win a full Run with the Mega Ring.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_MEGA_RING", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_LUCARIO",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Z-Moves",
+                "description": "Win a full Run with the Z-Power Ring.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_Z_POWER_RING", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_MIMIKYU",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Dynamax",
+                "description": "Win a full Run with the Dynamax Band.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_DYNAMAX_BAND", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_ELDEGOSS",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Terastallization",
+                "description": "Win a full Run with the Tera Orb.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_TERA_ORB", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_CYCLIZAR",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Gimmick Overflow",
+                "description": "Win a full Run with: Healing Flask, Mega Ring, Z-Power Ring, Dynamax Band & Tera Orb.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_MEGA_RING", "count": 1 },
+                    { "item": "ITEM_Z_POWER_RING", "count": 1 },
+                    { "item": "ITEM_DYNAMAX_BAND", "count": 1 },
+                    { "item": "ITEM_TERA_ORB", "count": 1 },
+                    { "item": "ITEM_HEALING_FLASK", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_CHARIZARD",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+
+            {
                 "name": "True Tactics",
                 "description": "Win a full Run, without any Pokémon ever fainting.",
                 "triggers":
@@ -511,36 +646,6 @@
                     {
                         "#if": "defined(ROGUE_EXPANSION)",
                         "species": "SPECIES_KINGAMBIT",
-                        "shiny": true,
-                        "difficulty": "HARD"
-                    }
-                ]
-            },
-            {
-                "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Gimmick Overflow",
-                "description": "Win a full Run with: Mega Ring, Z-Power Ring, Dynamax Band, Tera Orb & Healing Flask.",
-                "triggers":
-                [
-                    {
-                        "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "Always",
-                        "pass": "SUCCESS"
-                    }
-                ],
-                "requirements":
-                [
-                    { "item": "ITEM_MEGA_RING", "count": 1 },
-                    { "item": "ITEM_Z_POWER_RING", "count": 1 },
-                    { "item": "ITEM_DYNAMAX_BAND", "count": 1 },
-                    { "item": "ITEM_TERA_ORB", "count": 1 },
-                    { "item": "ITEM_HEALING_FLASK", "count": 1 }
-                ],
-                "rewards":
-                [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
-                    {
-                        "species": "SPECIES_CHARIZARD",
                         "shiny": true,
                         "difficulty": "HARD"
                     }
