@@ -53,6 +53,7 @@
 #include "rogue_baked.h"
 #include "rogue_controller.h"
 #include "rogue_gifts.h"
+#include "rogue_quest.h"
 
 enum {
     PSS_PAGE_INFO,
@@ -189,6 +190,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 OTName[17]; // 0x36
         u32 OTID; // 0x48
         u8 teraType;
+        u8 gigatamaxFactor;
     } summary;
     u16 bgTilemapBuffers[PSS_PAGE_COUNT][2][0x400];
     u8 mode;
@@ -1760,6 +1762,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
     default:
         sum->ribbonCount = GetMonData(mon, MON_DATA_RIBBON_COUNT);
         sum->teraType = GetMonData(mon, MON_DATA_TERA_TYPE);
+        sum->gigatamaxFactor = GetMonData(mon, MON_DATA_GIGANTAMAX_FACTOR);
         return TRUE;
     }
     sMonSummaryScreen->switchCounter++;
@@ -3509,10 +3512,17 @@ static void PrintMonOTID(void)
     }
 }
 
+static u8 const sText_GmaxFactor[] = _("GMAX");
+
 static void PrintMonAbilityName(void)
 {
     u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum, sMonSummaryScreen->summary.OTID);
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilityNames[ability], 0, 1, 0, 1);
+
+    if(sMonSummaryScreen->summary.gigatamaxFactor || RogueQuest_GetMonMasteryFlag(sMonSummaryScreen->summary.species))
+    {
+        PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), sText_GmaxFactor, 118, 1, 0, SUMMARY_TEXT_COLOR_RED);
+    }
 }
 
 static void PrintMonAbilityDescription(void)

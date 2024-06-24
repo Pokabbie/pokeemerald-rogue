@@ -973,6 +973,7 @@ u32 Rogue_CalculateMovePrice(u16 move)
 extern const u8 gText_EscapeRopeDesc[];
 extern const u8 gItemDesc_TM[];
 extern const u8 gItemDesc_TR[];
+extern const u8 gItemDesc_MaxMushroom[];
 
 extern const u32 *const gItemIconTable[][2];
 
@@ -1014,6 +1015,11 @@ const u8* Rogue_GetItemDesc(u16 itemId)
     {
         case ITEM_ESCAPE_ROPE:
             return gText_EscapeRopeDesc;
+
+#ifdef ROGUE_EXPANSION
+        case ITEM_MAX_MUSHROOMS:
+            return gItemDesc_MaxMushroom;
+#endif
     }
 
     return gItems[itemId].description;
@@ -1329,6 +1335,11 @@ u16 Rogue_GetPrice(u16 itemId)
             price = HELD_ITEM_HIGH_PRICE;
             break;
 
+        case ITEM_MAX_MUSHROOMS:
+            //applyDefaultHubIncrease = TRUE;
+            price = HELD_ITEM_HIGH_PRICE;
+            break;
+
         case ITEM_DUSK_BALL:
         case ITEM_TIMER_BALL:
         case ITEM_QUICK_BALL:
@@ -1536,6 +1547,14 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     {
         outItem->type = ITEM_USE_PARTY_MENU,
         outItem->fieldUseFunc = ItemUseOutOfBattle_TeraShard,
+        outItem->pocket = POCKET_STONES;
+    }
+
+    if(itemId == ITEM_MAX_MUSHROOMS)
+    {
+        outItem->type = ITEM_USE_PARTY_MENU,
+        outItem->battleUsage = 0,
+        outItem->fieldUseFunc = ItemUseOutOfBattle_MaxMushroom,
         outItem->pocket = POCKET_STONES;
     }
 #endif

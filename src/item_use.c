@@ -1017,6 +1017,12 @@ void ItemUseOutOfBattle_TeraShard(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
+void ItemUseOutOfBattle_MaxMushroom(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_MaxMushroom;
+    SetUpItemUseCallback(taskId);
+}
+
 void ItemUseOutOfBattle_ResetEVs(u8 taskId)
 {
     gItemUseCB = ItemUseCB_ResetEVs;

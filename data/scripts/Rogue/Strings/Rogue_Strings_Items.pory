@@ -48,6 +48,11 @@ text gItemDesc_TR
     format("Single use machine for teaching {PKMN} one specific move.")
 }
 
+text gItemDesc_MaxMushroom
+{
+    format("When used on a {PKMN} they gain access their Gmax form.")
+}
+
 text gItemDesc_SmallCoinCase
 {
     format("Coin Case provides ¥1000 on start of Adventure.")

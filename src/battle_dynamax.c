@@ -156,7 +156,6 @@ bool32 CanDynamax(u16 battlerId)
 // Returns whether a battler is transformed into a Gigantamax form.
 bool32 IsGigantamaxed(u16 battlerId)
 {
-    // TODO: Incorporate Gigantamax factor.
     if ((gSpeciesInfo[gBattleMons[battlerId].species].isGigantamax))
         return TRUE;
     return FALSE;
@@ -169,9 +168,9 @@ void ApplyDynamaxHPMultiplier(u32 battler, struct Pokemon* mon)
         return;
     else
     {
-        u16 mult = UQ_4_12(1.5); // placeholder
-        u16 hp = UQ_4_12_TO_INT((GetMonData(mon, MON_DATA_HP) * mult) + UQ_4_12_ROUND);
-        u16 maxHP = UQ_4_12_TO_INT((GetMonData(mon, MON_DATA_MAX_HP) * mult) + UQ_4_12_ROUND);
+        u32 scale = 150;// + 5 * GetMonData(mon, MON_DATA_DYNAMAX_LEVEL);
+        u32 hp = (GetMonData(mon, MON_DATA_HP) * scale + 99) / 100;
+        u32 maxHP = (GetMonData(mon, MON_DATA_MAX_HP) * scale + 99) / 100;
         SetMonData(mon, MON_DATA_HP, &hp);
         SetMonData(mon, MON_DATA_MAX_HP, &maxHP);
     }
@@ -184,7 +183,7 @@ u16 GetNonDynamaxHP(u16 battlerId)
         return gBattleMons[battlerId].hp;
     else
     {
-        u16 mult = UQ_4_12(1.0/1.5); // placeholder
+        u16 mult = UQ_4_12(1.0/1.5); // placeholder // need to consider MON_DATA_DYNAMAX_LEVEL ?
         u16 hp = UQ_4_12_TO_INT((gBattleMons[battlerId].hp * mult) + UQ_4_12_ROUND);
         return hp;
     }

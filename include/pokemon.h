@@ -102,6 +102,7 @@ enum {
     MON_DATA_SPATK2,
     MON_DATA_SPDEF2,
     MON_DATA_TERA_TYPE,
+    MON_DATA_GIGANTAMAX_FACTOR,
 };
 
 struct PokemonSubstruct0
@@ -147,7 +148,7 @@ struct PokemonSubstruct3
 
  /* 0x02 */ u16 metLevel:7;
  /* 0x02 */ u16 metGame:4;
- /* 0x03 */ u16 unused1:4;
+ /* 0x03 */ u16 unused1:4; // dynamaxLevel?
  /* 0x03 */ u16 otGender:1;
 
  /* 0x04 */ u32 hpIV:5;
@@ -157,7 +158,7 @@ struct PokemonSubstruct3
  /* 0x05 */ u32 spAttackIV:5;
  /* 0x06 */ u32 spDefenseIV:5;
  /* 0x07 */ u32 isEgg:1;
- /* 0x07 */ u32 unused2:1;
+ /* 0x07 */ u32 gigantamaxFactor:1;
 
  /* 0x08 */ u32 isShiny:3;
  /* 0x08 */ u32 genderFlag:3;

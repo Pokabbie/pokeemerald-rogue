@@ -52,6 +52,7 @@
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_safari.h"
+#include "rogue_quest.h"
 
 /*
 NOTE: The data and functions in this file up until (but not including) sSoundMovesTable
@@ -10783,8 +10784,24 @@ u16 GetBattleFormChangeTargetSpecies(u32 battler, u16 method)
                     }
                     break;
                 case FORM_CHANGE_BATTLE_GIGANTAMAX:
-                    // TODO: check Gigantamax factor
-                    targetSpecies = formChange.targetSpecies;
+                    {
+                        if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+                        {
+                            u8 monId = gBattlerPartyIndexes[battler];
+                            struct Pokemon *party = GetBattlerParty(battler);
+
+                            if(RogueQuest_GetMonMasteryFlag(species) || GetMonData(&party[monId], MON_DATA_GIGANTAMAX_FACTOR))
+                            {
+                                // Always allowed to Gmax if completed mon mastery
+                                targetSpecies = formChange.targetSpecies;
+                            }
+                        }
+                        else
+                        {
+                            // AI always has access to Gmax
+                            targetSpecies = formChange.targetSpecies;
+                        }
+                    }
                     break;
                 case FORM_CHANGE_BATTLE_WEATHER:
                     // Check if there is a required ability and if the battler's ability does not match it

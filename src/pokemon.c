@@ -2477,6 +2477,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
                     | (substruct3->worldRibbon << 26);
             }
             break;
+        case MON_DATA_GIGANTAMAX_FACTOR:
+            retVal = substruct3->gigantamaxFactor;
+            break;
         case MON_DATA_TERA_TYPE:
         {
             if(gSpeciesInfo[substruct0->species].forceTeraType != TYPE_NONE && gSpeciesInfo[substruct0->species].forceTeraType != 0)
@@ -2869,6 +2872,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             substruct3->spDefenseIV = (ivs >> 25) & MAX_IV_MASK;
             break;
         }
+        case MON_DATA_GIGANTAMAX_FACTOR:
+            SET8(substruct3->gigantamaxFactor);
+            break;
         case MON_DATA_TERA_TYPE:
         {
             u32 teraType;

@@ -2310,6 +2310,12 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
                 return TRUE;
             }
             return FALSE;
+            break;
+
+#ifdef ROGUE_EXPANSION
+        case ITEM_MAX_MUSHROOMS:
+            return Rogue_IsRunActive() && IsDynamaxEnabled();
+#endif
 
         case ITEM_SACRED_ASH:
         case ITEM_REVIVAL_HERB:
@@ -2348,7 +2354,6 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         case ITEM_LURE:
         case ITEM_SUPER_LURE:
         case ITEM_MAX_LURE:
-        case ITEM_MAX_MUSHROOMS:
         case ITEM_WISHING_PIECE:
         case ITEM_ARMORITE_ORE:
         case ITEM_DYNITE_ORE:
