@@ -364,7 +364,6 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
         Rogue_PushPopup_CustomPopup(rewardInfo->customPopup);
     }
 
-
     switch (rewardInfo->type)
     {
     case QUEST_REWARD_POKEMON:
@@ -517,6 +516,12 @@ static bool8 IsHighPriorityReward(struct RogueQuestReward const* rewardInfo)
     return FALSE;
 }
 
+static bool8 ShouldSkipQuestReward(struct RogueQuestReward const* rewardInfo, u8 minRewardDifficulty, u8 maxRewardDifficulty)
+{
+    // Skip if outside of reward range
+    return !(rewardInfo->requiredDifficulty >= minRewardDifficulty && rewardInfo->requiredDifficulty <= maxRewardDifficulty);
+}
+
 bool8 RogueQuest_TryCollectRewards(u16 questId)
 {
     u16 i;
@@ -524,13 +529,32 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
     struct RogueQuestReward const* rewardInfo;
     struct RogueQuestState* questState = RogueQuest_GetState(questId);
     u16 rewardCount = RogueQuest_GetRewardCount(questId);
+    u8 minRewardDifficulty = questState->highestCollectedRewardDifficulty;
+    u8 maxRewardDifficulty = questState->highestCompleteDifficulty;
+
+    if(minRewardDifficulty == DIFFICULTY_LEVEL_NONE)
+    {
+        minRewardDifficulty = DIFFICULTY_LEVEL_EASY;
+    }
+    else
+    {
+        // We've already collected rewards for the highestCollectedRewardDifficulty so don't give them again
+        minRewardDifficulty++;
+        AGB_ASSERT(minRewardDifficulty <= maxRewardDifficulty);
+    }
+    
 
     AGB_ASSERT(RogueQuest_HasPendingRewards(questId));
+    AGB_ASSERT(minRewardDifficulty < DIFFICULTY_PRESET_COUNT);
+    AGB_ASSERT(maxRewardDifficulty < DIFFICULTY_PRESET_COUNT);
 
     // Give high pri rewards
     for(i = 0; i < rewardCount; ++i)
     {
         rewardInfo = RogueQuest_GetReward(questId, i);
+
+        if(ShouldSkipQuestReward(rewardInfo, minRewardDifficulty, maxRewardDifficulty))
+            continue;
 
         if(IsHighPriorityReward(rewardInfo))
         {
@@ -548,6 +572,9 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
         {
             rewardInfo = RogueQuest_GetReward(questId, i);
 
+            if(ShouldSkipQuestReward(rewardInfo, minRewardDifficulty, maxRewardDifficulty))
+                continue;
+
             if(IsHighPriorityReward(rewardInfo))
                 RemoveRewardInternal(rewardInfo);
         }
@@ -559,10 +586,13 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
         {
             rewardInfo = RogueQuest_GetReward(questId, i);
 
+            if(ShouldSkipQuestReward(rewardInfo, minRewardDifficulty, maxRewardDifficulty))
+                continue;
+
             if(!IsHighPriorityReward(rewardInfo))
             {
                 // We should never be able to fail to give a high pri reward
-                state = GiveRewardInternal(RogueQuest_GetReward(questId, i));
+                state = GiveRewardInternal(rewardInfo);
                 AGB_ASSERT(state);
             }
         }
@@ -847,10 +877,33 @@ static void CompleteQuest(u16 questId)
     if(!RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
     {
         questState->highestCollectedRewardDifficulty = DIFFICULTY_LEVEL_NONE;
+        RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
+    }
+    else if(questState->highestCollectedRewardDifficulty == DIFFICULTY_LEVEL_NONE)
+    {
+        // Still have rewards to collect
+        RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
+    }
+    else
+    {
+        // Only set pending rewards if we actually do have new rewards for this difficulty
+        u32 i;
+        u32 rewardCount = RogueQuest_GetRewardCount(questId);
+        struct RogueQuestReward const* rewardInfo;
+
+        for(i = 0; i < rewardCount; ++i)
+        {
+            rewardInfo = RogueQuest_GetReward(questId, i);
+
+            if(rewardInfo->requiredDifficulty > questState->highestCollectedRewardDifficulty && rewardInfo->requiredDifficulty <= questState->highestCompleteDifficulty)
+            {
+                RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
+                break;
+            }
+        }
     }
 
     RogueQuest_SetStateFlag(questId, QUEST_STATE_ACTIVE, FALSE);
-    RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
     RogueQuest_SetStateFlag(questId, QUEST_STATE_HAS_COMPLETE, TRUE);
 
     if(!IsQuestSurpressed(questId))

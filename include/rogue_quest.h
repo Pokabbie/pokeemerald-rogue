@@ -32,6 +32,7 @@ struct RogueQuestReward
 {
     u8 type;
     u8 visiblity;
+    u8 requiredDifficulty;
     struct CustomPopup const* customPopup;
     union
     {

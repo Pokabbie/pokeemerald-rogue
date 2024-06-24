@@ -127,7 +127,7 @@
             },
             {
                 "name": "Can't Pick!?",
-                "description": "Win a full Run, only ever entering Trainer battles with only Starter Pokémon in your party e.g. Charmander, Totodile, Treecko, Pikachu, Eevee etc.",
+                "description": "Win a full Run, only ever entering Trainer battles with only Starters in your party e.g. Charmander, Totodile, Treecko, Pikachu, Eevee etc.",
                 "triggers":
                 [
                     {
@@ -153,6 +153,11 @@
                         "#if": "defined(ROGUE_EXPANSION)",
                         "species": "SPECIES_PIKACHU_ORIGINAL_CAP",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_PIKACHU_ORIGINAL_CAP"
+                    },
+                    {
+                        "species": "SPECIES_PICHU",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },

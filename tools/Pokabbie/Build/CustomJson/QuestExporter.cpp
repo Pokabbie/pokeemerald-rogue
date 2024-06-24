@@ -22,6 +22,7 @@ struct QuestReward
 	QuestRewardType type;
 	std::string preprocessorCondition;
 	std::string visibility;
+	std::string requiredDifficulty;
 	struct
 	{
 		bool isValid;
@@ -286,6 +287,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 
 			fileStream << c_TabSpacing << "{\n";
 			fileStream << c_TabSpacing2 << ".visiblity = QUEST_REWARD_VISIBLITY_" << rewardInfo.visibility << ",\n";
+			fileStream << c_TabSpacing2 << ".requiredDifficulty = DIFFICULTY_LEVEL_" << rewardInfo.requiredDifficulty << ",\n";
 
 			if (rewardInfo.customPopup.isValid)
 				fileStream << c_TabSpacing2 << ".customPopup = &sCustomPopup_" << quest.GetUniqueWriteId() << "_" << rewardIndex << ",\n";
@@ -787,6 +789,11 @@ static QuestReward ParseQuestReward(json const& jsonData)
 		reward.visibility = GetAsString(jsonData["visibility"]);
 	else
 		reward.visibility = "DEFAULT";
+
+	if (jsonData.contains("difficulty"))
+		reward.requiredDifficulty = GetAsString(jsonData["difficulty"]);
+	else
+		reward.requiredDifficulty = "EASY";
 
 	// Custom popup
 	if (jsonData.contains("custom_popup"))

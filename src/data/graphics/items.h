@@ -747,6 +747,9 @@ const u32 gItemIcon_RogueStatusCustom[] = INCBIN_U32("graphics/items/icons/rogue
 const u32 gItemIcon_RogueStatusShop[] = INCBIN_U32("graphics/items/icons/rogue_status_shop.4bpp.lz");
 const u32 gItemIcon_RogueStatusMoney[] = INCBIN_U32("graphics/items/icons/rogue_status_money.4bpp.lz");
 const u32 gItemIconPalette_RogueStatusStarCustom[] = INCBIN_U32("graphics/items/icon_palettes/rogue_status_star_custom.gbapal.lz");
+const u32 gItemIcon_RogueHardLock[] = INCBIN_U32("graphics/items/icons/rogue_status_hard.4bpp.lz");
+const u32 gItemIcon_RogueBrutalLock[] = INCBIN_U32("graphics/items/icons/rogue_status_brutal.4bpp.lz");
+const u32 gItemIconPalette_RogueStatusLock[] = INCBIN_U32("graphics/items/icon_palettes/rogue_status_difficulty.gbapal.lz");
 
 const u32 gItemIcon_RogueCharm[] = INCBIN_U32("graphics/items/icons/rogue_charm.4bpp.lz");
 const u32 gItemIconPalette_RogueCharm[] = INCBIN_U32("graphics/items/icon_palettes/rogue_charm.gbapal.lz");
