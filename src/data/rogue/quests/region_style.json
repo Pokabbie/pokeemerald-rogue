@@ -99,6 +99,11 @@
                     {
                         "species": "SPECIES_FARFETCHD",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_FARFETCHD"
+                    },
+                    {
+                        "species": "SPECIES_DRATINI",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -116,6 +121,11 @@
                     {
                         "species": "SPECIES_SPINARAK",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_SPINARAK"
+                    },
+                    {
+                        "species": "SPECIES_SNEASEL",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -133,6 +143,11 @@
                     {
                         "species": "SPECIES_CASTFORM",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_CASTFORM"
+                    },
+                    {
+                        "species": "SPECIES_BELDUM",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -151,6 +166,11 @@
                     {
                         "species": "SPECIES_CARNIVINE",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_CARNIVINE"
+                    },
+                    {
+                        "species": "SPECIES_SHINX",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -169,6 +189,11 @@
                     {
                         "species": "SPECIES_KLINK",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_KLINK"
+                    },
+                    {
+                        "species": "SPECIES_LITWICK",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -187,6 +212,11 @@
                     {
                         "species": "SPECIES_LITLEO",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_LITLEO"
+                    },
+                    {
+                        "species": "SPECIES_HONEDGE",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -205,6 +235,11 @@
                     {
                         "species": "SPECIES_DRAMPA",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_DRAMPA"
+                    },
+                    {
+                        "species": "SPECIES_SANDYGAST",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -223,6 +258,11 @@
                     {
                         "species": "SPECIES_CLOBBOPUS",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_CLOBBOPUS"
+                    },
+                    {
+                        "species": "SPECIES_ROOKIDEE",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -241,6 +281,11 @@
                     {
                         "species": "SPECIES_CAPSAKID",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_CAPSAKID"
+                    },
+                    {
+                        "species": "SPECIES_VAROOM",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -264,7 +309,17 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "species": "SPECIES_UMBREON",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    },
+                    {
+                        "species": "SPECIES_ESPEON",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             }
         ]
