@@ -355,6 +355,10 @@ u32 RogueGift_GetCustomBoxMonId(struct BoxPokemon* mon)
 static u16 TransformCheckSpecies(u16 species)
 {
 #ifdef ROGUE_EXPANSION
+    // Special case (probably should get a proper fix for this)
+    if(species >= SPECIES_PIKACHU_COSPLAY && species <= SPECIES_PICHU_SPIKY_EARED)
+        return species;
+
     if(!gSpeciesInfo[species].isAlolanForm && !gSpeciesInfo[species].isGalarianForm && !gSpeciesInfo[species].isHisuianForm && !gSpeciesInfo[species].isPaldeanForm)
     {
         // Fix for castform/other form changes
