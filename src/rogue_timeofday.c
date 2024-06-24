@@ -397,6 +397,10 @@ static void TintPalette_ToD(u16 *palette, u16 size, u16 colour)
 
 bool8 RogueToD_ApplySeasonVisuals()
 {
+    // Force on for credits
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_BOSS_VICTORY_LAP)
+        return TRUE;
+
     return gSaveBlock2Ptr->seasonVisuals && gMapHeader.mapType != MAP_TYPE_INDOOR;
 }
 
