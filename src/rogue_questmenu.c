@@ -381,10 +381,10 @@ static u8 const sText_MarkerInProgress[] = _("{COLOR BLUE}·In Progress·");
 static u8 const sText_MarkerInactive[] = _("{COLOR RED}·Inactive·");
 static u8 const sText_MarkerPendingRewards[] = _("{COLOR GREEN}·Ready to Collect!·");
 static u8 const sText_MarkerComplete[] = _("{COLOR GREEN}·Complete·");
-static u8 const sText_MarkerCompleteEasy[] = _("{COLOR GREEN}·Complete Easy·");
-static u8 const sText_MarkerCompleteAverage[] = _("{COLOR GREEN}·Complete Average·");
-static u8 const sText_MarkerCompleteHard[] = _("{COLOR GREEN}·Complete Hard·");
-static u8 const sText_MarkerCompleteBrutal[] = _("{COLOR GREEN}·Complete Brutal·");
+static u8 const sText_MarkerCompleteEasy[] = _("{COLOR GREEN}·Complete {COLOR GREEN}{SHADOW LIGHT_GREEN}Easy{COLOR GREEN}{SHADOW LIGHT_GRAY}·");
+static u8 const sText_MarkerCompleteAverage[] = _("{COLOR GREEN}·Complete {COLOR GREEN}{SHADOW LIGHT_GRAY}Average{COLOR GREEN}{SHADOW LIGHT_GRAY}·");
+static u8 const sText_MarkerCompleteHard[] = _("{COLOR GREEN}·Complete {COLOR RED}{SHADOW LIGHT_GRAY}Hard{COLOR GREEN}{SHADOW LIGHT_GRAY}·");
+static u8 const sText_MarkerCompleteBrutal[] = _("{COLOR GREEN}·Complete {COLOR RED}{SHADOW LIGHT_RED}Brutal{COLOR GREEN}{SHADOW LIGHT_GRAY}·");
 static u8 const sText_MarkerRewards[] = _("{COLOR DARK_GRAY}Rewards");
 
 static u8 const sText_PkmnMastery[] = _("{PKMN} Mastery");
@@ -401,10 +401,14 @@ static u8 const sText_Index_Mastery[] = _("Mastery");
 static u8 const sText_Index_Total[] = _("Total");
 static u8 const sText_Index_ActiveQuests[] = _("Active Quests");
 static u8 const sText_Index_ChallengeDifficulty[] = _("Challenges");
-static u8 const sText_Index_Easy[] = _("Easy");
-static u8 const sText_Index_Average[] = _("Average");
-static u8 const sText_Index_Hard[] = _("Hard");
-static u8 const sText_Index_Brutal[] = _("Brutal");
+static u8 const sText_Index_Easy[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Easy");
+static u8 const sText_Index_Average[] = _("{COLOR GREEN}{SHADOW LIGHT_GRAY}Average");
+static u8 const sText_Index_Hard[] = _("{COLOR RED}{SHADOW LIGHT_GRAY}Hard");
+static u8 const sText_Index_Brutal[] = _("{COLOR RED}{SHADOW LIGHT_RED}Brutal");
+static u8 const sText_EasyStar[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}");
+static u8 const sText_AverageStar[] = _("{COLOR GREEN}{SHADOW LIGHT_GRAY}");
+static u8 const sText_HardStar[] = _("{COLOR RED}{SHADOW LIGHT_GRAY}");
+static u8 const sText_BrutalStar[] = _("{COLOR RED}{SHADOW LIGHT_RED}");
 static u8 const sText_Index_Quests[] = _("Quests");
 
 static u8 const sText_Index_PendingRewards[] = _("{COLOR GREEN}Rewards ready to\nbe Collected!");
@@ -893,8 +897,40 @@ static void DrawQuestScrollList()
         else
         {
             u16 questId = RogueQuest_GetOrderedQuest(questIndex, sQuestMenuData->alphabeticalSort);
-            AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_NARROW, 8, 4 + 16 * i, 0, 0, color, TEXT_SKIP_DRAW, RogueQuest_GetTitle(questId));
+            u8 highestComplete = RogueQuest_GetHighestCompleteDifficulty(questId);
+            u8* strPtr = gStringVar4;
 
+            *strPtr = 0xFF;
+
+            if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+            {
+                if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_CHALLENGE))
+                {
+                    switch (RogueQuest_GetHighestCompleteDifficulty(questId))
+                    {
+                    case DIFFICULTY_LEVEL_EASY:
+                        strPtr = StringAppend(strPtr, sText_EasyStar);
+                        break;
+                    case DIFFICULTY_LEVEL_AVERAGE:
+                        strPtr = StringAppend(strPtr, sText_AverageStar);
+                        break;
+                    case DIFFICULTY_LEVEL_HARD:
+                        strPtr = StringAppend(strPtr, sText_HardStar);
+                        break;
+                    case DIFFICULTY_LEVEL_BRUTAL:
+                        strPtr = StringAppend(strPtr, sText_BrutalStar);
+                        break;
+                    }
+                }
+                else
+                {
+                    strPtr = StringAppend(strPtr, sText_AverageStar);
+                }
+            }
+
+            StringAppend(strPtr, RogueQuest_GetTitle(questId));
+
+            AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_NARROW, 8, 4 + 16 * i, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
             IterateNextVisibleQuestIndex(&questIndex);
         }
     }
@@ -1017,15 +1053,21 @@ static struct MenuOption const sMenuOptionsAdventure[] =
     },
 
     {
-        .text = sText_MonMasteryActive,
+        .text = sText_MonMastery,
         .callback = SetupPage,
-        .param = PAGE_BOOK_MON_MASTERY_ACTIVE,
+        .param = PAGE_BOOK_MON_MASTERY_LANDING,
     },
-    {
-        .text = sText_MonMasteryInactive,
-        .callback = SetupPage,
-        .param = PAGE_BOOK_MON_MASTERY_INACTIVE,
-    },
+
+    //{
+    //    .text = sText_MonMasteryActive,
+    //    .callback = SetupPage,
+    //    .param = PAGE_BOOK_MON_MASTERY_ACTIVE,
+    //},
+    //{
+    //    .text = sText_MonMasteryInactive,
+    //    .callback = SetupPage,
+    //    .param = PAGE_BOOK_MON_MASTERY_INACTIVE,
+    //},
 
     {
         .text = sText_Back,
