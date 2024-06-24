@@ -1101,7 +1101,7 @@ u32 RogueQuest_GetMonMasteryTotalPerc()
     u32 i;
     u32 complete = 0;
 
-    for(i = 0; i < MON_MASTERY_BYTE_COUNT; ++i)
+    for(i = 0; i < MON_MASTERY_TOTAL_COUNT; ++i)
     {
         u32 offset = i / 8;
         u8 bit = i % 8;
@@ -1111,7 +1111,21 @@ u32 RogueQuest_GetMonMasteryTotalPerc()
             ++complete;
     }
 
-    return (complete * 100) / MON_MASTERY_BYTE_COUNT;
+    return (complete * 100) / MON_MASTERY_TOTAL_COUNT;
+}
+
+void RogueDebug_ClearMonMasteries()
+{
+#ifdef ROGUE_DEBUG
+    memset(gRogueSaveBlock->monMasteryFlags, 0, sizeof(gRogueSaveBlock->monMasteryFlags));
+#endif
+}
+
+void RogueDebug_FillMonMasteries()
+{
+#ifdef ROGUE_DEBUG
+    memset(gRogueSaveBlock->monMasteryFlags, 255, sizeof(gRogueSaveBlock->monMasteryFlags));
+#endif
 }
 
 // QuestCondition

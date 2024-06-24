@@ -51,6 +51,7 @@
 #include "strings.h"
 #include "string_util.h"
 #include "text.h"
+#include "trainer_card.h"
 
 #include "rogue.h"
 #include "rogue_assistant.h"
@@ -6316,6 +6317,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                 {
                     // Snapshot HoF team
                     Rogue_AddPartySnapshot();
+                    UpdateTrainerCardMonIconsFromParty();
 
                     FlagSet(FLAG_IS_CHAMPION);
                     FlagSet(FLAG_ROGUE_RUN_COMPLETED);

@@ -364,6 +364,34 @@ bool8 RogueHub_HasUpgrade(u16 upgradeId)
     return (GetActiveHubMap()->upgradeFlags[idx] & bitMask) != 0;
 }
 
+bool8 RogueHub_HasLocalUpgrade(u16 upgradeId)
+{
+    u16 idx = upgradeId / 8;
+    u16 bit = upgradeId % 8;
+
+    u8 bitMask = 1 << bit;
+
+    AGB_ASSERT(idx < ARRAY_COUNT(GetActiveHubMap()->upgradeFlags));
+    return (gRogueSaveBlock->hubMap.upgradeFlags[idx] & bitMask) != 0;
+}
+
+bool8 RogueHub_HasAllLocalUpgrades()
+{
+    u32 i = 0;
+
+    for(i = 0; i < HUB_UPGRADE_COUNT; ++i)
+    {
+        // Ignore quest unlocks
+        if(gRogueHubUpgrades[i].buildCost == 0)
+            continue;
+
+        if(!RogueHub_HasLocalUpgrade(i))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
 void RogueHub_SetUpgrade(u16 upgradeId, bool8 state)
 {
     u16 idx = upgradeId / 8;
