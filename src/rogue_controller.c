@@ -3461,8 +3461,16 @@ void Rogue_OnObjectEventsInit()
 
     SetupFollowParterMonObjectEvent();
 
+    // Clear
     for(i = 0; i < OBJ_EVENT_ID_MULTIPLAYER_COUNT; ++i)
         gRogueLocal.cachedObjIds[i] = OBJECT_EVENTS_COUNT;
+
+    // Repopulate with existing object events
+    for(i = 0; i < OBJECT_EVENTS_COUNT; ++i)
+    {
+        if(gObjectEvents[i].active && gObjectEvents[i].localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && gObjectEvents[i].localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+            gRogueLocal.cachedObjIds[gObjectEvents[i].localId - OBJ_EVENT_ID_MULTIPLAYER_FIRST] = i;
+    }
 }
 
 void Rogue_OnResetAllSprites()

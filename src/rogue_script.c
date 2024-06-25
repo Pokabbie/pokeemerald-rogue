@@ -1849,6 +1849,11 @@ void Rogue_IsMultiplayerHost(void)
     gSpecialVar_Result = RogueMP_IsHost();
 }
 
+void Rogue_IsMultiplayerClient(void)
+{
+    gSpecialVar_Result = RogueMP_IsClient();
+}
+
 void Rogue_HostMultiplayer()
 {
     RogueMP_OpenHost();
@@ -1870,6 +1875,17 @@ void Rogue_CloseMultiplayer()
 void Rogue_IsRogueAssistantConnected()
 {
     gSpecialVar_Result = Rogue_IsAssistantConnected();
+}
+
+void Rogue_IsMultiplayerAdventureJoinable(void)
+{
+    gSpecialVar_Result = FALSE;
+
+    if(RogueMP_IsClient())
+    {
+        AGB_ASSERT(gRogueMultiplayer != NULL);
+        gSpecialVar_Result = gRogueMultiplayer->gameState.adventure.isRunActive;
+    }
 }
 
 void Rogue_MultiplayerRequestMon()
@@ -2130,6 +2146,11 @@ void Rogue_BattleSim_HandleItemMoney()
 void Rogue_FixPartyMonDetails()
 {
     Rogue_CorrectMonDetails(gPlayerParty, gPlayerPartyCount);
+}
+
+void Rogue_IsValidAdventureToRemember()
+{
+    gSpecialVar_Result = gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT].isValid;
 }
 
 void Rogue_RememberAdventure()

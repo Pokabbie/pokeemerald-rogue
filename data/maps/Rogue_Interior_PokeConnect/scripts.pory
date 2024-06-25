@@ -24,32 +24,35 @@ script Rogue_Interior_PokeConnect_TalkMultiplayer
     special(Rogue_IsMultiplayerActive)
     if(var(VAR_RESULT) == TRUE)
     {
-        msgbox(format("Hello {PLAYER}!\pI hope you've been enjoying your multiplayer Adventure!"), MSGBOX_DEFAULT)
+        msgbox(format("Hello {PLAYER}!\pI hope you've been enjoying your Multiplayer Adventure!"), MSGBOX_DEFAULT)
     
         special(Rogue_IsMultiplayerHost)
         if(var(VAR_RESULT) == TRUE)
         {
-            msgbox(format("Would you like to stop hosting?"), MSGBOX_YESNO)
+            msgbox(format("Would you like to stop Hosting?"), MSGBOX_YESNO)
         }
         else
         {
-            msgbox(format("Would you like to disconnect and return to {POKEMON_HUB}?"), MSGBOX_YESNO)
+            msgbox(format("Would you like to Disconnect and return to home?"), MSGBOX_YESNO)
         }
 
         if(var(VAR_RESULT) == TRUE)
         {
             special(Rogue_CloseMultiplayer)
-            msgbox(format("There you are!\pI hope you enjoyed your multiplayer Adventures!"), MSGBOX_DEFAULT)
+            msgbox(format("There you are!\pI hope you enjoyed your Multiplayer Adventures!"), MSGBOX_DEFAULT)
         }
     }
     else
     {
-        msgbox(format("Hello {PLAYER}!\pI can help you to setup multiplayer Adventures for you and your friends!"), MSGBOX_DEFAULT)
+        msgbox(format("Hello {PLAYER}!\pI can help you to setup Multiplayer Adventures for you and a friend!"), MSGBOX_DEFAULT)
+
+        msgbox(format("{COLOR RED}WARNING!\n{COLOR DARK_GRAY}This feature is still in Alpha.\pIt is still in active development, as a result, some features may not work correctly/be missing.\pPlease regularly save your game and make save backups, while using this feature."))
+
         call(Rogue_Common_WaitForRogueAssistant)
 
         if(var(VAR_RESULT) == TRUE)
         {
-            message(format("Please decide which of you will become the GROUP HOST.\pThe other players must then choose JOIN GROUP."))
+            message(format("Please decide which of you will become the Group Host.\pThe other players must then choose Join Group."))
             waitmessage
 
             multichoice(16, 6, MULTI_LINK_HOST_JOIN, FALSE)
@@ -57,7 +60,7 @@ script Rogue_Interior_PokeConnect_TalkMultiplayer
             switch(var(VAR_RESULT))
             {
                 case 0: // Join
-                    message(format("Attempting to join group\n… … B Button: Cancel"))
+                    message(format("Please setup in Rogue Assistant now\n… … B Button: Cancel"))
                     waitmessage
 
                     special(Rogue_JoinMultiplayer)
@@ -69,7 +72,7 @@ script Rogue_Interior_PokeConnect_TalkMultiplayer
                     }
 
                 case 1: // Host
-                    message(format("Attempting to setup group\n… … B Button: Cancel"))
+                    message(format("Please setup in Rogue Assistant now\n… … B Button: Cancel"))
                     waitmessage
 
                     special(Rogue_HostMultiplayer)
@@ -77,7 +80,7 @@ script Rogue_Interior_PokeConnect_TalkMultiplayer
 
                     if(var(VAR_RESULT) == TRUE)
                     {
-                        msgbox(format("All set!\nYour friends should now be able to join you for Adventures!"))
+                        msgbox(format("All set!\nA friend should now be able to join you for Adventures!"))
                     }
 
                 case 2: // Exit

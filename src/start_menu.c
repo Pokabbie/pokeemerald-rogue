@@ -52,6 +52,7 @@
 #include "rogue.h"
 #include "rogue_controller.h"
 #include "rogue_hub.h"
+#include "rogue_multiplayer.h"
 #include "rogue_player_customisation.h"
 #include "rogue_pokedex.h"
 #include "rogue_questmenu.h"
@@ -385,7 +386,7 @@ static void BuildNormalStartMenu(void)
         AddStartMenuAction(MENU_ACTION_QUESTS);
     }
 
-    if (RogueHub_IsPlayerBaseLayout(gMapHeader.mapLayoutId))
+    if (RogueHub_IsPlayerBaseLayout(gMapHeader.mapLayoutId) && !RogueMP_IsClient())
     {
         AddStartMenuAction(MENU_ACTION_DECORATE);
     }
@@ -425,7 +426,7 @@ static void BuildRogueRunStartMenu(void)
         AddStartMenuAction(MENU_ACTION_QUESTS);
     }
 
-    if (RogueHub_IsPlayerBaseLayout(gMapHeader.mapLayoutId))
+    if (RogueHub_IsPlayerBaseLayout(gMapHeader.mapLayoutId) && !RogueMP_IsClient())
     {
         AddStartMenuAction(MENU_ACTION_DECORATE);
     }
