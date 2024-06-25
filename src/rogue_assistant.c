@@ -126,19 +126,19 @@ EWRAM_DATA struct RogueAssistantState gRogueAssistantState;
 
 STATIC_ASSERT(TOTAL_BOXES_COUNT == ASSISTANT_HOME_LOCAL_BOXES, SizeOfAssistantLocalBoxes);
 
+// Make sure to change the same value in RogueAssistant if this ever changes
+// (These numbers must match in order to connect)
+#define ROGUE_ASSISTANT_COMPAT_VERSION 1
+
 const struct RogueAssistantHeader gRogueAssistantHeader =
 {
-    // TODO - Include RogueAssistant compat version
-#ifdef ROGUE_EXPANSION
-    .rogueVersion = 1,
-#else
-    .rogueVersion = 0,
-#endif
+    .rogueVersion = ROGUE_VERSION,
 #ifdef ROGUE_DEBUG
     .rogueDebug = 1,
 #else
     .rogueDebug = 0,
 #endif
+    .rogueAssistantCompatVersion = ROGUE_ASSISTANT_COMPAT_VERSION,
 
     // MP Data
     .multiplayerPtr = &gRogueMultiplayer,
