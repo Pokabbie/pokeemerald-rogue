@@ -10785,6 +10785,7 @@ u16 GetBattleFormChangeTargetSpecies(u32 battler, u16 method)
                     break;
                 case FORM_CHANGE_BATTLE_GIGANTAMAX:
                     {
+#if !TESTING
                         if (GetBattlerSide(battler) == B_SIDE_PLAYER)
                         {
                             u8 monId = gBattlerPartyIndexes[battler];
@@ -10797,6 +10798,7 @@ u16 GetBattleFormChangeTargetSpecies(u32 battler, u16 method)
                             }
                         }
                         else
+#endif
                         {
                             // AI always has access to Gmax
                             targetSpecies = formChange.targetSpecies;
