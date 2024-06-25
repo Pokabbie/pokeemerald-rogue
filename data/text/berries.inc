@@ -6,7 +6,7 @@ PetalburgCity_Gym_Text_GiveEnigmaBerry:
 Route104_Text_PlantBerriesInSoilTakeThis:
 	.string "If you see BERRIES growing in loamy\n"
 	.string "soil, feel free to take them.\p"
-	.string "But make sure you plant a BERRY in the\n"
+	.string "But make sure you plant a Berry in the\n"
 	.string "same spot. That's common courtesy.\p"
 	.string "Here, I'll share this with you.$"
 
@@ -35,7 +35,7 @@ Route111_Text_WhatColorBerriesToLookForToday:
 	.string "for today?$"
 
 Route114_Text_LoveUsingBerryCrushShareBerry:
-	.string "I love using the BERRY CRUSH machine,\n"
+	.string "I love using the Berry CRUSH machine,\n"
 	.string "so I'm collecting BERRIES.\p"
 	.string "I'll share one with you, if you'd like.$"
 

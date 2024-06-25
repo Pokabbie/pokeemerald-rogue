@@ -184,6 +184,20 @@ script Rogue_Debug_ChangeOutfit
     call(Rogue_Interior_Home_ChangeClothes)
 }
 
+script Rogue_Debug_RandomTradeTeam
+{
+    lock
+    setvar(VAR_0x8004, 255)
+    fadescreen(FADE_TO_BLACK)
+    call(Rogue_ScriptHideFollower)
+    playfanfare(MUS_MOVE_DELETED)
+    special(Rogue_RandomisePartyMon)
+    waitfanfare
+    fadescreen(FADE_FROM_BLACK)
+    call(Rogue_ScriptShowFollower)
+    release
+}
+
 
 //script Rogue_NewGameVersionUpdate
 //{

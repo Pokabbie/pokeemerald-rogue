@@ -6303,7 +6303,7 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
             isBossTrainer = TRUE;
         }
 
-        if(Rogue_IsVictoryLapActive())
+        if(Rogue_IsVictoryLapActive() && IsPlayerDefeated(gBattleOutcome) != TRUE)
         {
             ++gRogueRun.victoryLapTotalWins;
             Rogue_PushPopup_VictoryLapProgress(Rogue_GetTrainerTypeAssignment(trainerNum), gRogueRun.victoryLapTotalWins);
