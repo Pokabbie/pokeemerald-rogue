@@ -1378,10 +1378,10 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Ah, you're finally here.\\pI've been watching you battle, truly impressive.\\pSince you've made it this far, there's no reason for me to hold back!",
-                        "PRE_BATTLE_TAUNT": "Show me what you're made of,  {PLAYER}!",
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Ah, you're finally here.\\pI've been watching you battle, you're special.\\pSince you've made it this far, there's no reason for me to hold back!",
+                        "PRE_BATTLE_TAUNT": "Show me what you're made of, {PLAYER}!",
                         "POST_BATTLE_TAUNT": "Heh… I anticipated this would happen.\\nYou're an incredibly skilled trainer.",
-                        "POST_BATTLE_CLOSER": "Do you think they deliver food here?\\nI'm starving…"
+                        "POST_BATTLE_CLOSER": "Welp, you beat me. I guess you could say I'm Nacho-problem anymore, huh? Hehe.\\pHey uhm…\\pDo you think they deliver food here? I'm starving…"
                     }
                 ],
                 "preferred_mon_gender": "MALE",
@@ -1497,6 +1497,8 @@
                             "SPECIES_CHIEN_PAO",
                             "SPECIES_PALAFIN",
                             "SPECIES_CLODSIRE",
+                            "SPECIES_ARCHALUDON",
+                            "SPECIES_GLIMMORA",
                         "#endif",
                         "SPECIES_NONE"
                     ]
