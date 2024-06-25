@@ -3807,6 +3807,18 @@ static u16 GetActiveStrongLegendary(bool8* fromDaycare)
     return SPECIES_NONE;
 }
 
+static bool8 CanBringInHeldItem(u16 itemId)
+{
+    switch(itemId)
+    {
+        case ITEM_SMALL_COIN_CASE:
+        case ITEM_LARGE_COIN_CASE:
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
 static void BeginRogueRun_ModifyParty(void)
 {
     u16 starterSpecies = VarGet(VAR_STARTER_SWAP_SPECIES);
@@ -3858,6 +3870,14 @@ static void BeginRogueRun_ModifyParty(void)
                     gPlayerParty[i].rogueExtraData.isSafariIllegal = TRUE;
                 }
 
+                // Adjust item
+                temp = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+                if(!CanBringInHeldItem(temp))
+                {
+                    temp = ITEM_NONE;
+                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &temp);
+                }
+
                 CalculateMonStats(&gPlayerParty[i]);
             }
         }
@@ -3872,6 +3892,14 @@ static void BeginRogueRun_ModifyParty(void)
             {
                 u32 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[species].growthRate, STARTER_MON_LEVEL);
                 SetBoxMonData(boxMon, MON_DATA_EXP, &exp);
+                
+                // Adjust item
+                temp = GetBoxMonData(boxMon, MON_DATA_HELD_ITEM);
+                if(!CanBringInHeldItem(temp))
+                {
+                    temp = ITEM_NONE;
+                    SetBoxMonData(boxMon, MON_DATA_HELD_ITEM, &temp);
+                }
             }
 
             gRogueSaveBlock->daycarePokemon[i].isSafariIllegal = TRUE;
@@ -3985,7 +4013,7 @@ static void SetupRogueRunBag()
 {
     u16 i;
     u16 itemId;
-    u16 quantity;
+    u32 quantity;
     bool8 isBasicBagEnabled = Rogue_GetConfigToggle(CONFIG_TOGGLE_BAG_WIPE);
 
     SetMoney(&gSaveBlock1Ptr->money, 0);
@@ -4002,11 +4030,11 @@ static void SetupRogueRunBag()
             switch (itemId)
             {
             case ITEM_SMALL_COIN_CASE:
-                AddMoney(&gSaveBlock1Ptr->money, 1000);
+                AddMoney(&gSaveBlock1Ptr->money, 1000 * quantity);
                 break;
 
             case ITEM_LARGE_COIN_CASE:
-                AddMoney(&gSaveBlock1Ptr->money, 20000);
+                AddMoney(&gSaveBlock1Ptr->money, 10000 * quantity);
                 break;
 
             default:

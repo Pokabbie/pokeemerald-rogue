@@ -263,7 +263,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .name = _("SMALL COIN CASE"),
 #endif
         .itemId = ITEM_SMALL_COIN_CASE,
-        .price = 1500,
+        .price = 1300,
         .description = gItemDesc_SmallCoinCase,
         .pocket = POCKET_ITEMS,
         .iconImage = gItemIcon_CoinCase,
@@ -279,7 +279,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .name = _("LARGE COIN CASE"),
 #endif
         .itemId = ITEM_LARGE_COIN_CASE,
-        .price = 20000,
+        .price = 12500,
         .description = gItemDesc_LargeCoinCase,
         .pocket = POCKET_ITEMS,
         .iconImage = gItemIcon_CoinCase,
