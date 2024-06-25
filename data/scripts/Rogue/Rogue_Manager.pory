@@ -173,6 +173,11 @@ script Rogue_Debug_SetWeather
     release
 }
 
+script Rogue_Debug_ChangeOutfit
+{
+    call(Rogue_Interior_Home_ChangeClothes)
+}
+
 
 //script Rogue_NewGameVersionUpdate
 //{

@@ -116,6 +116,7 @@ enum RogueUtilMenu
     DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY,
     DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS,
     DEBUG_ROGUE_UTIL_MENU_SET_WEATHER,
+    DEBUG_ROGUE_UTIL_MENU_CHANGE_OUTFIT,
 };
 
 enum PartyBoxesMenu
@@ -371,6 +372,7 @@ static void DebugAction_RogueUtil_ConfigLab(u8 taskId);
 static void DebugAction_RogueUtil_NextDifficulty(u8 taskId);
 static void DebugAction_RogueUtil_GiveCommonItems(u8 taskId);
 static void DebugAction_RogueUtil_SetWeather(u8 taskId);
+static void DebugAction_RogueUtil_ChangeOutfit(u8 taskId);
 
 static void DebugAction_PartyBoxes_AccessPC(u8 taskId);
 static void DebugAction_PartyBoxes_MoveReminder(u8 taskId);
@@ -459,6 +461,7 @@ extern const u8 Debug_CheckROMSpace[];
 extern const u8 Debug_BoxFilledMessage[];
 extern const u8 Debug_ShowExpansionVersion[];
 extern const u8 Rogue_Debug_SetWeather[];
+extern const u8 Rogue_Debug_ChangeOutfit[];
 
 #include "data/map_group_count.h"
 
@@ -515,6 +518,7 @@ static const u8 sDebugText_RogueUtil_ConfigLab[] =           _("Config Lab…{CL
 static const u8 sDebugText_RogueUtil_NextDifficulty[] =      _("Next Difficulty");
 static const u8 sDebugText_RogueUtil_GiveCommonItems[] =      _("Give Common Items");
 static const u8 sDebugText_RogueUtil_SetWeather[] =      _("Set Weather");
+static const u8 sDebugText_RogueUtil_ChangeOutfit[] =      _("Change Outfit");
 // Party/Boxes Menu
 static const u8 sDebugText_PartyBoxes_AccessPC[] =           _("Access PC");
 static const u8 sDebugText_PartyBoxes_MoveReminder[] =       _("Move Reminder");
@@ -694,6 +698,7 @@ static const struct ListMenuItem sDebugMenu_Items_RogueUtilities[] =
     [DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY]     = {sDebugText_RogueUtil_NextDifficulty,  DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY},
     [DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS]   = {sDebugText_RogueUtil_GiveCommonItems, DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS},
     [DEBUG_ROGUE_UTIL_MENU_SET_WEATHER]         = {sDebugText_RogueUtil_SetWeather,      DEBUG_ROGUE_UTIL_MENU_SET_WEATHER},
+    [DEBUG_ROGUE_UTIL_MENU_CHANGE_OUTFIT]       = {sDebugText_RogueUtil_ChangeOutfit,    DEBUG_ROGUE_UTIL_MENU_CHANGE_OUTFIT},
 };
 
 static const struct ListMenuItem sDebugMenu_Items_PartyBoxes[] =
@@ -854,6 +859,7 @@ static void (*const sDebugMenu_Actions_RogueUtilities[])(u8) =
     [DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY] = DebugAction_RogueUtil_NextDifficulty,
     [DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS] = DebugAction_RogueUtil_GiveCommonItems,
     [DEBUG_ROGUE_UTIL_MENU_SET_WEATHER]       = DebugAction_RogueUtil_SetWeather,
+    [DEBUG_ROGUE_UTIL_MENU_CHANGE_OUTFIT]     = DebugAction_RogueUtil_ChangeOutfit,
 };
 
 static void (*const sDebugMenu_Actions_PartyBoxes[])(u8) =
@@ -2296,6 +2302,13 @@ static void DebugAction_RogueUtil_SetWeather(u8 taskId)
     Debug_DestroyMenu_Full(taskId);
     LockPlayerFieldControls();
     ScriptContext_SetupScript(Rogue_Debug_SetWeather);
+}
+
+static void DebugAction_RogueUtil_ChangeOutfit(u8 taskId)
+{
+    Debug_DestroyMenu_Full(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Rogue_Debug_ChangeOutfit);
 }
 
 void BufferExpansionVersion(struct ScriptContext *ctx)
