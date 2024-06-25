@@ -60,7 +60,7 @@ text gItemDesc_SmallCoinCase
 
 text gItemDesc_LargeCoinCase
 {
-    format("Coin Case provides ¥20000 on start of Adventure.")
+    format("Coin Case provides ¥10000 on start of Adventure.")
 }
 
 text gItemDesc_GoldenSeed
