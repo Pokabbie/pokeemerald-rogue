@@ -130,6 +130,7 @@ void RogueSave_ClearData()
 
 static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct RogueSaveBlock* saveBlock)
 {
+    u8 rogueVersion;
     u16 secretId;
 
     // Serialize header
@@ -151,6 +152,9 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
 
     // Serialize data
     //
+
+    rogueVersion = ROGUE_VERSION;
+    SerializeData(stream, &rogueVersion, sizeof(rogueVersion)); // todo - should flag if version doesn't match (make sure to handle blank/new saves)
 
     // Quests
     SerializeArray(stream, saveBlock->questStates, sizeof(saveBlock->questStates[0]), ARRAY_COUNT(saveBlock->questStates));

@@ -346,6 +346,17 @@ script Rogue_ResetAdventureVars
 
 script Rogue_StartAdventureInternal
 {
+    special(Rogue_IsMultiplayerClient)
+    if(var(VAR_RESULT) == YES)
+    {
+        special(Rogue_IsMultiplayerAdventureJoinable)
+        if(var(VAR_RESULT) == NO)
+        {
+            msgbox(format("I'm afraid you can't leave on an Adventure right now.\pPlease wait for {RIVAL} to start, so you may join."))
+            return
+        }
+    }
+
     special(Rogue_EnterPartnerMonCapacity)
     copyvar(VAR_0x8004, VAR_RESULT)
 
@@ -557,17 +568,25 @@ script Rogue_Area_AdventureEntrance_TalkPeonia
 
     if(var(VAR_RESULT) == YES)
     {
-        special(Rogue_RememberAdventure)
-        msgbox(format("OK.\nI've remembered that Adventure path for you!"))
-
-        if(!flag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE))
+        special(Rogue_IsValidAdventureToRemember)
+        if(var(VAR_RESULT) == YES)
         {
-            msgbox(format("You would like me to raise the flag, so you can replay the Adventure right now?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
+            msgbox(format("Oh, It doesn't seem like you've recently been on an Adventure?\pCome speak to me after you've next been on an Adventure, so I can remember it for you."))
+        }
+        else
+        {
+            special(Rogue_RememberAdventure)
+            msgbox(format("OK.\nI've remembered that Adventure path for you!"))
+
+            if(!flag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE))
             {
-                setflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
-                call(Rogue_Area_AdventureEntrance_UpdateFlagState)
-                special(ReloadWarpSilent)
+                msgbox(format("You would like me to raise the flag, so you can replay the Adventure right now?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    setflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
+                    call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+                    special(ReloadWarpSilent)
+                }
             }
         }
     }
@@ -580,32 +599,36 @@ script Rogue_Area_AdventureEntrance_TalkFlag
     lock
     msgbox(format("It's the Replay Adventure flag!"))
 
-    if(flag(FLAG_ROGUE_MET_PEONIA))
+    special(Rogue_IsMultiplayerClient)
+    if(var(VAR_RESULT) == NO)
     {
-        if(flag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE))
+        if(flag(FLAG_ROGUE_MET_PEONIA))
         {
-            msgbox(format("You would like to lower the flag, to return to playing normally?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
+            if(flag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE))
             {
-                clearflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
-                call(Rogue_Area_AdventureEntrance_UpdateFlagState)
-                special(ReloadWarpSilent)
+                msgbox(format("You would like to lower the flag, to return to playing normally?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    clearflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
+                    call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+                    special(ReloadWarpSilent)
+                }
+            }
+            else
+            {
+                msgbox(format("You would like to raise the flag, to play Peonia's Remembered Adventure?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    setflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
+                    call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+                    special(ReloadWarpSilent)
+                }
             }
         }
         else
         {
-            msgbox(format("You would like to raise the flag, to play Peonia's Remembered Adventure?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
-            {
-                setflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
-                call(Rogue_Area_AdventureEntrance_UpdateFlagState)
-                special(ReloadWarpSilent)
-            }
+            msgbox(format("I probably shouldn't touch this right now…"))
         }
-    }
-    else
-    {
-        msgbox(format("I probably shouldn't touch this right now…"))
     }
 
     release

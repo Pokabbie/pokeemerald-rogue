@@ -58,60 +58,70 @@ script Rogue_Area_Home_InteractWithWorkbench
     {
         lock
 
-        begindynamicmultichoice
-        appenddynamicmultichoice("Build / Upgrade", 0)
-
-        if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+        special(Rogue_IsMultiplayerClient)
+        if(var(VAR_RESULT) == YES)
         {
-            appenddynamicmultichoice("Stop Decorating", 1)
+            lock
+            msgbox(format("It's a workbench!\pIt's has a bunch of complicated designs and tools on top."))
+            release
         }
         else
         {
-            appenddynamicmultichoice("Start Decorating", 1)
-        }
-    
-        hubupgradeunlocked(HUB_UPGRADE_HOME_EDIT_STYLE)
-        if(var(VAR_RESULT) == YES)
-        {
-            appenddynamicmultichoice("Edit Styles", 2)
-        }
+            begindynamicmultichoice
+            appenddynamicmultichoice("Build / Upgrade", 0)
 
-        appenddynamicmultichoice("Clear Decorations", 3)
-        appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+            if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+            {
+                appenddynamicmultichoice("Stop Decorating", 1)
+            }
+            else
+            {
+                appenddynamicmultichoice("Start Decorating", 1)
+            }
+        
+            hubupgradeunlocked(HUB_UPGRADE_HOME_EDIT_STYLE)
+            if(var(VAR_RESULT) == YES)
+            {
+                appenddynamicmultichoice("Edit Styles", 2)
+            }
+
+            appenddynamicmultichoice("Clear Decorations", 3)
+            appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
 
 
-        message(format("What would you like to do?"))
-        waitmessage
-        enddynamicmultichoice(1, 0, 6, TRUE)
-    
+            message(format("What would you like to do?"))
+            waitmessage
+            enddynamicmultichoice(1, 0, 6, TRUE)
+        
 
-        switch(var(VAR_RESULT))
-        {
-            case 0:
-                call(Rogue_Area_WorkbenchOptions)
+            switch(var(VAR_RESULT))
+            {
+                case 0:
+                    call(Rogue_Area_WorkbenchOptions)
 
-            case 1:
-                if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
-                {
-                    setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE)
-                }
-                else
-                {
-                    setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_DECORATING)
-                }
+                case 1:
+                    if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+                    {
+                        setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE)
+                    }
+                    else
+                    {
+                        setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_DECORATING)
+                    }
 
-                special(ReloadWarpSilent)
-
-            case 2:
-                call(Rogue_Area_Home_EditStyles)
-
-            case 3:
-                msgbox(format("This will clear all currently placed decorations.\nThere is no way to undo this.\pAre you sure you want to clear all decorations?"), MSGBOX_YESNO)
-                if(var(VAR_RESULT) == YES)
-                {
-                    special(RogueHub_ClearAllDecorations)
                     special(ReloadWarpSilent)
-                }
+
+                case 2:
+                    call(Rogue_Area_Home_EditStyles)
+
+                case 3:
+                    msgbox(format("This will clear all currently placed decorations.\nThere is no way to undo this.\pAre you sure you want to clear all decorations?"), MSGBOX_YESNO)
+                    if(var(VAR_RESULT) == YES)
+                    {
+                        special(RogueHub_ClearAllDecorations)
+                        special(ReloadWarpSilent)
+                    }
+            }
         }
 
         release

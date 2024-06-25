@@ -238,10 +238,12 @@ gSpecials::
 	def_special Rogue_EnterPartnerMonCapacity
 	def_special Rogue_IsMultiplayerActive
 	def_special Rogue_IsMultiplayerHost
+	def_special Rogue_IsMultiplayerClient
 	def_special Rogue_HostMultiplayer
 	def_special Rogue_JoinMultiplayer
 	def_special Rogue_CloseMultiplayer
 	def_special Rogue_IsRogueAssistantConnected
+	def_special Rogue_IsMultiplayerAdventureJoinable
 	def_special Rogue_MultiplayerRequestMon
 	def_special Rogue_MultiplayerRequestParty
 	def_special Rogue_MultiplayerTalkToPlayer
@@ -260,6 +262,7 @@ gSpecials::
 	def_special Rogue_BattleSim_HandleItemMoney
 	def_special Rogue_FixPartyMonDetails
 	def_special Rogue_RememberAdventure
+	def_special Rogue_IsValidAdventureToRemember
 	def_special Rogue_SafeSmartCheck
 	def_special Rogue_CanActivatePikinEasterEgg
 	def_special Rogue_SetupFollowParterMonObjectEvent

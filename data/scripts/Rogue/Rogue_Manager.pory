@@ -69,7 +69,13 @@ script Rogue_QuickSaveRun
 {
     lockall
 
-    msgbox(format("WARNING!\nYou can only reload Quicksaves once.\pWhen the game next reloads, this Quicksave will be wiped."))
+    msgbox(format("{COLOR RED}WARNING!\n{COLOR DARK_GRAY}You can only reload Quicksaves once.\pWhen the game next reloads, this Quicksave will be wiped."))
+
+    special(Rogue_IsMultiplayerActive)
+    if(var(VAR_RESULT) == YES)
+    {
+        msgbox(format("{COLOR RED}MULTIPLAYER WARNING!\n{COLOR DARK_GRAY}There is currently no method avaliable to rejoin a Multiplayer Adventure outside of {POKEMON_HUB}.\pIf you Quicksave now, you will have to play the remainder of this Adventure single player."))
+    }
 
     call(Common_EventScript_SaveGame)
 

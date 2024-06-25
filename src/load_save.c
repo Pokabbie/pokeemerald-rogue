@@ -13,6 +13,7 @@
 #include "gba/flash_internal.h"
 #include "decoration_inventory.h"
 #include "agb_flash.h"
+#include "constants/event_objects.h"
 
 #include "rogue_controller.h"
 #include "rogue_save.h"
@@ -185,7 +186,13 @@ void SaveObjectEvents(void)
     int i;
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
         gSaveBlock1Ptr->objectEvents[i] = gObjectEvents[i];
+        
+        // Don't save MP objects
+        if(gSaveBlock1Ptr->objectEvents[i].localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && gSaveBlock1Ptr->objectEvents[i].localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+    }
 }
 
 void LoadObjectEvents(void)
@@ -193,7 +200,13 @@ void LoadObjectEvents(void)
     int i;
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
         gObjectEvents[i] = gSaveBlock1Ptr->objectEvents[i];
+        
+        // Don't load MP objects
+        if(gObjectEvents[i].localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && gObjectEvents[i].localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+            gObjectEvents[i].active = FALSE;
+    }
 }
 
 void CopyPartyAndObjectsToSave(void)

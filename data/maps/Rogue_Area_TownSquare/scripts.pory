@@ -194,7 +194,16 @@ script Rogue_Area_TownSquare_TalkBuilder
         }
 
         setobjectxyperm(OBJ_EVENT_BUILDER, 25, 9)
-        call(Rogue_Area_WorkbenchOptions)
+
+        special(Rogue_IsMultiplayerClient)
+        if(var(VAR_RESULT) == YES)
+        {
+            msgbox(format("You cannot use the Workbench while visiting {POKEMON_HUB}.\pIf you want to use the Workbench, you need to Exit Multiplayer."))
+        }
+        else
+        {
+            call(Rogue_Area_WorkbenchOptions)
+        }
     }
     else
     {

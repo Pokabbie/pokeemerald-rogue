@@ -59,7 +59,8 @@ script Rogue_Interior_ConfigLab_DrawBasementDoor
 
 script Rogue_Interior_ConfigLab_TalkHiddenDoor
 {
-    if(flag(FLAG_ROGUE_UNCOVERRED_POKABBIE) == FALSE)
+    special(Rogue_IsMultiplayerClient)
+    if(flag(FLAG_ROGUE_UNCOVERRED_POKABBIE) == FALSE && var(VAR_RESULT) == NO)
     {
         lock
 
