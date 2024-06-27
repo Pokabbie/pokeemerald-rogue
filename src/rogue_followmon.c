@@ -581,10 +581,6 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
     //if(Rogue_InWildSafari() && VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
     //    return FALSE;
 
-    // If we're flying nothing can collide with the player
-    if(Rogue_IsRideMonFlying())
-        return obstacle == player || collider == player;
-
     if(Rogue_IsRunActive() || Rogue_InWildSafari() || GetSafariZoneFlag())
     {
         if (collider == player)

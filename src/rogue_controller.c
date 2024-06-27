@@ -3429,6 +3429,17 @@ void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
     STOP_TIMER(ROGUE_ASSISTANT_CALLBACK);
 }
 
+bool8 Rogue_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* collider)
+{
+    if(Rogue_RideMonIsCollisionExempt(obstacle, collider))
+        return TRUE;
+
+    if(FollowMon_IsCollisionExempt(obstacle, collider))
+        return TRUE;
+
+    return FALSE;
+}
+
 bool8 Rogue_IsRunningToggledOn()
 {
     return gRogueLocal.runningToggleActive;

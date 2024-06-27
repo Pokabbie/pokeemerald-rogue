@@ -1046,6 +1046,28 @@ bool8 Rogue_IsRideMonFlying()
     return FALSE;
 }
 
+bool8 Rogue_RideMonIsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* collider)
+{
+    struct ObjectEvent* player = &gObjectEvents[gPlayerAvatar.objectEventId];
+
+    if(Rogue_IsRideMonFlying())
+    {
+        // Player always collides with the rival
+        if(collider == player)
+        {
+            struct ObjectEventTemplate* template = GetBaseTemplateForObjectEvent(obstacle);
+
+            if(template->flagId == FLAG_ROGUE_RIVAL_DISABLED)
+                return FALSE;
+        }
+
+        // Regular objects will never collide
+        return (obstacle == player || collider == player);
+    }
+
+    return FALSE;
+}
+
 static void UpdateRideSpriteInternal(struct RideObjectEvent* rideObject, const struct RideMonInfo* rideInfo)
 {
     s8 xFlip;

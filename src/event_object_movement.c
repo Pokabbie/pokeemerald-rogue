@@ -5519,7 +5519,7 @@ static bool8 DoesObjectCollideWithObjectAt(struct ObjectEvent *objectEvent, s16 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
         curObject = &gObjectEvents[i];
-        if (curObject->active && curObject != objectEvent && !FollowMe_IsCollisionExempt(curObject, objectEvent) && !FollowMon_IsCollisionExempt(curObject, objectEvent))
+        if (curObject->active && curObject != objectEvent && !FollowMe_IsCollisionExempt(curObject, objectEvent) && !Rogue_IsCollisionExempt(curObject, objectEvent))
         {
             // check for collision if curObject is active, not the object in question, and not exempt from collisions
             if ((curObject->currentCoords.x == x && curObject->currentCoords.y == y) || (curObject->previousCoords.x == x && curObject->previousCoords.y == y))
@@ -8970,6 +8970,9 @@ static void DoTracksGroundEffect_Footprints(struct ObjectEvent *objEvent, struct
         FLDEFF_SAND_FOOTPRINTS,
         FLDEFF_DEEP_SAND_FOOTPRINTS
     };
+
+    if(objEvent == &gObjectEvents[gPlayerAvatar.objectEventId] && Rogue_IsRideMonFlying())
+        return;
 
     gFieldEffectArguments[0] = objEvent->previousCoords.x;
     gFieldEffectArguments[1] = objEvent->previousCoords.y;
