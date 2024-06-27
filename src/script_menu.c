@@ -1165,6 +1165,7 @@ static u32 CalculatePresetDisplayScore(struct Pokemon* mon, struct RoguePokemonC
 {
     u8 i;
     u32 score = 0;
+    u32 temp;
 
 #ifdef ROGUE_EXPANSION
     if(GetNature(mon) == preset->nature)
@@ -1181,8 +1182,21 @@ static u32 CalculatePresetDisplayScore(struct Pokemon* mon, struct RoguePokemonC
         score += 6;
 #endif
 
-    if(GetMonData(mon, MON_DATA_HELD_ITEM) == preset->heldItem)
+    temp = GetMonData(mon, MON_DATA_HELD_ITEM);
+    if(temp == preset->heldItem)
         score += 1;
+
+#ifdef ROGUE_EXPANSION
+    if(temp >= ITEM_VENUSAURITE && temp <= ITEM_DIANCITE && !IsMegaEvolutionEnabled())
+    {
+        return 1;
+    }
+
+    if(temp >= ITEM_NORMALIUM_Z && temp <= ITEM_ULTRANECROZIUM_Z && !IsZMovesEnabled())
+    {
+        return 1;
+    }
+#endif
 
     for(i = 0; i < MAX_MON_MOVES; ++i)
     {
