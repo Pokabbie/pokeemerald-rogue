@@ -1,6 +1,7 @@
 #include "global.h"
 #include "battle.h"
 #include "data.h"
+#include "main.h"
 #include "task.h"
 #include "trig.h"
 #include "scanline_effect.h"
@@ -136,6 +137,12 @@ static void TaskFunc_UpdateWavePerFrame(u8 taskId)
     }
     else
     {
+        //if(gMain.nativeSpeedUpActive)
+        //{
+        //    // Does weird things if applied multiple time
+        //    return;
+        //}
+
         if (gTasks[taskId].tApplyBattleBgOffsets)
         {
             switch (gTasks[taskId].tRegOffset)

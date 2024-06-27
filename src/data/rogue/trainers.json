@@ -30,7 +30,7 @@
         "#if defined(ROGUE_DEBUG)":
         [
             {
-                "name": "DEBUG",
+                "name": "TRAINER",
                 "gfx_suffix": "DEBUG_NPC",
                 "trainer_class": "TRAINER_CLASS_COOLTRAINER",
                 "music_player": "kanto_boss",

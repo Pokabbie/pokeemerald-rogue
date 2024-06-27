@@ -2114,8 +2114,8 @@
     {
       "id": "LAYOUT_ROGUE_ROUTE_SINNOH_MT_CORONET",
       "name": "Rogue_Route_Sinnoh_MtCoronet_Layout",
-      "width": 48,
-      "height": 106,
+      "width": 50,
+      "height": 97,
       "primary_tileset": "gTileset_GeneralHub",
       "secondary_tileset": "gTileset_CaveAlt",
       "border_filepath": "data/layouts/Rogue_Route_Sinnoh_MtCoronet/border.bin",

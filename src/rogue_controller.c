@@ -152,6 +152,7 @@ struct RogueLocalData
     bool8 hasUseEnemyTeamTempSave : 1;
     bool8 hasBattleInputStarted : 1;
     bool8 hasPendingSnagBattle : 1;
+    bool8 hasPendingRidemonTrappedCheck : 1;
 };
 
 typedef u16 hot_track_dat;
@@ -3189,6 +3190,7 @@ extern const u8 Rogue_ForceNicknameMon[];
 extern const u8 Rogue_AskNicknameMon[];
 extern const u8 Rogue_Encounter_RestStop_RandomMan[];
 extern const u8 Rogue_EventScript_AttemptSnagBattle[];
+extern const u8 Rogue_Ridemon_PlayerIsTrapped[];
 
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 {
@@ -3232,6 +3234,11 @@ void Rogue_OnHourPassed(void)
 
 }
 
+void ForceRunRidemonTrappedCheck()
+{
+    gRogueLocal.hasPendingRidemonTrappedCheck = TRUE;
+}
+
 bool8 Rogue_OnProcessPlayerFieldInput(void)
 {
     if(gRogueLocal.hasSaveWarningPending)
@@ -3273,6 +3280,18 @@ bool8 Rogue_OnProcessPlayerFieldInput(void)
         StringCopy_Nickname(gStringVar1, RoguePokedex_GetSpeciesName(gSpecialVar_0x800B));
         ScriptContext_SetupScript(Rogue_EventScript_AttemptSnagBattle);
         return TRUE;
+    }
+    else if(gRogueLocal.hasPendingRidemonTrappedCheck && !Rogue_IsRideMonFlying()) // wait until we've landed to run the script
+    {
+        gRogueLocal.hasPendingRidemonTrappedCheck = FALSE;
+
+        if(Rogue_ShouldRunRidemonTrappedScript())
+        {
+            ScriptContext_SetupScript(Rogue_Ridemon_PlayerIsTrapped);
+            return TRUE;
+        }
+
+        return FALSE;
     }
     else if(RogueMP_IsActive() && RogueMP_TryExecuteScripts())
     {
@@ -3410,6 +3429,17 @@ void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
     STOP_TIMER(ROGUE_ASSISTANT_CALLBACK);
 }
 
+bool8 Rogue_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* collider)
+{
+    if(Rogue_RideMonIsCollisionExempt(obstacle, collider))
+        return TRUE;
+
+    if(FollowMon_IsCollisionExempt(obstacle, collider))
+        return TRUE;
+
+    return FALSE;
+}
+
 bool8 Rogue_IsRunningToggledOn()
 {
     return gRogueLocal.runningToggleActive;
@@ -3459,6 +3489,7 @@ void Rogue_OnObjectEventsInit()
 {
     u32 i;
 
+    gRogueLocal.hasPendingRidemonTrappedCheck = TRUE;
     SetupFollowParterMonObjectEvent();
 
     // Clear
@@ -4090,7 +4121,13 @@ static void BeginRogueRun(void)
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_IS_VICTORY_LAP);
     FlagClear(FLAG_ROGUE_MYSTERIOUS_SIGN_KNOWN);
+
+    VarSet(VAR_ROGUE_COURIER_ITEM, ITEM_NONE);
+    VarSet(VAR_ROGUE_COURIER_COUNT, 0);
+    FlagClear(FLAG_ROGUE_COURIER_READY);
+
     gRogueRun.victoryLapTotalWins = 0;
+    Rogue_RefillFlightCharges(FALSE);
 
     Rogue_PreActivateDesiredCampaign();
 
@@ -5134,6 +5171,11 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
     else if(warp->warpId != 0 && warp->mapGroup == gSaveBlock1Ptr->location.mapGroup && warp->mapNum == gSaveBlock1Ptr->location.mapNum)
     {
         // Allow warping to non-0 warps within the same ID
+        if(warp->warpId == WARP_ID_MAP_START)
+        {
+            // Warp back to start of map
+            warp->warpId = 0;
+        }
         return;
     }
 

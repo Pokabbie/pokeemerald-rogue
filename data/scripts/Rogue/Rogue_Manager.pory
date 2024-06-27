@@ -1329,7 +1329,7 @@ script Rogue_Heal_PreBoss
                 }
 
                 call(Common_EventScript_OutOfCenterPartyHeal)
-                special(Rogue_FillHealingFlask)
+                special(Rogue_OnHealWithNurse)
             }
         }
         else
@@ -1348,7 +1348,7 @@ script Rogue_Heal_PreBoss
         {
             call(Common_EventScript_OutOfCenterPartyHeal)
             setflag(FLAG_ROGUE_FREE_HEAL_USED)
-            special(Rogue_FillHealingFlask)
+            special(Rogue_OnHealWithNurse)
         }
     }
 

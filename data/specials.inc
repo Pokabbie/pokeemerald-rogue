@@ -296,7 +296,7 @@ gSpecials::
 	def_special Rogue_SwapDaycareMon
 	def_special Rogue_TransformIntoValidDaycareEgg
 	def_special Rogue_HealAlivePlayerParty
-	def_special Rogue_FillHealingFlask
+	def_special Rogue_OnHealWithNurse
 	def_special Rogue_SelectCatchingContestMode
 	def_special Rogue_BufferContestMode
 	def_special Rogue_CatchingContestBegin
@@ -339,6 +339,7 @@ gSpecials::
 	def_special GameShow_IsTeamTriviaRoundValid
 	def_special GameShow_NextTriviaQuestion
 	def_special ReloadWarpSilent
+	def_special ReloadSafeWarp
 	def_special GetFirstFreePokeblockSlot
 	def_special DoBerryBlending
 	def_special PlayRoulette

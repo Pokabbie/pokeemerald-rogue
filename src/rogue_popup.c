@@ -344,6 +344,9 @@ static const u8 sText_Popup_ExtraLifeSubtitle[] = _("{COLOR LIGHT_BLUE}{SHADOW B
 
 static const u8 sText_Popup_HealingFlaskRefilled[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Flask Refilled!");
 
+static const u8 sText_Popup_FlightChargeRemaining[] = _("{STR_VAR_1} / {STR_VAR_2}");
+static const u8 sText_Popup_FlightChargeSubtitle[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Flight Charges");
+
 static const u8 sText_Popup_GymBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gym Badge {STR_VAR_1}");
 static const u8 sText_Popup_EliteBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Elite Badge {STR_VAR_1}");
 static const u8 sText_Popup_ChampBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Champion Badge");
@@ -1745,6 +1748,39 @@ void Rogue_PushPopup_FlaskRefilled()
     popup->iconId = ITEM_HEALING_FLASK;
     
     popup->titleText = sText_Popup_HealingFlaskRefilled;
+}
+
+void Rogue_PushPopup_FlightChargeUsed(u32 remainingCharges, u32 totalCharges)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = ITEM_BASIC_RIDING_WHISTLE;
+    popup->displayDuration = 30;
+    
+    popup->titleText = sText_Popup_FlightChargeRemaining;
+    popup->subtitleText = sText_Popup_FlightChargeSubtitle;
+
+    popup->expandTextData[0] = remainingCharges;
+    popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
+    popup->expandTextData[1] = totalCharges;
+    popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_FlightChargeRefilled(u32 totalCharges)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = ITEM_BASIC_RIDING_WHISTLE;
+    
+    popup->titleText = sText_Popup_FlightChargeRemaining;
+    popup->subtitleText = sText_Popup_FlightChargeSubtitle;
+
+    popup->expandTextData[0] = totalCharges;
+    popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
+    popup->expandTextData[1] = totalCharges;
+    popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
 }
 
 void Rogue_PushPopup_UnlockPokedex()

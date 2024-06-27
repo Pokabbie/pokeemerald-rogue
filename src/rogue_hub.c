@@ -1673,7 +1673,7 @@ static void RogueHub_UpdateDayCareAreaMetatiles()
         // Place big block of trees instead
         if(RogueHub_GetAreaAtConnection(HUB_AREA_DAY_CARE, HUB_AREA_CONN_EAST) == HUB_AREA_NONE)
         {
-            MetatileFill_TreesOverlapping(24, 5, 29, 15, TREE_TYPE_DENSE);
+            MetatileFill_TreesOverlapping(24, 5, 31, 15, TREE_TYPE_DENSE);
         }
     }
 }

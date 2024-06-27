@@ -34,6 +34,7 @@ struct CustomMonData
     u16 pokeball;
     u16 heldItem;
     u16 isShiny : 1;
+    u16 isDefaultSpawn : 1;
 };
 
 static u8 const sRarityToCustomTrainerIndex[] = 
@@ -893,6 +894,12 @@ static u32 SelectUnusedUnlockedExoticMon()
     u32 listSize = 0;
     u32 questId, j;
     u32 questCount;
+
+    for(j = 0; j < CUSTOM_MON_COUNT; ++j)
+    {
+        if(sCustomPokemon[j].isDefaultSpawn)
+            currentList[listSize++] = j;
+    }
 
     // Populate with exotic mons we have already unlocked
     for(questId = 0; questId < QUEST_ID_COUNT; ++questId)
