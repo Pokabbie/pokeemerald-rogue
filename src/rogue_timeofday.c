@@ -194,13 +194,14 @@ u8 RogueToD_GetSeasonCounter()
     return gRogueSaveBlock->seasonCounter;
 }
 
-static u8 GetVisualSeason()
+u8 RogueToD_GetVisualSeason()
 {
-    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_ROUTE_SINNOH_217) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_ROUTE_SINNOH_217))
+    switch (gMapHeader.mapLayoutId)
+    {
+    case LAYOUT_ROGUE_ROUTE_SINNOH_217:
+    case LAYOUT_ROGUE_ROUTE_SINNOH_MT_CORONET:
         return SEASON_WINTER;
-
-    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_ROUTE_SINNOH_MT_CORONET) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_ROUTE_SINNOH_MT_CORONET))
-        return SEASON_WINTER;
+    }
 
     return RogueToD_GetSeason();
 }
@@ -365,7 +366,7 @@ static void UNUSED TintPalette_CompareOverrideWithMultiplyFallback(u16 *palette,
 
 static void TintPalette_Season(u16 *palette, u16 size)
 {
-    switch (GetVisualSeason())
+    switch (RogueToD_GetVisualSeason())
     {
     case SEASON_SPRING:
         break;
@@ -400,9 +401,17 @@ static void TintPalette_ToD(u16 *palette, u16 size, u16 colour)
 
 bool8 RogueToD_ApplySeasonVisuals()
 {
+    switch (gMapHeader.mapLayoutId)
+    {
+    case LAYOUT_ROGUE_ROUTE_SINNOH_217:
+    case LAYOUT_ROGUE_ROUTE_SINNOH_MT_CORONET:
+        return SEASON_WINTER;
+
     // Force on for credits
-    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_BOSS_VICTORY_LAP)
+    case LAYOUT_ROGUE_BOSS_VICTORY_LAP:
         return TRUE;
+    }
+
 
     return gSaveBlock2Ptr->seasonVisuals && gMapHeader.mapType != MAP_TYPE_INDOOR;
 }
