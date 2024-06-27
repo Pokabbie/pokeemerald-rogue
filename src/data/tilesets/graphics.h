@@ -1744,3 +1744,20 @@ const u16 gTilesetPalettes_FacilityGalactic[][16] =
     INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/11.gbapal"),
     INCBIN_U16("data/tilesets/secondary/facility_galactic/palettes/12.gbapal"),
 };
+
+const u16 gTilesetPalettes_CaveAlt[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_alt/palettes/12.gbapal"),
+};

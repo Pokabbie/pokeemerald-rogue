@@ -199,6 +199,9 @@ static u8 GetVisualSeason()
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_ROUTE_SINNOH_217) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_ROUTE_SINNOH_217))
         return SEASON_WINTER;
 
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_ROUTE_SINNOH_MT_CORONET) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_ROUTE_SINNOH_MT_CORONET))
+        return SEASON_WINTER;
+
     return RogueToD_GetSeason();
 }
 

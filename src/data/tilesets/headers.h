@@ -891,3 +891,14 @@ const struct Tileset gTileset_FacilityGalactic =
     .metatileAttributes = gMetatileAttributes_FacilityGalactic,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_CaveAlt =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Cave,
+    .palettes = gTilesetPalettes_CaveAlt,
+    .metatiles = gMetatiles_CaveAlt,
+    .metatileAttributes = gMetatileAttributes_CaveAlt,
+    .callback = NULL,
+};
