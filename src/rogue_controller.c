@@ -4121,6 +4121,11 @@ static void BeginRogueRun(void)
     FlagSet(FLAG_ROGUE_RUN_ACTIVE);
     FlagClear(FLAG_ROGUE_IS_VICTORY_LAP);
     FlagClear(FLAG_ROGUE_MYSTERIOUS_SIGN_KNOWN);
+
+    VarSet(VAR_ROGUE_COURIER_ITEM, ITEM_NONE);
+    VarSet(VAR_ROGUE_COURIER_COUNT, 0);
+    FlagClear(FLAG_ROGUE_COURIER_READY);
+
     gRogueRun.victoryLapTotalWins = 0;
     Rogue_RefillFlightCharges(FALSE);
 

@@ -41,6 +41,7 @@ void Rogue_RefillFlightCharges(bool8 createPopup);
 bool8 Rogue_IsRideActive();
 bool8 Rogue_IsRideMonSwimming();
 bool8 Rogue_IsRideMonFlying();
+bool8 Rogue_RideMonIsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* collider);
 
 void MovePlayerOnRideMon(u8 direction, u16 newKeys, u16 heldKeys);
 s16 RideMonGetPlayerSpeed();
