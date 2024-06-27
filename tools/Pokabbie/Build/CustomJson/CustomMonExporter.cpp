@@ -39,6 +39,7 @@ struct CustomMonInfo
 	std::string pokeball;
 	std::string shiny;
 	std::string heldItem;
+	std::string isDefaultSpawn;
 	TrainerInfo const* trainer;
 	std::vector<std::string> moves;
 	std::vector<std::string> abilities;
@@ -178,6 +179,7 @@ void ExportCustomMonData_C(std::ofstream& fileStream, std::string const& dataPat
 		fileStream << c_TabSpacing2 << ".pokeball = " << mon.pokeball << ",\n";
 		fileStream << c_TabSpacing2 << ".isShiny = " << mon.shiny << ",\n";
 		fileStream << c_TabSpacing2 << ".heldItem = " << mon.heldItem << ",\n";
+		fileStream << c_TabSpacing2 << ".isDefaultSpawn = " << mon.isDefaultSpawn << ",\n";
 		fileStream << c_TabSpacing2 << ".customTrainerId = CUSTOM_TRAINER_" << mon.GetTrainerCodeId() << ",\n";
 		fileStream << c_TabSpacing2 << ".otId = TRAINER_ID_" << mon.GetTrainerCodeId() << ",\n";
 
@@ -342,6 +344,11 @@ static void GatherCustomMons(std::string const& dataPath, json const& rawJsonDat
 				monInfo.shiny = GetAsString(monIt["is_shiny"]);
 			else
 				monInfo.shiny = "FALSE";
+
+			if (monIt.contains("is_default_spawn"))
+				monInfo.isDefaultSpawn = GetAsString(monIt["is_default_spawn"]);
+			else
+				monInfo.isDefaultSpawn = "FALSE";
 
 			if (monIt.contains("trainer"))
 			{
