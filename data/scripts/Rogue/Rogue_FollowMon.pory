@@ -104,3 +104,11 @@ script Rogue_ScriptShowFollower
     clearflag(FLAG_SCRIPT_HIDE_FOLLOWER) 
     special(Rogue_SetupFollowParterMonObjectEvent)
 }
+
+script Rogue_Ridemon_PlayerIsTrapped
+{
+    lock
+    msgbox(format("Oh no!\nYou seemed to have trapped yourself!"))
+    special(ReloadSafeWarp)
+    release
+}

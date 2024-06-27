@@ -18,6 +18,8 @@
 #define WARP_ID_SECRET_BASE 0x7E
 #define WARP_ID_DYNAMIC     0x7F
 
+#define WARP_ID_MAP_START   0x7D
+
 // Used to indicate an invalid warp id, for dummy warps or when a warp should
 // use the given coordinates rather than the coordinates of a target warp.
 #define WARP_ID_NONE (-1)

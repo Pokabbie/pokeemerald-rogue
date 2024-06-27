@@ -36,6 +36,7 @@
 #include "rogue_followmon.h"
 #include "rogue_gifts.h"
 #include "rogue_hub.h"
+#include "rogue_ridemon.h"
 #include "rogue_safari.h"
 #include "rogue_script.h"
 #include "rogue_timeofday.h"
@@ -1177,6 +1178,17 @@ void ReloadWarpSilent()
     DoDiveWarp();
 }
 
+void ReloadSafeWarp()
+{
+    u8 mapGroup = gSaveBlock1Ptr->location.mapGroup;
+    u8 mapNum = gSaveBlock1Ptr->location.mapNum;
+
+    StoreInitialPlayerAvatarStateForReloadWarp();
+    SetWarpDestination(mapGroup, mapNum, WARP_ID_MAP_START, 0, 0);
+    DoTeleportTileWarp();
+    //DoDiveWarp();
+}
+
 void Rogue_SetTimeAndSeason()
 {
     u8 tod = min(gSpecialVar_0x8004, TIME_PRESET_COUNT);
@@ -1625,13 +1637,15 @@ void Rogue_HealAlivePlayerParty()
     }
 }
 
-void Rogue_FillHealingFlask()
+void Rogue_OnHealWithNurse()
 {
     if(IsHealingFlaskEnabled())
     {
         VarSet(VAR_ROGUE_FLASK_HEALS_USED, 0);
         Rogue_PushPopup_FlaskRefilled();
     }
+
+    Rogue_RefillFlightCharges(TRUE);
 }
 
 #define VAR_CATCH_CONTEST_TYPE VAR_TEMP_2

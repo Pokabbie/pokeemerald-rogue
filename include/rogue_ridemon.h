@@ -30,6 +30,14 @@ bool8 Rogue_CanRideMonInvJumpLedge();
 bool8 Rogue_CanRideMonSwim();
 bool8 Rogue_CanRideMonFly();
 
+bool8 Rogue_HasUsableSwimOrFlyCharge();
+bool8 Rogue_ShouldRunRidemonTrappedScript();
+
+u32 Rogue_GetRemainingFlightCharges();
+u32 Rogue_GetMaxFlightCharges();
+void Rogue_DecreaseFlightCharges();
+void Rogue_RefillFlightCharges(bool8 createPopup);
+
 bool8 Rogue_IsRideActive();
 bool8 Rogue_IsRideMonSwimming();
 bool8 Rogue_IsRideMonFlying();

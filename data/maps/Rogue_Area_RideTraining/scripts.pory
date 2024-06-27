@@ -244,11 +244,26 @@ script Rogue_Area_RideTraining_OfferNextUpgrade
         return
     }
 
-    // 50000
-    // TODO - extra fly charge
+    if (!flag(FLAG_SYS_RIDING_FLY_2_CHARGES))
+    {
+        // 50000
+        call(Rogue_Area_RideTraining_FlyCharge2)
+        return
+    }
 
-    // 100000
-    // TODO - infinite fly
+    if (!flag(FLAG_SYS_RIDING_FLY_3_CHARGES))
+    {
+        // 100000
+        call(Rogue_Area_RideTraining_FlyCharge3)
+        return
+    }
+
+    if (!flag(FLAG_SYS_RIDING_FLY_INFINITE_CHARGES))
+    {
+        // 500000
+        call(Rogue_Area_RideTraining_FlyChargeInfinite)
+        return
+    }
 
     msgbox(format("I don't have anything more I can teach you at the moment, I'm afraid."))
 }
@@ -430,9 +445,129 @@ script Rogue_Area_RideTraining_TeachFly
             playfanfare(MUS_EVOLVED)
             waitfanfare
 
-            msgbox(format("When riding your Pokémon, some of them will be able to now fly by pressing {B_BUTTON}.\pWhilst you are up in the air, you won't be able to interact with items and you won't be seen by trainers either.\pYou will have to be careful however, as your Pokémon will only have enough energy to fly once per route, whilst you are out exploring.\pYou should now be able to see which Pokémon are able to use this skill in your Pokédex."))
+            msgbox(format("When riding your Pokémon, some of them will be able to now fly by pressing {B_BUTTON}.\pWhilst you are up in the air, you won't be able to interact with items and you won't be seen by trainers either.\pYou will have to be careful however, as your Pokémon will only have enough energy to fly once before exhausting itself.\pEvery time you heal at a Nurse, your Pokémon will be able to fly again.\pYou will be able to fly for an Unlimited number of times in {POKEMON_HUB}, thankfully.\pYou should also now be able to see which Pokémon are able to use this skill in your Pokédex."))
 
             setflag(FLAG_SYS_RIDING_FLY)
+        }
+        else
+        {
+            msgbox(format("Oh… it doesn't look like you have enough money at the moment."))
+            hidemoneybox
+        }
+    }
+    else
+    {
+        hidemoneybox
+    }
+}
+
+script Rogue_Area_RideTraining_FlyCharge2
+{
+    showmoneybox(0, 0)
+
+    msgbox(format("I could teach you how to fly 2 times before exhausting your {PKMN} for ¥50000?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        checkconstantmoney(50000)
+        if(var(VAR_RESULT) == YES)
+        {
+            removeconstantmoney(50000)
+            updatemoneybox
+
+            playse(SE_SHOP)
+            waitse
+
+            msgbox(format("Thank you very much, {PLAYER}!"))
+            msgbox(format("Here, let me teach you!"))
+
+            hidemoneybox
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} gained an extra flight charge!"))
+            waitmessage
+            playfanfare(MUS_EVOLVED)
+            waitfanfare
+
+            setflag(FLAG_SYS_RIDING_FLY_2_CHARGES)
+        }
+        else
+        {
+            msgbox(format("Oh… it doesn't look like you have enough money at the moment."))
+            hidemoneybox
+        }
+    }
+    else
+    {
+        hidemoneybox
+    }
+}
+
+script Rogue_Area_RideTraining_FlyCharge3
+{
+    showmoneybox(0, 0)
+
+    msgbox(format("I could teach you how to fly 3 times before exhausting your {PKMN} for ¥100000?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        checkconstantmoney(100000)
+        if(var(VAR_RESULT) == YES)
+        {
+            removeconstantmoney(100000)
+            updatemoneybox
+
+            playse(SE_SHOP)
+            waitse
+
+            msgbox(format("Thank you very much, {PLAYER}!"))
+            msgbox(format("Here, let me teach you!"))
+
+            hidemoneybox
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} gained an extra flight charge!"))
+            waitmessage
+            playfanfare(MUS_EVOLVED)
+            waitfanfare
+
+            setflag(FLAG_SYS_RIDING_FLY_3_CHARGES)
+        }
+        else
+        {
+            msgbox(format("Oh… it doesn't look like you have enough money at the moment."))
+            hidemoneybox
+        }
+    }
+    else
+    {
+        hidemoneybox
+    }
+}
+
+script Rogue_Area_RideTraining_FlyChargeInfinite
+{
+    showmoneybox(0, 0)
+
+    msgbox(format("I could teach you how to fly and unlimited number of times before exhausting your {PKMN} for ¥500000?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        checkconstantmoney(500000)
+        if(var(VAR_RESULT) == YES)
+        {
+            removeconstantmoney(500000)
+            updatemoneybox
+
+            playse(SE_SHOP)
+            waitse
+
+            msgbox(format("Thank you very much, {PLAYER}!"))
+            msgbox(format("Here, let me teach you!"))
+
+            hidemoneybox
+            message(format("{COLOR GREEN}{SHADOW LIGHT_GREEN}{PLAYER} gained an unlimited flight charges!"))
+            waitmessage
+            playfanfare(MUS_EVOLVED)
+            waitfanfare
+
+            setflag(FLAG_SYS_RIDING_FLY_INFINITE_CHARGES)
         }
         else
         {

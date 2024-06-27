@@ -1,6 +1,7 @@
 #include "global.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
+#include "constants/layouts.h"
 #include "constants/songs.h"
 
 #include "bike.h"
@@ -18,6 +19,7 @@
 #include "rogue_debug.h"
 #include "rogue_followmon.h"
 #include "rogue_multiplayer.h"
+#include "rogue_popup.h"
 #include "rogue_ridemon.h"
 
 enum
@@ -150,11 +152,11 @@ static bool8 IsValidMonToRideNow(struct Pokemon* mon)
     return IsValidSpeciesToRideNow(species);
 }
 
-static u8 GetRideOptionCount()
+static u8 GetRideOptionCountFor(u8 whistleType)
 {
     u8 count;
 
-    if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_GOLD)
+    if(whistleType == RIDE_WHISTLE_GOLD)
     {
         count = 1 + (FlagGet(FLAG_SYS_RIDING_ACCESS_DAYCARE) ? Rogue_GetCurrentDaycareSlotCount() : 0);
     }
@@ -166,9 +168,14 @@ static u8 GetRideOptionCount()
     return count;
 }
 
-static u16 GetRideOptionGfx(u8 slot)
+static u8 GetRideOptionCount()
 {
-    if(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType == RIDE_WHISTLE_GOLD)
+    return GetRideOptionCountFor(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType);
+}
+
+static u16 GetRideOptionGfxFor(u8 whistleType, u8 slot)
+{
+    if(whistleType == RIDE_WHISTLE_GOLD)
     {
         if(slot == 0)
         {
@@ -189,6 +196,11 @@ static u16 GetRideOptionGfx(u8 slot)
     }
 
     return SPECIES_NONE;
+}
+
+static u16 GetRideOptionGfx(u8 slot)
+{
+    return GetRideOptionGfxFor(sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.whistleType, slot);
 }
 
 static bool8 CalculateRideSpecies(s8 dir)
@@ -824,6 +836,179 @@ bool8 Rogue_CanRideMonFly()
     return FALSE;
 }
 
+static bool8 IsUsableSwimOrFlySpecies(u16 species)
+{
+    if(FlagGet(FLAG_SYS_RIDING_SURF) && Rogue_IsValidRideSwimSpecies(species))
+        return TRUE;
+        
+    if(FlagGet(FLAG_SYS_RIDING_FLY) && Rogue_IsValidRideFlySpecies(species))
+    {
+        if(Rogue_GetRemainingFlightCharges() != 0)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_HasUsableSwimOrFlyCharge()
+{
+    // Check Party first
+    u32 count = GetRideOptionCountFor(RIDE_WHISTLE_BASIC);
+    u32 i;
+
+    for(i = 0; i < count; ++i)
+    {
+        u16 species = GetRideOptionGfxFor(RIDE_WHISTLE_BASIC, i);
+
+        if(species >= FOLLOWMON_SHINY_OFFSET)
+            species -= FOLLOWMON_SHINY_OFFSET;
+
+        if(species != SPECIES_NONE && IsUsableSwimOrFlySpecies(species))
+            return TRUE;
+    }
+
+    // TODO - Only run if we have this in our bag?
+    // (We should always have this in our bag anyway and we can't fill any of the slots until we get it anyway)
+    {
+        count = GetRideOptionCountFor(RIDE_WHISTLE_GOLD);
+
+        for(i = 0; i < count; ++i)
+        {
+            u16 species = GetRideOptionGfxFor(RIDE_WHISTLE_GOLD, i);
+
+            if(species >= FOLLOWMON_SHINY_OFFSET)
+                species -= FOLLOWMON_SHINY_OFFSET;
+
+            if(species != SPECIES_NONE && IsUsableSwimOrFlySpecies(species))
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+#define IN_AREA(x0, y0, x1, y1) (playerX >= x0 && playerX <= x1 && playerY >= y0 && playerY <= y1)
+
+static bool8 IsInSoftlockZone()
+{
+    s16 playerX, playerY;
+    PlayerGetDestCoords(&playerX, &playerY);
+    playerX -= MAP_OFFSET;
+    playerY -= MAP_OFFSET;
+
+    switch (gMapHeader.mapLayoutId)
+    {
+    case LAYOUT_ROGUE_ROUTE_MOUNTAIN0:
+        if(IN_AREA(3, 113, 7, 119))
+            return TRUE;
+        if(IN_AREA(7, 119, 13, 120))
+            return TRUE;
+        break;
+
+    case LAYOUT_ROGUE_ROUTE_MOUNTAIN1:
+        if(IN_AREA(12, 25, 15, 28))
+            return TRUE;
+        break;
+
+    case LAYOUT_ROGUE_ROUTE_WATER_FRONT1:
+        if(IN_AREA(24, 63, 30, 64))
+            return TRUE;
+        if(IN_AREA(0, 86, 9, 89))
+            return TRUE;
+        break;
+
+    case LAYOUT_ROGUE_ROUTE_URBAN0:
+        if(IN_AREA(32, 46, 34, 48))
+            return TRUE;
+        if(IN_AREA(22, 23, 24, 26))
+            return TRUE;
+        break;
+
+
+    case LAYOUT_ROGUE_ROUTE_JOHTO_FIELD1:
+        if(IN_AREA(20, 101, 29, 101))
+            return TRUE;
+        break;
+
+    case LAYOUT_ROGUE_ROUTE_JOHTO_WATER_FRONT0:
+        if(IN_AREA(20, 16, 25, 22))
+            return TRUE;
+        break;
+
+    case LAYOUT_ROGUE_ROUTE_SINNOH_212:
+        if(IN_AREA(27, 21, 29, 24))
+            return TRUE;
+        break;
+
+    case LAYOUT_ROGUE_ROUTE_SINNOH_214:
+        if(IN_AREA(25, 4, 27, 5))
+            return TRUE;
+        break;
+    }
+
+    return FALSE;
+}
+
+bool8 Rogue_ShouldRunRidemonTrappedScript()
+{
+    if(FlagGet(FLAG_SYS_RIDING_SURF) || FlagGet(FLAG_SYS_RIDING_FLY))
+    {
+        if(Rogue_IsRideMonSwimming() || Rogue_IsRideMonFlying())
+            return FALSE;
+
+        // If we're in softlockable locations, we need to warp back to safety
+        if(IsInSoftlockZone() && !Rogue_HasUsableSwimOrFlyCharge())
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+u32 Rogue_GetRemainingFlightCharges()
+{
+    if(Rogue_IsRunActive())
+        return VarGet(VAR_ROGUE_REMAINING_FLIGHT_CHARGES);
+    else
+        return 999;
+}
+
+u32 Rogue_GetMaxFlightCharges()
+{
+    if(FlagGet(FLAG_SYS_RIDING_FLY_INFINITE_CHARGES))
+        return 999;
+    else if(FlagGet(FLAG_SYS_RIDING_FLY_3_CHARGES))
+        return 3;
+    else if(FlagGet(FLAG_SYS_RIDING_FLY_2_CHARGES))
+        return 2;
+    else
+        return 1;
+}
+
+void Rogue_DecreaseFlightCharges()
+{
+    if(Rogue_IsRunActive() && !FlagGet(FLAG_SYS_RIDING_FLY_INFINITE_CHARGES))
+    {
+        u16 charges = VarGet(VAR_ROGUE_REMAINING_FLIGHT_CHARGES);
+        if(charges != 0)
+        {
+            VarSet(VAR_ROGUE_REMAINING_FLIGHT_CHARGES, charges - 1);
+
+            Rogue_PushPopup_FlightChargeUsed(Rogue_GetRemainingFlightCharges(), Rogue_GetMaxFlightCharges());
+        }
+    }
+}
+
+void Rogue_RefillFlightCharges(bool8 createPopup)
+{
+    if(Rogue_GetRemainingFlightCharges() != Rogue_GetMaxFlightCharges())
+    {
+        VarSet(VAR_ROGUE_REMAINING_FLIGHT_CHARGES, Rogue_GetMaxFlightCharges());
+
+        if(createPopup)
+            Rogue_PushPopup_FlightChargeRefilled(Rogue_GetMaxFlightCharges());
+    }
+}
+
 bool8 Rogue_IsRideActive()
 {
     return TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_RIDING);
@@ -1080,6 +1265,8 @@ static u8 CheckMovementInputOnRideMon(u8 direction)
         return gPlayerAvatar.runningState = MOVING;
 }
 
+void ForceRunRidemonTrappedCheck();
+
 static void PlayerOnRideMonNotMoving(u8 direction, u16 newKeys, u16 heldKeys)
 {
     if(newKeys & B_BUTTON && (Rogue_IsRideMonFlying() || Rogue_CanRideMonFly()))
@@ -1087,13 +1274,32 @@ static void PlayerOnRideMonNotMoving(u8 direction, u16 newKeys, u16 heldKeys)
         // Toggle between flying modes
         bool8 desiredFlyState = !sRideMonData.rideObjects[RIDE_OBJECT_PLAYER].state.flyingState;
 
-        if(!desiredFlyState)
+        if(desiredFlyState)
+        {
+            if(Rogue_GetRemainingFlightCharges() == 0)
+            {
+                // No charges remaining
+                //Rogue_PushPopup_FlightChargeUsed(0, Rogue_GetMaxFlightCharges());
+                PlaySE(SE_FAILURE);
+                return;
+            }
+
+            // We got here, so it means we're allowed to take off
+            Rogue_DecreaseFlightCharges();
+        }
+        else
         {
             if(CheckForPlayerLandingCollision())
             {
                 // We're not allowed to land here
                 PlaySE(SE_FAILURE);
                 return;
+            }
+
+            if(Rogue_GetRemainingFlightCharges() == 0)
+            {
+                // Run the soft lock check
+                ForceRunRidemonTrappedCheck();
             }
         }
 
