@@ -68,6 +68,12 @@ static u16 EffectToCharmItem(u8 effectType)
         case EFFECT_EXTRA_LIFE:
             return ITEM_SACRED_ASH;
 
+        case EFFECT_INFINITE_EXTRA_LIFE:
+            return ITEM_INFINITE_EXTRA_LIFE_CHARM;
+
+        case EFFECT_ALLOW_SAVE_SCUM:
+            return ITEM_ALLOW_SAVE_SCUM_CHARM;
+
         // Unused
         // EFFECT_PARTY_SIZE
         // EFFECT_EVERSTONE_EVOS
@@ -363,6 +369,8 @@ bool8 IsEffectDisabled(u8 effectType, bool8 isCurse)
         // Globally disabled effects (Can only be intentionally given)
         case EFFECT_PARTY_SIZE:
         case EFFECT_EXTRA_LIFE:
+        case EFFECT_INFINITE_EXTRA_LIFE:
+        case EFFECT_ALLOW_SAVE_SCUM:
         case EFFECT_SNOWBALL_CURSES:
         case EFFECT_RANDOMAN_ALWAYS_SPAWN:
         case EFFECT_AUTO_MOVE_SELECT:
@@ -425,11 +433,19 @@ u16 Rogue_NextCurseItem(u16* historyBuffer, u16 historyBufferCount)
 
 void Rogue_ExecuteExtraLife()
 {
-    u16 charmItemId = EffectToCharmItem(EFFECT_EXTRA_LIFE);
-    AGB_ASSERT(charmItemId != ITEM_NONE);
+    if(IsCharmActive(EFFECT_INFINITE_EXTRA_LIFE))
+    {
+        // do nothing
+        Rogue_PushPopup_TriggerExtraLife(FALSE);
+    }
+    else
+    {
+        u16 charmItemId = EffectToCharmItem(EFFECT_EXTRA_LIFE);
+        AGB_ASSERT(charmItemId != ITEM_NONE);
 
-    RemoveBagItem(charmItemId, 1);
-    Rogue_PushPopup_TriggerExtraLife();
+        RemoveBagItem(charmItemId, 1);
+        Rogue_PushPopup_TriggerExtraLife(TRUE);
+    }
 
     gRogueAdvPath.isOverviewActive = FALSE;
     gRogueRun.adventureRoomId = ADVPATH_INVALID_ROOM_ID;

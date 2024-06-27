@@ -775,7 +775,7 @@ static const void* SelectPaletteFor(u8 terrainId)
 {
     if(RogueToD_ApplySeasonVisuals())
     {
-        u8 season = RogueToD_GetSeason();
+        u8 season = RogueToD_GetVisualSeason();
 
         if(sBattleTerrainTable[terrainId].perSeasonPalette[season] != NULL)
             return sBattleTerrainTable[terrainId].perSeasonPalette[season];

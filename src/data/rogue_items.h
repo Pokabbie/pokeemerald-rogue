@@ -61,6 +61,8 @@ extern const u8 gItemDesc_UnawareCharm[];
 extern const u8 gItemDesc_UnawareCurse[];
 extern const u8 gItemDesc_AdaptabilityCharm[];
 extern const u8 gItemDesc_AdaptabilityCurse[];
+extern const u8 gItemDesc_ExtraLifeCharm[];
+extern const u8 gItemDesc_AllowSaveScumCharm[];
 extern const u8 gItemDesc_PartyCurse[];
 extern const u8 gItemDesc_EverstoneCurse[];
 extern const u8 gItemDesc_BattleItemCurse[];
@@ -1007,6 +1009,41 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .iconPalette = gItemIconPalette_RogueCharm,
     },
 
+    [ITEM_INFINITE_EXTRA_LIFE_CHARM - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Retry Charm"),
+#else
+        .name = _("RETRY CHARM"),
+#endif
+        .itemId = ITEM_ADAPTABILITY_CHARM,
+        .price = 0,
+        .description = gItemDesc_ExtraLifeCharm,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCharm,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
+
+    [ITEM_ALLOW_SAVE_SCUM_CHARM - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Save Charm"),
+#else
+        .name = _("SAVE CHARM"),
+#endif
+        .itemId = ITEM_ADAPTABILITY_CHARM,
+        .price = 0,
+        .description = gItemDesc_AllowSaveScumCharm,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCharm,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
 
     [ITEM_SHOP_PRICE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
     {

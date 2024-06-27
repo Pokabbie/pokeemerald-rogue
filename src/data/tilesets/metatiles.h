@@ -224,3 +224,6 @@ const u16 gMetatileAttributes_Restaurant[] = INCBIN_U16("data/tilesets/secondary
 
 const u16 gMetatiles_FacilityGalactic[] = INCBIN_U16("data/tilesets/secondary/facility_galactic/metatiles.bin");
 const u16 gMetatileAttributes_FacilityGalactic[] = INCBIN_U16("data/tilesets/secondary/facility_galactic/metatile_attributes.bin");
+
+const u16 gMetatiles_CaveAlt[] = INCBIN_U16("data/tilesets/secondary/cave_alt/metatiles.bin");
+const u16 gMetatileAttributes_CaveAlt[] = INCBIN_U16("data/tilesets/secondary/cave_alt/metatile_attributes.bin");

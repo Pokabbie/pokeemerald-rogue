@@ -51,6 +51,7 @@
 #include "constants/rogue.h"
 #include "rogue.h"
 #include "rogue_controller.h"
+#include "rogue_charms.h"
 #include "rogue_hub.h"
 #include "rogue_multiplayer.h"
 #include "rogue_player_customisation.h"
@@ -436,7 +437,14 @@ static void BuildRogueRunStartMenu(void)
 
     if (!inCatchingContest && FlagGet(FLAG_SYS_SAVE_DISABLED) == FALSE)
     {
-        AddStartMenuAction(MENU_ACTION_QUICK_SAVE);
+        if(IsCharmActive(EFFECT_ALLOW_SAVE_SCUM))
+        {
+            AddStartMenuAction(MENU_ACTION_SAVE);
+        }
+        else
+        {
+            AddStartMenuAction(MENU_ACTION_QUICK_SAVE);
+        }
     }
 
     AddStartMenuAction(MENU_ACTION_OPTION);
