@@ -1723,7 +1723,7 @@ void Rogue_PushPopup_RequipBerryFail(u16 itemId)
     popup->subtitleText = sText_Popup_BerriesRequipFailSubtitle;
 }
 
-void Rogue_PushPopup_TriggerExtraLife()
+void Rogue_PushPopup_TriggerExtraLife(bool8 itemConsumed)
 {
     struct PopupRequest* popup = CreateNewPopup();
 
@@ -1732,7 +1732,9 @@ void Rogue_PushPopup_TriggerExtraLife()
     popup->fanfare = MUS_HEAL;
     
     popup->titleText = sText_Popup_ExtraLifeTitle;
-    popup->subtitleText = sText_Popup_ExtraLifeSubtitle;
+
+    if(itemConsumed)
+        popup->subtitleText = sText_Popup_ExtraLifeSubtitle;
 }
 
 void Rogue_PushPopup_FlaskRefilled()

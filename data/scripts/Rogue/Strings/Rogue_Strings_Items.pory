@@ -295,6 +295,15 @@ text gItemDesc_AdaptabilityCurse
     format("Opponent Pokémon STAB increased by 50%.")
 }
 
+text gItemDesc_ExtraLifeCharm
+{
+    format("Permanent Sacred Ash effect.")
+}
+text gItemDesc_AllowSaveScumCharm
+{
+    format("Allow regular Saving / Reloading during Runs.")
+}
+
 text gItemDesc_PartyCurse
 {
     format("The maximum number of Pokémon in your party is reduced.")

@@ -380,7 +380,7 @@ void DoWhiteOut(void)
     HealPlayerParty();
     Overworld_ResetStateAfterWhiteOut();
 
-    if(Rogue_IsRunActive() && IsCharmActive(EFFECT_EXTRA_LIFE))
+    if(Rogue_IsRunActive() && (IsCharmActive(EFFECT_EXTRA_LIFE) || IsCharmActive(EFFECT_INFINITE_EXTRA_LIFE)))
     {
         Rogue_ExecuteExtraLife();
     }

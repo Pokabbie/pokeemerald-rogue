@@ -20,6 +20,8 @@ enum RogueCharmEffects
 
     // Charm only
     EFFECT_EXTRA_LIFE,
+    EFFECT_INFINITE_EXTRA_LIFE,
+    EFFECT_ALLOW_SAVE_SCUM,
 
     // Curse only
     EFFECT_PARTY_SIZE,
