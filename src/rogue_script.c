@@ -1613,6 +1613,29 @@ void Rogue_TransformIntoValidDaycareEgg()
         gSpecialVar_Result = SPECIES_NONE;
 }
 
+void Rogue_SetupDaycareSpeciesGraphics()
+{
+    u32 i;
+    u32 maxSlots = Rogue_GetCurrentDaycareSlotCount();
+
+    for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+    {
+        struct BoxPokemon* mon = Rogue_GetDaycareBoxMon(i);
+
+        if(i < maxSlots && GetBoxMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            // FLAG_HIDE_SPECIES_0, FLAG_HIDE_SPECIES_1, FLAG_HIDE_SPECIES_1
+            FlagClear(FLAG_TEMP_5 + i);
+            FollowMon_SetGraphicsRaw(i, FollowMon_GetBoxMonGraphics(mon));
+        }
+        else
+        {
+            // FLAG_HIDE_SPECIES_0, FLAG_HIDE_SPECIES_1, FLAG_HIDE_SPECIES_1
+            FlagSet(FLAG_TEMP_5 + i);
+        }
+    }
+}
+
 void Rogue_HealAlivePlayerParty()
 {
     u8 i, j;

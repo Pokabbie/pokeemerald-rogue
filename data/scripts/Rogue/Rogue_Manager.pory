@@ -1079,6 +1079,7 @@ script Rogue_SpeakDaycareLady_TrySwapMon
     special(Rogue_IsDaycareSlotEmpty)
     if(var(VAR_RESULT) == YES)
     {
+        setvar(VAR_RESULT, NO)
         specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
 
         if(var(VAR_TEMP_0) == 1)
@@ -1106,11 +1107,14 @@ script Rogue_SpeakDaycareLady_TrySwapMon
                     call(Rogue_ScriptShowFollower)
                 }
                 msgbox(format("I'll make sure to take good care of them!\pTake care!"), MSGBOX_DEFAULT)
+                setvar(VAR_RESULT, YES)
             }
         }
     }
     else
     {
+        setvar(VAR_RESULT, NO)
+
         specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
         specialvar(VAR_TEMP_1, Rogue_CalcMaxPartySize)
         
@@ -1135,6 +1139,7 @@ script Rogue_SpeakDaycareLady_TrySwapMon
                     call(Rogue_ScriptShowFollower)
                 }
                 msgbox(format("I'll make sure to take good care of them!\pTake care!"), MSGBOX_DEFAULT)
+                setvar(VAR_RESULT, YES)
             }
         }
         else
