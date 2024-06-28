@@ -69,18 +69,21 @@ static void Setup_QuestPage();
 static void Setup_QuestBoard();
 static void Setup_MasteryLandingPage();
 static void Setup_MasteryTrackerPage();
+static void Setup_PlayerStatsPage();
 
 static void HandleInput_FrontPage(u8 taskId);
 static void HandleInput_IndexPage(u8 taskId);
 static void HandleInput_QuestPage(u8 taskId);
 static void HandleInput_MasteryLandingPage(u8 taskId);
 static void HandleInput_MasteryTrackerPage(u8 taskId);
+static void HandleInput_PlayerStatsPage(u8 taskId);
 
 static void Draw_FrontPage();
 static void Draw_IndexPage();
 static void Draw_QuestPage();
 static void Draw_MasteryLandingPage();
 static void Draw_MasteryTrackerPage();
+static void Draw_PlayerStatsPage();
 
 enum
 {
@@ -105,6 +108,8 @@ enum
     PAGE_BOOK_MON_MASTERY_ACTIVE,
     PAGE_BOOK_MON_MASTERY_INACTIVE,
     PAGE_BOOK_MON_MASTERY_COMPLETE,
+
+    PAGE_BOOK_PLAYER_STATS,
 
     PAGE_QUEST_BOARD, // new quests
     PAGE_COUNT,
@@ -138,6 +143,7 @@ struct QuestMenuData
     u8 previousPage;
     u8 menuOptionsBufferCount;
     u8 alphabeticalSort : 1;
+    u8 exitOnMonMasteryLanding : 1;
 };
 
 struct PageData
@@ -292,6 +298,14 @@ static const struct PageData sPageData[PAGE_COUNT] =
         .drawCallback = Draw_QuestPage,
     },
 
+    [PAGE_BOOK_PLAYER_STATS] = 
+    {
+        .tilemap = sLinedTilemap,
+        .setupCallback = Setup_PlayerStatsPage,
+        .inputCallback = HandleInput_PlayerStatsPage,
+        .drawCallback = Draw_PlayerStatsPage,
+    },
+
     [PAGE_QUEST_BOARD] = 
     {
         .tilemap = sQuestboardTilemap,
@@ -368,6 +382,8 @@ static u8 const sText_MonMasteryComplete[] = _("Quests·{FONT_SMALL_NARROW}{COLO
 static u8 const sText_MonMasteryActive[] = _("Mastery·{FONT_SMALL_NARROW}{COLOR BLUE}Active");
 static u8 const sText_MonMasteryInactive[] = _("Mastery·{FONT_SMALL_NARROW}{COLOR RED}Inactive");
 
+static u8 const sText_Stats[] = _("{FONT_SMALL_NARROW}Adventure Stats");
+
 static u8 const sText_Pinned[] = _("·Pinned Quests·");
 static u8 const sText_InProgress[] = _("In Progress…");
 static u8 const sText_Inactive[] = _("Inactive");
@@ -441,6 +457,12 @@ static void OpenQuestMenu(RogueQuestMenuCallback callback, u8 page)
 void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback, bool8 viewQuestBook)
 {
     OpenQuestMenu(callback, viewQuestBook ? PAGE_BOOK_FRONT : PAGE_QUEST_BOARD);
+}
+
+void Rogue_OpenMonMasteryMenu(RogueQuestMenuCallback callback)
+{
+    OpenQuestMenu(callback, PAGE_BOOK_MON_MASTERY_LANDING);
+    sQuestMenuData->exitOnMonMasteryLanding = TRUE;
 }
 
 static void CB2_InitQuestMenu(void)
@@ -1016,6 +1038,12 @@ static struct MenuOption const sMenuOptionsHub[] =
     },
 
     {
+        .text = sText_Stats,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_PLAYER_STATS,
+    },
+
+    {
         .text = sText_Back,
         .callback = SetupPage,
         .param = PAGE_BOOK_FRONT,
@@ -1058,6 +1086,12 @@ static struct MenuOption const sMenuOptionsAdventure[] =
         .param = PAGE_BOOK_MON_MASTERY_LANDING,
     },
 
+    {
+        .text = sText_Stats,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_PLAYER_STATS,
+    },
+
     //{
     //    .text = sText_MonMasteryActive,
     //    .callback = SetupPage,
@@ -1093,6 +1127,9 @@ static bool8 IsIndexPageVisible(u8 page)
     case PAGE_BOOK_MON_MASTERY_INACTIVE:
     case PAGE_BOOK_MON_MASTERY_COMPLETE:
         return RogueQuest_HasUnlockedMonMasteries();
+
+    case PAGE_BOOK_PLAYER_STATS:
+        return RogueQuest_HasCollectedRewards(QUEST_ID_TO_ADVENTUREEMARK);
     }
 
     return TRUE;
@@ -1924,7 +1961,17 @@ static void HandleInput_MasteryLandingPage(u8 taskId)
     }
 
     if (JOY_NEW(B_BUTTON))
-        SetupPage(PAGE_BOOK_INDEX);
+    {
+        if(sQuestMenuData->exitOnMonMasteryLanding)
+        {
+            RogueQuest_ClearNewUnlockQuests();
+            StartFadeAndExit(taskId);
+        }
+        else
+        {
+            SetupPage(PAGE_BOOK_INDEX);
+        }
+    }
 }
 
 
@@ -2099,6 +2146,253 @@ static void Draw_MasteryTrackerPage()
                 //    0
                 //);
             }
+        }
+    }
+
+    // Page numbers
+    {
+        u8* str;
+        
+        str = StringCopy(gStringVar4, sText_PageMarker);
+        ConvertIntToDecimalStringN(str, sQuestMenuData->scrollListOffset * 2 + 1, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 60, 131, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+        
+        str = StringCopy(gStringVar4, sText_PageMarker);
+        ConvertIntToDecimalStringN(str, sQuestMenuData->scrollListOffset * 2 + 2, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 4, 131, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+    }
+
+    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 131, 0, 0, color, TEXT_SKIP_DRAW, sText_ChangePageLeft);
+    AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 57, 131, 0, 0, color, TEXT_SKIP_DRAW, sText_ChangePageRight);
+
+    PutWindowTilemap(WIN_LEFT_PAGE);
+    PutWindowTilemap(WIN_RIGHT_PAGE);
+    CopyWindowToVram(WIN_LEFT_PAGE, COPYWIN_FULL);
+    CopyWindowToVram(WIN_RIGHT_PAGE, COPYWIN_FULL);
+}
+
+#undef TRACKER_ENTRY_WIDTH
+#undef TRACKER_ENTRY_HEIGHT
+#undef TRACKER_ENTRY_PER_PAGE
+
+// Player Stats
+//
+
+struct DisplayStat
+{
+    u8 const* name;
+    u8 statId;
+};
+
+static u8 const sStatName_TotalRuns[] = _("Total Adventures");
+static u8 const sStatName_TotalWins[] = _("Wins");
+static u8 const sStatName_TotalCurrentWinStreak[] = _("Current Win Streak");
+static u8 const sStatName_TotalLongestWinStreak[] = _("Longest Win Streak");
+static u8 const sStatName_TotalLosses[] = _("Wipes");
+static u8 const sStatName_TotalCurrentLossStreak[] = _("Current Wipe Streak");
+static u8 const sStatName_TotalLongestLossStreak[] = _("Longest Wipe Streak");
+
+static u8 const sStatName_FirstHoF[] = _("First HoF Time");
+static u8 const sStatName_FastestHoF[] = _("Fastest HoF Time");
+static u8 const sStatName_SlowestHoF[] = _("Slowest HoF Time");
+
+static u8 const sStatName_TotalBadges[] = _("Total Badges");
+static u8 const sStatName_GymBadges[] = _("Gym Badges");
+static u8 const sStatName_EliteBadges[] = _("Elite Badges");
+static u8 const sStatName_ChampionBadges[] = _("Champion Badges");
+
+static u8 const sStatName_TotalBattles[] = _("Total Battles");
+static u8 const sStatName_WildBattles[] = _("Wild Battles");
+static u8 const sStatName_TrainerBattles[] = _("Trainer Battles");
+static u8 const sStatName_RivalBattles[] = _("Rival Battles");
+
+static u8 const sStatName_PokemonCaught[] = _("Pokémon Caught");
+static u8 const sStatName_ShinyCaught[] = _("Shinies Caught");
+static u8 const sStatName_LegendsCaught[] = _("Legends Caught");
+static u8 const sStatName_RoamersCaught[] = _("Roamers Caught");
+
+static u8 const sStatName_RandoTradeTotal[] = _("Randoman {PKMN}");
+static u8 const sStatName_RandoTradeParty[] = _("Party Trades");
+static u8 const sStatName_RandoTradeSingle[] = _("Single Trades");
+
+static u8 const sStatName_ReleasedPokemon[] = _("Pokémon Released");
+static u8 const sStatName_FaintedPokemon[] = _("Pokémon Fainted");
+static u8 const sStatName_EvolvedPokemon[] = _("Pokémon Evolved");
+
+static u8 const sStatFormat_HofTime[] = _("{STR_VAR_1}:{STR_VAR_2}:{STR_VAR_3}");
+
+
+static struct DisplayStat const sDisplayStats[] =
+{
+    { sStatName_TotalRuns, GAME_STAT_TOTAL_RUNS },
+    { sStatName_TotalWins, GAME_STAT_RUN_WINS },
+    { sStatName_TotalCurrentWinStreak, GAME_STAT_CURRENT_RUN_WIN_STREAK },
+    { sStatName_TotalLongestWinStreak, GAME_STAT_LONGEST_RUN_WIN_STREAK },
+
+    {},
+    { sStatName_TotalLosses, GAME_STAT_RUN_LOSSES },
+    { sStatName_TotalCurrentLossStreak, GAME_STAT_CURRENT_RUN_LOSS_STREAK },
+    { sStatName_TotalLongestLossStreak, GAME_STAT_LONGEST_RUN_LOSS_STREAK },
+
+
+    { sStatName_TotalBadges, GAME_STAT_TOTAL_BADGES },
+    { sStatName_GymBadges, GAME_STAT_GYM_BADGES },
+    { sStatName_EliteBadges, GAME_STAT_ELITE_BADGES },
+    { sStatName_ChampionBadges, GAME_STAT_CHAMPION_BADGES },
+
+    { sStatName_FirstHoF, GAME_STAT_FIRST_HOF_PLAY_TIME },
+    { sStatName_FastestHoF, GAME_STAT_FASTEST_HOF_PLAY_TIME },
+    { sStatName_SlowestHoF, GAME_STAT_SLOWEST_HOF_PLAY_TIME },
+    {},
+
+
+    { sStatName_TotalBattles, GAME_STAT_TOTAL_BATTLES },
+    { sStatName_WildBattles, GAME_STAT_WILD_BATTLES },
+    { sStatName_TrainerBattles, GAME_STAT_TRAINER_BATTLES },
+    { sStatName_RivalBattles, GAME_STAT_RIVAL_BATTLES },
+
+    { sStatName_PokemonCaught, GAME_STAT_POKEMON_CAUGHT },
+    { sStatName_ShinyCaught, GAME_STAT_SHINIES_CAUGHT },
+    { sStatName_LegendsCaught, GAME_STAT_LEGENDS_CAUGHT },
+    { sStatName_RoamersCaught, GAME_STAT_ROAMERS_CAUGHT },
+
+
+    { sStatName_ReleasedPokemon, GAME_STAT_POKEMON_RELEASED },
+    { sStatName_FaintedPokemon, GAME_STAT_POKEMON_FAINTED },
+    { sStatName_EvolvedPokemon, GAME_STAT_EVOLVED_POKEMON },
+    {},
+
+    { sStatName_RandoTradeTotal, GAME_STAT_RANDO_TRADE_TOTAL_PKMN },
+    { sStatName_RandoTradeParty, GAME_STAT_RANDO_TRADE_PARTY },
+    { sStatName_RandoTradeSingle, GAME_STAT_RANDO_TRADE_SINGLE },
+
+    // todo - Maybe fix these up and add them?
+    //{ NULL, GAME_STAT_ITEMS_FOUND },
+    //{ NULL, GAME_STAT_ITEMS_BOUGHT },
+    //{ NULL, GAME_STAT_MOVES_BOUGHT },
+    //{ NULL, GAME_STAT_MONEY_SPENT },
+};
+
+#define STATS_ENTRY_WIDTH         2
+#define STATS_ENTRY_HEIGHT        4
+#define STATS_ENTRY_PER_PAGE      (STATS_ENTRY_WIDTH * STATS_ENTRY_HEIGHT)
+
+static void Setup_PlayerStatsPage()
+{
+    sQuestMenuData->scrollListOffset = 0;
+}
+
+static void HandleInput_PlayerStatsPage(u8 taskId)
+{
+    //if(HandleScrollBehaviour())
+    //    Draw_MasteryLandingPage();
+
+    if(JOY_REPEAT(DPAD_LEFT))
+    {
+        if(sQuestMenuData->scrollListOffset == 0)
+            sQuestMenuData->scrollListOffset = ARRAY_COUNT(sDisplayStats) / STATS_ENTRY_PER_PAGE;
+        else
+            --sQuestMenuData->scrollListOffset;
+
+        PlaySE(SE_DEX_SCROLL);
+        Draw_PlayerStatsPage();
+    }
+
+    if(JOY_REPEAT(DPAD_RIGHT))
+    {
+        sQuestMenuData->scrollListOffset++;
+
+        if(sQuestMenuData->scrollListOffset * STATS_ENTRY_PER_PAGE >= ARRAY_COUNT(sDisplayStats))
+            sQuestMenuData->scrollListOffset = 0;
+
+        PlaySE(SE_DEX_SCROLL);
+        Draw_PlayerStatsPage();
+    }
+
+    if (JOY_NEW(B_BUTTON))
+        SetupPage(PAGE_BOOK_INDEX);
+}
+
+static void Draw_PlayerStatsPage()
+{
+    u8 x, y;
+    u32 i, counter;
+    u8 const color[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+    u8 const valueColor[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE, TEXT_COLOR_LIGHT_GRAY};
+
+    FillWindowPixelBuffer(WIN_LEFT_PAGE, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_RIGHT_PAGE, PIXEL_FILL(0));
+
+    // Remove previous sprites if we have any
+    FreeAllSpritePalettes();
+    ResetSpriteData();
+
+    counter = 0;
+    
+    for(x = 0; x < STATS_ENTRY_WIDTH; ++x)
+    {
+        for(y = 0; y < STATS_ENTRY_HEIGHT; ++y)
+        {
+            i = sQuestMenuData->scrollListOffset * STATS_ENTRY_PER_PAGE + counter++;
+
+            if(i >= ARRAY_COUNT(sDisplayStats))
+                break;
+
+            // Basically a line break
+            if(sDisplayStats[i].name == NULL)
+                continue;
+
+            AddTextPrinterParameterized4(
+                x == 0 ? WIN_LEFT_PAGE : WIN_RIGHT_PAGE,
+                FONT_NARROW,
+                0,
+                4 + 16 * (y * 2 + 0),
+                0, 0,
+                color,
+                TEXT_SKIP_DRAW,
+                sDisplayStats[i].name
+            );
+
+            if(sDisplayStats[i].statId == GAME_STAT_FIRST_HOF_PLAY_TIME || sDisplayStats[i].statId == GAME_STAT_FASTEST_HOF_PLAY_TIME || sDisplayStats[i].statId == GAME_STAT_SLOWEST_HOF_PLAY_TIME)
+            {
+                // Conver to readable time
+                u32 hours, minutes, seconds;
+                u32 playTime = GetGameStat(sDisplayStats[i].statId);
+
+                if (!GetGameStat(GAME_STAT_ENTERED_HOF))
+                    playTime = 0;
+
+                hours = playTime >> 16;
+                minutes = (playTime >> 8) & 0xFF;
+                seconds = playTime & 0xFF;
+                if ((playTime >> 16) > 999)
+                {
+                    hours = 999;
+                    minutes = 59;
+                    seconds = 59;
+                }
+                
+                ConvertIntToDecimalStringN(gStringVar1, hours, STR_CONV_MODE_RIGHT_ALIGN, 3);
+                ConvertIntToDecimalStringN(gStringVar2, minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+                ConvertIntToDecimalStringN(gStringVar3, seconds, STR_CONV_MODE_LEADING_ZEROS, 2);
+                StringExpandPlaceholders(gStringVar4, sStatFormat_HofTime);
+            }
+            else
+            {
+                // Just convert to a number
+                ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sDisplayStats[i].statId), STR_CONV_MODE_LEFT_ALIGN, 9);
+            }
+            
+            AddTextPrinterParameterized4(
+                x == 0 ? WIN_LEFT_PAGE : WIN_RIGHT_PAGE,
+                FONT_NARROW,
+                8,
+                4 + 16 * (y * 2 + 1),
+                0, 0,
+                valueColor,
+                TEXT_SKIP_DRAW,
+                gStringVar4
+            );
         }
     }
 

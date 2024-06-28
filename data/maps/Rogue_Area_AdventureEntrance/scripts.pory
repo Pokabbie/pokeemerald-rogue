@@ -249,8 +249,7 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
         msgbox(format("Hi {PLAYER}!\pIt looks like you're almost ready to set off on an Adventure!\pBefore you set off, please take this."))
 
         giveitem(ITEM_QUEST_LOG)
-        bufferitemname(STR_VAR_1, ITEM_QUEST_LOG)
-        msgbox(format("You can use that {STR_VAR_1} to accept Quests and Challenges to complete during Adventures.\pIf you would please make your way over to the Quest Board to your left, there should be some initial Quests to get you started!"))
+        msgbox(format("You can use that Quest Book to accept Quests and Challenges to complete during Adventures.\pIf you would please make your way over to the Quest Board to your left, there should be some initial Quests to get you started!"))
 
         closemessage
         playbgm(MUS_RG_FOLLOW_ME, FALSE)

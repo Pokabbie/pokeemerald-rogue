@@ -1262,7 +1262,8 @@ u8 RogueAdv_GetTileNum()
         return gRogueAdvPath.pathLength - gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x - 1;
     }
 
-    return 255;
+    // Fallback so we are viewing the same thing
+    return 0;
 }
 
 bool8 RogueAdv_IsViewingPath()

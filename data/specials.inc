@@ -204,6 +204,7 @@ gSpecials::
 	def_special Rogue_UnlockChallengeQuests
 	def_special Rogue_UnlockMasteryQuests
 	def_special Rogue_ShowNewQuests
+	def_special Rogue_ShowNewMonMasteries
 	def_special Rogue_DetermineItemPickupCount
 	def_special Rogue_CheckBerryTreat
 	def_special Rogue_ApplyBerryTreat

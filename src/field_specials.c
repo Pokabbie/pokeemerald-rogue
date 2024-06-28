@@ -1316,7 +1316,7 @@ void GetSecretBaseNearbyMapName(void)
 
 u16 GetBattleTowerSinglesStreak(void)
 {
-    return GetGameStat(GAME_STAT_BATTLE_TOWER_SINGLES_STREAK);
+    return 0; //GetGameStat(GAME_STAT_BATTLE_TOWER_BEST_STREAK);
 }
 
 void BufferEReaderTrainerName(void)
@@ -1416,7 +1416,7 @@ void GiveLeadMonEffortRibbon(void)
 {
     bool8 ribbonSet;
     struct Pokemon *leadMon;
-    IncrementGameStat(GAME_STAT_RECEIVED_RIBBONS);
+    //IncrementGameStat(GAME_STAT_RECEIVED_RIBBONS);
     FlagSet(FLAG_SYS_RIBBON_GET);
     ribbonSet = TRUE;
     leadMon = &gPlayerParty[GetLeadMonIndex()];

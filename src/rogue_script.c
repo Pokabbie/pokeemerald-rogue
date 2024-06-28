@@ -167,8 +167,12 @@ void Rogue_RandomisePartyMon(void)
             // Entire team
             u8 i;
 
+            IncrementGameStat(GAME_STAT_RANDO_TRADE_PARTY);
+
             for(i = 0; i < gPlayerPartyCount; ++i)
             {
+                IncrementGameStat(GAME_STAT_RANDO_TRADE_TOTAL_PKMN);
+
                 targetlevel = Calc_RandomTradeLevel(&gPlayerParty[i]);
                 temp = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
@@ -188,6 +192,10 @@ void Rogue_RandomisePartyMon(void)
         else
         {
             // Single mon in team
+
+            IncrementGameStat(GAME_STAT_RANDO_TRADE_SINGLE);
+            IncrementGameStat(GAME_STAT_RANDO_TRADE_TOTAL_PKMN);
+
             targetlevel = Calc_RandomTradeLevel(&gPlayerParty[monIdx]);
             temp = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
 
@@ -547,6 +555,11 @@ void Rogue_BufferDynamicUniqueMonCountDown()
 void Rogue_ShowNewQuests()
 {
     Rogue_OpenQuestMenu(CB2_ReturnToFieldContinueScript, FALSE);
+}
+
+void Rogue_ShowNewMonMasteries()
+{
+    Rogue_OpenMonMasteryMenu(CB2_ReturnToFieldContinueScript);
 }
 
 void Rogue_QuestCollectNextReward()

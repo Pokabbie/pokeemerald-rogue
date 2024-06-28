@@ -630,7 +630,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
     #endif
         if (ShouldEggHatch())
         {
-            IncrementGameStat(GAME_STAT_HATCHED_EGGS);
+            //IncrementGameStat(GAME_STAT_HATCHED_EGGS);
             ScriptContext_SetupScript(EventScript_EggHatch);
             return TRUE;
         }

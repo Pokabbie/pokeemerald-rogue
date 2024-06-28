@@ -490,6 +490,22 @@ void IncrementGameStat(u8 index)
     }
 }
 
+void IncrementGameStatBy(u8 index, u32 amount)
+{
+    if (index < NUM_USED_GAME_STATS)
+    {
+        u32 statVal = GetGameStat(index);
+        if (statVal + amount < 0xFFFFFF)
+            statVal += amount;
+        else
+            statVal = 0xFFFFFF;
+
+        Rogue_CampaignNotify_StatIncrement(index);
+
+        SetGameStat(index, statVal);
+    }
+}
+
 u32 GetGameStat(u8 index)
 {
     if (index >= NUM_USED_GAME_STATS)

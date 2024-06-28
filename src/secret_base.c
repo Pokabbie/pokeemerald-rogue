@@ -645,7 +645,7 @@ void ClearAndLeaveSecretBase(void)
 
 void MoveOutOfSecretBase(void)
 {
-    IncrementGameStat(GAME_STAT_MOVED_SECRET_BASE);
+    //IncrementGameStat(GAME_STAT_MOVED_SECRET_BASE);
     ClearAndLeaveSecretBase();
 }
 
@@ -686,7 +686,7 @@ void MoveOutOfSecretBaseFromOutside(void)
     u16 temp;
 
     ClosePlayerSecretBaseEntrance();
-    IncrementGameStat(GAME_STAT_MOVED_SECRET_BASE);
+    //IncrementGameStat(GAME_STAT_MOVED_SECRET_BASE);
     temp = gSaveBlock1Ptr->secretBases[0].numSecretBasesReceived;
     ClearSecretBase(&gSaveBlock1Ptr->secretBases[0]);
     gSaveBlock1Ptr->secretBases[0].numSecretBasesReceived = temp;

@@ -519,7 +519,7 @@
 
 #define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
 #define FLAG_ROGUE_COURIER_READY             0x1DC
-#define FLAG_UNUSED_0x1DD                    0x1DD
+#define FLAG_ROGUE_GIMICK_TUTORIAL           0x1DD
 
 #define FLAG_DEBUG_NO_ENCOUNTER              0x1DE // Unused Flag
 #define FLAG_DEBUG_NO_TRAINER_SEE            0x1DF // Unused Flag
