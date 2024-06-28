@@ -4786,7 +4786,6 @@ BattleScript_EffectDoNothing::
 	waitanimation
 	jumpifmove MOVE_CELEBRATE, BattleScript_EffectCelebrate
 	jumpifmove MOVE_HAPPY_HOUR, BattleScript_EffectHappyHour
-	incrementgamestat GAME_STAT_USED_SPLASH
 	printstring STRINGID_BUTNOTHINGHAPPENED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -6380,7 +6379,6 @@ BattleScript_EffectSecretPower::
 BattleScript_EffectRecoilHP25:
 	setmoveeffect MOVE_EFFECT_RECOIL_HP_25 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	jumpifnotmove MOVE_STRUGGLE, BattleScript_EffectHit
-	incrementgamestat GAME_STAT_USED_STRUGGLE
 	goto BattleScript_EffectHit
 
 BattleScript_EffectTeeterDance::
