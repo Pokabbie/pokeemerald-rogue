@@ -22,6 +22,35 @@ enum
     PLAYER_COLOUR_MODE_COUNT,
 };
 
+enum 
+{
+    OUTFIT_UNLOCK_NONE,
+    OUTFIT_UNLOCK_PLACEHOLDER, // the outfit is just a placeholder value and can't be used currently
+
+    OUTFIT_UNLOCK_TEAM_ROCKET,
+    OUTFIT_UNLOCK_TEAM_AQUA,
+    OUTFIT_UNLOCK_TEAM_MAGMA,
+    OUTFIT_UNLOCK_TEAM_GALACTIC,
+    OUTFIT_UNLOCK_TEAM_PLASMA, // unused
+    OUTFIT_UNLOCK_TEAM_NEO_PLASMA, // unused
+    OUTFIT_UNLOCK_TEAM_FLARE, // unused
+
+    OUTFIT_UNLOCK_EASTER_EGG_POKABBIE,
+    OUTFIT_UNLOCK_EASTER_EGG_KATE,
+    OUTFIT_UNLOCK_EASTER_EGG_ERMA,
+    OUTFIT_UNLOCK_EASTER_EGG_RAVEN,
+    OUTFIT_UNLOCK_EASTER_EGG_TAILS,
+
+    OUTFIT_UNLOCK_EASTER_EGG_ZEFA,
+    OUTFIT_UNLOCK_EASTER_EGG_LIGHTNINGSTRIKE7,
+    OUTFIT_UNLOCK_EASTER_EGG_NACHOLORD,
+
+    OUTFIT_UNLOCK_COUNT,
+
+    OUTFIT_UNLOCK_EASTER_EGG_FIRST = OUTFIT_UNLOCK_EASTER_EGG_POKABBIE,
+    OUTFIT_UNLOCK_EASTER_EGG_LAST = OUTFIT_UNLOCK_EASTER_EGG_NACHOLORD,
+};
+
 void RoguePlayer_SetNewGameOutfit();
 void RoguePlayer_RandomiseOutfit(bool8 includeOutfitId);
 
@@ -31,6 +60,7 @@ u32 RoguePlayer_GetOutfitTrainerFlags();
 
 bool8 RoguePlayer_HasUnlockedOutfitId(u16 outfit);
 void RoguePlayer_EnsureUnlockedOutfitId(u16 outfit);
+void RoguePlayer_ActivateOutfitUnlock(u16 outfitUnlock);
 bool8 RoguePlayer_HandleEasterEggOutfitUnlocks();
 
 u16 RoguePlayer_GetOutfitCount();

@@ -15,6 +15,7 @@ enum class QuestRewardType
 	HubUpgrade,
 	Decor,
 	DecorVariant,
+	OutfitUnlock
 };
 
 struct QuestReward
@@ -78,6 +79,10 @@ struct QuestReward
 	{
 		std::string decorVariantId;
 	} decorVariant;
+	struct
+	{
+		std::string outfitUnlockId;
+	} outfitUnlock;
 };
 
 enum class QuestRequirementType
@@ -392,6 +397,15 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 				fileStream << c_TabSpacing2 << ".perType = {\n";
 				fileStream << c_TabSpacing3 << ".decorVariant = {\n";
 				fileStream << c_TabSpacing4 << ".decorVariantId = " << rewardInfo.decorVariant.decorVariantId << ",\n";
+				fileStream << c_TabSpacing3 << "}\n";
+				fileStream << c_TabSpacing2 << "}\n";
+				break;
+
+			case QuestRewardType::OutfitUnlock:
+				fileStream << c_TabSpacing2 << ".type = QUEST_REWARD_OUTFIT_UNLOCK,\n";
+				fileStream << c_TabSpacing2 << ".perType = {\n";
+				fileStream << c_TabSpacing3 << ".outfitUnlock = {\n";
+				fileStream << c_TabSpacing4 << ".outfitUnlockId = " << rewardInfo.outfitUnlock.outfitUnlockId << ",\n";
 				fileStream << c_TabSpacing3 << "}\n";
 				fileStream << c_TabSpacing2 << "}\n";
 				break;
@@ -821,6 +835,10 @@ static QuestReward ParseQuestReward(json const& jsonData)
 		else
 			reward.customPopup.fanfare = "0";
 	}
+	else
+	{
+		reward.customPopup.isValid = false;
+	}
 
 	// Per type
 	if (jsonData.contains("species"))
@@ -920,6 +938,15 @@ static QuestReward ParseQuestReward(json const& jsonData)
 		reward.type = QuestRewardType::DecorVariant;
 
 		reward.decorVariant.decorVariantId = jsonData["decor_variant"].get<std::string>();
+
+		return reward;
+	}
+
+	if (jsonData.contains("outfit_unlock"))
+	{
+		reward.type = QuestRewardType::OutfitUnlock;
+
+		reward.outfitUnlock.outfitUnlockId = jsonData["outfit_unlock"].get<std::string>();
 
 		return reward;
 	}

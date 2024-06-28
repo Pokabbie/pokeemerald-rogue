@@ -1846,7 +1846,7 @@ void Rogue_PushPopup_AssistantDisconnected()
     popup->subtitleText = sText_Popup_Disconnected;
 }
 
-void Rogue_PushPopup_OutfitUnlocked()
+void Rogue_PushPopup_EasterEggOutfitUnlocked()
 {
     struct PopupRequest* popup = CreateNewPopup();
 

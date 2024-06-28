@@ -152,7 +152,6 @@
                     }
                 ]
             },
-
             {
                 "name": "True Tactics",
                 "description": "Win a full Run, without any Pokémon ever fainting.",
@@ -646,6 +645,164 @@
                     {
                         "#if": "defined(ROGUE_EXPANSION)",
                         "species": "SPECIES_KINGAMBIT",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+
+            {
+                "name": "Rocket Triumph",
+                "description": "Defeat the Leader of Team Rocket.",
+                "display_group": "evil_team_challenges",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentEvilTeamIs",
+                        "params": [ "TEAM_NUM_KANTO_ROCKET", "TEAM_NUM_JOHTO_ROCKET" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "outfit_unlock": "OUTFIT_UNLOCK_TEAM_ROCKET",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_GREEN_SCARF",
+                            "title": "Rocket Grunt",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Outfit Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
+                    {
+                        "species": "SPECIES_ZUBAT",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "name": "Aqua Triumph",
+                "description": "Defeat the Leader of Team Aqua.",
+                "display_group": "evil_team_challenges",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentEvilTeamIs",
+                        "params": [ "TEAM_NUM_AQUA" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "outfit_unlock": "OUTFIT_UNLOCK_TEAM_AQUA",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_GREEN_SCARF",
+                            "title": "Aqua Grunt",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Outfit Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
+                    {
+                        "species": "SPECIES_CARVANHA",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "name": "Magma Triumph",
+                "description": "Defeat the Leader of Team Magma.",
+                "display_group": "evil_team_challenges",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentEvilTeamIs",
+                        "params": [ "TEAM_NUM_MAGMA" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "outfit_unlock": "OUTFIT_UNLOCK_TEAM_MAGMA",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_GREEN_SCARF",
+                            "title": "Magma Grunt",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Outfit Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
+                    {
+                        "species": "SPECIES_NUMEL",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Galactic Triumph",
+                "description": "Defeat the Leader of Team Galactic.",
+                "display_group": "evil_team_challenges",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentEvilTeamIs",
+                        "params": [ "TEAM_NUM_GALACTIC" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "outfit_unlock": "OUTFIT_UNLOCK_TEAM_GALACTIC",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_GREEN_SCARF",
+                            "title": "Galactic Grunt",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Outfit Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
+                    {
+                        "species": "SPECIES_STUNKY",
                         "shiny": true,
                         "difficulty": "HARD"
                     }
