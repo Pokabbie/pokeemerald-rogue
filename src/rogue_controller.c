@@ -3437,6 +3437,13 @@ bool8 Rogue_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* 
     if(FollowMon_IsCollisionExempt(obstacle, collider))
         return TRUE;
 
+    if (obstacle->localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && obstacle->localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+    {
+        // Don't collide in the map screen
+        if(RogueAdv_IsViewingPath()) //Rogue_IsRunActive())
+            return TRUE;
+    }
+
     return FALSE;
 }
 
