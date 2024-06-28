@@ -227,6 +227,42 @@
                 ]
             },
             {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_LOTAD",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_PETAL_DANCE",
+                    "MOVE_FEATHER_DANCE",
+                    "MOVE_SWORDS_DANCE",
+                    "MOVE_DRAGON_DANCE"
+                ],
+                "abilities":
+                [
+                    "ABILITY_GUTS"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_LOTAD",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_PETAL_DANCE",
+                    "MOVE_QUIVER_DANCE",
+                    "MOVE_FEATHER_DANCE",
+                    "MOVE_LUNAR_DANCE"
+                ],
+                "abilities":
+                [
+                    "ABILITY_DANCER"
+                ]
+            },
+            {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_CARNIVINE",
                 "trainer": "Exotic",

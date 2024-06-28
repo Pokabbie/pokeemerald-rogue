@@ -71,7 +71,7 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
                     { 
                         "hub_upgrade": "HUB_UPGRADE_LAB_UNIQUE_MON_LAB",
@@ -309,7 +309,11 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_LOTAD",
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_LOTAD"
+                    },
                     {
                         "species": "SPECIES_UMBREON",
                         "shiny": true,
