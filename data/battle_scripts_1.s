@@ -900,7 +900,6 @@ BattleScript_EffectFocusEnergy::
 BattleScript_EffectRecoil::
 	setmoveeffect MOVE_EFFECT_RECOIL_25 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	jumpifnotmove MOVE_STRUGGLE, BattleScript_EffectHit
-	incrementgamestat GAME_STAT_USED_STRUGGLE
 	goto BattleScript_EffectHit
 
 BattleScript_EffectConfuse::
@@ -1178,7 +1177,6 @@ BattleScript_EffectSplash::
 	ppreduce
 	attackanimation
 	waitanimation
-	incrementgamestat GAME_STAT_USED_SPLASH
 	printstring STRINGID_BUTNOTHINGHAPPENED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

@@ -791,7 +791,8 @@ static void Task_EvolutionScene(u8 taskId)
             if(IsMonShiny(mon))
                 GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT_SHINY);
 
-            IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
+            if(Rogue_IsRunActive())
+                IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
         }
         break;
     case EVOSTATE_TRY_LEARN_MOVE:
@@ -1219,7 +1220,8 @@ static void Task_TradeEvolutionScene(u8 taskId)
             if(IsMonShiny(mon))
                 GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT_SHINY);
 
-            IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
+            if(Rogue_IsRunActive())
+                IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
         }
         break;
     case T_EVOSTATE_TRY_LEARN_MOVE:

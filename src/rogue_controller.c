@@ -138,6 +138,7 @@ struct RogueLocalData
     u32 totalMoneySpentOnMap;
     u32 wildBattleCustomMonId;
     u16 cachedObjIds[OBJ_EVENT_ID_MULTIPLAYER_COUNT];
+    u16 partyRememberedHealth[PARTY_SIZE];
     u16 wildEncounterHistoryBuffer[3];
     u16 victoryLapHistoryBuffer[8];
     u16 recentObjectEventLoadedLayout;
@@ -194,6 +195,7 @@ void EnableRivalEncounterIfRequired();
 static void ChooseLegendarysForNewAdventure();
 static void ChooseTeamEncountersForNewAdventure();
 static void RememberPartyHeldItems();
+static void RememberPartyHealth();
 static void TryRestorePartyHeldItems(bool8 allowThief);
 static void ClearPlayerTeam();
 static void CheckAndNotifyForFaintedMons();
@@ -4266,6 +4268,8 @@ static void BeginRogueRun(void)
 
     RogueSafari_CompactEmptyEntries();
 
+    IncrementGameStat(GAME_STAT_TOTAL_RUNS);
+
     // Trigger before and after as we may have hub/run only quests which are interested in this trigger
     RogueQuest_OnTrigger(QUEST_TRIGGER_RUN_START);
     RogueQuest_ActivateQuestsFor(QUEST_CONST_ACTIVE_IN_RUN);
@@ -4345,7 +4349,17 @@ static void EndRogueRun(void)
 
         ChooseRandomPokeballReward();
     }
-    
+    else if(Rogue_GetCurrentDifficulty() != ROGUE_MAX_BOSS_COUNT)
+    {
+        // Increment stats
+        IncrementGameStat(GAME_STAT_RUN_LOSSES);
+        IncrementGameStat(GAME_STAT_CURRENT_RUN_LOSS_STREAK);
+        SetGameStat(GAME_STAT_CURRENT_RUN_WIN_STREAK, 0);
+
+        if(GetGameStat(GAME_STAT_CURRENT_RUN_LOSS_STREAK) > GetGameStat(GAME_STAT_LONGEST_RUN_LOSS_STREAK))
+            SetGameStat(GAME_STAT_LONGEST_RUN_LOSS_STREAK, GetGameStat(GAME_STAT_CURRENT_RUN_LOSS_STREAK));
+    }
+
     RogueQuest_CheckQuestRequirements();
     RogueHub_UpdateWanderMons();
 }
@@ -5784,6 +5798,9 @@ void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 compactPartySlots)
                 CompactPartySlots();
                 CalculatePlayerPartyCount();
             }
+            
+            if(Rogue_IsRunActive())
+                IncrementGameStat(GAME_STAT_POKEMON_RELEASED);
         }
     }
 }
@@ -5806,6 +5823,11 @@ static void CheckAndNotifyForFaintedMons()
             else if(hasValidSpecies)
             {
                 ++faintedCount;
+
+                if(gRogueLocal.partyRememberedHealth[i] != 0) // todo - check this still works
+                {
+                    IncrementGameStat(GAME_STAT_POKEMON_FAINTED);
+                }
             }
         }
 
@@ -5875,6 +5897,9 @@ void RemoveAnyFaintedMons(bool8 keepItems)
                 {
                     RogueSafari_PushMon(&gPlayerParty[read]);
                 }
+
+                if(Rogue_IsRunActive())
+                    IncrementGameStat(GAME_STAT_POKEMON_RELEASED);
 
                 PushFaintedMonToLab(&gPlayerParty[read]);
 
@@ -6050,11 +6075,21 @@ void Rogue_Battle_StartTrainerBattle(void)
     }
 
     RememberPartyHeldItems();
+    RememberPartyHealth();
 
     if(Rogue_IsBattleSimTrainer(gTrainerBattleOpponent_A))
     {
         TempSavePlayerTeam();
         ClearPlayerTeam();
+    }
+    
+    if(Rogue_IsRunActive())
+    {
+        IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+        IncrementGameStat(GAME_STAT_TRAINER_BATTLES);
+
+        if(Rogue_IsRivalTrainer(gTrainerBattleOpponent_A))
+            IncrementGameStat(GAME_STAT_RIVAL_BATTLES);
     }
 
     RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_START);
@@ -6409,6 +6444,26 @@ void Rogue_Battle_EndTrainerBattle(u16 trainerNum)
                     RogueQuest_SetMonMasteryFlagFromParty();
                     RogueQuest_OnTrigger(QUEST_TRIGGER_ENTER_HALL_OF_FAME);
                     RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
+
+                    // Increment stats
+                    IncrementGameStat(GAME_STAT_RUN_WINS);
+                    IncrementGameStat(GAME_STAT_CURRENT_RUN_WIN_STREAK);
+                    SetGameStat(GAME_STAT_CURRENT_RUN_LOSS_STREAK, 0);
+
+                    if(GetGameStat(GAME_STAT_CURRENT_RUN_WIN_STREAK) > GetGameStat(GAME_STAT_LONGEST_RUN_WIN_STREAK))
+                        SetGameStat(GAME_STAT_LONGEST_RUN_WIN_STREAK, GetGameStat(GAME_STAT_CURRENT_RUN_WIN_STREAK));
+                }
+                else
+                {
+                    IncrementGameStat(GAME_STAT_TOTAL_BADGES);
+
+                    // Increment stats
+                    if(Rogue_GetCurrentDifficulty() <= ROGUE_ELITE_START_DIFFICULTY)
+                        IncrementGameStat(GAME_STAT_GYM_BADGES);
+                    else if(Rogue_GetCurrentDifficulty() <= ROGUE_CHAMP_START_DIFFICULTY)
+                        IncrementGameStat(GAME_STAT_ELITE_BADGES);
+                    else
+                        IncrementGameStat(GAME_STAT_CHAMPION_BADGES);
                 }
 
                 FlagClear(FLAG_ROGUE_MYSTERIOUS_SIGN_KNOWN);
@@ -6485,12 +6540,19 @@ void Rogue_Battle_StartWildBattle(void)
     gRogueLocal.hasBattleInputStarted = FALSE;
     gRogueLocal.hasBattleEventOccurred = FALSE;
     RememberPartyHeldItems();
+    RememberPartyHealth();
 
     // enable tera for this fight
     if(IsTerastallizeEnabled())
         FlagSet(FLAG_ROGUE_TERASTALLIZE_BATTLE);
 
     RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_START);
+
+    if(Rogue_IsRunActive())
+    {
+        IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+        IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    }
 }
 
 void Rogue_Battle_EndWildBattle(void)
@@ -6513,6 +6575,20 @@ void Rogue_Battle_EndWildBattle(void)
 
     if(Rogue_IsRunActive())
     {
+        if(DidPlayerCatch(gBattleOutcome))
+        {
+            IncrementGameStat(GAME_STAT_POKEMON_CAUGHT);
+
+            if(IsMonShiny(&gEnemyParty[0]))
+                IncrementGameStat(GAME_STAT_SHINIES_CAUGHT);
+
+            if(RoguePokedex_IsSpeciesLegendary(wildSpecies))
+                IncrementGameStat(GAME_STAT_LEGENDS_CAUGHT);
+
+            if(Rogue_IsBattleRoamerMon(wildSpecies))
+                IncrementGameStat(GAME_STAT_ROAMERS_CAUGHT);
+        }
+
         if(gRogueRun.currentLevelOffset && !DidPlayerRun(gBattleOutcome))
         {
             u8 levelOffsetDelta = Rogue_GetModeRules()->levelOffsetInterval;
@@ -6624,6 +6700,22 @@ static void RememberPartyHeldItems()
                 gRogueRun.partyHeldItems[i] = ITEM_NONE; // account for if we catch a mon
             else
                 gRogueRun.partyHeldItems[i] = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+        }
+    }
+}
+
+static void RememberPartyHealth()
+{
+    if(Rogue_IsRunActive())
+    {
+        u8 i;
+
+        for(i = 0; i < PARTY_SIZE; ++i)
+        {
+            if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+                gRogueLocal.partyRememberedHealth[i] = GetMonData(&gPlayerParty[i], MON_DATA_HP);
+            else
+                gRogueLocal.partyRememberedHealth[i] = 0;
         }
     }
 }

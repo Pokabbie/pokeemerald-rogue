@@ -229,8 +229,8 @@ void Rogue_DeactivateActiveCampaign(void)
     {
         if(Rogue_GetCurrentDifficulty() >= 14)
         {
-            if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED) < 999)
-                IncrementGameStat(GAME_STAT_CAMPAIGNS_COMPLETED);
+            //if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED) < 999)
+            //    IncrementGameStat(GAME_STAT_CAMPAIGNS_COMPLETED);
 
             gRogueSaveBlock->campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].isCompleted =  TRUE;
             gRogueSaveBlock->campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].bestScore =  Rogue_GetCampaignScore();

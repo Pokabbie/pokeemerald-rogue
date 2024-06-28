@@ -1470,7 +1470,6 @@ static void BuyMenuTryMakePurchase(u8 taskId)
 
 static void BuyMenuSubtractMoney(u8 taskId)
 {
-    IncrementGameStat(GAME_STAT_SHOPPED);
     RemoveShopCurrencyAmount(sShopData->totalCost);
     PlaySE(SE_SHOP);
 
@@ -1986,6 +1985,7 @@ static bool8 BuyShopItem(u16 item, u16 count)
 {
     if (sMartInfo.martType == MART_TYPE_NORMAL || sMartInfo.martType == MART_TYPE_PURCHASE_ONLY)
     {
+        IncrementGameStat(GAME_STAT_ITEMS_BOUGHT); // todo - make this item count
         return AddBagItem(item, count);
     }
     else if(sMartInfo.martType == MART_TYPE_SINGLE_PURCHASE)

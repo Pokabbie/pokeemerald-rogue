@@ -1124,7 +1124,6 @@ ContestHall_EventScript_GiveLuxuryBall::
 
 ContestHall_EventScript_ReceiveContestRibbon::
 	special GiveMonContestRibbon
-	incrementgamestat GAME_STAT_RECEIVED_RIBBONS
 	setflag FLAG_SYS_RIBBON_GET
 	lockall
 	msgbox ContestHall_Text_ConferRibbonAsPrize, MSGBOX_DEFAULT

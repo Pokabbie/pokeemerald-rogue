@@ -29,7 +29,17 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
-                    { "quest": "Welcome Home" }
+                    { "quest": "Welcome Home" },
+                    {
+                        "flag": "FLAG_ROGUE_STUB",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_QUEST_LOG",
+                            "title": "Adventure Stats",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Page Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
                 ]
             },
             

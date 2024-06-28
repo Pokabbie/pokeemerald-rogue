@@ -280,7 +280,7 @@ bool8 FldEff_UseCutOnGrass(void)
 
     gTasks[taskId].data[8] = (u32)StartCutGrassFieldEffect >> 16;
     gTasks[taskId].data[9] = (u32)StartCutGrassFieldEffect;
-    IncrementGameStat(GAME_STAT_USED_CUT);
+    //IncrementGameStat(GAME_STAT_USED_CUT);
     return FALSE;
 }
 
@@ -296,7 +296,7 @@ bool8 FldEff_UseCutOnTree(void)
 
     gTasks[taskId].data[8] = (u32)StartCutTreeFieldEffect >> 16;
     gTasks[taskId].data[9] = (u32)StartCutTreeFieldEffect;
-    IncrementGameStat(GAME_STAT_USED_CUT);
+    //IncrementGameStat(GAME_STAT_USED_CUT);
     return FALSE;
 }
 

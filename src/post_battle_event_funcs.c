@@ -33,8 +33,24 @@ int GameClear(void)
         FlagSet(FLAG_SYS_GAME_CLEAR);
     }
 
-    if (GetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME) == 0)
-        SetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME, (gSaveBlock2Ptr->playTimeHours << 16) | (gSaveBlock2Ptr->playTimeMinutes << 8) | gSaveBlock2Ptr->playTimeSeconds);
+    {
+        u32 timeValue = (gSaveBlock2Ptr->playTimeHours << 16) | (gSaveBlock2Ptr->playTimeMinutes << 8) | gSaveBlock2Ptr->playTimeSeconds;
+
+        if (GetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME) == 0)
+        {
+            SetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME, timeValue);
+            SetGameStat(GAME_STAT_FASTEST_HOF_PLAY_TIME, timeValue);
+            SetGameStat(GAME_STAT_SLOWEST_HOF_PLAY_TIME, timeValue);
+        }
+        else
+        {
+            if(timeValue < GetGameStat(GAME_STAT_FASTEST_HOF_PLAY_TIME))
+                SetGameStat(GAME_STAT_FASTEST_HOF_PLAY_TIME, timeValue);
+
+            if(timeValue > GetGameStat(GAME_STAT_SLOWEST_HOF_PLAY_TIME))
+                SetGameStat(GAME_STAT_SLOWEST_HOF_PLAY_TIME, timeValue);
+        }
+    }
 
     SetContinueGameWarpStatus();
 
@@ -60,7 +76,7 @@ int GameClear(void)
 
     if (ribbonGet == TRUE)
     {
-        IncrementGameStat(GAME_STAT_RECEIVED_RIBBONS);
+        //IncrementGameStat(GAME_STAT_RECEIVED_RIBBONS);
         FlagSet(FLAG_SYS_RIBBON_GET);
 
         for (i = 1; i < 6; i++)
