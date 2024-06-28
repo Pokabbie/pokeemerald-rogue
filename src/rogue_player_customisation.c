@@ -85,6 +85,24 @@ enum
     PLAYER_OUTFIT_FLORIAN,
     PLAYER_OUTFIT_JULIANA,
 
+    PLAYER_OUTFIT_ROCKET_GRUNT_F,
+    PLAYER_OUTFIT_ROCKET_GRUNT_M,
+    PLAYER_OUTFIT_ROCKET_ADMIN_F, // placeholders
+    PLAYER_OUTFIT_ROCKET_ADMIN_M, // placeholders
+    PLAYER_OUTFIT_AQUA_GRUNT_F,
+    PLAYER_OUTFIT_AQUA_GRUNT_M,
+    PLAYER_OUTFIT_MAGMA_GRUNT_F,
+    PLAYER_OUTFIT_MAGMA_GRUNT_M,
+    PLAYER_OUTFIT_GALACTIC_GRUNT_F,
+    PLAYER_OUTFIT_GALACTIC_GRUNT_M,
+    PLAYER_OUTFIT_PLASMA_ADMIN_F, // placeholders
+    PLAYER_OUTFIT_PLASMA_ADMIN_M, // placeholders
+    PLAYER_OUTFIT_NEO_PLASMA_ADMIN_F, // placeholders
+    PLAYER_OUTFIT_NEO_PLASMA_ADMIN_M, // placeholders
+    PLAYER_OUTFIT_FLARE_ADMIN_F, // placeholders
+    PLAYER_OUTFIT_FLARE_ADMIN_M, // placeholders
+
+
     // Secret unlocks
     PLAYER_OUTFIT_POKABBIE,
     PLAYER_OUTFIT_KATE,
@@ -102,24 +120,11 @@ enum
 
 enum 
 {
+    OUTFIT_UNLOCK_TYPE_PLACEHOLDER,
     OUTFIT_UNLOCK_TYPE_EASTER_EGG,
 };
 
-enum 
-{
-    OUTFIT_UNLOCK_NONE,
-    OUTFIT_UNLOCK_POKABBIE,
-    OUTFIT_UNLOCK_KATE,
-    OUTFIT_UNLOCK_ERMA,
-    OUTFIT_UNLOCK_RAVEN,
-    OUTFIT_UNLOCK_TAILS,
-
-    OUTFIT_UNLOCK_ZEFA,
-    OUTFIT_UNLOCK_LIGHTNINGSTRIKE7,
-    OUTFIT_UNLOCK_NACHOLORD,
-
-    OUTFIT_UNLOCK_COUNT,
-};
+STATIC_ASSERT(OUTFIT_UNLOCK_COUNT < 32, OutfitUnlocksFitIn32Bits);
 
 static u16 CalculateWhitePointFor(const struct PlayerOutfit* outfit, u8 layer, const u16* basePal, const u16* layerPal);
 static const u16* ModifyOutfitPalette(const struct PlayerOutfit* outfit, const u16* basePal, const u16* layerPal, u16 const* layerColours);
@@ -195,6 +200,28 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LightningSt
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LightningStrike7Riding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NacholordNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NacholordRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketFNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketFRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketMNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketMRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AquaFNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AquaFRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AquaMNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AquaMRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MagmaFNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MagmaFRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MagmaMNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MagmaMRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticFNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticFRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticMNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalacticMRiding;
+
+
 
 extern const u16 gObjectEventPal_Npc1[];
 extern const u16 gObjectEventPal_Npc2[];
@@ -742,13 +769,177 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         }
     },
 
+    // Grunts
+    //
+    [PLAYER_OUTFIT_ROCKET_GRUNT_F] =
+    {
+        .name = _("Rocket"),
+        .trainerFrontPic = TRAINER_PIC_ROCKET_GRUNT_F,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_MAY_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_ROCKET,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_RocketFNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_RocketFRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc4,
+    },
+    [PLAYER_OUTFIT_ROCKET_GRUNT_M] =
+    {
+        .name = _("Rocket"),
+        .trainerFrontPic = TRAINER_PIC_ROCKET_GRUNT_M,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_BLACK,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_ROCKET,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_RocketMNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_RocketMRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc4,
+    },
+
+    [PLAYER_OUTFIT_ROCKET_ADMIN_F] =
+    {
+        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
+    },
+    [PLAYER_OUTFIT_ROCKET_ADMIN_M] =
+    {
+        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
+    },
+
+    [PLAYER_OUTFIT_AQUA_GRUNT_F] =
+    {
+        .name = _("Aqua"),
+        .trainerFrontPic = TRAINER_PIC_AQUA_GRUNT_F,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_MAY_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_AQUA,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_AquaFNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_AquaFRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc4,
+    },
+    [PLAYER_OUTFIT_AQUA_GRUNT_M] =
+    {
+        .name = _("Aqua"),
+        .trainerFrontPic = TRAINER_PIC_AQUA_GRUNT_M,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_AQUA,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_AquaMNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_AquaMRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc4,
+    },
+
+    [PLAYER_OUTFIT_MAGMA_GRUNT_F] =
+    {
+        .name = _("Magma"),
+        .trainerFrontPic = TRAINER_PIC_MAGMA_GRUNT_F,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_MAY_BLACK,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_MAGMA,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_MagmaFNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_MagmaFRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc2,
+    },
+    [PLAYER_OUTFIT_MAGMA_GRUNT_M] =
+    {
+        .name = _("Magma"),
+        .trainerFrontPic = TRAINER_PIC_MAGMA_GRUNT_M,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_RED_BLACK,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_MAGMA,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_MagmaMNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_MagmaMRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc2,
+    },
+
+    [PLAYER_OUTFIT_GALACTIC_GRUNT_F] =
+    {
+        .name = _("Magma"),
+        .trainerFrontPic = TRAINER_PIC_GALACTIC_GRUNT_F,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_MAY_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_GALACTIC,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_GalacticFNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_GalacticFRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc4,
+    },
+    [PLAYER_OUTFIT_GALACTIC_GRUNT_M] =
+    {
+        .name = _("Magma"),
+        .trainerFrontPic = TRAINER_PIC_GALACTIC_GRUNT_M,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_TEAM_GALACTIC,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_GalacticMNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_GalacticMRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_Npc4,
+    },
+
+    [PLAYER_OUTFIT_PLASMA_ADMIN_F] =
+    {
+        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
+    },
+    [PLAYER_OUTFIT_PLASMA_ADMIN_M] =
+    {
+        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
+    },
+    [PLAYER_OUTFIT_NEO_PLASMA_ADMIN_F] =
+    {
+        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
+    },
+    [PLAYER_OUTFIT_NEO_PLASMA_ADMIN_M] =
+    {
+        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
+    },
+    [PLAYER_OUTFIT_FLARE_ADMIN_F] =
+    {
+        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
+    },
+    [PLAYER_OUTFIT_FLARE_ADMIN_M] =
+    {
+        .outfitUnlockId = OUTFIT_UNLOCK_PLACEHOLDER,
+    },
+
+
+
+    // Easter Eggs
+    //
     [PLAYER_OUTFIT_POKABBIE] =
     {
         .name = _("Pokabbie"),
         .trainerFrontPic = TRAINER_PIC_POKABBIE,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
-        .outfitUnlockId = OUTFIT_UNLOCK_POKABBIE,
+        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_POKABBIE,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -756,11 +947,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_PokabbieRiding,
         },
         .objectEventBasePal = gObjectEventPal_Npc1,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = NULL,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = NULL,
-        .trainerBackLayerPal = NULL,
     },
     [PLAYER_OUTFIT_KATE] =
     {
@@ -768,7 +954,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_GLITCH_KATE,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
-        .outfitUnlockId = OUTFIT_UNLOCK_KATE,
+        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_KATE,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -776,11 +962,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_KateRiding,
         },
         .objectEventBasePal = gObjectEventPal_Glitch_NPC_Kate,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = NULL,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = NULL,
-        .trainerBackLayerPal = NULL,
     },
     [PLAYER_OUTFIT_ERMA] =
     {
@@ -788,7 +969,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_GLITCH_ERMA,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
-        .outfitUnlockId = OUTFIT_UNLOCK_ERMA,
+        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_ERMA,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -796,11 +977,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_ErmaRiding,
         },
         .objectEventBasePal = gObjectEventPal_Glitch_NPC_Erma,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = NULL,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = NULL,
-        .trainerBackLayerPal = NULL,
     },
     [PLAYER_OUTFIT_RAVEN] =
     {
@@ -808,7 +984,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_GLITCH_RAVEN,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_LEAF,
-        .outfitUnlockId = OUTFIT_UNLOCK_RAVEN,
+        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_RAVEN,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -816,11 +992,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_RavenRiding,
         },
         .objectEventBasePal = gObjectEventPal_Npc3,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = NULL,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = NULL,
-        .trainerBackLayerPal = NULL,
     },
     [PLAYER_OUTFIT_TAILS] =
     {
@@ -828,7 +999,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_GLITCH_TAILS,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_RED_BLACK,
-        .outfitUnlockId = OUTFIT_UNLOCK_TAILS,
+        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_TAILS,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -836,11 +1007,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_TailsRiding,
         },
         .objectEventBasePal = gObjectEventPal_Npc1,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = NULL,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = NULL,
-        .trainerBackLayerPal = NULL,
     },
     [PLAYER_OUTFIT_ZEFA] =
     {
@@ -848,7 +1014,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_COMMUNITY_ZEFA,
         .trainerBackPic = TRAINER_BACK_PIC_COMMUNITY_ZEFA,
         .bagVariant = BAG_GFX_VARIANT_MAY,
-        .outfitUnlockId = OUTFIT_UNLOCK_ZEFA,
+        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_ZEFA,
         .hasSpritingAnims = TRUE,
         .objectEventGfx = 
         {
@@ -856,11 +1022,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_ZefaRiding,
         },
         .objectEventBasePal = gObjectEventPal_PlayerZefaBase,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = NULL,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = NULL,
-        .trainerBackLayerPal = NULL,
     },
     [PLAYER_OUTFIT_LIGHTNINGSTRIKE7] =
     {
@@ -868,7 +1029,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_COMMUNITY_LIGHTNINGSTRIKE7,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_MAY,
-        .outfitUnlockId = OUTFIT_UNLOCK_LIGHTNINGSTRIKE7,
+        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_LIGHTNINGSTRIKE7,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -876,11 +1037,6 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_LightningStrike7Riding,
         },
         .objectEventBasePal = gObjectEventPal_PlayerLightningStrike7Base,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = NULL,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = NULL,
-        .trainerBackLayerPal = NULL,
     },
     [PLAYER_OUTFIT_NACHOLORD] =
     {
@@ -888,7 +1044,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .trainerFrontPic = TRAINER_PIC_COMMUNITY_NACHOLORD,
         .trainerBackPic = TRAINER_BACK_PIC_COMMUNITY_NACHOLORD,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
-        .outfitUnlockId = OUTFIT_UNLOCK_NACHOLORD,
+        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_NACHOLORD,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
         {
@@ -896,17 +1052,16 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
             [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_NacholordRiding,
         },
         .objectEventBasePal = gObjectEventPal_PlayerNacholordBase,
-        .objectEventLayerPal = NULL,
-        .trainerFrontBasePal = NULL,
-        .trainerFrontLayerPal = NULL,
-        .trainerBackBasePal = NULL,
-        .trainerBackLayerPal = NULL,
     },
 };
 
 static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] = 
 {
-    [OUTFIT_UNLOCK_POKABBIE] = 
+    [OUTFIT_UNLOCK_PLACEHOLDER] =
+    {
+        .unlockType = OUTFIT_UNLOCK_TYPE_PLACEHOLDER,
+    },
+    [OUTFIT_UNLOCK_EASTER_EGG_POKABBIE] = 
     {
         .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
         .params = 
@@ -918,7 +1073,7 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             }
         }
     },
-    [OUTFIT_UNLOCK_KATE] = 
+    [OUTFIT_UNLOCK_EASTER_EGG_KATE] = 
     {
         .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
         .params = 
@@ -930,7 +1085,7 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             }
         }
     },
-    [OUTFIT_UNLOCK_ERMA] = 
+    [OUTFIT_UNLOCK_EASTER_EGG_ERMA] = 
     {
         .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
         .params = 
@@ -946,7 +1101,7 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             }
         }
     },
-    [OUTFIT_UNLOCK_RAVEN] = 
+    [OUTFIT_UNLOCK_EASTER_EGG_RAVEN] = 
     {
         .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
         .params = 
@@ -962,7 +1117,7 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             }
         }
     },
-    [OUTFIT_UNLOCK_TAILS] = 
+    [OUTFIT_UNLOCK_EASTER_EGG_TAILS] = 
     {
         .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
         .params = 
@@ -974,7 +1129,7 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             }
         }
     },
-    [OUTFIT_UNLOCK_ZEFA] = 
+    [OUTFIT_UNLOCK_EASTER_EGG_ZEFA] = 
     {
         .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
         .params = 
@@ -986,7 +1141,7 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             }
         }
     },
-    [OUTFIT_UNLOCK_LIGHTNINGSTRIKE7] = 
+    [OUTFIT_UNLOCK_EASTER_EGG_LIGHTNINGSTRIKE7] = 
     {
         .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
         .params = 
@@ -998,7 +1153,7 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             }
         }
     },
-    [OUTFIT_UNLOCK_NACHOLORD] = 
+    [OUTFIT_UNLOCK_EASTER_EGG_NACHOLORD] = 
     {
         .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
         .params = 
@@ -1204,6 +1359,9 @@ void RoguePlayer_SetNewGameOutfit()
 {
     memset(gSaveBlock2Ptr->playerStyles, 0, sizeof(gSaveBlock2Ptr->playerStyles));
 
+    // Reset outfit unlocks
+    gSaveBlock2Ptr->playerOutfitUnlockFlags = 0;
+
     // Default to blue and white with random appearance
     RoguePlayer_RandomiseOutfit(TRUE);
     RoguePlayer_SetOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY, RGB_UI(4, 5, 10));
@@ -1266,25 +1424,36 @@ void RoguePlayer_EnsureUnlockedOutfitId(u16 outfit)
 {
     u32 unlockId = sPlayerOutfits[outfit].outfitUnlockId;
 
-    AGB_ASSERT(outfit < PLAYER_OUTFIT_COUNT);
+    AGB_ASSERT(unlockId != OUTFIT_UNLOCK_PLACEHOLDER);
+    AGB_ASSERT(unlockId < OUTFIT_UNLOCK_COUNT);
 
-    if(unlockId != OUTFIT_UNLOCK_NONE)
+    if(unlockId != OUTFIT_UNLOCK_NONE && unlockId != OUTFIT_UNLOCK_PLACEHOLDER)
     {
-        u32 bitMask = (1 << (unlockId - 1));
+        u32 bitMask = (1 << (unlockId - OUTFIT_UNLOCK_PLACEHOLDER));
+        gSaveBlock2Ptr->playerOutfitUnlockFlags |= bitMask;
+    }
+}
+
+void RoguePlayer_ActivateOutfitUnlock(u16 unlockId)
+{
+    AGB_ASSERT(unlockId > OUTFIT_UNLOCK_PLACEHOLDER);
+    AGB_ASSERT(unlockId < OUTFIT_UNLOCK_COUNT);
+
+    if(unlockId > OUTFIT_UNLOCK_PLACEHOLDER && unlockId < OUTFIT_UNLOCK_COUNT)
+    {
+        u32 bitMask = (1 << (unlockId - OUTFIT_UNLOCK_PLACEHOLDER));
         gSaveBlock2Ptr->playerOutfitUnlockFlags |= bitMask;
     }
 }
 
 bool8 RoguePlayer_HandleEasterEggOutfitUnlocks()
 {
-    u32 unlockId, bitMask;
+    u32 unlockId;
 
-    for(unlockId = OUTFIT_UNLOCK_NONE + 1; unlockId < OUTFIT_UNLOCK_COUNT; ++unlockId)
+    for(unlockId = OUTFIT_UNLOCK_EASTER_EGG_FIRST; unlockId <= OUTFIT_UNLOCK_EASTER_EGG_LAST; ++unlockId)
     {
-        bitMask = (1 << (unlockId - 1));
-
         // Only update if we haven't unlocked yet
-        if(sOutfitUnlocks[unlockId].unlockType == OUTFIT_UNLOCK_TYPE_EASTER_EGG && (gSaveBlock2Ptr->playerOutfitUnlockFlags & bitMask) == 0)
+        if(sOutfitUnlocks[unlockId].unlockType == OUTFIT_UNLOCK_TYPE_EASTER_EGG && !RoguePlayer_HasUnlockedOutfitId(unlockId))
         {
             u16 species = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
             species = Rogue_GetEggSpecies(species);
@@ -1296,8 +1465,8 @@ bool8 RoguePlayer_HandleEasterEggOutfitUnlocks()
                 StringCompareCaseInsensitiveN(gSaveBlock2Ptr->playerName, sOutfitUnlocks[unlockId].params.easterEgg.name, PLAYER_NAME_LENGTH) == 0
             )
             {
-                gSaveBlock2Ptr->playerOutfitUnlockFlags |= bitMask;
-                Rogue_PushPopup_OutfitUnlocked();
+                RoguePlayer_ActivateOutfitUnlock(unlockId);
+                Rogue_PushPopup_EasterEggOutfitUnlocked();
                 return TRUE;
             }
         }

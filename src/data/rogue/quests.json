@@ -26,6 +26,10 @@
             "sort_alphabetically": false
         },
         {
+            "id": "evil_team_challenges",
+            "sort_alphabetically": false
+        },
+        {
             "id": "region_challenges",
             "sort_alphabetically": false
         },

@@ -19,6 +19,7 @@ enum
     QUEST_REWARD_HUB_UPGRADE,
     QUEST_REWARD_DECOR,
     QUEST_REWARD_DECOR_VARIANT,
+    QUEST_REWARD_OUTFIT_UNLOCK,
 };
 
 enum
@@ -76,6 +77,10 @@ struct RogueQuestReward
         {
             u16 decorVariantId;
         } decorVariant;
+        struct
+        {
+            u16 outfitUnlockId;
+        } outfitUnlock;
     } perType;
 };
 

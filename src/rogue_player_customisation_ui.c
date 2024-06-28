@@ -1241,7 +1241,7 @@ static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8 entryIdx, u8 menuOffset)
     const u16 outfitCount = RoguePlayer_GetOutfitCount();
     u16 outfitId = RoguePlayer_GetOutfitId();
 
-    if(JOY_NEW(DPAD_LEFT))
+    if(JOY_REPEAT(DPAD_LEFT))
     {
         do
         {
@@ -1256,7 +1256,7 @@ static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8 entryIdx, u8 menuOffset)
         RoguePlayerUI_RefreshPageEntries();
         return TRUE;
     }
-    else if(JOY_NEW(DPAD_RIGHT) || JOY_NEW(A_BUTTON))
+    else if(JOY_REPEAT(DPAD_RIGHT) || JOY_NEW(A_BUTTON))
     {
         do
         {

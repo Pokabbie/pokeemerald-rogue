@@ -21,6 +21,7 @@
 #include "rogue_controller.h"
 #include "rogue_gifts.h"
 #include "rogue_hub.h"
+#include "rogue_player_customisation.h"
 #include "rogue_pokedex.h"
 #include "rogue_quest.h"
 #include "rogue_settings.h"
@@ -79,6 +80,7 @@ static bool8 QuestCondition_VarGetGreaterThan(u16 questId, struct RogueQuestTrig
 static bool8 QuestCondition_RunTimerLessThanMins(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsConfigRangeEqualToAny(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_SpeciesMasteryComplete(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_CurrentEvilTeamIs(u16 questId, struct RogueQuestTrigger const* trigger);
 
 static bool8 IsQuestSurpressed(u16 questId);
 static bool8 CanSurpressedQuestActivate(u16 questId);
@@ -470,6 +472,11 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
     case QUEST_REWARD_DECOR_VARIANT:
         if(!mutePopups)
             Rogue_PushPopup_UnlockedDecorVariant(rewardInfo->perType.decorVariant.decorVariantId);
+        break;
+
+    case QUEST_REWARD_OUTFIT_UNLOCK:
+        RoguePlayer_ActivateOutfitUnlock(rewardInfo->perType.outfitUnlock.outfitUnlockId);
+        AGB_ASSERT(mutePopups); // force custom popups for now, as this is already an edge case anyway
         break;
 
     default:
@@ -1680,6 +1687,19 @@ static bool8 QuestCondition_SpeciesMasteryComplete(u16 questId, struct RogueQues
         species = trigger->params[i];
 
         if(RogueQuest_GetMonMasteryFlag(species))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_CurrentEvilTeamIs(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        if(gRogueRun.teamEncounterNum ==  trigger->params[i])
             return TRUE;
     }
 
