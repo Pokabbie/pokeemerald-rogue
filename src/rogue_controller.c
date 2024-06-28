@@ -2265,10 +2265,6 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         // No mochi
         if(itemId >= ITEM_HEALTH_MOCHI && itemId <= ITEM_FRESH_START_MOCHI)
             return FALSE;
-            
-        // Only show tera shards if we have teras enabled
-        if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
-            return IsTerastallizeEnabled();
 #endif
 
         if(Rogue_IsRunActive())
@@ -2408,17 +2404,30 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         }
 
 #ifdef ROGUE_EXPANSION
-        // Mass exclude mega and Z moves
-        if(!IsMegaEvolutionEnabled())
+        // Mass exclude mega, Z moves & Tera Shards
+        // Only show tera shards if we have teras enabled
+        if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
         {
-            if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
-                return FALSE;
+            if(Rogue_IsRunActive())
+                return IsTerastallizeEnabled();
+            else
+                return TRUE;
         }
-
-        if(!IsZMovesEnabled())
+        
+        if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
         {
-            if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
-                return FALSE;
+            if(Rogue_IsRunActive())
+                return IsMegaEvolutionEnabled();
+            else
+                return TRUE;
+        }
+        
+        if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
+        {
+            if(Rogue_IsRunActive())
+                return IsZMovesEnabled();
+            else
+                return TRUE;
         }
 
         // Regional treat (Avoid spawning in multiple)
@@ -3221,6 +3230,23 @@ void Rogue_NotifySaveLoaded(void)
     RogueQuest_OnTrigger(QUEST_TRIGGER_MISC_UPDATE);
 }
 
+bool8 Rogue_IsObjectEventExcludedFromSave(struct ObjectEvent* objectEvent)
+{
+    // Don't save MP objects
+    if(objectEvent->localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && objectEvent->localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+        return TRUE;
+
+    // We probably don't need this, as the template should still be setup in the same order they're saved in so this should be fine
+    //if(RogueHub_IsPlayerBaseLayout(gMapHeader.mapLayoutId))
+    //{
+    //    // To avoid scripts being setup incorrectly, always reload the props dynamically
+    //    if(objectEvent->localId != OBJ_EVENT_ID_PLAYER && objectEvent->localId != OBJ_EVENT_ID_FOLLOWER)
+    //        return TRUE;
+    //}
+
+    return FALSE;
+}
+
 void Rogue_OnSecondPassed(void)
 {
 
@@ -3431,6 +3457,14 @@ void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive)
     STOP_TIMER(ROGUE_ASSISTANT_CALLBACK);
 }
 
+void Rogue_OnReturnToField()
+{
+    if(!Rogue_IsRunActive())
+    {
+        RogueHub_ReloadObjectsAndTiles();
+    }
+}
+
 bool8 Rogue_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* collider)
 {
     if(Rogue_RideMonIsCollisionExempt(obstacle, collider))
@@ -3563,6 +3597,17 @@ void Rogue_OnLoadMap(void)
         RogueHub_UpdateWarpStates();
         RogueHub_ApplyMapMetatiles();
     }
+}
+
+bool8 Rogue_ShouldSkipReloadMapTileView()
+{
+    if(!Rogue_IsRunActive())
+    {
+        // If actually updated tiles only?
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 u16 GetStartDifficulty(void)
@@ -8535,7 +8580,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 #endif
 
     // Remove quests unlocks
-    if(!Rogue_IsRunActive())
+    if(!Rogue_IsRunActive() && !RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_SHOPS))
     {
         u16 questId, i, rewardCount;
         struct RogueQuestReward const* reward;

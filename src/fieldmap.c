@@ -79,7 +79,10 @@ void InitMapFromSavedGame(void)
     InitMapLayoutData(&gMapHeader);
     InitSecretBaseAppearance(FALSE);
     SetOccupiedSecretBaseEntranceMetatiles(gMapHeader.events);
-    LoadSavedMapView();
+
+    if(!Rogue_ShouldSkipReloadMapTileView())
+        LoadSavedMapView();
+
     RunOnLoadMapScript();
     Rogue_OnLoadMap();
     UpdateTVScreensOnMap(gBackupMapLayout.width, gBackupMapLayout.height);

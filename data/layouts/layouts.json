@@ -2120,6 +2120,16 @@
       "secondary_tileset": "gTileset_CaveAlt",
       "border_filepath": "data/layouts/Rogue_Route_Sinnoh_MtCoronet/border.bin",
       "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_MtCoronet/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROGUE_ROUTE_SINNOH_IRON_ISLAND",
+      "name": "Rogue_Route_Sinnoh_IronIsland_Layout",
+      "width": 42,
+      "height": 54,
+      "primary_tileset": "gTileset_GeneralHub",
+      "secondary_tileset": "gTileset_CaveAlt",
+      "border_filepath": "data/layouts/Rogue_Route_Sinnoh_IronIsland/border.bin",
+      "blockdata_filepath": "data/layouts/Rogue_Route_Sinnoh_IronIsland/map.bin"
     }
   ]
 }

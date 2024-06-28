@@ -115,6 +115,7 @@ void Rogue_GameClear(void);
 void Rogue_SetDefaultOptions(void);
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber);
 void Rogue_NotifySaveLoaded(void);
+bool8 Rogue_IsObjectEventExcludedFromSave(struct ObjectEvent* objectEvent);
 void Rogue_OnSecondPassed(void);
 void Rogue_OnMinutePassed(void);
 void Rogue_OnHourPassed(void);
@@ -128,6 +129,7 @@ void Rogue_MainInit(void);
 void Rogue_MainEarlyCB(void);
 void Rogue_MainLateCB(void);
 void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive);
+void Rogue_OnReturnToField();
 bool8 Rogue_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* collider);
 bool8 Rogue_IsRunningToggledOn();
 
@@ -143,6 +145,7 @@ bool8 Rogue_TryGetCachedObjectEventId(u32 localId, u8* eventObjectId);
 void Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
 
 void Rogue_OnLoadMap(void);
+bool8 Rogue_ShouldSkipReloadMapTileView();
 void Rogue_OnWarpIntoMap(void);
 void Rogue_OnSetWarpData(struct WarpData *warp);
 void Rogue_ModifyMapHeader(struct MapHeader *mapHeader);

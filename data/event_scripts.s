@@ -905,3 +905,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Encounter_GalacticHQ/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Sinnoh_MtCoronet/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_IronIsland/scripts.inc"
