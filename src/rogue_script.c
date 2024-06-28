@@ -549,6 +549,11 @@ void Rogue_ShowNewQuests()
     Rogue_OpenQuestMenu(CB2_ReturnToFieldContinueScript, FALSE);
 }
 
+void Rogue_ShowNewMonMasteries()
+{
+    Rogue_OpenMonMasteryMenu(CB2_ReturnToFieldContinueScript);
+}
+
 void Rogue_QuestCollectNextReward()
 {
     // 0 - Nothing to collect

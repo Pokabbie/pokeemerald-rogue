@@ -140,6 +140,7 @@ script Rogue_Interior_ChallengeFrontier_MegaStone
                 {
                     case 0: // Yes
                         giveitem(ITEM_MEGA_RING)
+                        call(Rogue_Interior_ChallengeFrontier_GiveGimickItemTutorial)
 
                     case 1: // No
                         setvar(VAR_RESULT, NO)
@@ -190,6 +191,7 @@ script Rogue_Interior_ChallengeFrontier_ZCrystal
                 {
                     case 0: // Yes
                         giveitem(ITEM_Z_POWER_RING)
+                        call(Rogue_Interior_ChallengeFrontier_GiveGimickItemTutorial)
 
                     case 1: // No
                         setvar(VAR_RESULT, NO)
@@ -263,6 +265,7 @@ script Rogue_Interior_ChallengeFrontier_Dynamax
                 {
                     case 0: // Yes
                         giveitem(ITEM_DYNAMAX_BAND)
+                        call(Rogue_Interior_ChallengeFrontier_GiveGimickItemTutorial)
                         call(Rogue_Interior_ChallengeFrontier_TryWarnAboutDynamaxAndTera)
 
                     case 1: // No
@@ -314,6 +317,7 @@ script Rogue_Interior_ChallengeFrontier_Tera
                 {
                     case 0: // Yes
                         giveitem(ITEM_TERA_ORB)
+                        call(Rogue_Interior_ChallengeFrontier_GiveGimickItemTutorial)
                         call(Rogue_Interior_ChallengeFrontier_TryWarnAboutDynamaxAndTera)
 
                     case 1: // No
@@ -357,6 +361,7 @@ script Rogue_Interior_ChallengeFrontier_HealingFlask
         {
             case 0: // Yes
                 giveitem(ITEM_HEALING_FLASK)
+                call(Rogue_Interior_ChallengeFrontier_GiveGimickItemTutorial)
 
             case 1: // No
                 setvar(VAR_RESULT, NO)
@@ -371,6 +376,15 @@ script Rogue_Interior_ChallengeFrontier_HealingFlask
     call(Rogue_Interior_ChallengeFrontier_UpdateItemVisibility)
 
     release
+}
+
+script Rogue_Interior_ChallengeFrontier_GiveGimickItemTutorial
+{
+    if(!flag(FLAG_ROGUE_GIMICK_TUTORIAL))
+    {
+        setflag(FLAG_ROGUE_GIMICK_TUTORIAL)
+        msgbox(format("If you later wish to play without using this, simply place it back on this pedestal."))
+    }
 }
 
 script Rogue_Interior_ChallengeFrontier_TalkScott
@@ -531,9 +545,11 @@ script Rogue_Interior_ChallengeFrontier_TalkMasteries
         msgbox(format("Hello, {PLAYER}.\pI've enjoyed seeing your progress so far!\pI would like to issue you some additional Quests.\pThese Quests will prove your skill with using a variety of Pokémon.\pAs such, they are appropriately named, Pokémon Masteries.\pHere, take a look!"))
         
         special(Rogue_UnlockMasteryQuests)
-        special(Rogue_ShowNewQuests)
+        special(Rogue_ShowNewMonMasteries)
         waitstate
 
+        msgbox(format("You may also have noticed that you have access to the {PKMN} Tracker alongside the Quests I mentioned.\pThe {PKMN} Tracker keeps track of every Pokémon line you have entered into the Hall of Fame.\pDon't worry.\nYou are not required to fill the {PKMN} Tracker, in order to reach 100% Quest Completion.\pJust the Pokémon Mastery Quests listed."))
+        
     
         poryswitch(ROGUE_VERSION)
         {
@@ -543,7 +559,7 @@ script Rogue_Interior_ChallengeFrontier_TalkMasteries
             }
             ROGUE_VERSION_EXPANSION
             {
-                msgbox(format("Once, you have completed any of those Quests, their signature items will be available for purchase.\pYou may speak to me, at any time, to buy any Special Items you gain access to through completing Quests.\pI wish you the best of luck with your Pokémon Masteries, {PLAYER}!"))
+                msgbox(format("Once, you have completed any of those Quests, their Special Items may be available for purchase.\pYou may speak to me, at any time, to buy any Special Items you gain access to through completing Quests.\pI wish you the best of luck with your Pokémon Masteries, {PLAYER}!"))
             }
         }
     }
@@ -579,17 +595,17 @@ script Rogue_Interior_ChallengeFrontier_TalkChallenges
 
     if(!flag(FLAG_SYS_CHALLENGES_UNLOCKED))
     {
-        msgbox(format("What's that?\pThat little Quest Book you have there?\pSo you're trying to complete Quests, huh?\pWell, have I got a Challenge for you!\p… … …\pNo, I'm serious I have Challenges for you.\pChallenges are a special type of Quest that can be way more indepth!\pHere, take a look."))
+        msgbox(format("What's that?\pThat little Quest Book you have there?\pSo you're trying to complete Quests, huh?\pWell, have I got just the thing for you!\pChallenges!\pChallenges are a special type of Quest that can be way more in depth!\pHere, take a look."))
         
         special(Rogue_UnlockChallengeQuests)
         special(Rogue_ShowNewQuests)
         waitstate
         
-        msgbox(format("For Challenges, you can even try them again at a higher Difficulty, if you want!\pJust change your settings in the Config Lab to a higher Reward Level than you previously beat it on.\pSome Challenges even give exclusive rewards for beating them on a higher Difficulty too!\pSounds exciting, right?"))
+        msgbox(format("Challenges are different from regular Quests, as they track which Difficulty you last completed them on.\pThere's even some exclusive Rewards for completing them on higher difficulties too!\pIf you want to retry a Challenge on a harder difficulty, just head on over to the Config Lab and keep an eye on the Reward Difficulty.\pSounds exciting, right?\pShow me what you can do, {PLAYER}!"))
     }
     else
     {
-        msgbox(format("Hi there, {PLAYER}.\pHow have your Challenges been going?"))
+        msgbox(format("Hi there, {PLAYER}.\pHow have your Challenges been going?\nWell I hope!"))
     }
 
     release

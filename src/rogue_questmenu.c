@@ -138,6 +138,7 @@ struct QuestMenuData
     u8 previousPage;
     u8 menuOptionsBufferCount;
     u8 alphabeticalSort : 1;
+    u8 exitOnMonMasteryLanding : 1;
 };
 
 struct PageData
@@ -441,6 +442,12 @@ static void OpenQuestMenu(RogueQuestMenuCallback callback, u8 page)
 void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback, bool8 viewQuestBook)
 {
     OpenQuestMenu(callback, viewQuestBook ? PAGE_BOOK_FRONT : PAGE_QUEST_BOARD);
+}
+
+void Rogue_OpenMonMasteryMenu(RogueQuestMenuCallback callback)
+{
+    OpenQuestMenu(callback, PAGE_BOOK_MON_MASTERY_LANDING);
+    sQuestMenuData->exitOnMonMasteryLanding = TRUE;
 }
 
 static void CB2_InitQuestMenu(void)
@@ -1924,7 +1931,17 @@ static void HandleInput_MasteryLandingPage(u8 taskId)
     }
 
     if (JOY_NEW(B_BUTTON))
-        SetupPage(PAGE_BOOK_INDEX);
+    {
+        if(sQuestMenuData->exitOnMonMasteryLanding)
+        {
+            RogueQuest_ClearNewUnlockQuests();
+            StartFadeAndExit(taskId);
+        }
+        else
+        {
+            SetupPage(PAGE_BOOK_INDEX);
+        }
+    }
 }
 
 
