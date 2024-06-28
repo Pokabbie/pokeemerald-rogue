@@ -1950,6 +1950,13 @@ void RogueHub_ModifyPlayerBaseObjectEvents(u16 layoutId, bool8 loadingFromSave, 
     u16 currDecorCount = GetCurrentDecorCount();
     struct RogueHubMap* hubMap = GetActiveHubMap();
 
+    if(loadingFromSave)
+    {
+        // Clear any saved templates
+        struct MapHeader const* baseMapHeader = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
+        *objectEventCount = baseMapHeader->events->objectEventCount;
+    }
+
     SetupHomeAreaFollowMons(layoutId, hubMap);
 
     for(i = 0; i < currDecorCount; ++i)
@@ -3504,5 +3511,13 @@ static void FixupTileCommon(struct TileFixup* settings)
                     MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, metatileId);
             }
         }
+    }
+}
+
+void RogueHub_ReloadObjectsAndTiles()
+{
+    if(RogueHub_IsPlayerBaseLayout(gMapHeader.mapLayoutId))
+    {
+        TrySpawnObjectEvents(0, 0);
     }
 }

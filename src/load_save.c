@@ -188,9 +188,8 @@ void SaveObjectEvents(void)
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
         gSaveBlock1Ptr->objectEvents[i] = gObjectEvents[i];
-        
-        // Don't save MP objects
-        if(gSaveBlock1Ptr->objectEvents[i].localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && gSaveBlock1Ptr->objectEvents[i].localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+
+        if(Rogue_IsObjectEventExcludedFromSave(&gSaveBlock1Ptr->objectEvents[i]))
             gSaveBlock1Ptr->objectEvents[i].active = FALSE;
     }
 }
@@ -202,9 +201,8 @@ void LoadObjectEvents(void)
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
         gObjectEvents[i] = gSaveBlock1Ptr->objectEvents[i];
-        
-        // Don't load MP objects
-        if(gObjectEvents[i].localId >= OBJ_EVENT_ID_MULTIPLAYER_FIRST && gObjectEvents[i].localId <= OBJ_EVENT_ID_MULTIPLAYER_LAST)
+
+        if(Rogue_IsObjectEventExcludedFromSave(&gObjectEvents[i]))
             gObjectEvents[i].active = FALSE;
     }
 }
