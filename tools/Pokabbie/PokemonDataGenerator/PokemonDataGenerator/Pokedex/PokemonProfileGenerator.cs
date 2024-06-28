@@ -119,7 +119,7 @@ namespace PokemonDataGenerator.Pokedex
 
 				});
 
-				// Carry forward toxic nerf from gen8
+				// Carry forward toxic & scald nerf from gen8
 				if(!GameDataHelpers.IsVanillaVersion)
 				{
 					if (moveGroupName != "ultra-sun-ultra-moon")
@@ -127,6 +127,22 @@ namespace PokemonDataGenerator.Pokedex
 						source.Moves.RemoveAll((move) =>
 						{
 							if (move.moveName == "toxic")
+							{
+								if (move.versionName == "scarlet-violet" || move.versionName == "sword-shield")
+								{
+									return false;
+								}
+
+								// Don't accept moveset from before gen8
+								return true;
+							}
+
+							return false;
+						});
+
+						source.Moves.RemoveAll((move) =>
+						{
+							if (move.moveName == "scald")
 							{
 								if (move.versionName == "scarlet-violet" || move.versionName == "sword-shield")
 								{
@@ -154,6 +170,27 @@ namespace PokemonDataGenerator.Pokedex
 								source.Moves.RemoveAll((move) =>
 								{
 									if (move.moveName == "toxic")
+									{
+										return true;
+									}
+
+									return false;
+								});
+							}
+						}
+
+						if (source.Moves.Where((move) => move.moveName == "scald").Any())
+						{
+							if (source.Types.Where(str => str == "fire").Any())
+							{
+								// allow scald
+							}
+							else
+							{
+								// remove scald here (assuming this is what GF will eventually do?)
+								source.Moves.RemoveAll((move) =>
+								{
+									if (move.moveName == "scald")
 									{
 										return true;
 									}
@@ -406,6 +443,25 @@ namespace PokemonDataGenerator.Pokedex
 									else
 									{
 										throw new Exception(Species + " no longer supports Toxic!");
+									}
+								}
+
+								if (move == "MOVE_SCALD")
+								{
+									if (AttemptReplaceMove(set, "MOVE_SCALD",
+										"MOVE_FREEZE_DRY",
+										"MOVE_HYDRO_PUMP",
+										"MOVE_SURF",
+										"MOVE_ICE_BEAM",
+										"MOVE_WATER_PULSE"
+									))
+									{
+										// Prevent being added to tutor move list
+										continue;
+									}
+									else
+									{
+										throw new Exception(Species + " no longer supports Scald!");
 									}
 								}
 							}
