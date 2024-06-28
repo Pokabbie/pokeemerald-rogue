@@ -88,19 +88,19 @@ script Rogue_Area_DayCare_TalkEggBreeder
 
     if(flag(FLAG_ROGUE_DAYCARE_EGG_READY))
     {
-        bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG)
+        bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG_SPECIES)
         msgbox(format("I managed to find that {STR_VAR_1} egg you were looking for!"))
 
-        giveegg(VAR_ROGUE_DAYCARE_EGG)
+        giveegg(VAR_ROGUE_DAYCARE_EGG_SPECIES)
 
         clearflag(FLAG_ROGUE_DAYCARE_EGG_READY)
-        setvar(VAR_ROGUE_DAYCARE_EGG, SPECIES_NONE)
+        setvar(VAR_ROGUE_DAYCARE_EGG_SPECIES, SPECIES_NONE)
     }
     else
     {
-        if(var(VAR_ROGUE_DAYCARE_EGG) != SPECIES_NONE)
+        if(var(VAR_ROGUE_DAYCARE_EGG_SPECIES) != SPECIES_NONE)
         {
-            bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG)
+            bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG_SPECIES)
             msgbox(format("I've not managed to locate a {STR_VAR_1} egg quite yet.\pWould you like for me to look for a different type of Pokémon instead?"), MSGBOX_YESNO)
         }
         else
@@ -135,8 +135,9 @@ script Rogue_Area_DayCare_TalkEggBreeder
                 else
                 {
                     clearflag(FLAG_ROGUE_DAYCARE_EGG_READY)
-                    copyvar(VAR_ROGUE_DAYCARE_EGG, VAR_RESULT)
-                    bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG)
+                    copyvar(VAR_ROGUE_DAYCARE_EGG_SPECIES, VAR_RESULT)
+                    setvar(VAR_ROGUE_DAYCARE_EGG_CYCLES, 0)
+                    bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG_SPECIES)
 
                     msgbox(format("Alright!\nI'll keep my eyes out for a {STR_VAR_1} egg."))
                 }

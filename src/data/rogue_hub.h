@@ -399,6 +399,14 @@ const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT] =
         .descText = gHubUpgradeDesc_BerryField_Brewing,
         .requiredUpgrades = { HUB_UPGRADE_NONE }
     },
+    [HUB_UPGRADE_BERRY_FIELD_BREWING_UPGRADE] = 
+    {
+        .upgradeName = _("PotionCauldron+"),
+        .targetArea = HUB_AREA_HOME,
+        .buildCost = 0,
+        .descText = gHubUpgradeDesc_BerryField_Brewing,
+        .requiredUpgrades = { HUB_UPGRADE_BERRY_FIELD_BREWING_UPGRADE, HUB_UPGRADE_NONE } // reserved
+    },
     [HUB_UPGRADE_BERRY_FIELD_EXTRA_FIELD0] = 
     {
         .upgradeName = _("Berry Field+"),

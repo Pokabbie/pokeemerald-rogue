@@ -563,7 +563,7 @@ text gHubUpgradeDesc_DayCare_Breeder
 
 text gHubUpgradeDesc_DayCare_BreederSeenDex
 {
-    format("Only need Seen Pokédex data can be used to find {PKMN} Eggs.")
+    format("Only need Seen Pokédex entry to find {PKMN} Eggs.")
 }
 
 text gHubUpgradeDesc_DayCare_Phone

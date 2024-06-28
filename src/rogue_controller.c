@@ -4348,6 +4348,16 @@ static void BeginRogueRun(void)
     RogueQuest_CheckQuestRequirements();
 }
 
+static u16 GetRequiredBadgesForEggToHatch(u16 species)
+{
+    // Equiv to egg cyles of 210
+    if(RoguePokedex_IsSpeciesLegendary(species))
+        return ROGUE_MAX_BOSS_COUNT + (ROGUE_MAX_BOSS_COUNT / 2);
+
+    // Badge = 10 egg cyles
+    return gRogueSpeciesInfo[species].eggCycles / 10;
+}
+
 static void EndRogueRun(void)
 {
     HandleForfeitingInCatchingContest();
@@ -4388,10 +4398,22 @@ static void EndRogueRun(void)
 
     if(Rogue_GetCurrentDifficulty() > 0)
     {
-        // If we got at least 1 badge mark the daycare egg as ready to collect
-        if(VarGet(VAR_ROGUE_DAYCARE_EGG) != SPECIES_NONE)
-            FlagSet(FLAG_ROGUE_DAYCARE_EGG_READY);
+        u16 eggSpecies = VarGet(VAR_ROGUE_DAYCARE_EGG_SPECIES);
 
+        // Update the egg we're looking for in the daycare
+        if(eggSpecies != SPECIES_NONE)
+        {
+            u16 eggCounter = VarGet(VAR_ROGUE_DAYCARE_EGG_CYCLES) + Rogue_GetCurrentDifficulty();
+            VarSet(VAR_ROGUE_DAYCARE_EGG_CYCLES, eggCounter);
+
+            if(eggCounter >= GetRequiredBadgesForEggToHatch(eggSpecies))
+            {
+                // Egg has now been cought
+                FlagSet(FLAG_ROGUE_DAYCARE_EGG_READY);
+            }
+        }
+
+        // Give ball guy a random ball
         ChooseRandomPokeballReward();
     }
     else if(Rogue_GetCurrentDifficulty() != ROGUE_MAX_BOSS_COUNT)

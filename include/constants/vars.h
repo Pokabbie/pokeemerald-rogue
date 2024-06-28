@@ -83,9 +83,9 @@
 #define VAR_DAYS                             0x4040
 #define VAR_ROGUE_FLASK_HEALS_USED           0x4041
 #define VAR_ROGUE_FLASK_HEALS_MAX            0x4042
-#define VAR_ROGUE_DAYCARE_EGG                0x4043
-#define VAR_ROGUE_TOTAL_RUN_CATCHES          0x4044
-#define VAR_UNUSED_0x4045                    0x4045
+#define VAR_ROGUE_DAYCARE_EGG_SPECIES        0x4043
+#define VAR_ROGUE_DAYCARE_EGG_CYCLES         0x4044
+#define VAR_ROGUE_TOTAL_RUN_CATCHES          0x4045
 #define VAR_NATIONAL_DEX                     0x4046
 #define VAR_ROGUE_COURIER_ITEM               0x4047
 #define VAR_ROGUE_COURIER_COUNT              0x4048
