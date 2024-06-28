@@ -2265,10 +2265,6 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         // No mochi
         if(itemId >= ITEM_HEALTH_MOCHI && itemId <= ITEM_FRESH_START_MOCHI)
             return FALSE;
-            
-        // Only show tera shards if we have teras enabled
-        if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
-            return IsTerastallizeEnabled();
 #endif
 
         if(Rogue_IsRunActive())
@@ -2408,17 +2404,30 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
         }
 
 #ifdef ROGUE_EXPANSION
-        // Mass exclude mega and Z moves
-        if(!IsMegaEvolutionEnabled())
+        // Mass exclude mega, Z moves & Tera Shards
+        // Only show tera shards if we have teras enabled
+        if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
         {
-            if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
-                return FALSE;
+            if(Rogue_IsRunActive())
+                return IsTerastallizeEnabled();
+            else
+                return TRUE;
         }
-
-        if(!IsZMovesEnabled())
+        
+        if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
         {
-            if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
-                return FALSE;
+            if(Rogue_IsRunActive())
+                return IsMegaEvolutionEnabled();
+            else
+                return TRUE;
+        }
+        
+        if(itemId >= ITEM_NORMALIUM_Z && itemId <= ITEM_ULTRANECROZIUM_Z)
+        {
+            if(Rogue_IsRunActive())
+                return IsZMovesEnabled();
+            else
+                return TRUE;
         }
 
         // Regional treat (Avoid spawning in multiple)
@@ -8535,7 +8544,7 @@ void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice)
 #endif
 
     // Remove quests unlocks
-    if(!Rogue_IsRunActive())
+    if(!Rogue_IsRunActive() && !RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_SHOPS))
     {
         u16 questId, i, rewardCount;
         struct RogueQuestReward const* reward;
