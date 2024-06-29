@@ -1339,10 +1339,14 @@ u8 DoFieldEndTurnEffects(void)
                 if(gBattleMons[gBattlerTarget].hp == 1)
                 {
                     // 10% health
-                    gBattleMoveDamage = (gBattleMons[gBattlerTarget].maxHP) / 10;
+                    gBattleMoveDamage = (s32)(gBattleMons[gBattlerTarget].maxHP) * 20 / 100;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     gBattleMoveDamage *= -1;
+
+                    // Clear status counter to avoid fainting to dot effects (HandleAlphaMonStatusEndure)
+                    gBattleMons[gBattlerTarget].status1 &= ~(STATUS1_TOXIC_COUNTER);
+                    gStatuses3[gBattlerTarget] &= ~(STATUS3_LEECHSEED);
 
                     BattleScriptExecute(BattleScript_AlphaMonWeakens);
                     gBattleStruct->rogueAlphaMonWeakened = 1;
@@ -1492,6 +1496,19 @@ enum
     ENDTURN_BATTLER_COUNT
 };
 
+bool8 ActiveAlphaMonEndure(u8 battler);
+
+static void HandleAlphaMonStatusEndure(u32 battler)
+{
+    if(ActiveAlphaMonEndure(battler))
+    {
+        if(gBattleMoveDamage >= gBattleMons[battler].hp)
+        {
+            gBattleMoveDamage = gBattleMons[battler].hp - 1;
+        }
+    }
+}
+
 u8 DoBattlerEndTurnEffects(void)
 {
     u8 effect = 0;
@@ -1546,6 +1563,7 @@ u8 DoBattlerEndTurnEffects(void)
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
+                    HandleAlphaMonStatusEndure(gActiveBattler);
                     gBattleScripting.animArg1 = gBattlerTarget;
                     gBattleScripting.animArg2 = gBattlerAttacker;
                     BattleScriptExecute(BattleScript_LeechSeedTurnDrain);
@@ -1559,6 +1577,7 @@ u8 DoBattlerEndTurnEffects(void)
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
+                    HandleAlphaMonStatusEndure(gActiveBattler);
                     BattleScriptExecute(BattleScript_PoisonTurnDmg);
                     effect++;
                 }
@@ -1573,6 +1592,7 @@ u8 DoBattlerEndTurnEffects(void)
                     if ((gBattleMons[gActiveBattler].status1 & STATUS1_TOXIC_COUNTER) != STATUS1_TOXIC_TURN(15)) // not 16 turns
                         gBattleMons[gActiveBattler].status1 += STATUS1_TOXIC_TURN(1);
                     gBattleMoveDamage *= (gBattleMons[gActiveBattler].status1 & STATUS1_TOXIC_COUNTER) >> 8;
+                    HandleAlphaMonStatusEndure(gActiveBattler);
                     BattleScriptExecute(BattleScript_PoisonTurnDmg);
                     effect++;
                 }
@@ -1584,6 +1604,7 @@ u8 DoBattlerEndTurnEffects(void)
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
+                    HandleAlphaMonStatusEndure(gActiveBattler);
                     BattleScriptExecute(BattleScript_BurnTurnDmg);
                     effect++;
                 }
@@ -1599,6 +1620,7 @@ u8 DoBattlerEndTurnEffects(void)
                         gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 4;
                         if (gBattleMoveDamage == 0)
                             gBattleMoveDamage = 1;
+                        HandleAlphaMonStatusEndure(gActiveBattler);
                         BattleScriptExecute(BattleScript_NightmareTurnDmg);
                         effect++;
                     }
@@ -1615,6 +1637,7 @@ u8 DoBattlerEndTurnEffects(void)
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 4;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
+                    HandleAlphaMonStatusEndure(gActiveBattler);
                     BattleScriptExecute(BattleScript_CurseTurnDmg);
                     effect++;
                 }
@@ -1638,6 +1661,7 @@ u8 DoBattlerEndTurnEffects(void)
                         gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
                         if (gBattleMoveDamage == 0)
                             gBattleMoveDamage = 1;
+                        HandleAlphaMonStatusEndure(gActiveBattler);
                     }
                     else  // broke free
                     {
