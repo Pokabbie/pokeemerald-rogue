@@ -1546,21 +1546,119 @@ void Rogue_FeedMonPie()
     CalculateMonStats(&gPlayerParty[0]);
 }
 
+static bool32 CanSpeciesLearnMove(u16 species, u16 move)
+{
+    u32 i;
+
+    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+    {
+        if(gRoguePokemonProfiles[species].levelUpMoves[i].move == move)
+            return TRUE;
+    }
+
+    for (i = 0; gRoguePokemonProfiles[species].tutorMoves[i] != MOVE_NONE; i++)
+    {
+        if(gRoguePokemonProfiles[species].tutorMoves[i] == move)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 TryChangeMonGenderBySpecies()
+{
+#ifdef ROGUE_EXPANSION
+    u16 startSpecies = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
+    u16 newSpecies = startSpecies;
+
+    switch (startSpecies)
+    {
+    case SPECIES_MEOWSTIC_MALE:
+        newSpecies = SPECIES_MEOWSTIC_FEMALE;
+        break;
+    case SPECIES_MEOWSTIC_FEMALE:
+        newSpecies = SPECIES_MEOWSTIC_MALE;
+        break;
+    
+    case SPECIES_INDEEDEE_MALE:
+        newSpecies = SPECIES_INDEEDEE_FEMALE;
+        break;
+    case SPECIES_INDEEDEE_FEMALE:
+        newSpecies = SPECIES_INDEEDEE_MALE;
+        break;
+    
+    case SPECIES_BASCULEGION_MALE:
+        newSpecies = SPECIES_BASCULEGION_FEMALE;
+        break;
+    case SPECIES_BASCULEGION_FEMALE:
+        newSpecies = SPECIES_BASCULEGION_MALE;
+        break;
+    
+    case SPECIES_OINKOLOGNE_MALE:
+        newSpecies = SPECIES_OINKOLOGNE_FEMALE;
+        break;
+    case SPECIES_OINKOLOGNE_FEMALE:
+        newSpecies = SPECIES_OINKOLOGNE_MALE;
+        break;
+
+    }
+
+    if(startSpecies != newSpecies)
+    {
+        SetMonData(&gPlayerParty[0], MON_DATA_SPECIES, &newSpecies);
+
+        if(newSpecies == SPECIES_MEOWSTIC_MALE || newSpecies == SPECIES_MEOWSTIC_FEMALE)
+        {
+            u32 i, j;
+
+            // Remove illegal moves
+            for(i = 0; i < MAX_MON_MOVES;)
+            {
+                u16 moveId = GetMonData(&gPlayerParty[0], MON_DATA_MOVE1 + i);
+                if(moveId != MOVE_NONE && !CanSpeciesLearnMove(newSpecies, moveId))
+                {
+                    SetMonMoveSlot(&gPlayerParty[0], MOVE_NONE, i);
+                    RemoveMonPPBonus(&gPlayerParty[0], i);
+
+                    // Shift all moves up
+                    for (j = i; j < MAX_MON_MOVES - 1; j++)
+                        ShiftMoveSlotExtern(&gPlayerParty[0], j, j + 1);
+                    continue;
+                }
+
+                ++i;
+            }
+        }
+
+        return TRUE;
+    }
+#endif
+
+    return FALSE;
+}
+
 void Rogue_SwapMonGender()
 {
-    u8 gender;
-    u8 startGender = GetMonGender(&gPlayerParty[0]);
-    u32 genderFlag = GetMonData(&gPlayerParty[0], MON_DATA_GENDER_FLAG);
-
-    genderFlag = !genderFlag;
-
-    SetMonData(&gPlayerParty[0], MON_DATA_GENDER_FLAG, &genderFlag);
-    
-    gender = GetMonGender(&gPlayerParty[0]);
-
-    if(startGender != gender)
+    if(TryChangeMonGenderBySpecies())
     {
-        Rogue_PushPopup_MonGenderChange(0, gender);
+        Rogue_PushPopup_MonGenderChange(0, GetMonGender(&gPlayerParty[0]));
+    }
+    else
+    {
+        u8 gender;
+        u8 startGender = GetMonGender(&gPlayerParty[0]);
+        u32 genderFlag = GetMonData(&gPlayerParty[0], MON_DATA_GENDER_FLAG);
+
+        genderFlag = !genderFlag;
+
+        SetMonData(&gPlayerParty[0], MON_DATA_GENDER_FLAG, &genderFlag);
+        
+        gender = GetMonGender(&gPlayerParty[0]);
+
+        if(startGender != gender)
+        {
+            Rogue_PushPopup_MonGenderChange(0, gender);
+        }
     }
 }
 
