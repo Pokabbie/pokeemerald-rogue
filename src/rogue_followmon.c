@@ -898,6 +898,7 @@ static bool8 CheckForObjectEventAtLocation(s16 x, s16 y)
 static bool8 TrySelectTile(s16* outX, s16* outY)
 {
     u8 tryCount;
+    u8 elevation;
     u16 tileBehavior;
     s16 playerX, playerY;
     s16 x, y;
@@ -947,8 +948,15 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
         PlayerGetDestCoords(&playerX, &playerY);
         x += playerX;
         y += playerY;
-        tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
+        elevation = MapGridGetElevationAt(x, y);
+
+        // 0 is change of elevation, 15 is multiple elevation e.g. bridges
+        // Causes weird interaction issues so just don't let mons spawn here
+        if (elevation == 0 || elevation == 15)
+            return FALSE;
+
+        tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
         if(IsSpawningWaterMons())
         {
             if(MetatileBehavior_IsWaterWildEncounter(tileBehavior) && !MapGridIsImpassableAt(x, y))
