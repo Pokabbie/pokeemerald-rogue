@@ -2097,7 +2097,7 @@ static void Cmd_typecalc(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static bool8 ActiveAlphaMonEndure(u32 battler)
+bool8 ActiveAlphaMonEndure(u32 battler)
 {
     if(gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0 && GetBattlerSide(battler) == B_SIDE_OPPONENT)
     {
