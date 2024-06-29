@@ -1405,19 +1405,27 @@ u32 RoguePlayer_GetOutfitTrainerFlags()
     return GetCurrentOutfit()->relatedTrainerFlags;
 }
 
-bool8 RoguePlayer_HasUnlockedOutfitId(u16 outfit)
+static bool32 CheckOutfitUnlockIsActive(u32 unlockId)
 {
-    u32 unlockId = sPlayerOutfits[outfit].outfitUnlockId;
+    if(unlockId == OUTFIT_UNLOCK_PLACEHOLDER)
+        return FALSE;
 
-    AGB_ASSERT(outfit < PLAYER_OUTFIT_COUNT);
-    
     if(unlockId != OUTFIT_UNLOCK_NONE)
     {
         u32 bitMask = (1 << (unlockId - 1));
         return (gSaveBlock2Ptr->playerOutfitUnlockFlags & bitMask) != 0;
     }
 
+    // Default to enabled
     return TRUE;
+}
+
+bool8 RoguePlayer_HasUnlockedOutfitId(u16 outfit)
+{
+    u32 unlockId = sPlayerOutfits[outfit].outfitUnlockId;
+
+    AGB_ASSERT(outfit < PLAYER_OUTFIT_COUNT);
+    return CheckOutfitUnlockIsActive(unlockId);
 }
 
 void RoguePlayer_EnsureUnlockedOutfitId(u16 outfit)
@@ -1453,7 +1461,7 @@ bool8 RoguePlayer_HandleEasterEggOutfitUnlocks()
     for(unlockId = OUTFIT_UNLOCK_EASTER_EGG_FIRST; unlockId <= OUTFIT_UNLOCK_EASTER_EGG_LAST; ++unlockId)
     {
         // Only update if we haven't unlocked yet
-        if(sOutfitUnlocks[unlockId].unlockType == OUTFIT_UNLOCK_TYPE_EASTER_EGG && !RoguePlayer_HasUnlockedOutfitId(unlockId))
+        if(sOutfitUnlocks[unlockId].unlockType == OUTFIT_UNLOCK_TYPE_EASTER_EGG && !CheckOutfitUnlockIsActive(unlockId))
         {
             u16 species = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
             species = Rogue_GetEggSpecies(species);

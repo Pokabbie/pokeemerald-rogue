@@ -2315,6 +2315,10 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
 #ifdef ROGUE_EXPANSION
         case ITEM_MAX_MUSHROOMS:
             return Rogue_IsRunActive() && IsDynamaxEnabled();
+
+        // Only active in hub via quest reward
+        case ITEM_BERSERK_GENE:
+            return !Rogue_IsRunActive();
 #endif
 
         case ITEM_SACRED_ASH:
