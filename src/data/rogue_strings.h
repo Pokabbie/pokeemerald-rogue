@@ -12,8 +12,6 @@ const u8 gText_RogueVersionPrefix[] = _("EX");
 const u8 gText_RogueVersionPrefix[] = _("Vanilla");
 #endif
 
-const u8 gText_RogueVersionSpacer[] = _(" - ");
-
 #if defined(ROGUE_FEATURE_AUTOMATION)
 const u8 gText_RogueVersionSuffix[] = _("(AUTOMATION)");
 #elif defined(ROGUE_DEBUG)
