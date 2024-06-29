@@ -435,6 +435,7 @@
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
                     { "decor": "DECOR_ID_PC" },
                     { "quest": "Collector +" },
+                    { "quest": "Collector S" },
                     { "quest": "Collector X" }
                 ]
             },
@@ -460,6 +461,31 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
                     { "decor": "DECOR_ID_CUSHIONS" }
+                ]
+            },
+            {
+                "name": "Collector S",
+                "description": "Collect data for 10 Shiny Pokémon in the Pokédex.\n\n(Pokémon can be chained to increase odds by knocking out back to back)",
+                "flags": 
+                [
+                    "MAIN_QUEST_DEFAULT",
+                    "ACTIVE_ALWAYS"
+                ],
+                "triggers":
+                [
+                    {
+                        "on": [ "POKEDEX_UPDATE" ],
+                        "condition": "PokedexShinyEntryCountGreaterThan",
+                        "pass": "SUCCESS",
+                        "params": [ 9 ]
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_STARF_BERRY" },
+                    { "item": "ITEM_STARF_BERRY", "count": "3", "visibility": "INVISIBLE" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },
             {
@@ -658,8 +684,7 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "shop_item": "ITEM_STARF_BERRY" },
-                    { "item": "ITEM_STARF_BERRY", "count": "3", "visibility": "INVISIBLE" },
+                    { "item": "ITEM_POKEBLOCK_SHINY", "count": "5" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },

@@ -65,6 +65,7 @@ static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTr
 static bool8 QuestCondition_HasBuiltAllAreas(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PokedexEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PokedexShinyEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_InAdventureEncounterType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_TotalMoneySpentGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PlayerMoneyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
@@ -1554,6 +1555,13 @@ static bool8 QuestCondition_PokedexEntryCountGreaterThan(u16 questId, struct Rog
     u16 count = trigger->params[0];
     ASSERT_PARAM_COUNT(1);
     return RoguePokedex_CountNationalCaughtMons(FLAG_GET_CAUGHT) > count;
+}
+
+static bool8 QuestCondition_PokedexShinyEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 count = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
+    return RoguePokedex_CountNationalCaughtMons(FLAG_GET_CAUGHT_SHINY) > count;
 }
 
 static bool8 QuestCondition_InAdventureEncounterType(u16 questId, struct RogueQuestTrigger const* trigger)

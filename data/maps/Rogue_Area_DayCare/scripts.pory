@@ -4,6 +4,10 @@ const FLAG_HIDE_BREEDER = FLAG_TEMP_1
 const FLAG_HIDE_PHONE = FLAG_TEMP_2
 const FLAG_HIDE_TEA = FLAG_TEMP_4
 
+const FLAG_HIDE_SPECIES_0 = FLAG_TEMP_5
+const FLAG_HIDE_SPECIES_1 = FLAG_TEMP_6
+const FLAG_HIDE_SPECIES_2 = FLAG_TEMP_7
+
 mapscripts Rogue_Area_DayCare_MapScripts 
 {
     MAP_SCRIPT_ON_LOAD: Rogue_Area_DayCare_OnMapLoad
@@ -11,6 +15,8 @@ mapscripts Rogue_Area_DayCare_MapScripts
 
 script Rogue_Area_DayCare_OnMapLoad
 {
+    special(Rogue_SetupDaycareSpeciesGraphics)
+
     random(2)
     if(var(VAR_RESULT) == 0)
     {
@@ -69,7 +75,9 @@ script Rogue_Area_DayCare_SwapMonGender
         waitse
         special(Rogue_SwapMonGender)
 
-        fadescreen(FADE_FROM_BLACK)
+        special(ReloadWarpSilent)
+
+        //fadescreen(FADE_FROM_BLACK)
     }
     else
     {
@@ -88,19 +96,19 @@ script Rogue_Area_DayCare_TalkEggBreeder
 
     if(flag(FLAG_ROGUE_DAYCARE_EGG_READY))
     {
-        bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG)
+        bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG_SPECIES)
         msgbox(format("I managed to find that {STR_VAR_1} egg you were looking for!"))
 
-        giveegg(VAR_ROGUE_DAYCARE_EGG)
+        giveegg(VAR_ROGUE_DAYCARE_EGG_SPECIES)
 
         clearflag(FLAG_ROGUE_DAYCARE_EGG_READY)
-        setvar(VAR_ROGUE_DAYCARE_EGG, SPECIES_NONE)
+        setvar(VAR_ROGUE_DAYCARE_EGG_SPECIES, SPECIES_NONE)
     }
     else
     {
-        if(var(VAR_ROGUE_DAYCARE_EGG) != SPECIES_NONE)
+        if(var(VAR_ROGUE_DAYCARE_EGG_SPECIES) != SPECIES_NONE)
         {
-            bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG)
+            bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG_SPECIES)
             msgbox(format("I've not managed to locate a {STR_VAR_1} egg quite yet.\pWould you like for me to look for a different type of Pokémon instead?"), MSGBOX_YESNO)
         }
         else
@@ -135,8 +143,9 @@ script Rogue_Area_DayCare_TalkEggBreeder
                 else
                 {
                     clearflag(FLAG_ROGUE_DAYCARE_EGG_READY)
-                    copyvar(VAR_ROGUE_DAYCARE_EGG, VAR_RESULT)
-                    bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG)
+                    copyvar(VAR_ROGUE_DAYCARE_EGG_SPECIES, VAR_RESULT)
+                    setvar(VAR_ROGUE_DAYCARE_EGG_CYCLES, 0)
+                    bufferspeciesname(STR_VAR_1, VAR_ROGUE_DAYCARE_EGG_SPECIES)
 
                     msgbox(format("Alright!\nI'll keep my eyes out for a {STR_VAR_1} egg."))
                 }
@@ -174,4 +183,16 @@ script Rogue_Area_DayCare_GiveDayCarePhone
     msgbox(format("Oh?\nThere's a small package with a note attached.\pIt reads…\p'Dear {PLAYER}, please accept this Pokégear.\pYou can use it to remotely make requests with the Day Care, whilst you're out on Adventures.\pBest of luck!\p - The Day Care Staff'"))
     giveitem(ITEM_DAYCARE_PHONE)
     call(Rogue_Common_DisplayPopups)
+}
+
+script Rogue_Area_DayCare_SpeakDaycareLady
+{
+    call(Rogue_SpeakDaycareLady)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        lock
+        special(ReloadWarpSilent)
+        release
+    }
 }

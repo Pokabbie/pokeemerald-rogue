@@ -57,6 +57,16 @@ script Rogue_Interior_School_TalkRunningStatsHint
     releaseall
 }
 
+script Rogue_Interior_School_TalkPokeblock
+{
+    lockall
+    faceplayer
+
+    msgbox(format("My Pokémon love {POKEBLOCK}!\pDid you know, whenever you're on a Route, you can scatter some {POKEBLOCK} to try and attract new types of Pokémon."))
+
+    releaseall
+}
+
 script Rogue_Interior_School_TalkTeacher
 {
     lockall
