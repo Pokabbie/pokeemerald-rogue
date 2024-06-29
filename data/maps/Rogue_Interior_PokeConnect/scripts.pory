@@ -52,40 +52,44 @@ script Rogue_Interior_PokeConnect_TalkMultiplayer
 
         if(var(VAR_RESULT) == TRUE)
         {
-            message(format("Please decide which of you will become the Group Host.\pThe other players must then choose Join Group."))
-            waitmessage
-
-            multichoice(16, 6, MULTI_LINK_HOST_JOIN, FALSE)
-
-            switch(var(VAR_RESULT))
+            call(Common_EventScript_SaveGame)
+            if(var(VAR_RESULT) == YES)
             {
-                case 0: // Join
-                    message(format("Please setup in Rogue Assistant now\n… … B Button: Cancel"))
-                    waitmessage
+                message(format("Please decide which of you will become the Group Host.\pThe other players must then choose Join Group."))
+                waitmessage
 
-                    special(Rogue_JoinMultiplayer)
-                    waitstate
+                multichoice(16, 6, MULTI_LINK_HOST_JOIN, FALSE)
 
-                    if(var(VAR_RESULT) == TRUE)
-                    {
-                        msgbox(format("All set!\nHave fun on your Adventures!"))
-                    }
+                switch(var(VAR_RESULT))
+                {
+                    case 0: // Join
+                        message(format("Please setup in Rogue Assistant now\n… … B Button: Cancel"))
+                        waitmessage
 
-                case 1: // Host
-                    message(format("Please setup in Rogue Assistant now\n… … B Button: Cancel"))
-                    waitmessage
+                        special(Rogue_JoinMultiplayer)
+                        waitstate
 
-                    special(Rogue_HostMultiplayer)
-                    waitstate
+                        if(var(VAR_RESULT) == TRUE)
+                        {
+                            msgbox(format("All set!\nHave fun on your Adventures!"))
+                        }
 
-                    if(var(VAR_RESULT) == TRUE)
-                    {
-                        msgbox(format("All set!\nA friend should now be able to join you for Adventures!"))
-                    }
+                    case 1: // Host
+                        message(format("Please setup in Rogue Assistant now\n… … B Button: Cancel"))
+                        waitmessage
 
-                case 2: // Exit
-                    setvar(VAR_RESULT, FALSE)
+                        special(Rogue_HostMultiplayer)
+                        waitstate
 
+                        if(var(VAR_RESULT) == TRUE)
+                        {
+                            msgbox(format("All set!\nA friend should now be able to join you for Adventures!"))
+                        }
+
+                    case 2: // Exit
+                        setvar(VAR_RESULT, FALSE)
+
+                }
             }
         }
 
