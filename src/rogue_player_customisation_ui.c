@@ -643,9 +643,6 @@ static void RoguePlayerUI_RefreshPageEntries()
             RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY) ||
             RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY);
 
-        if(anySupported)
-            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_RANDOMISE_COLOURS;
-
         if(RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE))
             sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_APPEARANCE;
 
@@ -654,6 +651,9 @@ static void RoguePlayerUI_RefreshPageEntries()
 
         if(RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY))
             sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_SECONDARY;
+
+        if(anySupported)
+            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_RANDOMISE_COLOURS;
 
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EXIT;
         break;
@@ -772,6 +772,15 @@ static void Task_RoguePlayerUIMain(u8 taskId)
     else if (JOY_NEW(DPAD_DOWN))
     {
         ++sPlayerOutfitUIState->currentOptionIdx;
+    }
+
+    else if (JOY_NEW(L_BUTTON))
+    {
+        sPlayerOutfitUIState->currentOptionIdx = 0;
+    }
+    else if (JOY_NEW(R_BUTTON))
+    {
+        sPlayerOutfitUIState->currentOptionIdx = TOTAL_UI_PAGE_ENTRIES;
     }
 
     else if (JOY_NEW(START_BUTTON))
