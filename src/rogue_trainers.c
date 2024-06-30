@@ -2152,7 +2152,7 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
         // Only begin to swap if we're at max party size
         if(monCount == PARTY_SIZE)
         {
-            if(Rogue_GetCurrentDifficulty() >= ROGUE_FINAL_CHAMP_DIFFICULTY)
+            if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY) // needs to be 1st champ for final quest to trigger correctly
                 swapAmount = (ROGUE_RIVAL_TOTAL_MON_COUNT - PARTY_SIZE); // do all the swaps at the end
             else if(Rogue_GetCurrentDifficulty() >= ROGUE_ELITE_START_DIFFICULTY - 2)
                 swapAmount = 2; // swap a couple of them for the last battle before E4
@@ -2876,15 +2876,27 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
         // If we have valid subsets remaining and we're a boss, force the final mons to be legends
         if(scratch->subsetIndex < trainer->teamGenerator.subsetCount && (Rogue_IsBossTrainer(scratch->trainerNum) || Rogue_IsRivalTrainer(scratch->trainerNum)))
         {
-            if(Rogue_GetCurrentDifficulty() == ROGUE_FINAL_CHAMP_DIFFICULTY && scratch->partyCount == 4)
+            if(Rogue_UseFinalQuestEffects())
             {
-                scratch->forceLegends = TRUE;
-                scratch->shouldRegenerateQuery = TRUE;
+                // Final quest both champs have 2
+                if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY && scratch->partyCount == 4)
+                {
+                    scratch->forceLegends = TRUE;
+                    scratch->shouldRegenerateQuery = TRUE;
+                }
             }
-            else if(Rogue_GetCurrentDifficulty() == ROGUE_CHAMP_START_DIFFICULTY && scratch->partyCount == 5)
+            else
             {
-                scratch->forceLegends = TRUE;
-                scratch->shouldRegenerateQuery = TRUE;
+                if(Rogue_GetCurrentDifficulty() == ROGUE_FINAL_CHAMP_DIFFICULTY && scratch->partyCount == 4)
+                {
+                    scratch->forceLegends = TRUE;
+                    scratch->shouldRegenerateQuery = TRUE;
+                }
+                else if(Rogue_GetCurrentDifficulty() == ROGUE_CHAMP_START_DIFFICULTY && scratch->partyCount == 5)
+                {
+                    scratch->forceLegends = TRUE;
+                    scratch->shouldRegenerateQuery = TRUE;
+                }
             }
         }
         else
