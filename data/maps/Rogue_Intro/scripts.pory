@@ -301,8 +301,7 @@ script Rogue_Intro_MapScripts_LoadFrame_0
 
         "The world has changed quite a lot recently…\p"
         "Routes within the world seem to be connecting up at random. Making exploring even more difficult.\p"
-        "Though there is one thing for sure, trainers are still out their and itching for battles!\p"
-        "So, only skilled Pokémon trainers can thrive!\p"
+        "Though there is one thing for sure, trainers are still out there and itching for battles!\p"
 
         "Now…\nLet me put your memory to the test…"
     ))

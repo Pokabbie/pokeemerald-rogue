@@ -82,11 +82,20 @@ const u8 gText_DifficultyDoesntAffectReward[] = _("{COLOR GREEN}{SHADOW LIGHT_GR
 const u8 gText_DifficultyRewardLevel[] = _("{FONT_SMALL}{COLOR GREEN}{SHADOW LIGHT_GREEN}Reward Level: ");
 
 const u8 gText_DifficultyPreset[] = _("Difficulty");
+
+// Colours on the Settings Screen are out of order and wild
+//LIGHT_BLUE = green
+//BLUE = light green
+//LIGHT_RED = red
+//RED = light red
+//DARK_GRAY = light yellow
+//LIGHT_GRAY = dark yellow
+//LIGHT_GREEN = light grey
 const u8 gText_DifficultyPresetEasy[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Easy");
-const u8 gText_DifficultyPresetMedium[] = _("{COLOR DARK_GRAY}{SHADOW LIGHT_GREEN}Average");
-const u8 gText_DifficultyPresetHard[] = _("{COLOR RED}{SHADOW LIGHT_GREEN}Hard");
-const u8 gText_DifficultyPresetBrutal[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}Brutal");
-const u8 gText_DifficultyPresetCustom[] = _("{COLOR RED}{SHADOW LIGHT_RED}Custom");
+const u8 gText_DifficultyPresetMedium[] = _("{COLOR LIGHT_BLUE}{SHADOW LIGHT_GREEN}Average");
+const u8 gText_DifficultyPresetHard[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}Hard");
+const u8 gText_DifficultyPresetBrutal[] = _("{COLOR LIGHT_RED}{SHADOW RED}Brutal");
+const u8 gText_DifficultyPresetCustom[] = _("{COLOR DARK_GRAY}{SHADOW LIGHT_GREEN}Custom");
 
 const u8 gText_DifficultyEnabled[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Enabled  ");
 const u8 gText_DifficultyDisabled[] = _("{COLOR LIGHT_RED}{SHADOW LIGHT_GREEN}Disabled");
@@ -115,39 +124,9 @@ const u8 gText_AdventureCustomDesc[] = _(
     "adventure to your liking."
 );
 
-const u8 gText_DifficultyExpAllDesc[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "All {PKMN} in the party will be awarded Exp.\n"
-    "even if they didn't enter the battle."
-);
-
-const u8 gText_DifficultyEVGainDesc[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "{PKMN} gain EVs from Trainer battles based\n"
-    "on their nature (Trainers never have EVs)"
-);
-
-const u8 gText_DifficultyOverworldMonsDesc[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Wild {PKMN} can be encounted and interacted\n"
-    "with in the overworld."
-);
-
-const u8 gText_DifficultyBagWipeDesc[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Only your Partner {PKMN} and Key Items will\n"
-    "be taken into runs."
-);
-
-const u8 gText_DifficultySwitchModeDesc[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "After fainting an opposing {PKMN} you will be\n"
-    "given a chance to switch out your {PKMN}."
-);
-
 const u8 gText_DifficultyTrainersDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Increases quality, quantity and strength\n"
+    "Adjusts quality, quantity and strength\n"
     "of all Trainer's {PKMN}."
 );
 

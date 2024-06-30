@@ -63,12 +63,7 @@ extern const u8 gText_DifficultyLegendaries[];
 extern const u8 gText_DifficultyPresetDesc[];
 extern const u8 gText_DifficultyCustomDesc[];
 extern const u8 gText_AdventureCustomDesc[];
-extern const u8 gText_DifficultyExpAllDesc[];
 extern const u8 gText_DifficultyOverLvlDesc[];
-extern const u8 gText_DifficultyEVGainDesc[];
-extern const u8 gText_DifficultyOverworldMonsDesc[];
-extern const u8 gText_DifficultyBagWipeDesc[];
-extern const u8 gText_DifficultySwitchModeDesc[];
 
 extern const u8 gText_DifficultyTrainersDesc[];
 extern const u8 gText_DifficultyItemsDesc[];
@@ -188,11 +183,25 @@ static u8 const sMenuNameDesc_GameModesSubmenu[] = _(
     "you to play with."
 );
 
-static u8 const sMenuNameDesc_BattleFormat[] = _(
+static u8 const sMenuNameDesc_BattleFormatSingles[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Controls if battles are 1v1, 2v2 or\n"
-    "a random mix of both."
+    "Trainer Battles will always be 1v1."
 );
+static u8 const sMenuNameDesc_BattleFormatDoubles[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Trainer Battles will always be 2v2."
+);
+static u8 const sMenuNameDesc_BattleFormatMixed[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Trainer Battles will randomly be 1v1 or\n"
+    "2v2. (Equal chance for both)"
+);
+static u8 const* const sMenuNameDesc_BattleFormat[] = 
+{
+    [BATTLE_FORMAT_SINGLES] = sMenuNameDesc_BattleFormatSingles,
+    [BATTLE_FORMAT_DOUBLES] = sMenuNameDesc_BattleFormatDoubles,
+    [BATTLE_FORMAT_MIXED] = sMenuNameDesc_BattleFormatMixed,
+};
 
 const u8 sMenuNameDesc_Affection[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -217,11 +226,21 @@ static u8 const* const sMenuNameDesc_ReleaseMons[] =
     sMenuNameDesc_ReleaseMonsOn,
 };
 
-const u8 sMenuNameDesc_TrainerDiversity[] = _(
+const u8 sMenuNameDesc_TrainerDiversityOff[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Trainer's can have wider type specialties\n"
+    "Trainers will mostly stick to their type\n"
+    "specialties e.g. Brock has Rock"
+);
+const u8 sMenuNameDesc_TrainerDiversityOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Trainers can have wider type specialties\n"
     "e.g. Brock has a mix of Rock & Steel"
 );
+static u8 const* const sMenuNameDesc_TrainerDiversity[] = 
+{
+    sMenuNameDesc_TrainerDiversityOff,
+    sMenuNameDesc_TrainerDiversityOn,
+};
 
 static u8 const sMenuNameDesc_Rogue[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -303,6 +322,91 @@ static u8 const sMenuNameDesc_GameMode_RainbowGauntlet[] = _(
     "Combined effects of both Rainbow and\n"
     "Gauntlet modes."
 );
+
+
+static const u8 sText_DifficultyExpAllDescOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Only {PKMN} send into battle will be awarded\n"
+    "Exp. (Not recommended)"
+);
+static const u8 sText_DifficultyExpAllDescOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "All {PKMN} in the party will be awarded Exp.\n"
+    "even if they didn't enter the battle."
+);
+static u8 const* const sText_DifficultyExpAllDesc[] = 
+{
+    sText_DifficultyExpAllDescOff,
+    sText_DifficultyExpAllDescOn,
+};
+
+
+static const u8 sText_DifficultyOverworldMonsDescOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Wild {PKMN} will spawn randomly as you move.\n"
+    "(Classic {PKMN} Game style encounters)"
+);
+static const u8 sText_DifficultyOverworldMonsDescOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Wild {PKMN} can be encounted and interacted\n"
+    "with in the overworld."
+);
+static u8 const* const sText_DifficultyOverworldMonsDesc[] = 
+{
+    sText_DifficultyOverworldMonsDescOff,
+    sText_DifficultyOverworldMonsDescOn,
+};
+
+
+const u8 sText_DifficultyEVGainDescOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "All {PKMN} will never have EVs."
+);
+const u8 sText_DifficultyEVGainDescOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "{PKMN} gain EVs from Trainer battles based\n"
+    "on their nature.(Trainers never have EVs)"
+);
+static u8 const* const sText_DifficultyEVGainDesc[] = 
+{
+    sText_DifficultyEVGainDescOff,
+    sText_DifficultyEVGainDescOn,
+};
+
+
+const u8 sText_DifficultySwitchModeDescOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "After fainting an opposing {PKMN}, you will\n"
+    "not be able to switch out until your turn."
+);
+const u8 sText_DifficultySwitchModeDescOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "After fainting an opposing {PKMN} you will be\n"
+    "given a chance to switch out immediately."
+);
+static u8 const* const sText_DifficultySwitchModeDesc[] = 
+{
+    sText_DifficultySwitchModeDescOff,
+    sText_DifficultySwitchModeDescOn,
+};
+
+
+const u8 sText_DifficultyBagWipeDescOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "You can take all Meta-Progression\n"
+    "into Adventures. (e.g. Items, Day Care)"
+);
+const u8 sText_DifficultyBagWipeDescOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Only your Partner {PKMN} and Key Items will\n"
+    "be taken into runs."
+);
+static u8 const* const sText_DifficultyBagWipeDesc[] = 
+{
+    sText_DifficultyBagWipeDescOff,
+    sText_DifficultyBagWipeDescOn,
+};
+
 
 #ifdef ROGUE_DEBUG
 static u8 const sMenuName_Debug[] = _("DEBUG");
@@ -537,7 +641,7 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_TOGGLE_EXP_ALL] = 
     {
         .itemName = gText_DifficultyExpAll,
-        .SINGLE_DESC(gText_DifficultyExpAllDesc),
+        .MULTI_DESC(sText_DifficultyExpAllDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
@@ -551,35 +655,35 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_TOGGLE_EV_GAIN] = 
     {
         .itemName = gText_DifficultyEVGain,
-        .SINGLE_DESC(gText_DifficultyEVGainDesc),
+        .MULTI_DESC(sText_DifficultyEVGainDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_OVERWORLD_MONS] = 
     {
         .itemName = gText_DifficultyOverworldMons,
-        .SINGLE_DESC(gText_DifficultyOverworldMonsDesc),
+        .MULTI_DESC(sText_DifficultyOverworldMonsDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_BAG_WIPE] = 
     {
         .itemName = gText_DifficultyBagWipe,
-        .SINGLE_DESC(gText_DifficultyBagWipeDesc),
+        .MULTI_DESC(sText_DifficultyBagWipeDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_SWITCH_MODE] = 
     {
         .itemName = gText_DifficultySwitchMode,
-        .SINGLE_DESC(gText_DifficultySwitchModeDesc),
+        .MULTI_DESC(sText_DifficultySwitchModeDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_DIVERSE_TRAINERS] = 
     {
         .itemName = sMenuName_TrainerDiversity,
-        .SINGLE_DESC(sMenuNameDesc_TrainerDiversity),
+        .MULTI_DESC(sMenuNameDesc_TrainerDiversity),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
@@ -697,7 +801,7 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_SLIDER_BATTLE_FORMAT] = 
     {
         .itemName = sMenuName_BattleFormat,
-        .SINGLE_DESC(sMenuNameDesc_BattleFormat),
+        .MULTI_DESC(sMenuNameDesc_BattleFormat),
         .processInput = BattleFormat_ProcessInput,
         .drawChoices = BattleFormat_DrawChoices
     },
