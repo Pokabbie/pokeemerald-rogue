@@ -719,12 +719,12 @@ s32 AI_CalcDamage(u32 move, u32 battlerAtk, u32 battlerDef, u8 *typeEffectivenes
         move = GetNaturePowerMove();
 
     // Temporarily enable other gimmicks for damage calcs if planned
-    if (AI_DATA->shouldDynamax[battlerAtk])
+    if (AI_DATA->shouldDynamax[battlerAtk] && !gBattleStruct->dynamax.dynamaxed[battlerAtk])
     {
         toggledDynamax = TRUE;
         gBattleStruct->dynamax.dynamaxed[battlerAtk] = TRUE;
     }
-    if (AI_DATA->shouldTerastal[battlerAtk])
+    if (AI_DATA->shouldTerastal[battlerAtk] && !IsTerastallized(battlerAtk))
     {
         toggledTera = TRUE;
         gBattleStruct->tera.isTerastallized[GetBattlerSide(battlerAtk)] |= gBitTable[gBattlerPartyIndexes[battlerAtk]];
