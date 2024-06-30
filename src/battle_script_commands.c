@@ -4337,10 +4337,25 @@ static void Cmd_getexp(void)
     case 2: // set exp value to the poke in expgetter_id and print message
         if (gBattleControllerExecFlags == 0)
         {
+            u32 battler = 0xFF;
             bool32 wasSentOut = ((gBattleStruct->expSentInMons & gBitTable[*expMonId]) != 0);
             holdEffect = GetMonHoldEffect(&gPlayerParty[*expMonId]);
 
-            if ((holdEffect != HOLD_EFFECT_EXP_SHARE && !wasSentOut && !IsGen6ExpShareEnabled())
+            // update battle mon structure after level up
+            if (gBattlerPartyIndexes[0] == *expMonId && gBattleMons[0].hp)
+                battler = 0;
+            else if (gBattlerPartyIndexes[2] == *expMonId && gBattleMons[2].hp && (gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
+                battler = 2;
+
+            // RogueNote: Dynamax Workaround
+            // Leveling up while Dynamaxed is a bit bugged with health atm so just don't allow it for now
+            if(battler != 0xFF && IsDynamaxed(battler))
+            {
+
+                gBattleScripting.getexpState = 5;
+                gBattleMoveDamage = 0; // used for exp
+            }
+            else if ((holdEffect != HOLD_EFFECT_EXP_SHARE && !wasSentOut && !IsGen6ExpShareEnabled())
              || GetMonData(&gPlayerParty[*expMonId], MON_DATA_SPECIES_OR_EGG) == SPECIES_EGG)
             {
                 gBattleScripting.getexpState = 5;
