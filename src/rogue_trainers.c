@@ -2918,6 +2918,27 @@ static u16 SampleNextSpecies(struct TrainerPartyScratch* scratch)
             // Just put it to some really high number if we failed, as we need to move to the next subset
             scratch->subsetSampleCount = 128;
         }
+        else
+        {
+#ifdef ROGUE_EXPANSION
+            // Common bug species :(
+            // (Not really sure what the underlying cause is so handle these here)
+            AGB_ASSERT(species != SPECIES_GIMMIGHOUL_ROAMING);
+            AGB_ASSERT(species != SPECIES_MAGEARNA_ORIGINAL_COLOR);
+
+            if(species == SPECIES_GIMMIGHOUL_ROAMING)
+            {
+                if(scratch->allowItemEvos)
+                    species = SPECIES_GHOLDENGO;
+                else
+                    species = SPECIES_GIMMIGHOUL;
+            }
+            else if(species == SPECIES_MAGEARNA_ORIGINAL_COLOR)
+            {
+                species = SPECIES_MAGEARNA;
+            }
+#endif
+        }
 
         if(scratch->subsetIndex < trainer->teamGenerator.subsetCount)
         {
