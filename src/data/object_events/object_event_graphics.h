@@ -452,6 +452,9 @@ const u16 gObjectEventPal_PlayerZefaBase[] = INCBIN_U16("graphics/object_events/
 const u16 gObjectEventPal_PlayerLightningStrike7Base[] = INCBIN_U16("graphics/object_events/pics/people/lightningstrike7/palette.gbapal");
 const u16 gObjectEventPal_PlayerNacholordBase[] = INCBIN_U16("graphics/object_events/pics/people/nacho/palette.gbapal");
 
+const u16 gObjectEventPal_LaterMannerNormal[] = INCBIN_U16("graphics/object_events/pics/people/latermanner/walking.gbapal");
+const u16 gObjectEventPal_DolphinNormal[] = INCBIN_U16("graphics/object_events/pics/people/dolphin/walking.gbapal");
+
 const u32 gObjectEventPic_LyraNormal[] = INCBIN_U32("graphics/object_events/pics/people/lyra/walking.4bpp");
 const u32 gObjectEventPic_LyraRunning[] = INCBIN_U32("graphics/object_events/pics/people/lyra/running.4bpp");
 const u32 gObjectEventPic_LyraMachBike[] = INCBIN_U32("graphics/object_events/pics/people/lyra/mach_bike.4bpp");
@@ -516,6 +519,10 @@ const u32 gObjectEventPic_LightningStrike7Riding[] = INCBIN_U32("graphics/object
 
 const u32 gObjectEventPic_NacholordNormal[] = INCBIN_U32("graphics/object_events/pics/people/nacho/walking.4bpp");
 const u32 gObjectEventPic_NacholordRiding[] = INCBIN_U32("graphics/object_events/pics/people/nacho/riding.4bpp");
+
+const u32 gObjectEventPic_LaterMannerNormal[] = INCBIN_U32("graphics/object_events/pics/people/latermanner/walking.4bpp");
+const u32 gObjectEventPic_LaterMannerRiding[] = INCBIN_U32("graphics/object_events/pics/people/latermanner/riding.4bpp");
+const u32 gObjectEventPic_DolphinNormal[] = INCBIN_U32("graphics/object_events/pics/people/dolphin/walking.4bpp");
 
 const u16 gObjectEventPal_BirthIslandStone[] = INCBIN_U16("graphics/object_events/palettes/birth_island_stone.gbapal");
 const u32 gObjectEventPic_BirthIslandStone[] = INCBIN_U32("graphics/object_events/pics/misc/birth_island_stone.4bpp");
