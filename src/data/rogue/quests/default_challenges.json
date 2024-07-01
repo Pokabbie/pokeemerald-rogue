@@ -456,7 +456,7 @@
 
             {
                 "name": "Limited Capture",
-                "description": "Win a full Run with: Catching exactly 5 {PKMN} by before entering the Hall of Fame.",
+                "description": "Win a full Run with: Catching exactly 5 {PKMN} by the time you enter the Hall of Fame.",
                 "triggers":
                 [
                     {
