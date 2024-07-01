@@ -3400,6 +3400,10 @@ extern const u32 gTrainerFrontPic_CommunityLightningStrike7[];
 extern const u32 gTrainerPalette_CommunityLightningStrike7[];
 extern const u32 gTrainerFrontPic_CommunityNacholord[];
 extern const u32 gTrainerPalette_CommunityNacholord[];
+extern const u32 gTrainerFrontPic_CommunityLaterManner[];
+extern const u32 gTrainerPalette_CommunityLaterManner[];
+extern const u32 gTrainerFrontPic_CommunityDolphin[];
+extern const u32 gTrainerPalette_CommunityDolphin[];
 
 extern const u32 gTrainerFrontPic_RocketGruntF[];
 extern const u32 gTrainerPalette_RocketGruntF[];
@@ -5597,6 +5601,9 @@ extern const u16 gObjectEventPal_PlayerJulianaLayers[];
 extern const u16 gObjectEventPal_PlayerZefaBase[];
 extern const u16 gObjectEventPal_PlayerLightningStrike7Base[];
 extern const u16 gObjectEventPal_PlayerNacholordBase[];
+
+extern const u16 gObjectEventPal_LaterMannerNormal[];
+extern const u16 gObjectEventPal_DolphinNormal[];
 
 extern const u16 gObjectEventPal_RubySapphireBrendan[];
 extern const u16 gObjectEventPal_RubySapphireMay[];

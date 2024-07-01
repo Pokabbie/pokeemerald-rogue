@@ -616,6 +616,9 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_COMMUNITY_ZEFA] = sAnims_Kanto,
     [TRAINER_PIC_COMMUNITY_LIGHTNINGSTRIKE7] = sAnims_Kanto,
     [TRAINER_PIC_COMMUNITY_NACHOLORD] = sAnims_Kanto,
+    [TRAINER_PIC_COMMUNITY_LATERMANNER] = sAnims_Kanto,
+    [TRAINER_PIC_COMMUNITY_DOLPHIN] = sAnims_Kanto,
+
 
     [TRAINER_PIC_RIVAL_RED] = sAnims_Kanto,
     [TRAINER_PIC_RIVAL_LEAF] = sAnims_Kanto,

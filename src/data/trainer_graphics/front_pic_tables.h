@@ -241,6 +241,8 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_COMMUNITY_ZEFA] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_COMMUNITY_LIGHTNINGSTRIKE7] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_COMMUNITY_NACHOLORD] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_COMMUNITY_LATERMANNER] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_COMMUNITY_DOLPHIN] = {.size = 8, .y_offset = 1},
 
     [TRAINER_PIC_RIVAL_RED] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RIVAL_LEAF] = {.size = 8, .y_offset = 1},
@@ -536,6 +538,8 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(COMMUNITY_ZEFA, gTrainerFrontPic_CommunityZefa),
     TRAINER_SPRITE(COMMUNITY_LIGHTNINGSTRIKE7, gTrainerFrontPic_CommunityLightningStrike7),
     TRAINER_SPRITE(COMMUNITY_NACHOLORD, gTrainerFrontPic_CommunityNacholord),
+    TRAINER_SPRITE(COMMUNITY_LATERMANNER, gTrainerFrontPic_CommunityLaterManner),
+    TRAINER_SPRITE(COMMUNITY_DOLPHIN, gTrainerFrontPic_CommunityDolphin),
 
     TRAINER_SPRITE(RIVAL_RED, gTrainerFrontPic_Red),
     TRAINER_SPRITE(RIVAL_LEAF, gTrainerFrontPic_Leaf),
@@ -830,6 +834,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(COMMUNITY_ZEFA, gTrainerPalette_CommunityZefa),
     TRAINER_PAL(COMMUNITY_LIGHTNINGSTRIKE7, gTrainerPalette_CommunityLightningStrike7),
     TRAINER_PAL(COMMUNITY_NACHOLORD, gTrainerPalette_CommunityNacholord),
+    TRAINER_PAL(COMMUNITY_LATERMANNER, gTrainerPalette_CommunityLaterManner),
+    TRAINER_PAL(COMMUNITY_DOLPHIN, gTrainerPalette_CommunityDolphin),
     
     TRAINER_PAL(RIVAL_RED, gTrainerPalette_PlayerRedLeafFrontBase),
     TRAINER_PAL(RIVAL_LEAF, gTrainerPalette_PlayerRedLeafFrontBase),

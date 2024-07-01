@@ -2924,6 +2924,40 @@ static const struct SpriteFrameImage sPicTable_NacholordRiding[] = {
     overworld_frame(gObjectEventPic_NacholordRiding, 2, 4, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_LaterMannerNormal[] = {
+    overworld_frame(gObjectEventPic_LaterMannerNormal, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LaterMannerNormal, 4, 4, 1),
+    overworld_frame(gObjectEventPic_LaterMannerNormal, 4, 4, 2),
+    overworld_frame(gObjectEventPic_LaterMannerNormal, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LaterMannerNormal, 4, 4, 3),
+    overworld_frame(gObjectEventPic_LaterMannerNormal, 4, 4, 1),
+    overworld_frame(gObjectEventPic_LaterMannerNormal, 4, 4, 4),
+    overworld_frame(gObjectEventPic_LaterMannerNormal, 4, 4, 2),
+    overworld_frame(gObjectEventPic_LaterMannerNormal, 4, 4, 5),
+};
+static const struct SpriteFrameImage sPicTable_DolphinNormal[] = {
+    overworld_frame(gObjectEventPic_DolphinNormal, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DolphinNormal, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DolphinNormal, 4, 4, 2),
+    overworld_frame(gObjectEventPic_DolphinNormal, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DolphinNormal, 4, 4, 3),
+    overworld_frame(gObjectEventPic_DolphinNormal, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DolphinNormal, 4, 4, 4),
+    overworld_frame(gObjectEventPic_DolphinNormal, 4, 4, 2),
+    overworld_frame(gObjectEventPic_DolphinNormal, 4, 4, 5),
+};
+static const struct SpriteFrameImage sPicTable_LaterMannerRiding[] = {
+    overworld_frame(gObjectEventPic_LaterMannerRiding, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LaterMannerRiding, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LaterMannerRiding, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LaterMannerRiding, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LaterMannerRiding, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LaterMannerRiding, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LaterMannerRiding, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LaterMannerRiding, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LaterMannerRiding, 4, 4, 0),
+};
+
 static const struct SpriteFrameImage sPicTable_Leaf[] = {
     overworld_frame(gObjectEventPic_LeafNormal, 2, 4, 0),
     overworld_frame(gObjectEventPic_LeafNormal, 2, 4, 1),

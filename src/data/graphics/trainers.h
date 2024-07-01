@@ -663,6 +663,12 @@ const u32 gTrainerPalette_CommunityLightningStrike7[] = INCBIN_U32("graphics/tra
 const u32 gTrainerFrontPic_CommunityNacholord[] = INCBIN_U32("graphics/trainers/front_pics/community/nacho_front_pic.4bpp.lz");
 const u32 gTrainerPalette_CommunityNacholord[] = INCBIN_U32("graphics/trainers/front_pics/community/nacho_front_pic.gbapal.lz");
 
+const u32 gTrainerFrontPic_CommunityLaterManner[] = INCBIN_U32("graphics/trainers/front_pics/community/latermanner_front_pic.4bpp.lz");
+const u32 gTrainerPalette_CommunityLaterManner[] = INCBIN_U32("graphics/trainers/front_pics/community/latermanner_front_pic.gbapal.lz");
+
+const u32 gTrainerFrontPic_CommunityDolphin[] = INCBIN_U32("graphics/trainers/front_pics/community/dolphin_front_pic.4bpp.lz");
+const u32 gTrainerPalette_CommunityDolphin[] = INCBIN_U32("graphics/trainers/front_pics/community/dolphin_front_pic.gbapal.lz");
+
 const u32 gTrainerFrontPic_RivalSilver[] = INCBIN_U32("graphics/trainers/front_pics/rival/silver.4bpp.lz");
 const u32 gTrainerPalette_RivalSilver[] = INCBIN_U32("graphics/trainers/front_pics/rival/silver.gbapal.lz");
 

@@ -647,6 +647,11 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LightningStrike7Ri
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NacholordNormal       = {TAG_NONE, OBJ_EVENT_PAL_TAG_PLAYER, OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION, 512, 16, 32, 0, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_BrendanMayNormal, sPicTable_NacholordNormal, gDummySpriteAffineAnimTable};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NacholordRiding       = {TAG_NONE, OBJ_EVENT_PAL_TAG_PLAYER, OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION, 512, 16, 32, 0, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_BrendanMayNormal, sPicTable_NacholordRiding, gDummySpriteAffineAnimTable};
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LaterMannerNormal     = {TAG_NONE, OBJ_EVENT_PAL_TAG_PLAYER, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 0, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_LaterMannerNormal, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LaterMannerRiding     = {TAG_NONE, OBJ_EVENT_PAL_TAG_PLAYER, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 0, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_LaterMannerRiding, gDummySpriteAffineAnimTable};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DolphinNormal         = {TAG_NONE, OBJ_EVENT_PAL_TAG_PLAYER, OBJ_EVENT_PAL_TAG_NONE, 512, 32, 32, 0, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_32x32, sOamTables_32x32, sAnimTable_GenericOverworldMon, sPicTable_DolphinNormal, gDummySpriteAffineAnimTable};
+
+
 // Grunts (Player Outfits)
 //
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketFNormal        = {TAG_NONE, OBJ_EVENT_PAL_TAG_PLAYER, OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION, 512, 16, 32, 0, SHADOW_SIZE_M, FALSE, FALSE, TRACKS_FOOT, &gObjectEventBaseOam_16x32, sOamTables_16x32, sAnimTable_BrendanMayNormal, sPicTable_RocketF, gDummySpriteAffineAnimTable};

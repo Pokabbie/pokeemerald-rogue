@@ -115,6 +115,9 @@ enum
     PLAYER_OUTFIT_LIGHTNINGSTRIKE7,
     PLAYER_OUTFIT_NACHOLORD,
 
+    PLAYER_OUTFIT_LATERMANNER,
+    PLAYER_OUTFIT_DOLPHIN,
+
     PLAYER_OUTFIT_COUNT,
 };
 
@@ -200,6 +203,10 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LightningSt
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LightningStrike7Riding;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NacholordNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NacholordRiding;
+
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LaterMannerNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LaterMannerRiding;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DolphinNormal;
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketFNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketFRiding;
@@ -1053,6 +1060,38 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         },
         .objectEventBasePal = gObjectEventPal_PlayerNacholordBase,
     },
+
+    [PLAYER_OUTFIT_LATERMANNER] =
+    {
+        .name = _("Manner"),
+        .trainerFrontPic = TRAINER_PIC_COMMUNITY_LATERMANNER,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_LATERMANNER,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_LaterMannerNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_LaterMannerRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_LaterMannerNormal,
+    },
+
+    [PLAYER_OUTFIT_DOLPHIN] =
+    {
+        .name = _("Dolphin"),
+        .trainerFrontPic = TRAINER_PIC_COMMUNITY_DOLPHIN,
+        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
+        .outfitUnlockId = OUTFIT_UNLOCK_EASTER_EGG_GENERICDOLPHIN,
+        .hasSpritingAnims = FALSE,
+        .objectEventGfx = 
+        {
+            [PLAYER_AVATAR_STATE_NORMAL]            = &gObjectEventGraphicsInfo_DolphinNormal,
+            [PLAYER_AVATAR_STATE_RIDE_GRABBING]     = &gObjectEventGraphicsInfo_LaterMannerRiding,
+        },
+        .objectEventBasePal = gObjectEventPal_DolphinNormal,
+    },
 };
 
 static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] = 
@@ -1096,7 +1135,7 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
 #ifdef ROGUE_EXPANSION
                 .eggSpecies = SPECIES_FOMANTIS,
 #else
-                .eggSpecies = SPECIES_NONE,
+                .eggSpecies = SPECIES_SEEDOT,
 #endif
             }
         }
@@ -1112,7 +1151,7 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
 #ifdef ROGUE_EXPANSION
                 .eggSpecies = SPECIES_GOOMY,
 #else
-                .eggSpecies = SPECIES_NONE,
+                .eggSpecies = SPECIES_DRATINI,
 #endif
             }
         }
@@ -1162,6 +1201,34 @@ static const struct PlayerOutfitUnlock sOutfitUnlocks[OUTFIT_UNLOCK_COUNT] =
             {
                 .name = _("NACHO"),
                 .eggSpecies = SPECIES_MUDKIP,
+            }
+        }
+    },
+    [OUTFIT_UNLOCK_EASTER_EGG_LATERMANNER] = 
+    {
+        .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
+        .params = 
+        {
+            .easterEgg = 
+            {
+                .name = _("MANNER"),
+                .eggSpecies = SPECIES_FARFETCHD,
+            }
+        }
+    },
+    [OUTFIT_UNLOCK_EASTER_EGG_GENERICDOLPHIN] = 
+    {
+        .unlockType = OUTFIT_UNLOCK_TYPE_EASTER_EGG,
+        .params = 
+        {
+            .easterEgg = 
+            {
+                .name = _("DOLPHIN"),
+#ifdef ROGUE_EXPANSION
+                .eggSpecies = SPECIES_FINIZEN,
+#else
+                .eggSpecies = SPECIES_GOLDEEN,
+#endif
             }
         }
     },
