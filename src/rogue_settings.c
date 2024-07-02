@@ -240,7 +240,7 @@ void Rogue_SetConfigToggle(u16 elem, bool8 state)
 
         gRogueDifficultyLocal.areLevelsValid = FALSE;
 
-        if(IsDifficultyRange(elem))
+        if(IsDifficultyToggle(elem))
             config->rangeValues[CONFIG_RANGE_DIFFICULTY_PRESET] = DIFFICULTY_LEVEL_CUSTOM;
     }
 }
