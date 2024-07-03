@@ -7969,7 +7969,7 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
             u16 presetIndex;
             u16 presetCount = gRoguePokemonProfiles[species].competitiveSetCount;
             u16 statA = (Random() % 6);
-            u16 statB = (statA + 1 + (Random() % 5)) % 6;
+            //u16 statB = (statA + 1 + (Random() % 5)) % 6;
             u16 temp = 31;
 
             if(presetCount != 0)
@@ -7986,8 +7986,9 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
             SetMonData(mon, MON_DATA_FRIENDSHIP, &temp);
 
             // Bump 2 of the IVs to max
+            temp = 31;
             SetMonData(mon, MON_DATA_HP_IV + statA, &temp);
-            SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
+            //SetMonData(mon, MON_DATA_HP_IV + statB, &temp);
 
             // Clear held item
             temp = 0;
