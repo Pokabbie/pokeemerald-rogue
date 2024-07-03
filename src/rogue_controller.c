@@ -3760,19 +3760,25 @@ u16 Rogue_PostRunRewardLvls()
 
             for(i = 0; i < maxSlots; ++i)
             {
-                struct BoxPokemon* mon = Rogue_GetDaycareBoxMon(i);
+                struct BoxPokemon* boxMon = Rogue_GetDaycareBoxMon(i);
+                struct Pokemon* tempMon = &gEnemyParty[PARTY_SIZE - 1];
+
+                BoxMonToMon(boxMon, tempMon);
 
                 // Award levels
                 for(j = 0; j < daycareLvls; ++j)
                 {
-                    if(GetBoxMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE && GetBoxMonData(mon, MON_DATA_LEVEL) != MAX_LEVEL)
+                    if(GetBoxMonData(tempMon, MON_DATA_SPECIES) != SPECIES_NONE && GetBoxMonData(tempMon, MON_DATA_LEVEL) != MAX_LEVEL)
                     {
-                        exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetBoxMonData(mon, MON_DATA_SPECIES, NULL)].growthRate, GetBoxMonData(mon, MON_DATA_LEVEL, NULL) + 1);
-                        SetBoxMonData(mon, MON_DATA_EXP, &exp);
+                        exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(tempMon, MON_DATA_SPECIES, NULL)].growthRate, GetMonData(tempMon, MON_DATA_LEVEL, NULL) + 1);
+                        SetMonData(tempMon, MON_DATA_EXP, &exp);
+                        CalculateMonStats(tempMon);
                     }
                     
                     // don't give friendship for daycare mons
                 }
+
+                CopyMon(boxMon, &tempMon->box, sizeof(struct BoxPokemon));
             }
         }
     }
