@@ -45,14 +45,37 @@ script Rogue_Encounter_CatchingContest_TalkHost
 script Rogue_Encounter_CatchingContest_StartContest 
 {
     special(Rogue_BufferContestMode)
-    msgbox(format("Today we're running a {STR_VAR_1} catching contest.\pWould you like to enter?"), MSGBOX_YESNO)
+    msgbox(format("Today we're running a {STR_VAR_1} catching contest."))
+
+    setvar(VAR_RESULT, 2)
+    while(var(VAR_RESULT) == 2)
+    {
+        message(format("Would you like to enter?"))
+        waitmessage
+        multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // Yes
+                // Let it fall through
+                setvar(VAR_RESULT, YES)
+
+            case 1: // No
+            case MULTI_B_PRESSED:
+                setvar(VAR_RESULT, NO)
+
+            case 2: // Info
+                msgbox(format("You will be provided with 3 Safari Balls and will be tasked to catch the Pokémon with the highest in a specific Base Stat.\pIf you are correct, you will win a cash prize.\pWhether you win or not, you will be able to keep the Pokémon you exit with.\pPokémon will only appear for a limited amount of time, so don't wait too long to catch something!"))
+        }
+    }
+
 
     if(var(VAR_RESULT) == YES)
     {
         checkitemspace(ITEM_CATCHING_CONTEST_POKEBALL, 3)
         if(var(VAR_RESULT) == NO)
         {
-            msgbox(format("Oh, it looks like you Bag is full.\pYou need to free up some space, in order to take part, I'm afraid."))
+            msgbox(format("Oh, it looks like your Bag is full.\pYou need to free up some space, in order to take part, I'm afraid."))
         }
         else
         {
