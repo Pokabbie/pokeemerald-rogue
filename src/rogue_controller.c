@@ -4826,6 +4826,12 @@ static u8 UNUSED RandomMonType(u16 seedFlag)
 
 static u8 WildDenEncounter_CalculateWeight(u16 index, u16 species, void* data)
 {
+    if(RoguePokedex_IsSpeciesParadox(species))
+    {
+        if(Rogue_GetCurrentDifficulty() < ROGUE_GYM_START_DIFFICULTY + 2)
+            return 0;
+    }
+
     if(IsRareWeightedSpecies(species))
     {
         // Rare species become more common into late game
@@ -8803,7 +8809,7 @@ void Rogue_CorrectBoxMonDetails(struct BoxPokemon* mon)
 
 static bool8 IsRareWeightedSpecies(u16 species)
 {
-    if(RoguePokedex_GetSpeciesBST(species) >= 500)
+    if(RoguePokedex_GetSpeciesBST(species) >= 570)
     {
         if(Rogue_GetMaxEvolutionCount(species) == 0)
             return TRUE;
@@ -8871,6 +8877,12 @@ static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* 
     }
 
 #endif
+
+    if(RoguePokedex_IsSpeciesParadox(species))
+    {
+        if(Rogue_GetCurrentDifficulty() < ROGUE_GYM_MID_DIFFICULTY)
+            return 0;
+    }
 
     if(IsRareWeightedSpecies(species))
     {
