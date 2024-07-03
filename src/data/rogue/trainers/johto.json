@@ -388,7 +388,13 @@
                     [
                         {
                             "is_diversity_subset": true,
-                            "max_samples": 4,
+                            "max_samples": 2,
+                            "include_types": [ "DRAGON" ],
+                            "exclude_types": [ "FLYING" ]
+                        },
+                        {
+                            "is_diversity_subset": true,
+                            "max_samples": 2,
                             "include_types": [ "DRAGON", "WATER" ],
                             "exclude_types": [ "FLYING" ]
                         },
