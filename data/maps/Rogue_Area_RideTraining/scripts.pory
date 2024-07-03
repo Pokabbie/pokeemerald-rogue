@@ -321,7 +321,7 @@ script Rogue_Area_RideTraining_GiveBasicWhistle
             playfanfare(MUS_EVOLVED)
             waitfanfare
 
-            msgbox(format("All you need to do is use that whilst, whilst you have a ridable Pokémon in your party.\pIf have multiple Pokémon you can ride, you can quickly cycle between them by using {L_BUTTON} and {R_BUTTON}."))
+            msgbox(format("All you need to do is use that whistle, whilst you have a ridable Pokémon in your party.\pIf have multiple Pokémon you can ride, you can quickly cycle between them by using {L_BUTTON} and {R_BUTTON}."))
         }
         else
         {
