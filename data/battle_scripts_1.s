@@ -8240,8 +8240,8 @@ BattleScript_CudChewActivates::
 
 BattleScript_TargetFormChangeNoPopup:
 	flushtextbox
-	handleformchange BS_TARGET, 0
-	handleformchange BS_TARGET, 1
+	handleformchange BS_SCRIPTING, 0
+	handleformchange BS_SCRIPTING, 1
 	playanimation BS_TARGET, B_ANIM_FORM_CHANGE
 	waitanimation
 	handleformchange BS_TARGET, 2

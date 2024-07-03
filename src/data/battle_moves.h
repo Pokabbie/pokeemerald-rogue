@@ -15132,6 +15132,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = 0,
+        .ignoresTargetAbility = TRUE,
     },
     [MOVE_MENACING_MOONRAZE_MAELSTROM] =
     {
@@ -15145,6 +15146,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = 0,
+        .ignoresTargetAbility = TRUE,
     },
     [MOVE_LIGHT_THAT_BURNS_THE_SKY] =
     {
@@ -15158,6 +15160,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = 0,
+        .ignoresTargetAbility = TRUE,
     },
     [MOVE_SOUL_STEALING_7_STAR_STRIKE] =
     {
