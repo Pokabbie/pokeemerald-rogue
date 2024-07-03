@@ -1,11 +1,14 @@
 #include "global.h"
 #include "constants/items.h"
+#include "constants/layouts.h"
 
 #include "event_data.h"
+#include "event_object_movement.h"
 #include "random.h"
 #include "string_util.h"
 
 #include "rogue_controller.h"
+#include "rogue_followmon.h"
 #include "rogue_gifts.h"
 #include "rogue_pokedex.h"
 #include "rogue_save.h"
@@ -460,4 +463,16 @@ void RogueSafari_CompactEmptyEntries()
 {
     CompactEmptyEntriesInternal(0, ROGUE_SAFARI_LEGENDS_START_INDEX - 1);
     CompactEmptyEntriesInternal(ROGUE_SAFARI_LEGENDS_START_INDEX, ROGUE_SAFARI_TOTAL_MONS - 1);
+
+    if(gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE || gMapHeader.mapLayoutId == LAYOUT_ROGUE_AREA_SAFARI_ZONE_TUTORIAL)
+    {
+        u32 i;
+        RogueSafari_ResetSpawns();
+
+        for(i = 0; i < OBJECT_EVENTS_COUNT; ++i)
+        {
+            if(gObjectEvents[i].active && FollowMon_IsMonObject(&gObjectEvents[i], TRUE))
+                RemoveObjectEvent(&gObjectEvents[i]);
+        }
+    }
 }
