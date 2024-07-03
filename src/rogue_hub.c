@@ -942,6 +942,10 @@ static void RogueHub_UpdateLabsAreaMetatiles()
 
         MetatileFill_Tile(10, 11, 10, 11, METATILE_General_Grass);
     }
+
+#ifdef ROGUE_DEBUG
+    MetatileSet_Tile(23, 6, METATILE_Petalburg_Door_BirchsLab);
+#endif
 }
 
 static void RogueHub_UpdateAdventureEntranceAreaMetatiles()

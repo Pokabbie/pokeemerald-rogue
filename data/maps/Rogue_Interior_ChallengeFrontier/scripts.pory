@@ -396,6 +396,10 @@ script Rogue_Interior_ChallengeFrontier_TalkScott
     {
         msgbox(format("You've still got plenty of things to find around here!\pDon't you worry!"))
     }
+    else
+    {
+        msgbox(format("Well, if it isn't {PLAYER}!\pHope your Questing is going well!"))
+    }
 
     //msgbox(format("todo - unlock challenges"))
 //
