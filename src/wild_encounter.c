@@ -470,6 +470,9 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(level))
         return FALSE;
 
+    if(species == SPECIES_NONE)
+        return FALSE;
+
     CreateWildMon(species, level, isShiny);
     return TRUE;
 }

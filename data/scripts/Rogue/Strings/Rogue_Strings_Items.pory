@@ -70,97 +70,97 @@ text gItemDesc_GoldenSeed
 
 text gItemDesc_NormalPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Normal type {PKMN}.")
+    format("Can be used on Routes to attract Normal type {PKMN}.")
 }
 
 text gItemDesc_FightingPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Fighting type {PKMN}.")
+    format("Can be used on Routes to attract Fighting type {PKMN}.")
 }
 
 text gItemDesc_FlyingPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Flying type {PKMN}.")
+    format("Can be used on Routes to attract Flying type {PKMN}.")
 }
 
 text gItemDesc_PoisonPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Poison type {PKMN}.")
+    format("Can be used on Routes to attract Poison type {PKMN}.")
 }
 
 text gItemDesc_GroundPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Ground type {PKMN}.")
+    format("Can be used on Routes to attract Ground type {PKMN}.")
 }
 
 text gItemDesc_RockPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Rock type {PKMN}.")
+    format("Can be used on Routes to attract Rock type {PKMN}.")
 }
 
 text gItemDesc_BugPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Bug type {PKMN}.")
+    format("Can be used on Routes to attract Bug type {PKMN}.")
 }
 
 text gItemDesc_GhostPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Ghost type {PKMN}.")
+    format("Can be used on Routes to attract Ghost type {PKMN}.")
 }
 
 text gItemDesc_SteelPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Steel type {PKMN}.")
+    format("Can be used on Routes to attract Steel type {PKMN}.")
 }
 
 text gItemDesc_FirePokeblock
 {
-    format("{POKEBLOCK} can be used to attract Fire type {PKMN}.")
+    format("Can be used on Routes to attract Fire type {PKMN}.")
 }
 
 text gItemDesc_WaterPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Water type {PKMN}.")
+    format("Can be used on Routes to attract Water type {PKMN}.")
 }
 
 text gItemDesc_GrassPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Grass type {PKMN}.")
+    format("Can be used on Routes to attract Grass type {PKMN}.")
 }
 
 text gItemDesc_ElectricPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Electric type {PKMN}.")
+    format("Can be used on Routes to attract Electric type {PKMN}.")
 }
 
 text gItemDesc_PsychicPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Psychic type {PKMN}.")
+    format("Can be used on Routes to attract Psychic type {PKMN}.")
 }
 
 text gItemDesc_IcePokeblock
 {
-    format("{POKEBLOCK} can be used to attract Ice type {PKMN}.")
+    format("Can be used on Routes to attract Ice type {PKMN}.")
 }
 
 text gItemDesc_DragonPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Dragon type {PKMN}.")
+    format("Can be used on Routes to attract Dragon type {PKMN}.")
 }
 
 text gItemDesc_DarkPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Dark type {PKMN}.")
+    format("Can be used on Routes to attract Dark type {PKMN}.")
 }
 
 text gItemDesc_FairyPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Fairy type {PKMN}.")
+    format("Can be used on Routes to attract Fairy type {PKMN}.")
 }
 
 text gItemDesc_ShinyPokeblock
 {
-    format("{POKEBLOCK} can be used to attract Shiny {PKMN}.")
+    format("Can be used on Routes to attract Shiny {PKMN}.")
 }
 
 text gItemDesc_StatPokeblock

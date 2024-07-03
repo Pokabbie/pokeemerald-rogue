@@ -22,7 +22,7 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Oh, hi!\\pWho might you be?\\p{PLAYER}, eh?\\pWell, today's your lucky day, {PLAYER}!\\pYou're gonna be my opponent in my Pokémon-battling debug!",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Oh, hi!\\pWho might you be?\\p{PLAYER}, eh?\\pWell, today's your lucky day, {PLAYER}!\\pYou're gonna be my opponent in my Pokémon-battling debut!",
                         "POST_BATTLE_TAUNT": "Hey! I wasn't done watching my cute Pokémon yet!",
                         "POST_BATTLE_CLOSER": "You're amazing, {PLAYER}!\\pI've got some Pokémon to catch, so I'll see you later!"
                     },
