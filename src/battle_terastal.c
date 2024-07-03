@@ -65,6 +65,10 @@ bool32 CanTerastallize(u32 battler)
     if(!IsTerastallizeEnabled())
         return FALSE;
 
+    // Don't allow both gimmicks
+    if(FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
+        return FALSE;
+
     // Check if Player has Tera Orb and has charge.
     if (B_FLAG_TERA_ORB_CHARGED != 0
         && (battler == B_POSITION_PLAYER_LEFT || (!(gBattleTypeFlags & BATTLE_TYPE_MULTI) && battler == B_POSITION_PLAYER_RIGHT))
