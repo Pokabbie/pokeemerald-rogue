@@ -10477,9 +10477,6 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierForUIInternal(u32 move, u3
         MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, gSpeciesInfo[illusionSpecies].types[0], battlerAtk, recordAbilities);
         if (gSpeciesInfo[illusionSpecies].types[1] != gSpeciesInfo[illusionSpecies].types[0])
             MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, gSpeciesInfo[illusionSpecies].types[1], battlerAtk, recordAbilities);
-        if (gSpeciesInfo[illusionSpecies].types[2] != TYPE_MYSTERY && gSpeciesInfo[illusionSpecies].types[2] != gSpeciesInfo[illusionSpecies].types[1]
-            && gSpeciesInfo[illusionSpecies].types[2] != gSpeciesInfo[illusionSpecies].types[0])
-            MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, gSpeciesInfo[illusionSpecies].types[2], battlerAtk, recordAbilities);
 
         return modifier;
     }
