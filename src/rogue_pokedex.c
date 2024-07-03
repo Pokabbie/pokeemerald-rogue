@@ -4348,6 +4348,29 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
     return FALSE;
 }
 
+bool8 RoguePokedex_IsSpeciesParadox(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    if(species >= SPECIES_GREAT_TUSK && species <= SPECIES_IRON_THORNS)
+        return TRUE;
+
+    switch (species)
+    {
+    case SPECIES_ROARING_MOON:
+    case SPECIES_IRON_VALIANT:
+    case SPECIES_WALKING_WAKE:
+    case SPECIES_IRON_LEAVES:
+    case SPECIES_GOUGING_FIRE:
+    case SPECIES_RAGING_BOLT:
+    case SPECIES_IRON_BOULDER:
+    case SPECIES_IRON_CROWN:
+        return TRUE;
+    }
+#endif
+
+    return FALSE;
+}
+
 u8 const* RoguePokedex_GetSpeciesName(u16 species)
 {
 #ifdef ROGUE_EXPANSION
