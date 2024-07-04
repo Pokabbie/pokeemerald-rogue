@@ -3776,7 +3776,7 @@ u16 Rogue_PostRunRewardLvls()
                 // Award levels
                 for(j = 0; j < daycareLvls; ++j)
                 {
-                    if(GetBoxMonData(tempMon, MON_DATA_SPECIES) != SPECIES_NONE && GetBoxMonData(tempMon, MON_DATA_LEVEL) != MAX_LEVEL)
+                    if(GetMonData(tempMon, MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(tempMon, MON_DATA_LEVEL) != MAX_LEVEL)
                     {
                         exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[GetMonData(tempMon, MON_DATA_SPECIES, NULL)].growthRate, GetMonData(tempMon, MON_DATA_LEVEL, NULL) + 1);
                         SetMonData(tempMon, MON_DATA_EXP, &exp);
