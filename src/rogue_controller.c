@@ -4004,6 +4004,14 @@ static void BeginRogueRun_ModifyParty(void)
                 u32 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[species].growthRate, STARTER_MON_LEVEL);
                 SetBoxMonData(boxMon, MON_DATA_EXP, &exp);
                 
+                temp = 0;
+                SetBoxMonData(boxMon, MON_DATA_HP_EV, &temp);
+                SetBoxMonData(boxMon, MON_DATA_ATK_EV, &temp);
+                SetBoxMonData(boxMon, MON_DATA_DEF_EV, &temp);
+                SetBoxMonData(boxMon, MON_DATA_SPEED_EV, &temp);
+                SetBoxMonData(boxMon, MON_DATA_SPATK_EV, &temp);
+                SetBoxMonData(boxMon, MON_DATA_SPDEF_EV, &temp);
+
                 // Adjust item
                 temp = GetBoxMonData(boxMon, MON_DATA_HELD_ITEM);
                 if(!CanBringInHeldItem(temp))
