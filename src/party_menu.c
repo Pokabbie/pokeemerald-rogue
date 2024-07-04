@@ -1429,6 +1429,11 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
 static void ReleasePartyPokemon(u8 slot, bool8 compactPartySlots)
 {
     RemoveMonAtSlot(slot, TRUE, compactPartySlots);
+
+    if(gMain.inBattle)
+    {
+        gBattleStruct->changedSpecies[B_SIDE_PLAYER][GetPartyIdFromBattlePartyId(slot)] = SPECIES_NONE;
+    }
 }
 
 static void Task_ClosePartyMenu(u8 taskId)
