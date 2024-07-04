@@ -5329,6 +5329,7 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
                 {
                     FlagSet(FLAG_ROGUE_DAYCARE_PHONE_CHARGED);
                     FlagSet(FLAG_ROGUE_COURIER_READY);
+                    FlagClear(FLAG_ROGUE_VENDING_MACHINE_USED);
                     TryRandomanSpawn(33);
                     break;
                 }
@@ -5508,6 +5509,12 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
                 case ADVPATH_ROOM_BATTLE_SIM:
                 {
+                    break;
+                }
+
+                case ADVPATH_ROOM_GAMESHOW:
+                {
+                    FlagClear(FLAG_ROGUE_HIDE_GAMESHOW_REWARD);
                     break;
                 }
 
