@@ -28,11 +28,12 @@ u8 const* RogueMP_GetPlayerName(u8 playerId);
 u8 const* RogueMP_GetPlayerHubName(u8 playerId);
 u8 const* RogueMP_GetPlayerTrainerId(u8 playerId);
 
-u8 RogueMP_GetPlayerStatus(u8 playerId);
 u8 RogueMP_WaitPlayerStatusSync(bool8 canCancel);
 u8 RogueMP_WaitUpdatedPlayerStatus(bool8 canCancel);
 
-void RogueMP_PushLocalPlayerStatus(u8 status, u16 param);
+void RogueMP_PushLocalPlayerStatus(u8 status);
+
+
 bool8 RogueMP_TryExecuteScripts();
 
 void RogueMP_OpenHost();

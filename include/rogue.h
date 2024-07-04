@@ -471,6 +471,8 @@ struct RogueNetPlayerMovement
     u8 movementAction;
 };
 
+
+
 struct RogueNetPlayer
 {
     struct RogueNetPlayerMovement movementBuffer[NET_PLAYER_MOVEMENT_BUFFER_SIZE];
@@ -478,11 +480,18 @@ struct RogueNetPlayer
     u8 cmdRespBuffer[NET_CMD_BUFFER_SIZE];
     struct Coords16 playerPos;
     struct Coords8 partnerPos;
+    union
+    {
+        struct 
+        {
+            u16 tradeSlot;
+            u8 hasChosen;
+        } playerTrade;
+    } statusParams;
     u16 partnerMon;
-    u16 playerStatusParam;
-    u16 playerStatusCounter;
-    u8 playerStatus;
-    u8 playerStatusSubstate;
+    u16 statusSeed;
+    u8 desiredStatus;
+    u8 activeStatus;
     s8 mapGroup;
     s8 mapNum;
     u8 playerFlags;
@@ -492,6 +501,7 @@ struct RogueNetPlayer
     u8 currentElevation : 4;
     u8 facingDirection : 4;
     u8 partnerFacingDirection : 4;
+    u8 isInteractionOwner : 1;
 };
 
 struct RogueNetHandshake

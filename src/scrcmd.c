@@ -2540,11 +2540,10 @@ bool8 ScrCmd_unlockquest(struct ScriptContext *ctx)
 bool8 ScrCmd_multiplayerpushstatus(struct ScriptContext *ctx)
 {
     u8 status = ScriptReadByte(ctx);
-    u16 param = VarGet(ScriptReadHalfword(ctx));
     bool8 await = ScriptReadByte(ctx);
     bool8 awaitCancellable = ScriptReadByte(ctx);
 
-    RogueMP_PushLocalPlayerStatus(status, param);
+    RogueMP_PushLocalPlayerStatus(status);
 
     if(await)
     {
