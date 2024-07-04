@@ -6,7 +6,6 @@ const FAIL_ROUND_COUNTER = 100
 const STOP_ROUND_COUNTER = 99
 
 const FLAG_HIDE_HOST = FLAG_TEMP_1
-const FLAG_HIDE_REWARD = FLAG_TEMP_2
 
 const VAR_CURRENT_ROUND = VAR_TEMP_0
 const VAR_GAMESHOW_TRIGGERED = VAR_TEMP_1
@@ -38,7 +37,6 @@ script Rogue_Encounter_GameShow_OnLoad
     special(GameShow_SelectRewardItem)
 
     clearflag(FLAG_HIDE_HOST)
-    clearflag(FLAG_HIDE_REWARD)
 }
 
 script Rogue_Encounter_GameShow_TriggerIntro
@@ -111,7 +109,7 @@ script Rogue_Encounter_GameShow_TriggerIntro
     if(var(VAR_CURRENT_ROUND) != FAIL_ROUND_COUNTER)
     {
         // Place reward
-        clearflag(FLAG_HIDE_REWARD)
+        clearflag(FLAG_ROGUE_HIDE_GAMESHOW_REWARD)
         setobjectxy(NPC_REWARD, 7, 8)
         setobjectxyperm(NPC_REWARD, 7, 8)
     }
@@ -119,7 +117,7 @@ script Rogue_Encounter_GameShow_TriggerIntro
     {
         // Hide reward 
         hideobjectat(NPC_REWARD, MAP_ROGUE_ENCOUNTER_GAME_SHOW)
-        setflag(FLAG_HIDE_REWARD)
+        setflag(FLAG_ROGUE_HIDE_GAMESHOW_REWARD)
         setobjectxy(NPC_REWARD, 0, 0)
         setobjectxyperm(NPC_REWARD, 0, 0)
     }

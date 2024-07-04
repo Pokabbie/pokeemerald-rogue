@@ -1,11 +1,13 @@
 #include "global.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
+#include "constants/party_menu.h"
 #include "event_data.h"
 #include "main.h"
 #include "event_object_movement.h"
 #include "field_player_avatar.h"
 #include "follow_me.h"
+#include "random.h"
 #include "script.h"
 #include "string.h"
 #include "string_util.h"
@@ -57,10 +59,10 @@ struct SyncedObjectEventInfo
 
 struct RogueLocalMP
 {
+    u8 const* pendingInteractionScript;
     u8 lastProcessedRemoteSendCmd;
     u8 recentSendCmd;
     u8 recentResult;
-    u8 hasPendingPlayerInteraction : 1;
 };
 
 // Temporary data, that isn't remembered
@@ -230,12 +232,6 @@ u8 const* RogueMP_GetPlayerTrainerId(u8 playerId)
     return gRogueMultiplayer->playerProfiles[playerId].playerTrainerId;
 }
 
-u8 RogueMP_GetPlayerStatus(u8 playerId)
-{
-    AGB_ASSERT(gRogueMultiplayer != NULL);
-    return gRogueMultiplayer->playerState[playerId].playerStatus;
-}
-
 void RogueMP_MainCB()
 {
     // Bump counter each frame so we can divide up MP ops
@@ -313,9 +309,9 @@ void RogueMP_RemoveObjectEvents()
     }
 }
 
-#define canCancel       data[0]
-#define awaitUpdate     data[1]
-#define startedStatusCounterPtr ((u16*)&gTasks[taskId].data[2])
+#define canCancel               data[0]
+#define awaitStatusChange       data[2]
+#define initialStatus           data[3]
 
 u8 RogueMP_WaitPlayerStatusSync(bool8 allowCancel)
 {
@@ -327,7 +323,8 @@ u8 RogueMP_WaitPlayerStatusSync(bool8 allowCancel)
 
         taskId = CreateTask(Task_WaitPlayerStatusSync, 80);
         gTasks[taskId].canCancel = allowCancel;
-        gTasks[taskId].awaitUpdate = FALSE;
+        gTasks[taskId].awaitStatusChange = TRUE;
+        gTasks[taskId].initialStatus = localPlayer->activeStatus;
     }
 
     return taskId;
@@ -339,11 +336,12 @@ u8 RogueMP_WaitUpdatedPlayerStatus(bool8 allowCancel)
     if (taskId == TASK_NONE)
     {
         struct RogueNetPlayer* localPlayer = GetLocalPlayer();
+        struct RogueNetPlayer* remotePlayer = GetRemotePlayer();
 
         taskId = CreateTask(Task_WaitPlayerStatusSync, 80);
         gTasks[taskId].canCancel = allowCancel;
-        gTasks[taskId].awaitUpdate = TRUE;
-        *startedStatusCounterPtr = localPlayer->playerStatusCounter;
+        gTasks[taskId].awaitStatusChange = TRUE;
+        gTasks[taskId].initialStatus = localPlayer->activeStatus;
     }
 
     return taskId;
@@ -356,6 +354,7 @@ static void Task_WaitPlayerStatusSync(u8 taskId)
         struct RogueNetPlayer* localPlayer = GetLocalPlayer();
         struct RogueNetPlayer* remotePlayer = GetRemotePlayer();
 
+        // Local player has aborted
         if(gTasks[taskId].canCancel && JOY_NEW(B_BUTTON))
         {
             gSpecialVar_Result = FALSE;
@@ -363,16 +362,27 @@ static void Task_WaitPlayerStatusSync(u8 taskId)
             ScriptContext_Enable();
             DestroyTask(taskId);
         }
-        else if(remotePlayer->playerStatusCounter == localPlayer->playerStatusCounter)
+        // Remote has aborted
+        else if(remotePlayer->desiredStatus == MP_PLAYER_STATUS_NONE && remotePlayer->statusSeed == localPlayer->statusSeed)
         {
-            if(gTasks[taskId].awaitUpdate && localPlayer->playerStatusCounter == *startedStatusCounterPtr)
-                return;
+            // We aborted interaction
+            RogueMP_PushLocalPlayerStatus(MP_PLAYER_STATUS_NONE);
 
-            // If we aborted, this will missmatch
-            gSpecialVar_Result = (remotePlayer->playerStatus == localPlayer->playerStatus);
-            gSpecialVar_0x8000 = remotePlayer->playerStatusParam;
+            gSpecialVar_Result = FALSE;
+            //gSpecialVar_0x8000 = FALSE;
             ScriptContext_Enable();
             DestroyTask(taskId);
+        }
+        // We match the remote
+        else if(remotePlayer->activeStatus == localPlayer->activeStatus && remotePlayer->statusSeed == localPlayer->statusSeed)
+        {
+            if(!gTasks[taskId].awaitStatusChange || localPlayer->activeStatus != gTasks[taskId].initialStatus)
+            {
+                gSpecialVar_Result = TRUE;
+                //gSpecialVar_0x8000 = remotePlayer->playerStatusParam;
+                ScriptContext_Enable();
+                DestroyTask(taskId);
+            }
         }
     }
     else
@@ -384,73 +394,205 @@ static void Task_WaitPlayerStatusSync(u8 taskId)
 }
 
 #undef canCancel
-#undef awaitUpdate
-#undef startedStatusCounterPtr
+#undef awaitStatusChange
+#undef initialStatus
+
+static void Task_WaitForTradeResponse(u8 taskId);
+
+u8 RogueMP_WaitTradeSlotResponse()
+{
+    u8 taskId = FindTaskIdByFunc(Task_WaitForTradeResponse);
+    if (taskId == TASK_NONE)
+    {
+        struct RogueNetPlayer* localPlayer = GetLocalPlayer();
+        struct RogueNetPlayer* remotePlayer = GetRemotePlayer();
+
+        AGB_ASSERT(localPlayer->activeStatus == MP_PLAYER_STATUS_BEGIN_TRADE);
+
+        localPlayer->statusParams.playerTrade.tradeSlot = gSpecialVar_0x800A;
+        localPlayer->statusParams.playerTrade.hasChosen = TRUE;
+
+        taskId = CreateTask(Task_WaitForTradeResponse, 80);
+    }
+
+    return taskId;
+}
+
+static void Task_WaitForTradeResponse(u8 taskId)
+{
+    if(RogueMP_IsRemotePlayerActive())
+    {
+        struct RogueNetPlayer* localPlayer = GetLocalPlayer();
+        struct RogueNetPlayer* remotePlayer = GetRemotePlayer();
+
+        // Local player has aborted
+        if(JOY_NEW(B_BUTTON))
+        {
+            localPlayer->statusParams.playerTrade.tradeSlot = PARTY_NOTHING_CHOSEN;
+            localPlayer->statusParams.playerTrade.hasChosen = TRUE;
+            RogueMP_PushLocalPlayerStatus(MP_PLAYER_STATUS_NONE);
+            
+            gSpecialVar_0x800B = PARTY_NOTHING_CHOSEN;
+            ScriptContext_Enable();
+            DestroyTask(taskId);
+        }
+        // Remote has aborted
+        else if(remotePlayer->activeStatus != MP_PLAYER_STATUS_BEGIN_TRADE)
+        {
+            localPlayer->statusParams.playerTrade.tradeSlot = PARTY_NOTHING_CHOSEN;
+            localPlayer->statusParams.playerTrade.hasChosen = TRUE;
+            RogueMP_PushLocalPlayerStatus(MP_PLAYER_STATUS_NONE);
+
+            gSpecialVar_0x800B = PARTY_NOTHING_CHOSEN;
+            ScriptContext_Enable();
+            DestroyTask(taskId);
+        }
+        // We match the remote
+        else if(remotePlayer->statusParams.playerTrade.hasChosen)
+        {
+            gSpecialVar_0x800B = remotePlayer->statusParams.playerTrade.tradeSlot;
+            ScriptContext_Enable();
+            DestroyTask(taskId);
+        }
+    }
+    else
+    {
+        gSpecialVar_0x800B = PARTY_NOTHING_CHOSEN;
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+    }
+}
+
+extern const u8 Rogue_BeginRemoteInteractMultiplayerPlayer[];
+
+static bool32 CanAcceptRemoteInteraction(struct RogueNetPlayer* localPlayer, struct RogueNetPlayer* remotePlayer)
+{
+    if(localPlayer->activeStatus == MP_PLAYER_STATUS_NONE)
+        return TRUE;
+
+    if(localPlayer->statusSeed == remotePlayer->statusSeed)
+        return TRUE;
+
+    return FALSE;
+}
 
 static void UpdateLocalPlayerStatus()
 {
     struct RogueNetPlayer* localPlayer = GetLocalPlayer();
     struct RogueNetPlayer* remotePlayer = GetRemotePlayer();
 
-    if(localPlayer->playerStatus == MP_PLAYER_STATUS_NONE && remotePlayer->playerStatus == MP_PLAYER_STATUS_NONE && remotePlayer->playerStatusCounter == localPlayer->playerStatusCounter)
+    if(!RogueMP_IsRemotePlayerActive())
+        return;
+
+    if(localPlayer->desiredStatus == MP_PLAYER_STATUS_NONE && localPlayer->activeStatus != MP_PLAYER_STATUS_NONE)
     {
-        // Reset counter here to avoid overflow situations if possible (This still isn't ideal)
-        localPlayer->playerStatusCounter = 0;
+        // Clear
+        localPlayer->activeStatus = MP_PLAYER_STATUS_NONE;
+        localPlayer->isInteractionOwner = FALSE;
+        //localPlayer->statusSeed = 0;
+    }
+
+     if(localPlayer->desiredStatus != MP_PLAYER_STATUS_NONE && localPlayer->isInteractionOwner)
+    {
+        // Owner handle response
+        if(localPlayer->desiredStatus != localPlayer->activeStatus && localPlayer->desiredStatus == remotePlayer->activeStatus && localPlayer->statusSeed == remotePlayer->statusSeed)
+        {
+            MpLogf("Remote accepts status:%d seed:%d", remotePlayer->activeStatus, remotePlayer->statusSeed);
+
+            // TODO - Handle end interaction
+
+            // Remote player has entered this state
+            localPlayer->activeStatus = localPlayer->desiredStatus;
+
+            // TODO - Push interaction
+        }
     }
     // If positive, the remote is ahead of us, so we locally need to sync up
-    else if(remotePlayer->playerStatusCounter > localPlayer->playerStatusCounter)
+    else if(remotePlayer->desiredStatus != MP_PLAYER_STATUS_NONE && remotePlayer->isInteractionOwner)
     {
-        MpLogf("remote status:%d counter:%d param:%d", remotePlayer->playerStatus, remotePlayer->playerStatusCounter, remotePlayer->playerStatusParam);
-
-        switch(remotePlayer->playerStatus)
+        if(localPlayer->activeStatus != remotePlayer->desiredStatus && CanAcceptRemoteInteraction(localPlayer, remotePlayer))
         {
-            case MP_PLAYER_STATUS_NONE:
-            {
-                // Just sync up, don't need to do anything else
-                localPlayer->playerStatus = remotePlayer->playerStatus;
-                localPlayer->playerStatusCounter = remotePlayer->playerStatusCounter;
-            }
-            break;
+            // Handle incoming request from communication owner
+            MpLogf("Owner requests status:%d seed:%d", remotePlayer->desiredStatus, remotePlayer->statusSeed);
 
+            // Init any params
+            switch (remotePlayer->desiredStatus)
+            {
             case MP_PLAYER_STATUS_TALK_TO_PLAYER:
-            {
-                // Begin interaction from our side
-                if(localPlayer->playerStatus != MP_PLAYER_STATUS_TALK_TO_PLAYER)
-                    gRogueLocalMP.hasPendingPlayerInteraction = TRUE;
-
-                localPlayer->playerStatus = remotePlayer->playerStatus;
-                localPlayer->playerStatusCounter = remotePlayer->playerStatusCounter;
-                localPlayer->playerStatusParam = remotePlayer->playerStatusParam;
+                if(localPlayer->activeStatus != MP_PLAYER_STATUS_TALK_TO_PLAYER)
+                {
+                    gRogueLocalMP.pendingInteractionScript = Rogue_BeginRemoteInteractMultiplayerPlayer;
+                }
+                break;
+            
+            case MP_PLAYER_STATUS_BEGIN_TRADE:
+                localPlayer->statusParams.playerTrade.hasChosen = FALSE;
+                localPlayer->statusParams.playerTrade.tradeSlot = 0;
+                break;
             }
-            break;
+
+            localPlayer->activeStatus = remotePlayer->desiredStatus;
+            localPlayer->desiredStatus = remotePlayer->desiredStatus;
+            localPlayer->statusSeed = remotePlayer->statusSeed;
         }
     }
 }
 
-extern const u8 Rogue_RemoteInteractMultiplayerPlayer[];
-
 bool8 RogueMP_TryExecuteScripts()
 {
-    if(gRogueLocalMP.hasPendingPlayerInteraction)
+    if(gRogueLocalMP.pendingInteractionScript)
     {
-        gRogueLocalMP.hasPendingPlayerInteraction = FALSE;
-        ScriptContext_SetupScript(Rogue_RemoteInteractMultiplayerPlayer);
+        ScriptContext_SetupScript(gRogueLocalMP.pendingInteractionScript);
+        gRogueLocalMP.pendingInteractionScript = NULL;
         return FALSE;
     }
 
     return FALSE;
 }
 
-void RogueMP_PushLocalPlayerStatus(u8 status, u16 param)
+void RogueMP_PushLocalPlayerStatus(u8 status)
 {
     if(RogueMP_IsActive())
     {
         struct RogueNetPlayer* localPlayer = GetLocalPlayer();
-        localPlayer->playerStatus = status;
-        localPlayer->playerStatusParam = param;
-        localPlayer->playerStatusCounter = (RogueMP_IsRemotePlayerActive() ? GetRemotePlayer() : localPlayer)->playerStatusCounter + 1;
+        struct RogueNetPlayer* remotePlayer = GetRemotePlayer();
 
-        MpLogf("local status:%d counter:%d param:%d", localPlayer->playerStatus, localPlayer->playerStatusCounter, localPlayer->playerStatusParam);
+        // Init any params
+        if(localPlayer->desiredStatus != status)
+        {
+            switch (status)
+            {
+            case MP_PLAYER_STATUS_TALK_TO_PLAYER:
+                break;
+            
+            case MP_PLAYER_STATUS_BEGIN_TRADE:
+                localPlayer->statusParams.playerTrade.hasChosen = FALSE;
+                localPlayer->statusParams.playerTrade.tradeSlot = 0;
+                break;
+            }
+        }
+
+        if(status == MP_PLAYER_STATUS_NONE)
+        {
+            localPlayer->desiredStatus = MP_PLAYER_STATUS_NONE;
+        }
+        else if(remotePlayer->desiredStatus == status && remotePlayer->isInteractionOwner)
+        {
+            localPlayer->desiredStatus = status;
+            localPlayer->activeStatus = status;
+            localPlayer->statusSeed = remotePlayer->activeStatus;
+            localPlayer->isInteractionOwner = FALSE;
+        }
+        else
+        {
+            if(localPlayer->desiredStatus == MP_PLAYER_STATUS_NONE)
+                localPlayer->statusSeed = Random();
+
+            localPlayer->desiredStatus = status;
+            localPlayer->isInteractionOwner = TRUE;
+        }
+
+        MpLogf("Local status:%d owner:%d seed:%d", localPlayer->desiredStatus, localPlayer->isInteractionOwner, localPlayer->statusSeed);
     }
 }
 

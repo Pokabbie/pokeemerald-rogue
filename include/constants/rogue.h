@@ -628,7 +628,7 @@
 //
 #define MP_PLAYER_STATUS_NONE               0
 #define MP_PLAYER_STATUS_TALK_TO_PLAYER     1
-#define MP_PLAYER_STATUS_COUNT              2
+#define MP_PLAYER_STATUS_BEGIN_TRADE        2
 
 // Sound
 //
