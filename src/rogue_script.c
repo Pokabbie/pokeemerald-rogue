@@ -1971,7 +1971,7 @@ void Rogue_BufferSafariMonInfo()
     u8 safariIndex = gSpecialVar_0x8008;
     u8 const* speciesName = RoguePokedex_GetSpeciesName(gRogueSaveBlock->safariMons[safariIndex].species);
 
-    StringCopyN(gStringVar1, gRogueSaveBlock->safariMons[safariIndex].nickname, POKEMON_NAME_LENGTH);
+    StringCopy_Nickname(gStringVar1, gRogueSaveBlock->safariMons[safariIndex].nickname);
 
     if(gRogueSaveBlock->safariMons[safariIndex].shinyFlag || StringCompareN(gStringVar1, speciesName, POKEMON_NAME_LENGTH) != 0)
     {

@@ -237,12 +237,12 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
-      "x": 19,
-      "y": 41,
+      "x": 21,
+      "y": 40,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 4,
-      "movement_range_y": 4,
+      "movement_range_x": 2,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
       "script": "Rogue_Battle_Trainer",
@@ -432,7 +432,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 21,
+      "x": 22,
       "y": 40,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -445,7 +445,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 20,
+      "x": 23,
       "y": 41,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -528,35 +528,35 @@
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_MOUNTAIN2",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 60,
       "y": 22,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_MOUNTAIN2",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 61,
       "y": 22,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_MOUNTAIN2",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 16,
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_MOUNTAIN0",
-      "dest_warp_id": 55
+      "dest_warp_id": "55"
     },
     {
       "x": 43,
       "y": 31,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_MOUNTAIN0",
-      "dest_warp_id": 55
+      "dest_warp_id": "55"
     }
   ],
   "coord_events": [
