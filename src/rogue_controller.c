@@ -3960,6 +3960,7 @@ static void BeginRogueRun_ModifyParty(void)
             u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
             if(species != SPECIES_NONE)
             {
+                temp = 0;
                 SetMonData(&gPlayerParty[i], MON_DATA_HP_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_ATK_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_DEF_EV, &temp);
