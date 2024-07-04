@@ -317,7 +317,7 @@
             },
             {
                 "name": "Diversity",
-                "description": "Win a full Run, only ever entering Trainer battles with only Unqiue Types in your party e.g. Can't have a Bulbasaur and a Grimer at the same time.",
+                "description": "Win a full Run, only ever entering Trainer battles with only Unique Types in your party e.g. Can't have a Bulbasaur and a Grimer at the same time.",
                 "triggers":
                 [
                     {

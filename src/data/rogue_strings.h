@@ -4,7 +4,7 @@
 // -bump ROGUE_SAVE_VERSION in rogue_save.c
 // -update SAVE_VER_ID_X_Y_Z enum in rogue_save.h
 // -update RogueSave_GetVersionIdFor()
-const u8 gText_RogueVersion[] = _("v2.0");
+const u8 gText_RogueVersion[] = _("v2.0.1");
 
 #ifdef ROGUE_EXPANSION
 const u8 gText_RogueVersionPrefix[] = _("EX");

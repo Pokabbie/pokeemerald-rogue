@@ -116,7 +116,7 @@ script Rogue_QuickSaveVersionWarning
     setvar(VAR_RESULT, YES)
     while(var(VAR_RESULT) == YES)
     {
-        msgbox(format("Invalid Save Location Detected!\pWhen upgrading to a new patch, make sure to save in the HUB outdoor area.\pPlease revert to the older patch and re-save in a valid location."))
+        msgbox(format("{COLOR RED}WARNING!\n{COLOR DARK_GRAY}Invalid Save Location Detected!\pWhen upgrading to a new patch, make sure to save in the HUB outdoor area.\pPlease revert to the older patch and re-save in a valid location."))
     }
 
     releaseall
@@ -199,22 +199,22 @@ script Rogue_Debug_RandomTradeTeam
 }
 
 
-//script Rogue_NewGameVersionUpdate
-//{
-//    lockall
-//
-//    call(Rogue_QuickSaveVersionUpdateMessage)
-//
-//    releaseall
-//}
+script Rogue_NewGameVersionUpdate
+{
+    lockall
+
+    call(Rogue_QuickSaveVersionUpdateMessage)
+
+    releaseall
+}
 
 script Rogue_QuickSaveVersionUpdate
 {
     lock
 
-    //call(Rogue_QuickSaveVersionUpdateMessage) - Reload and then show message after back in hub
-    setflag(FLAG_ROGUE_PENDING_PATCH_MSG)
-    warp(MAP_ROGUE_HUB, 8)
+    fadescreen(FADE_TO_BLACK)
+    call(Rogue_QuickSaveVersionUpdateMessage)
+    warp(MAP_ROGUE_AREA_TOWN_SQUARE, 10)
 
     release
 }
