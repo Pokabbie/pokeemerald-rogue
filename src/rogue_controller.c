@@ -3209,11 +3209,19 @@ extern const u8 Rogue_Ridemon_PlayerIsTrapped[];
 
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber)
 {
+    u32 i;
+
     if(Rogue_IsRunActive())
         gRogueLocal.hasSaveWarningPending = TRUE;
     else
         gRogueLocal.hasVersionUpdateMsgPending = TRUE;
 
+    // Clear saved adventures
+    for(i = 0; i < ARRAY_COUNT(gRogueSaveBlock->adventureReplay); ++i)
+        gRogueSaveBlock->adventureReplay[i].isValid = FALSE;
+
+    FlagClear(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE);
+    
     // TODO - Hook up warnings here??
     //if(IsPreReleaseCompatVersion(gSaveBlock1Ptr->rogueCompatVersion))
     //    FlagSet(FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING);
