@@ -3960,6 +3960,7 @@ static void BeginRogueRun_ModifyParty(void)
             u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
             if(species != SPECIES_NONE)
             {
+                temp = 0;
                 SetMonData(&gPlayerParty[i], MON_DATA_HP_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_ATK_EV, &temp);
                 SetMonData(&gPlayerParty[i], MON_DATA_DEF_EV, &temp);
@@ -4004,6 +4005,14 @@ static void BeginRogueRun_ModifyParty(void)
                 u32 exp = Rogue_ModifyExperienceTables(gRogueSpeciesInfo[species].growthRate, STARTER_MON_LEVEL);
                 SetBoxMonData(boxMon, MON_DATA_EXP, &exp);
                 
+                temp = 0;
+                SetBoxMonData(boxMon, MON_DATA_HP_EV, &temp);
+                SetBoxMonData(boxMon, MON_DATA_ATK_EV, &temp);
+                SetBoxMonData(boxMon, MON_DATA_DEF_EV, &temp);
+                SetBoxMonData(boxMon, MON_DATA_SPEED_EV, &temp);
+                SetBoxMonData(boxMon, MON_DATA_SPATK_EV, &temp);
+                SetBoxMonData(boxMon, MON_DATA_SPDEF_EV, &temp);
+
                 // Adjust item
                 temp = GetBoxMonData(boxMon, MON_DATA_HELD_ITEM);
                 if(!CanBringInHeldItem(temp))
@@ -4214,19 +4223,17 @@ static void BeginRogueRun(void)
     {
         struct AdventureReplay const* replay = &gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED];
 
-        if(FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
+        if(RogueHub_HasUpgrade(HUB_UPGRADE_ADVENTURE_ENTRANCE_ADVENTURE_REPLAY) && FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
         {
             gRogueRun.baseSeed = replay->baseSeed;
             memcpy(&gRogueSaveBlock->difficultyConfig, &replay->difficultyConfig, sizeof(gRogueSaveBlock->difficultyConfig));
 
             Rogue_PushPopup_AdventureReplay();
-
-            // TODO - Ban challenges
-            // ACTUALLY DO THIS BEFORE FORGET
         }
         else
         {
             gRogueRun.baseSeed = Random();
+            FlagClear(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE);
         }
     }
 

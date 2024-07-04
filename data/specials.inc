@@ -264,6 +264,8 @@ gSpecials::
 	def_special Rogue_FixPartyMonDetails
 	def_special Rogue_RememberAdventure
 	def_special Rogue_IsValidAdventureToRemember
+	def_special Rogue_IsValidAdventureToReplay
+	def_special Rogue_ShouldNursePromptConfigLabSettingsChange
 	def_special Rogue_SafeSmartCheck
 	def_special Rogue_CanActivatePikinEasterEgg
 	def_special Rogue_SetupFollowParterMonObjectEvent

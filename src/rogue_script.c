@@ -1971,7 +1971,7 @@ void Rogue_BufferSafariMonInfo()
     u8 safariIndex = gSpecialVar_0x8008;
     u8 const* speciesName = RoguePokedex_GetSpeciesName(gRogueSaveBlock->safariMons[safariIndex].species);
 
-    StringCopyN(gStringVar1, gRogueSaveBlock->safariMons[safariIndex].nickname, POKEMON_NAME_LENGTH);
+    StringCopy_Nickname(gStringVar1, gRogueSaveBlock->safariMons[safariIndex].nickname);
 
     if(gRogueSaveBlock->safariMons[safariIndex].shinyFlag || StringCompareN(gStringVar1, speciesName, POKEMON_NAME_LENGTH) != 0)
     {
@@ -2301,9 +2301,33 @@ void Rogue_IsValidAdventureToRemember()
     gSpecialVar_Result = gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT].isValid;
 }
 
+void Rogue_IsValidAdventureToReplay()
+{
+    gSpecialVar_Result = FlagGet(FLAG_ROGUE_MET_PEONIA) && gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED].isValid;
+}
+
 void Rogue_RememberAdventure()
 {
     memcpy(&gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED], &gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT], sizeof(struct AdventureReplay));
+}
+
+void Rogue_ShouldNursePromptConfigLabSettingsChange()
+{
+    u32 winStreak = GetGameStat(GAME_STAT_CURRENT_RUN_WIN_STREAK);
+    u32 lossStreak = GetGameStat(GAME_STAT_CURRENT_RUN_LOSS_STREAK);
+
+    gSpecialVar_Result = FALSE;
+
+    if(winStreak == 5 || winStreak == 15 || winStreak == 50)
+    {
+        gSpecialVar_0x8004 = 1;
+        gSpecialVar_Result = TRUE;
+    }
+    else if(lossStreak == 5 || lossStreak == 15 || lossStreak == 50)
+    {
+        gSpecialVar_0x8004 = 0;
+        gSpecialVar_Result = TRUE;
+    }
 }
 
 bool8 Rogue_SafeSmartCheckInternal()
