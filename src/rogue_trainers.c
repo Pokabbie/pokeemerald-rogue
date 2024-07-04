@@ -3253,7 +3253,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     if(IsMegaEvolutionEnabled())
                     {
                         if(!scratch->heldItems.hasMegaStone)
-                            currentScore *= 8;
+                            currentScore *= 32;
                         else
                             currentScore /= 4;
                     }
@@ -3268,7 +3268,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     if(IsZMovesEnabled())
                     {
                         if(!scratch->heldItems.hasZCrystal)
-                            currentScore *= 4;
+                            currentScore *= 8;
                         else
                             currentScore /= 4;
                     }

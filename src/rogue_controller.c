@@ -5300,6 +5300,9 @@ void Rogue_OnSetWarpData(struct WarpData *warp)
 
     FlagClear(FLAG_ROGUE_MAP_EVENT);
 
+    // Weird edge case fix for gyms
+    VarSet(VAR_ROGUE_ALWAYS_ZERO, 0);
+
     // Reset preview data
     memset(&gRogueLocal.encounterPreview[0], 0, sizeof(gRogueLocal.encounterPreview));
 
