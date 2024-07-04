@@ -4214,19 +4214,17 @@ static void BeginRogueRun(void)
     {
         struct AdventureReplay const* replay = &gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED];
 
-        if(FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
+        if(RogueHub_HasUpgrade(HUB_UPGRADE_ADVENTURE_ENTRANCE_ADVENTURE_REPLAY) && FlagGet(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE) && replay->isValid)
         {
             gRogueRun.baseSeed = replay->baseSeed;
             memcpy(&gRogueSaveBlock->difficultyConfig, &replay->difficultyConfig, sizeof(gRogueSaveBlock->difficultyConfig));
 
             Rogue_PushPopup_AdventureReplay();
-
-            // TODO - Ban challenges
-            // ACTUALLY DO THIS BEFORE FORGET
         }
         else
         {
             gRogueRun.baseSeed = Random();
+            FlagClear(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE);
         }
     }
 
