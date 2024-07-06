@@ -1031,16 +1031,16 @@ static u16 Query_GetEggSpecies(u16 inSpecies)
     return species;
 }
 
-bool8 Query_IsSpeciesEnabledInternal(u16 species)
+static bool8 Query_IsSpeciesEnabledInDexInternal(u16 species, bool32 forceDexCheck)
 {
-    if(Rogue_IsRunActive())
+    if(Rogue_IsRunActive() || forceDexCheck)
         return RoguePokedex_IsSpeciesEnabled(species);
 
     // Force species active in queries for hub activities
     return TRUE;
 }
 
-bool8 Query_IsSpeciesEnabled(u16 species)
+static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
 {
     // Check if mon has valid data
     if(gRogueSpeciesInfo[species].baseHP != 0)
@@ -1071,47 +1071,47 @@ bool8 Query_IsSpeciesEnabled(u16 species)
         else if(species > FORMS_START)
         {
             // Regional forms
-            if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_STUNFISK_GALARIAN)
-                return Query_IsSpeciesEnabledInternal(species);
+            if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_DECIDUEYE_HISUIAN)
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             // Alt forms
             // Gen4
             if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_SHAYMIN_SKY)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             // Gen5
             if(species == SPECIES_BASCULIN_BLUE_STRIPED || species == SPECIES_BASCULIN_WHITE_STRIPED)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species >= SPECIES_DEERLING_SUMMER && species <= SPECIES_KYUREM_BLACK)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             // Gen6
             if(species == SPECIES_MEOWSTIC_FEMALE)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
     
             // Gen7
             if(species >= SPECIES_ORICORIO_POM_POM && species <= SPECIES_LYCANROC_DUSK)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species >= SPECIES_NECROZMA_DUSK_MANE && species <= SPECIES_NECROZMA_DAWN_WINGS)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species == SPECIES_MAGEARNA_ORIGINAL_COLOR)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             // Gen8
             if(species >= SPECIES_TOXTRICITY_LOW_KEY && species <= SPECIES_POLTEAGEIST_ANTIQUE)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species == SPECIES_INDEEDEE_FEMALE)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species >= SPECIES_ZACIAN_CROWNED_SWORD && species <= SPECIES_ZAMAZENTA_CROWNED_SHIELD)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species >= SPECIES_CALYREX_ICE_RIDER && species <= SPECIES_CALYREX_SHADOW_RIDER)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             // If we've gotten here then we're not interested in this form
             return FALSE;
@@ -1122,10 +1122,21 @@ bool8 Query_IsSpeciesEnabled(u16 species)
 
 #endif
 
-        return Query_IsSpeciesEnabledInternal(species);
+        return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
     }
 
     return FALSE;
+
+}
+
+bool8 Query_IsSpeciesEnabled(u16 species)
+{
+    return Query_IsSpeciesEnabledInternal(species, FALSE);
+}
+
+bool8 Query_IsSpeciesEnabledForceDexChecking(u16 species)
+{
+    return Query_IsSpeciesEnabledInternal(species, TRUE);
 }
 
 // ITEM QUERY

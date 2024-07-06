@@ -2287,16 +2287,16 @@ bool8 Rogue_IsItemEnabled(u16 itemId)
                 // Specific held items which don't trigger form changes, so won't be caught by the logic below
                 // we don't want unless the mon is avaliable
                 case ITEM_SOUL_DEW:
-                    return Query_IsSpeciesEnabled(SPECIES_LATIAS) || Query_IsSpeciesEnabled(SPECIES_LATIOS);
+                    return Query_IsSpeciesEnabledForceDexChecking(SPECIES_LATIAS) || Query_IsSpeciesEnabledForceDexChecking(SPECIES_LATIOS);
 
                 case ITEM_ADAMANT_ORB:
-                    return Query_IsSpeciesEnabled(SPECIES_DIALGA);
+                    return Query_IsSpeciesEnabledForceDexChecking(SPECIES_DIALGA);
 
                 case ITEM_LUSTROUS_ORB:
-                    return Query_IsSpeciesEnabled(SPECIES_PALKIA);
+                    return Query_IsSpeciesEnabledForceDexChecking(SPECIES_PALKIA);
 
                 case ITEM_GRISEOUS_ORB:
-                    return Query_IsSpeciesEnabled(SPECIES_GIRATINA);
+                    return Query_IsSpeciesEnabledForceDexChecking(SPECIES_GIRATINA);
 #endif
             }
         }
@@ -4058,7 +4058,7 @@ static void BeginRogueRun_ConsiderItems(void)
 
         for(species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
         {
-            if(Query_IsSpeciesEnabled(species))
+            if(Query_IsSpeciesEnabledForceDexChecking(species))
             {
                 evoCount = Rogue_GetMaxEvolutionCount(species);
 
@@ -4088,7 +4088,7 @@ static void BeginRogueRun_ConsiderItems(void)
 
         for (species = SPECIES_NONE + 1; species < NUM_SPECIES; ++species)
         {
-            if(Query_IsSpeciesEnabled(species))
+            if(Query_IsSpeciesEnabledForceDexChecking(species))
             {
                 for (e = 0; TRUE; ++e)
                 {
@@ -4468,7 +4468,7 @@ static u16 SelectLegendarySpecies(u8 legendId)
     {
         species = gRogueLegendaryEncounterInfo.mapTable[i].encounterId;
 
-        if(Query_IsSpeciesEnabled(species))
+        if(Query_IsSpeciesEnabledForceDexChecking(species))
             RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
     }
 

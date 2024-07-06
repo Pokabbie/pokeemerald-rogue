@@ -82,7 +82,7 @@ namespace PokemonDataGenerator.Pokedex
 				fullDexes.Add(GatherDexData("paldea_fulldlc", "Scarlet/Violet + DLC", 9, "paldea", "kitakami", "blueberry"));
 
 				fullDexes.Add(GatherDexData("extras_conquest", "Conquest", 5, "conquest-gallery"));
-				fullDexes.Add(GatherDexData("extras_legendsarceus", "LegendsArceus", 9, "hisui"));
+				fullDexes.Add(GatherDexData("extras_legendsarceus", "LegendsArceus", 8, "hisui"));
 
 				fullDexes.Add(GatherDexData("national_gen1", "Gen. 1", 1, "national"));
 				fullDexes.Add(GatherDexData("national_gen2", "Gen. 2", 2, "national"));
