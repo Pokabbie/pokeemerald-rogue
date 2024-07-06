@@ -13373,7 +13373,7 @@ const struct RoguePokedexVariant gPokedexVariants[POKEDEX_VARIANT_COUNT] =
 		.displayName = sRogueDexVariantName_EXTRAS_LEGENDSARCEUS,
 		.speciesList = sRogueDexVariant_EXTRAS_LEGENDSARCEUS,
 		.speciesCount = ARRAY_COUNT(sRogueDexVariant_EXTRAS_LEGENDSARCEUS),
-		.genLimit = 9,
+		.genLimit = 8,
 	},
 	[POKEDEX_VARIANT_NATIONAL_GEN1] = 
 	{
