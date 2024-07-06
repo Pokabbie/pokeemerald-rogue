@@ -11725,10 +11725,27 @@ u32 CalcSecondaryEffectChance(u32 battler, u8 secondaryEffectChance, u16 moveEff
     if (hasRainbow && moveEffect != EFFECT_SECRET_POWER)
         secondaryEffectChance *= 2;
 
-    if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
-        secondaryEffectChance += GetCurseValue(EFFECT_SERENE_GRACE_CHANCE);
-    else
-        secondaryEffectChance += GetCharmValue(EFFECT_SERENE_GRACE_CHANCE);
+    // Charm applies a multiplier to the chance i.e. 5% chance X 1.75
+    {
+        u32 chance = 100;
+
+        if(GetBattlerSide(battler) == B_SIDE_OPPONENT)
+            chance += GetCurseValue(EFFECT_SERENE_GRACE_CHANCE);
+        else
+            chance += GetCharmValue(EFFECT_SERENE_GRACE_CHANCE);
+
+        //DebugPrint("===================");
+        //DebugPrintf("secondaryEffectChance:%d", secondaryEffectChance);
+        //DebugPrintf("chance:%d", chance);
+
+        if(chance != 100)
+        {
+            u32 recalcedEffectChance = ((u32)secondaryEffectChance * chance) / 100;
+            secondaryEffectChance = min(recalcedEffectChance, 100);
+        }
+
+        //DebugPrintf("secondaryEffectChance:%d", secondaryEffectChance);
+    }
 
     return secondaryEffectChance;
 }
