@@ -2152,11 +2152,11 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
 {
     u8 level;
     u8 monCount;
-    u8 fixedIV;
+    u8 fixedIV, teamFixedIV;
     struct TrainerPartyScratch scratch;
 
     level = GetTrainerLevel(trainerNum);
-    fixedIV = CalculateMonFixedIV(trainerNum);
+    teamFixedIV = CalculateMonFixedIV(trainerNum);
     monCount = CalculatePartyMonCount(trainerNum, monCapacity, level);
 
     Rogue_GenerateRivalBaseTeamIfNeeded();
@@ -2269,6 +2269,15 @@ static u8 CreateRivalPartyInternal(u16 trainerNum, struct Pokemon* party, u8 mon
                 }
             }
             RogueMonQuery_End();
+
+            fixedIV = teamFixedIV;
+
+            if(Rogue_GetCurrentDifficulty() <= ROGUE_GYM_START_DIFFICULTY + 2)
+            {
+                // Reduce legends effectiveness on rival first fight
+                if(RoguePokedex_IsSpeciesLegendary(species))
+                    fixedIV = 0;
+            }
 
             CreateMon(&party[i], species, level, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);
 

@@ -1016,7 +1016,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
 #else
         .name = _("RETRY CHARM"),
 #endif
-        .itemId = ITEM_ADAPTABILITY_CHARM,
+        .itemId = ITEM_INFINITE_EXTRA_LIFE_CHARM,
         .price = 0,
         .description = gItemDesc_ExtraLifeCharm,
         .pocket = POCKET_KEY_ITEMS,
@@ -1034,7 +1034,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
 #else
         .name = _("SAVE CHARM"),
 #endif
-        .itemId = ITEM_ADAPTABILITY_CHARM,
+        .itemId = ITEM_ALLOW_SAVE_SCUM_CHARM,
         .price = 0,
         .description = gItemDesc_AllowSaveScumCharm,
         .pocket = POCKET_KEY_ITEMS,
