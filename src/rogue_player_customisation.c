@@ -882,7 +882,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
 
     [PLAYER_OUTFIT_GALACTIC_GRUNT_F] =
     {
-        .name = _("Magma"),
+        .name = _("Galactic"),
         .trainerFrontPic = TRAINER_PIC_GALACTIC_GRUNT_F,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_MAY_SILVER,
@@ -897,7 +897,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     },
     [PLAYER_OUTFIT_GALACTIC_GRUNT_M] =
     {
-        .name = _("Magma"),
+        .name = _("Galactic"),
         .trainerFrontPic = TRAINER_PIC_GALACTIC_GRUNT_M,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_BRENDAN_SILVER,
