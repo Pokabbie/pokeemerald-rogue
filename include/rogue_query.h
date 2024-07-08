@@ -55,6 +55,7 @@ void RogueMonQuery_AnyActiveEvos(u8 func);
 void RogueMonQuery_CustomFilter(QueryFilterCallback filterFunc, void* usrData);
 
 bool8 Query_IsSpeciesEnabled(u16 species);
+bool8 Query_IsSpeciesEnabledForceDexChecking(u16 species);
 
 // Item Query
 void RogueItemQuery_Begin();
