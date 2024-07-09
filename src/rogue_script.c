@@ -174,6 +174,7 @@ void Rogue_RandomisePartyMon(void)
                 IncrementGameStat(GAME_STAT_RANDO_TRADE_TOTAL_PKMN);
 
                 targetlevel = Calc_RandomTradeLevel(&gPlayerParty[i]);
+                targetlevel = min(max(1, targetlevel), MAX_LEVEL);
                 temp = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
                 species = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(Random(), 1);
@@ -197,6 +198,7 @@ void Rogue_RandomisePartyMon(void)
             IncrementGameStat(GAME_STAT_RANDO_TRADE_TOTAL_PKMN);
 
             targetlevel = Calc_RandomTradeLevel(&gPlayerParty[monIdx]);
+            targetlevel = min(max(1, targetlevel), MAX_LEVEL);
             temp = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
 
             species = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(Random(), 1);

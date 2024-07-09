@@ -2088,7 +2088,11 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
             scratch.forceLegends = FALSE;
             scratch.allowStrongLegends = FALSE;
             scratch.allowWeakLegends = FALSE;
-            indexToRestoreSettings = 3;
+
+            if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) == DIFFICULTY_LEVEL_BRUTAL)
+                indexToRestoreSettings = monCount - 2;
+            else
+                indexToRestoreSettings = PARTY_SIZE - 1; // only final slot
         }
 
         RogueMonQuery_Begin();
@@ -3166,6 +3170,16 @@ static bool8 HasDamagingMove(struct RoguePokemonCompetitiveSet const* preset)
     return FALSE;
 }
 
+static bool8 ShouldBoostBattleGimickItems(struct TrainerPartyScratch* scratch)
+{
+    if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) == DIFFICULTY_LEVEL_BRUTAL)
+        return TRUE;
+    else if(Rogue_IsKeyTrainer(scratch->trainerNum))
+        return TRUE;
+    else
+        return FALSE;
+}
+
 static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, u8 monIdx, struct RoguePokemonCompetitiveSet* outPreset)
 {
     u8 i;
@@ -3262,7 +3276,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     if(IsMegaEvolutionEnabled())
                     {
                         if(!scratch->heldItems.hasMegaStone)
-                            currentScore *= 32;
+                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 32 : 4;
                         else
                             currentScore /= 4;
                     }
@@ -3277,7 +3291,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
                     if(IsZMovesEnabled())
                     {
                         if(!scratch->heldItems.hasZCrystal)
-                            currentScore *= 8;
+                            currentScore *= ShouldBoostBattleGimickItems(scratch) ? 16 : 4;
                         else
                             currentScore /= 4;
                     }
