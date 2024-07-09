@@ -3514,12 +3514,31 @@ static void PrintMonOTID(void)
 
 static u8 const sText_GmaxFactor[] = _("GMAX");
 
+static bool32 HasAccessToGmaxForm(u16 species)
+{
+    u32 i;
+    struct FormChange formChange;
+
+    for (i = 0; TRUE; i++)
+    {
+        Rogue_ModifyFormChange(species, i, &formChange);
+
+        if(formChange.method == FORM_CHANGE_TERMINATOR)
+            break;
+
+        if(formChange.method == FORM_CHANGE_BATTLE_GIGANTAMAX)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 static void PrintMonAbilityName(void)
 {
     u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum, sMonSummaryScreen->summary.OTID);
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilityNames[ability], 0, 1, 0, 1);
 
-    if(IsDynamaxEnabled() && (sMonSummaryScreen->summary.gigatamaxFactor || RogueQuest_GetMonMasteryFlag(sMonSummaryScreen->summary.species)))
+    if(IsDynamaxEnabled() && HasAccessToGmaxForm(sMonSummaryScreen->summary.species) && (sMonSummaryScreen->summary.gigatamaxFactor || RogueQuest_GetMonMasteryFlag(sMonSummaryScreen->summary.species)))
     {
         PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), sText_GmaxFactor, 118, 1, 0, SUMMARY_TEXT_COLOR_RED);
     }
