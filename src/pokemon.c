@@ -4072,6 +4072,21 @@ u8 GetNatureFromPersonality(u32 personality)
     return personality % NUM_NATURES;
 }
 
+
+static bool8 MonKnowsMoveType(struct Pokemon *mon, u16 type)
+{
+    u8 i;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        u16 currMove = GetMonData(mon, MON_DATA_MOVE1 + i);
+
+        if (currMove != MOVE_NONE && gBattleMoves[currMove].type == type)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, struct Pokemon *tradePartner)
 {
     int i, j;
@@ -4238,6 +4253,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 break;
             case EVO_MOVE_THREE_SEGMENT:
                 if (MonKnowsMove(mon, evo.param) && (personality % 100) == 0)
+                    targetSpecies = evo.targetSpecies;
+                break;
+            case EVO_MOVE_TYPE:
+                if (MonKnowsMoveType(mon, evo.param))
                     targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_TWO_SEGMENT:
