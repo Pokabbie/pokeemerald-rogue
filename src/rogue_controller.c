@@ -9347,9 +9347,14 @@ static u8 TRMove_CalculateWeight(u16 index, u16 move, void* data)
     // We're specifically going to use moves which would be Tutor moves i.e. ignore moves like growl or splash
     u16 usage = gRoguePokemonSpecialMoveUsages[move];
 
-    // If we don't have comp usage, the chance is impossible
-    if(usage == 0)
+    // If we only have little usage on mons we're not going to allow it to be a tm
+#ifdef ROGUE_EXPANSION
+    if(usage <= 2)
+#else
+    if(usage <= 1)
+#endif
         return 0;
+        
 
     if(usage >= 300)
         return 5;
