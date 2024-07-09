@@ -1080,9 +1080,9 @@ script Rogue_SpeakDaycareLady_TrySwapMon
     if(var(VAR_RESULT) == YES)
     {
         setvar(VAR_RESULT, NO)
-        specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
+        specialvar(VAR_0x8008, CalculatePlayerPartyCount)
 
-        if(var(VAR_TEMP_0) == 1)
+        if(var(VAR_0x8008) == 1)
         {
             msgbox(format("I'm afraid you can't leave any more Pokémon with me at the moment.\pIf you did, you'd be left with no Pokémon in your party!"), MSGBOX_DEFAULT)
         }
@@ -1115,10 +1115,10 @@ script Rogue_SpeakDaycareLady_TrySwapMon
     {
         setvar(VAR_RESULT, NO)
 
-        specialvar(VAR_TEMP_0, CalculatePlayerPartyCount)
-        specialvar(VAR_TEMP_1, Rogue_CalcMaxPartySize)
+        specialvar(VAR_0x8008, CalculatePlayerPartyCount)
+        specialvar(VAR_0x8009, Rogue_CalcMaxPartySize)
         
-        if(var(VAR_TEMP_0) >= VAR_TEMP_1)
+        if(var(VAR_0x8008) >= VAR_0x8009)
         {
             msgbox(format("So you would like to withdraw your Pokémon?\pIt looks like your party is full!\pYou'll need to leave a member of your party with me, in order to withdraw any Pokémon."))
             fadescreen(FADE_TO_BLACK)

@@ -2088,7 +2088,11 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
             scratch.forceLegends = FALSE;
             scratch.allowStrongLegends = FALSE;
             scratch.allowWeakLegends = FALSE;
-            indexToRestoreSettings = 3;
+
+            if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) == DIFFICULTY_LEVEL_BRUTAL)
+                indexToRestoreSettings = monCount - 2;
+            else
+                indexToRestoreSettings = PARTY_SIZE - 1; // only final slot
         }
 
         RogueMonQuery_Begin();
