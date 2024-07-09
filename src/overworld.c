@@ -772,6 +772,7 @@ void SetEscapeWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 void SetWarpDestinationToEscapeWarp(void)
 {
     // RogueNote: We're just going to jump to the next warp location
+    sWarpDestination.warpId =0;
     Rogue_OnSetWarpData(&sWarpDestination);
 
     //sWarpDestination = gSaveBlock1Ptr->escapeWarp;
