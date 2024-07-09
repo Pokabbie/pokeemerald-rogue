@@ -563,12 +563,12 @@ static void CreateShedinja(u16 preEvoSpecies, struct Pokemon *mon)
     #endif
     u8 evoCount = Rogue_GetMaxEvolutionCount(preEvoSpecies);
 
-    if (evoCount >= 2)
+    if (evoCount < 2)
         return;
 
     Rogue_ModifyEvolution(preEvoSpecies, 0, &evo);
 
-    if (evo.method == EVO_LEVEL_NINJASK && gPlayerPartyCount < PARTY_SIZE
+    if (evo.method == EVO_LEVEL_NINJASK && gPlayerPartyCount < Rogue_GetMaxPartySize()
     #if P_SHEDINJA_BALL >= GEN_4
         && (CheckBagHasItem(ball, 1))
     #endif
