@@ -1627,6 +1627,16 @@ static void ConfigurePartyScratchSettings(u16 trainerNum, struct TrainerPartyScr
         }
         break;
     }
+
+    if(FlagGet(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES))
+    {
+        scratch->allowStrongLegends = TRUE;
+        scratch->allowWeakLegends = TRUE;
+    }
+    else if(FlagGet(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES))
+    {
+        scratch->allowWeakLegends = TRUE;
+    }
 }
 
 static u8 CalculateMonFixedIV(u16 trainerNum)
@@ -2088,6 +2098,17 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
             scratch.forceLegends = FALSE;
             scratch.allowStrongLegends = FALSE;
             scratch.allowWeakLegends = FALSE;
+
+            // Reapply legend clause
+            if(FlagGet(FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES))
+            {
+                scratch.allowStrongLegends = TRUE;
+                scratch.allowWeakLegends = TRUE;
+            }
+            else if(FlagGet(FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES))
+            {
+                scratch.allowWeakLegends = TRUE;
+            }
 
             if(Rogue_GetConfigRange(CONFIG_RANGE_TRAINER) == DIFFICULTY_LEVEL_BRUTAL)
                 indexToRestoreSettings = monCount - 2;
