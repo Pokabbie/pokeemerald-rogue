@@ -19,8 +19,8 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "I hatched and rasied all of my Pokémon!",
-                        "POST_BATTLE_TAUNT": "I guess I need to work in my breeding technique…",
+                        "PRE_BATTLE_TAUNT": "I hatched and raised all of my Pokémon!",
+                        "POST_BATTLE_TAUNT": "I guess I need to work on my breeding technique…",
                         "POST_BATTLE_CLOSER": "My breeding technique still needs work I guess…"
                     }
                 ],
