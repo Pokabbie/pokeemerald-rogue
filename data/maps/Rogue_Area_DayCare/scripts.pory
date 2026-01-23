@@ -93,6 +93,12 @@ script Rogue_Area_DayCare_TalkEggBreeder
     faceplayer
 
     msgbox(format("Hello there, {PLAYER}!"))
+    if(!flag(FLAG_ROGUE_D2D_DAYCARE_CASTFORM_GIVEN))
+    {
+        msgbox(format("Well… here's your Castform!")) // D2D TEST: REMOVE WHEN LIVE
+        givemon(SPECIES_CASTFORM_NORMAL, 5)
+        setflag(FLAG_ROGUE_D2D_DAYCARE_CASTFORM_GIVEN)
+    }
 
     if(flag(FLAG_ROGUE_DAYCARE_EGG_READY))
     {

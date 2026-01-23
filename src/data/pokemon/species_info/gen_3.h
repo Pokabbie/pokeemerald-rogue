@@ -5781,7 +5781,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .growthRate = GROWTH_MEDIUM_FAST,                       \
         .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS },  \
         .abilities = { ABILITY_FORECAST, ABILITY_NONE },        \
-        .speciesName = _("Castform"),                           \
+        .speciesName = _("Cloudform"),                          \
         .cryId = CRY_CASTFORM,                                  \
         .natDexNum = NATIONAL_DEX_CASTFORM,                     \
         .categoryName = _("Weather"),                           \
@@ -5799,7 +5799,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_CASTFORM_NORMAL] =
     {
         CASTFORM_MISC_INFO,
-        .types = { TYPE_NORMAL, TYPE_NORMAL },
+        .types = { TYPE_FLYING, TYPE_FLYING },
         .bodyColor = BODY_COLOR_GRAY,
         .description = POKEDEX_DESC_STRING(
             "It alters its form depending on the\n"
@@ -5821,7 +5821,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_CASTFORM_SUNNY] =
     {
         CASTFORM_MISC_INFO,
-        .types = { TYPE_FIRE, TYPE_FIRE },
+        .types = { TYPE_FLYING, TYPE_FIRE },
         .bodyColor = BODY_COLOR_RED,
         .description = POKEDEX_DESC_STRING(
             "Castform takes this form on bright days.\n"
@@ -5843,7 +5843,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_CASTFORM_RAINY] =
     {
         CASTFORM_MISC_INFO,
-        .types = { TYPE_WATER, TYPE_WATER },
+        .types = { TYPE_FLYING, TYPE_WATER },
         .bodyColor = BODY_COLOR_BLUE,
         .description = POKEDEX_DESC_STRING(
             "This is Castform's form while it's raining.\n"
@@ -5865,7 +5865,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_CASTFORM_SNOWY] =
     {
         CASTFORM_MISC_INFO,
-        .types = { TYPE_ICE, TYPE_ICE },
+        .types = { TYPE_FLYING, TYPE_ICE },
         .bodyColor = BODY_COLOR_WHITE,
         .description = POKEDEX_DESC_STRING(
             "This is Castform's form in a hailstorm.\n"
