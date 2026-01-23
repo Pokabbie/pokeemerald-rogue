@@ -1497,8 +1497,8 @@ static const u8 sTailwindDescription[] = _(
     "that raises Speed.");
 
 static const u8 sAcupressureDescription[] = _(
-    "The user sharply raises\n"
-    "one of its stats.");
+    "The user drastically\n"
+    "raises a random stat.");
 
 static const u8 sMetalBurstDescription[] = _(
     "Retaliates any hit with\n"
