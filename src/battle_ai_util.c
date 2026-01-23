@@ -1511,11 +1511,11 @@ bool32 IsMoveEncouragedToHit(u32 battlerAtk, u32 battlerDef, u32 move)
     // discouraged from hitting
     weather = AI_GetWeather(AI_DATA);
     if ((weather & B_WEATHER_SUN)
-      && (gBattleMoves[move].effect == EFFECT_THUNDER || gBattleMoves[move].effect == EFFECT_HURRICANE))
+      && (gBattleMoves[move].effect == EFFECT_THUNDER || gBattleMoves[move].effect == EFFECT_HURRICANE || gBattleMoves[move].effect == EFFECT_D2D_CLOUDBURST))
         return FALSE;
 
     // increased accuracy but don't always hit
-    if ((((weather & B_WEATHER_RAIN) && (gBattleMoves[move].effect == EFFECT_THUNDER || gBattleMoves[move].effect == EFFECT_HURRICANE))
+    if ((((weather & B_WEATHER_RAIN) && (gBattleMoves[move].effect == EFFECT_THUNDER || gBattleMoves[move].effect == EFFECT_HURRICANE || gBattleMoves[move].effect == EFFECT_D2D_CLOUDBURST))
             || (((weather & (B_WEATHER_HAIL | B_WEATHER_SNOW)) && move == MOVE_BLIZZARD)))
         || (gBattleMoves[move].effect == EFFECT_VITAL_THROW)
         || (B_MINIMIZE_DMG_ACC >= GEN_6 && (gStatuses3[battlerDef] & STATUS3_MINIMIZED) && gBattleMoves[move].minimizeDoubleDamage)

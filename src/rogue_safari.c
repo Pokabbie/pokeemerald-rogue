@@ -79,6 +79,11 @@ void RogueSafari_PushMon(struct Pokemon* mon)
     }
 }
 
+// void RogueSafari_PushD2DTestMon()
+// {
+//     RogueSafari_PushMon(???)
+// }
+
 void RogueSafari_PushLowPriorityMon(struct Pokemon* mon)
 {
     if(!mon->rogueExtraData.isSafariIllegal)

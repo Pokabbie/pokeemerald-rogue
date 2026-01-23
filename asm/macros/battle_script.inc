@@ -1585,6 +1585,10 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro setrandomweather
+	callnative BS_SetRandomWeather
+	.endm
+
 	.macro removeweather
 	callnative BS_RemoveWeather
 	.endm

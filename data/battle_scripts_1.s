@@ -457,10 +457,11 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTeraBlast               @ EFFECT_TERA_BLAST
 	.4byte BattleScript_EffectPhotonGeyser            @ EFFECT_TERA_STARSTORM
 	.4byte BattleScript_EffectElectroShot             @ EFFECT_ELECTRO_SHOT
-	.4byte BattleScript_EffectSunflare             	  @ EFFECT_SUNFLARE
-	.4byte BattleScript_EffectWhiteout             	  @ EFFECT_WHITEOUT
-	.4byte BattleScript_EffectCloudburst              @ EFFECT_CLOUDBURST
-	.4byte BattleScript_EffectStormDance              @ EFFECT_STORM_DANCE
+	.4byte BattleScript_EffectHit			 		  @ EFFECT_D2D_CLOUDBURST
+	.4byte BattleScript_EffectD2DSunflare             @ EFFECT_D2D_SUNFLARE
+	.4byte BattleScript_EffectD2DWhiteout             @ EFFECT_D2D_WHITEOUT
+	.4byte BattleScript_EffectD2DDownpour             @ EFFECT_D2D_DOWNPOUR
+	.4byte BattleScript_EffectD2DStormDance           @ EFFECT_D2D_STORM_DANCE
 
 BattleScript_EffectGlaiveRush::
 	call BattleScript_EffectHit_Ret
@@ -5454,31 +5455,40 @@ BattleScript_EffectSunnyDay::
 	setsunny
 	goto BattleScript_MoveWeatherChange
 
-BattleScript_EffectSunflare::
-	call BattleScript_EffectHit_Ret
+BattleScript_EffectD2DSunflare::
 	attackcanceler
 	attackstring
 	ppreduce
 	call BattleScript_CheckPrimalWeather
+	call BattleScript_EffectHit_Ret
 	setsunny
 	goto BattleScript_MoveWeatherChange
 
-BattleScript_EffectWhiteout::
-	call BattleScript_EffectHit_Ret
+BattleScript_EffectD2DWhiteout::
 	attackcanceler
 	attackstring
 	ppreduce
 	call BattleScript_CheckPrimalWeather
+	call BattleScript_EffectHit_Ret
 	sethail
 	goto BattleScript_MoveWeatherChange
 
-BattleScript_EffectCloudburst::
-	call BattleScript_EffectHit_Ret
+BattleScript_EffectD2DDownpour::
 	attackcanceler
 	attackstring
 	ppreduce
 	call BattleScript_CheckPrimalWeather
-	sethail
+	call BattleScript_EffectHit_Ret
+	setrain
+	goto BattleScript_MoveWeatherChange
+
+BattleScript_EffectD2DStormDance::
+	attackcanceler
+	attackstring
+	ppreduce
+	call BattleScript_CheckPrimalWeather
+	call BattleScript_EffectHit_Ret
+	setrandomweather
 	goto BattleScript_MoveWeatherChange
 
 BattleScript_ExtremelyHarshSunlightWasNotLessened:

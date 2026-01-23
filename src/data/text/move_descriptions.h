@@ -3332,6 +3332,10 @@ static const u8 sMalignantChainDescription[] = _(
     "A corrosive chain attack\n"
     "that may badly poison.");
 
+static const u8 sCloudburstDescription[] = _(
+    "A short-lived heavy rain\n"
+    "comes crashing down.");
+
 static const u8 sSunflareDescription[] = _(
     "Damages both foes, then\n"
     "summons harsh sunlight.");
@@ -3340,7 +3344,7 @@ static const u8 sWhiteoutDescription[] = _(
     "Damages both foes, then\n"
     "summons hail.");
 
-static const u8 sCloudburstDescription[] = _(
+static const u8 sDownpourDescription[] = _(
     "Damages both foes, then\n"
     "summons rain.");
 
@@ -4206,8 +4210,9 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PSYCHIC_NOISE - 1] = sPsychicNoiseDescription,
     [MOVE_UPPER_HAND - 1] = sUpperHandDescription,
     [MOVE_MALIGNANT_CHAIN - 1] = sMalignantChainDescription,
-    [MOVE_SUNFLARE - 1] = sSunflareDescription,
-    [MOVE_WHITEOUT - 1] = sWhiteoutDescription,
-    [MOVE_CLOUDBURST - 1] = sCloudburstDescription,
-    [MOVE_STORM_DANCE - 1] = sStormDanceDescription,
+    [MOVE_D2D_CLOUDBURST - 1] = sCloudburstDescription,
+    [MOVE_D2D_SUNFLARE - 1] = sSunflareDescription,
+    [MOVE_D2D_WHITEOUT - 1] = sWhiteoutDescription,
+    [MOVE_D2D_DOWNPOUR - 1] = sDownpourDescription,
+    [MOVE_D2D_STORM_DANCE - 1] = sStormDanceDescription,
 };

@@ -100987,17 +100987,20 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CASTFORM[] =
 	{ .move=MOVE_WEATHER_BALL, .level=28 },
 	{ .move=MOVE_HEAT_WAVE, .level=31 },
 	{ .move=MOVE_BLIZZARD, .level=34 },
-	{ .move=MOVE_HURRICANE, .level=35 },
+	{ .move=MOVE_D2D_CLOUDBURST, .level=35 },
 
+	// if I ever add Cloudform, everything below this would be its learnset
+	{ .move=MOVE_HURRICANE, .level=35 },
+	// ^ on evolve, learn Hurricane ( set level=0 once Cloudform exists )
 	{ .move=MOVE_TAILWIND, .level=38 },
-	{ .move=MOVE_SUNFLARE, .level=41 },
-	{ .move=MOVE_WHITEOUT, .level=44 },
-	{ .move=MOVE_CLOUDBURST, .level=45 },
+	{ .move=MOVE_D2D_SUNFLARE, .level=41 },
+	{ .move=MOVE_D2D_WHITEOUT, .level=44 },
+	{ .move=MOVE_D2D_DOWNPOUR, .level=45 },
 	{ .move=MOVE_MORNING_SUN, .level=48 },
 	{ .move=MOVE_SOLAR_BEAM, .level=51 },
 	{ .move=MOVE_AURORA_VEIL, .level=54 },
 	{ .move=MOVE_THUNDER, .level=55 },
-	{ .move=MOVE_STORM_DANCE, .level=70 },
+	{ .move=MOVE_D2D_STORM_DANCE, .level=70 },
 
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -101011,6 +101014,7 @@ static u16 const sTutorMoves_SPECIES_CASTFORM[] =
 	MOVE_CLEAR_SMOG,
 	MOVE_CONFIDE,
 	MOVE_COSMIC_POWER,
+	MOVE_D2D_CLOUDBURST,
 	MOVE_DEFOG,
 	MOVE_DISABLE,
 	MOVE_DOUBLE_TEAM,
@@ -101068,10 +101072,10 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CASTFORM
 		.nature=NATURE_TIMID,
 		.moves=
 		{
-			MOVE_CLOUDBURST,
+			MOVE_D2D_DOWNPOUR,
 			MOVE_HURRICANE,
 			MOVE_THUNDER,
-			MOVE_STORM_DANCE,
+			MOVE_PROTECT,
 		},
 	},
 	{
@@ -101083,10 +101087,10 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CASTFORM
 		.nature=NATURE_TIMID,
 		.moves=
 		{
-			MOVE_SUNFLARE,
+			MOVE_D2D_SUNFLARE,
 			MOVE_SOLAR_BEAM,
 			MOVE_MORNING_SUN,
-			MOVE_STORM_DANCE,
+			MOVE_D2D_STORM_DANCE,
 		},
 	},
 	{
@@ -101098,7 +101102,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CASTFORM
 		.nature=NATURE_TIMID,
 		.moves=
 		{
-			MOVE_WHITEOUT,
+			MOVE_D2D_WHITEOUT,
 			MOVE_AURORA_VEIL,
 			MOVE_LIFE_DEW,
 			MOVE_WATER_SPOUT,
@@ -101113,10 +101117,10 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CASTFORM
 		.nature=NATURE_TIMID,
 		.moves=
 		{
-			MOVE_STORM_DANCE,
+			MOVE_D2D_STORM_DANCE,
 			MOVE_HEAT_WAVE,
 			MOVE_BLIZZARD,
-			MOVE_WATER_SPOUT,
+			MOVE_D2D_DOWNPOUR,
 		},
 	},
 };

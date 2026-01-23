@@ -15906,7 +15906,30 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .argument = MAX_EFFECT_BYPASS_PROTECT, //EFFECT TODO
     },
 
+
     // D2D MOVES
+
+
+
+    [MOVE_D2D_CLOUDBURST] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .power = 110,
+        #else
+            .power = 120,
+        #endif
+        .type = TYPE_WATER,
+        .accuracy = 70,
+        .pp = 5,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .sheerForceBoost = TRUE,
+        .windMove = TRUE,
+    },
+
     [MOVE_D2D_SUNFLARE] =
     {
         .effect = EFFECT_D2D_SUNFLARE,
@@ -15919,9 +15942,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
-    }
+    },
 
-    // D2D MOVES
     [MOVE_D2D_WHITEOUT] =
     {
         .effect = EFFECT_D2D_WHITEOUT,
@@ -15934,12 +15956,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
-    }
+    },
 
-    // D2D MOVES
-    [MOVE_D2D_CLOUDBURST] =
+    [MOVE_D2D_DOWNPOUR] =
     {
-        .effect = EFFECT_D2D_CLOUDBURST,
+        .effect = EFFECT_D2D_DOWNPOUR,
         .power = 70,
         .type = TYPE_WATER,
         .accuracy = 100,
@@ -15949,14 +15970,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
-    }
+    },
 
-    // D2D MOVES
     [MOVE_D2D_STORM_DANCE] =
     {
         .effect = EFFECT_D2D_STORM_DANCE,
         .power = 150,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 100,
@@ -15964,6 +15984,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
-    }
+    },
 
 };

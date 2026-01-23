@@ -17003,6 +17003,47 @@ void BS_TryTidyUp(void)
     }
 }
 
+void BS_SetRandomWeather(void)
+{
+    NATIVE_ARGS();
+
+    u32 rnd = Random() % 60;
+
+    if( rnd < 20 )
+    {
+        if ( WEATHER_HAS_EFFECT && ( gBattleWeather & B_WEATHER_SUN ) )
+        {
+            RemoveAllWeather();
+        }
+        else
+        {
+            Cmd_setsunny();
+        }
+    }
+    else if ( rnd < 40 )
+    {
+        if ( WEATHER_HAS_EFFECT && ( gBattleWeather & ( B_WEATHER_HAIL | B_WEATHER_SNOW ) ) )
+        {
+            RemoveAllWeather();
+        }
+        else
+        {
+            Cmd_sethail();
+        }
+    }
+    else
+    {
+        if ( WEATHER_HAS_EFFECT && ( gBattleWeather & B_WEATHER_RAIN ) )
+        {
+            RemoveAllWeather();
+        }
+        else
+        {
+            Cmd_setrain();
+        }
+    }
+}
+
 void BS_RemoveWeather(void)
 {
     NATIVE_ARGS();

@@ -875,6 +875,12 @@ gBattleAnims_Moves::
 	.4byte Move_PSYCHIC_NOISE
 	.4byte Move_UPPER_HAND
 	.4byte Move_MALIGNANT_CHAIN
+@@@@ D2D MOVES
+	.4byte Move_D2D_CLOUDBURST
+	.4byte Move_D2D_SUNFLARE
+	.4byte Move_D2D_WHITEOUT
+	.4byte Move_D2D_DOWNPOUR
+	.4byte Move_D2D_STORM_DANCE
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -22296,6 +22302,24 @@ Move_THUNDER:
 	waitbgfadein
 	end
 
+Move_D2D_CLOUDBURST:
+	loadspritegfx ANIM_TAG_LIGHTNING
+	loadspritegfx ANIM_TAG_GLOWY_BLUE_ORB
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	fadetobg BG_THUNDER
+	waitbgfadeout
+	createvisualtask AnimTask_StartSlidingBg, 5, -256, 0, 1, -1
+	waitbgfadein
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 2, 0, 16, RGB_BLACK
+	delay 16
+	createvisualtask AnimTask_WaterSpoutRain, 5
+	playsewithpan SE_M_SURF, SOUND_PAN_TARGET
+	restorebg
+	waitbgfadeout
+	setarg 7, 0xFFFF
+	waitbgfadein
+	end
+
 Move_THUNDER_PUNCH:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
@@ -27430,6 +27454,102 @@ WeatherBallIce:
 	call IceCrystalEffectShort
 	waitforvisualfinish
 	end
+
+Move_D2D_SUNFLARE:
+	loadspritegfx ANIM_TAG_FLYING_DIRT
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_FLYING_DIRT, 0, 6, 6, RGB_RED
+	createvisualtask AnimTask_LoadSandstormBackground, 5, TRUE
+	createvisualtask AnimTask_BlendBackground, 6, 6, RGB_RED
+	panse SE_M_HEAT_WAVE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	delay 4
+	createvisualtask AnimTask_MoveHeatWaveTargets, 5
+	delay 12
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 2304, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 90, 2048, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 50, 2560, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 20, 2304, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 70, 1984, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 0, 2816, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 60, 2560, 96, 1
+	loadspritegfx ANIM_TAG_SUNLIGHT
+	monbg ANIM_ATK_PARTNER
+	setalpha 13, 3
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, (F_PAL_BG | F_PAL_BATTLERS_2), 1, 0, 6, RGB_WHITE
+	waitforvisualfinish
+	panse_adjustnone SE_M_PETAL_DANCE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +1, 0
+	call SunnyDayLightRay
+	call SunnyDayLightRay
+	call SunnyDayLightRay
+	call SunnyDayLightRay
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, (F_PAL_BG | F_PAL_BATTLERS_2), 1, 6, 0, RGB_WHITE
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	end
+
+Move_D2D_WHITEOUT:
+	loadspritegfx ANIM_TAG_SPARKLE_2
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 0x1, 0x2, 0x0, 0xd, 0x7fff
+	playsewithpan SE_M_TWISTER, SOUND_PAN_ATTACKER
+	@call 0x081D56B3 -> middle of GrantingStarsEffect
+	createsprite gGrantingStarsSpriteTemplate, ANIM_ATTACKER, 2, 12, -5, 0, 0, 32, 60
+	delay 8
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 0, 3, 0, 16, RGB_WHITE
+	delay 0x4
+	playsewithpan SE_M_GIGA_DRAIN, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 0x1, 0x0, 0xd, 0x0, 0x7fff
+	waitforvisualfinish
+	clearmonbg 0x0
+	blendoff
+	end
+
+Move_D2D_DOWNPOUR:
+	loadspritegfx ANIM_TAG_LIGHTNING
+	loadspritegfx ANIM_TAG_GLOWY_BLUE_ORB
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	fadetobg BG_THUNDER
+	waitbgfadeout
+	createvisualtask AnimTask_StartSlidingBg, 5, -256, 0, 1, -1
+	waitbgfadein
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 2, 0, 16, RGB_BLACK
+	delay 16
+	createvisualtask AnimTask_WaterSpoutRain, 5
+	playsewithpan SE_M_SURF, SOUND_PAN_TARGET
+	restorebg
+	waitbgfadeout
+	setarg 7, 0xFFFF
+	waitbgfadein
+	end
+
+Move_D2D_STORM_DANCE:
+	loadspritegfx ANIM_TAG_WEATHER_BALL
+	createsprite gVerticalDipSpriteTemplate, ANIM_ATTACKER, 2, 8, 1, ANIM_ATTACKER
+	delay 8
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER
+	createsprite gWeatherBallUpSpriteTemplate, ANIM_ATTACKER, 2
+	waitforvisualfinish
+	delay 15
+	playsewithpan SE_M_DETECT, 0
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 5, 1, RGB_WHITE, 10, RGB_BLACK, 0
+	waitforvisualfinish
+	createvisualtask AnimTask_GetWeather, 2
+	delay 1
+	jumpreteq ANIM_WEATHER_NONE, WeatherBallNormal
+	jumpreteq ANIM_WEATHER_SUN, WeatherBallFire
+	jumpreteq ANIM_WEATHER_RAIN, WeatherBallWater
+	jumpreteq ANIM_WEATHER_SANDSTORM, WeatherBallSandstorm
+	jumpreteq ANIM_WEATHER_HAIL, WeatherBallIce
+	jumpreteq ANIM_WEATHER_SNOW, WeatherBallIce
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT

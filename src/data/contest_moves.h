@@ -1925,6 +1925,14 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
+    [MOVE_D2D_CLOUDBURST] =
+    {
+        .effect = CONTEST_EFFECT_BETTER_WHEN_AUDIENCE_EXCITED,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .comboStarterId = COMBO_STARTER_SUNNY_DAY,
+        .comboMoves = {0}
+    },
+
     [MOVE_D2D_SUNFLARE] =
     {
         .effect = CONTEST_EFFECT_BETTER_WHEN_AUDIENCE_EXCITED,
@@ -1941,7 +1949,7 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboMoves = {0}
     },
 
-    [MOVE_D2D_CLOUDBURST] =
+    [MOVE_D2D_DOWNPOUR] =
     {
         .effect = CONTEST_EFFECT_BETTER_WHEN_AUDIENCE_EXCITED,
         .contestCategory = CONTEST_CATEGORY_BEAUTY,
