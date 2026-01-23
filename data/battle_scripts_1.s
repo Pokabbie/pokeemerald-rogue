@@ -457,6 +457,10 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTeraBlast               @ EFFECT_TERA_BLAST
 	.4byte BattleScript_EffectPhotonGeyser            @ EFFECT_TERA_STARSTORM
 	.4byte BattleScript_EffectElectroShot             @ EFFECT_ELECTRO_SHOT
+	.4byte BattleScript_EffectSunflare             	  @ EFFECT_SUNFLARE
+	.4byte BattleScript_EffectWhiteout             	  @ EFFECT_WHITEOUT
+	.4byte BattleScript_EffectCloudburst              @ EFFECT_CLOUDBURST
+	.4byte BattleScript_EffectStormDance              @ EFFECT_STORM_DANCE
 
 BattleScript_EffectGlaiveRush::
 	call BattleScript_EffectHit_Ret
@@ -5448,6 +5452,33 @@ BattleScript_EffectSunnyDay::
 	ppreduce
 	call BattleScript_CheckPrimalWeather
 	setsunny
+	goto BattleScript_MoveWeatherChange
+
+BattleScript_EffectSunflare::
+	call BattleScript_EffectHit_Ret
+	attackcanceler
+	attackstring
+	ppreduce
+	call BattleScript_CheckPrimalWeather
+	setsunny
+	goto BattleScript_MoveWeatherChange
+
+BattleScript_EffectWhiteout::
+	call BattleScript_EffectHit_Ret
+	attackcanceler
+	attackstring
+	ppreduce
+	call BattleScript_CheckPrimalWeather
+	sethail
+	goto BattleScript_MoveWeatherChange
+
+BattleScript_EffectCloudburst::
+	call BattleScript_EffectHit_Ret
+	attackcanceler
+	attackstring
+	ppreduce
+	call BattleScript_CheckPrimalWeather
+	sethail
 	goto BattleScript_MoveWeatherChange
 
 BattleScript_ExtremelyHarshSunlightWasNotLessened:

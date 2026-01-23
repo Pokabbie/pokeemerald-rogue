@@ -5759,7 +5759,7 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
     gBattleStruct->ateBoost[battlerAtk] = 0;
     gSpecialStatuses[battlerAtk].gemBoost = FALSE;
 
-    if (gBattleMoves[move].effect == EFFECT_WEATHER_BALL)
+    if (gBattleMoves[move].effect == EFFECT_WEATHER_BALL || gBattleMoves[move].effect == EFFECT_D2D_STORM_DANCE)
     {
         if (WEATHER_HAS_EFFECT)
         {

@@ -3332,6 +3332,22 @@ static const u8 sMalignantChainDescription[] = _(
     "A corrosive chain attack\n"
     "that may badly poison.");
 
+static const u8 sSunflareDescription[] = _(
+    "Damages both foes, then\n"
+    "summons harsh sunlight.");
+
+static const u8 sWhiteoutDescription[] = _(
+    "Damages both foes, then\n"
+    "summons hail.");
+
+static const u8 sCloudburstDescription[] = _(
+    "Damages both foes, then\n"
+    "summons rain.");
+
+static const u8 sStormDanceDescription[] = _(
+    "Type depends on weather,\n"
+    "then summons random weather.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4190,4 +4206,8 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PSYCHIC_NOISE - 1] = sPsychicNoiseDescription,
     [MOVE_UPPER_HAND - 1] = sUpperHandDescription,
     [MOVE_MALIGNANT_CHAIN - 1] = sMalignantChainDescription,
+    [MOVE_SUNFLARE - 1] = sSunflareDescription,
+    [MOVE_WHITEOUT - 1] = sWhiteoutDescription,
+    [MOVE_CLOUDBURST - 1] = sCloudburstDescription,
+    [MOVE_STORM_DANCE - 1] = sStormDanceDescription,
 };

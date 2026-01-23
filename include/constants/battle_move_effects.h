@@ -435,6 +435,12 @@
 #define EFFECT_TERA_STARSTORM               429
 #define EFFECT_ELECTRO_SHOT                 430
 
-#define NUM_BATTLE_MOVE_EFFECTS             431
+// D2D Move Effects
+#define EFFECT_D2D_SUNFLARE					431
+#define EFFECT_D2D_WHITEOUT					432
+#define EFFECT_D2D_CLOUDBURST				433
+#define EFFECT_D2D_STORM_DANCE				434
+
+#define NUM_BATTLE_MOVE_EFFECTS             435
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

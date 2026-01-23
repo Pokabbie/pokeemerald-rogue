@@ -15906,4 +15906,64 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .argument = MAX_EFFECT_BYPASS_PROTECT, //EFFECT TODO
     },
 
+    // D2D MOVES
+    [MOVE_D2D_SUNFLARE] =
+    {
+        .effect = EFFECT_D2D_SUNFLARE,
+        .power = 70,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    }
+
+    // D2D MOVES
+    [MOVE_D2D_WHITEOUT] =
+    {
+        .effect = EFFECT_D2D_WHITEOUT,
+        .power = 70,
+        .type = TYPE_ICE,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    }
+
+    // D2D MOVES
+    [MOVE_D2D_CLOUDBURST] =
+    {
+        .effect = EFFECT_D2D_CLOUDBURST,
+        .power = 70,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    }
+
+    // D2D MOVES
+    [MOVE_D2D_STORM_DANCE] =
+    {
+        .effect = EFFECT_D2D_STORM_DANCE,
+        .power = 150,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_ALL_BATTLERS,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    }
+
 };
