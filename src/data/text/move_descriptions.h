@@ -1132,6 +1132,10 @@ static const u8 sIngrainDescription[] = _(
     "Lays roots that restore HP.\n"
     "The user can't switch out.");
 
+static const u8 sSturdyRootsDescription[] = _(
+    "Raises stats and heals each\n"
+    "turn. Prevents switching.");
+
 static const u8 sSuperpowerDescription[] = _(
     "Boosts strength sharply,\n"
     "but lowers abilities.");
@@ -3333,7 +3337,7 @@ static const u8 sMalignantChainDescription[] = _(
     "that may badly poison.");
 
 static const u8 sCloudburstDescription[] = _(
-    "A short-lived heavy rain\n"
+    "A violent downpour\n"
     "comes crashing down.");
 
 static const u8 sSunflareDescription[] = _(
@@ -3348,9 +3352,11 @@ static const u8 sDownpourDescription[] = _(
     "Damages both foes, then\n"
     "summons rain.");
 
-static const u8 sStormDanceDescription[] = _(
-    "Type depends on weather,\n"
-    "then summons random weather.");
+static const u8 sSkybreakerDescription[] = _(
+    "Removed weather determines\n"
+    "type. Fails if no weather.");
+    // "Removes active weather with\n"
+    // "a violent conclusion.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4214,5 +4220,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_D2D_SUNFLARE - 1] = sSunflareDescription,
     [MOVE_D2D_WHITEOUT - 1] = sWhiteoutDescription,
     [MOVE_D2D_DOWNPOUR - 1] = sDownpourDescription,
-    [MOVE_D2D_STORM_DANCE - 1] = sStormDanceDescription,
+    [MOVE_D2D_SKYBREAKER - 1] = sSkybreakerDescription,
+    [MOVE_D2D_STURDY_ROOTS - 1] = sSturdyRootsDescription,
 };

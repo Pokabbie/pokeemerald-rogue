@@ -2630,6 +2630,10 @@ Cry_Milotic::
 	.align 2
 Cry_Castform::
 	.incbin "sound/direct_sound_samples/cries/castform.bin"
+
+	.align 2
+Cry_Cloudform::
+	.incbin "sound/direct_sound_samples/cries/cloudform.bin"
 .endif @ P_FAMILY_CASTFORM
 
 .if P_FAMILY_KECLEON == TRUE

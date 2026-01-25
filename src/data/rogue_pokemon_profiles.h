@@ -97865,22 +97865,29 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_LUNATONE
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_SOLROCK[] = 
 {
-	{ .move=MOVE_TACKLE, .level=1 },
-	{ .move=MOVE_ROCK_THROW, .level=1 },
-	{ .move=MOVE_CONFUSION, .level=1 },
-	{ .move=MOVE_HARDEN, .level=1 },
+	{ .move=MOVE_SUNNY_DAY, .level=1 },
 	{ .move=MOVE_MORNING_SUN, .level=1 },
+	{ .move=MOVE_ROCK_THROW, .level=1 },
+	{ .move=MOVE_CONFUSION, .level=10 },
+	{ .move=MOVE_FLARE_BLITZ, .level=15 },
+
+	{ .move=MOVE_COSMIC_POWER, .level=16 },
+
+	{ .move=MOVE_RAPID_SPIN, .level=1 },
 	{ .move=MOVE_FLARE_BLITZ, .level=1 },
 	{ .move=MOVE_HYPNOSIS, .level=5 },
 	{ .move=MOVE_ROCK_POLISH, .level=10 },
 	{ .move=MOVE_ROCK_SLIDE, .level=15 },
 	{ .move=MOVE_ZEN_HEADBUTT, .level=20 },
-	{ .move=MOVE_COSMIC_POWER, .level=25 },
 	{ .move=MOVE_PSYCHIC, .level=30 },
-	{ .move=MOVE_STONE_EDGE, .level=35 },
-	{ .move=MOVE_SOLAR_BEAM, .level=40 },
-	{ .move=MOVE_WONDER_ROOM, .level=45 },
-	{ .move=MOVE_EXPLOSION, .level=50 },
+	{ .move=MOVE_HEAD_SMASH, .level=35 },
+
+	{ .move=MOVE_D2D_SUNFLARE, .level=40 },
+	{ .move=MOVE_SOLAR_BEAM, .level=45 },
+	{ .move=MOVE_METEOR_MASH, .level=50 },
+	{ .move=MOVE_WONDER_ROOM, .level=55 },
+	{ .move=MOVE_EXPLOSION, .level=60 },
+
 	{ .move=MOVE_NONE, .level=0 },
 };
 
@@ -99501,6 +99508,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CLAYDOL[
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_LILEEP[] = 
 {
+	{ .move=MOVE_D2D_STURDY_ROOTS, .level=0 },
 	{ .move=MOVE_WRAP, .level=1 },
 	{ .move=MOVE_ASTONISH, .level=1 },
 	{ .move=MOVE_ACID, .level=4 },
@@ -99630,6 +99638,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_LILEEP[]
 
 static struct LevelUpMove const sLevelUpMoves_SPECIES_CRADILY[] = 
 {
+	{ .move=MOVE_D2D_STURDY_ROOTS, .level=0 },
 	{ .move=MOVE_WRAP, .level=1 },
 	{ .move=MOVE_ACID, .level=1 },
 	{ .move=MOVE_LEECH_SEED, .level=1 },
@@ -100977,30 +100986,41 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CASTFORM[] =
 	{ .move=MOVE_GUST, .level=1 },
 	{ .move=MOVE_EMBER, .level=10 },
 	{ .move=MOVE_POWDER_SNOW, .level=10 },
-	{ .move=MOVE_WATER_GUN, .level=10 },
-	{ .move=MOVE_TWISTER, .level=15 },
-	{ .move=MOVE_FAIRY_WIND, .level=15 },
-	{ .move=MOVE_ICY_WIND, .level=18 },
-	{ .move=MOVE_SUNNY_DAY, .level=21 },
-	{ .move=MOVE_SNOWSCAPE, .level=24 },
-	{ .move=MOVE_RAIN_DANCE, .level=25 },
-	{ .move=MOVE_WEATHER_BALL, .level=28 },
-	{ .move=MOVE_HEAT_WAVE, .level=31 },
-	{ .move=MOVE_BLIZZARD, .level=34 },
-	{ .move=MOVE_D2D_CLOUDBURST, .level=35 },
+	{ .move=MOVE_BUBBLE, .level=10 },
+	{ .move=MOVE_TRI_ATTACK, .level=15 },
 
-	// if I ever add Cloudform, everything below this would be its learnset
-	{ .move=MOVE_HURRICANE, .level=35 },
-	// ^ on evolve, learn Hurricane ( set level=0 once Cloudform exists )
-	{ .move=MOVE_TAILWIND, .level=38 },
-	{ .move=MOVE_D2D_SUNFLARE, .level=41 },
-	{ .move=MOVE_D2D_WHITEOUT, .level=44 },
-	{ .move=MOVE_D2D_DOWNPOUR, .level=45 },
-	{ .move=MOVE_MORNING_SUN, .level=48 },
-	{ .move=MOVE_SOLAR_BEAM, .level=51 },
-	{ .move=MOVE_AURORA_VEIL, .level=54 },
-	{ .move=MOVE_THUNDER, .level=55 },
-	{ .move=MOVE_D2D_STORM_DANCE, .level=70 },
+	// { .move=MOVE_ICY_WIND, .level=16 },
+	{ .move=MOVE_SUNNY_DAY, .level=16 },
+	{ .move=MOVE_HAIL, .level=19 },
+	{ .move=MOVE_RAIN_DANCE, .level=22 },
+	{ .move=MOVE_WEATHER_BALL, .level=25 },
+
+	{ .move=MOVE_HEAT_WAVE, .level=26 },
+	{ .move=MOVE_ICY_WIND, .level=29 },
+	// { .move=MOVE_D2D_CLOUDBURST, .level=35 },
+	{ .move=MOVE_MUDDY_WATER, .level=32 },
+	{ .move=MOVE_AIR_CUTTER, .level=35 },
+
+	// if I ever add Cloudform as an evo, everything below this would be its learnset
+	// { .move=MOVE_HURRICANE, .level=0 },
+	// { .move=MOVE_D2D_SUMMON_STORM, .level=0 },
+	// { .move=MOVE_TAILWIND, .level=39 },
+	{ .move=MOVE_D2D_SUNFLARE, .level=0 },
+	{ .move=MOVE_MORNING_SUN, .level=39 },
+	{ .move=MOVE_HEAT_WAVE, .level=42 },
+	{ .move=MOVE_SOLAR_BEAM, .level=45 },
+
+	{ .move=MOVE_D2D_WHITEOUT, .level=0 },
+	// { .move=MOVE_D2D_ICE_BATH, .level=49 },
+	{ .move=MOVE_AURORA_VEIL, .level=52 },
+	{ .move=MOVE_BLIZZARD, .level=55 },
+
+	{ .move=MOVE_D2D_DOWNPOUR, .level=0 },
+	{ .move=MOVE_WATER_SPOUT, .level=59 },
+	{ .move=MOVE_THUNDER, .level=62 },
+	{ .move=MOVE_D2D_SKYBREAKER, .level=0 },
+
+	// { .move=MOVE_D2D_SKYBREAKER, .level=0 },
 
 	{ .move=MOVE_NONE, .level=0 },
 };
@@ -101015,11 +101035,13 @@ static u16 const sTutorMoves_SPECIES_CASTFORM[] =
 	MOVE_CLEAR_SMOG,
 	MOVE_CONFIDE,
 	MOVE_COSMIC_POWER,
+	MOVE_COTTON_GUARD,
 	MOVE_D2D_CLOUDBURST,
 	MOVE_DEFOG,
 	MOVE_DISABLE,
 	MOVE_DOUBLE_TEAM,
 	MOVE_ENERGY_BALL,
+	MOVE_FAIRY_WIND,
 	MOVE_FIRE_BLAST,
 	MOVE_FLAMETHROWER,
 	MOVE_FRUSTRATION,
@@ -101039,6 +101061,7 @@ static u16 const sTutorMoves_SPECIES_CASTFORM[] =
 	MOVE_REFLECT_TYPE,
 	MOVE_REST,
 	MOVE_RETURN,
+	MOVE_ROOST,
 	MOVE_ROUND,
 	MOVE_SANDSTORM,
 	MOVE_SCALD,
@@ -101054,9 +101077,9 @@ static u16 const sTutorMoves_SPECIES_CASTFORM[] =
 	MOVE_SWAGGER,
 	MOVE_TAILWIND,
 	MOVE_TERA_BLAST,
-	MOVE_THUNDER,
 	MOVE_THUNDER_WAVE,
 	MOVE_THUNDERBOLT,
+	MOVE_TWISTER,
 	MOVE_WATER_PULSE,
 	MOVE_WATER_SPOUT,
 	MOVE_NONE,
@@ -101076,7 +101099,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CASTFORM
 			MOVE_D2D_DOWNPOUR,
 			MOVE_HURRICANE,
 			MOVE_THUNDER,
-			MOVE_PROTECT,
+			MOVE_D2D_SKYBREAKER,
 		},
 	},
 	{
@@ -101091,7 +101114,7 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CASTFORM
 			MOVE_D2D_SUNFLARE,
 			MOVE_SOLAR_BEAM,
 			MOVE_MORNING_SUN,
-			MOVE_D2D_STORM_DANCE,
+			MOVE_D2D_SKYBREAKER,
 		},
 	},
 	{
@@ -101107,21 +101130,6 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CASTFORM
 			MOVE_AURORA_VEIL,
 			MOVE_LIFE_DEW,
 			MOVE_WATER_SPOUT,
-		},
-	},
-	{
-		.flags= (0 | MON_FLAGS_GEN7PU),
-		.heldItem=ITEM_LEFTOVERS,
-		.ability=ABILITY_FORECAST,
-		.hiddenPowerType=TYPE_NONE,
-		.teraType=TYPE_NONE,
-		.nature=NATURE_TIMID,
-		.moves=
-		{
-			MOVE_D2D_STORM_DANCE,
-			MOVE_HEAT_WAVE,
-			MOVE_BLIZZARD,
-			MOVE_D2D_DOWNPOUR,
 		},
 	},
 };

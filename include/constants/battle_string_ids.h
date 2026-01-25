@@ -707,7 +707,10 @@
 #define STRINGID_PKMNMADESHELLGLEAM                   705
 #define STRINGID_ELECTROSHOTCHARGING                  706
 
-#define BATTLESTRINGS_COUNT                           707
+// D2D Custom Strings
+#define STRINGID_D2D_WEATHERCLEARED					  707
+
+#define BATTLESTRINGS_COUNT                           708
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

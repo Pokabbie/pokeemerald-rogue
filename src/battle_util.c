@@ -7471,6 +7471,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 {
                     gBattleMons[battler].status1 &= ~STATUS1_BURN;
                     BattleScriptExecute(BattleScript_BerryCureBrnEnd2);
+                    // BattleScriptExecute(BattleScript_RaiseSpeed);
                     effect = ITEM_STATUS_CHANGE;
                 }
                 break;
@@ -7481,6 +7482,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 {
                     gBattleMons[battler].status1 &= ~STATUS1_FREEZE;
                     BattleScriptExecute(BattleScript_BerryCureFrzEnd2);
+                    // BattleScriptExecute(BattleScript_RaiseSpeed);
                     effect = ITEM_STATUS_CHANGE;
                 }
                 if (B_BERRIES_INSTANT >= GEN_4
@@ -7489,6 +7491,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 {
                     gBattleMons[battler].status1 &= ~STATUS1_FROSTBITE;
                     BattleScriptExecute(BattleScript_BerryCureFsbEnd2);
+                    // BattleScriptExecute(BattleScript_RaiseSpeed);
                     effect = ITEM_STATUS_CHANGE;
                 }
                 break;
@@ -7500,6 +7503,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     gBattleMons[battler].status1 &= ~STATUS1_SLEEP;
                     gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
                     BattleScriptExecute(BattleScript_BerryCureSlpEnd2);
+                    // BattleScriptExecute(BattleScript_RaiseSpeed);
                     effect = ITEM_STATUS_CHANGE;
                 }
                 break;

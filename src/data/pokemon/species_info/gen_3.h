@@ -5764,7 +5764,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 
 #if P_FAMILY_CASTFORM
 #define CASTFORM_MISC_INFO                                      \
-        .baseHP        = 120,                                   \
+        .baseHP        = 100,                                   \
         .baseAttack    = 70,                                    \
         .baseDefense   = 90,                                    \
         .baseSpAttack  = 90,                                    \
@@ -5782,7 +5782,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS },  \
         .abilities = { ABILITY_FORECAST, ABILITY_NONE },        \
         .speciesName = _("Cloudform"),                          \
-        .cryId = CRY_CASTFORM,                                  \
+        .cryId = CRY_CLOUDFORM,                                 \
         .natDexNum = NATIONAL_DEX_CASTFORM,                     \
         .categoryName = _("Weather"),                           \
         .height = 3,                                            \
@@ -5806,16 +5806,16 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
             "weather. Changes in the climate such as\n"
             "the temperature and humidity appear to\n"
             "affect its cellular structure."),
-        FRONT_PIC(CastformNormal, 24, 32),
+        FRONT_PIC(CloudformNormal, 24, 32),
         .frontPicYOffset = 17,
         .frontAnimFrames = sAnims_CastformNormal,
-        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
+        .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE,
         .enemyMonElevation = 16,
-        BACK_PIC(CastformNormal, 32, 64),
+        BACK_PIC(CloudformNormal, 32, 64),
         .backPicYOffset = 0,
         .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
-        PALETTES(CastformNormal),
-        ICON(CastformNormal, 0),
+        PALETTES(CloudformNormal),
+        ICON(CloudformNormal, 0),
     },
 
     [SPECIES_CASTFORM_SUNNY] =

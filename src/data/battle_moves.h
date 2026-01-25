@@ -15972,18 +15972,36 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .zMoveEffect = Z_EFFECT_NONE,
     },
 
-    [MOVE_D2D_STORM_DANCE] =
+    [MOVE_D2D_SKYBREAKER] =
     {
-        .effect = EFFECT_D2D_STORM_DANCE,
+        .effect = EFFECT_D2D_SKYBREAKER,
         .power = 150,
-        .type = TYPE_FLYING,
+        .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 100,
-        .target = MOVE_TARGET_ALL_BATTLERS,
+        .target = MOVE_TARGET_FOES_AND_ALLY,
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+    },
+
+    [MOVE_D2D_STURDY_ROOTS] =
+    {
+        .effect = EFFECT_D2D_STURDY_ROOTS,
+        .power = 0,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_SPDEF_UP_1,
+        .snatchAffected = TRUE,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .skyBattleBanned = TRUE,
     },
 
 };

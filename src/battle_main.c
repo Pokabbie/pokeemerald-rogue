@@ -4803,6 +4803,11 @@ static bool32 IsWeatherAffectedMove(u16 move)
         case MOVE_CHILLY_RECEPTION:
         case MOVE_SANDSTORM:
         case MOVE_SHORE_UP:
+        case MOVE_D2D_CLOUDBURST:
+        case MOVE_D2D_SUNFLARE:
+        case MOVE_D2D_WHITEOUT:
+        case MOVE_D2D_DOWNPOUR:
+        case MOVE_D2D_SKYBREAKER:
             return TRUE;
     }
 
@@ -5759,7 +5764,7 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
     gBattleStruct->ateBoost[battlerAtk] = 0;
     gSpecialStatuses[battlerAtk].gemBoost = FALSE;
 
-    if (gBattleMoves[move].effect == EFFECT_WEATHER_BALL || gBattleMoves[move].effect == EFFECT_D2D_STORM_DANCE)
+    if ( gBattleMoves[move].effect == EFFECT_WEATHER_BALL || gBattleMoves[move].effect == EFFECT_D2D_SKYBREAKER )
     {
         if (WEATHER_HAS_EFFECT)
         {
@@ -5772,7 +5777,14 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
             else if (gBattleWeather & (B_WEATHER_HAIL |B_WEATHER_SNOW))
                 gBattleStruct->dynamicMoveType = TYPE_ICE | F_DYNAMIC_TYPE_SET;
             else
-                gBattleStruct->dynamicMoveType = TYPE_NORMAL | F_DYNAMIC_TYPE_SET;
+                if ( gBattleMoves[move].effect == EFFECT_WEATHER_BALL )
+                {
+                    gBattleStruct->dynamicMoveType = TYPE_NORMAL | F_DYNAMIC_TYPE_SET;
+                }
+                else if ( gBattleMoves[move].effect == EFFECT_D2D_SKYBREAKER )
+                {
+                    gBattleStruct->dynamicMoveType = TYPE_FLYING | F_DYNAMIC_TYPE_SET;
+                }
         }
     }
     else if (gBattleMoves[move].effect == EFFECT_HIDDEN_POWER)

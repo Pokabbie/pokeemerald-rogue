@@ -1585,10 +1585,6 @@
 	.4byte \jumpInstr
 	.endm
 
-	.macro setrandomweather
-	callnative BS_SetRandomWeather
-	.endm
-
 	.macro removeweather
 	callnative BS_RemoveWeather
 	.endm
@@ -2122,6 +2118,12 @@
 
 	.macro jumpifweatheraffected battler:req, flags:req, jumpInstr:req
 	various \battler, VARIOUS_JUMP_IF_WEATHER_AFFECTED
+	.4byte \flags
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifnotweatheraffected battler:req, flags:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_NOT_WEATHER_AFFECTED
 	.4byte \flags
 	.4byte \jumpInstr
 	.endm

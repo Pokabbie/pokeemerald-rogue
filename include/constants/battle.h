@@ -395,8 +395,10 @@
 #define MOVE_EFFECT_SYRUP_BOMB          78
 #define MOVE_EFFECT_FLORAL_HEALING      79
 #define MOVE_EFFECT_TERA_BLAST          80
+#define MOVE_EFFECT_STURDY_ROOTS_STATS_UP 81
+#define MOVE_EFFECT_SUNNY_DAY 82
 
-#define NUM_MOVE_EFFECTS                81
+#define NUM_MOVE_EFFECTS                83
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

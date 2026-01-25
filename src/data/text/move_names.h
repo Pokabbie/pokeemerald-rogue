@@ -1762,7 +1762,8 @@ const u8 gMoveNames[MOVES_COUNT_DYNAMAX][MOVE_NAME_LENGTH + 1] =
     [MOVE_D2D_SUNFLARE] = _("Sunflare"),
     [MOVE_D2D_WHITEOUT] = _("Whiteout"),
     [MOVE_D2D_DOWNPOUR] = _("Downpour"),
-    [MOVE_D2D_STORM_DANCE] = _("Storm Dance"),
+    [MOVE_D2D_SKYBREAKER] = _("Skybreaker"),
+    [MOVE_D2D_STURDY_ROOTS] = _("Sturdy Roots"),
     // Max Moves
     [MOVE_MAX_GUARD] = _("M-Guard"),
     [MOVE_MAX_STRIKE] = _("M-Strike"),

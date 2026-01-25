@@ -506,6 +506,10 @@ extern const u8 BattleScript_TheSeaOfFireDisappeared[];
 extern const u8 BattleScript_TheSwampDisappeared[];
 extern const u8 BattleScript_ItemRestoreHP_Party[];
 
+// d2d moves
+// extern const u8 BattleScript_SturdyRootsStatsUp[];
+extern const u8 BattleScript_EffectSunnyDay[];
+
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];
 extern const u8 BattleScript_ZMoveActivateStatus[];

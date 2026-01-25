@@ -4335,6 +4335,13 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     const u8 gMonIcon_CastformNormal[] = INCBIN_U8("graphics/pokemon/castform/icon.4bpp");
     const u8 gMonFootprint_Castform[] = INCBIN_U8("graphics/pokemon/castform/footprint.1bpp");
 
+    const u32 gMonFrontPic_CloudformNormal[] = INCBIN_U32("graphics/pokemon/cloudform/anim_front.4bpp.lz");
+    const u32 gMonPalette_CloudformNormal[] = INCBIN_U32("graphics/pokemon/cloudform/normal.gbapal.lz");
+    const u32 gMonBackPic_CloudformNormal[] = INCBIN_U32("graphics/pokemon/cloudform/back.4bpp.lz");
+    const u32 gMonShinyPalette_CloudformNormal[] = INCBIN_U32("graphics/pokemon/cloudform/shiny.gbapal.lz");
+    const u8 gMonIcon_CloudformNormal[] = INCBIN_U8("graphics/pokemon/cloudform/icon.4bpp");
+    const u8 gMonFootprint_Cloudform[] = INCBIN_U8("graphics/pokemon/cloudform/footprint.1bpp");
+
     const u32 gMonFrontPic_CastformSunny[] = INCBIN_U32("graphics/pokemon/castform/sunny/anim_front.4bpp.lz");
     const u32 gMonPalette_CastformSunny[] = INCBIN_U32("graphics/pokemon/castform/sunny/normal.gbapal.lz");
     const u32 gMonBackPic_CastformSunny[] = INCBIN_U32("graphics/pokemon/castform/sunny/back.4bpp.lz");

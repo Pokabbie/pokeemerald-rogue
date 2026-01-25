@@ -959,6 +959,7 @@ gCryTable::
 .endif @ P_FAMILY_FEEBAS
 .if P_FAMILY_CASTFORM == TRUE
 	cry Cry_Castform
+	cry Cry_Cloudform
 .endif @ P_FAMILY_CASTFORM
 .if P_FAMILY_KECLEON == TRUE
 	cry Cry_Kecleon

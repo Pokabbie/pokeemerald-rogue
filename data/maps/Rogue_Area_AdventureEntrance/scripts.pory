@@ -304,6 +304,26 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
 
         if(var(VAR_RESULT) == YES)
         {
+            // msgbox(format("Would you like to bring Lileep along?"), MSGBOX_YESNO)
+            // if(var(VAR_RESULT) == YES)
+            // {
+            //     givemon(SPECIES_LILEEP, 5)
+            // }
+            // Ask the player if they want the weather stones
+            // msgbox(format("Would you like some weather stones?"), MSGBOX_YESNO)
+            // if(var(VAR_RESULT) == YES)
+            // {
+            //     giveitem(ITEM_HEAT_ROCK)
+            //     giveitem(ITEM_DAMP_ROCK)
+            //     giveitem(ITEM_ICY_ROCK)
+            // }
+            // Ask the player if they want a Cloudform
+            // msgbox(format("Would you like to bring Cloudform along?"), MSGBOX_YESNO)
+            // if(var(VAR_RESULT) == YES)
+            // {
+            //     givemon(SPECIES_CASTFORM_NORMAL, 5)
+            // }
+
             call(Rogue_ResetAdventureVars)
             call(Rogue_StartAdventureInternal)
         }

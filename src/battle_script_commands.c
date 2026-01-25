@@ -3586,6 +3586,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_DefSpDefDown;
                 }
                 break;
+            // case MOVE_EFFECT_STURDY_ROOTS_STATS_UP:
+            //     if (!NoAliveMonsForEitherParty())
+            //     {
+            //         BattleScriptPush(gBattlescriptCurrInstr + 1);
+            //         gBattlescriptCurrInstr = BattleScript_SturdyRootsStatsUp;
+            //     }
+            //     break;
             case MOVE_EFFECT_RECOIL_HP_25: // Struggle
                 gBattleMoveDamage = (gBattleMons[gEffectBattler].maxHP) / 4;
                 if (gBattleMoveDamage == 0)
@@ -3854,6 +3861,9 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_LowerAtkSpAtk;
                 }
                 break;
+            case MOVE_EFFECT_SUNNY_DAY:
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                gBattlescriptCurrInstr = BattleScript_EffectSunnyDay;
             }
         }
     }
@@ -10453,6 +10463,16 @@ static void Cmd_various(void)
                 gBattlescriptCurrInstr = cmd->nextInstr;
             return;
         }
+    case VARIOUS_JUMP_IF_NOT_WEATHER_AFFECTED:
+        {
+            VARIOUS_ARGS(u32 flags, const u8 *jumpInstr);
+            u32 flags = cmd->flags;
+            if (!IsBattlerWeatherAffected(battler, flags))
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+            else
+                gBattlescriptCurrInstr = cmd->nextInstr;
+            return;
+        }
     case VARIOUS_JUMP_IF_SPECIES:
     {
         VARIOUS_ARGS(u16 species, const u8 *jumpInstr);
@@ -17000,47 +17020,6 @@ void BS_TryTidyUp(void)
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
-    }
-}
-
-void BS_SetRandomWeather(void)
-{
-    NATIVE_ARGS();
-
-    u32 rnd = Random() % 60;
-
-    if( rnd < 20 )
-    {
-        if ( WEATHER_HAS_EFFECT && ( gBattleWeather & B_WEATHER_SUN ) )
-        {
-            RemoveAllWeather();
-        }
-        else
-        {
-            Cmd_setsunny();
-        }
-    }
-    else if ( rnd < 40 )
-    {
-        if ( WEATHER_HAS_EFFECT && ( gBattleWeather & ( B_WEATHER_HAIL | B_WEATHER_SNOW ) ) )
-        {
-            RemoveAllWeather();
-        }
-        else
-        {
-            Cmd_sethail();
-        }
-    }
-    else
-    {
-        if ( WEATHER_HAS_EFFECT && ( gBattleWeather & B_WEATHER_RAIN ) )
-        {
-            RemoveAllWeather();
-        }
-        else
-        {
-            Cmd_setrain();
-        }
     }
 }
 

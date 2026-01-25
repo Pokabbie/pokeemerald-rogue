@@ -461,7 +461,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectD2DSunflare             @ EFFECT_D2D_SUNFLARE
 	.4byte BattleScript_EffectD2DWhiteout             @ EFFECT_D2D_WHITEOUT
 	.4byte BattleScript_EffectD2DDownpour             @ EFFECT_D2D_DOWNPOUR
-	.4byte BattleScript_EffectD2DStormDance           @ EFFECT_D2D_STORM_DANCE
+	.4byte BattleScript_EffectD2DSkybreaker           @ EFFECT_D2D_SKYBREAKER
+	.4byte BattleScript_EffectD2DSturdyRoots          @ EFFECT_D2D_STURDY_ROOTS
 
 BattleScript_EffectGlaiveRush::
 	call BattleScript_EffectHit_Ret
@@ -3478,6 +3479,10 @@ BattleScript_MoveEnd::
 	moveendall
 	end
 
+BattleScript_TryFaintMon_Ret::
+	tryfaintmon BS_TARGET
+	return
+
 BattleScript_EffectHit_Ret::
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
@@ -5453,42 +5458,6 @@ BattleScript_EffectSunnyDay::
 	ppreduce
 	call BattleScript_CheckPrimalWeather
 	setsunny
-	goto BattleScript_MoveWeatherChange
-
-BattleScript_EffectD2DSunflare::
-	attackcanceler
-	attackstring
-	ppreduce
-	call BattleScript_CheckPrimalWeather
-	call BattleScript_EffectHit_Ret
-	setsunny
-	goto BattleScript_MoveWeatherChange
-
-BattleScript_EffectD2DWhiteout::
-	attackcanceler
-	attackstring
-	ppreduce
-	call BattleScript_CheckPrimalWeather
-	call BattleScript_EffectHit_Ret
-	sethail
-	goto BattleScript_MoveWeatherChange
-
-BattleScript_EffectD2DDownpour::
-	attackcanceler
-	attackstring
-	ppreduce
-	call BattleScript_CheckPrimalWeather
-	call BattleScript_EffectHit_Ret
-	setrain
-	goto BattleScript_MoveWeatherChange
-
-BattleScript_EffectD2DStormDance::
-	attackcanceler
-	attackstring
-	ppreduce
-	call BattleScript_CheckPrimalWeather
-	call BattleScript_EffectHit_Ret
-	setrandomweather
 	goto BattleScript_MoveWeatherChange
 
 BattleScript_ExtremelyHarshSunlightWasNotLessened:
@@ -11210,3 +11179,102 @@ BattleScript_EffectSnow::
 	call BattleScript_CheckPrimalWeather
 	setsnow
 	goto BattleScript_MoveWeatherChange
+
+BattleScript_EffectD2DSunflare::
+	call BattleScript_CheckPrimalWeather
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SUN_PRIMAL, BattleScript_ButItFailed
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_RAIN_PRIMAL, BattleScript_ButItFailed
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_STRONG_WINDS, BattleScript_ButItFailed
+
+	call BattleScript_EffectHit_Ret
+	call BattleScript_TryFaintMon_Ret
+	jumpifbattleend BattleScript_MoveEnd
+
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SUN, BattleScript_MoveEnd
+	
+	setsunny
+	goto BattleScript_MoveWeatherChange
+
+BattleScript_EffectD2DWhiteout::
+	call BattleScript_CheckPrimalWeather
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SUN_PRIMAL, BattleScript_ButItFailed
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_RAIN_PRIMAL, BattleScript_ButItFailed
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_STRONG_WINDS, BattleScript_ButItFailed
+
+	call BattleScript_EffectHit_Ret
+	call BattleScript_TryFaintMon_Ret
+	jumpifbattleend BattleScript_MoveEnd
+
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_HAIL, BattleScript_MoveEnd
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SNOW, BattleScript_MoveEnd
+	
+	sethail
+	goto BattleScript_MoveWeatherChange
+
+BattleScript_EffectD2DDownpour::
+	call BattleScript_CheckPrimalWeather
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SUN_PRIMAL, BattleScript_ButItFailed
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_RAIN_PRIMAL, BattleScript_ButItFailed
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_STRONG_WINDS, BattleScript_ButItFailed
+
+	call BattleScript_EffectHit_Ret
+	call BattleScript_TryFaintMon_Ret
+	jumpifbattleend BattleScript_MoveEnd
+
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_RAIN, BattleScript_MoveEnd
+	
+	setrain
+	goto BattleScript_MoveWeatherChange
+
+BattleScript_EffectD2DSkybreaker::
+	attackstring
+	waitmessage B_WAIT_TIME_LONG
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SUN, BattleScript_EffectD2DSkybreaker_IfWeatherActive
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_RAIN, BattleScript_EffectD2DSkybreaker_IfWeatherActive
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_HAIL, BattleScript_EffectD2DSkybreaker_IfWeatherActive
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SNOW, BattleScript_EffectD2DSkybreaker_IfWeatherActive
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SANDSTORM, BattleScript_EffectD2DSkybreaker_IfWeatherActive
+	goto BattleScript_ButItFailed
+BattleScript_EffectD2DSkybreaker_IfWeatherActive:
+	call BattleScript_EffectHit_Ret
+	call BattleScript_TryFaintMon_Ret
+	jumpifbattleend BattleScript_MoveEnd
+
+	removeweather
+	printstring STRINGID_D2D_WEATHERCLEARED
+	waitmessage B_WAIT_TIME_LONG
+
+	call BattleScript_ActivateWeatherAbilities
+	goto BattleScript_MoveEnd
+
+
+
+BattleScript_EffectD2DSturdyRoots:
+	attackcanceler
+	attackstring
+	ppreduce
+	setmoveeffect MOVE_EFFECT_STURDY_ROOTS_STATS_UP | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	setuserstatus3 STATUS3_ROOTED, BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNPLANTEDROOTS
+	waitmessage B_WAIT_TIME_LONG
+
+BattleScript_EffectD2DSummonStorm::
+	call BattleScript_EffectHit
+	call BattleScript_CheckPrimalWeather
+	jumpifholdeffect BS_TARGET, HOLD_EFFECT_HEAT_ROCK, BattleScript_EffectD2DSummonStorm_Sun
+	jumpifholdeffect BS_TARGET, HOLD_EFFECT_DAMP_ROCK, BattleScript_EffectD2DSummonStorm_Rain
+	jumpifholdeffect BS_TARGET, HOLD_EFFECT_ICY_ROCK, BattleScript_EffectD2DSummonStorm_Hail
+BattleScript_EffectD2DSummonStorm_Sun:
+	setsunny
+	call BattleScript_MoveWeatherChange
+	waitanimation
+BattleScript_EffectD2DSummonStorm_Rain:
+	setrain
+	call BattleScript_MoveWeatherChange
+	waitanimation
+BattleScript_EffectD2DSummonStorm_Hail:
+	sethail
+	call BattleScript_MoveWeatherChange
+	waitanimation
