@@ -5764,12 +5764,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 
 #if P_FAMILY_CASTFORM
 #define CASTFORM_MISC_INFO                                      \
-        .baseHP        = 100,                                   \
+        .baseHP        = 70,                                    \
         .baseAttack    = 70,                                    \
-        .baseDefense   = 90,                                    \
-        .baseSpAttack  = 90,                                    \
+        .baseDefense   = 70,                                    \
+        .baseSpAttack  = 70,                                    \
         .baseSpDefense = 70,                                    \
-        .baseSpeed     = 80,                                    \
+        .baseSpeed     = 70,                                    \
         .catchRate = 45,                                        \
         .expYield = 147,                                        \
         .evYield_HP = 1,                                        \
@@ -5781,8 +5781,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .growthRate = GROWTH_MEDIUM_FAST,                       \
         .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS },  \
         .abilities = { ABILITY_FORECAST, ABILITY_NONE },        \
-        .speciesName = _("Cloudform"),                          \
-        .cryId = CRY_CLOUDFORM,                                 \
+        .speciesName = _("Castform"),                           \
+        .cryId = CRY_CASTFORM,                                  \
         .natDexNum = NATIONAL_DEX_CASTFORM,                     \
         .categoryName = _("Weather"),                           \
         .height = 3,                                            \
@@ -5794,34 +5794,35 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .footprint = gMonFootprint_Castform,                    \
         LEARNSETS(Castform),                                    \
         .formSpeciesIdTable = sCastformFormSpeciesIdTable,      \
-        .formChangeTable = sCastformFormChangeTable
+        .formChangeTable = sCastformFormChangeTable,            \
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_CLOUDFORM_NORMAL})
 
     [SPECIES_CASTFORM_NORMAL] =
     {
         CASTFORM_MISC_INFO,
-        .types = { TYPE_FLYING, TYPE_FLYING },
+        .types = { TYPE_NORMAL, TYPE_NORMAL },
         .bodyColor = BODY_COLOR_GRAY,
         .description = POKEDEX_DESC_STRING(
             "It alters its form depending on the\n"
             "weather. Changes in the climate such as\n"
             "the temperature and humidity appear to\n"
             "affect its cellular structure."),
-        FRONT_PIC(CloudformNormal, 24, 32),
+        FRONT_PIC(CastformNormal, 24, 32),
         .frontPicYOffset = 17,
         .frontAnimFrames = sAnims_CastformNormal,
-        .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE,
+        .frontAnimId = ANIM_GROW_STUTTER_SLOW,
         .enemyMonElevation = 16,
-        BACK_PIC(CloudformNormal, 32, 64),
+        BACK_PIC(CastformNormal, 32, 64),
         .backPicYOffset = 0,
-        .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
-        PALETTES(CloudformNormal),
-        ICON(CloudformNormal, 0),
+        .backAnimId = BACK_ANIM_GROW_STUTTER,
+        PALETTES(CastformNormal),
+        ICON(CastformNormal, 0),
     },
 
     [SPECIES_CASTFORM_SUNNY] =
     {
         CASTFORM_MISC_INFO,
-        .types = { TYPE_FLYING, TYPE_FIRE },
+        .types = { TYPE_FIRE, TYPE_FIRE },
         .bodyColor = BODY_COLOR_RED,
         .description = POKEDEX_DESC_STRING(
             "Castform takes this form on bright days.\n"
@@ -5843,7 +5844,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_CASTFORM_RAINY] =
     {
         CASTFORM_MISC_INFO,
-        .types = { TYPE_FLYING, TYPE_WATER },
+        .types = { TYPE_WATER, TYPE_WATER },
         .bodyColor = BODY_COLOR_BLUE,
         .description = POKEDEX_DESC_STRING(
             "This is Castform's form while it's raining.\n"
@@ -5865,7 +5866,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_CASTFORM_SNOWY] =
     {
         CASTFORM_MISC_INFO,
-        .types = { TYPE_FLYING, TYPE_ICE },
+        .types = { TYPE_ICE, TYPE_ICE },
         .bodyColor = BODY_COLOR_WHITE,
         .description = POKEDEX_DESC_STRING(
             "This is Castform's form in a hailstorm.\n"

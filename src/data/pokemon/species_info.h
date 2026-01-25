@@ -265,6 +265,175 @@ const struct SpeciesInfo gSpeciesInfo[] =
     #include "species_info/gen_8.h"
     #include "species_info/gen_9.h"
 
+    [SPECIES_CASTFORM_SANDY] =
+    {
+        CASTFORM_MISC_INFO,
+        .types = { TYPE_GROUND, TYPE_GROUND },
+        .bodyColor = BODY_COLOR_BROWN,
+        .description = POKEDEX_DESC_STRING(
+            "This is Castform's form in a sandstorm.\n"
+            "In an experiment where it was placed\n"
+            "in a sandpit, it didn't change to this form.\n"
+            "Its skin is very rough."),
+        FRONT_PIC(CastformSandy, 40, 56),
+        .frontPicYOffset = 8,
+        .frontAnimFrames = sAnims_CastformSnowy,
+        .frontAnimId = ANIM_V_STRETCH,
+        .enemyMonElevation = 5,
+        BACK_PIC(CastformSandy, 56, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_TRIANGLE_DOWN,
+        PALETTES(CastformSandy),
+        ICON(CastformSandy, 0),
+    },
+
+#define CLOUDFORM_MISC_INFO                                     \
+        .baseHP        = 100,                                   \
+        .baseAttack    = 70,                                    \
+        .baseDefense   = 90,                                    \
+        .baseSpAttack  = 90,                                    \
+        .baseSpDefense = 70,                                    \
+        .baseSpeed     = 80,                                    \
+        .catchRate = 45,                                        \
+        .expYield = 147,                                        \
+        .evYield_HP = 1,                                        \
+        .itemCommon = ITEM_MYSTIC_WATER,                        \
+        .itemRare = ITEM_MYSTIC_WATER,                          \
+        .genderRatio = PERCENT_FEMALE(50),                      \
+        .eggCycles = 25,                                        \
+        .friendship = STANDARD_FRIENDSHIP,                      \
+        .growthRate = GROWTH_MEDIUM_FAST,                       \
+        .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS },  \
+        .abilities = { ABILITY_FORECAST, ABILITY_NONE },        \
+        .speciesName = _("Cloudform"),                          \
+        .cryId = CRY_CLOUDFORM,                                 \
+        .natDexNum = NATIONAL_DEX_CLOUDFORM,                    \
+        .categoryName = _("Climate"),                           \
+        .height = 3,                                            \
+        .weight = 8,                                            \
+        .pokemonScale = 435,                                    \
+        .pokemonOffset = -5,                                    \
+        .trainerScale = 256,                                    \
+        .trainerOffset = 0,                                     \
+        .footprint = gMonFootprint_Castform,                    \
+        LEARNSETS(Cloudform),                                   \
+        .formSpeciesIdTable = sCloudformFormSpeciesIdTable,     \
+        .formChangeTable = sCloudformFormChangeTable
+
+    [SPECIES_CLOUDFORM_NORMAL] =
+    {
+        CLOUDFORM_MISC_INFO,
+        .types = { TYPE_FLYING, TYPE_FLYING },
+        .bodyColor = BODY_COLOR_GRAY,
+        .description = POKEDEX_DESC_STRING(
+            "Having learned how to control the weather\n"
+            "at a whim, Cloudform is much beloved by\n"
+            "children looking to play in the sun or\n"
+            "in the snow."),
+            // "It alters its form depending on the\n"
+            // "weather. Changes in the climate such as\n"
+            // "the temperature and humidity appear to\n"
+            // "affect its cellular structure."),
+        FRONT_PIC(CloudformNormal, 24, 32),
+        .frontPicYOffset = 17,
+        .frontAnimFrames = sAnims_CastformNormal,
+        .frontAnimId = ANIM_GROW_STUTTER_SLOW,
+        .enemyMonElevation = 16,
+        BACK_PIC(CloudformNormal, 32, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_GROW_STUTTER,
+        PALETTES(CloudformNormal),
+        ICON(CloudformNormal, 0),
+    },
+
+    [SPECIES_CLOUDFORM_SUNNY] =
+    {
+        CLOUDFORM_MISC_INFO,
+        .types = { TYPE_FLYING, TYPE_FIRE },
+        .bodyColor = BODY_COLOR_RED,
+        .description = POKEDEX_DESC_STRING(
+            "Castform takes this form on bright days.\n"
+            "In an experiment where is was placed in\n"
+            "front of a heater, it didn't change to this\n"
+            "form. Its body is warm and toasty."),
+        FRONT_PIC(CastformSunny, 40, 48),
+        .frontPicYOffset = 9,
+        .frontAnimFrames = sAnims_CastformSunny,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        .enemyMonElevation = 5,
+        BACK_PIC(CastformSunny, 56, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
+        PALETTES(CastformSunny),
+        ICON(CastformSunny, 0),
+    },
+
+    [SPECIES_CLOUDFORM_RAINY] =
+    {
+        CLOUDFORM_MISC_INFO,
+        .types = { TYPE_FLYING, TYPE_WATER },
+        .bodyColor = BODY_COLOR_BLUE,
+        .description = POKEDEX_DESC_STRING(
+            "This is Castform's form while it's raining.\n"
+            "In an experiment where it was placed in a\n"
+            "shower, it didn't change to this form. Its\n"
+            "body is soft, slightly swollen with water."),
+        FRONT_PIC(CastformRainy, 32, 48),
+        .frontPicYOffset = 9,
+        .frontAnimFrames = sAnims_CastformRainy,
+        .frontAnimId = ANIM_SWING_CONVEX_FAST,
+        .enemyMonElevation = 5,
+        BACK_PIC(CastformRainy, 40, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_SHRINK_GROW_VIBRATE,
+        PALETTES(CastformRainy),
+        ICON(CastformRainy, 0),
+    },
+
+    [SPECIES_CLOUDFORM_SNOWY] =
+    {
+        CLOUDFORM_MISC_INFO,
+        .types = { TYPE_FLYING, TYPE_ICE },
+        .bodyColor = BODY_COLOR_WHITE,
+        .description = POKEDEX_DESC_STRING(
+            "This is Castform's form in a hailstorm.\n"
+            "In an experiment where it was placed\n"
+            "in a freezer, it didn't change to this form.\n"
+            "Its cold skin is as smooth as ice."),
+        FRONT_PIC(CastformSnowy, 40, 56),
+        .frontPicYOffset = 8,
+        .frontAnimFrames = sAnims_CastformSnowy,
+        .frontAnimId = ANIM_V_STRETCH,
+        .enemyMonElevation = 5,
+        BACK_PIC(CastformSnowy, 56, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_TRIANGLE_DOWN,
+        PALETTES(CastformSnowy),
+        ICON(CastformSnowy, 0),
+    },
+
+    [SPECIES_CLOUDFORM_SANDY] =
+    {
+        CASTFORM_MISC_INFO,
+        .types = { TYPE_FLYING, TYPE_GROUND },
+        .bodyColor = BODY_COLOR_BROWN,
+        .description = POKEDEX_DESC_STRING(
+            "This is Castform's form in a sandstorm.\n"
+            "In an experiment where it was placed\n"
+            "in a sandpit, it didn't change to this form.\n"
+            "Its skin is very rough."),
+        FRONT_PIC(CastformSandy, 40, 56),
+        .frontPicYOffset = 8,
+        .frontAnimFrames = sAnims_CastformSnowy,
+        .frontAnimId = ANIM_V_STRETCH,
+        .enemyMonElevation = 5,
+        BACK_PIC(CastformSandy, 56, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_TRIANGLE_DOWN,
+        PALETTES(CastformSandy),
+        ICON(CastformSandy, 0),
+    },
+
     [SPECIES_EGG] =
     {
         FRONT_PIC(Egg, 24, 24),

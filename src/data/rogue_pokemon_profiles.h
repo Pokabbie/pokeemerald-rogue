@@ -100989,43 +100989,142 @@ static struct LevelUpMove const sLevelUpMoves_SPECIES_CASTFORM[] =
 	{ .move=MOVE_BUBBLE, .level=10 },
 	{ .move=MOVE_TRI_ATTACK, .level=15 },
 
-	// { .move=MOVE_ICY_WIND, .level=16 },
 	{ .move=MOVE_SUNNY_DAY, .level=16 },
 	{ .move=MOVE_HAIL, .level=19 },
 	{ .move=MOVE_RAIN_DANCE, .level=22 },
 	{ .move=MOVE_WEATHER_BALL, .level=25 },
 
-	{ .move=MOVE_HEAT_WAVE, .level=26 },
-	{ .move=MOVE_ICY_WIND, .level=29 },
-	// { .move=MOVE_D2D_CLOUDBURST, .level=35 },
-	{ .move=MOVE_MUDDY_WATER, .level=32 },
-	{ .move=MOVE_AIR_CUTTER, .level=35 },
+	{ .move=MOVE_AIR_CUTTER, .level=26 },
+	{ .move=MOVE_HEAT_WAVE, .level=29 },
+	{ .move=MOVE_ICY_WIND, .level=32 },
+	{ .move=MOVE_MUDDY_WATER, .level=35 },
 
-	// if I ever add Cloudform as an evo, everything below this would be its learnset
-	// { .move=MOVE_HURRICANE, .level=0 },
-	// { .move=MOVE_D2D_SUMMON_STORM, .level=0 },
-	// { .move=MOVE_TAILWIND, .level=39 },
-	{ .move=MOVE_D2D_SUNFLARE, .level=0 },
-	{ .move=MOVE_MORNING_SUN, .level=39 },
-	{ .move=MOVE_HEAT_WAVE, .level=42 },
-	{ .move=MOVE_SOLAR_BEAM, .level=45 },
+	{ .move=MOVE_SANDSTORM, .level=36 },
+	{ .move=MOVE_SCORCHING_SANDS, .level=39 },
+	{ .move=MOVE_SHORE_UP, .level=42},
+	{ .move=MOVE_EARTH_POWER, .level=45 },
 
-	{ .move=MOVE_D2D_WHITEOUT, .level=0 },
-	// { .move=MOVE_D2D_ICE_BATH, .level=49 },
-	{ .move=MOVE_AURORA_VEIL, .level=52 },
-	{ .move=MOVE_BLIZZARD, .level=55 },
-
-	{ .move=MOVE_D2D_DOWNPOUR, .level=0 },
-	{ .move=MOVE_WATER_SPOUT, .level=59 },
-	{ .move=MOVE_THUNDER, .level=62 },
-	{ .move=MOVE_D2D_SKYBREAKER, .level=0 },
-
-	// { .move=MOVE_D2D_SKYBREAKER, .level=0 },
+	{ .move=MOVE_EARTHQUAKE, .level=50 },
 
 	{ .move=MOVE_NONE, .level=0 },
 };
 
 static u16 const sTutorMoves_SPECIES_CASTFORM[] = 
+{
+	MOVE_ALLY_SWITCH,
+	MOVE_AMNESIA,
+	MOVE_ATTRACT,
+	MOVE_CHILLING_WATER,
+	MOVE_CLEAR_SMOG,
+	MOVE_CONFIDE,
+	MOVE_COSMIC_POWER,
+	MOVE_COTTON_GUARD,
+	MOVE_DEFOG,
+	MOVE_DISABLE,
+	MOVE_DOUBLE_TEAM,
+	MOVE_ENERGY_BALL,
+	MOVE_FAIRY_WIND,
+	MOVE_FLAMETHROWER,
+	MOVE_FRUSTRATION,
+	MOVE_FUTURE_SIGHT,
+	MOVE_HEX,
+	MOVE_HIDDEN_POWER,
+	MOVE_ICE_BEAM,
+	MOVE_ICY_WIND,
+	MOVE_LAST_RESORT,
+	MOVE_LIFE_DEW,
+	MOVE_LUCKY_CHANT,
+	MOVE_OMINOUS_WIND,
+	MOVE_PROTECT,
+	MOVE_PSYCH_UP,
+	MOVE_RAIN_DANCE,
+	MOVE_REFLECT_TYPE,
+	MOVE_REST,
+	MOVE_RETURN,
+	MOVE_ROUND,
+	MOVE_SCALD,
+	MOVE_SHADOW_BALL,
+	MOVE_SHOCK_WAVE,
+	MOVE_SILVER_WIND,
+	MOVE_SLEEP_TALK,
+	MOVE_SNORE,
+	MOVE_SNOWSCAPE,
+	MOVE_SUBSTITUTE,
+	MOVE_SUNNY_DAY,
+	MOVE_SWAGGER,
+	MOVE_TAILWIND,
+	MOVE_THUNDER_WAVE,
+	MOVE_THUNDERBOLT,
+	MOVE_TWISTER,
+	MOVE_WATER_PULSE,
+	MOVE_NONE,
+};
+
+static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CASTFORM[] = 
+{
+	{
+		.flags= (0 | MON_FLAGS_GEN6PU),
+		.heldItem=ITEM_WATERIUM_Z,
+		.ability=ABILITY_FORECAST,
+		.hiddenPowerType=TYPE_NONE,
+		.teraType=TYPE_NONE,
+		.nature=NATURE_MODEST,
+		.moves=
+		{
+			MOVE_RAIN_DANCE,
+			MOVE_SUNNY_DAY,
+			MOVE_HAIL,
+			MOVE_WEATHER_BALL,
+		},
+	},
+};
+
+#ifdef APPEND_MON_FLAGS_SPECIES_CLOUDFORM
+#define MON_FLAGS_SPECIES_CLOUDFORM (APPEND_MON_FLAGS_SPECIES_CLOUDFORM | MON_FLAGS_GEN6PU | MON_FLAGS_GEN7PU)
+#else
+#define MON_FLAGS_SPECIES_CLOUDFORM (0 | MON_FLAGS_GEN6PU | MON_FLAGS_GEN7PU)
+#endif
+
+static struct LevelUpMove const sLevelUpMoves_SPECIES_CLOUDFORM[] = 
+{
+	{ .move=MOVE_GUST, .level=1 },
+	{ .move=MOVE_EMBER, .level=10 },
+	{ .move=MOVE_POWDER_SNOW, .level=10 },
+	{ .move=MOVE_BUBBLE, .level=10 },
+	{ .move=MOVE_TRI_ATTACK, .level=15 },
+
+	{ .move=MOVE_SUNNY_DAY, .level=16 },
+	{ .move=MOVE_HAIL, .level=19 },
+	{ .move=MOVE_RAIN_DANCE, .level=22 },
+	{ .move=MOVE_WEATHER_BALL, .level=25 },
+
+	{ .move=MOVE_AIR_CUTTER, .level=26 },
+	{ .move=MOVE_HEAT_WAVE, .level=29 },
+	{ .move=MOVE_ICY_WIND, .level=32 },
+	{ .move=MOVE_MUDDY_WATER, .level=35 },
+
+	// HERE STARTS CLOUDFORM'S MOVESET
+	{ .move=MOVE_HURRICANE, .level=0 },
+
+	{ .move=MOVE_D2D_SUNFLARE, .level=37 },
+	{ .move=MOVE_MORNING_SUN, .level=39 },
+	{ .move=MOVE_ERUPTION, .level=42 },
+	{ .move=MOVE_SOLAR_BEAM, .level=45 },
+
+	{ .move=MOVE_D2D_WHITEOUT, .level=46 },
+	{ .move=MOVE_TAILWIND, .level=49 },
+	{ .move=MOVE_AURORA_VEIL, .level=52 },
+	{ .move=MOVE_BLIZZARD, .level=55 },
+
+	{ .move=MOVE_D2D_DOWNPOUR, .level=56 },
+	{ .move=MOVE_WATER_SPOUT, .level=59 },
+	{ .move=MOVE_THUNDER, .level=62 },
+	{ .move=MOVE_D2D_SKYBREAKER, .level=65 },
+
+	{ .move=MOVE_NONE, .level=0 },
+};
+
+static u16 const sTutorMoves_SPECIES_CLOUDFORM[] = 
 {
 	MOVE_ALLY_SWITCH,
 	MOVE_AMNESIA,
@@ -101036,7 +101135,6 @@ static u16 const sTutorMoves_SPECIES_CASTFORM[] =
 	MOVE_CONFIDE,
 	MOVE_COSMIC_POWER,
 	MOVE_COTTON_GUARD,
-	MOVE_D2D_CLOUDBURST,
 	MOVE_DEFOG,
 	MOVE_DISABLE,
 	MOVE_DOUBLE_TEAM,
@@ -101063,7 +101161,6 @@ static u16 const sTutorMoves_SPECIES_CASTFORM[] =
 	MOVE_RETURN,
 	MOVE_ROOST,
 	MOVE_ROUND,
-	MOVE_SANDSTORM,
 	MOVE_SCALD,
 	MOVE_SHADOW_BALL,
 	MOVE_SHOCK_WAVE,
@@ -101085,7 +101182,7 @@ static u16 const sTutorMoves_SPECIES_CASTFORM[] =
 	MOVE_NONE,
 };
 
-static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CASTFORM[] = 
+static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CLOUDFORM[] = 
 {
 	{
 		.flags= (0 | MON_FLAGS_GEN6PU),
@@ -101130,6 +101227,21 @@ static struct RoguePokemonCompetitiveSet const sCompetitiveSets_SPECIES_CASTFORM
 			MOVE_AURORA_VEIL,
 			MOVE_LIFE_DEW,
 			MOVE_WATER_SPOUT,
+		},
+	},
+	{
+		.flags= (0 | MON_FLAGS_GEN7PU),
+		.heldItem=ITEM_ASSAULT_VEST,
+		.ability=ABILITY_FORECAST,
+		.hiddenPowerType=TYPE_NONE,
+		.teraType=TYPE_NONE,
+		.nature=NATURE_TIMID,
+		.moves=
+		{
+			MOVE_D2D_SUNFLARE,
+			MOVE_D2D_WHITEOUT,
+			MOVE_D2D_DOWNPOUR,
+			MOVE_D2D_SKYBREAKER,
 		},
 	},
 };
@@ -305765,6 +305877,14 @@ struct RoguePokemonProfile const gRoguePokemonProfiles[NUM_SPECIES] =
 		.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_SPECIES_CASTFORM),
 		.monFlags = MON_FLAGS_SPECIES_CASTFORM,
 	},
+	[SPECIES_CLOUDFORM] = 
+	{
+		.levelUpMoves = sLevelUpMoves_SPECIES_CLOUDFORM,
+		.tutorMoves = sTutorMoves_SPECIES_CLOUDFORM,
+		.competitiveSets = sCompetitiveSets_SPECIES_CLOUDFORM,
+		.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_SPECIES_CLOUDFORM),
+		.monFlags = MON_FLAGS_SPECIES_CLOUDFORM,
+	},
 	[SPECIES_KECLEON] = 
 	{
 		.levelUpMoves = sLevelUpMoves_SPECIES_KECLEON,
@@ -312846,6 +312966,14 @@ struct RoguePokemonProfile const gRoguePokemonProfiles[NUM_SPECIES] =
 		.monFlags = MON_FLAGS_SPECIES_CASTFORM,
 	},
 	[SPECIES_CASTFORM_SNOWY] = 
+	{
+		.levelUpMoves = sLevelUpMoves_SPECIES_CASTFORM,
+		.tutorMoves = sTutorMoves_SPECIES_CASTFORM,
+		.competitiveSets = sCompetitiveSets_SPECIES_CASTFORM,
+		.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_SPECIES_CASTFORM),
+		.monFlags = MON_FLAGS_SPECIES_CASTFORM,
+	},
+	[SPECIES_CASTFORM_SANDY] = 
 	{
 		.levelUpMoves = sLevelUpMoves_SPECIES_CASTFORM,
 		.tutorMoves = sTutorMoves_SPECIES_CASTFORM,

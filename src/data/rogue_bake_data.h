@@ -2113,7 +2113,7 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 	[351] =
 	{
 		.eggSpecies = 351,
-		.evolutionCount = 0,
+		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 1,
 	},
 	[352] =
@@ -9154,6 +9154,18 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 4100,
 	},
+	// [1525] = // Castform Sandy
+	// {
+	// 	.eggSpecies = 1525,
+	// 	.evolutionCount = 0,
+	// 	.evolutionChainTypeFlags = 4100,
+	// },
+	[1526] = // Cloudform Normal
+	{
+		.eggSpecies = 351,
+		.evolutionCount = 0,
+		.evolutionChainTypeFlags = 4,
+	},
 };
 
 const u16 gRogueBake_FinalEvoSpecies[] =
@@ -9348,7 +9360,8 @@ const u16 gRogueBake_FinalEvoSpecies[] =
 	346,
 	348,
 	350,
-	351,
+	// 351,
+	1526, // CLOUDFORM
 	352,
 	354,
 	357,
