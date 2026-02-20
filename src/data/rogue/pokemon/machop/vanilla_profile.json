@@ -1,0 +1,138 @@
+{
+  "Species": [
+    "SPECIES_MACHOP"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOW_KICK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_KARATE_CHOP",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_FORESIGHT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_REVENGE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_VITAL_THROW",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_CROSS_CHOP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_DYNAMIC_PUNCH",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_COUNTER",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MEDITATE",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLLING_KICK",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMELLING_SALT",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_CROSS_CHOP",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "Species": [
+    "SPECIES_BELDUM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": []
+}

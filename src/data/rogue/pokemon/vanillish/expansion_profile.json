@@ -1,0 +1,91 @@
+{
+  "Species": [
+    "SPECIES_VANILLISH"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_MIST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AVALANCHE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SNOWSCAPE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ICICLE_SPEAR",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ALLY_SWITCH",
+    "MOVE_ATTRACT",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_HYPER_VOICE",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TAUNT",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": []
+}

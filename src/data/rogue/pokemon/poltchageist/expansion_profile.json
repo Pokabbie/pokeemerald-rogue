@@ -1,0 +1,93 @@
+{
+  "Species": [
+    "SPECIES_POLTCHAGEIST"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_LIFE_DEW",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FOUL_PLAY",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_RAGE_POWDER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_MEMENTO",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CALM_MIND",
+    "MOVE_CURSE",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IMPRISON",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LEAF_STORM",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_NASTY_PLOT",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POLTERGEIST",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SCALD",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRICK_ROOM",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": []
+}

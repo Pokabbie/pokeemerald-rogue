@@ -1,0 +1,80 @@
+{
+  "Species": [
+    "SPECIES_RELLOR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_LUNGE",
+      "Level": 35
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_COSMIC_POWER",
+    "MOVE_DIG",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LUNGE",
+    "MOVE_MEMENTO",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RECOVER",
+    "MOVE_REST",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_WEATHER_BALL",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": []
+}

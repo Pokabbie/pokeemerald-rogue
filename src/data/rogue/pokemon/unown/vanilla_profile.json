@@ -1,0 +1,27 @@
+{
+  "Species": [
+    "SPECIES_UNOWN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HIDDEN_POWER",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_TWISTED_SPOON",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_PSYCHIC",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

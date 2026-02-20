@@ -1,0 +1,95 @@
+{
+  "Species": [
+    "SPECIES_NIDORINO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_HORN_ATTACK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_EARTH_POWER",
+      "Level": 71
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BEAT_UP",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_DIG",
+    "MOVE_DRILL_RUN",
+    "MOVE_EARTH_POWER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_HELPING_HAND",
+    "MOVE_ICE_BEAM",
+    "MOVE_IRON_TAIL",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SMART_STRIKE",
+    "MOVE_SNORE",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": []
+}

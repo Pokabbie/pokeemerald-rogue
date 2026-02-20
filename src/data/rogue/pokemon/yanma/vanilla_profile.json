@@ -1,0 +1,132 @@
+{
+  "Species": [
+    "SPECIES_YANMA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FORESIGHT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SONIC_BOOM",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LEECH_LIFE",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_REVERSAL",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SILVER_WIND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_TOXIC",
+    "MOVE_WHIRLWIND"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_REVERSAL",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIECHI_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_REVERSAL",
+        "MOVE_AERIAL_ACE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIECHI_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_BUG",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_REVERSAL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPEED_BOOST",
+      "Item": "ITEM_LIECHI_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

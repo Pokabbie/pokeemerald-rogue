@@ -1,0 +1,154 @@
+{
+  "Species": [
+    "SPECIES_SCYTHER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 46
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_COUNTER",
+    "MOVE_CUT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAZOR_WIND",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_REVERSAL",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SILVER_WIND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_AERIAL_ACE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_BUG",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_REVERSAL",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SILVER_WIND",
+        "MOVE_AERIAL_ACE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SILVER_WIND",
+        "MOVE_AERIAL_ACE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_SWARM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    }
+  ]
+}

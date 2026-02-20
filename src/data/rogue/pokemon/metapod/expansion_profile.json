@@ -1,0 +1,16 @@
+{
+  "Species": [
+    "SPECIES_METAPOD"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 0
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ELECTROWEB",
+    "MOVE_IRON_DEFENSE"
+  ],
+  "CompetitiveSets": []
+}

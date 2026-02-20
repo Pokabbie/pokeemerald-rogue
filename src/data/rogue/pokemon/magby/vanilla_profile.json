@@ -1,0 +1,118 @@
+{
+  "Species": [
+    "SPECIES_MAGBY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FIRE_PUNCH",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BARRIER",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_COUNTER",
+    "MOVE_CROSS_CHOP",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_KARATE_CHOP",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SCREECH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_PUNCH",
+        "MOVE_TOXIC",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_CROSS_CHOP",
+        "MOVE_FIRE_BLAST",
+        "MOVE_PSYCHIC"
+      ],
+      "Ability": "ABILITY_FLAME_BODY",
+      "Item": "ITEM_SCOPE_LENS",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    }
+  ]
+}

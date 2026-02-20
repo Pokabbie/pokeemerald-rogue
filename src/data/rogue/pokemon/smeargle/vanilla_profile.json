@@ -1,0 +1,142 @@
+{
+  "Species": [
+    "SPECIES_SMEARGLE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SKETCH",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BATON_PASS",
+    "MOVE_BELLY_DRUM",
+    "MOVE_DRAGON_RAGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_EXTREME_SPEED",
+    "MOVE_PERISH_SONG",
+    "MOVE_REFLECT",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SPIDER_WEB",
+    "MOVE_SPIKES",
+    "MOVE_SPORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TRANSFORM"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_BELLY_DRUM",
+        "MOVE_SUBSTITUTE",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_ENDURE",
+        "MOVE_ENDEAVOR",
+        "MOVE_SEISMIC_TOSS"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_EXTREME_SPEED",
+        "MOVE_EXPLOSION",
+        "MOVE_BELLY_DRUM"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_SPIDER_WEB",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PERISH_SONG"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_SPIKES",
+        "MOVE_EXPLOSION",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_ENDEAVOR",
+        "MOVE_DRAGON_RAGE"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_QUICK_CLAW",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPORE",
+        "MOVE_TRANSFORM",
+        "MOVE_EXPLOSION",
+        "MOVE_REFLECT"
+      ],
+      "Ability": "ABILITY_OWN_TEMPO",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

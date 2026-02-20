@@ -1,0 +1,97 @@
+{
+  "Species": [
+    "SPECIES_CUTIEFLY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SWITCHEROO",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_BUG_BUZZ",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_QUIVER_DANCE",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AROMATIC_MIST",
+    "MOVE_BATON_PASS",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IMPRISON",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_MOONBLAST",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STICKY_WEB",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAILWIND",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": []
+}

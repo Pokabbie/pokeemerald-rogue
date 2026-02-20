@@ -1,0 +1,40 @@
+{
+  "Species": [
+    "SPECIES_DITTO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TRANSFORM",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_METAL_POWDER",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_TRANSFORM"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_METAL_POWDER",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

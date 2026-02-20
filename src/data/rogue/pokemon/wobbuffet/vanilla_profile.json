@@ -1,0 +1,76 @@
+{
+  "Species": [
+    "SPECIES_WOBBUFFET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DESTINY_BOND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ENCORE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_ENCORE",
+        "MOVE_MIRROR_COAT",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_MIRROR_COAT",
+        "MOVE_ENCORE",
+        "MOVE_SAFEGUARD"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_SAFEGUARD",
+        "MOVE_ENCORE",
+        "MOVE_DESTINY_BOND"
+      ],
+      "Ability": "ABILITY_SHADOW_TAG",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UBERS"
+      ]
+    }
+  ]
+}

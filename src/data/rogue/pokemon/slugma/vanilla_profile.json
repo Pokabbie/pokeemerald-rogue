@@ -1,0 +1,78 @@
+{
+  "Species": [
+    "SPECIES_SLUGMA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_ARMOR",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROLLOUT",
+    "MOVE_SECRET_POWER",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": []
+}

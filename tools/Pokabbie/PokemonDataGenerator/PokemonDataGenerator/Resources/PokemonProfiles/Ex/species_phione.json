@@ -1,5 +1,5 @@
 {
-  "Species": "SPECIES_PHIONE",
+  "Species": [ "SPECIES_PHIONE" ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_WATER_GUN",
