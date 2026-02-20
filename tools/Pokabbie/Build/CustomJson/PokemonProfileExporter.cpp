@@ -385,7 +385,7 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 			lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << exportSuffix << ",\n";
 			lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << exportSuffix << ",\n";
 			lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << exportSuffix << ",\n";
-			lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << exportSuffix << ",\n";
+			lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << exportSuffix << "),\n";
 			lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << exportSuffix << ",\n";
 			lowerBlock << "\t},\n";
 		}
