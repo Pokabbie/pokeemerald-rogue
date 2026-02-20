@@ -400,8 +400,10 @@ const union AnimCmd *const gAnims_MonPic[] =
 
 #ifdef ROGUE_EXPANSION
 #include "data/rogue/pokemon_expansion_profiles.h"
+#include "data/rogue/pokemon_expansion_profiles_revised.h"
 #else
 #include "data/rogue/pokemon_vanilla_profiles.h"
+#include "data/rogue/pokemon_vanilla_profiles_revised.h"
 #endif
 
 #include "data/rogue/battle_music.h"

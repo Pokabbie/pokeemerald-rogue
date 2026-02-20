@@ -78,6 +78,8 @@ static std::map<std::string, ExporterFunc> CreateExportMap()
     return mapping;
 }
 
+std::string g_ExportFilePath;
+
 int main(int argc, char* argv[])
 {
     std::string inputArgs = "customjson ";
@@ -97,6 +99,8 @@ int main(int argc, char* argv[])
     std::string exporter(argv[1]);
     std::string sourceFilePath(argv[2]);
     std::string exportFilePath(argv[3]);
+
+    g_ExportFilePath = exportFilePath;
 
     auto exporterIt = validExporters.find(exporter);
 
