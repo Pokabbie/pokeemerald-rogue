@@ -5,6 +5,8 @@
 #include <sstream>
 #include <unordered_set>
 
+extern std::string g_ExportFilePath;
+
 struct CompetitiveSet
 {
 	std::vector<std::string> m_Moves;
