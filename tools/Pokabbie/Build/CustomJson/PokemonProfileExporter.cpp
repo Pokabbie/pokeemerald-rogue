@@ -5,6 +5,7 @@
 #include <sstream>
 #include <unordered_set>
 
+extern std::string g_ExportFilePath;
 
 struct CompetitiveSet
 {
@@ -164,6 +165,8 @@ std::vector<PokemonProfile> GatherProfiles(std::string const& dataPath)
 
 void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData)
 {
+	std::string exportSuffix = strutil::ends_with(g_ExportFilePath, "_revised.h") ? "_Revised" : "";
+
 	std::vector<PokemonProfile> profiles = GatherProfiles(dataPath);
 
 	std::stringstream upperBlock;
@@ -253,21 +256,21 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 		}
 	}
 
-	upperBlock << "u16 const gRoguePokemonMoveUsages[MOVES_COUNT] = \n{\n";
+	upperBlock << "u16 const gRoguePokemonMoveUsages" << exportSuffix << "[MOVES_COUNT] = \n{\n";
 
 	for (auto it : moveCount)
 		upperBlock << "\t[" << it.first << "] = " << it.second << ",\n";
 
 	upperBlock << "};\n\n";
 
-	upperBlock << "u16 const gRoguePokemonSpecialMoveUsages[MOVES_COUNT] = \n{\n";
+	upperBlock << "u16 const gRoguePokemonSpecialMoveUsages" << exportSuffix << "[MOVES_COUNT] = \n{\n";
 
 	for (auto it : specialMoveCount)
 		upperBlock << "\t[" << it.first << "] = " << it.second << ",\n";
 
 	upperBlock << "};\n\n";
 
-	upperBlock << "u16 const gRoguePokemonHeldItemUsages[ITEMS_COUNT] = \n{\n";
+	upperBlock << "u16 const gRoguePokemonHeldItemUsages" << exportSuffix << "[ITEMS_COUNT] = \n{\n";
 
 	for (auto it : heldItemCount)
 		upperBlock << "\t[" << it.first << "] = " << it.second << ",\n";
@@ -276,7 +279,7 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 
 	// Pokemon Profiles
 	//
-	lowerBlock << "struct RoguePokemonProfile const gRoguePokemonProfiles[NUM_SPECIES] = \n{\n";
+	lowerBlock << "struct RoguePokemonProfile const gRoguePokemonProfiles" << exportSuffix << "[NUM_SPECIES] = \n{\n";
 
 	for(PokemonProfile const& profile : profiles)
 	{
@@ -289,16 +292,16 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 				sourceTiers.insert(FormatKeyword(tier));
 		}
 
-		upperBlock << "#ifdef APPEND_MON_FLAGS_" << profile.m_Species[0] << "\n";
+		upperBlock << "#ifdef APPEND_MON_FLAGS_" << profile.m_Species[0] << exportSuffix << "\n";
 
-		upperBlock << "#define MON_FLAGS_" << profile.m_Species[0] << " (APPEND_MON_FLAGS_" << profile.m_Species[0]; // allow easily appending flags
+		upperBlock << "#define MON_FLAGS_" << profile.m_Species[0] << exportSuffix << " (APPEND_MON_FLAGS_" << profile.m_Species[0] << exportSuffix; // allow easily appending flags
 		for(std::string const& tier : sourceTiers)
 			upperBlock << " | MON_FLAGS_" << tier;
 		upperBlock << ")\n";
 
 		upperBlock << "#else\n";
 
-		upperBlock << "#define MON_FLAGS_" << profile.m_Species[0] << " (0";
+		upperBlock << "#define MON_FLAGS_" << profile.m_Species[0] << exportSuffix << " (0";
 		for (std::string const& tier : sourceTiers)
 			upperBlock << " | MON_FLAGS_" << tier;
 		upperBlock << ")\n";
@@ -306,7 +309,7 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 		upperBlock << "#endif\n\n";
 
 		// Level moves
-		upperBlock << "static struct LevelUpMove const sLevelUpMoves_" << profile.m_Species[0] << "[] = \n{\n";
+		upperBlock << "static struct LevelUpMove const sLevelUpMoves_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
 		for(LevelUpMove const& move : profile.m_LevelUpMoves)
 		{
 			upperBlock << "\t{ .move=" << move.m_Move << ", .level=" << move.m_Level << " },\n";
@@ -315,7 +318,7 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 		upperBlock << "};\n\n";
 
 		// Tutor moves
-		upperBlock << "static u16 const sTutorMoves_" << profile.m_Species[0] << "[] = \n{\n";
+		upperBlock << "static u16 const sTutorMoves_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
 		for(std::string const& move : profile.m_TutorMoves)
 		{
 			upperBlock << "\t" << move << ",\n";
@@ -324,7 +327,7 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 		upperBlock << "};\n\n";
 
 		// Comp sets
-		upperBlock << "static struct RoguePokemonCompetitiveSet const sCompetitiveSets_" << profile.m_Species[0] << "[] = \n{\n";
+		upperBlock << "static struct RoguePokemonCompetitiveSet const sCompetitiveSets_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
 		for(CompetitiveSet const& compSet : profile.m_CompetitiveSets)
 		{
 			upperBlock << "\t{\n";
@@ -367,23 +370,23 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 
 		// Add to species lookup below
 		lowerBlock << "\t[" << profile.m_Species[0] << "] = \n\t{\n";
-		lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << ",\n";
-		lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << ",\n";
-		lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << ",\n";
-		lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << "),\n";
-		lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << ",\n";
+		lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << exportSuffix << ",\n";
+		lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << exportSuffix << ",\n";
+		lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << exportSuffix << ",\n";
+		lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << exportSuffix << "),\n";
+		lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << exportSuffix << ",\n";
 		lowerBlock << "\t},\n";
 
 
 		// Attach redirected species info too
 		for (size_t i = 1; i < profile.m_Species.size(); ++i)
 		{
-			lowerBlock << "\t[{profile.Species[" << i << "] = \n\t{\n";
-			lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << ",\n";
-			lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << ",\n";
-			lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << ",\n";
-			lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << ",\n";
-			lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << ",\n";
+			lowerBlock << "\t[" << profile.m_Species[i] << "] = \n\t{\n";
+			lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << exportSuffix << ",\n";
+			lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << exportSuffix << ",\n";
+			lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << exportSuffix << ",\n";
+			lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << exportSuffix << "),\n";
+			lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << exportSuffix << ",\n";
 			lowerBlock << "\t},\n";
 		}
 	}
