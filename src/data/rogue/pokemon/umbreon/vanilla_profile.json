@@ -1,0 +1,157 @@
+{
+  "Species": [
+    "SPECIES_UMBREON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_CURSE",
+    "MOVE_CUT",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_NIGHTMARE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC",
+    "MOVE_WISH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_BATON_PASS",
+        "MOVE_TAUNT",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HELPING_HAND",
+        "MOVE_BATON_PASS",
+        "MOVE_CURSE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MEAN_LOOK",
+        "MOVE_TOXIC",
+        "MOVE_TAUNT",
+        "MOVE_MOONLIGHT"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_BATON_PASS",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SYNCHRONIZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "Species": [
+    "SPECIES_ARROKUDA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_DIVE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACUPRESSURE",
+    "MOVE_AGILITY",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_CRUNCH",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRILL_RUN",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_FANG",
+    "MOVE_LIQUIDATION",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SLASH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THRASH",
+    "MOVE_THROAT_CHOP",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL"
+  ],
+  "CompetitiveSets": []
+}

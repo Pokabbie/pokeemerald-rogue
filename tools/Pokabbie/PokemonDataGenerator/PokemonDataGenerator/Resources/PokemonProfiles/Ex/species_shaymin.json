@@ -1,5 +1,5 @@
 {
-  "Species": "SPECIES_SHAYMIN",
+  "Species": [ "SPECIES_SHAYMIN" ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_GROWTH",

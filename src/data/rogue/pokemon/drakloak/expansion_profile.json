@@ -1,0 +1,120 @@
+{
+  "Species": [
+    "SPECIES_DRAKLOAK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_INFESTATION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LOCK_ON",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_HEX",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DOUBLE_HIT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_PHANTOM_FORCE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_DRAGON_RUSH",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 66
+    },
+    {
+      "Move": "MOVE_LAST_RESORT",
+      "Level": 72
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_BATON_PASS",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_HELPING_HAND",
+    "MOVE_HEX",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_OUTRAGE",
+    "MOVE_PHANTOM_FORCE",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_U_TURN",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": []
+}

@@ -120,6 +120,7 @@
     <ClCompile Include="DecorationExporter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NicknameExporter.cpp" />
+    <ClCompile Include="PokemonProfileExporter.cpp" />
     <ClCompile Include="QuestExporter.cpp" />
     <ClCompile Include="TrainerExporter.cpp" />
   </ItemGroup>

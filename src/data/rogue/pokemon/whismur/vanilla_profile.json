@@ -1,0 +1,99 @@
+{
+  "Species": [
+    "SPECIES_WHISMUR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SLEEP_TALK",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_COUNTER",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_EXTRASENSORY",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROLLOUT",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMELLING_SALT",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAKE_DOWN",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": []
+}

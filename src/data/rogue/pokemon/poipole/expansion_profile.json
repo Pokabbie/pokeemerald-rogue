@@ -1,0 +1,88 @@
+{
+  "Species": [
+    "SPECIES_POIPOLE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_FELL_STINGER",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_VENOSHOCK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_VENOM_DRENCH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CHARM",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HELPING_HAND",
+    "MOVE_IRON_TAIL",
+    "MOVE_NASTY_PLOT",
+    "MOVE_PIN_MISSILE",
+    "MOVE_POISON_JAB",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_UPROAR",
+    "MOVE_VENOM_DRENCH",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": []
+}

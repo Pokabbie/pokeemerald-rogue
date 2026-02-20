@@ -1,0 +1,102 @@
+{
+  "Species": [
+    "SPECIES_KUBFU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_DYNAMIC_PUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_FOCUS_PUNCH",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_IRON_HEAD",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METAL_CLAW",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_U_TURN",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": []
+}

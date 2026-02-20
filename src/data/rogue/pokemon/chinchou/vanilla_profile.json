@@ -1,0 +1,132 @@
+{
+  "Species": [
+    "SPECIES_CHINCHOU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLAIL",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HAIL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SCREECH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_VOLT_ABSORB",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    }
+  ]
+}

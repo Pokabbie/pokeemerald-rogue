@@ -1,0 +1,85 @@
+{
+  "Species": [
+    "SPECIES_TRANQUILL"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SKY_ATTACK",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_AIR_SLASH",
+    "MOVE_ATTRACT",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_HEAT_WAVE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROUND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": []
+}

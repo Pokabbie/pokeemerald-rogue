@@ -1,0 +1,159 @@
+{
+  "Species": [
+    "SPECIES_SPOINK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SPLASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYWAVE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MAGIC_COAT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SNORE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_BOUNCE",
+      "Level": 43
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENDURE",
+    "MOVE_EXTRASENSORY",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC",
+    "MOVE_TRICK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_TAUNT",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THIEF",
+        "MOVE_PSYCHIC",
+        "MOVE_ICY_WIND",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_THICK_FAT",
+      "Item": null,
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    }
+  ]
+}

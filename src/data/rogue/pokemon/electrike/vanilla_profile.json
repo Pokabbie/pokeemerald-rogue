@@ -1,0 +1,88 @@
+{
+  "Species": [
+    "SPECIES_ELECTRIKE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 41
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HEADBUTT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": []
+}

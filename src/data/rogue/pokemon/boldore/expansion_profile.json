@@ -1,0 +1,92 @@
+{
+  "Species": [
+    "SPECIES_BOLDORE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POWER_GEM",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MUD_SLAP",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SMACK_DOWN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_PRESS",
+    "MOVE_BULLDOZE",
+    "MOVE_EARTH_POWER",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH_CANNON",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_METEOR_BEAM",
+    "MOVE_POWER_GEM",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROUND",
+    "MOVE_SAND_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_STOMPING_TANTRUM",
+    "MOVE_STONE_EDGE",
+    "MOVE_SUBSTITUTE"
+  ],
+  "CompetitiveSets": []
+}

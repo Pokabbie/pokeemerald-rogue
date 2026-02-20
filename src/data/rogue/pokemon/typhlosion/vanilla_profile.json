@@ -1,0 +1,137 @@
+{
+  "Species": [
+    "SPECIES_TYPHLOSION"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 60
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BLAST_BURN",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_COUNTER",
+    "MOVE_CUT",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROLLOUT",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BLAST_BURN",
+        "MOVE_SUBSTITUTE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ENDURE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN31V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_SUNNY_DAY",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "Species": [
+    "SPECIES_DUSTOX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PSYBEAM",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_LIGHT_SCREEN",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SILVER_WIND",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 38
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_LIGHT_SCREEN",
+        "MOVE_MOONLIGHT",
+        "MOVE_WHIRLWIND",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONLIGHT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC",
+        "MOVE_WHIRLWIND"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_AERIAL_ACE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SHIELD_DUST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

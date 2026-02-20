@@ -1,0 +1,116 @@
+{
+  "Species": [
+    "SPECIES_PAWMO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ARM_THRUST",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 3
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_NUZZLE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_DIG",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 52
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BATON_PASS",
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CHARM",
+    "MOVE_COACHING",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENCORE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_METAL_CLAW",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPER_FANG",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": []
+}

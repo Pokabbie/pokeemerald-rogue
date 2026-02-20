@@ -1,0 +1,200 @@
+{
+  "Species": [
+    "SPECIES_RAIKOU"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_THUNDER",
+      "Level": 71
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 81
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_CUT",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT",
+        "MOVE_CALM_MIND",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_CALM_MIND",
+        "MOVE_THUNDERBOLT",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_CALM_MIND",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_ICE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN31V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_CALM_MIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    }
+  ]
+}

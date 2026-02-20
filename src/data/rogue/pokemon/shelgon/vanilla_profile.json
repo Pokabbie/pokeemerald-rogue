@@ -1,0 +1,176 @@
+{
+  "Species": [
+    "SPECIES_SHELGON"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 56
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 69
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 78
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CUT",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLLOUT",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TOXIC",
+    "MOVE_WISH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_BRICK_BREAK",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_BRICK_BREAK",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_PROTECT",
+        "MOVE_ROAR",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WISH",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

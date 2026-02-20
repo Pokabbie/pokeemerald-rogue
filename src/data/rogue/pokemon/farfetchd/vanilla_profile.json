@@ -1,0 +1,152 @@
+{
+  "Species": [
+    "SPECIES_FARFETCHD"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FURY_CUTTER",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_FALSE_SWIPE",
+      "Level": 46
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_CURSE",
+    "MOVE_CUT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLAIL",
+    "MOVE_FLY",
+    "MOVE_FORESIGHT",
+    "MOVE_FRUSTRATION",
+    "MOVE_GUST",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MIRROR_MOVE",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ATTRACT",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_AGILITY",
+        "MOVE_BATON_PASS"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAIL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_FLAIL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_SLASH",
+        "MOVE_AGILITY",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INNER_FOCUS",
+      "Item": "ITEM_STICK",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

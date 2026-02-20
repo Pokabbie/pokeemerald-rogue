@@ -1,0 +1,73 @@
+{
+  "Species": [
+    "SPECIES_CHARCADET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 32
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CONFUSE_RAY",
+    "MOVE_DESTINY_BOND",
+    "MOVE_DISABLE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_NIGHT_SHADE",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": []
+}

@@ -1,0 +1,113 @@
+{
+  "Species": [
+    "SPECIES_LILEEP"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONSTRICT",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_INGRAIN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ANCIENT_POWER",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BARRIER",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MIMIC",
+    "MOVE_MIRROR_COAT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RECOVER",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RECOVER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SUCTION_CUPS",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    }
+  ]
+}

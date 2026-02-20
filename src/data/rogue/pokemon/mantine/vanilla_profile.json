@@ -1,0 +1,197 @@
+{
+  "Species": [
+    "SPECIES_MANTINE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_WATER_PULSE",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_HAIL",
+    "MOVE_HAZE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_MUD_SPORT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TOXIC",
+    "MOVE_TWISTER",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_ELECTRIC",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RAIN_DANCE",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU",
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_HAZE",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_TOXIC",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_TOXIC",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_TOXIC",
+        "MOVE_REST",
+        "MOVE_HAZE"
+      ],
+      "Ability": "ABILITY_SWIFT_SWIM",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    }
+  ]
+}

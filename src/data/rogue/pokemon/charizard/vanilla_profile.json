@@ -1,0 +1,234 @@
+{
+  "Species": [
+    "SPECIES_CHARIZARD"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_DRAGON_RAGE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 64
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BELLY_DRUM",
+    "MOVE_BLAST_BURN",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_COUNTER",
+    "MOVE_CUT",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLY",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_TAIL",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BELLY_DRUM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BLAST_BURN",
+        "MOVE_SUBSTITUTE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN31V1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_AERIAL_ACE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FIRE_BLAST"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_DRAGON_CLAW",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_CHARCOAL",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE",
+        "MOVE_FOCUS_PUNCH"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_HASTY",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_BELLY_DRUM",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_LONELY",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FOCUS_PUNCH"
+      ],
+      "Ability": "ABILITY_BLAZE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

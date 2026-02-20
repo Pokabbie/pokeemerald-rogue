@@ -1,0 +1,89 @@
+{
+  "Species": [
+    "SPECIES_VULPIX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_GRUDGE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_FIRE_SPIN",
+      "Level": 41
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_DIG",
+    "MOVE_DISABLE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAINT_ATTACK",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAIL",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HOWL",
+    "MOVE_HYPNOSIS",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SPITE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": []
+}

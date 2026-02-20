@@ -1,0 +1,95 @@
+{
+  "Species": [
+    "SPECIES_POOCHYENA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_THIEF",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ASTONISH",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_COUNTER",
+    "MOVE_COVET",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_LEER",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_POISON_FANG",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC",
+    "MOVE_YAWN"
+  ],
+  "CompetitiveSets": []
+}

@@ -1,0 +1,99 @@
+{
+  "Species": [
+    "SPECIES_RALTS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_TELEPORT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_IMPRISON",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FUTURE_SIGHT",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_HYPNOSIS",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_DREAM_EATER",
+      "Level": 46
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DESTINY_BOND",
+    "MOVE_DISABLE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MEAN_LOOK",
+    "MOVE_MEMENTO",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_NIGHTMARE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": []
+}

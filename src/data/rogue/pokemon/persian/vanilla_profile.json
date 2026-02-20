@@ -1,0 +1,155 @@
+{
+  "Species": [
+    "SPECIES_PERSIAN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PAY_DAY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 59
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_CUT",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPNOSIS",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_NIGHTMARE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3RU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SHADOW_BALL",
+        "MOVE_FAKE_OUT"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_RETURN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_IRON_TAIL"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_RETURN",
+        "MOVE_SHADOW_BALL",
+        "MOVE_HYPNOSIS"
+      ],
+      "Ability": "ABILITY_LIMBER",
+      "Item": "ITEM_LIECHI_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    }
+  ]
+}

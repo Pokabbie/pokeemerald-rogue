@@ -1,0 +1,81 @@
+{
+  "Species": [
+    "SPECIES_SHROOMISH"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_LEECH_SEED",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SPORE",
+      "Level": 54
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": []
+}

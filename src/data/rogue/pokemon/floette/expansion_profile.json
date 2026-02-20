@@ -1,0 +1,108 @@
+{
+  "Species": [
+    "SPECIES_FLOETTE",
+    "SPECIES_FLOETTE_YELLOW_FLOWER",
+    "SPECIES_FLOETTE_ORANGE_FLOWER",
+    "SPECIES_FLOETTE_BLUE_FLOWER",
+    "SPECIES_FLOETTE_WHITE_FLOWER",
+    "SPECIES_FLOETTE_ETERNAL_FLOWER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VINE_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAIRY_WIND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_PETAL_BLIZZARD",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BATON_PASS",
+    "MOVE_CALM_MIND",
+    "MOVE_CHARM",
+    "MOVE_CHILLING_WATER",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DISARMING_VOICE",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_METRONOME",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_PETAL_BLIZZARD",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SKILL_SWAP",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TERA_BLAST",
+    "MOVE_TRAILBLAZE",
+    "MOVE_TRICK"
+  ],
+  "CompetitiveSets": []
+}

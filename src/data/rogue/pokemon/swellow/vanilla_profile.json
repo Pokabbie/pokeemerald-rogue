@@ -1,0 +1,108 @@
+{
+  "Species": [
+    "SPECIES_SWELLOW"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_AERIAL_ACE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_COUNTER",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AERIAL_ACE",
+        "MOVE_RETURN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_FACADE"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_FIGHTING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_ENDEAVOR",
+        "MOVE_BATON_PASS",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_GUTS",
+      "Item": "ITEM_LIECHI_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

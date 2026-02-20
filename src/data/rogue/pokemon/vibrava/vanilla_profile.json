@@ -1,0 +1,113 @@
+{
+  "Species": [
+    "SPECIES_VIBRAVA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FAINT_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_HYPER_BEAM",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEEL_WING",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_QUICK_ATTACK"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEVITATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    }
+  ]
+}

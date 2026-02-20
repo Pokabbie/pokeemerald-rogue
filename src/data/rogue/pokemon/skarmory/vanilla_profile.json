@@ -1,0 +1,154 @@
+{
+  "Species": [
+    "SPECIES_SKARMORY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_STEEL_WING",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_METAL_SOUND",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_CUT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DRILL_PECK",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PURSUIT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC",
+    "MOVE_WHIRLWIND"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UBERS"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_DRILL_PECK",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GROUND",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_ROAR",
+        "MOVE_PROTECT",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CAREFUL",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU",
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_WHIRLWIND",
+        "MOVE_TOXIC",
+        "MOVE_PURSUIT"
+      ],
+      "Ability": "ABILITY_KEEN_EYE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UBERS",
+        "GEN3UBERS"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "Species": [
+    "SPECIES_ILLUMISE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_WISH",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_COVET",
+      "Level": 37
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_COUNTER",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GROWTH",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SILVER_WIND",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_BATON_PASS",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_WISH",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_OBLIVIOUS",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

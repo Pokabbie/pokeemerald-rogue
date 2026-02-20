@@ -1,0 +1,95 @@
+{
+  "Species": [
+    "SPECIES_PIDGEOTTO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_TWISTER",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_TAILWIND",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_MIRROR_MOVE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_AIR_SLASH",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_HURRICANE",
+      "Level": 62
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_CONFIDE",
+    "MOVE_DEFOG",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROOST",
+    "MOVE_ROUND",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAILWIND",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR",
+    "MOVE_WORK_UP"
+  ],
+  "CompetitiveSets": []
+}

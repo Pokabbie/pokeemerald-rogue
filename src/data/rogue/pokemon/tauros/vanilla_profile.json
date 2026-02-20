@@ -1,0 +1,149 @@
+{
+  "Species": [
+    "SPECIES_TAUROS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_HORN_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_PURSUIT",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_THUNDER",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_RETURN",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_SUBSTITUTE",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN31V1"
+      ]
+    }
+  ]
+}

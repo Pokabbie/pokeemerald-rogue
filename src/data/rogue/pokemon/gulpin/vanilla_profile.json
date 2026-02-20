@@ -1,0 +1,100 @@
+{
+  "Species": [
+    "SPECIES_GULPIN"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_SLUDGE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 34
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 39
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_ARMOR",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_COUNTER",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DREAM_EATER",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_NIGHTMARE",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROLLOUT",
+    "MOVE_SECRET_POWER",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SMOG",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": []
+}

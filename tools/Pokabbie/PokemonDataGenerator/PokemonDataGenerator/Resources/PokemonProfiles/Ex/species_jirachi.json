@@ -1,5 +1,5 @@
 {
-  "Species": "SPECIES_JIRACHI",
+  "Species": [ "SPECIES_JIRACHI" ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_CONFUSION",

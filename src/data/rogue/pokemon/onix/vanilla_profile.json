@@ -1,0 +1,155 @@
+{
+  "Species": [
+    "SPECIES_ONIX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_ROCK_THROW",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SANDSTORM",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_IRON_TAIL",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_SAND_TOMB",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLOCK",
+    "MOVE_BODY_SLAM",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FLAIL",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_TAUNT",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_EXPLOSION",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SUBSTITUTE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ROCK_SLIDE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_ROCK_HEAD",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3LC"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_EXPLOSION",
+        "MOVE_BLOCK",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_STURDY",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

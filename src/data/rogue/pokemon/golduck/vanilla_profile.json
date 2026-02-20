@@ -1,0 +1,144 @@
+{
+  "Species": [
+    "SPECIES_GOLDUCK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_SPORT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_PSYCH_UP",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_CALM_MIND",
+    "MOVE_COUNTER",
+    "MOVE_CROSS_CHOP",
+    "MOVE_DIG",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_HAIL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CLOUD_NINE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PSYCHIC",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_CLOUD_NINE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_CROSS_CHOP",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CLOUD_NINE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MILD",
+      "HiddenPower": "TYPE_ELECTRIC",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

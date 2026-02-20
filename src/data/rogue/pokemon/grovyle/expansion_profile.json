@@ -1,0 +1,125 @@
+{
+  "Species": [
+    "SPECIES_GROVYLE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEAFAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 9
+    },
+    {
+      "Move": "MOVE_DETECT",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_QUICK_GUARD",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DOUBLE_TEAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_LEAF_BLADE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LEAF_STORM",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ABSORB",
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AGILITY",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLET_SEED",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_DRAGON_BREATH",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLING",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FURY_CUTTER",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASS_PLEDGE",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LEAF_STORM",
+    "MOVE_LEECH_SEED",
+    "MOVE_LOW_KICK",
+    "MOVE_LOW_SWEEP",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLASH",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_SYNTHESIS",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VACUUM_WAVE",
+    "MOVE_WORRY_SEED",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": []
+}

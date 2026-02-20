@@ -1,0 +1,130 @@
+{
+  "Species": [
+    "SPECIES_ARTICUNO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_MIND_READER",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_REFLECT",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_BLIZZARD",
+      "Level": 73
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 85
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_BLIZZARD",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HAIL",
+    "MOVE_HEAL_BELL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_PROTECT",
+        "MOVE_SUBSTITUTE",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_REST",
+        "MOVE_HEAL_BELL",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "Species": [
+    "SPECIES_FERALIGATR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_RAGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SLASH",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 47
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_COUNTER",
+    "MOVE_CUT",
+    "MOVE_DIG",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_HAIL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_HYDRO_PUMP"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_FOCUS_PUNCH",
+        "MOVE_SURF",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    }
+  ]
+}

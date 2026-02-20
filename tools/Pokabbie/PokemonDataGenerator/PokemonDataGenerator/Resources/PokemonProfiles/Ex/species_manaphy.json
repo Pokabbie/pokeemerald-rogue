@@ -1,5 +1,5 @@
 {
-  "Species": "SPECIES_MANAPHY",
+  "Species": [ "SPECIES_MANAPHY" ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_HEART_SWAP",

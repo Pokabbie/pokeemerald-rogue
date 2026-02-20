@@ -1,0 +1,105 @@
+{
+  "Species": [
+    "SPECIES_LUXIO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_SHOCK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_VOLT_SWITCH",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DISCHARGE",
+      "Level": 54
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 68
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_CONFUSE_RAY",
+    "MOVE_CRUNCH",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_EERIE_IMPULSE",
+    "MOVE_ELECTRIC_TERRAIN",
+    "MOVE_ELECTRO_BALL",
+    "MOVE_ELECTROWEB",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_FANG",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_FANG",
+    "MOVE_LIGHT_SCREEN",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_ROAR",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNARL",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_FANG",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE"
+  ],
+  "CompetitiveSets": []
+}

@@ -1,0 +1,101 @@
+{
+  "Species": [
+    "SPECIES_TAROUNTULA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_BLOCK",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_STICKY_WEB",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_GASTRO_ACID",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_CIRCLE_THROW",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_THROAT_CHOP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SKITTER_SMACK",
+      "Level": 44
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BODY_SLAM",
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_BULLET_SEED",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FIRST_IMPRESSION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEECH_LIFE",
+    "MOVE_LUNGE",
+    "MOVE_MEMENTO",
+    "MOVE_POISON_JAB",
+    "MOVE_POUNCE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SPIKES",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SUNNY_DAY",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THROAT_CHOP",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TRAILBLAZE",
+    "MOVE_X_SCISSOR"
+  ],
+  "CompetitiveSets": []
+}

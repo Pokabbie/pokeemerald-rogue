@@ -1,0 +1,169 @@
+{
+  "Species": [
+    "SPECIES_LAPRAS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_PERISH_SONG",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SAFEGUARD",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_SHEER_COLD",
+      "Level": 55
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CURSE",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DREAM_EATER",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FORESIGHT",
+    "MOVE_FRUSTRATION",
+    "MOVE_HAIL",
+    "MOVE_HEAL_BELL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HORN_DRILL",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_NIGHTMARE",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFRESH",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_THUNDER",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TICKLE",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_RETURN",
+        "MOVE_SURF",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_SASSY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_HEAL_BELL"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDERBOLT",
+        "MOVE_TOXIC",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "Species": [
+    "SPECIES_MAKUHITA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SAND_ATTACK",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_ARM_THRUST",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_VITAL_THROW",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 22
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_SMELLING_SALT",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_BELLY_DRUM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_ENDURE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_REVERSAL",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_COUNTER",
+    "MOVE_CROSS_CHOP",
+    "MOVE_DETECT",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAINT_ATTACK",
+    "MOVE_FIRE_PUNCH",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FORESIGHT",
+    "MOVE_FRUSTRATION",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_PUNCH",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_METRONOME",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_REVENGE",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": []
+}

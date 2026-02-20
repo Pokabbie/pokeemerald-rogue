@@ -1,0 +1,147 @@
+{
+  "Species": [
+    "SPECIES_QUAGSIRE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SLAM",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_AMNESIA",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_YAWN",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 61
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_COUNTER",
+    "MOVE_CURSE",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_DYNAMIC_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_HAIL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_PUNCH",
+    "MOVE_IRON_TAIL",
+    "MOVE_MEGA_KICK",
+    "MOVE_MEGA_PUNCH",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_ROLLOUT",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_COUNTER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_TOXIC",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CURSE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ICE_BEAM",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BRAVE",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_REST",
+        "MOVE_ICE_BEAM",
+        "MOVE_CURSE"
+      ],
+      "Ability": "ABILITY_WATER_ABSORB",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_RELAXED",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "Species": [
+    "SPECIES_CASTFORM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_POWDER_SNOW",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SUNNY_DAY",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HAIL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WEATHER_BALL",
+      "Level": 30
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_FUTURE_SIGHT",
+    "MOVE_HAIL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_RETURN",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TOXIC",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FORECAST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_ICE_BEAM",
+        "MOVE_THUNDER_WAVE"
+      ],
+      "Ability": "ABILITY_FORECAST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_THUNDERBOLT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_FORECAST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_THUNDER",
+        "MOVE_ICE_BEAM",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_FORECAST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_ICE_BEAM",
+        "MOVE_SUNNY_DAY"
+      ],
+      "Ability": "ABILITY_FORECAST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_WEATHER_BALL",
+        "MOVE_THUNDERBOLT",
+        "MOVE_THUNDER_WAVE",
+        "MOVE_HAIL"
+      ],
+      "Ability": "ABILITY_FORECAST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

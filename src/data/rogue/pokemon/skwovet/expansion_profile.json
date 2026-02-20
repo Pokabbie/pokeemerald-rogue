@@ -1,0 +1,92 @@
+{
+  "Species": [
+    "SPECIES_SKWOVET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_STUFF_CHEEKS",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_REST",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_COUNTER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_SUPER_FANG",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BELCH",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AMNESIA",
+    "MOVE_BELLY_DRUM",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_CRUNCH",
+    "MOVE_CURSE",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLING",
+    "MOVE_GYRO_BALL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_LAST_RESORT",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROLLOUT",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUPER_FANG",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_TRAILBLAZE"
+  ],
+  "CompetitiveSets": []
+}

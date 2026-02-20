@@ -1,0 +1,114 @@
+{
+  "Species": [
+    "SPECIES_QUILAVA"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOKESCREEN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DEFENSE_CURL",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SWIFT",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_FLAME_CHARGE",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_LAVA_PLUME",
+      "Level": 42
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_INFERNO",
+      "Level": 53
+    },
+    {
+      "Move": "MOVE_ROLLOUT",
+      "Level": 57
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 64
+    },
+    {
+      "Move": "MOVE_OVERHEAT",
+      "Level": 68
+    },
+    {
+      "Move": "MOVE_ERUPTION",
+      "Level": 75
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_COVET",
+    "MOVE_CURSE",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_KICK",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_EXTRASENSORY",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FIRE_PLEDGE",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HOWL",
+    "MOVE_IRON_HEAD",
+    "MOVE_OVERHEAT",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_REVERSAL",
+    "MOVE_ROAR",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_WILD_CHARGE",
+    "MOVE_WILL_O_WISP",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": []
+}

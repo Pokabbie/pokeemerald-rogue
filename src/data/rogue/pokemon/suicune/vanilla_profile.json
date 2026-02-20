@@ -1,0 +1,202 @@
+{
+  "Species": [
+    "SPECIES_SUICUNE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE_BEAM",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_RAIN_DANCE",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_GUST",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_MIST",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_MIRROR_COAT",
+      "Level": 61
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 71
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 81
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CALM_MIND",
+    "MOVE_CUT",
+    "MOVE_DIG",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_HAIL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_PSYCH_UP",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFLECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SANDSTORM",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_PROTECT",
+        "MOVE_ICE_BEAM",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM",
+        "MOVE_REST"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SURF",
+        "MOVE_REST",
+        "MOVE_ROAR"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_BOLD",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_SURF",
+        "MOVE_REST",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ICE_BEAM",
+        "MOVE_CALM_MIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3DOUBLESOU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUBSTITUTE",
+        "MOVE_CALM_MIND",
+        "MOVE_SURF",
+        "MOVE_ICE_BEAM"
+      ],
+      "Ability": "ABILITY_PRESSURE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

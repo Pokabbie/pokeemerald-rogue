@@ -54,6 +54,7 @@ void ExportCustomMonData_C(std::ofstream& fileStream, std::string const& dataPat
 void ExportCustomMonData_H(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 void ExportDecorationData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 void ExportDecorationData_H(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
+void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& dataPath, json const& jsonData);
 
 
 static std::map<std::string, ExporterFunc> CreateExportMap()
@@ -72,6 +73,7 @@ static std::map<std::string, ExporterFunc> CreateExportMap()
     mapping["custom_mons_h"] = ExportCustomMonData_H;
     mapping["decoration_c"] = ExportDecorationData_C;
     mapping["decoration_h"] = ExportDecorationData_H;
+    mapping["pokemonprofile_c"] = ExportPokemonProfileData_C;
 
     return mapping;
 }
@@ -115,7 +117,7 @@ int main(int argc, char* argv[])
 
     json jsonData;
 
-    if (strutil::ends_with(sourceFilePath, ".txt"))
+    if (strutil::ends_with(sourceFilePath, ".txt") || strutil::contains(sourceFilePath, "*"))
     {
         LOG_MSG("Skipping json parsing (Assuming alternative format)");
     }

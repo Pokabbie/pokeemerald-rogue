@@ -1,0 +1,32 @@
+{
+  "Species": [
+    "SPECIES_TYNAMO"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_THUNDER_WAVE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPARK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CHARGE_BEAM",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CHARGE",
+    "MOVE_CHARGE_BEAM",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_KNOCK_OFF",
+    "MOVE_TERA_BLAST",
+    "MOVE_THUNDER_WAVE"
+  ],
+  "CompetitiveSets": []
+}

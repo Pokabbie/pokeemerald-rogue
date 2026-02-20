@@ -1,0 +1,93 @@
+{
+  "Species": [
+    "SPECIES_NIDORAN_F"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_DOUBLE_KICK",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_FLATTER",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 47
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BEAT_UP",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CHARM",
+    "MOVE_COUNTER",
+    "MOVE_CUT",
+    "MOVE_DEFENSE_CURL",
+    "MOVE_DIG",
+    "MOVE_DISABLE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FOCUS_ENERGY",
+    "MOVE_FRUSTRATION",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHOCK_WAVE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SUPERSONIC",
+    "MOVE_SWAGGER",
+    "MOVE_TAKE_DOWN",
+    "MOVE_THIEF",
+    "MOVE_THUNDER",
+    "MOVE_THUNDERBOLT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": []
+}

@@ -1,0 +1,92 @@
+{
+  "Species": [
+    "SPECIES_FRIGIBAX"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_TAIL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ICY_WIND",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_ICE_BEAM",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_ICICLE_CRASH",
+      "Level": 48
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AQUA_TAIL",
+    "MOVE_AVALANCHE",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DRACO_METEOR",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_DRAGON_RUSH",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FREEZE_DRY",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICICLE_SPEAR",
+    "MOVE_ICY_WIND",
+    "MOVE_OUTRAGE",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": []
+}

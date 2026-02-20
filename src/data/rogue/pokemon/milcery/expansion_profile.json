@@ -1,0 +1,74 @@
+{
+  "Species": [
+    "SPECIES_MILCERY"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AROMATIC_MIST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_KISS",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_DRAINING_KISS",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_CHARM",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ATTRACT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_ACID_ARMOR",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DAZZLING_GLEAM",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_RECOVER",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_MISTY_TERRAIN",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_ENTRAINMENT",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BABY_DOLL_EYES",
+    "MOVE_CHARM",
+    "MOVE_DAZZLING_GLEAM",
+    "MOVE_DRAINING_KISS",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LAST_RESORT",
+    "MOVE_MISTY_TERRAIN",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STORED_POWER",
+    "MOVE_SUBSTITUTE",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": []
+}

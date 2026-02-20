@@ -1,0 +1,167 @@
+{
+  "Species": [
+    "SPECIES_ARBOK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_WRAP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GLARE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_ACID",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_STOCKPILE",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SPIT_UP",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_SWALLOW",
+      "Level": 46
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REFRESH",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_THIEF",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTHQUAKE",
+        "MOVE_GLARE",
+        "MOVE_REFRESH"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_GLARE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_EARTHQUAKE",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SLEEP_TALK"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "Species": [
+    "SPECIES_TROPIUS"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_RAZOR_LEAF",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_WHIRLWIND",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_MAGICAL_LEAF",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_BODY_SLAM",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SOLAR_BEAM",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_SYNTHESIS",
+      "Level": 47
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BULLET_SEED",
+    "MOVE_CUT",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FLY",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HEADBUTT",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_LEECH_SEED",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_NATURE_POWER",
+    "MOVE_PROTECT",
+    "MOVE_RAZOR_WIND",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STEEL_WING",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_LEECH_SEED",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_IMPISH",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_LEECH_SEED",
+        "MOVE_WHIRLWIND",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_CALM",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_RASH",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SUNNY_DAY",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_SYNTHESIS",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_FIRE",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SYNTHESIS",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_HIDDEN_POWER"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_FLYING",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "Species": [
+    "SPECIES_SPINARAK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_CONSTRICT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_NIGHT_SHADE",
+      "Level": 17
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_FURY_SWIPES",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SPIDER_WEB",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BATON_PASS",
+    "MOVE_BODY_SLAM",
+    "MOVE_DIG",
+    "MOVE_DISABLE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLASH",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_PSYBEAM",
+    "MOVE_PSYCHIC",
+    "MOVE_PURSUIT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SIGNAL_BEAM",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNORE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_SONIC_BOOM",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": []
+}

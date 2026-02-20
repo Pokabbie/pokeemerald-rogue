@@ -1,0 +1,154 @@
+{
+  "Species": [
+    "SPECIES_PINSIR"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VICE_GRIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_FOCUS_ENERGY",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BIND",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_SEISMIC_TOSS",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_REVENGE",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_GUILLOTINE",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_SUBMISSION",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULK_UP",
+    "MOVE_CUT",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAINT_ATTACK",
+    "MOVE_FALSE_SWIPE",
+    "MOVE_FLAIL",
+    "MOVE_FOCUS_PUNCH",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_ATTACK",
+    "MOVE_FURY_CUTTER",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SECRET_POWER",
+    "MOVE_SEISMIC_TOSS",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THIEF",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_RETURN"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_BUG",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HIDDEN_POWER",
+        "MOVE_EARTHQUAKE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_JOLLY",
+      "HiddenPower": "TYPE_BUG",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_EARTHQUAKE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_BUG",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ENDURE",
+        "MOVE_FLAIL",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3UU"
+      ]
+    }
+  ]
+}

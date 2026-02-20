@@ -1,0 +1,100 @@
+{
+  "Species": [
+    "SPECIES_TRUMBEAK"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PECK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_SMASH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_BLAST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_PLUCK",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_FURY_ATTACK",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SCREECH",
+      "Level": 29
+    },
+    {
+      "Move": "MOVE_DRILL_PECK",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_BULLET_SEED",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_FEATHER_DANCE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_HYPER_VOICE",
+      "Level": 45
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACROBATICS",
+    "MOVE_AERIAL_ACE",
+    "MOVE_AIR_CUTTER",
+    "MOVE_AIR_SLASH",
+    "MOVE_BOOMBURST",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_BRICK_BREAK",
+    "MOVE_BULLET_SEED",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_ECHOED_VOICE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FEATHER_DANCE",
+    "MOVE_FLAME_CHARGE",
+    "MOVE_FLY",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_VOICE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_ROCK_BLAST",
+    "MOVE_SKY_ATTACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SMACK_DOWN",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAILWIND",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_U_TURN",
+    "MOVE_UPROAR"
+  ],
+  "CompetitiveSets": []
+}

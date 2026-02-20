@@ -1,0 +1,104 @@
+{
+  "Species": [
+    "SPECIES_GLOOM"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ACID",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ABSORB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWTH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_MEGA_DRAIN",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_POISON_POWDER",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_STUN_SPORE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SLEEP_POWDER",
+      "Level": 18
+    },
+    {
+      "Move": "MOVE_GIGA_DRAIN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_MOONBLAST",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_GRASSY_TERRAIN",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_MOONLIGHT",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_PETAL_DANCE",
+      "Level": 50
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_AFTER_YOU",
+    "MOVE_BULLET_SEED",
+    "MOVE_CHARM",
+    "MOVE_ENDURE",
+    "MOVE_ENERGY_BALL",
+    "MOVE_FACADE",
+    "MOVE_FLAIL",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GRASS_KNOT",
+    "MOVE_GRASSY_GLIDE",
+    "MOVE_GRASSY_TERRAIN",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_INGRAIN",
+    "MOVE_LEAF_STORM",
+    "MOVE_LEECH_SEED",
+    "MOVE_MAGICAL_LEAF",
+    "MOVE_PETAL_BLIZZARD",
+    "MOVE_POLLEN_PUFF",
+    "MOVE_PROTECT",
+    "MOVE_RAZOR_LEAF",
+    "MOVE_REST",
+    "MOVE_SEED_BOMB",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_STRENGTH_SAP",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_SYNTHESIS",
+    "MOVE_TEETER_DANCE",
+    "MOVE_TERA_BLAST",
+    "MOVE_TICKLE",
+    "MOVE_TOXIC",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VENOSHOCK"
+  ],
+  "CompetitiveSets": []
+}

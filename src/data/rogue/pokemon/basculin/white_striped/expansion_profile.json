@@ -1,0 +1,109 @@
+{
+  "Species": [
+    "SPECIES_BASCULIN_WHITE_STRIPED"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TAIL_WHIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WATER_GUN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 4
+    },
+    {
+      "Move": "MOVE_FLAIL",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 12
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_SCARY_FACE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_SOAK",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 32
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_UPROAR",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_WAVE_CRASH",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_THRASH",
+      "Level": 48
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 52
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 56
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AGILITY",
+    "MOVE_BLIZZARD",
+    "MOVE_CHILLING_WATER",
+    "MOVE_CRUNCH",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLIP_TURN",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICE_FANG",
+    "MOVE_ICY_WIND",
+    "MOVE_LAST_RESPECTS",
+    "MOVE_LIQUIDATION",
+    "MOVE_MUD_SHOT",
+    "MOVE_MUDDY_WATER",
+    "MOVE_PROTECT",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNOWSCAPE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TERA_BLAST",
+    "MOVE_WATER_PULSE",
+    "MOVE_WATERFALL",
+    "MOVE_WHIRLPOOL",
+    "MOVE_ZEN_HEADBUTT"
+  ],
+  "CompetitiveSets": []
+}

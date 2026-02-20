@@ -1,0 +1,35 @@
+{
+  "Species": [
+    "SPECIES_COMBEE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_GUST",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 1
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BUG_BITE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_ENDEAVOR",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LUNGE",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": []
+}

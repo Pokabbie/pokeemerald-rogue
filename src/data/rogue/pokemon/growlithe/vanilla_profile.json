@@ -1,0 +1,119 @@
+{
+  "Species": [
+    "SPECIES_GROWLITHE"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROAR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 7
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 13
+    },
+    {
+      "Move": "MOVE_ODOR_SLEUTH",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_TAKE_DOWN",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_FLAME_WHEEL",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_HELPING_HAND",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_AGILITY",
+      "Level": 43
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 49
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_BODY_SLAM",
+    "MOVE_CRUNCH",
+    "MOVE_DIG",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_SPIN",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FRUSTRATION",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HOWL",
+    "MOVE_IRON_TAIL",
+    "MOVE_MIMIC",
+    "MOVE_OVERHEAT",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROAR",
+    "MOVE_ROCK_SMASH",
+    "MOVE_SAFEGUARD",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_THIEF",
+    "MOVE_THRASH",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_AGILITY",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SUBSTITUTE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_PETAYA_BERRY",
+      "Nature": "NATURE_MODEST",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_FLAMETHROWER",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_LUM_BERRY",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": "TYPE_GRASS",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3ZU"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "Species": [
+    "SPECIES_KINGLER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_VICE_GRIP",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_LEER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BUBBLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_HARDEN",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_MUD_SHOT",
+      "Level": 23
+    },
+    {
+      "Move": "MOVE_STOMP",
+      "Level": 27
+    },
+    {
+      "Move": "MOVE_GUILLOTINE",
+      "Level": 38
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_CRABHAMMER",
+      "Level": 57
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_BODY_SLAM",
+    "MOVE_CUT",
+    "MOVE_DIG",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FLAIL",
+    "MOVE_FRUSTRATION",
+    "MOVE_FURY_CUTTER",
+    "MOVE_HAIL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_KNOCK_OFF",
+    "MOVE_MIMIC",
+    "MOVE_MUD_SLAP",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_ROCK_SMASH",
+    "MOVE_ROCK_TOMB",
+    "MOVE_SECRET_POWER",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_STRENGTH",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_THIEF",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_BODY_SLAM",
+        "MOVE_KNOCK_OFF",
+        "MOVE_TOXIC",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SURF",
+        "MOVE_BLIZZARD"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ENDURE",
+        "MOVE_FLAIL",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SWORDS_DANCE"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_MUD_SHOT"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_HIDDEN_POWER",
+        "MOVE_SURF"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_SALAC_BERRY",
+      "Nature": "NATURE_NAUGHTY",
+      "HiddenPower": "TYPE_GHOST",
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3NU"
+      ]
+    }
+  ]
+}

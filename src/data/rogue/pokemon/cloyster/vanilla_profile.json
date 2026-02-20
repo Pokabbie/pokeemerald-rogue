@@ -1,0 +1,98 @@
+{
+  "Species": [
+    "SPECIES_CLOYSTER"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AURORA_BEAM",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_WITHDRAW",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PROTECT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_SPIKE_CANNON",
+      "Level": 41
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ATTRACT",
+    "MOVE_BLIZZARD",
+    "MOVE_DIVE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_EXPLOSION",
+    "MOVE_FACADE",
+    "MOVE_FRUSTRATION",
+    "MOVE_HAIL",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_ICE_BEAM",
+    "MOVE_ICY_WIND",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_RAIN_DANCE",
+    "MOVE_RAPID_SPIN",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SELF_DESTRUCT",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SNORE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SURF",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC",
+    "MOVE_WATER_PULSE"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_EXPLOSION",
+        "MOVE_SURF",
+        "MOVE_RAPID_SPIN"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPIKES",
+        "MOVE_SURF",
+        "MOVE_RAPID_SPIN",
+        "MOVE_EXPLOSION"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_TIMID",
+      "HiddenPower": null,
+      "TeraType": null,
+      "SourceTiers": [
+        "GEN3OU"
+      ]
+    }
+  ]
+}

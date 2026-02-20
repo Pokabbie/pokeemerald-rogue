@@ -1,0 +1,33 @@
+{
+  "Species": [
+    "SPECIES_KRICKETOT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GROWL",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 16
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BUG_BITE",
+    "MOVE_ENDEAVOR",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_LUNGE",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_STRUGGLE_BUG",
+    "MOVE_TERA_BLAST"
+  ],
+  "CompetitiveSets": []
+}

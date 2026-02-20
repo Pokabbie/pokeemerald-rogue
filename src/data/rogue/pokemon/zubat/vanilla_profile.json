@@ -1,0 +1,85 @@
+{
+  "Species": [
+    "SPECIES_ZUBAT"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SUPERSONIC",
+      "Level": 6
+    },
+    {
+      "Move": "MOVE_ASTONISH",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 16
+    },
+    {
+      "Move": "MOVE_WING_ATTACK",
+      "Level": 21
+    },
+    {
+      "Move": "MOVE_CONFUSE_RAY",
+      "Level": 26
+    },
+    {
+      "Move": "MOVE_AIR_CUTTER",
+      "Level": 31
+    },
+    {
+      "Move": "MOVE_MEAN_LOOK",
+      "Level": 36
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_HAZE",
+      "Level": 46
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_AERIAL_ACE",
+    "MOVE_ATTRACT",
+    "MOVE_CURSE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_DOUBLE_TEAM",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAINT_ATTACK",
+    "MOVE_FRUSTRATION",
+    "MOVE_GIGA_DRAIN",
+    "MOVE_GUST",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_MIMIC",
+    "MOVE_PROTECT",
+    "MOVE_PURSUIT",
+    "MOVE_QUICK_ATTACK",
+    "MOVE_RAIN_DANCE",
+    "MOVE_REST",
+    "MOVE_RETURN",
+    "MOVE_SECRET_POWER",
+    "MOVE_SHADOW_BALL",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SNATCH",
+    "MOVE_SNORE",
+    "MOVE_STEEL_WING",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWAGGER",
+    "MOVE_SWIFT",
+    "MOVE_TAUNT",
+    "MOVE_THIEF",
+    "MOVE_TORMENT",
+    "MOVE_TOXIC",
+    "MOVE_WHIRLWIND"
+  ],
+  "CompetitiveSets": []
+}
