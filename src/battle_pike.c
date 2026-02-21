@@ -848,26 +848,28 @@ static bool8 DoesAbilityPreventStatus(struct Pokemon *mon, u32 status)
 static bool8 DoesTypePreventStatus(u16 species, u32 status)
 {
     bool8 ret = FALSE;
+    u8 type0 = GetTypeBySpecies(species, 0, 0);
+    u8 type1 = GetTypeBySpecies(species, 1, 0);
 
     switch (status)
     {
     case STATUS1_TOXIC_POISON:
-        if (gSpeciesInfo[species].types[0] == TYPE_STEEL || gSpeciesInfo[species].types[0] == TYPE_POISON
-            || gSpeciesInfo[species].types[1] == TYPE_STEEL || gSpeciesInfo[species].types[1] == TYPE_POISON)
+        if (type0 == TYPE_STEEL || type0 == TYPE_POISON
+            || type1 == TYPE_STEEL || type1 == TYPE_POISON)
             ret = TRUE;
         break;
     case STATUS1_FREEZE:
     case STATUS1_FROSTBITE:
-        if (gSpeciesInfo[species].types[0] == TYPE_ICE || gSpeciesInfo[species].types[1] == TYPE_ICE)
+        if (type0 == TYPE_ICE || type1 == TYPE_ICE)
             ret = TRUE;
         break;
     case STATUS1_PARALYSIS:
-        if (gSpeciesInfo[species].types[0] == TYPE_GROUND || gSpeciesInfo[species].types[1] == TYPE_GROUND
-            || (B_PARALYZE_ELECTRIC >= GEN_6 && (gSpeciesInfo[species].types[0] == TYPE_ELECTRIC || gSpeciesInfo[species].types[1] == TYPE_ELECTRIC)))
+        if (type0 == TYPE_GROUND || type1 == TYPE_GROUND
+            || (B_PARALYZE_ELECTRIC >= GEN_6 && (type0 == TYPE_ELECTRIC || type1 == TYPE_ELECTRIC)))
             ret = TRUE;
         break;
     case STATUS1_BURN:
-        if (gSpeciesInfo[species].types[0] == TYPE_FIRE || gSpeciesInfo[species].types[1] == TYPE_FIRE)
+        if (type0 == TYPE_FIRE || type1 == TYPE_FIRE)
             ret = TRUE;
         break;
     case STATUS1_SLEEP:

@@ -45,6 +45,7 @@ u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level);
 void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBattleMusic* outMusic);
 
 struct RoguePokemonProfile const* Rogue_GetPokemonProfile(u32 species);
+void Rogue_GetPokemonBaseStats(u32 species, struct RoguePokemonBaseStats* outStats);
 //u16 const* Rogue_GetPokemonHeldItemUsages();
 //u16 const* Rogue_GetPokemonMoveUsages();
 //u16 const* Rogue_GetPokemonSpecialMoveUsages();

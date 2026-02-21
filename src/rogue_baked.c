@@ -1910,6 +1910,38 @@ struct RoguePokemonProfile const* Rogue_GetPokemonProfile(u32 species)
     }
 }
 
+void Rogue_GetPokemonBaseStats(u32 species, struct RoguePokemonBaseStats* outStats)
+{
+    if(Rogue_GetRevisionModeActive() && gRoguePokemonProfiles_Revised[species].baseStats.baseHP != 0)
+    {
+        memcpy(outStats, &gRoguePokemonProfiles_Revised[species].baseStats, sizeof(struct RoguePokemonBaseStats));
+    }
+    else
+    {
+        u32 i;
+
+        outStats->baseHP = gRogueSpeciesInfo[species].baseHP;
+        outStats->baseAttack = gRogueSpeciesInfo[species].baseAttack;
+        outStats->baseDefense = gRogueSpeciesInfo[species].baseDefense;
+        outStats->baseSpeed = gRogueSpeciesInfo[species].baseSpeed;
+        outStats->baseSpAttack = gRogueSpeciesInfo[species].baseSpAttack;
+        outStats->baseSpDefense = gRogueSpeciesInfo[species].baseSpDefense;
+#ifdef ROGUE_EXPANSION
+        outStats->types[0] = gRogueSpeciesInfo[species].types[0];
+        outStats->types[1] = gRogueSpeciesInfo[species].types[1];
+#else
+        outStats->types[0] = gRogueSpeciesInfo[species].type1;
+        outStats->types[1] = gRogueSpeciesInfo[species].type2;
+#endif
+
+        for(i = 0; i < NUM_ABILITY_SLOTS; ++i)
+        {
+            outStats->abilities[i] = gRogueSpeciesInfo[species].abilities[i];
+        }
+        
+    }
+}
+
 // Taken straight from daycare
 u16 Rogue_GetEggSpecies(u16 species)
 {
@@ -2044,13 +2076,8 @@ bool8 Rogue_DoesEvolveInto(u16 fromSpecies, u16 toSpecies)
 
 void Rogue_AppendSpeciesTypeFlags(u16 species, u32* outFlags)
 {
-#ifdef ROGUE_EXPANSION
-    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gSpeciesInfo[species].types[0]);
-    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gSpeciesInfo[species].types[1]);
-#else
-    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gRogueSpeciesInfo[species].type1);
-    *outFlags |= MON_TYPE_VAL_TO_FLAGS(gRogueSpeciesInfo[species].type2);
-#endif
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(GetTypeBySpecies(species, 0, 0));
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(GetTypeBySpecies(species, 1, 0));
 }
 
 u32 Rogue_GetSpeciesEvolutionChainTypeFlags(u16 species)

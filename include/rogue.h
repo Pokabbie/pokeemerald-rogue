@@ -626,11 +626,24 @@ struct RoguePokemonCompetitiveSetRules
     bool8 allowMissingMoves : 1;
 };
 
+struct RoguePokemonBaseStats
+{
+    u8 baseHP;
+    u8 baseAttack;
+    u8 baseDefense;
+    u8 baseSpeed;
+    u8 baseSpAttack;
+    u8 baseSpDefense;
+    u8 types[2];
+    u16 abilities[NUM_ABILITY_SLOTS];
+};
+
 struct RoguePokemonProfile
 {
     struct RoguePokemonCompetitiveSet const* competitiveSets;
     struct LevelUpMove const* levelUpMoves;
     u16 const* tutorMoves;
+    struct RoguePokemonBaseStats baseStats;
     u16 monFlags;
     u16 competitiveSetCount;
 };

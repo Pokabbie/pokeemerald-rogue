@@ -1498,7 +1498,7 @@ static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
 
 #define CALC_STAT(base, iv, ev, statIndex, field)               \
 {                                                               \
-    u8 baseStat = gSpeciesInfo[species].base;                   \
+    u8 baseStat = speciesStats.base;                            \
     s32 n = (((2 * baseStat + iv + ev / 4) * level) / 100) + 5; \
     n = ModifyStatByNature(nature, n, statIndex);               \
     if (B_FRIENDSHIP_BOOST == TRUE)                             \
@@ -1526,9 +1526,11 @@ void CalculateMonStats(struct Pokemon *mon)
     u8 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
+    struct RoguePokemonBaseStats speciesStats;
 
     u8 nature = GetNature(mon);
 
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
     if (species == SPECIES_SHEDINJA)
@@ -1537,7 +1539,7 @@ void CalculateMonStats(struct Pokemon *mon)
     }
     else
     {
-        s32 n = 2 * gSpeciesInfo[species].baseHP + hpIV;
+        s32 n = 2 * speciesStats.baseHP + hpIV;
         newMaxHP = (((n + hpEV / 4) * level) / 100) + level + 10;
     }
 
@@ -3105,12 +3107,12 @@ u16 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 {
 #ifdef ROGUE_EXPANSION
     int i;
-    u16 abilities[NUM_ABILITY_SLOTS] =
-    {
-        gSpeciesInfo[species].abilities[0],
-        gSpeciesInfo[species].abilities[1],
-        gSpeciesInfo[species].abilities[2]
-    };
+    struct RoguePokemonBaseStats speciesStats;
+    u16 abilities[NUM_ABILITY_SLOTS];
+
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+
+    memcpy(abilities, speciesStats.abilities, sizeof(abilities));
 
     if(IsOtherTrainer(otId))
     {
@@ -3143,11 +3145,12 @@ u16 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 
     return gLastUsedAbility;
 #else
-    u16 abilities[2] =
-    {
-        gBaseStats[species].abilities[0],
-        gBaseStats[species].abilities[1]
-    };
+    struct RoguePokemonBaseStats speciesStats;
+    u16 abilities[2];
+
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+
+    memcpy(abilities, speciesStats.abilities, sizeof(abilities));
 
     if(IsOtherTrainer(otId))
     {
@@ -3166,6 +3169,13 @@ u16 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 
     return gLastUsedAbility;
 #endif
+}
+
+u8 GetTypeBySpecies(u16 species, u8 typeSlot, u32 otId)
+{
+    struct RoguePokemonBaseStats speciesStats;
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+    return speciesStats.types[typeSlot];
 }
 
 u16 GetMonAbility(struct Pokemon *mon)
@@ -3327,6 +3337,7 @@ void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst)
 
     s32 i;
     u8 nickname[POKEMON_NAME_BUFFER_SIZE];
+    struct RoguePokemonBaseStats speciesStats;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -3335,6 +3346,8 @@ void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst)
     }
 
     dst->species = GetMonData(src, MON_DATA_SPECIES, NULL);
+    Rogue_GetPokemonBaseStats(dst->species, &speciesStats);
+
     dst->item = GetMonData(src, MON_DATA_HELD_ITEM, NULL);
     dst->ppBonuses = GetMonData(src, MON_DATA_PP_BONUSES, NULL);
     dst->friendship = GetMonData(src, MON_DATA_FRIENDSHIP, NULL);
@@ -3357,8 +3370,8 @@ void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst)
     dst->spDefense = GetMonData(src, MON_DATA_SPDEF, NULL);
     dst->abilityNum = GetMonData(src, MON_DATA_ABILITY_NUM, NULL);
     dst->otId = GetMonData(src, MON_DATA_OT_ID, NULL);
-    dst->type1 = gSpeciesInfo[dst->species].types[0];
-    dst->type2 = gSpeciesInfo[dst->species].types[1];
+    dst->type1 = GetTypeBySpecies(dst->species, 0, dst->otId);
+    dst->type2 = GetTypeBySpecies(dst->species, 1, dst->otId);
     dst->type3 = TYPE_MYSTERY;
     dst->ability = GetAbilityBySpecies(dst->species, dst->abilityNum, dst->otId);
     GetMonData(src, MON_DATA_NICKNAME, nickname);
@@ -4304,8 +4317,9 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     for (j = 0; j < PARTY_SIZE; j++)
                     {
                         u16 currSpecies = GetMonData(&gPlayerParty[j], MON_DATA_SPECIES, NULL);
-                        if (gSpeciesInfo[currSpecies].types[0] == TYPE_DARK
-                         || gSpeciesInfo[currSpecies].types[1] == TYPE_DARK)
+                        u32 otId = GetMonData(&gPlayerParty[j], MON_DATA_OT_ID, NULL);
+                        if (GetTypeBySpecies(currSpecies, 0, otId) == TYPE_DARK
+                         || GetTypeBySpecies(currSpecies, 1, otId) == TYPE_DARK)
                         {
                             targetSpecies = evo.targetSpecies;
                             break;

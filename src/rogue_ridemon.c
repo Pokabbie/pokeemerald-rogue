@@ -583,6 +583,8 @@ bool8 Rogue_IsValidRideFlySpecies(u16 species)
 
 static u8 UNUSED CalculateMovementModeForInternal(u16 species)
 {
+    //struct RoguePokemonBaseStats speciesStats;
+    //Rogue_GetPokemonBaseStats(species, &speciesStats);
     u8 speed = gRogueSpeciesInfo[species].baseSpeed;
     
     if(speed <= 70)

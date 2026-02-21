@@ -2,6 +2,25 @@
   "Species": [
     "SPECIES_ABRA"
   ],
+  "BaseStats":
+  {
+    "Types":
+    [
+      "TYPE_NORMAL",
+      "TYPE_FIRE"
+    ],
+    "Abilities":
+    [
+      "ABILITY_SWARM",
+      "ABILITY_PRESSURE"
+    ],
+    "HP": 100,
+    "Attack": 100,
+    "Defense": 100,
+    "Speed": 100,
+    "SpAttack": 100,
+    "SpDefense": 100
+  },
   "LevelUpMoves": [
     {
       "Move": "MOVE_TELEPORT",

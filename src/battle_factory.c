@@ -620,9 +620,9 @@ static void GetOpponentMostCommonMonType(void)
     for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
     {
         u32 species = gFacilityTrainerMons[gFrontierTempParty[i]].species;
-        typeCounts[gSpeciesInfo[species].types[0]]++;
-        if (gSpeciesInfo[species].types[0] != gSpeciesInfo[species].types[1])
-            typeCounts[gSpeciesInfo[species].types[1]]++;
+        typeCounts[GetTypeBySpecies(species, 0, 0)]++;
+        if (GetTypeBySpecies(species, 0, 0) != GetTypeBySpecies(species, 1, 0))
+            typeCounts[GetTypeBySpecies(species, 1, 0)]++;
     }
 
     // Determine which are the two most-common types.

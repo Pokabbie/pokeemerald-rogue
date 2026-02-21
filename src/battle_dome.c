@@ -2047,8 +2047,8 @@ static void InitDomeTrainers(void)
         rankingScores[0] += GetMonData(&gPlayerParty[trainerId], MON_DATA_SPDEF, NULL);
         rankingScores[0] += GetMonData(&gPlayerParty[trainerId], MON_DATA_SPEED, NULL);
         rankingScores[0] += GetMonData(&gPlayerParty[trainerId], MON_DATA_MAX_HP, NULL);
-        monTypesBits |= gBitTable[gSpeciesInfo[GetMonData(&gPlayerParty[trainerId], MON_DATA_SPECIES, NULL)].types[0]];
-        monTypesBits |= gBitTable[gSpeciesInfo[GetMonData(&gPlayerParty[trainerId], MON_DATA_SPECIES, NULL)].types[1]];
+        monTypesBits |= gBitTable[GetTypeBySpecies(GetMonData(&gPlayerParty[trainerId], MON_DATA_SPECIES, NULL), 0, GetMonData(&gPlayerParty[trainerId], MON_DATA_OT_ID, NULL))];
+        monTypesBits |= gBitTable[GetTypeBySpecies(GetMonData(&gPlayerParty[trainerId], MON_DATA_SPECIES, NULL), 0, GetMonData(&gPlayerParty[trainerId], MON_DATA_OT_ID, NULL))];
     }
 
     // Count the number of types in the players party, to factor into the ranking
@@ -2082,8 +2082,8 @@ static void InitDomeTrainers(void)
             rankingScores[i] += statValues[STAT_SPDEF];
             rankingScores[i] += statValues[STAT_SPEED];
             rankingScores[i] += statValues[STAT_HP];
-            monTypesBits |= gBitTable[gSpeciesInfo[gFacilityTrainerMons[DOME_MONS[i][j]].species].types[0]];
-            monTypesBits |= gBitTable[gSpeciesInfo[gFacilityTrainerMons[DOME_MONS[i][j]].species].types[1]];
+            monTypesBits |= gBitTable[GetTypeBySpecies(gFacilityTrainerMons[DOME_MONS[i][j]].species, 0, 0)];
+            monTypesBits |= gBitTable[GetTypeBySpecies(gFacilityTrainerMons[DOME_MONS[i][j]].species, 0, 0)];
         }
 
         for (monTypesCount = 0, j = 0; j < 32; j++)
@@ -2147,7 +2147,7 @@ static void InitDomeTrainers(void)
 
 #define CALC_STAT(base, statIndex)                                                          \
 {                                                                                           \
-    u8 baseStat = gSpeciesInfo[species].base;                                                 \
+    u8 baseStat = speciesStats.base;                                                        \
     stats[statIndex] = (((2 * baseStat + ivs + evs[statIndex] / 4) * level) / 100) + 5;     \
     stats[statIndex] = (u8) ModifyStatByNature(nature, stats[statIndex], statIndex);        \
 }
@@ -2158,6 +2158,8 @@ static void CalcDomeMonStats(u16 species, int level, int ivs, u8 evBits, u8 natu
     u8 bits;
     u16 resultingEvs;
     int evs[NUM_STATS];
+    struct RoguePokemonBaseStats speciesStats;
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
 
     count = 0, bits = evBits;
     for (i = 0; i < NUM_STATS; bits >>= 1, i++)
@@ -2180,7 +2182,7 @@ static void CalcDomeMonStats(u16 species, int level, int ivs, u8 evBits, u8 natu
     }
     else
     {
-        int n = 2 * gSpeciesInfo[species].baseHP;
+        int n = 2 * speciesStats.baseHP;
         stats[STAT_HP] = (((n + ivs + evs[STAT_HP] / 4) * level) / 100) + level + 10;
     }
 
@@ -2445,8 +2447,8 @@ static int GetTypeEffectivenessPoints(int move, int targetSpecies, int mode)
     if (move == MOVE_NONE || move == MOVE_UNAVAILABLE || IS_MOVE_STATUS(move))
         return 0;
 
-    defType1 = gSpeciesInfo[targetSpecies].types[0];
-    defType2 = gSpeciesInfo[targetSpecies].types[1];
+    defType1 = GetTypeBySpecies(targetSpecies, 0, 0);
+    defType2 = GetTypeBySpecies(targetSpecies, 1, 0);
     defAbility = gSpeciesInfo[targetSpecies].abilities[0];
     moveType = gBattleMoves[move].type;
 
@@ -5845,8 +5847,8 @@ static void InitRandomTourneyTreeResults(void)
             statSums[i] += statValues[STAT_SPDEF];
             statSums[i] += statValues[STAT_SPEED];
             statSums[i] += statValues[STAT_HP];
-            monTypesBits |= gBitTable[gSpeciesInfo[gFacilityTrainerMons[DOME_MONS[i][j]].species].types[0]];
-            monTypesBits |= gBitTable[gSpeciesInfo[gFacilityTrainerMons[DOME_MONS[i][j]].species].types[1]];
+            monTypesBits |= gBitTable[GetTypeBySpecies(gFacilityTrainerMons[DOME_MONS[i][j]].species, 0, 0)];
+            monTypesBits |= gBitTable[GetTypeBySpecies(gFacilityTrainerMons[DOME_MONS[i][j]].species, 1, 0)];
         }
 
         // Because GF hates temporary vars, trainerId acts like monTypesCount here.
@@ -5954,6 +5956,8 @@ static void DecideRoundWinners(u8 roundId)
         // Decide which one of two trainers wins!
         else if (tournamentId2 != 0xFF)
         {
+            struct RoguePokemonBaseStats speciesStats;
+            
             // BUG: points1 and points2 are not cleared at the beginning of the loop resulting in not fair results.
             #ifdef BUGFIX
             points1 = 0;
@@ -5972,12 +5976,13 @@ static void DecideRoundWinners(u8 roundId)
                     }
                 }
                 species = gFacilityTrainerMons[DOME_MONS[tournamentId1][monId1]].species;
-                points1 += ( gSpeciesInfo[species].baseHP
-                           + gSpeciesInfo[species].baseAttack
-                           + gSpeciesInfo[species].baseDefense
-                           + gSpeciesInfo[species].baseSpeed
-                           + gSpeciesInfo[species].baseSpAttack
-                           + gSpeciesInfo[species].baseSpDefense) / 10;
+                Rogue_GetPokemonBaseStats(species, &speciesStats);
+                points1 += ( speciesStats.baseHP
+                           + speciesStats.baseAttack
+                           + speciesStats.baseDefense
+                           + speciesStats.baseSpeed
+                           + speciesStats.baseSpAttack
+                           + speciesStats.baseSpDefense) / 10;
             }
             // Random part of the formula.
             points1 += (Random() & 0x1F);
@@ -5995,12 +6000,13 @@ static void DecideRoundWinners(u8 roundId)
                     }
                 }
                 species = gFacilityTrainerMons[DOME_MONS[tournamentId2][monId1]].species;
-                points2 += ( gSpeciesInfo[species].baseHP
-                           + gSpeciesInfo[species].baseAttack
-                           + gSpeciesInfo[species].baseDefense
-                           + gSpeciesInfo[species].baseSpeed
-                           + gSpeciesInfo[species].baseSpAttack
-                           + gSpeciesInfo[species].baseSpDefense) / 10;
+                Rogue_GetPokemonBaseStats(species, &speciesStats);
+                points2 += ( speciesStats.baseHP
+                           + speciesStats.baseAttack
+                           + speciesStats.baseDefense
+                           + speciesStats.baseSpeed
+                           + speciesStats.baseSpAttack
+                           + speciesStats.baseSpDefense) / 10;
             }
             // Random part of the formula.
             points2 += (Random() & 0x1F);
