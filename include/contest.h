@@ -307,7 +307,7 @@ struct ContestResources
 #define eContestDebugMode (gHeap[0x1a000])
 #define eContestTempSave (*(struct ContestTempSave *)(gHeap + 0x1a004))
 
-extern struct ContestPokemon gContestMons[CONTESTANT_COUNT];
+extern struct ContestPokemon* gContestMons;//[CONTESTANT_COUNT];
 extern s16 gContestMonRound1Points[CONTESTANT_COUNT];
 extern s16 gContestMonTotalPoints[CONTESTANT_COUNT];
 extern s16 gContestMonAppealPointTotals[CONTESTANT_COUNT];
