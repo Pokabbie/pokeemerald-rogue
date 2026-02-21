@@ -21,10 +21,10 @@ jobs:
       AUTOMATION_HOST: GITHUB
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Checkout agbcc
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: agbcc
           repository: pret/agbcc
@@ -56,7 +56,7 @@ jobs:
         run: make -j${nproc} -O all
 
       - name: Update Memory Stats
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Memory Stats
           path: pokeemerald_memorystats.csv
