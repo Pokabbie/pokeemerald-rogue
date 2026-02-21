@@ -13,7 +13,9 @@ struct RoguePartyMon
     u8 pad1[2];
 };
 
+#ifndef ROGUE_BAKING
 STATIC_ASSERT(sizeof(struct RoguePartyMon) == 4, SizeOfRoguePartyMon);
+#endif
 
 // Minimal version of mon info to allow easy tracking for safari area
 // Split into 32bit blocks
@@ -40,8 +42,10 @@ struct RogueSafariMon
     u8 customMonLookup; // (We can only store a limited number of custom mons in the safari)
 };
 
+#ifndef ROGUE_BAKING
 //STATIC_ASSERT(sizeof(struct RogueSafariMon) == 8, SizeOfRogueSafariMon);
 STATIC_ASSERT(sizeof(struct RogueSafariMon) == 20, SizeOfRogueSafariMon);
+#endif
 
 struct RogueRoamerMon
 {
@@ -65,7 +69,9 @@ struct RogueRoamerMon
     u32 unused1     : 16; 
 };
 
+#ifndef ROGUE_BAKING
 STATIC_ASSERT(sizeof(struct RogueRoamerMon) == 12, SizeOfRogueRoamerMon);
+#endif
 
 // Adventure Path settings
 //
@@ -699,7 +705,8 @@ struct RogueSpeciesBakedData
     u32 unused1 : 3;
 
     u32 evolutionCount : 8;
-    u32 unused2 : 24;
+    u32 evolutionChainTypeFlags_Revised : 18;
+    u32 unused2 : 6;
 };
 
 struct RogueFollowMonGraphicsInfo
@@ -719,6 +726,7 @@ struct FormChange
 
 #endif
 
+#ifndef ROGUE_BAKING
 STATIC_ASSERT(sizeof(struct RogueSpeciesBakedData) == 8, SizeOfRogueSpeciesBakedData);
 
 extern const struct RogueRouteData gRogueRouteTable;
@@ -745,6 +753,7 @@ extern const struct RogueHubArea gRogueHubAreas[HUB_AREA_COUNT];
 extern const struct RogueAreaUpgrade gRogueHubUpgrades[HUB_UPGRADE_COUNT];
 extern const u8 gRogueTypeWeatherTable[];
 extern const struct RogueEncounterMap gRogueTypeToEliteRoom[];
+#endif
 
 
 #endif  // GUARD_ROGUE_H

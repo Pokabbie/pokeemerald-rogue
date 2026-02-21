@@ -410,45 +410,48 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 			upperBlock << "};\n\n";
 
 			// Comp sets
-			upperBlock << "static struct RoguePokemonCompetitiveSet const sCompetitiveSets_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
-			for (CompetitiveSet const& compSet : profile.m_CompetitiveSets)
+			if (!profile.m_CompetitiveSets.empty())
 			{
-				upperBlock << "\t{\n";
-
-				upperBlock << "\t\t.flags= (0";
-				for (std::string const& tier : compSet.m_SourceTiers)
-					upperBlock << " | MON_FLAGS_" << tier;
-				upperBlock << "),\n";
-
-				if (!compSet.m_Item.empty())
-					upperBlock << "\t\t.heldItem=" << compSet.m_Item << ",\n";
-
-				if (!compSet.m_Ability.empty())
-					upperBlock << "\t\t.ability=" << compSet.m_Ability << ",\n";
-
-				if (!compSet.m_HiddenPower.empty())
-					upperBlock << "\t\t.hiddenPowerType=" << compSet.m_HiddenPower << ",\n";
-				else
-					upperBlock << "\t\t.hiddenPowerType=TYPE_NONE,\n";
-
-				if (!compSet.m_TeraType.empty())
-					upperBlock << "\t\t.teraType=" << compSet.m_TeraType << ",\n";
-				else
-					upperBlock << "\t\t.teraType=TYPE_NONE,\n";
-
-				if (!compSet.m_Nature.empty())
-					upperBlock << "\t\t.nature=" << compSet.m_Nature << ",\n";
-
-				upperBlock << "\t\t.moves=\n\t\t{\n";
-				for (std::string const& move : compSet.m_Moves)
+				upperBlock << "static struct RoguePokemonCompetitiveSet const sCompetitiveSets_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
+				for (CompetitiveSet const& compSet : profile.m_CompetitiveSets)
 				{
-					upperBlock << "\t\t\t" << move << ",\n";
-				}
-				upperBlock << "\t\t},\n";
+					upperBlock << "\t{\n";
 
-				upperBlock << "\t},\n";
+					upperBlock << "\t\t.flags= (0";
+					for (std::string const& tier : compSet.m_SourceTiers)
+						upperBlock << " | MON_FLAGS_" << tier;
+					upperBlock << "),\n";
+
+					if (!compSet.m_Item.empty())
+						upperBlock << "\t\t.heldItem=" << compSet.m_Item << ",\n";
+
+					if (!compSet.m_Ability.empty())
+						upperBlock << "\t\t.ability=" << compSet.m_Ability << ",\n";
+
+					if (!compSet.m_HiddenPower.empty())
+						upperBlock << "\t\t.hiddenPowerType=" << compSet.m_HiddenPower << ",\n";
+					else
+						upperBlock << "\t\t.hiddenPowerType=TYPE_NONE,\n";
+
+					if (!compSet.m_TeraType.empty())
+						upperBlock << "\t\t.teraType=" << compSet.m_TeraType << ",\n";
+					else
+						upperBlock << "\t\t.teraType=TYPE_NONE,\n";
+
+					if (!compSet.m_Nature.empty())
+						upperBlock << "\t\t.nature=" << compSet.m_Nature << ",\n";
+
+					upperBlock << "\t\t.moves=\n\t\t{\n";
+					for (std::string const& move : compSet.m_Moves)
+					{
+						upperBlock << "\t\t\t" << move << ",\n";
+					}
+					upperBlock << "\t\t},\n";
+
+					upperBlock << "\t},\n";
+				}
+				upperBlock << "};\n\n";
 			}
-			upperBlock << "};\n\n";
 		}
 
 		// No need to duplicate, can just use non revised version
@@ -458,8 +461,16 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 		lowerBlock << "\t[" << profile.m_Species[0] << "] = \n\t{\n";
 		lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << sourceSuffix << ",\n";
 		lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << sourceSuffix << ",\n";
-		lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << ",\n";
-		lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << "),\n";
+		if (!profile.m_CompetitiveSets.empty())
+		{
+			lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << ",\n";
+			lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << "),\n";
+		}
+		else
+		{
+			lowerBlock << "\t\t.competitiveSets = NULL,\n";
+			lowerBlock << "\t\t.competitiveSetCount = 0,\n";
+		}
 		lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << sourceSuffix << ",\n";
 
 		if (profile.m_HasBaseStats)
@@ -494,8 +505,16 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 			lowerBlock << "\t[" << profile.m_Species[i] << "] = \n\t{\n";
 			lowerBlock << "\t\t.levelUpMoves = sLevelUpMoves_" << profile.m_Species[0] << sourceSuffix << ",\n";
 			lowerBlock << "\t\t.tutorMoves = sTutorMoves_" << profile.m_Species[0] << sourceSuffix << ",\n";
-			lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << ",\n";
-			lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << "),\n";
+			if (!profile.m_CompetitiveSets.empty())
+			{
+				lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << ",\n";
+				lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << "),\n";
+			}
+			else
+			{
+				lowerBlock << "\t\t.competitiveSets = NULL,\n";
+				lowerBlock << "\t\t.competitiveSetCount = 0,\n";
+			}
 			lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << sourceSuffix << ",\n";
 
 			if (profile.m_HasBaseStats)

@@ -51,6 +51,10 @@ extern const struct BaseStats gBaseStats[];
 
 #ifdef ROGUE_BAKING
 #define ROGUE_BAKE_INVALID
+bool8 Rogue_GetRevisionModeActive()
+{
+    return FALSE;
+}
 #else
 // Swap to force runtime resolution
 //#define ROGUE_BAKE_INVALID
@@ -214,13 +218,12 @@ static u8 GetMaxEvolutionCountInternal(u16 species)
 
 static void ModifyKnowMoveEvo(u16 species, struct Evolution* outEvo, u16 fromMethod, u16 toMethod)
 {
-    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
-
     if(outEvo->method == fromMethod)
     {
         // While baking just assume everything is lvl 30 evo
 #ifndef ROGUE_BAKING
         u16 i;
+        struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
         for (i = 0; pokemonProfile->levelUpMoves[i].move != MOVE_NONE; i++)
         {
@@ -1912,7 +1915,12 @@ struct RoguePokemonProfile const* Rogue_GetPokemonProfile(u32 species)
 
 void Rogue_GetPokemonBaseStats(u32 species, struct RoguePokemonBaseStats* outStats)
 {
-    if(Rogue_GetRevisionModeActive() && gRoguePokemonProfiles_Revised[species].baseStats.baseHP != 0)
+    Rogue_GetPokemonBaseStatsFor(species, outStats, Rogue_GetRevisionModeActive());
+}
+
+void Rogue_GetPokemonBaseStatsFor(u32 species, struct RoguePokemonBaseStats* outStats, bool8 isRevised)
+{
+    if (isRevised && gRoguePokemonProfiles_Revised[species].baseStats.baseHP != 0)
     {
         memcpy(outStats, &gRoguePokemonProfiles_Revised[species].baseStats, sizeof(struct RoguePokemonBaseStats));
     }
@@ -1934,7 +1942,7 @@ void Rogue_GetPokemonBaseStats(u32 species, struct RoguePokemonBaseStats* outSta
         outStats->types[1] = gRogueSpeciesInfo[species].type2;
 #endif
 
-        for(i = 0; i < NUM_ABILITY_SLOTS; ++i)
+        for (i = 0; i < NUM_ABILITY_SLOTS; ++i)
         {
             outStats->abilities[i] = gRogueSpeciesInfo[species].abilities[i];
         }
@@ -2076,14 +2084,21 @@ bool8 Rogue_DoesEvolveInto(u16 fromSpecies, u16 toSpecies)
 
 void Rogue_AppendSpeciesTypeFlags(u16 species, u32* outFlags)
 {
+#ifdef ROGUE_BAKING
+    struct RoguePokemonBaseStats baseStats;
+    Rogue_GetPokemonBaseStats(species, &baseStats);
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(baseStats.types[0]);
+    *outFlags |= MON_TYPE_VAL_TO_FLAGS(baseStats.types[1]);
+#else
     *outFlags |= MON_TYPE_VAL_TO_FLAGS(GetTypeBySpecies(species, 0, 0));
     *outFlags |= MON_TYPE_VAL_TO_FLAGS(GetTypeBySpecies(species, 1, 0));
+#endif
 }
 
 u32 Rogue_GetSpeciesEvolutionChainTypeFlags(u16 species)
 {
 #ifdef ROGUE_BAKE_VALID
-    return gRogueBake_SpeciesData[species].evolutionChainTypeFlags;
+    return Rogue_GetRevisionModeActive() ? gRogueBake_SpeciesData[species].evolutionChainTypeFlags_Revised : gRogueBake_SpeciesData[species].evolutionChainTypeFlags;
 #elif defined(ROGUE_BAKING)
     return 0;
 #else
