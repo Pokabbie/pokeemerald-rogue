@@ -333,8 +333,10 @@ enum {
     APPEALSTATE_WAIT_MON_MOVE_IGNORED_MSG,
 };
 
+#define DUD_VAR(type) 
+
 // EWRAM vars.
-EWRAM_DATA struct ContestPokemon gContestMons[CONTESTANT_COUNT] = {0};
+EWRAM_DATA struct ContestPokemon* gContestMons = NULL; //[CONTESTANT_COUNT] = {0};
 EWRAM_DATA s16 gContestMonRound1Points[CONTESTANT_COUNT] = {0}; // "Round 1" points are based on condition
 EWRAM_DATA s16 gContestMonTotalPoints[CONTESTANT_COUNT] = {0}; // Round 1 points + Round 2 points
 EWRAM_DATA s16 gContestMonAppealPointTotals[CONTESTANT_COUNT] = {0};

@@ -53,7 +53,7 @@ EWRAM_DATA static u32 sAI_Scripts = 0;
 EWRAM_DATA static struct Pokemon sSavedPlayerParty[PARTY_SIZE] = {0};
 EWRAM_DATA static struct Pokemon sSavedOpponentParty[PARTY_SIZE] = {0};
 EWRAM_DATA static u16 sPlayerMonMoves[MAX_BATTLERS_COUNT / 2][MAX_MON_MOVES] = {0};
-EWRAM_DATA static struct PlayerInfo sPlayers[MAX_BATTLERS_COUNT] = {0};
+//EWRAM_DATA static struct PlayerInfo sPlayers[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA static bool8 sIsPlaybackFinished = 0;
 EWRAM_DATA static u8 sRecordMixFriendName[PLAYER_NAME_LENGTH + 1] = {0};
 EWRAM_DATA static u8 sRecordMixFriendClass = 0;
@@ -114,47 +114,47 @@ void RecordedBattle_SetTrainerInfo(void)
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
     {
         // Link recorded battle, record info for all trainers
-        u8 linkPlayersCount;
-        u8 text[30];
-
-        gRecordedBattleMultiplayerId = GetMultiplayerId();
-        linkPlayersCount = GetLinkPlayerCount();
-
-        for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-        {
-            sPlayers[i].trainerId = gLinkPlayers[i].trainerId;
-            sPlayers[i].gender = gLinkPlayers[i].gender;
-            sPlayers[i].battlerId = gLinkPlayers[i].id;
-            sPlayers[i].language = gLinkPlayers[i].language;
-
-            // Record names
-            if (i < linkPlayersCount)
-            {
-                StringCopy(text, gLinkPlayers[i].name);
-                StripExtCtrlCodes(text);
-                StringCopy(sPlayers[i].name, text);
-            }
-            else
-            {
-                for (j = 0; j < PLAYER_NAME_LENGTH + 1; j++)
-                    sPlayers[i].name[j] = gLinkPlayers[i].name[j];
-            }
-        }
+        //u8 linkPlayersCount;
+        //u8 text[30];
+//
+        //gRecordedBattleMultiplayerId = GetMultiplayerId();
+        //linkPlayersCount = GetLinkPlayerCount();
+//
+        //for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+        //{
+        //    sPlayers[i].trainerId = gLinkPlayers[i].trainerId;
+        //    sPlayers[i].gender = gLinkPlayers[i].gender;
+        //    sPlayers[i].battlerId = gLinkPlayers[i].id;
+        //    sPlayers[i].language = gLinkPlayers[i].language;
+//
+        //    // Record names
+        //    if (i < linkPlayersCount)
+        //    {
+        //        StringCopy(text, gLinkPlayers[i].name);
+        //        StripExtCtrlCodes(text);
+        //        StringCopy(sPlayers[i].name, text);
+        //    }
+        //    else
+        //    {
+        //        for (j = 0; j < PLAYER_NAME_LENGTH + 1; j++)
+        //            sPlayers[i].name[j] = gLinkPlayers[i].name[j];
+        //    }
+        //}
     }
     else
     {
         // Local battle, just record own info
-        sPlayers[0].trainerId = (gSaveBlock2Ptr->playerTrainerId[0])
-                              | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
-                              | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
-                              | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
-
-        sPlayers[0].gender = gSaveBlock2Ptr->playerGender;
-        sPlayers[0].battlerId = 0;
-        sPlayers[0].language = gGameLanguage;
-
-        for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
-            sPlayers[0].name[i] = gSaveBlock2Ptr->playerName[i];
+        //sPlayers[0].trainerId = (gSaveBlock2Ptr->playerTrainerId[0])
+        //                      | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+        //                      | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+        //                      | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+//
+        //sPlayers[0].gender = gSaveBlock2Ptr->playerGender;
+        //sPlayers[0].battlerId = 0;
+        //sPlayers[0].language = gGameLanguage;
+//
+        //for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
+        //    sPlayers[0].name[i] = gSaveBlock2Ptr->playerName[i];
     }
 }
 
