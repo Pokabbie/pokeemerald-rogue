@@ -139,12 +139,9 @@ STATIC_ASSERT(sizeof(struct Pokemon) == 104, SizeOfPokemon);
 
 struct MonSpritesGfxManager
 {
-    u32 numSprites:4;
-    u32 numSprites2:4; // Never read
-    u32 numFrames:8;
-    u32 active:8;
-    u32 dataSize:4;
-    u32 mode:4; // MON_SPR_GFX_MODE_*
+    u8 numSprites;
+    u8 numFrames;
+    bool16 active;
     void *spriteBuffer;
     u8 **spritePointers;
     struct SpriteTemplate *templates;
@@ -351,12 +348,17 @@ void SetMultiuseSpriteTemplateToTrainerFront(u16 trainerPicId, u8 battlerPositio
 
 void SetMonPersonality(struct Pokemon* mon, u32 personality);
 
-// These are full type signatures for GetMonData() and GetBoxMonData(),
-// but they are not used since some code erroneously omits the third arg.
-// u32 GetMonData(struct Pokemon *mon, s32 field, u8 *data);
-// u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data);
-u32 GetMonData();
-u32 GetBoxMonData();
+/* GameFreak called Get(Box)MonData with either 2 or 3 arguments, for
+ * type safety we have a Get(Box)MonData macro which dispatches to
+ * either Get(Box)MonData2 or Get(Box)MonData3 based on the number of
+ * arguments. The two functions are aliases of each other, but they
+ * differ for matching purposes in the caller's codegen. */
+#define GetMonData(...) CAT(GetMonData, NARG_8(__VA_ARGS__))(__VA_ARGS__)
+#define GetBoxMonData(...) CAT(GetBoxMonData, NARG_8(__VA_ARGS__))(__VA_ARGS__)
+u32 GetMonData3(struct Pokemon *mon, s32 field, u8 *data);
+u32 GetMonData2(struct Pokemon *mon, s32 field);
+u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data);
+u32 GetBoxMonData2(struct BoxPokemon *boxMon, s32 field);
 
 void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg);
 void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg);
@@ -457,9 +459,9 @@ void HandleSetPokedexFlag(u16 species, u8 caseId, u32 personality);
 const u8 *GetTrainerClassNameFromId(u16 trainerId);
 const u8 *GetTrainerNameFromId(u16 trainerId);
 bool8 HasTwoFramesAnimation(u16 species);
-struct MonSpritesGfxManager *CreateMonSpritesGfxManager(u8 managerId, u8 mode);
-void DestroyMonSpritesGfxManager(u8 managerId);
-u8 *MonSpritesGfxManager_GetSpritePtr(u8 managerId, u8 spriteNum);
+struct MonSpritesGfxManager *CreateMonSpritesGfxManager(void);
+void DestroyMonSpritesGfxManager(void);
+u8 *MonSpritesGfxManager_GetSpritePtr(u8 spriteNum);
 u32 GetMonAffectionHearts(struct Pokemon *pokemon);
 
 #endif // GUARD_POKEMON_H
