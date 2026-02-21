@@ -492,6 +492,7 @@ void SaveBattlerData(u32 battlerId)
 static bool32 ShouldFailForIllusion(u32 illusionSpecies, u32 battlerId)
 {
     u32 i, j;
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(illusionSpecies);
 
     if (BATTLE_HISTORY->abilities[battlerId] == ABILITY_ILLUSION)
         return FALSE;
@@ -503,13 +504,13 @@ static bool32 ShouldFailForIllusion(u32 illusionSpecies, u32 battlerId)
         if (move == MOVE_NONE)
             continue;
 
-        for (j = 0; gRoguePokemonProfiles[illusionSpecies].levelUpMoves[j].move != MOVE_NONE; j++)
+        for (j = 0; pokemonProfile->levelUpMoves[j].move != MOVE_NONE; j++)
         {
-            if (gRoguePokemonProfiles[illusionSpecies].levelUpMoves[j].move == move)
+            if (pokemonProfile->levelUpMoves[j].move == move)
                 break;
         }
         // The used move is in the learnsets of the fake species.
-        if (gRoguePokemonProfiles[illusionSpecies].levelUpMoves[j].move != MOVE_NONE)
+        if (pokemonProfile->levelUpMoves[j].move != MOVE_NONE)
             continue;
 
         // The used move can be learned from Tm/Hm or Move Tutors.

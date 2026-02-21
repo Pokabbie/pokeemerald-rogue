@@ -44,6 +44,11 @@ u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level);
 
 void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBattleMusic* outMusic);
 
+struct RoguePokemonProfile const* Rogue_GetPokemonProfile(u32 species);
+//u16 const* Rogue_GetPokemonHeldItemUsages();
+//u16 const* Rogue_GetPokemonMoveUsages();
+//u16 const* Rogue_GetPokemonSpecialMoveUsages();
+
 u16 Rogue_GetEggSpecies(u16 species);
 u8 Rogue_GetMaxEvolutionCount(u16 species);
 u8 Rogue_GetActiveEvolutionCount(u16 species);

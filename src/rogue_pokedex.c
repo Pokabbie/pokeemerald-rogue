@@ -1351,6 +1351,7 @@ static u16 GetMaxMoveScrollOffset()
     u16 count = 0;
     u16 species = sPokedexMenu->viewBaseSpecies;
     u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
     
     // Custom moves
     if(customMonId)
@@ -1361,7 +1362,7 @@ static u16 GetMaxMoveScrollOffset()
     // Level up
     for (i = 0; TRUE; i++)
     {
-        if (gRoguePokemonProfiles[species].levelUpMoves[i].move == MOVE_NONE)
+        if (pokemonProfile->levelUpMoves[i].move == MOVE_NONE)
             break;
         ++count;
     }
@@ -1369,7 +1370,7 @@ static u16 GetMaxMoveScrollOffset()
     // Tutor/TM moves
     for (i = 0; TRUE; i++)
     {
-        if (gRoguePokemonProfiles[species].tutorMoves[i] == MOVE_NONE)
+        if (pokemonProfile->tutorMoves[i] == MOVE_NONE)
             break;
         ++count;
     }
@@ -1385,6 +1386,7 @@ static void DisplayMonMovesText()
     const u8 ySpacing = 16;
     u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
     u16 species = sPokedexMenu->viewBaseSpecies;
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
     AddTitleText(sTitle_Moves);
 
@@ -1418,19 +1420,19 @@ static void DisplayMonMovesText()
     {
         for (i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; i++)
         {
-            if (gRoguePokemonProfiles[species].levelUpMoves[i].move == MOVE_NONE)
+            if (pokemonProfile->levelUpMoves[i].move == MOVE_NONE)
                 break;
 
-            if(gRoguePokemonProfiles[species].levelUpMoves[i].level == 0)
+            if(pokemonProfile->levelUpMoves[i].level == 0)
             {
                 // Is evo move
-                StringCopy(gStringVar1, gMoveNames[gRoguePokemonProfiles[species].levelUpMoves[i].move]);
+                StringCopy(gStringVar1, gMoveNames[pokemonProfile->levelUpMoves[i].move]);
                 StringExpandPlaceholders(gStringVar3, gText_PokedexMovesEvo);
             }
             else
             { 
-                ConvertUIntToDecimalStringN(gStringVar1, gRoguePokemonProfiles[species].levelUpMoves[i].level, STR_CONV_MODE_RIGHT_ALIGN, 2);
-                StringCopy(gStringVar2, gMoveNames[gRoguePokemonProfiles[species].levelUpMoves[i].move]);
+                ConvertUIntToDecimalStringN(gStringVar1, pokemonProfile->levelUpMoves[i].level, STR_CONV_MODE_RIGHT_ALIGN, 2);
+                StringCopy(gStringVar2, gMoveNames[pokemonProfile->levelUpMoves[i].move]);
                 StringExpandPlaceholders(gStringVar3, gText_PokedexMovesLevel);
             }
             
@@ -1450,7 +1452,7 @@ static void DisplayMonMovesText()
 
         for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
-            moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+            moveId = pokemonProfile->tutorMoves[i];
 
             if(moveId == MOVE_NONE)
                 break;
@@ -1477,7 +1479,7 @@ static void DisplayMonMovesText()
 
         for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
-            moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+            moveId = pokemonProfile->tutorMoves[i];
 
             if(moveId == MOVE_NONE)
                 break;
@@ -1504,7 +1506,7 @@ static void DisplayMonMovesText()
 
         for(i = 0; displayCount < MAX_LIST_DISPLAY_COUNT; ++i)
         {
-            moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+            moveId = pokemonProfile->tutorMoves[i];
 
             if(moveId == MOVE_NONE)
                 break;
@@ -3539,6 +3541,7 @@ static void MonEvos_OpenMoveQuery()
     u8 i;
     u16 moveId, itemId;
     u16 species = sPokedexMenu->viewBaseSpecies;
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
     // To help speed up viewing we're going to precalculate whether a special move is TM, TR or Tutor
     // (This isn't really a proper query, we're just reusing the bit field checking mostly)
@@ -3551,7 +3554,7 @@ static void MonEvos_OpenMoveQuery()
         u16 tmIndex = i;
         u16 trIndex = i + MOVE_QUERY_OFFSET;
 
-        moveId = gRoguePokemonProfiles[species].tutorMoves[i];
+        moveId = pokemonProfile->tutorMoves[i];
 
         if(moveId == MOVE_NONE)
             break;
