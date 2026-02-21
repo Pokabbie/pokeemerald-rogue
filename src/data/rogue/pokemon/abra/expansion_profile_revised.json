@@ -2,6 +2,26 @@
   "Species": [
     "SPECIES_ABRA"
   ],
+  "BaseStats":
+  {
+    "Types":
+    [
+      "TYPE_WATER",
+      "TYPE_FIRE"
+    ],
+    "Abilities":
+    [
+      "ABILITY_SWARM",
+      "ABILITY_PRESSURE",
+      "ABILITY_DISGUISE"
+    ],
+    "HP": 100,
+    "Attack": 100,
+    "Defense": 100,
+    "Speed": 100,
+    "SpAttack": 100,
+    "SpDefense": 100
+  },
   "LevelUpMoves": [
     {
       "Move": "MOVE_TELEPORT",
