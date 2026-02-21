@@ -28,7 +28,18 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "quest": "Welcome Home" },
+                    {
+                        "flag": "FLAG_ROGUE_STUB",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_QUEST_LOG",
+                            "title": "Adventure Stats",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Page Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
                 ]
             },
             
@@ -200,7 +211,7 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },
@@ -218,15 +229,59 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { 
+                        "flag": "FLAG_ROGUE_UNLOCKED_VICTORY_LAP",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_VS_SEEKER",
+                            "title": "Victory Lap",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Feature Unlocked!",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
+                ]
+            },
+
+            {
+                "name": "Welcome Home",
+                "description": "Build all of the available areas.",
+                "display_group": "starter_quests",
+                "flags":
+                [
+                    "MAIN_QUEST_DEFAULT",
+                    "ACTIVE_ALWAYS"
+                ],
+                "triggers":
+                [
+                    {
+                        "on": [ "MISC_UPDATE" ],
+                        "condition": "HasBuiltAllAreas",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" },
+                    { 
+                        "flag": "FLAG_ROGUE_UNLOCKED_MAP_TELEPORT",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_TOWN_MAP",
+                            "title": "Town Map Upgrade",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Teleport Unlocked!",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
                 ]
             },
 
             {
                 "name": "Post Game?",
                 "display_group": "starter_quests",
-                "description": "Meet ??? in ??? to active post-game content.",
+                "description": "Meet ??? in ??? and then meet ??? to active all post game content.",
                 "flags": 
                 [
                     "MAIN_QUEST_DEFAULT",
@@ -244,20 +299,23 @@
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
                     { "quest": "Regional Style" },
                     { "quest": "Type Master" },
                     { "quest": "One Last Quest…" },
+                    { "quest": "Taste the Rainbow" },
+                    { "quest": "Long Haul" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Battle Gimmick" },
                     { "#if": "defined(ROGUE_EXPANSION)", "quest": "Mega Evolution" },
                     { "#if": "defined(ROGUE_EXPANSION)", "quest": "Z-Moves" },
                     { "#if": "defined(ROGUE_EXPANSION)", "quest": "Dynamax" },
-                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Terastallization" }
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Terastallization" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Gimmick Overflow" }
 
                 ]
             },
             {
                 "name": "One Last Quest…",
-                "display_group": "starter_quests",
+                "display_group": "final_quests",
                 "description": "Complete all other Main Quests in order to unlock the 'Final Quest'",
                 "flags": 
                 [
@@ -274,15 +332,25 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
-                    { "quest": "The Final Run." }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" },
+                    { "quest": "The Final Run." },
+                    {
+                        "flag": "FLAG_ROGUE_STUB",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_C_GEAR",
+                            "title": "Rogue Trainers",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Unlocked in Config Lab",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
                 ]
             },
             {
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "name": "The Final Run.",
-                "display_group": "starter_quests",
+                "display_group": "final_quests",
                 "description": "Win a full Standard Run, with the Pokédex set to National Gen3 and only Rogue Trainers enabled.",
                 "triggers":
                 [
@@ -299,15 +367,14 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { "money": "QUEST_REWARD_LARGEST_MONEY" },
                     {
                         "species": "SPECIES_MAREEP",
                         "custom_mon_id": "CUSTOM_MON_ABBIE_MAREEP"
                     },
                     {
                         "species": "SPECIES_WOBBUFFET",
-                        "custom_mon_id": "CUSTOM_MON_RNDOMAN_WOBBUFFET",
+                        "custom_mon_id": "CUSTOM_MON_WAHEY_WOBBUFFET",
                         "visibility": "OBSCURED"
                     }
                 ]
@@ -332,15 +399,14 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { "money": "QUEST_REWARD_LARGEST_MONEY" },
                     {
                         "species": "SPECIES_MAREEP",
                         "custom_mon_id": "CUSTOM_MON_ABBIE_MAREEP"
                     },
                     {
                         "species": "SPECIES_WOBBUFFET",
-                        "custom_mon_id": "CUSTOM_MON_RNDOMAN_WOBBUFFET",
+                        "custom_mon_id": "CUSTOM_MON_WAHEY_WOBBUFFET",
                         "visibility": "OBSCURED"
                     }
                 ]
@@ -360,14 +426,16 @@
                         "on": [ "POKEDEX_UPDATE" ],
                         "condition": "PokedexEntryCountGreaterThan",
                         "pass": "SUCCESS",
-                        "params": [ 15 ]
+                        "params": [ 14 ]
                     }
                 ],
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_PC" },
                     { "quest": "Collector +" },
+                    { "quest": "Collector S" },
                     { "quest": "Collector X" }
                 ]
             },
@@ -385,18 +453,44 @@
                         "on": [ "POKEDEX_UPDATE" ],
                         "condition": "PokedexEntryCountGreaterThan",
                         "pass": "SUCCESS",
-                        "params": [ 100 ]
+                        "params": [ 99 ]
                     }
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_CUSHIONS" }
+                ]
+            },
+            {
+                "name": "Collector S",
+                "description": "Collect data for 10 Shiny Pokémon in the Pokédex.\n\n(Pokémon can be chained to increase odds by knocking out back to back)",
+                "flags": 
+                [
+                    "MAIN_QUEST_DEFAULT",
+                    "ACTIVE_ALWAYS"
+                ],
+                "triggers":
+                [
+                    {
+                        "on": [ "POKEDEX_UPDATE" ],
+                        "condition": "PokedexShinyEntryCountGreaterThan",
+                        "pass": "SUCCESS",
+                        "params": [ 9 ]
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_STARF_BERRY" },
+                    { "item": "ITEM_STARF_BERRY", "count": "3", "visibility": "INVISIBLE" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },
             {
                 "name": "Collector X",
-                "description": "Defeat any Elite Four Trainer with a Pokémon of Legends in your party.",
+                "description": "Defeat every Elite Four Trainer with a Pokémon of Legends in your party.",
                 "triggers":
                 [
                     {
@@ -407,73 +501,73 @@
                     },
                     {
                         "on": [ "EARN_BADGE" ],
-                        "condition": "DifficultyLessThan",
-                        "params": [ "ROGUE_CHAMP_START_DIFFICULTY + 1" ],
-                        "fail": "BREAK"
+                        "condition": "PartyContainsLegendary",
+                        "fail": "FAIL"
                     },
                     {
                         "on": [ "EARN_BADGE" ],
-                        "condition": "PartyContainsLegendary",
-                        "pass": "SUCCESS",
-                        "fail": "FAIL"
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY + 3" ],
+                        "pass": "SUCCESS"
                     }
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_LARGE_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "shop_item": "ITEM_MASTER_BALL" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" }
                 ]
             },
 
             {
-                "name": "Shopping Spree",
-                "description": "Spend at least ¥20000 in shops during a single visit to any Rest Stop.",
+                "name": "Care Tactics",
+                "description": "Defeat the first 4 Gym Leaders, without your Partner Pokémon ever fainting.",
                 "triggers":
                 [
                     {
-                        "on": [ "EXIT_ENCOUNTER" ],
-                        "condition": "InAdventureEncounterType",
-                        "params": [ "ADVPATH_ROOM_RESTSTOP" ],
-                        "fail": "BREAK"
+                        "on": [ "ANY_BATTLE_END" ],
+                        "condition": "PartyContainsInitialPartner",
+                        "fail": "FAIL"
                     },
                     {
-                        "on": [ "EXIT_ENCOUNTER" ],
-                        "condition": "TotalMoneySpentGreaterThan",
-                        "params": [ "19999" ],
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_GYM_MID_DIFFICULTY - 1" ],
                         "pass": "SUCCESS"
                     }
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
-                    { "quest": "Big Saver" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_DOLL" }
                 ]
             },
             {
-                "name": "Big Saver",
-                "description": "Exit a Rest Stop with at least ¥50000 in you pocket.",
+                "name": "Smart Tactics",
+                "description": "Defeat all 8 Gym Leaders, without your Partner Pokémon ever fainting.",
                 "triggers":
                 [
                     {
-                        "on": [ "EXIT_ENCOUNTER" ],
-                        "condition": "InAdventureEncounterType",
-                        "params": [ "ADVPATH_ROOM_RESTSTOP" ],
-                        "fail": "BREAK"
+                        "on": [ "ANY_BATTLE_END" ],
+                        "condition": "PartyContainsInitialPartner",
+                        "fail": "FAIL"
                     },
                     {
-                        "on": [ "EXIT_ENCOUNTER" ],
-                        "condition": "PlayerMoneyGreaterThan",
-                        "params": [ "49999" ],
+                        "on": [ "EARN_BADGE" ],
+                        "condition": "DifficultyGreaterThan",
+                        "params": [ "ROGUE_ELITE_START_DIFFICULTY - 1" ],
                         "pass": "SUCCESS"
                     }
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_PC_WANDERING_PKMN" }
                 ]
             },
+
             {
                 "name": "Mr. Randoman",
                 "description": "Trade a Pokémon with Mr. Randoman.",
@@ -498,74 +592,299 @@
                 ]
             },
             {
-                "name": "Care Tactics",
-                "description": "Defeat the first 4 Gym Leaders, without your Partner Pokémon ever fainting.",
+                "name": "Shopping Spree",
+                "description": "Spend at least ¥20000 in shops during a single visit to any Rest Stop.",
                 "triggers":
                 [
                     {
-                        "on": [ "ANY_BATTLE_END" ],
-                        "condition": "PartyContainsInitialPartner",
-                        "fail": "FAIL"
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "InAdventureEncounterType",
+                        "params": [ "ADVPATH_ROOM_RESTSTOP" ],
+                        "fail": "BREAK"
                     },
                     {
-                        "on": [ "EARN_BADGE" ],
-                        "condition": "DifficultyGreaterThan",
-                        "params": [ "ROGUE_GYM_MID_DIFFICULTY - 1" ],
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "TotalMoneySpentGreaterThan",
+                        "params": [ "19999" ],
                         "pass": "SUCCESS"
                     }
                 ],
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_CUSHIONS" },
+                    { "quest": "Big Saver" }
                 ]
             },
             {
-                "name": "Smart Tactics",
-                "description": "Defeat all 8 Gym Leaders, without any Pokémon ever fainting.",
+                "name": "Big Saver",
+                "description": "Exit a Rest Stop with at least ¥50000 in your pocket.",
                 "triggers":
                 [
                     {
-                        "on": [ "MON_FAINTED" ],
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "InAdventureEncounterType",
+                        "params": [ "ADVPATH_ROOM_RESTSTOP" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "EXIT_ENCOUNTER" ],
+                        "condition": "PlayerMoneyGreaterThan",
+                        "params": [ "49999" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_MEDIUM_BUILD_AMOUNT" }
+                ]
+            },
+
+
+            {
+                "name": "True Legend",
+                "description": "During an Adventure, catch any Pokémon of Legends (Mythicals and other forms count as Legends too).",
+                "triggers":
+                [
+                    {
+                        "on": [ "MON_LEGEND_CAUGHT" ],
                         "condition": "Always",
-                        "pass": "FAIL"
-                    },
-                    {
-                        "on": [ "EARN_BADGE" ],
-                        "condition": "DifficultyGreaterThan",
-                        "params": [ "ROGUE_ELITE_START_DIFFICULTY - 1" ],
                         "pass": "SUCCESS"
                     }
                 ],
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { 
+                        "hub_upgrade": "HUB_UPGRADE_SAFARI_ZONE_LEGENDS_CAVE",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_TOWN_MAP",
+                            "title": "Safari Area",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Mountains shift…",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
                 ]
             },
             {
-                "name": "Mankey's Paw",
-                "description": "Make a dark deal during an Adventure…",
+                "name": "Shiny a Day",
+                "description": "During an Adventure, catch any Shiny Pokémon.",
                 "triggers":
                 [
                     {
-                        "on": [ "MAP_SPECIFIC_EVENT" ],
-                        "condition": "CurrentlyInMap",
-                        "params": [ "MAP_ROGUE_ENCOUNTER_GRAVEYARD" ],
+                        "on": [ "MON_SHINY_CAUGHT" ],
+                        "condition": "Always",
                         "pass": "SUCCESS"
                     }
                 ],
                 "rewards":
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_POKEBLOCK_SHINY", "count": "5" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
                 ]
             },
 
             {
-                "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Mega Evolution",
-                "description": "Win a full Run with the Mega Ring.",
+                "name": "Hidden Grotto",
+                "description": "During an Adventure, catch a Trained Pokémon from a secluded den.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ANY_MON_CAUGHT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_WILD_DEN" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Poké Ball, Go!",
+                "description": "During an Adventure, win a Pokémon Catching Contest.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_CATCHING_CONTEST" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Enticing {POKEBLOCK}",
+                "description": "During an Adventure, attract a Pokémon to a Honey Tree and catch it.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_HONEY_TREE" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Elo Climb",
+                "description": "Win a fight in the Battle Simulator.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_BATTLE_SIM" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "All Skill",
+                "description": "Win every single round in the Game Show.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_GAMESHOW" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Fateful Encounter",
+                "description": "During an Adventure, visit the Lab and reunite with a Friend from the past.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_LAB" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Blasting Off",
+                "description": "Put a stop to an Evil Team, by defeating their Leader.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_SITRUS_BERRY" },
+                    { "item": "ITEM_SITRUS_BERRY", "count": "1", "visibility": "INVISIBLE" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+            {
+                "name": "Mankey's Paw",
+                "description": "Make a Dark Deal, during an Adventure…",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_DARK_DEAL" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_FLAG" }
+                ]
+            },
+            {
+                "name": "Blessing's Favour",
+                "description": "Find some Sacred Ash, during an Adventure.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_SHRINE" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "decor": "DECOR_ID_BED" }
+                ]
+            },
+
+            {
+                "name": "Not Today!",
+                "description": "Use an Escape Rope to avoid a Rival battle.",
+                "triggers":
+                [
+                    {
+                        "on": [ "FIELD_ITEM_USED" ],
+                        "condition": "LastItemWasAny",
+                        "params": [ "ITEM_ESCAPE_ROPE" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "FIELD_ITEM_USED" ],
+                        "condition": "FlagGet",
+                        "params": [ "FLAG_ROGUE_RIVAL_DISABLED" ],
+                        "fail": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "shop_item": "ITEM_ESCAPE_ROPE" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "name": "Double Trouble",
+                "description": "Win a full Run with Double battle format enabled in the Config Lab.",
                 "triggers":
                 [
                     {
@@ -576,19 +895,60 @@
                 ],
                 "requirements":
                 [
-                    { "item": "ITEM_MEGA_RING", "count": 1 }
+                    { "config_range": "CONFIG_RANGE_BATTLE_FORMAT", "value": "BATTLE_FORMAT_DOUBLES" }
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
+                ]
+            },
+
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "name": "Taste the Rainbow",
+                "description": "Enable and all 3 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
+                "triggers":
+                [
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsConfigRangeEqualToAny",
+                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_RAINBOW", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_KANTO", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_JOHTO", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_HOENN", "state": true }
+
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "shop_item": "ITEM_LUM_BERRY" },
+                    { "item": "ITEM_LUM_BERRY", "count": "1", "visibility": "INVISIBLE" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Z-Moves",
-                "description": "Win a full Run with the Z-Power Ring.",
+                "name": "Taste the Rainbow",
+                "description": "Enable and all 9 Generations of Trainers and Rainbow Mode in the Config Lab, then win a full Run.",
                 "triggers":
                 [
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsConfigRangeEqualToAny",
+                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_RAINBOW", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "fail": "FAIL"
+                    },
                     {
                         "on": [ "ENTER_HALL_OF_FAME" ],
                         "condition": "Always",
@@ -597,53 +957,67 @@
                 ],
                 "requirements":
                 [
-                    { "item": "ITEM_Z_POWER_RING", "count": 1 }
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_KANTO", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_JOHTO", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_HOENN", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_SINNOH", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_UNOVA", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_KALOS", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_ALOLA", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_GALAR", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_PALDEA", "state": true }
+
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "shop_item": "ITEM_LUM_BERRY" },
+                    { "item": "ITEM_LUM_BERRY", "count": "1", "visibility": "INVISIBLE" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
+
             {
-                "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Dynamax",
-                "description": "Win a full Run with the Dynamax Band.",
+                "name": "Long Haul",
+                "description": "Bring up to 6 Pokémon into a Gauntlet Mode Adventure and enter the Hall of Fame.",
                 "triggers":
                 [
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsConfigRangeEqualToAny",
+                        "params": [ "CONFIG_RANGE_GAME_MODE_NUM", "ROGUE_GAME_MODE_GAUNTLET", "ROGUE_GAME_MODE_RAINBOW_GAUNTLET" ],
+                        "fail": "FAIL"
+                    },
                     {
                         "on": [ "ENTER_HALL_OF_FAME" ],
                         "condition": "Always",
                         "pass": "SUCCESS"
                     }
                 ],
-                "requirements":
-                [
-                    { "item": "ITEM_DYNAMAX_BAND", "count": 1 }
-                ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
+
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Terastallization",
-                "description": "Win a full Run with the Tera Orb.",
+                "name": "Battle Gimmick",
+                "description": "Win a full Run with any of: Mega Ring, Z-Power Ring, Dynamax Band or Tera Orb.",
                 "triggers":
                 [
                     {
                         "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "Always",
+                        "condition": "BagContainsItemsOR",
+                        "params": [ "ITEM_MEGA_RING", "ITEM_Z_POWER_RING", "ITEM_DYNAMAX_BAND", "ITEM_TERA_ORB" ],
                         "pass": "SUCCESS"
                     }
                 ],
-                "requirements":
-                [
-                    { "item": "ITEM_TERA_ORB", "count": 1 }
-                ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             }
         ]

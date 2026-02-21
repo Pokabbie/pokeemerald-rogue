@@ -56,7 +56,7 @@
       "x": 7,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROGUE_ALWAYS_ZERO",
       "var_value": "0",
       "script": "Rogue_Battle_Boss13"
     },
@@ -65,7 +65,7 @@
       "x": 8,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROGUE_ALWAYS_ZERO",
       "var_value": "0",
       "script": "Rogue_Battle_Boss13"
     },
@@ -74,7 +74,7 @@
       "x": 9,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROGUE_ALWAYS_ZERO",
       "var_value": "0",
       "script": "Rogue_Battle_Boss13"
     }

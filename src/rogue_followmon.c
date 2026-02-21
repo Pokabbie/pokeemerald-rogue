@@ -44,6 +44,7 @@ struct FollowMonData
     u16 spawnSlot;
     u16 pendingSpawnAnim;
     u16 encounterChainSpecies;
+    u16 cachedPartnerMonGfx;
 };
 
 static EWRAM_DATA struct FollowMonData sFollowMonData = { 0 };
@@ -428,7 +429,7 @@ bool8 FollowMon_IsPartnerMonActive()
     return PlayerHasFollower();
 }
 
-u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
+u16 GetPartnerFollowSpeciesInternal()
 {
     u16 species;
 
@@ -449,10 +450,27 @@ u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
         }
     }
 
+    return species;
+}
+
+u16 FollowMon_GetPartnerFollowSpecies(bool8 includeShinyOffset)
+{
+    u16 species;
+
+    if(sFollowMonData.cachedPartnerMonGfx == NUM_SPECIES)
+        sFollowMonData.cachedPartnerMonGfx = GetPartnerFollowSpeciesInternal();
+
+    species = sFollowMonData.cachedPartnerMonGfx;
+
     if(!includeShinyOffset && species >= FOLLOWMON_SHINY_OFFSET)
         species -= FOLLOWMON_SHINY_OFFSET;
 
     return species;
+}
+
+void FollowMon_ClearCachedPartnerSpecies()
+{
+    sFollowMonData.cachedPartnerMonGfx = NUM_SPECIES;
 }
 
 bool8 FollowMon_IsMonObject(struct ObjectEvent* object, bool8 ignorePartnerMon)
@@ -562,10 +580,6 @@ bool8 FollowMon_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEve
     // Disable collision exemption for tutorial
     //if(Rogue_InWildSafari() && VarGet(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_CATCH_MON)
     //    return FALSE;
-
-    // If we're flying nothing can collide with the player
-    if(Rogue_IsRideMonFlying())
-        return obstacle == player || collider == player;
 
     if(Rogue_IsRunActive() || Rogue_InWildSafari() || GetSafariZoneFlag())
     {
@@ -755,8 +769,15 @@ static bool8 IsSpawnSlotValid(u16 slot)
     // 4 : normal pal index 10
     if(slot == 4)
     {
-        // TODO - Only enable this in routes where rival isn't active
-        return FALSE;
+        if(Rogue_IsRunActive())
+        {
+            // Only enable if we aren't using the pal10 slot for rival
+            return FlagGet(FLAG_ROGUE_RIVAL_DISABLED);
+        }
+        else
+        {
+            return TRUE;
+        }
     }
 
     // 5 : normal pal index 1 (partner slot)
@@ -766,6 +787,11 @@ static bool8 IsSpawnSlotValid(u16 slot)
     }
 
     return FALSE;
+}
+
+bool8 FollowMon_IsSlotEnabled(u8 slot)
+{
+    return IsSpawnSlotValid(slot);
 }
 
 static u16 ActiveSpawnSlotCount()
@@ -872,6 +898,7 @@ static bool8 CheckForObjectEventAtLocation(s16 x, s16 y)
 static bool8 TrySelectTile(s16* outX, s16* outY)
 {
     u8 tryCount;
+    u8 elevation;
     u16 tileBehavior;
     s16 playerX, playerY;
     s16 x, y;
@@ -921,8 +948,15 @@ static bool8 TrySelectTile(s16* outX, s16* outY)
         PlayerGetDestCoords(&playerX, &playerY);
         x += playerX;
         y += playerY;
-        tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
+        elevation = MapGridGetElevationAt(x, y);
+
+        // 0 is change of elevation, 15 is multiple elevation e.g. bridges
+        // Causes weird interaction issues so just don't let mons spawn here
+        if (elevation == 0 || elevation == 15)
+            return FALSE;
+
+        tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
         if(IsSpawningWaterMons())
         {
             if(MetatileBehavior_IsWaterWildEncounter(tileBehavior) && !MapGridIsImpassableAt(x, y))
@@ -1144,6 +1178,8 @@ void FollowMon_RecountActiveObjects()
     u8 i;
 
     sFollowMonData.activeCount = 0;
+
+    FollowMon_ClearCachedPartnerSpecies();
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {

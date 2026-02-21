@@ -690,7 +690,7 @@ static void OpponentHandleChoosePokemon(u32 battler)
 
             GetAIPartyIndexes(battler, &firstId, &lastId);
 
-            for (chosenMonId = (lastId-1); chosenMonId >= firstId; chosenMonId--)
+            for (chosenMonId = firstId; chosenMonId <= lastId; chosenMonId++)
             {
                 if (IsValidForBattle(&gEnemyParty[chosenMonId])
                     && chosenMonId != gBattlerPartyIndexes[battler1]

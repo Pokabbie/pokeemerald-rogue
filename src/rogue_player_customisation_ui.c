@@ -36,6 +36,7 @@
 
 #include "rogue_player_customisation.h"
 #include "rogue_player_customisation_ui.h"
+#include "rogue_timeofday.h"
 
 #define TOTAL_UI_PAGE_ENTRIES 9
 #define MAX_UI_PAGE_DEPTH 4
@@ -517,6 +518,8 @@ void CB2_InitPlayerCustomisationMenu()
         return;
     }
 
+    RogueToD_SetTempDisableTimeVisuals(TRUE);
+
     sPlayerOutfitUIState = AllocZeroed(sizeof(struct RoguePlayerUIState));
     
     sPlayerOutfitUIState->loadState = 0;
@@ -640,9 +643,6 @@ static void RoguePlayerUI_RefreshPageEntries()
             RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_PRIMARY) ||
             RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY);
 
-        if(anySupported)
-            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_RANDOMISE_COLOURS;
-
         if(RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_APPEARANCE))
             sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_APPEARANCE;
 
@@ -651,6 +651,9 @@ static void RoguePlayerUI_RefreshPageEntries()
 
         if(RoguePlayer_SupportsOutfitStyle(PLAYER_OUTFIT_STYLE_SECONDARY))
             sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EDIT_SECONDARY;
+
+        if(anySupported)
+            sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_RANDOMISE_COLOURS;
 
         sPlayerOutfitUIState->currentPageEntries[i++] = UI_ENTRY_EXIT;
         break;
@@ -769,6 +772,15 @@ static void Task_RoguePlayerUIMain(u8 taskId)
     else if (JOY_NEW(DPAD_DOWN))
     {
         ++sPlayerOutfitUIState->currentOptionIdx;
+    }
+
+    else if (JOY_NEW(L_BUTTON))
+    {
+        sPlayerOutfitUIState->currentOptionIdx = 0;
+    }
+    else if (JOY_NEW(R_BUTTON))
+    {
+        sPlayerOutfitUIState->currentOptionIdx = TOTAL_UI_PAGE_ENTRIES;
     }
 
     else if (JOY_NEW(START_BUTTON))
@@ -1157,6 +1169,8 @@ static void RoguePlayerUI_FreeResources(void)
     {
         Free(sBg1TilemapBuffer);
     }
+    
+    RogueToD_SetTempDisableTimeVisuals(FALSE);
     FreeAllWindowBuffers();
     ResetSpriteData();
 }
@@ -1236,7 +1250,7 @@ static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8 entryIdx, u8 menuOffset)
     const u16 outfitCount = RoguePlayer_GetOutfitCount();
     u16 outfitId = RoguePlayer_GetOutfitId();
 
-    if(JOY_NEW(DPAD_LEFT))
+    if(JOY_REPEAT(DPAD_LEFT))
     {
         do
         {
@@ -1251,7 +1265,7 @@ static bool8 RoguePlayerUI_EntryOutfit_ProcessInput(u8 entryIdx, u8 menuOffset)
         RoguePlayerUI_RefreshPageEntries();
         return TRUE;
     }
-    else if(JOY_NEW(DPAD_RIGHT) || JOY_NEW(A_BUTTON))
+    else if(JOY_REPEAT(DPAD_RIGHT) || JOY_NEW(A_BUTTON))
     {
         do
         {

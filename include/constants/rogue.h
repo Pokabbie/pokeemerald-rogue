@@ -21,7 +21,7 @@
 
 // Seems to be slower overall
 //#define ROGUE_FEATURE_HQ_RANDOM 1
-#define ROGUE_FEATURE_SAFTEY_CHECKS 1
+//#define ROGUE_FEATURE_SAFTEY_CHECKS 1
 
 #ifdef ROGUE_EXPANSION
 #define ROGUE_FEATURE_REMOVE_HIDDEN_MACHINES
@@ -61,6 +61,7 @@
 #define ROGUE_SHOP_CURSES               11
 #define ROGUE_SHOP_CHARMS               12
 #define ROGUE_SHOP_HUB_UPGRADES         13
+#define ROGUE_SHOP_COURIER              14
 
 #define ITEM_LINK_CABLE                 (ITEM_ROGUE_ITEM_FIRST + 0)
 #define ITEM_QUEST_LOG                  (ITEM_ROGUE_ITEM_FIRST + 1)
@@ -73,6 +74,9 @@
 #define ITEM_ALOLA_STONE                (ITEM_ROGUE_ITEM_FIRST + 8)
 #define ITEM_GALAR_STONE                (ITEM_ROGUE_ITEM_FIRST + 9)
 #define ITEM_HISUI_STONE                (ITEM_ROGUE_ITEM_FIRST + 10)
+#define ITEM_SMALL_COIN_CASE            (ITEM_ROGUE_ITEM_FIRST + 11)
+#define ITEM_LARGE_COIN_CASE            (ITEM_ROGUE_ITEM_FIRST + 12)
+#define ITEM_GOLDEN_SEED                (ITEM_ROGUE_ITEM_FIRST + 13)
 
 // Free 10 - 19
 
@@ -129,8 +133,14 @@
 #define ITEM_WILD_ENCOUNTER_CHARM       (FIRST_ITEM_CHARM + 7)
 #define ITEM_MOVE_PRIORITY_CHARM        (FIRST_ITEM_CHARM + 8)
 #define ITEM_ENDURE_CHARM               (FIRST_ITEM_CHARM + 9)
+#define ITEM_TORMENT_CHARM              (FIRST_ITEM_CHARM + 10)
+#define ITEM_PRESSURE_CHARM             (FIRST_ITEM_CHARM + 11)
+#define ITEM_UNAWARE_CHARM              (FIRST_ITEM_CHARM + 12)
+#define ITEM_ADAPTABILITY_CHARM         (FIRST_ITEM_CHARM + 13)
+#define ITEM_INFINITE_EXTRA_LIFE_CHARM  (FIRST_ITEM_CHARM + 14)
+#define ITEM_ALLOW_SAVE_SCUM_CHARM      (FIRST_ITEM_CHARM + 15)
 
-#define LAST_ITEM_CHARM                 (ITEM_ENDURE_CHARM)
+#define LAST_ITEM_CHARM                 (ITEM_ALLOW_SAVE_SCUM_CHARM)
 
 
 #define FIRST_ITEM_CURSE                (ITEM_ROGUE_ITEM_FIRST + 80)
@@ -147,11 +157,22 @@
 #define ITEM_EVERSTONE_CURSE            (FIRST_ITEM_CURSE + 9)
 #define ITEM_BATTLE_ITEM_CURSE          (FIRST_ITEM_CURSE + 10)
 #define ITEM_SPECIES_CLAUSE_CURSE       (FIRST_ITEM_CURSE + 11)
-#define ITEM_ITEM_SHUFFLE_CURSE         (FIRST_ITEM_CURSE + 12)
+#define ITEM_SHUFFLE_CURSE              (FIRST_ITEM_CURSE + 12)
 #define ITEM_MOVE_PRIORITY_CURSE        (FIRST_ITEM_CURSE + 13)
 #define ITEM_ENDURE_CURSE               (FIRST_ITEM_CURSE + 14)
+#define ITEM_TORMENT_CURSE              (FIRST_ITEM_CURSE + 15)
+#define ITEM_PRESSURE_CURSE             (FIRST_ITEM_CURSE + 16)
+#define ITEM_UNAWARE_CURSE              (FIRST_ITEM_CURSE + 17)
+#define ITEM_ADAPTABILITY_CURSE         (FIRST_ITEM_CURSE + 18)
+#define ITEM_SNOWBALL_CURSE             (FIRST_ITEM_CURSE + 19)
+#define ITEM_RANDOMAN_ROUTE_SPAWN_CURSE (FIRST_ITEM_CURSE + 20)
+#define ITEM_RANDOMAN_ALWAYS_SPAWN_CURSE (FIRST_ITEM_CURSE + 21)
+#define ITEM_AUTO_MOVE_CURSE            (FIRST_ITEM_CURSE + 22)
+#define ITEM_ONE_HIT_CURSE              (FIRST_ITEM_CURSE + 23)
+#define ITEM_SNAG_CURSE                 (FIRST_ITEM_CURSE + 24)
+#define ITEM_WILD_EGG_SPECIES_CURSE     (FIRST_ITEM_CURSE + 25)
 
-#define LAST_ITEM_CURSE                 (ITEM_ENDURE_CURSE)
+#define LAST_ITEM_CURSE                 (ITEM_WILD_EGG_SPECIES_CURSE)
 
 #define ITEM_TR01                       (LAST_ITEM_CURSE + 1)
 #define ITEM_TR50                       (LAST_ITEM_CURSE + 50)
@@ -289,8 +310,9 @@
 #define CLASS_FLAG_TEAM_ROCKET                  (1 << 0)
 #define CLASS_FLAG_TEAM_AQUA                    (1 << 1)
 #define CLASS_FLAG_TEAM_MAGMA                   (1 << 2)
+#define CLASS_FLAG_TEAM_GALACTIC                (1 << 3)
 
-#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA)
+#define CLASS_FLAG_ANY_TEAM                     (CLASS_FLAG_TEAM_ROCKET | CLASS_FLAG_TEAM_AQUA | CLASS_FLAG_TEAM_MAGMA | CLASS_FLAG_TEAM_GALACTIC)
 
 // TRAINER_FLAG_CLASS_SPECIAL
 //
@@ -309,7 +331,8 @@
 #define TEAM_NUM_JOHTO_ROCKET   1
 #define TEAM_NUM_AQUA           2
 #define TEAM_NUM_MAGMA          3
-#define TEAM_NUM_COUNT          4
+#define TEAM_NUM_GALACTIC       4
+#define TEAM_NUM_COUNT          5
 
 #define TEAM_PRE_LEGEND_MAP_OFFSET 100
 
@@ -338,6 +361,8 @@
 #define SPECIES_RAVEN_ACE               SPECIES_GOOMY
 #define SPECIES_ERMA_ACE                SPECIES_FOMANTIS
 #define SPECIES_KATE_ACE                SPECIES_TAROUNTULA
+
+#define SPECIES_CYRUS_ACE               SPECIES_GIRATINA
 #else
 #define ITEM_POKABBIE_POKEBALL          ITEM_LUXURY_BALL
 #define ITEM_FINAL_TRAINERS_POKEBALL    ITEM_PREMIER_BALL
@@ -348,6 +373,8 @@
 #define SPECIES_RAVEN_ACE               SPECIES_NONE
 #define SPECIES_ERMA_ACE                SPECIES_NONE
 #define SPECIES_KATE_ACE                SPECIES_GASTLY
+
+#define SPECIES_CYRUS_ACE               SPECIES_RAYQUAZA
 #endif
 
 // For final quest we're going to only show a single rival per "gym gen"
@@ -493,12 +520,12 @@
 
 // CONFIG_RANGE_
 #define CONFIG_RANGE_TRAINER                0
-#define CONFIG_RANGE_ITEM                   1
-#define CONFIG_RANGE_LEGENDARY              2
+#define CONFIG_RANGE_ITEM                   1 // unused
+#define CONFIG_RANGE_LEGENDARY              2 // unused
 #define CONFIG_RANGE_BATTLE_FORMAT          3
 #define CONFIG_RANGE_POKEDEX_VARIANT        4
 #define CONFIG_RANGE_GAME_MODE_NUM          5
-#define CONFIG_RANGE_UNUSED0                6 // prev TRAINER_ORDER
+#define CONFIG_RANGE_DIFFICULTY_PRESET      6
 #define CONFIG_RANGE_COUNT                  7
 
 #define DEBUG_START_VALUE           0x7FFF
@@ -523,7 +550,8 @@
 // DEBUG_RANGE_
 #define DEBUG_RANGE_START_DIFFICULTY                (DEBUG_START_VALUE + 0)
 #define DEBUG_RANGE_FORCED_ROUTE                    (DEBUG_START_VALUE + 1)
-#define DEBUG_RANGE_FORCED_WEATHER                  (DEBUG_START_VALUE + 3)
+// ...
+#define DEBUG_RANGE_FORCED_EVIL_TEAM                (DEBUG_START_VALUE + 3)
 #define DEBUG_RANGE_COUNT                           4
 
 #define BATTLE_FORMAT_SINGLES   0
@@ -590,11 +618,17 @@
 #define NET_CMD_BUFFER_SIZE                 64
 #define NET_CMD_UNRESERVED_BUFFER_SIZE      62 // 2 bytes at front reserved for cmd ID
 
+// Home
+//
+#define ASSISTANT_HOME_LOCAL_BOXES          10
+#define ASSISTANT_HOME_REMOTE_BOXES         (10 * 5)
+#define ASSISTANT_HOME_TOTAL_BOXES          (ASSISTANT_HOME_LOCAL_BOXES + ASSISTANT_HOME_REMOTE_BOXES)
+
 // Multiplayer
 //
 #define MP_PLAYER_STATUS_NONE               0
 #define MP_PLAYER_STATUS_TALK_TO_PLAYER     1
-#define MP_PLAYER_STATUS_COUNT              2
+#define MP_PLAYER_STATUS_BEGIN_TRADE        2
 
 // Sound
 //
@@ -628,10 +662,12 @@
 //
 #define POKEDEX_DYNAMIC_VARIANT_START               POKEDEX_VARIANT_END
 
-#define POKEDEX_DYNAMIC_VARIANT_SAFARI              (POKEDEX_DYNAMIC_VARIANT_START + 1)
+#define POKEDEX_DYNAMIC_VARIANT_NORMAL_SAFARI       (POKEDEX_DYNAMIC_VARIANT_START + 1)
 #define POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI       (POKEDEX_DYNAMIC_VARIANT_START + 2)
+#define POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES         (POKEDEX_DYNAMIC_VARIANT_START + 3)
+#define POKEDEX_DYNAMIC_VARIANT_FINAL_SPECIES       (POKEDEX_DYNAMIC_VARIANT_START + 4)
 
-#define POKEDEX_DYNAMIC_VARIANT_END                 POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI
+#define POKEDEX_DYNAMIC_VARIANT_END                 POKEDEX_DYNAMIC_VARIANT_FINAL_SPECIES
 #define POKEDEX_INVALID_VARIANT                     (POKEDEX_DYNAMIC_VARIANT_END + 1)
 
 #ifdef ROGUE_EXPANSION
@@ -644,10 +680,29 @@
 #define POKEDEX_MAX_GEN                 3
 #endif
 
+// Gift Mons
+//
+#define OTID_FLAG_CUSTOM_MON            (1 << 31)
+#define OTID_FLAG_DYNAMIC_CUSTOM_MON    (1 << 30)
+
+// Dynamic custom mon flag is only valid if the first is set
+#define OTID_FLAG_STANDARD_MASK         (~OTID_FLAG_CUSTOM_MON)
+
 // Misc.
 //
 // Number of bytes needed to cover all species
 #define SPECIES_FLAGS_BYTE_COUNT (1 + NUM_SPECIES / 8)
+
+#ifdef ROGUE_EXPANSION
+#define SPECIES_FINAL_EVO_STAGE_COUNT   606
+#define SPECIES_EGG_EVO_STAGE_COUNT     569
+#else
+#define SPECIES_FINAL_EVO_STAGE_COUNT   214
+#define SPECIES_EGG_EVO_STAGE_COUNT     202
+#endif
+
+#define MON_MASTERY_TOTAL_COUNT     SPECIES_EGG_EVO_STAGE_COUNT
+#define MON_MASTERY_BYTE_COUNT      (1 + MON_MASTERY_TOTAL_COUNT / 8)
 
 #define INVALID_HISTORY_ENTRY ((u16)-1)
 
@@ -670,11 +725,13 @@
 // 45-49 are for legends
 #define ROGUE_SAFARI_TOTAL_MONS             60
 #define ROGUE_SAFARI_LEGENDS_START_INDEX    45
+#define ROGUE_SAFARI_TOTAL_CUSTOM_MONS      16
 
-#define ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST 12
+#define ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST 20
 
-#define LAB_MON_COUNT           3
-#define DAYCARE_SLOT_COUNT      3
+#define LAB_MON_COUNT               3
+#define DAYCARE_SLOT_COUNT          3
+#define DYNAMIC_UNIQUE_MON_COUNT    5
 
 #define ROGUE_ADVENTURE_REPLAY_MOST_RECENT  0
 #define ROGUE_ADVENTURE_REPLAY_REMEMBERED   1

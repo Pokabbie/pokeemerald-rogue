@@ -164,7 +164,7 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
             {
                 .playerX=0, .playerY=-2,
                 .monX=0, .monY=1,
-                .playerRendersInFront=RIDER_SHOW_BEHIND,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
             },
             [RIDE_SPRITE_DIR_DOWN] =
             {
@@ -1489,7 +1489,7 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
             {
                 .playerX=0, .playerY=-7,
                 .monX=0, .monY=1,
-                .playerRendersInFront=RIDER_SHOW_BEHIND,
+                .playerRendersInFront=RIDER_SHOW_INFRONT,
             },
             [RIDE_SPRITE_DIR_DOWN] =
             {
@@ -8062,19 +8062,19 @@ static const struct RideMonInfo sRideMonInfo[NUM_SPECIES] =
         {
             [RIDE_SPRITE_DIR_UP] =
             {
-                .playerX=0, .playerY=-4,
+                .playerX=0, .playerY=-28,
                 .monX=0, .monY=-16,
                 .playerRendersInFront=RIDER_SHOW_INFRONT,
             },
             [RIDE_SPRITE_DIR_DOWN] =
             {
-                .playerX=0, .playerY=-7,
+                .playerX=1, .playerY=-29,
                 .monX=0, .monY=-17,
                 .playerRendersInFront=RIDER_SHOW_BEHIND,
             },
             [RIDE_SPRITE_DIR_SIDE] =
             {
-                .playerX=-2, .playerY=-3,
+                .playerX=-3, .playerY=-27,
                 .monX=0, .monY=-15,
                 .playerRendersInFront=RIDER_SHOW_INFRONT,
             },

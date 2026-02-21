@@ -2869,7 +2869,7 @@ static void AwardBattleTowerRibbons(void)
 
     if (gSpecialVar_Result)
     {
-        IncrementGameStat(GAME_STAT_RECEIVED_RIBBONS);
+        //IncrementGameStat(GAME_STAT_RECEIVED_RIBBONS);
         for (i = 1; i < monCount; i++)
         {
             if (ribbons[i].count > ribbons[0].count)

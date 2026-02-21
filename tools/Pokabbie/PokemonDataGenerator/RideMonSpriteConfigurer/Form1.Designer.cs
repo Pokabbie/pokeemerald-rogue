@@ -53,6 +53,7 @@ namespace RideMonSpriteConfigurer
 			this.canSwimCheckBox = new System.Windows.Forms.CheckBox();
 			this.canFlyCheckBox = new System.Windows.Forms.CheckBox();
 			this.deleteRideMonInfo = new System.Windows.Forms.Button();
+			this.filerAlreadyRideable = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.downPictureBox0)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.downPictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.upPictureBox0)).BeginInit();
@@ -273,11 +274,22 @@ namespace RideMonSpriteConfigurer
 			this.deleteRideMonInfo.UseVisualStyleBackColor = true;
 			this.deleteRideMonInfo.Click += new System.EventHandler(this.deleteRideMonInfo_Click);
 			// 
+			// filerAlreadyRideable
+			// 
+			this.filerAlreadyRideable.AutoSize = true;
+			this.filerAlreadyRideable.Location = new System.Drawing.Point(816, 57);
+			this.filerAlreadyRideable.Name = "filerAlreadyRideable";
+			this.filerAlreadyRideable.Size = new System.Drawing.Size(132, 21);
+			this.filerAlreadyRideable.TabIndex = 56;
+			this.filerAlreadyRideable.Text = "already rideable";
+			this.filerAlreadyRideable.UseVisualStyleBackColor = true;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(936, 620);
+			this.Controls.Add(this.filerAlreadyRideable);
 			this.Controls.Add(this.deleteRideMonInfo);
 			this.Controls.Add(this.canFlyCheckBox);
 			this.Controls.Add(this.canSwimCheckBox);
@@ -339,6 +351,7 @@ namespace RideMonSpriteConfigurer
 		private System.Windows.Forms.CheckBox canSwimCheckBox;
 		private System.Windows.Forms.CheckBox canFlyCheckBox;
 		private System.Windows.Forms.Button deleteRideMonInfo;
+		private System.Windows.Forms.CheckBox filerAlreadyRideable;
 	}
 }
 

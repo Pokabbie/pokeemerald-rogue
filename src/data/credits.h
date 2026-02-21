@@ -29,7 +29,9 @@
     method(401, "Erma", 0) \
     method(402, "Raven", 0) \
     method(403, "TailsMK4", 0) \
-    method(404, "", CREDITS_FLAG_BREAK) \
+    method(404, "LightningStrike7", 0) \
+    method(405, "Nacholord", 0) \
+    method(406, "", CREDITS_FLAG_BREAK) \
     \
     method(500, "Community Artists", CREDITS_FLAG_TITLE) \
     method(501, "Zefa", 0) \

@@ -73,6 +73,11 @@ extern const u16 gRogueBake_EvoItems[];
 extern const u16 gRogueBake_EvoItems_Count;
 extern const u16 gRogueBake_FormItems[];
 extern const u16 gRogueBake_FormItems_Count;
+
+extern const u16 gRogueBake_FinalEvoSpecies[];
+extern const u16 gRogueBake_FinalEvoSpecies_Count;
+extern const u16 gRogueBake_EggSpecies[];
+extern const u16 gRogueBake_EggSpecies_Count;
 #endif
 
 void HistoryBufferPush(u16* buffer, u16 capacity, u16 value)
@@ -238,6 +243,12 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
     memcpy(outEvo, GetBaseEvolution(species, evoIdx), sizeof(*outEvo));
 
     // Any species alterations
+    if(species == SPECIES_AZURILL && evoIdx == 0)
+    {
+        outEvo->method = EVO_LEVEL;
+        outEvo->param = 10;
+    }
+
 #ifdef ROGUE_EXPANSION
     if(species == SPECIES_YAMASK_GALARIAN && evoIdx == 0)
     {
@@ -362,7 +373,7 @@ void Rogue_ModifyEvolution(u16 species, u8 evoIdx, struct Evolution* outEvo)
 #endif
 
 #ifndef ROGUE_BAKING
-    if(outEvo->targetSpecies != SPECIES_NONE && !RoguePokedex_IsSpeciesEnabled(outEvo->targetSpecies))
+    if(outEvo->targetSpecies != SPECIES_NONE && (Rogue_IsRunActive() && !RoguePokedex_IsSpeciesEnabled(outEvo->targetSpecies)))
     {
         // Invalid evo
         outEvo->targetSpecies = SPECIES_NONE;
@@ -589,31 +600,12 @@ void Rogue_ModifyEvolution_ApplyCurses(u16 species, u8 evoIdx, struct Evolution*
         // Apply evo curse
         if(IsCurseActive(EFFECT_EVERSTONE_EVOS))
         {
-            switch (outEvo->method)
-            {
-            case EVO_LEVEL:
-            case EVO_LEVEL_ATK_GT_DEF:
-            case EVO_LEVEL_ATK_EQ_DEF:
-            case EVO_LEVEL_ATK_LT_DEF:
-            case EVO_LEVEL_SILCOON:
-            case EVO_LEVEL_CASCOON:
-            case EVO_LEVEL_NINJASK:
-            //case EVO_LEVEL_SHEDINJA:
 #ifdef ROGUE_EXPANSION
-            case EVO_LEVEL_FEMALE:
-            case EVO_LEVEL_MALE:
-            case EVO_LEVEL_NIGHT:
-            case EVO_LEVEL_DAY:
-            case EVO_LEVEL_DUSK:
-            case EVO_LEVEL_RAIN:
-            case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
-            case EVO_LEVEL_NATURE_AMPED:
-            case EVO_LEVEL_NATURE_LOW_KEY:
+            outEvo->method = EVO_NONE;
+#else
+            outEvo->method = 0;
 #endif
-                outEvo->method = EVO_ITEM;
-                outEvo->param = ITEM_LINK_CABLE;
-                break;
-            }
+            outEvo->targetSpecies = SPECIES_NONE;
         }
     }
 #endif
@@ -732,7 +724,20 @@ static u16 ModifyTrainerClass(u16 trainerNum, u16 trainerClass, bool8 forMusic)
 
     if(trainerClass == TRAINER_CLASS_LEADER || trainerClass == TRAINER_CLASS_TOTEM_LEADER)
     {
-        if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
+        if(Rogue_IsVictoryLapActive())
+        {
+            const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+
+            if(trainer->classFlags & CLASS_FLAG_BOSS_CHAMP)
+            {
+                trainerClass = TRAINER_CLASS_CHAMPION;
+            }
+            else if(trainer->classFlags & CLASS_FLAG_BOSS_ANY_ELITE)
+            {
+                trainerClass = TRAINER_CLASS_ELITE_FOUR;
+            }
+        }
+        else if(Rogue_GetCurrentDifficulty() >= ROGUE_CHAMP_START_DIFFICULTY)
         {
             trainerClass = TRAINER_CLASS_CHAMPION;
         }
@@ -795,6 +800,12 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         if(Rogue_ShouldTrainerSaveAceMon(trainerNum))
             outTrainer->aiFlags |= AI_FLAG_ACE_POKEMON;
+
+        if(IsCurseActive(EFFECT_AUTO_MOVE_SELECT) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
+        {
+            // AI will be dumb for this campaign
+            outTrainer->aiFlags &= ~(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_WILL_SUICIDE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_HELP_PARTNER | AI_FLAG_SMART_MON_CHOICES | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_DOUBLE_BATTLE);
+        }
 #else
         outTrainer->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY;
 
@@ -803,12 +814,13 @@ void Rogue_ModifyTrainer(u16 trainerNum, struct Trainer* outTrainer)
 
         if(Rogue_ShouldTrainerTrySetup(trainerNum))
              outTrainer->aiFlags |= AI_SCRIPT_SETUP_FIRST_TURN;
-#endif
-        if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
+
+        if(IsCurseActive(EFFECT_AUTO_MOVE_SELECT) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
         {
-            // AI will be dump for this campaign
+            // AI will be dumb for this campaign
             outTrainer->aiFlags = 0;
         }
+#endif
 #ifdef ROGUE_FEATURE_AUTOMATION
         else if(Rogue_AutomationGetFlag(AUTO_FLAG_TRAINER_RANDOM_AI))
         {
@@ -961,6 +973,7 @@ u32 Rogue_CalculateMovePrice(u16 move)
 extern const u8 gText_EscapeRopeDesc[];
 extern const u8 gItemDesc_TM[];
 extern const u8 gItemDesc_TR[];
+extern const u8 gItemDesc_MaxMushroom[];
 
 extern const u32 *const gItemIconTable[][2];
 
@@ -1002,6 +1015,11 @@ const u8* Rogue_GetItemDesc(u16 itemId)
     {
         case ITEM_ESCAPE_ROPE:
             return gText_EscapeRopeDesc;
+
+#ifdef ROGUE_EXPANSION
+        case ITEM_MAX_MUSHROOMS:
+            return gItemDesc_MaxMushroom;
+#endif
     }
 
     return gItems[itemId].description;
@@ -1238,7 +1256,7 @@ u16 Rogue_GetPrice(u16 itemId)
     
     if((itemId >= ITEM_BUG_TERA_SHARD && itemId <= ITEM_WATER_TERA_SHARD) || itemId == ITEM_STELLAR_TERA_SHARD)
     {
-        price = HELD_ITEM_HIGH_PRICE;
+        price = HELD_ITEM_MID_PRICE + 1000;
     }
 
 #endif
@@ -1258,7 +1276,11 @@ u16 Rogue_GetPrice(u16 itemId)
             break;
 
         case ITEM_ESCAPE_ROPE:
-            price = 8000;
+            price = Rogue_IsRunActive() ? 8000 : 16000;
+            break;
+
+        case ITEM_MASTER_BALL:
+            price = 50000;
             break;
 
         case ITEM_NUGGET:
@@ -1292,11 +1314,11 @@ u16 Rogue_GetPrice(u16 itemId)
 
 #ifdef ROGUE_EXPANSION
         case ITEM_ABILITY_CAPSULE:
-            price = 3000;
+            price = 6000;
             break;
 
         case ITEM_ABILITY_PATCH:
-            price = 6000;
+            price = 7000;
             break;
 
         // Weaker versions
@@ -1310,6 +1332,11 @@ u16 Rogue_GetPrice(u16 itemId)
         case ITEM_RUSTED_SWORD:
         case ITEM_RUSTED_SHIELD:
             applyDefaultHubIncrease = TRUE;
+            price = HELD_ITEM_HIGH_PRICE;
+            break;
+
+        case ITEM_MAX_MUSHROOMS:
+            //applyDefaultHubIncrease = TRUE;
             price = HELD_ITEM_HIGH_PRICE;
             break;
 
@@ -1350,7 +1377,6 @@ u16 Rogue_GetPrice(u16 itemId)
         case ITEM_PARK_BALL:
 #endif
         case ITEM_SAFARI_BALL:
-        case ITEM_MASTER_BALL:
             price = 0;
             break;
     }
@@ -1523,6 +1549,14 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
         outItem->fieldUseFunc = ItemUseOutOfBattle_TeraShard,
         outItem->pocket = POCKET_STONES;
     }
+
+    if(itemId == ITEM_MAX_MUSHROOMS)
+    {
+        outItem->type = ITEM_USE_PARTY_MENU,
+        outItem->battleUsage = 0,
+        outItem->fieldUseFunc = ItemUseOutOfBattle_MaxMushroom,
+        outItem->pocket = POCKET_STONES;
+    }
 #endif
 
     // Individual items
@@ -1544,6 +1578,11 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->holdEffect = 0;
             break;
     
+        case ITEM_TOWN_MAP:
+            outItem->type = ITEM_USE_FIELD;
+            outItem->fieldUseFunc = ItemUseOutOfBattle_WorldMap;
+            break;
+
         case ITEM_SOUL_DEW:
 #ifdef ROGUE_EXPANSION
             outItem->pocket = POCKET_STONES;
@@ -1577,9 +1616,15 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 
     // Check we're not a charm/curse otherwise we can get infinite loops here
     {
-        if(outItem->pocket != POCKET_POKE_BALLS && IsCurseActive(EFFECT_BATTLE_ITEM_BAN))
+        if(outItem->pocket == POCKET_POKE_BALLS)
         {
-            outItem->battleUsage = 0;
+            if(IsCurseActive(EFFECT_SNAG_TRAINER_MON) && !FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
+                outItem->battleUsage = 0;
+        }
+        else
+        {
+            if(IsCurseActive(EFFECT_BATTLE_ITEM_BAN))
+                outItem->battleUsage = 0;
         }
     }
 }
@@ -1594,6 +1639,13 @@ u32 Rogue_CalculateMovePrice(u16 move)
     u8 power = gBattleMoves[move].power;
 
     AGB_ASSERT(move < MOVES_COUNT);
+
+    // Move specific costs
+    switch (move)
+    {
+    case MOVE_BATON_PASS:
+        return 3500;
+    }
 
     switch (move)
     {

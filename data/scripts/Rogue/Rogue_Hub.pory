@@ -4,7 +4,14 @@ const VAR_CURR_DIRECTION = VAR_0x8005
 
 script Rogue_Area_InteractWithWorkbench
 {
-    if(var(VAR_ROGUE_INTRO_STATE) > ROGUE_INTRO_STATE_LEARN_TO_BUILD)
+    special(Rogue_IsMultiplayerClient)
+    if(var(VAR_RESULT) == YES)
+    {
+        lock
+        msgbox(format("It's a workbench!\pIt's has a bunch of complicated designs and tools on top."))
+        release
+    }
+    elif(var(VAR_ROGUE_INTRO_STATE) > ROGUE_INTRO_STATE_LEARN_TO_BUILD)
     {
         specialvar(VAR_RESULT, GetPlayerFacingDirection)
         if(var(VAR_RESULT) != DIR_SOUTH) // Can't interact from the top

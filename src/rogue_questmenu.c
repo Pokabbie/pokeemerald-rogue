@@ -27,6 +27,8 @@
 
 #include "rogue_controller.h"
 #include "rogue_gifts.h"
+#include "rogue_popup.h"
+#include "rogue_pokedex.h"
 #include "rogue_quest.h"
 #include "rogue_questmenu.h"
 
@@ -36,6 +38,10 @@
 enum {
     TAG_REWARD_ICON_POKEMON_SHINY = 100,
     TAG_REWARD_ICON_POKEMON_CUSTOM,
+    TAG_REWARD_ICON_SHOP_ITEM,
+    TAG_REWARD_ICON_DIFFICULTY_HARD,
+    TAG_REWARD_ICON_DIFFICULTY_BRUTAL,
+    TAG_REWARD_ICON_MONEY,
     TAG_REWARD_ICON_ITEM,
 };
 
@@ -61,14 +67,23 @@ static void Setup_FrontPage();
 static void Setup_IndexPage();
 static void Setup_QuestPage();
 static void Setup_QuestBoard();
+static void Setup_MasteryLandingPage();
+static void Setup_MasteryTrackerPage();
+static void Setup_PlayerStatsPage();
 
 static void HandleInput_FrontPage(u8 taskId);
 static void HandleInput_IndexPage(u8 taskId);
 static void HandleInput_QuestPage(u8 taskId);
+static void HandleInput_MasteryLandingPage(u8 taskId);
+static void HandleInput_MasteryTrackerPage(u8 taskId);
+static void HandleInput_PlayerStatsPage(u8 taskId);
 
 static void Draw_FrontPage();
 static void Draw_IndexPage();
 static void Draw_QuestPage();
+static void Draw_MasteryLandingPage();
+static void Draw_MasteryTrackerPage();
+static void Draw_PlayerStatsPage();
 
 enum
 {
@@ -87,10 +102,14 @@ enum
     PAGE_BOOK_CHALLENGE_INACTIVE,
     PAGE_BOOK_CHALLENGE_COMPLETE,
 
+    PAGE_BOOK_MON_MASTERY_LANDING,
+    PAGE_BOOK_MON_MASTERY_TRACKER,
     PAGE_BOOK_MON_MASTERY_TODO,
     PAGE_BOOK_MON_MASTERY_ACTIVE,
     PAGE_BOOK_MON_MASTERY_INACTIVE,
     PAGE_BOOK_MON_MASTERY_COMPLETE,
+
+    PAGE_BOOK_PLAYER_STATS,
 
     PAGE_QUEST_BOARD, // new quests
     PAGE_COUNT,
@@ -123,6 +142,8 @@ struct QuestMenuData
     u8 currentPage;
     u8 previousPage;
     u8 menuOptionsBufferCount;
+    u8 alphabeticalSort : 1;
+    u8 exitOnMonMasteryLanding : 1;
 };
 
 struct PageData
@@ -143,10 +164,13 @@ struct MenuOption
 static u32 const sFrontpageTilemap[] = INCBIN_U32("graphics/rogue_quest/front_page.bin.lz");
 static u32 const sIndexTilemap[] = INCBIN_U32("graphics/rogue_quest/index_page.bin.lz");
 static u32 const sInnerTilemap[] = INCBIN_U32("graphics/rogue_quest/inner_page.bin.lz");
+static u32 const sLinedTilemap[] = INCBIN_U32("graphics/rogue_quest/lined_page.bin.lz");
 static u32 const sQuestboardTilemap[] = INCBIN_U32("graphics/rogue_quest/quest_board.bin.lz");
 
 static u32 const sQuestTiles[] = INCBIN_U32("graphics/rogue_quest/tiles.4bpp.lz");
-static u16 const sQuestPalette[] = INCBIN_U16("graphics/rogue_quest/tiles.gbapal");
+static u16 const sQuestPalette_Blue[] = INCBIN_U16("graphics/rogue_quest/pal_blue.gbapal");
+static u16 const sQuestPalette_Green[] = INCBIN_U16("graphics/rogue_quest/pal_green.gbapal");
+static u16 const sQuestPalette_Gold[] = INCBIN_U16("graphics/rogue_quest/pal_gold.gbapal");
 
 static const struct PageData sPageData[PAGE_COUNT] =
 {
@@ -231,6 +255,20 @@ static const struct PageData sPageData[PAGE_COUNT] =
         .drawCallback = Draw_QuestPage,
     },
 
+    [PAGE_BOOK_MON_MASTERY_LANDING] = 
+    {
+        .tilemap = sIndexTilemap,
+        .setupCallback = Setup_MasteryLandingPage,
+        .inputCallback = HandleInput_MasteryLandingPage,
+        .drawCallback = Draw_MasteryLandingPage,
+    },
+    [PAGE_BOOK_MON_MASTERY_TRACKER] = 
+    {
+        .tilemap = sLinedTilemap,
+        .setupCallback = Setup_MasteryTrackerPage,
+        .inputCallback = HandleInput_MasteryTrackerPage,
+        .drawCallback = Draw_MasteryTrackerPage,
+    },
     [PAGE_BOOK_MON_MASTERY_TODO] = 
     {
         .tilemap = sInnerTilemap,
@@ -258,6 +296,14 @@ static const struct PageData sPageData[PAGE_COUNT] =
         .setupCallback = Setup_QuestPage,
         .inputCallback = HandleInput_QuestPage,
         .drawCallback = Draw_QuestPage,
+    },
+
+    [PAGE_BOOK_PLAYER_STATS] = 
+    {
+        .tilemap = sLinedTilemap,
+        .setupCallback = Setup_PlayerStatsPage,
+        .inputCallback = HandleInput_PlayerStatsPage,
+        .drawCallback = Draw_PlayerStatsPage,
     },
 
     [PAGE_QUEST_BOARD] = 
@@ -329,10 +375,14 @@ static u8 const sText_ChallengesComplete[] = _("Challenge·{FONT_SMALL_NARROW}{C
 static u8 const sText_ChallengesActive[] = _("Challenge·{FONT_SMALL_NARROW}{COLOR BLUE}Active");
 static u8 const sText_ChallengesInactive[] = _("Challenge·{FONT_SMALL_NARROW}{COLOR RED}Inactiv");
 
-static u8 const sText_MonMasteryTodo[] = _("Mastery·{FONT_SMALL_NARROW}{COLOR BLUE}To-Do");
-static u8 const sText_MonMasteryComplete[] = _("Mastery·{FONT_SMALL_NARROW}{COLOR GREEN}Done");
+static u8 const sText_MonMastery[] = _("{PKMN} Mastery");
+static u8 const sText_MonMasteryTracker[] = _("{PKMN} Tracker");
+static u8 const sText_MonMasteryTodo[] = _("Quests·{FONT_SMALL_NARROW}{COLOR BLUE}To-Do");
+static u8 const sText_MonMasteryComplete[] = _("Quests·{FONT_SMALL_NARROW}{COLOR GREEN}Done");
 static u8 const sText_MonMasteryActive[] = _("Mastery·{FONT_SMALL_NARROW}{COLOR BLUE}Active");
 static u8 const sText_MonMasteryInactive[] = _("Mastery·{FONT_SMALL_NARROW}{COLOR RED}Inactive");
+
+static u8 const sText_Stats[] = _("{FONT_SMALL_NARROW}Adventure Stats");
 
 static u8 const sText_Pinned[] = _("·Pinned Quests·");
 static u8 const sText_InProgress[] = _("In Progress…");
@@ -341,17 +391,19 @@ static u8 const sText_Todo[] = _("To-do");
 static u8 const sText_Complete[] = _("Complete");
 static u8 const sText_Back[] = _("Back");
 static u8 const sText_Progress[] = _("Progress");
-static u8 const sText_AButtonPin[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}{A_BUTTON} Pin Quest");
+static u8 const sText_AButtonPin[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}{A_BUTTON} Pin  {SELECT_BUTTON} Sort");
 
 static u8 const sText_MarkerInProgress[] = _("{COLOR BLUE}·In Progress·");
 static u8 const sText_MarkerInactive[] = _("{COLOR RED}·Inactive·");
 static u8 const sText_MarkerPendingRewards[] = _("{COLOR GREEN}·Ready to Collect!·");
 static u8 const sText_MarkerComplete[] = _("{COLOR GREEN}·Complete·");
-static u8 const sText_MarkerCompleteEasy[] = _("{COLOR GREEN}·Complete Easy·");
-static u8 const sText_MarkerCompleteAverage[] = _("{COLOR GREEN}·Complete Average·");
-static u8 const sText_MarkerCompleteHard[] = _("{COLOR GREEN}·Complete Hard·");
-static u8 const sText_MarkerCompleteBrutal[] = _("{COLOR GREEN}·Complete Brutal·");
+static u8 const sText_MarkerCompleteEasy[] = _("{COLOR GREEN}·Complete {COLOR GREEN}{SHADOW LIGHT_GREEN}Easy{COLOR GREEN}{SHADOW LIGHT_GRAY}·");
+static u8 const sText_MarkerCompleteAverage[] = _("{COLOR GREEN}·Complete {COLOR GREEN}{SHADOW LIGHT_GRAY}Average{COLOR GREEN}{SHADOW LIGHT_GRAY}·");
+static u8 const sText_MarkerCompleteHard[] = _("{COLOR GREEN}·Complete {COLOR RED}{SHADOW LIGHT_GRAY}Hard{COLOR GREEN}{SHADOW LIGHT_GRAY}·");
+static u8 const sText_MarkerCompleteBrutal[] = _("{COLOR GREEN}·Complete {COLOR RED}{SHADOW LIGHT_RED}Brutal{COLOR GREEN}{SHADOW LIGHT_GRAY}·");
 static u8 const sText_MarkerRewards[] = _("{COLOR DARK_GRAY}Rewards");
+
+static u8 const sText_PkmnMastery[] = _("{PKMN} Mastery");
 
 // Index Page
 static u8 const sText_Index_InProgressPerc[] = _("{COLOR BLUE}{STR_VAR_1}%");
@@ -359,11 +411,21 @@ static u8 const sText_Index_FinishedPerc[] = _("{COLOR GREEN}{STR_VAR_1}%");
 static u8 const sText_Index_ActiveCount[] = _("{COLOR BLUE}{STR_VAR_1} / {STR_VAR_2}");
 static u8 const sText_Index_NoneActiveCount[] = _("{COLOR RED}{STR_VAR_1} / {STR_VAR_2}");
 
-static u8 const sText_Index_Quest[] = _("Main");
+static u8 const sText_Index_Main[] = _("Main");
 static u8 const sText_Index_Challenge[] = _("Challenge");
 static u8 const sText_Index_Mastery[] = _("Mastery");
 static u8 const sText_Index_Total[] = _("Total");
 static u8 const sText_Index_ActiveQuests[] = _("Active Quests");
+static u8 const sText_Index_ChallengeDifficulty[] = _("Challenges");
+static u8 const sText_Index_Easy[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Easy");
+static u8 const sText_Index_Average[] = _("{COLOR GREEN}{SHADOW LIGHT_GRAY}Average");
+static u8 const sText_Index_Hard[] = _("{COLOR RED}{SHADOW LIGHT_GRAY}Hard");
+static u8 const sText_Index_Brutal[] = _("{COLOR RED}{SHADOW LIGHT_RED}Brutal");
+static u8 const sText_EasyStar[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}");
+static u8 const sText_AverageStar[] = _("{COLOR GREEN}{SHADOW LIGHT_GRAY}");
+static u8 const sText_HardStar[] = _("{COLOR RED}{SHADOW LIGHT_GRAY}");
+static u8 const sText_BrutalStar[] = _("{COLOR RED}{SHADOW LIGHT_RED}");
+static u8 const sText_Index_Quests[] = _("Quests");
 
 static u8 const sText_Index_PendingRewards[] = _("{COLOR GREEN}Rewards ready to\nbe Collected!");
 
@@ -395,6 +457,12 @@ static void OpenQuestMenu(RogueQuestMenuCallback callback, u8 page)
 void Rogue_OpenQuestMenu(RogueQuestMenuCallback callback, bool8 viewQuestBook)
 {
     OpenQuestMenu(callback, viewQuestBook ? PAGE_BOOK_FRONT : PAGE_QUEST_BOARD);
+}
+
+void Rogue_OpenMonMasteryMenu(RogueQuestMenuCallback callback)
+{
+    OpenQuestMenu(callback, PAGE_BOOK_MON_MASTERY_LANDING);
+    sQuestMenuData->exitOnMonMasteryLanding = TRUE;
 }
 
 static void CB2_InitQuestMenu(void)
@@ -430,7 +498,12 @@ static void CB2_InitQuestMenu(void)
     InitQuestBg();
     InitQuestWindows();
 
-    LoadPalette(sQuestPalette, 0, 1 * 32);
+    if(Rogue_Use200PercEffects())
+        LoadPalette(sQuestPalette_Gold, 0, 1 * 32);
+    else if(Rogue_Use100PercEffects())
+        LoadPalette(sQuestPalette_Green, 0, 1 * 32);
+    else
+        LoadPalette(sQuestPalette_Blue, 0, 1 * 32);
 
     DecompressAndCopyTileDataToVram(1, sQuestTiles, 0, 0, 0);
     while (FreeTempTileDataBuffersIfPossible())
@@ -460,6 +533,18 @@ static void SetupPage(u8 page)
 {
     u16 prevScrollListHead = sQuestMenuData->scrollListHead;
     u16 prevScrollListOffset = sQuestMenuData->scrollListOffset;
+
+    if(page == PAGE_BOOK_INDEX)
+    {
+        // Redirect these pages
+        switch (sQuestMenuData->currentPage)
+        {
+        case PAGE_BOOK_MON_MASTERY_TODO:
+        case PAGE_BOOK_MON_MASTERY_COMPLETE:
+            page = PAGE_BOOK_MON_MASTERY_LANDING;
+            break;
+        }
+    }
     
     if(sQuestMenuData->previousPage == page)
     {
@@ -609,7 +694,7 @@ static u16 GetCurrentListIndex()
 
 static bool8 IsQuestIndexVisible(u16 questIndex)
 {
-    u16 questId = RogueQuest_GetOrderedQuest(questIndex);
+    u16 questId = RogueQuest_GetOrderedQuest(questIndex, sQuestMenuData->alphabeticalSort);
 
     if(!RogueQuest_IsQuestVisible(questId))
         return FALSE;
@@ -833,9 +918,41 @@ static void DrawQuestScrollList()
         }
         else
         {
-            u16 questId = RogueQuest_GetOrderedQuest(questIndex);
-            AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_NARROW, 8, 4 + 16 * i, 0, 0, color, TEXT_SKIP_DRAW, RogueQuest_GetTitle(questId));
+            u16 questId = RogueQuest_GetOrderedQuest(questIndex, sQuestMenuData->alphabeticalSort);
+            u8 highestComplete = RogueQuest_GetHighestCompleteDifficulty(questId);
+            u8* strPtr = gStringVar4;
 
+            *strPtr = 0xFF;
+
+            if(RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
+            {
+                if(RogueQuest_GetConstFlag(questId, QUEST_CONST_IS_CHALLENGE))
+                {
+                    switch (RogueQuest_GetHighestCompleteDifficulty(questId))
+                    {
+                    case DIFFICULTY_LEVEL_EASY:
+                        strPtr = StringAppend(strPtr, sText_EasyStar);
+                        break;
+                    case DIFFICULTY_LEVEL_AVERAGE:
+                        strPtr = StringAppend(strPtr, sText_AverageStar);
+                        break;
+                    case DIFFICULTY_LEVEL_HARD:
+                        strPtr = StringAppend(strPtr, sText_HardStar);
+                        break;
+                    case DIFFICULTY_LEVEL_BRUTAL:
+                        strPtr = StringAppend(strPtr, sText_BrutalStar);
+                        break;
+                    }
+                }
+                else
+                {
+                    strPtr = StringAppend(strPtr, sText_AverageStar);
+                }
+            }
+
+            StringAppend(strPtr, RogueQuest_GetTitle(questId));
+
+            AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_NARROW, 8, 4 + 16 * i, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
             IterateNextVisibleQuestIndex(&questIndex);
         }
     }
@@ -865,7 +982,22 @@ static void HandleInput_FrontPage(u8 taskId)
 
 static void Draw_FrontPage()
 {
+    u8* txtPtr;
+    u8 const color[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+    u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
 
+    FillWindowPixelBuffer(WIN_RIGHT_PAGE, PIXEL_FILL(0));
+
+    // Trainer name
+    AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 4, 111 + 9, 0, 0, color, TEXT_SKIP_DRAW, gSaveBlock2Ptr->playerName);
+
+    // Trainer number
+    ConvertIntToDecimalStringN(gStringVar4, trainerId, STR_CONV_MODE_LEADING_ZEROS, 5);
+    AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 4, 111 + 18, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+
+
+    PutWindowTilemap(WIN_RIGHT_PAGE);
+    CopyWindowToVram(WIN_RIGHT_PAGE, COPYWIN_FULL);
 }
 
 // Index page
@@ -900,14 +1032,15 @@ static struct MenuOption const sMenuOptionsHub[] =
     },
 
     {
-        .text = sText_MonMasteryTodo,
+        .text = sText_MonMastery,
         .callback = SetupPage,
-        .param = PAGE_BOOK_MON_MASTERY_TODO,
+        .param = PAGE_BOOK_MON_MASTERY_LANDING,
     },
+
     {
-        .text = sText_MonMasteryComplete,
+        .text = sText_Stats,
         .callback = SetupPage,
-        .param = PAGE_BOOK_MON_MASTERY_COMPLETE,
+        .param = PAGE_BOOK_PLAYER_STATS,
     },
 
     {
@@ -948,15 +1081,27 @@ static struct MenuOption const sMenuOptionsAdventure[] =
     },
 
     {
-        .text = sText_MonMasteryActive,
+        .text = sText_MonMastery,
         .callback = SetupPage,
-        .param = PAGE_BOOK_MON_MASTERY_ACTIVE,
+        .param = PAGE_BOOK_MON_MASTERY_LANDING,
     },
+
     {
-        .text = sText_MonMasteryInactive,
+        .text = sText_Stats,
         .callback = SetupPage,
-        .param = PAGE_BOOK_MON_MASTERY_INACTIVE,
+        .param = PAGE_BOOK_PLAYER_STATS,
     },
+
+    //{
+    //    .text = sText_MonMasteryActive,
+    //    .callback = SetupPage,
+    //    .param = PAGE_BOOK_MON_MASTERY_ACTIVE,
+    //},
+    //{
+    //    .text = sText_MonMasteryInactive,
+    //    .callback = SetupPage,
+    //    .param = PAGE_BOOK_MON_MASTERY_INACTIVE,
+    //},
 
     {
         .text = sText_Back,
@@ -975,11 +1120,16 @@ static bool8 IsIndexPageVisible(u8 page)
     case PAGE_BOOK_CHALLENGE_COMPLETE:
         return RogueQuest_HasUnlockedChallenges();
  
+    case PAGE_BOOK_MON_MASTERY_LANDING:
+    case PAGE_BOOK_MON_MASTERY_TRACKER:
     case PAGE_BOOK_MON_MASTERY_TODO:
     case PAGE_BOOK_MON_MASTERY_ACTIVE:
     case PAGE_BOOK_MON_MASTERY_INACTIVE:
     case PAGE_BOOK_MON_MASTERY_COMPLETE:
         return RogueQuest_HasUnlockedMonMasteries();
+
+    case PAGE_BOOK_PLAYER_STATS:
+        return RogueQuest_HasCollectedRewards(QUEST_ID_TO_ADVENTUREEMARK);
     }
 
     return TRUE;
@@ -1091,7 +1241,7 @@ static void Draw_IndexPage()
 {
     u8 x, y;
     u8 str[32];
-    u8 const* textMainQuest = (RogueQuest_HasUnlockedChallenges() || RogueQuest_HasUnlockedMonMasteries()) ? sText_Index_Quest : sText_Index_Total;
+    u8 const* textMainQuest = (RogueQuest_HasUnlockedChallenges() || RogueQuest_HasUnlockedMonMasteries()) ? sText_Index_Main : sText_Index_Total;
     u8 const color[3] = {0, 2, 3};
 
     // Draw current quest info
@@ -1191,6 +1341,45 @@ static void Draw_IndexPage()
     }
     else
     {
+        if(RogueQuest_HasUnlockedMonMasteries())
+        {
+            ++y;
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_ChallengeDifficulty);
+            ++y;
+
+            // Easy
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Easy);
+            BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercAtDifficultyFor(QUEST_CONST_IS_CHALLENGE, DIFFICULTY_LEVEL_EASY), 100);
+
+            x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+            ++y;
+
+            // Average
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Average);
+            BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercAtDifficultyFor(QUEST_CONST_IS_CHALLENGE, DIFFICULTY_LEVEL_AVERAGE), 100);
+
+            x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+            ++y;
+
+            // Hard
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Hard);
+            BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercAtDifficultyFor(QUEST_CONST_IS_CHALLENGE, DIFFICULTY_LEVEL_HARD), 100);
+
+            x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+            ++y;
+
+            // Brutal
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Brutal);
+            BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercAtDifficultyFor(QUEST_CONST_IS_CHALLENGE, DIFFICULTY_LEVEL_BRUTAL), 100);
+
+            x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+            AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+            ++y;
+        }
+
         // Pending rewards to collect
         if(RogueQuest_HasAnyPendingRewards())
             AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * 14, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_PendingRewards);
@@ -1315,9 +1504,10 @@ static void HandleInput_QuestPage(u8 taskId)
         else
         {
             // Toggle pinned
-            u16 questId = RogueQuest_GetOrderedQuest(questIndex);
+            u16 questId = RogueQuest_GetOrderedQuest(questIndex, sQuestMenuData->alphabeticalSort);
             RogueQuest_SetStateFlag(questId, QUEST_STATE_PINNED, !RogueQuest_GetStateFlag(questId, QUEST_STATE_PINNED));
             Draw_QuestPage();
+            PlaySE(SE_CLICK);
         }
     }
 
@@ -1331,6 +1521,13 @@ static void HandleInput_QuestPage(u8 taskId)
         else
             SetupPage(PAGE_BOOK_INDEX);
     }
+
+    if(JOY_NEW(SELECT_BUTTON))
+    {
+        sQuestMenuData->alphabeticalSort ^= 1;
+        Draw_QuestPage();
+        PlaySE(SE_SWITCH);
+    }
 }
 
 #define TILE_BOOK_PIN_ACTIVE    0x5E
@@ -1340,7 +1537,12 @@ static void HandleInput_QuestPage(u8 taskId)
 
 extern const u32 gItemIcon_RogueStatusStar[];
 extern const u32 gItemIcon_RogueStatusCustom[];
+extern const u32 gItemIcon_RogueStatusShop[];
+extern const u32 gItemIcon_RogueStatusMoney[];
 extern const u32 gItemIconPalette_RogueStatusStarCustom[];
+extern const u32 gItemIcon_RogueHardLock[];
+extern const u32 gItemIcon_RogueBrutalLock[];
+extern const u32 gItemIconPalette_RogueStatusLock[];
 
 static void Draw_QuestPage()
 {
@@ -1359,7 +1561,7 @@ static void Draw_QuestPage()
 
     if(questIndex != QUEST_ID_COUNT)
     {
-        u16 questId = RogueQuest_GetOrderedQuest(questIndex);
+        u16 questId = RogueQuest_GetOrderedQuest(questIndex, sQuestMenuData->alphabeticalSort);
 
         // Place desc/tracking text
         AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_NORMAL, 0, 1, 0, 0, color, TEXT_SKIP_DRAW, RogueQuest_GetTitle(questId));
@@ -1436,6 +1638,24 @@ static void Draw_QuestPage()
                 else
                     currentSpriteGroup = 0;
 
+                // Attach difficulty tag above main sprite
+                {
+                    if(reward->requiredDifficulty >= DIFFICULTY_LEVEL_BRUTAL)
+                    {
+                        sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_DIFFICULTY_BRUTAL, TAG_REWARD_ICON_DIFFICULTY_HARD, gItemIcon_RogueBrutalLock, gItemIconPalette_RogueStatusLock);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+                    }
+                    else if(reward->requiredDifficulty >= DIFFICULTY_LEVEL_HARD)
+                    {
+                        sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_DIFFICULTY_HARD, TAG_REWARD_ICON_DIFFICULTY_HARD, gItemIcon_RogueHardLock, gItemIconPalette_RogueStatusLock);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+                    }
+                }
+
                 if(reward->visiblity == QUEST_REWARD_VISIBLITY_OBSCURED)
                 {
                     // Add a ? icon
@@ -1449,6 +1669,34 @@ static void Draw_QuestPage()
 
                     gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = -4;
                     gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = -8;
+
+                    groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                    spriteLayering[spriteIdx] = 0;
+                    ++spriteIdx;
+                }
+                else if(reward->customPopup)
+                {
+                    // Display the custom popup icon here for consistency
+                    if(reward->customPopup->speciesIcon != SPECIES_NONE)
+                    {
+                        LoadMonIconPalette(reward->customPopup->speciesIcon);
+                        sQuestMenuData->sprites[spriteIdx] = CreateMonIcon(
+                            reward->customPopup->speciesIcon,
+                            SpriteCallbackDummy,
+                            0, 0,
+                            0,
+                            0,
+                            MON_MALE
+                        );
+
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = -4;
+                        gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = -8;
+                    }
+                    else
+                    {
+                        currentTag = TAG_REWARD_ICON_ITEM + reward->customPopup->itemIcon;
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->customPopup->itemIcon);
+                    }
 
                     groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
                     spriteLayering[spriteIdx] = 0;
@@ -1487,6 +1735,14 @@ static void Draw_QuestPage()
                         break;
 
                     case QUEST_REWARD_SHOP_ITEM:
+                    
+                        {
+                            sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_SHOP_ITEM, TAG_REWARD_ICON_SHOP_ITEM, gItemIcon_RogueStatusShop, gItemIconPalette_RogueStatusStarCustom);
+                            groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                            spriteLayering[spriteIdx] = 0;
+                            ++spriteIdx;
+                        }
+
                         currentTag = TAG_REWARD_ICON_ITEM + reward->perType.shopItem.item;
                         
                         sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, reward->perType.shopItem.item);
@@ -1496,17 +1752,14 @@ static void Draw_QuestPage()
                         break;
 
                     case QUEST_REWARD_MONEY:
-                        // TODO - Actual icon for money
-                        currentTag = TAG_REWARD_ICON_ITEM + ITEM_COIN_CASE;
-
-                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                        sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_MONEY, TAG_REWARD_ICON_MONEY, gItemIcon_RogueStatusMoney, gItemIconPalette_RogueStatusStarCustom);
                         groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
                         spriteLayering[spriteIdx] = 0;
                         ++spriteIdx;
 
                         if(reward->perType.money.amount >= QUEST_REWARD_MEDIUM_MONEY)
                         {
-                            sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                            sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_MONEY, TAG_REWARD_ICON_MONEY, gItemIcon_RogueStatusMoney, gItemIconPalette_RogueStatusStarCustom);
                             gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 3;
                             gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 1;
                             groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
@@ -1515,7 +1768,7 @@ static void Draw_QuestPage()
                         }
                         if(reward->perType.money.amount >= QUEST_REWARD_LARGE_MONEY)
                         {
-                            sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_COIN_CASE);
+                            sQuestMenuData->sprites[spriteIdx] = AddIconSprite(TAG_REWARD_ICON_MONEY, TAG_REWARD_ICON_MONEY, gItemIcon_RogueStatusMoney, gItemIconPalette_RogueStatusStarCustom);
                             gSprites[sQuestMenuData->sprites[spriteIdx]].x2 = 6;
                             gSprites[sQuestMenuData->sprites[spriteIdx]].y2 = 2;
                             groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
@@ -1573,6 +1826,25 @@ static void Draw_QuestPage()
                         spriteLayering[spriteIdx] = 0;
                         ++spriteIdx;
                         break;
+
+                    case QUEST_REWARD_HUB_UPGRADE:
+                        currentTag = TAG_REWARD_ICON_ITEM + ITEM_TOWN_MAP;
+
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_TOWN_MAP);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+                        break;
+                        
+                    case QUEST_REWARD_DECOR:
+                    case QUEST_REWARD_DECOR_VARIANT:
+                        currentTag = TAG_REWARD_ICON_ITEM + ITEM_BASEMENT_KEY;
+                        
+                        sQuestMenuData->sprites[spriteIdx] = AddItemIconSprite(currentTag, currentTag, ITEM_BASEMENT_KEY);
+                        groupedSpriteIndex[spriteIdx] = currentSpriteGroup;
+                        spriteLayering[spriteIdx] = 0;
+                        ++spriteIdx;
+                        break;
                     }
                 }
             }
@@ -1617,7 +1889,7 @@ static void Draw_QuestPage()
 
         for(i = 0 ; i < SCROLL_ITEMS_IN_VIEW; ++i)
         {
-            if(questIndex != QUEST_ID_COUNT && RogueQuest_GetStateFlag(RogueQuest_GetOrderedQuest(questIndex), QUEST_STATE_PINNED))
+            if(questIndex != QUEST_ID_COUNT && RogueQuest_GetStateFlag(RogueQuest_GetOrderedQuest(questIndex, sQuestMenuData->alphabeticalSort), QUEST_STATE_PINNED))
             {
                 tileNum = sQuestMenuData->currentPage == PAGE_QUEST_BOARD ? TILE_BOARD_PIN_ACTIVE : TILE_BOOK_PIN_ACTIVE;
             }
@@ -1640,4 +1912,508 @@ static void Draw_QuestPage()
     gTextFlags.replaceScrollWithNewLine = FALSE;
 
     ScheduleBgCopyTilemapToVram(1);
+}
+
+// Mastery Custom Pages
+//
+
+static struct MenuOption const sMasteryLandingOptions[] = 
+{
+    {
+        .text = sText_MonMasteryTracker,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_MON_MASTERY_TRACKER,
+    },
+    {
+        .text = sText_MonMasteryTodo,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_MON_MASTERY_TODO,
+    },
+    {
+        .text = sText_MonMasteryComplete,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_MON_MASTERY_COMPLETE,
+    },
+
+    {
+        .text = sText_Back,
+        .callback = SetupPage,
+        .param = PAGE_BOOK_INDEX,
+    },
+};
+
+
+static void Setup_MasteryLandingPage()
+{
+    sQuestMenuData->scrollListCount = ARRAY_COUNT(sMasteryLandingOptions);
+}
+
+static void HandleInput_MasteryLandingPage(u8 taskId)
+{
+    if(HandleScrollBehaviour())
+        Draw_MasteryLandingPage();
+
+    if (JOY_NEW(A_BUTTON))
+    {
+        AGB_ASSERT(GetCurrentListIndex() < ARRAY_COUNT(sMasteryLandingOptions));
+
+        sMasteryLandingOptions[GetCurrentListIndex()].callback(sMasteryLandingOptions[GetCurrentListIndex()].param);
+    }
+
+    if (JOY_NEW(B_BUTTON))
+    {
+        if(sQuestMenuData->exitOnMonMasteryLanding)
+        {
+            RogueQuest_ClearNewUnlockQuests();
+            StartFadeAndExit(taskId);
+        }
+        else
+        {
+            SetupPage(PAGE_BOOK_INDEX);
+        }
+    }
+}
+
+
+static u8 const sText_Mastery_LandingDesc[] = _("Enter the Hall of\nFame with any {PKMN}\nfrom it's Evolution\nline to Complete\nit's Mastery!\n\nSpecific {PKMN} have\nRewards/Quests\nassociated with\nthem.");
+
+static void Draw_MasteryLandingPage()
+{
+    u8 x, y;
+    u8 str[32];
+    u8 const color[3] = {0, 2, 3};
+
+    FillWindowPixelBuffer(WIN_LEFT_PAGE, PIXEL_FILL(0));
+
+    y = 2;
+    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_NORMAL, 0, 1, 0, 0, color, TEXT_SKIP_DRAW, sText_PkmnMastery);
+
+    // Total
+    {
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Total);
+        BufferQuestPercValueFor(str, RogueQuest_GetMonMasteryTotalPerc(), 100);
+
+        x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+        ++y;
+    }
+
+    // Quests
+    {
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Index_Quests);
+        BufferQuestPercValueFor(str, RogueQuest_GetQuestCompletePercFor(QUEST_CONST_IS_MON_MASTERY), 100);
+
+        x = GetStringRightAlignXOffset(FONT_SMALL_NARROW, str, sQuestWinTemplates[WIN_LEFT_PAGE].width * 8);
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, x, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, str);
+        ++y;
+    }
+
+    // Print Description
+    ++y;
+    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 5 + 8 * y, 0, 0, color, TEXT_SKIP_DRAW, sText_Mastery_LandingDesc);
+    ++y;
+
+    PutWindowTilemap(WIN_LEFT_PAGE);
+    CopyWindowToVram(WIN_LEFT_PAGE, COPYWIN_FULL);
+
+    // Draw scroll list
+    DrawGenericScrollList(sMasteryLandingOptions, ARRAY_COUNT(sMasteryLandingOptions));
+}
+
+#define TRACKER_ENTRY_WIDTH         2
+#define TRACKER_ENTRY_HEIGHT        8
+#define TRACKER_ENTRY_PER_PAGE      (TRACKER_ENTRY_WIDTH * TRACKER_ENTRY_HEIGHT)
+
+static void Setup_MasteryTrackerPage()
+{
+    sQuestMenuData->scrollListOffset = 0;
+}
+
+static void HandleInput_MasteryTrackerPage(u8 taskId)
+{
+    //if(HandleScrollBehaviour())
+    //    Draw_MasteryLandingPage();
+
+    if(JOY_REPEAT(DPAD_LEFT))
+    {
+        if(sQuestMenuData->scrollListOffset == 0)
+            sQuestMenuData->scrollListOffset = SPECIES_EGG_EVO_STAGE_COUNT / TRACKER_ENTRY_PER_PAGE;
+        else
+            --sQuestMenuData->scrollListOffset;
+
+        PlaySE(SE_DEX_SCROLL);
+        Draw_MasteryTrackerPage();
+    }
+
+    if(JOY_REPEAT(DPAD_RIGHT))
+    {
+        sQuestMenuData->scrollListOffset++;
+
+        if(sQuestMenuData->scrollListOffset * TRACKER_ENTRY_PER_PAGE >= SPECIES_EGG_EVO_STAGE_COUNT)
+            sQuestMenuData->scrollListOffset = 0;
+
+        PlaySE(SE_DEX_SCROLL);
+        Draw_MasteryTrackerPage();
+    }
+
+    //if (JOY_NEW(A_BUTTON))
+    //{
+    //    AGB_ASSERT(GetCurrentListIndex() < ARRAY_COUNT(sMasteryLandingOptions));
+//
+    //    sMasteryLandingOptions[GetCurrentListIndex()].callback(sMasteryLandingOptions[GetCurrentListIndex()].param);
+    //}
+
+    if (JOY_NEW(B_BUTTON))
+        SetupPage(PAGE_BOOK_MON_MASTERY_LANDING);
+}
+
+extern const u16 gRogueBake_EggSpecies[];
+
+static u8 const sText_PageMarker[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}");
+static u8 const sText_ChangePageLeft[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}{DPAD_LEFT} back");
+static u8 const sText_ChangePageRight[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}next {DPAD_RIGHT}");
+
+static void Draw_MasteryTrackerPage()
+{
+    u8 x, y;
+    u32 i, counter, species;
+    u8 const color[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+    u8 const completedColor[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_GREEN, TEXT_COLOR_LIGHT_GRAY};
+    //u8 const todoColor[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_LIGHT_GRAY};
+
+    FillWindowPixelBuffer(WIN_LEFT_PAGE, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_RIGHT_PAGE, PIXEL_FILL(0));
+
+    // Remove previous sprites if we have any
+    FreeAllSpritePalettes();
+    ResetSpriteData();
+
+    LoadMonIconPalettes();
+
+    counter = 0;
+    
+    for(x = 0; x < TRACKER_ENTRY_WIDTH; ++x)
+    {
+        for(y = 0; y < TRACKER_ENTRY_HEIGHT; ++y)
+        {
+            i = sQuestMenuData->scrollListOffset * TRACKER_ENTRY_PER_PAGE + counter++;
+
+            if(i >= SPECIES_EGG_EVO_STAGE_COUNT)
+                break;
+
+            species = gRogueBake_EggSpecies[i];
+
+            if(RogueQuest_GetMonMasteryFlag(species))
+            {
+                AddTextPrinterParameterized4(
+                    x == 0 ? WIN_LEFT_PAGE : WIN_RIGHT_PAGE,
+                    FONT_NORMAL,
+                    24,
+                    4 + 16 * y,
+                    0, 0,
+                    completedColor,
+                    TEXT_SKIP_DRAW,
+                    RoguePokedex_GetSpeciesName(species)
+                );
+
+                CreateMonIcon(
+                    species,
+                    SpriteCallbackDummy,
+                    25 + 120 * x,
+                    14 + 16 * y,
+                    0, 0, 
+                    MON_MALE
+                );
+            }
+            else
+            {
+                AddTextPrinterParameterized4(
+                    x == 0 ? WIN_LEFT_PAGE : WIN_RIGHT_PAGE,
+                    FONT_NORMAL,
+                    24,
+                    4 + 16 * y,
+                    0, 0,
+                    color,
+                    TEXT_SKIP_DRAW,
+                    gText_ThreeQuestionMarks
+                );
+
+                //CreateMissingMonIcon(
+                //    SpriteCallbackDummy,
+                //    25 + 120 * x,
+                //    14 + 16 * y,
+                //    0,
+                //    0
+                //);
+            }
+        }
+    }
+
+    // Page numbers
+    {
+        u8* str;
+        
+        str = StringCopy(gStringVar4, sText_PageMarker);
+        ConvertIntToDecimalStringN(str, sQuestMenuData->scrollListOffset * 2 + 1, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 60, 131, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+        
+        str = StringCopy(gStringVar4, sText_PageMarker);
+        ConvertIntToDecimalStringN(str, sQuestMenuData->scrollListOffset * 2 + 2, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 4, 131, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+    }
+
+    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 131, 0, 0, color, TEXT_SKIP_DRAW, sText_ChangePageLeft);
+    AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 57, 131, 0, 0, color, TEXT_SKIP_DRAW, sText_ChangePageRight);
+
+    PutWindowTilemap(WIN_LEFT_PAGE);
+    PutWindowTilemap(WIN_RIGHT_PAGE);
+    CopyWindowToVram(WIN_LEFT_PAGE, COPYWIN_FULL);
+    CopyWindowToVram(WIN_RIGHT_PAGE, COPYWIN_FULL);
+}
+
+#undef TRACKER_ENTRY_WIDTH
+#undef TRACKER_ENTRY_HEIGHT
+#undef TRACKER_ENTRY_PER_PAGE
+
+// Player Stats
+//
+
+struct DisplayStat
+{
+    u8 const* name;
+    u8 statId;
+};
+
+static u8 const sStatName_TotalRuns[] = _("Total Adventures");
+static u8 const sStatName_TotalWins[] = _("Wins");
+static u8 const sStatName_TotalCurrentWinStreak[] = _("Current Win Streak");
+static u8 const sStatName_TotalLongestWinStreak[] = _("Longest Win Streak");
+static u8 const sStatName_TotalLosses[] = _("Wipes");
+static u8 const sStatName_TotalCurrentLossStreak[] = _("Current Wipe Streak");
+static u8 const sStatName_TotalLongestLossStreak[] = _("Longest Wipe Streak");
+
+static u8 const sStatName_FirstHoF[] = _("First HoF Time");
+static u8 const sStatName_FastestHoF[] = _("Fastest HoF Time");
+static u8 const sStatName_SlowestHoF[] = _("Slowest HoF Time");
+
+static u8 const sStatName_TotalBadges[] = _("Total Badges");
+static u8 const sStatName_GymBadges[] = _("Gym Badges");
+static u8 const sStatName_EliteBadges[] = _("Elite Badges");
+static u8 const sStatName_ChampionBadges[] = _("Champion Badges");
+
+static u8 const sStatName_TotalBattles[] = _("Total Battles");
+static u8 const sStatName_WildBattles[] = _("Wild Battles");
+static u8 const sStatName_TrainerBattles[] = _("Trainer Battles");
+static u8 const sStatName_RivalBattles[] = _("Rival Battles");
+
+static u8 const sStatName_PokemonCaught[] = _("Pokémon Caught");
+static u8 const sStatName_ShinyCaught[] = _("Shinies Caught");
+static u8 const sStatName_LegendsCaught[] = _("Legends Caught");
+static u8 const sStatName_RoamersCaught[] = _("Roamers Caught");
+
+static u8 const sStatName_RandoTradeTotal[] = _("Randoman {PKMN}");
+static u8 const sStatName_RandoTradeParty[] = _("Party Trades");
+static u8 const sStatName_RandoTradeSingle[] = _("Single Trades");
+
+static u8 const sStatName_ReleasedPokemon[] = _("Pokémon Released");
+static u8 const sStatName_FaintedPokemon[] = _("Pokémon Fainted");
+static u8 const sStatName_EvolvedPokemon[] = _("Pokémon Evolved");
+
+static u8 const sStatFormat_HofTime[] = _("{STR_VAR_1}:{STR_VAR_2}:{STR_VAR_3}");
+
+
+static struct DisplayStat const sDisplayStats[] =
+{
+    { sStatName_TotalRuns, GAME_STAT_TOTAL_RUNS },
+    { sStatName_TotalWins, GAME_STAT_RUN_WINS },
+    { sStatName_TotalCurrentWinStreak, GAME_STAT_CURRENT_RUN_WIN_STREAK },
+    { sStatName_TotalLongestWinStreak, GAME_STAT_LONGEST_RUN_WIN_STREAK },
+
+    {},
+    { sStatName_TotalLosses, GAME_STAT_RUN_LOSSES },
+    { sStatName_TotalCurrentLossStreak, GAME_STAT_CURRENT_RUN_LOSS_STREAK },
+    { sStatName_TotalLongestLossStreak, GAME_STAT_LONGEST_RUN_LOSS_STREAK },
+
+
+    { sStatName_TotalBadges, GAME_STAT_TOTAL_BADGES },
+    { sStatName_GymBadges, GAME_STAT_GYM_BADGES },
+    { sStatName_EliteBadges, GAME_STAT_ELITE_BADGES },
+    { sStatName_ChampionBadges, GAME_STAT_CHAMPION_BADGES },
+
+    { sStatName_FirstHoF, GAME_STAT_FIRST_HOF_PLAY_TIME },
+    { sStatName_FastestHoF, GAME_STAT_FASTEST_HOF_PLAY_TIME },
+    { sStatName_SlowestHoF, GAME_STAT_SLOWEST_HOF_PLAY_TIME },
+    {},
+
+
+    { sStatName_TotalBattles, GAME_STAT_TOTAL_BATTLES },
+    { sStatName_WildBattles, GAME_STAT_WILD_BATTLES },
+    { sStatName_TrainerBattles, GAME_STAT_TRAINER_BATTLES },
+    { sStatName_RivalBattles, GAME_STAT_RIVAL_BATTLES },
+
+    { sStatName_PokemonCaught, GAME_STAT_POKEMON_CAUGHT },
+    { sStatName_ShinyCaught, GAME_STAT_SHINIES_CAUGHT },
+    { sStatName_LegendsCaught, GAME_STAT_LEGENDS_CAUGHT },
+    { sStatName_RoamersCaught, GAME_STAT_ROAMERS_CAUGHT },
+
+
+    { sStatName_ReleasedPokemon, GAME_STAT_POKEMON_RELEASED },
+    { sStatName_FaintedPokemon, GAME_STAT_POKEMON_FAINTED },
+    { sStatName_EvolvedPokemon, GAME_STAT_EVOLVED_POKEMON },
+    {},
+
+    { sStatName_RandoTradeTotal, GAME_STAT_RANDO_TRADE_TOTAL_PKMN },
+    { sStatName_RandoTradeParty, GAME_STAT_RANDO_TRADE_PARTY },
+    { sStatName_RandoTradeSingle, GAME_STAT_RANDO_TRADE_SINGLE },
+
+    // todo - Maybe fix these up and add them?
+    //{ NULL, GAME_STAT_ITEMS_FOUND },
+    //{ NULL, GAME_STAT_ITEMS_BOUGHT },
+    //{ NULL, GAME_STAT_MOVES_BOUGHT },
+    //{ NULL, GAME_STAT_MONEY_SPENT },
+};
+
+#define STATS_ENTRY_WIDTH         2
+#define STATS_ENTRY_HEIGHT        4
+#define STATS_ENTRY_PER_PAGE      (STATS_ENTRY_WIDTH * STATS_ENTRY_HEIGHT)
+
+static void Setup_PlayerStatsPage()
+{
+    sQuestMenuData->scrollListOffset = 0;
+}
+
+static void HandleInput_PlayerStatsPage(u8 taskId)
+{
+    //if(HandleScrollBehaviour())
+    //    Draw_MasteryLandingPage();
+
+    if(JOY_REPEAT(DPAD_LEFT))
+    {
+        if(sQuestMenuData->scrollListOffset == 0)
+            sQuestMenuData->scrollListOffset = ARRAY_COUNT(sDisplayStats) / STATS_ENTRY_PER_PAGE;
+        else
+            --sQuestMenuData->scrollListOffset;
+
+        PlaySE(SE_DEX_SCROLL);
+        Draw_PlayerStatsPage();
+    }
+
+    if(JOY_REPEAT(DPAD_RIGHT))
+    {
+        sQuestMenuData->scrollListOffset++;
+
+        if(sQuestMenuData->scrollListOffset * STATS_ENTRY_PER_PAGE >= ARRAY_COUNT(sDisplayStats))
+            sQuestMenuData->scrollListOffset = 0;
+
+        PlaySE(SE_DEX_SCROLL);
+        Draw_PlayerStatsPage();
+    }
+
+    if (JOY_NEW(B_BUTTON))
+        SetupPage(PAGE_BOOK_INDEX);
+}
+
+static void Draw_PlayerStatsPage()
+{
+    u8 x, y;
+    u32 i, counter;
+    u8 const color[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
+    u8 const valueColor[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE, TEXT_COLOR_LIGHT_GRAY};
+
+    FillWindowPixelBuffer(WIN_LEFT_PAGE, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_RIGHT_PAGE, PIXEL_FILL(0));
+
+    // Remove previous sprites if we have any
+    FreeAllSpritePalettes();
+    ResetSpriteData();
+
+    counter = 0;
+    
+    for(x = 0; x < STATS_ENTRY_WIDTH; ++x)
+    {
+        for(y = 0; y < STATS_ENTRY_HEIGHT; ++y)
+        {
+            i = sQuestMenuData->scrollListOffset * STATS_ENTRY_PER_PAGE + counter++;
+
+            if(i >= ARRAY_COUNT(sDisplayStats))
+                break;
+
+            // Basically a line break
+            if(sDisplayStats[i].name == NULL)
+                continue;
+
+            AddTextPrinterParameterized4(
+                x == 0 ? WIN_LEFT_PAGE : WIN_RIGHT_PAGE,
+                FONT_NARROW,
+                0,
+                4 + 16 * (y * 2 + 0),
+                0, 0,
+                color,
+                TEXT_SKIP_DRAW,
+                sDisplayStats[i].name
+            );
+
+            if(sDisplayStats[i].statId == GAME_STAT_FIRST_HOF_PLAY_TIME || sDisplayStats[i].statId == GAME_STAT_FASTEST_HOF_PLAY_TIME || sDisplayStats[i].statId == GAME_STAT_SLOWEST_HOF_PLAY_TIME)
+            {
+                // Conver to readable time
+                u32 hours, minutes, seconds;
+                u32 playTime = GetGameStat(sDisplayStats[i].statId);
+
+                if (!GetGameStat(GAME_STAT_ENTERED_HOF))
+                    playTime = 0;
+
+                hours = playTime >> 16;
+                minutes = (playTime >> 8) & 0xFF;
+                seconds = playTime & 0xFF;
+                if ((playTime >> 16) > 999)
+                {
+                    hours = 999;
+                    minutes = 59;
+                    seconds = 59;
+                }
+                
+                ConvertIntToDecimalStringN(gStringVar1, hours, STR_CONV_MODE_RIGHT_ALIGN, 3);
+                ConvertIntToDecimalStringN(gStringVar2, minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+                ConvertIntToDecimalStringN(gStringVar3, seconds, STR_CONV_MODE_LEADING_ZEROS, 2);
+                StringExpandPlaceholders(gStringVar4, sStatFormat_HofTime);
+            }
+            else
+            {
+                // Just convert to a number
+                ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sDisplayStats[i].statId), STR_CONV_MODE_LEFT_ALIGN, 9);
+            }
+            
+            AddTextPrinterParameterized4(
+                x == 0 ? WIN_LEFT_PAGE : WIN_RIGHT_PAGE,
+                FONT_NARROW,
+                8,
+                4 + 16 * (y * 2 + 1),
+                0, 0,
+                valueColor,
+                TEXT_SKIP_DRAW,
+                gStringVar4
+            );
+        }
+    }
+
+    // Page numbers
+    {
+        u8* str;
+        
+        str = StringCopy(gStringVar4, sText_PageMarker);
+        ConvertIntToDecimalStringN(str, sQuestMenuData->scrollListOffset * 2 + 1, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 60, 131, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+        
+        str = StringCopy(gStringVar4, sText_PageMarker);
+        ConvertIntToDecimalStringN(str, sQuestMenuData->scrollListOffset * 2 + 2, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 4, 131, 0, 0, color, TEXT_SKIP_DRAW, gStringVar4);
+    }
+
+    AddTextPrinterParameterized4(WIN_LEFT_PAGE, FONT_SMALL_NARROW, 0, 131, 0, 0, color, TEXT_SKIP_DRAW, sText_ChangePageLeft);
+    AddTextPrinterParameterized4(WIN_RIGHT_PAGE, FONT_SMALL_NARROW, 57, 131, 0, 0, color, TEXT_SKIP_DRAW, sText_ChangePageRight);
+
+    PutWindowTilemap(WIN_LEFT_PAGE);
+    PutWindowTilemap(WIN_RIGHT_PAGE);
+    CopyWindowToVram(WIN_LEFT_PAGE, COPYWIN_FULL);
+    CopyWindowToVram(WIN_RIGHT_PAGE, COPYWIN_FULL);
 }

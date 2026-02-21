@@ -71,7 +71,18 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" }
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { 
+                        "hub_upgrade": "HUB_UPGRADE_LAB_UNIQUE_MON_LAB",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_TOWN_MAP",
+                            "title": "Labs",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Path Uncovered…",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    }
                 ]
             },
             {
@@ -87,7 +98,12 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_FARFETCHD",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_FARFETCHD"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_FARFETCHD"
+                    },
+                    {
+                        "species": "SPECIES_DRATINI",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -104,7 +120,12 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_SPINARAK",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_SPINARAK"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_SPINARAK"
+                    },
+                    {
+                        "species": "SPECIES_SNEASEL",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -121,7 +142,12 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_CASTFORM",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_CASTFORM"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_CASTFORM"
+                    },
+                    {
+                        "species": "SPECIES_BELDUM",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -139,7 +165,12 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_CARNIVINE",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_CARNIVINE"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_CARNIVINE"
+                    },
+                    {
+                        "species": "SPECIES_SHINX",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -157,7 +188,12 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_KLINK",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_KLINK"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_KLINK"
+                    },
+                    {
+                        "species": "SPECIES_LITWICK",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -175,7 +211,12 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_LITLEO",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_LITLEO"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_LITLEO"
+                    },
+                    {
+                        "species": "SPECIES_HONEDGE",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -193,7 +234,12 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_DRAMPA",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_DRAMPA"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_DRAMPA"
+                    },
+                    {
+                        "species": "SPECIES_SANDYGAST",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -211,7 +257,12 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_CLOBBOPUS",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_CLOBBOPUS"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_CLOBBOPUS"
+                    },
+                    {
+                        "species": "SPECIES_ROOKIDEE",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
@@ -229,13 +280,18 @@
                     { "money": "QUEST_REWARD_MEDIUM_MONEY" },
                     {
                         "species": "SPECIES_CAPSAKID",
-                        "custom_mon_id": "CUSTOM_MON_QUESTS_CAPSAKID"
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_CAPSAKID"
+                    },
+                    {
+                        "species": "SPECIES_VAROOM",
+                        "shiny": true,
+                        "difficulty": "HARD"
                     }
                 ]
             },
             {
                 "name": "Orre Style",
-                "description": "Win a full Run with: Doubles battle format & having Umbreon and Espeon in your party when you enter the Hall of Fame.",
+                "description": "Win a full Run with: Snag Curse, Doubles battle format & having Umbreon and Espeon in your party when you enter the Hall of Fame.",
                 "triggers":
                 [
                     {
@@ -248,11 +304,26 @@
                 ],
                 "requirements":
                 [
-                    { "config_range": "CONFIG_RANGE_BATTLE_FORMAT", "value": "BATTLE_FORMAT_DOUBLES" }
+                    { "config_range": "CONFIG_RANGE_BATTLE_FORMAT", "value": "BATTLE_FORMAT_DOUBLES" },
+                    { "item": "ITEM_SNAG_CURSE", "count": 1 }
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_LOTAD",
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_LOTAD"
+                    },
+                    {
+                        "species": "SPECIES_UMBREON",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    },
+                    {
+                        "species": "SPECIES_ESPEON",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             }
         ]

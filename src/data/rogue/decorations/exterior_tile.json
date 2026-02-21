@@ -1,0 +1,179 @@
+{
+    "includes":
+    [
+    ],
+    "defaults":
+    {
+        "display_group": "Tiles#Exterior",
+        "source_map": "ROGUE_TEMPLATE_HOMES"
+    },
+    "decorations":
+    {
+        "tiles_exterior":
+        [
+            {
+                "name": "Boulder",
+                "source_tiles":
+                {
+                    "x": 2,
+                    "y": 10
+                }
+            },
+            {
+                "name": "Bush",
+                "source_tiles":
+                {
+                    "x": 3,
+                    "y": 10
+                }
+            },
+            {
+                "name": "Wood Sign",
+                "source_tiles":
+                {
+                    "x": 0,
+                    "y": 10
+                }
+            },
+            {
+                "name": "Fancy Sign",
+                "source_tiles":
+                {
+                    "x": 1,
+                    "y": 10
+                }
+            },
+            {
+                "name": "Horizontal Fence",
+                "source_tiles":
+                {
+                    "width": 1,
+                    "height": 1
+                },
+                "variants":
+                [
+                    {
+                        "name": "5x1",
+                        "source_tiles":
+                        {
+                            "x": 0,
+                            "y": 11,
+                            "width": 5
+                        }
+                    },
+                    {
+                        "name": "4x1",
+                        "source_tiles":
+                        {
+                            "x": 0,
+                            "y": 11,
+                            "width": 4
+                        }
+                    },
+                    {
+                        "name": "3x1",
+                        "source_tiles":
+                        {
+                            "x": 0,
+                            "y": 11,
+                            "width": 3
+                        }
+                    },
+                    {
+                        "name": "2x1",
+                        "source_tiles":
+                        {
+                            "x": 0,
+                            "y": 11,
+                            "width": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Vertical Fence",
+                "source_tiles":
+                {
+                    "width": 1,
+                    "height": 1
+                },
+                "variants":
+                [
+                    {
+                        "name": "Left 1x5",
+                        "source_tiles":
+                        {
+                            "x": 5,
+                            "y": 10,
+                            "height": 5
+                        }
+                    },
+                    {
+                        "name": "Left 1x4",
+                        "source_tiles":
+                        {
+                            "x": 6,
+                            "y": 10,
+                            "height": 4
+                        }
+                    },
+                    {
+                        "name": "Left 1x3",
+                        "source_tiles":
+                        {
+                            "x": 7,
+                            "y": 10,
+                            "height": 3
+                        }
+                    },
+                    {
+                        "name": "Left 1x2",
+                        "source_tiles":
+                        {
+                            "x": 8,
+                            "y": 10,
+                            "height": 2
+                        }
+                    },
+
+                    {
+                        "name": "Right 1x5",
+                        "source_tiles":
+                        {
+                            "x": 10,
+                            "y": 10,
+                            "height": 5
+                        }
+                    },
+                    {
+                        "name": "Right 1x4",
+                        "source_tiles":
+                        {
+                            "x": 11,
+                            "y": 10,
+                            "height": 4
+                        }
+                    },
+                    {
+                        "name": "Right 1x3",
+                        "source_tiles":
+                        {
+                            "x": 12,
+                            "y": 10,
+                            "height": 3
+                        }
+                    },
+                    {
+                        "name": "Right 1x2",
+                        "source_tiles":
+                        {
+                            "x": 13,
+                            "y": 10,
+                            "height": 2
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -25,6 +25,7 @@ void RogueQuery_Init();
 void RogueMiscQuery_EditElement(u8 func, u16 elem);
 void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId);
 bool8 RogueMiscQuery_CheckState(u16 elem);
+bool8 RogueMiscQuery_AnyActiveStates(u16 fromId, u16 toId);
 void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount);
 bool8 RogueMiscQuery_AnyActiveElements();
 u16 RogueMiscQuery_SelectRandomElement(u16 rngValue);
@@ -47,12 +48,14 @@ void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags);
 void RogueMonQuery_ContainsPresetFlags(u8 func, u32 flags);
 void RogueMonQuery_IsLegendary(u8 func);
 void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 flags);
+void RogueMonQuery_IsParadox(u8 func);
 void RogueMonQuery_IsBoxLegendary(u8 func);
 void RogueMonQuery_IsRoamerLegendary(u8 func);
 void RogueMonQuery_AnyActiveEvos(u8 func);
 void RogueMonQuery_CustomFilter(QueryFilterCallback filterFunc, void* usrData);
 
 bool8 Query_IsSpeciesEnabled(u16 species);
+bool8 Query_IsSpeciesEnabledForceDexChecking(u16 species);
 
 // Item Query
 void RogueItemQuery_Begin();
@@ -94,7 +97,6 @@ bool8 RogueWeightQuery_HasAnyWeights();
 bool8 RogueWeightQuery_HasMultipleWeights();
 void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data);
 void RogueWeightQuery_FillWeights(u8 weight);
-void RogueWeightQuery_UpdateIndividualWeight(u16 elem, u8 weight);
 u16 RogueWeightQuery_SelectRandomFromWeights(u16 randValue);
 u16 RogueWeightQuery_SelectRandomFromWeightsWithUpdate(u16 randValue, u8 updatedWeight);
 //u16 RogueWeightQuery_SelectFromWeights();

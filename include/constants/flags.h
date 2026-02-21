@@ -126,7 +126,7 @@
 #define FLAG_MOSSDEEP_GYM_SWITCH_1           0x64 // Leftover from the RS version of Mossdeep Gym, functionally unused
 #define FLAG_MOSSDEEP_GYM_SWITCH_2           0x65 //
 #define FLAG_MOSSDEEP_GYM_SWITCH_3           0x66 //
-#define FLAG_MOSSDEEP_GYM_SWITCH_4           0x67 //
+#define FLAG_ROGUE_TERA_ORB_CHARGED          0x67
 
 #define FLAG_ROGUE_TERASTALLIZE_BATTLE       0x68
 
@@ -138,8 +138,8 @@
 #define FLAG_RECEIVED_HM_FLY                 0x6E
 #define FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT  0x6F
 #define FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE  0x70
-#define FLAG_UNUSED_RS_LEGENDARY_BATTLE_DONE 0x71 // Unused Flag. Used in R/S to indicate whether player defeated or caught Groudon/Kyogre in Cave of Origin.
-#define FLAG_SCOTT_CALL_BATTLE_FRONTIER      0x72 // Used in order to activate a phone call from Scott, inviting the player to the SS Tidal.
+#define FLAG_ROGUE_STUB                      0x71 // stub flag for quest rewards
+#define FLAG_ROGUE_MET_BILL                  0x72
 #define FLAG_RECEIVED_METEORITE              0x73
 #define FLAG_ADVENTURE_STARTED               0x74 // RECEIVED Pokédex.
 #define FLAG_DEFEATED_MAGMA_SPACE_CENTER     0x75 // Set when Team Magma is defeated at Mossdeep's Space Center.
@@ -486,9 +486,9 @@
 #define FLAG_ROGUE_DAYCARE_EGG_READY         0x1BB
 #define FLAG_ROGUE_HIDE_WORKBENCHES          0x1BC
 #define FLAG_ROGUE_HAS_RANDOM_STARTER        0x1BD
-#define FLAG_UNUSED_0x1BE                    0x1BE
-#define FLAG_UNUSED_0x1BF                    0x1BF
-#define FLAG_UNUSED_0x1C0                    0x1C0
+#define FLAG_ROGUE_UNLOCKED_MAP_TELEPORT     0x1BE
+#define FLAG_ROGUE_IN_SNAG_BATTLE            0x1BF
+#define FLAG_ROGUE_IS_VICTORY_LAP            0x1C0
 #define FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE 0x1C1
 #define FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE 0x1C2
 #define FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE 0x1C3
@@ -515,11 +515,11 @@
 #define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL 0x1D8
 #define FLAG_ENABLE_JUAN_MATCH_CALL          0x1D9
 
-#define FLAG_UNUSED_0x1DA                    0x1DA // Unused Flag
+#define FLAG_ROGUE_UNLOCKED_VICTORY_LAP      0x1DA
 
 #define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
-#define FLAG_UNUSED_0x1DC                    0x1DC
-#define FLAG_UNUSED_0x1DD                    0x1DD
+#define FLAG_ROGUE_COURIER_READY             0x1DC
+#define FLAG_ROGUE_GIMICK_TUTORIAL           0x1DD
 
 #define FLAG_DEBUG_NO_ENCOUNTER              0x1DE // Unused Flag
 #define FLAG_DEBUG_NO_TRAINER_SEE            0x1DF // Unused Flag
@@ -662,20 +662,20 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
 // RogueNote: Flag block 2
-#define FLAG_UNUSED_0x264                    0x264
+#define FLAG_ROGUE_FOUND_GIMIC_ROOM          0x264
 #define FLAG_ROGUE_LEFT_ON_RUN               0x265
 #define FLAG_ROGUE_MET_FENNEL                0x266
-#define FLAG_ROGUE_EASY_ITEMS                0x267
-#define FLAG_ROGUE_HARD_ITEMS                0x268
+#define FLAG_ROGUE_HIDE_GAMESHOW_REWARD      0x267
+#define FLAG_ROGUE_VENDING_MACHINE_USED      0x268
 #define FLAG_ROGUE_FINAL_QUEST_MET_FAKE_CHAMP 0x269
 #define FLAG_ROGUE_PENDING_PATCH_MSG         0x26A
-#define FLAG_UNUSED_0x26B                    0x26B
+#define FLAG_ROGUE_UNLOCKED_PIKIN_EASTER_EGG 0x26B
 #define FLAG_ROGUE_MET_POKABBIE              0x26C
 #define FLAG_ROGUE_UNCOVERRED_POKABBIE       0x26D
 #define FLAG_ROGUE_GAUNTLET_MODE             0x26E
 #define FLAG_ROGUE_EXPANSION_ACTIVE          0x26F
 #define FLAG_ROGUE_RARE_ITEM_MART_DISABLED   0x270
-#define FLAG_UNUSED_0x271                    0x271
+#define FLAG_ROGUE_ASSISTANT_TUTORIAL        0x271
 #define FLAG_UNUSED_0x272                    0x272
 #define FLAG_ROGUE_SCOTT_GIFTED_EXTRAS       0x273
 #define FLAG_ROGUE_DEBUG_DISABLED            0x274
@@ -688,7 +688,7 @@
 #define FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE   0x27B
 #define FLAG_ROGUE_RANDOM_TRADE_WAS_FULL_PARTY 0x27C
 #define FLAG_ROGUE_DAYCARE_PHONE_CHARGED     0x27D
-#define FLAG_UNUSED_0x27E                    0x27E
+#define FLAG_ROGUE_MYSTERIOUS_SIGN_KNOWN     0x27E
 #define FLAG_UNUSED_0x27F                    0x27F
 #define FLAG_UNUSED_0x280                    0x280
 #define FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES    0x281
@@ -1364,7 +1364,7 @@
 #define FLAG_SYS_SHOW_POKE_FOLLOWER                  (SYSTEM_FLAGS + 0x3)
 #define FLAG_SYS_GAME_CLEAR                          (SYSTEM_FLAGS + 0x4)
 #define FLAG_SYS_CHAT_USED                           (SYSTEM_FLAGS + 0x5)
-#define FLAG_SYS_SAVE_DISABLED                       (SYSTEM_FLAGS + 0x6)
+#define FLAG_SYS_SAVE_DISABLED                       (SYSTEM_FLAGS + 0x6) // Rogue _UNUSED_
 
 // Badges
 #define FLAG_BADGE01_GET                             (SYSTEM_FLAGS + 0x7)
@@ -1402,13 +1402,13 @@
 #define FLAG_SYS_RIDING_LEDGE_JUMP                  (SYSTEM_FLAGS + 0x22)
 #define FLAG_SYS_RIDING_SURF                        (SYSTEM_FLAGS + 0x23)
 #define FLAG_SYS_RIDING_FLY                         (SYSTEM_FLAGS + 0x24)
-#define FLAG_SYS_RIDING_ACCESS_DAYCARE              (SYSTEM_FLAGS + 0x25)
-#define FLAG_UNUSED_0x886                           (SYSTEM_FLAGS + 0x26) // Unused Flag
-#define FLAG_UNUSED_0x887                           (SYSTEM_FLAGS + 0x27) // Unused Flag
+#define FLAG_SYS_RIDING_FLY_2_CHARGES               (SYSTEM_FLAGS + 0x25)
+#define FLAG_SYS_RIDING_FLY_3_CHARGES               (SYSTEM_FLAGS + 0x26)
+#define FLAG_SYS_RIDING_FLY_INFINITE_CHARGES        (SYSTEM_FLAGS + 0x27)
 
-#define FLAG_SYS_USE_FLASH                          (SYSTEM_FLAGS + 0x28)
+#define FLAG_SYS_RIDING_ACCESS_DAYCARE              (SYSTEM_FLAGS + 0x28)
 #define FLAG_SYS_USE_STRENGTH                       (SYSTEM_FLAGS + 0x29)
-#define FLAG_SYS_WEATHER_CTRL                       (SYSTEM_FLAGS + 0x2A)
+#define FLAG_SYS_USE_FLASH                          (SYSTEM_FLAGS + 0x2A)
 #define FLAG_SYS_CYCLING_ROAD                       (SYSTEM_FLAGS + 0x2B)
 #define FLAG_SYS_SAFARI_MODE                        (SYSTEM_FLAGS + 0x2C)
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)

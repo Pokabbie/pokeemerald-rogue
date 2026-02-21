@@ -19,6 +19,140 @@
         "default_group":
         [
             {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Mega Evolution",
+                "description": "Win a full Run with the Mega Ring.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_MEGA_RING", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_LUCARIO",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Z-Moves",
+                "description": "Win a full Run with the Z-Power Ring.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_Z_POWER_RING", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_MIMIKYU",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Dynamax",
+                "description": "Win a full Run with the Dynamax Band.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_DYNAMAX_BAND", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_ELDEGOSS",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Terastallization",
+                "description": "Win a full Run with the Tera Orb.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_TERA_ORB", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_CYCLIZAR",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Gimmick Overflow",
+                "description": "Win a full Run with: Healing Flask, Mega Ring, Z-Power Ring, Dynamax Band & Tera Orb.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_MEGA_RING", "count": 1 },
+                    { "item": "ITEM_Z_POWER_RING", "count": 1 },
+                    { "item": "ITEM_DYNAMAX_BAND", "count": 1 },
+                    { "item": "ITEM_TERA_ORB", "count": 1 },
+                    { "item": "ITEM_HEALING_FLASK", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_CHARIZARD",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
                 "name": "True Tactics",
                 "description": "Win a full Run, without any Pokémon ever fainting.",
                 "triggers":
@@ -36,11 +170,16 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "species": "SPECIES_SHEDINJA",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
-                "name": "Chaos Master",
+                "name": "Chaos Novice",
                 "description": "Win a full Run with: Random Starter trade & always doing a Full Party trade with Mr. Randoman whenever possible.",
                 "triggers":
                 [
@@ -77,7 +216,39 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "quest": "Chaos Master" },
+                    {
+                        "species": "SPECIES_CHIMECHO",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "name": "Chaos Master",
+                "description": "Win a full Run with: Wahey Curse & Wahey+ Curse.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_RANDOMAN_ROUTE_SPAWN_CURSE", "count": 1 },
+                    { "item": "ITEM_RANDOMAN_ALWAYS_SPAWN_CURSE", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "species": "SPECIES_ABSOL",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -100,7 +271,74 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_CLEFAIRY",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "name": "Can't Pick!?",
+                "description": "Win a full Run, only ever entering Trainer battles with only Starters in your party e.g. Charmander, Totodile, Treecko, Pikachu, Eevee etc.",
+                "triggers":
+                [
+                    {
+                        "on": [ "TRAINER_BATTLE_START" ],
+                        "condition": "PartyContainsOnlyStarters",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "#if": "!defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_PIKACHU",
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_PIKACHU"
+                    },
+                    {
+                        "#if": "defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_PIKACHU_ORIGINAL_CAP",
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_PIKACHU_ORIGINAL_CAP"
+                    },
+                    {
+                        "species": "SPECIES_PIKACHU",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "name": "Diversity",
+                "description": "Win a full Run, only ever entering Trainer battles with only Unique Types in your party e.g. Can't have a Bulbasaur and a Grimer at the same time.",
+                "triggers":
+                [
+                    {
+                        "on": [ "TRAINER_BATTLE_START" ],
+                        "condition": "PartyContainsOnlyUniqueTypes",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "species": "SPECIES_KECLEON",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -121,7 +359,12 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_ARCANINE",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -142,12 +385,177 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_GYARADOS",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
+                "name": "I am Speed",
+                "description": "Win a full Run in under 2:30hrs (in game time)",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "RunTimerLessThanMins",
+                        "params": [ "150" ],
+                        "pass": "SUCCESS"
+                    },
+                    {
+                        "on": [ "ANY_BATTLE_END" ],
+                        "condition": "RunTimerLessThanMins",
+                        "params": [ "150" ],
+                        "fail": "FAIL"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_NINJASK",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "name": "Cursed Body",
+                "description": "Win a full Run with: Snowball Curse.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_SNOWBALL_CURSE", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "#if": "!defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_NINETALES",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    },
+                    {
+                        "#if": "defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_NINETALES_ALOLAN",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+
+            {
+                "name": "Limited Capture",
+                "description": "Win a full Run with: Catching exactly 5 {PKMN} by the time you enter the Hall of Fame.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ANY_MON_CAUGHT" ],
+                        "condition": "VarGetGreaterThan",
+                        "params": [ "VAR_ROGUE_TOTAL_RUN_CATCHES", "5" ],
+                        "pass": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "VarGetEqual",
+                        "params": [ "VAR_ROGUE_TOTAL_RUN_CATCHES", "5" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "#if": "!defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_VOLTORB",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    },
+                    {
+                        "#if": "defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_VOLTORB_HISUIAN",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+
+            {
+                "name": "BST Crown",
+                "description": "Win a full Run with: Baby Curse and only using a {PKMN} with 350 or lower Base Stat Total (viewable in the Pokédex) in Trainer Battles.",
+                "triggers":
+                [
+                    {
+                        "on": [ "TRAINER_BATTLE_START" ],
+                        "condition": "PartyMaxBSTLessThan",
+                        "fail": "FAIL",
+                        "params": [ "351" ]
+                    },
+                    {
+                        "on": [ "TRAINER_BATTLE_END_TURN" ],
+                        "condition": "PartyMaxBSTLessThan",
+                        "fail": "FAIL",
+                        "params": [ "351" ]
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_WILD_EGG_SPECIES_CURSE", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "species": "SPECIES_SUNKERN",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "name": "Pro-Building",
+                "description": "Win a full Run with: Auto Move Curse.",
+                "triggers":
+                [
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_AUTO_MOVE_CURSE", "count": 1 }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    {
+                        "species": "SPECIES_SMEARGLE",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+
+            {
                 "name": "Insane Mode",
-                "description": "Win a full Run with: Fresh Start enabled, Mixed battle format, Random Starter trade, Embargo & Species Curse & never using Legendary {PKMN}.",
+                "description": "Win a full Run with: Fresh Start enabled, Mixed battle format, Random Starter trade, Embargo, Unaware & Species Curse & never using Legendary {PKMN}.",
                 "triggers":
                 [
                     {
@@ -167,11 +575,17 @@
                     { "config_range": "CONFIG_RANGE_BATTLE_FORMAT", "value": "BATTLE_FORMAT_MIXED" },
                     { "config_toggle": "CONFIG_TOGGLE_BAG_WIPE", "state": true },
                     { "item": "ITEM_BATTLE_ITEM_CURSE", "count": 1 },
-                    { "item": "ITEM_SPECIES_CLAUSE_CURSE", "count": 1 }
+                    { "item": "ITEM_SPECIES_CLAUSE_CURSE", "count": 1 },
+                    { "item": "ITEM_UNAWARE_CURSE", "count": 1 }
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "species": "SPECIES_BANETTE",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
@@ -191,13 +605,18 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" },
-                    { "quest": "Iron Kaizo" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "quest": "Iron Kaizo" },
+                    {
+                        "species": "SPECIES_CHANSEY",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
                 "name": "Iron Kaizo",
-                "description": "Win a full Run with: Fresh Start enabled, Random Starter trade, Embargo Curse, 5x Capacity Curses & 99x Discount Curses.",
+                "description": "Win a full Run with: Fresh Start enabled, Random Starter, Embargo Curse, 5x Capacity Curses & 99x Discount Curses.",
                 "triggers":
                 [
                     {
@@ -216,32 +635,177 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "#if": "!defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_TOGEPI",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    },
+                    {
+                        "#if": "defined(ROGUE_EXPANSION)",
+                        "species": "SPECIES_KINGAMBIT",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+
+            {
+                "name": "Rocket Triumph",
+                "description": "Defeat the Leader of Team Rocket.",
+                "display_group": "evil_team_challenges",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentEvilTeamIs",
+                        "params": [ "TEAM_NUM_KANTO_ROCKET", "TEAM_NUM_JOHTO_ROCKET" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "outfit_unlock": "OUTFIT_UNLOCK_TEAM_ROCKET",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_GREEN_SCARF",
+                            "title": "Rocket Grunt",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Outfit Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
+                    {
+                        "species": "SPECIES_ZUBAT",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "name": "Aqua Triumph",
+                "description": "Defeat the Leader of Team Aqua.",
+                "display_group": "evil_team_challenges",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentEvilTeamIs",
+                        "params": [ "TEAM_NUM_AQUA" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "outfit_unlock": "OUTFIT_UNLOCK_TEAM_AQUA",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_GREEN_SCARF",
+                            "title": "Aqua Grunt",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Outfit Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
+                    {
+                        "species": "SPECIES_CARVANHA",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            },
+            {
+                "name": "Magma Triumph",
+                "description": "Defeat the Leader of Team Magma.",
+                "display_group": "evil_team_challenges",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentEvilTeamIs",
+                        "params": [ "TEAM_NUM_MAGMA" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "outfit_unlock": "OUTFIT_UNLOCK_TEAM_MAGMA",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_GREEN_SCARF",
+                            "title": "Magma Grunt",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Outfit Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
+                    {
+                        "species": "SPECIES_NUMEL",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
-                "name": "Gimmick Overflow",
-                "description": "Win a full Run with: Mega Ring, Z-Power Ring, Dynamax Band, Tera Orb & Healing Flask.",
+                "name": "Galactic Triumph",
+                "description": "Defeat the Leader of Team Galactic.",
+                "display_group": "evil_team_challenges",
                 "triggers":
                 [
                     {
-                        "on": [ "ENTER_HALL_OF_FAME" ],
-                        "condition": "Always",
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_TEAM_HIDEOUT" ],
+                        "fail": "BREAK"
+                    },
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentEvilTeamIs",
+                        "params": [ "TEAM_NUM_GALACTIC" ],
                         "pass": "SUCCESS"
                     }
                 ],
-                "requirements":
-                [
-                    { "item": "ITEM_MEGA_RING", "count": 1 },
-                    { "item": "ITEM_Z_POWER_RING", "count": 1 },
-                    { "item": "ITEM_DYNAMAX_BAND", "count": 1 },
-                    { "item": "ITEM_TERA_ORB", "count": 1 },
-                    { "item": "ITEM_HEALING_FLASK", "count": 1 }
-                ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_SMALL_MONEY" }
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    {
+                        "outfit_unlock": "OUTFIT_UNLOCK_TEAM_GALACTIC",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_GREEN_SCARF",
+                            "title": "Galactic Grunt",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Outfit Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
+                    {
+                        "species": "SPECIES_STUNKY",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
                 ]
             }
         ]

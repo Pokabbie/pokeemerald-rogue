@@ -43,6 +43,7 @@
 #include "constants/songs.h"
 
 #include "rogue_controller.h"
+#include "rogue_hub.h"
 
 /*
     NOTE: This file is large. Some general groups of functions have
@@ -3745,6 +3746,7 @@ static void Task_OnBPressed(u8 taskId)
         if (!IsComputerScreenCloseEffectActive())
         {
             UpdateBoxToSendMons();
+            RogueHub_UpdateWanderMons();
             gPlayerPartyCount = CalculatePlayerPartyCount();
             sStorage->screenChangeType = SCREEN_CHANGE_EXIT_BOX;
             SetPokeStorageTask(Task_ChangeScreen);
@@ -5999,7 +6001,8 @@ static bool8 UpdateCursorPos(void)
 
 static void InitNewCursorPos(u8 newCursorArea, u8 newCursorPosition)
 {
-    u16 x, y;
+    u16 x = 0;
+    u16 y = 0;
 
     GetCursorCoordsByPos(newCursorArea, newCursorPosition, &x, &y);
     sStorage->newCursorArea = newCursorArea;

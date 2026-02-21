@@ -71,6 +71,7 @@
 #include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_popup.h"
+#include "rogue_quest.h"
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
 
@@ -395,6 +396,8 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_WINSTRATE, 10},
     {TRAINER_CLASS_TEAM_ROCKET, 5},
     {TRAINER_CLASS_TEAM_ROCKET_LEADER, 10},
+    {TRAINER_CLASS_TEAM_GALACTIC, 5},
+    {TRAINER_CLASS_TEAM_GALACTIC_LEADER, 10},
     {TRAINER_CLASS_BIKER, 4},
     {0xFF, 5}, // Any trainer class not listed above uses this
 };
@@ -1772,24 +1775,68 @@ static void CB2_HandleStartMultiBattle(void)
 
 void BattleMainCB2(void)
 {
-    u8 s;
     u8 speedScale = Rogue_GetBattleSpeedScale(FALSE);
-    bool8 hasPaletteFadePending = FALSE;
+    gMain.nativeSpeedUpActive = FALSE;
 
-    // Update select entries at higher speed
-    // disable speed up during palette fades otherwise we run into issues with blending 
-    //(e.g. moves that change background like Psychic can get stuck or have their colours overflow)
-    for(s = 0; s < speedScale && !hasPaletteFadePending; ++s)
+    // If we are processing a palette fade we need to temporarily fall back to 1x speed otherwise there is graphical corruption
+    if(PrevPaletteFadeResult() == PALETTE_FADE_STATUS_LOADING)
+        speedScale = 1;
+
+    if(speedScale <= 1)
     {
+        // Maintain OG order for compat
         AnimateSprites();
-        // BuildOamBuffer(); // <- original order
+        BuildOamBuffer();
         RunTextPrinters();
-        hasPaletteFadePending = (UpdatePaletteFade() == PALETTE_FADE_STATUS_LOADING);
+        UpdatePaletteFade();
         RunTasks();
     }
+    else
+    {
+        u8 s;
+        u8 fadeResult = PALETTE_FADE_STATUS_DONE;
 
-    // We only need to build this once
-    BuildOamBuffer();
+        gMain.nativeSpeedUpActive = TRUE;
+
+        // Update select entries at higher speed
+        // disable speed up during palette fades otherwise we run into issues with blending 
+        //(e.g. moves that change background like Psychic can get stuck or have their colours overflow)
+        for(s = 1; s < speedScale; ++s)
+        {
+            AnimateSprites();
+            RunTextPrinters();
+            fadeResult = UpdatePaletteFade();
+
+            if(fadeResult == PALETTE_FADE_STATUS_LOADING)
+            {
+                // minimal final update as we've just started a fade
+                BuildOamBuffer();
+                RunTasks();
+                break;
+            }
+            else
+            {
+                RunTasks();
+                VBlankCB_Battle();
+
+                // Call it again to make sure everything is behaving as it should (this is crazy town now)
+                if (gMain.callback1)
+                    gMain.callback1();
+            }
+        }
+        
+        gMain.nativeSpeedUpActive = FALSE;
+
+        if(fadeResult != PALETTE_FADE_STATUS_LOADING)
+        {
+            // final update
+            AnimateSprites();
+            BuildOamBuffer();
+            RunTextPrinters();
+            UpdatePaletteFade();
+            RunTasks();
+        }
+    }
 
 #ifdef ROGUE_FEATURE_AUTOMATION
     Rogue_PushAutomationInputState(AUTO_INPUT_STATE_BATTLE);
@@ -1803,6 +1850,9 @@ void BattleMainCB2(void)
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         SetMainCallback2(CB2_QuitRecordedBattle);
     }
+
+    if (gTestRunnerEnabled)
+        TestRunner_Battle_HandleTurnTimeout();
 }
 
 static void FreeRestoreBattleData(void)
@@ -2014,7 +2064,8 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, u16 trainerNum, const
         }
     }
 
-    Rogue_Battle_TrainerTeamReady();
+    if(gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        Rogue_Battle_TrainerTeamReady();
     return monsCount;
 }
 
@@ -3008,7 +3059,11 @@ static void BattleStartClearSetData(void)
     gBattleWeather = 0;
     gHitMarker = 0;
 
+#if TESTING
+    if (TRUE)
+#else
     if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
+#endif
     {
         if (!(gBattleTypeFlags & BATTLE_TYPE_LINK) && !Rogue_GetBattleAnimsEnabled())
             gHitMarker |= HITMARKER_NO_ANIMATIONS;
@@ -3119,6 +3174,7 @@ void SwitchInClearSetData(u32 battler)
         gBattleMons[battler].status2 = 0;
         gStatuses3[battler] = 0;
         gStatuses4[battler] = 0;
+        Rogue_ModifyBattleMon(0, &gBattleMons[battler], GetBattlerSide(battler) == B_SIDE_PLAYER);
     }
 
     for (i = 0; i < gBattlersCount; i++)
@@ -3368,6 +3424,8 @@ const u8* FaintClearSetData(u32 battler)
     gBattleStruct->zmove.active = FALSE;
     gBattleStruct->zmove.toBeUsed[battler] = MOVE_NONE;
     gBattleStruct->zmove.effect = EFFECT_HIT;
+    // Clear Dynamax data
+    UndoDynamax(battler);
     return result;
 }
 
@@ -3427,6 +3485,7 @@ static void DoBattleIntro(void)
                 gBattleMons[battler].status2 = 0;
                 for (i = 0; i < NUM_BATTLE_STATS; i++)
                     gBattleMons[battler].statStages[i] = DEFAULT_STAT_STAGE;
+                Rogue_ModifyBattleMon(0, &gBattleMons[battler], GetBattlerSide(battler) == B_SIDE_PLAYER);
             }
 
             // Draw sprite.
@@ -4719,6 +4778,37 @@ s8 GetChosenMovePriority(u32 battler)
     return GetMovePriority(battler, move);
 }
 
+static bool32 IsWeatherAffectedMove(u16 move)
+{
+    switch(move)
+    {
+        case MOVE_WEATHER_BALL:
+        case MOVE_SOLAR_BEAM:
+        case MOVE_SOLAR_BLADE:
+        case MOVE_HYDRO_STEAM:
+        case MOVE_THUNDER:
+        case MOVE_HURRICANE:
+        case MOVE_SYNTHESIS:
+        case MOVE_GROWTH:
+        case MOVE_SUNNY_DAY:
+        case MOVE_RAIN_DANCE:
+        case MOVE_BLEAKWIND_STORM:
+        case MOVE_WILDBOLT_STORM:
+        case MOVE_SANDSEAR_STORM:
+        case MOVE_MORNING_SUN:
+        case MOVE_MOONLIGHT:
+        case MOVE_HAIL:
+        case MOVE_BLIZZARD:
+        case MOVE_SNOWSCAPE:
+        case MOVE_CHILLY_RECEPTION:
+        case MOVE_SANDSTORM:
+        case MOVE_SHORE_UP:
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 s8 GetMovePriority(u32 battler, u16 move)
 {
     s8 priority;
@@ -4736,6 +4826,10 @@ s8 GetMovePriority(u32 battler, u16 move)
     if (ability == ABILITY_GALE_WINGS
         && (B_GALE_WINGS < GEN_7 || BATTLER_MAX_HP(battler))
         && gBattleMoves[move].type == TYPE_FLYING)
+    {
+        priority++;
+    }
+    else if (ability == ABILITY_FORECAST_PRIORITY && IsWeatherAffectedMove(move))
     {
         priority++;
     }
@@ -5262,6 +5356,11 @@ static void RunTurnActionsFunctions(void)
         gHitMarker &= ~HITMARKER_PASSIVE_DAMAGE;
         gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
 
+        if((gBattleTypeFlags & BATTLE_TYPE_TRAINER) != 0)
+            RogueQuest_OnTrigger(QUEST_TRIGGER_TRAINER_BATTLE_END_TURN);
+        else
+            RogueQuest_OnTrigger(QUEST_TRIGGER_WILD_BATTLE_END_TURN);
+
         if(gBattleMainFunc != HandleEndTurn_ContinueBattle)
         {
             PUSH_ASSISTANT_STATE2(BATTLE, END);
@@ -5685,11 +5784,12 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
                      | ((gBattleMons[battlerAtk].spAttackIV & 1) << 4)
                      | ((gBattleMons[battlerAtk].spDefenseIV & 1) << 5);
 
-        // Subtract 4 instead of 1 below because 3 types are excluded (TYPE_NORMAL and TYPE_MYSTERY and TYPE_FAIRY)
+        // Subtract 4 instead of 1 below because 3 types are excluded (TYPE_NORMAL and TYPE_MYSTERY and TYPE_FAIRY and TYPE_STELLAR)
         // The final + 1 skips past Normal, and the following conditional skips TYPE_MYSTERY
-        gBattleStruct->dynamicMoveType = ((NUMBER_OF_MON_TYPES - 4) * typeBits) / 63 + 1;
+        gBattleStruct->dynamicMoveType = ((NUMBER_OF_MON_TYPES - 5) * typeBits) / 63 + 1;
         if (gBattleStruct->dynamicMoveType >= TYPE_MYSTERY)
             gBattleStruct->dynamicMoveType++;
+
         gBattleStruct->dynamicMoveType |= F_DYNAMIC_TYPE_IGNORE_PHYSICALITY | F_DYNAMIC_TYPE_SET;
     }
     else if (gBattleMoves[move].effect == EFFECT_CHANGE_TYPE_ON_ITEM && holdEffect == gBattleMoves[move].argument)

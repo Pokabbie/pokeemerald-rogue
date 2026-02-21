@@ -266,7 +266,7 @@
                 }
             },
             {
-                "name": "REMY",
+                "name": "NOB",
                 "type_assignment": "GROUND",
                 "object_event": "OBJ_EVENT_GFX_HIKER",
                 "trainer_pic": "TRAINER_PIC_HIKER",
@@ -274,9 +274,9 @@
                 "encounter_text":
                 [
                     {
-                        "PRE_BATTLE_TAUNT": "That's a neat Bag you've got there!",
-                        "POST_BATTLE_TAUNT": "Still not as good as my Bag, though.",
-                        "POST_BATTLE_CLOSER": "Your Bag may be cool, but it's not even close to mine."
+                        "PRE_BATTLE_TAUNT": "I'd love to see a Rare Pokémon collection!",
+                        "POST_BATTLE_TAUNT": "You done got me, and real good, too!",
+                        "POST_BATTLE_CLOSER": "I once met a collector who had all sorts of Rare species of Pokémon!"
                     }
                 ],
                 "preferred_mon_gender": "MALE",

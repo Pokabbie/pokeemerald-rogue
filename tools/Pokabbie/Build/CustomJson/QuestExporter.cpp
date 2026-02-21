@@ -11,6 +11,11 @@ enum class QuestRewardType
 	ShopItem,
 	Money,
 	QuestUnlock,
+	Flag,
+	HubUpgrade,
+	Decor,
+	DecorVariant,
+	OutfitUnlock
 };
 
 struct QuestReward
@@ -18,6 +23,17 @@ struct QuestReward
 	QuestRewardType type;
 	std::string preprocessorCondition;
 	std::string visibility;
+	std::string requiredDifficulty;
+	struct
+	{
+		bool isValid;
+		std::string itemIcon;
+		std::string speciesIcon;
+		std::string title;
+		std::string subtitle;
+		std::string soundEffect;
+		std::string fanfare;
+	} customPopup;
 	struct
 	{
 		std::string species;
@@ -47,6 +63,26 @@ struct QuestReward
 		std::string questId;
 	}
 	questUnlockParams;
+	struct
+	{
+		std::string flag;
+	} flagParams;
+	struct
+	{
+		std::string upgradeId;
+	} hubUpgrade;
+	struct
+	{
+		std::string decorId;
+	} decor;
+	struct
+	{
+		std::string decorVariantId;
+	} decorVariant;
+	struct
+	{
+		std::string outfitUnlockId;
+	} outfitUnlock;
 };
 
 enum class QuestRequirementType
@@ -133,6 +169,45 @@ struct QuestData
 
 static void GatherQuests(std::string const& dataPath, json const& jsonData, QuestData& outQuestData);
 
+static std::string QuestExpandString(QuestInfo const& quest, std::string target)
+{
+	// Allow templating desc params
+	if (quest.questObj.contains("template_params"))
+	{
+		json templateParams = quest.questObj["template_params"];
+
+		for (auto it = templateParams.begin(); it != templateParams.end(); it++)
+		{
+			std::string replaceKey = "%" + it.key() + "%";
+			std::string replaceValue = it.value().get<std::string>();
+
+			// Pretty print hacks
+			if (replaceKey == "%MON_SPECIES%")
+			{
+				if (strutil::starts_with(replaceValue, "SPECIES_"))
+				{
+					replaceValue = replaceValue.substr(std::string("SPECIES_").length());
+					replaceValue = strutil::capitalize(strutil::to_lower(replaceValue));
+				}
+			}
+
+			strutil::replace_all(target, replaceKey, replaceValue);
+		}
+	}
+
+	return target;
+}
+
+static std::string GetQuestName(QuestInfo const& quest)
+{
+	return QuestExpandString(quest, quest.questObj["name"].get<std::string>());
+}
+
+static std::string GetQuestDescription(QuestInfo const& quest)
+{
+	return QuestExpandString(quest, quest.questObj["description"].get<std::string>());
+}
+
 static std::string FlagsToString(std::string const& prefix, std::vector<std::string> const flags)
 {
 	std::string output = "0";
@@ -162,20 +237,68 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 		if (!quest.preprocessorCondition.empty())
 			fileStream << "#if " << quest.preprocessorCondition << "\n";
 
-		fileStream << "static u8 const sTitle_" << quest.GetUniqueWriteId() << "[] = _(\"" << quest.questObj["name"].get<std::string>() << "\");\n";
+		fileStream << "static u8 const sTitle_" << quest.GetUniqueWriteId() << "[] = _(\"" << GetQuestName(quest) << "\");\n";
 		fileStream << "extern const u8 gQuestDescText_" << quest.GetUniqueWriteId() << "[];\n";
+		fileStream << "\n";
+
+		// Rewards requirements
+		int rewardCounter = 0;
+		for (auto const& rewardInfo : quest.rewards)
+		{
+			int rewardIndex = rewardCounter++;
+
+			if (rewardInfo.customPopup.isValid)
+			{
+				if (!rewardInfo.preprocessorCondition.empty())
+					fileStream << "#if " << rewardInfo.preprocessorCondition << "\n";
+
+				fileStream << "static u8 const sCustomPopupTitle_" << quest.GetUniqueWriteId() << "_" << rewardIndex << "[] = _(\"" << rewardInfo.customPopup.title << "\");\n";
+				fileStream << "static u8 const sCustomPopupSubtitle_" << quest.GetUniqueWriteId() << "_" << rewardIndex << "[] = _(\"" << rewardInfo.customPopup.subtitle << "\");\n";
+				fileStream << "\n";
+
+				fileStream << "static struct CustomPopup const sCustomPopup_" << quest.GetUniqueWriteId() << "_" << rewardIndex << " = \n";
+				fileStream << "{\n";
+				fileStream << c_TabSpacing << ".titleStr = sCustomPopupTitle_" << quest.GetUniqueWriteId() << "_" << rewardIndex << ",\n";
+				fileStream << c_TabSpacing << ".subtitleStr = sCustomPopupSubtitle_" << quest.GetUniqueWriteId() << "_" << rewardIndex << ",\n";
+
+				if(!rewardInfo.customPopup.itemIcon.empty())
+					fileStream << c_TabSpacing << ".itemIcon = " << rewardInfo.customPopup.itemIcon << ",\n";
+
+				if (!rewardInfo.customPopup.speciesIcon.empty())
+					fileStream << c_TabSpacing << ".speciesIcon = " << rewardInfo.customPopup.speciesIcon << ",\n";
+
+				fileStream << c_TabSpacing << ".soundEffect = " << rewardInfo.customPopup.soundEffect << ",\n";
+				fileStream << c_TabSpacing << ".fanfare = " << rewardInfo.customPopup.fanfare << ",\n";
+				fileStream << "};\n";
+
+				if (!rewardInfo.preprocessorCondition.empty())
+					fileStream << "#endif\n";
+
+				fileStream << "\n";
+			}
+		}
 
 		// Rewards
 		fileStream << "static struct RogueQuestReward const sRewards_" << quest.GetUniqueWriteId() << "[] = \n";
 		fileStream << "{\n";
+		rewardCounter = 0;
 
 		for (auto const& rewardInfo : quest.rewards)
 		{
+			int rewardIndex = rewardCounter++;
+
 			if (!rewardInfo.preprocessorCondition.empty())
 				fileStream << "#if " << rewardInfo.preprocessorCondition << "\n";
 
 			fileStream << c_TabSpacing << "{\n";
 			fileStream << c_TabSpacing2 << ".visiblity = QUEST_REWARD_VISIBLITY_" << rewardInfo.visibility << ",\n";
+			fileStream << c_TabSpacing2 << ".requiredDifficulty = DIFFICULTY_LEVEL_" << rewardInfo.requiredDifficulty << ",\n";
+
+			if (rewardInfo.customPopup.isValid)
+				fileStream << c_TabSpacing2 << ".customPopup = &sCustomPopup_" << quest.GetUniqueWriteId() << "_" << rewardIndex << ",\n";
+			else
+				fileStream << c_TabSpacing2 << ".customPopup = NULL,\n";
+
 
 			switch (rewardInfo.type)
 			{
@@ -241,6 +364,51 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 				fileStream << c_TabSpacing2 << "}\n";
 				break;
 
+			case QuestRewardType::Flag:
+				fileStream << c_TabSpacing2 << ".type = QUEST_REWARD_FLAG,\n";
+				fileStream << c_TabSpacing2 << ".perType = {\n";
+				fileStream << c_TabSpacing3 << ".flag = {\n";
+				fileStream << c_TabSpacing4 << ".flagId = " << rewardInfo.flagParams.flag << ",\n";
+				fileStream << c_TabSpacing3 << "}\n";
+				fileStream << c_TabSpacing2 << "}\n";
+				break;
+
+			case QuestRewardType::HubUpgrade:
+				fileStream << c_TabSpacing2 << ".type = QUEST_REWARD_HUB_UPGRADE,\n";
+				fileStream << c_TabSpacing2 << ".perType = {\n";
+				fileStream << c_TabSpacing3 << ".hubUpgrade = {\n";
+				fileStream << c_TabSpacing4 << ".upgradeId = " << rewardInfo.hubUpgrade.upgradeId << ",\n";
+				fileStream << c_TabSpacing3 << "}\n";
+				fileStream << c_TabSpacing2 << "}\n";
+				break;
+
+
+			case QuestRewardType::Decor:
+				fileStream << c_TabSpacing2 << ".type = QUEST_REWARD_DECOR,\n";
+				fileStream << c_TabSpacing2 << ".perType = {\n";
+				fileStream << c_TabSpacing3 << ".decor = {\n";
+				fileStream << c_TabSpacing4 << ".decorId = " << rewardInfo.decor.decorId << ",\n";
+				fileStream << c_TabSpacing3 << "}\n";
+				fileStream << c_TabSpacing2 << "}\n";
+				break;
+
+			case QuestRewardType::DecorVariant:
+				fileStream << c_TabSpacing2 << ".type = QUEST_REWARD_DECOR_VARIANT,\n";
+				fileStream << c_TabSpacing2 << ".perType = {\n";
+				fileStream << c_TabSpacing3 << ".decorVariant = {\n";
+				fileStream << c_TabSpacing4 << ".decorVariantId = " << rewardInfo.decorVariant.decorVariantId << ",\n";
+				fileStream << c_TabSpacing3 << "}\n";
+				fileStream << c_TabSpacing2 << "}\n";
+				break;
+
+			case QuestRewardType::OutfitUnlock:
+				fileStream << c_TabSpacing2 << ".type = QUEST_REWARD_OUTFIT_UNLOCK,\n";
+				fileStream << c_TabSpacing2 << ".perType = {\n";
+				fileStream << c_TabSpacing3 << ".outfitUnlock = {\n";
+				fileStream << c_TabSpacing4 << ".outfitUnlockId = " << rewardInfo.outfitUnlock.outfitUnlockId << ",\n";
+				fileStream << c_TabSpacing3 << "}\n";
+				fileStream << c_TabSpacing2 << "}\n";
+				break;
 
 			default:
 				FATAL_ERROR("Unsupported reward type");
@@ -426,7 +594,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 		[&](QuestInfo const& a, QuestInfo const& b) -> bool
 		{
 			auto const& groupA = questData.displayGroups[a.displayGroup];
-			auto const& groupB = questData.displayGroups[a.displayGroup];
+			auto const& groupB = questData.displayGroups[b.displayGroup];
 
 			if (groupA.m_GroupIndex != groupB.m_GroupIndex)
 			{
@@ -440,7 +608,7 @@ void ExportQuestData_C(std::ofstream& fileStream, std::string const& dataPath, j
 					// Sort alphabetically in same display order index
 					int compare = a.questId.compare(b.questId);
 
-					if (compare <= 0)
+					if (compare < 0)
 						return true;
 
 					return false;
@@ -575,7 +743,7 @@ void ExportQuestData_Pory(std::ofstream& fileStream, std::string const& dataPath
 		auto const& quest = *it;
 
 		fileStream << "text gQuestDescText_" << quest.GetUniqueWriteId() << "\n{\n";
-		fileStream << c_TabSpacing << "format(\"" << quest.questObj["description"].get<std::string>() << "\")\n";
+		fileStream << c_TabSpacing << "format(\"" << GetQuestDescription(quest) << "\")\n";
 		fileStream << "}\n\n";
 	}
 }
@@ -587,10 +755,18 @@ static std::string FormatQuestId(std::string const& prettyName)
 	strutil::replace_all(questId, "-", "_");
 	strutil::replace_all(questId, "!", "EMARK");
 	strutil::replace_all(questId, "?", "QMARK");
+	strutil::replace_all(questId, "Ã©", "E"); // code for é
+	strutil::replace_all(questId, "é", "E");
 	strutil::replace_all(questId, ",", "");
 	strutil::replace_all(questId, ".", "");
 	strutil::replace_all(questId, "\"", "");
 	strutil::replace_all(questId, "'", "");
+	strutil::replace_all(questId, "(", "");
+	strutil::replace_all(questId, ")", "");
+	strutil::replace_all(questId, "[", "");
+	strutil::replace_all(questId, "]", "");
+	strutil::replace_all(questId, "{", "");
+	strutil::replace_all(questId, "}", "");
 	strutil::replace_all(questId, "+", "PLUS");
 	strutil::replace_all(questId, c_Elipsies, "");
 	return questId;
@@ -628,6 +804,41 @@ static QuestReward ParseQuestReward(json const& jsonData)
 	else
 		reward.visibility = "DEFAULT";
 
+	if (jsonData.contains("difficulty"))
+		reward.requiredDifficulty = GetAsString(jsonData["difficulty"]);
+	else
+		reward.requiredDifficulty = "EASY";
+
+	// Custom popup
+	if (jsonData.contains("custom_popup"))
+	{
+		auto const& customPopup = jsonData["custom_popup"];
+
+		reward.customPopup.isValid = true;
+
+		if (customPopup.contains("item_icon"))
+			reward.customPopup.itemIcon = customPopup["item_icon"].get<std::string>();
+
+		if (customPopup.contains("species_icon"))
+			reward.customPopup.speciesIcon = customPopup["species_icon"].get<std::string>();
+
+		reward.customPopup.title = customPopup["title"].get<std::string>();
+		reward.customPopup.subtitle = customPopup["subtitle"].get<std::string>();
+
+		if (customPopup.contains("sound_effect"))
+			reward.customPopup.soundEffect = customPopup["sound_effect"].get<std::string>();
+		else
+			reward.customPopup.soundEffect = "0";
+
+		if (customPopup.contains("fanfare"))
+			reward.customPopup.fanfare = customPopup["fanfare"].get<std::string>();
+		else
+			reward.customPopup.fanfare = "0";
+	}
+	else
+	{
+		reward.customPopup.isValid = false;
+	}
 
 	// Per type
 	if (jsonData.contains("species"))
@@ -691,6 +902,51 @@ static QuestReward ParseQuestReward(json const& jsonData)
 		reward.type = QuestRewardType::QuestUnlock;
 
 		reward.questUnlockParams.questId = FormatQuestId(jsonData["quest"].get<std::string>());
+
+		return reward;
+	}
+
+	if (jsonData.contains("hub_upgrade"))
+	{
+		reward.type = QuestRewardType::HubUpgrade;
+
+		reward.hubUpgrade.upgradeId = jsonData["hub_upgrade"].get<std::string>();
+
+		return reward;
+	}
+
+	if (jsonData.contains("flag"))
+	{
+		reward.type = QuestRewardType::Flag;
+
+		reward.flagParams.flag = FormatQuestId(jsonData["flag"].get<std::string>());
+
+		return reward;
+	}
+
+	if (jsonData.contains("decor"))
+	{
+		reward.type = QuestRewardType::Decor;
+
+		reward.decor.decorId = jsonData["decor"].get<std::string>();
+
+		return reward;
+	}
+
+	if (jsonData.contains("decor_variant"))
+	{
+		reward.type = QuestRewardType::DecorVariant;
+
+		reward.decorVariant.decorVariantId = jsonData["decor_variant"].get<std::string>();
+
+		return reward;
+	}
+
+	if (jsonData.contains("outfit_unlock"))
+	{
+		reward.type = QuestRewardType::OutfitUnlock;
+
+		reward.outfitUnlock.outfitUnlockId = jsonData["outfit_unlock"].get<std::string>();
 
 		return reward;
 	}
@@ -793,7 +1049,7 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, Q
 			QuestInfo quest = { groupIt.value(), questIt };
 
 			// Quest ID
-			quest.questId = FormatQuestId(quest.questObj["name"].get<std::string>());
+			quest.questId = FormatQuestId(GetQuestName(quest));
 			quest.importIndex = counter++;
 
 			// Display Group Name
@@ -914,12 +1170,12 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, Q
 	}
 
 	// Figure out the display order here based on the groups
-	json displayGroups = jsonData["display_groups"];
+	json displayGroups = rawJsonData["display_groups"];
 	counter = 0;
 
 	for (auto displayIt = displayGroups.begin(); displayIt != displayGroups.end(); ++displayIt)
 	{
-		json groupObj = displayGroups;
+		json groupObj = *displayIt;
 		DisplayGroup group;
 
 		std::string id = groupObj["id"].get<std::string>();
@@ -927,7 +1183,7 @@ static void GatherQuests(std::string const& dataPath, json const& rawJsonData, Q
 		group.m_SortAlphabetically = false;
 
 		if (groupObj.contains("sort_alphabetically"))
-			group.m_SortAlphabetically = groupObj.get<bool>();
+			group.m_SortAlphabetically = groupObj["sort_alphabetically"].get<bool>();
 
 		outQuestData.displayGroups[id] = group;
 	}

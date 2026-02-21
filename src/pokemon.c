@@ -58,6 +58,7 @@
 #include "constants/weather.h"
 
 #include "rogue_controller.h"
+#include "rogue_charms.h"
 #include "rogue_gifts.h"
 #include "rogue_player_customisation.h"
 #include "rogue_timeofday.h"
@@ -632,6 +633,15 @@ static const struct SpriteTemplate sTrainerBackSpriteTemplates[] =
         .affineAnims = gAffineAnims_BattleSpritePlayerSide,
         .callback = SpriteCB_BattleSpriteStartSlideLeft,
     },
+    [TRAINER_BACK_PIC_COMMUNITY_NACHOLORD] = {
+        .tileTag = TAG_NONE,
+        .paletteTag = 0,
+        .oam = &gOamData_BattleSpritePlayerSide,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_CommunityNacholord,
+        .affineAnims = gAffineAnims_BattleSpritePlayerSide,
+        .callback = SpriteCB_BattleSpriteStartSlideLeft,
+    },
 };
 
 #define NUM_SECRET_BASE_CLASSES 5
@@ -815,9 +825,17 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     if (otIdType == OT_ID_RANDOM_NO_SHINY)
     {
         value = Random32();
+        value &= OTID_FLAG_STANDARD_MASK;
     }
     else if (otIdType == OT_ID_PRESET)
     {
+        value = fixedOtId;
+        value &= OTID_FLAG_STANDARD_MASK;
+    }
+    else if (otIdType == OT_ID_CUSTOM_MON)
+    {
+        // Allow extra bits via this path 
+        // (split out from OT_ID_PRESET for saftey)
         value = fixedOtId;
     }
     else // Player is the OT
@@ -826,6 +844,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
               | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
               | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
               | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+        value &= OTID_FLAG_STANDARD_MASK;
 
 #if P_FLAG_FORCE_NO_SHINY != 0
         if (FlagGet(P_FLAG_FORCE_NO_SHINY))
@@ -2458,6 +2477,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
                     | (substruct3->worldRibbon << 26);
             }
             break;
+        case MON_DATA_GIGANTAMAX_FACTOR:
+            retVal = substruct3->gigantamaxFactor;
+            break;
         case MON_DATA_TERA_TYPE:
         {
             if(gSpeciesInfo[substruct0->species].forceTeraType != TYPE_NONE && gSpeciesInfo[substruct0->species].forceTeraType != 0)
@@ -2661,14 +2683,6 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
 
         switch (field)
         {
-        case MON_DATA_HIDDEN_NATURE:
-        {
-            u32 nature = GetNatureFromPersonality(boxMon->personality);
-            u32 hiddenNature;
-            SET8(hiddenNature);
-            boxMon->hiddenNatureModifier = nature ^ hiddenNature;
-            break;
-        }
         case MON_DATA_SPECIES:
         {
             SET16(substruct0->species);
@@ -2858,6 +2872,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             substruct3->spDefenseIV = (ivs >> 25) & MAX_IV_MASK;
             break;
         }
+        case MON_DATA_GIGANTAMAX_FACTOR:
+            SET8(substruct3->gigantamaxFactor);
+            break;
         case MON_DATA_TERA_TYPE:
         {
             u32 teraType;
@@ -2879,6 +2896,14 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         case MON_DATA_OT_ID:
             SET32(boxMon->otId);
             break;
+        case MON_DATA_HIDDEN_NATURE:
+        {
+            u32 nature = GetNatureFromPersonality(boxMon->personality);
+            u32 hiddenNature;
+            SET8(hiddenNature);
+            boxMon->hiddenNatureModifier = nature ^ hiddenNature;
+            break;
+        }
         case MON_DATA_NICKNAME:
         {
             s32 i;
@@ -3074,16 +3099,23 @@ u8 GetMonsStateToDoubles_2(void)
 
 u16 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 {
+#ifdef ROGUE_EXPANSION
     int i;
-    u16 const* abilities = gSpeciesInfo[species].abilities;
+    u16 abilities[NUM_ABILITY_SLOTS] =
+    {
+        gSpeciesInfo[species].abilities[0],
+        gSpeciesInfo[species].abilities[1],
+        gSpeciesInfo[species].abilities[2]
+    };
 
     if(IsOtherTrainer(otId))
     {
-        u16 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
-        u16 const* customAbilities = RogueGift_GetCustomMonAbilites(customMonId);
-        if(customAbilities != NULL)
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
+        if(customMonId != 0 && RogueGift_GetCustomMonAbilityCount(customMonId) != 0)
         {
-            abilities = customAbilities;
+            abilities[0] = RogueGift_GetCustomMonAbility(customMonId, 0);
+            abilities[1] = RogueGift_GetCustomMonAbility(customMonId, 1);
+            abilities[2] = RogueGift_GetCustomMonAbility(customMonId, 2);
         }
     }
 
@@ -3106,6 +3138,30 @@ u16 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
     }
 
     return gLastUsedAbility;
+#else
+    u16 abilities[2] =
+    {
+        gBaseStats[species].abilities[0],
+        gBaseStats[species].abilities[1]
+    };
+
+    if(IsOtherTrainer(otId))
+    {
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
+        if(customMonId != 0 && RogueGift_GetCustomMonAbilityCount(customMonId) != 0)
+        {
+            abilities[0] = RogueGift_GetCustomMonAbility(customMonId, 0);
+            abilities[1] = RogueGift_GetCustomMonAbility(customMonId, 1);
+        }
+    }
+
+    if (abilityNum)
+        gLastUsedAbility = abilities[1];
+    else
+        gLastUsedAbility = abilities[0];
+
+    return gLastUsedAbility;
+#endif
 }
 
 u16 GetMonAbility(struct Pokemon *mon)
@@ -3314,6 +3370,7 @@ void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst)
 void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
 {
     PokemonToBattleMon(&gPlayerParty[partyIndex], &gBattleMons[battlerId]);
+    Rogue_ModifyBattleMon(0, &gBattleMons[battlerId], TRUE);
     gBattleStruct->hpOnSwitchout[GetBattlerSide(battlerId)] = gBattleMons[battlerId].hp;
     UpdateSentPokesToOpponentValue(battlerId);
     ClearTemporarySpeciesSpriteData(battlerId, FALSE);
@@ -4015,6 +4072,21 @@ u8 GetNatureFromPersonality(u32 personality)
     return personality % NUM_NATURES;
 }
 
+
+static bool8 MonKnowsMoveType(struct Pokemon *mon, u16 type)
+{
+    u8 i;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        u16 currMove = GetMonData(mon, MON_DATA_MOVE1 + i);
+
+        if (currMove != MOVE_NONE && gBattleMoves[currMove].type == type)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, struct Pokemon *tradePartner)
 {
     int i, j;
@@ -4181,6 +4253,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 break;
             case EVO_MOVE_THREE_SEGMENT:
                 if (MonKnowsMove(mon, evo.param) && (personality % 100) == 0)
+                    targetSpecies = evo.targetSpecies;
+                break;
+            case EVO_MOVE_TYPE:
+                if (MonKnowsMove(mon, evo.param))
                     targetSpecies = evo.targetSpecies;
                 break;
             case EVO_LEVEL_TWO_SEGMENT:
@@ -5149,7 +5225,7 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
-    u16 rewardMonId = RogueGift_GetCustomMonId(mon);
+    u32 rewardMonId = RogueGift_GetCustomMonId(mon);
     int i, j, k;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -5158,24 +5234,25 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     if(rewardMonId != 0)
     {
         // This is a custom mon so make sure it can relearn it's special moves
-        u16 const* customMoves = RogueGift_GetCustomMonMoves(rewardMonId);
         u16 moveCount = RogueGift_GetCustomMonMoveCount(rewardMonId);
 
-        if(customMoves != NULL)
+        if(moveCount != 0)
         {
             for(i = 0; i < moveCount; ++i)
             {
-                if(customMoves[i] == MOVE_NONE)
+                u16 customMove = RogueGift_GetCustomMonMove(rewardMonId, i);
+
+                if(customMove == MOVE_NONE)
                     break;
 
                 for(j = 0; j < MAX_MON_MOVES; ++j)
                 {
-                    if(customMoves[i] == learnedMoves[j])
+                    if(customMove == learnedMoves[j])
                         break;
                 }
 
                 if(j == MAX_MON_MOVES)
-                    moves[numMoves++] = customMoves[i];
+                    moves[numMoves++] = customMove;
             }
         }
     }
@@ -5260,6 +5337,11 @@ u16 GetBattleBGM(void)
     else
     {
         u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
+        u32 customMonId = RogueGift_GetCustomMonId(&gEnemyParty[0]);
+
+        // Play custom music of uniques
+        if(customMonId && (gBattleTypeFlags & BATTLE_TYPE_ALPHA_MON))
+            return MUS_DP_VS_LEGEND;
 
         Rogue_ModifyBattleMusic(BATTLE_MUSIC_TYPE_WILD, species, &music);
         return music.battleMusic;

@@ -27,7 +27,7 @@ script Rogue_HubTransition_OnLoad
 script Rogue_HubTransition_RandomMan
 {
     lock
-    applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_Spin)
+    applymovement(VAR_LAST_TALKED, Rogue_RestStop_RandomMan_Spin)
     waitmovement(0)
     faceplayer
 
@@ -60,11 +60,11 @@ script Rogue_HubTransition_RandomMan
         fadescreen(FADE_FROM_BLACK)
         
         msgbox(format("Ke ke ke!\pEnjoy!"))
-        applymovement(NPC_RANDOM_MAN, Rogue_RestStop_RandomMan_RunAway)
+        applymovement(VAR_LAST_TALKED, Rogue_RestStop_RandomMan_RunAway)
         waitmovement(0)
 
         setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
-        removeobject(NPC_RANDOM_MAN)
+        removeobject(VAR_LAST_TALKED)
     }
     else
     {

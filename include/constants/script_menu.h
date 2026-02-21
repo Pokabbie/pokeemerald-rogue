@@ -140,6 +140,9 @@
 #define MULTI_HUB_AREA_UPGRADES            (MULTI_DYNAMIC_CALLBACK_START + 2)
 #define MULTI_ROGUE_DAYCARE                (MULTI_DYNAMIC_CALLBACK_START + 3)
 
+#define MULTI_SCROLL_TEST0                  0
+#define MULTI_SCROLL_TEST1                  1
+
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0
 #define SSTIDAL_SELECTION_BATTLE_FRONTIER  1

@@ -14,7 +14,8 @@
             ],
             "includePath": 
             [
-                "include"
+                "include",
+                "gflib"
             ]
         }
     ],

@@ -69,7 +69,8 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" }
+                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" }
                 ]
             },
             {

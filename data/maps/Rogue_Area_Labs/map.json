@@ -120,8 +120,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 22,
-      "y": 6,
+      "x": 25,
+      "y": 1,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB",
       "dest_warp_id": "0"
@@ -153,6 +153,20 @@
       "elevation": 0,
       "dest_map": "MAP_ROGUE_HUB_DEBUG",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_PROF_LAB",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_BILLS_LAB",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -174,6 +188,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Rogue_Area_Labs_ConfigSign"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Rogue_Area_Labs_UniqueMonSign"
     }
   ]
 }

@@ -470,6 +470,9 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(level))
         return FALSE;
 
+    if(species == SPECIES_NONE)
+        return FALSE;
+
     CreateWildMon(species, level, isShiny);
     return TRUE;
 }
@@ -771,7 +774,7 @@ void FishingWildEncounter(u8 rod)
     {
         species = GenerateFishingWildMon(gWildMonHeaders[GetCurrentMapWildMonHeaderId()].fishingMonsInfo, rod);
     }
-    IncrementGameStat(GAME_STAT_FISHING_ENCOUNTERS);
+    //IncrementGameStat(GAME_STAT_FISHING_CAPTURES);
     SetPokemonAnglerSpecies(species);
     gIsFishingEncounter = TRUE;
     BattleSetup_StartWildBattle();

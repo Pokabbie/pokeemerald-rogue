@@ -545,10 +545,8 @@ struct SaveBlock2
     /*0x11*/ u8 playTimeSeconds;
     /*0x12*/ u8 playTimeVBlanks;
     /*0x13*/ u8 optionsButtonMode;  // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
-    /*0x14*/ u32 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
              u32 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
-             u32 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
-             u32 optionsPopupSoundOff:1;
+             u32 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
              u32 optionsSoundChannelBGM:4;
              u32 optionsSoundChannelSE:4;
              u32 optionsSoundChannelBattleSE:4;
@@ -556,11 +554,16 @@ struct SaveBlock2
              u32 optionsWildBattleScene:3; // OPTIONS_BATTLE_SCENE_[...]
              u32 optionsTrainerBattleScene:3; // OPTIONS_BATTLE_SCENE_[...]
              u32 optionsBossBattleScene:3; // OPTIONS_BATTLE_SCENE_[...]
+             // ...
+             u32 optionsLowHealthBeep:2; // OPTIONS_HEALTH_BEEP_[...]
              u32 optionsAutoRunToggle:1; // whether running is trigger by a B toggle or a hold
+             u32 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
+             u32 optionsPopupSoundOff:1;
              u32 timeOfDayVisuals:1;
              u32 seasonVisuals:1;
              u32 weatherVisuals:1;
              u32 regionMapZoom:1; // whether the map is zoomed in
+             u32 settingsReserved:25; // unused/reserved bits
     /*0x18*/ struct Pokedex pokedex;
              s8 playerStyles[8];
              u32 playerOutfitUnlockFlags;
@@ -1008,14 +1011,8 @@ struct SaveBlock1
     /*0x1A9C*/ struct SecretBase secretBases[SECRET_BASES_COUNT];
     /*0x271C*/ u8 playerRoomDecorations[DECOR_MAX_PLAYERS_HOUSE];
     /*0x2728*/ u8 playerRoomDecorationPositions[DECOR_MAX_PLAYERS_HOUSE];
-    /*0x2734*/ u8 decorationDesks[10];
-    /*0x273E*/ u8 decorationChairs[10];
-    /*0x2748*/ u8 decorationPlants[10];
-    /*0x2752*/ u8 decorationOrnaments[30];
-    /*0x2770*/ u8 decorationMats[30];
-    /*0x278E*/ u8 decorationPosters[10];
-    /*0x2798*/ u8 decorationDolls[40];
-    /*0x27C0*/ u8 decorationCushions[10];
+               u16 trainerCardSpecies[PARTY_SIZE];
+    /*0x2734*/ u8 unusedDecor[138]; // previously decorationXYZ
     /*0x27CC*/ TVShow tvShows[TV_SHOWS_COUNT];
     /*0x2B50*/ PokeNews pokeNews[POKE_NEWS_COUNT];
     /*0x2B90*/ u16 outbreakPokemonSpecies;
@@ -1023,7 +1020,7 @@ struct SaveBlock1
     /*0x2B93*/ u8 outbreakLocationMapGroup;
     /*0x2B94*/ u8 outbreakPokemonLevel;
     /*0x2B98*/ u16 outbreakPokemonMoves[MAX_MON_MOVES];
-    /*0x2BA0*/ u8 outbreakUnused3;
+    /*0x2BA0*/ u8 titleScreenVariant;
     /*0x2BA1*/ u8 outbreakPokemonProbability;
     /*0x2BA2*/ u16 outbreakDaysLeft;
     /*0x2BB0*/ u16 easyChatProfile[EASY_CHAT_BATTLE_WORDS_COUNT];

@@ -8,6 +8,9 @@ extern const u8 gItemDesc_GoldRidingWhistle[];
 extern const u8 gItemDesc_CGear[];
 extern const u8 gItemDesc_DaycarePhone[];
 extern const u8 gItemDesc_BuildingSupplies[];
+extern const u8 gItemDesc_SmallCoinCase[];
+extern const u8 gItemDesc_LargeCoinCase[];
+extern const u8 gItemDesc_GoldenSeed[];
 
 extern const u8 gItemDesc_NormalPokeblock[];
 extern const u8 gItemDesc_FightingPokeblock[];
@@ -50,11 +53,28 @@ extern const u8 gItemDesc_PriorityCharm[];
 extern const u8 gItemDesc_PriorityCurse[];
 extern const u8 gItemDesc_EndureCharm[];
 extern const u8 gItemDesc_EndureCurse[];
+extern const u8 gItemDesc_TormentCharm[];
+extern const u8 gItemDesc_TormentCurse[];
+extern const u8 gItemDesc_PressureCharm[];
+extern const u8 gItemDesc_PressureCurse[];
+extern const u8 gItemDesc_UnawareCharm[];
+extern const u8 gItemDesc_UnawareCurse[];
+extern const u8 gItemDesc_AdaptabilityCharm[];
+extern const u8 gItemDesc_AdaptabilityCurse[];
+extern const u8 gItemDesc_ExtraLifeCharm[];
+extern const u8 gItemDesc_AllowSaveScumCharm[];
 extern const u8 gItemDesc_PartyCurse[];
 extern const u8 gItemDesc_EverstoneCurse[];
 extern const u8 gItemDesc_BattleItemCurse[];
 extern const u8 gItemDesc_SpeciesClauseCurse[];
 extern const u8 gItemDesc_ItemShuffleCurse[];
+extern const u8 gItemDesc_SnowballCurse[];
+extern const u8 gItemDesc_RandomanRouteSpawnCurse[];
+extern const u8 gItemDesc_RandomanAlwaysSpawnCurse[];
+extern const u8 gItemDesc_AutoMoveSelectCurse[];
+extern const u8 gItemDesc_OneHitCurse[];
+extern const u8 gItemDesc_SnagCurse[];
+extern const u8 gItemDesc_WildEggSpeciesCurse[];
 
 const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
 {
@@ -199,6 +219,8 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .registrability = FALSE,
         .iconImage = gItemIcon_BuildResources,
         .iconPalette = gItemIconPalette_BuildResources,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         //.iconImage = gItemIcon_OaksParcel,
         //.iconPalette = gItemIconPalette_OaksParcel,
     },
@@ -235,6 +257,55 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .iconPalette = gItemIconPalette_HisuiStone,
     },
 #endif
+    [ITEM_SMALL_COIN_CASE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Small Coin Case"),
+#else
+        .name = _("SMALL COIN CASE"),
+#endif
+        .itemId = ITEM_SMALL_COIN_CASE,
+        .price = 1300,
+        .description = gItemDesc_SmallCoinCase,
+        .pocket = POCKET_ITEMS,
+        .iconImage = gItemIcon_CoinCase,
+        .iconPalette = gItemIconPalette_CoinCase,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+    [ITEM_LARGE_COIN_CASE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Large Coin Case"),
+#else
+        .name = _("LARGE COIN CASE"),
+#endif
+        .itemId = ITEM_LARGE_COIN_CASE,
+        .price = 12500,
+        .description = gItemDesc_LargeCoinCase,
+        .pocket = POCKET_ITEMS,
+        .iconImage = gItemIcon_CoinCase,
+        .iconPalette = gItemIconPalette_CoinCase,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_GOLDEN_SEED - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Golden Seed"),
+#else
+        .name = _("GOLDEN SEED"),
+#endif
+        .itemId = ITEM_GOLDEN_SEED,
+        .price = 0,
+        .description = gItemDesc_GoldenSeed,
+        .pocket = POCKET_KEY_ITEMS,
+        .iconImage = gItemIcon_GoldenSeed,
+        .iconPalette = gItemIconPalette_GoldenSeed,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_GoldenSeed,
+    },
 
     // Pokeblock
     //
@@ -698,6 +769,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_ShopPriceCharm,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCharm,
         .iconPalette = gItemIconPalette_RogueCharm,
@@ -715,6 +787,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_FlinchCharm,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCharm,
         .iconPalette = gItemIconPalette_RogueCharm,
@@ -732,6 +805,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_CritCharm,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCharm,
         .iconPalette = gItemIconPalette_RogueCharm,
@@ -749,6 +823,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_ShedSkinCharm,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCharm,
         .iconPalette = gItemIconPalette_RogueCharm,
@@ -766,6 +841,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_WildIVCharm,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCharm,
         .iconPalette = gItemIconPalette_RogueCharm,
@@ -783,6 +859,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_CatchingCharm,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCharm,
         .iconPalette = gItemIconPalette_RogueCharm,
@@ -800,6 +877,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_GraceCharm,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCharm,
         .iconPalette = gItemIconPalette_RogueCharm,
@@ -817,6 +895,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_WildCharm,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCharm,
         .iconPalette = gItemIconPalette_RogueCharm,
@@ -834,6 +913,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_PriorityCharm,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCharm,
         .iconPalette = gItemIconPalette_RogueCharm,
@@ -851,11 +931,119 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_EndureCharm,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCharm,
         .iconPalette = gItemIconPalette_RogueCharm,
     },
 
+    [ITEM_TORMENT_CHARM - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Torment Charm"),
+#else
+        .name = _("TORMENT CHARM"),
+#endif
+        .itemId = ITEM_TORMENT_CHARM,
+        .price = 0,
+        .description = gItemDesc_TormentCharm,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCharm,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
+
+    [ITEM_PRESSURE_CHARM - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Pressure Charm"),
+#else
+        .name = _("PRESSURE CHARM"),
+#endif
+        .itemId = ITEM_PRESSURE_CHARM,
+        .price = 0,
+        .description = gItemDesc_PressureCharm,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCharm,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
+
+    [ITEM_UNAWARE_CHARM - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Unaware Charm"),
+#else
+        .name = _("UNAWARE CHARM"),
+#endif
+        .itemId = ITEM_UNAWARE_CHARM,
+        .price = 0,
+        .description = gItemDesc_UnawareCharm,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCharm,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
+
+    [ITEM_ADAPTABILITY_CHARM - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("AdaptbltyCharm"),
+#else
+        .name = _("ADAPTBLTYCHARM"),
+#endif
+        .itemId = ITEM_ADAPTABILITY_CHARM,
+        .price = 0,
+        .description = gItemDesc_AdaptabilityCharm,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCharm,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
+
+    [ITEM_INFINITE_EXTRA_LIFE_CHARM - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Retry Charm"),
+#else
+        .name = _("RETRY CHARM"),
+#endif
+        .itemId = ITEM_INFINITE_EXTRA_LIFE_CHARM,
+        .price = 0,
+        .description = gItemDesc_ExtraLifeCharm,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCharm,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
+
+    [ITEM_ALLOW_SAVE_SCUM_CHARM - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Save Charm"),
+#else
+        .name = _("SAVE CHARM"),
+#endif
+        .itemId = ITEM_ALLOW_SAVE_SCUM_CHARM,
+        .price = 0,
+        .description = gItemDesc_AllowSaveScumCharm,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCharm,
+        .iconPalette = gItemIconPalette_RogueCharm,
+    },
 
     [ITEM_SHOP_PRICE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
     {
@@ -869,6 +1057,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_ShopPriceCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -886,6 +1075,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_FlinchCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -903,6 +1093,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_CritCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -920,6 +1111,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_ShedSkinCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -937,6 +1129,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_WildIVCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -954,6 +1147,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_CatchingCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -971,6 +1165,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_GraceCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -988,6 +1183,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_WildCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -1005,6 +1201,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_PartyCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -1022,6 +1219,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_EverstoneCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -1039,6 +1237,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_BattleItemCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -1056,23 +1255,151 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_SpeciesClauseCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
     },
 
-    [ITEM_ITEM_SHUFFLE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    [ITEM_SHUFFLE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
     {
 #ifdef ROGUE_EXPANSION
         .name = _("Shuffle Curse"),
 #else
         .name = _("SHUFFLE CURSE"),
 #endif
-        .itemId = ITEM_ITEM_SHUFFLE_CURSE,
+        .itemId = ITEM_SHUFFLE_CURSE,
         .price = 0,
         .description = gItemDesc_ItemShuffleCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_SNOWBALL_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Snowball Curse"),
+#else
+        .name = _("SNOWBALL CURSE"),
+#endif
+        .itemId = ITEM_SNOWBALL_CURSE,
+        .price = 0,
+        .description = gItemDesc_SnowballCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_RANDOMAN_ROUTE_SPAWN_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Wahey Curse"),
+#else
+        .name = _("WAHEY CURSE"),
+#endif
+        .itemId = ITEM_RANDOMAN_ROUTE_SPAWN_CURSE,
+        .price = 0,
+        .description = gItemDesc_RandomanRouteSpawnCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_RANDOMAN_ALWAYS_SPAWN_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Wahey+ Curse"),
+#else
+        .name = _("WAHEY+ CURSE"),
+#endif
+        .itemId = ITEM_RANDOMAN_ALWAYS_SPAWN_CURSE,
+        .price = 0,
+        .description = gItemDesc_RandomanAlwaysSpawnCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_AUTO_MOVE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Auto Move Curse"),
+#else
+        .name = _("AUTO MOVE CURSE"),
+#endif
+        .itemId = ITEM_AUTO_MOVE_CURSE,
+        .price = 0,
+        .description = gItemDesc_AutoMoveSelectCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_ONE_HIT_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("OHKO Curse"),
+#else
+        .name = _("OHKO CURSE"),
+#endif
+        .itemId = ITEM_ONE_HIT_CURSE,
+        .price = 0,
+        .description = gItemDesc_OneHitCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_SNAG_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Snag Curse"),
+#else
+        .name = _("SNAG CURSE"),
+#endif
+        .itemId = ITEM_SNAG_CURSE,
+        .price = 0,
+        .description = gItemDesc_SnagCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_WILD_EGG_SPECIES_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Baby Curse"),
+#else
+        .name = _("BABY CURSE"),
+#endif
+        .itemId = ITEM_WILD_EGG_SPECIES_CURSE,
+        .price = 0,
+        .description = gItemDesc_WildEggSpeciesCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -1090,6 +1417,7 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_PriorityCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,
@@ -1107,6 +1435,79 @@ const struct RogueItem gRogueItems[ITEM_ROGUE_ITEM_COUNT] =
         .description = gItemDesc_EndureCurse,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_TORMENT_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Torment Curse"),
+#else
+        .name = _("TORMENT CURSE"),
+#endif
+        .itemId = ITEM_TORMENT_CURSE,
+        .price = 0,
+        .description = gItemDesc_TormentCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_PRESSURE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Pressure Curse"),
+#else
+        .name = _("PRESSURE CURSE"),
+#endif
+        .itemId = ITEM_PRESSURE_CURSE,
+        .price = 0,
+        .description = gItemDesc_PressureCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_UNAWARE_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("Unaware Curse"),
+#else
+        .name = _("UNAWARE CURSE"),
+#endif
+        .itemId = ITEM_UNAWARE_CURSE,
+        .price = 0,
+        .description = gItemDesc_UnawareCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .registrability = FALSE,
+        .iconImage = gItemIcon_RogueCurse,
+        .iconPalette = gItemIconPalette_RogueCurse,
+    },
+
+    [ITEM_ADAPTABILITY_CURSE - ITEM_ROGUE_ITEM_FIRST] =
+    {
+#ifdef ROGUE_EXPANSION
+        .name = _("AdaptbltyCurse"),
+#else
+        .name = _("ADAPTBLTYCURSE"),
+#endif
+        .itemId = ITEM_ADAPTABILITY_CURSE,
+        .price = 0,
+        .description = gItemDesc_AdaptabilityCurse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .registrability = FALSE,
         .iconImage = gItemIcon_RogueCurse,
         .iconPalette = gItemIconPalette_RogueCurse,

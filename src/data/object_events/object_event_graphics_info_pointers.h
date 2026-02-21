@@ -251,6 +251,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Biker;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OldMan2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketF;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketM;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bill;
 
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Leaf;
@@ -427,6 +428,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Unova_Scienti
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Veteran;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Young_Couple_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_Young_Couple_M;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misc_BallGuy;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Avery;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Barry;
@@ -467,8 +469,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Team_Rocket_Proton
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PC;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PCStand;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BattleStatue;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PhoneBooth;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeblockMixer;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeblockMixerGold;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FoodPie;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SmallSign;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DevilMan;
@@ -493,8 +497,19 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemDynamaxBall;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemHealing;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemTeraOrb;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemTeraShard;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GrassDefault;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GoldGrass;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlagAdventure;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorBed;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorDrawers;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorRotomFan;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorRotomFrost;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorRotomHeat;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorRotomMow;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotomWash;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorWardrobe;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DecorCauldren;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAlt;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAlt;
@@ -507,6 +522,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Kate;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Erma;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Raven;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Tails;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_LS7;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glitch_Nacho;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Red;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rival_Leaf;
@@ -792,6 +809,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_OLD_MAN_2] =                &gObjectEventGraphicsInfo_OldMan2,
     [OBJ_EVENT_GFX_ROCKET_F] =                 &gObjectEventGraphicsInfo_RocketF,
     [OBJ_EVENT_GFX_ROCKET_M] =                 &gObjectEventGraphicsInfo_RocketM,
+    [OBJ_EVENT_GFX_BILL] =                     &gObjectEventGraphicsInfo_Bill,
 
     // Placeholder GFX (Will be expanded later)
     [OBJ_EVENT_GFX_PLAYER_NORMAL] =            &gObjectEventGraphicsInfo_BrendanNormal,
@@ -976,6 +994,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MISC_VETERAN] = &gObjectEventGraphicsInfo_Misc_Veteran,
     [OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_F] = &gObjectEventGraphicsInfo_Misc_Young_Couple_F,
     [OBJ_EVENT_GFX_MISC_YOUNG_COUPLE_M] = &gObjectEventGraphicsInfo_Misc_Young_Couple_M,
+    [OBJ_EVENT_GFX_MISC_BALL_GUY] = &gObjectEventGraphicsInfo_Misc_BallGuy,
 
     [OBJ_EVENT_GFX_RIVAL_AVERY] = &gObjectEventGraphicsInfo_Rival_Avery,
     [OBJ_EVENT_GFX_RIVAL_BARRY] = &gObjectEventGraphicsInfo_Rival_Barry,
@@ -1016,8 +1035,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 
     [OBJ_EVENT_GFX_PC] =                       &gObjectEventGraphicsInfo_PC,
     [OBJ_EVENT_GFX_PC_STAND] =                 &gObjectEventGraphicsInfo_PCStand,
+    [OBJ_EVENT_GFX_BATTLE_STATUE] =            &gObjectEventGraphicsInfo_BattleStatue,
     [OBJ_EVENT_GFX_PHONE_BOOTH] =              &gObjectEventGraphicsInfo_PhoneBooth,
     [OBJ_EVENT_GFX_POKEBLOCK_MIXER] =          &gObjectEventGraphicsInfo_PokeblockMixer,
+    [OBJ_EVENT_GFX_POKEBLOCK_MIXER_GOLD] =     &gObjectEventGraphicsInfo_PokeblockMixerGold,
     [OBJ_EVENT_GFX_FOOD_PIE] =                 &gObjectEventGraphicsInfo_FoodPie,
     [OBJ_EVENT_GFX_SMALL_SIGN] =               &gObjectEventGraphicsInfo_SmallSign,
     [OBJ_EVENT_GFX_DEVIL_MAN] =                &gObjectEventGraphicsInfo_DevilMan,
@@ -1042,8 +1063,19 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ITEM_HEALING] =             &gObjectEventGraphicsInfo_ItemHealing,
     [OBJ_EVENT_GFX_ITEM_TERA_ORB] =            &gObjectEventGraphicsInfo_ItemTeraOrb,
     [OBJ_EVENT_GFX_ITEM_TERA_SHARD] =          &gObjectEventGraphicsInfo_ItemTeraShard,
+    [OBJ_EVENT_GFX_GRASS_DEFAULT] =            &gObjectEventGraphicsInfo_GrassDefault,
     [OBJ_EVENT_GFX_GOLD_GRASS] =               &gObjectEventGraphicsInfo_GoldGrass,
     [OBJ_EVENT_GFX_FLAG_ADVENTURE] =           &gObjectEventGraphicsInfo_FlagAdventure,
+
+    [OBJ_EVENT_GFX_DECOR_BED] =                &gObjectEventGraphicsInfo_DecorBed,
+    [OBJ_EVENT_GFX_DECOR_DRAWERS] =            &gObjectEventGraphicsInfo_DecorDrawers,
+    [OBJ_EVENT_GFX_DECOR_ROTOM_FAN] =          &gObjectEventGraphicsInfo_DecorRotomFan,
+    [OBJ_EVENT_GFX_DECOR_ROTOM_FROST] =        &gObjectEventGraphicsInfo_DecorRotomFrost,
+    [OBJ_EVENT_GFX_DECOR_ROTOM_HEAT] =         &gObjectEventGraphicsInfo_DecorRotomHeat,
+    [OBJ_EVENT_GFX_DECOR_ROTOM_MOW] =          &gObjectEventGraphicsInfo_DecorRotomMow,
+    [OBJ_EVENT_GFX_DECOR_ROTOM_WASH] =         &gObjectEventGraphicsInfo_RotomWash,
+    [OBJ_EVENT_GFX_DECOR_WARDROBE] =           &gObjectEventGraphicsInfo_DecorWardrobe,
+    [OBJ_EVENT_GFX_DECOR_CAULDREN] =           &gObjectEventGraphicsInfo_DecorCauldren,
 
     [OBJ_EVENT_GFX_BRENDAN_ALT] =              &gObjectEventGraphicsInfo_BrendanAlt,
     [OBJ_EVENT_GFX_MAY_ALT] =                  &gObjectEventGraphicsInfo_MayAlt,
@@ -1056,6 +1088,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GLITCH_ERMA] =              &gObjectEventGraphicsInfo_Glitch_Erma,
     [OBJ_EVENT_GFX_GLITCH_RAVEN] =             &gObjectEventGraphicsInfo_Glitch_Raven,
     [OBJ_EVENT_GFX_GLITCH_TAILS] =             &gObjectEventGraphicsInfo_Glitch_Tails,
+    [OBJ_EVENT_GFX_GLITCH_LS7] =               &gObjectEventGraphicsInfo_Glitch_LS7,
+    [OBJ_EVENT_GFX_GLITCH_NACHO] =             &gObjectEventGraphicsInfo_Glitch_Nacho,
     
     [OBJ_EVENT_GFX_RIVAL_RED] =                &gObjectEventGraphicsInfo_Rival_Red,
     [OBJ_EVENT_GFX_RIVAL_LEAF] =               &gObjectEventGraphicsInfo_Rival_Leaf,

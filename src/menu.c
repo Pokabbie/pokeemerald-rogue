@@ -22,6 +22,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_popup.h"
+#include "rogue_pokedex.h"
 #include "rogue_quest.h"
 
 #define DLG_WINDOW_PALETTE_NUM 15
@@ -501,7 +502,12 @@ u8 GetPlayerTextSpeedDelay(void)
 u8 AddStartMenuWindow(u8 numActions)
 {
     if (sStartMenuWindowId == WINDOW_NONE)
-        sStartMenuWindowId = AddWindowParameterized(0, 22, 1, 7, (numActions * 2) + 2, 15, 0x139);
+    {
+        if(Rogue_IsRunActive())
+            sStartMenuWindowId = AddWindowParameterized(0, 21, 1, 8, (numActions * 2) + 2, 15, 0x139);
+        else
+            sStartMenuWindowId = AddWindowParameterized(0, 22, 1, 7, (numActions * 2) + 2, 15, 0x139);
+    }
     return sStartMenuWindowId;
 }
 
@@ -2140,10 +2146,7 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
             StringCopy(string, gSaveBlock2Ptr->playerName);
             break;
         case SAVE_MENU_CAUGHT:
-            if (IsNationalPokedexEnabled())
-                string = ConvertIntToDecimalStringN(string, GetNationalPokedexCount(FLAG_GET_CAUGHT), STR_CONV_MODE_LEFT_ALIGN, 4);
-            else
-                string = ConvertIntToDecimalStringN(string, GetHoennPokedexCount(FLAG_GET_CAUGHT), STR_CONV_MODE_LEFT_ALIGN, 3);
+            string = ConvertIntToDecimalStringN(string, RoguePokedex_CountNationalCaughtMons(FLAG_GET_CAUGHT), STR_CONV_MODE_LEFT_ALIGN, 4);
             *string = EOS;
             break;
         case SAVE_MENU_PLAY_TIME:

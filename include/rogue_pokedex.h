@@ -5,8 +5,8 @@
 void Rogue_ShowPokedexFromMenu(void);
 void Rogue_ShowPokedexFromScript(void);
 void Rogue_ShowPokedexForPartySlot(u8 slot);
-void Rogue_SelectPokemonInPokedexFromDex(bool8 ignoreDexSeen);
-void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 ignoreDexSeen);
+void Rogue_SelectPokemonInPokedexFromDex(bool8 requireSeen, bool8 requireCaught);
+void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 requireSeen, bool8 requireCaught);
 void Rogue_SelectPokemonInSafari();
 
 u8 RoguePokedex_GetDexRegion();
@@ -33,6 +33,8 @@ u16 RoguePokedex_CountNationalCaughtMons(u8 caseID);
 bool8 RoguePokedex_IsSpeciesLegendary(u16 species);
 bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species);
 bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species);
+
+bool8 RoguePokedex_IsSpeciesParadox(u16 species);
 
 u8 const* RoguePokedex_GetSpeciesName(u16 species);
 u8 RoguePokedex_GetSpeciesType(u16 species, u8 typeIndex);

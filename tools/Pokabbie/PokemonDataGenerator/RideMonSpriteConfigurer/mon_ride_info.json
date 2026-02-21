@@ -161,7 +161,7 @@
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
       "RiderOffsetY": -2,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "DownSprite": {
       "MonOffsetX": 0,
@@ -1539,7 +1539,7 @@
       "MonOffsetY": 1,
       "RiderOffsetX": 0,
       "RiderOffsetY": -7,
-      "RiderRendersInFront": false
+      "RiderRendersInFront": true
     },
     "DownSprite": {
       "MonOffsetX": 0,

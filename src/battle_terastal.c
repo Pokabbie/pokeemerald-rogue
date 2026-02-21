@@ -29,8 +29,8 @@ void PrepareBattlerForTera(u32 battler)
 
     // Remove Tera Orb charge.    
     if (B_FLAG_TERA_ORB_CHARGED != 0
-        && B_FLAG_TERA_ORB_NO_COST != 0
-        && !FlagGet(B_FLAG_TERA_ORB_NO_COST)
+        //&& B_FLAG_TERA_ORB_NO_COST != 0
+        //&& !FlagGet(B_FLAG_TERA_ORB_NO_COST)
         && side == B_SIDE_PLAYER
         && !(gBattleTypeFlags & BATTLE_TYPE_DOUBLE && !IsPartnerMonFromSameTrainer(battler)))
     {
@@ -59,9 +59,14 @@ void ApplyBattlerVisualsForTeraAnim(u32 battler, bool32 insideAnim)
 // Returns whether a battler can Terastallize.
 bool32 CanTerastallize(u32 battler)
 {
+    u16 species = gBattleMons[battler].species;
     u32 holdEffect = GetBattlerHoldEffect(battler, FALSE);
 
     if(!IsTerastallizeEnabled())
+        return FALSE;
+
+    // Don't allow both gimmicks
+    if(FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
         return FALSE;
 
     // Check if Player has Tera Orb and has charge.
@@ -78,6 +83,13 @@ bool32 CanTerastallize(u32 battler)
     {
         return FALSE;
     }
+
+    // Check if species isn't allowed to Tera.
+    if (species == SPECIES_RAYQUAZA_MEGA
+        || species == SPECIES_KYOGRE_PRIMAL
+        || species == SPECIES_GROUDON_PRIMAL
+        || species == SPECIES_PIKIN_MEGA)
+        return FALSE;
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
         && IsPartnerMonFromSameTrainer(battler)

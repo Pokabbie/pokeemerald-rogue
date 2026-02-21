@@ -1,0 +1,239 @@
+const VAR_RUN_TUTORIAL = VAR_TEMP_0
+
+const NPC_OBJ_NIDORINO = 6
+const NPC_OBJ_BILL = 5
+const NPC_OBJ_LEFT_STATUE = 4
+const NPC_OBJ_RIGHT_STATUE = 3
+
+mapscripts Rogue_Interior_BillsLab_MapScripts 
+{
+    MAP_SCRIPT_ON_LOAD: Rogue_Interior_BillsLab_OnLoad
+}
+
+script Rogue_Interior_BillsLab_OnLoad
+{
+    setvar(VAR_FOLLOW_MON_0, SPECIES_NIDORINO)
+
+    if(!flag(FLAG_ROGUE_MET_BILL))
+    {
+        setobjectxyperm(NPC_OBJ_NIDORINO, 8, 7)
+        setobjectmovementtype(NPC_OBJ_NIDORINO, MOVEMENT_TYPE_FACE_UP)
+
+        setobjectxyperm(NPC_OBJ_BILL, 8, 6)
+        setobjectmovementtype(NPC_OBJ_BILL, MOVEMENT_TYPE_FACE_DOWN)
+
+        setvar(VAR_RUN_TUTORIAL, YES)
+    }
+    else
+    {
+        setvar(VAR_RUN_TUTORIAL, NO)
+    }
+}
+
+script Rogue_Interior_BillsLab_TalkBill
+{
+    lock
+    faceplayer
+
+    if(var(VAR_RUN_TUTORIAL) == 2)
+    {
+        msgbox(format("Just walk right up to the PC and you'll be able to see which Unique Pokémon it is currently tracking!"))
+    }
+    else
+    {
+        msgbox(format("Hi {PLAYER}.\pI'm still tracking plenty of Unique Pokémon, so no reason to slow down now!"))
+    }
+
+    release
+}
+
+script Rogue_Interior_BillsLab_TalkPC
+{
+    lock
+
+    message("Booting…")
+    special(RogueGift_EnsureDynamicCustomMonsAreValid)
+
+    playse(SE_PC_ON)
+    waitse
+
+    msgbox(format("Welcome to the\nUnique Pokémon Tracking System.\pDisplaying actively tracked Unique Pokémon…"))
+
+    setvar(VAR_0x8004, 0)
+
+    while(var(VAR_0x8004) < DYNAMIC_UNIQUE_MON_COUNT)
+    {
+        special(Rogue_GetDynamicUniqueMonSpecies)
+
+        if(var(VAR_RESULT) != SPECIES_NONE)
+        {
+            showmonpic(VAR_RESULT, 2, 2)
+            playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
+
+            callnative(ScriptMenu_DisplayUniqueMonInfo)
+            special(Rogue_BufferDynamicUniqueMonCountDown)
+            if(var(VAR_RESULT) == TRUE)
+            {
+                messageinstant(format("Tracking data expires in {STR_VAR_3}…"))
+            }
+            else
+            {
+                messageinstant(format("Tracking data expires soon…"))
+            }
+            waitstate
+            hidemonpic
+        }
+
+        addvar(VAR_0x8004, 1)
+    }
+
+    msgbox(format("That concludes the currently tracked Unique Pokémon."))
+    waitmoncry
+
+    playse(SE_PC_OFF)
+    waitse
+
+    release
+}
+
+script Rogue_Interior_BillsLab_MeetBillLeft
+{
+    lock
+
+    applymovement(OBJ_EVENT_ID_PLAYER, MeetBill_Enter_Left)
+    waitmovement(0)
+    call(Rogue_Interior_BillsLab_MeetBillCommon)
+
+    release
+}
+
+script Rogue_Interior_BillsLab_MeetBillCentre
+{
+    lock
+
+    applymovement(OBJ_EVENT_ID_PLAYER, MeetBill_Enter_Centre)
+    waitmovement(0)
+    call(Rogue_Interior_BillsLab_MeetBillCommon)
+
+    release
+}
+
+script Rogue_Interior_BillsLab_MeetBillRight
+{
+    lock
+
+    applymovement(OBJ_EVENT_ID_PLAYER, MeetBill_Enter_Right)
+    waitmovement(0)
+    call(Rogue_Interior_BillsLab_MeetBillCommon)
+
+    release
+}
+
+movement MeetBill_Enter_Left
+{
+    walk_up
+    walk_right
+    walk_up
+}
+
+movement MeetBill_Enter_Centre
+{
+    walk_up * 2
+}
+
+movement MeetBill_Enter_Right
+{
+    walk_up
+    walk_left
+    walk_up
+}
+
+script Rogue_Interior_BillsLab_MeetBillCommon
+{
+    setvar(VAR_RUN_TUTORIAL, 2)
+    setflag(FLAG_ROGUE_MET_BILL)
+
+    msgbox(format("Just hang on one second.\pI'll be with you in a moment.\p{PAUSE 30}… {PAUSE 30}… {PAUSE 30}…\pWhat was that?\pAm I a Pokémon?"))
+    closemessage
+
+    applymovement(NPC_OBJ_RIGHT_STATUE, MeetBill_BillAppear_Statue0)
+    applymovement(NPC_OBJ_BILL, MeetBill_BillAppear_Bill0)
+    waitmovement(0)
+
+    msgbox(format("Don't be silly!\pI was just fixing the wiring around the back."))
+    closemessage
+
+    applymovement(NPC_OBJ_BILL, MeetBill_BillAppear_Bill1)
+    waitmovement(0)
+    applymovement(NPC_OBJ_RIGHT_STATUE, MeetBill_BillAppear_Statue1)
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, MeetBill_BillAppear_Player0)
+    applymovement(NPC_OBJ_BILL, MeetBill_BillAppear_Bill2)
+    waitmovement(0)
+
+    applymovement(NPC_OBJ_NIDORINO, MeetBill_BillAppear_Nidorino0)
+
+    msgbox(format("The name's Bill, nice to meet you!\nAnd that there's Nidorino!\pAs you may be able to see, I'm a bit of a Pokémon collector.\pRecently there has been a surge in very Unique Pokémon, so I've been quite interested in trying to find some.\pDo you know what Unique Pokémon are?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("Unique Pokémon are Pokémon which can learn moves that they usually can't!\pThey can even have different Abilities sometimes too!\pI'm pretty sure I saw a Ratatta use Transform when I was last out trying to catch some!"))
+    }
+
+    msgbox(format("Oh what's that?\pYou already own a Unique Pokémon you got from completing a Quest, you say?\pThat's incredible!\pSay, I have an idea, {PLAYER}.\pWhy don't I help you track Unique Pokémon whilst you're out Adventuring!\pAnd in return, you can help me Upgrade my systems!\pYou seem super talented so I'm sure you'll run into them far more often than I would anyway!"))
+
+    applymovement(OBJ_EVENT_ID_PLAYER, MeetBill_BillAppear_FaceUp)
+    applymovement(NPC_OBJ_BILL, MeetBill_BillAppear_FaceUp)
+    waitmovement(0)
+
+    msgbox(format("You see, I modified this PC here to track Unique Pokémon.\pWhenever a Pokémon appears on that screen, that means you might run into that specific Unique Pokémon on routes, while you're out exploring!\pWhy don't you give it a look?"))
+
+    setobjectxyperm(NPC_OBJ_NIDORINO, 10, 8)
+    setobjectxyperm(NPC_OBJ_BILL, 9, 8)
+
+}
+
+movement MeetBill_BillAppear_Statue0
+{
+    walk_slow_right
+}
+
+movement MeetBill_BillAppear_Statue1
+{
+    walk_slow_left
+}
+
+movement MeetBill_BillAppear_Player0
+{
+    face_right
+}
+
+movement MeetBill_BillAppear_Bill0
+{
+    delay_16
+    walk_right
+    face_down
+}
+
+movement MeetBill_BillAppear_Bill1
+{
+    walk_down
+    face_up
+}
+
+movement MeetBill_BillAppear_Bill2
+{
+    walk_down
+    face_left
+}
+
+movement MeetBill_BillAppear_Nidorino0
+{
+    walk_slow_right * 2
+    walk_slow_down
+}
+
+movement MeetBill_BillAppear_FaceUp
+{
+    face_up
+}

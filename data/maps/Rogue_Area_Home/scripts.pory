@@ -5,8 +5,24 @@
 //const FLAG_FIELD_MON2 = FLAG_TEMP_5
 //const FLAG_FIELD_MON3 = FLAG_TEMP_6
 
-const VAR_DECOR_ID = VAR_0x8004
+//const VAR_DECOR_ID = VAR_0x8004
 const VAR_SELECT_REGION = VAR_0x8004
+
+//const VAR_MENU_GROUP_CHOICE = VAR_TEMP_D
+//const VAR_MENU_GROUP_PAGE = VAR_TEMP_E
+//const VAR_DECOR_ID = VAR_TEMP_F
+
+
+const MENU_DEPTH_CHOOSE_GROUP           = 0
+const MENU_DEPTH_CHOOSE_DECOR           = 1
+const MENU_DEPTH_CHOOSE_VARIANT         = 2
+const MENU_DEPTH_PLACE_DECORATION       = 3
+
+const VAR_MENU_DEPTH                    = VAR_TEMP_F
+const VAR_SELECTED_GROUP                = VAR_TEMP_E
+const VAR_SELECTED_DECOR_ID             = VAR_TEMP_D
+const VAR_SELECTED_DECOR_VARIANT        = VAR_TEMP_C
+const VAR_PREVIOUS_DECOR_INDEX          = VAR_TEMP_B
 
 mapscripts Rogue_Area_Home_MapScripts 
 {
@@ -15,52 +31,25 @@ mapscripts Rogue_Area_Home_MapScripts
 
 script Rogue_Area_Home_OnTransition
 {
-    // Hide everything first
-    //setflag(FLAG_BERRY_FIELD1)
-    //setflag(FLAG_BERRY_FIELD2)
-    //setflag(FLAG_FIELD_MON0)
-    //setflag(FLAG_FIELD_MON1)
-    //setflag(FLAG_FIELD_MON2)
-    //setflag(FLAG_FIELD_MON3)
-//
-    //hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD1)
-    //if(var(VAR_RESULT) == YES)
-    //{
-    //    clearflag(FLAG_BERRY_FIELD1)
-    //}
-//
-    //hubupgradeunlocked(HUB_UPGRADE_HOME_BERRY_FIELD2)
-    //if(var(VAR_RESULT) == YES)
-    //{
-    //    clearflag(FLAG_BERRY_FIELD2)
-    //}
-//
-    //hubupgradeunlocked(HUB_UPGRADE_HOME_GRASS_FIELD)
-    //if(var(VAR_RESULT) == YES)
-    //{
-    //    special(RogueHub_SetRandomFollowMonsFromPC)
-//
-    //    if(var(VAR_FOLLOW_MON_0) != SPECIES_NONE)
-    //    {
-    //        clearflag(FLAG_FIELD_MON0)
-    //    }
-//
-    //    if(var(VAR_FOLLOW_MON_1) != SPECIES_NONE)
-    //    {
-    //        clearflag(FLAG_FIELD_MON1)
-    //    }
-//
-    //    if(var(VAR_FOLLOW_MON_2) != SPECIES_NONE)
-    //    {
-    //        clearflag(FLAG_FIELD_MON2)
-    //    }
-//
-    //    if(var(VAR_FOLLOW_MON_3) != SPECIES_NONE)
-    //    {
-    //        clearflag(FLAG_FIELD_MON3)
-    //    }
-    //}
 }
+
+script Rogue_Area_Home_DecorateFromMenu
+{
+    lock
+
+    if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+    {
+        setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE)
+    }
+    else
+    {
+        setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_DECORATING)
+    }
+
+    special(ReloadWarpSilent)
+    release
+}
+
 
 script Rogue_Area_Home_InteractWithWorkbench
 {
@@ -69,80 +58,388 @@ script Rogue_Area_Home_InteractWithWorkbench
     {
         lock
 
-        if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+        special(Rogue_IsMultiplayerClient)
+        if(var(VAR_RESULT) == YES)
         {
-            setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE)
+            lock
+            msgbox(format("It's a workbench!\pIt's has a bunch of complicated designs and tools on top."))
+            release
         }
         else
         {
-            setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_DECORATING)
-        }
+            begindynamicmultichoice
+            appenddynamicmultichoice("Build / Upgrade", 0)
 
-        //playbgm(MUS_LITTLEROOT, TRUE)
-        //special(Rogue_SetupFollowParterMonObjectEvent)
-
-        if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
-        {
-            msgbox(format("Start Decorating!"))
-        }
-        else
-        {
-            msgbox(format("Stopped Decorating"))
-        }
+            if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+            {
+                appenddynamicmultichoice("Stop Decorating", 1)
+            }
+            else
+            {
+                appenddynamicmultichoice("Start Decorating", 1)
+            }
         
-        special(ReloadWarpSilent)
+            hubupgradeunlocked(HUB_UPGRADE_HOME_EDIT_STYLE)
+            if(var(VAR_RESULT) == YES)
+            {
+                appenddynamicmultichoice("Edit Styles", 2)
+            }
 
-        // TODO - give choice
+            appenddynamicmultichoice("Clear Decorations", 3)
+            appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
 
-        //call(Rogue_Area_WorkbenchOptions)
+
+            message(format("What would you like to do?"))
+            waitmessage
+            enddynamicmultichoice(1, 0, 6, TRUE)
+        
+
+            switch(var(VAR_RESULT))
+            {
+                case 0:
+                    call(Rogue_Area_WorkbenchOptions)
+
+                case 1:
+                    if(var(VAR_ROGUE_SPECIAL_MODE) == ROGUE_SPECIAL_MODE_DECORATING)
+                    {
+                        setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_NONE)
+                    }
+                    else
+                    {
+                        setvar(VAR_ROGUE_SPECIAL_MODE, ROGUE_SPECIAL_MODE_DECORATING)
+                    }
+
+                    special(ReloadWarpSilent)
+
+                case 2:
+                    call(Rogue_Area_Home_EditStyles)
+
+                case 3:
+                    msgbox(format("This will clear all currently placed decorations.\nThere is no way to undo this.\pAre you sure you want to clear all decorations?"), MSGBOX_YESNO)
+                    if(var(VAR_RESULT) == YES)
+                    {
+                        special(RogueHub_ClearAllDecorations)
+                        special(ReloadWarpSilent)
+                    }
+            }
+        }
 
         release
     }
 }
 
-script Rogue_Area_Home_DecorateTile
+script Rogue_Area_Home_EditStyles
 {
-    lock
+    begindynamicmultichoice
 
-    //setvar(VAR_DECOR_ID, HOME_DECOR_ENV_POND_3x3)
-    setvar(VAR_DECOR_ID, HOME_DECOR_ENV_MOUNTAIN_5x5)
-    special(Rogue_PlaceHomeDecor)
+    appenddynamicmultichoice("Paths", 0)
+    appenddynamicmultichoice("Base Exterior", 1)
+    appenddynamicmultichoice("Base Interior", 2)
+    appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
 
-    if(var(VAR_RESULT) == HOME_DECOR_CODE_NO_ROOM)
+    message(format("What style would you like to change?"))
+    waitmessage
+    enddynamicmultichoice(1, 0, 6, TRUE)
+    
+    switch(var(VAR_RESULT))
     {
-        msgbox(format("The area cannot be decorated any more."))
+        case 0:
+            call(Rogue_Area_Home_EditPathStyles)
+
+        case 1:
+            call(Rogue_Area_Home_EditExteriorStyles)
+
+        case 2:
+            call(Rogue_Area_Home_EditInteriorStyles)
     }
-    elif(var(VAR_RESULT) == HOME_DECOR_CODE_NOT_HERE)
+}
+
+script Rogue_Area_Home_EditPathStyles
+{
+    begindynamicmultichoice
+    special(RogueHub_AppendChangeStyle_Paths)
+    appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+    message(format("What style would you like to use?"))
+    waitmessage
+    enddynamicmultichoice(1, 0, 6, TRUE)
+    
+    switch(var(VAR_RESULT))
     {
-        msgbox(format("Can't be placed here."))
+        default:
+            special(RogueHub_HandleChangeStyle_Paths)
+            special(ReloadWarpSilent)
+
+        case MULTI_B_PRESSED:
+            return
     }
-    else
+}
+
+script Rogue_Area_Home_EditExteriorStyles
+{
+    begindynamicmultichoice
+    special(RogueHub_AppendChangeStyle_Exterior)
+    appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+    message(format("What style would you like to use?"))
+    waitmessage
+    enddynamicmultichoice(1, 0, 6, TRUE)
+    
+    switch(var(VAR_RESULT))
     {
-        copyvar(VAR_DECOR_ID, VAR_RESULT)
+        default:
+            special(RogueHub_HandleChangeStyle_Exterior)
+            special(ReloadWarpSilent)
 
-        special(DrawWholeMapView)
-        msgbox(format("Place here?"), MSGBOX_YESNO)
 
-        if(var(VAR_RESULT) == NO)
-        {
-            special(Rogue_RemoveHomeDecor)
-            special(DrawWholeMapView)
-        }
+        case MULTI_B_PRESSED:
+            return
     }
+}
 
+script Rogue_Area_Home_EditInteriorStyles
+{
+    begindynamicmultichoice
+    special(RogueHub_AppendChangeStyle_Interior)
+    appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
 
+    message(format("What style would you like to use?"))
+    waitmessage
+    enddynamicmultichoice(1, 0, 6, TRUE)
+    
+    switch(var(VAR_RESULT))
+    {
+        default:
+            special(RogueHub_HandleChangeStyle_Interior)
+            special(ReloadWarpSilent)
 
-    //buffernumberstring(STR_VAR_1, VAR_SELECT_REGION)
-    //msgbox(format("region {STR_VAR_1}"))
-
-    release
+        case MULTI_B_PRESSED:
+            return
+    }
 }
 
 script Rogue_Area_Home_ChooseDecoration
 {
     lock
 
-    msgbox(format("Choose decor"))
+    //msgbox(format("Choose decor"))
+
+    call(Rogue_Area_Home_ChooseDecoration_Internal)
+
+    release
+}
+
+script Rogue_Area_Home_ChooseDecoration_Internal
+{
+    setvar(VAR_RESULT, YES)
+
+    while(var(VAR_RESULT) == YES)
+    {
+        if(var(VAR_MENU_DEPTH) == MENU_DEPTH_PLACE_DECORATION)
+        {
+            call(Rogue_Area_Home_PlaceDecoration)
+        }
+        else
+        {
+            message(format("What would you like to place?"))
+            waitmessage
+
+            begindynamicmultichoice(48)
+            special(RogueHub_SetupDecorationMultichoice)
+            enddynamicmultichoice(20, 2, 5, TRUE)
+
+            special(RogueHub_HandleDecorationMultichoiceResult)
+        }
+    }
+}
+
+script Rogue_Area_Home_PlaceDecoration
+{
+    specialvar(VAR_PREVIOUS_DECOR_INDEX, RogueHub_PlaceHomeDecor)
+
+    if(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_CODE_NO_ROOM)
+    {
+        msgbox(format("The area cannot be decorated any more."))
+        setvar(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_GROUP)
+        setvar(VAR_RESULT, NO)
+    }
+    elif(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_TOO_MANY_OBJECTS_NEAR || var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_TOO_MANY_OF_TYPE || var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_CODE_NOT_HERE)
+    {
+        begindynamicmultichoice
+        appenddynamicmultichoice("Change Decor", 1)
+        appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+        if(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_TOO_MANY_OF_TYPE)
+        {
+            message(format("Reached limit for this type of Decor.\nCannot place any more in this area."))
+        }
+        elif(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_CODE_NOT_HERE)
+        {
+            message(format("Decor can't be placed here."))
+        }
+        else
+        {
+            message(format("Too many other Objects nearby.\nTry placing elsewhere."))
+        }
+
+        waitmessage
+
+        enddynamicmultichoice(20, 6, 2, TRUE)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // place
+                setvar(VAR_RESULT, NO)
+
+            case 1: // change decor
+                setvar(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_VARIANT)
+                setvar(VAR_RESULT, YES)
+
+            case MULTI_B_PRESSED: // exit
+                // without placing
+                setvar(VAR_RESULT, NO)
+        }
+    }
+    else
+    {
+        special(DrawWholeMapView)
+        specialvar(VAR_0x8000, RogueHub_IsRemovingDecor)
+
+        begindynamicmultichoice
+        if(var(VAR_0x8000) == YES)
+        {
+            if(var(VAR_PREVIOUS_DECOR_INDEX) == HOME_DECOR_CANNOT_REMOVE)
+            {
+                appenddynamicmultichoice("Change Decor", 1)
+                appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+                message(format("There's nothing to remove here.\nWhat would you like to do?"))
+                waitmessage
+
+                enddynamicmultichoice(20, 6, 2, TRUE)
+            }
+            else
+            {
+                appenddynamicmultichoice("Remove This", 0)
+                appenddynamicmultichoice("Change Decor", 1)
+                appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+                message(format("Would you like to remove this decor?"))
+                waitmessage
+
+                enddynamicmultichoice(20, 6, 3, TRUE)
+            }
+        }
+        else
+        {
+            appenddynamicmultichoice("Place Here", 0)
+            appenddynamicmultichoice("Change Decor", 1)
+            appenddynamicmultichoice("Exit", MULTI_B_PRESSED)
+
+            message(format("Would you like to place this here?"))
+            waitmessage
+
+            enddynamicmultichoice(20, 6, 3, TRUE)
+        }
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // place
+                setvar(VAR_RESULT, NO)
+
+            case 1: // change decor
+                special(RogueHub_RemoveHomeDecor)
+                special(DrawWholeMapView)
+                setvar(VAR_MENU_DEPTH, MENU_DEPTH_CHOOSE_VARIANT)
+                setvar(VAR_RESULT, YES)
+
+            case MULTI_B_PRESSED: // exit
+                // without placing
+                special(RogueHub_RemoveHomeDecor)
+                special(DrawWholeMapView)
+                setvar(VAR_RESULT, NO)
+        }
+    }
+}
+
+script Rogue_Area_Home_ChangeClothes
+{
+    lock
+
+    specialvar(VAR_RESULT, RoguePlayer_HandleEasterEggOutfitUnlocks)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        call(Rogue_Common_DisplayPopups)
+    }
+
+    message(format("What would you like to do?"))
+    waitmessage
+
+    multichoice(20, 6, MULTI_CHANGE_CLOTHES, NO)
+    
+    switch(var(VAR_RESULT))
+    {
+        case 0: // change outfit
+            fadescreen(FADE_TO_BLACK)
+            special(Special_ViewPlayerCustomisationMenu)
+            waitstate
+
+        case 1: // change name
+            fadescreen(FADE_TO_BLACK)
+            special(ChangePlayerNickname)
+            waitstate
+
+        // Fallthrough and exit
+    }
+
+    special(Rogue_FixPartyMonDetails)
+    release
+}
+
+script Rogue_Area_Home_EnterBed
+{
+    lock
+
+    message(format("What time would you like to wake up?"))
+    waitmessage
+
+    multichoice(21, 4, MULTI_SELECT_TIME, NO)
+
+    // Copy season selection
+    copyvar(VAR_0x8004, VAR_RESULT)
+    setvar(VAR_0x8005, MULTI_B_PRESSED)
+
+    if(var(VAR_RESULT) != MULTI_B_PRESSED)
+    {
+        message(format("Which season would you like to wake up in?"))
+        waitmessage
+
+        multichoice(21, 4, MULTI_SELECT_SEASON, NO)
+
+        copyvar(VAR_0x8005, VAR_RESULT)
+    }
+
+    special(Rogue_SetTimeAndSeason)
+
+    if(var(VAR_RESULT) == TRUE)
+    {
+        closemessage
+
+        fadescreen(FADE_TO_BLACK)
+
+        fadeoutbgm(1)
+        playbgm(MUS_NONE, FALSE)
+        delay(30)
+
+        //playse(SE_M_GRASSWHISTLE)
+        //waitse
+        playse(SE_M_SNORE)
+        waitse
+        delay(50)
+
+        special(ReloadWarpSilent)
+    }
 
     release
 }

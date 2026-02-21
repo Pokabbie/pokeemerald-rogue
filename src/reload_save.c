@@ -20,6 +20,7 @@ void ReloadSave(void)
     ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_FORCED_BLANK);
     REG_IME = imeBackup;
     gMain.inBattle = FALSE;
+    gMain.nativeSpeedUpActive = FALSE;
     SetSaveBlocksPointers(GetSaveBlocksPointersBaseOffset());
     RogueSave_UpdatePointers();
     ResetMenuAndMonGlobals();

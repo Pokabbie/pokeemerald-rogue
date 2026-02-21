@@ -66,7 +66,9 @@ void RogueMemStomp_Poll();
     X(OVERWORLD_ROGUE_PLAYER_FIELD_INPUT_CB) \
     X(OVERWORLD_ROGUE_CALLBACK) \
     X(ROGUE_ASSISTANT_CALLBACK) \
-    X(ROGUE_MP_UPDATE_PLAYER_STATE) \
+    X(ROGUE_MP_UPDATE) \
+    X(ROGUE_MP_UPDATE_LOCAL_PLAYER) \
+    X(ROGUE_MP_UPDATE_REMOTE_PLAYER) \
     X(ROGUE_MP_PROCESS_PLAYER_COMMANDS) \
     X(ROGUE_POPUPS) \
     X(ROGUE_FOLLOWMON_CB) \
@@ -87,6 +89,8 @@ enum
 
 void RogueDebug_StartTimer(u16 timer);
 void RogueDebug_StopTimer(u16 timer);
+u32 RogueDebug_SampleClock();
+u32 RogueDebug_ClockToDisplayUnits(u32 time);
 
 #else // ! DEBUG_FEATURE_FRAME_TIMERS
 

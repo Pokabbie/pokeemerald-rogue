@@ -195,6 +195,45 @@ script Rogue_Debug_DisplayVoltorbFlip
     release
 }
 
+script Rogue_Debug_DisplayWorldMap
+{
+    lock
+    msgbox(format("Hub map"))
+    special(Special_ViewWorldMap)
+    waitstate
+    release
+}
+
+script Rogue_Debug_GiveDynamicUniqueMon
+{
+    lock
+    msgbox(format("Give Dynamic Unique Common?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_0x8004, 0)
+        special(RogueDebug_GiveDynamicUniqueMon)
+    }
+
+    msgbox(format("Give Dynamic Unique Rare?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_0x8004, 1)
+        special(RogueDebug_GiveDynamicUniqueMon)
+    }
+
+    msgbox(format("Give Dynamic Unique Epic?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == YES)
+    {
+        setvar(VAR_0x8004, 2)
+        special(RogueDebug_GiveDynamicUniqueMon)
+    }
+
+    release
+}
+
 script Rogue_Debug_GiveMegaRing
 {
     lock
@@ -297,5 +336,30 @@ script Rogue_Debug_ChooseStarter
 {
     lock
     special(ChooseStarter)
+    release
+
+}
+
+script Rogue_Debug_ClearDynamicCustomMons
+{
+    special(RogueGift_ClearDynamicCustomMons)
+    call(Rogue_Interior_BillsLab_TalkPC)
+}
+
+script Rogue_Debug_AdjustMonMasteries
+{
+    lock
+    msgbox(format("reset mon masteries?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        callnative(RogueDebug_ClearMonMasteries)
+    }
+
+    msgbox(format("fill mon masteries?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES)
+    {
+        callnative(RogueDebug_FillMonMasteries)
+    }
+
     release
 }

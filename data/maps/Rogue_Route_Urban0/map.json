@@ -554,28 +554,28 @@
       "y": 98,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_URBAN0",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 21,
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_URBAN0",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 22,
       "y": 16,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_URBAN0",
-      "dest_warp_id": 55
+      "dest_warp_id": "55"
     },
     {
       "x": 18,
       "y": 66,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_URBAN0",
-      "dest_warp_id": 55
+      "dest_warp_id": "55"
     }
   ],
   "coord_events": [

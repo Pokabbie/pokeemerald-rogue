@@ -37,7 +37,7 @@ struct RogueSafariMon
     // Adding this makes it jump from 8 bytes per mon to 20
     u8 nickname[POKEMON_NAME_LENGTH];
     u8 priorityCounter;
-    u8 unused2;
+    u8 customMonLookup; // (We can only store a limited number of custom mons in the safari)
 };
 
 //STATIC_ASSERT(sizeof(struct RogueSafariMon) == 8, SizeOfRogueSafariMon);
@@ -182,18 +182,19 @@ struct RogueHubDecoration
 {
     u8 x;
     u8 y;
-    u8 decorId;
+    u8 decorVariant;
     u8 active : 1;
     u8 unused : 7;
 };
 
 struct RogueHubMap
 {
+    u16 homeWanderingMonSpecies[HUB_WANDER_MON_COUNT];
     struct Coords8 areaCoords[HUB_AREA_COUNT];
     struct RogueHubDecoration homeDecorations[HOME_DECOR_TOTAL_COUNT];
-    u8 homeRegionStyles[HOME_REGION_COUNT];
-    u8 areaBuiltFlags[1 + HUB_AREA_COUNT / 8];
-    u8 upgradeFlags[1 + HUB_UPGRADE_COUNT / 8];
+    u8 homeStyles[HOME_STYLE_COUNT];
+    u8 areaBuiltFlags[1 + ((HUB_AREA_COUNT - 1) / 8)];
+    u8 upgradeFlags[1 + ((HUB_UPGRADE_COUNT - 1) / 8)];
     u16 weatherState;
     u8 statueLevel;
 };
@@ -225,6 +226,12 @@ struct RogueBoxPokemonFacade
 struct RoguePokemonFacade
 {
     u8 data[104];
+};
+
+struct RogueDaycarePokemon
+{
+    struct RogueBoxPokemonFacade boxMonFacade;
+    u8 isSafariIllegal : 1;
 };
 
 struct RoguePartySnapshot
@@ -263,6 +270,7 @@ struct RogueRunData
     u16 teamEncounterNum;
     u16 enteredRoomCounter;
     u16 currentDifficulty;
+    u16 victoryLapTotalWins;
     u8 shrineSpawnDifficulty;
     u8 adventureRoomId;
     u8 currentRouteIndex;
@@ -286,7 +294,7 @@ struct RogueHubArea
     const u32* iconPalette;
     const u8* descText;
     const u8 areaName[ITEM_NAME_LENGTH];
-    u8 connectionWarps[4][2];
+    u8 connectionWarps[6][2];
     u8 requiredUpgrades[HUB_UPGRADE_MAX_REQUIREMENTS];
     u16 primaryMapNum;
     u16 primaryMapLayout;
@@ -311,6 +319,9 @@ struct RogueRouteMap
     u16 layout;
     u16 group;
     u16 num;
+#ifdef ROGUE_DEBUG
+    const u8 debugName[40];
+#endif
 };
 
 struct RogueRouteEncounter
@@ -445,6 +456,8 @@ struct RogueNetGameState
 struct RogueNetPlayerProfile
 {
     u8 trainerName[PLAYER_NAME_LENGTH + 1];
+    u8 playerTrainerId[TRAINER_ID_LENGTH];
+    u8 pokemonHubName[POKEMON_HUB_NAME_LENGTH + 1];
     u16 preferredOutfitStyle[3]; // PLAYER_OUTFIT_STYLE_COUNT
     u8 networkId; // assigned by host
     u8 preferredOutfit;
@@ -458,6 +471,8 @@ struct RogueNetPlayerMovement
     u8 movementAction;
 };
 
+
+
 struct RogueNetPlayer
 {
     struct RogueNetPlayerMovement movementBuffer[NET_PLAYER_MOVEMENT_BUFFER_SIZE];
@@ -465,11 +480,18 @@ struct RogueNetPlayer
     u8 cmdRespBuffer[NET_CMD_BUFFER_SIZE];
     struct Coords16 playerPos;
     struct Coords8 partnerPos;
+    union
+    {
+        struct 
+        {
+            u16 tradeSlot;
+            u8 hasChosen;
+        } playerTrade;
+    } statusParams;
     u16 partnerMon;
-    u16 playerStatusParam;
-    u16 playerStatusCounter;
-    u8 playerStatus;
-    u8 playerStatusSubstate;
+    u16 statusSeed;
+    u8 desiredStatus;
+    u8 activeStatus;
     s8 mapGroup;
     s8 mapNum;
     u8 playerFlags;
@@ -479,6 +501,7 @@ struct RogueNetPlayer
     u8 currentElevation : 4;
     u8 facingDirection : 4;
     u8 partnerFacingDirection : 4;
+    u8 isInteractionOwner : 1;
 };
 
 struct RogueNetHandshake
@@ -510,6 +533,7 @@ struct RogueAssistantHeader
 {
     u8 rogueVersion;
     u8 rogueDebug;
+    u32 rogueAssistantCompatVersion;
     u32 assistantConfirmSize;
     u32 assistantConfirmOffset;
     u32 netMultiplayerSize;
@@ -526,11 +550,21 @@ struct RogueAssistantHeader
     u32 netPlayerCount;
     u32 netRequestStateOffset;
     u32 netCurrentStateOffset;
+    u32 homeLocalBoxCount;
+    u32 homeTotalBoxCount;
+    u32 homeBoxSize;
+    u32 homeMinimalBoxOffset;
+    u32 homeMinimalBoxSize;
+    u32 homeDestMonOffset;
+    u32 homeDestMonSize;
+    u32 homeRemoteIndexOrderOffset;
+    u32 homeTrainerIdOffset;
     void const* saveBlock1Ptr;
     void const* saveBlock2Ptr;
     void const* rogueBlockPtr;
     void const* assistantState;
     void const* multiplayerPtr;
+    void const* homeBoxPtr;
 };
 
 extern const struct RogueAssistantHeader gRogueAssistantHeader;
@@ -617,6 +651,13 @@ struct AdventureReplay
     u8 isValid : 1;
 };
 
+struct UniqueMon
+{
+    u32 customMonId;
+    u16 species;
+    u16 countDown;
+};
+
 struct RogueSaveBlock
 {
     u16 saveVersion;
@@ -627,8 +668,11 @@ struct RogueSaveBlock
     struct RogueQuestState questStates[QUEST_SAVE_COUNT];
     struct RogueCampaignState campaignData[ROGUE_CAMPAIGN_COUNT];
     struct RogueSafariMon safariMons[ROGUE_SAFARI_TOTAL_MONS];
-    struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
+    struct RogueDaycarePokemon daycarePokemon[DAYCARE_SLOT_COUNT];
+    struct UniqueMon dynamicUniquePokemon[DYNAMIC_UNIQUE_MON_COUNT];
     struct AdventureReplay adventureReplay[ROGUE_ADVENTURE_REPLAY_COUNT];
+    u32 safariMonCustomIds[ROGUE_SAFARI_TOTAL_CUSTOM_MONS];
+    u8 monMasteryFlags[MON_MASTERY_BYTE_COUNT];
     struct RogueHubMap hubMap;
     struct RogueDifficultyConfig difficultyConfig;
     u16 timeOfDayMinutes;

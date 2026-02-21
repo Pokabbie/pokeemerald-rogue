@@ -118,6 +118,89 @@ namespace PokemonDataGenerator.Pokedex
 					}
 
 				});
+
+				// Carry forward toxic & scald nerf from gen8
+				if(!GameDataHelpers.IsVanillaVersion)
+				{
+					if (moveGroupName != "ultra-sun-ultra-moon")
+					{
+						source.Moves.RemoveAll((move) =>
+						{
+							if (move.moveName == "toxic")
+							{
+								if (move.versionName == "scarlet-violet" || move.versionName == "sword-shield")
+								{
+									return false;
+								}
+
+								// Don't accept moveset from before gen8
+								return true;
+							}
+
+							return false;
+						});
+
+						source.Moves.RemoveAll((move) =>
+						{
+							if (move.moveName == "scald")
+							{
+								if (move.versionName == "scarlet-violet" || move.versionName == "sword-shield")
+								{
+									return false;
+								}
+
+								// Don't accept moveset from before gen8
+								return true;
+							}
+
+							return false;
+						});
+					}
+					else
+					{
+						if (source.Moves.Where((move) => move.moveName == "toxic").Any())
+						{
+							if(source.Types.Where(str => str == "poison").Any())
+							{
+								// allow toxic
+							}
+							else
+							{
+								// remove toxic here (assuming this is what GF will eventually do?)
+								source.Moves.RemoveAll((move) =>
+								{
+									if (move.moveName == "toxic")
+									{
+										return true;
+									}
+
+									return false;
+								});
+							}
+						}
+
+						if (source.Moves.Where((move) => move.moveName == "scald").Any())
+						{
+							if (source.Types.Where(str => str == "fire").Any())
+							{
+								// allow scald
+							}
+							else
+							{
+								// remove scald here (assuming this is what GF will eventually do?)
+								source.Moves.RemoveAll((move) =>
+								{
+									if (move.moveName == "scald")
+									{
+										return true;
+									}
+
+									return false;
+								});
+							}
+						}
+					}
+				}
 			}
 		}
 
@@ -309,16 +392,80 @@ namespace PokemonDataGenerator.Pokedex
 				}
 			}
 
+			private bool AttemptReplaceMove(PokemonCompetitiveSet target, string move, params string[] orderedReplacements)
+			{
+				foreach(string testMove in orderedReplacements)
+				{
+					if(!target.Moves.Contains(testMove) && CanLearnMove(testMove))
+					{
+						int index = target.Moves.IndexOf(move);
+						target.Moves[index] = testMove;
+						return true;
+					}
+				}
+
+				return false;
+			}
+
 			public void FormatDataForGame()
 			{
 				// Now we've added the sets, add any moves that we can't currently learn as tutor moves
 				foreach (var set in CompetitiveSets)
 				{
-					foreach (var move in set.Moves)
+					foreach (var move in set.Moves.ToArray())
 					{
 						bool canLearnMove = CanLearnMove(move);
 						if (!canLearnMove)
 						{
+							if (!GameDataHelpers.IsVanillaVersion)
+							{
+								if (move == "MOVE_TOXIC")
+								{
+									if (AttemptReplaceMove(set, "MOVE_TOXIC", 
+										"MOVE_THUNDER_WAVE", 
+										"MOVE_WILL_O_WISP",
+										"MOVE_YAWN",
+										"MOVE_HYPNOSIS",
+										"MOVE_STEALTH_ROCK",
+										"MOVE_KNOCK_OFF",
+										"MOVE_IRON_HEAD",
+										"MOVE_SUBSTITUTE",
+										"MOVE_U_TURN",
+										"MOVE_ATTRACT",
+										"MOVE_METRONOME",
+										"MOVE_INFESTATION",
+										"MOVE_SAND_ATTACK"
+									))
+									{
+										// Prevent being added to tutor move list
+										continue;
+									}
+									else
+									{
+										throw new Exception(Species + " no longer supports Toxic!");
+									}
+								}
+
+								if (move == "MOVE_SCALD")
+								{
+									if (AttemptReplaceMove(set, "MOVE_SCALD",
+										"MOVE_FREEZE_DRY",
+										"MOVE_HYDRO_PUMP",
+										"MOVE_SURF",
+										"MOVE_ICE_BEAM",
+										"MOVE_WATER_PULSE"
+									))
+									{
+										// Prevent being added to tutor move list
+										continue;
+									}
+									else
+									{
+										throw new Exception(Species + " no longer supports Scald!");
+									}
+								}
+							}
+
 							TutorMoves.Add(move);
 						}
 					}
@@ -600,8 +747,6 @@ namespace PokemonDataGenerator.Pokedex
 				//case "MOVE_TERA_BLAST": <- is replaced by hidden power
 				case "MOVE_ORDER_UP":
 				case "MOVE_SPICY_EXTRACT":
-				case "MOVE_ELECTRO_SHOT":
-				case "MOVE_TERA_STARSTORM":
 				case "MOVE_ALLURING_VOICE":
 				case "MOVE_PSYCHIC_NOISE":
 				case "MOVE_UPPER_HAND":
@@ -658,6 +803,13 @@ namespace PokemonDataGenerator.Pokedex
 							if (speciesName.EndsWith("_MEGA"))
 							{
 								redirectSpecies = speciesName.Substring(0, speciesName.Length - "_MEGA".Length);
+
+								switch (speciesName)
+								{
+									case "SPECIES_PIKIN_MEGA":
+										redirectSpecies = "SPECIES_MAREEP";
+										break;
+								}
 							}
 							else if (speciesName.EndsWith("_MEGA_X") || speciesName.EndsWith("_MEGA_Y"))
 							{
@@ -856,7 +1008,6 @@ namespace PokemonDataGenerator.Pokedex
 										redirectSpecies = "SPECIES_WOBBUFFET";
 										break;
 								}
-
 							}
 						}
 					}

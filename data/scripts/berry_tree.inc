@@ -182,7 +182,7 @@ BerryTree_Text_ItsSoftLoamySoil:
 
 BerryTree_Text_WantToPlant:
 	.string "It's soft, loamy soil.\n"
-	.string "Want to plant a BERRY?$"
+	.string "Want to plant a Berry?$"
 
 BerryTree_Text_PlantedOneBerry:
 	.string "{PLAYER} planted one {STR_VAR_1} in\n"

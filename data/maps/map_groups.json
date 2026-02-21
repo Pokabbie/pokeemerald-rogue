@@ -47,7 +47,8 @@
     "Rogue_Area_Marts",
     "Rogue_Area_TownSquare",
     "Rogue_Area_ChallengeFrontier",
-    "Rogue_Area_DayCare"
+    "Rogue_Area_DayCare",
+    "Rogue_Area_Market"
   ],
   "gMapGroup_RogueHubInteriors": [
     "Rogue_Interior_Home",
@@ -59,13 +60,15 @@
     "Rogue_Interior_Restaurant",
     "Rogue_Interior_Cafe",
     "Rogue_Interior_School",
-    "Rogue_Interior_ChallengeFrontier"
+    "Rogue_Interior_ChallengeFrontier",
+    "Rogue_Interior_BillsLab"
   ],
   "gMapGroup_RogueHubTemplates": [
     "Rogue_Template_Homes",
     "Rogue_Template_Home_Base",
     "Rogue_Template_Home_Flowers",
-    "Rogue_Template_Home_Grass"
+    "Rogue_Template_Home_Grass",
+    "Rogue_Template_Home_Interior"
   ],
   "gMapGroup_RogueHubTesting": [
     "Rogue_Tile_Test1",
@@ -110,7 +113,14 @@
     "Rogue_Route_Sinnoh_EternaForest",
     "Rogue_Route_Sinnoh_207",
     "Rogue_Route_Sinnoh_215",
-    "Rogue_Route_Sinnoh_212"
+    "Rogue_Route_Sinnoh_212",
+    "Rogue_Route_Sinnoh_217",
+    "Rogue_Route_Sinnoh_210",
+    "Rogue_Route_Sinnoh_201",
+    "Rogue_Route_Sinnoh_214",
+    "Rogue_Route_Sinnoh_209",
+    "Rogue_Route_Sinnoh_MtCoronet",
+    "Rogue_Route_Sinnoh_IronIsland"
   ],
   "gMapGroup_RogueAdventureEncounters": [
     "Rogue_Encounter_RestStop",
@@ -134,6 +144,8 @@
     "Rogue_Encounter_MagmaHideout",
     "Rogue_Encounter_AquaHideout",
     "Rogue_Encounter_SeafloorCavern",
+    "Rogue_Encounter_LakeValor",
+    "Rogue_Encounter_GalacticHQ",
     "Rogue_Boss_0",
     "Rogue_Boss_8",
     "Rogue_Boss_9",
@@ -141,7 +153,8 @@
     "Rogue_Boss_11",
     "Rogue_Boss_12",
     "Rogue_Boss_13",
-    "Rogue_Boss_Final"
+    "Rogue_Boss_Final",
+    "Rogue_Boss_VictoryLap"
   ],
   "gMapGroup_RogueAdventureMonEncounters": [
     "Rogue_SouthernIsland_Latios",

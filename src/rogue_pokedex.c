@@ -304,6 +304,8 @@ struct PokedexMenu
     u8 currentPage;
     u8 desiredPage;
     u8 pageSprites[MAX_SPRITE_COUNT];
+    u8 displayArrowTask;
+    u16 displayArrowOffset;
 
     // Title screen
     bool8 titleScreenInEditMode;
@@ -345,7 +347,8 @@ struct PokedexViewRequest
         } specificMon;
         struct
         {
-            bool8 ignoreDexSeen;
+            bool8 requireSeen;
+            bool8 requireCaught;
         } selectMon;
     } perView;
 };
@@ -418,17 +421,18 @@ void Rogue_ShowPokedexForPartySlot(u8 slot)
     sPokedexViewReq.perView.specificMon.partySlot = slot;
 }
 
-void Rogue_SelectPokemonInPokedexFromDex(bool8 ignoreDexSeen)
+void Rogue_SelectPokemonInPokedexFromDex(bool8 requireSeen, bool8 requireCaught)
 {
-    Rogue_SelectPokemonInPokedexFromDexVariant(RoguePokedex_GetDexVariant(), ignoreDexSeen);
+    Rogue_SelectPokemonInPokedexFromDexVariant(RoguePokedex_GetDexVariant(), requireSeen, requireCaught);
 }
 
-void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 ignoreDexSeen)
+void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 requireSeen, bool8 requireCaught)
 {
     SetupPokedexViewDefault();
 
     sPokedexViewReq.view = DEX_VIEW_SELECT_MON;
-    sPokedexViewReq.perView.selectMon.ignoreDexSeen = ignoreDexSeen;
+    sPokedexViewReq.perView.selectMon.requireSeen = requireSeen;
+    sPokedexViewReq.perView.selectMon.requireCaught = requireCaught;
 
     sPokedexViewReq.dexVariantToRestore = RoguePokedex_GetDexVariant();
     RoguePokedex_SetDexVariant(variant);
@@ -436,7 +440,11 @@ void Rogue_SelectPokemonInPokedexFromDexVariant(u8 variant, bool8 ignoreDexSeen)
 
 void Rogue_SelectPokemonInSafari()
 {
-    Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI, TRUE);
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTERIOR_SAFARI_CAVE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROGUE_INTERIOR_SAFARI_CAVE))
+        Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI, FALSE, FALSE);
+    else
+        Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_NORMAL_SAFARI, FALSE, FALSE);
+
     sPokedexViewReq.view = DEX_VIEW_SELECT_SAFARI_MON;
 }
 
@@ -456,6 +464,8 @@ static void CB2_Rogue_ShowPokedex(void)
     sPokedexMenu->viewBaseSpecies = SPECIES_NONE;
     sPokedexMenu->viewOtId = 0;
     sPokedexMenu->partySlot = PARTY_SIZE;
+
+    sPokedexMenu->displayArrowTask = TASK_NONE;
 
     if(sPokedexViewReq.view == DEX_VIEW_SPECIFIC_MON)
     {
@@ -1005,6 +1015,14 @@ static bool8 IsAltFormVisible(u16 baseForm, u16 altForm)
             return FALSE;
     }
 
+    if(altForm == SPECIES_PIKIN_MEGA)
+    {
+        if(FlagGet(FLAG_ROGUE_UNLOCKED_PIKIN_EASTER_EGG))
+            return TRUE;
+        else
+            return FALSE;
+    }
+
     {
         u32 i;
         struct FormChange formChange;
@@ -1179,18 +1197,12 @@ static void DisplayTitleDexVariantText(void)
     if(RoguePokedex_IsVariantEditUnlocked())
     {
         u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
-        bool8 arrowActive = sPokedexMenu->titleScreenInEditMode;
 
         FillWindowPixelBuffer(WIN_TITLE_VARIANT_SELECT, PIXEL_FILL(0));
 
-        AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4 + (arrowActive ? 8 : 0), 0, 0, 0, color, TEXT_SKIP_DRAW, GetDexRegionName());
+        AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4, 0, 0, 0, color, TEXT_SKIP_DRAW, GetDexRegionName());
 
-        AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4 + (arrowActive ? 8 : 0), 24, 0, 0, color, TEXT_SKIP_DRAW, GetDexVariantName());
-
-        if(arrowActive)
-        {
-            AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4, 24 * sPokedexMenu->titleScreenCursorIdx, 0, 0, color, TEXT_SKIP_DRAW, gText_SelectorArrow);
-        }
+        AddTextPrinterParameterized4(WIN_TITLE_VARIANT_SELECT, FONT_NARROW, 4, 24, 0, 0, color, TEXT_SKIP_DRAW, GetDexVariantName());
 
         PutWindowTilemap(WIN_TITLE_VARIANT_SELECT);
         CopyWindowToVram(WIN_TITLE_VARIANT_SELECT, COPYWIN_FULL);
@@ -1338,21 +1350,12 @@ static u16 GetMaxMoveScrollOffset()
     u8 i;
     u16 count = 0;
     u16 species = sPokedexMenu->viewBaseSpecies;
-    u16 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
+    u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
     
     // Custom moves
     if(customMonId)
     {
-        u16 const* customMoves = RogueGift_GetCustomMonMoves(customMonId);
-        u16 customMoveCount = RogueGift_GetCustomMonMoveCount(customMonId);
-
-        if(customMoves)
-        {
-            for (i = 0; i < customMoveCount; i++)
-            {
-                ++count;
-            }
-        }
+        count += RogueGift_GetCustomMonMoveCount(customMonId);
     }
 
     // Level up
@@ -1390,16 +1393,15 @@ static void DisplayMonMovesText()
     // Custom moves
     if(sPokedexMenu->viewOtId)
     {
-        u16 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
-        u16 const* customMoves = RogueGift_GetCustomMonMoves(customMonId);
-        u16 customMoveCount = RogueGift_GetCustomMonMoveCount(customMonId);
-        
-        if(customMoves)
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, sPokedexMenu->viewOtId);
+        if(customMonId != 0)
         {
+            u16 customMoveCount = RogueGift_GetCustomMonMoveCount(customMonId);
+            
             for (i = 0; i < customMoveCount; i++)
             {
                 // Is custom move
-                StringCopy(gStringVar1, gMoveNames[customMoves[i]]);
+                StringCopy(gStringVar1, gMoveNames[RogueGift_GetCustomMonMove(customMonId, i)]);
                 StringExpandPlaceholders(gStringVar3, gText_PokedexMovesCustom);
                 
                 if(listIndex >= sPokedexMenu->listScrollAmount)
@@ -2030,6 +2032,57 @@ static void DestroyMonEntryWindows(void)
 
 // Title screen
 //
+static const struct ScrollArrowsTemplate sTitleScreen_ModeArrowsTemplate_Region =
+{
+    .firstArrowType = SCROLL_ARROW_LEFT,
+    .firstX = 63,
+    .firstY = 64,
+    .secondArrowType = SCROLL_ARROW_RIGHT,
+    .secondX = 184,
+    .secondY = 64,
+    .fullyUpThreshold = -1,
+    .fullyDownThreshold = -1,
+    .tileTag = 5325,
+    .palTag = 5325,
+    .palNum = 0,
+};
+
+static const struct ScrollArrowsTemplate sTitleScreen_ModeArrowsTemplate_Game =
+{
+    .firstArrowType = SCROLL_ARROW_LEFT,
+    .firstX = 63,
+    .firstY = 88,
+    .secondArrowType = SCROLL_ARROW_RIGHT,
+    .secondX = 184,
+    .secondY = 88,
+    .fullyUpThreshold = -1,
+    .fullyDownThreshold = -1,
+    .tileTag = 5325,
+    .palTag = 5325,
+    .palNum = 0,
+};
+
+static void TitleScreen_AddScrollArrows(void)
+{
+    AGB_ASSERT(sPokedexMenu != NULL);
+    if (sPokedexMenu->displayArrowTask == TASK_NONE)
+    {
+        if(sPokedexMenu->titleScreenCursorIdx == 0)
+            sPokedexMenu->displayArrowTask = AddScrollIndicatorArrowPair(&sTitleScreen_ModeArrowsTemplate_Region, &sPokedexMenu->displayArrowOffset);
+        else
+            sPokedexMenu->displayArrowTask = AddScrollIndicatorArrowPair(&sTitleScreen_ModeArrowsTemplate_Game, &sPokedexMenu->displayArrowOffset);
+    }
+}
+
+static void TitleScreen_RemoveScrollArrows(void)
+{
+    AGB_ASSERT(sPokedexMenu != NULL);
+    if (sPokedexMenu->displayArrowTask != TASK_NONE)
+    {
+        RemoveScrollIndicatorArrowPair(sPokedexMenu->displayArrowTask);
+        sPokedexMenu->displayArrowTask = TASK_NONE;
+    }
+}
 
 static void TitleScreen_HandleInput(u8 taskId)
 {
@@ -2042,12 +2095,15 @@ static void TitleScreen_HandleInput(u8 taskId)
 
             //DisplayTitleScreenCountersText();
             DisplayTitleDexVariantText();
+            TitleScreen_RemoveScrollArrows();
         }
         else if(JOY_NEW(DPAD_UP | DPAD_DOWN))
         {
             PlaySE(SE_SELECT);
             sPokedexMenu->titleScreenCursorIdx = (sPokedexMenu->titleScreenCursorIdx + 1) % 2;
             DisplayTitleDexVariantText();
+            TitleScreen_RemoveScrollArrows();
+            TitleScreen_AddScrollArrows();
         }
         else if(JOY_REPEAT(DPAD_LEFT))
         {
@@ -2205,6 +2261,7 @@ static void TitleScreen_HandleInput(u8 taskId)
 
             //DisplayTitleScreenCountersText();
             DisplayTitleDexVariantText();
+            TitleScreen_AddScrollArrows();
         }
     }
 }
@@ -2368,6 +2425,42 @@ static u8 Overview_SelectDigitTile(u8 digit)
     return HEADER_EMPTY;
 }
 
+static bool32 CheckIfAnyEvosMatch(u16 species, u8 dexFlag)
+{
+    if(GetSetPokedexSpeciesFlag(species, dexFlag))
+        return TRUE;
+
+    {
+        struct Evolution evo;
+        u32 i;
+        u32 evoCount = Rogue_GetMaxEvolutionCount(species);
+
+        for(i = 0; i < evoCount; ++i)
+        {
+            Rogue_ModifyEvolution(species, i, &evo);
+
+            if(evo.targetSpecies != SPECIES_NONE)
+            {
+                if(CheckIfAnyEvosMatch(evo.targetSpecies, dexFlag))
+                    return TRUE;
+            }
+        }
+    }
+
+    return FALSE;
+}
+
+static bool32 GetSpeciesDisplayDexFlag(u16 species, u8 dexFlag)
+{
+    u8 dexVariant = RoguePokedex_GetDexVariant();
+    
+    // Daycare variant, we want to display based on if we have any data in the evo chain
+    if(dexVariant == POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES)
+        return CheckIfAnyEvosMatch(species, dexFlag);
+    else
+        return GetSetPokedexSpeciesFlag(species, dexFlag);
+}
+
 static u8 Overview_GetEntryType(s8 entryX, s8 entryY, s8 deltaX, s8 deltaY)
 {
     u8 idx;
@@ -2392,22 +2485,47 @@ static u8 Overview_GetEntryType(s8 entryX, s8 entryY, s8 deltaX, s8 deltaY)
     // We don't care if we've seen this mon or not
     if(IsCurrentlySelectingMon())
     {
-        if(sPokedexViewReq.perView.selectMon.ignoreDexSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
-            return ENTRY_TYPE_EMPTY;
-
-        if(sPokedexViewReq.view == DEX_VIEW_SELECT_SAFARI_MON)
+        //u8 dexVariant = RoguePokedex_GetDexVariant();
+//
+        //if(dexVariant == POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES)
+        //{
+        //    // This view is used for daycare egg selection, so display mons we have seen/caught to hatch regardless of where in the evo chain we have dex data
+        //    if(CheckIfAnyEvosMatch(species, FLAG_GET_CAUGHT))
+        //        return ENTRY_TYPE_CAUGHT;
+        //    else if(CheckIfAnyEvosMatch(species, FLAG_GET_SEEN))
+        //        return ENTRY_TYPE_SEEN;
+        //}
+        //else 
+        
+        if(
+            (!sPokedexViewReq.perView.selectMon.requireSeen || GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN)) &&
+            (!sPokedexViewReq.perView.selectMon.requireCaught || GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
+        )
         {
-            // todo - display shiny state here
+            if(sPokedexViewReq.view == DEX_VIEW_SELECT_SAFARI_MON)
+            {
+                return ENTRY_TYPE_EMPTY;
+            }
+            else
+            {
+                // Display icons based on dex state
+                if(GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT_SHINY))
+                    return ENTRY_TYPE_CAUGHT_SHINY;
+                else if(GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
+                    return ENTRY_TYPE_CAUGHT;
+                else if(GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
+                    return ENTRY_TYPE_SEEN;
+            }
         }
     }
     else
     {
         // Display icons based on dex state
-        if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT_SHINY))
+        if(GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT_SHINY))
             return ENTRY_TYPE_CAUGHT_SHINY;
-        else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+        else if(GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
             return ENTRY_TYPE_CAUGHT;
-        else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+        else if(GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
             return ENTRY_TYPE_SEEN;
     }
 
@@ -2763,7 +2881,10 @@ static void Overview_HandleInput(u8 taskId)
 
         if(IsCurrentlySelectingMon())
         {
-            if(sPokedexViewReq.perView.selectMon.ignoreDexSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+            if(
+                (!sPokedexViewReq.perView.selectMon.requireSeen || GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN)) &&
+                (!sPokedexViewReq.perView.selectMon.requireCaught || GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
+            )
             {
                 if(sPokedexViewReq.view == DEX_VIEW_SELECT_SAFARI_MON)
                 {
@@ -2773,13 +2894,14 @@ static void Overview_HandleInput(u8 taskId)
                     
                     switch (dexVariant)
                     {
-                        case POKEDEX_DYNAMIC_VARIANT_SAFARI:
+                        case POKEDEX_DYNAMIC_VARIANT_NORMAL_SAFARI:
                         case POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI:
                         {
                             u16 i = (dexVariant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_LEGENDS_START_INDEX : 0;
+                            u16 total = (dexVariant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_TOTAL_MONS : ROGUE_SAFARI_LEGENDS_START_INDEX;
                             u16 count = 0;
 
-                            for(; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
+                            for(; i < total; ++i)
                             {
                                 if(gRogueSaveBlock->safariMons[i].species != SPECIES_NONE)
                                 {
@@ -2820,7 +2942,7 @@ static void Overview_HandleInput(u8 taskId)
         }
         else
         {
-            if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+            if(GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
             {
                 // Swap to the stats page
                 sPokedexMenu->desiredPage = PAGE_MON_STATS;
@@ -2975,21 +3097,24 @@ static void Overview_CreateSprites()
             {
                 if(IsCurrentlySelectingMon())
                 {
-                    if(sPokedexViewReq.perView.selectMon.ignoreDexSeen || GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
-                    {
-                        // Always display in select mon view
-                        // Non animated
-                        sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
-                    }
+                    if(sPokedexViewReq.perView.selectMon.requireSeen && !GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
+                        continue;
+
+                    if(sPokedexViewReq.perView.selectMon.requireCaught && !GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
+                        continue;
+
+                    // Always display in select mon view
+                    // Non animated
+                    sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
                 }
                 else
                 {
-                    if(GetSetPokedexSpeciesFlag(species, FLAG_GET_CAUGHT))
+                    if(GetSpeciesDisplayDexFlag(species, FLAG_GET_CAUGHT))
                     {
                         // Animated
                         sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCB_MonIcon, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
                     }
-                    else if(GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+                    else if(GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
                     {
                         // Non animated
                         sPokedexMenu->pageSprites[i] = CreateMonIcon(sPokedexMenu->overviewPageSpecies[i], SpriteCallbackDummy, 28 + 32 * x, 18 + 40 * y, 0, 0, MON_MALE);
@@ -3073,7 +3198,7 @@ void DestroyMonTypIcon(u8 spriteId);
 static void MonInfo_CreateSprites(bool8 includeType)
 {
     // display as shiny if we have seen it
-    bool8 isShiny = GetSetPokedexSpeciesFlag(sPokedexMenu->viewBaseSpecies, FLAG_GET_CAUGHT_SHINY);
+    bool8 isShiny = GetSpeciesDisplayDexFlag(sPokedexMenu->viewBaseSpecies, FLAG_GET_CAUGHT_SHINY);
 
     LoadMoveTypesSpritesheetAndPalette(); // TODO - move
 
@@ -3221,7 +3346,7 @@ static u16 MonStats_GetMonNeighbour(u16 currViewSpecies, s8 offset)
                 checkSpecies = GetVariantSpeciesAt(dexVariant, checkIdx);
 
                 // Only allowed to jump to seen mons
-                if(!GetSetPokedexSpeciesFlag(checkSpecies, FLAG_GET_SEEN))
+                if(!GetSpeciesDisplayDexFlag(checkSpecies, FLAG_GET_SEEN))
                     continue;
 
 #ifdef ROGUE_DEBUG
@@ -3523,7 +3648,7 @@ static void MonEvos_HandleInput(u8 taskId)
     {
         u16 species = GetActiveEvoSpecies();
 
-        if(species == SPECIES_NONE || !GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+        if(species == SPECIES_NONE || !GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
         {
             PlaySE(SE_FAILURE);
         }
@@ -3566,7 +3691,7 @@ static void MonEvos_CreateSprites()
 
         if(listIndex >= sPokedexMenu->listScrollAmount)
         {
-            if(GetSetPokedexSpeciesFlag(evo.targetSpecies, FLAG_GET_SEEN))
+            if(GetSpeciesDisplayDexFlag(evo.targetSpecies, FLAG_GET_SEEN))
                 sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(evo.targetSpecies, SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, MON_MALE);
             else
                 sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMissingMonIcon(SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0);
@@ -3626,7 +3751,7 @@ static void MonForms_HandleInput(u8 taskId)
     {
         u16 species = GetActiveFormSpecies();
 
-        if(species == SPECIES_NONE || !GetSetPokedexSpeciesFlag(species, FLAG_GET_SEEN))
+        if(species == SPECIES_NONE || !GetSpeciesDisplayDexFlag(species, FLAG_GET_SEEN))
         {
             PlaySE(SE_FAILURE);
         }
@@ -3666,7 +3791,7 @@ static void MonForms_CreateSprites()
         {
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
-                if(GetSetPokedexSpeciesFlag(formTable[i], FLAG_GET_SEEN))
+                if(GetSpeciesDisplayDexFlag(formTable[i], FLAG_GET_SEEN))
                     sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(formTable[i], SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, MON_MALE);
                 else
                     sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMissingMonIcon(SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0);
@@ -3889,6 +4014,7 @@ u16 RoguePokedex_RedirectSpeciesGetSetFlag(u16 species)
     case SPECIES_TERAPAGOS_STELLAR:
     case SPECIES_TERAPAGOS_TERASTAL:
     case SPECIES_WOBBUFFET_PUNCHING:
+    case SPECIES_PIKIN_MEGA:
         return GET_BASE_SPECIES_ID(species);
     }
 #endif
@@ -4090,7 +4216,6 @@ bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species)
         case SPECIES_YVELTAL:
         case SPECIES_ZYGARDE:
 
-        case SPECIES_COSMOG:
         case SPECIES_COSMOEM:
         case SPECIES_SOLGALEO:
         case SPECIES_LUNALA:
@@ -4170,6 +4295,7 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
         case SPECIES_DIANCIE:
         case SPECIES_HOOPA:
         
+        case SPECIES_COSMOG:
         case SPECIES_NIHILEGO:
         case SPECIES_BUZZWOLE:
         case SPECIES_PHEROMOSA:
@@ -4218,6 +4344,29 @@ bool8 RoguePokedex_IsSpeciesValidRoamerLegendary(u16 species)
 #endif
             return TRUE;
     };
+
+    return FALSE;
+}
+
+bool8 RoguePokedex_IsSpeciesParadox(u16 species)
+{
+#ifdef ROGUE_EXPANSION
+    if(species >= SPECIES_GREAT_TUSK && species <= SPECIES_IRON_THORNS)
+        return TRUE;
+
+    switch (species)
+    {
+    case SPECIES_ROARING_MOON:
+    case SPECIES_IRON_VALIANT:
+    case SPECIES_WALKING_WAKE:
+    case SPECIES_IRON_LEAVES:
+    case SPECIES_GOUGING_FIRE:
+    case SPECIES_RAGING_BOLT:
+    case SPECIES_IRON_BOULDER:
+    case SPECIES_IRON_CROWN:
+        return TRUE;
+    }
+#endif
 
     return FALSE;
 }
@@ -4317,6 +4466,9 @@ void RoguePokedex_GetSpeciesStatArray(u16 species, u8* stats, u8 bufferSize)
     GatherSpeciesStatsArray(species, stats);
 }
 
+extern const u16 gRogueBake_EggSpecies[];
+extern const u16 gRogueBake_FinalEvoSpecies[];
+
 static u16 GetVariantSpeciesAt(u8 variant, u16 index)
 {
     if(variant <= POKEDEX_VARIANT_END)
@@ -4327,23 +4479,36 @@ static u16 GetVariantSpeciesAt(u8 variant, u16 index)
 
         switch (variant)
         {
-            case POKEDEX_DYNAMIC_VARIANT_SAFARI:
+            case POKEDEX_DYNAMIC_VARIANT_NORMAL_SAFARI:
             case POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI:
             {
                 u16 i = (variant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_LEGENDS_START_INDEX : 0;
+                u16 total = (variant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_TOTAL_MONS : ROGUE_SAFARI_LEGENDS_START_INDEX;
                 u16 count = 0;
 
-                for(; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
+                for(; i < total; ++i)
                 {
                     if(gRogueSaveBlock->safariMons[i].species != SPECIES_NONE)
                     {
                         if(index == count++)
-                            return gRogueSaveBlock->safariMons[i].species;
+                            return Rogue_GetEggSpecies(gRogueSaveBlock->safariMons[i].species);
                     }
                 }
 
                 return SPECIES_NONE;
             }
+
+            case POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES:
+                return gRogueBake_EggSpecies[index];
+                break;
+
+            case POKEDEX_DYNAMIC_VARIANT_FINAL_SPECIES:
+                return gRogueBake_FinalEvoSpecies[index];
+                break;
+
+            default:
+                AGB_ASSERT(FALSE);
+                break;
         }
 
         return SPECIES_BULBASAUR;
@@ -4360,13 +4525,14 @@ static u16 GetVariantSpeciesCount(u8 variant)
 
         switch (variant)
         {
-            case POKEDEX_DYNAMIC_VARIANT_SAFARI:
+            case POKEDEX_DYNAMIC_VARIANT_NORMAL_SAFARI:
             case POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI:
             {
                 u16 i = (variant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_LEGENDS_START_INDEX : 0;
+                u16 total = (variant == POKEDEX_DYNAMIC_VARIANT_LEGEND_SAFARI) ? ROGUE_SAFARI_TOTAL_MONS : ROGUE_SAFARI_LEGENDS_START_INDEX;
                 u16 count = 0;
 
-                for(; i < ROGUE_SAFARI_TOTAL_MONS; ++i)
+                for(; i < total; ++i)
                 {
                     if(gRogueSaveBlock->safariMons[i].species != SPECIES_NONE)
                         ++count;
@@ -4374,6 +4540,18 @@ static u16 GetVariantSpeciesCount(u8 variant)
 
                 return count;
             }
+
+            case POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES:
+                return SPECIES_EGG_EVO_STAGE_COUNT;
+                break;
+
+            case POKEDEX_DYNAMIC_VARIANT_FINAL_SPECIES:
+                return SPECIES_FINAL_EVO_STAGE_COUNT;
+                break;
+
+            default:
+                AGB_ASSERT(FALSE);
+                break;
         }
 
         return 0;

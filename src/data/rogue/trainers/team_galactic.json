@@ -1,0 +1,371 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "name": "GRUNT",
+        "type_assignment": "NONE",
+        "trainer_class": "TRAINER_CLASS_TEAM_GALACTIC",
+        "music_player": "team_galactic",
+        "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+        "class_flags": [ "TEAM_GALACTIC" ],
+        "team_generator":
+        {
+            "subsets": 
+            [
+                {
+                    "max_samples": 2,
+                    "include_types": [ "NORMAL", "DARK", "GHOST" ]
+                },
+                {
+                    "max_samples": 6,
+                    "include_types": [ "POISON", "DARK", "GHOST", "DRAGON" ]
+                }
+            ],
+            "weight_script":
+            [
+                "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+            ]
+        }
+    },
+    "trainers":
+    {
+        "boss":
+        [
+            {
+                "name": "CYRUS",
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_CYRUS",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_CYRUS",
+                "trainer_class": "TRAINER_CLASS_TEAM_GALACTIC_LEADER",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
+                "shiny_species": "SPECIES_CYRUS_ACE",
+                "weather": "PSYCHIC_FOG",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: My aim is to rid our world of the vague and incomplete thing we call spirit.\\pBy freeing ourselves of that, our world can be made complete.",
+                        "PRE_BATTLE_TAUNT": "That is my justice!\\nNo one can interfere!",
+                        "POST_BATTLE_TAUNT": "I won't accept this!\\nThis can't be!",
+                        "POST_BATTLE_CLOSER": "I can't accept this!\\pNot after all the sacrifices we've made to get this far!\\pWhat of my new world?!\\nOf my new galaxy?!\\pI'll never accept this!\\pI shall never stop!\\pMark my words!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL", "POISON" ],
+                            "extra_species":
+                            [
+                                "#ifdef ROGUE_EXPANSION",
+                                    "SPECIES_DIALGA",
+                                    "SPECIES_PALKIA",
+                                    "SPECIES_GIRATINA",
+                                "#else",
+                                    "SPECIES_KYOGRE",
+                                    "SPECIES_GROUDON",
+                                    "SPECIES_RAYQUAZA",
+                                "#endif"
+                            ]
+                        },
+                        {
+                            "max_samples": 10,
+                            "include_types": [ "DRAGON", "DARK", "GHOST" ],
+                            "extra_species":
+                            [
+                                "#ifdef ROGUE_EXPANSION",
+                                    "SPECIES_DIALGA",
+                                    "SPECIES_PALKIA",
+                                    "SPECIES_GIRATINA",
+                                "#else",
+                                    "SPECIES_KYOGRE",
+                                    "SPECIES_GROUDON",
+                                    "SPECIES_RAYQUAZA",
+                                "#endif"
+                            ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_KYOGRE", "INC_FAVOUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            }
+        ],
+        "route":
+        [
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Hey!\\nYou're in my personal Space!",
+                        "POST_BATTLE_TAUNT": "My bubbule is gone…",
+                        "POST_BATTLE_CLOSER": "Do you really have to stand that close!?"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We will remold the Universe in our own image!",
+                        "POST_BATTLE_TAUNT": "Think of the possibilities!",
+                        "POST_BATTLE_CLOSER": "The Universe could be improved ten-fold!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            }
+        ],
+        
+        "hideout":
+        [
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You shouldn't be here!",
+                        "POST_BATTLE_TAUNT": "What!?",
+                        "POST_BATTLE_CLOSER": "How did you do that?!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "This is no place for kids!",
+                        "POST_BATTLE_TAUNT": "Nevermind.",
+                        "POST_BATTLE_CLOSER": "I guess you'll be fine."
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Intruder!?\\nHere!?",
+                        "POST_BATTLE_TAUNT": "Darn it!",
+                        "POST_BATTLE_CLOSER": "You still shouldn't be here!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The power of Time and Space in the palm of our hands!",
+                        "POST_BATTLE_TAUNT": "Nothing will stand in our way!\\nNOTHING!",
+                        "POST_BATTLE_CLOSER": "Hello, {PLAYER}…"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Erm… you don't look like you're suppose to be here.",
+                        "POST_BATTLE_TAUNT": "I guess I was wrong",
+                        "POST_BATTLE_CLOSER": "Sorry. You're not wearing the correct uniform so I got confused."
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I don't really understand our Leader's grand ambition, but surely he can't be wrong!",
+                        "POST_BATTLE_TAUNT": "I still believe!",
+                        "POST_BATTLE_CLOSER": "Our Leader simply cannot be wrong!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I'm going to make my own Space just for me!",
+                        "POST_BATTLE_TAUNT": "Aww…\\nMy space…",
+                        "POST_BATTLE_CLOSER": "I wanted a Space just for me…"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I'm pretty sure we don't let snot nosed kids into our operation.",
+                        "POST_BATTLE_TAUNT": "Maybe I was wrong?",
+                        "POST_BATTLE_CLOSER": "Sorry, I thought you were a spy or something."
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You don't seem too interested in our grand ambition.\\pHere, let me explain it for you.",
+                        "POST_BATTLE_TAUNT": "Do you get it now?",
+                        "POST_BATTLE_CLOSER": "No!?\\nGaah, why do I even bother."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Stop right there!",
+                        "POST_BATTLE_TAUNT": "S-stop!",
+                        "POST_BATTLE_CLOSER": "I- I mean it!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You're the one knocking out the newbies, huh?",
+                        "POST_BATTLE_TAUNT": "Ouch!",
+                        "POST_BATTLE_CLOSER": "You're knocking us all out!?"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The Universe holds all of it's secrets from us, so we will pry the answers out ourselves!",
+                        "POST_BATTLE_TAUNT": "You can never truly stop us!",
+                        "POST_BATTLE_CLOSER": "You can never truly stop us!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Space!",
+                        "POST_BATTLE_TAUNT": "Spaace!\\nSpaaaacceee!",
+                        "POST_BATTLE_CLOSER": "The…\\nCake…"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Make like Hawking Radiation-",
+                        "POST_BATTLE_TAUNT": "-and disappear!",
+                        "POST_BATTLE_CLOSER": "You get it? Funny, right!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "If I don't understand what's going on here, what makes you think you do?!",
+                        "POST_BATTLE_TAUNT": "This proves nothing!",
+                        "POST_BATTLE_CLOSER": "Something about space?"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I'm here for some work experience.\\pLet's see how I manage!",
+                        "POST_BATTLE_TAUNT": "Youch…",
+                        "POST_BATTLE_CLOSER": "I hope that doesn't go into my report."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "This is no place for snot nosed kids!",
+                        "POST_BATTLE_TAUNT": "Wha!!",
+                        "POST_BATTLE_CLOSER": "Wipe your nose!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            }
+        ]
+    }
+}

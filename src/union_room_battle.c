@@ -67,7 +67,7 @@ static void CB2_SetUpPartiesAndStartBattle(void)
     {
         gPlayerParty[i] = gEnemyParty[i];
     }
-    IncrementGameStat(GAME_STAT_NUM_UNION_ROOM_BATTLES);
+    //IncrementGameStat(GAME_STAT_NUM_UNION_ROOM_BATTLES);
     CalculatePlayerPartyCount();
     gTrainerBattleOpponent_A = TRAINER_UNION_ROOM;
     SetMainCallback2(CB2_InitBattle);

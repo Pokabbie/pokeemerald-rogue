@@ -52,6 +52,8 @@
 
 #include "rogue_baked.h"
 #include "rogue_controller.h"
+#include "rogue_gifts.h"
+#include "rogue_quest.h"
 
 enum {
     PSS_PAGE_INFO,
@@ -188,6 +190,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 OTName[17]; // 0x36
         u32 OTID; // 0x48
         u8 teraType;
+        u8 gigatamaxFactor;
     } summary;
     u16 bgTilemapBuffers[PSS_PAGE_COUNT][2][0x400];
     u8 mode;
@@ -206,7 +209,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
     u8 secondMoveIndex;
     bool8 lockMovesFlag; // This is used to prevent the player from changing position of moves in a battle or when trading.
     u8 bgDisplayOrder; // Determines the order page backgrounds are loaded while scrolling between them
-    u8 filler40CA;
+    u8 doneMoveLearnHack;
     u8 windowIds[8];
     u8 spriteIds[SPRITE_ARR_ID_COUNT];
     bool8 handleDeoxys;
@@ -845,6 +848,9 @@ static const struct OamData sOamData_MoveTypes =
     .paletteNum = 0,
     .affineParam = 0,
 };
+
+#define TERA_TYPE_OFFSET (NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_TOUGH + 1)
+
 static const union AnimCmd sSpriteAnim_TypeNormal[] = {
     ANIMCMD_FRAME(TYPE_NORMAL * 8, 0, FALSE, FALSE),
     ANIMCMD_END
@@ -945,7 +951,90 @@ static const union AnimCmd sSpriteAnim_CategoryTough[] = {
     ANIMCMD_FRAME((CONTEST_CATEGORY_TOUGH + NUMBER_OF_MON_TYPES) * 8, 0, FALSE, FALSE),
     ANIMCMD_END
 };
-static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT] = {
+
+static const union AnimCmd sSpriteAnim_TeraTypeNormal[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_NORMAL) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeFighting[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_FIGHTING) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeFlying[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_FLYING) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypePoison[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_POISON) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeGround[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_GROUND) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeRock[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_ROCK) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeBug[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_BUG) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeGhost[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_GHOST) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeSteel[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_STEEL) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeMystery[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_MYSTERY) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeFire[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_FIRE) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeWater[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_WATER) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeGrass[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_GRASS) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeElectric[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_ELECTRIC) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypePsychic[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_PSYCHIC) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeIce[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_ICE) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeDragon[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_DRAGON) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeDark[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_DARK) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeFairy[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_FAIRY) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TeraTypeStellar[] = {
+    ANIMCMD_FRAME((TERA_TYPE_OFFSET + TYPE_STELLAR) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+
+
+static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT + NUMBER_OF_MON_TYPES] = {
     sSpriteAnim_TypeNormal,
     sSpriteAnim_TypeFighting,
     sSpriteAnim_TypeFlying,
@@ -971,12 +1060,32 @@ static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_MON_TYPES
     sSpriteAnim_CategoryCute,
     sSpriteAnim_CategorySmart,
     sSpriteAnim_CategoryTough,
+    sSpriteAnim_TeraTypeNormal,
+    sSpriteAnim_TeraTypeFighting,
+    sSpriteAnim_TeraTypeFlying,
+    sSpriteAnim_TeraTypePoison,
+    sSpriteAnim_TeraTypeGround,
+    sSpriteAnim_TeraTypeRock,
+    sSpriteAnim_TeraTypeBug,
+    sSpriteAnim_TeraTypeGhost,
+    sSpriteAnim_TeraTypeSteel,
+    sSpriteAnim_TeraTypeMystery,
+    sSpriteAnim_TeraTypeFire,
+    sSpriteAnim_TeraTypeWater,
+    sSpriteAnim_TeraTypeGrass,
+    sSpriteAnim_TeraTypeElectric,
+    sSpriteAnim_TeraTypePsychic,
+    sSpriteAnim_TeraTypeIce,
+    sSpriteAnim_TeraTypeDragon,
+    sSpriteAnim_TeraTypeDark,
+    sSpriteAnim_TeraTypeFairy,
+    sSpriteAnim_TeraTypeStellar,
 };
 
 const struct CompressedSpriteSheet gSpriteSheet_MoveTypes =
 {
     .data = gMoveTypes_Gfx,
-    .size = (NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) * 0x100,
+    .size = (NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT + NUMBER_OF_MON_TYPES) * 0x100,
     .tag = TAG_MOVE_TYPES
 };
 const struct SpriteTemplate gSpriteTemplate_MoveTypes =
@@ -989,7 +1098,8 @@ const struct SpriteTemplate gSpriteTemplate_MoveTypes =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCallbackDummy
 };
-static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT] =
+
+static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT + NUMBER_OF_MON_TYPES] =
 {
     [TYPE_NORMAL] = 13,
     [TYPE_FIGHTING] = 13,
@@ -1016,6 +1126,26 @@ static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIE
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_CUTE] = 14,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_SMART] = 15,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_TOUGH] = 13,
+    [TERA_TYPE_OFFSET + TYPE_NORMAL] = 13,
+    [TERA_TYPE_OFFSET + TYPE_FIGHTING] = 13,
+    [TERA_TYPE_OFFSET + TYPE_FLYING] = 14,
+    [TERA_TYPE_OFFSET + TYPE_POISON] = 14,
+    [TERA_TYPE_OFFSET + TYPE_GROUND] = 13,
+    [TERA_TYPE_OFFSET + TYPE_ROCK] = 13,
+    [TERA_TYPE_OFFSET + TYPE_BUG] = 15,
+    [TERA_TYPE_OFFSET + TYPE_GHOST] = 14,
+    [TERA_TYPE_OFFSET + TYPE_STEEL] = 13,
+    [TERA_TYPE_OFFSET + TYPE_MYSTERY] = 15,
+    [TERA_TYPE_OFFSET + TYPE_FIRE] = 13,
+    [TERA_TYPE_OFFSET + TYPE_WATER] = 14,
+    [TERA_TYPE_OFFSET + TYPE_GRASS] = 15,
+    [TERA_TYPE_OFFSET + TYPE_ELECTRIC] = 13,
+    [TERA_TYPE_OFFSET + TYPE_PSYCHIC] = 14,
+    [TERA_TYPE_OFFSET + TYPE_ICE] = 14,
+    [TERA_TYPE_OFFSET + TYPE_DRAGON] = 15,
+    [TERA_TYPE_OFFSET + TYPE_DARK] = 13,
+    [TERA_TYPE_OFFSET + TYPE_FAIRY] = 14,
+    [TERA_TYPE_OFFSET + TYPE_STELLAR] = 15,
 };
 static const struct OamData sOamData_MoveSelector =
 {
@@ -1259,7 +1389,7 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
         sMonSummaryScreen->lockMovesFlag = TRUE;
         break;
     case SUMMARY_MODE_SELECT_MOVE:
-        sMonSummaryScreen->minPageIndex = PSS_PAGE_BATTLE_MOVES; // PSS_PAGE_SKILLS (This bugs it out, so need to fix the input and drawing)
+        sMonSummaryScreen->minPageIndex = 0;
         sMonSummaryScreen->maxPageIndex = PSS_PAGE_BATTLE_MOVES;//PSS_PAGE_COUNT - 1;
         sMonSummaryScreen->currPageIndex = PSS_PAGE_BATTLE_MOVES;
         sMonSummaryScreen->lockMonFlag = TRUE;
@@ -1632,6 +1762,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
     default:
         sum->ribbonCount = GetMonData(mon, MON_DATA_RIBBON_COUNT);
         sum->teraType = GetMonData(mon, MON_DATA_TERA_TYPE);
+        sum->gigatamaxFactor = GetMonData(mon, MON_DATA_GIGANTAMAX_FACTOR);
         return TRUE;
     }
     sMonSummaryScreen->switchCounter++;
@@ -1649,8 +1780,8 @@ static void SetDefaultTilemaps(void)
     {
         DrawContestMoveHearts(sMonSummaryScreen->summary.moves[sMonSummaryScreen->firstMoveIndex]);
         TilemapFiveMovesDisplay(sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_BATTLE_MOVES][0], 0, FALSE);
-        TilemapFiveMovesDisplay(sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_CONTEST_MOVES][0], 1, FALSE);
-        SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_CONTEST_MOVES][0]);
+        //TilemapFiveMovesDisplay(sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][0], 1, FALSE);
+        SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_SKILLS][0]);
         SetBgTilemapBuffer(2, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_BATTLE_MOVES][0]);
         ChangeBgX(2, 0x10000, BG_COORD_ADD);
         ClearWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_SPECIES);
@@ -2050,6 +2181,22 @@ static void PssScrollLeft(u8 taskId) // Scroll left
         else
             data[1] = 1;
         ChangeBgX(data[1], 0x10000, BG_COORD_SET);
+
+        if(sMonSummaryScreen->mode == SUMMARY_MODE_SELECT_MOVE && !sMonSummaryScreen->doneMoveLearnHack)
+        {
+            // Make sure the page graphics are setup correctly
+            sMonSummaryScreen->doneMoveLearnHack = TRUE;
+            
+            SetBgAttribute(2, BG_ATTR_PRIORITY, 1);
+            SetBgAttribute(1, BG_ATTR_PRIORITY, 2);
+            ScheduleBgCopyTilemapToVram(2);
+            
+            SetBgTilemapBuffer(1, sMonSummaryScreen->bgTilemapBuffers[sMonSummaryScreen->currPageIndex - 1][0]);
+            ShowBg(1);
+            ShowBg(2);
+
+            ChangeBgX(1, 0x10000, BG_COORD_SET);
+        }
     }
     ChangeBgX(data[1], 0x2000, BG_COORD_SUB);
     data[0] += 32;
@@ -2414,12 +2561,14 @@ static void Task_HandleReplaceMoveInput(u8 taskId)
     {
         if (gPaletteFade.active != TRUE)
         {
-            if (JOY_NEW(DPAD_UP))
+            bool8 onMovesPage = (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES);
+
+            if (onMovesPage && JOY_NEW(DPAD_UP))
             {
                 data[0] = 4;
                 ChangeSelectedMove(data, -1, &sMonSummaryScreen->firstMoveIndex);
             }
-            else if (JOY_NEW(DPAD_DOWN))
+            else if (onMovesPage && JOY_NEW(DPAD_DOWN))
             {
                 data[0] = 4;
                 ChangeSelectedMove(data, 1, &sMonSummaryScreen->firstMoveIndex);
@@ -2434,18 +2583,25 @@ static void Task_HandleReplaceMoveInput(u8 taskId)
             }
             else if (JOY_NEW(A_BUTTON))
             {
-                if (CanReplaceMove() == TRUE)
+                if(onMovesPage)
                 {
-                    StopPokemonAnimations();
-                    PlaySE(SE_SELECT);
-                    sMoveSlotToReplace = sMonSummaryScreen->firstMoveIndex;
-                    gSpecialVar_0x8005 = sMoveSlotToReplace;
-                    BeginCloseSummaryScreen(taskId);
+                    if (CanReplaceMove() == TRUE)
+                    {
+                        StopPokemonAnimations();
+                        PlaySE(SE_SELECT);
+                        sMoveSlotToReplace = sMonSummaryScreen->firstMoveIndex;
+                        gSpecialVar_0x8005 = sMoveSlotToReplace;
+                        BeginCloseSummaryScreen(taskId);
+                    }
+                    else
+                    {
+                        PlaySE(SE_FAILURE);
+                        ShowCantForgetHMsWindow(taskId);
+                    }
                 }
-                else
+                else if(sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
                 {
-                    PlaySE(SE_FAILURE);
-                    ShowCantForgetHMsWindow(taskId);
+                    ChangeTab(taskId, 1);
                 }
             }
             else if (JOY_NEW(B_BUTTON))
@@ -3114,7 +3270,10 @@ static void PutPageWindowTilemaps(u8 page)
     {
     case PSS_PAGE_INFO:
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TITLE);
-        PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_CANCEL);
+        if (sMonSummaryScreen->mode != SUMMARY_MODE_SELECT_MOVE)
+        {
+            PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_CANCEL);
+        }
         if (InBattleFactory() == TRUE || InSlateportBattleTent() == TRUE)
             PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL);
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TYPE);
@@ -3165,7 +3324,10 @@ static void ClearPageWindowTilemaps(u8 page)
     switch (page)
     {
     case PSS_PAGE_INFO:
-        ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_CANCEL);
+        if (sMonSummaryScreen->mode != SUMMARY_MODE_SELECT_MOVE)
+        {
+            ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_CANCEL);
+        }
         if (InBattleFactory() == TRUE || InSlateportBattleTent() == TRUE)
             ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL);
         ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TYPE);
@@ -3297,18 +3459,30 @@ static void Task_PrintInfoPage(u8 taskId)
     data[0]++;
 }
 
+static u8 const sText_UniqueMon[] = _("Unique {PKMN}");
+
 static void PrintMonOTName(void)
 {
     int x, windowId;
     if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE)
     {
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.OTID);
         windowId = AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER);
-        PrintTextOnWindow(windowId, gText_OTSlash, 0, 1, 0, 1);
-        x = GetStringWidth(FONT_NORMAL, gText_OTSlash, 0);
-        if (sMonSummaryScreen->summary.OTGender == 0)
-            PrintTextOnWindow(windowId, sMonSummaryScreen->summary.OTName, x, 1, 0, 5);
+
+        if(customMonId != 0 && RogueGift_DisplayCustomMonRarity(customMonId))
+        {
+            // Print "Unique Pokémon"
+            PrintTextOnWindow(windowId, sText_UniqueMon, 0, 1, 0, 1);
+        }
         else
-            PrintTextOnWindow(windowId, sMonSummaryScreen->summary.OTName, x, 1, 0, 6);
+        {
+            PrintTextOnWindow(windowId, gText_OTSlash, 0, 1, 0, 1);
+            x = GetStringWidth(FONT_NORMAL, gText_OTSlash, 0);
+            if (sMonSummaryScreen->summary.OTGender == 0)
+                PrintTextOnWindow(windowId, sMonSummaryScreen->summary.OTName, x, 1, 0, 5);
+            else
+                PrintTextOnWindow(windowId, sMonSummaryScreen->summary.OTName, x, 1, 0, 6);
+        }
     }
 }
 
@@ -3317,16 +3491,57 @@ static void PrintMonOTID(void)
     int xPos;
     if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE)
     {
-        ConvertIntToDecimalStringN(StringCopy(gStringVar1, gText_IDNumber2), (u16)sMonSummaryScreen->summary.OTID, STR_CONV_MODE_LEADING_ZEROS, 5);
-        xPos = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 56);
-        PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ID), gStringVar1, xPos, 1, 0, 1);
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.OTID);
+
+        if(customMonId != 0 && RogueGift_DisplayCustomMonRarity(customMonId))
+        {
+            StringCopy(gStringVar1, sMonSummaryScreen->summary.OTName);
+            xPos = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 56);
+            
+            if (sMonSummaryScreen->summary.OTGender == 0)
+                PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ID), gStringVar1, xPos, 1, 0, 5);
+            else
+                PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ID), gStringVar1, xPos, 1, 0, 6);
+        }
+        else
+        {
+            ConvertIntToDecimalStringN(StringCopy(gStringVar1, gText_IDNumber2), (u16)sMonSummaryScreen->summary.OTID, STR_CONV_MODE_LEADING_ZEROS, 5);
+            xPos = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar1, 56);
+            PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ID), gStringVar1, xPos, 1, 0, 1);
+        }
     }
+}
+
+static u8 const sText_GmaxFactor[] = _("GMAX");
+
+static bool32 HasAccessToGmaxForm(u16 species)
+{
+    u32 i;
+    struct FormChange formChange;
+
+    for (i = 0; TRUE; i++)
+    {
+        Rogue_ModifyFormChange(species, i, &formChange);
+
+        if(formChange.method == FORM_CHANGE_TERMINATOR)
+            break;
+
+        if(formChange.method == FORM_CHANGE_BATTLE_GIGANTAMAX)
+            return TRUE;
+    }
+
+    return FALSE;
 }
 
 static void PrintMonAbilityName(void)
 {
     u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum, sMonSummaryScreen->summary.OTID);
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilityNames[ability], 0, 1, 0, 1);
+
+    if(IsDynamaxEnabled() && HasAccessToGmaxForm(sMonSummaryScreen->summary.species) && (sMonSummaryScreen->summary.gigatamaxFactor || RogueQuest_GetMonMasteryFlag(sMonSummaryScreen->summary.species)))
+    {
+        PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), sText_GmaxFactor, 118, 1, 0, SUMMARY_TEXT_COLOR_RED);
+    }
 }
 
 static void PrintMonAbilityDescription(void)
@@ -4172,7 +4387,7 @@ static void SetMonTypeIcons(void)
         //if (P_SHOW_TERA_TYPE >= GEN_9)
         if(IsTerastallizeEnabled()) // todo - should show this even if tera is disabled, only in hub and only after having unlocked it
         {
-            SetTypeSpritePosAndPal(summary->teraType, 200, 48, SPRITE_ARR_ID_TYPE + 2);
+            SetTypeSpritePosAndPal(TERA_TYPE_OFFSET + summary->teraType, 200, 48, SPRITE_ARR_ID_TYPE + 2);
         }
     }
 }
@@ -4476,6 +4691,13 @@ static void SpriteCB_MoveSelector(struct Sprite *sprite)
         sprite->data[1] = 0;
         sprite->invisible = FALSE;
     }
+    
+    if(sMonSummaryScreen->mode == SUMMARY_MODE_SELECT_MOVE && sMonSummaryScreen->currPageIndex != PSS_PAGE_BATTLE_MOVES)
+    {
+        // Always hide on other screens
+        sprite->invisible = TRUE;
+    }
+
 
     if (sprite->data[0] == SPRITE_ARR_ID_MOVE_SELECTOR1)
         sprite->y2 = sMonSummaryScreen->firstMoveIndex * 16;

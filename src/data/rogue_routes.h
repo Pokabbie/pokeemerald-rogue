@@ -4,7 +4,13 @@
 #include "constants/maps.h"
 #include "constants/weather.h"
 
-#define ROUTE_MAP(map) { .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), }
+#ifdef ROGUE_DEBUG
+#define ROUTE_MAP(map) { .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map), .debugName = _(#map) }
+#else
+#define ROUTE_MAP(map) { .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map) }
+#endif
+
+
 #define ENCOUNTER_MAP(id, map) { .encounterId=id, .layout=LAYOUT_##map, .group=MAP_GROUP(map), .num=MAP_NUM(map) }
 
 
@@ -186,6 +192,51 @@ static const struct RogueRouteEncounter sRogueRouteTable[] = {
         .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_212),
         .wildTypeTable = { TYPE_WATER, TYPE_POISON, TYPE_GROUND }
     },
+    {
+        .mapFlags = ROUTE_FLAG_SINNOH,
+        .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_217),
+        .wildTypeTable = { TYPE_ICE, TYPE_FIGHTING, TYPE_DARK }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_SINNOH,
+        .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_210),
+#ifdef ROGUE_EXPANSION
+        .wildTypeTable = { TYPE_DRAGON, TYPE_PSYCHIC, TYPE_FAIRY }
+#else
+        .wildTypeTable = { TYPE_DRAGON, TYPE_PSYCHIC, TYPE_GHOST }
+#endif
+    },
+    {
+        .mapFlags = ROUTE_FLAG_SINNOH,
+        .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_201),
+        .wildTypeTable = { TYPE_NORMAL, TYPE_BUG, TYPE_FLYING }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_SINNOH,
+        .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_214),
+        .wildTypeTable = { TYPE_DARK, TYPE_FIGHTING, TYPE_GRASS }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_SINNOH,
+        .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_209),
+#ifdef ROGUE_EXPANSION
+        .wildTypeTable = { TYPE_FAIRY, TYPE_GHOST, TYPE_ELECTRIC }
+#else
+        .wildTypeTable = { TYPE_NORMAL, TYPE_GHOST, TYPE_ELECTRIC }
+#endif
+    },
+    {
+        .mapFlags = ROUTE_FLAG_SINNOH,
+        .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_MT_CORONET),
+        .dropRarity = 2,
+        .wildTypeTable = { TYPE_PSYCHIC, TYPE_GROUND, TYPE_STEEL }
+    },
+    {
+        .mapFlags = ROUTE_FLAG_SINNOH,
+        .map = ROUTE_MAP(ROGUE_ROUTE_SINNOH_IRON_ISLAND),
+        .dropRarity = 2,
+        .wildTypeTable = { TYPE_STEEL, TYPE_ELECTRIC, TYPE_FIRE }
+    },
 };
 
 const struct RogueRouteData gRogueRouteTable = 
@@ -271,6 +322,7 @@ static const struct RogueEncounterMap sRogueLegendaryEncounters[] =
     ENCOUNTER_MAP(SPECIES_TAPU_FINI, ROGUE_SPECIAL_GEN7_MON),
     //ENCOUNTER_MAP(SPECIES_COSMOG),
     //ENCOUNTER_MAP(SPECIES_COSMOEM),
+    ENCOUNTER_MAP(SPECIES_COSMOG, ROGUE_SPECIAL_GEN7_MON),
     ENCOUNTER_MAP(SPECIES_SOLGALEO, ROGUE_SPECIAL_GEN7_MON),
     ENCOUNTER_MAP(SPECIES_LUNALA, ROGUE_SPECIAL_GEN7_MON),
     ENCOUNTER_MAP(SPECIES_NIHILEGO, ROGUE_SPECIAL_GEN7_MON),
@@ -361,6 +413,9 @@ static const struct RogueEncounterMap sRogueTeamEncounters[] =
 
     ENCOUNTER_MAP(TEAM_NUM_MAGMA, ROGUE_ENCOUNTER_MT_CHIMNEY),
     ENCOUNTER_MAP(TEAM_NUM_MAGMA + TEAM_PRE_LEGEND_MAP_OFFSET, ROGUE_ENCOUNTER_MAGMA_HIDEOUT),
+
+    ENCOUNTER_MAP(TEAM_NUM_GALACTIC, ROGUE_ENCOUNTER_LAKE_VALOR),
+    ENCOUNTER_MAP(TEAM_NUM_GALACTIC + TEAM_PRE_LEGEND_MAP_OFFSET, ROGUE_ENCOUNTER_GALACTIC_HQ),
 };
 
 const struct RogueEncounterData gRogueTeamEncounterInfo = 

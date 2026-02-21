@@ -1,5 +1,7 @@
 const FLAG_HIDE_RUIN_MANIAC = FLAG_TEMP_1
 const FLAG_HIDE_POKABBIE = FLAG_TEMP_2
+const FLAG_HIDE_STARTER_BAG = FLAG_TEMP_3
+const FLAG_HIDE_REPLAY_FLAG = FLAG_TEMP_4
 
 const VAR_FRAME_STATE = VAR_TEMP_0
 const VAR_INTRO_SCRIPT_STATE = VAR_TEMP_2
@@ -63,16 +65,6 @@ script Rogue_Area_AdventureEntrance_MapLoad
         setvar(VAR_INTRO_SCRIPT_STATE, HUB_AREA_CONN_COUNT)
     }
 
-    special(Rogue_HasUnlockedRandomStarterTrade)
-    if(var(VAR_RESULT) == TRUE)
-    {
-        clearflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
-    }
-    else
-    {
-        setflag(FLAG_ROGUE_RANDOM_TRADE_DISABLED)
-    }
-
     if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_MET_POKABBIE))
     {
         clearflag(FLAG_HIDE_POKABBIE)
@@ -100,7 +92,26 @@ script Rogue_Area_AdventureEntrance_MapLoad
         setflag(FLAG_HIDE_POKABBIE)
     }
 
-    call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+    hubupgradeunlocked(HUB_UPGRADE_ADVENTURE_ENTRANCE_RANDOM_STARTER)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_HIDE_STARTER_BAG)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_STARTER_BAG)
+    }
+
+    hubupgradeunlocked(HUB_UPGRADE_ADVENTURE_ENTRANCE_ADVENTURE_REPLAY)
+    if(var(VAR_RESULT) == YES)
+    {
+        clearflag(FLAG_HIDE_REPLAY_FLAG)
+        call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+    }
+    else
+    {
+        setflag(FLAG_HIDE_REPLAY_FLAG)
+    }
 }
 
 script Rogue_Area_AdventureEntrance_WarpState0
@@ -130,6 +141,14 @@ script Rogue_Area_AdventureEntrance_WarpState0
     {
         call(Rogue_ReturnAdventureInternal)
     }
+
+    if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_MET_POKABBIE))
+    {
+        lockall
+        call(Rogue_Area_AdventureEntrance_MeetPokabbie)
+        releaseall
+    }
+
     setvar(VAR_FRAME_STATE, 1)
 }
 
@@ -230,8 +249,7 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
         msgbox(format("Hi {PLAYER}!\pIt looks like you're almost ready to set off on an Adventure!\pBefore you set off, please take this."))
 
         giveitem(ITEM_QUEST_LOG)
-        bufferitemname(STR_VAR_1, ITEM_QUEST_LOG)
-        msgbox(format("You can use that {STR_VAR_1} to accept Quests and Challenges to complete during Adventures.\pIf you would please make your way over to the Quest Board to your left, there should be some initial Quests to get you started!"))
+        msgbox(format("You can use that Quest Book to accept Quests and Challenges to complete during Adventures.\pIf you would please make your way over to the Quest Board to your left, there should be some initial Quests to get you started!"))
 
         closemessage
         playbgm(MUS_RG_FOLLOW_ME, FALSE)
@@ -260,6 +278,19 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
         }
         else
         {
+            // Give player the daycare phone if they didn't pick it up before exiting
+            hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_PHONE)
+            if(var(VAR_RESULT) == TRUE)
+            {
+                checkitem(ITEM_DAYCARE_PHONE)
+
+                if(var(VAR_RESULT) == NO)
+                {
+                    msgbox(format("{PLAYER}!\pI have a package I was asked to hand to you."))
+                    call(Rogue_Area_DayCare_GiveDayCarePhone)
+                }
+            }
+
             special(Rogue_HasPendingQuestRewards)
             if(var(VAR_RESULT) == YES)
             {
@@ -273,10 +304,6 @@ script Rogue_Area_AdventureEntrance_SpeakNurse
 
         if(var(VAR_RESULT) == YES)
         {
-            if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_GO_ON_ADVENTURE)
-            {
-                addvar(VAR_ROGUE_INTRO_STATE, 1)
-            }
             call(Rogue_ResetAdventureVars)
             call(Rogue_StartAdventureInternal)
         }
@@ -318,13 +345,13 @@ script Rogue_ResetAdventureVars
 
 script Rogue_StartAdventureInternal
 {
-    //special(Rogue_AnyNewQuestsPending)
-
-    if(var(VAR_RESULT) == TRUE)
+    special(Rogue_IsMultiplayerClient)
+    if(var(VAR_RESULT) == YES)
     {
-        msgbox(format("Before you head out, I should mention, you have pending Quest rewards to collect.\pDo you still want to continue?"), MSGBOX_YESNO)
+        special(Rogue_IsMultiplayerAdventureJoinable)
         if(var(VAR_RESULT) == NO)
         {
+            msgbox(format("I'm afraid you can't leave on an Adventure right now.\pPlease wait for {RIVAL} to start, so you may join."))
             return
         }
     }
@@ -354,13 +381,18 @@ script Rogue_StartAdventureInternal
     call(Common_EventScript_SaveGame)
     if(var(VAR_RESULT) == YES)
     {
+        if(var(VAR_ROGUE_INTRO_STATE) == ROGUE_INTRO_STATE_GO_ON_ADVENTURE)
+        {
+            addvar(VAR_ROGUE_INTRO_STATE, 1)
+        }
+
         special(Rogue_SeedRandomGenerators)
         msgbox(format("Good luck {PLAYER}!"))
         closemessage
 
         setvar(VAR_STARTER_SWAP_SPECIES, SPECIES_NONE)
 
-        if(!flag(FLAG_ROGUE_RANDOM_TRADE_DISABLED))
+        if(!flag(FLAG_HIDE_STARTER_BAG))
         {
             applymovement(OBJ_EVENT_ADVENTURE_NURSE, Rogue_Adventure_WalkNurse)
             applymovement(OBJ_EVENT_ID_PLAYER, Rogue_Adventure_WalkPlayerStarter)
@@ -455,7 +487,7 @@ script Rogue_ReturnAdventureInternal
         {
             buffernumberstring(STR_VAR_1, VAR_0x8000)
 
-            message(format("You recieved ¥{STR_VAR_1}"))
+            message(format("You received ¥{STR_VAR_1}"))
             playfanfare(MUS_OBTAIN_ITEM)
             waitmessage
             waitfanfare
@@ -465,12 +497,12 @@ script Rogue_ReturnAdventureInternal
         {
             if(var(VAR_0x8001) == 1)
             {
-                message(format("Party recieved 1 LVL"))
+                message(format("Party received 1 LVL"))
             }
             else
             {
                 buffernumberstring(STR_VAR_1, VAR_0x8001)
-                message(format("Party recieved {STR_VAR_1} LVLs"))
+                message(format("Party received {STR_VAR_1} LVLs"))
             }
 
             playfanfare(FANFARE_LEVEL_UP)
@@ -511,12 +543,23 @@ script Rogue_ReturnAdventureInternal
     {
         call(Common_EventScript_SaveGame)
     }
-    msgbox(format("Come speak to me, once you're ready for your next adventure."), MSGBOX_DEFAULT)
 
-    if(flag(FLAG_IS_CHAMPION) && !flag(FLAG_ROGUE_MET_POKABBIE))
+    special(Rogue_ShouldNursePromptConfigLabSettingsChange)
+    if(var(VAR_RESULT) == YES)
     {
-        call(Rogue_Area_AdventureEntrance_MeetPokabbie)
+        msgbox(format("{PLAYER}, before you head off-"), MSGBOX_DEFAULT)
+
+        if(var(VAR_0x8004) == 1)
+        {
+            msgbox(format("I just wanted to remind you that you can adjust your Difficulty in the Config Lab to make it more of a Challenge if you'd like.\pYou can edit individual controls too, if you'd prefer to take smaller Difficulty steps rather than one giant leap."), MSGBOX_DEFAULT)
+        }
+        else
+        {
+            msgbox(format("I just wanted to remind you that you can adjust your Difficulty in the Config Lab to make it more manageable if you'd like.\pYou can edit individual controls too, if you'd prefer to take smaller Difficulty steps rather than one giant leap."), MSGBOX_DEFAULT)
+        }
     }
+
+    msgbox(format("Come speak to me, once you're ready for your next adventure."), MSGBOX_DEFAULT)
 
     releaseall
 }
@@ -540,17 +583,25 @@ script Rogue_Area_AdventureEntrance_TalkPeonia
 
     if(var(VAR_RESULT) == YES)
     {
-        special(Rogue_RememberAdventure)
-        msgbox(format("OK.\nI've remembered that Adventure path for you!"))
-
-        if(!flag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE))
+        special(Rogue_IsValidAdventureToRemember)
+        if(var(VAR_RESULT) == NO)
         {
-            msgbox(format("You would like me to raise the flag, so you can replay the Adventure right now?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
+            msgbox(format("Oh, It doesn't seem like you've recently been on an Adventure?\pCome speak to me after you've next been on an Adventure, so I can remember it for you."))
+        }
+        else
+        {
+            special(Rogue_RememberAdventure)
+            msgbox(format("OK.\nI've remembered that Adventure path for you!"))
+
+            if(!flag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE))
             {
-                setflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
-                call(Rogue_Area_AdventureEntrance_UpdateFlagState)
-                special(ReloadWarpSilent)
+                msgbox(format("You would like me to raise the flag, so you can replay the Adventure right now?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    setflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
+                    call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+                    special(ReloadWarpSilent)
+                }
             }
         }
     }
@@ -563,32 +614,45 @@ script Rogue_Area_AdventureEntrance_TalkFlag
     lock
     msgbox(format("It's the Replay Adventure flag!"))
 
-    if(flag(FLAG_ROGUE_MET_PEONIA))
+    special(Rogue_IsMultiplayerClient)
+    if(var(VAR_RESULT) == NO)
     {
-        if(flag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE))
+        special(Rogue_IsValidAdventureToReplay)
+    
+        if(var(VAR_RESULT) == YES)
         {
-            msgbox(format("You would like to lower the flag, to return to playing normally?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
+            if(flag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE))
             {
-                clearflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
-                call(Rogue_Area_AdventureEntrance_UpdateFlagState)
-                special(ReloadWarpSilent)
+                msgbox(format("You would like to lower the flag, to return to playing normally?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    clearflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
+                    call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+                    special(ReloadWarpSilent)
+                }
+            }
+            else
+            {
+                msgbox(format("You would like to raise the flag, to play Peonia's Remembered Adventure?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == YES)
+                {
+                    setflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
+                    call(Rogue_Area_AdventureEntrance_UpdateFlagState)
+                    special(ReloadWarpSilent)
+                }
             }
         }
         else
         {
-            msgbox(format("You would like to raise the flag, to play Peonia's Remembered Adventure?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES)
+            if(flag(FLAG_ROGUE_MET_PEONIA))
             {
-                setflag(FLAG_ROGUE_ADVENTURE_REPLAY_ACTIVE)
-                call(Rogue_Area_AdventureEntrance_UpdateFlagState)
-                special(ReloadWarpSilent)
+                msgbox(format("No Adventure has currently, been remembered.\pSpeak to Peonia before raising this flag.\p(Remembered Adventures can be cleared between Updates)"))
+            }
+            else
+            {
+                msgbox(format("I probably shouldn't touch this right now…"))
             }
         }
-    }
-    else
-    {
-        msgbox(format("I probably shouldn't touch this right now…"))
     }
 
     release
@@ -618,7 +682,7 @@ script Rogue_Area_AdventureEntrance_MeetPokabbie
     closemessage
 
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
-    playbgm(MUS_DP_ENCOUNTER_LADY, TRUE)
+    playbgm(MUS_PL_MYSTERY_GIFT, TRUE)
 
     call(Rogue_Area_AdventureEntrance_PokabbieEnterMovement)
     waitmovement(0)
@@ -644,8 +708,8 @@ script Rogue_Area_AdventureEntrance_MeetPokabbie
     delay(30)
 
     playse(SE_M_EXPLOSION)
-    setvar(VAR_SHAKE_VERTICAL_PAN, -8)
-    setvar(VAR_SHAKE_HORIZONTAL_PAN, 8)
+    setvar(VAR_SHAKE_VERTICAL_PAN, -5)
+    setvar(VAR_SHAKE_HORIZONTAL_PAN, 5)
     setvar(VAR_SHAKE_NUM_SHAKES, 8)
     setvar(VAR_SHAKE_SHAKE_DELAY, 4)
     special(ShakeCameraNoSE)

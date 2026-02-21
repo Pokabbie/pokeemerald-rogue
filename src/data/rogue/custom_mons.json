@@ -12,7 +12,7 @@
                 "trainer_colour": 0
             },
             {
-                "name": "Rndoman",
+                "name": "Wahey",
                 "trainer_id": 22822,
                 "trainer_colour": 0
             },
@@ -21,8 +21,30 @@
                 "trainer_colour": 0
             },
             {
+                "name": "?????",
+                "trainer_id": 181,
+                "trainer_colour": 1
+            },
+            {
                 "name": "Abbie",
                 "trainer_id": 181,
+                "trainer_colour": 1
+            },
+
+            {
+                "name": "Common",
+                "trainer_colour": 0
+            },
+            {
+                "name": "Rare",
+                "trainer_colour": 0
+            },
+            {
+                "name": "Epic",
+                "trainer_colour": 1
+            },
+            {
+                "name": "Exotic",
                 "trainer_colour": 1
             }
         ]
@@ -48,7 +70,8 @@
                     "MOVE_DRAGON_BREATH",
                     "MOVE_MAGIC_COAT",
                     "MOVE_THUNDER",
-                    "MOVE_TAIL_GLOW"
+                    "MOVE_TAIL_GLOW",
+                    "MOVE_BLIZZARD"
                 ],
                 "abilities":
                 [
@@ -63,20 +86,21 @@
                 "moves":
                 [
                     "MOVE_METEOR_BEAM",
-                    "MOVE_MAGIC_COAT",
-                    "MOVE_DISCHARGE",
-                    "MOVE_TAIL_GLOW"
+                    "MOVE_SPLISHY_SPLASH",
+                    "MOVE_THUNDERCLAP",
+                    "MOVE_TAIL_GLOW",
+                    "MOVE_HURRICANE"
                 ],
                 "abilities":
                 [
                     "ABILITY_FLUFFY",
-                    "ABILITY_TERAVOLT",
-                    "ABILITY_NONE"
+                    "ABILITY_NONE",
+                    "ABILITY_TERAVOLT"
                 ]
             },
             {
                 "species": "SPECIES_ELECTRODE",
-                "trainer": "Rndoman",
+                "trainer": "Wahey",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_SILK_SCARF",
                 "moves":
@@ -95,7 +119,7 @@
             {
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_FARFETCHD",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
@@ -113,14 +137,14 @@
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_FARFETCHD",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
                     "MOVE_SACRED_SWORD",
                     "MOVE_CEASELESS_EDGE",
-                    "MOVE_LEAF_BLADE",
+                    "MOVE_SOLAR_BLADE",
                     "MOVE_BITTER_BLADE"
                 ],
                 "abilities":
@@ -131,7 +155,7 @@
             {
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_SPINARAK",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
@@ -149,7 +173,7 @@
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_SPINARAK",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
@@ -157,19 +181,18 @@
                     "MOVE_U_TURN",
                     "MOVE_GUNK_SHOT",
                     "MOVE_FELL_STINGER",
-                    "MOVE_SUCKER_PUNCH"
+                    "MOVE_FIRST_IMPRESSION"
                 ],
                 "abilities":
                 [
                     "ABILITY_ADAPTABILITY",
-                    "ABILITY_BATTLE_ARMOR",
-                    "ABILITY_NONE"
+                    "ABILITY_BATTLE_ARMOR"
                 ]
             },
             {
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_CASTFORM",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
@@ -187,96 +210,127 @@
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_CASTFORM",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
-                    "MOVE_HURRICANE",
-                    "MOVE_THUNDER",
-                    "MOVE_SCALD",
-                    "MOVE_CHILLY_RECEPTION"
+                    "MOVE_SHORE_UP",
+                    "MOVE_BLEAKWIND_STORM",
+                    "MOVE_WILDBOLT_STORM",
+                    "MOVE_SANDSEAR_STORM"
                 ],
                 "abilities":
                 [
-                    "ABILITY_FORECAST_DRIZZLE",
-                    "ABILITY_FORECAST_DROUGHT",
-                    "ABILITY_FORECAST_SNOW"
+                    "ABILITY_FORECAST_PRIORITY"
                     
+                ]
+            },
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_LOTAD",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_PETAL_DANCE",
+                    "MOVE_FEATHER_DANCE",
+                    "MOVE_SWORDS_DANCE",
+                    "MOVE_DRAGON_DANCE"
+                ],
+                "abilities":
+                [
+                    "ABILITY_GUTS"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_LOTAD",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_PETAL_DANCE",
+                    "MOVE_QUIVER_DANCE",
+                    "MOVE_FEATHER_DANCE",
+                    "MOVE_LUNAR_DANCE"
+                ],
+                "abilities":
+                [
+                    "ABILITY_DANCER"
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_CARNIVINE",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
                     "MOVE_TROP_KICK",
                     "MOVE_AIR_SLASH",
-                    "MOVE_SLUDGE_BOMB",
-                    "MOVE_SYNTHESIS"
+                    "MOVE_MALIGNANT_CHAIN",
+                    "MOVE_SPORE"
                 ],
                 "abilities":
                 [
                     "ABILITY_UNBURDEN",
-                    "ABILITY_SERENE_GRACE",
-                    "ABILITY_NONE"
+                    "ABILITY_SERENE_GRACE"
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_KLINK",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
                     "MOVE_RAPID_SPIN",
                     "MOVE_BODY_PRESS",
-                    "MOVE_IRON_DEFENSE",
-                    "MOVE_STEEL_ROLLER"
+                    "MOVE_BULK_UP",
+                    "MOVE_ZIPPY_ZAP"
                 ],
                 "abilities":
                 [
                     "ABILITY_LEVITATE",
-                    "ABILITY_VOLT_ABSORB",
-                    "ABILITY_NONE"
+                    "ABILITY_VOLT_ABSORB"
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_LITLEO",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
                     "MOVE_FIERY_WRATH",
                     "MOVE_AURA_SPHERE",
-                    "MOVE_FLAMETHROWER",
-                    "MOVE_FIRE_BLAST"
+                    "MOVE_BURNING_JEALOUSY",
+                    "MOVE_BURNING_BULWARK"
                 ],
                 "abilities":
                 [
                     "ABILITY_FLASH_FIRE",
-                    "ABILITY_INTIMIDATE",
-                    "ABILITY_NONE"
+                    "ABILITY_INTIMIDATE"
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_DRAMPA",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
                     "MOVE_SLUDGE_BOMB",
                     "MOVE_PSYCHIC",
-                    "MOVE_DRAGON_PULSE",
-                    "MOVE_HYPER_VOICE"
+                    "MOVE_FICKLE_BEAM",
+                    "MOVE_BRINE"
                 ],
                 "abilities":
                 [
@@ -288,48 +342,83 @@
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_CLOBBOPUS",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
                     "MOVE_JET_PUNCH",
                     "MOVE_FLIP_TURN",
-                    "MOVE_BULK_UP",
-                    "MOVE_DRAIN_PUNCH"
+                    "MOVE_SWORDS_DANCE",
+                    "MOVE_FLYING_PRESS"
                 ],
                 "abilities":
                 [
                     "ABILITY_WATER_VEIL",
-                    "ABILITY_SWIFT_SWIM",
-                    "ABILITY_NONE"
+                    "ABILITY_SWIFT_SWIM"
                 ]
             },
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_CAPSAKID",
-                "trainer": "Quests",
+                "trainer": "Exotic",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_NONE",
                 "moves":
                 [
-                    "MOVE_ENERGY_BALL",
-                    "MOVE_FLAMETHROWER",
+                    "MOVE_SEED_FLARE",
+                    "MOVE_MAGMA_STORM",
                     "MOVE_QUIVER_DANCE",
                     "MOVE_BURN_UP"
                 ],
                 "abilities":
                 [
                     "ABILITY_SEED_SOWER",
-                    "ABILITY_ANGER_SHELL",
-                    "ABILITY_NONE"
+                    "ABILITY_ANGER_SHELL"
+                ]
+            },
+
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_PIKACHU",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_FLY",
+                    "MOVE_EXTREME_SPEED",
+                    "MOVE_CALM_MIND",
+                    "MOVE_ICY_WIND"
+                ],
+                "abilities":
+                [
+                    "ABILITY_VOLT_ABSORB"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_PIKACHU_ORIGINAL_CAP",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "moves":
+                [
+                    "MOVE_FLY",
+                    "MOVE_FLIP_TURN",
+                    "MOVE_EXTREME_SPEED",
+                    "MOVE_MOONBLAST"
+                ],
+                "abilities":
+                [
+                    "ABILITY_PROTEAN"
                 ]
             },
 
             {
                 "#if": "!defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_WOBBUFFET",
-                "trainer": "Rndoman",
+                "trainer": "Wahey",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_LEFTOVERS",
                 "moves":
@@ -352,7 +441,7 @@
             {
                 "#if": "defined(ROGUE_EXPANSION)",
                 "species": "SPECIES_WOBBUFFET",
-                "trainer": "Rndoman",
+                "trainer": "Wahey",
                 "pokeball": "ITEM_ROGUE_BALL",
                 "held_item": "ITEM_KINGS_ROCK",
                 "moves":
@@ -372,6 +461,250 @@
                 "abilities":
                 [
                     "ABILITY_STANCE_CHANGE"
+                ]
+            },
+
+
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_CHIMECHO",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_WATER_SPOUT",
+                    "MOVE_ERUPTION",
+                    "MOVE_METRONOME",
+                    "MOVE_CRUNCH"
+                ],
+                "abilities":
+                [
+                    "ABILITY_COLOR_CHANGE"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_TYMPOLE",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_FIRE_PUNCH",
+                    "MOVE_THUNDER_PUNCH",
+                    "MOVE_BULLET_PUNCH",
+                    "MOVE_SURGING_STRIKES"
+                ],
+                "abilities":
+                [
+                    "ABILITY_MOODY",
+                    "ABILITY_IRON_FIST"
+                ]
+            },
+
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_ARON",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_METEOR_MASH",
+                    "MOVE_SWORDS_DANCE",
+                    "MOVE_SUPERPOWER",
+                    "MOVE_FIRE_BLAST"
+                ],
+                "abilities":
+                [
+                    "ABILITY_SAND_STREAM"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_BURMY",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_TAIL_GLOW",
+                    "MOVE_SEED_FLARE",
+                    "MOVE_EARTH_POWER",
+                    "MOVE_SPRINGTIDE_STORM"
+                ],
+                "abilities":
+                [
+                    "ABILITY_GRASSY_SURGE",
+                    "ABILITY_BEADS_OF_RUIN"
+                ]
+            },
+
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_MISDREAVUS",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_KNOCK_OFF",
+                    "MOVE_LEECH_LIFE",
+                    "MOVE_BUBBLE_BEAM",
+                    "MOVE_POISON_FANG"
+                ],
+                "abilities":
+                [
+                    "ABILITY_LIGHTNING_ROD"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_CARBINK",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_LUNAR_BLESSING",
+                    "MOVE_HYPER_DRILL",
+                    "MOVE_MORTAL_SPIN",
+                    "MOVE_TIDY_UP"
+                ],
+                "abilities":
+                [
+                    "ABILITY_PRISM_ARMOR",
+                    "ABILITY_MIRROR_ARMOR",
+                    "ABILITY_EARTH_EATER"
+                ]
+            },
+
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_HOOTHOOT",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_CALM_MIND",
+                    "MOVE_HEAT_WAVE",
+                    "MOVE_MOONLIGHT",
+                    "MOVE_MUDDY_WATER"
+                ],
+                "abilities":
+                [
+                    "ABILITY_COMPOUND_EYES"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_WATTREL",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_AURA_SPHERE",
+                    "MOVE_THUNDERCLAP",
+                    "MOVE_OBLIVION_WING",
+                    "MOVE_ELECTRO_SHOT"
+                ],
+                "abilities":
+                [
+                    "ABILITY_STORM_DRAIN",
+                    "ABILITY_LIGHTNING_ROD"
+                ]
+            },
+
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_AZURILL",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_TAIL_GLOW",
+                    "MOVE_AGILITY",
+                    "MOVE_SLACK_OFF",
+                    "MOVE_CRUNCH"
+                ],
+                "abilities":
+                [
+                    "ABILITY_SWIFT_SWIM"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_SHINX",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_HONE_CLAWS",
+                    "MOVE_BLAZING_TORQUE",
+                    "MOVE_HIGH_HORSEPOWER",
+                    "MOVE_GUNK_SHOT"
+                ],
+                "abilities":
+                [
+                    "ABILITY_DEFIANT",
+                    "ABILITY_MOXIE",
+                    "ABILITY_ELECTROMORPHOSIS"
+                ]
+            },
+
+            {
+                "#if": "!defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_EKANS",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_ROLLOUT",
+                    "MOVE_ICE_BALL",
+                    "MOVE_DEFENSE_CURL",
+                    "MOVE_MILK_DRINK"
+                ],
+                "abilities":
+                [
+                    "ABILITY_SPEED_BOOST"
+                ]
+            },
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "species": "SPECIES_VENIPEDE",
+                "trainer": "Exotic",
+                "pokeball": "ITEM_ROGUE_BALL",
+                "held_item": "ITEM_NONE",
+                "is_default_spawn": true,
+                "moves":
+                [
+                    "MOVE_MORTAL_SPIN",
+                    "MOVE_POUNCE",
+                    "MOVE_SUCKER_PUNCH",
+                    "MOVE_MILK_DRINK"
+                ],
+                "abilities":
+                [
+                    "ABILITY_TOXIC_DEBRIS",
+                    "ABILITY_POISON_PUPPETEER",
+                    "ABILITY_TECHNICIAN"
                 ]
             }
         ]

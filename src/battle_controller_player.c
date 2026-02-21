@@ -44,6 +44,7 @@
 #include "rogue_assistant.h"
 #include "rogue_automation.h"
 #include "rogue_campaign.h"
+#include "rogue_charms.h"
 #include "rogue_controller.h"
 #include "rogue_player_customisation.h"
 
@@ -1807,6 +1808,115 @@ extern const u8 gText_MoveEffective[];
 extern const u8 gText_MoveNoEffect[];
 extern const u8 gText_MoveSuperEffective[];
 extern const u8 gText_MoveNotVeryEffective[];
+extern const u8 gText_MoveSlash[];
+extern const u8 gText_MoveShortEffective[];
+extern const u8 gText_MoveShortNoEffect[];
+extern const u8 gText_MoveShortSuperEffective[];
+extern const u8 gText_MoveShortNotVeryEffective[];
+
+enum
+{
+    EFFECTIVENESS_NO_EFFECT,
+    EFFECTIVENESS_NOT_VERY_EFFECTIVE,
+    EFFECTIVENESS_EFFECTIVE,
+    EFFECTIVENESS_SUPER_EFFECTIVE,
+};
+
+static u16 GetDisplayAbility(u16 ability)
+{
+    if(ability != ABILITY_WONDER_GUARD)
+    {
+        // Don't spoil the vast majority of abilities
+        ability = ABILITY_NONE;
+    }
+
+    return ability;
+}
+
+uq4_12_t CalcTypeEffectivenessMultiplierForUI(u32 move, u32 moveType, u32 battlerAtk, u32 battlerDef, u32 defAbility, bool32 recordAbilities);
+
+static u8 GetDisplayEffectiveness(u16 move, u16 displayType, u32 battler, u32 opposingBattler, u16 ability)
+{
+#ifdef ROGUE_EXPANSION
+    uq4_12_t typeModifier = CalcTypeEffectivenessMultiplierForUI(move, displayType, battler, opposingBattler, GetDisplayAbility(ability), FALSE);
+
+    if (typeModifier == UQ_4_12(0.0))
+    {
+        return EFFECTIVENESS_NO_EFFECT;
+    }
+    else if (typeModifier < UQ_4_12(1.0))
+    {
+        return EFFECTIVENESS_NOT_VERY_EFFECTIVE;
+    }
+    else if (typeModifier == UQ_4_12(1.0))
+    {
+        return EFFECTIVENESS_EFFECTIVE;
+    }
+    else // if (typeModifier > UQ_4_12(1.0))
+    {
+        return EFFECTIVENESS_SUPER_EFFECTIVE;
+    }
+#else
+    u8 type1 = gBattleMons[opposingBattler].type1;
+    u8 type2 = gBattleMons[opposingBattler].type2;
+    int typeEffect = GetMovePower(move, displayType, type1, type2, GetDisplayAbility(ability), 0);
+
+    if(typeEffect == TYPE_x0)
+    {
+        return EFFECTIVENESS_NO_EFFECT;
+    }
+    else if(typeEffect == TYPE_x1)
+    {
+        return EFFECTIVENESS_EFFECTIVE;
+    }
+    else if(typeEffect < TYPE_x1)
+    {
+        return EFFECTIVENESS_NOT_VERY_EFFECTIVE;
+    }
+    else //if(typeEffect > TYPE_x1)
+    {
+        return EFFECTIVENESS_SUPER_EFFECTIVE;
+    }
+#endif
+}
+
+static u8 const* GetDisplayEffectivenessLongString(u8 effectiveness)
+{
+    switch (effectiveness)
+    {
+    case EFFECTIVENESS_NO_EFFECT:
+        return gText_MoveNoEffect;
+
+    case EFFECTIVENESS_NOT_VERY_EFFECTIVE:
+        return gText_MoveNotVeryEffective;
+
+    case EFFECTIVENESS_SUPER_EFFECTIVE:
+        return gText_MoveSuperEffective;
+
+    //case EFFECTIVENESS_EFFECTIVE:
+    default:
+        return gText_MoveEffective;
+    }
+}
+
+static u8 const* GetDisplayEffectivenessShortString(u8 effectiveness)
+{
+    switch (effectiveness)
+    {
+    case EFFECTIVENESS_NO_EFFECT:
+        return gText_MoveShortNoEffect;
+
+    case EFFECTIVENESS_NOT_VERY_EFFECTIVE:
+        return gText_MoveShortNotVeryEffective;
+
+    case EFFECTIVENESS_SUPER_EFFECTIVE:
+        return gText_MoveShortSuperEffective;
+
+    //case EFFECTIVENESS_EFFECTIVE:
+    default:
+        return gText_MoveShortEffective;
+    }
+}
 
 static void MoveSelectionDisplayMoveType(u32 battler)
 {
@@ -1838,59 +1948,40 @@ static void MoveSelectionDisplayMoveType(u32 battler)
         *(txtPtr)++ = CHAR_HYPHEN;
         *(txtPtr)++ = EOS;
     }
+    else if(IsDoubleBattle())
+    {
+        u8 opposingBattlerLeft = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        u8 opposingBattlerRight = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+        u16 opposingSpeciesLeft = gBattleMons[opposingBattlerLeft].hp == 0 ? SPECIES_NONE : gBattleMons[opposingBattlerLeft].species;
+        u16 opposingSpeciesRight = gBattleMons[opposingBattlerRight].hp == 0 ? SPECIES_NONE : gBattleMons[opposingBattlerRight].species;
+        u8 effectivenessLeft = GetDisplayEffectiveness(move, displayType, battler, opposingBattlerLeft, gBattleMons[opposingBattlerLeft].ability);
+        u8 effectivenessRight = GetDisplayEffectiveness(move, displayType, battler, opposingBattlerRight, gBattleMons[opposingBattlerRight].ability);
+        
+        // Only has mon in right slot
+        if(opposingSpeciesLeft == SPECIES_NONE)
+        {
+            txtPtr = StringCopy(txtPtr, GetDisplayEffectivenessLongString(effectivenessRight));
+        }
+        // Only has mon in left slot
+        else if(opposingSpeciesRight == SPECIES_NONE)
+        {
+            txtPtr = StringCopy(txtPtr, GetDisplayEffectivenessLongString(effectivenessLeft));
+        }
+        // Mons are alive in both slots
+        else
+        {
+            txtPtr = StringCopy(txtPtr, GetDisplayEffectivenessShortString(effectivenessRight));
+            txtPtr = StringCopy(txtPtr, gText_MoveSlash);
+            txtPtr = StringCopy(txtPtr, GetDisplayEffectivenessShortString(effectivenessLeft));
+        }
+    }
     else
     {
-        u8 opposingBattler;
         u8 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(battler));
-        u16 opposingSpecies = gBattleMons[GetBattlerAtPosition(opposingPosition)].species;
+        u8 opposingBattler = GetBattlerAtPosition(opposingPosition);
+        u8 effectiveness = GetDisplayEffectiveness(move, displayType, battler, opposingBattler, gBattleMons[opposingBattler].ability);
         
-        if(opposingSpecies == SPECIES_NONE)
-        {
-            opposingPosition = BATTLE_PARTNER(opposingPosition);
-            opposingSpecies = gBattleMons[GetBattlerAtPosition(opposingPosition)].species;
-        }
-
-        opposingBattler = GetBattlerAtPosition(opposingPosition);
-
-        //if(GetSetPokedexFlag(SpeciesToNationalPokedexNum(opposingSpecies), FLAG_GET_CAUGHT))
-        //{
-        //    // ???
-        //    *(txtPtr)++ = CHAR_QUESTION_MARK;
-        //    *(txtPtr)++ = CHAR_QUESTION_MARK;
-        //    *(txtPtr)++ = CHAR_QUESTION_MARK;
-        //    *(txtPtr)++ = EOS;
-        //}
-        //else
-        {
-            uq4_12_t typeModifier;
-            u16 ability = 0;
-
-            if(ability != ABILITY_WONDER_GUARD)
-            {
-                // Don't spoil the vast majority of abilities
-                ability = ABILITY_NONE;
-            }
-
-            // Previously GetMovePower
-            typeModifier = CalcTypeEffectivenessMultiplier(move, displayType, battler, opposingBattler, ability, FALSE);
-
-            if (typeModifier == UQ_4_12(0.0))
-            {
-                txtPtr = StringCopy(txtPtr, gText_MoveNoEffect);
-            }
-            else if (typeModifier < UQ_4_12(1.0))
-            {
-                txtPtr = StringCopy(txtPtr, gText_MoveNotVeryEffective);
-            }
-            else if (typeModifier == UQ_4_12(1.0))
-            {
-                txtPtr = StringCopy(txtPtr, gText_MoveEffective);
-            }
-            else // if (typeModifier > UQ_4_12(1.0))
-            {
-                txtPtr = StringCopy(txtPtr, gText_MoveSuperEffective);
-            }
-        }
+        txtPtr = StringCopy(txtPtr, GetDisplayEffectivenessLongString(effectiveness));
     }
 
     *(txtPtr)++ = EOS;
@@ -2199,11 +2290,11 @@ static void PlayerChooseMoveInBattlePalace(u32 battler)
     }
 }
 
-static u16 ChooseRandomMoveAndTarget(u32 battler)
+static u32 ChooseRandomMoveAndTarget(u32 battler)
 {
     u32 moveTarget;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
-    u16 chosenMoveId = Random() % MAX_MON_MOVES;
+    u32 chosenMoveId = Random() % MAX_MON_MOVES;
 
     // Force the choiced move to be used
     {
@@ -2241,6 +2332,33 @@ static u16 ChooseRandomMoveAndTarget(u32 battler)
         moveTarget = gBattleMoves[moveInfo->moves[chosenMoveId]].target;
     }
 
+#ifdef ROGUE_EXPANSION
+    if (CanMegaEvolve(battler))
+    {
+        chosenMoveId |= RET_MEGA_EVOLUTION;
+    }
+    else if (CanUltraBurst(battler))
+    {
+        chosenMoveId |= RET_ULTRA_BURST;
+    }
+    else if(IsViableZMove(battler, gBattleMons[battler].moves[chosenMoveId]))
+    {
+        QueueZMove(battler, gBattleMons[battler].moves[chosenMoveId]);
+    }
+    // Dynamax last mon slot
+    else if(gBattlerPartyIndexes[battler] == gPlayerPartyCount - 1)
+    {
+        if (CanDynamax(battler))
+        {
+            chosenMoveId |= RET_DYNAMAX;
+        }
+        else if (CanTerastallize(battler))
+        {
+            chosenMoveId |= RET_TERASTAL;
+        }
+    }
+#endif
+
     if (moveTarget & MOVE_TARGET_USER)
         chosenMoveId |= (battler << 8);
     else if (moveTarget == MOVE_TARGET_SELECTED)
@@ -2266,7 +2384,7 @@ static void PlayerHandleChooseMove(u32 battler)
     }
     else
 #endif
-    if(Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
+    if(IsCurseActive(EFFECT_AUTO_MOVE_SELECT) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_AUTO_BATTLER)
     {
         gBattlerControllerFuncs[battler] = PlayerChooseMoveInAutoBattle;
     }

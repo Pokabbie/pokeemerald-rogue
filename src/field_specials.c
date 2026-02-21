@@ -69,11 +69,13 @@
 #include "palette.h"
 #include "battle_util.h"
 
+#include "rogue_assistantbox.h"
 #include "rogue_controller.h"
 #include "rogue_pokedex.h"
 #include "rogue_player_customisation_ui.h"
 #include "rogue_settings.h"
 #include "rogue_voltorbflip.h"
+#include "rogue_worldmap.h"
 
 #define TAG_ITEM_ICON 5500
 
@@ -171,6 +173,13 @@ void Special_ViewPlayerCustomisationMenu(void)
     LockPlayerFieldControls();
 }
 
+void Special_ViewAssistantBox(void)
+{
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
+    SetMainCallback2(CB2_ShowAssitantBoxView);
+    LockPlayerFieldControls();
+}
+
 void Special_ViewRoguePokedex(void)
 {
     Rogue_ShowPokedexFromScript();
@@ -179,7 +188,25 @@ void Special_ViewRoguePokedex(void)
 
 void Special_SelectMonInPokedex(void)
 {
-    Rogue_SelectPokemonInPokedexFromDex(FALSE);
+    Rogue_SelectPokemonInPokedexFromDex(TRUE, FALSE);
+    LockPlayerFieldControls();
+}
+
+void Special_SelectCaughtMonInPokedex(void)
+{
+    Rogue_SelectPokemonInPokedexFromDex(TRUE, TRUE);
+    LockPlayerFieldControls();
+}
+
+void Special_SelectDayCareMonInPokedex(void)
+{
+    Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES, TRUE, FALSE);
+    LockPlayerFieldControls();
+}
+
+void Special_SelectDayCareCaughtMonInPokedex(void)
+{
+    Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_EGG_SPECIES, TRUE, TRUE);
     LockPlayerFieldControls();
 }
 
@@ -193,6 +220,13 @@ void Special_ViewVoltorbFlip(void)
 {
     gMain.savedCallback = CB2_ReturnToField;
     SetMainCallback2(CB2_ShowVoltorbFlip);
+    LockPlayerFieldControls();
+}
+
+void Special_ViewWorldMap(void)
+{
+    gMain.savedCallback = CB2_ReturnToFieldContinueScript;
+    SetMainCallback2(CB2_ShowWorldMap);
     LockPlayerFieldControls();
 }
 
@@ -387,27 +421,7 @@ bool32 ShouldDoScottFortreeCall(void)
 
 bool32 ShouldDoScottBattleFrontierCall(void)
 {
-    if (FlagGet(FLAG_SCOTT_CALL_BATTLE_FRONTIER))
-    {
-        switch (gMapHeader.mapType)
-        {
-        case MAP_TYPE_TOWN:
-        case MAP_TYPE_CITY:
-        case MAP_TYPE_ROUTE:
-        case MAP_TYPE_OCEAN_ROUTE:
-            if (++(*GetVarPointer(VAR_SCOTT_BF_CALL_STEP_COUNTER)) < 10)
-                return FALSE;
-            break;
-        default:
-            return FALSE;
-        }
-    }
-    else
-    {
-        return FALSE;
-    }
-
-    return TRUE;
+    return FALSE;
 }
 
 bool32 ShouldDoRoxanneCall(void)
@@ -1302,7 +1316,7 @@ void GetSecretBaseNearbyMapName(void)
 
 u16 GetBattleTowerSinglesStreak(void)
 {
-    return GetGameStat(GAME_STAT_BATTLE_TOWER_SINGLES_STREAK);
+    return 0; //GetGameStat(GAME_STAT_BATTLE_TOWER_BEST_STREAK);
 }
 
 void BufferEReaderTrainerName(void)
@@ -1402,7 +1416,7 @@ void GiveLeadMonEffortRibbon(void)
 {
     bool8 ribbonSet;
     struct Pokemon *leadMon;
-    IncrementGameStat(GAME_STAT_RECEIVED_RIBBONS);
+    //IncrementGameStat(GAME_STAT_RECEIVED_RIBBONS);
     FlagSet(FLAG_SYS_RIBBON_GET);
     ribbonSet = TRUE;
     leadMon = &gPlayerParty[GetLeadMonIndex()];

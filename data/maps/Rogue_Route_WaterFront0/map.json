@@ -147,7 +147,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
       "x": 27,
-      "y": 40,
+      "y": 39,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 3,
@@ -328,7 +328,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 16,
+      "x": 30,
       "y": 29,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -341,8 +341,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 20,
-      "y": 29,
+      "x": 27,
+      "y": 68,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -593,21 +593,21 @@
       "y": 134,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_WATER_FRONT0",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 6,
       "y": 32,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_WATER_FRONT0",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 17,
       "y": 81,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_WATER_FRONT0",
-      "dest_warp_id": 55
+      "dest_warp_id": "55"
     }
   ],
   "coord_events": [

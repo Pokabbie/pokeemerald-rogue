@@ -194,12 +194,17 @@ gSpecials::
 	def_special RogueDebug_CompleteAvaliableQuests
 	def_special RogueDebug_CollectAllQuests
 	def_special RogueDebug_StartBattle
+	def_special RogueDebug_GiveDynamicUniqueMon
+	def_special RogueGift_EnsureDynamicCustomMonsAreValid
+	def_special Rogue_GetDynamicUniqueMonSpecies
+	def_special Rogue_BufferDynamicUniqueMonCountDown
 	def_special Rogue_QuestCollectNextReward
 	def_special Rogue_HasAnyNewQuests
 	def_special Rogue_HasPendingQuestRewards
 	def_special Rogue_UnlockChallengeQuests
 	def_special Rogue_UnlockMasteryQuests
 	def_special Rogue_ShowNewQuests
+	def_special Rogue_ShowNewMonMasteries
 	def_special Rogue_DetermineItemPickupCount
 	def_special Rogue_CheckBerryTreat
 	def_special Rogue_ApplyBerryTreat
@@ -219,6 +224,7 @@ gSpecials::
 	def_special Rogue_BufferCampaignName
 	def_special Rogue_CheckMonCombo
 	def_special Rogue_ApplyMonCombo
+	def_special Rogue_TryInteractFormChange
 	def_special Rogue_GetFollowMonSpecies
 	def_special Rogue_SetupFollowMonFromParty
 	def_special Rogue_TryEnqueueWildBattleMon
@@ -227,13 +233,18 @@ gSpecials::
 	def_special Rogue_PlayRivalTrainerEncounterBGM
 	def_special Rogue_PlayTeamBossTrainerEncounterBGM
 	def_special Rogue_ShouldSkipTrainerOpenningMsg
+	def_special Rogue_BufferNextVictoryLapTrainer
+	def_special Rogue_BeginVictoryLap
+	def_special Rogue_EndVictoryLap
 	def_special Rogue_EnterPartnerMonCapacity
 	def_special Rogue_IsMultiplayerActive
 	def_special Rogue_IsMultiplayerHost
+	def_special Rogue_IsMultiplayerClient
 	def_special Rogue_HostMultiplayer
 	def_special Rogue_JoinMultiplayer
 	def_special Rogue_CloseMultiplayer
 	def_special Rogue_IsRogueAssistantConnected
+	def_special Rogue_IsMultiplayerAdventureJoinable
 	def_special Rogue_MultiplayerRequestMon
 	def_special Rogue_MultiplayerRequestParty
 	def_special Rogue_MultiplayerTalkToPlayer
@@ -252,7 +263,11 @@ gSpecials::
 	def_special Rogue_BattleSim_HandleItemMoney
 	def_special Rogue_FixPartyMonDetails
 	def_special Rogue_RememberAdventure
+	def_special Rogue_IsValidAdventureToRemember
+	def_special Rogue_IsValidAdventureToReplay
+	def_special Rogue_ShouldNursePromptConfigLabSettingsChange
 	def_special Rogue_SafeSmartCheck
+	def_special Rogue_CanActivatePikinEasterEgg
 	def_special Rogue_SetupFollowParterMonObjectEvent
 	def_special Rogue_RegisterRideMon
 	def_special Rogue_RunRewardLvls
@@ -266,8 +281,6 @@ gSpecials::
 	def_special Rogue_CheckBagUpgradeCost
 	def_special Rogue_RemoveBagUpgradeCost
 	def_special Rogue_CheckHubConnectionDir
-	def_special Rogue_PlaceHomeDecor
-	def_special Rogue_RemoveHomeDecor
 	def_special Rogue_AssignDefaultRegion
 	def_special Rogue_IsFinalQuestActive
 	def_special Rogue_IsNearHoneyTree
@@ -285,22 +298,37 @@ gSpecials::
 	def_special Rogue_IsDaycareSlotEmpty
 	def_special Rogue_SwapDaycareMon
 	def_special Rogue_TransformIntoValidDaycareEgg
+	def_special Rogue_SetupDaycareSpeciesGraphics
 	def_special Rogue_HealAlivePlayerParty
-	def_special Rogue_FillHealingFlask
+	def_special Rogue_OnHealWithNurse
 	def_special Rogue_SelectCatchingContestMode
 	def_special Rogue_BufferContestMode
 	def_special Rogue_CatchingContestBegin
 	def_special Rogue_CatchingContestEnd
 	def_special Rogue_GiveCatchingContestMon
-	def_special Rogue_HasUnlockedRandomStarterTrade
 	def_special Rogue_CanOverLevel
 	def_special Rogue_AnyLegendsInSafari
 	def_special Rogue_CheckSafariMonLikesPokeblock
+	def_special Rogue_AppendMultichoicePokeblockItems
+	def_special Rogue_AppendMultichoiceBerriesForPokeblock
 	def_special Rogue_EnqueueSafariBattle
 	def_special Rogue_BufferSafariMonInfo
 	def_special Rogue_DisplayPopupsFromScript
-	def_special RogueHub_SetRandomFollowMonsFromPC
+	def_special Rogue_DisplayPopupsFromScriptSkippable
+	def_special RogueGift_ClearDynamicCustomMons
 	def_special RogueHub_GetStatueLevel
+	def_special RogueHub_SetupDecorationMultichoice
+	def_special RogueHub_HandleDecorationMultichoiceResult
+	def_special RogueHub_ClearAllDecorations
+	def_special RogueHub_PlaceHomeDecor
+	def_special RogueHub_RemoveHomeDecor
+	def_special RogueHub_IsRemovingDecor
+	def_special RogueHub_AppendChangeStyle_Paths
+	def_special RogueHub_HandleChangeStyle_Paths
+	def_special RogueHub_AppendChangeStyle_Exterior
+	def_special RogueHub_HandleChangeStyle_Exterior
+	def_special RogueHub_AppendChangeStyle_Interior
+	def_special RogueHub_HandleChangeStyle_Interior
 	def_special RogueAdv_ApplyAdventureMetatiles
 	def_special RogueAdv_GetLastInteractedRoomParams
 	def_special RogueAdv_WarpLastInteractedRoom
@@ -310,10 +338,12 @@ gSpecials::
 	def_special GameShow_SelectRandomSpecies
 	def_special GameShow_BufferSpecies
 	def_special GameShow_CheckResultMatchesSpecies
+	def_special GameShow_AppendSpeciesMultichoiceOptions
 	def_special GameShow_SelectRewardItem
 	def_special GameShow_IsTeamTriviaRoundValid
 	def_special GameShow_NextTriviaQuestion
 	def_special ReloadWarpSilent
+	def_special ReloadSafeWarp
 	def_special GetFirstFreePokeblockSlot
 	def_special DoBerryBlending
 	def_special PlayRoulette
@@ -426,9 +456,14 @@ gSpecials::
 	def_special Special_ViewDifficultyConfigMenu
 	def_special Special_ViewRoguePokedex
 	def_special Special_SelectMonInPokedex
+	def_special Special_SelectCaughtMonInPokedex
+	def_special Special_SelectDayCareMonInPokedex
+	def_special Special_SelectDayCareCaughtMonInPokedex
 	def_special Special_SelectSafariMonInPokedex
 	def_special Special_ViewPlayerCustomisationMenu
+	def_special Special_ViewAssistantBox
 	def_special Special_ViewVoltorbFlip
+	def_special Special_ViewWorldMap
 	def_special CheckLeadMonCool
 	def_special CheckLeadMonBeauty
 	def_special CheckLeadMonCute

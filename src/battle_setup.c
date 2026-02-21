@@ -3,6 +3,7 @@
 #include "load_save.h"
 #include "battle_setup.h"
 #include "battle_transition.h"
+#include "credits.h"
 #include "main.h"
 #include "task.h"
 #include "safari_zone.h"
@@ -377,12 +378,15 @@ static void DoStandardWildBattle(bool32 isDouble)
         gBattleTypeFlags |= BATTLE_TYPE_PYRAMID;
     }
 
+    if(Rogue_IsBattleAlphaMon(species))
+        gBattleTypeFlags |= BATTLE_TYPE_ALPHA_MON;
+
     if(Rogue_IsBattleRoamerMon(species))
         gBattleTypeFlags |= BATTLE_TYPE_ROAMER;
 
     CreateBattleStartTask(GetWildBattleTransition(), 0);
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    //IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    //IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
 
@@ -416,8 +420,8 @@ void BattleSetup_StartRoamerBattle(void)
     gMain.savedCallback = CB2_EndWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_ROAMER;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    //IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    //IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
 }
@@ -440,8 +444,8 @@ static void DoBattlePikeWildBattle(void)
     gMain.savedCallback = CB2_EndWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_PIKE;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    //IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    //IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
 }
@@ -449,8 +453,8 @@ static void DoBattlePikeWildBattle(void)
 static void DoTrainerBattle(void)
 {
     CreateBattleStartTask(GetTrainerBattleTransition(), 0);
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_TRAINER_BATTLES);
+    //IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    //IncrementGameStat(GAME_STAT_TRAINER_BATTLES);
     TryUpdateGymLeaderRematchFromTrainer();
 }
 
@@ -461,8 +465,8 @@ static void DoBattlePyramidTrainerHillBattle(void)
     else
         CreateBattleStartTask(GetSpecialBattleTransition(B_TRANSITION_GROUP_TRAINER_HILL), 0);
 
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_TRAINER_BATTLES);
+    //IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    //IncrementGameStat(GAME_STAT_TRAINER_BATTLES);
     TryUpdateGymLeaderRematchFromTrainer();
 }
 
@@ -482,8 +486,8 @@ void BattleSetup_StartScriptedWildBattle(void)
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = 0;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    //IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    //IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
 }
@@ -506,8 +510,8 @@ void BattleSetup_StartLatiBattle(void)
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    //IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    //IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
 }
@@ -640,8 +644,8 @@ void BattleSetup_StartLegendaryBattle(void)
         break;
     }
 
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    //IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    //IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
 
@@ -692,8 +696,8 @@ void StartRegiBattle(void)
     }
     CreateBattleStartTask(transitionId, MUS_VS_REGI);
 
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    //IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    //IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
 }
@@ -924,6 +928,11 @@ u8 GetTrainerBattleTransition(void)
         return B_TRANSITION_CHAMPION;
     }
 
+    if(Rogue_IsVictoryLapActive())
+    {
+        return B_TRANSITION_CHAMPION;
+    }
+
     if (trainer.trainerClass == TRAINER_CLASS_CHAMPION || trainer.trainerClass == TRAINER_CLASS_DEVELOPER_CHAMPION)
     {
         if(Rogue_UseFinalQuestEffects())
@@ -955,6 +964,9 @@ u8 GetTrainerBattleTransition(void)
     // TODO
     //if (trainer.trainerClass == TRAINER_CLASS_TEAM_ROCKET
     //    || trainer.trainerClass == TRAINER_CLASS_TEAM_ROCKET_LEADER)
+    //    return B_TRANSITION_POKEBALLS_TRAIL;
+    //if (trainer.trainerClass == TRAINER_CLASS_TEAM_GALACTIC
+    //    || trainer.trainerClass == TRAINER_CLASS_TEAM_GALACTIC_LEADER)
     //    return B_TRANSITION_POKEBALLS_TRAIL;
 
     if(Rogue_IsRunActive())
@@ -1607,7 +1619,7 @@ static void CB2_EndTrainerBattle(void)
         DowngradeBadPoison();
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
-    else if(Rogue_IsBattleSimTrainer(gTrainerBattleOpponent_A))
+    else if(Rogue_IsBattleSimTrainer(gTrainerBattleOpponent_A) || Rogue_IsVictoryLapActive())
     {
         gSpecialVar_Result = !IsPlayerDefeated(gBattleOutcome);
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
@@ -1616,6 +1628,8 @@ static void CB2_EndTrainerBattle(void)
     {
         if (InBattlePyramid() || InTrainerHillChallenge()) // || (!NoAliveMonsForPlayer()))
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        else if(Rogue_IsVictoryLapActive())
+            SetMainCallback2(CB2_StartCreditsSequence);
         else
             SetMainCallback2(CB2_WhiteOut);
     }

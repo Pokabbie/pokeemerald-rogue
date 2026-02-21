@@ -5130,7 +5130,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .backPicYOffset = 5,                                                    \
         PALETTES(Poltchageist),                                                 \
         ICON(Poltchageist, 1),                                                  \
-        LEARNSETS(Poltchageist)
+        LEARNSETS(Poltchageist),                                                \
+        .formSpeciesIdTable = sPoltchageistFormSpeciesIdTable
         //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
         //.backAnimId = BACK_ANIM_NONE,
         //.footprint = gMonFootprint_Poltchageist,
@@ -5192,7 +5193,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .backPicYOffset = 13,                                                   \
         PALETTES(Sinistcha),                                                    \
         ICON(Sinistcha, 1),                                                     \
-        LEARNSETS(Sinistcha)
+        LEARNSETS(Sinistcha),                                                   \
+        .formSpeciesIdTable = sSinistchaFormSpeciesIdTable
         //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
         //.backAnimId = BACK_ANIM_NONE,
         //.footprint = gMonFootprint_Sinistcha,
@@ -5686,17 +5688,18 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .pokemonOffset = 0,
         .trainerScale = 365,
         .trainerOffset = 7,
-        //.frontPic = gMonFrontPic_TerapagosNormal,
-        //.frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPic = gMonFrontPic_TerapagosNormal,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_TerapagosNormal,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        //.backPic = gMonBackPic_TerapagosNormal,
-        //.backPicSize = MON_COORDS_SIZE(64, 64),
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .enemyMonElevation = 1,
+        .backPic = gMonBackPic_TerapagosNormal,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        //.backAnimId = BACK_ANIM_NONE,
-        //.palette = gMonPalette_TerapagosNormal,
-        //.shinyPalette = gMonShinyPalette_TerapagosNormal,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_TerapagosNormal,
+        .shinyPalette = gMonShinyPalette_TerapagosNormal,
         .iconSprite = gMonIcon_TerapagosNormal,
         .iconPalIndex = 0,
         //FOOTPRINT(Terapagos)
@@ -5743,17 +5746,18 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .pokemonOffset = 0,
         .trainerScale = 365,
         .trainerOffset = 7,
-        //.frontPic = gMonFrontPic_TerapagosTerastal,
-        //.frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
+        .frontPic = gMonFrontPic_TerapagosTerastal,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 8,
         .frontAnimFrames = sAnims_TerapagosTerastal,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        //.backPic = gMonBackPic_TerapagosTerastal,
-        //.backPicSize = MON_COORDS_SIZE(64, 64),
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .enemyMonElevation = 1,
+        .backPic = gMonBackPic_TerapagosTerastal,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        //.backAnimId = BACK_ANIM_NONE,
-        //.palette = gMonPalette_TerapagosTerastal,
-        //.shinyPalette = gMonShinyPalette_TerapagosTerastal,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_TerapagosTerastal,
+        .shinyPalette = gMonShinyPalette_TerapagosTerastal,
         .iconSprite = gMonIcon_TerapagosTerastal,
         .iconPalIndex = 0,
         //FOOTPRINT(Terapagos)
@@ -5799,17 +5803,18 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .pokemonOffset = 0,
         .trainerScale = 365,
         .trainerOffset = 7,
-        //.frontPic = gMonFrontPic_TerapagosStellar,
-        //.frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
+        .frontPic = gMonFrontPic_TerapagosStellar,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 8,
         .frontAnimFrames = sAnims_TerapagosStellar,
-        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
-        //.backPic = gMonBackPic_TerapagosStellar,
-        //.backPicSize = MON_COORDS_SIZE(64, 64),
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .enemyMonElevation = 1,
+        .backPic = gMonBackPic_TerapagosStellar,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        //.backAnimId = BACK_ANIM_NONE,
-        //.palette = gMonPalette_TerapagosStellar,
-        //.shinyPalette = gMonShinyPalette_TerapagosStellar,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_TerapagosStellar,
+        .shinyPalette = gMonShinyPalette_TerapagosStellar,
         .iconSprite = gMonIcon_TerapagosStellar,
         .iconPalIndex = 0,
         //FOOTPRINT(Terapagos)

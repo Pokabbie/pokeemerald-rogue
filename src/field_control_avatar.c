@@ -557,7 +557,11 @@ static bool8 TryStartStepBasedScript(struct MapPosition *position, u16 metatileB
     if (TryStartCoordEventScript(position) == TRUE)
         return TRUE;
     if (TryStartWarpEventScript(position, metatileBehavior) == TRUE)
+    {
+        if(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_RIDING)
+            Rogue_OnRideMonWarp();
         return TRUE;
+    }
     if (TryStartMiscWalkingScripts(metatileBehavior) == TRUE)
         return TRUE;
     if (TryStartStepCountScript(metatileBehavior) == TRUE)
@@ -626,7 +630,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
     #endif
         if (ShouldEggHatch())
         {
-            IncrementGameStat(GAME_STAT_HATCHED_EGGS);
+            //IncrementGameStat(GAME_STAT_HATCHED_EGGS);
             ScriptContext_SetupScript(EventScript_EggHatch);
             return TRUE;
         }

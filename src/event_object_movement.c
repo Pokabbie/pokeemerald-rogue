@@ -36,6 +36,7 @@
 #include "constants/union_room.h"
 #include "constants/metatile_behaviors.h"
 
+#include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 #include "rogue_followmon.h"
 #include "rogue_player_customisation.h"
@@ -594,40 +595,42 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA        0x1199
 //#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN     0x119A
 #define OBJ_EVENT_PAL_TAG_PLAYER                 0x119B
-#define OBJ_EVENT_PAL_TAG_NET_PLAYER             0x119C
+#define OBJ_EVENT_PAL_TAG_NET_PLAYER             0x119C // IF YOU CHANGE THIS UPDATE THE PALETTE PATCHING CODE
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_LS7         0x119D
+#define OBJ_EVENT_PAL_TAG_GLITCH_NPC_NACHO       0x119E
 
-#define OBJ_EVENT_PAL_TAG_RIVAL_RED              0x119D
+#define OBJ_EVENT_PAL_TAG_RIVAL_RED              0x119F
 #define OBJ_EVENT_PAL_TAG_RIVAL_LEAF             OBJ_EVENT_PAL_TAG_RIVAL_RED
-#define OBJ_EVENT_PAL_TAG_RIVAL_ETHAN            0x119E
-#define OBJ_EVENT_PAL_TAG_RIVAL_LYRA             0x119F
-#define OBJ_EVENT_PAL_TAG_RIVAL_BRENDAN          0x11A0
-#define OBJ_EVENT_PAL_TAG_RIVAL_MAY              0x11A1
-#define OBJ_EVENT_PAL_TAG_RIVAL_LUCAS            0x11A2
-#define OBJ_EVENT_PAL_TAG_RIVAL_DAWN             0x11A3
-#define OBJ_EVENT_PAL_TAG_RIVAL_HILBERT          0x11A4
-#define OBJ_EVENT_PAL_TAG_RIVAL_HILDA            0x11A5
-#define OBJ_EVENT_PAL_TAG_RIVAL_NATE             0x11A6
-#define OBJ_EVENT_PAL_TAG_RIVAL_ROSA             0x11A7
-#define OBJ_EVENT_PAL_TAG_RIVAL_CALEM            0x11A8
-#define OBJ_EVENT_PAL_TAG_RIVAL_SERENA           0x11A9
-#define OBJ_EVENT_PAL_TAG_RIVAL_ELIO             0x11AA
-#define OBJ_EVENT_PAL_TAG_RIVAL_SELENE           0x11AB
-#define OBJ_EVENT_PAL_TAG_RIVAL_VICTOR           0x11AC
-#define OBJ_EVENT_PAL_TAG_RIVAL_GLORIA           0x11AD
-#define OBJ_EVENT_PAL_TAG_RIVAL_FLORIAN          0x11AE
-#define OBJ_EVENT_PAL_TAG_RIVAL_JULIANA          0x11AF
+#define OBJ_EVENT_PAL_TAG_RIVAL_ETHAN            0x11A0
+#define OBJ_EVENT_PAL_TAG_RIVAL_LYRA             0x11A1
+#define OBJ_EVENT_PAL_TAG_RIVAL_BRENDAN          0x11A2
+#define OBJ_EVENT_PAL_TAG_RIVAL_MAY              0x11A3
+#define OBJ_EVENT_PAL_TAG_RIVAL_LUCAS            0x11A4
+#define OBJ_EVENT_PAL_TAG_RIVAL_DAWN             0x11A5
+#define OBJ_EVENT_PAL_TAG_RIVAL_HILBERT          0x11A6
+#define OBJ_EVENT_PAL_TAG_RIVAL_HILDA            0x11A7
+#define OBJ_EVENT_PAL_TAG_RIVAL_NATE             0x11A8
+#define OBJ_EVENT_PAL_TAG_RIVAL_ROSA             0x11A9
+#define OBJ_EVENT_PAL_TAG_RIVAL_CALEM            0x11AA
+#define OBJ_EVENT_PAL_TAG_RIVAL_SERENA           0x11AB
+#define OBJ_EVENT_PAL_TAG_RIVAL_ELIO             0x11AC
+#define OBJ_EVENT_PAL_TAG_RIVAL_SELENE           0x11AD
+#define OBJ_EVENT_PAL_TAG_RIVAL_VICTOR           0x11AE
+#define OBJ_EVENT_PAL_TAG_RIVAL_GLORIA           0x11AF
+#define OBJ_EVENT_PAL_TAG_RIVAL_FLORIAN          0x11B0
+#define OBJ_EVENT_PAL_TAG_RIVAL_JULIANA          0x11B1
 
-#define OBJ_EVENT_PAL_TAG_TEAM_FLARE_LYSANDER     0x11B0
-#define OBJ_EVENT_PAL_TAG_TEAM_GALACTIC_CYRUS     0x11B1
-#define OBJ_EVENT_PAL_TAG_TEAM_NEO_PLASMA_COLRESS 0x11B2
-#define OBJ_EVENT_PAL_TAG_TEAM_PLASMA_GHETSIS     0x11B3
-#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARCHER      0x11B4
-#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARIANA      0x11B5
-#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PETREL      0x11B6
-#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PROTON      0x11B7
+#define OBJ_EVENT_PAL_TAG_TEAM_FLARE_LYSANDER     0x11B2
+#define OBJ_EVENT_PAL_TAG_TEAM_GALACTIC_CYRUS     0x11B3
+#define OBJ_EVENT_PAL_TAG_TEAM_NEO_PLASMA_COLRESS 0x11B4
+#define OBJ_EVENT_PAL_TAG_TEAM_PLASMA_GHETSIS     0x11B5
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARCHER      0x11B6
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_ARIANA      0x11B7
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PETREL      0x11B8
+#define OBJ_EVENT_PAL_TAG_TEAM_ROCKET_PROTON      0x11B9
 
-#define OBJ_EVENT_PAL_TAG_MISC_PEONIA            0x11B8
-#define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x11B9
+#define OBJ_EVENT_PAL_TAG_MISC_PEONIA            0x11BA
+#define OBJ_EVENT_PAL_TAG_ROUTE_EXT              0x11BB
 
 #define OBJ_EVENT_PAL_TAG_NONE                   0x11FF
 
@@ -804,6 +807,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
 
     {gObjectEventPal_Glitch_NPC_Kate,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_KATE},
     {gObjectEventPal_Glitch_NPC_Erma,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_ERMA},
+    {gObjectEventPal_PlayerLightningStrike7Base, OBJ_EVENT_PAL_TAG_GLITCH_NPC_LS7},
+    {gObjectEventPal_PlayerNacholordBase,       OBJ_EVENT_PAL_TAG_GLITCH_NPC_NACHO},
     //{gObjectEventPal_Glitch_NPC_Raven,      OBJ_EVENT_PAL_TAG_GLITCH_NPC_RAVEN},
     {gObjectEventPal_PlayerPlaceholder,     OBJ_EVENT_PAL_TAG_PLAYER},
     {gObjectEventPal_NetPlayerPlaceholder,     OBJ_EVENT_PAL_TAG_NET_PLAYER},
@@ -1633,10 +1638,12 @@ u8 GetSpecialObjectEventIdByLocalId(u8 localId)
     if (localId == OBJ_EVENT_ID_FOLLOWER)
         return GetFollowerObjectId();
 
+    // Always prefer looking up the object in cache whenever we can
     {
-        u8 result = Rogue_GetCachedObjectEventId(localId);
-        if(result != OBJECT_EVENTS_COUNT)
-            return result;
+        u8 eventObjectId;
+
+        if(Rogue_TryGetCachedObjectEventId(localId, &eventObjectId))
+            return eventObjectId;
     }
 
     return GetObjectEventIdByLocalId(localId);
@@ -2144,6 +2151,13 @@ u8 CreateVirtualObject(u16 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevati
     return spriteId;
 }
 
+static bool8 ShouldSpawnObjectEventsLeftToRight()
+{
+    // If adventure path screen, there can sometimes be too many objects
+    // so prioritise spawning earliest objects
+    return RogueAdv_IsViewingPath();
+}
+
 void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
 {
     u8 i;
@@ -2163,15 +2177,51 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
         else
             objectCount = gSaveBlock1Ptr->objectEventTemplatesCount;
 
-        for (i = 0; i < objectCount; i++)
+        if(ShouldSpawnObjectEventsLeftToRight())
         {
-            struct ObjectEventTemplate *template = &gSaveBlock1Ptr->objectEventTemplates[i];
-            s16 npcX = template->x + MAP_OFFSET;
-            s16 npcY = template->y + MAP_OFFSET;
+            s16 currX;
+            s16 minX = 0;
+            s16 maxX = 0;
 
-            if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX
-                && !FlagGet(template->flagId))
-                TrySpawnObjectEventTemplate(template, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, cameraX, cameraY);
+            for (i = 0; i < objectCount; i++)
+            {
+                const struct ObjectEventTemplate *template = &gSaveBlock1Ptr->objectEventTemplates[i];
+                s16 npcX = template->x + MAP_OFFSET;
+                minX = min(minX, npcX);
+                maxX = max(maxX, npcX);
+            }
+
+            // Process coord at a time
+            for(currX = minX; currX <= maxX; ++currX)
+            {
+                for (i = 0; i < objectCount; i++)
+                {
+                    struct ObjectEventTemplate *template = &gSaveBlock1Ptr->objectEventTemplates[i];
+                    s16 npcX = template->x + MAP_OFFSET;
+                    s16 npcY = template->y + MAP_OFFSET;
+
+                    if(currX == npcX)
+                    {
+                        if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX
+                            && !FlagGet(template->flagId))
+                            TrySpawnObjectEventTemplate(template, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, cameraX, cameraY);
+                    }
+                }
+            }
+            
+        }
+        else
+        {
+            for (i = 0; i < objectCount; i++)
+            {
+                struct ObjectEventTemplate *template = &gSaveBlock1Ptr->objectEventTemplates[i];
+                s16 npcX = template->x + MAP_OFFSET;
+                s16 npcY = template->y + MAP_OFFSET;
+
+                if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX
+                    && !FlagGet(template->flagId))
+                    TrySpawnObjectEventTemplate(template, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, cameraX, cameraY);
+            }
         }
     }
 }
@@ -5474,13 +5524,16 @@ static bool8 DoesObjectCollideWithObjectAt(struct ObjectEvent *objectEvent, s16 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
         curObject = &gObjectEvents[i];
-        if (curObject->active && curObject != objectEvent && !FollowMe_IsCollisionExempt(curObject, objectEvent) && !FollowMon_IsCollisionExempt(curObject, objectEvent))
+        if (curObject->active && curObject != objectEvent)
         {
             // check for collision if curObject is active, not the object in question, and not exempt from collisions
             if ((curObject->currentCoords.x == x && curObject->currentCoords.y == y) || (curObject->previousCoords.x == x && curObject->previousCoords.y == y))
             {
                 if (AreElevationsCompatible(objectEvent->currentElevation, curObject->currentElevation))
-                    return TRUE;
+                {
+                    if(!FollowMe_IsCollisionExempt(curObject, objectEvent) && !Rogue_IsCollisionExempt(curObject, objectEvent))
+                        return TRUE;
+                }
             }
         }
     }
@@ -8924,6 +8977,9 @@ static void DoTracksGroundEffect_Footprints(struct ObjectEvent *objEvent, struct
         FLDEFF_SAND_FOOTPRINTS,
         FLDEFF_DEEP_SAND_FOOTPRINTS
     };
+
+    if(objEvent == &gObjectEvents[gPlayerAvatar.objectEventId] && Rogue_IsRideMonFlying())
+        return;
 
     gFieldEffectArguments[0] = objEvent->previousCoords.x;
     gFieldEffectArguments[1] = objEvent->previousCoords.y;

@@ -14,6 +14,7 @@ mapscripts Rogue_Encounter_Sign_MapScripts
 script Rogue_Encounter_Sign_OnTransition
 {
     setflag(FLAG_EASTER_EGG_NPC_HIDDEN)
+    setflag(FLAG_ROGUE_MYSTERIOUS_SIGN_KNOWN)
     removeobject(NPC_OBJ_EASTER_EGG_GIRL)
 }
 

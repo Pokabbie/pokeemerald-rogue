@@ -1,1 +1,100 @@
 mapscripts Rogue_Encounter_Shops_MapScripts {}
+
+script Rogue_Encounter_Shops_TalkVendingMachine
+{
+    lock
+
+    msgbox(format("It's a Vending Machine!"))
+
+    if(flag(FLAG_ROGUE_VENDING_MACHINE_USED))
+    {
+        msgbox(format("I doesn't look like it has anything else inside…"))
+    }
+    else
+    {
+        showmoneybox(0, 0)
+        msgbox(format("You can't quite make out what's inside.\pDo you want to insert ¥1000?"), MSGBOX_YESNO)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            closemessage
+
+            // Check we can add a stack of a new item (use yellow shard as we won't normally encounter this item)
+            checkitemspace(ITEM_YELLOW_SHARD, 1)
+            if(var(VAR_RESULT) == NO)
+            {
+                msgbox(format("You don't have enough space in your Bag."))
+            }
+            else
+            {
+                checkconstantmoney(1000)
+                if(var(VAR_RESULT) == YES)
+                {
+                    removeconstantmoney(1000)
+                    updatemoneybox
+                    playse(SE_VEND)
+                    waitse
+
+                    hidemoneybox
+                    setflag(FLAG_ROGUE_VENDING_MACHINE_USED)
+
+                    random(100)
+
+                    if(var(VAR_RESULT) == 0)
+                    {
+                        giveitem(ITEM_MASTER_BALL, 1)
+                    }
+                    elif(var(VAR_RESULT) == 1)
+                    {
+                        giveitem(ITEM_RARE_CANDY, 10)
+                    }
+                    else
+                    {
+                        random(10)
+
+                        switch(var(VAR_RESULT))
+                        {
+                            case 0:
+                                giveitem(ITEM_POTION, 1)
+
+                            case 1:
+                                giveitem(ITEM_SUPER_POTION, 1)
+
+                            case 2:
+                                giveitem(ITEM_MAX_POTION, 1)
+
+                            case 3:
+                                giveitem(ITEM_FULL_RESTORE, 1)
+
+                            case 4:
+                                giveitem(ITEM_LEMONADE, 1)
+
+                            case 5:
+                                giveitem(ITEM_MOOMOO_MILK, 1)
+
+                            case 6:
+                                giveitem(ITEM_FRESH_WATER, 1)
+
+                            case 7:
+                                giveitem(ITEM_FULL_HEAL, 1)
+
+                            case 8:
+                                giveitem(ITEM_SODA_POP, 1)
+
+                            case 9:
+                                giveitem(ITEM_POKE_DOLL, 1)
+                        }
+                    }
+                }
+                else
+                {
+                    msgbox(format("You don't have enough money."))
+                }
+            }
+        }
+
+        hidemoneybox
+    }
+
+    release
+}

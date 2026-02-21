@@ -1,7 +1,7 @@
 const VAR_STATUS_PARAM = VAR_0x8000
 
-const VAR_LOCAL_MON_SLOT = VAR_0x800A
-const VAR_REMOTE_MON_SLOT = VAR_0x800B
+const VAR_LOCAL_MON_SLOT = VAR_0x800A // keep in sync with RogueMP_WaitTradeSlotResponse
+const VAR_REMOTE_MON_SLOT = VAR_0x800B // keep in sync with RogueMP_WaitTradeSlotResponse
 
 script RogueMP_Common_ExtractYesNoAnswer
 {
@@ -31,137 +31,102 @@ script Rogue_InteractMultiplayerPlayer
     lock
 
     message(format("Waiting for other player…\n… … B Button: Cancel"))
-    multiplayerpushstatusawait(MP_PLAYER_STATUS_TALK_TO_PLAYER, 0, TRUE)
+    multiplayerpushstatusawait(MP_PLAYER_STATUS_TALK_TO_PLAYER, TRUE)
     waitstate
-
-    if(var(VAR_RESULT) == TRUE)
-    {
-        msgbox(format("{RIVAL}: Hi, I'm {RIVAL}!"))
-
-        // TODO - Give more options
-        msgbox(format("Would you like to trade Pokémon?"), MSGBOX_YESNO)
-        if(var(VAR_RESULT) == YES)
-        {
-            msgbox(format("Which Pokémon would you like to trade?"))
-            special(ChoosePartyMon)
-            waitstate
-
-            copyvar(VAR_LOCAL_MON_SLOT, VAR_0x8004)
-
-            message(format("Waiting for other player…\n… … B Button: Cancel"))
-            multiplayerpushstatusawait(MP_PLAYER_STATUS_TALK_TO_PLAYER, VAR_LOCAL_MON_SLOT, TRUE)
-            waitstate
-
-            if(var(VAR_LOCAL_MON_SLOT) == PARTY_NOTHING_CHOSEN)
-            {
-                setvar(VAR_RESULT, NO)
-            }
-
-            if(var(VAR_RESULT) == YES)
-            {
-                special(Rogue_WaitForNextPlayerStatusCancellable)
-                waitstate
-
-                copyvar(VAR_REMOTE_MON_SLOT, VAR_STATUS_PARAM)
-                
-                if(var(VAR_RESULT) == YES)
-                {
-                    if(var(VAR_REMOTE_MON_SLOT) == PARTY_NOTHING_CHOSEN)
-                    {
-                        setvar(VAR_RESULT, NO)
-                    }
-
-                    if(var(VAR_RESULT) == YES)
-                    {
-                        call(RogueMP_Common_GrabRemoteMon)
-
-                        special(Rogue_PrepareForTrade)
-                        special(DoInGameTradeScene)
-                        waitstate
-                    }
-                }
-            }
-        }
-        else
-        {
-            multiplayerpushstatusawait(MP_PLAYER_STATUS_TALK_TO_PLAYER, PARTY_NOTHING_CHOSEN, TRUE)
-            waitstate
-        }
-    }
-
-    if(var(VAR_RESULT) == FALSE)
-    {
-        msgbox(format("Maybe some other time."))
-    }
-
-    multiplayerpushstatus(MP_PLAYER_STATUS_NONE, 0)
-    release
-}
-
-script Rogue_RemoteInteractMultiplayerPlayer
-{
-    lock
-
-    message(format("{RIVAL}: Hi, Let's talk!\n… … B Button: Cancel"))
-
-    special(Rogue_WaitForNextPlayerStatusCancellable)
-    waitstate
-
-    // TODO - Give more options
 
     if(var(VAR_RESULT) == YES)
     {
-        copyvar(VAR_REMOTE_MON_SLOT, VAR_STATUS_PARAM)
+        msgbox(format("{RIVAL}: Hi, I'm {RIVAL}!"))
         
-        if(var(VAR_REMOTE_MON_SLOT) == PARTY_NOTHING_CHOSEN)
-        {
-            setvar(VAR_RESULT, NO)
-        }
-        
+        msgbox(format("Would you like to trade Pokémon?"), MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES)
         {
-            msgbox(format("{RIVAL}: Would you like to trade Pokémon?"), MSGBOX_YESNO)
-
+            message(format("Waiting for other player…\n… … B Button: Cancel"))
+            multiplayerpushstatusawait(MP_PLAYER_STATUS_BEGIN_TRADE, TRUE)
+            waitstate
+            
             if(var(VAR_RESULT) == YES)
-            {            
+            {
                 msgbox(format("Which Pokémon would you like to trade?"))
                 special(ChoosePartyMon)
                 waitstate
 
                 copyvar(VAR_LOCAL_MON_SLOT, VAR_0x8004)
-
+            
                 message(format("Waiting for other player…\n… … B Button: Cancel"))
-                multiplayerpushstatusawait(MP_PLAYER_STATUS_TALK_TO_PLAYER, VAR_LOCAL_MON_SLOT, TRUE)
+                callnative(RogueMP_WaitTradeSlotResponse)
                 waitstate
 
-                if(var(VAR_LOCAL_MON_SLOT) == PARTY_NOTHING_CHOSEN)
+                if(var(VAR_LOCAL_MON_SLOT) == PARTY_NOTHING_CHOSEN || var(VAR_REMOTE_MON_SLOT) == PARTY_NOTHING_CHOSEN)
                 {
                     setvar(VAR_RESULT, NO)
                 }
-
-                if(var(VAR_RESULT) == YES)
+                else
                 {
                     call(RogueMP_Common_GrabRemoteMon)
 
                     special(Rogue_PrepareForTrade)
                     special(DoInGameTradeScene)
                     waitstate
+
+                    setvar(VAR_RESULT, YES)
                 }
-            }
-            else
-            {
-                multiplayerpushstatusawait(MP_PLAYER_STATUS_TALK_TO_PLAYER, PARTY_NOTHING_CHOSEN, TRUE)
-                waitstate
             }
         }
     }
+    
+    if(var(VAR_RESULT) == NO)
+    {
+        msgbox(format("Maybe some other time."))
+    }
 
-    if(var(VAR_RESULT) == FALSE)
+    multiplayerpushstatus(MP_PLAYER_STATUS_NONE)
+    release
+}
+
+script Rogue_BeginRemoteInteractMultiplayerPlayer
+{
+    lock
+
+    message(format("{RIVAL}: Hi, Let's talk!\n… … B Button: Cancel"))
+    special(Rogue_WaitForNextPlayerStatusCancellable)
+    waitstate
+
+    if(var(VAR_RESULT) == YES)
+    {
+        // TODO - Support alternative interactions
+        msgbox(format("Let's trade Pokémon!\nWhich Pokémon would you like to Trade?"))
+        special(ChoosePartyMon)
+        waitstate
+
+        copyvar(VAR_LOCAL_MON_SLOT, VAR_0x8004)
+
+        message(format("Waiting for other player…\n… … B Button: Cancel"))
+        callnative(RogueMP_WaitTradeSlotResponse)
+        waitstate
+
+        if(var(VAR_LOCAL_MON_SLOT) == PARTY_NOTHING_CHOSEN || var(VAR_REMOTE_MON_SLOT) == PARTY_NOTHING_CHOSEN)
+        {
+            setvar(VAR_RESULT, NO)
+        }
+        else
+        {
+            call(RogueMP_Common_GrabRemoteMon)
+
+            special(Rogue_PrepareForTrade)
+            special(DoInGameTradeScene)
+            waitstate
+
+            setvar(VAR_RESULT, YES)
+        }
+    }
+
+    if(var(VAR_RESULT) == NO)
     {
         msgbox(format("{RIVAL}: Bye for now!"))
     }
 
-    multiplayerpushstatus(MP_PLAYER_STATUS_NONE, 0)
+    multiplayerpushstatus(MP_PLAYER_STATUS_NONE)
     release
 }
 

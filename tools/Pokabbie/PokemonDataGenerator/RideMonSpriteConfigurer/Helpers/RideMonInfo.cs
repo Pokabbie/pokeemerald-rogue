@@ -192,34 +192,47 @@ namespace RideMonSpriteConfigurer.Helpers
 			return false;
 		}
 
-		public static string GetRelativeSpeciesName(string fromSpecies, int delta)
+		public static string GetRelativeSpeciesName(string fromSpecies, int delta, bool filterRideable)
 		{
 			string lookupName = "SPECIES_" + GameDataHelpers.FormatKeyword(fromSpecies);
-			var kvpList = GameDataHelpers.SpeciesDefines.ToList();
 
-			int index = kvpList.FindIndex((kvp) => kvp.Key == lookupName);
-
-			if (index != -1)
+			while (true)
 			{
-				index += delta;
+				var kvpList = GameDataHelpers.SpeciesDefines.ToList();
 
-				if (delta < 0)
+				int index = kvpList.FindIndex((kvp) => kvp.Key == lookupName);
+
+				if (index != -1)
 				{
-					while (index < 0)
-						index += kvpList.Count;
+					index += delta;
+
+					if (delta < 0)
+					{
+						while (index < 0)
+							index += kvpList.Count;
+					}
+
+					index %= kvpList.Count;
 				}
 
-				index %= kvpList.Count;
+				string speciesKey = kvpList[0].Key;
+
+				if (index >= 0 && index < kvpList.Count)
+				{
+					speciesKey = kvpList[index].Key;
+				}
+
+				string speciesSuffix = speciesKey.Substring("SPECIES_".Length);
+
+				if (filterRideable && FindRideInfo(speciesSuffix) == null)
+				{
+					// Keep going
+					lookupName = speciesKey;
+					continue;
+				}
+
+				return speciesSuffix;
 			}
-
-			string speciesKey = kvpList[0].Key;
-
-			if (index >= 0 && index < kvpList.Count)
-			{
-				speciesKey = kvpList[index].Key;
-			}
-
-			return speciesKey.Substring("SPECIES_".Length);
 		}
 
 		public static Bitmap CreateRidingSprite(Image riderSource, int riderIdx, Image monSource, int monIdx, SpeciesRideMonInfo.SpriteInfo spriteInfo)

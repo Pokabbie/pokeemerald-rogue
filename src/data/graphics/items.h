@@ -2068,7 +2068,12 @@ const u32 gItemIconPalette_FairyFeather[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_RogueStatusStar[] = INCBIN_U32("graphics/items/icons/rogue_status_star.4bpp.lz");
 const u32 gItemIcon_RogueStatusCustom[] = INCBIN_U32("graphics/items/icons/rogue_status_custom.4bpp.lz");
+const u32 gItemIcon_RogueStatusShop[] = INCBIN_U32("graphics/items/icons/rogue_status_shop.4bpp.lz");
+const u32 gItemIcon_RogueStatusMoney[] = INCBIN_U32("graphics/items/icons/rogue_status_money.4bpp.lz");
 const u32 gItemIconPalette_RogueStatusStarCustom[] = INCBIN_U32("graphics/items/icon_palettes/rogue_status_star_custom.gbapal.lz");
+const u32 gItemIcon_RogueHardLock[] = INCBIN_U32("graphics/items/icons/rogue_status_hard.4bpp.lz");
+const u32 gItemIcon_RogueBrutalLock[] = INCBIN_U32("graphics/items/icons/rogue_status_brutal.4bpp.lz");
+const u32 gItemIconPalette_RogueStatusLock[] = INCBIN_U32("graphics/items/icon_palettes/rogue_status_difficulty.gbapal.lz");
 
 const u32 gItemIcon_RogueCharm[] = INCBIN_U32("graphics/items/icons/rogue_charm.4bpp.lz");
 const u32 gItemIconPalette_RogueCharm[] = INCBIN_U32("graphics/items/icon_palettes/rogue_charm.gbapal.lz");
@@ -2105,6 +2110,9 @@ const u32 gItemIconPalette_Pokedex[] = INCBIN_U32("graphics/items/icons/pokedex.
 
 const u32 gItemIcon_Cloud[] = INCBIN_U32("graphics/items/icons/cloud.4bpp.lz");
 const u32 gItemIconPalette_Cloud[] = INCBIN_U32("graphics/items/icons/cloud.gbapal.lz");
+
+const u32 gItemIcon_GoldenSeed[] = INCBIN_U32("graphics/items/icons/rogue_golden_seed.4bpp.lz");
+const u32 gItemIconPalette_GoldenSeed[] = INCBIN_U32("graphics/items/icons/rogue_golden_seed.gbapal.lz");
 
 const u32 gItemIcon_TypeNormal[] = INCBIN_U32("graphics/items/icons/type_icon_normal.4bpp.lz");
 const u32 gItemIconPalette_TypeNormal[] = INCBIN_U32("graphics/items/icons/type_icon_normal.gbapal.lz");

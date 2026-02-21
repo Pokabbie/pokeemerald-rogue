@@ -68,27 +68,6 @@ void Rogue_ResetCampaignAfter(u16 count)
     }
 }
 
-bool8 Rogue_CheckTrainerCardCampaignCompletion(void)
-{
-    u16 i;
-
-    for(i = ROGUE_CAMPAIGN_FIRST; i <= ROGUE_CAMPAIGN_LAST; ++i)
-    {
-        // These campaigns don't contribute to trainer card
-        switch (i)
-        {
-        case ROGUE_CAMPAIGN_LOW_BST:
-        case ROGUE_CAMPAIGN_LATERMANNER:
-            continue;
-        }
-
-        if(!gRogueSaveBlock->campaignData[i].isCompleted)
-            return FALSE;
-    }
-
-    return TRUE;
-}
-
 u16 Rogue_GetActiveCampaign(void)
 {
     return VarGet(VAR_ROGUE_ACTIVE_CAMPAIGN);
@@ -250,8 +229,8 @@ void Rogue_DeactivateActiveCampaign(void)
     {
         if(Rogue_GetCurrentDifficulty() >= 14)
         {
-            if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED) < 999)
-                IncrementGameStat(GAME_STAT_CAMPAIGNS_COMPLETED);
+            //if (GetGameStat(GAME_STAT_CAMPAIGNS_COMPLETED) < 999)
+            //    IncrementGameStat(GAME_STAT_CAMPAIGNS_COMPLETED);
 
             gRogueSaveBlock->campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].isCompleted =  TRUE;
             gRogueSaveBlock->campaignData[Rogue_GetActiveCampaign() - ROGUE_CAMPAIGN_FIRST].bestScore =  Rogue_GetCampaignScore();

@@ -30,7 +30,7 @@ text gItemDesc_CGear
 
 text gItemDesc_DaycarePhone
 {
-    format("A Phone which can be used to directly call the Day Care")
+    format("A Phone which can remotely access the Day Care.")
 }
 
 text gItemDesc_BuildingSupplies
@@ -48,99 +48,119 @@ text gItemDesc_TR
     format("Single use machine for teaching {PKMN} one specific move.")
 }
 
+text gItemDesc_MaxMushroom
+{
+    format("When used on a {PKMN} they gain access their Gmax form.")
+}
+
+text gItemDesc_SmallCoinCase
+{
+    format("Coin Case provides ¥1000 on start of Adventure.")
+}
+
+text gItemDesc_LargeCoinCase
+{
+    format("Coin Case provides ¥10000 on start of Adventure.")
+}
+
+text gItemDesc_GoldenSeed
+{
+    format("todo - golden seed")
+}
+
 text gItemDesc_NormalPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Normal type {PKMN}.")
+    format("Can be used on Routes to attract Normal type {PKMN}.")
 }
 
 text gItemDesc_FightingPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Fighting type {PKMN}.")
+    format("Can be used on Routes to attract Fighting type {PKMN}.")
 }
 
 text gItemDesc_FlyingPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Flying type {PKMN}.")
+    format("Can be used on Routes to attract Flying type {PKMN}.")
 }
 
 text gItemDesc_PoisonPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Poison type {PKMN}.")
+    format("Can be used on Routes to attract Poison type {PKMN}.")
 }
 
 text gItemDesc_GroundPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Ground type {PKMN}.")
+    format("Can be used on Routes to attract Ground type {PKMN}.")
 }
 
 text gItemDesc_RockPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Rock type {PKMN}.")
+    format("Can be used on Routes to attract Rock type {PKMN}.")
 }
 
 text gItemDesc_BugPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Bug type {PKMN}.")
+    format("Can be used on Routes to attract Bug type {PKMN}.")
 }
 
 text gItemDesc_GhostPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Ghost type {PKMN}.")
+    format("Can be used on Routes to attract Ghost type {PKMN}.")
 }
 
 text gItemDesc_SteelPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Steel type {PKMN}.")
+    format("Can be used on Routes to attract Steel type {PKMN}.")
 }
 
 text gItemDesc_FirePokeblock
 {
-    format("{POKEBLOCK} enjoyed by Fire type {PKMN}.")
+    format("Can be used on Routes to attract Fire type {PKMN}.")
 }
 
 text gItemDesc_WaterPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Water type {PKMN}.")
+    format("Can be used on Routes to attract Water type {PKMN}.")
 }
 
 text gItemDesc_GrassPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Grass type {PKMN}.")
+    format("Can be used on Routes to attract Grass type {PKMN}.")
 }
 
 text gItemDesc_ElectricPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Electric type {PKMN}.")
+    format("Can be used on Routes to attract Electric type {PKMN}.")
 }
 
 text gItemDesc_PsychicPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Psychic type {PKMN}.")
+    format("Can be used on Routes to attract Psychic type {PKMN}.")
 }
 
 text gItemDesc_IcePokeblock
 {
-    format("{POKEBLOCK} enjoyed by Ice type {PKMN}.")
+    format("Can be used on Routes to attract Ice type {PKMN}.")
 }
 
 text gItemDesc_DragonPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Dragon type {PKMN}.")
+    format("Can be used on Routes to attract Dragon type {PKMN}.")
 }
 
 text gItemDesc_DarkPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Dark type {PKMN}.")
+    format("Can be used on Routes to attract Dark type {PKMN}.")
 }
 
 text gItemDesc_FairyPokeblock
 {
-    format("{POKEBLOCK} enjoyed by Fairy type {PKMN}.")
+    format("Can be used on Routes to attract Fairy type {PKMN}.")
 }
 
 text gItemDesc_ShinyPokeblock
 {
-    format("{POKEBLOCK} enjoyed by most {PKMN}.")
+    format("Can be used on Routes to attract Shiny {PKMN}.")
 }
 
 text gItemDesc_StatPokeblock
@@ -151,7 +171,7 @@ text gItemDesc_StatPokeblock
 
 text gItemDesc_ShopPriceCharm
 {
-    format("Shop prices are reduced by 40%")
+    format("Shop prices are reduced by 50%")
 }
 text gItemDesc_ShopPriceCurse
 {
@@ -160,11 +180,11 @@ text gItemDesc_ShopPriceCurse
 
 text gItemDesc_FlinchCharm
 {
-    format("Friendly moves have an extra 10% chance to flinch.")
+    format("Friendly moves have a 15% chance to flinch.")
 }
 text gItemDesc_FlinchCurse
 {
-    format("Opponent moves have an extra 10% chance to flinch.")
+    format("Opponent moves have a 10% chance to flinch.")
 }
 
 text gItemDesc_CritCharm
@@ -178,7 +198,7 @@ text gItemDesc_CritCurse
 
 text gItemDesc_ShedSkinCharm
 {
-    format("Friendly Pokémon have a 20% chance to cure status.")
+    format("Friendly Pokémon have a 25% chance to cure status.")
 }
 text gItemDesc_ShedSkinCurse
 {
@@ -196,20 +216,20 @@ text gItemDesc_WildIVCurse
 
 text gItemDesc_CatchingCharm
 {
-    format("BALL effectiveness is increased by 100%.")
+    format("Ball effectiveness is increased by 200%.")
 }
 text gItemDesc_CatchingCurse
 {
-    format("BALL effectiveness is decreased by 25%.")
+    format("Ball effectiveness is decreased by 40%.")
 }
 
 text gItemDesc_GraceCharm
 {
-    format("Friendly moves have an extra 75% for extra effects.")
+    format("Friendly moves have x1.75 to chance for effects.")
 }
 text gItemDesc_GraceCurse
 {
-    format("Opponent moves have an extra 50% for extra effects.")
+    format("Opponent moves have x1.5 to chance for effects.")
 }
 
 text gItemDesc_WildCharm
@@ -223,7 +243,7 @@ text gItemDesc_WildCurse
 
 text gItemDesc_PriorityCharm
 {
-    format("Friendly moves have 10% chance to apply Quick Claw.")
+    format("Friendly moves have 15% chance to apply Quick Claw.")
 }
 text gItemDesc_PriorityCurse
 {
@@ -232,11 +252,56 @@ text gItemDesc_PriorityCurse
 
 text gItemDesc_EndureCharm
 {
-    format("Friendly Pokémon have a 20% chance to endure OHKOs.")
+    format("Friendly Pokémon have a 40% chance to endure OHKOs.")
 }
 text gItemDesc_EndureCurse
 {
     format("Opponent Pokémon have a 20% chance to endure OHKOs.")
+}
+
+text gItemDesc_TormentCharm
+{
+    format("Opponent {PKMN} cannot use the same move in a row.")
+}
+text gItemDesc_TormentCurse
+{
+    format("Friendly {PKMN} cannot use the same move in a row.")
+}
+
+text gItemDesc_PressureCharm
+{
+    format("Opponent Pokémon consume more PP per move.")
+}
+text gItemDesc_PressureCurse
+{
+    format("Friendly Pokémon consume more PP per move.")
+}
+
+text gItemDesc_UnawareCharm
+{
+    format("Friendly {PKMN} ignore Opponent {PKMN} {UP_ARROW}stat changes.")
+}
+text gItemDesc_UnawareCurse
+{
+    format("Opponent {PKMN} ignore Friendly {PKMN} {UP_ARROW}stat changes.")
+}
+
+text gItemDesc_AdaptabilityCharm
+{
+    format("Friendly Pokémon STAB increased by 50%.")
+}
+text gItemDesc_AdaptabilityCurse
+{
+    format("Opponent Pokémon STAB increased by 50%.")
+}
+
+text gItemDesc_ExtraLifeCharm
+{
+    format("Permanent Sacred Ash effect.")
+}
+text gItemDesc_AllowSaveScumCharm
+{
+    format("Allow regular Saving / Reloading during Runs.")
 }
 
 text gItemDesc_PartyCurse
@@ -246,12 +311,12 @@ text gItemDesc_PartyCurse
 
 text gItemDesc_EverstoneCurse
 {
-    format("'LVL UP' Evolutions turn into 'LVL whilst holding LINK CABLE'.")
+    format("All regular Evolutions are disabled.")
 }
 
 text gItemDesc_BattleItemCurse
 {
-    format("Items cannot be used in battle. (Except POKéBALLS)")
+    format("Items cannot be used in battle. (Except Poké Balls)")
 }
 
 text gItemDesc_SpeciesClauseCurse
@@ -264,18 +329,98 @@ text gItemDesc_ItemShuffleCurse
     format("Entering a Battle will shuffle Held Items between {PKMN}.")
 }
 
+text gItemDesc_SnowballCurse
+{
+    format("For every badge, you gain an extra Random Curse.")
+}
+
+text gItemDesc_RandomanRouteSpawnCurse
+{
+    format("Mr. Randoman will occasionally appear on routes.")
+}
+
+text gItemDesc_RandomanAlwaysSpawnCurse
+{
+    format("Mr. Randoman will always appear when possible.")
+}
+
+text gItemDesc_AutoMoveSelectCurse
+{
+    format("Opponent and Friendly {PKMN} pick moves at random.")
+}
+
+text gItemDesc_OneHitCurse
+{
+    format("Friendly {PKMN} will faint in one hit in Trainer Battles.")
+}
+
+text gItemDesc_SnagCurse
+{
+    format("Can only catch Trainer {PKMN} (After Trainer Battle).")
+}
+
+text gItemDesc_WildEggSpeciesCurse
+{
+    format("Wild {PKMN} appear as their 1st evolution stage.")
+}
+
 // Hub upgrades
 // (Appear in item shop layout)
 //
 
+text gHubAreaDesc_Todo
+{
+    format("todo - area desc")
+}
+
+text gHubAreaDesc_ChallengeFrontier
+{
+    format("Access various new Quests and Items…")
+}
+
+text gHubAreaDesc_BerryField
+{
+    format("Grow Berries and craft basic Potions.")
+}
+
+text gHubAreaDesc_Home
+{
+    format("Personal area to Decorate & change Outfits.")
+}
+
+text gHubAreaDesc_Marts
+{
+    format("Shops for TMs, Poké Balls, Held Items etc.")
+}
+
+text gHubAreaDesc_RideTraining
+{
+    format("Train {PKMN} to help you in the Overworld.")
+}
+
+text gHubAreaDesc_DayCare
+{
+    format("Bring extra {PKMN} into Adventures and hatch Eggs.")
+}
+
+text gHubAreaDesc_Market
+{
+    format("Blend {POKEBLOCK} and improve {PKMN} IVs.")
+}
+
 text gHubUpgradeDesc_Home_LowerFloor
 {
-    format("A cozy home used to store items and change outfits.")
+    format("An Interior space to decorate in the Home Base.")
 }
 
 text gHubUpgradeDesc_Home_UpperFloor
 {
     format("A 2nd floor with a bed allowing you to rest until a specific time.")
+}
+
+text gHubUpgradeDesc_Home_TownStyle
+{
+    format("Change styles from Home Base e.g. Path")
 }
 
 text gHubUpgradeDesc_Home_BerryField1
@@ -298,6 +443,51 @@ text gHubUpgradeDesc_Home_FieldShed
     format("TODO - Desc")
 }
 
+text gHubUpgradeDesc_Lab_UniqueMonSlots0
+{
+    format("Increase number of Unique {PKMN} that can be tracked.")
+}
+
+text gHubUpgradeDesc_Lab_UniqueMonSlots1
+{
+    format("Increase number of Unique {PKMN} that can be tracked.")
+}
+
+text gHubUpgradeDesc_Lab_UniqueMonRarity0
+{
+    format("Allows Rare Unique {PKMN} to be tracked. (+Abilities)")
+}
+
+text gHubUpgradeDesc_Lab_UniqueMonRarity1
+{
+    format("Allows Epic Unique {PKMN} to be tracked. (+Moves)")
+}
+
+text gHubUpgradeDesc_Lab_UniqueMonRarity2
+{
+    format("Allows Exotic Unique {PKMN} to be tracked. (+Designed Sets)")
+}
+
+text gHubUpgradeDesc_Lab_UniqueMonRarity3
+{
+    format("Allows Legendary Unique {PKMN} to be tracked.")
+}
+
+
+text gHubUpgradeDesc_AdventureEntrance_RandomStarter
+{
+    format("Starter {PKMN} can be randomised when embarking on Runs.")
+}
+
+text gHubUpgradeDesc_AdventureEntrance_AdventureReplay
+{
+    format("Adventures can be saved and replayed again.")
+}
+
+text gHubUpgradeDesc_BerryField_Brewing
+{
+    format("Brew basic Potions from berries.")
+}
 
 text gHubUpgradeDesc_BerryField_ExtraField
 {
@@ -306,5 +496,122 @@ text gHubUpgradeDesc_BerryField_ExtraField
 
 text gHubUpgradeDesc_BerryField_HigherYeild
 {
-    format("Increased yield when picking berries.")
+    format("Increase berries collected both in and out of Adventures.")
+}
+
+text gHubUpgradeDesc_Mart_GeneralStock
+{
+    format("General Shop has more items for sale.")
+}
+
+text gHubUpgradeDesc_Mart_PokeBalls
+{
+    format("An extra Shop which sells Poké Balls.")
+}
+
+text gHubUpgradeDesc_Mart_PokeBallsStock
+{
+    format("Poké Ball Shop has more items for sale.")
+}
+
+text gHubUpgradeDesc_Mart_TMs
+{
+    format("An extra Shop which sells TMs.")
+}
+
+text gHubUpgradeDesc_Mart_TMsStock
+{
+    format("TM Shop has more items for sale.")
+}
+
+text gHubUpgradeDesc_Mart_TravelerBattleEnhancers
+{
+    format("Battle Shop specializing in Battle Enhancers.")
+}
+
+text gHubUpgradeDesc_Mart_TravelerHeldItems
+{
+    format("Battle Shop specializing in Held Items.")
+}
+
+text gHubUpgradeDesc_Mart_Bank
+{
+    format("Increase starting money for Adventures.")
+}
+
+
+text gHubUpgradeDesc_TownSquare_TrainerSchool
+{
+    format("Building for tips & tricks for Adventures.")
+}
+
+text gHubUpgradeDesc_TownSquare_MoveTutors
+{
+    format("Tutor to teach or remove moves for {PKMN}.")
+}
+
+
+text gHubUpgradeDesc_DayCare_DayCareSlots
+{
+    format("Adds an extra Day Care {PKMN} slot.")
+}
+
+text gHubUpgradeDesc_DayCare_Breeder
+{
+    format("Use data from Pokédex to find {PKMN} Eggs.")
+}
+
+text gHubUpgradeDesc_DayCare_BreederSeenDex
+{
+    format("Only need Seen Pokédex entry to find {PKMN} Eggs.")
+}
+
+text gHubUpgradeDesc_DayCare_Phone
+{
+    format("Remotely access Day Care in and out of Adventures.")
+}
+
+text gHubUpgradeDesc_DayCare_Bakery
+{
+    format("Bake {POKEBLOCK} into snacks used to improve IVs.")
+}
+
+text gHubUpgradeDesc_DayCare_PokeblockBlenders
+{
+    format("Create more {POKEBLOCK} at once.")
+}
+
+text gHubUpgradeDesc_DayCare_TreatShop_Vanilla
+{
+    format("Shop for {POKEBLOCK}.")
+}
+
+text gHubUpgradeDesc_DayCare_TreatShop
+{
+    format("Shop for Mints to change {PKMN} natures.")
+}
+
+text gHubUpgradeDesc_DayCare_TreatShopStock
+{
+    format("Treat Shop will now also sell {POKEBLOCK}.")
+}
+
+text gHubUpgradeDesc_DayCare_TeaShop
+{
+    format("Tea used for changing the gender of {PKMN}.")
+}
+
+text gHubUpgradeDesc_DayCare_ExpShare0
+{
+    format("Day Care {PKMN} gain 25% of the {LV}s the Partner does.")
+}
+
+text gHubUpgradeDesc_DayCare_ExpShare1
+{
+    format("Day Care {PKMN} gain 50% of the {LV}s the Partner does.")
+}
+
+text gHubUpgradeDesc_DayCare_ExpShare2
+{
+    format("Day Care {PKMN} gain 100% of the {LV}s the Partner does.")
 }

@@ -828,7 +828,7 @@ static void Task_Hof_DisplayPlayer(u8 taskId)
 
 static void Task_Hof_DoQuestNotifications(u8 taskId)
 {
-    Rogue_ForceEnablePopups(FALSE);
+    Rogue_ForceEnablePopups(FALSE, TRUE);
     gTasks[taskId].func = Task_Hof_WaitForQuestNotifications;
 }
 
@@ -990,6 +990,22 @@ static void Task_Hof_HandleExit(u8 taskId)
 }
 
 static void StartCredits(void)
+{
+    if(FlagGet(FLAG_ROGUE_UNLOCKED_VICTORY_LAP) && !Rogue_UseFinalQuestEffects())
+    {
+        PlayBGM(MUS_NONE);
+        SetWarpDestination(MAP_GROUP(ROGUE_BOSS_VICTORY_LAP), MAP_NUM(ROGUE_BOSS_VICTORY_LAP), WARP_ID_NONE, 9, 5);
+        WarpIntoMap();
+
+        SetMainCallback2(CB2_LoadMap);
+    }
+    else
+    {
+        SetMainCallback2(CB2_StartCreditsSequence);
+    }
+}
+
+void VictoryLapStartCredits()
 {
     SetMainCallback2(CB2_StartCreditsSequence);
 }

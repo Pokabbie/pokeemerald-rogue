@@ -7,6 +7,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_charms.h"
+#include "rogue_gifts.h"
 #include "rogue_multiplayer.h"
 #include "rogue_save.h"
 #include "rogue_settings.h"
@@ -18,7 +19,6 @@ STATIC_ASSERT(ARRAY_COUNT(sNicknameTable_Global) != 0, sNicknameTable_Global_Isn
 
 struct RogueDifficultyLocal
 {
-    u8 presetLevel;
     u8 rewardLevel;
     bool8 areLevelsValid;
 };
@@ -57,12 +57,15 @@ static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] =
     {
         .initialLevelOffset = 80,
         .levelOffsetInterval = 10,
+        .enterPartySize = PARTY_SIZE,
         .trainerOrder = TRAINER_ORDER_DEFAULT,
         .disableChallengeQuests = TRUE,
         .disablePerBadgeLvlCaps = TRUE,
         .forceEndGameTrainers = TRUE,
+        .forceEndGameRouteItems = TRUE,
         .forceRandomanAlwaysActive = TRUE,
         .disableRivalEncounters = TRUE,
+        .disableRouteTrainers = TRUE,
         .forceFullShopInventory = TRUE,
         .adventureGenerator = ADV_GENERATOR_GAUNTLET,
     },
@@ -70,12 +73,15 @@ static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] =
     {
         .initialLevelOffset = 80,
         .levelOffsetInterval = 10,
+        .enterPartySize = PARTY_SIZE,
         .trainerOrder = TRAINER_ORDER_RAINBOW,
         .disableChallengeQuests = TRUE,
         .disablePerBadgeLvlCaps = TRUE,
         .forceEndGameTrainers = TRUE,
+        .forceEndGameRouteItems = TRUE,
         .forceRandomanAlwaysActive = TRUE,
         .disableRivalEncounters = TRUE,
+        .disableRouteTrainers = TRUE,
         .forceFullShopInventory = TRUE,
         .adventureGenerator = ADV_GENERATOR_GAUNTLET,
     },
@@ -181,6 +187,36 @@ static struct RogueDifficultyConfig const* GetReadableDifficultyConfig()
     return &gRogueSaveBlock->difficultyConfig;
 }
 
+static bool8 IsDifficultyToggle(u16 elem)
+{
+    switch (elem)
+    {
+    case CONFIG_TOGGLE_OVER_LVL:
+    case CONFIG_TOGGLE_EV_GAIN:
+    case CONFIG_TOGGLE_BAG_WIPE:
+    case CONFIG_TOGGLE_SWITCH_MODE:
+    case CONFIG_TOGGLE_DIVERSE_TRAINERS:
+    case CONFIG_TOGGLE_AFFECTION:
+    case CONFIG_TOGGLE_RELEASE_MONS:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 IsDifficultyRange(u16 elem)
+{
+    switch (elem)
+    {
+    case CONFIG_RANGE_TRAINER:
+    case CONFIG_RANGE_ITEM:
+    case CONFIG_RANGE_LEGENDARY:
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 void Rogue_SetConfigToggle(u16 elem, bool8 state)
 {
     u16 idx = elem / 8;
@@ -190,16 +226,23 @@ void Rogue_SetConfigToggle(u16 elem, bool8 state)
 
     AGB_ASSERT(elem < CONFIG_TOGGLE_COUNT);
     AGB_ASSERT(idx < ARRAY_COUNT(config->toggleBits));
-    if(state)
-    {
-        config->toggleBits[idx] |= bitMask;
-    }
-    else
-    {
-        config->toggleBits[idx] &= ~bitMask;
-    }
 
-    gRogueDifficultyLocal.areLevelsValid = FALSE;
+    if(elem < CONFIG_TOGGLE_COUNT)
+    {
+        if(state)
+        {
+            config->toggleBits[idx] |= bitMask;
+        }
+        else
+        {
+            config->toggleBits[idx] &= ~bitMask;
+        }
+
+        gRogueDifficultyLocal.areLevelsValid = FALSE;
+
+        if(IsDifficultyToggle(elem))
+            config->rangeValues[CONFIG_RANGE_DIFFICULTY_PRESET] = DIFFICULTY_LEVEL_CUSTOM;
+    }
 }
 
 bool8 Rogue_GetConfigToggle(u16 elem)
@@ -219,8 +262,14 @@ void Rogue_SetConfigRange(u16 elem, u8 value)
     struct RogueDifficultyConfig* config = GetWritableDifficultyConfig();
     AGB_ASSERT(elem < CONFIG_RANGE_COUNT);
 
-    config->rangeValues[elem] = value;
-    gRogueDifficultyLocal.areLevelsValid = FALSE;
+    if(elem < CONFIG_RANGE_COUNT)
+    {
+        config->rangeValues[elem] = value;
+        gRogueDifficultyLocal.areLevelsValid = FALSE;
+
+        if(IsDifficultyRange(elem))
+            config->rangeValues[CONFIG_RANGE_DIFFICULTY_PRESET] = DIFFICULTY_LEVEL_CUSTOM;
+    }
 }
 
 u8 Rogue_GetConfigRange(u16 elem)
@@ -363,7 +412,6 @@ static void Rogue_ResetToDefaults(bool8 difficultySettingsOnly)
 {
     // Reset all values to the default prior to presets
     // These should be the lowest of the low
-    gRogueDifficultyLocal.presetLevel = DIFFICULTY_LEVEL_CUSTOM;
     gRogueDifficultyLocal.rewardLevel = DIFFICULTY_LEVEL_EASY;
     gRogueDifficultyLocal.areLevelsValid = FALSE;
 
@@ -423,65 +471,8 @@ static void Rogue_SetDifficultyPresetInternal(u8 preset)
             break;
     }
 
-    gRogueDifficultyLocal.presetLevel = preset;
     gRogueDifficultyLocal.rewardLevel = preset;
     gRogueDifficultyLocal.areLevelsValid = TRUE;
-}
-
-static u8 Rogue_CalcDifficultyPreset()
-{
-    u8 p, i;
-    bool8 isValid;
-
-    for(p = 0; p < DIFFICULTY_PRESET_COUNT; ++p)
-    {
-        isValid = TRUE;
-
-        if(isValid)
-        {
-            // Check if all toggles match
-            for(i = 0; i < CONFIG_TOGGLE_COUNT; ++i)
-            {
-                u8 id = gRogueDifficultyPresets[p].toggles[i].id;
-                bool8 expectedValue = gRogueDifficultyPresets[p].toggles[i].value;
-
-                if(id == CONFIG_TOGGLE_COUNT)
-                    break;
-
-                if(Rogue_GetConfigToggle(id) != expectedValue)
-                {
-                    isValid = FALSE;
-                    break;
-                }
-            }
-        }
-
-        if(isValid)
-        {
-            // Check if all ranges match
-            for(i = 0; i < CONFIG_RANGE_COUNT; ++i)
-            {
-                u8 id = gRogueDifficultyPresets[p].ranges[i].id;
-                u8 expectedValue = gRogueDifficultyPresets[p].ranges[i].value;
-
-                if(id == CONFIG_RANGE_COUNT)
-                    break;
-
-                if(Rogue_GetConfigRange(id) != expectedValue)
-                {
-                    isValid = FALSE;
-                    break;
-                }
-            }
-        }
-
-        if(isValid)
-        {
-            return p;
-        }
-    }
-
-    return DIFFICULTY_LEVEL_CUSTOM;
 }
 
 static u8 Rogue_CalcRewardDifficultyPreset()
@@ -562,6 +553,7 @@ void Rogue_ResetSettingsToDefaults()
 void Rogue_SetDifficultyPreset(u8 preset)
 {
     Rogue_SetDifficultyPresetInternal(preset);
+    Rogue_SetConfigRange(CONFIG_RANGE_DIFFICULTY_PRESET, preset);
 }
 
 static void EnsureLevelsAreValid()
@@ -574,8 +566,6 @@ static void EnsureLevelsAreValid()
 
     if(!gRogueDifficultyLocal.areLevelsValid)
     {
-        // Always assume we're custom as specific settings are ignored otherwise :/
-        gRogueDifficultyLocal.presetLevel = DIFFICULTY_LEVEL_CUSTOM; //Rogue_CalcDifficultyPreset();
         gRogueDifficultyLocal.rewardLevel = Rogue_CalcRewardDifficultyPreset();
         gRogueDifficultyLocal.areLevelsValid = TRUE;
     }
@@ -585,7 +575,7 @@ u8 Rogue_GetDifficultyPreset()
 {
     EnsureLevelsAreValid();
 
-    return gRogueDifficultyLocal.presetLevel;
+    return Rogue_GetConfigRange(CONFIG_RANGE_DIFFICULTY_PRESET);
 }
 
 u8 Rogue_GetDifficultyRewardLevel()
@@ -602,10 +592,14 @@ u8 Rogue_GetDifficultyRewardLevel()
 
 u8 Rogue_GetStartingMonCapacity()
 {
-    if(Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT) == BATTLE_FORMAT_MIXED)
-        return 2;
-    else
-        return 1;
+    u8 partySize = 1;
+
+    if(Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT) == BATTLE_FORMAT_DOUBLES || Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT) == BATTLE_FORMAT_MIXED)
+        partySize = 2;
+
+    partySize = max(partySize, Rogue_GetModeRules()->enterPartySize);
+
+    return partySize;
 }
 
 static u16 GetCurrentNicknameMode()
@@ -636,6 +630,21 @@ static bool8 DoesPartyContainNickname(u8 const* str)
 
 bool8 Rogue_ShouldSkipAssignNickname(struct Pokemon* mon)
 {
+    u32 customMonId;
+
+    // Never give snagged mons nicknames
+    if(FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
+        return TRUE;
+
+    // Don't give exotic mons nicknames
+    customMonId = RogueGift_GetCustomMonId(mon);
+
+    if(customMonId)
+    {
+        if(!RogueGift_CanRenameCustomMon(customMonId))
+            return TRUE;
+    }
+
     switch (GetCurrentNicknameMode())
     {
     case OPTIONS_NICKNAME_MODE_NEVER:

@@ -17,7 +17,8 @@ script Rogue_Interior_SafariCave_InteractLegendSummon
 
     if(var(VAR_RESULT) == YES)
     {
-        msgbox(format("Powerful Pokémon cries echo throughout the cave.\pWhich Pokémon would you like to make an offering to?"))
+        // ROGUE_SAFARI_LEGENDS_POKEBLOCK_COST
+        msgbox(format("Powerful Pokémon cries echo throughout the cave.\p20 {POKEBLOCK} can be offered in order to encounter one of these Pokemon.\pWhich Pokémon would you like to make an offering to?"))
 
         special(RogueSafari_CompactEmptyEntries)
         special(Special_SelectSafariMonInPokedex)
@@ -52,12 +53,13 @@ script Rogue_Interior_SafariCave_InteractLegendSummon
                     }
                     else
                     {
-                        msgbox(format("Oh no!\n{STR_VAR_2} are needed in order\nto make an offering."))
+                        msgbox(format("That is not enough {POKEBLOCK}.\n{STR_VAR_2} are needed in order to make an offering."))
                     }
                 }
                 else
                 {
-                    msgbox(format("The Pokémon won't like that type of {POKEBLOCK}."))
+                    special(Rogue_BufferSafariMonInfo)
+                    msgbox(format("{STR_VAR_1} won't like that type of {POKEBLOCK}."))
                 }
             }
         }

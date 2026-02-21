@@ -67,6 +67,7 @@
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
 #include "rogue_charms.h"
+#include "rogue_gifts.h"
 #include "rogue_popup.h"
 #include "rogue_script.h"
 #include "rogue_settings.h"
@@ -1229,6 +1230,8 @@ static bool32 NoTargetPresent(u8 battler, u32 move)
 // TODO: Convert this to a proper FORM_CHANGE type.
 static bool32 TryAegiFormChange(void)
 {
+    u32 side = GetBattlerSide(gBattlerAttacker);
+
     // Only Aegislash with Stance Change can transform, transformed mons cannot.
     if (GetBattlerAbility(gBattlerAttacker) != ABILITY_STANCE_CHANGE
         || gBattleMons[gBattlerAttacker].status2 & STATUS2_TRANSFORMED)
@@ -1241,6 +1244,10 @@ static bool32 TryAegiFormChange(void)
     case SPECIES_AEGISLASH_SHIELD: // Shield -> Blade
         if (IS_MOVE_STATUS(gCurrentMove))
             return FALSE;
+    
+        if (gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[gBattlerAttacker]] == SPECIES_NONE)
+            gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[gBattlerAttacker]] = gBattleMons[gBattlerAttacker].species;
+    
         gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH_BLADE;
         break;
     case SPECIES_AEGISLASH_BLADE: // Blade -> Shield
@@ -1252,6 +1259,10 @@ static bool32 TryAegiFormChange(void)
     case SPECIES_WOBBUFFET: // Regular -> Punching
         if (IS_MOVE_STATUS(gCurrentMove))
             return FALSE;
+
+        if (gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[gBattlerAttacker]] == SPECIES_NONE)
+            gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[gBattlerAttacker]] = gBattleMons[gBattlerAttacker].species;
+
         gBattleMons[gBattlerAttacker].species = SPECIES_WOBBUFFET_PUNCHING;
         break;
     case SPECIES_WOBBUFFET_PUNCHING: // Punching -> Regular
@@ -1665,6 +1676,8 @@ static bool32 AccuracyCalcHelper(u16 move)
     return FALSE;
 }
 
+bool8 ApplyUnawareCurse(u32 battlerId, s8 statStage);
+
 u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u32 defAbility, u32 atkHoldEffect, u32 defHoldEffect)
 {
     u32 calc, moveAcc;
@@ -1677,12 +1690,12 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     gPotentialItemEffectBattler = battlerDef;
     accStage = gBattleMons[battlerAtk].statStages[STAT_ACC];
     evasionStage = gBattleMons[battlerDef].statStages[STAT_EVASION];
-    if (atkAbility == ABILITY_UNAWARE || atkAbility == ABILITY_KEEN_EYE || atkAbility == ABILITY_MINDS_EYE
+    if (atkAbility == ABILITY_UNAWARE || ApplyUnawareCurse(battlerAtk, evasionStage) || atkAbility == ABILITY_KEEN_EYE || atkAbility == ABILITY_MINDS_EYE
             || (B_ILLUMINATE_EFFECT >= GEN_9 && atkAbility == ABILITY_ILLUMINATE))
         evasionStage = DEFAULT_STAT_STAGE;
     if (gBattleMoves[move].ignoresTargetDefenseEvasionStages)
         evasionStage = DEFAULT_STAT_STAGE;
-    if (defAbility == ABILITY_UNAWARE)
+    if (defAbility == ABILITY_UNAWARE || ApplyUnawareCurse(battlerDef, evasionStage))
         accStage = DEFAULT_STAT_STAGE;
 
     if (gBattleMons[battlerDef].status2 & STATUS2_FORESIGHT || gStatuses3[battlerDef] & STATUS3_MIRACLE_EYED)
@@ -1891,11 +1904,23 @@ static void Cmd_ppreduce(void)
             if (GetBattlerSide(i) != GetBattlerSide(gBattlerAttacker) && IsBattlerAlive(i))
                 ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
         }
+
+        if(GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER && IsCurseActive(EFFECT_PRESSURE_STATUS))
+            ppToDeduct++;
+
+        if(GetBattlerSide(gBattlerAttacker) != B_SIDE_PLAYER && IsCharmActive(EFFECT_PRESSURE_STATUS))
+            ppToDeduct++;
     }
     else if (moveTarget != MOVE_TARGET_OPPONENTS_FIELD)
     {
         if (gBattlerAttacker != gBattlerTarget && GetBattlerAbility(gBattlerTarget) == ABILITY_PRESSURE)
              ppToDeduct++;
+
+        if(GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER && IsCurseActive(EFFECT_PRESSURE_STATUS))
+            ppToDeduct++;
+
+        if(GetBattlerSide(gBattlerAttacker) != B_SIDE_PLAYER && IsCharmActive(EFFECT_PRESSURE_STATUS))
+            ppToDeduct++;
     }
 
     if (!(gHitMarker & (HITMARKER_NO_PPDEDUCT | HITMARKER_NO_ATTACKSTRING)) && gBattleMons[gBattlerAttacker].pp[gCurrMovePos])
@@ -1946,11 +1971,6 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
 {
     s32 critChance = 0;
 
-    if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
-        critChance += GetCurseValue(EFFECT_CRIT_CHANCE);
-    else
-        critChance += GetCharmValue(EFFECT_CRIT_CHANCE);
-
     if (gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT || gStatuses3[battlerAtk] & STATUS3_CANT_SCORE_A_CRIT
        || abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR)
     {
@@ -1969,9 +1989,14 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
                     + (holdEffectAtk == HOLD_EFFECT_SCOPE_LENS)
                     + 2 * (holdEffectAtk == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[battlerAtk].species == SPECIES_CHANSEY)
                     + 2 * BENEFITS_FROM_LEEK(battlerAtk, holdEffectAtk)
-                    + 2 * (B_AFFECTION_MECHANICS == TRUE && GetBattlerAffectionHearts(battlerAtk) == AFFECTION_FIVE_HEARTS)
+                    //+ 2 * (B_AFFECTION_MECHANICS == TRUE && GetBattlerAffectionHearts(battlerAtk) == AFFECTION_FIVE_HEARTS) // TODO -MAKE THIS A FLAT 10% BECAUSE THIS IS CRAZY
                     + (abilityAtk == ABILITY_SUPER_LUCK)
                     + gBattleStruct->bonusCritStages[gBattlerAttacker];
+
+        if(GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+            critChance += (s32)GetCurseValue(EFFECT_CRIT_CHANCE);
+        else
+            critChance += (s32)GetCharmValue(EFFECT_CRIT_CHANCE);
 
         // Record ability only if move had at least +3 chance to get a crit
         if (critChance >= 3 && recordAbility && (abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR))
@@ -2016,7 +2041,17 @@ static void Cmd_critcalc(void)
     else if (critChance == -2)
         gIsCriticalHit = TRUE;
     else
-        gIsCriticalHit = RandomWeighted(RNG_CRITICAL_HIT, sCriticalHitChance[critChance] - 1, 1);
+    {
+        u8 currentCritRate = sCriticalHitChance[critChance];
+
+        if(B_AFFECTION_MECHANICS == TRUE && GetBattlerAffectionHearts(gBattlerAttacker) == AFFECTION_FIVE_HEARTS)
+        {
+            currentCritRate = max(1, currentCritRate / 2);
+        }
+
+        gIsCriticalHit = RandomWeighted(RNG_CRITICAL_HIT, currentCritRate - 1, 1);
+
+    }
 
     // Counter for EVO_CRITICAL_HITS.
     partySlot = gBattlerPartyIndexes[gBattlerAttacker];
@@ -2035,6 +2070,18 @@ static void Cmd_damagecalc(void)
 
     GET_MOVE_TYPE(gCurrentMove, moveType);
     gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE);
+
+    if((IsCurseActive(EFFECT_ONE_HIT) || Rogue_GetActiveCampaign() == ROGUE_CAMPAIGN_ONE_HP) && gBattleMoveDamage != 0)
+    {
+        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        {
+            if(GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER)
+            {
+                gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP * 4;
+            }
+        }
+    }
+
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
@@ -2050,7 +2097,7 @@ static void Cmd_typecalc(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static bool8 ActiveAlphaMonEndure(u32 battler)
+bool8 ActiveAlphaMonEndure(u32 battler)
 {
     if(gBattleStruct->rogueAlphaMonActive != 0 && gBattleStruct->rogueAlphaMonWeakened == 0 && GetBattlerSide(battler) == B_SIDE_OPPONENT)
     {
@@ -2097,7 +2144,7 @@ static void Cmd_adjustdamage(void)
 
     if (DoesSubstituteBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
         goto END;
-    if (DoesDisguiseBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
+    if (DoesDisguiseBlockMove(gBattlerTarget, gCurrentMove))
     {
         gBattleStruct->enduredDamage |= gBitTable[gBattlerTarget];
         goto END;
@@ -2358,7 +2405,7 @@ static void Cmd_healthbarupdate(void)
         {
             PrepareStringBattle(STRINGID_SUBSTITUTEDAMAGED, battler);
         }
-        else if (!DoesDisguiseBlockMove(gBattlerAttacker, battler, gCurrentMove))
+        else if (!DoesDisguiseBlockMove(battler, gCurrentMove))
         {
             s16 healthValue = min(gBattleMoveDamage, 10000); // Max damage (10000) not present in R/S, ensures that huge damage values don't change sign
 
@@ -2411,13 +2458,16 @@ static void Cmd_datahpupdate(void)
                 return;
             }
         }
-        else if (DoesDisguiseBlockMove(gBattlerAttacker, battler, gCurrentMove))
+        else if (DoesDisguiseBlockMove(battler, gCurrentMove))
         {
             // TODO: Convert this to a proper FORM_CHANGE type.
             u32 side = GetBattlerSide(battler);
+            gBattleScripting.battler = battler;
             if (gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[battler]] == SPECIES_NONE)
                 gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[battler]] = gBattleMons[battler].species;
             gBattleMons[battler].species = SPECIES_MIMIKYU_BUSTED;
+            if (B_DISGUISE_HP_LOSS >= GEN_8)
+                gBattleMoveDamage = GetNonDynamaxMaxHP(battler) / 8;
             BattleScriptPush(cmd->nextInstr);
             gBattlescriptCurrInstr = BattleScript_TargetFormChange;
             return;
@@ -4287,10 +4337,25 @@ static void Cmd_getexp(void)
     case 2: // set exp value to the poke in expgetter_id and print message
         if (gBattleControllerExecFlags == 0)
         {
+            u32 battler = 0xFF;
             bool32 wasSentOut = ((gBattleStruct->expSentInMons & gBitTable[*expMonId]) != 0);
             holdEffect = GetMonHoldEffect(&gPlayerParty[*expMonId]);
 
-            if ((holdEffect != HOLD_EFFECT_EXP_SHARE && !wasSentOut && !IsGen6ExpShareEnabled())
+            // update battle mon structure after level up
+            if (gBattlerPartyIndexes[0] == *expMonId && gBattleMons[0].hp)
+                battler = 0;
+            else if (gBattlerPartyIndexes[2] == *expMonId && gBattleMons[2].hp && (gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
+                battler = 2;
+
+            // RogueNote: Dynamax Workaround
+            // Leveling up while Dynamaxed is a bit bugged with health atm so just don't allow it for now
+            if(battler != 0xFF && IsDynamaxed(battler))
+            {
+
+                gBattleScripting.getexpState = 5;
+                gBattleMoveDamage = 0; // used for exp
+            }
+            else if ((holdEffect != HOLD_EFFECT_EXP_SHARE && !wasSentOut && !IsGen6ExpShareEnabled())
              || GetMonData(&gPlayerParty[*expMonId], MON_DATA_SPECIES_OR_EGG) == SPECIES_EGG)
             {
                 gBattleScripting.getexpState = 5;
@@ -6859,8 +6924,12 @@ static void Cmd_openpartyscreen(void)
                 if (gAbsentBattlerFlags & gBitTable[battlerOpposite])
                     battlerOpposite ^= BIT_FLANK;
 
-                BtlController_EmitLinkStandbyMsg(battlerOpposite, BUFFER_A, LINK_STANDBY_MSG_ONLY, FALSE);
-                MarkBattlerForControllerExec(battlerOpposite);
+                // Make sure we're checking a valid battler. In edge case scenarios - battler could be absent and battlerOpposite would become a non-existent one softlocking the game.
+                if (battlerOpposite < gBattlersCount)
+                {
+                    BtlController_EmitLinkStandbyMsg(battlerOpposite, BUFFER_A, LINK_STANDBY_MSG_ONLY, FALSE);
+                    MarkBattlerForControllerExec(battlerOpposite);
+                }
             }
         }
     }
@@ -7457,7 +7526,7 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
 {
     u32 moneyReward = 0;
     Rogue_ModifyBattleWinnings(trainerId, &moneyReward);
-    return moneyReward;
+    return moneyReward * gBattleStruct->moneyMultiplier;
 }
 
 static void Cmd_getmoneyreward(void)
@@ -9358,9 +9427,7 @@ static void Cmd_various(void)
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
             case ABILITY_RKS_SYSTEM:        case ABILITY_TRACE:
             case ABILITY_ZERO_TO_HERO:
-            case ABILITY_FORECAST_DRIZZLE:
-            case ABILITY_FORECAST_DROUGHT:
-            case ABILITY_FORECAST_SNOW:
+            case ABILITY_FORECAST_PRIORITY:
                 break;
             default:
                 gBattleStruct->tracedAbility[gBattlerAbility] = gBattleMons[battler].ability; // re-using the variable for trace
@@ -14510,6 +14577,10 @@ static void Cmd_switchoutabilities(void)
     CMD_ARGS(u8 battler);
 
     u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    // Undo dynamax here to ensure we reset the HP correctly
+    UndoDynamax(battler);
+
     if (gBattleMons[battler].ability == ABILITY_NEUTRALIZING_GAS)
     {
         gBattleMons[battler].ability = ABILITY_NONE;
@@ -14795,13 +14866,12 @@ bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
         return TRUE;
 }
 
-bool32 DoesDisguiseBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
+bool32 DoesDisguiseBlockMove(u32 battler, u32 move)
 {
-    if (gBattleMons[battlerDef].species != SPECIES_MIMIKYU_DISGUISED
-        || gBattleMons[battlerDef].status2 & STATUS2_TRANSFORMED
-        || IS_MOVE_STATUS(move)
-        || gHitMarker & HITMARKER_IGNORE_DISGUISE
-        || GetBattlerAbility(battlerDef) != ABILITY_DISGUISE)
+    if (!(gBattleMons[battler].species == SPECIES_MIMIKYU_DISGUISED)
+        || gBattleMons[battler].status2 & STATUS2_TRANSFORMED
+        || (!gProtectStructs[battler].confusionSelfDmg && (IS_MOVE_STATUS(move) || gHitMarker & HITMARKER_PASSIVE_DAMAGE))
+        || GetBattlerAbility(battler) != ABILITY_DISGUISE)
         return FALSE;
     else
         return TRUE;
@@ -15373,9 +15443,22 @@ static void Cmd_rogue_caughtmon(void)
 
 static void Cmd_givecaughtmon(void)
 {
+    u32 customMonId = RogueGift_GetCustomMonId(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]);
+    u8 giveSlot;
     CMD_ARGS();
 
-    if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]) != MON_GIVEN_TO_PARTY)
+    Rogue_OnAcceptCaughtMon(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]);
+
+    if(customMonId != 0 || IsCurseActive(EFFECT_SNAG_TRAINER_MON))
+    {
+        giveSlot = GiveTradedMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]);
+    }
+    else
+    {
+        giveSlot = GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]]);
+    }
+
+    if (giveSlot != MON_GIVEN_TO_PARTY)
     {
         if (!ShouldShowBoxWasFullMessage())
         {

@@ -14,6 +14,7 @@
 #include "decoration_inventory.h"
 #include "agb_flash.h"
 #include "event_data.h"
+#include "constants/event_objects.h"
 
 #include "rogue_controller.h"
 #include "rogue_save.h"
@@ -186,7 +187,12 @@ void SaveObjectEvents(void)
     int i;
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
         gSaveBlock1Ptr->objectEvents[i] = gObjectEvents[i];
+
+        if(Rogue_IsObjectEventExcludedFromSave(&gSaveBlock1Ptr->objectEvents[i]))
+            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+    }
 }
 
 void LoadObjectEvents(void)
@@ -194,7 +200,12 @@ void LoadObjectEvents(void)
     int i;
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
         gObjectEvents[i] = gSaveBlock1Ptr->objectEvents[i];
+
+        if(Rogue_IsObjectEventExcludedFromSave(&gObjectEvents[i]))
+            gObjectEvents[i].active = FALSE;
+    }
 }
 
 void CopyPartyAndObjectsToSave(void)

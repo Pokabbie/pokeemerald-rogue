@@ -15,6 +15,11 @@ enum
     QUEST_REWARD_SHOP_ITEM,
     QUEST_REWARD_MONEY,
     QUEST_REWARD_QUEST_UNLOCK,
+    QUEST_REWARD_FLAG,
+    QUEST_REWARD_HUB_UPGRADE,
+    QUEST_REWARD_DECOR,
+    QUEST_REWARD_DECOR_VARIANT,
+    QUEST_REWARD_OUTFIT_UNLOCK,
 };
 
 enum
@@ -28,6 +33,8 @@ struct RogueQuestReward
 {
     u8 type;
     u8 visiblity;
+    u8 requiredDifficulty;
+    struct CustomPopup const* customPopup;
     union
     {
         struct
@@ -54,6 +61,26 @@ struct RogueQuestReward
         {
             u16 questId;
         } questUnlock;
+        struct
+        {
+            u16 flagId;
+        } flag;
+        struct
+        {
+            u16 upgradeId;
+        } hubUpgrade;
+        struct
+        {
+            u16 decorId;
+        } decor;
+        struct
+        {
+            u16 decorVariantId;
+        } decorVariant;
+        struct
+        {
+            u16 outfitUnlockId;
+        } outfitUnlock;
     } perType;
 };
 
@@ -135,7 +162,7 @@ u8 const* RogueQuest_GetTitle(u16 questId);
 u8 const* RogueQuest_GetDesc(u16 questId);
 bool8 RogueQuest_GetConstFlag(u16 questId, u32 flag);
 
-u16 RogueQuest_GetOrderedQuest(u16 index);
+u16 RogueQuest_GetOrderedQuest(u16 index, bool8 alphabetical);
 
 bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag);
 void RogueQuest_SetStateFlag(u16 questId, u32 flag, bool8 state);
@@ -165,14 +192,21 @@ bool8 RogueQuest_IsQuestActive(u16 questId);
 void RogueQuest_CheckQuestRequirements();
 
 u16 RogueQuest_GetQuestCompletePercFor(u32 constFlag);
+u16 RogueQuest_GetQuestCompletePercAtDifficultyFor(u32 constFlag, u8 difficultyLevel);
 void RogueQuest_GetQuestCountsFor(u32 constFlag, u16* activeCount, u16* inactiveCount);
+u16 RogueQuest_GetQuestTotalCountFor(u32 constFlag, bool8 includeLocked);
 u16 RogueQuest_GetDisplayCompletePerc();
 
 void RogueQuest_OnNewGame();
 void RogueQuest_OnLoadGame();
-void RogueQuest_OnTrigger(u16 trigger);
+void RogueQuest_OnTrigger(u32 trigger);
 
 bool8 RogueQuest_HasUnlockedChallenges();
 bool8 RogueQuest_HasUnlockedMonMasteries();
+
+bool8 RogueQuest_GetMonMasteryFlag(u16 species);
+void RogueQuest_SetMonMasteryFlag(u16 species);
+void RogueQuest_SetMonMasteryFlagFromParty();
+u32 RogueQuest_GetMonMasteryTotalPerc();
 
 #endif

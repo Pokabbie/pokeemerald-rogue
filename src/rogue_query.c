@@ -20,6 +20,7 @@
 #include "rogue_baked.h"
 #include "rogue_campaign.h"
 #include "rogue_controller.h"
+#include "rogue_debug.h"
 #include "rogue_pokedex.h"
 #include "rogue_settings.h"
 #include "rogue_trainers.h"
@@ -69,6 +70,9 @@ struct RogueQueryData
     u16 debugDumpCounter;
     u8 queryType;
     bool8 dynamicAllocListArray;
+#ifdef DEBUG_FEATURE_FRAME_TIMERS
+    u32 queryStartClock;
+#endif
 };
 
 EWRAM_DATA static struct RogueQueryData sRogueQuery = {0};
@@ -107,20 +111,108 @@ static void AllocQuery(u8 type)
     sRogueQuery.totalWeight = 0;
 
     memset(&sRogueQuery.bitFlags[0], 0, MAX_QUERY_BYTE_COUNT);
+    
+#ifdef DEBUG_FEATURE_FRAME_TIMERS
+    sRogueQuery.queryStartClock = RogueDebug_SampleClock();
+    DebugPrintf("[Query] Main Start %d", sRogueQuery.queryType);
+#endif
 }
 
 static void FreeQuery()
 {
+#ifdef DEBUG_FEATURE_FRAME_TIMERS
+    {
+        u32 queryDuration = RogueDebug_SampleClock() - sRogueQuery.queryStartClock;
+        DebugPrintf("[Query] End %d (duration: %d us)", sRogueQuery.queryType, RogueDebug_ClockToDisplayUnits(queryDuration));
+    }
+#endif
     AGB_ASSERT(sRogueQuery.weightArray == NULL);
     sRogueQuery.queryType = QUERY_TYPE_NONE;
 }
+
+// Disable optimisation by disabling this
+#if 1
+
+static u32 IncrementActiveIteratorInternal(u32 i)
+{
+    // Attempt to avoid uncessary reads by working in steps of 32
+    u32* data32 = ((u32*)sRogueQuery.bitFlags);
+    u32 value, mask, offset, remainder;
+
+    ++i; // always offset by 1
+
+    offset = i / 32;
+    remainder = i % 32;
+    value = data32[offset];
+
+    while(offset < sizeof(gRogueQueryBits) && i < MAX_QUERY_BYTE_COUNT * 8)
+    {
+        if(value == 0)
+        {
+            // Can optimise and do a big step here
+            // Skip the entire 32 bit value
+            remainder = 0;
+            ++offset;
+            value = data32[offset];
+
+            i = offset * 32;
+            continue;
+        }
+
+        mask = (1 << remainder);
+
+        // Found a bit that is active
+        if(value & mask)
+            break;
+
+        ++i;
+        remainder = i % 32;
+
+        if(remainder == 0)
+        {
+            // Entered a new 32 range to check
+            offset = i / 32;
+            value = data32[offset];
+        }
+    }
+
+    // Clamp
+    if(i >= MAX_QUERY_BYTE_COUNT * 8)
+        i = MAX_QUERY_BYTE_COUNT * 8 - 1;
+
+    return i;
+}
+
+static u32 IncrementActiveIterator(u32 startIndex)
+{
+    // Validation checks, this is only really needed for checking
+#if defined(ROGUE_DEBUG) && 0
+    u32 i;
+    u32 endIndex = IncrementActiveIteratorInternal(startIndex);
+
+    for(i = startIndex + 1; i < endIndex; ++i)
+    {
+        AGB_ASSERT(GetQueryBitFlag(i) == FALSE);
+    }
+
+    return endIndex;
+#else
+    return IncrementActiveIteratorInternal(startIndex);
+#endif
+}
+
+#define ITERATOR_INC(i) (i = IncrementActiveIterator(i))
+#else
+
+#define ITERATOR_INC(i) (++i)
+#endif
 
 static void SetQueryBitFlag(u16 elem, bool8 state)
 {
     if(GetQueryBitFlag(elem) != state)
     {
-        u16 idx = elem / 8;
-        u16 bit = elem % 8;
+        u32 idx = elem / 8;
+        u8 bit = elem % 8;
         u8 bitMask = 1 << bit;
 
         ASSERT_ANY_QUERY;
@@ -145,8 +237,8 @@ static void SetQueryBitFlag(u16 elem, bool8 state)
 
 static bool8 GetQueryBitFlag(u16 elem)
 {
-    u16 idx = elem / 8;
-    u16 bit = elem % 8;
+    u32 idx = elem / 8;
+    u8 bit = elem % 8;
     u8 bitMask = 1 << bit;
 
     ASSERT_ANY_QUERY;
@@ -171,8 +263,8 @@ void RogueMiscQuery_EditElement(u8 func, u16 elem)
 
 void RogueMiscQuery_EditRange(u8 func, u16 fromId, u16 toId)
 {
-    u16 i;
-    u16 maxBitCount = Query_MaxBitCount();
+    u32 i;
+    u32 maxBitCount = Query_MaxBitCount();
 
     ASSERT_ANY_QUERY;
 
@@ -187,17 +279,30 @@ bool8 RogueMiscQuery_CheckState(u16 elem)
     return GetQueryBitFlag(elem);
 }
 
+bool8 RogueMiscQuery_AnyActiveStates(u16 fromId, u16 toId)
+{
+    u32 i;
+
+    for(i = fromId; i <= toId; ++i)
+    {
+        if(RogueMiscQuery_CheckState(i))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount)
 {
-    u16 elem;
-    u16 count = Query_MaxBitCount();
+    u32 elem;
+    u32 count = Query_MaxBitCount();
     RAND_TYPE startSeed = gRngRogueValue;
 
     ASSERT_ANY_QUERY;
 
     SeedRogueRng(rngSeed);
 
-    for(elem = 1; elem < count && sRogueQuery.bitCount > minCount; ++elem)
+    for(elem = 1; elem < count && sRogueQuery.bitCount > minCount; ITERATOR_INC(elem))
     {
         if(GetQueryBitFlag(elem))
         {
@@ -229,16 +334,16 @@ bool8 RogueMiscQuery_AnyActiveElements()
 
 u16 RogueMiscQuery_SelectRandomElement(u16 rngValue)
 {
-    u16 elem;
-    u16 currIndex;
-    u16 count = Query_MaxBitCount();
-    u16 desiredIndex = rngValue % sRogueQuery.bitCount;
+    u32 elem;
+    u32 currIndex;
+    u32 count = Query_MaxBitCount();
+    u32 desiredIndex = rngValue % sRogueQuery.bitCount;
     ASSERT_ANY_QUERY;
     AGB_ASSERT(RogueMiscQuery_AnyActiveElements());
 
     currIndex = 0;
 
-    for(elem = 1; elem < count; ++elem)
+    for(elem = 0; elem < count; ITERATOR_INC(elem))
     {
         if(GetQueryBitFlag(elem))
         {
@@ -291,7 +396,7 @@ void RogueMonQuery_End()
 
 void RogueMonQuery_Reset(u8 func)
 {
-    u16 species;
+    u32 species;
     ASSERT_MON_QUERY;
 
     if(RogueDebug_GetConfigToggle(DEBUG_TOGGLE_DEBUG_MON_QUERY))
@@ -314,7 +419,7 @@ void RogueMonQuery_Reset(u8 func)
 
 void RogueMonQuery_IsSpeciesActive()
 {
-    u16 species;
+    u32 species;
     ASSERT_MON_QUERY;
 
     for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
@@ -325,10 +430,10 @@ void RogueMonQuery_IsSpeciesActive()
 
 void RogueMonQuery_IsBaseSpeciesInCurrentDex(u8 func)
 {
-    u16 species;
+    u32 species;
     ASSERT_MON_QUERY;
 
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
         if(GetQueryBitFlag(species))
         {
@@ -350,10 +455,10 @@ void RogueMonQuery_IsBaseSpeciesInCurrentDex(u8 func)
 
 void RogueMonQuery_IsSeenInPokedex(u8 func)
 {
-    u16 species;
+    u32 species;
     ASSERT_MON_QUERY;
 
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
         if(GetQueryBitFlag(species))
         {
@@ -375,11 +480,11 @@ void RogueMonQuery_IsSeenInPokedex(u8 func)
 
 void RogueMonQuery_TransformIntoEggSpecies()
 {
-    u16 species;
-    u16 eggSpecies;
+    u32 species;
+    u32 eggSpecies;
     ASSERT_MON_QUERY;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
         if(GetQueryBitFlag(species))
         {
@@ -395,11 +500,11 @@ void RogueMonQuery_TransformIntoEggSpecies()
 
 void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8 keepSourceSpecies)
 {
-    u16 species;
+    u32 species;
 
     ASSERT_MON_QUERY;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
         if(Rogue_GetMaxEvolutionCount(species) != 0 && GetQueryBitFlag(species))
         {
@@ -410,9 +515,9 @@ void RogueMonQuery_TransformIntoEvos(u8 levelLimit, bool8 includeItemEvos, bool8
 
 static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 removeWhenEvo)
 {
-    u8 i;
+    u32 i;
     struct Evolution evo;
-    u8 evoCount = Rogue_GetMaxEvolutionCount(species);
+    u32 evoCount = Rogue_GetMaxEvolutionCount(species);
 
     ASSERT_MON_QUERY;
     
@@ -503,7 +608,7 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
 
 void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
 {
-    u16 species;
+    u32 species;
     u32 speciesFlags;
 
     ASSERT_MON_QUERY;
@@ -512,7 +617,7 @@ void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
     if(typeFlags == 0)
         return;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
         if(GetQueryBitFlag(species))
         {
@@ -539,7 +644,7 @@ void RogueMonQuery_IsOfType(u8 func, u32 typeFlags)
 
 void RogueMonQuery_IsOfGeneration(u8 func, u32 generationFlags)
 {
-    u16 species;
+    u32 species;
     u32 speciesFlags;
 
     ASSERT_MON_QUERY;
@@ -548,7 +653,7 @@ void RogueMonQuery_IsOfGeneration(u8 func, u32 generationFlags)
     if(generationFlags == 0)
         return;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
         if(GetQueryBitFlag(species))
         {
@@ -574,8 +679,8 @@ void RogueMonQuery_IsOfGeneration(u8 func, u32 generationFlags)
 
 void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags)
 {
-    bool8 containsAnyType;
-    u16 species;
+    bool32 containsAnyType;
+    u32 species;
 
     ASSERT_MON_QUERY;
 
@@ -583,7 +688,7 @@ void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags)
     if(typeFlags == 0)
         return;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
         if(GetQueryBitFlag(species))
         {
@@ -609,7 +714,7 @@ void RogueMonQuery_EvosContainType(u8 func, u32 typeFlags)
 
 void RogueMonQuery_ContainsPresetFlags(u8 func, u32 presetflags)
 {
-    u16 species;
+    u32 species;
     u32 speciesFlags;
 
     ASSERT_MON_QUERY;
@@ -618,7 +723,7 @@ void RogueMonQuery_ContainsPresetFlags(u8 func, u32 presetflags)
     if(presetflags == 0)
         return;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
         if(GetQueryBitFlag(species))
         {
@@ -644,11 +749,11 @@ void RogueMonQuery_ContainsPresetFlags(u8 func, u32 presetflags)
 
 void RogueMonQuery_IsLegendary(u8 func)
 {
-    u16 species;
-    const bool8 checkState = (func == QUERY_FUNC_INCLUDE);
+    u32 species;
+    const bool32 checkState = (func == QUERY_FUNC_INCLUDE);
     ASSERT_MON_QUERY;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
         if(GetQueryBitFlag(species) && RoguePokedex_IsSpeciesLegendary(species) != checkState)
         {
@@ -659,7 +764,7 @@ void RogueMonQuery_IsLegendary(u8 func)
 
 void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 presetflags)
 {
-    u16 species;
+    u32 species;
     u32 speciesFlags;
 
     ASSERT_MON_QUERY;
@@ -668,9 +773,9 @@ void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 presetflags)
     if(presetflags == 0)
         return;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
-        if(RoguePokedex_IsSpeciesLegendary(species) && GetQueryBitFlag(species))
+        if(GetQueryBitFlag(species) && RoguePokedex_IsSpeciesLegendary(species))
         {
             speciesFlags = Rogue_GetMonFlags(species);
 
@@ -692,16 +797,33 @@ void RogueMonQuery_IsLegendaryWithPresetFlags(u8 func, u32 presetflags)
     }
 }
 
+void RogueMonQuery_IsParadox(u8 func)
+{
+#ifdef ROGUE_EXPANSION
+    u32 species;
+    const bool32 checkState = (func == QUERY_FUNC_INCLUDE);
+    ASSERT_MON_QUERY;
+    
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
+    {
+        if(GetQueryBitFlag(species) && RoguePokedex_IsSpeciesParadox(species) != checkState)
+        {
+            SetQueryBitFlag(species, FALSE);
+        }
+    }
+#endif
+}
+
 void RogueMonQuery_IsBoxLegendary(u8 func)
 {
-    bool8 valid;
-    u16 species;
+    bool32 valid;
+    u32 species;
 
     ASSERT_MON_QUERY;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
-        if(RoguePokedex_IsSpeciesLegendary(species) && GetQueryBitFlag(species))
+        if(GetQueryBitFlag(species) && RoguePokedex_IsSpeciesLegendary(species))
         {
             valid = RoguePokedex_IsSpeciesValidBoxLegendary(species);
 
@@ -725,14 +847,14 @@ void RogueMonQuery_IsBoxLegendary(u8 func)
 
 void RogueMonQuery_IsRoamerLegendary(u8 func)
 {
-    bool8 valid;
-    u16 species;
+    bool32 valid;
+    u32 species;
 
     ASSERT_MON_QUERY;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
-        if(RoguePokedex_IsSpeciesLegendary(species) && GetQueryBitFlag(species))
+        if(GetQueryBitFlag(species) && RoguePokedex_IsSpeciesLegendary(species))
         {
             valid = RoguePokedex_IsSpeciesValidRoamerLegendary(species);
 
@@ -756,14 +878,14 @@ void RogueMonQuery_IsRoamerLegendary(u8 func)
 
 void RogueMonQuery_AnyActiveEvos(u8 func)
 {
-    bool8 hasValidEvo;
-    u16 species, i;
+    bool32 hasValidEvo;
+    u32 species, i;
     struct Evolution evo;
-    u8 evoCount;
+    u32 evoCount;
 
     ASSERT_MON_QUERY;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
         if(GetQueryBitFlag(species))
         {
@@ -801,10 +923,10 @@ void RogueMonQuery_AnyActiveEvos(u8 func)
 
 void RogueMonQuery_CustomFilter(QueryFilterCallback filterFunc, void* usrData)
 {
-    u16 species;
+    u32 species;
     ASSERT_MON_QUERY;
     
-    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ++species)
+    for(species = SPECIES_NONE + 1; species < QUERY_NUM_SPECIES; ITERATOR_INC(species))
     {
         if(GetQueryBitFlag(species) && !filterFunc(species, usrData))
         {
@@ -816,8 +938,8 @@ void RogueMonQuery_CustomFilter(QueryFilterCallback filterFunc, void* usrData)
 static u16 Query_GetEggSpecies(u16 inSpecies)
 {
     // Edge case handling for specific pre evos added in later gens
-    u8 genLimit = RoguePokedex_GetDexGenLimit();
-    u16 species = Rogue_GetEggSpecies(inSpecies);
+    u32 genLimit = RoguePokedex_GetDexGenLimit();
+    u32 species = Rogue_GetEggSpecies(inSpecies);
 
     if(genLimit == 1)
     {
@@ -909,16 +1031,16 @@ static u16 Query_GetEggSpecies(u16 inSpecies)
     return species;
 }
 
-bool8 Query_IsSpeciesEnabledInternal(u16 species)
+static bool8 Query_IsSpeciesEnabledInDexInternal(u16 species, bool32 forceDexCheck)
 {
-    if(Rogue_IsRunActive())
+    if(Rogue_IsRunActive() || forceDexCheck)
         return RoguePokedex_IsSpeciesEnabled(species);
 
     // Force species active in queries for hub activities
     return TRUE;
 }
 
-bool8 Query_IsSpeciesEnabled(u16 species)
+static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
 {
     // Check if mon has valid data
     if(gRogueSpeciesInfo[species].baseHP != 0)
@@ -949,57 +1071,72 @@ bool8 Query_IsSpeciesEnabled(u16 species)
         else if(species > FORMS_START)
         {
             // Regional forms
-            if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_STUNFISK_GALARIAN)
-                return Query_IsSpeciesEnabledInternal(species);
+            if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_DECIDUEYE_HISUIAN)
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             // Alt forms
             // Gen4
             if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_SHAYMIN_SKY)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             // Gen5
             if(species == SPECIES_BASCULIN_BLUE_STRIPED || species == SPECIES_BASCULIN_WHITE_STRIPED)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species >= SPECIES_DEERLING_SUMMER && species <= SPECIES_KYUREM_BLACK)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             // Gen6
             if(species == SPECIES_MEOWSTIC_FEMALE)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
     
             // Gen7
             if(species >= SPECIES_ORICORIO_POM_POM && species <= SPECIES_LYCANROC_DUSK)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species >= SPECIES_NECROZMA_DUSK_MANE && species <= SPECIES_NECROZMA_DAWN_WINGS)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species == SPECIES_MAGEARNA_ORIGINAL_COLOR)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             // Gen8
             if(species >= SPECIES_TOXTRICITY_LOW_KEY && species <= SPECIES_POLTEAGEIST_ANTIQUE)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species == SPECIES_INDEEDEE_FEMALE)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species >= SPECIES_ZACIAN_CROWNED_SWORD && species <= SPECIES_ZAMAZENTA_CROWNED_SHIELD)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             if(species >= SPECIES_CALYREX_ICE_RIDER && species <= SPECIES_CALYREX_SHADOW_RIDER)
-                return Query_IsSpeciesEnabledInternal(species);
+                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
             // If we've gotten here then we're not interested in this form
             return FALSE;
         }
+#else
+        if(species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z)
+            return FALSE;
+
 #endif
 
-        return Query_IsSpeciesEnabledInternal(species);
+        return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
     }
 
     return FALSE;
+
+}
+
+bool8 Query_IsSpeciesEnabled(u16 species)
+{
+    return Query_IsSpeciesEnabledInternal(species, FALSE);
+}
+
+bool8 Query_IsSpeciesEnabledForceDexChecking(u16 species)
+{
+    return Query_IsSpeciesEnabledInternal(species, TRUE);
 }
 
 // ITEM QUERY
@@ -1024,7 +1161,7 @@ void RogueItemQuery_End()
 
 void RogueItemQuery_Reset(u8 func)
 {
-    u16 itemId;
+    u32 itemId;
     ASSERT_ITEM_QUERY;
 
     for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
@@ -1042,7 +1179,7 @@ void RogueItemQuery_Reset(u8 func)
 
 void RogueItemQuery_IsItemActive()
 {
-    u16 itemId;
+    u32 itemId;
     ASSERT_ITEM_QUERY;
 
     for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
@@ -1053,10 +1190,10 @@ void RogueItemQuery_IsItemActive()
 
 void RogueItemQuery_IsStoredInPocket(u8 func, u8 pocket)
 {
-    u16 itemId;
+    u32 itemId;
     ASSERT_ITEM_QUERY;
 
-    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ITERATOR_INC(itemId))
     {
         if(GetQueryBitFlag(itemId))
         {
@@ -1080,10 +1217,10 @@ void RogueItemQuery_IsStoredInPocket(u8 func, u8 pocket)
 
 void RogueItemQuery_IsEvolutionItem(u8 func)
 {
-    u16 itemId;
+    u32 itemId;
     ASSERT_ITEM_QUERY;
 
-    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ITERATOR_INC(itemId))
     {
         if(GetQueryBitFlag(itemId))
         {
@@ -1107,11 +1244,11 @@ void RogueItemQuery_IsEvolutionItem(u8 func)
 
 void RogueItemQuery_InPriceRange(u8 func, u16 minPrice, u16 maxPrice)
 {
-    u16 itemId;
-    u16 price;
+    u32 itemId;
+    u32 price;
     ASSERT_ITEM_QUERY;
 
-    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ITERATOR_INC(itemId))
     {
         if(GetQueryBitFlag(itemId))
         {
@@ -1172,10 +1309,10 @@ static bool8 Query_IsGeneralShopItem(u16 itemId)
 
 void RogueItemQuery_IsGeneralShopItem(u8 func)
 {
-    u16 itemId;
+    u32 itemId;
     ASSERT_ITEM_QUERY;
 
-    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ITERATOR_INC(itemId))
     {
         if(GetQueryBitFlag(itemId))
         {
@@ -1199,10 +1336,10 @@ void RogueItemQuery_IsGeneralShopItem(u8 func)
 
 void RogueItemQuery_IsHeldItem(u8 func)
 {
-    u16 itemId;
+    u32 itemId;
     ASSERT_ITEM_QUERY;
 
-    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ITERATOR_INC(itemId))
     {
         if(GetQueryBitFlag(itemId))
         {
@@ -1241,7 +1378,7 @@ void RogueTrainerQuery_End()
 
 void RogueTrainerQuery_Reset(u8 func)
 {
-    u16 trainerNum;
+    u32 trainerNum;
 
     ASSERT_TRAINER_QUERY;
 
@@ -1260,8 +1397,8 @@ void RogueTrainerQuery_Reset(u8 func)
 
 void RogueTrainerQuery_ContainsClassFlag(u8 func, u32 classFlags)
 {
-    u16 trainerNum;
-    bool8 containsAnyFlags;
+    u32 trainerNum;
+    bool32 containsAnyFlags;
 
     ASSERT_TRAINER_QUERY;
 
@@ -1269,7 +1406,7 @@ void RogueTrainerQuery_ContainsClassFlag(u8 func, u32 classFlags)
     if(classFlags == 0)
         return;
 
-    for(trainerNum = 0; trainerNum < gRogueTrainerCount; ++trainerNum)
+    for(trainerNum = 0; trainerNum < gRogueTrainerCount; ITERATOR_INC(trainerNum))
     {
         if(GetQueryBitFlag(trainerNum))
         {
@@ -1295,8 +1432,8 @@ void RogueTrainerQuery_ContainsClassFlag(u8 func, u32 classFlags)
 
 void RogueTrainerQuery_ContainsTrainerFlag(u8 func, u32 trainerFlags)
 {
-    u16 trainerNum;
-    bool8 containsAnyFlags;
+    u32 trainerNum;
+    bool32 containsAnyFlags;
 
     ASSERT_TRAINER_QUERY;
 
@@ -1304,7 +1441,7 @@ void RogueTrainerQuery_ContainsTrainerFlag(u8 func, u32 trainerFlags)
     if(trainerFlags == 0)
         return;
 
-    for(trainerNum = 0; trainerNum < gRogueTrainerCount; ++trainerNum)
+    for(trainerNum = 0; trainerNum < gRogueTrainerCount; ITERATOR_INC(trainerNum))
     {
         if(GetQueryBitFlag(trainerNum))
         {
@@ -1330,12 +1467,12 @@ void RogueTrainerQuery_ContainsTrainerFlag(u8 func, u32 trainerFlags)
 
 void RogueTrainerQuery_IsOfTypeGroup(u8 func, u16 typeGroup)
 {
-    u16 trainerNum;
-    bool8 containsAnyFlags;
+    u32 trainerNum;
+    bool32 containsAnyFlags;
 
     ASSERT_TRAINER_QUERY;
 
-    for(trainerNum = 0; trainerNum < gRogueTrainerCount; ++trainerNum)
+    for(trainerNum = 0; trainerNum < gRogueTrainerCount; ITERATOR_INC(trainerNum))
     {
         if(GetQueryBitFlag(trainerNum))
         {
@@ -1376,7 +1513,7 @@ void RoguePathsQuery_End()
 
 void RoguePathsQuery_Reset(u8 func)
 {
-    u8 i;
+    u32 i;
 
     ASSERT_PATHS_QUERY;
 
@@ -1395,11 +1532,11 @@ void RoguePathsQuery_Reset(u8 func)
 
 void RoguePathsQuery_IsOfType(u8 func, u8 roomType)
 {
-    u8 i;
+    u32 i;
 
     ASSERT_PATHS_QUERY;
 
-    for(i = 0; i < gRogueAdvPath.roomCount; ++i)
+    for(i = 0; i < gRogueAdvPath.roomCount; ITERATOR_INC(i))
     {
         if(GetQueryBitFlag(i))
         {
@@ -1438,11 +1575,11 @@ void RogueMoveQuery_End()
 
 void RogueMoveQuery_Reset(u8 func)
 {
-    u16 i;
+    u32 i;
 
     ASSERT_MOVES_QUERY;
 
-    for(i = MOVE_NONE + 1; i < QUERY_NUM_MOVES; ++i)
+    for(i = MOVE_NONE + 1; i < QUERY_NUM_MOVES; ++i) // ITERATOR_INC(i) ?
     {
         if(func == QUERY_FUNC_INCLUDE)
         {
@@ -1457,7 +1594,7 @@ void RogueMoveQuery_Reset(u8 func)
 
 void RogueMoveQuery_IsTM(u8 func)
 {
-    u16 i, move;
+    u32 i, move;
 
     ASSERT_MOVES_QUERY;
 
@@ -1468,7 +1605,7 @@ void RogueMoveQuery_IsTM(u8 func)
     }
     else if(func == QUERY_FUNC_EXCLUDE)
     {
-        for(i = 0; i < NUM_TECHNICAL_MACHINES; ++i)
+        for(i = 0; i < NUM_TECHNICAL_MACHINES; ++i) // ITERATOR_INC(i) ?
         {
             move = ItemIdToBattleMoveId(ITEM_TM01 + i);
             if(GetQueryBitFlag(move))
@@ -1494,7 +1631,7 @@ void RogueMoveQuery_IsHM(u8 func)
         u16 move;
         u16 i;
 
-        for(i = 0; i < NUM_HIDDEN_MACHINES; ++i)
+        for(i = 0; i < NUM_HIDDEN_MACHINES; ++i) // ITERATOR_INC(i) ?
         {
             move = ItemIdToBattleMoveId(ITEM_HM01 + i);
             if(GetQueryBitFlag(move))
@@ -1562,6 +1699,22 @@ void RogueWeightQuery_Begin()
     ASSERT_ANY_QUERY;
     sRogueQuery.weightArray = (u8*)((void*)&gRogueQueryBuffer[0]); // TODO - Dynamic alloc
     sRogueQuery.arrayCapacity = ARRAY_COUNT(gRogueQueryBuffer) * sizeof(u16);
+    
+    // Remove random entries until we can safely calcualte weights without going over
+    while(RogueWeightQuery_IsOverSafeCapacity())
+    {
+        RogueMiscQuery_FilterByChance(RogueRandom(), QUERY_FUNC_INCLUDE, 66, 1);
+    }
+
+#ifdef DEBUG_FEATURE_FRAME_TIMERS
+    {
+        u32 queryDuration = RogueDebug_SampleClock() - sRogueQuery.queryStartClock;
+        DebugPrintf("[Query] End %d (duration: %d us)", sRogueQuery.queryType, RogueDebug_ClockToDisplayUnits(queryDuration));
+        
+        sRogueQuery.queryStartClock = RogueDebug_SampleClock();
+        DebugPrintf("[Query] Weight Start %d", sRogueQuery.queryType);
+    }
+#endif
 }
 
 void RogueWeightQuery_End()
@@ -1585,18 +1738,18 @@ bool8 RogueWeightQuery_HasMultipleWeights()
 
 void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)
 {
-    u8 weight;
-    u16 elem;
-    u16 index;
-    u16 counter = 0;
-    u16 maxBitCount = Query_MaxBitCount();
-    u16 weightCount = Query_GetWeightArrayCount();
+    u32 weight;
+    u32 elem;
+    u32 index;
+    u32 counter = 0;
+    u32 maxBitCount = Query_MaxBitCount();
+    u32 weightCount = Query_GetWeightArrayCount();
 
     ASSERT_WEIGHT_QUERY;
 
     sRogueQuery.totalWeight = 0;
 
-    for(elem = 0; elem < maxBitCount; ++elem)
+    for(elem = 0; elem < maxBitCount; ITERATOR_INC(elem))
     {
         if(GetQueryBitFlag(elem))
         {
@@ -1615,70 +1768,28 @@ void RogueWeightQuery_CalculateWeights(WeightCallback callback, void* data)
 
 void RogueWeightQuery_FillWeights(u8 weight)
 {
-    u16 i;
-    u16 weightCount = Query_GetWeightArrayCount();
+    u32 weightCount = Query_GetWeightArrayCount();
 
     ASSERT_WEIGHT_QUERY;
 
-    sRogueQuery.totalWeight = 0;
-
-    for(i = 0; i < weightCount; ++i)
-    {
-        sRogueQuery.weightArray[i] = weight;
-        sRogueQuery.totalWeight += weight;
-    }
-}
-
-void RogueWeightQuery_UpdateIndividualWeight(u16 checkElem, u8 weight)
-{
-    u16 elem;
-    u16 index;
-    u16 counter = 0;
-    u16 maxBitCount = Query_MaxBitCount();
-    u16 weightCount = Query_GetWeightArrayCount();
-
-    ASSERT_WEIGHT_QUERY;
-
-    for(elem = 0; elem < maxBitCount; ++elem)
-    {
-        if(GetQueryBitFlag(elem))
-        {
-            index = counter++;
-
-            if(index < weightCount)
-            {
-                if(elem == checkElem)
-                {
-                    AGB_ASSERT(sRogueQuery.totalWeight > sRogueQuery.weightArray[index]);
-
-                    // Remove old weight and replace with new one
-                    sRogueQuery.totalWeight -= sRogueQuery.weightArray[index];
-                    sRogueQuery.weightArray[index] = weight;
-                    sRogueQuery.totalWeight += weight;
-                    return;
-                }
-            }
-        }
-    }
-
-    // If we've gotten here we've tried to update the weight for an elem that doesn't exist
-    AGB_ASSERT(FALSE);
+    memset(sRogueQuery.weightArray, weight, weightCount);
+    sRogueQuery.totalWeight = weight * weightCount;
 }
 
 static u16 RogueWeightQuery_SelectRandomFromWeightsInternal(u16 randValue, bool8 updateWeight, u8 newWeight)
 {
-    u8 weight;
-    u16 elem;
-    u16 index;
-    u16 counter = 0;
-    u16 maxBitCount = Query_MaxBitCount();
-    u16 weightCount = Query_GetWeightArrayCount();
-    u16 targetWeight = randValue % sRogueQuery.totalWeight;
+    u32 weight;
+    u32 elem;
+    u32 index;
+    u32 counter = 0;
+    u32 maxBitCount = Query_MaxBitCount();
+    u32 weightCount = Query_GetWeightArrayCount();
+    u32 targetWeight = randValue % sRogueQuery.totalWeight;
 
     ASSERT_WEIGHT_QUERY;
     AGB_ASSERT(sRogueQuery.totalWeight != 0);
 
-    for(elem = 0; elem < maxBitCount; ++elem)
+    for(elem = 0; elem < maxBitCount; ITERATOR_INC(elem))
     {
         if(GetQueryBitFlag(elem))
         {
@@ -1859,14 +1970,14 @@ static void SortInsertItem(u16 itemId, u16* buffer, u16 currBufferCount, u8 sort
 
 u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
 {
-    u16 itemId;
-    u16 index;
+    u32 itemId;
+    u32 index;
     ASSERT_ITEM_QUERY;
     ASSERT_LIST_QUERY;
 
     index = 0;
 
-    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ++itemId)
+    for(itemId = ITEM_NONE + 1; itemId < QUERY_NUM_ITEMS; ITERATOR_INC(itemId))
     {
         if(GetQueryBitFlag(itemId))
         {

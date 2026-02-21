@@ -7,6 +7,8 @@
 #include "battle_transition.h"
 #include "fieldmap.h"
 
+#include "rogue_controller.h"
+
 static EWRAM_DATA struct {
     const u16 *src;
     u16 *dest;
@@ -608,11 +610,13 @@ static void _InitPrimaryTilesetAnimation(void)
 
 static void _InitSecondaryTilesetAnimation(void)
 {
+    const struct Tileset* secondaryTileset = Rogue_ModifyOverworldTileset(gMapHeader.mapLayout->secondaryTileset);
     sSecondaryTilesetAnimCounter = 0;
     sSecondaryTilesetAnimCounterMax = 0;
     sSecondaryTilesetAnimCallback = NULL;
-    if (gMapHeader.mapLayout->secondaryTileset && gMapHeader.mapLayout->secondaryTileset->callback)
-        gMapHeader.mapLayout->secondaryTileset->callback();
+
+    if (secondaryTileset && secondaryTileset->callback)
+        secondaryTileset->callback();
 }
 
 void InitTilesetAnim_General(void)

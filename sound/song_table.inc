@@ -741,6 +741,14 @@ gSongTable::
 	song mus_dp_lake, 0, 0
 	song mus_dp_level_up, 2, 2
 	song mus_dp_legend_appears, 0, 0
+	song mus_dp_galactic_eterna_building, 0, 0
+	song mus_dp_galactic_hq, 0, 0
+	song mus_dp_galactic_hq_basement, 0, 0
+	song mus_dp_amity_square, 0, 0
+	song mus_dp_old_chateau, 0, 0
+	song mus_dp_rowan, 0, 0
+	song mus_dp_oreburgh_mine, 0, 0
+	song mus_pl_mystery_gift, 0, 0
 	song mus_pl_vs_giratina, 0, 0
 	song mus_pl_distortion_world, 0, 0
 	song mus_pl_looker, 0, 0

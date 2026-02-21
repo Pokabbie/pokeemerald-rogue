@@ -18,7 +18,32 @@
                 "music_player": "sinnoh_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
                 "class_flags": [],
+                "pokeball": "POKE_BALL",
                 "shiny_species": "SPECIES_WOOLOO",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Hi there!\\pYou look like a strong Trainer!\\nPlease, would you battle with me?\\pGreat!\\pI've watched every match that my Brother Lee's ever had!\\pI've read every book and magazine he left behind at home, too!\\pI know exactly what to do in order to win!",
+                        "POST_BATTLE_TAUNT": "You and your Pokémon are too much!",
+                        "POST_BATTLE_CLOSER": "Well, that was a shock\\pGuess I shouldn't be too surprised given you even look strong.\\pYou know what…\\nI already want to get stronger and stronger!\\pWith you as my Rival!\\nI know I'll have to get stronger!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: There you are! I've been waiting!\\pLet's have a battle, you and me.\\nWe'll get in a bit of training!",
+                        "POST_BATTLE_TAUNT": "Oof! Gutted that I lost…\\pBut I'd expect nothing less from my rival!",
+                        "POST_BATTLE_CLOSER": "Just what I'd expect from my rival!\\pWe've got a long way to go before any Championship Match.\\pStill, you'd better believe I'm going to keep on winning my way towards it!\\pSee you in a bit, {PLAYER}!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}!\\pAfter a great curry, I feel like I've got the energy to wrestle a Bewear!\\pSo, you know we've gotta battle!\\pTime for a little exhibition match, starring the future Champion!",
+                        "POST_BATTLE_TAUNT": "I still can't beat you, my true rival…\\pBut I think I'm starting to see the light!",
+                        "POST_BATTLE_CLOSER": "{PLAYER}… Thanks, mate.\\pYou've been such a great rival.\\pI just-\\pDidn't expect there to be such a gap between you and me…"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\p{PLAYER}…",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: I've got a favor to ask!\\pI want another battle against you.\\pTo see which one of us can be the true Champion!\\pA proper battle to finish it all!\\pAll right!\\nLet's go, {PLAYER}!",
+                        "POST_BATTLE_TAUNT": "Now that was a proper battle!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -45,7 +70,32 @@
                 "music_player": "kanto_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
                 "class_flags": [],
+                "pokeball": "GREAT_BALL",
                 "shiny_species": "SPECIES_HATENNA",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Coming this way?\\nI'd advise against it.\\pUnless you're looking for a beating from me and my Pokémon.\\p… … …\\pI suppose I should prove beyond a doubt just how pathetic you are and how strong I am.",
+                        "POST_BATTLE_TAUNT": "I see…\\nWell, that's fine.\\pI wasn't really trying all that hard anyway.",
+                        "POST_BATTLE_CLOSER": "Well, that was unexpected.\\nI suppose you're more able than I thought.\\pNaturally, I'll remember your battle style and strategies now.\\pI'm sure to easily defeat you if and when we face each other again.\\pNow that we've established that, I won't waste any more time on you."
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: I'd feel sorry for my Pokémon if I made them take part in a battle against low-level opponents.\\pI'm not in the mood to deal with weaklings right now.\\pIf you're under the misguided impression that you're stronger than me, then surely you would be up for a Pokémon battle.",
+                        "POST_BATTLE_TAUNT": "You showed at least a little effort, so I decided I should let you win!",
+                        "POST_BATTLE_CLOSER": "Ah, pardon me. It seems I must take back my words.\\pYou're not weak-\\pYou just lack talent.\\pNow, where shall I go next?"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Oh my.\\nYou again…\\pSo you think that you can start collecting Gym Badges to gain favor?\\pThat's the way of things, is it?\\nI see. So you do have some cunning in you.\\pI won't have it!\\nI won't allow anyone to stand in my way!",
+                        "POST_BATTLE_TAUNT": "This has to be some kind of mistake. I demand a do-over.",
+                        "POST_BATTLE_CLOSER": "But why…? How can this be?\\nHow could someone like you get in my way?\\pNo, you must be the issue.\\pYou must be too weak for me to understand…\\pYou stood in the path of a Pokémon's Simple Beam or something…\\pWell…\\pI won't give up!\\nYou hear me!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\pEver since you showed up, everything I've done has gone wrong.",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Even with everything I've been through…\\pMy will hasn't been broken yet!",
+                        "POST_BATTLE_TAUNT": "I couldn't win.\\pAt least I was able to show you a great battle…",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "MALE",
                 "team_generator":
                 {
@@ -93,7 +143,32 @@
                 "music_player": "hoenn_boss",
                 "trainer_flags": [ "REGION_GALAR", "CLASS_RIVAL" ],
                 "class_flags": [],
+                "pokeball": "DUSK_BALL",
                 "shiny_species": "SPECIES_MORPEKO",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Uhhh, {PLAYER}, right?\\pOut givin' it your all, huh?\\pHey, help with somethin' for a sec. I want t'see if I'm ready for the next leg of my Adventure.\\pWicked! Got some fight in you, huh?",
+                        "POST_BATTLE_TAUNT": "You beat me… Guess you must not be too bad after all, huh?",
+                        "POST_BATTLE_CLOSER": "Guess I bet'er continue training some more, huh?\\pTa' very much, {PLAYER}!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Ohh, {PLAYER}!\\pErr- I'm not gonna let you past!\\pYou're my rival. So you'll have to beat me in a battle first, got it?",
+                        "POST_BATTLE_TAUNT": "What's with that?!\\pMy Pokémon didn't get a chance to really do their thing at all. Ugh!",
+                        "POST_BATTLE_CLOSER": "I'm definitely gonna get stronger just so I can have a rematch with you.\\pI'll get my revenge, next time I catch ya!"
+                    },
+                    {
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: {PLAYER}.\\pYou've had a pretty good win streak in the Gym Challenge, just like me!\\pI respect you as my rival and all that, but I got too much at stake to go around losin' now!",
+                        "POST_BATTLE_TAUNT": "What's with that?!\\pMy Pokémon didn't get a chance to really do their thing at all. Ugh!",
+                        "POST_BATTLE_CLOSER": "I've got everyone back home supportin' me.\\pI can't give up now, right!\\pDon'cha forget it!"
+                    },
+                    {
+                        "PRE_BATTLE_OPENNING": "… … …\\pHeh.",
+                        "PRE_BATTLE_TAUNT": "{STR_VAR_1}: I knew you'd get all the Badges and meet me here.\\pI know that there's been a lot goin' on.\\pBut the truth is, when all's said and done…\\pI really just wanna become Champion for myself!\\pSo don't take it personal when I kick your butt!",
+                        "POST_BATTLE_TAUNT": "OK, so I lost…\\pBut I got to see a lot of the good points of you and your Pokémon!",
+                        "POST_BATTLE_CLOSER": "…"
+                    }
+                ],
                 "preferred_mon_gender": "FEMALE",
                 "team_generator":
                 {

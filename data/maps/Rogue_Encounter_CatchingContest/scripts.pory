@@ -45,29 +45,59 @@ script Rogue_Encounter_CatchingContest_TalkHost
 script Rogue_Encounter_CatchingContest_StartContest 
 {
     special(Rogue_BufferContestMode)
-    msgbox(format("Today we're running a {STR_VAR_1} catching contest.\pWould you like to enter?"), MSGBOX_YESNO)
+    msgbox(format("Today we're running a {STR_VAR_1} catching contest."))
+
+    setvar(VAR_RESULT, 2)
+    while(var(VAR_RESULT) == 2)
+    {
+        message(format("Would you like to enter?"))
+        waitmessage
+        multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // Yes
+                // Let it fall through
+                setvar(VAR_RESULT, YES)
+
+            case 1: // No
+            case MULTI_B_PRESSED:
+                setvar(VAR_RESULT, NO)
+
+            case 2: // Info
+                msgbox(format("You will be provided with 3 Safari Balls and will be tasked to catch the Pokémon with the highest in a specific Base Stat.\pIf you are correct, you will win a cash prize.\pWhether you win or not, you will be able to keep the Pokémon you exit with.\pPokémon will only appear for a limited amount of time, so don't wait too long to catch something!"))
+        }
+    }
+
 
     if(var(VAR_RESULT) == YES)
     {
-        special(Rogue_CatchingContestBegin)
+        checkitemspace(ITEM_CATCHING_CONTEST_POKEBALL, 3)
+        if(var(VAR_RESULT) == NO)
+        {
+            msgbox(format("Oh, it looks like your Bag is full.\pYou need to free up some space, in order to take part, I'm afraid."))
+        }
+        else
+        {
+            special(Rogue_CatchingContestBegin)
 
-        closemessage
-        applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Enter)
-        applymovement(NPC_OBJ_HOST, Movement_Host_Enter)
-        waitmovement(0)
+            closemessage
+            applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Enter)
+            applymovement(NPC_OBJ_HOST, Movement_Host_Enter)
+            waitmovement(0)
 
-        setobjectxyperm(NPC_OBJ_HOST, 12, 36)
-        setobjectmovementtype(NPC_OBJ_HOST, MOVEMENT_TYPE_FACE_UP)
-        turnobject(NPC_OBJ_HOST, DIR_NORTH)
+            setobjectxyperm(NPC_OBJ_HOST, 12, 36)
+            setobjectmovementtype(NPC_OBJ_HOST, MOVEMENT_TYPE_FACE_UP)
+            turnobject(NPC_OBJ_HOST, DIR_NORTH)
 
-        msgbox(format("If you can catch the Pokémon with the highest Base {STR_VAR_2}, you will win a special reward!\pHere are some Poké Balls for you."), MSGBOX_DEFAULT)
-        giveitem(ITEM_CATCHING_CONTEST_POKEBALL, 3)
+            msgbox(format("If you can catch the Pokémon with the highest Base {STR_VAR_2}, you will win a special reward!\pHere are some Poké Balls for you."), MSGBOX_DEFAULT)
+            giveitem(ITEM_CATCHING_CONTEST_POKEBALL, 3)
 
-        msgbox(format("Good luck!"), MSGBOX_DEFAULT)
-        playbgm(MUS_HG_BUG_CATCHING_CONTEST, TRUE)
+            msgbox(format("Good luck!"), MSGBOX_DEFAULT)
+            playbgm(MUS_HG_BUG_CATCHING_CONTEST, TRUE)
 
-        setflag(FLAG_SYS_SAVE_DISABLED)
-        addvar(VAR_CONTEST_STATE, 1)
+            addvar(VAR_CONTEST_STATE, 1)
+        }
     }
 }
 
@@ -95,6 +125,8 @@ script Rogue_Encounter_CatchingContest_EndContest
     }
     else
     {
+        call(Rogue_ScriptHideFollower)
+
         closemessage
         applymovement(OBJ_EVENT_ID_PLAYER, Movement_Player_Exit)
         applymovement(NPC_OBJ_HOST, Movement_Host_Exit)
@@ -108,7 +140,6 @@ script Rogue_Encounter_CatchingContest_EndContest
 
         fadeoutbgm(1)
         msgbox(format("Now for the result{PAUSE 15}…{PAUSE 15} …{PAUSE 15} …"))
-        clearflag(FLAG_SYS_SAVE_DISABLED)
         addvar(VAR_CONTEST_STATE, 1)
 
         if(var(VAR_RESULT) == TRUE)
@@ -117,6 +148,8 @@ script Rogue_Encounter_CatchingContest_EndContest
             playfanfare(MUS_HG_BUG_CONTEST_1ST_PLACE)
             waitfanfare
             waitmessage
+
+            quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
 
             msgbox(format("As for your special prize…"))
 
@@ -186,7 +219,7 @@ script Rogue_Encounter_CatchingContest_EndContest
 
             if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN)
             {
-                msgbox(format("Of course!\n{STR_VAR_1} will be released back into the park!"))
+                msgbox(format("I will be release it back into the park, in that case."))
             }
             else
             {
@@ -196,6 +229,8 @@ script Rogue_Encounter_CatchingContest_EndContest
 
         msgbox(format("Good luck on your adventure!"))
         playbgm(MUS_HG_NATIONAL_PARK, TRUE)
+
+        call(Rogue_ScriptShowFollower)
     }
 }
 

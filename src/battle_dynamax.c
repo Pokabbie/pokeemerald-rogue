@@ -119,6 +119,9 @@ bool32 CanDynamax(u16 battlerId)
     #endif
         return FALSE;
 
+    // Don't allow both gimmicks
+    if(FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE))
+        return FALSE;
 
     // Check if Player has a Dynamax Band.
     if ((GetBattlerPosition(battlerId) == B_POSITION_PLAYER_LEFT || (!(gBattleTypeFlags & BATTLE_TYPE_MULTI) && GetBattlerPosition(battlerId) == B_POSITION_PLAYER_RIGHT))
@@ -128,7 +131,11 @@ bool32 CanDynamax(u16 battlerId)
     // Check if species isn't allowed to Dynamax.
     if (GET_BASE_SPECIES_ID(species) == SPECIES_ZACIAN
         || GET_BASE_SPECIES_ID(species) == SPECIES_ZAMAZENTA
-        || GET_BASE_SPECIES_ID(species) == SPECIES_ETERNATUS)
+        || GET_BASE_SPECIES_ID(species) == SPECIES_ETERNATUS
+        || species == SPECIES_RAYQUAZA_MEGA
+        || species == SPECIES_KYOGRE_PRIMAL
+        || species == SPECIES_GROUDON_PRIMAL
+        || species == SPECIES_PIKIN_MEGA)
         return FALSE;
 
     // Cannot Dynamax if you can Mega Evolve or use a Z-Move
@@ -152,7 +159,6 @@ bool32 CanDynamax(u16 battlerId)
 // Returns whether a battler is transformed into a Gigantamax form.
 bool32 IsGigantamaxed(u16 battlerId)
 {
-    // TODO: Incorporate Gigantamax factor.
     if ((gSpeciesInfo[gBattleMons[battlerId].species].isGigantamax))
         return TRUE;
     return FALSE;
@@ -165,9 +171,9 @@ void ApplyDynamaxHPMultiplier(u32 battler, struct Pokemon* mon)
         return;
     else
     {
-        u16 mult = UQ_4_12(1.5); // placeholder
-        u16 hp = UQ_4_12_TO_INT((GetMonData(mon, MON_DATA_HP) * mult) + UQ_4_12_ROUND);
-        u16 maxHP = UQ_4_12_TO_INT((GetMonData(mon, MON_DATA_MAX_HP) * mult) + UQ_4_12_ROUND);
+        u32 scale = 150;// + 5 * GetMonData(mon, MON_DATA_DYNAMAX_LEVEL);
+        u32 hp = (GetMonData(mon, MON_DATA_HP) * scale + 99) / 100;
+        u32 maxHP = (GetMonData(mon, MON_DATA_MAX_HP) * scale + 99) / 100;
         SetMonData(mon, MON_DATA_HP, &hp);
         SetMonData(mon, MON_DATA_MAX_HP, &maxHP);
     }
@@ -180,7 +186,7 @@ u16 GetNonDynamaxHP(u16 battlerId)
         return gBattleMons[battlerId].hp;
     else
     {
-        u16 mult = UQ_4_12(1.0/1.5); // placeholder
+        u16 mult = UQ_4_12(1.0/1.5); // placeholder // need to consider MON_DATA_DYNAMAX_LEVEL ?
         u16 hp = UQ_4_12_TO_INT((gBattleMons[battlerId].hp * mult) + UQ_4_12_ROUND);
         return hp;
     }
@@ -233,6 +239,7 @@ void UndoDynamax(u16 battlerId)
         u16 mult = UQ_4_12(1.0/1.5); // placeholder
         gBattleMons[battlerId].hp = UQ_4_12_TO_INT((GetMonData(mon, MON_DATA_HP) * mult + 1) + UQ_4_12_ROUND); // round up
         SetMonData(mon, MON_DATA_HP, &gBattleMons[battlerId].hp);
+        CalculateMonStats(mon);
     }
 
     // Makes sure there are no Dynamax flags set, including on switch / faint.
@@ -650,7 +657,8 @@ void BS_SetMaxMoveEffect(void)
         case MAX_EFFECT_SANDSTORM:
         case MAX_EFFECT_HAIL:
         {
-            u8 weather, msg;
+            u8 weather = 0;
+            u8 msg = 0;
             switch (maxEffect)
             {
                 case MAX_EFFECT_SUN:

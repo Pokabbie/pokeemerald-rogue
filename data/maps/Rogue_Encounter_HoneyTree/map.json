@@ -2,7 +2,7 @@
   "id": "MAP_ROGUE_ENCOUNTER_HONEY_TREE",
   "name": "Rogue_Encounter_HoneyTree",
   "layout": "LAYOUT_ROGUE_ENCOUNTER_HONEY_TREE",
-  "music": "MUS_DP_ETERNA_FOREST",
+  "music": "MUS_DP_AMITY_SQUARE",
   "region_map_section": "MAPSEC_ADVENTURE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -71,6 +71,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Rogue_Encounter_HoneyTree_ScatterPokeblock"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Rogue_Encounter_HoneyTree_TrainerTips"
     }
   ]
 }

@@ -32,6 +32,8 @@ bool8 Rogue_ShouldTrainerBeSmart(u16 trainerNum);
 bool8 Rogue_ShouldTrainerSaveAceMon(u16 trainerNum);
 bool8 Rogue_ShouldDynamaxMon(u16 trainerNum, u8 slot, u8 numOthersAlive);
 bool8 Rogue_ShouldTerastallizeMon(u16 trainerNum, u8 slot, u8 numOthersAlive);
+s32 Rogue_GetSwitchAIDamageDivisor(u16 trainerNum, u8 slot);
+s32 Rogue_GetSwitchAISpeedDivisor(u16 trainerNum, u8 slot);
 
 u8 Rogue_CalculatePlayerMonLvl();
 u8 Rogue_CalculateTrainerMonLvl();
@@ -44,6 +46,7 @@ bool8 Rogue_UseCustomPartyGenerator(u16 trainerNum);
 void Rogue_ChooseBossTrainersForNewAdventure();
 void Rogue_ChooseRivalTrainerForNewAdventure();
 void Rogue_ChooseTeamBossTrainerForNewAdventure();
+u16 Rogue_ChooseNextBossTrainerForVictoryLap();
 void Rogue_ChooseRouteTrainers(u16* writeBuffer, u16 bufferCapacity);
 void Rogue_ChooseTeamHideoutTrainers(u16* writeBuffer, u16 bufferCapacity);
 void Rogue_ChooseSpectatorTrainers(u16* writeBuffer, u16 bufferCapacity);

@@ -3490,6 +3490,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .metronomeBanned = TRUE,
         .copycatBanned = TRUE,
         .assistBanned = TRUE,
+        .cantUseTwice = TRUE,
     },
 
     [MOVE_PERISH_SONG] =
@@ -14477,7 +14478,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_ELECTRO_SHOT] =
     {
-        .effect = EFFECT_TWO_TURNS_ATTACK, // todo - EFFECT_PLACEHOLDER
+        .effect = EFFECT_ELECTRO_SHOT,
         .power = 130,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
@@ -14487,7 +14488,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
-        //.sheerForceBoost = TRUE, (uncomment when effect is implemented, otherwise it breaks the Sheer Force Test)
+        .sheerForceBoost = TRUE, //(uncomment when effect is implemented, otherwise it breaks the Sheer Force Test)
     },
 
     [MOVE_TERA_STARSTORM] =
@@ -15131,6 +15132,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = 0,
+        .ignoresTargetAbility = TRUE,
     },
     [MOVE_MENACING_MOONRAZE_MAELSTROM] =
     {
@@ -15144,6 +15146,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = 0,
+        .ignoresTargetAbility = TRUE,
     },
     [MOVE_LIGHT_THAT_BURNS_THE_SKY] =
     {
@@ -15157,6 +15160,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = 0,
+        .ignoresTargetAbility = TRUE,
     },
     [MOVE_SOUL_STEALING_7_STAR_STRIKE] =
     {

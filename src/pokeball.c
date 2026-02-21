@@ -998,21 +998,29 @@ static void SpriteCB_ReleaseMonFromBall(struct Sprite *sprite)
 
         gBattleSpritesDataPtr->healthBoxesData[battlerId].waitForCry = TRUE;
 
-        taskId = CreateTask(Task_PlayCryWhenReleasedFromBall, 3);
-
-        illusionMon = GetIllusionMonPtr(battlerId);
-        if (illusionMon != NULL)
-            gTasks[taskId].tCryTaskSpecies = GetMonData(illusionMon, MON_DATA_SPECIES);
+        // Don't play cry on switch in when dynamaxed as we'll play it during the anim
+        if(IsDynamaxed(battlerId))
+        {
+            gBattleSpritesDataPtr->healthBoxesData[battlerId].waitForCry = FALSE;
+        }
         else
-            gTasks[taskId].tCryTaskSpecies = GetMonData(mon, MON_DATA_SPECIES);
+        {
+            taskId = CreateTask(Task_PlayCryWhenReleasedFromBall, 3);
 
-        gTasks[taskId].tCryTaskPan = pan;
-        gTasks[taskId].tCryTaskWantedCry = wantedCryCase;
-        gTasks[taskId].tCryTaskBattler = battlerId;
-        gTasks[taskId].tCryTaskMonSpriteId = gBattlerSpriteIds[sprite->sBattler];
-        gTasks[taskId].tCryTaskMonPtr1 = (u32)(mon) >> 16;
-        gTasks[taskId].tCryTaskMonPtr2 = (u32)(mon);
-        gTasks[taskId].tCryTaskState = 0;
+            illusionMon = GetIllusionMonPtr(battlerId);
+            if (illusionMon != NULL)
+                gTasks[taskId].tCryTaskSpecies = GetMonData(illusionMon, MON_DATA_SPECIES);
+            else
+                gTasks[taskId].tCryTaskSpecies = GetMonData(mon, MON_DATA_SPECIES);
+
+            gTasks[taskId].tCryTaskPan = pan;
+            gTasks[taskId].tCryTaskWantedCry = wantedCryCase;
+            gTasks[taskId].tCryTaskBattler = battlerId;
+            gTasks[taskId].tCryTaskMonSpriteId = gBattlerSpriteIds[sprite->sBattler];
+            gTasks[taskId].tCryTaskMonPtr1 = (u32)(mon) >> 16;
+            gTasks[taskId].tCryTaskMonPtr2 = (u32)(mon);
+            gTasks[taskId].tCryTaskState = 0;
+        }
     }
 
     StartSpriteAffineAnim(&gSprites[gBattlerSpriteIds[sprite->sBattler]], BATTLER_AFFINE_EMERGE);

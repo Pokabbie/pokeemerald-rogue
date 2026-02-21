@@ -392,8 +392,8 @@ gText_SandstormIsVicious::
 	.string "It's impossible to keep going.$"
 
 gText_SelectWithoutRegisteredItem::
-	.string "Up to four items in the BAG can be\n"
-	.string "registered to SELECT for easy use.$"
+	.string "Up to four items in the Bag can be\n"
+	.string "registered to {SELECT_BUTTON} for easy use.$"
 
 gText_PokemonTrainerSchoolEmail::
 	.string "There's an e-mail from POKéMON TRAINER\n"
@@ -881,3 +881,29 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Rogue_Encounter_SeafloorCavern/scripts.inc"
 
 	.include "data/maps/Rogue_Route_Sinnoh_212/scripts.inc"
+
+	.include "data/maps/Rogue_Interior_BillsLab/scripts.inc"
+
+	.include "data/maps/Rogue_Template_Home_Interior/scripts.inc"
+
+	.include "data/maps/Rogue_Area_Market/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_217/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_210/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_201/scripts.inc"
+
+	.include "data/maps/Rogue_Boss_VictoryLap/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_LakeValor/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_214/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_209/scripts.inc"
+
+	.include "data/maps/Rogue_Encounter_GalacticHQ/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_MtCoronet/scripts.inc"
+
+	.include "data/maps/Rogue_Route_Sinnoh_IronIsland/scripts.inc"

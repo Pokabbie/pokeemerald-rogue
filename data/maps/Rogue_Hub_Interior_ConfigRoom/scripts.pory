@@ -1019,18 +1019,18 @@ script Rogue_ConfigRoom_RedrawMap
         setmetatile(1,5, METATILE_BikeShop_Button_Green, FALSE)
     }
 
-    if(flag(FLAG_ROGUE_HARD_ITEMS))
-    {
-        setmetatile(3,5, METATILE_BikeShop_Button_Red, FALSE)
-    }
-    elif (flag(FLAG_ROGUE_EASY_ITEMS))
-    {
-        setmetatile(3,5, METATILE_BikeShop_Button_Blue, FALSE)
-    }
-    else
-    {
-        setmetatile(3,5, METATILE_BikeShop_Button_Green, FALSE)
-    }
+    //if(flag(FLAG_ROGUE_HARD_ITEMS))
+    //{
+    //    setmetatile(3,5, METATILE_BikeShop_Button_Red, FALSE)
+    //}
+    //elif (flag(FLAG_ROGUE_EASY_ITEMS))
+    //{
+    //    setmetatile(3,5, METATILE_BikeShop_Button_Blue, FALSE)
+    //}
+    //else
+    //{
+    //    setmetatile(3,5, METATILE_BikeShop_Button_Green, FALSE)
+    //}
 
     if(flag(FLAG_ROGUE_HARD_LEGENDARIES))
     {
@@ -1346,42 +1346,42 @@ script Rogue_ConfigRoom_Button_TrainerDifficulty
 
 script Rogue_ConfigRoom_Button_ItemDifficulty
 {
-    bufferstring(STR_VAR_1, format("ITEM RATES"))
-
-    if(flag(FLAG_ROGUE_EASY_ITEMS))
-    {
-        setvar(VAR_FLAG_STATE, 0)
-    }
-    elif(flag(FLAG_ROGUE_HARD_ITEMS))
-    {
-        setvar(VAR_FLAG_STATE, 2)
-    }
-    else
-    {
-        setvar(VAR_FLAG_STATE, 1)
-    }
-
-    call(Rogue_ConfigRoom_PreEAHButtonInternal)
-
-    switch(var(VAR_FLAG_STATE))
-    {
-        case 0:
-            setflag(FLAG_ROGUE_EASY_ITEMS)
-            clearflag(FLAG_ROGUE_HARD_ITEMS)
-        case 1:
-            clearflag(FLAG_ROGUE_EASY_ITEMS)
-            clearflag(FLAG_ROGUE_HARD_ITEMS)
-        case 2:
-            clearflag(FLAG_ROGUE_EASY_ITEMS)
-            setflag(FLAG_ROGUE_HARD_ITEMS)
-    }
-
-    if(var(VAR_RESULT) == NO)
-    {
-        // Print Info
-        msgbox(format("Increases/Decrease the rate at which items will appear and money trainers give"), MSGBOX_DEFAULT)
-    }
-    call(Rogue_ConfigRoom_PostButtonInternal)
+    //bufferstring(STR_VAR_1, format("ITEM RATES"))
+//
+    //if(flag(FLAG_ROGUE_EASY_ITEMS))
+    //{
+    //    setvar(VAR_FLAG_STATE, 0)
+    //}
+    //elif(flag(FLAG_ROGUE_HARD_ITEMS))
+    //{
+    //    setvar(VAR_FLAG_STATE, 2)
+    //}
+    //else
+    //{
+    //    setvar(VAR_FLAG_STATE, 1)
+    //}
+//
+    //call(Rogue_ConfigRoom_PreEAHButtonInternal)
+//
+    //switch(var(VAR_FLAG_STATE))
+    //{
+    //    case 0:
+    //        setflag(FLAG_ROGUE_EASY_ITEMS)
+    //        clearflag(FLAG_ROGUE_HARD_ITEMS)
+    //    case 1:
+    //        clearflag(FLAG_ROGUE_EASY_ITEMS)
+    //        clearflag(FLAG_ROGUE_HARD_ITEMS)
+    //    case 2:
+    //        clearflag(FLAG_ROGUE_EASY_ITEMS)
+    //        setflag(FLAG_ROGUE_HARD_ITEMS)
+    //}
+//
+    //if(var(VAR_RESULT) == NO)
+    //{
+    //    // Print Info
+    //    msgbox(format("Increases/Decrease the rate at which items will appear and money trainers give"), MSGBOX_DEFAULT)
+    //}
+    //call(Rogue_ConfigRoom_PostButtonInternal)
 }
 
 script Rogue_ConfigRoom_Button_LegendaryDifficulty

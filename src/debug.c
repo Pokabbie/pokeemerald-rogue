@@ -115,6 +115,9 @@ enum RogueUtilMenu
     DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB,
     DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY,
     DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS,
+    DEBUG_ROGUE_UTIL_MENU_SET_WEATHER,
+    DEBUG_ROGUE_UTIL_MENU_CHANGE_OUTFIT,
+    DEBUG_ROGUE_UTIL_MENU_RANDOM_TEAM,
 };
 
 enum PartyBoxesMenu
@@ -369,6 +372,9 @@ static void DebugAction_Util_ExpansionVersion(u8 taskId);
 static void DebugAction_RogueUtil_ConfigLab(u8 taskId);
 static void DebugAction_RogueUtil_NextDifficulty(u8 taskId);
 static void DebugAction_RogueUtil_GiveCommonItems(u8 taskId);
+static void DebugAction_RogueUtil_SetWeather(u8 taskId);
+static void DebugAction_RogueUtil_ChangeOutfit(u8 taskId);
+static void DebugAction_RogueUtil_RandomTradeTeam(u8 taskId);
 
 static void DebugAction_PartyBoxes_AccessPC(u8 taskId);
 static void DebugAction_PartyBoxes_MoveReminder(u8 taskId);
@@ -456,6 +462,9 @@ extern const u8 Debug_CheckSaveBlock[];
 extern const u8 Debug_CheckROMSpace[];
 extern const u8 Debug_BoxFilledMessage[];
 extern const u8 Debug_ShowExpansionVersion[];
+extern const u8 Rogue_Debug_SetWeather[];
+extern const u8 Rogue_Debug_ChangeOutfit[];
+extern const u8 Rogue_Debug_RandomTradeTeam[];
 
 #include "data/map_group_count.h"
 
@@ -510,7 +519,10 @@ static const u8 sDebugText_Util_ExpansionVersion[] =         _("Expansion Versio
 // Rogue Util Menu
 static const u8 sDebugText_RogueUtil_ConfigLab[] =           _("Config Lab…{CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_RogueUtil_NextDifficulty[] =      _("Next Difficulty");
-static const u8 sDebugText_RogueUtil_GiveCommonItems[] =      _("Give Common Items");
+static const u8 sDebugText_RogueUtil_GiveCommonItems[] =     _("Give Common Items");
+static const u8 sDebugText_RogueUtil_SetWeather[] =          _("Set Weather");
+static const u8 sDebugText_RogueUtil_ChangeOutfit[] =        _("Change Outfit");
+static const u8 sDebugText_RogueUtil_TradeTeam[] =           _("Trade Team");
 // Party/Boxes Menu
 static const u8 sDebugText_PartyBoxes_AccessPC[] =           _("Access PC");
 static const u8 sDebugText_PartyBoxes_MoveReminder[] =       _("Move Reminder");
@@ -689,6 +701,9 @@ static const struct ListMenuItem sDebugMenu_Items_RogueUtilities[] =
     [DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB]          = {sDebugText_RogueUtil_ConfigLab,       DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB},
     [DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY]     = {sDebugText_RogueUtil_NextDifficulty,  DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY},
     [DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS]   = {sDebugText_RogueUtil_GiveCommonItems, DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS},
+    [DEBUG_ROGUE_UTIL_MENU_SET_WEATHER]         = {sDebugText_RogueUtil_SetWeather,      DEBUG_ROGUE_UTIL_MENU_SET_WEATHER},
+    [DEBUG_ROGUE_UTIL_MENU_CHANGE_OUTFIT]       = {sDebugText_RogueUtil_ChangeOutfit,    DEBUG_ROGUE_UTIL_MENU_CHANGE_OUTFIT},
+    [DEBUG_ROGUE_UTIL_MENU_RANDOM_TEAM]         = {sDebugText_RogueUtil_TradeTeam,       DEBUG_ROGUE_UTIL_MENU_RANDOM_TEAM},
 };
 
 static const struct ListMenuItem sDebugMenu_Items_PartyBoxes[] =
@@ -848,6 +863,9 @@ static void (*const sDebugMenu_Actions_RogueUtilities[])(u8) =
     [DEBUG_ROGUE_UTIL_MENU_CONFIG_LAB]      = DebugAction_RogueUtil_ConfigLab,
     [DEBUG_ROGUE_UTIL_MENU_NEXT_DIFFICULTY] = DebugAction_RogueUtil_NextDifficulty,
     [DEBUG_ROGUE_UTIL_MENU_GIVE_COMMON_ITEMS] = DebugAction_RogueUtil_GiveCommonItems,
+    [DEBUG_ROGUE_UTIL_MENU_SET_WEATHER]       = DebugAction_RogueUtil_SetWeather,
+    [DEBUG_ROGUE_UTIL_MENU_CHANGE_OUTFIT]     = DebugAction_RogueUtil_ChangeOutfit,
+    [DEBUG_ROGUE_UTIL_MENU_RANDOM_TEAM]       = DebugAction_RogueUtil_RandomTradeTeam,
 };
 
 static void (*const sDebugMenu_Actions_PartyBoxes[])(u8) =
@@ -2024,8 +2042,8 @@ void CheckSaveBlock2Size(struct ScriptContext *ctx)
 
 void CheckPokemonStorageSize(struct ScriptContext *ctx)
 {
-    u32 currPkmnStorageSize = sizeof(struct PokemonStorage);
-    u32 maxPkmnStorageSize = SECTOR_DATA_SIZE * (SECTOR_ID_PKMN_STORAGE_END - SECTOR_ID_PKMN_STORAGE_START + 1) - sizeof(struct RogueSaveBlock);
+    u32 currPkmnStorageSize = sizeof(struct __UseablePokemonStorage);
+    u32 maxPkmnStorageSize = SECTOR_DATA_SIZE * (SECTOR_ID_PKMN_STORAGE_END - SECTOR_ID_PKMN_STORAGE_START + 1) - sizeof(struct __LeftoverPokemonStorage);
     ConvertIntToDecimalStringN(gStringVar1, currPkmnStorageSize, STR_CONV_MODE_LEFT_ALIGN, 6);
     ConvertIntToDecimalStringN(gStringVar2, maxPkmnStorageSize, STR_CONV_MODE_LEFT_ALIGN, 6);
     ConvertIntToDecimalStringN(gStringVar3, maxPkmnStorageSize - currPkmnStorageSize, STR_CONV_MODE_LEFT_ALIGN, 6);
@@ -2034,7 +2052,7 @@ void CheckPokemonStorageSize(struct ScriptContext *ctx)
 void CheckRogueSaveSize(struct ScriptContext *ctx)
 {
     u32 currStorageSize = sizeof(struct RogueSaveBlock);
-    u32 maxStorageSize = SECTOR_DATA_SIZE * (SECTOR_ID_PKMN_STORAGE_END - SECTOR_ID_PKMN_STORAGE_START + 1) - sizeof(struct PokemonStorage);
+    u32 maxStorageSize = SECTOR_DATA_SIZE * (SECTOR_ID_PKMN_STORAGE_END - SECTOR_ID_PKMN_STORAGE_START + 1) - sizeof(struct __UseablePokemonStorage);
     ConvertIntToDecimalStringN(gStringVar1, currStorageSize, STR_CONV_MODE_LEFT_ALIGN, 6);
     ConvertIntToDecimalStringN(gStringVar2, maxStorageSize, STR_CONV_MODE_LEFT_ALIGN, 6);
     ConvertIntToDecimalStringN(gStringVar3, maxStorageSize - currStorageSize, STR_CONV_MODE_LEFT_ALIGN, 6);
@@ -2290,7 +2308,28 @@ static void DebugAction_RogueUtil_GiveCommonItems(u8 taskId)
     AddBagItem(ITEM_STAR_PIECE, 999);
     AddBagItem(ITEM_MASTER_BALL, 999);
     AddBagItem(ITEM_FULL_RESTORE, 999);
-    PlaySE(SE_SELECT);
+    PlaySE(SE_USE_ITEM);
+}
+
+static void DebugAction_RogueUtil_SetWeather(u8 taskId)
+{
+    Debug_DestroyMenu_Full(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Rogue_Debug_SetWeather);
+}
+
+static void DebugAction_RogueUtil_ChangeOutfit(u8 taskId)
+{
+    Debug_DestroyMenu_Full(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Rogue_Debug_ChangeOutfit);
+}
+
+static void DebugAction_RogueUtil_RandomTradeTeam(u8 taskId)
+{
+    Debug_DestroyMenu_Full(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Rogue_Debug_RandomTradeTeam);
 }
 
 void BufferExpansionVersion(struct ScriptContext *ctx)
@@ -4583,6 +4622,14 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_DP_LAKE) \
     X(MUS_DP_LEVEL_UP) \
     X(MUS_DP_LEGEND_APPEARS) \
+    X(MUS_DP_GALACTIC_ETERNA_BUILDING) \
+    X(MUS_DP_GALACTIC_HQ) \
+    X(MUS_DP_GALACTIC_HQ_BASEMENT) \
+    X(MUS_DP_AMITY_SQUARE) \
+    X(MUS_DP_OLD_CHATEAU) \
+    X(MUS_DP_ROWAN) \
+    X(MUS_DP_OREBURGH_MINE) \
+    X(MUS_PL_MYSTERY_GIFT) \
     X(MUS_PL_VS_GIRATINA) \
     X(MUS_PL_DISTORTION_WORLD) \
     X(MUS_PL_LOOKER) \

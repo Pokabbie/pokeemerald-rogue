@@ -3,11 +3,13 @@
 #include "constants/game_stat.h"
 #include "constants/items.h"
 #include "constants/region_map_sections.h"
+#include "constants/songs.h"
 
 #include "battle.h"
 #include "event_data.h"
 #include "data.h"
 #include "item.h"
+#include "item_menu.h"
 #include "malloc.h"
 #include "money.h"
 #include "pokedex.h"
@@ -15,8 +17,11 @@
 
 #include "rogue.h"
 #include "rogue_adventurepaths.h"
+#include "rogue_baked.h"
 #include "rogue_controller.h"
 #include "rogue_gifts.h"
+#include "rogue_hub.h"
+#include "rogue_player_customisation.h"
 #include "rogue_pokedex.h"
 #include "rogue_quest.h"
 #include "rogue_settings.h"
@@ -45,22 +50,38 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
 static bool8 QuestCondition_PartyContainsLegendary(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsOnlyLegendaries(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsOnlyShinys(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsOnlyStarters(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyContainsOnlyUniqueTypes(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PartyMaxBSTLessThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_CurrentlyInRoomType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_AreOnlyTheseTrainersActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_HasBuiltAllAreas(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PokedexEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_PokedexShinyEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_InAdventureEncounterType(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_TotalMoneySpentGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_PlayerMoneyGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_RandomanWasUsed(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_RandomanWasActive(u16 questId, struct RogueQuestTrigger const* trigger);
 static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_LastItemWasAny(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_BagContainsItemsOR(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_VarGetEqual(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_VarGetLessThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_VarGetGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_RunTimerLessThanMins(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_IsConfigRangeEqualToAny(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_SpeciesMasteryComplete(u16 questId, struct RogueQuestTrigger const* trigger);
+static bool8 QuestCondition_CurrentEvilTeamIs(u16 questId, struct RogueQuestTrigger const* trigger);
 
 static bool8 IsQuestSurpressed(u16 questId);
 static bool8 CanSurpressedQuestActivate(u16 questId);
@@ -123,10 +144,19 @@ bool8 RogueQuest_GetConstFlag(u16 questId, u32 flag)
     return (entry->flags & flag) != 0;
 }
 
-u16 RogueQuest_GetOrderedQuest(u16 index)
+u16 RogueQuest_GetOrderedQuest(u16 index, bool8 alphabetical)
 {
-    AGB_ASSERT(index < ARRAY_COUNT(sQuestDisplayOrder));
-    return sQuestDisplayOrder[index];
+    if(alphabetical)
+    {
+        AGB_ASSERT(index < ARRAY_COUNT(sQuestAlphabeticalOrder));
+        return sQuestAlphabeticalOrder[index];
+    }
+    else
+    {
+
+        AGB_ASSERT(index < ARRAY_COUNT(sQuestDisplayOrder));
+        return sQuestDisplayOrder[index];
+    }
 }
 
 bool8 RogueQuest_GetStateFlag(u16 questId, u32 flag)
@@ -330,6 +360,13 @@ bool8 RogueQuest_HasAnyPendingRewards()
 static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
 {
     bool8 state = TRUE;
+    bool8 mutePopups = FALSE;
+
+    if(rewardInfo->customPopup != NULL)
+    {
+        mutePopups = TRUE;
+        Rogue_PushPopup_CustomPopup(rewardInfo->customPopup);
+    }
 
     switch (rewardInfo->type)
     {
@@ -342,8 +379,7 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
             if(rewardInfo->perType.pokemon.customMonId != CUSTOM_MON_NONE)
             {
                 isCustom = TRUE;
-                RogueGift_CreateMon(rewardInfo->perType.pokemon.customMonId, mon, STARTER_MON_LEVEL, USE_RANDOM_IVS);
-                AGB_ASSERT(rewardInfo->perType.pokemon.species == GetMonData(mon, MON_DATA_SPECIES));
+                RogueGift_CreateMon(rewardInfo->perType.pokemon.customMonId, mon, rewardInfo->perType.pokemon.species, STARTER_MON_LEVEL, USE_RANDOM_IVS);
             }
             else
             {
@@ -376,7 +412,8 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
             // Set pokedex flag
             GetSetPokedexSpeciesFlag(rewardInfo->perType.pokemon.species, rewardInfo->perType.pokemon.isShiny ? FLAG_SET_CAUGHT_SHINY : FLAG_SET_CAUGHT);
 
-            Rogue_PushPopup_AddPokemon(rewardInfo->perType.pokemon.species, isCustom, rewardInfo->perType.pokemon.isShiny);
+            if(!mutePopups)
+                Rogue_PushPopup_AddPokemon(rewardInfo->perType.pokemon.species, isCustom, rewardInfo->perType.pokemon.isShiny);
         }
         break;
 
@@ -387,7 +424,7 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
         {
             if(sRogueQuestRewardOutput && rewardInfo->perType.item.item == ITEM_BUILDING_SUPPLIES)
                 sRogueQuestRewardOutput->buildSuppliesCount += rewardInfo->perType.item.count;
-            else
+            else if(!mutePopups)
                 Rogue_PushPopup_AddItem(rewardInfo->perType.item.item, rewardInfo->perType.item.count);
         }
         else
@@ -401,7 +438,8 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
         break;
 
     case QUEST_REWARD_SHOP_ITEM:
-        Rogue_PushPopup_UnlockedShopItem(rewardInfo->perType.shopItem.item);
+        if(!mutePopups)
+            Rogue_PushPopup_UnlockedShopItem(rewardInfo->perType.shopItem.item);
         break;
 
     case QUEST_REWARD_MONEY:
@@ -409,7 +447,7 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
 
         if(sRogueQuestRewardOutput)
             sRogueQuestRewardOutput->moneyCount += rewardInfo->perType.money.amount;
-        else
+        else if(!mutePopups)
             Rogue_PushPopup_AddMoney(rewardInfo->perType.money.amount);
 
         break;
@@ -417,7 +455,31 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
     case QUEST_REWARD_QUEST_UNLOCK:
         RogueQuest_TryUnlockQuest(rewardInfo->perType.questUnlock.questId);
         break;
-    
+
+    case QUEST_REWARD_FLAG:
+        FlagSet(rewardInfo->perType.flag.flagId);
+        break;
+
+    case QUEST_REWARD_HUB_UPGRADE:
+        RogueHub_SetUpgrade(rewardInfo->perType.hubUpgrade.upgradeId, TRUE);
+        AGB_ASSERT(mutePopups); // force custom popups for now, as this is already an edge case anyway
+        break;
+
+    case QUEST_REWARD_DECOR:
+        if(!mutePopups)
+            Rogue_PushPopup_UnlockedDecor(rewardInfo->perType.decor.decorId);
+        break;
+
+    case QUEST_REWARD_DECOR_VARIANT:
+        if(!mutePopups)
+            Rogue_PushPopup_UnlockedDecorVariant(rewardInfo->perType.decorVariant.decorVariantId);
+        break;
+
+    case QUEST_REWARD_OUTFIT_UNLOCK:
+        RoguePlayer_ActivateOutfitUnlock(rewardInfo->perType.outfitUnlock.outfitUnlockId);
+        AGB_ASSERT(mutePopups); // force custom popups for now, as this is already an edge case anyway
+        break;
+
     default:
         AGB_ASSERT(FALSE);
         break;
@@ -463,6 +525,12 @@ static bool8 IsHighPriorityReward(struct RogueQuestReward const* rewardInfo)
     return FALSE;
 }
 
+static bool8 ShouldSkipQuestReward(struct RogueQuestReward const* rewardInfo, u8 minRewardDifficulty, u8 maxRewardDifficulty)
+{
+    // Skip if outside of reward range
+    return !(rewardInfo->requiredDifficulty >= minRewardDifficulty && rewardInfo->requiredDifficulty <= maxRewardDifficulty);
+}
+
 bool8 RogueQuest_TryCollectRewards(u16 questId)
 {
     u16 i;
@@ -470,13 +538,32 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
     struct RogueQuestReward const* rewardInfo;
     struct RogueQuestState* questState = RogueQuest_GetState(questId);
     u16 rewardCount = RogueQuest_GetRewardCount(questId);
+    u8 minRewardDifficulty = questState->highestCollectedRewardDifficulty;
+    u8 maxRewardDifficulty = questState->highestCompleteDifficulty;
+
+    if(minRewardDifficulty == DIFFICULTY_LEVEL_NONE)
+    {
+        minRewardDifficulty = DIFFICULTY_LEVEL_EASY;
+    }
+    else
+    {
+        // We've already collected rewards for the highestCollectedRewardDifficulty so don't give them again
+        minRewardDifficulty++;
+        AGB_ASSERT(minRewardDifficulty <= maxRewardDifficulty);
+    }
+    
 
     AGB_ASSERT(RogueQuest_HasPendingRewards(questId));
+    AGB_ASSERT(minRewardDifficulty < DIFFICULTY_PRESET_COUNT);
+    AGB_ASSERT(maxRewardDifficulty < DIFFICULTY_PRESET_COUNT);
 
     // Give high pri rewards
     for(i = 0; i < rewardCount; ++i)
     {
         rewardInfo = RogueQuest_GetReward(questId, i);
+
+        if(ShouldSkipQuestReward(rewardInfo, minRewardDifficulty, maxRewardDifficulty))
+            continue;
 
         if(IsHighPriorityReward(rewardInfo))
         {
@@ -494,6 +581,9 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
         {
             rewardInfo = RogueQuest_GetReward(questId, i);
 
+            if(ShouldSkipQuestReward(rewardInfo, minRewardDifficulty, maxRewardDifficulty))
+                continue;
+
             if(IsHighPriorityReward(rewardInfo))
                 RemoveRewardInternal(rewardInfo);
         }
@@ -505,10 +595,13 @@ bool8 RogueQuest_TryCollectRewards(u16 questId)
         {
             rewardInfo = RogueQuest_GetReward(questId, i);
 
+            if(ShouldSkipQuestReward(rewardInfo, minRewardDifficulty, maxRewardDifficulty))
+                continue;
+
             if(!IsHighPriorityReward(rewardInfo))
             {
                 // We should never be able to fail to give a high pri reward
-                state = GiveRewardInternal(RogueQuest_GetReward(questId, i));
+                state = GiveRewardInternal(rewardInfo);
                 AGB_ASSERT(state);
             }
         }
@@ -669,6 +762,29 @@ u16 RogueQuest_GetQuestCompletePercFor(u32 constFlag)
     return (complete * 100) / total;
 }
 
+u16 RogueQuest_GetQuestCompletePercAtDifficultyFor(u32 constFlag, u8 difficultyLevel)
+{
+    u16 i;
+    u16 complete = 0;
+    u16 total = 0;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_GetConstFlag(i, constFlag))
+        {
+            ++total;
+
+            if(RogueQuest_GetStateFlag(i, QUEST_STATE_HAS_COMPLETE))
+            {
+                if(RogueQuest_GetState(i)->highestCompleteDifficulty >= difficultyLevel)
+                    ++complete;
+            }
+        }
+    }
+
+    return (complete * 100) / total;
+}
+
 void RogueQuest_GetQuestCountsFor(u32 constFlag, u16* activeCount, u16* inactiveCount)
 {
     u16 i;
@@ -683,7 +799,7 @@ void RogueQuest_GetQuestCountsFor(u32 constFlag, u16* activeCount, u16* inactive
             {
                 active++;
             }
-            else
+            else if(RogueQuest_GetStateFlag(i, QUEST_STATE_UNLOCKED))
             {
                 inactive++;
             }
@@ -692,6 +808,23 @@ void RogueQuest_GetQuestCountsFor(u32 constFlag, u16* activeCount, u16* inactive
 
     *activeCount = active;
     *inactiveCount = inactive;
+}
+
+u16 RogueQuest_GetQuestTotalCountFor(u32 constFlag, bool8 includeLocked)
+{
+    u16 i;
+    u16 total = 0;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_GetConstFlag(i, constFlag))
+        {
+            if(includeLocked || RogueQuest_GetStateFlag(i, QUEST_STATE_UNLOCKED))
+                total++;
+        }
+    }
+
+    return total;
 }
 
 u16 RogueQuest_GetDisplayCompletePerc()
@@ -753,10 +886,33 @@ static void CompleteQuest(u16 questId)
     if(!RogueQuest_GetStateFlag(questId, QUEST_STATE_HAS_COMPLETE))
     {
         questState->highestCollectedRewardDifficulty = DIFFICULTY_LEVEL_NONE;
+        RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
+    }
+    else if(questState->highestCollectedRewardDifficulty == DIFFICULTY_LEVEL_NONE)
+    {
+        // Still have rewards to collect
+        RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
+    }
+    else
+    {
+        // Only set pending rewards if we actually do have new rewards for this difficulty
+        u32 i;
+        u32 rewardCount = RogueQuest_GetRewardCount(questId);
+        struct RogueQuestReward const* rewardInfo;
+
+        for(i = 0; i < rewardCount; ++i)
+        {
+            rewardInfo = RogueQuest_GetReward(questId, i);
+
+            if(rewardInfo->requiredDifficulty > questState->highestCollectedRewardDifficulty && rewardInfo->requiredDifficulty <= questState->highestCompleteDifficulty)
+            {
+                RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
+                break;
+            }
+        }
     }
 
     RogueQuest_SetStateFlag(questId, QUEST_STATE_ACTIVE, FALSE);
-    RogueQuest_SetStateFlag(questId, QUEST_STATE_PENDING_REWARDS, TRUE);
     RogueQuest_SetStateFlag(questId, QUEST_STATE_HAS_COMPLETE, TRUE);
 
     if(!IsQuestSurpressed(questId))
@@ -778,7 +934,7 @@ static void FailQuest(u16 questId)
         Rogue_PushPopup_QuestFail(questId);
 }
 
-static void ExecuteQuestTriggers(u16 questId, u16 triggerFlag)
+static void ExecuteQuestTriggers(u16 questId, u32 triggerFlag)
 {
     u16 i;
     struct RogueQuestTrigger const* trigger;
@@ -823,9 +979,13 @@ static void ExecuteQuestTriggers(u16 questId, u16 triggerFlag)
     }
 }
 
-void RogueQuest_OnTrigger(u16 triggerFlag)
+void RogueQuest_OnTrigger(u32 triggerFlag)
 {
     u16 i;
+
+    // Don't track any quests during victory lap
+    if(Rogue_IsVictoryLapActive())
+        return;
 
     // Execute quest callback for any active quests which are listening for this trigger
     for(i = 0; i < QUEST_ID_COUNT; ++i)
@@ -846,6 +1006,134 @@ bool8 RogueQuest_HasUnlockedChallenges()
 bool8 RogueQuest_HasUnlockedMonMasteries()
 {
     return FlagGet(FLAG_SYS_MASTERIES_UNLOCKED);
+}
+
+extern const u16 gRogueBake_FinalEvoSpecies[];
+extern const u16 gRogueBake_EggSpecies[];
+
+static u32 GetMonMasteryIndex(u16 species)
+{
+    u32 i;
+    u16 eggSpecies;
+
+#ifdef ROGUE_EXPANSION
+    if(species == SPECIES_DARMANITAN_GALARIAN_ZEN_MODE)
+        species = SPECIES_DARMANITAN_GALARIAN;
+
+    if(!gRogueSpeciesInfo[species].isAlolanForm && !gRogueSpeciesInfo[species].isGalarianForm && !gRogueSpeciesInfo[species].isHisuianForm && !gRogueSpeciesInfo[species].isPaldeanForm)
+    {
+        species = GET_BASE_SPECIES_ID(species);
+    }
+
+    if(gRogueSpeciesInfo[species].baseHP == 0)
+        return SPECIES_EGG;
+#else
+    if(species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z)
+        return SPECIES_EGG;
+#endif
+
+    eggSpecies = Rogue_GetEggSpecies(species);
+
+    for(i = 0; i < SPECIES_EGG_EVO_STAGE_COUNT; ++i)
+    {
+        if(gRogueBake_EggSpecies[i] == eggSpecies)
+            return i;
+    }
+
+#ifdef ROGUE_EXPANSION
+    // Failed to get this species so try grab the base egg species
+    species = eggSpecies;
+    eggSpecies = GET_BASE_SPECIES_ID(eggSpecies);
+
+    if(eggSpecies != species)
+    {
+        for(i = 0; i < SPECIES_EGG_EVO_STAGE_COUNT; ++i)
+        {
+            if(gRogueBake_EggSpecies[i] == eggSpecies)
+                return i;
+        }
+    }
+
+#endif
+
+    // TODO - Need to decide what to do here
+    AGB_ASSERT(FALSE);
+    return SPECIES_EGG;
+}
+
+bool8 RogueQuest_GetMonMasteryFlag(u16 species)
+{
+    u32 idx = GetMonMasteryIndex(species);
+    if(idx != SPECIES_EGG)
+    {
+        u32 offset = idx / 8;
+        u8 bit = idx % 8;
+        u8 bitMask = 1 << bit;
+
+        AGB_ASSERT(offset < ARRAY_COUNT(gRogueSaveBlock->monMasteryFlags));
+        return (gRogueSaveBlock->monMasteryFlags[offset] & bitMask) != 0;
+    }
+
+    return FALSE;
+}
+
+void RogueQuest_SetMonMasteryFlag(u16 species)
+{
+    u32 idx = GetMonMasteryIndex(species);
+    if(idx != SPECIES_EGG)
+    {
+        u32 offset = idx / 8;
+        u8 bit = idx % 8;
+        u8 bitMask = 1 << bit;
+
+        AGB_ASSERT(offset < ARRAY_COUNT(gRogueSaveBlock->monMasteryFlags));
+
+        gRogueSaveBlock->monMasteryFlags[offset] |= bitMask;
+    }
+}
+
+void RogueQuest_SetMonMasteryFlagFromParty()
+{
+    u32 i;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        if(species != SPECIES_NONE)
+            RogueQuest_SetMonMasteryFlag(species);
+    }
+}
+
+u32 RogueQuest_GetMonMasteryTotalPerc()
+{
+    u32 i;
+    u32 complete = 0;
+
+    for(i = 0; i < MON_MASTERY_TOTAL_COUNT; ++i)
+    {
+        u32 offset = i / 8;
+        u8 bit = i % 8;
+        u8 bitMask = 1 << bit;
+
+        if((gRogueSaveBlock->monMasteryFlags[offset] & bitMask) != 0)
+            ++complete;
+    }
+
+    return (complete * 100) / MON_MASTERY_TOTAL_COUNT;
+}
+
+void RogueDebug_ClearMonMasteries()
+{
+#ifdef ROGUE_DEBUG
+    memset(gRogueSaveBlock->monMasteryFlags, 0, sizeof(gRogueSaveBlock->monMasteryFlags));
+#endif
+}
+
+void RogueDebug_FillMonMasteries()
+{
+#ifdef ROGUE_DEBUG
+    memset(gRogueSaveBlock->monMasteryFlags, 255, sizeof(gRogueSaveBlock->monMasteryFlags));
+#endif
 }
 
 // QuestCondition
@@ -994,6 +1282,97 @@ static bool8 QuestCondition_PartyContainsOnlyShinys(u16 questId, struct RogueQue
     return TRUE;
 }
 
+static bool8 IsStarterSpecies(u16 species)
+{
+    species = Rogue_GetEggSpecies(species);
+
+    switch (species)
+    {
+
+    case SPECIES_PICHU:
+    case SPECIES_EEVEE:
+
+    case SPECIES_BULBASAUR:
+    case SPECIES_SQUIRTLE:
+    case SPECIES_CHARMANDER:
+
+    case SPECIES_CHIKORITA:
+    case SPECIES_TOTODILE:
+    case SPECIES_CYNDAQUIL:
+
+    case SPECIES_TREECKO:
+    case SPECIES_MUDKIP:
+    case SPECIES_TORCHIC:
+
+#ifdef ROGUE_EXPANSION
+    case SPECIES_TURTWIG:
+    case SPECIES_PIPLUP:
+    case SPECIES_CHIMCHAR:
+
+    case SPECIES_SNIVY:
+    case SPECIES_OSHAWOTT:
+    case SPECIES_TEPIG:
+
+    case SPECIES_CHESPIN:
+    case SPECIES_FROAKIE:
+    case SPECIES_FENNEKIN:
+
+    case SPECIES_ROWLET:
+    case SPECIES_LITTEN:
+    case SPECIES_POPPLIO:
+
+    case SPECIES_GROOKEY:
+    case SPECIES_SCORBUNNY:
+    case SPECIES_SOBBLE:
+
+    case SPECIES_SPRIGATITO:
+    case SPECIES_FUECOCO:
+    case SPECIES_QUAXLY:
+#endif
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_PartyContainsOnlyStarters(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u8 i;
+    u16 species;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        if(!IsStarterSpecies(species))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+static bool8 QuestCondition_PartyContainsOnlyUniqueTypes(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u8 i;
+    u32 partyTypeFlags = 0;
+    u32 checkTypeFlags;
+    u16 species;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        checkTypeFlags = 0;
+        Rogue_AppendSpeciesTypeFlags(species, &checkTypeFlags);
+
+        if(partyTypeFlags & checkTypeFlags)
+            return FALSE;
+
+        partyTypeFlags |= checkTypeFlags;
+    }
+
+    return TRUE;
+}
 
 static bool8 QuestCondition_PartyContainsInitialPartner(u16 questId, struct RogueQuestTrigger const* trigger)
 {
@@ -1026,6 +1405,24 @@ static bool8 QuestCondition_PartyContainsAllSpecies(u16 questId, struct RogueQue
         species = trigger->params[i];
 
         if(!PartyContainsBaseSpecies(gPlayerParty, gPlayerPartyCount, species))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+static bool8 QuestCondition_PartyMaxBSTLessThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+    u16 species;
+    u16 bstValue = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+
+        if(RoguePokedex_GetSpeciesBST(species) >= bstValue)
             return FALSE;
     }
 
@@ -1108,6 +1505,13 @@ static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger
     return gSaveBlock1Ptr->location.mapNum == mapNum || gSaveBlock1Ptr->location.mapGroup == mapGroup;
 }
 
+static bool8 QuestCondition_CurrentlyInRoomType(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 roomtType = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
+    return gRogueAdvPath.currentRoomType == roomtType;
+}
+
 static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     u16 i;
@@ -1128,6 +1532,19 @@ static bool8 QuestCondition_CanUnlockFinalQuest(u16 questId, struct RogueQuestTr
     return TRUE;
 }
 
+static bool8 QuestCondition_HasBuiltAllAreas(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+
+    for(i = 0; i < HUB_AREA_COUNT; ++i)
+    {
+        if(!RogueHub_HasAreaBuilt(i))
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
 static bool8 QuestCondition_IsFinalQuestConditionMet(u16 questId, struct RogueQuestTrigger const* trigger)
 {
     return Rogue_UseFinalQuestEffects();
@@ -1138,6 +1555,13 @@ static bool8 QuestCondition_PokedexEntryCountGreaterThan(u16 questId, struct Rog
     u16 count = trigger->params[0];
     ASSERT_PARAM_COUNT(1);
     return RoguePokedex_CountNationalCaughtMons(FLAG_GET_CAUGHT) > count;
+}
+
+static bool8 QuestCondition_PokedexShinyEntryCountGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 count = trigger->params[0];
+    ASSERT_PARAM_COUNT(1);
+    return RoguePokedex_CountNationalCaughtMons(FLAG_GET_CAUGHT_SHINY) > count;
 }
 
 static bool8 QuestCondition_InAdventureEncounterType(u16 questId, struct RogueQuestTrigger const* trigger)
@@ -1186,4 +1610,106 @@ static bool8 QuestCondition_LastRandomanWasFullParty(u16 questId, struct RogueQu
 {
     ASSERT_PARAM_COUNT(0);
     return !!FlagGet(FLAG_ROGUE_RANDOM_TRADE_WAS_FULL_PARTY);
+}
+
+static bool8 QuestCondition_LastItemWasAny(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        if(trigger->params[i] == gSpecialVar_ItemId)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_BagContainsItemsOR(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        if(CheckBagHasItem(trigger->params[i], 1))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_FlagGet(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(1);
+    return FlagGet(trigger->params[0]);
+}
+
+static bool8 QuestCondition_VarGetEqual(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(2);
+    return VarGet(trigger->params[0]) == trigger->params[1];
+}
+
+static bool8 QuestCondition_VarGetLessThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(2);
+    return VarGet(trigger->params[0]) < trigger->params[1];
+}
+
+static bool8 QuestCondition_VarGetGreaterThan(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    ASSERT_PARAM_COUNT(2);
+    return VarGet(trigger->params[0]) > trigger->params[1];
+}
+
+static bool8 QuestCondition_RunTimerLessThanMins(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u32 totalMinutes = gSaveBlock2Ptr->playTimeHours * 60 + gSaveBlock2Ptr->playTimeMinutes;
+    ASSERT_PARAM_COUNT(1);
+    return totalMinutes < trigger->params[0];
+}
+
+static bool8 QuestCondition_IsConfigRangeEqualToAny(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+    u16 configRange = trigger->params[0];
+
+    AGB_ASSERT(trigger->paramCount > 1);
+
+    for(i = 1; i < trigger->paramCount; ++i)
+    {
+        if(Rogue_GetConfigRange(configRange) == trigger->params[i])
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_SpeciesMasteryComplete(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+    u16 species;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        species = trigger->params[i];
+
+        if(RogueQuest_GetMonMasteryFlag(species))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 QuestCondition_CurrentEvilTeamIs(u16 questId, struct RogueQuestTrigger const* trigger)
+{
+    u16 i;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        if(gRogueRun.teamEncounterNum ==  trigger->params[i])
+            return TRUE;
+    }
+
+    return FALSE;
 }

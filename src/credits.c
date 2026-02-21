@@ -109,6 +109,7 @@ static EWRAM_DATA struct CreditsData *sCreditsData = {0};
 static EWRAM_DATA struct RogueCreditsData *sRogueCreditsData = {0};
 
 static const u16 sCredits_Pal[] = INCBIN_U16("graphics/credits/credits.gbapal");
+static const u16 sCreditsTheEnd_Pal[] = INCBIN_U16("graphics/credits/the_end.gbapal");
 static const u32 sCreditsCopyrightEnd_Gfx[] = INCBIN_U32("graphics/credits/the_end_copyright.4bpp.lz");
 
 static void SpriteCB_CreditsMonBg(struct Sprite *);
@@ -400,7 +401,7 @@ static void CB2_Credits(void)
     {
         u8 i;
 
-        for(i = 1; i < 8; ++i)
+        for(i = 1; i < 11; ++i)
         {
             // Speed up credits
             VBlankCB_Credits();
@@ -1488,7 +1489,7 @@ static void LoadTheEndScreen(u16 tileOffsetLoad, u16 tileOffsetWrite, u16 palOff
     u16 i;
 
     LZ77UnCompVram(sCreditsCopyrightEnd_Gfx, (void *)(VRAM + tileOffsetLoad));
-    LoadPalette(gIntroCopyright_Pal, palOffset, sizeof(gIntroCopyright_Pal));
+    LoadPalette(sCreditsTheEnd_Pal, palOffset, sizeof(sCreditsTheEnd_Pal));
 
     baseTile = (palOffset / 16) << 12;
 

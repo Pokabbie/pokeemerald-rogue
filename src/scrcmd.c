@@ -1321,7 +1321,8 @@ bool8 ScrCmd_messageinstant(struct ScriptContext *ctx)
         msg = (const u8 *)ctx->data[0];
     LoadMessageBoxAndBorderGfx();
     DrawDialogueFrame(0, TRUE);
-    AddTextPrinterParameterized(0, FONT_NORMAL, msg, 0, 1, 0, NULL);
+    StringExpandPlaceholders(gStringVar4, msg);
+    AddTextPrinterParameterized(0, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
     return FALSE;
 }
 
@@ -1428,6 +1429,34 @@ bool8 ScrCmd_multichoicedefault(struct ScriptContext *ctx)
     {
         return FALSE;
     }
+}
+
+bool8 ScrCmd_begindynamicmultichoice(struct ScriptContext *ctx)
+{
+    u16 capacity = ScriptReadHalfword(ctx);
+    ScriptMenu_ScrollingMultichoiceDynamicBegin(capacity);
+    return FALSE;
+}
+
+bool8 ScrCmd_appenddynamicmultichoice(struct ScriptContext *ctx)
+{
+    const u8 *name = (const u8*) ScriptReadWord(ctx);
+    u16 value = ScriptReadHalfword(ctx);
+
+    ScriptMenu_ScrollingMultichoiceDynamicAppendOption(name, value);
+    return FALSE;
+}
+
+bool8 ScrCmd_showtextbox(struct ScriptContext *ctx)
+{
+    const u8 *text = (const u8*) ScriptReadWord(ctx);
+    u8 x = ScriptReadByte(ctx);
+    u8 y = ScriptReadByte(ctx);
+    u8 width = ScriptReadByte(ctx);
+    u8 height = ScriptReadByte(ctx);
+
+    ScriptMenu_DisplayTextInWindow(text, x, y, width, height);
+    return FALSE;
 }
 
 bool8 ScrCmd_drawbox(struct ScriptContext *ctx)
@@ -1641,10 +1670,6 @@ bool8 ScrCmd_bufferitemnameplural(struct ScriptContext *ctx)
 
 bool8 ScrCmd_bufferdecorationname(struct ScriptContext *ctx)
 {
-    u8 stringVarIndex = ScriptReadByte(ctx);
-    u16 decorId = VarGet(ScriptReadHalfword(ctx));
-
-    StringCopy(sScriptStringVars[stringVarIndex], gDecorations[decorId].name);
     return FALSE;
 }
 
@@ -2532,11 +2557,10 @@ bool8 ScrCmd_unlockquest(struct ScriptContext *ctx)
 bool8 ScrCmd_multiplayerpushstatus(struct ScriptContext *ctx)
 {
     u8 status = ScriptReadByte(ctx);
-    u16 param = VarGet(ScriptReadHalfword(ctx));
     bool8 await = ScriptReadByte(ctx);
     bool8 awaitCancellable = ScriptReadByte(ctx);
 
-    RogueMP_PushLocalPlayerStatus(status, param);
+    RogueMP_PushLocalPlayerStatus(status);
 
     if(await)
     {

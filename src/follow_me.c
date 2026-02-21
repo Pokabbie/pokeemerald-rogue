@@ -1028,7 +1028,7 @@ static void Task_FollowerHandleEscalatorFinish(u8 taskId)
             task->data[0] = 4;
         break;
     case 2:
-        follower->invisible = FALSE;
+        //follower->invisible = FALSE;
         CalculateFollowerEscalatorTrajectoryDown(task);
         task->data[0]++;
         break;
@@ -1048,7 +1048,7 @@ static void Task_FollowerHandleEscalatorFinish(u8 taskId)
         }
         break;
     case 4:
-        follower->invisible = FALSE;
+        //follower->invisible = FALSE;
         CalculateFollowerEscalatorTrajectoryUp(task);
         task->data[0]++;
         break;
@@ -1070,6 +1070,9 @@ static void Task_FollowerHandleEscalatorFinish(u8 taskId)
     case 6:
         if (ObjectEventClearHeldMovementIfFinished(follower))
         {
+            // We get a weird stutter in anim so only make visible when at bottom
+            follower->invisible = FALSE;
+
             gPlayerAvatar.preventStep = FALSE;
             DestroyTask(taskId);
         }

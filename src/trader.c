@@ -74,10 +74,7 @@ void CreateAvailableDecorationsMenu(u8 taskId)
     for (i = 0; i < NUM_TRADER_ITEMS; i++)
     {
         s32 curWidth;
-        if (trader->decorations[i] > NUM_DECORATIONS)
-            curWidth = fiveMarksWidth;
-        else
-            curWidth = GetStringWidth(FONT_NORMAL, gDecorations[trader->decorations[i]].name, 0);
+        curWidth = fiveMarksWidth;
         if (curWidth > windowWidth)
             windowWidth = curWidth;
     }
@@ -85,11 +82,8 @@ void CreateAvailableDecorationsMenu(u8 taskId)
     tWindowId = AddWindow(&windowTemplate);
     DrawStdFrameWithCustomTileAndPalette(tWindowId, FALSE, 0x214, 14);
     for (i = 0; i < NUM_TRADER_ITEMS; i++)
-    {
-        if (trader->decorations[i] > NUM_DECORATIONS)
-            AddTextPrinterParameterized(tWindowId, FONT_NORMAL, gText_FiveMarks, 8, 16 * i + 1, TEXT_SKIP_DRAW, NULL);
-        else
-            AddTextPrinterParameterized(tWindowId, FONT_NORMAL, gDecorations[trader->decorations[i]].name, 8, 16 * i + 1, TEXT_SKIP_DRAW, NULL);
+    {AddTextPrinterParameterized(tWindowId, FONT_NORMAL, gText_FiveMarks, 8, 16 * i + 1, TEXT_SKIP_DRAW, NULL);
+        
     }
     AddTextPrinterParameterized(tWindowId, FONT_NORMAL, gText_Exit, 8, 16 * i + 1, TEXT_SKIP_DRAW, NULL);
     InitMenuInUpperLeftCornerNormal(tWindowId, NUM_TRADER_ITEMS + 1, 0);
@@ -159,13 +153,7 @@ void DoesPlayerHaveNoDecorations(void)
 
 void IsDecorationCategoryFull(void)
 {
-    gSpecialVar_Result = FALSE;
-    if (gDecorations[gSpecialVar_0x8004].category != gDecorations[gSpecialVar_0x8006].category
-        && GetFirstEmptyDecorSlot(gDecorations[gSpecialVar_0x8004].category) == -1)
-    {
-        CopyDecorationCategoryName(gStringVar2, gDecorations[gSpecialVar_0x8004].category);
-        gSpecialVar_Result = TRUE;
-    }
+    gSpecialVar_Result = TRUE;
 }
 
 void TraderShowDecorationMenu(void)
@@ -178,8 +166,6 @@ void DecorationItemsMenuAction_Trade(u8 taskId)
     if (IsSelectedDecorInThePC() == TRUE)
     {
         gSpecialVar_0x8006 = gCurDecorationItems[gCurDecorationIndex];
-        StringCopy(gStringVar3, gDecorations[gSpecialVar_0x8004].name);
-        StringCopy(gStringVar2, gDecorations[gSpecialVar_0x8006].name);
     }
     else
     {

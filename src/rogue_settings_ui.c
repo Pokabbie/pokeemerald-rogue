@@ -1,6 +1,7 @@
 #include "global.h"
 #include "option_menu.h"
 #include "main.h"
+#include "malloc.h"
 #include "menu.h"
 #include "event_data.h"
 #include "scanline_effect.h"
@@ -24,6 +25,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_settings.h"
+#include "rogue_quest.h"
 
 #define QUICK_JUMP_AMOUNT 4
 
@@ -61,12 +63,7 @@ extern const u8 gText_DifficultyLegendaries[];
 extern const u8 gText_DifficultyPresetDesc[];
 extern const u8 gText_DifficultyCustomDesc[];
 extern const u8 gText_AdventureCustomDesc[];
-extern const u8 gText_DifficultyExpAllDesc[];
 extern const u8 gText_DifficultyOverLvlDesc[];
-extern const u8 gText_DifficultyEVGainDesc[];
-extern const u8 gText_DifficultyOverworldMonsDesc[];
-extern const u8 gText_DifficultyBagWipeDesc[];
-extern const u8 gText_DifficultySwitchModeDesc[];
 
 extern const u8 gText_DifficultyTrainersDesc[];
 extern const u8 gText_DifficultyItemsDesc[];
@@ -84,7 +81,7 @@ enum
 
 static u8 const sMenuName_Back[] = _("Back");
 static u8 const sMenuName_SaveAndExit[] = _("Save & Exit");
-static u8 const sMenuName_DifficultySubmenu[] = _("Custom Difficulty");
+static u8 const sMenuName_DifficultySubmenu[] = _("Edit Difficulty");
 static u8 const sMenuName_AdventureSubmenu[] = _("Adventure");
 static u8 const sMenuName_TrainersSubmenu[] = _("Trainers");
 static u8 const sMenuName_GameModesSubmenu[] = _("Game Modes");
@@ -121,6 +118,8 @@ static u8 const sMenuName_TrainerAlola[] = _("Alola");
 static u8 const sMenuName_TrainerGalar[] = _("Galar");
 static u8 const sMenuName_TrainerPaldea[] = _("Paldea");
 #endif
+
+static u8 const sText_ErrorInvalidSelection[] = _("Error: {COLOR GREEN}{SHADOW LIGHT_GREEN}Invalid selection.");
 
 const u8 sMenuNameDesc_PresetDescription_Easy[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -184,11 +183,25 @@ static u8 const sMenuNameDesc_GameModesSubmenu[] = _(
     "you to play with."
 );
 
-static u8 const sMenuNameDesc_BattleFormat[] = _(
+static u8 const sMenuNameDesc_BattleFormatSingles[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Controls if battles are 1v1, 2v2 or\n"
-    "a random mix of both."
+    "Trainer Battles will always be 1v1."
 );
+static u8 const sMenuNameDesc_BattleFormatDoubles[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Trainer Battles will always be 2v2."
+);
+static u8 const sMenuNameDesc_BattleFormatMixed[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Trainer Battles will randomly be 1v1 or\n"
+    "2v2. (Equal chance for both)"
+);
+static u8 const* const sMenuNameDesc_BattleFormat[] = 
+{
+    [BATTLE_FORMAT_SINGLES] = sMenuNameDesc_BattleFormatSingles,
+    [BATTLE_FORMAT_DOUBLES] = sMenuNameDesc_BattleFormatDoubles,
+    [BATTLE_FORMAT_MIXED] = sMenuNameDesc_BattleFormatMixed,
+};
 
 const u8 sMenuNameDesc_Affection[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -213,11 +226,21 @@ static u8 const* const sMenuNameDesc_ReleaseMons[] =
     sMenuNameDesc_ReleaseMonsOn,
 };
 
-const u8 sMenuNameDesc_TrainerDiversity[] = _(
+const u8 sMenuNameDesc_TrainerDiversityOff[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Trainer's can have wider type specialties\n"
+    "Trainers will mostly stick to their type\n"
+    "specialties e.g. Brock has Rock"
+);
+const u8 sMenuNameDesc_TrainerDiversityOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Trainers can have wider type specialties\n"
     "e.g. Brock has a mix of Rock & Steel"
 );
+static u8 const* const sMenuNameDesc_TrainerDiversity[] = 
+{
+    sMenuNameDesc_TrainerDiversityOff,
+    sMenuNameDesc_TrainerDiversityOn,
+};
 
 static u8 const sMenuNameDesc_Rogue[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -300,6 +323,91 @@ static u8 const sMenuNameDesc_GameMode_RainbowGauntlet[] = _(
     "Gauntlet modes."
 );
 
+
+static const u8 sText_DifficultyExpAllDescOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Only {PKMN} send into battle will be awarded\n"
+    "Exp. (Not recommended)"
+);
+static const u8 sText_DifficultyExpAllDescOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "All {PKMN} in the party will be awarded Exp.\n"
+    "even if they didn't enter the battle."
+);
+static u8 const* const sText_DifficultyExpAllDesc[] = 
+{
+    sText_DifficultyExpAllDescOff,
+    sText_DifficultyExpAllDescOn,
+};
+
+
+static const u8 sText_DifficultyOverworldMonsDescOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Wild {PKMN} will spawn randomly as you move.\n"
+    "(Classic {PKMN} Game style encounters)"
+);
+static const u8 sText_DifficultyOverworldMonsDescOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Wild {PKMN} can be encounted and interacted\n"
+    "with in the overworld."
+);
+static u8 const* const sText_DifficultyOverworldMonsDesc[] = 
+{
+    sText_DifficultyOverworldMonsDescOff,
+    sText_DifficultyOverworldMonsDescOn,
+};
+
+
+const u8 sText_DifficultyEVGainDescOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "All {PKMN} will never have EVs."
+);
+const u8 sText_DifficultyEVGainDescOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "{PKMN} gain EVs from Trainer battles based\n"
+    "on their nature.(Trainers never have EVs)"
+);
+static u8 const* const sText_DifficultyEVGainDesc[] = 
+{
+    sText_DifficultyEVGainDescOff,
+    sText_DifficultyEVGainDescOn,
+};
+
+
+const u8 sText_DifficultySwitchModeDescOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "After fainting an opposing {PKMN}, you will\n"
+    "not be able to switch out until your turn."
+);
+const u8 sText_DifficultySwitchModeDescOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "After fainting an opposing {PKMN} you will be\n"
+    "given a chance to switch out immediately."
+);
+static u8 const* const sText_DifficultySwitchModeDesc[] = 
+{
+    sText_DifficultySwitchModeDescOff,
+    sText_DifficultySwitchModeDescOn,
+};
+
+
+const u8 sText_DifficultyBagWipeDescOff[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "You can take all Meta-Progression\n"
+    "into Adventures. (e.g. Items, Day Care)"
+);
+const u8 sText_DifficultyBagWipeDescOn[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Only your Partner {PKMN} and Key Items will\n"
+    "be taken into runs."
+);
+static u8 const* const sText_DifficultyBagWipeDesc[] = 
+{
+    sText_DifficultyBagWipeDescOff,
+    sText_DifficultyBagWipeDescOn,
+};
+
+
 #ifdef ROGUE_DEBUG
 static u8 const sMenuName_Debug[] = _("DEBUG");
 
@@ -319,7 +427,7 @@ static u8 const sMenuName_DebugToggleDisableAssistantTimeout[] = _("Disable Assi
 
 static u8 const sMenuName_DebugRangeStartDifficulty[] = _("START DIFFICULTY");
 static u8 const sMenuName_DebugRangeForcedRoute[] = _("FORCED ROUTE");
-static u8 const sMenuName_DebugRangeForcedWeather[] = _("FORCED WEATHER");
+static u8 const sMenuName_DebugRangeForcedEvilTeam[] = _("FORCED TEAM");
 #endif
 
 // Menu items
@@ -385,7 +493,7 @@ enum
 
     MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
     MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE,
-    MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER,
+    MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM,
 #endif
 
     MENUITEM_CANCEL,
@@ -395,7 +503,6 @@ enum
 enum
 {
     SUBMENUITEM_NONE,
-    SUBMENUITEM_NONE_POSTGAME,
     SUBMENUITEM_DIFFICULTY,
     SUBMENUITEM_ADVENTURE,
     SUBMENUITEM_TRAINERS,
@@ -419,6 +526,14 @@ enum
 #define XPOS_CHOICES      111
 #define YPOS_SPACING      16
 
+struct RogueSettingsMenu
+{
+    u8 activeSubmenu;
+    u8 dynamicMenuOptions[MAX_MENUITEM_COUNT];
+};
+
+EWRAM_DATA static struct RogueSettingsMenu *sRogueSettingsMenu = NULL;
+
 // this file's functions
 static void Task_OptionMenuFadeIn(u8 taskId);
 static void Task_OptionMenuProcessInput(u8 taskId);
@@ -435,6 +550,7 @@ static void ArrowRight_DrawChoices(u8 menuOffset, u8 selection);
 static void ArrowLeft_DrawChoices(u8 menuOffset, u8 selection);
 static u8 Slider_ProcessInput(u8 menuOffset, u8 selection);
 static void Slider_DrawChoices(u8 menuOffset, u8 selection);
+static u8 Preset_ProcessInput(u8 menuOffset, u8 selection);
 static u8 Toggle_ProcessInput(u8 menuOffset, u8 selection);
 static void Toggle_DrawChoices(u8 menuOffset, u8 selection);
 static u8 Empty_ProcessInput(u8 menuOffset, u8 selection);
@@ -451,6 +567,8 @@ static u8 DebugRange_ProcessInput(u8 menuOffset, u8 selection);
 static void DebugRange_DrawChoices(u8 menuOffset, u8 selection);
 static u8 DebugRange_DifficultySkipProcessInput(u8 menuOffset, u8 selection);
 static u8 DebugRange_ForcedRouteProcessInput(u8 menuOffset, u8 selection);
+static void DebugRange_ForcedRouteDrawChoices(u8 menuOffset, u8 selection);
+static u8 DebugRange_ForcedTeamProcessInput(u8 menuOffset, u8 selection);
 #endif
 
 EWRAM_DATA static bool8 sArrowPressed = FALSE;
@@ -486,7 +604,7 @@ static const struct MenuEntry sOptionMenuItems[] =
     {
         .itemName = gText_DifficultyPreset,
         .MULTI_DESC(sMenuNameDesc_PresetDescription),
-        .processInput = Slider_ProcessInput,
+        .processInput = Preset_ProcessInput,
         .drawChoices = Slider_DrawChoices
     },
 
@@ -523,7 +641,7 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_TOGGLE_EXP_ALL] = 
     {
         .itemName = gText_DifficultyExpAll,
-        .SINGLE_DESC(gText_DifficultyExpAllDesc),
+        .MULTI_DESC(sText_DifficultyExpAllDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
@@ -537,35 +655,35 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_TOGGLE_EV_GAIN] = 
     {
         .itemName = gText_DifficultyEVGain,
-        .SINGLE_DESC(gText_DifficultyEVGainDesc),
+        .MULTI_DESC(sText_DifficultyEVGainDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_OVERWORLD_MONS] = 
     {
         .itemName = gText_DifficultyOverworldMons,
-        .SINGLE_DESC(gText_DifficultyOverworldMonsDesc),
+        .MULTI_DESC(sText_DifficultyOverworldMonsDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_BAG_WIPE] = 
     {
         .itemName = gText_DifficultyBagWipe,
-        .SINGLE_DESC(gText_DifficultyBagWipeDesc),
+        .MULTI_DESC(sText_DifficultyBagWipeDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_SWITCH_MODE] = 
     {
         .itemName = gText_DifficultySwitchMode,
-        .SINGLE_DESC(gText_DifficultySwitchModeDesc),
+        .MULTI_DESC(sText_DifficultySwitchModeDesc),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
     [MENUITEM_MENU_TOGGLE_DIVERSE_TRAINERS] = 
     {
         .itemName = sMenuName_TrainerDiversity,
-        .SINGLE_DESC(sMenuNameDesc_TrainerDiversity),
+        .MULTI_DESC(sMenuNameDesc_TrainerDiversity),
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
@@ -683,7 +801,7 @@ static const struct MenuEntry sOptionMenuItems[] =
     [MENUITEM_MENU_SLIDER_BATTLE_FORMAT] = 
     {
         .itemName = sMenuName_BattleFormat,
-        .SINGLE_DESC(sMenuNameDesc_BattleFormat),
+        .MULTI_DESC(sMenuNameDesc_BattleFormat),
         .processInput = BattleFormat_ProcessInput,
         .drawChoices = BattleFormat_DrawChoices
     },
@@ -821,12 +939,12 @@ static const struct MenuEntry sOptionMenuItems[] =
     {
         .itemName = sMenuName_DebugRangeForcedRoute,
         .processInput = DebugRange_ForcedRouteProcessInput,
-        .drawChoices = DebugRange_DrawChoices
+        .drawChoices = DebugRange_ForcedRouteDrawChoices
     },
-    [MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER] = 
+    [MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM] = 
     {
-        .itemName = sMenuName_DebugRangeForcedWeather,
-        .processInput = DebugRange_ProcessInput,
+        .itemName = sMenuName_DebugRangeForcedEvilTeam,
+        .processInput = DebugRange_ForcedTeamProcessInput,
         .drawChoices = DebugRange_DrawChoices
     },
 
@@ -852,19 +970,6 @@ static const struct MenuEntry sOptionMenuItems[] =
 static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
 {
     [SUBMENUITEM_NONE] = 
-    {
-        .menuOptions = 
-        {
-            MENUITEM_DIFFICULTY_PRESET,
-            MENUITEM_MENU_DIFFICULTY_SUBMENU,
-            MENUITEM_MENU_ADVENTURE_SUBMENU,
-#ifdef ROGUE_DEBUG
-            MENUITEM_MENU_DEBUG_SUBMENU,
-#endif
-            MENUITEM_SAVE_AND_EXIT
-        }
-    },
-    [SUBMENUITEM_NONE_POSTGAME] = 
     {
         .menuOptions = 
         {
@@ -962,7 +1067,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
 
             MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
             MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE,
-            MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER,
+            MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM,
 
             MENUITEM_CANCEL
         }
@@ -1127,6 +1232,10 @@ void CB2_InitDifficultyConfigMenu(void)
     {
         u8 taskId = CreateTask(Task_OptionMenuFadeIn, 0);
 
+        AGB_ASSERT(sRogueSettingsMenu == NULL);
+        sRogueSettingsMenu = AllocZeroed(sizeof(struct RogueSettingsMenu));
+        sRogueSettingsMenu->activeSubmenu = SUBMENUITEM_COUNT;
+
         gTasks[taskId].data[TD_MENUSELECTION] = 0;
         gTasks[taskId].data[TD_MENUSELECTION_TOP] = 0;
         gTasks[taskId].data[TD_SUBMENU] = 0;
@@ -1153,15 +1262,44 @@ static void Task_OptionMenuFadeIn(u8 taskId)
         gTasks[taskId].func = Task_OptionMenuProcessInput;
 }
 
-static u8 GetMenuItemFor(u8 submenu, u8 index)
+static bool8 IsMenuOptionActive(u8 menuOption)
 {
-    if(submenu == SUBMENUITEM_NONE && FlagGet(FLAG_ROGUE_MET_POKABBIE))
+    switch (menuOption)
     {
-        // Override menu itmes
-        submenu = SUBMENUITEM_NONE_POSTGAME;
+    case MENUITEM_MENU_TRAINERS_SUBMENU:
+    case MENUITEM_MENU_GAME_MODES_SUBMENU:
+        return FlagGet(FLAG_ROGUE_MET_POKABBIE);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_ROGUE:
+        return RogueQuest_HasCollectedRewards(QUEST_ID_ONE_LAST_QUEST);
     }
 
-    return sOptionMenuEntries[submenu].menuOptions[index];
+    return TRUE;
+}
+
+static u8 GetMenuItemFor(u8 submenu, u8 index)
+{
+    if(sRogueSettingsMenu->activeSubmenu != submenu)
+    {
+        u8 i;
+        u8 write = 0;
+
+        memset(sRogueSettingsMenu->dynamicMenuOptions, 0, sizeof(sRogueSettingsMenu->dynamicMenuOptions));
+
+        for(i = 0; i < MAX_MENUITEM_COUNT; ++i)
+        {
+            u8 menuOption = sOptionMenuEntries[submenu].menuOptions[i];
+
+            if(IsMenuOptionActive(menuOption))
+            {
+                sRogueSettingsMenu->dynamicMenuOptions[write++] = menuOption;
+            }
+        }
+
+        sRogueSettingsMenu->activeSubmenu = submenu;
+    }
+
+    return sRogueSettingsMenu->dynamicMenuOptions[index];
 }
 
 static bool8 CanExitWithB(u8 submenuSelection)
@@ -1172,6 +1310,39 @@ static bool8 CanExitWithB(u8 submenuSelection)
     // In tutorial section, we cannot exit root using B button
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROGUE_INTRO) && gSaveBlock1Ptr->location.mapNum  == MAP_NUM(ROGUE_INTRO))
         return FALSE;
+
+    return TRUE;
+}
+
+static bool8 TryCloseSubmenu(u8 submenuSelection)
+{
+    if(submenuSelection == SUBMENUITEM_TRAINERS)
+    {
+        u8 i;
+        u32 togglesToCheck[] = 
+        {
+            CONFIG_TOGGLE_TRAINER_ROGUE,
+            CONFIG_TOGGLE_TRAINER_KANTO,
+            CONFIG_TOGGLE_TRAINER_JOHTO,
+            CONFIG_TOGGLE_TRAINER_HOENN,
+#ifdef ROGUE_EXPANSION
+            CONFIG_TOGGLE_TRAINER_SINNOH,
+            CONFIG_TOGGLE_TRAINER_UNOVA,
+            CONFIG_TOGGLE_TRAINER_KALOS,
+            CONFIG_TOGGLE_TRAINER_ALOLA,
+            CONFIG_TOGGLE_TRAINER_GALAR,
+            CONFIG_TOGGLE_TRAINER_PALDEA,
+#endif
+        };
+
+        for(i = 0; i < ARRAY_COUNT(togglesToCheck); ++i)
+        {
+            if(Rogue_GetConfigToggle(togglesToCheck[i]) == TRUE)
+                return TRUE;
+        }
+
+        return FALSE;
+    }
 
     return TRUE;
 }
@@ -1188,8 +1359,19 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     {
         if(submenuSelection != SUBMENUITEM_NONE)
         {
-            submenuSelection = SUBMENUITEM_NONE;
-            submenuChanged = TRUE;
+            if(TryCloseSubmenu(submenuSelection))
+            {
+                submenuSelection = SUBMENUITEM_NONE;
+                submenuChanged = TRUE;
+            }
+            else
+            {
+                PlaySE(SE_FAILURE);
+                
+                FillWindowPixelBuffer(WIN_TEXT_OPTION, PIXEL_FILL(1));
+                AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, sText_ErrorInvalidSelection, 8, 1, TEXT_SKIP_DRAW, NULL);
+                CopyWindowToVram(WIN_TEXT_OPTION, COPYWIN_FULL);
+            }
         }
         else
             gTasks[taskId].func = Task_OptionMenuSave;
@@ -1351,6 +1533,10 @@ static void Task_OptionMenuFadeOut(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
+        AGB_ASSERT(sRogueSettingsMenu != NULL);
+        Free(sRogueSettingsMenu);
+        sRogueSettingsMenu = NULL;
+
         DestroyTask(taskId);
         FreeAllWindowBuffers();
         SetMainCallback2(gMain.savedCallback);
@@ -1466,6 +1652,45 @@ static void Slider_DrawChoices(u8 menuOffset, u8 selection)
     }
 
     DrawOptionMenuChoice(text, XPOS_CHOICES, menuOffset * YPOS_SPACING, style);
+}
+
+static u8 Preset_ProcessInput(u8 menuOffset, u8 selection)
+{
+    // Same behaviour as Slider_ProcessInput except for when custom is the option
+
+    if(ShouldSkipInput())
+        return selection;
+
+    if(selection == DIFFICULTY_LEVEL_CUSTOM)
+    {
+        // If we were on custom, first click should be going to the current reward level difficulty
+        if (JOY_NEW(DPAD_RIGHT) || JOY_NEW(DPAD_LEFT))
+        {
+            selection = Rogue_GetDifficultyRewardLevel();
+            sArrowPressed = TRUE;
+            return selection;
+        }
+    }
+
+    if (JOY_NEW(DPAD_RIGHT))
+    {
+        if (selection < DIFFICULTY_LEVEL_BRUTAL)
+            selection++;
+        //else
+        //    selection = DIFFICULTY_LEVEL_EASY;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_NEW(DPAD_LEFT))
+    {
+        if (selection != DIFFICULTY_LEVEL_EASY)
+            selection--;
+        //else
+        //    selection = DIFFICULTY_LEVEL_BRUTAL;
+
+        sArrowPressed = TRUE;
+    }
+    return selection;
 }
 
 static u8 Toggle_ProcessInput(u8 menuOffset, u8 selection)
@@ -1659,6 +1884,51 @@ static u8 DebugRange_ForcedRouteProcessInput(u8 menuOffset, u8 selection)
     {
         if (selection == 0)
             selection = gRogueRouteTable.routeCount;
+        else
+            selection--;
+
+        sArrowPressed = TRUE;
+    }
+    
+    return selection;
+}
+
+static void DebugRange_ForcedRouteDrawChoices(u8 menuOffset, u8 selection)
+{
+    u8 text[16];
+
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES + 55, menuOffset * YPOS_SPACING, 0);
+
+    if(selection != 0 && selection <= gRogueRouteTable.routeCount)
+    {
+        // Offset to remove "Rogue_Route_"
+        DrawOptionMenuChoice(&gRogueRouteTable.routes[selection - 1].map.debugName[12], XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
+    }
+    else
+    {
+        ConvertUIntToDecimalStringN(&text[0], selection, STR_CONV_MODE_LEFT_ALIGN, 3);
+        DrawOptionMenuChoice(text, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
+    }
+    
+
+}
+
+static u8 DebugRange_ForcedTeamProcessInput(u8 menuOffset, u8 selection)
+{
+    if (JOY_REPEAT(DPAD_RIGHT | A_BUTTON))
+    {
+        if(selection == TEAM_NUM_COUNT)
+            selection = 0;
+        else
+            selection++;
+
+        sArrowPressed = TRUE;
+    }
+    if (JOY_REPEAT(DPAD_LEFT))
+    {
+        if (selection == 0)
+            selection = TEAM_NUM_COUNT;
         else
             selection--;
 
@@ -1925,8 +2195,8 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE:
         return RogueDebug_GetConfigRange(DEBUG_RANGE_FORCED_ROUTE);
 
-    case MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER:
-        return RogueDebug_GetConfigRange(DEBUG_RANGE_FORCED_WEATHER);
+    case MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM:
+        return RogueDebug_GetConfigRange(DEBUG_RANGE_FORCED_EVIL_TEAM);
 #endif
     }
 
@@ -2101,16 +2371,16 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         RogueDebug_SetConfigToggle(DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT, value);
         break;
 
-
     case MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY:
         RogueDebug_SetConfigRange(DEBUG_RANGE_START_DIFFICULTY, value);
         break;
 
     case MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE:
         RogueDebug_SetConfigRange(DEBUG_RANGE_FORCED_ROUTE, value);
+        break;
 
-    case MENUITEM_MENU_DEBUG_RANGE_FORCED_WEATHER:
-        RogueDebug_SetConfigRange(DEBUG_RANGE_FORCED_WEATHER, value);
+    case MENUITEM_MENU_DEBUG_RANGE_FORCED_EVIL_TEAM:
+        RogueDebug_SetConfigRange(DEBUG_RANGE_FORCED_EVIL_TEAM, value);
         break;
 #endif
     }

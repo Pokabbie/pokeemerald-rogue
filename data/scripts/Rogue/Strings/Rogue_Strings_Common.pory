@@ -50,6 +50,11 @@ text gText_PokeblockWouldHaveNoEffect
     format("{POKEBLOCK} would have no effect, if scatted here.{PAUSE_UNTIL_PRESS}")
 }
 
+text gText_PokeblockWouldHaveNoEffectHoneyTree
+{
+    format("Only Typed {POKEBLOCK} can be scattered by Honey Trees.{PAUSE_UNTIL_PRESS}")
+}
+
 text gText_PokeblockAlreadyScattered
 {
     format("{POKEBLOCK} has already been scattered here.{PAUSE_UNTIL_PRESS}")

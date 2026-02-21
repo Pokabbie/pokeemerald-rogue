@@ -7,7 +7,9 @@
 #include "string.h"
 #include "string_util.h"
 
+#include "rogue_baked.h"
 #include "rogue_debug.h"
+#include "rogue_quest.h"
 
 #ifdef DEBUG_FEATURE_FRAME_TIMERS
 static void ResetClockCounters();
@@ -17,9 +19,131 @@ static void EnqueuePrintTimers();
 #endif
 
 #ifdef ROGUE_DEBUG
+
+static u32 CountMoneyQuestRewards(u32 questFlag)
+{
+    u16 i, j;
+    u32 total = 0;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_GetConstFlag(i, questFlag))
+        {
+            for(j = 0; j < RogueQuest_GetRewardCount(i); ++j)
+            {
+                struct RogueQuestReward const* reward = RogueQuest_GetReward(i, j);
+
+                if(reward->type == QUEST_REWARD_MONEY)
+                {
+                    total += reward->perType.money.amount;
+                }
+            }
+        }
+    }
+
+    return total;
+}
+
+static u32 CountItemQuestRewards(u16 itemId, u32 questFlag)
+{
+    u16 i, j;
+    u32 total = 0;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        if(RogueQuest_GetConstFlag(i, questFlag))
+        {
+            for(j = 0; j < RogueQuest_GetRewardCount(i); ++j)
+            {
+                struct RogueQuestReward const* reward = RogueQuest_GetReward(i, j);
+
+                if(reward->type == QUEST_REWARD_ITEM && reward->perType.item.item == itemId)
+                {
+                    AGB_ASSERT(reward->perType.item.count < 32); // sanity check to make sure we're not giving too much out at once 
+                    total += reward->perType.item.count;
+                }
+            }
+        }
+    }
+
+    return total;
+}
+
+static u32 CountBuildingSuppliesNeededForUpgrades()
+{
+    u16 i;
+    u32 total = 0;
+
+    for(i = 0; i < ARRAY_COUNT(gRogueHubAreas); ++i)
+    {
+        total += gRogueHubAreas[i].buildCost;
+    }
+
+    for(i = 0; i < ARRAY_COUNT(gRogueHubUpgrades); ++i)
+    {
+        total += gRogueHubUpgrades[i].buildCost;
+    }
+
+    return total;
+}
+
+extern const u16 gRogueBake_FinalEvoSpecies_Count;
+extern const u16 gRogueBake_EggSpecies_Count;
+
 void RogueDebug_MainInit(void)
 {
     MEMORY_STOMP_TRACKING_SET_TARGET(NULL, 0);
+
+    // Data checks
+    {
+        DebugPrint("[Quest Verify]");
+        DebugPrint("    [Counts]");
+        DebugPrintf("        [Main] %d", RogueQuest_GetQuestTotalCountFor(QUEST_CONST_IS_MAIN_QUEST, TRUE));
+        DebugPrintf("        [Challenge] %d", RogueQuest_GetQuestTotalCountFor(QUEST_CONST_IS_CHALLENGE, TRUE));
+        DebugPrintf("        [Mastery] %d", RogueQuest_GetQuestTotalCountFor(QUEST_CONST_IS_MON_MASTERY, TRUE));
+
+        DebugPrint("    [Rewards]");
+        DebugPrintf("        [Main] Money:%d", CountMoneyQuestRewards(QUEST_CONST_IS_MAIN_QUEST));
+        DebugPrintf("        [Main] BuildingSupplies:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MAIN_QUEST));
+
+        DebugPrintf("        [Challenge] Money:%d", CountMoneyQuestRewards(QUEST_CONST_IS_CHALLENGE));
+        DebugPrintf("        [Challenge] BuildingSupplies:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_CHALLENGE));
+
+        DebugPrintf("        [Mastery] Money:%d", CountMoneyQuestRewards(QUEST_CONST_IS_MON_MASTERY));
+        DebugPrintf("        [Mastery] BuildingSupplies:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MON_MASTERY));
+
+
+        // None of these should give building supplies
+        AGB_ASSERT(CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_CHALLENGE) == 0);
+        AGB_ASSERT(CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MON_MASTERY) == 0);
+
+        DebugPrint("[Hub Verify]");
+        DebugPrintf("    TotalCost:%d", CountBuildingSuppliesNeededForUpgrades());
+        DebugPrintf("    Remainder:%d", CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MAIN_QUEST) - CountBuildingSuppliesNeededForUpgrades());
+
+        AGB_ASSERT(CountBuildingSuppliesNeededForUpgrades() <= CountItemQuestRewards(ITEM_BUILDING_SUPPLIES, QUEST_CONST_IS_MAIN_QUEST));
+
+
+        DebugPrint("[Bake Verify]");
+        DebugPrintf("    FinalEvoSpecies_Count:%d", gRogueBake_FinalEvoSpecies_Count);
+        DebugPrintf("    EggSpecies_Count:%d", gRogueBake_EggSpecies_Count);
+
+        AGB_ASSERT(gRogueBake_FinalEvoSpecies_Count == SPECIES_FINAL_EVO_STAGE_COUNT);
+        AGB_ASSERT(gRogueBake_EggSpecies_Count == SPECIES_EGG_EVO_STAGE_COUNT);
+
+        {
+            u32 i;
+
+            // Comment in to debug
+            //DebugPrint("[Mastery Flag]");
+
+            for(i = SPECIES_NONE + 1; i < NUM_SPECIES; ++i)
+            {
+                //DebugPrintf("    check %d (egg:%d)", i, Rogue_GetEggSpecies(i));
+                RogueQuest_GetMonMasteryFlag(i);
+            }
+        }
+    }
 }
 
 void RogueDebug_MainCB(void)
@@ -185,6 +309,11 @@ static u32 SampleClock()
     return REG_TM2CNT_L | (REG_TM3CNT_L << 16u);
 }
 
+u32 RogueDebug_SampleClock()
+{
+    return SampleClock();
+}
+
 void RogueDebug_StartTimer(u16 timer)
 {
     AGB_ASSERT(!sFrameTimerManager.timers[timer].hasStarted);
@@ -228,6 +357,11 @@ static u32 GetFrameTimeInDisplayUnits(u32 time)
     // convert to microseconds
     u64 value = ((u64)time * (u64)1000000) / (u64)16777216;
     return (u32)value;
+}
+
+u32 RogueDebug_ClockToDisplayUnits(u32 time)
+{
+    return GetFrameTimeInDisplayUnits(time);
 }
 
 static u32 GetFrameTimeAsPercentage(u32 time)

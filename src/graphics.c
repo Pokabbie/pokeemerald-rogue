@@ -1656,7 +1656,6 @@ const u32 gBagHoennSilverPalette[] = INCBIN_U32("graphics/bag/bag_hoenn_silver.g
 const u32 gBagHoennBlackPalette[] = INCBIN_U32("graphics/bag/bag_hoenn_black.gbapal.lz");
 
 const u32 gBagScreenMale_Pal[] = INCBIN_U32("graphics/bag/menu_male.gbapal.lz");
-const u32 gBagScreenFemale_Pal[] = INCBIN_U32("graphics/bag/menu_female.gbapal.lz");
 
 const u32 gBagScreen_Gfx[] = INCBIN_U32("graphics/bag/menu.4bpp.lz");
 const u32 gBagScreen_GfxTileMap[] = INCBIN_U32("graphics/bag/menu.bin.lz");

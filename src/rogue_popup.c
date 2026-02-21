@@ -31,12 +31,16 @@
 #include "rogue_controller.h"
 #include "rogue_debug.h"
 #include "rogue_followmon.h"
+#include "rogue_hub.h"
 #include "rogue_pokedex.h"
 #include "rogue_popup.h"
 #include "rogue_quest.h"
 #include "rogue_timeofday.h"
 
-#define POPUP_QUEUE_CAPACITY 8
+#define POPUP_QUEUE_CAPACITY 16
+
+extern const u32 gItemIcon_RogueStatusMoney[];
+extern const u32 gItemIconPalette_RogueStatusStarCustom[];
 
 enum
 {
@@ -66,6 +70,7 @@ enum
 {
     POPUP_CUSTOM_ICON_POKEDEX,
     POPUP_CUSTOM_ICON_CLOUD,
+    POPUP_CUSTOM_ICON_MONEY,
     POPUP_CUSTOM_ICON_TYPE_NORMAL,
     POPUP_CUSTOM_ICON_TYPE_FIGHTING,
     POPUP_CUSTOM_ICON_TYPE_FLYING,
@@ -136,6 +141,8 @@ struct PopupManager
     bool8 forceEnabled : 1;
     bool8 forceEnabledMuteAudio : 1;
     bool8 forceEnabledFromScript : 1;
+    bool8 forceEnabledCanSkip : 1;
+    bool8 hasPopupBeenSkipped : 1;
 };
 
 struct CustomIcon
@@ -155,6 +162,11 @@ static struct CustomIcon const sRoguePopupCustomIcons[POPUP_CUSTOM_ICON_COUNT] =
     {
         .icon = gItemIcon_Cloud,
         .palette = gItemIconPalette_Cloud
+    },
+    [POPUP_CUSTOM_ICON_MONEY] = 
+    {
+        .icon = gItemIcon_RogueStatusMoney,
+        .palette = gItemIconPalette_RogueStatusStarCustom
     },
     [POPUP_CUSTOM_ICON_TYPE_NORMAL] = 
     {
@@ -266,6 +278,8 @@ static const u8 sText_Popup_GiftPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}
 static const u8 sText_Popup_GiftShinyPokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gift Shiny {PKMN}!");
 static const u8 sText_Popup_GiftCustomPokemon[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Gift Unique {PKMN}!");
 static const u8 sText_Popup_DaycarePokemon[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Pokémon Egg");
+static const u8 sText_Popup_UniquePokemon[] = _("Unique Pokémon");
+static const u8 sText_Popup_UniquePokemonSubtitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Detected nearby!");
 static const u8 sText_Popup_None[] = _("");
 
 static const u8 sText_Popup_NewMoves[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}New Moves!");
@@ -281,6 +295,7 @@ static const u8 sText_Popup_Money[] = _("¥{STR_VAR_1}");
 static const u8 sText_Popup_LostItem[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Item.");
 static const u8 sText_Popup_LostMoney[] = _("{COLOR LIGHT_RED}{SHADOW RED}Lost Money.");
 static const u8 sText_Popup_UnlockedInShops[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Can now be bought!");
+static const u8 sText_Popup_UnlockedDecor[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Decor Unlocked!");
 static const u8 sText_Popup_TypePlateItem[] = _("Type Plates");
 static const u8 sText_Popup_TypeMemoryItem[] = _("Type Memories");
 
@@ -310,7 +325,7 @@ static const u8 sText_Popup_BecameFemale[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN
 static const u8 sText_Popup_EncounterChain[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Encounter Chain");
 static const u8 sText_Popup_EncounterChainEnd[] = _("{COLOR RED}{SHADOW LIGHT_RED}Chain Lost");
 
-static const u8 sText_Popup_PokedexUnlock[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Recieved Pokedex!");
+static const u8 sText_Popup_PokedexUnlock[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Received Pokedex!");
 static const u8 sText_Popup_PokedexUpgrade[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Pokedex Upgraded!");
 
 static const u8 sText_Popup_BagUpdate[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Bag Upgraded!");
@@ -329,10 +344,14 @@ static const u8 sText_Popup_ExtraLifeSubtitle[] = _("{COLOR LIGHT_BLUE}{SHADOW B
 
 static const u8 sText_Popup_HealingFlaskRefilled[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Flask Refilled!");
 
+static const u8 sText_Popup_FlightChargeRemaining[] = _("{STR_VAR_1} / {STR_VAR_2}");
+static const u8 sText_Popup_FlightChargeSubtitle[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Flight Charges");
+
 static const u8 sText_Popup_GymBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Gym Badge {STR_VAR_1}");
 static const u8 sText_Popup_EliteBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Elite Badge {STR_VAR_1}");
 static const u8 sText_Popup_ChampBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Champion Badge");
-static const u8 sText_Popup_EarnBadge[] = _("Recieved badge!");
+static const u8 sText_Popup_VictoryLapGymBadge[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Victory Badge {STR_VAR_1}");
+static const u8 sText_Popup_EarnBadge[] = _("Received badge!");
 
 static const u8 sText_Popup_AdventureReplay[] = _("Adventure Replay");
 static const u8 sText_Popup_AdventureReplaySubtitle[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Active");
@@ -372,6 +391,7 @@ static const u8 sWeatherNames[22][14] = {
 
 #define DEFAULT_ANIM_DURATION 15
 #define DEFAULT_DISPLAY_DURATION 90
+#define SKIP_DISPLAY_DURATION 20
 #define sStateNum           data[0]
 #define tOnscreenTimer      data[1]
 #define sDisplayTimer       data[2]
@@ -579,6 +599,7 @@ static void RemoveQuestPopUpWindow(void)
 static u8 AddQuestPopUpWindow(struct PopupRequest* request)
 {
     struct PopupRequestTemplate const* template = &sPopupRequestTemplates[request->templateId];
+    sRoguePopups.hasPopupBeenSkipped = FALSE;
 
     RemoveQuestPopUpWindow();
 
@@ -640,17 +661,22 @@ void Rogue_ClearPopupQueue(void)
     sRoguePopups.lastShownId = 0;
 }
 
+
 #define SKIP_POPUP_BUTTONS A_BUTTON | B_BUTTON | START_BUTTON
 
 static bool8 ShouldSkipPopups()
 {
-    // Always skip if pressing
-    if(JOY_NEW(SKIP_POPUP_BUTTONS))
-        return TRUE;
+    // only allow skipping in specifical from script scenarios
+    if(sRoguePopups.forceEnabled && sRoguePopups.forceEnabledCanSkip)
+    {
+        // Always skip if pressing
+        if(JOY_NEW(SKIP_POPUP_BUTTONS))
+            return TRUE;
 
-    // If holding skip after has been on screen for long enough
-    if((JOY_HELD(SKIP_POPUP_BUTTONS) && GetActiveOnScreenDisplayTimer() >= 1))
-        return TRUE;
+        // If holding skip after has been on screen for long enough
+        if((JOY_HELD(SKIP_POPUP_BUTTONS) && GetActiveOnScreenDisplayTimer() >= 1))
+            return TRUE;
+    }
 
     return FALSE;
 }
@@ -710,8 +736,13 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
             // If held wait a few frames before moving on
             if(ShouldSkipPopups())
             {
-                if (FuncIsActiveTask(Task_QuestPopUpWindow))
-                    HideQuestPopUpWindow();
+                sRoguePopups.hasPopupBeenSkipped = TRUE;
+
+                //if (FuncIsActiveTask(Task_QuestPopUpWindow))
+                //{
+                //    sRoguePopups.hasPopupBeenSkipped = TRUE;
+                //    //HideQuestPopUpWindow();
+                //}
             }
         }
     }
@@ -725,11 +756,12 @@ void Rogue_UpdatePopups(bool8 inOverworld, bool8 inputEnabled)
     STOP_TIMER(ROGUE_POPUPS);
 }
 
-void Rogue_ForceEnablePopups(bool8 allowAudio)
+void Rogue_ForceEnablePopups(bool8 allowAudio, bool8 canSkip)
 {
     sRoguePopups.forceEnabled = TRUE;
     sRoguePopups.forceEnabledMuteAudio = !allowAudio;
     sRoguePopups.forceEnabledFromScript = TRUE;
+    sRoguePopups.forceEnabledCanSkip = canSkip;
 }
 
 bool8 Rogue_HasPendingPopups()
@@ -743,6 +775,16 @@ void Rogue_DisplayPopupsFromScript()
     sRoguePopups.forceEnabled = TRUE;
     sRoguePopups.forceEnabledMuteAudio = FALSE;
     sRoguePopups.forceEnabledFromScript = TRUE;
+    sRoguePopups.forceEnabledCanSkip = FALSE;
+}
+
+void Rogue_DisplayPopupsFromScriptSkippable()
+{
+    ScriptContext_Stop();
+    sRoguePopups.forceEnabled = TRUE;
+    sRoguePopups.forceEnabledMuteAudio = FALSE;
+    sRoguePopups.forceEnabledFromScript = TRUE;
+    sRoguePopups.forceEnabledCanSkip = TRUE;
 }
 
 static void ApplyPopupAnimation(struct PopupRequest* request, u16 timer, bool8 useEnterAnim)
@@ -804,12 +846,15 @@ static void Task_QuestPopUpWindow(u8 taskId)
     struct PopupRequest* popupRequest = GetCurrentPopup();
     struct PopupRequestTemplate const* template = &sPopupRequestTemplates[popupRequest->templateId];
     bool8 useEnterAnim = FALSE;
+    u16 animDuration = sRoguePopups.hasPopupBeenSkipped ? 1 : template->animDuration;
+    u16 displayDuration = sRoguePopups.hasPopupBeenSkipped ? SKIP_DISPLAY_DURATION : popupRequest->displayDuration;
 
     switch (task->sStateNum)
     {
     case 6:
-        task->data[4]++;
-        if (task->data[4] > 5 && WaitFanfare(FALSE))
+        if (task->data[4] <= 5)
+            task->data[4]++;
+        else if (sRoguePopups.hasPopupBeenSkipped || (WaitFanfare(FALSE) && !IsSEPlaying()))
         {
             task->sStateNum = 0;
             task->data[4] = 0;
@@ -828,7 +873,7 @@ static void Task_QuestPopUpWindow(u8 taskId)
         break;
     case 1:
         task->tOnscreenTimer++;
-        if (task->tOnscreenTimer > popupRequest->displayDuration )
+        if (task->tOnscreenTimer > displayDuration)
         {
             task->tOnscreenTimer = 0;
             task->sStateNum = 2;
@@ -836,9 +881,9 @@ static void Task_QuestPopUpWindow(u8 taskId)
         break;
     case 2:
         task->sDisplayTimer++;
-        if (task->sDisplayTimer >= template->animDuration)
+        if (task->sDisplayTimer >= animDuration)
         {
-            task->sDisplayTimer = template->animDuration;
+            task->sDisplayTimer = animDuration;
             if (task->tIncomingPopUp)
             {
                 task->sStateNum = 6;
@@ -1115,8 +1160,8 @@ static void ShowQuestPopUpWindow(void)
     {
         bool8 playAudio = !popupRequest->scriptAudioOnly || sRoguePopups.forceEnabled;
 
-        if(JOY_HELD(SKIP_POPUP_BUTTONS))
-            playAudio = FALSE;
+        //if(JOY_HELD(SKIP_POPUP_BUTTONS))
+        //    playAudio = FALSE;
 
         if(sRoguePopups.forceEnabled && sRoguePopups.forceEnabledMuteAudio)
             playAudio = FALSE;
@@ -1488,8 +1533,8 @@ void Rogue_PushPopup_AddMoney(u32 amount)
 {
     struct PopupRequest* popup = CreateNewPopup();
 
-    popup->templateId = POPUP_COMMON_FIND_ITEM;
-    popup->iconId = ITEM_COIN_CASE;
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_SLIDE_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_MONEY;
 
     popup->fanfare = MUS_OBTAIN_ITEM;
     popup->scriptAudioOnly = TRUE;
@@ -1505,8 +1550,8 @@ void Rogue_PushPopup_LostMoney(u32 amount)
 {
     struct PopupRequest* popup = CreateNewPopup();
 
-    popup->templateId = POPUP_COMMON_FIND_ITEM;
-    popup->iconId = ITEM_COIN_CASE;
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_SLIDE_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_MONEY;
 
     popup->soundEffect = SE_NOT_EFFECTIVE;
     popup->scriptAudioOnly = TRUE;
@@ -1600,6 +1645,30 @@ void Rogue_PushPopup_UnlockedShopItem(u16 itemId)
     }
 }
 
+void Rogue_PushPopup_UnlockedDecor(u16 decorId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = ITEM_BASEMENT_KEY;
+    popup->fanfare = MUS_OBTAIN_ITEM;
+
+    popup->titleText = RogueHub_GetDecorName(decorId);
+    popup->subtitleText = sText_Popup_UnlockedDecor;
+}
+
+void Rogue_PushPopup_UnlockedDecorVariant(u16 decorVariantId)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = ITEM_BASEMENT_KEY;
+    popup->fanfare = MUS_OBTAIN_ITEM;
+
+    popup->titleText = RogueHub_GetDecorVariantName(decorVariantId);
+    popup->subtitleText = sText_Popup_UnlockedDecor;
+}
+
 void Rogue_PushPopup_AddPokemon(u16 species, bool8 isCustom, bool8 isShiny)
 {
     struct PopupRequest* popup = CreateNewPopup();
@@ -1621,6 +1690,17 @@ void Rogue_PushPopup_AddPokemon(u16 species, bool8 isCustom, bool8 isShiny)
     }
     else
         popup->subtitleText = sText_Popup_GiftPokemon;
+}
+
+void Rogue_PushPopup_UniquePokemonDetected(u16 species)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+    popup->iconId = species;
+    
+    popup->titleText = sText_Popup_UniquePokemon;
+    popup->subtitleText = sText_Popup_UniquePokemonSubtitle;
 }
 
 void Rogue_PushPopup_RequipBerrySuccess(u16 itemId)
@@ -1646,7 +1726,7 @@ void Rogue_PushPopup_RequipBerryFail(u16 itemId)
     popup->subtitleText = sText_Popup_BerriesRequipFailSubtitle;
 }
 
-void Rogue_PushPopup_TriggerExtraLife()
+void Rogue_PushPopup_TriggerExtraLife(bool8 itemConsumed)
 {
     struct PopupRequest* popup = CreateNewPopup();
 
@@ -1655,7 +1735,9 @@ void Rogue_PushPopup_TriggerExtraLife()
     popup->fanfare = MUS_HEAL;
     
     popup->titleText = sText_Popup_ExtraLifeTitle;
-    popup->subtitleText = sText_Popup_ExtraLifeSubtitle;
+
+    if(itemConsumed)
+        popup->subtitleText = sText_Popup_ExtraLifeSubtitle;
 }
 
 void Rogue_PushPopup_FlaskRefilled()
@@ -1666,6 +1748,39 @@ void Rogue_PushPopup_FlaskRefilled()
     popup->iconId = ITEM_HEALING_FLASK;
     
     popup->titleText = sText_Popup_HealingFlaskRefilled;
+}
+
+void Rogue_PushPopup_FlightChargeUsed(u32 remainingCharges, u32 totalCharges)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = ITEM_BASIC_RIDING_WHISTLE;
+    popup->displayDuration = 30;
+    
+    popup->titleText = sText_Popup_FlightChargeRemaining;
+    popup->subtitleText = sText_Popup_FlightChargeSubtitle;
+
+    popup->expandTextData[0] = remainingCharges;
+    popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
+    popup->expandTextData[1] = totalCharges;
+    popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
+}
+
+void Rogue_PushPopup_FlightChargeRefilled(u32 totalCharges)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    popup->templateId = POPUP_COMMON_FIND_ITEM;
+    popup->iconId = ITEM_BASIC_RIDING_WHISTLE;
+    
+    popup->titleText = sText_Popup_FlightChargeRemaining;
+    popup->subtitleText = sText_Popup_FlightChargeSubtitle;
+
+    popup->expandTextData[0] = totalCharges;
+    popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
+    popup->expandTextData[1] = totalCharges;
+    popup->expandTextType[1] = TEXT_EXPAND_UNSIGNED_NUMBER;
 }
 
 void Rogue_PushPopup_UnlockPokedex()
@@ -1731,7 +1846,7 @@ void Rogue_PushPopup_AssistantDisconnected()
     popup->subtitleText = sText_Popup_Disconnected;
 }
 
-void Rogue_PushPopup_OutfitUnlocked()
+void Rogue_PushPopup_EasterEggOutfitUnlocked()
 {
     struct PopupRequest* popup = CreateNewPopup();
 
@@ -1781,7 +1896,23 @@ void Rogue_PushPopup_NewBadgeGet(u8 difficulty)
         popup->expandTextData[0] = difficulty + 1;
         popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
     }
+}
 
+void Rogue_PushPopup_VictoryLapProgress(u8 type, u16 victories)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    if(type == TYPE_NONE)
+        type = TYPE_MYSTERY;
+
+    popup->templateId = POPUP_COMMON_CUSTOM_ICON_TEXT;
+    popup->iconId = POPUP_CUSTOM_ICON_TYPE_NORMAL + type;
+    popup->fanfare = MUS_OBTAIN_ITEM;
+    popup->titleText = sText_Popup_VictoryLapGymBadge;
+    popup->subtitleText = sText_Popup_EarnBadge;
+
+    popup->expandTextData[0] = victories;
+    popup->expandTextType[0] = TEXT_EXPAND_UNSIGNED_NUMBER;
 }
 
 void Rogue_PushPopup_WeatherActive(u16 weather)
@@ -1835,4 +1966,28 @@ void Rogue_PushPopup_ChallengeQuestsDisabled()
     
     popup->titleText = sText_Popup_ChallengesDisabled;
     popup->subtitleText = sText_Popup_QuestsDisabledSubtitle;
+}
+
+void Rogue_PushPopup_CustomPopup(struct CustomPopup const* template)
+{
+    struct PopupRequest* popup = CreateNewPopup();
+
+    if(template->itemIcon != ITEM_NONE)
+    {
+        popup->templateId = POPUP_COMMON_ITEM_TEXT;
+        popup->iconId = template->itemIcon;
+    }
+    else if(template->speciesIcon != ITEM_NONE)
+    {
+        popup->templateId = POPUP_COMMON_POKEMON_TEXT;
+        popup->iconId = template->speciesIcon;
+    }
+
+    if(template->soundEffect != MUS_DUMMY)
+        popup->soundEffect = template->soundEffect;
+    else if(template->fanfare != MUS_DUMMY)
+        popup->fanfare = template->fanfare;
+    
+    popup->titleText = template->titleStr;
+    popup->subtitleText = template->subtitleStr;
 }

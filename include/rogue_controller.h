@@ -3,6 +3,13 @@
 
 #include "rogue_baked.h"
 
+enum
+{
+    SHINY_ROLL_DYNAMIC,
+    SHINY_ROLL_STATIC,
+    SHINY_ROLL_SHINY_LOCKED,
+};
+
 struct MenuAction;
 struct MusicPlayerInfo;
 
@@ -18,18 +25,21 @@ extern EWRAM_DATA struct RogueDebugConfig gRogueDebug;
 u16 RogueRandomRange(u16 range, u8 seedFlag);
 bool8 RogueRandomChance(u8 chance, u16 seedFlag);
 
-u16 Rogue_GetShinyOdds(void);
-bool8 Rogue_RollShinyState(void);
+u16 Rogue_GetShinyOdds(u8 shinyRoll);
+bool8 Rogue_RollShinyState(u8 shinyRoll);
 
 void RemoveMonAtSlot(u8 slot, bool8 keepItems, bool8 compactPartySlots);
 void RemoveAnyFaintedMons(bool8 keepItems);
 
 bool8 Rogue_IsRunActive(void);
+bool8 Rogue_IsVictoryLapActive(void);
 bool8 Rogue_InWildSafari(void);
 bool8 Rogue_UseSafariBattle(void);
 bool8 Rogue_CanChangeSafariBall(void);
 u8 Rogue_GetCurrentDifficulty(void);
 void Rogue_SetCurrentDifficulty(u8 difficulty);
+u16* Rogue_GetVictoryLapHistoryBufferPtr();
+u32 Rogue_GetVictoryLapHistoryBufferSize();
 
 bool8 Rogue_ForceExpAll(void);
 bool8 Rogue_EnableExpGain(void);
@@ -59,6 +69,7 @@ void Rogue_ModifyExpGained(struct Pokemon *mon, s32* expGain);
 void Rogue_ModifyEVGain(int* multiplier);
 void Rogue_ModifyCatchRate(u16 species, u16* catchRate, u16* ballMultiplier);
 void Rogue_ModifyCaughtMon(struct Pokemon *mon);
+void Rogue_OnAcceptCaughtMon(struct Pokemon *mon);
 void Rogue_ModifyEggMon(struct Pokemon *mon);
 void Rogue_DiscardedCaughtMon(struct Pokemon *mon);
 u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount);
@@ -73,9 +84,14 @@ void Rogue_ModifyBattlePalette(u16 offset, u16 count);
 
 const u8* Rogue_ModifyFieldMessage(const u8* str);
 const u8* Rogue_ModifyBattleMessage(const u8* str);
+void Rogue_ModifyBattleMon(u8 monId, struct BattlePokemon* battleMon, bool8 isPlayer);
 
 const u8* Rogue_ModifyOverworldInteractionScript(struct MapPosition *position, u16 metatileBehavior, u8 direction, u8 const* script);
 u16 Rogue_ModifyOverworldMapWeather(u16 weather);
+
+const struct Tileset * Rogue_ModifyOverworldTileset(const struct Tileset * tileset);
+
+bool8 Rogue_CanRenameMon(struct Pokemon* mon);
 
 bool8 Rogue_ShouldShowMiniMenu(void);
 u16 Rogue_MiniMenuHeight(void);
@@ -99,6 +115,10 @@ void Rogue_GameClear(void);
 void Rogue_SetDefaultOptions(void);
 void Rogue_NotifySaveVersionUpdated(u16 fromNumber, u16 toNumber);
 void Rogue_NotifySaveLoaded(void);
+bool8 Rogue_IsObjectEventExcludedFromSave(struct ObjectEvent* objectEvent);
+void Rogue_OnSecondPassed(void);
+void Rogue_OnMinutePassed(void);
+void Rogue_OnHourPassed(void);
 
 bool8 Rogue_OnProcessPlayerFieldInput(void);
 bool8 Rogue_IsPartnerMonInTeam(void);
@@ -109,6 +129,8 @@ void Rogue_MainInit(void);
 void Rogue_MainEarlyCB(void);
 void Rogue_MainLateCB(void);
 void Rogue_OverworldCB(u16 newKeys, u16 heldKeys, bool8 inputActive);
+void Rogue_OnReturnToField();
+bool8 Rogue_IsCollisionExempt(struct ObjectEvent* obstacle, struct ObjectEvent* collider);
 bool8 Rogue_IsRunningToggledOn();
 
 void Rogue_OnSpawnObjectEvent(struct ObjectEvent *objectEvent, u8 objectEventId);
@@ -118,11 +140,12 @@ void Rogue_OnObjectEventMovement(u8 objectEventId);
 void Rogue_OnResumeMap();
 void Rogue_OnObjectEventsInit();
 void Rogue_OnResetAllSprites();
-u8 Rogue_GetCachedObjectEventId(u32 localId);
+bool8 Rogue_TryGetCachedObjectEventId(u32 localId, u8* eventObjectId);
 
 void Rogue_GetHotTrackingData(u16* count, u16* average, u16* min, u16* max);
 
 void Rogue_OnLoadMap(void);
+bool8 Rogue_ShouldSkipReloadMapTileView();
 void Rogue_OnWarpIntoMap(void);
 void Rogue_OnSetWarpData(struct WarpData *warp);
 void Rogue_ModifyMapHeader(struct MapHeader *mapHeader);
@@ -181,7 +204,7 @@ void Rogue_ModifyScriptMon(struct Pokemon* mon);
 void Rogue_ModifyGiveMon(struct Pokemon* mon);
 struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot);
 u8 Rogue_GetCurrentDaycareSlotCount();
-void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, struct BoxPokemon* daycareMon);
+void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, u8 daycareSlot);
 void Rogue_DaycareMultichoiceCallback(struct MenuAction* outList, u8* outCount, u8 listCapacity);
 void Rogue_BeginCatchingContest(u8 type, u8 stat);
 void Rogue_EndCatchingContest();

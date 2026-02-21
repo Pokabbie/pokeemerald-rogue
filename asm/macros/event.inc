@@ -935,6 +935,45 @@
 	.byte \ignoreBPress
 	.endm
 
+	.macro scrollingmultichoice id:req, x:req, y:req, show:req, b:req
+	setvar VAR_0x8004, \id,
+	setvar VAR_0x8005, \x,
+	setvar VAR_0x8006, \y,
+	setvar VAR_0x8007, \show,
+	setvar VAR_0x8008, \b,
+	callnative ScriptMenu_ScrollingMultichoice
+	waitstate
+	.endm
+
+	.macro begindynamicmultichoice capacity=16
+	.byte 0xc7
+	.2byte \capacity
+	.endm
+
+	.macro appenddynamicmultichoice name:req, id:req
+	.byte 0xc8
+	.4byte \name
+	.2byte \id
+	.endm
+
+	.macro enddynamicmultichoice x:req, y:req, show:req, b:req
+	setvar VAR_0x8005, \x,
+	setvar VAR_0x8006, \y,
+	setvar VAR_0x8007, \show,
+	setvar VAR_0x8008, \b,
+	callnative ScriptMenu_ScrollingMultichoiceDynamicEnd
+	waitstate
+	.endm
+
+	.macro showtextbox text:req, x:req, y:req, w:req, h:req
+	.byte 0xc9
+	.4byte \text
+	.byte \x
+	.byte \y
+	.byte \w
+	.byte \h
+	.endm
+
 	@ Nopped in Emerald.
 	.macro drawbox
 	.byte 0x72
@@ -2116,18 +2155,16 @@
 	.endm
 
 	@ Attempts to complete the given quest and returns the result
-	.macro multiplayerpushstatus status:req, param:req
+	.macro multiplayerpushstatus status:req
 	.byte 0xee
 	.byte \status
-	.2byte \param
 	.byte 0
 	.byte 0
 	.endm
 
-	.macro multiplayerpushstatusawait status:req, param:req, awaitCancellable:req
+	.macro multiplayerpushstatusawait status:req, awaitCancellable:req
 	.byte 0xee
 	.byte \status
-	.2byte \param
 	.byte 1
 	.byte \awaitCancellable
 	.endm

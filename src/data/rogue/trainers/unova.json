@@ -493,7 +493,7 @@
                         "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Well…",
                         "PRE_BATTLE_TAUNT": "Think it's about time to see fer myself what yer skills are all about.",
                         "POST_BATTLE_TAUNT": "Well, I've had enough… And just so you know, I didn't go easy on you.",
-                        "POST_BATTLE_CLOSER": "Mrrrmph. I see. But I sure don't like it!\\pFer such a young 'un, ya have an imposin' battle style.\\pYou gotta live up to yer pontential now, yer hear!"
+                        "POST_BATTLE_CLOSER": "Mrrrmph. I see. But I sure don't like it!\\pFer such a young 'un, ya have an imposin' battle style.\\pYou gotta live up to yer potential now, yer hear!"
                     }
                 ],
                 "preferred_mon_gender": "MALE",

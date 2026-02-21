@@ -49,9 +49,11 @@
 
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
+#include "rogue_charms.h"
 #include "rogue_ridemon.h"
 #include "rogue_questmenu.h"
 #include "rogue_settings.h"
+#include "rogue_worldmap.h"
 
 static void SetUpItemUseCallback(u8);
 static void FieldCB_UseItemOnField(void);
@@ -390,7 +392,7 @@ static void ItemUseOnFieldCB_HealingFlask(u8 taskId)
 
 void ItemUseOutOfBattle_Itemfinder(u8 var)
 {
-    IncrementGameStat(GAME_STAT_USED_ITEMFINDER);
+    //IncrementGameStat(GAME_STAT_USED_ITEMFINDER);
     sItemUseOnFieldCB = ItemUseOnFieldCB_Itemfinder;
     SetUpItemUseOnFieldCallback(var);
 }
@@ -831,6 +833,42 @@ void ItemUseOutOfBattle_CGear(u8 taskId)
     }
 }
 
+static void CB2_OpenWorldMapFromBag(void)
+{
+    Rogue_OpenWorldMap(CB2_ReturnToBagMenuPocket);
+}
+
+static void Task_OpenRegisteredWorldMap(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        Rogue_OpenWorldMap(CB2_ReturnToField);
+        DestroyTask(taskId);
+    }
+}
+
+void ItemUseOutOfBattle_WorldMap(u8 taskId)
+{
+    if(!WaitFanfare(FALSE))
+    {
+        return;
+    }
+
+    PlaySE(SE_SELECT);
+    if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    {
+        gBagMenu->newScreenCallback = CB2_OpenWorldMapFromBag;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else
+    {
+        gFieldCallback = FieldCB_ReturnToFieldNoScript;
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_OpenRegisteredWorldMap;
+    }
+}
+
 static void ItemUseOnFieldCB_DayCarePhone(u8 taskId)
 {
     LockPlayerFieldControls();
@@ -841,6 +879,19 @@ static void ItemUseOnFieldCB_DayCarePhone(u8 taskId)
 void ItemUseOutOfBattle_DayCarePhone(u8 taskId)
 {
     sItemUseOnFieldCB = ItemUseOnFieldCB_DayCarePhone;
+    SetUpItemUseOnFieldCallback(taskId);
+}
+
+static void ItemUseOnFieldCB_GoldenSeed(u8 taskId)
+{
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Rogue_EventScript_UseGoldenSeedItem);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_GoldenSeed(u8 taskId)
+{
+    sItemUseOnFieldCB = ItemUseOnFieldCB_GoldenSeed;
     SetUpItemUseOnFieldCallback(taskId);
 }
 
@@ -966,6 +1017,12 @@ void ItemUseOutOfBattle_TeraShard(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
+void ItemUseOutOfBattle_MaxMushroom(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_MaxMushroom;
+    SetUpItemUseCallback(taskId);
+}
+
 void ItemUseOutOfBattle_ResetEVs(u8 taskId)
 {
     gItemUseCB = ItemUseCB_ResetEVs;
@@ -1042,6 +1099,7 @@ static void UseTMHM(u8 taskId)
 
 static void RemoveUsedItem(void)
 {
+    Rogue_OnItemUse(gSpecialVar_ItemId);
     RemoveBagItem(gSpecialVar_ItemId, 1);
     CopyItemName(gSpecialVar_ItemId, gStringVar2);
     StringExpandPlaceholders(gStringVar4, gText_PlayerUsedVar2);
@@ -1148,6 +1206,7 @@ void HandleUseExpiredLure(struct ScriptContext *ctx)
 
 extern const u8 gText_PokeblockHasNoEffect[];
 extern const u8 gText_PokeblockWouldHaveNoEffect[];
+extern const u8 gText_PokeblockWouldHaveNoEffectHoneyTree[];
 extern const u8 gText_PokeblockAlreadyScattered[];
 
 static void ItemUseOnFieldCB_Pokeblock(u8 taskId)
@@ -1176,6 +1235,8 @@ void ItemUseOutOfBattle_Pokeblock(u8 taskId)
         // Cannot scatter currently
         if(VarGet(VAR_ROGUE_ACTIVE_POKEBLOCK) != 0)
             DisplayItemMessage(taskId, FONT_NORMAL, gText_PokeblockAlreadyScattered, CloseItemMessage);
+        else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_HONEY_TREE)
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_PokeblockWouldHaveNoEffectHoneyTree, CloseItemMessage);
         else
             DisplayItemMessage(taskId, FONT_NORMAL, gText_PokeblockWouldHaveNoEffect, CloseItemMessage);
     }
@@ -1275,6 +1336,8 @@ static u32 GetBallThrowableState(void)
     else if (B_SEMI_INVULNERABLE_CATCH >= GEN_4 && (gStatuses3[GetCatchingBattler()] & STATUS3_SEMI_INVULNERABLE))
         return BALL_THROW_UNABLE_SEMI_INVULNERABLE;
     else if (FlagGet(B_FLAG_NO_CATCHING))
+        return BALL_THROW_UNABLE_DISABLED_FLAG;
+    else if(IsCurseActive(EFFECT_SNAG_TRAINER_MON) && !FlagGet(FLAG_ROGUE_IN_SNAG_BATTLE))
         return BALL_THROW_UNABLE_DISABLED_FLAG;
 
     return BALL_THROW_ABLE;

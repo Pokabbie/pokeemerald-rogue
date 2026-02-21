@@ -3,6 +3,7 @@
 #include "constants/battle_frontier.h"
 #include "constants/items.h"
 #include "constants/rogue.h"
+#include "constants/script_menu.h"
 
 #include "battle_main.h"
 #include "battle_message.h"
@@ -19,6 +20,7 @@
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "script.h"
+#include "script_menu.h"
 #include "shop.h"
 #include "sound.h"
 #include "string_util.h"
@@ -32,7 +34,9 @@
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_followmon.h"
+#include "rogue_gifts.h"
 #include "rogue_hub.h"
+#include "rogue_ridemon.h"
 #include "rogue_safari.h"
 #include "rogue_script.h"
 #include "rogue_timeofday.h"
@@ -149,6 +153,9 @@ void Rogue_RandomisePartyMon(void)
     {
         RogueMiscQuery_FilterByChance(Random(), QUERY_FUNC_INCLUDE, 50, PARTY_SIZE);
     }
+    
+    if(IsCurseActive(EFFECT_WILD_EGG_SPECIES))
+        RogueMonQuery_TransformIntoEggSpecies();
 
     RogueWeightQuery_Begin();
     {
@@ -160,9 +167,14 @@ void Rogue_RandomisePartyMon(void)
             // Entire team
             u8 i;
 
+            IncrementGameStat(GAME_STAT_RANDO_TRADE_PARTY);
+
             for(i = 0; i < gPlayerPartyCount; ++i)
             {
+                IncrementGameStat(GAME_STAT_RANDO_TRADE_TOTAL_PKMN);
+
                 targetlevel = Calc_RandomTradeLevel(&gPlayerParty[i]);
+                targetlevel = min(max(1, targetlevel), MAX_LEVEL);
                 temp = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
                 species = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(Random(), 1);
@@ -181,7 +193,12 @@ void Rogue_RandomisePartyMon(void)
         else
         {
             // Single mon in team
+
+            IncrementGameStat(GAME_STAT_RANDO_TRADE_SINGLE);
+            IncrementGameStat(GAME_STAT_RANDO_TRADE_TOTAL_PKMN);
+
             targetlevel = Calc_RandomTradeLevel(&gPlayerParty[monIdx]);
+            targetlevel = min(max(1, targetlevel), MAX_LEVEL);
             temp = GetMonData(&gPlayerParty[monIdx], MON_DATA_HELD_ITEM);
 
             species = RogueWeightQuery_SelectRandomFromWeightsWithUpdate(Random(), 1);
@@ -495,9 +512,56 @@ void RogueDebug_StartBattle(void)
 #endif
 }
 
+void RogueDebug_GiveDynamicUniqueMon()
+{
+#ifdef ROGUE_DEBUG
+    struct Pokemon* mon = &gEnemyParty[0];
+    u32 customMonId = RogueGift_CreateDynamicMonId(gSpecialVar_0x8004, SPECIES_AIPOM);
+
+    RogueGift_CreateMon(customMonId, mon, SPECIES_AIPOM, STARTER_MON_LEVEL, 0);
+    GiveTradedMonToPlayer(mon);
+#endif
+}
+
+void Rogue_GetDynamicUniqueMonSpecies()
+{
+    AGB_ASSERT(gSpecialVar_0x8004 < DYNAMIC_UNIQUE_MON_COUNT);
+
+    if(RogueGift_IsDynamicMonSlotEnabled(gSpecialVar_0x8004))
+    {
+        gSpecialVar_Result = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->species;
+    }
+    else
+    {
+        gSpecialVar_Result = SPECIES_NONE;
+    }
+}
+
+static u8 const sText_Timer[] = _("{STR_VAR_1}:{STR_VAR_2} hours");
+
+void Rogue_BufferDynamicUniqueMonCountDown()
+{
+    u32 countDown = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->countDown;
+    u32 hours = countDown / 60;
+    u32 minutes = countDown % 60;
+    
+    AGB_ASSERT(gSpecialVar_0x8004 < DYNAMIC_UNIQUE_MON_COUNT);
+
+    ConvertUIntToDecimalStringN(gStringVar1, hours, STR_CONV_MODE_LEFT_ALIGN, 4);
+    ConvertUIntToDecimalStringN(gStringVar2, minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+
+    StringExpandPlaceholders(gStringVar3, sText_Timer);
+    gSpecialVar_Result = (countDown != 0);
+}
+
 void Rogue_ShowNewQuests()
 {
     Rogue_OpenQuestMenu(CB2_ReturnToFieldContinueScript, FALSE);
+}
+
+void Rogue_ShowNewMonMasteries()
+{
+    Rogue_OpenMonMasteryMenu(CB2_ReturnToFieldContinueScript);
 }
 
 void Rogue_QuestCollectNextReward()
@@ -890,6 +954,94 @@ void Rogue_ApplyMonCombo(void)
     //}
 }
 
+#ifdef ROGUE_EXPANSION
+static u16 const sRotomMovesPerForm[] = 
+{
+    [SPECIES_ROTOM_HEAT - SPECIES_ROTOM_HEAT] = MOVE_OVERHEAT,
+    [SPECIES_ROTOM_WASH - SPECIES_ROTOM_HEAT] = MOVE_HYDRO_PUMP,
+    [SPECIES_ROTOM_FROST - SPECIES_ROTOM_HEAT] = MOVE_BLIZZARD,
+    [SPECIES_ROTOM_FAN - SPECIES_ROTOM_HEAT] = MOVE_AIR_SLASH,
+    [SPECIES_ROTOM_MOW - SPECIES_ROTOM_HEAT] = MOVE_LEAF_STORM,
+};
+
+void ShiftMoveSlotExtern(struct Pokemon *mon, u8 slotTo, u8 slotFrom);
+
+static void HandleRotomFormChange(u16 fromSpecies, u16 toSpecies)
+{
+    u8 i;
+    u8 moveToReplace = MAX_MON_MOVES;
+
+    if(fromSpecies != SPECIES_ROTOM)
+    {
+        for(i = 0; i < MAX_MON_MOVES; ++i)
+        {
+            u16 move = GetMonData(&gPlayerParty[0], MON_DATA_MOVE1 + i);
+
+            if(move == sRotomMovesPerForm[fromSpecies - SPECIES_ROTOM_HEAT])
+            {
+                moveToReplace = i;
+                break;
+            }
+        }
+    }
+
+    if(moveToReplace != MAX_MON_MOVES)
+    {
+        // Replace move with appropriate form
+        if(toSpecies != SPECIES_ROTOM)
+        {
+            SetMonMoveSlot(&gPlayerParty[0], sRotomMovesPerForm[toSpecies - SPECIES_ROTOM_HEAT], moveToReplace);
+        }
+        // Just remove move
+        else
+        {
+            SetMonMoveSlot(&gPlayerParty[0], MOVE_NONE, moveToReplace);
+            RemoveMonPPBonus(&gPlayerParty[0], moveToReplace);
+            for (i = moveToReplace; i < MAX_MON_MOVES - 1; i++)
+                ShiftMoveSlotExtern(&gPlayerParty[0], i, i + 1);
+        }
+    }
+}
+
+void Rogue_TryInteractFormChange(void)
+{
+    u16 leadSpecies = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
+    u16 formSpecies = gSpecialVar_0x8005;
+    u16 leadBaseSpecies = GET_BASE_SPECIES_ID(leadSpecies);
+    u16 formBaseSpecies = GET_BASE_SPECIES_ID(formSpecies);
+
+    gSpecialVar_Result = FALSE;
+
+    if(leadSpecies == formSpecies)
+    {
+        // Switch from form
+        SetMonData(&gPlayerParty[0], MON_DATA_SPECIES, &leadBaseSpecies);
+
+        if(leadBaseSpecies == SPECIES_ROTOM)
+            HandleRotomFormChange(leadSpecies, leadBaseSpecies);
+    
+        gSpecialVar_Result = TRUE;
+    }
+    else if(leadBaseSpecies == formBaseSpecies)
+    {
+        SetMonData(&gPlayerParty[0], MON_DATA_SPECIES, &formSpecies);
+
+        if(leadBaseSpecies == SPECIES_ROTOM)
+            HandleRotomFormChange(leadSpecies, formSpecies);
+
+        gSpecialVar_Result = TRUE;
+    }
+}
+
+#else
+
+void Rogue_TryInteractFormChange(void)
+{
+    gSpecialVar_Result = FALSE;
+}
+
+#endif
+
 void Rogue_GetFollowMonSpecies(void)
 {
     u16 species;
@@ -972,6 +1124,35 @@ void Rogue_ShouldSkipTrainerOpenningMsg(void)
     gSpecialVar_Result = (str[0] == 0xFF);
 }
 
+u16 Rogue_BufferNextVictoryLapTrainer()
+{
+    u16 trainerNum = Rogue_ChooseNextBossTrainerForVictoryLap();
+    VarSet(VAR_ROGUE_DESIRED_WEATHER, Rogue_GetTrainerWeather(trainerNum));
+    return trainerNum;
+}
+
+void Rogue_BeginVictoryLap()
+{
+    u32 i;
+    u16* historyBuffer = Rogue_GetVictoryLapHistoryBufferPtr();
+    u32 historyBufferSize = Rogue_GetVictoryLapHistoryBufferSize();
+
+    AGB_ASSERT(!Rogue_IsVictoryLapActive());
+    AGB_ASSERT(Rogue_GetCurrentDifficulty() == ROGUE_MAX_BOSS_COUNT);
+
+    FlagSet(FLAG_ROGUE_IS_VICTORY_LAP);
+    Rogue_SetCurrentDifficulty(ROGUE_MAX_BOSS_COUNT - 1);
+    memset(historyBuffer, INVALID_HISTORY_ENTRY, sizeof(u16) * historyBufferSize);
+}
+
+void Rogue_EndVictoryLap()
+{
+    AGB_ASSERT(Rogue_IsVictoryLapActive());
+
+    FlagClear(FLAG_ROGUE_IS_VICTORY_LAP);
+    Rogue_SetCurrentDifficulty(ROGUE_MAX_BOSS_COUNT);
+}
+
 void Rogue_EnterPartnerMonCapacity()
 {
     gSpecialVar_Result = Rogue_GetStartingMonCapacity();
@@ -979,6 +1160,7 @@ void Rogue_EnterPartnerMonCapacity()
 
 void Rogue_SetupFollowParterMonObjectEvent()
 {
+    FollowMon_ClearCachedPartnerSpecies();
     SetupFollowParterMonObjectEvent();
 }
 
@@ -1009,6 +1191,17 @@ void ReloadWarpSilent()
     StoreInitialPlayerAvatarStateForReloadWarp();
     SetWarpDestination(mapGroup, mapNum, warpId, x, y);
     DoDiveWarp();
+}
+
+void ReloadSafeWarp()
+{
+    u8 mapGroup = gSaveBlock1Ptr->location.mapGroup;
+    u8 mapNum = gSaveBlock1Ptr->location.mapNum;
+
+    StoreInitialPlayerAvatarStateForReloadWarp();
+    SetWarpDestination(mapGroup, mapNum, WARP_ID_MAP_START, 0, 0);
+    DoTeleportTileWarp();
+    //DoDiveWarp();
 }
 
 void Rogue_SetTimeAndSeason()
@@ -1101,16 +1294,6 @@ void Rogue_CheckHubConnectionDir()
     }
 
     gSpecialVar_Result = HUB_AREA_CONN_COUNT;
-}
-
-void Rogue_PlaceHomeDecor()
-{
-    gSpecialVar_Result = RogueHub_PlaceHomeDecor(gSpecialVar_0x8004);
-}
-
-void Rogue_RemoveHomeDecor()
-{
-    RogueHub_RemoveHomeDecor(gSpecialVar_0x8004);
 }
 
 void Rogue_AssignDefaultRegion()
@@ -1265,7 +1448,7 @@ static bool8 WillMonLikePieInternal(u16 crustItem, u16 fillingItem, struct Pokem
     u8 type = ItemId_GetSecondaryId(crustItem);
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
 
-    if(!IS_STANDARD_TYPE(type))
+    if(IS_STANDARD_TYPE(type))
     {
         if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
         {
@@ -1282,7 +1465,7 @@ static bool8 WillMonLikePieInternal(u16 crustItem, u16 fillingItem, struct Pokem
     {
         type = ItemId_GetSecondaryId(fillingItem);
 
-        if(!IS_STANDARD_TYPE(type))
+        if(IS_STANDARD_TYPE(type))
         {
             if(!(RoguePokedex_GetSpeciesType(species, 0) == type || RoguePokedex_GetSpeciesType(species, 1) == type))
             {
@@ -1332,7 +1515,7 @@ void Rogue_FeedMonPie()
                 break;
 
             case PIE_SIZE_MEDIUM:
-                temp = min(temp + 10, 31);
+                temp = min(temp + 5, 31);
                 break;
 
             case PIE_SIZE_LARGE:
@@ -1365,21 +1548,119 @@ void Rogue_FeedMonPie()
     CalculateMonStats(&gPlayerParty[0]);
 }
 
+static bool32 CanSpeciesLearnMove(u16 species, u16 move)
+{
+    u32 i;
+
+    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+    {
+        if(gRoguePokemonProfiles[species].levelUpMoves[i].move == move)
+            return TRUE;
+    }
+
+    for (i = 0; gRoguePokemonProfiles[species].tutorMoves[i] != MOVE_NONE; i++)
+    {
+        if(gRoguePokemonProfiles[species].tutorMoves[i] == move)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 TryChangeMonGenderBySpecies()
+{
+#ifdef ROGUE_EXPANSION
+    u16 startSpecies = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
+    u16 newSpecies = startSpecies;
+
+    switch (startSpecies)
+    {
+    case SPECIES_MEOWSTIC_MALE:
+        newSpecies = SPECIES_MEOWSTIC_FEMALE;
+        break;
+    case SPECIES_MEOWSTIC_FEMALE:
+        newSpecies = SPECIES_MEOWSTIC_MALE;
+        break;
+    
+    case SPECIES_INDEEDEE_MALE:
+        newSpecies = SPECIES_INDEEDEE_FEMALE;
+        break;
+    case SPECIES_INDEEDEE_FEMALE:
+        newSpecies = SPECIES_INDEEDEE_MALE;
+        break;
+    
+    case SPECIES_BASCULEGION_MALE:
+        newSpecies = SPECIES_BASCULEGION_FEMALE;
+        break;
+    case SPECIES_BASCULEGION_FEMALE:
+        newSpecies = SPECIES_BASCULEGION_MALE;
+        break;
+    
+    case SPECIES_OINKOLOGNE_MALE:
+        newSpecies = SPECIES_OINKOLOGNE_FEMALE;
+        break;
+    case SPECIES_OINKOLOGNE_FEMALE:
+        newSpecies = SPECIES_OINKOLOGNE_MALE;
+        break;
+
+    }
+
+    if(startSpecies != newSpecies)
+    {
+        SetMonData(&gPlayerParty[0], MON_DATA_SPECIES, &newSpecies);
+
+        if(newSpecies == SPECIES_MEOWSTIC_MALE || newSpecies == SPECIES_MEOWSTIC_FEMALE)
+        {
+            u32 i, j;
+
+            // Remove illegal moves
+            for(i = 0; i < MAX_MON_MOVES;)
+            {
+                u16 moveId = GetMonData(&gPlayerParty[0], MON_DATA_MOVE1 + i);
+                if(moveId != MOVE_NONE && !CanSpeciesLearnMove(newSpecies, moveId))
+                {
+                    SetMonMoveSlot(&gPlayerParty[0], MOVE_NONE, i);
+                    RemoveMonPPBonus(&gPlayerParty[0], i);
+
+                    // Shift all moves up
+                    for (j = i; j < MAX_MON_MOVES - 1; j++)
+                        ShiftMoveSlotExtern(&gPlayerParty[0], j, j + 1);
+                    continue;
+                }
+
+                ++i;
+            }
+        }
+
+        return TRUE;
+    }
+#endif
+
+    return FALSE;
+}
+
 void Rogue_SwapMonGender()
 {
-    u8 gender;
-    u8 startGender = GetMonGender(&gPlayerParty[0]);
-    u32 genderFlag = GetMonData(&gPlayerParty[0], MON_DATA_GENDER_FLAG);
-
-    genderFlag = !genderFlag;
-
-    SetMonData(&gPlayerParty[0], MON_DATA_GENDER_FLAG, &genderFlag);
-    
-    gender = GetMonGender(&gPlayerParty[0]);
-
-    if(startGender != gender)
+    if(TryChangeMonGenderBySpecies())
     {
-        Rogue_PushPopup_MonGenderChange(0, gender);
+        Rogue_PushPopup_MonGenderChange(0, GetMonGender(&gPlayerParty[0]));
+    }
+    else
+    {
+        u8 gender;
+        u8 startGender = GetMonGender(&gPlayerParty[0]);
+        u32 genderFlag = GetMonData(&gPlayerParty[0], MON_DATA_GENDER_FLAG);
+
+        genderFlag = !genderFlag;
+
+        SetMonData(&gPlayerParty[0], MON_DATA_GENDER_FLAG, &genderFlag);
+        
+        gender = GetMonGender(&gPlayerParty[0]);
+
+        if(startGender != gender)
+        {
+            Rogue_PushPopup_MonGenderChange(0, gender);
+        }
     }
 }
 
@@ -1415,7 +1696,7 @@ void Rogue_SwapDaycareMon()
 {
     u16 partySlot = gSpecialVar_0x8004;
     u8 daycareSlot = gSpecialVar_0x8005;
-    Rogue_SwapMonInDaycare(&gPlayerParty[partySlot], Rogue_GetDaycareBoxMon(daycareSlot));
+    Rogue_SwapMonInDaycare(&gPlayerParty[partySlot], daycareSlot);
 
     // Resetup followmon
     if(partySlot == 0)
@@ -1430,6 +1711,29 @@ void Rogue_TransformIntoValidDaycareEgg()
         gSpecialVar_Result = eggSpecies;
     else
         gSpecialVar_Result = SPECIES_NONE;
+}
+
+void Rogue_SetupDaycareSpeciesGraphics()
+{
+    u32 i;
+    u32 maxSlots = Rogue_GetCurrentDaycareSlotCount();
+
+    for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
+    {
+        struct BoxPokemon* mon = Rogue_GetDaycareBoxMon(i);
+
+        if(i < maxSlots && GetBoxMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            // FLAG_HIDE_SPECIES_0, FLAG_HIDE_SPECIES_1, FLAG_HIDE_SPECIES_1
+            FlagClear(FLAG_TEMP_5 + i);
+            FollowMon_SetGraphicsRaw(i, FollowMon_GetBoxMonGraphics(mon));
+        }
+        else
+        {
+            // FLAG_HIDE_SPECIES_0, FLAG_HIDE_SPECIES_1, FLAG_HIDE_SPECIES_1
+            FlagSet(FLAG_TEMP_5 + i);
+        }
+    }
 }
 
 void Rogue_HealAlivePlayerParty()
@@ -1469,13 +1773,15 @@ void Rogue_HealAlivePlayerParty()
     }
 }
 
-void Rogue_FillHealingFlask()
+void Rogue_OnHealWithNurse()
 {
     if(IsHealingFlaskEnabled())
     {
         VarSet(VAR_ROGUE_FLASK_HEALS_USED, 0);
         Rogue_PushPopup_FlaskRefilled();
     }
+
+    Rogue_RefillFlightCharges(TRUE);
 }
 
 #define VAR_CATCH_CONTEST_TYPE VAR_TEMP_2
@@ -1534,11 +1840,6 @@ void Rogue_GiveCatchingContestMon()
 #undef VAR_CATCH_CONTEST_TYPE
 #undef VAR_CATCH_CONTEST_STAT
 
-void Rogue_HasUnlockedRandomStarterTrade()
-{
-    gSpecialVar_Result = RogueQuest_HasCollectedRewards(QUEST_ID_MR_RANDOMAN);
-}
-
 void Rogue_CanOverLevel()
 {
     gSpecialVar_Result = Rogue_GetConfigToggle(CONFIG_TOGGLE_OVER_LVL);
@@ -1583,6 +1884,82 @@ void Rogue_CheckSafariMonLikesPokeblock()
     gSpecialVar_Result = WillSpeciesLikePokeblockInternal(gSpecialVar_ItemId, gRogueSaveBlock->safariMons[safariIndex].species);
 }
 
+void Rogue_AppendMultichoicePokeblockItems()
+{
+    u16 i;
+
+    // Insert everything into query so we can display in alphabetical order
+    RogueItemQuery_Begin();
+    RogueItemQuery_Reset(QUERY_FUNC_EXCLUDE);
+
+    for(i = FIRST_ITEM_POKEBLOCK; i <= LAST_ITEM_POKEBLOCK; ++i)
+    {
+        if(ItemId_GetDescription(i) != NULL)
+        {
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
+        }
+    }
+
+    {
+        u16 const* itemsList;
+        RogueListQuery_Begin();
+
+        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE);
+
+        for(;*itemsList != ITEM_NONE; ++itemsList)
+        {
+            u16 itemId = *itemsList;
+            u8 type = ItemId_GetSecondaryId(itemId);
+
+            if(IS_STANDARD_TYPE(type))
+                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(gTypeNames[type], itemId - FIRST_ITEM_POKEBLOCK);
+            else
+                ScriptMenu_ScrollingMultichoiceDynamicAppendOption(ItemId_GetName(itemId), itemId - FIRST_ITEM_POKEBLOCK);
+        }
+
+        RogueListQuery_End();
+    }
+    RogueItemQuery_End();
+
+    ScriptMenu_ScrollingMultichoiceDynamicAppendOption(gText_Exit, MULTI_B_PRESSED);
+}
+
+void Rogue_AppendMultichoiceBerriesForPokeblock()
+{
+    u16 i;
+    u16 targetPokeblock = gSpecialVar_0x8004;
+
+    // Insert everything into query so we can display in alphabetical order
+    RogueItemQuery_Begin();
+    RogueItemQuery_Reset(QUERY_FUNC_EXCLUDE);
+
+    for(i = FIRST_BERRY_INDEX; i <= LAST_BERRY_INDEX; ++i)
+    {
+        if(ItemId_GetDescription(i) != NULL && Rogue_BerryToPokeblock(i) == targetPokeblock)
+        {
+            RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
+        }
+    }
+
+    {
+        u16 const* itemsList;
+        RogueListQuery_Begin();
+
+        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE);
+
+        for(;*itemsList != ITEM_NONE; ++itemsList)
+        {
+            u16 itemId = *itemsList;
+            ScriptMenu_ScrollingMultichoiceDynamicAppendOption(ItemId_GetName(itemId), 0);
+        }
+
+        RogueListQuery_End();
+    }
+    RogueItemQuery_End();
+
+    ScriptMenu_ScrollingMultichoiceDynamicAppendOption(gText_Exit, MULTI_B_PRESSED);
+}
+
 void Rogue_EnqueueSafariBattle()
 {
     u8 safariIndex = gSpecialVar_0x8008;
@@ -1596,7 +1973,7 @@ void Rogue_BufferSafariMonInfo()
     u8 safariIndex = gSpecialVar_0x8008;
     u8 const* speciesName = RoguePokedex_GetSpeciesName(gRogueSaveBlock->safariMons[safariIndex].species);
 
-    StringCopyN(gStringVar1, gRogueSaveBlock->safariMons[safariIndex].nickname, POKEMON_NAME_LENGTH);
+    StringCopy_Nickname(gStringVar1, gRogueSaveBlock->safariMons[safariIndex].nickname);
 
     if(gRogueSaveBlock->safariMons[safariIndex].shinyFlag || StringCompareN(gStringVar1, speciesName, POKEMON_NAME_LENGTH) != 0)
     {
@@ -1622,6 +1999,11 @@ void Rogue_IsMultiplayerHost(void)
     gSpecialVar_Result = RogueMP_IsHost();
 }
 
+void Rogue_IsMultiplayerClient(void)
+{
+    gSpecialVar_Result = RogueMP_IsClient();
+}
+
 void Rogue_HostMultiplayer()
 {
     RogueMP_OpenHost();
@@ -1643,6 +2025,17 @@ void Rogue_CloseMultiplayer()
 void Rogue_IsRogueAssistantConnected()
 {
     gSpecialVar_Result = Rogue_IsAssistantConnected();
+}
+
+void Rogue_IsMultiplayerAdventureJoinable(void)
+{
+    gSpecialVar_Result = FALSE;
+
+    if(RogueMP_IsClient())
+    {
+        AGB_ASSERT(gRogueMultiplayer != NULL);
+        gSpecialVar_Result = gRogueMultiplayer->gameState.adventure.isRunActive;
+    }
 }
 
 void Rogue_MultiplayerRequestMon()
@@ -1905,14 +2298,43 @@ void Rogue_FixPartyMonDetails()
     Rogue_CorrectMonDetails(gPlayerParty, gPlayerPartyCount);
 }
 
+void Rogue_IsValidAdventureToRemember()
+{
+    gSpecialVar_Result = gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT].isValid;
+}
+
+void Rogue_IsValidAdventureToReplay()
+{
+    gSpecialVar_Result = FlagGet(FLAG_ROGUE_MET_PEONIA) && gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED].isValid;
+}
+
 void Rogue_RememberAdventure()
 {
     memcpy(&gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_REMEMBERED], &gRogueSaveBlock->adventureReplay[ROGUE_ADVENTURE_REPLAY_MOST_RECENT], sizeof(struct AdventureReplay));
 }
 
+void Rogue_ShouldNursePromptConfigLabSettingsChange()
+{
+    u32 winStreak = GetGameStat(GAME_STAT_CURRENT_RUN_WIN_STREAK);
+    u32 lossStreak = GetGameStat(GAME_STAT_CURRENT_RUN_LOSS_STREAK);
+
+    gSpecialVar_Result = FALSE;
+
+    if(winStreak == 5 || winStreak == 15 || winStreak == 50)
+    {
+        gSpecialVar_0x8004 = 1;
+        gSpecialVar_Result = TRUE;
+    }
+    else if(lossStreak == 5 || lossStreak == 15 || lossStreak == 50)
+    {
+        gSpecialVar_0x8004 = 0;
+        gSpecialVar_Result = TRUE;
+    }
+}
+
 bool8 Rogue_SafeSmartCheckInternal()
 {
-#ifdef ROGUE_FEATURE_SAFTEY_CHECKS && ROGUE_FEATURE_SAFTEY_CHECKS == 1
+#if defined(ROGUE_FEATURE_SAFTEY_CHECKS) && ROGUE_FEATURE_SAFTEY_CHECKS == 1
     int i;
     u8 const otName[PLAYER_NAME_LENGTH + 1] = _("SMARTY");
 
@@ -1928,4 +2350,19 @@ bool8 Rogue_SafeSmartCheckInternal()
 void Rogue_SafeSmartCheck()
 {
     gSpecialVar_Result = Rogue_SafeSmartCheckInternal();
+}
+
+void Rogue_CanActivatePikinEasterEgg()
+{
+    gSpecialVar_Result = FALSE;
+
+    if(!FlagGet(FLAG_ROGUE_UNLOCKED_PIKIN_EASTER_EGG))
+    {
+        u32 customMonId = RogueGift_GetCustomMonId(&gPlayerParty[0]);
+
+        if(customMonId == CUSTOM_MON_ABBIE_MAREEP)
+        {
+            gSpecialVar_Result = TRUE;
+        }
+    }
 }

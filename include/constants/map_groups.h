@@ -43,6 +43,7 @@
 #define MAP_ROGUE_AREA_TOWN_SQUARE          (10 | (2 << 8))
 #define MAP_ROGUE_AREA_CHALLENGE_FRONTIER   (11 | (2 << 8))
 #define MAP_ROGUE_AREA_DAY_CARE             (12 | (2 << 8))
+#define MAP_ROGUE_AREA_MARKET               (13 | (2 << 8))
 
 // gMapGroup_RogueHubInteriors
 #define MAP_ROGUE_INTERIOR_HOME               (0 | (3 << 8))
@@ -55,12 +56,14 @@
 #define MAP_ROGUE_INTERIOR_CAFE               (7 | (3 << 8))
 #define MAP_ROGUE_INTERIOR_SCHOOL             (8 | (3 << 8))
 #define MAP_ROGUE_INTERIOR_CHALLENGE_FRONTIER (9 | (3 << 8))
+#define MAP_ROGUE_INTERIOR_BILLS_LAB          (10 | (3 << 8))
 
 // gMapGroup_RogueHubTemplates
-#define MAP_ROGUE_TEMPLATE_HOMES        (0 | (4 << 8))
-#define MAP_ROGUE_TEMPLATE_HOME_BASE    (1 | (4 << 8))
-#define MAP_ROGUE_TEMPLATE_HOME_FLOWERS (2 | (4 << 8))
-#define MAP_ROGUE_TEMPLATE_HOME_GRASS   (3 | (4 << 8))
+#define MAP_ROGUE_TEMPLATE_HOMES         (0 | (4 << 8))
+#define MAP_ROGUE_TEMPLATE_HOME_BASE     (1 | (4 << 8))
+#define MAP_ROGUE_TEMPLATE_HOME_FLOWERS  (2 | (4 << 8))
+#define MAP_ROGUE_TEMPLATE_HOME_GRASS    (3 | (4 << 8))
+#define MAP_ROGUE_TEMPLATE_HOME_INTERIOR (4 | (4 << 8))
 
 // gMapGroup_RogueHubTesting
 #define MAP_ROGUE_TILE_TEST1              (0 | (5 << 8))
@@ -106,6 +109,13 @@
 #define MAP_ROGUE_ROUTE_SINNOH_207           (29 | (6 << 8))
 #define MAP_ROGUE_ROUTE_SINNOH_215           (30 | (6 << 8))
 #define MAP_ROGUE_ROUTE_SINNOH_212           (31 | (6 << 8))
+#define MAP_ROGUE_ROUTE_SINNOH_217           (32 | (6 << 8))
+#define MAP_ROGUE_ROUTE_SINNOH_210           (33 | (6 << 8))
+#define MAP_ROGUE_ROUTE_SINNOH_201           (34 | (6 << 8))
+#define MAP_ROGUE_ROUTE_SINNOH_214           (35 | (6 << 8))
+#define MAP_ROGUE_ROUTE_SINNOH_209           (36 | (6 << 8))
+#define MAP_ROGUE_ROUTE_SINNOH_MT_CORONET    (37 | (6 << 8))
+#define MAP_ROGUE_ROUTE_SINNOH_IRON_ISLAND   (38 | (6 << 8))
 
 // gMapGroup_RogueAdventureEncounters
 #define MAP_ROGUE_ENCOUNTER_REST_STOP        (0 | (7 << 8))
@@ -129,14 +139,17 @@
 #define MAP_ROGUE_ENCOUNTER_MAGMA_HIDEOUT    (18 | (7 << 8))
 #define MAP_ROGUE_ENCOUNTER_AQUA_HIDEOUT     (19 | (7 << 8))
 #define MAP_ROGUE_ENCOUNTER_SEAFLOOR_CAVERN  (20 | (7 << 8))
-#define MAP_ROGUE_BOSS_0                     (21 | (7 << 8))
-#define MAP_ROGUE_BOSS_8                     (22 | (7 << 8))
-#define MAP_ROGUE_BOSS_9                     (23 | (7 << 8))
-#define MAP_ROGUE_BOSS_10                    (24 | (7 << 8))
-#define MAP_ROGUE_BOSS_11                    (25 | (7 << 8))
-#define MAP_ROGUE_BOSS_12                    (26 | (7 << 8))
-#define MAP_ROGUE_BOSS_13                    (27 | (7 << 8))
-#define MAP_ROGUE_BOSS_FINAL                 (28 | (7 << 8))
+#define MAP_ROGUE_ENCOUNTER_LAKE_VALOR       (21 | (7 << 8))
+#define MAP_ROGUE_ENCOUNTER_GALACTIC_HQ      (22 | (7 << 8))
+#define MAP_ROGUE_BOSS_0                     (23 | (7 << 8))
+#define MAP_ROGUE_BOSS_8                     (24 | (7 << 8))
+#define MAP_ROGUE_BOSS_9                     (25 | (7 << 8))
+#define MAP_ROGUE_BOSS_10                    (26 | (7 << 8))
+#define MAP_ROGUE_BOSS_11                    (27 | (7 << 8))
+#define MAP_ROGUE_BOSS_12                    (28 | (7 << 8))
+#define MAP_ROGUE_BOSS_13                    (29 | (7 << 8))
+#define MAP_ROGUE_BOSS_FINAL                 (30 | (7 << 8))
+#define MAP_ROGUE_BOSS_VICTORY_LAP           (31 | (7 << 8))
 
 // gMapGroup_RogueAdventureMonEncounters
 #define MAP_ROGUE_SOUTHERN_ISLAND_LATIOS   (0 | (8 << 8))

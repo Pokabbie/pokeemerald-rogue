@@ -283,7 +283,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHealPulse               @ EFFECT_HEAL_PULSE
 	.4byte BattleScript_EffectQuash                   @ EFFECT_QUASH
 	.4byte BattleScript_EffectIonDeluge               @ EFFECT_ION_DELUGE
-#if B_USE_FROSTBITE == TRUE
+#if 0 @B_USE_FROSTBITE == TRUE
 	.4byte BattleScript_EffectFrostbiteHit            @ EFFECT_FREEZE_DRY
 #else
 	.4byte BattleScript_EffectFreezeHit               @ EFFECT_FREEZE_DRY
@@ -455,6 +455,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_LAST_RESPECTS
 	.4byte BattleScript_EffectTidyUp                  @ EFFECT_TIDY_UP
 	.4byte BattleScript_EffectTeraBlast               @ EFFECT_TERA_BLAST
+	.4byte BattleScript_EffectPhotonGeyser            @ EFFECT_TERA_STARSTORM
+	.4byte BattleScript_EffectElectroShot             @ EFFECT_ELECTRO_SHOT
 
 BattleScript_EffectGlaiveRush::
 	call BattleScript_EffectHit_Ret
@@ -1177,6 +1179,33 @@ BattleScript_EffectMeteorBeam::
 	goto BattleScript_TwoTurnMovesSecondTurn
 
 BattleScript_FirstChargingTurnMeteorBeam::
+	attackcanceler
+	flushtextbox
+	ppreduce
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_CHARGING
+	setmoveeffect MOVE_EFFECT_CHARGING | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	copybyte cMULTISTRING_CHOOSER, sTWOTURN_STRINGID
+	printfromtable gFirstTurnOfTwoStringIds
+	waitmessage B_WAIT_TIME_LONG
+	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
+	seteffectsecondary
+	return
+
+BattleScript_EffectElectroShot::
+	@ DecideTurn
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_TwoTurnMovesSecondTurn
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_TwoTurnMovesSecondTurn
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_ELECTRO_SHOT
+	call BattleScript_FirstChargingTurnElectroShot
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_RAIN, BattleScript_TwoTurnMovesSecondTurn
+	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
+	call BattleScript_PowerHerbActivation
+	goto BattleScript_TwoTurnMovesSecondTurn
+
+BattleScript_FirstChargingTurnElectroShot::
 	attackcanceler
 	flushtextbox
 	ppreduce
@@ -4757,7 +4786,6 @@ BattleScript_EffectDoNothing::
 	waitanimation
 	jumpifmove MOVE_CELEBRATE, BattleScript_EffectCelebrate
 	jumpifmove MOVE_HAPPY_HOUR, BattleScript_EffectHappyHour
-	incrementgamestat GAME_STAT_USED_SPLASH
 	printstring STRINGID_BUTNOTHINGHAPPENED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -6351,7 +6379,6 @@ BattleScript_EffectSecretPower::
 BattleScript_EffectRecoilHP25:
 	setmoveeffect MOVE_EFFECT_RECOIL_HP_25 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	jumpifnotmove MOVE_STRUGGLE, BattleScript_EffectHit
-	incrementgamestat GAME_STAT_USED_STRUGGLE
 	goto BattleScript_EffectHit
 
 BattleScript_EffectTeeterDance::
@@ -8213,11 +8240,15 @@ BattleScript_CudChewActivates::
 
 BattleScript_TargetFormChangeNoPopup:
 	flushtextbox
-	handleformchange BS_TARGET, 0
-	handleformchange BS_TARGET, 1
+	handleformchange BS_SCRIPTING, 0
+	handleformchange BS_SCRIPTING, 1
 	playanimation BS_TARGET, B_ANIM_FORM_CHANGE
 	waitanimation
 	handleformchange BS_TARGET, 2
+.if B_DISGUISE_HP_LOSS >= GEN_8
+	healthbarupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING
+.endif
 	return
 
 BattleScript_TargetFormChange::

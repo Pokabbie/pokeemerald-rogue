@@ -5,6 +5,7 @@ u16 RogueToD_GetTime();
 void RogueToD_SetTime(u16 time);
 
 u8 RogueToD_GetSeason();
+u8 RogueToD_GetVisualSeason();
 void RogueToD_SetSeason(u8 season);
 
 u8 RogueToD_GetSeasonCounter();

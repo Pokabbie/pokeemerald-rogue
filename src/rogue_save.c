@@ -19,10 +19,6 @@
 #include "rogue_ridemon.h"
 #include "rogue_save.h"
 
-// The version to use for tracking/updating internal save game data
-// Update "RogueSave_GetVersionIdFor" every time the save structure changes
-#define ROGUE_SAVE_VERSION 1
-
 #define ROGUE_SAVE_BLOCK_CAPACITY (sizeof(struct BoxPokemon) * IN_BOX_COUNT * LEFTOVER_BOXES_COUNT)
 
 enum
@@ -46,7 +42,7 @@ struct RogueRunRestoreBlock
 {
     struct Pokemon playerParty[PARTY_SIZE];
     struct ItemSlot bagItems[BAG_ITEM_CAPACITY];
-    struct RogueBoxPokemonFacade daycarePokemon[DAYCARE_SLOT_COUNT];
+    struct RogueDaycarePokemon daycarePokemon[DAYCARE_SLOT_COUNT];
     struct RogueDifficultyConfig difficultyConfig;
     u32 money;
     u32 playTime;
@@ -134,6 +130,7 @@ void RogueSave_ClearData()
 
 static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct RogueSaveBlock* saveBlock)
 {
+    u8 rogueVersion;
     u16 secretId;
 
     // Serialize header
@@ -156,6 +153,9 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     // Serialize data
     //
 
+    rogueVersion = ROGUE_VERSION;
+    SerializeData(stream, &rogueVersion, sizeof(rogueVersion)); // todo - should flag if version doesn't match (make sure to handle blank/new saves)
+
     // Quests
     SerializeArray(stream, saveBlock->questStates, sizeof(saveBlock->questStates[0]), ARRAY_COUNT(saveBlock->questStates));
 
@@ -167,7 +167,8 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     SerializeArray(stream, saveBlock->hubMap.areaCoords, sizeof(saveBlock->hubMap.areaCoords[0]), ARRAY_COUNT(saveBlock->hubMap.areaCoords));
     SerializeArray(stream, saveBlock->hubMap.upgradeFlags, sizeof(saveBlock->hubMap.upgradeFlags[0]), ARRAY_COUNT(saveBlock->hubMap.upgradeFlags));
     SerializeArray(stream, saveBlock->hubMap.homeDecorations, sizeof(saveBlock->hubMap.homeDecorations[0]), ARRAY_COUNT(saveBlock->hubMap.homeDecorations));
-    SerializeArray(stream, saveBlock->hubMap.homeRegionStyles, sizeof(saveBlock->hubMap.homeRegionStyles[0]), ARRAY_COUNT(saveBlock->hubMap.homeRegionStyles));
+    SerializeArray(stream, saveBlock->hubMap.homeStyles, sizeof(saveBlock->hubMap.homeStyles[0]), ARRAY_COUNT(saveBlock->hubMap.homeStyles));
+    SerializeArray(stream, saveBlock->hubMap.homeWanderingMonSpecies, sizeof(saveBlock->hubMap.homeWanderingMonSpecies[0]), ARRAY_COUNT(saveBlock->hubMap.homeWanderingMonSpecies));
     SerializeData(stream, &saveBlock->hubMap.weatherState, sizeof(saveBlock->hubMap.weatherState));
 
     // Time/Seasons
@@ -183,6 +184,13 @@ static u16 SerializeRogueBlockInternal(struct SaveBlockStream* stream, struct Ro
     // Difficulty/Adventure Settings
     SerializeArray(stream, saveBlock->difficultyConfig.toggleBits, sizeof(saveBlock->difficultyConfig.toggleBits[0]), ARRAY_COUNT(saveBlock->difficultyConfig.toggleBits));
     SerializeArray(stream, saveBlock->difficultyConfig.rangeValues, sizeof(saveBlock->difficultyConfig.rangeValues[0]), ARRAY_COUNT(saveBlock->difficultyConfig.rangeValues));
+
+    // Dynamic Unique Mons
+    SerializeArray(stream, saveBlock->dynamicUniquePokemon, sizeof(saveBlock->dynamicUniquePokemon[0]), ARRAY_COUNT(saveBlock->dynamicUniquePokemon));
+    SerializeArray(stream, saveBlock->safariMonCustomIds, sizeof(saveBlock->safariMonCustomIds[0]), ARRAY_COUNT(saveBlock->safariMonCustomIds));
+
+    // Mon Mastery
+    SerializeArray(stream, saveBlock->monMasteryFlags, sizeof(saveBlock->monMasteryFlags[0]), ARRAY_COUNT(saveBlock->monMasteryFlags));
 
     // Serialize debug data
     {
@@ -299,8 +307,24 @@ void RogueSave_FormatForReading()
 
 u16 RogueSave_GetVersionIdFor(u16 saveVersion)
 {
-    // TODO - lookup
-    return SAVE_VER_ID_2_0;
+    switch (saveVersion)
+    {
+    case 0:
+        return SAVE_VER_ID_1_X;
+
+    case 1:
+        return SAVE_VER_ID_2_0_PRERELEASE;
+
+    case 2:
+        return SAVE_VER_ID_2_0;
+
+    case 3:
+        return SAVE_VER_ID_2_0_1;
+    
+    default:
+        AGB_ASSERT(FALSE);
+        return SAVE_VER_ID_UNKNOWN;
+    }
 }
 
 u16 RogueSave_GetVersionId()
@@ -393,7 +417,7 @@ void RogueSave_SaveHubStates()
 
     for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
     {
-        CopyMon(&sRunRestoreBlock.daycarePokemon[i], &gRogueSaveBlock->daycarePokemon[i], sizeof(struct BoxPokemon));
+        CopyMon(&sRunRestoreBlock.daycarePokemon[i], &gRogueSaveBlock->daycarePokemon[i], sizeof(struct RogueDaycarePokemon));
     }
 
     // Remember the default difficulty settings, just incase the adventure overwrote anything
@@ -429,15 +453,13 @@ void RogueSave_LoadHubStates()
 
     totalTime += sRunRestoreBlock.playTime;
 
-
     gSaveBlock2Ptr->playTimeSeconds = totalTime % 60;
     totalTime /= 60;
 
     gSaveBlock2Ptr->playTimeMinutes = totalTime % 60;
     totalTime /= 60;
 
-    gSaveBlock2Ptr->playTimeHours = totalTime % 60;
-    totalTime /= 60;
+    gSaveBlock2Ptr->playTimeHours = totalTime;
 
     if(gSaveBlock2Ptr->playTimeHours > 999)
     {
@@ -459,7 +481,7 @@ void RogueSave_LoadHubStates()
 
     for(i = 0; i < DAYCARE_SLOT_COUNT; ++i)
     {
-        CopyMon(&gRogueSaveBlock->daycarePokemon[i], &sRunRestoreBlock.daycarePokemon[i], sizeof(struct BoxPokemon));
+        CopyMon(&gRogueSaveBlock->daycarePokemon[i], &sRunRestoreBlock.daycarePokemon[i], sizeof(struct RogueDaycarePokemon));
     }
 
     // Restore the default difficulty settings, just incase the adventure overwrote anything

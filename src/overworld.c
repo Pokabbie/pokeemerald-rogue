@@ -379,7 +379,7 @@ void DoWhiteOut(void)
     HealPlayerParty();
     Overworld_ResetStateAfterWhiteOut();
 
-    if(Rogue_IsRunActive() && IsCharmActive(EFFECT_EXTRA_LIFE))
+    if(Rogue_IsRunActive() && (IsCharmActive(EFFECT_EXTRA_LIFE) || IsCharmActive(EFFECT_INFINITE_EXTRA_LIFE)))
     {
         Rogue_ExecuteExtraLife();
     }
@@ -481,6 +481,22 @@ void IncrementGameStat(u8 index)
         u32 statVal = GetGameStat(index);
         if (statVal < 0xFFFFFF)
             statVal++;
+        else
+            statVal = 0xFFFFFF;
+
+        Rogue_CampaignNotify_StatIncrement(index);
+
+        SetGameStat(index, statVal);
+    }
+}
+
+void IncrementGameStatBy(u8 index, u32 amount)
+{
+    if (index < NUM_USED_GAME_STATS)
+    {
+        u32 statVal = GetGameStat(index);
+        if (statVal + amount < 0xFFFFFF)
+            statVal += amount;
         else
             statVal = 0xFFFFFF;
 
@@ -775,6 +791,7 @@ void SetEscapeWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 void SetWarpDestinationToEscapeWarp(void)
 {
     // RogueNote: We're just going to jump to the next warp location
+    sWarpDestination.warpId =0;
     Rogue_OnSetWarpData(&sWarpDestination);
 
     //sWarpDestination = gSaveBlock1Ptr->escapeWarp;
@@ -1740,6 +1757,7 @@ static void CB2_ReturnToFieldLocal(void)
 {
     if (ReturnToFieldLocal(&gMain.state))
     {
+        Rogue_OnReturnToField();
         SetFieldVBlankCallback();
         SetMainCallback2(CB2_Overworld);
     }
@@ -2267,6 +2285,7 @@ static void InitObjectEventsLocal(void)
     u16 x, y;
     struct InitialPlayerAvatarState *player;
 
+    FollowMon_ClearCachedPartnerSpecies();
     gTotalCameraPixelOffsetX = 0;
     gTotalCameraPixelOffsetY = 0;
     ResetObjectEvents();
@@ -2284,6 +2303,7 @@ static void InitObjectEventsLocal(void)
 
 static void InitObjectEventsReturnToField(void)
 {
+    FollowMon_ClearCachedPartnerSpecies();
     SpawnObjectEventsOnReturnToField(0, 0);
     RotatingGate_InitPuzzleAndGraphics();
     Rogue_OnObjectEventsInit();

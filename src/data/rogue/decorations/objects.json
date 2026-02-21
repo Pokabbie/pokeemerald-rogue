@@ -1,0 +1,502 @@
+{
+    "includes":
+    [
+    ],
+    "defaults":
+    {
+        "display_group": "Objects",
+        "source_map": "ROGUE_TEMPLATE_HOMES",
+        "layer": "DECOR_LAYER_OBJECTS"
+    },
+    "decorations":
+    {
+        "objects":
+        [
+            {
+                "name": "Statue",
+                "source_object":
+                {
+                    "local_id": 1
+                }
+            },
+            {
+                "name": "Quest Board",
+                "source_object":
+                {
+                    "local_id": 4
+                }
+            },
+            {
+                "name": "PC",
+                "source_object":
+                {
+                    "local_id": 3
+                }
+            },
+            {
+                "name": "Bed",
+                "source_object":
+                {
+                    "local_id": 6
+                }
+            },
+            {
+                "name": "Outfit Changing",
+                "source_object":
+                {
+                    "local_id": 8
+                },
+                "variants":
+                [
+                    {
+                        "name": "Wardrobe",
+                        "source_object":
+                        {
+                            "local_id": 8
+                        }
+                    },
+                    {
+                        "name": "Drawers",
+                        "source_object":
+                        {
+                            "local_id": 7
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Flag",
+                "source_object":
+                {
+                    "local_id": 5
+                }
+            },
+            {
+                "name": "PC wandering {PKMN}",
+                "source_object":
+                {
+                    "local_id": 14,
+                    "editor_local_id": 2,
+                    "capacity_per_area": 5
+                }
+            },
+
+            {
+                "name": "Appliances",
+                "source_object":
+                {
+                    "local_id": 9
+                },
+                "variants":
+                [
+                    {
+                        "name": "Fan",
+                        "source_object":
+                        {
+                            "local_id": 9
+                        }
+                    },
+                    {
+                        "name": "Fridge",
+                        "source_object":
+                        {
+                            "local_id": 10
+                        }
+                    },
+                    {
+                        "name": "Microwave",
+                        "source_object":
+                        {
+                            "local_id": 11
+                        }
+                    },
+                    {
+                        "name": "Lawn Mower",
+                        "source_object":
+                        {
+                            "local_id": 12
+                        }
+                    },
+                    {
+                        "name": "Washing Machine",
+                        "source_object":
+                        {
+                            "local_id": 13
+                        }
+                    }
+                ]
+            },
+
+            {
+                "name": "Cushions",
+                "source_object":
+                {
+                    "local_id": 15
+                },
+                "variants":
+                [
+                    {
+                        "name": "Poké Ball",
+                        "source_object":
+                        {
+                            "local_id": 15
+                        }
+                    },
+                    {
+                        "name": "Diamond",
+                        "source_object":
+                        {
+                            "local_id": 16
+                        }
+                    },
+                    {
+                        "name": "Fire",
+                        "source_object":
+                        {
+                            "local_id": 17
+                        }
+                    },
+                    {
+                        "name": "Grass",
+                        "source_object":
+                        {
+                            "local_id": 18
+                        }
+                    },
+                    {
+                        "name": "Kiss",
+                        "source_object":
+                        {
+                            "local_id": 19
+                        }
+                    },
+                    {
+                        "name": "Pikachu",
+                        "source_object":
+                        {
+                            "local_id": 20
+                        }
+                    },
+                    {
+                        "name": "Round",
+                        "source_object":
+                        {
+                            "local_id": 21
+                        }
+                    },
+                    {
+                        "name": "Spin",
+                        "source_object":
+                        {
+                            "local_id": 22
+                        }
+                    },
+                    {
+                        "name": "Water",
+                        "source_object":
+                        {
+                            "local_id": 23
+                        }
+                    },
+                    {
+                        "name": "Zigzag",
+                        "source_object":
+                        {
+                            "local_id": 24
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Doll",
+                "source_object":
+                {
+                    "local_id": 25
+                },
+                "variants":
+                [
+                    {
+                        "name": "Azurill",
+                        "source_object":
+                        {
+                            "local_id": 25
+                        }
+                    },
+                    {
+                        "name": "Baltoy",
+                        "source_object":
+                        {
+                            "local_id": 26
+                        }
+                    },
+                    {
+                        "name": "Blastoise",
+                        "source_object":
+                        {
+                            "local_id": 27
+                        }
+                    },
+                    {
+                        "name": "Charizard",
+                        "source_object":
+                        {
+                            "local_id": 28
+                        }
+                    },
+                    {
+                        "name": "Lapras",
+                        "source_object":
+                        {
+                            "local_id": 29
+                        }
+                    },
+                    {
+                        "name": "Regice",
+                        "source_object":
+                        {
+                            "local_id": 30
+                        }
+                    },
+                    {
+                        "name": "Regirock",
+                        "source_object":
+                        {
+                            "local_id": 31
+                        }
+                    },
+                    {
+                        "name": "Registeel",
+                        "source_object":
+                        {
+                            "local_id": 32
+                        }
+                    },
+                    {
+                        "name": "Rhydon",
+                        "source_object":
+                        {
+                            "local_id": 33
+                        }
+                    },
+                    {
+                        "name": "Snorlax",
+                        "source_object":
+                        {
+                            "local_id": 34
+                        }
+                    },
+                    {
+                        "name": "Venusaur",
+                        "source_object":
+                        {
+                            "local_id": 35
+                        }
+                    },
+                    {
+                        "name": "Wailmer",
+                        "source_object":
+                        {
+                            "local_id": 36
+                        }
+                    },
+                    {
+                        "name": "Chikorita",
+                        "source_object":
+                        {
+                            "local_id": 37
+                        }
+                    },
+                    {
+                        "name": "Clefairy",
+                        "source_object":
+                        {
+                            "local_id": 38
+                        }
+                    },
+                    {
+                        "name": "Cyndaquil",
+                        "source_object":
+                        {
+                            "local_id": 39
+                        }
+                    },
+                    {
+                        "name": "Ditto",
+                        "source_object":
+                        {
+                            "local_id": 40
+                        }
+                    },
+                    {
+                        "name": "Duskull",
+                        "source_object":
+                        {
+                            "local_id": 41
+                        }
+                    },
+                    {
+                        "name": "Gulpin",
+                        "source_object":
+                        {
+                            "local_id": 42
+                        }
+                    },
+                    {
+                        "name": "Jigglypuff",
+                        "source_object":
+                        {
+                            "local_id": 43
+                        }
+                    },
+                    {
+                        "name": "Kecleon",
+                        "source_object":
+                        {
+                            "local_id": 44
+                        }
+                    },
+                    {
+                        "name": "Lotad",
+                        "source_object":
+                        {
+                            "local_id": 45
+                        }
+                    },
+                    {
+                        "name": "Magnemite",
+                        "source_object":
+                        {
+                            "local_id": 59
+                        }
+                    },
+                    {
+                        "name": "Marill",
+                        "source_object":
+                        {
+                            "local_id": 46
+                        }
+                    },
+                    {
+                        "name": "Meowth",
+                        "source_object":
+                        {
+                            "local_id": 47
+                        }
+                    },
+                    {
+                        "name": "Mudkip",
+                        "source_object":
+                        {
+                            "local_id": 48
+                        }
+                    },
+                    {
+                        "name": "Natu",
+                        "source_object":
+                        {
+                            "local_id": 60
+                        }
+                    },
+                    {
+                        "name": "Pichu",
+                        "source_object":
+                        {
+                            "local_id": 49
+                        }
+                    },
+                    {
+                        "name": "Pikachu",
+                        "source_object":
+                        {
+                            "local_id": 50
+                        }
+                    },
+                    {
+                        "name": "Porygon2",
+                        "source_object":
+                        {
+                            "local_id": 61
+                        }
+                    },
+                    {
+                        "name": "Seedot",
+                        "source_object":
+                        {
+                            "local_id": 51
+                        }
+                    },
+                    {
+                        "name": "Skitty",
+                        "source_object":
+                        {
+                            "local_id": 52
+                        }
+                    },
+                    {
+                        "name": "Smoochum",
+                        "source_object":
+                        {
+                            "local_id": 53
+                        }
+                    },
+                    {
+                        "name": "Squirtle",
+                        "source_object":
+                        {
+                            "local_id": 62
+                        }
+                    },
+                    {
+                        "name": "Swablu",
+                        "source_object":
+                        {
+                            "local_id": 54
+                        }
+                    },
+                    {
+                        "name": "Togepi",
+                        "source_object":
+                        {
+                            "local_id": 55
+                        }
+                    },
+                    {
+                        "name": "Torchic",
+                        "source_object":
+                        {
+                            "local_id": 56
+                        }
+                    },
+                    {
+                        "name": "Totodile",
+                        "source_object":
+                        {
+                            "local_id": 57
+                        }
+                    },
+                    {
+                        "name": "Treecko",
+                        "source_object":
+                        {
+                            "local_id": 58
+                        }
+                    },
+                    {
+                        "name": "Wooper",
+                        "source_object":
+                        {
+                            "local_id": 63
+                        }
+                    },
+                    {
+                        "name": "Wynaut",
+                        "source_object":
+                        {
+                            "local_id": 64
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

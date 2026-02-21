@@ -642,8 +642,8 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         
         if(GetPathGenerationDifficulty() >=  ROGUE_CHAMP_START_DIFFICULTY)
         {
-            chance = 50;
-            chanceFalloff = 0;
+            chance = 30;
+            chanceFalloff = 4;
         }
         else if(GetPathGenerationDifficulty() >=  ROGUE_ELITE_START_DIFFICULTY)
         {
@@ -711,7 +711,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
     }
 
     // Honey tree
-    if(GetPathGenerationDifficulty() >= 1 && RogueRandomChance(60, 0))
+    if(Rogue_GetModeRules()->adventureGenerator != ADV_GENERATOR_GAUNTLET && GetPathGenerationDifficulty() >= 1 && RogueRandomChance(60, 0))
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_HONEY_TREE;
 
     // Catching contest
@@ -719,15 +719,15 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_CATCHING_CONTEST;
 
     // Mysterious Sign
-    if(GetPathGenerationDifficulty() < ROGUE_ELITE_START_DIFFICULTY && RogueRandomChance(40, 0))
+    if(Rogue_GetModeRules()->adventureGenerator != ADV_GENERATOR_GAUNTLET && GetPathGenerationDifficulty() < ROGUE_ELITE_START_DIFFICULTY && RogueRandomChance(40, 0))
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SIGN;
 
-    // Shrine
-    if(GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
+    // Shrine (Gauntlet will always offer this encounter)
+    if((Rogue_GetModeRules()->adventureGenerator == ADV_GENERATOR_GAUNTLET) || GetPathGenerationDifficulty() == gRogueRun.shrineSpawnDifficulty)
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_SHRINE;
 
     // Battle sim
-    if(GetPathGenerationDifficulty() >= 1 && RogueRandomChance(33, 0))
+    if(Rogue_GetModeRules()->adventureGenerator != ADV_GENERATOR_GAUNTLET && GetPathGenerationDifficulty() >= 1 && RogueRandomChance(33, 0))
         validEncounterList[validEncounterCount++] = ADVPATH_ROOM_BATTLE_SIM;
 
     {
@@ -739,7 +739,7 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         {
             allowDarkDeal = TRUE;
             allowLab = FALSE;
-            allowGameShow = TRUE;
+            allowGameShow = FALSE;
         }
 
         allowDarkDeal = (allowDarkDeal && RogueRandomChance(25, 0));
@@ -829,9 +829,9 @@ static void GenerateRoomPlacements(struct AdvPathSettings* pathSettings)
         // If players get encounters they basically have to get lucky with wild den
         if(GetPathGenerationDifficulty() >=  ROGUE_CHAMP_START_DIFFICULTY)
         {
-            chance = 95;
-            chanceFalloff = 0;
-            minRouteCount = 0;
+            chance = 90;
+            chanceFalloff = 15;
+            minRouteCount = 1;
         }
         else if(GetPathGenerationDifficulty() >=  ROGUE_ELITE_START_DIFFICULTY)
         {
@@ -959,7 +959,7 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
                 u8 legendId = Rogue_GetCurrentLegendaryEncounterId();
                 u16 species = gRogueRun.legendarySpecies[legendId];
                 gRogueAdvPath.rooms[roomId].roomParams.roomIdx = Rogue_GetLegendaryRoomForSpecies(species);
-                gRogueAdvPath.rooms[roomId].roomParams.perType.legendary.shinyState = Rogue_RollShinyState();
+                gRogueAdvPath.rooms[roomId].roomParams.perType.legendary.shinyState = Rogue_RollShinyState(SHINY_ROLL_STATIC);
             }
             break;
 
@@ -979,13 +979,13 @@ static void GenerateRoomInstance(u8 roomId, u8 roomType)
         case ADVPATH_ROOM_WILD_DEN:
             gRogueAdvPath.rooms[roomId].roomParams.roomIdx = 0;
             gRogueAdvPath.rooms[roomId].roomParams.perType.wildDen.species = Rogue_SelectWildDenEncounterRoom();
-            gRogueAdvPath.rooms[roomId].roomParams.perType.wildDen.shinyState = Rogue_RollShinyState();
+            gRogueAdvPath.rooms[roomId].roomParams.perType.wildDen.shinyState = Rogue_RollShinyState(SHINY_ROLL_STATIC);
             break;
 
         case ADVPATH_ROOM_HONEY_TREE:
             gRogueAdvPath.rooms[roomId].roomParams.roomIdx = 0;
             gRogueAdvPath.rooms[roomId].roomParams.perType.honeyTree.species = Rogue_SelectHoneyTreeEncounterRoom();
-            gRogueAdvPath.rooms[roomId].roomParams.perType.honeyTree.shinyState = Rogue_RollShinyState();
+            gRogueAdvPath.rooms[roomId].roomParams.perType.honeyTree.shinyState = Rogue_RollShinyState(SHINY_ROLL_STATIC);
             break;
 
         case ADVPATH_ROOM_ROUTE:
@@ -1262,7 +1262,8 @@ u8 RogueAdv_GetTileNum()
         return gRogueAdvPath.pathLength - gRogueAdvPath.rooms[gRogueRun.adventureRoomId].coords.x - 1;
     }
 
-    return 255;
+    // Fallback so we are viewing the same thing
+    return 0;
 }
 
 bool8 RogueAdv_IsViewingPath()
@@ -1348,6 +1349,9 @@ void RogueAdv_ApplyAdventureMetatiles()
         // find start/end coords
         u8 minY = (u8)-1;
         u8 maxY = 0;
+
+        x = 0;
+        y = 0;
 
         for(i = 0; i < gRogueAdvPath.roomCount; ++i)
         {
@@ -1717,6 +1721,9 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
             case TEAM_NUM_MAGMA:
                 return gender ? OBJ_EVENT_GFX_MAGMA_MEMBER_M : OBJ_EVENT_GFX_MAGMA_MEMBER_F;
 
+            case TEAM_NUM_GALACTIC:
+                return gender ? OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_M : OBJ_EVENT_GFX_TEAM_GALACTIC_GRUNT_F;
+
             default:
                 AGB_ASSERT(FALSE);
                 return OBJ_EVENT_GFX_ROCKET_M;
@@ -1727,7 +1734,7 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
             return OBJ_EVENT_GFX_NOLAND;
 
         case ADVPATH_ROOM_WILD_DEN:
-            return OBJ_EVENT_GFX_GRASS_CUSHION;
+            return OBJ_EVENT_GFX_GRASS_DEFAULT;
 
         case ADVPATH_ROOM_HONEY_TREE:
             return OBJ_EVENT_GFX_GOLD_GRASS;
@@ -1754,7 +1761,7 @@ static u16 SelectObjectGfxForRoom(struct RogueAdvPathRoom* room)
             return OBJ_EVENT_GFX_YOUNGSTER;
 
         case ADVPATH_ROOM_BOSS:
-            return OBJ_EVENT_GFX_BALL_CUSHION; // ?
+            return OBJ_EVENT_GFX_BATTLE_STATUE;
     }
 
     return 0;

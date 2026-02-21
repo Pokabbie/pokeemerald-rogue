@@ -145,9 +145,13 @@ const u32 gObjectEventPic_Scientist2[] = INCBIN_U32("graphics/object_events/pics
 const u32 gObjectEventPic_Scientist2Riding[] = INCBIN_U32("graphics/object_events/pics/people/scientist_2_riding.4bpp");
 const u32 gObjectEventPic_DevonEmployee[] = INCBIN_U32("graphics/object_events/pics/people/devon_employee.4bpp");
 const u32 gObjectEventPic_AquaMemberM[] = INCBIN_U32("graphics/object_events/pics/people/team_aqua/aqua_member_m.4bpp");
+const u32 gObjectEventPic_AquaMemberMRiding[] = INCBIN_U32("graphics/object_events/pics/people/team_aqua/aqua_member_m_riding.4bpp");
 const u32 gObjectEventPic_AquaMemberF[] = INCBIN_U32("graphics/object_events/pics/people/team_aqua/aqua_member_f.4bpp");
+const u32 gObjectEventPic_AquaMemberFRiding[] = INCBIN_U32("graphics/object_events/pics/people/team_aqua/aqua_member_f_riding.4bpp");
 const u32 gObjectEventPic_MagmaMemberM[] = INCBIN_U32("graphics/object_events/pics/people/team_magma/magma_member_m.4bpp");
+const u32 gObjectEventPic_MagmaMemberMRiding[] = INCBIN_U32("graphics/object_events/pics/people/team_magma/magma_member_m_riding.4bpp");
 const u32 gObjectEventPic_MagmaMemberF[] = INCBIN_U32("graphics/object_events/pics/people/team_magma/magma_member_f.4bpp");
+const u32 gObjectEventPic_MagmaMemberFRiding[] = INCBIN_U32("graphics/object_events/pics/people/team_magma/magma_member_f_riding.4bpp");
 const u32 gObjectEventPic_Sidney[] = INCBIN_U32("graphics/object_events/pics/people/elite_four/sidney.4bpp");
 const u32 gObjectEventPic_Phoebe[] = INCBIN_U32("graphics/object_events/pics/people/elite_four/phoebe.4bpp");
 const u32 gObjectEventPic_Glacia[] = INCBIN_U32("graphics/object_events/pics/people/elite_four/glacia.4bpp");
@@ -368,7 +372,10 @@ const u32 gObjectEventPic_Mew[] = INCBIN_U32("graphics/object_events/pics/pokemo
 const u32 gObjectEventPic_Biker[] = INCBIN_U32("graphics/object_events/pics/people/biker.4bpp");
 const u32 gObjectEventPic_OldMan2[] = INCBIN_U32("graphics/object_events/pics/people/old_man_2.4bpp");
 const u32 gObjectEventPic_RocketF[] = INCBIN_U32("graphics/object_events/pics/people/rocket_f.4bpp");
+const u32 gObjectEventPic_RocketFRiding[] = INCBIN_U32("graphics/object_events/pics/people/rocket_f_riding.4bpp");
 const u32 gObjectEventPic_RocketM[] = INCBIN_U32("graphics/object_events/pics/people/rocket_m.4bpp");
+const u32 gObjectEventPic_RocketMRiding[] = INCBIN_U32("graphics/object_events/pics/people/rocket_m_riding.4bpp");
+const u32 gObjectEventPic_Bill[] = INCBIN_U32("graphics/object_events/pics/people/bill.4bpp");
 
 const u32 gObjectEventPic_RedNormal[] = INCBIN_U32("graphics/object_events/pics/people/red/walking.4bpp");
 const u32 gObjectEventPic_RedRunning[] = INCBIN_U32("graphics/object_events/pics/people/red/running.4bpp");
@@ -443,6 +450,10 @@ const u16 gObjectEventPal_PlayerJulianaLayers[] = INCBIN_U16("graphics/rogue_pal
 
 const u16 gObjectEventPal_PlayerZefaBase[] = INCBIN_U16("graphics/object_events/pics/people/zefa/palette.gbapal");
 const u16 gObjectEventPal_PlayerLightningStrike7Base[] = INCBIN_U16("graphics/object_events/pics/people/lightningstrike7/palette.gbapal");
+const u16 gObjectEventPal_PlayerNacholordBase[] = INCBIN_U16("graphics/object_events/pics/people/nacho/palette.gbapal");
+
+const u16 gObjectEventPal_LaterMannerNormal[] = INCBIN_U16("graphics/object_events/pics/people/latermanner/walking.gbapal");
+const u16 gObjectEventPal_DolphinNormal[] = INCBIN_U16("graphics/object_events/pics/people/dolphin/walking.gbapal");
 
 const u32 gObjectEventPic_LyraNormal[] = INCBIN_U32("graphics/object_events/pics/people/lyra/walking.4bpp");
 const u32 gObjectEventPic_LyraRunning[] = INCBIN_U32("graphics/object_events/pics/people/lyra/running.4bpp");
@@ -505,6 +516,13 @@ const u32 gObjectEventPic_ZefaRiding[] = INCBIN_U32("graphics/object_events/pics
 
 const u32 gObjectEventPic_LightningStrike7Normal[] = INCBIN_U32("graphics/object_events/pics/people/lightningstrike7/walking.4bpp");
 const u32 gObjectEventPic_LightningStrike7Riding[] = INCBIN_U32("graphics/object_events/pics/people/lightningstrike7/riding.4bpp");
+
+const u32 gObjectEventPic_NacholordNormal[] = INCBIN_U32("graphics/object_events/pics/people/nacho/walking.4bpp");
+const u32 gObjectEventPic_NacholordRiding[] = INCBIN_U32("graphics/object_events/pics/people/nacho/riding.4bpp");
+
+const u32 gObjectEventPic_LaterMannerNormal[] = INCBIN_U32("graphics/object_events/pics/people/latermanner/walking.4bpp");
+const u32 gObjectEventPic_LaterMannerRiding[] = INCBIN_U32("graphics/object_events/pics/people/latermanner/riding.4bpp");
+const u32 gObjectEventPic_DolphinNormal[] = INCBIN_U32("graphics/object_events/pics/people/dolphin/walking.4bpp");
 
 const u16 gObjectEventPal_BirthIslandStone[] = INCBIN_U16("graphics/object_events/palettes/birth_island_stone.gbapal");
 const u32 gObjectEventPic_BirthIslandStone[] = INCBIN_U32("graphics/object_events/pics/misc/birth_island_stone.4bpp");
@@ -767,6 +785,7 @@ const u32 gObjectEventPic_Misc_Unova_Scientist_F[] = INCBIN_U32("graphics/object
 const u32 gObjectEventPic_Misc_Veteran[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/veteran.4bpp");
 const u32 gObjectEventPic_Misc_Young_Couple_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/young_couple_f.4bpp");
 const u32 gObjectEventPic_Misc_Young_Couple_M[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/young_couple_m.4bpp");
+const u32 gObjectEventPic_Misc_BallGuy[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/misc/ball_guy.4bpp");
 
 const u16 gObjectEventPal_Rival_Avery[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/avery.gbapal");
 const u16 gObjectEventPal_Rival_Barry[] = INCBIN_U16("graphics/object_events/pics/rogue/npc/rival/barry.gbapal");
@@ -822,7 +841,9 @@ const u32 gObjectEventPic_Team_Flare_Grunt_M[] = INCBIN_U32("graphics/object_eve
 const u32 gObjectEventPic_Team_Flare_Lysander[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/team/flare_lysander.4bpp");
 const u32 gObjectEventPic_Team_Galactic_Cyrus[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/team/galactic_cyrus.4bpp");
 const u32 gObjectEventPic_Team_Galactic_Grunt_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/team/galactic_grunt_f.4bpp");
+const u32 gObjectEventPic_Team_Galactic_Grunt_F_Riding[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/team/galactic_grunt_f_riding.4bpp");
 const u32 gObjectEventPic_Team_Galactic_Grunt_M[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/team/galactic_grunt_m.4bpp");
+const u32 gObjectEventPic_Team_Galactic_Grunt_M_Riding[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/team/galactic_grunt_m_riding.4bpp");
 const u32 gObjectEventPic_Team_Neo_Plasma_Colress[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/team/neo_plasma_colress.4bpp");
 const u32 gObjectEventPic_Team_Neo_Plasma_Grunt_F[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/team/neo_plasma_grunt_f.4bpp");
 const u32 gObjectEventPic_Team_Neo_Plasma_Grunt_M[] = INCBIN_U32("graphics/object_events/pics/rogue/npc/team/neo_plasma_grunt_m.4bpp");
@@ -850,8 +871,10 @@ const u16 gObjectEventPal_RouteExt[] = INCBIN_U16("graphics/object_events/palett
 
 const u32 gObjectEventPic_PC[] = INCBIN_U32("graphics/object_events/pics/rogue/pc.4bpp");
 const u32 gObjectEventPic_PCStand[] = INCBIN_U32("graphics/object_events/pics/rogue/pc_stand.4bpp");
+const u32 gObjectEventPic_BattleStatue[] = INCBIN_U32("graphics/object_events/pics/rogue/battle_statue.4bpp");
 const u32 gObjectEventPic_PhoneBooth[] = INCBIN_U32("graphics/object_events/pics/rogue/phone_booth.4bpp");
 const u32 gObjectEventPic_PokeblockMixer[] = INCBIN_U32("graphics/object_events/pics/rogue/pokeblock_mixer.4bpp");
+const u32 gObjectEventPic_PokeblockMixerGold[] = INCBIN_U32("graphics/object_events/pics/rogue/pokeblock_mixer_gold.4bpp");
 const u32 gObjectEventPic_FoodPie[] = INCBIN_U32("graphics/object_events/pics/rogue/food_pie.4bpp");
 const u32 gObjectEventPic_SmallSign[] = INCBIN_U32("graphics/object_events/pics/rogue/small_sign.4bpp");
 const u32 gObjectEventPic_DevilMan[] = INCBIN_U32("graphics/object_events/pics/rogue/devil_man.4bpp");
@@ -876,8 +899,19 @@ const u32 gObjectEventPic_ItemDynamaxBall[] = INCBIN_U32("graphics/object_events
 const u32 gObjectEventPic_ItemHealing[] = INCBIN_U32("graphics/object_events/pics/rogue/item_healing.4bpp");
 const u32 gObjectEventPic_ItemTeraOrb[] = INCBIN_U32("graphics/object_events/pics/rogue/item_tera_orb.4bpp");
 const u32 gObjectEventPic_ItemTeraShard[] = INCBIN_U32("graphics/object_events/pics/rogue/item_tera_shard.4bpp");
+const u32 gObjectEventPic_GrassDefault[] = INCBIN_U32("graphics/object_events/pics/rogue/grass_default.4bpp");
 const u32 gObjectEventPic_GoldGrass[] = INCBIN_U32("graphics/object_events/pics/rogue/grass_golden.4bpp");
 const u32 gObjectEventPic_FlagAdventure[] = INCBIN_U32("graphics/object_events/pics/rogue/flag_adventure.4bpp");
+
+const u32 gObjectEventPic_DecorBed[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_bed.4bpp");
+const u32 gObjectEventPic_DecorDrawers[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_drawers.4bpp");
+const u32 gObjectEventPic_DecorRotomFan[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_rotom_fan.4bpp");
+const u32 gObjectEventPic_DecorRotomFrost[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_rotom_frost.4bpp");
+const u32 gObjectEventPic_DecorRotomHeat[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_rotom_heat.4bpp");
+const u32 gObjectEventPic_DecorRotomMow[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_rotom_mow.4bpp");
+const u32 gObjectEventPic_DecorRotomWash[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_rotom_wash.4bpp");
+const u32 gObjectEventPic_DecorWardrobe[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_wardrobe.4bpp");
+const u32 gObjectEventPic_DecorCauldren[] = INCBIN_U32("graphics/object_events/pics/rogue/decor_cauldren.4bpp");
 
 const u32 gObjectEventPic_Route_Bug[] = INCBIN_U32("graphics/object_events/pics/rogue/route/bug.4bpp");
 const u32 gObjectEventPic_Route_Dark[] = INCBIN_U32("graphics/object_events/pics/rogue/route/dark.4bpp");

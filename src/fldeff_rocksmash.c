@@ -153,7 +153,7 @@ bool8 FldEff_UseRockSmash(void)
 
     gTasks[taskId].data[8] = (u32)FieldMove_RockSmash >> 16;
     gTasks[taskId].data[9] = (u32)FieldMove_RockSmash;
-    IncrementGameStat(GAME_STAT_USED_ROCK_SMASH);
+    //IncrementGameStat(GAME_STAT_USED_ROCK_SMASH);
     return FALSE;
 }
 

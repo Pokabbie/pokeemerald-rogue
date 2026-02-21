@@ -1,0 +1,678 @@
+{
+    "includes":
+    [
+    ],
+    "defaults":
+    {
+        "display_group": "Tiles#Interior",
+        "source_map": "ROGUE_TEMPLATE_HOME_INTERIOR"
+    },
+    "decorations":
+    {
+        "tiles_interior":
+        [
+            {
+                "name": "Rug",
+                "layer": "DECOR_LAYER_PLACEABLE_SURFACE",
+                "source_tiles":
+                {
+                    "y": 9,
+                    "width": 3,
+                    "height": 3
+                },
+                "variants":
+                [
+                    {
+                        "name": "Fire Blast",
+                        "source_tiles":
+                        {
+                            "x": 0
+                        }
+                    },
+                    {
+                        "name": "Fissure",
+                        "source_tiles":
+                        {
+                            "x": 3
+                        }
+                    },
+                    {
+                        "name": "Surf",
+                        "source_tiles":
+                        {
+                            "x": 6
+                        }
+                    },
+                    {
+                        "name": "Attract",
+                        "source_tiles":
+                        {
+                            "x": 9
+                        }
+                    },
+                    {
+                        "name": "Thunder",
+                        "source_tiles":
+                        {
+                            "x": 12
+                        }
+                    },
+                    {
+                        "name": "Powder Snow",
+                        "source_tiles":
+                        {
+                            "x": 15
+                        }
+                    },
+                    {
+                        "name": "Spikes",
+                        "source_tiles":
+                        {
+                            "x": 18
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Chair",
+                "source_tiles":
+                {
+                    "y": 8,
+                    "width": 1,
+                    "height": 1
+                },
+                "variants":
+                [
+                    {
+                        "name": "Brick",
+                        "source_tiles":
+                        {
+                            "x": 0
+                        }
+                    },
+                    {
+                        "name": "Bushy",
+                        "source_tiles":
+                        {
+                            "x": 1
+                        }
+                    },
+                    {
+                        "name": "Stone",
+                        "source_tiles":
+                        {
+                            "x": 2
+                        }
+                    },
+                    {
+                        "name": "Industrial",
+                        "source_tiles":
+                        {
+                            "x": 3
+                        }
+                    },
+                    {
+                        "name": "Wooden",
+                        "source_tiles":
+                        {
+                            "x": 4
+                        }
+                    },
+                    {
+                        "name": "Log",
+                        "source_tiles":
+                        {
+                            "x": 5
+                        }
+                    },
+                    {
+                        "name": "Pretty",
+                        "source_tiles":
+                        {
+                            "x": 6
+                        }
+                    },
+                    {
+                        "name": "Cute",
+                        "source_tiles":
+                        {
+                            "x": 7
+                        }
+                    },
+                    {
+                        "name": "Poké Ball",
+                        "source_tiles":
+                        {
+                            "x": 8
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Desk",
+                "layer": "DECOR_LAYER_PLACEABLE_SURFACE",
+                "source_tiles":
+                {
+                    "width": 1,
+                    "height": 1
+                },
+                "variants":
+                [
+                    {
+                        "name": "Small Wooden",
+                        "source_tiles":
+                        {
+                            "x": 15,
+                            "y": 2
+                        }
+                    },
+                    {
+                        "name": "Small Poké Ball",
+                        "source_tiles":
+                        {
+                            "x": 15,
+                            "y": 3
+                        }
+                    },
+
+                    {
+                        "name": "Medium Brick",
+                        "source_tiles":
+                        {
+                            "x": 9,
+                            "y": 2,
+                            "width": 2,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Medium Bushy",
+                        "source_tiles":
+                        {
+                            "x": 11,
+                            "y": 2,
+                            "width": 2,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Medium Stone",
+                        "source_tiles":
+                        {
+                            "x": 13,
+                            "y": 2,
+                            "width": 2,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Medium Industrial",
+                        "source_tiles":
+                        {
+                            "x": 9,
+                            "y": 4,
+                            "width": 2,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Medium Wooden",
+                        "source_tiles":
+                        {
+                            "x": 11,
+                            "y": 4,
+                            "width": 2,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Medium Log",
+                        "source_tiles":
+                        {
+                            "x": 13,
+                            "y": 4,
+                            "width": 2,
+                            "height": 2
+                        }
+                    },
+
+                    {
+                        "name": "Large Brick",
+                        "source_tiles":
+                        {
+                            "x": 0,
+                            "y": 2,
+                            "width": 3,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Large Bushy",
+                        "source_tiles":
+                        {
+                            "x": 3,
+                            "y": 2,
+                            "width": 3,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Large Stone",
+                        "source_tiles":
+                        {
+                            "x": 6,
+                            "y": 2,
+                            "width": 3,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Large Industrial",
+                        "source_tiles":
+                        {
+                            "x": 0,
+                            "y": 4,
+                            "width": 3,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Large Wooden",
+                        "source_tiles":
+                        {
+                            "x": 3,
+                            "y": 4,
+                            "width": 3,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Large Log",
+                        "source_tiles":
+                        {
+                            "x": 6,
+                            "y": 4,
+                            "width": 3,
+                            "height": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Plants",
+                "source_tiles":
+                {
+                    "width": 1,
+                    "height": 2
+                },
+                "variants":
+                [
+                    {
+                        "name": "Red",
+                        "source_tiles":
+                        {
+                            "x": 3,
+                            "y": 6
+                        }
+                    },
+                    {
+                        "name": "Tropical",
+                        "source_tiles":
+                        {
+                            "x": 4,
+                            "y": 6
+                        }
+                    },
+                    {
+                        "name": "Pretty",
+                        "source_tiles":
+                        {
+                            "x": 5,
+                            "y": 6
+                        }
+                    },
+                    {
+                        "name": "Colourful",
+                        "source_tiles":
+                        {
+                            "x": 6,
+                            "y": 6,
+                            "width": 2,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Big",
+                        "source_tiles":
+                        {
+                            "x": 8,
+                            "y": 6,
+                            "width": 2,
+                            "height": 2
+                        }
+                    },
+                    {
+                        "name": "Gorgeous",
+                        "source_tiles":
+                        {
+                            "x": 10,
+                            "y": 6,
+                            "width": 2,
+                            "height": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Faux Door",
+                "source_tiles":
+                {
+                    "x": 5,
+                    "y": 0,
+                    "width": 1,
+                    "height": 2
+                }
+            },
+            {
+                "name": "MudBall",
+                "source_tiles":
+                {
+                    "x": 4,
+                    "y": 0
+                }
+            },
+            {
+                "name": "Note Pads",
+                "source_tiles":
+                {
+                    "width": 1,
+                    "height": 1
+                },
+                "variants":
+                [
+                    {
+                        "name": "A",
+                        "source_tiles":
+                        {
+                            "x": 6,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "name": "B",
+                        "source_tiles":
+                        {
+                            "x": 7,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "name": "C",
+                        "source_tiles":
+                        {
+                            "x": 8,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "name": "D",
+                        "source_tiles":
+                        {
+                            "x": 9,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "name": "E",
+                        "source_tiles":
+                        {
+                            "x": 10,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "name": "F",
+                        "source_tiles":
+                        {
+                            "x": 11,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "name": "G",
+                        "source_tiles":
+                        {
+                            "x": 12,
+                            "y": 0
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Effect Pads",
+                "source_tiles":
+                {
+                    "width": 1,
+                    "height": 1
+                },
+                "variants":
+                [
+                    {
+                        "name": "Glitter",
+                        "source_tiles":
+                        {
+                            "x": 9,
+                            "y": 1
+                        }
+                    },
+                    {
+                        "name": "Jump",
+                        "source_tiles":
+                        {
+                            "x": 10,
+                            "y": 1
+                        }
+                    },
+                    {
+                        "name": "Spin",
+                        "source_tiles":
+                        {
+                            "x": 11,
+                            "y": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Water Balloon",
+                "source_tiles":
+                {
+                    "width": 1,
+                    "height": 1
+                },
+                "variants":
+                [
+                    {
+                        "name": "Red",
+                        "source_tiles":
+                        {
+                            "x": 6,
+                            "y": 1
+                        }
+                    },
+                    {
+                        "name": "Blue",
+                        "source_tiles":
+                        {
+                            "x": 7,
+                            "y": 1
+                        }
+                    },
+                    {
+                        "name": "Yellow",
+                        "source_tiles":
+                        {
+                            "x": 8,
+                            "y": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Climbing Frame",
+                "source_tiles":
+                {
+                    "x": 18,
+                    "y": 0,
+                    "width": 4,
+                    "height": 2
+                }
+            },
+            {
+                "name": "Slide",
+                "source_tiles":
+                {
+                    "x": 17,
+                    "y": 2,
+                    "width": 2,
+                    "height": 4
+                }
+            },
+            {
+                "name": "Tent",
+                "source_tiles":
+                {
+                    "width": 3,
+                    "height": 3
+                },
+                "variants":
+                [
+                    {
+                        "name": "Red",
+                        "source_tiles":
+                        {
+                            "x": 12,
+                            "y": 6
+                        }
+                    },
+                    {
+                        "name": "Blue",
+                        "source_tiles":
+                        {
+                            "x": 15,
+                            "y": 6
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Small TV",
+                "source_tiles":
+                {
+                    "width": 1,
+                    "height": 1
+                },
+                "variants":
+                [
+                    {
+                        "name": "Standard",
+                        "source_tiles":
+                        {
+                            "x": 13,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "name": "Round",
+                        "source_tiles":
+                        {
+                            "x": 14,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "name": "Cute",
+                        "source_tiles":
+                        {
+                            "x": 15,
+                            "y": 0
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Large Brick",
+                "source_tiles":
+                {
+                    "width": 1,
+                    "height": 2
+                },
+                "variants":
+                [
+                    {
+                        "name": "Red",
+                        "source_tiles":
+                        {
+                            "x": 1,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "name": "Blue",
+                        "source_tiles":
+                        {
+                            "x": 2,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "name": "Yellow",
+                        "source_tiles":
+                        {
+                            "x": 3,
+                            "y": 0
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Large Tire",
+                "layer": "DECOR_LAYER_PLACEABLE_SURFACE",
+                "source_tiles":
+                {
+                    "x": 15,
+                    "y": 4,
+                    "width": 2,
+                    "height": 2
+                }
+            },
+            {
+                "name": "Small Fence",
+                "source_tiles":
+                {
+                    "width": 1,
+                    "height": 1
+                },
+                "variants":
+                [
+                    {
+                        "name": "Horizontal",
+                        "source_tiles":
+                        {
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "name": "Vertical",
+                        "source_tiles":
+                        {
+                            "x": 0,
+                            "y": 1
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

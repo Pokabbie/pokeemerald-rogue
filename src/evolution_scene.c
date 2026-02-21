@@ -563,12 +563,12 @@ static void CreateShedinja(u16 preEvoSpecies, struct Pokemon *mon)
     #endif
     u8 evoCount = Rogue_GetMaxEvolutionCount(preEvoSpecies);
 
-    if (evoCount >= 2)
+    if (evoCount < 2)
         return;
 
     Rogue_ModifyEvolution(preEvoSpecies, 0, &evo);
 
-    if (evo.method == EVO_LEVEL_NINJASK && gPlayerPartyCount < PARTY_SIZE
+    if (evo.method == EVO_LEVEL_NINJASK && gPlayerPartyCount < Rogue_GetMaxPartySize()
     #if P_SHEDINJA_BALL >= GEN_4
         && (CheckBagHasItem(ball, 1))
     #endif
@@ -666,16 +666,16 @@ static void Task_EvolutionScene(u8 taskId)
     struct Pokemon *mon = &gPlayerParty[gTasks[taskId].tPartyId];
 
     // check if B Button was held, so the evolution gets stopped
-    if (gMain.heldKeys == B_BUTTON
-        && gTasks[taskId].tState == EVOSTATE_WAIT_CYCLE_MON_SPRITE
-        && gTasks[sEvoGraphicsTaskId].isActive
-        && gTasks[taskId].tBits & TASK_BIT_CAN_STOP)
-    {
-        gTasks[taskId].tState = EVOSTATE_CANCEL;
-        gTasks[sEvoGraphicsTaskId].tEvoStopped = TRUE;
-        StopBgAnimation();
-        return;
-    }
+    //if (gMain.heldKeys == B_BUTTON
+    //    && gTasks[taskId].tState == EVOSTATE_WAIT_CYCLE_MON_SPRITE
+    //    && gTasks[sEvoGraphicsTaskId].isActive
+    //    && gTasks[taskId].tBits & TASK_BIT_CAN_STOP)
+    //{
+    //    gTasks[taskId].tState = EVOSTATE_CANCEL;
+    //    gTasks[sEvoGraphicsTaskId].tEvoStopped = TRUE;
+    //    StopBgAnimation();
+    //    return;
+    //}
 
     switch (gTasks[taskId].tState)
     {
@@ -803,7 +803,8 @@ static void Task_EvolutionScene(u8 taskId)
             if(IsMonShiny(mon))
                 GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT_SHINY);
 
-            IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
+            if(Rogue_IsRunActive())
+                IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
         }
         break;
     case EVOSTATE_TRY_LEARN_MOVE:
@@ -1230,7 +1231,8 @@ static void Task_TradeEvolutionScene(u8 taskId)
             if(IsMonShiny(mon))
                 GetSetPokedexSpeciesFlag(gTasks[taskId].tPostEvoSpecies, FLAG_SET_CAUGHT_SHINY);
 
-            IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
+            if(Rogue_IsRunActive())
+                IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
         }
         break;
     case T_EVOSTATE_TRY_LEARN_MOVE:

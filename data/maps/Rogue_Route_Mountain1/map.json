@@ -580,28 +580,28 @@
       "y": 64,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_MOUNTAIN1",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 31,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_MOUNTAIN1",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 10,
       "y": 63,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_MOUNTAIN0",
-      "dest_warp_id": 55
+      "dest_warp_id": "55"
     },
     {
       "x": 29,
       "y": 36,
       "elevation": 0,
       "dest_map": "MAP_ROGUE_ROUTE_MOUNTAIN0",
-      "dest_warp_id": 55
+      "dest_warp_id": "55"
     }
   ],
   "coord_events": [

@@ -85,7 +85,7 @@ void CopyTrainerId(u8 *dst, u8 *src)
 
 static void InitPlayerTrainerId(void)
 {
-    u32 trainerId = (u32)(Random() << 16) | (u32)Random();
+    u32 trainerId = ((u32)(Random() << 16) | (u32)Random()) & OTID_FLAG_STANDARD_MASK;
     SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
 }
 
@@ -104,6 +104,7 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsBossBattleScene = OPTIONS_BATTLE_SCENE_1X;
     gSaveBlock2Ptr->optionsAutoRunToggle = FALSE;
     gSaveBlock2Ptr->optionsNicknameMode = OPTIONS_NICKNAME_MODE_ASK;
+    gSaveBlock2Ptr->optionsLowHealthBeep = OPTIONS_HEALTH_BEEP_3_BEEPS;
     gSaveBlock2Ptr->timeOfDayVisuals = TRUE;
     gSaveBlock2Ptr->seasonVisuals = TRUE;
     gSaveBlock2Ptr->weatherVisuals = TRUE;

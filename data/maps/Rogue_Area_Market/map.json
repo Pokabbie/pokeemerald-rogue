@@ -1,0 +1,228 @@
+{
+  "id": "MAP_ROGUE_AREA_MARKET",
+  "name": "Rogue_Area_Market",
+  "layout": "LAYOUT_ROGUE_AREA_MARKET",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_POKEMON_HUB",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
+      "offset": 14,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
+      "offset": 10,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_ROGUE_HALLWAY_FACADE_HORIZONTAL",
+      "offset": 10,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROGUE_HALLWAY_FACADE_VERTICAL",
+      "offset": 14,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 8,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_Market_TalkBerryBlender",
+      "flag": "FLAG_TEMP_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
+      "x": 9,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_Market_BlendPokeblockMaster",
+      "flag": "FLAG_TEMP_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKEBLOCK_MIXER",
+      "x": 12,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_Market_BlendPokeblockNovice",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
+      "x": 13,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_Market_TalkBerryBlender",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
+      "x": 13,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Shop_Treats",
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
+      "x": 26,
+      "y": 7,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_Market_ShopBank",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WORK_TABLE",
+      "x": 14,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_InteractWithWorkbench",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LINK_RECEPTIONIST",
+      "x": 13,
+      "y": 9,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rogue_Area_Market_TalkPokeblockHelper",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 17,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_MARKET",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_MARKET",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 33,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_MARKET",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 33,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_MARKET",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_MARKET",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_MARKET",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 0,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_MARKET",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 0,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_MARKET",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_INTERIOR_RESTAURANT",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_ROGUE_AREA_MARKET",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Rogue_Area_Market_BankSign"
+    }
+  ]
+}

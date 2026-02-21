@@ -8,6 +8,11 @@ SINGLE_BATTLE_TEST("Sheer Force boosts power, but removes secondary effects of m
 
     for (j = 1; j < MOVES_COUNT; j++)
     {
+        // This gets the boost and the buff... for some reason, according to GF
+        // so we're just gonna ignore it from this test?
+        if(gBattleMoves[j].effect == EFFECT_ELECTRO_SHOT)
+            continue;
+
         if (gBattleMoves[j].sheerForceBoost && j != MOVE_ORDER_UP)
         {
             PARAMETRIZE { ability = ABILITY_ANGER_POINT; move = j; }

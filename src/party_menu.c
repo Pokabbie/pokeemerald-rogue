@@ -80,6 +80,7 @@
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_pokedex.h"
+#include "rogue_quest.h"
 
 enum {
     MENU_SUMMARY,
@@ -1428,6 +1429,11 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
 static void ReleasePartyPokemon(u8 slot, bool8 compactPartySlots)
 {
     RemoveMonAtSlot(slot, TRUE, compactPartySlots);
+
+    if(gMain.inBattle)
+    {
+        gBattleStruct->changedSpecies[B_SIDE_PLAYER][GetPartyIdFromBattlePartyId(slot)] = SPECIES_NONE;
+    }
 }
 
 static void Task_ClosePartyMenu(u8 taskId)
@@ -2933,6 +2939,7 @@ static void SetPartyMonSelectionActions(struct Pokemon *mons, u8 slotId, u8 acti
 static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 {
     u8 i, j;
+    bool8 inCatchingContest = Rogue_IsCatchingContestActive();
 
     sPartyMenuInternal->numActions = 0;
 
@@ -2943,11 +2950,12 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         if (GetMonData(&mons[1], MON_DATA_SPECIES) != SPECIES_NONE)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SWITCH);
 
-        if (GetNumberOfRelearnableMoves(&mons[slotId]) != 0)
+        if (!inCatchingContest && GetNumberOfRelearnableMoves(&mons[slotId]) != 0)
         {
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RELEARN_MOVE);
         }
 
+        if(!inCatchingContest)
         {
             u16 targetSpecies = GetEvolutionTargetSpecies(&mons[slotId], EVO_MODE_NORMAL, ITEM_NONE, NULL);
 
@@ -2964,9 +2972,12 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     }
     else
     {
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_POKEDEX);
+        if(!inCatchingContest)
+        {
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_POKEDEX);
+        }
 
-        if(!IsOtherTrainer(GetMonData(&mons[slotId], MON_DATA_OT_ID)))
+        if(!inCatchingContest && Rogue_CanRenameMon(&mons[slotId]))
         {
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RENAME);
         }
@@ -3001,7 +3012,8 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
             }
         }
 
-        if(slotId != 0)
+        // Cannot release final mon
+        if(gPlayerPartyCount > 1)
         {
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RELEASE_FIELD);
         }
@@ -5627,6 +5639,129 @@ void ItemUseCB_TeraShard(u8 taskId, TaskFunc task)
     tMonId = gPartyMenu.slotId;
     SetWordTaskArg(taskId, tOldFunc, (uintptr_t)(gTasks[taskId].func));
     gTasks[taskId].func = Task_TeraShard;
+}
+
+static bool32 HasAccessToGmaxForm(u16 species)
+{
+    u32 i;
+    struct FormChange formChange;
+
+    for (i = 0; TRUE; i++)
+    {
+        Rogue_ModifyFormChange(species, i, &formChange);
+
+        if(formChange.method == FORM_CHANGE_TERMINATOR)
+            break;
+
+        if(formChange.method == FORM_CHANGE_BATTLE_GIGANTAMAX)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+void Task_MaxMushroom(u8 taskId)
+{
+    static const u8 askText[] = _("Would you like to give {STR_VAR_1}\nGigantamax factor?");
+    static const u8 doneText[] = _("{STR_VAR_1} gained Gigantamax factor!{PAUSE_UNTIL_PRESS}");
+    static const u8 failText[] = _("{STR_VAR_1} already has Gigantamax factor.{PAUSE_UNTIL_PRESS}");
+
+    s16 *data = gTasks[taskId].data;
+    struct Pokemon *mon = &gPlayerParty[tMonId];
+    u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL);
+    u16 item = gSpecialVar_ItemId;
+
+    switch (tState)
+    {
+    case 0:
+        if (species == SPECIES_EGG || !HasAccessToGmaxForm(species))
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            return;
+        }
+        if (GetMonData(mon, MON_DATA_GIGANTAMAX_FACTOR) || RogueQuest_GetMonMasteryFlag(species))
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            GetMonNickname(mon, gStringVar1);
+            StringExpandPlaceholders(gStringVar4, failText);
+            PlaySE(SE_SELECT);
+            DisplayPartyMenuMessage(gStringVar4, 1);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            return;
+        }
+        gPartyMenuUseExitCallback = TRUE;
+        GetMonNickname(mon, gStringVar1);
+        StringExpandPlaceholders(gStringVar4, askText);
+        PlaySE(SE_SELECT);
+        DisplayPartyMenuMessage(gStringVar4, 1);
+        ScheduleBgCopyTilemapToVram(2);
+        tState++;
+        break;
+    case 1:
+        if (!IsPartyMenuTextPrinterActive())
+        {
+            PartyMenuDisplayYesNoMenu();
+            tState++;
+        }
+        break;
+    case 2:
+        switch (Menu_ProcessInputNoWrapClearOnChoose())
+        {
+        case 0:
+            tState++;
+            break;
+        case 1:
+        case MENU_B_PRESSED:
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            ScheduleBgCopyTilemapToVram(2);
+            // Don't exit party selections screen, return to choosing a mon.
+            ClearStdWindowAndFrameToTransparent(6, 0);
+            ClearWindowTilemap(6);
+            DisplayPartyMenuStdMessage(5);
+            gTasks[taskId].func = (void *)GetWordTaskArg(taskId, tOldFunc);
+            return;
+        }
+        break;
+    case 3:
+    {
+        u32 temp = 1;
+        PlaySE(SE_USE_ITEM);
+        SetMonData(mon, MON_DATA_GIGANTAMAX_FACTOR, &temp);
+        RemoveBagItem(gSpecialVar_ItemId, 1);
+        //UpdateMonDisplayInfoAfterTeraShard(tMonId);
+        tState++;
+        break;
+    }
+    case 4:
+        StringExpandPlaceholders(gStringVar4, doneText);
+        DisplayPartyMenuMessage(gStringVar4, 1);
+        ScheduleBgCopyTilemapToVram(2);
+        tState++;
+        break;
+    case 5:
+        if (!IsPartyMenuTextPrinterActive())
+            tState++;
+        break;
+    case 6:
+        gTasks[taskId].func = Task_ClosePartyMenu;
+        break;
+    }
+}
+
+void ItemUseCB_MaxMushroom(u8 taskId, TaskFunc task)
+{
+    s16 *data = gTasks[taskId].data;
+
+    tState = 0;
+    tMonId = gPartyMenu.slotId;
+    SetWordTaskArg(taskId, tOldFunc, (uintptr_t)(gTasks[taskId].func));
+    gTasks[taskId].func = Task_MaxMushroom;
 }
 
 #undef tState
@@ -8447,6 +8582,11 @@ static void ShiftMoveSlot(struct Pokemon *mon, u8 slotTo, u8 slotFrom)
     SetMonData(mon, MON_DATA_PP1 + slotTo, &pp0);
     SetMonData(mon, MON_DATA_PP1 + slotFrom, &pp1);
     SetMonData(mon, MON_DATA_PP_BONUSES, &ppBonuses);
+}
+
+void ShiftMoveSlotExtern(struct Pokemon *mon, u8 slotTo, u8 slotFrom)
+{
+    ShiftMoveSlot(mon, slotTo, slotFrom);
 }
 
 void IsSelectedMonEgg(void)

@@ -22,6 +22,7 @@
 #undef TestRunner_Battle_AfterLastTurn
 #undef TestRunner_Battle_CheckBattleRecordActionType
 #undef TestRunner_Battle_GetForcedAbility
+#undef TestRunner_Battle_HandleTurnTimeout
 #endif
 
 #define INVALID(fmt, ...) Test_ExitWithResult(TEST_RESULT_INVALID, "%s:%d: " fmt, gTestRunnerState.test->filename, sourceLine, ##__VA_ARGS__)
@@ -1326,6 +1327,19 @@ void TestRunner_Battle_AfterLastTurn(void)
     STATE->runFinally = FALSE;
 }
 
+void TestRunner_Battle_HandleTurnTimeout(void)
+{
+    if(DATA.turnTimeoutCounter >= 2 * 60 * 60) // 2 minute timeout per turn
+    {
+        const char *filename = gTestRunnerState.test->filename;
+        Test_ExitWithResult(TEST_RESULT_FAIL, "%s:%d: TURN hit timeout", filename, SourceLine(0));
+    }
+    else
+    {
+        DATA.turnTimeoutCounter++;
+    }
+}
+
 static void TearDownBattle(void)
 {
     FreeMonSpritesGfx();
@@ -1373,6 +1387,7 @@ static void CB2_BattleTest_NextTrial(void)
         DATA.recordedBattle.rngSeed = ISO_RANDOMIZE1(STATE->runTrial);
         DATA.queuedEvent = 0;
         DATA.lastActionTurn = 0;
+        DATA.turnTimeoutCounter = 0;
         SetVariablesForRecordedBattle(&DATA.recordedBattle);
         SetMainCallback2(CB2_InitBattle);
     }
@@ -1834,6 +1849,7 @@ void TestRunner_Battle_CheckBattleRecordActionType(u32 battlerId, u32 recordInde
 void OpenTurn(u32 sourceLine)
 {
     INVALID_IF(DATA.turnState != TURN_CLOSED, "Nested TURN");
+    DATA.turnTimeoutCounter = 0;
     if (DATA.turns == MAX_TURNS)
         Test_ExitWithResult(TEST_RESULT_ERROR, "%s:%d: TURN exceeds MAX_TURNS", gTestRunnerState.test->filename, sourceLine);
     DATA.turnState = TURN_OPEN;

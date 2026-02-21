@@ -1,0 +1,76 @@
+const VAR_FRAME_TABLE_IDX = VAR_TEMP_0
+const VAR_TOTAL_VICTORIES = VAR_TEMP_1
+
+mapscripts Rogue_Boss_VictoryLap_MapScripts 
+{
+    MAP_SCRIPT_ON_FRAME_TABLE 
+    [
+        VAR_FRAME_TABLE_IDX, 0: Rogue_Boss_VictoryLap_LoadFrame_0
+    ]
+}
+
+script Rogue_Boss_VictoryLap_LoadFrame_0
+{
+    lock
+    setvar(VAR_FRAME_TABLE_IDX, 1)
+
+    setvar(VAR_RESULT, 2)
+    clearflag(FLAG_ROGUE_IS_VICTORY_LAP)
+    
+    while(var(VAR_RESULT) == 2)
+    {
+        message(format("Would you like do a Victory Lap?"))
+        waitmessage
+        multichoice(20, 6, MULTI_YESNOINFO, NO)
+
+        switch(var(VAR_RESULT))
+        {
+            case 0: // Yes
+                // Let it fall through
+                setvar(VAR_RESULT, 0)
+
+            //case 1: // No
+            //case MULTI_B_PRESSED:
+
+            case 2: // Info
+                msgbox(format("Fight Random Gym Leaders, Elite Four members & Champions back to back without being able to adjust your team.\pFor each Victory, you will earn additional Money and Experience for when you return to {POKEMON_HUB}."))
+        }
+    }
+
+    closemessage
+
+    if(var(VAR_RESULT) == 0)
+    {
+        call(Rogue_Boss_VictoryLap_BattleLoop)
+    }
+
+    callnative(VictoryLapStartCredits)
+}
+
+script Rogue_Boss_VictoryLap_BattleLoop
+{
+    call(Rogue_EventScript_AttemptPostGymHeal)
+    special(Rogue_BeginVictoryLap)
+    setvar(VAR_RESULT, YES)
+
+    while(var(VAR_RESULT) == YES)
+    {
+        call(Rogue_Common_DisplaySkippablePopups)
+
+        specialvar(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, Rogue_BufferNextVictoryLapTrainer)
+
+        trainerbattle(TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, VAR_ROGUE_SPECIAL_ENCOUNTER_DATA, 0, gPlaceholder_Gym_PostBattleTaunt)
+
+        if(var(VAR_RESULT) == YES)
+        {
+            call(Rogue_EventScript_AttemptPostGymHeal)
+            setvar(VAR_RESULT, YES)
+        }
+    }
+
+    special(Rogue_EndVictoryLap)
+
+    buffernumberstring(STR_VAR_1, VAR_TOTAL_VICTORIES)
+    msgbox(format("Victory Lap Badges: {STR_VAR_1}"))
+    call(Common_EventScript_ForceSaveGame)
+}

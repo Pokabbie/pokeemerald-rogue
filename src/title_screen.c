@@ -20,6 +20,7 @@
 #include "gpu_regs.h"
 #include "trig.h"
 #include "graphics.h"
+#include "random.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/species.h"
@@ -44,6 +45,59 @@ enum {
 #define RESET_RTC_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_LEFT)
 #define BERRY_UPDATE_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON)
 #define A_B_START_SELECT (A_BUTTON | B_BUTTON | START_BUTTON | SELECT_BUTTON)
+
+enum
+{
+    MUSIC_VARIANT_FRLG,
+    MUSIC_VARIANT_HGSS,
+    MUSIC_VARIANT_EMERALD,
+    MUSIC_VARIANT_DP,
+    MUSIC_VARIANT_MUTED,
+    MUSIC_VARIANT_COUNT,
+
+    MUSIC_VARIANT_LAST_ENABLED  = MUSIC_VARIANT_DP,
+};
+
+struct MusicVariantData
+{
+    u16 logoShineFrames[3];
+    u16 songNum;
+    u16 defaultCounterDuration;
+};
+
+static struct MusicVariantData const sMusicVariant[MUSIC_VARIANT_COUNT] =
+{
+    [MUSIC_VARIANT_MUTED] = 
+    {
+        .songNum = MUS_NONE,
+        .defaultCounterDuration = 256,
+        .logoShineFrames = { 0, 64, 176 },
+    },
+    [MUSIC_VARIANT_FRLG] = 
+    {
+        .songNum = MUS_RG_TITLE,
+        .defaultCounterDuration = 80,
+        .logoShineFrames = { 0, 10000, 10000 },
+    },
+    [MUSIC_VARIANT_HGSS] = 
+    {
+        .songNum = MUS_HG_TITLE,
+        .defaultCounterDuration = 220,
+        .logoShineFrames = { 0, 29, 129 },
+    },
+    [MUSIC_VARIANT_EMERALD] = 
+    {
+        .songNum = MUS_TITLE,
+        .defaultCounterDuration = 256,
+        .logoShineFrames = { 0, 64, 176 },
+    },
+    [MUSIC_VARIANT_DP] = 
+    {
+        .songNum = MUS_DP_TITLE,
+        .defaultCounterDuration = 150,
+        .logoShineFrames = { 10000, 25, 0 },
+    }
+};
 
 static void MainCB2(void);
 static void Task_TitleScreenPhase1(u8);
@@ -504,7 +558,7 @@ static void SpriteCB_PokemonLogoShine(struct Sprite *sprite)
              || sprite->x == DISPLAY_WIDTH / 2 + (4 * SHINE_SPEED)
              || sprite->x == DISPLAY_WIDTH / 2 + (5 * SHINE_SPEED)
              || sprite->x == DISPLAY_WIDTH / 2 + (6 * SHINE_SPEED))
-                gPlttBufferFaded[0] = RGB(24, 31, 12);
+                gPlttBufferFaded[0] = RGB(24, 12, 31);
             else
                 gPlttBufferFaded[0] = backgroundColor;
         }
@@ -571,6 +625,8 @@ static void VBlankCB(void)
     TransferPlttBuffer();
     SetGpuReg(REG_OFFSET_BG1VOFS, gBattle_BG1_Y);
 }
+// others used below
+#define tMusicVariant data[7]
 
 void CB2_InitTitleScreen(void)
 {
@@ -635,11 +691,20 @@ void CB2_InitTitleScreen(void)
     case 2:
     {
         u8 taskId = CreateTask(Task_TitleScreenPhase1, 0);
+        gTasks[taskId].tMusicVariant = gSaveBlock1Ptr->titleScreenVariant % (MUSIC_VARIANT_LAST_ENABLED + 1);
+        gSaveBlock1Ptr->titleScreenVariant = (gSaveBlock1Ptr->titleScreenVariant + 1) % (MUSIC_VARIANT_LAST_ENABLED + 1);
 
-        gTasks[taskId].tCounter = 80; // RogueNote: default 256
+        if(gSaveBlock2Ptr->optionsSoundChannelBGM == 0)
+        {
+            gTasks[taskId].tMusicVariant = MUSIC_VARIANT_MUTED;
+        }
+
+        gTasks[taskId].tCounter = sMusicVariant[gTasks[taskId].tMusicVariant].defaultCounterDuration;
         gTasks[taskId].tSkipToNext = FALSE;
         gTasks[taskId].tPointless = -16;
         gTasks[taskId].tBg2Y = -32;
+        
+        gBattle_BG1_Y = 0; // reset star bg pos
         gMain.state = 3;
         break;
     }
@@ -673,13 +738,26 @@ void CB2_InitTitleScreen(void)
                                     | DISPCNT_OBJ_ON
                                     | DISPCNT_WIN0_ON
                                     | DISPCNT_OBJWIN_ON);
-        m4aSongNumStart(MUS_RG_TITLE);
+
+        
+        {
+            u8 taskId = FindTaskIdByFunc(Task_TitleScreenPhase1);
+            AGB_ASSERT(taskId != TASK_NONE);
+
+            if(sMusicVariant[gTasks[taskId].tMusicVariant].songNum != MUS_NONE)
+                m4aSongNumStart(sMusicVariant[gTasks[taskId].tMusicVariant].songNum);
+        }
         gMain.state = 5;
         break;
     case 5:
         if (!UpdatePaletteFade())
         {
-            StartPokemonLogoShine(SHINE_MODE_SINGLE_NO_BG_COLOR);
+            u8 taskId = FindTaskIdByFunc(Task_TitleScreenPhase1);
+            AGB_ASSERT(taskId != TASK_NONE);
+
+            if(sMusicVariant[gTasks[taskId].tMusicVariant].logoShineFrames[0] == 0)
+                StartPokemonLogoShine(SHINE_MODE_SINGLE_NO_BG_COLOR);
+
             //ScanlineEffect_InitWave(0, DISPLAY_HEIGHT, 4, 4, 0, SCANLINE_EFFECT_REG_BG1HOFS, TRUE);
             SetMainCallback2(MainCB2);
         }
@@ -707,11 +785,18 @@ static void Task_TitleScreenPhase1(u8 taskId)
 
     if (gTasks[taskId].tCounter != 0)
     {
+        u32 i;
         u16 frameNum = gTasks[taskId].tCounter;
-        if (frameNum == 176)
-            StartPokemonLogoShine(SHINE_MODE_DOUBLE);
-        else if (frameNum == 64)
-            StartPokemonLogoShine(SHINE_MODE_SINGLE);
+
+        for(i = 0; i < ARRAY_COUNT(sMusicVariant[gTasks[taskId].tMusicVariant].logoShineFrames); ++i)
+        {
+            u16 shineFrame = sMusicVariant[gTasks[taskId].tMusicVariant].logoShineFrames[i];
+            if(shineFrame != 0 && shineFrame == frameNum)
+            {
+                StartPokemonLogoShine(i);
+                break;
+            }
+        }
 
         gTasks[taskId].tCounter--;
     }
@@ -833,11 +918,15 @@ static void Task_TitleScreenPhase3(u8 taskId)
         UpdateLegendaryMarkingColor(gTasks[taskId].tCounter);
 
         // Just sit on title screen
-        //if ((gMPlayInfo_BGM.status & 0xFFFF) == 0)
-        //{
-        //    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_WHITEALPHA);
-        //    SetMainCallback2(CB2_GoToCopyrightScreen);
-        //}
+        if(sMusicVariant[gTasks[taskId].tMusicVariant].songNum != MUS_NONE)
+        {
+            // Restart when music stops
+            if ((gMPlayInfo_BGM.status & 0xFFFF) == 0)
+            {
+                BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_WHITEALPHA);
+                SetMainCallback2(CB2_GoToCopyrightScreen);
+            }
+        }
     }
 }
 
