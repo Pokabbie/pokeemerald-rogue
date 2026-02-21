@@ -1,5 +1,5 @@
 
-#include "generated/quest_consts.h"
+#include "constants/generated/quest_consts.h"
 
 
 // Constant flags
