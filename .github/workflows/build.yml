@@ -22,10 +22,10 @@ jobs:
       UNUSED_ERROR: 0
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Checkout agbcc
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: agbcc
           repository: pret/agbcc
