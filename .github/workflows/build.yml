@@ -69,7 +69,7 @@ jobs:
         run: make -j${nproc} -O all
 
       - name: Update Memory Stats
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Memory Stats
           path: pokeemerald_memorystats.csv
