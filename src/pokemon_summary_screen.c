@@ -4059,10 +4059,13 @@ static void SetMonTypeIcons(void)
     }
     else
     {
-        SetTypeSpritePosAndPal(gBaseStats[summary->species].type1, 120, 48, SPRITE_ARR_ID_TYPE);
-        if (gBaseStats[summary->species].type1 != gBaseStats[summary->species].type2)
+        u8 type0 = GetTypeBySpecies(summary->species, 0, 0);
+        u8 type1 = GetTypeBySpecies(summary->species, 1, 0);
+        
+        SetTypeSpritePosAndPal(type0, 120, 48, SPRITE_ARR_ID_TYPE);
+        if (type0 != type1)
         {
-            SetTypeSpritePosAndPal(gBaseStats[summary->species].type2, 160, 48, SPRITE_ARR_ID_TYPE + 1);
+            SetTypeSpritePosAndPal(type1, 160, 48, SPRITE_ARR_ID_TYPE + 1);
             SetSpriteInvisibility(SPRITE_ARR_ID_TYPE + 1, FALSE);
         }
         else

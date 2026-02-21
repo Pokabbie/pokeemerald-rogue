@@ -43,6 +43,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_baked.h"
+
 // This file's functions.
 static void LoadContestPalettes(void);
 static void Task_StartContestWaitFade(u8 taskId);
@@ -5311,6 +5313,8 @@ static void SetMoveSpecificAnimData(u8 contestant)
     u16 move = SanitizeMove(eContestantStatus[contestant].currMove);
     u16 species = SanitizeSpecies(gContestMons[contestant].species);
     u8 targetContestant;
+    u8 type0 = GetTypeBySpecies(species, 0, 0);
+    u8 type1 = GetTypeBySpecies(species, 1, 0);
 
     memset(&gContestResources->moveAnim->species, 0, 20);
     ClearBattleAnimationVars();
@@ -5319,7 +5323,7 @@ static void SetMoveSpecificAnimData(u8 contestant)
     switch (move)
     {
     case MOVE_CURSE:
-        if (gBaseStats[species].type1 == TYPE_GHOST || gBaseStats[species].type2 == TYPE_GHOST)
+        if (type0 == TYPE_GHOST || type1 == TYPE_GHOST)
             gAnimMoveTurn = 0;
         else
             gAnimMoveTurn = 1;

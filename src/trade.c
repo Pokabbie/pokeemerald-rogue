@@ -51,6 +51,7 @@
 #include "constants/songs.h"
 #include "constants/union_room.h"
 
+#include "rogue_baked.h"
 #include "rogue_multiplayer.h"
 
 // The following tags are offsets from GFXTAG_MENU_TEXT
@@ -2467,8 +2468,8 @@ int GetUnionRoomTradeMessageId(struct RfuGameCompatibilityData player, struct Rf
     else
     {
         // Player's Pokémon must be of the type the partner requested
-        if (gBaseStats[playerSpecies2].type1 != requestedType 
-         && gBaseStats[playerSpecies2].type2 != requestedType)
+        if (GetTypeBySpecies(playerSpecies2, 0, 0) != requestedType 
+         && GetTypeBySpecies(playerSpecies2, 1, 0) != requestedType)
             return UR_TRADE_MSG_NOT_MON_PARTNER_WANTS;
     }
 

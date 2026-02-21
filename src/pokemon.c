@@ -2923,7 +2923,7 @@ static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
 
 #define CALC_STAT(base, iv, ev, statIndex, field)               \
 {                                                               \
-    u8 baseStat = gBaseStats[species].base;                     \
+    u8 baseStat = speciesStats.base;                            \
     s32 n = (((2 * baseStat + iv + ev / 4) * level) / 100) + 5; \
     n = ModifyStatByNature(nature, n, statIndex);               \
     SetMonData(mon, field, &n);                                 \
@@ -2948,9 +2948,11 @@ void CalculateMonStats(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
+    struct RoguePokemonBaseStats speciesStats;
 
     u8 nature = GetNature(mon);
 
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
     if (species == SPECIES_SHEDINJA)
@@ -2959,7 +2961,7 @@ void CalculateMonStats(struct Pokemon *mon)
     }
     else
     {
-        s32 n = 2 * gBaseStats[species].baseHP + hpIV;
+        s32 n = 2 * speciesStats.baseHP + hpIV;
         newMaxHP = (((n + hpEV / 4) * level) / 100) + level + 10;
     }
 
@@ -4751,12 +4753,12 @@ u8 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 {
 #ifdef ROGUE_EXPANSION
     int i;
-    u16 abilities[NUM_ABILITY_SLOTS] =
-    {
-        gSpeciesInfo[species].abilities[0],
-        gSpeciesInfo[species].abilities[1],
-        gSpeciesInfo[species].abilities[2]
-    };
+    struct RoguePokemonBaseStats speciesStats;
+    u16 abilities[NUM_ABILITY_SLOTS];
+
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+
+    memcpy(abilities, speciesStats.abilities, sizeof(abilities));
 
     if(IsOtherTrainer(otId))
     {
@@ -4789,11 +4791,12 @@ u8 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 
     return gLastUsedAbility;
 #else
-    u16 abilities[2] =
-    {
-        gBaseStats[species].abilities[0],
-        gBaseStats[species].abilities[1]
-    };
+    struct RoguePokemonBaseStats speciesStats;
+    u16 abilities[2];
+
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+
+    memcpy(abilities, speciesStats.abilities, sizeof(abilities));
 
     if(IsOtherTrainer(otId))
     {
@@ -4812,6 +4815,13 @@ u8 GetAbilityBySpecies(u16 species, u8 abilityNum, u32 otId)
 
     return gLastUsedAbility;
 #endif
+}
+
+u8 GetTypeBySpecies(u16 species, u8 typeSlot, u32 otId)
+{
+    struct RoguePokemonBaseStats speciesStats;
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+    return speciesStats.types[typeSlot];
 }
 
 u8 GetMonAbility(struct Pokemon *mon)
@@ -4934,9 +4944,12 @@ void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
     u16* hpSwitchout;
     s32 i;
     u8 nickname[POKEMON_NAME_LENGTH * 2];
+    struct RoguePokemonBaseStats speciesStats;
 
     gBattleMons[battlerId].species = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPECIES, NULL);
     gBattleMons[battlerId].item = GetMonData(&gPlayerParty[partyIndex], MON_DATA_HELD_ITEM, NULL);
+
+    Rogue_GetPokemonBaseStats(gBattleMons[battlerId].species, &speciesStats);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -4966,8 +4979,8 @@ void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
     gBattleMons[battlerId].isEgg = GetMonData(&gPlayerParty[partyIndex], MON_DATA_IS_EGG, NULL);
     gBattleMons[battlerId].abilityNum = GetMonData(&gPlayerParty[partyIndex], MON_DATA_ABILITY_NUM, NULL);
     gBattleMons[battlerId].otId = GetMonData(&gPlayerParty[partyIndex], MON_DATA_OT_ID, NULL);
-    gBattleMons[battlerId].type1 = gBaseStats[gBattleMons[battlerId].species].type1;
-    gBattleMons[battlerId].type2 = gBaseStats[gBattleMons[battlerId].species].type2;
+    gBattleMons[battlerId].type1 = GetTypeBySpecies(gBattleMons[battlerId].species, 0, gBattleMons[battlerId].otId);
+    gBattleMons[battlerId].type2 = GetTypeBySpecies(gBattleMons[battlerId].species, 1, gBattleMons[battlerId].otId);
     gBattleMons[battlerId].ability = GetAbilityBySpecies(gBattleMons[battlerId].species, gBattleMons[battlerId].abilityNum, gBattleMons[battlerId].otId);
     GetMonData(&gPlayerParty[partyIndex], MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(gBattleMons[battlerId].nickname, nickname);

@@ -1042,8 +1042,11 @@ static bool8 Query_IsSpeciesEnabledInDexInternal(u16 species, bool32 forceDexChe
 
 static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
 {
+    struct RoguePokemonBaseStats speciesStats;
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+
     // Check if mon has valid data
-    if(gRogueSpeciesInfo[species].baseHP != 0)
+    if(speciesStats.baseHP != 0)
     {
 #ifdef ROGUE_EXPANSION
         if(species > GEN9_START && species <= PLACEHOLDER_START)

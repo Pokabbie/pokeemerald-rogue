@@ -52,6 +52,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rogue_baked.h"
+
 // States for Task_RunUnionRoom
 enum {
     UR_STATE_INIT,
@@ -4175,7 +4177,7 @@ static s32 IsRequestedTypeOrEggInPlayerParty(u32 type, u32 species)
         for (i = 0; i < gPlayerPartyCount; i++)
         {
             species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
-            if (gBaseStats[species].type1 == type || gBaseStats[species].type2 == type)
+            if (GetTypeBySpecies(species, 0, 0) == type || GetTypeBySpecies(species, 1, 0) == type)
                 return UR_TRADE_MATCH;
         }
         return UR_TRADE_NOTYPE;

@@ -12,6 +12,8 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 
+#include "rogue_baked.h"
+
 // this file's functions
 static bool8 HasSuperEffectiveMoveAgainstOpponents(bool8 noRng);
 static bool8 FindMonWithFlagsAndSuperEffective(u8 flags, u8 moduloPercent);
@@ -705,9 +707,12 @@ u8 GetMostSuitableMonToSwitchInto(void)
                 && i != *(gBattleStruct->monToSwitchIntoId + battlerIn1)
                 && i != *(gBattleStruct->monToSwitchIntoId + battlerIn2))
             {
-                u8 type1 = gBaseStats[species].type1;
-                u8 type2 = gBaseStats[species].type2;
-                u8 typeDmg = TYPE_MUL_NORMAL;
+                u8 type1, type2, typeDmg;
+                u32 otId = GetMonData(&party[i], MON_DATA_OT_ID);
+
+                type1 = GetTypeBySpecies(species, 0, otId);
+                type2 = GetTypeBySpecies(species, 1, otId);
+                typeDmg = TYPE_MUL_NORMAL;
                 ModulateByTypeEffectiveness(gBattleMons[opposingBattler].type1, type1, type2, &typeDmg);
                 ModulateByTypeEffectiveness(gBattleMons[opposingBattler].type2, type1, type2, &typeDmg);
 

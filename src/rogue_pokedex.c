@@ -4385,40 +4385,36 @@ u8 const* RoguePokedex_GetSpeciesName(u16 species)
 
 u8 RoguePokedex_GetSpeciesType(u16 species, u8 typeIndex)
 {
-#ifdef ROGUE_EXPANSION
-    AGB_ASSERT(typeIndex < ARRAY_COUNT(gSpeciesInfo[species].types));
-    return gSpeciesInfo[species].types[typeIndex];
-#define gRogueSpeciesInfo  gSpeciesInfo
-#else
-    AGB_ASSERT(typeIndex < 2);
-
-    if(typeIndex == 0)
-        return gBaseStats[species].type1;
-    else
-        return gBaseStats[species].type2;
-#endif
+    return GetTypeBySpecies(species, typeIndex, 0);
 }
 
 u16 RoguePokedex_GetSpeciesBST(u16 species)
 {
-    u16 statTotal =
-        gRogueSpeciesInfo[species].baseHP +
-        gRogueSpeciesInfo[species].baseAttack +
-        gRogueSpeciesInfo[species].baseDefense +
-        gRogueSpeciesInfo[species].baseSpAttack +
-        gRogueSpeciesInfo[species].baseSpDefense +
-        gRogueSpeciesInfo[species].baseSpeed;
+    u16 statTotal;
+    struct RoguePokemonBaseStats speciesStats;
+
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+    statTotal =
+        speciesStats.baseHP +
+        speciesStats.baseAttack +
+        speciesStats.baseDefense +
+        speciesStats.baseSpAttack +
+        speciesStats.baseSpDefense +
+        speciesStats.baseSpeed;
     return statTotal;
 }
 
 static void GatherSpeciesStatsArray(u16 species, u8* stats)
 {
-    stats[STAT_HP] = gRogueSpeciesInfo[species].baseHP;
-    stats[STAT_ATK] = gRogueSpeciesInfo[species].baseAttack;
-    stats[STAT_DEF] = gRogueSpeciesInfo[species].baseDefense;
-    stats[STAT_SPATK] = gRogueSpeciesInfo[species].baseSpAttack;
-    stats[STAT_SPDEF] = gRogueSpeciesInfo[species].baseSpDefense;
-    stats[STAT_SPEED] = gRogueSpeciesInfo[species].baseSpeed;
+    struct RoguePokemonBaseStats speciesStats;
+    Rogue_GetPokemonBaseStats(species, &speciesStats);
+
+    stats[STAT_HP] = speciesStats.baseHP;
+    stats[STAT_ATK] = speciesStats.baseAttack;
+    stats[STAT_DEF] = speciesStats.baseDefense;
+    stats[STAT_SPATK] = speciesStats.baseSpAttack;
+    stats[STAT_SPDEF] = speciesStats.baseSpDefense;
+    stats[STAT_SPEED] = speciesStats.baseSpeed;
 }
 
 static u8 SelectBestWorstStat(u16 species, bool8 selectLargest)

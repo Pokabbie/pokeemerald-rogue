@@ -24,13 +24,27 @@ struct LevelUpMove
 	int m_Level;
 };
 
+struct BaseStats
+{
+	int m_HP;
+	int m_Attack;
+	int m_Defense;
+	int m_Speed;
+	int m_SpAttack;
+	int m_SpDefense;
+	std::vector<std::string> m_Types;
+	std::vector<std::string> m_Abilities;
+};
+
 struct PokemonProfile
 {
 	std::vector<std::string> m_Species;
 	std::vector<LevelUpMove> m_LevelUpMoves;
 	std::vector<std::string> m_TutorMoves;
 	std::vector<CompetitiveSet> m_CompetitiveSets;
+	BaseStats m_BaseStats;
 	bool m_IsFallbackProfile = false;
+	bool m_HasBaseStats = false;
 
 	bool HasLevelUpMove(std::string const& move)
 	{
@@ -126,6 +140,33 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile)
 		outSet.m_TeraType = GetAsString(compSet["TeraType"]);
 
 		outProfile.m_CompetitiveSets.push_back(outSet);
+	}
+
+	if (data.contains("BaseStats"))
+	{
+		json baseStats = data["BaseStats"];
+
+		outProfile.m_HasBaseStats = true;
+		outProfile.m_BaseStats.m_HP = baseStats["HP"].get<int>();
+		outProfile.m_BaseStats.m_Attack = baseStats["Attack"].get<int>();
+		outProfile.m_BaseStats.m_Defense = baseStats["Defense"].get<int>();
+		outProfile.m_BaseStats.m_Speed = baseStats["Speed"].get<int>();
+		outProfile.m_BaseStats.m_SpAttack = baseStats["SpAttack"].get<int>();
+		outProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
+
+		for (json type : baseStats["Types"])
+		{
+			outProfile.m_BaseStats.m_Types.push_back(GetAsString(type));
+		}
+		for (json ability : baseStats["Abilities"])
+		{
+			outProfile.m_BaseStats.m_Abilities.push_back(GetAsString(ability));
+		}
+
+		if (outProfile.m_BaseStats.m_Types.size() == 1)
+		{
+			outProfile.m_BaseStats.m_Types.push_back(outProfile.m_BaseStats.m_Types[0]);
+		}
 	}
 
 	std::sort(outProfile.m_LevelUpMoves.begin(), outProfile.m_LevelUpMoves.end(), [](LevelUpMove const& lhs, LevelUpMove const& rhs)
@@ -420,6 +461,30 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 		lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << ",\n";
 		lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << "),\n";
 		lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << sourceSuffix << ",\n";
+
+		if (profile.m_HasBaseStats)
+		{
+			lowerBlock << "\t\t.baseStats = \n\t\t{\n";
+			lowerBlock << "\t\t\t.baseHP = " << profile.m_BaseStats.m_HP << ",\n";
+			lowerBlock << "\t\t\t.baseAttack = " << profile.m_BaseStats.m_Attack << ",\n";
+			lowerBlock << "\t\t\t.baseDefense = " << profile.m_BaseStats.m_Defense << ",\n";
+			lowerBlock << "\t\t\t.baseSpeed = " << profile.m_BaseStats.m_Speed << ",\n";
+			lowerBlock << "\t\t\t.baseSpAttack = " << profile.m_BaseStats.m_SpAttack << ",\n";
+			lowerBlock << "\t\t\t.baseSpDefense = " << profile.m_BaseStats.m_SpDefense << ",\n";
+
+			lowerBlock << "\t\t\t.types = { ";
+			for (std::string const& type : profile.m_BaseStats.m_Types)
+				lowerBlock << type << ", ";
+			lowerBlock << "},\n";
+
+			lowerBlock << "\t\t\t.abilities = { ";
+			for (std::string const& ability : profile.m_BaseStats.m_Abilities)
+				lowerBlock << ability << ", ";
+			lowerBlock << "},\n";
+
+			lowerBlock << "\t\t},\n";
+		}
+
 		lowerBlock << "\t},\n";
 
 
@@ -432,6 +497,30 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 			lowerBlock << "\t\t.competitiveSets = sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << ",\n";
 			lowerBlock << "\t\t.competitiveSetCount = ARRAY_COUNT(sCompetitiveSets_" << profile.m_Species[0] << sourceSuffix << "),\n";
 			lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << sourceSuffix << ",\n";
+
+			if (profile.m_HasBaseStats)
+			{
+				lowerBlock << "\t\t.baseStats = \n\t\t{\n";
+				lowerBlock << "\t\t\t.baseHP = " << profile.m_BaseStats.m_HP << ",\n";
+				lowerBlock << "\t\t\t.baseAttack = " << profile.m_BaseStats.m_Attack << ",\n";
+				lowerBlock << "\t\t\t.baseDefense = " << profile.m_BaseStats.m_Defense << ",\n";
+				lowerBlock << "\t\t\t.baseSpeed = " << profile.m_BaseStats.m_Speed << ",\n";
+				lowerBlock << "\t\t\t.baseSpAttack = " << profile.m_BaseStats.m_SpAttack << ",\n";
+				lowerBlock << "\t\t\t.baseSpDefense = " << profile.m_BaseStats.m_SpDefense << ",\n";
+
+				lowerBlock << "\t\t\t.types = { ";
+				for (std::string const& type : profile.m_BaseStats.m_Types)
+					lowerBlock << type << ", ";
+				lowerBlock << "},\n";
+
+				lowerBlock << "\t\t\t.abilities = { ";
+				for (std::string const& ability : profile.m_BaseStats.m_Abilities)
+					lowerBlock << ability << ", ";
+				lowerBlock << "},\n";
+
+				lowerBlock << "\t\t},\n";
+			}
+
 			lowerBlock << "\t},\n";
 		}
 	}
