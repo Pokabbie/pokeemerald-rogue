@@ -79,6 +79,7 @@
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_pokedex.h"
+#include "rogue_settings.h"
 
 
 #define PARTY_PAL_SELECTED     (1 << 0)
@@ -2030,8 +2031,9 @@ u8 GetTutorMovesForSpecies(u16 species, u16 *tutorMoves, u16 tutorMovesCapacity)
 {
     u16 read = 0;
     u16 write = 0;
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
-    for(read = 0; gRoguePokemonProfiles[species].tutorMoves[read] != MOVE_NONE; ++read)
+    for(read = 0; pokemonProfile->tutorMoves[read] != MOVE_NONE; ++read)
     {
         if(write >= tutorMovesCapacity)
         {
@@ -2040,10 +2042,10 @@ u8 GetTutorMovesForSpecies(u16 species, u16 *tutorMoves, u16 tutorMovesCapacity)
         }
 
         // If this move has a TM, ignore it
-        if(BattleMoveIdToItemId(gRoguePokemonProfiles[species].tutorMoves[read]) != ITEM_NONE)
+        if(BattleMoveIdToItemId(pokemonProfile->tutorMoves[read]) != ITEM_NONE)
             continue;
 
-        tutorMoves[write++] = gRoguePokemonProfiles[species].tutorMoves[read];
+        tutorMoves[write++] = pokemonProfile->tutorMoves[read];
     }
 
     return write;

@@ -49,6 +49,7 @@ bool8 Rogue_FastBattleAnims(void);
 u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar);
 bool8 Rogue_UseKeyBattleAnims(void);
 bool8 Rogue_GetBattleAnimsEnabled(void);
+bool8 Rogue_GetRevisionModeActive(void);
 bool8 Rogue_UseFinalQuestEffects(void);
 bool8 Rogue_AssumeFinalQuestFakeChamp(void);
 bool8 Rogue_IsFinalQuestFinalBoss(void);

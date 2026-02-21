@@ -1551,16 +1551,17 @@ void Rogue_FeedMonPie()
 static bool32 CanSpeciesLearnMove(u16 species, u16 move)
 {
     u32 i;
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
-    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+    for (i = 0; pokemonProfile->levelUpMoves[i].move != MOVE_NONE; i++)
     {
-        if(gRoguePokemonProfiles[species].levelUpMoves[i].move == move)
+        if(pokemonProfile->levelUpMoves[i].move == move)
             return TRUE;
     }
 
-    for (i = 0; gRoguePokemonProfiles[species].tutorMoves[i] != MOVE_NONE; i++)
+    for (i = 0; pokemonProfile->tutorMoves[i] != MOVE_NONE; i++)
     {
-        if(gRoguePokemonProfiles[species].tutorMoves[i] == move)
+        if(pokemonProfile->tutorMoves[i] == move)
             return TRUE;
     }
 

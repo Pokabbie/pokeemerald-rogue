@@ -482,6 +482,20 @@ bool8 Rogue_GetBattleAnimsEnabled(void)
     return GetBattleSceneOption() != OPTIONS_BATTLE_SCENE_DISABLED;
 }
 
+bool8 Rogue_GetRevisionModeActive(void)
+{
+    switch(Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE))
+    {
+        case REVISION_MODE_ALWAYS_ON:
+            return TRUE;
+
+        case REVISION_MODE_IN_RUN:
+            return Rogue_IsRunActive();
+    }
+
+    return FALSE;
+}
+
 bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck);
 
 bool8 Rogue_UseFinalQuestEffects(void)
@@ -7105,14 +7119,15 @@ static bool8 CanLearnMoveByLvl(u16 species, u16 move, s32 level)
 {
     u16 eggSpecies;
     s32 i;
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
-    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+    for (i = 0; pokemonProfile->levelUpMoves[i].move != MOVE_NONE; i++)
     {
         u16 moveLevel;
 
-        if(move == gRoguePokemonProfiles[species].levelUpMoves[i].move)
+        if(move == pokemonProfile->levelUpMoves[i].move)
         {
-            moveLevel = gRoguePokemonProfiles[species].levelUpMoves[i].level;
+            moveLevel = pokemonProfile->levelUpMoves[i].level;
 
             if (moveLevel > level)
                 return FALSE;
@@ -8004,7 +8019,8 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
         else if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_WILD_DEN)
         {
             u16 presetIndex;
-            u16 presetCount = gRoguePokemonProfiles[species].competitiveSetCount;
+            struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
+            u16 presetCount = pokemonProfile->competitiveSetCount;
             u16 statA = (Random() % 6);
             //u16 statB = (statA + 1 + (Random() % 5)) % 6;
             u16 temp = 31;
@@ -8015,7 +8031,7 @@ void Rogue_ModifyWildMon(struct Pokemon* mon)
                 memset(&rules, 0, sizeof(rules));
 
                 presetIndex = Random() % presetCount;
-                Rogue_ApplyMonCompetitiveSet(mon, GetMonData(mon, MON_DATA_LEVEL), &gRoguePokemonProfiles[species].competitiveSets[presetIndex], &rules);
+                Rogue_ApplyMonCompetitiveSet(mon, GetMonData(mon, MON_DATA_LEVEL), &pokemonProfile->competitiveSets[presetIndex], &rules);
             }
 
             // Clear friendship

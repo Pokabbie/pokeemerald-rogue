@@ -726,6 +726,7 @@ u32 RogueGift_CreateDynamicMonId(u8 rarity, u16 species)
     u32 temp;
     struct CompressedDynamicData compressedData = {0};
     struct CustomTrainerData const* trainerData = &sCustomTrainers[sRarityToCustomTrainerIndex[rarity]];
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
     // Start query with moves which are valid
     RogueCustomQuery_Begin();
@@ -735,14 +736,14 @@ u32 RogueGift_CreateDynamicMonId(u8 rarity, u16 species)
         RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, sDynamicCustomMonMoves[i]);
     }
 
-    for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+    for (i = 0; pokemonProfile->levelUpMoves[i].move != MOVE_NONE; i++)
     {
-        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRoguePokemonProfiles[species].levelUpMoves[i].move);
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, pokemonProfile->levelUpMoves[i].move);
     }
 
-    for (i = 0; gRoguePokemonProfiles[species].tutorMoves[i] != MOVE_NONE; i++)
+    for (i = 0; pokemonProfile->tutorMoves[i] != MOVE_NONE; i++)
     {
-        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, gRoguePokemonProfiles[species].tutorMoves[i]);
+        RogueMiscQuery_EditElement(QUERY_FUNC_EXCLUDE, pokemonProfile->tutorMoves[i]);
     }
 
     switch (rarity)

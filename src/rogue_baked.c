@@ -57,6 +57,9 @@ extern const struct BaseStats gBaseStats[];
 #define ROGUE_BAKE_VALID
 #endif
 
+extern const struct RoguePokemonProfile gRoguePokemonProfiles[NUM_SPECIES];
+extern const struct RoguePokemonProfile gRoguePokemonProfiles_Revised[NUM_SPECIES];
+
 extern const u8 gText_TrainerName_Brendan[];
 extern const u8 gText_TrainerName_May[];
 extern const u8 gText_TrainerName_Red[];
@@ -211,18 +214,20 @@ static u8 GetMaxEvolutionCountInternal(u16 species)
 
 static void ModifyKnowMoveEvo(u16 species, struct Evolution* outEvo, u16 fromMethod, u16 toMethod)
 {
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
+
     if(outEvo->method == fromMethod)
     {
         // While baking just assume everything is lvl 30 evo
 #ifndef ROGUE_BAKING
         u16 i;
 
-        for (i = 0; gRoguePokemonProfiles[species].levelUpMoves[i].move != MOVE_NONE; i++)
+        for (i = 0; pokemonProfile->levelUpMoves[i].move != MOVE_NONE; i++)
         {
-            if(gRoguePokemonProfiles[species].levelUpMoves[i].move == outEvo->param)
+            if(pokemonProfile->levelUpMoves[i].move == outEvo->param)
             {
                 outEvo->method = toMethod;
-                outEvo->param = max(38, gRoguePokemonProfiles[species].levelUpMoves[i].level);
+                outEvo->param = max(38, pokemonProfile->levelUpMoves[i].level);
                 break;
             }
         }
@@ -1893,6 +1898,17 @@ u32 Rogue_ModifyExperienceTables(u8 growthRate, u8 level)
     return level * 300;//MAX_LEVEL;
 }
 
+struct RoguePokemonProfile const* Rogue_GetPokemonProfile(u32 species)
+{
+    if(Rogue_GetRevisionModeActive())
+    {
+        return &gRoguePokemonProfiles_Revised[species];
+    }
+    else
+    {
+        return &gRoguePokemonProfiles[species];
+    }
+}
 
 // Taken straight from daycare
 u16 Rogue_GetEggSpecies(u16 species)
@@ -2069,11 +2085,12 @@ u32 Rogue_GetMonFlags(u16 species)
 {
     u32 flags = 0;
 #ifndef ROGUE_BAKING
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 #ifdef ROGUE_EXPANSION
     //u16 species2;;
 #endif
 
-    flags = gRoguePokemonProfiles[species].monFlags;
+    flags = pokemonProfile->monFlags;
 
 #ifdef ROGUE_EXPANSION
     //species2 = GET_BASE_SPECIES_ID(species);

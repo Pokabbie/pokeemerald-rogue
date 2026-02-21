@@ -1215,16 +1215,17 @@ static u32 CalculatePresetDisplayScore(struct Pokemon* mon, struct RoguePokemonC
 static struct RoguePokemonCompetitiveSet const* SelectMonPreset(struct Pokemon* mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
-    if(gRoguePokemonProfiles[species].competitiveSetCount != 0)
+    if(pokemonProfile->competitiveSetCount != 0)
     {
         u16 i;
         u16 bestIdx = 0;
-        u32 bestScore = CalculatePresetDisplayScore(mon, &gRoguePokemonProfiles[species].competitiveSets[0]);
+        u32 bestScore = CalculatePresetDisplayScore(mon, &pokemonProfile->competitiveSets[0]);
 
-        for(i = 1; i < gRoguePokemonProfiles[species].competitiveSetCount; ++i)
+        for(i = 1; i < pokemonProfile->competitiveSetCount; ++i)
         {
-            u32 score = CalculatePresetDisplayScore(mon, &gRoguePokemonProfiles[species].competitiveSets[i]);
+            u32 score = CalculatePresetDisplayScore(mon, &pokemonProfile->competitiveSets[i]);
 
             if(score > bestScore)
             {
@@ -1233,7 +1234,7 @@ static struct RoguePokemonCompetitiveSet const* SelectMonPreset(struct Pokemon* 
             }
         }
 
-        return &gRoguePokemonProfiles[species].competitiveSets[bestIdx];
+        return &pokemonProfile->competitiveSets[bestIdx];
     }
 
     return NULL;

@@ -527,7 +527,8 @@
 #define CONFIG_RANGE_POKEDEX_VARIANT        4
 #define CONFIG_RANGE_GAME_MODE_NUM          5
 #define CONFIG_RANGE_DIFFICULTY_PRESET      6
-#define CONFIG_RANGE_COUNT                  7
+#define CONFIG_RANGE_REVISION_MODE          7
+#define CONFIG_RANGE_COUNT                  8
 
 #define DEBUG_START_VALUE           0x7FFF
 
@@ -559,6 +560,11 @@
 #define BATTLE_FORMAT_DOUBLES   1
 #define BATTLE_FORMAT_MIXED     2
 #define BATTLE_FORMAT_COUNT     3
+
+#define REVISION_MODE_NEVER         0
+#define REVISION_MODE_IN_RUN        1
+#define REVISION_MODE_ALWAYS_ON     2
+#define REVISION_MODE_COUNT         3
 
 
 // Game Modes
