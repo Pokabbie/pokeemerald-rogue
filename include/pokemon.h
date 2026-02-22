@@ -531,7 +531,8 @@ extern u8 gEnemyPartyCount;
 extern struct Pokemon gEnemyParty[PARTY_SIZE];
 extern struct SpriteTemplate gMultiuseSpriteTemplate;
 
-extern const struct BattleMove gBattleMoves[];
+extern const struct BattleMove gBattleMoves_Mainline[];
+extern const struct BattleMove gBattleMoves_Revised[];
 extern const u8 gFacilityClassToPicIndex[];
 extern const u8 gFacilityClassToTrainerClass[];
 extern const struct SpeciesInfo gSpeciesInfo[];
@@ -545,6 +546,9 @@ extern const u16 gUnionRoomFacilityClasses[];
 extern const struct SpriteTemplate gBattlerSpriteTemplates[];
 extern const s8 gNatureStatTable[][5];
 extern const u32 sExpCandyExperienceTable[];
+
+bool8 Rogue_GetRevisionModeActive(void);
+#define gBattleMoves (Rogue_GetRevisionModeActive() ? gBattleMoves_Revised : gBattleMoves_Mainline)
 
 void ZeroBoxMonData(struct BoxPokemon *boxMon);
 void ZeroMonData(struct Pokemon *mon);
