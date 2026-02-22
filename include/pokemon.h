@@ -282,7 +282,8 @@ extern u8 gEnemyPartyCount;
 extern struct Pokemon gEnemyParty[PARTY_SIZE];
 extern struct SpriteTemplate gMultiuseSpriteTemplate;
 
-extern const struct BattleMove gBattleMoves[];
+extern const struct BattleMove gBattleMoves_Mainline[];
+extern const struct BattleMove gBattleMoves_Revised[];
 extern const u8 gFacilityClassToPicIndex[];
 extern const u8 gFacilityClassToTrainerClass[];
 extern const struct BaseStats gBaseStats[];
@@ -295,6 +296,9 @@ extern const u8 gStatStageRatios[MAX_STAT_STAGE + 1][2];
 extern const u16 gLinkPlayerFacilityClasses[];
 extern const struct SpriteTemplate gBattlerSpriteTemplates[];
 extern const s8 gNatureStatTable[][5];
+
+bool8 Rogue_GetRevisionModeActive(void);
+#define gBattleMoves (Rogue_GetRevisionModeActive() ? gBattleMoves_Revised : gBattleMoves_Mainline)
 
 void ZeroBoxMonData(struct BoxPokemon *boxMon);
 void ZeroMonData(struct Pokemon *mon);

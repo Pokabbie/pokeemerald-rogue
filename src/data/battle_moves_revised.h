@@ -1,4 +1,4 @@
-const struct BattleMove gBattleMoves_Mainline[MOVES_COUNT] =
+const struct BattleMove gBattleMoves_Revised[MOVES_COUNT] =
 {
     [MOVE_NONE] =
     {
@@ -1995,7 +1995,7 @@ const struct BattleMove gBattleMoves_Mainline[MOVES_COUNT] =
         .power = 250,
         .type = TYPE_NORMAL,
         .accuracy = 100,
-        .pp = 5,
+        .pp = 50, // temp change - do not keep
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_FOES_AND_ALLY,
         .priority = 0,
