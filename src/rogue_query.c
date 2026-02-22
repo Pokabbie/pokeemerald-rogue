@@ -1582,7 +1582,11 @@ void RogueMoveQuery_Reset(u8 func)
 
     ASSERT_MOVES_QUERY;
 
+#ifdef ROGUE_EXPANSION
     for(i = MOVE_NONE + 1; i < QUERY_NUM_MOVES; ++i) // ITERATOR_INC(i) ?
+#else
+    for(i = MOVE_NONE + 1; i < Rogue_GetRevisionModeActive() ? MOVES_COUNT_REVISED : MOVES_COUNT_MAINLINE; ++i) // ITERATOR_INC(i) ?
+#endif
     {
         if(func == QUERY_FUNC_INCLUDE)
         {

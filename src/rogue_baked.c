@@ -2071,9 +2071,95 @@ static const u8 sSwallowDescription[] = _(
     "Recovers up to half the\n"
     "user's maximum HP.");
     
+
 static const u8 sWaterfallDescription[] = _(
     "A ramming attack that may\n"
     "cause flinching.");
+
+static const u8 sAirSlashDescription[] = _(
+    "Attacks with a blade of\n"
+    "air. May cause flinching.");
+
+static const u8 sAquaJetDescription[] = _(
+    "Strikes first by dashing\n"
+    "at the foe at a high speed.");
+
+static const u8 sBraveBirdDescription[] = _(
+    "A low altitude charge that\n"
+    "also hurts the user.");
+
+static const u8 sBugBuzzDescription[] = _(
+    "A damaging wave that may\n"
+    "lower DEF.");
+
+static const u8 sBulletPunchDescription[] = _(
+    "Punches as fast as a bul-\n"
+    "let. It always hits first.");
+
+static const u8 sDarkPulseDescription[] = _(
+    "Attacks with a horrible\n"
+    "aura. May cause flinching.");
+
+static const u8 sDoubleIronBashDescription[] = _(
+    "The user spins and hits with\n"
+    "its arms.");
+
+static const u8 sDracoMeteorDescription[] = _(
+    "Casts comets onto the foe.\n"
+    "Harshly lowers the SP. ATK.");
+
+static const u8 sDrillRunDescription[] = _(
+    "Spins its body like a drill.\n"
+    "High critical-hit ratio.");
+    
+static const u8 sDualWingbeatDescription[] = _(
+    "User slams the target with\n"
+    "wings and hits twice in a row.");
+    
+static const u8 sEarthPowerDescription[] = _(
+    "Makes the ground erupt with\n"
+    "power. May lower SP. DEF.");
+
+static const u8 sFirePledgeDescription[] = _(
+    "Attacks with a column of\n"
+    "fire.");
+
+static const u8 sFlashCannonDescription[] = _(
+    "Releases a blast of light\n"
+    "that may lower DEF.");
+
+static const u8 sForcePalmDescription[] = _(
+    "A shock wave attack that\n"
+    "may paralyze the foe.");
+
+static const u8 sHeadSmashDescription[] = _(
+    "A life-risking headbutt that\n"
+    "seriously hurts the user.");
+
+static const u8 sIceShardDescription[] = _(
+    "Hurls a chunk of ice that\n"
+    "always strike first.");
+
+static const u8 sIcicleCrashDescription[] = _(
+    "Drops large icicles on the\n"
+    "foe. May cause flinching.");
+
+static const u8 sOminousWindDescription[] = _(
+    "A repulsive attack that may\n"
+    "raise all stats.");
+
+static const u8 sNightSlashDescription[] = _(
+    "Hits as soon as possible.\n"
+    "High critical-hit ratio.");
+
+static const u8 sShadowSneakDescription[] = _(
+    "Extends the user's shadow\n"
+    "to strike first.");
+
+static const u8 sXScissorDescription[] = _(
+    "Slashes the foe with crossed\n"
+    "scythes, claws, etc.");
+
 #endif
 
 u8 const* Rogue_TryOverrideMoveDescription(u16 move)
@@ -2129,6 +2215,55 @@ u8 const* Rogue_TryOverrideMoveDescription(u16 move)
 
         case MOVE_WATERFALL:
             return sWaterfallDescription;
+
+
+        case MOVE_AIR_SLASH:
+            return sAirSlashDescription;
+        case MOVE_AQUA_JET:
+            return sAquaJetDescription;
+        case MOVE_BRAVE_BIRD:
+            return sBraveBirdDescription;
+        case MOVE_BUG_BUZZ:
+            return sBugBuzzDescription;
+
+        case MOVE_BULLET_PUNCH:
+            return sBulletPunchDescription;
+        case MOVE_DARK_PULSE:
+            return sDarkPulseDescription;
+        case MOVE_DOUBLE_IRON_BASH:
+            return sDoubleIronBashDescription;
+        case MOVE_DRACO_METEOR:
+            return sDracoMeteorDescription;
+
+        case MOVE_DRILL_RUN:
+            return sDrillRunDescription;
+        case MOVE_DUAL_WINGBEAT:
+            return sDualWingbeatDescription;
+        case MOVE_EARTH_POWER:
+            return sEarthPowerDescription;
+        case MOVE_FIRE_PLEDGE:
+            return sFirePledgeDescription;
+
+        case MOVE_FLASH_CANNON:
+            return sFlashCannonDescription;
+        case MOVE_FORCE_PALM:
+            return sForcePalmDescription;
+        case MOVE_HEAD_SMASH:
+            return sHeadSmashDescription;
+        case MOVE_ICE_SHARD:
+            return sIceShardDescription;
+
+        case MOVE_ICICLE_CRASH:
+            return sIcicleCrashDescription;
+        case MOVE_NIGHT_SLASH:
+            return sNightSlashDescription;
+        case MOVE_OMINOUS_WIND:
+            return sOminousWindDescription;
+        case MOVE_SHADOW_SNEAK:
+            return sShadowSneakDescription;
+
+        case MOVE_X_SCISSOR:
+            return sXScissorDescription;
         }
 #endif
     }
