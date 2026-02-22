@@ -5215,7 +5215,7 @@ u16 BattleMoveIdToItemId(u16 move)
             return ITEM_TM01 + i;
     }
 
-    for(i = 0; i < NUM_TECHNICAL_RECORDS; ++i)
+    for(i = 0; i < NUM_TECHNICAL_RECORDS_IN_USE; ++i)
     {
         if(Rogue_GetTRMove(i) == move)
             return ITEM_TR01 + i;

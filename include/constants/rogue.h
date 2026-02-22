@@ -179,7 +179,13 @@
 
 #define FIRST_ITEM_TR                   ITEM_TR01
 #define LAST_ITEM_TR                    ITEM_TR50
-#define NUM_TECHNICAL_RECORDS           50
+#define CAPACITY_TECHNICAL_RECORDS      50
+
+#ifdef ROGUE_EXPANSION
+#define NUM_TECHNICAL_RECORDS_IN_USE    CAPACITY_TECHNICAL_RECORDS
+#else
+#define NUM_TECHNICAL_RECORDS_IN_USE    25
+#endif
 
 #define ITEM_SORT_MODE_TYPE         0
 #define ITEM_SORT_MODE_NAME         1
