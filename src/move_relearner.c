@@ -173,6 +173,19 @@ enum {
 #define TEACH_STATE_EGG_MOVES     1
 #define TEACH_STATE_TUTOR_MOVES   2
 
+
+enum
+{
+    CUSTOM_TEXT_COLOR_RED = 0,
+    CUSTOM_TEXT_COLOR_BLUE,
+};
+
+static const u8 sTextColors[][3] =
+{
+    [CUSTOM_TEXT_COLOR_RED] = {0, 4, 5},
+    [CUSTOM_TEXT_COLOR_BLUE] = {0, 8, 9}
+};
+
 static EWRAM_DATA struct
 {
     u8 state;
@@ -417,6 +430,11 @@ static const struct ListMenuTemplate sMoveRelearnerMovesListTemplate =
     .fontId = FONT_NORMAL,
     .cursorKind = 0
 };
+
+static void PrintCustomColoredText(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 speed, u8 color)
+{
+    AddTextPrinterParameterized4(windowId, fontId, x, y, gFonts[fontId].letterSpacing, gFonts[fontId].lineSpacing, sTextColors[color], speed, str);
+}
 
 static void VBlankCB_MoveRelearner(void)
 {
@@ -1327,7 +1345,15 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
 
     x += GetStringWidth(FONT_NORMAL, gText_MoveRelearnerPP, 0);
     ConvertIntToDecimalStringN(buffer, move->pp, STR_CONV_MODE_LEFT_ALIGN, 2);
-    AddTextPrinterParameterized(0, FONT_NORMAL, buffer, x, yStatHeight, TEXT_SKIP_DRAW, NULL);
+
+    if(Rogue_HasMoveBeenRevised(chosenMove) && gBattleMoves_Mainline[chosenMove].pp != gBattleMoves_Revised[chosenMove].pp)
+    {
+        PrintCustomColoredText(0, FONT_NORMAL, buffer, x, yStatHeight, TEXT_SKIP_DRAW, CUSTOM_TEXT_COLOR_BLUE);
+    }
+    else
+    {
+        AddTextPrinterParameterized(0, FONT_NORMAL, buffer, x, yStatHeight, TEXT_SKIP_DRAW, NULL);
+    }
 
     // Power
     x = 40;
@@ -1343,7 +1369,15 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
         str = buffer;
     }
     x += GetStringWidth(FONT_NORMAL, gText_MoveRelearnerPower, 0);
-    AddTextPrinterParameterized(0, FONT_NORMAL, str, x, yStatHeight, TEXT_SKIP_DRAW, NULL);
+    
+    if(Rogue_HasMoveBeenRevised(chosenMove) && gBattleMoves_Mainline[chosenMove].power != gBattleMoves_Revised[chosenMove].power)
+    {
+        PrintCustomColoredText(0, FONT_NORMAL, str, x, yStatHeight, TEXT_SKIP_DRAW, CUSTOM_TEXT_COLOR_BLUE);
+    }
+    else
+    {
+        AddTextPrinterParameterized(0, FONT_NORMAL, str, x, yStatHeight, TEXT_SKIP_DRAW, NULL);
+    }
 
     // Accuracy
     x = 85;
@@ -1359,7 +1393,15 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
         str = buffer;
     }
     x += GetStringWidth(FONT_NORMAL, gText_MoveRelearnerAccuracy, 0);
-    AddTextPrinterParameterized(0, FONT_NORMAL, str, x, yStatHeight, TEXT_SKIP_DRAW, NULL);
+
+    if(Rogue_HasMoveBeenRevised(chosenMove) && gBattleMoves_Mainline[chosenMove].accuracy != gBattleMoves_Revised[chosenMove].accuracy)
+    {
+        PrintCustomColoredText(0, FONT_NORMAL, str, x, yStatHeight, TEXT_SKIP_DRAW, CUSTOM_TEXT_COLOR_BLUE);
+    }
+    else
+    {
+        AddTextPrinterParameterized(0, FONT_NORMAL, str, x, yStatHeight, TEXT_SKIP_DRAW, NULL);
+    }
 
     // Price
     if(DoesTeachingCostMoney())
@@ -1376,8 +1418,20 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
 
 
     // Description
-    str = gMoveDescriptionPointers[chosenMove - 1];
-    AddTextPrinterParameterized(0, FONT_NARROW, str, 0, yDescHeight, 0, NULL);
+    {
+        u8 const* overrideDesc = Rogue_TryOverrideMoveDescription(chosenMove);   
+
+        if(overrideDesc != NULL)
+        {
+            str = overrideDesc;
+            PrintCustomColoredText(0, FONT_NARROW, str, 0, yDescHeight, 0, CUSTOM_TEXT_COLOR_BLUE);
+        }
+        else
+        {
+            str = gMoveDescriptionPointers[chosenMove - 1];
+            AddTextPrinterParameterized(0, FONT_NARROW, str, 0, yDescHeight, 0, NULL);
+        }
+    }
 }
 
 static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
