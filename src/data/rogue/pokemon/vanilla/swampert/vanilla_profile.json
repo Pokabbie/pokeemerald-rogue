@@ -237,5 +237,14 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SWIFT_SWIM",
+      "ABILITY_NONE"
+    ]
+  }
 }

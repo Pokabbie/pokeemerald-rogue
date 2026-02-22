@@ -116,5 +116,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_DRIZZLE",
+      "ABILITY_KEEN_EYE"
+    ]
+  }
 }

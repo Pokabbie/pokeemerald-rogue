@@ -107,5 +107,14 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_BATTLE_ARMOR",
+      "ABILITY_NONE"
+    ]
+  }
 }

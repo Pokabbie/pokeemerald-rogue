@@ -149,5 +149,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_NATURAL_CURE",
+      "ABILITY_CLOUD_NINE"
+    ]
+  }
 }

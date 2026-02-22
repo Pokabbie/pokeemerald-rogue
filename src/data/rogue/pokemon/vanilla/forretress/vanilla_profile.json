@@ -142,5 +142,14 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SHELL_ARMOR",
+      "ABILITY_NONE"
+    ]
+  }
 }

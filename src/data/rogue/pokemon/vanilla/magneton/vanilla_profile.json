@@ -126,5 +126,14 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_MAGNET_PULL",
+      "ABILITY_NONE"
+    ]
+  }
 }

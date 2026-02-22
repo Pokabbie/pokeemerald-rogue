@@ -113,5 +113,14 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_TRACE",
+      "ABILITY_INSOMNIA"
+    ]
+  }
 }

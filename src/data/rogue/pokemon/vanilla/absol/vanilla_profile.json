@@ -173,5 +173,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SERENE_GRACE",
+      "ABILITY_NONE"
+    ]
+  }
 }

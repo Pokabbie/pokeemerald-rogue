@@ -95,5 +95,13 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "18", "Species": "SPECIES_WEEPINBELL" }
+    ]
+  }
 }

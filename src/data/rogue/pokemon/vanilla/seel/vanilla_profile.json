@@ -75,5 +75,18 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SWIFT_SWIM",
+      "ABILITY_THICK_FAT"
+    ],
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "26", "Species": "SPECIES_DEWGONG" }
+    ]
+  }
 }

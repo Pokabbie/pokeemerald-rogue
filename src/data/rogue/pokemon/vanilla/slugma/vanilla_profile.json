@@ -74,5 +74,18 @@
     "MOVE_SWAGGER",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_BLAZE",
+      "ABILITY_SHELL_ARMOR"
+    ],
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "18", "Species": "SPECIES_MAGCARGO" }
+    ]
+  }
 }

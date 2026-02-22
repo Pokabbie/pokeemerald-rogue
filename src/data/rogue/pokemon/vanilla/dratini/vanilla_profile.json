@@ -89,5 +89,14 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SHED_SKIN",
+      "ABILITY_MARVEL_SCALE"
+    ]
+  }
 }

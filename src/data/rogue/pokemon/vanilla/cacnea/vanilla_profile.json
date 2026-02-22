@@ -130,5 +130,13 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "25", "Species": "SPECIES_CACTURNE" }
+    ]
+  }
 }

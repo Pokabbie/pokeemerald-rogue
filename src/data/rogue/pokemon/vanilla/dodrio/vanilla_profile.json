@@ -106,5 +106,14 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_VITAL_SPIRIT",
+      "ABILITY_ROCK_HEAD"
+    ]
+  }
 }

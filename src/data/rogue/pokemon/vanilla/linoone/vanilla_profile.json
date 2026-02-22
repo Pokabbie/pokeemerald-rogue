@@ -149,5 +149,14 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_LIMBER",
+      "ABILITY_NONE"
+    ]
+  }
 }

@@ -109,5 +109,14 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_MAGNET_PULL",
+      "ABILITY_NONE"
+    ]
+  }
 }

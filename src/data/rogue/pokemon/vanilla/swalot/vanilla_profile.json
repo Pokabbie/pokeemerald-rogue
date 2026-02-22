@@ -179,5 +179,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_LIQUID_OOZE",
+      "ABILITY_NONE"
+    ]
+  }
 }

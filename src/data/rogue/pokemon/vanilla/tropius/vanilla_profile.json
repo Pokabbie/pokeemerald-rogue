@@ -204,5 +204,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_THICK_FAT",
+      "ABILITY_CHLOROPHYLL"
+    ]
+  }
 }

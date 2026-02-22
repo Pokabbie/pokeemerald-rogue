@@ -152,5 +152,14 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_DRIZZLE",
+      "ABILITY_DAMP"
+    ]
+  }
 }

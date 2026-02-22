@@ -145,5 +145,13 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "40", "Species": "SPECIES_GLALIE" }
+    ]
+  }
 }

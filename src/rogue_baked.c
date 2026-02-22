@@ -2,6 +2,7 @@
 // This file is shared between the game src and the offline bake to assist in making 
 // queries and other stuff which can be prepared offline a bit faster
 //
+#include "constants/abilities.h"
 #include "constants/battle_ai.h"
 #include "constants/items.h"
 #include "constants/pokemon.h"
@@ -1937,20 +1938,30 @@ void Rogue_GetPokemonBaseStats(u32 species, struct RoguePokemonBaseStats* outSta
 
 void Rogue_GetPokemonBaseStatsFor(u32 species, struct RoguePokemonBaseStats* outStats, bool8 isRevised)
 {
-    if (isRevised && gRoguePokemonProfiles_Revised[species].baseStats.baseHP != 0)
+    if (isRevised)
     {
         memcpy(outStats, &gRoguePokemonProfiles_Revised[species].baseStats, sizeof(struct RoguePokemonBaseStats));
     }
     else
     {
-        u32 i;
-
+        outStats->baseHP = 0;
+        outStats->types[0] = TYPE_NONE;
+        outStats->abilities[0] = ABILITY_NONE;
+    }
+    
+    if(outStats->baseHP == 0)
+    {
         outStats->baseHP = gRogueSpeciesInfo[species].baseHP;
         outStats->baseAttack = gRogueSpeciesInfo[species].baseAttack;
         outStats->baseDefense = gRogueSpeciesInfo[species].baseDefense;
         outStats->baseSpeed = gRogueSpeciesInfo[species].baseSpeed;
         outStats->baseSpAttack = gRogueSpeciesInfo[species].baseSpAttack;
         outStats->baseSpDefense = gRogueSpeciesInfo[species].baseSpDefense;
+    }
+
+
+    if(outStats->types[0] == TYPE_NONE)
+    {
 #ifdef ROGUE_EXPANSION
         outStats->types[0] = gRogueSpeciesInfo[species].types[0];
         outStats->types[1] = gRogueSpeciesInfo[species].types[1];
@@ -1958,7 +1969,11 @@ void Rogue_GetPokemonBaseStatsFor(u32 species, struct RoguePokemonBaseStats* out
         outStats->types[0] = gRogueSpeciesInfo[species].type1;
         outStats->types[1] = gRogueSpeciesInfo[species].type2;
 #endif
+    }
 
+    if(outStats->abilities[0] == ABILITY_NONE)
+    {
+        u32 i;
         for (i = 0; i < NUM_ABILITY_SLOTS; ++i)
         {
             outStats->abilities[i] = gRogueSpeciesInfo[species].abilities[i];

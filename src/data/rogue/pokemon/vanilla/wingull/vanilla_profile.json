@@ -74,5 +74,14 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATER_SPORT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_RAIN_DISH",
+      "ABILITY_KEEN_EYE"
+    ]
+  }
 }

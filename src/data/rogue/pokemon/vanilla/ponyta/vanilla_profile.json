@@ -159,5 +159,18 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_BLAZE",
+      "ABILITY_NONE"
+    ],
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "27", "Species": "SPECIES_RAPIDASH" }
+    ]
+  }
 }

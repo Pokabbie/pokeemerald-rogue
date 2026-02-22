@@ -189,5 +189,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_LIQUID_OOZE",
+      "ABILITY_POISON_POINT"
+    ]
+  }
 }

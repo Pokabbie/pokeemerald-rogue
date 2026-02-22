@@ -109,5 +109,18 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_RAIN_DISH",
+      "ABILITY_NONE"
+    ],
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "30", "Species": "SPECIES_CRADILY" }
+    ]
+  }
 }

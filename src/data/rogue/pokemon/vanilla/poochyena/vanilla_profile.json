@@ -91,5 +91,14 @@
     "MOVE_TOXIC",
     "MOVE_YAWN"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_INTIMIDATE",
+      "ABILITY_NONE"
+    ]
+  }
 }

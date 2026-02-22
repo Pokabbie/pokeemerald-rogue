@@ -205,5 +205,14 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_THICK_FAT",
+      "ABILITY_MARVEL_SCALE"
+    ]
+  }
 }

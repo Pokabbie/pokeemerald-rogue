@@ -130,5 +130,14 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_INNER_FOCUS",
+      "ABILITY_NONE"
+    ]
+  }
 }

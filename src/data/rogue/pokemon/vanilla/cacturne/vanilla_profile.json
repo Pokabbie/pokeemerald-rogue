@@ -210,5 +210,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_WATER_ABSORB",
+      "ABILITY_ROUGH_SKIN"
+    ]
+  }
 }

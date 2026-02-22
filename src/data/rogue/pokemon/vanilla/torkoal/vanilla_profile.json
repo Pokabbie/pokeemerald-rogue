@@ -215,5 +215,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_DROUGHT",
+      "ABILITY_SHELL_ARMOR"
+    ]
+  }
 }

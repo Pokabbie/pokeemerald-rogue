@@ -155,5 +155,13 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "28", "Species": "SPECIES_GRUMPIG" }
+    ]
+  }
 }

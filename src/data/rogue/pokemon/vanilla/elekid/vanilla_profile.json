@@ -132,5 +132,14 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_VOLT_ABSORB",
+      "ABILITY_STATIC"
+    ]
+  }
 }

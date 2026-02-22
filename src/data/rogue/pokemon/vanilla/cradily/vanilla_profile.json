@@ -182,5 +182,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_RAIN_DISH",
+      "ABILITY_NONE"
+    ]
+  }
 }

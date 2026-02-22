@@ -72,5 +72,14 @@
     "MOVE_TOXIC",
     "MOVE_WISH"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_GUTS",
+      "ABILITY_NONE"
+    ]
+  }
 }

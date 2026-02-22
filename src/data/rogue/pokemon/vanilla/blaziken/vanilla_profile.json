@@ -222,5 +222,14 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SPEED_BOOST",
+      "ABILITY_BLAZE"
+    ]
+  }
 }

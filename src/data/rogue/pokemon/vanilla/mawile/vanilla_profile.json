@@ -201,5 +201,14 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_INTIMIDATE",
+      "ABILITY_NONE"
+    ]
+  }
 }

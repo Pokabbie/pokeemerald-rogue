@@ -87,5 +87,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_COMPOUND_EYES",
+      "ABILITY_NONE"
+    ]
+  }
 }

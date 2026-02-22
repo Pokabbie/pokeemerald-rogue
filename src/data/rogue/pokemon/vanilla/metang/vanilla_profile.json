@@ -193,5 +193,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_MAGNET_PULL",
+      "ABILITY_NONE"
+    ]
+  }
 }
