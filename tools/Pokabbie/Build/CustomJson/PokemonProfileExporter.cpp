@@ -18,6 +18,13 @@ struct CompetitiveSet
 	std::vector<std::string> m_SourceTiers;
 };
 
+struct Evolution
+{
+	std::string  m_Method;
+	std::string  m_Param;
+	std::string  m_Species;
+};
+
 struct LevelUpMove
 {
 	std::string m_Move;
@@ -42,6 +49,7 @@ struct PokemonProfile
 	std::vector<LevelUpMove> m_LevelUpMoves;
 	std::vector<std::string> m_TutorMoves;
 	std::vector<CompetitiveSet> m_CompetitiveSets;
+	std::vector<Evolution> m_Evolutions;
 	BaseStats m_BaseStats;
 	bool m_IsFallbackProfile = false;
 	bool m_HasBaseStats = false;
@@ -182,6 +190,19 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 		}
 	}
 
+	if (data.contains("Evolutions"))
+	{
+		for (json evoData : data["Evolutions"])
+		{
+			Evolution evo;
+			evo.m_Method = GetAsString(evoData["Method"]);
+			evo.m_Param = GetAsString(evoData["Param"]);
+			evo.m_Species = GetAsString(evoData["Species"]);
+
+			outProfile.m_Evolutions.push_back(evo);
+		}
+	}
+
 	// If we contain a revised move object inside of this file, we're going to append it to the existing base data
 	if (parseRevisedMode && data.contains("RevisedMode"))
 	{
@@ -266,6 +287,19 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 			if (outProfile.m_BaseStats.m_Types.size() == 1)
 			{
 				outProfile.m_BaseStats.m_Types.push_back(outProfile.m_BaseStats.m_Types[0]);
+			}
+		}
+
+		if (revisedData.contains("Evolutions"))
+		{
+			for (json evoData : revisedData["Evolutions"])
+			{
+				Evolution evo;
+				evo.m_Method = GetAsString(evoData["Method"]);
+				evo.m_Param = GetAsString(evoData["Param"]);
+				evo.m_Species = GetAsString(evoData["Species"]);
+
+				outProfile.m_Evolutions.push_back(evo);
 			}
 		}
 	}
@@ -525,6 +559,17 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 			upperBlock << "\tMOVE_NONE,\n";
 			upperBlock << "};\n\n";
 
+			// Evolutions
+			if (!profile.m_Evolutions.empty())
+			{
+				upperBlock << "static struct Evolution const sEvolutions_" << profile.m_Species[0] << exportSuffix << "[] = \n{\n";
+				for (Evolution const& evo : profile.m_Evolutions)
+				{
+					upperBlock << "\t{ .method=" << evo.m_Method << ", .param=" << evo.m_Param << ", .targetSpecies=" << evo.m_Species << " },\n";
+				}
+				upperBlock << "};\n\n";
+			}
+
 			// Comp sets
 			if (!profile.m_CompetitiveSets.empty())
 			{
@@ -587,6 +632,16 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 			lowerBlock << "\t\t.competitiveSets = NULL,\n";
 			lowerBlock << "\t\t.competitiveSetCount = 0,\n";
 		}
+		if (!profile.m_Evolutions.empty())
+		{
+			lowerBlock << "\t\t.evolutions = sEvolutions_" << profile.m_Species[0] << sourceSuffix << ",\n";
+			lowerBlock << "\t\t.evolutionCount = ARRAY_COUNT(sEvolutions_" << profile.m_Species[0] << sourceSuffix << "),\n";
+		}
+		else
+		{
+			lowerBlock << "\t\t.evolutions = NULL,\n";
+			lowerBlock << "\t\t.evolutionCount = 0,\n";
+		}
 		lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << sourceSuffix << ",\n";
 
 		if (profile.m_HasBaseStats)
@@ -630,6 +685,16 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 			{
 				lowerBlock << "\t\t.competitiveSets = NULL,\n";
 				lowerBlock << "\t\t.competitiveSetCount = 0,\n";
+			}
+			if (!profile.m_Evolutions.empty())
+			{
+				lowerBlock << "\t\t.evolutions = sEvolutions_" << profile.m_Species[0] << sourceSuffix << ",\n";
+				lowerBlock << "\t\t.evolutionCount = ARRAY_COUNT(sEvolutions_" << profile.m_Species[0] << sourceSuffix << "),\n";
+			}
+			else
+			{
+				lowerBlock << "\t\t.evolutions = NULL,\n";
+				lowerBlock << "\t\t.evolutionCount = 0,\n";
 			}
 			lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << sourceSuffix << ",\n";
 

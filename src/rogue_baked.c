@@ -183,6 +183,16 @@ static const struct Evolution sMeltanEvolutions[] =
 
 static const struct Evolution* GetBaseEvolution(u16 species, u8 evoIdx)
 {
+    // Only override evos in revision mode
+    if(Rogue_GetRevisionModeActive())
+    {
+        struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
+        if(pokemonProfile->evolutions != NULL)
+        {
+            return &pokemonProfile->evolutions[evoIdx];
+        }
+    }
+
 #ifdef ROGUE_EXPANSION
     switch (species)
     {
@@ -2047,6 +2057,16 @@ u16 Rogue_GetEggSpecies(u16 species)
 u8 Rogue_GetMaxEvolutionCount(u16 species)
 {
 #ifdef ROGUE_BAKE_VALID
+    // Only override evos in revision mode
+    if(Rogue_GetRevisionModeActive())
+    {
+        struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
+        if(pokemonProfile->evolutions != NULL)
+        {
+            return pokemonProfile->evolutionCount;
+        }
+    }
+
     return gRogueBake_SpeciesData[species].evolutionCount;
 #else
     return GetMaxEvolutionCountInternal(species);

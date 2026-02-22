@@ -45,6 +45,10 @@
         "Item": "ITEM_SALAC_BERRY",
         "Nature": "NATURE_TIMID"
       }
+    ],
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "2", "Species": "SPECIES_KADABRA" }
     ]
   },
   "LevelUpMoves": [
