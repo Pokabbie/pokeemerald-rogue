@@ -54,8 +54,31 @@
   "LevelUpMoves": [
     {
       "Move": "MOVE_TELEPORT",
-      "Level": 1
-    }
+      "Level": 5
+    },
+
+    { "Move": "MOVE_AIR_SLASH", "Level": 1 },
+    { "Move": "MOVE_AQUA_JET", "Level": 1 },
+    { "Move": "MOVE_BRAVE_BIRD", "Level": 1 },
+    { "Move": "MOVE_BUG_BUZZ", "Level": 1 },
+    { "Move": "MOVE_BULLET_PUNCH", "Level": 1 },
+    { "Move": "MOVE_DARK_PULSE", "Level": 1 },
+    { "Move": "MOVE_DOUBLE_IRON_BASH", "Level": 1 },
+    { "Move": "MOVE_DRACO_METEOR", "Level": 1 },
+    { "Move": "MOVE_DRILL_RUN", "Level": 1 },
+    { "Move": "MOVE_DUAL_WINGBEAT", "Level": 1 },
+    { "Move": "MOVE_EARTH_POWER", "Level": 1 },
+    { "Move": "MOVE_FIRE_PLEDGE", "Level": 1 },
+    { "Move": "MOVE_FLASH_CANNON", "Level": 1 },
+    { "Move": "MOVE_FORCE_PALM", "Level": 1 },
+    { "Move": "MOVE_HEAD_SMASH", "Level": 1 },
+    { "Move": "MOVE_ICE_SHARD", "Level": 1 },
+    { "Move": "MOVE_ICICLE_CRASH", "Level": 1 },
+    { "Move": "MOVE_NIGHT_SLASH", "Level": 1 },
+    { "Move": "MOVE_OMINOUS_WIND", "Level": 1 },
+    { "Move": "MOVE_SHADOW_SNEAK", "Level": 1 },
+    { "Move": "MOVE_X_SCISSOR", "Level": 1 }
+
   ],
   "TutorMoves": [
     "MOVE_ATTRACT",

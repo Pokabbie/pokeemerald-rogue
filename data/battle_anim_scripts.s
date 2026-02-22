@@ -371,6 +371,27 @@ gBattleAnims_Moves::
 	.4byte Move_WATER_PULSE
 	.4byte Move_DOOM_DESIRE
 	.4byte Move_PSYCHO_BOOST
+	.4byte Move_AIR_SLASH
+	.4byte Move_AQUA_JET
+	.4byte Move_BRAVE_BIRD
+	.4byte Move_BUG_BUZZ
+	.4byte Move_BULLET_PUNCH
+	.4byte Move_DARK_PULSE
+	.4byte Move_DOUBLE_IRON_BASH
+	.4byte Move_DRACO_METEOR
+	.4byte Move_DRILL_RUN
+	.4byte Move_DUAL_WINGBEAT
+	.4byte Move_EARTH_POWER
+	.4byte Move_FIRE_PLEDGE
+	.4byte Move_FLASH_CANNON
+	.4byte Move_FORCE_PALM
+	.4byte Move_HEAD_SMASH
+	.4byte Move_ICE_SHARD
+	.4byte Move_ICICLE_CRASH
+	.4byte Move_NIGHT_SLASH
+	.4byte Move_OMINOUS_WIND
+	.4byte Move_SHADOW_SNEAK
+	.4byte Move_X_SCISSOR
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -423,6 +444,7 @@ gBattleAnims_Special::
 
 Move_NONE:
 Move_MIRROR_MOVE:
+Move_FORCE_PALM:
 Move_POUND:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
@@ -435,6 +457,7 @@ Move_POUND:
 	blendoff
 	end
 
+Move_DOUBLE_IRON_BASH:
 Move_DOUBLE_SLAP:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
@@ -780,6 +803,7 @@ Move_TAKE_DOWN:
 	blendoff
 	end
 
+Move_BRAVE_BIRD:
 Move_DOUBLE_EDGE:
 	loadspritegfx ANIM_TAG_IMPACT
 	playsewithpan SE_M_SWIFT, SOUND_PAN_ATTACKER
@@ -1540,6 +1564,7 @@ Move_DRILL_PECK:
 	waitforvisualfinish
 	end
 
+Move_AQUA_JET:
 Move_WATERFALL:
 	loadspritegfx ANIM_TAG_WATER_IMPACT
 	loadspritegfx ANIM_TAG_SMALL_BUBBLES
@@ -2404,6 +2429,7 @@ Move_ROLLING_KICK:
 	blendoff
 	end
 
+Move_HEAD_SMASH:
 Move_HEADBUTT:
 	loadspritegfx ANIM_TAG_IMPACT
 	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 0
@@ -2596,6 +2622,7 @@ Move_LOW_KICK:
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 1, 4
 	end
 
+Move_EARTH_POWER:
 Move_EARTHQUAKE:
 	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
 	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
@@ -2606,6 +2633,7 @@ Move_EARTHQUAKE:
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
 	end
 
+Move_DRILL_RUN:
 Move_FISSURE:
 	loadspritegfx ANIM_TAG_MUD_SAND
 	createvisualtask AnimTask_HorizontalShake, 3, (MAX_BATTLERS_COUNT + 1), 10, 50
@@ -3031,6 +3059,8 @@ Move_SUPER_FANG:
 	blendoff
 	end
 
+Move_NIGHT_SLASH:
+Move_X_SCISSOR:
 Move_SLASH:
 	loadspritegfx ANIM_TAG_SLASH
 	createsprite gSlashSliceSpriteTemplate, ANIM_TARGET, 2, 1, -8, 0
@@ -3122,6 +3152,7 @@ Move_SPITE:
 	clearmonbg ANIM_TARGET
 	end
 
+Move_BULLET_PUNCH:
 Move_MACH_PUNCH:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
@@ -3796,6 +3827,7 @@ Move_ENDEAVOR:
 	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
 	end
 
+Move_DRACO_METEOR:
 Move_ERUPTION:
 	loadspritegfx ANIM_TAG_WARM_ROCK
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 2, 0, 4, RGB_RED
@@ -4299,6 +4331,7 @@ Move_WATER_SPOUT:
 	blendoff
 	end
 
+Move_SHADOW_SNEAK:
 Move_SHADOW_PUNCH:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
@@ -4659,6 +4692,7 @@ MindReaderEyeSpikeEffect:
 	delay 2
 	return
 
+Move_ICE_SHARD:
 Move_ICE_PUNCH:
 	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
@@ -5147,6 +5181,7 @@ SmogCloud:
 	delay 7
 	return
 
+Move_DARK_PULSE:
 Move_FAINT_ATTACK:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_ATTACKER
@@ -5517,6 +5552,7 @@ SolarBeamUnleash1:
 	delay 4
 	return
 
+Move_ICICLE_CRASH:
 Move_BLIZZARD:
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
 	monbg ANIM_DEF_PARTNER
@@ -6161,6 +6197,7 @@ Move_GUST:
 	blendoff
 	end
 
+Move_DUAL_WINGBEAT:
 Move_WING_ATTACK:
 	loadspritegfx ANIM_TAG_GUST
 	loadspritegfx ANIM_TAG_IMPACT
@@ -7303,6 +7340,7 @@ Move_METAL_CLAW:
 	waitforvisualfinish
 	end
 
+Move_OMINOUS_WIND:
 Move_NIGHT_SHADE:
 	monbg ANIM_ATTACKER
 	splitbgprio ANIM_ATTACKER
@@ -7394,6 +7432,7 @@ BideSetUp:
 	waitforvisualfinish
 	end
 
+Move_BUG_BUZZ:
 BideUnleash:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_DEF_PARTNER
@@ -7522,6 +7561,7 @@ RazorWindSetUp:
 	playsewithpan SE_M_GUST2, SOUND_PAN_ATTACKER
 	goto RazorWindEnd
 
+Move_AIR_SLASH:
 RazorWindUnleash:
 	loadspritegfx ANIM_TAG_AIR_WAVE_2
 	loadspritegfx ANIM_TAG_IMPACT
@@ -8847,6 +8887,7 @@ Move_FRENZY_PLANT:
 	blendoff
 	end
 
+Move_FLASH_CANNON:
 Move_METAL_SOUND:
 	loadspritegfx ANIM_TAG_METAL_SOUND_WAVES
 	monbg ANIM_DEF_PARTNER
@@ -9279,6 +9320,7 @@ Move_ROCK_BLAST:
 	waitforvisualfinish
 	end
 
+Move_FIRE_PLEDGE:
 Move_OVERHEAT:
 	loadspritegfx ANIM_TAG_SMALL_EMBER
 	loadspritegfx ANIM_TAG_IMPACT
