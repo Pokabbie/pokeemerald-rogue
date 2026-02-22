@@ -62,7 +62,14 @@ bool8 Rogue_GetRevisionModeActive()
 #endif
 
 extern const struct RoguePokemonProfile gRoguePokemonProfiles[NUM_SPECIES];
+extern u16 const gRoguePokemonSpecialMoveUsages[MOVES_COUNT];
+extern u16 const gRoguePokemonHeldItemUsages[ITEMS_COUNT];
+extern u16 const gRoguePokemonMoveUsages[MOVES_COUNT];
+
 extern const struct RoguePokemonProfile gRoguePokemonProfiles_Revised[NUM_SPECIES];
+extern u16 const gRoguePokemonSpecialMoveUsages_Revised[MOVES_COUNT];
+extern u16 const gRoguePokemonHeldItemUsages_Revised[ITEMS_COUNT];
+extern u16 const gRoguePokemonMoveUsages_Revised[MOVES_COUNT];
 
 extern const u8 gText_TrainerName_Brendan[];
 extern const u8 gText_TrainerName_May[];
@@ -1168,7 +1175,7 @@ u16 Rogue_GetPrice(u16 itemId)
     if(item.holdEffect != 0 && item.pocket != POCKET_BERRIES)
     {
         applyDefaultHubIncrease = TRUE;
-        price = 1000 + (min(gRoguePokemonHeldItemUsages[itemId], 280) / 4) * 100;
+        price = 1000 + (min(Rogue_GetPokemonHeldItemUsage(itemId), 280) / 4) * 100;
     }
 
 #ifdef ROGUE_EXPANSION
@@ -1641,7 +1648,7 @@ u32 Rogue_CalculateMovePrice(u16 move)
 {
     // Move cost takes into account high level stats and then modifies based on usage
     u32 cost = 0;
-    u32 usageCount = gRoguePokemonMoveUsages[move];
+    u32 usageCount = Rogue_GetPokemonMoveUsage(move);
     u8 accuracy = gBattleMoves[move].accuracy;
     u8 pp = gBattleMoves[move].pp;
     u8 power = gBattleMoves[move].power;
@@ -1947,6 +1954,42 @@ void Rogue_GetPokemonBaseStatsFor(u32 species, struct RoguePokemonBaseStats* out
             outStats->abilities[i] = gRogueSpeciesInfo[species].abilities[i];
         }
         
+    }
+}
+
+u16 Rogue_GetPokemonHeldItemUsage(u16 item)
+{
+    if(Rogue_GetRevisionModeActive())
+    {
+        return gRoguePokemonHeldItemUsages_Revised[item];
+    }
+    else
+    {
+        return gRoguePokemonHeldItemUsages[item];
+    }
+}
+
+u16 Rogue_GetPokemonMoveUsage(u16 move)
+{
+    if(Rogue_GetRevisionModeActive())
+    {
+        return gRoguePokemonMoveUsages_Revised[move];
+    }
+    else
+    {
+        return gRoguePokemonMoveUsages[move];
+    }
+}
+
+u16 Rogue_GetPokemonSpecialMoveUsage(u16 move)
+{
+    if(Rogue_GetRevisionModeActive())
+    {
+        return gRoguePokemonSpecialMoveUsages_Revised[move];
+    }
+    else
+    {
+        return gRoguePokemonSpecialMoveUsages[move];
     }
 }
 

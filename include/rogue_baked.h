@@ -47,9 +47,9 @@ void Rogue_ModifyBattleMusic(u16 musicType, u16 trainerSpecies, struct RogueBatt
 struct RoguePokemonProfile const* Rogue_GetPokemonProfile(u32 species);
 void Rogue_GetPokemonBaseStats(u32 species, struct RoguePokemonBaseStats* outStats);
 void Rogue_GetPokemonBaseStatsFor(u32 species, struct RoguePokemonBaseStats* outStats, bool8 isRevised);
-//u16 const* Rogue_GetPokemonHeldItemUsages();
-//u16 const* Rogue_GetPokemonMoveUsages();
-//u16 const* Rogue_GetPokemonSpecialMoveUsages();
+u16 Rogue_GetPokemonHeldItemUsage(u16 item);
+u16 Rogue_GetPokemonMoveUsage(u16 move);
+u16 Rogue_GetPokemonSpecialMoveUsage(u16 move);
 
 u16 Rogue_GetEggSpecies(u16 species);
 u8 Rogue_GetMaxEvolutionCount(u16 species);

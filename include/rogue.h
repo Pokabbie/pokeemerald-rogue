@@ -255,7 +255,7 @@ struct RogueRunData
     u16 rivalSpecies[ROGUE_RIVAL_TOTAL_MON_COUNT];
     u16 legendarySpecies[ADVPATH_LEGEND_COUNT];
     u16 teamEncounterRooms[ADVPATH_TEAM_ENCOUNTER_COUNT];
-    u16 dynamicTRMoves[NUM_TECHNICAL_RECORDS];
+    u16 dynamicTRMoves[CAPACITY_TECHNICAL_RECORDS];
     u16 partyHeldItems[PARTY_SIZE];
     u16 dynamicTrainerNums[ROGUE_MAX_ACTIVE_TRAINER_COUNT];
     u8 legendaryDifficulties[ADVPATH_LEGEND_COUNT];
@@ -289,6 +289,7 @@ struct RogueRunData
     u8 terastallizeEnabled : 1;
 #endif
     u8 rareShopEnabled : 1;
+    u8 revisedModeEnabled : 1;
     bool8 isQuickSaveValid : 1;
     bool8 hasPendingRivalBattle : 1;
     bool8 rivalHasShiny : 1;
@@ -737,14 +738,6 @@ extern const struct RogueEncounterData gRogueRestStopEncounterInfo;
 extern const struct RogueTrainer gRogueTrainers[];
 extern const u16 gRogueTrainerCount;
 extern const struct RogueBattleMusic gRogueTrainerMusic[];
-
-extern u16 const gRoguePokemonHeldItemUsages[ITEMS_COUNT];
-extern u16 const gRoguePokemonMoveUsages[MOVES_COUNT];
-extern u16 const gRoguePokemonSpecialMoveUsages[MOVES_COUNT];
-
-extern u16 const gRoguePokemonHeldItemUsages_Revised[ITEMS_COUNT];
-extern u16 const gRoguePokemonMoveUsages_Revised[MOVES_COUNT];
-extern u16 const gRoguePokemonSpecialMoveUsages_Revised[MOVES_COUNT];
 
 extern const struct RoguePokedexVariant gPokedexVariants[POKEDEX_VARIANT_COUNT];
 extern const struct RoguePokedexRegion gPokedexRegions[POKEDEX_REGION_COUNT];
