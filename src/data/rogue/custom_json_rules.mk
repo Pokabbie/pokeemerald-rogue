@@ -41,15 +41,15 @@ include/constants/generated/decorations.h: $(DATA_SRC_SUBDIR)/rogue/decorations.
 	$(CUSTOMJSON) decoration_h $(DATA_SRC_SUBDIR)/rogue/decorations.json $@
 
 
-$(DATA_SRC_SUBDIR)/rogue/pokemon_vanilla_profiles.h: $(DATA_SRC_SUBDIR)/rogue/pokemon/*/vanilla_profile.json
+$(DATA_SRC_SUBDIR)/rogue/pokemon_vanilla_profiles.h: $(DATA_SRC_SUBDIR)/rogue/pokemon/vanilla/*/vanilla_profile.json
 	$(CUSTOMJSON) pokemonprofile_c $(DATA_SRC_SUBDIR)/rogue/pokemon/*vanilla_profile.json $@
 
-$(DATA_SRC_SUBDIR)/rogue/pokemon_vanilla_profiles_revised.h: $(DATA_SRC_SUBDIR)/rogue/pokemon/*/vanilla_profile_revised.json
+$(DATA_SRC_SUBDIR)/rogue/pokemon_vanilla_profiles_revised.h: $(DATA_SRC_SUBDIR)/rogue/pokemon/vanilla/*/vanilla_profile.json $(DATA_SRC_SUBDIR)/rogue/pokemon/vanilla/*/vanilla_profile_revised.json
 	$(CUSTOMJSON) pokemonprofile_c $(DATA_SRC_SUBDIR)/rogue/pokemon/*vanilla_profile_revised.json $@
 
 
-$(DATA_SRC_SUBDIR)/rogue/pokemon_expansion_profiles.h: $(DATA_SRC_SUBDIR)/rogue/pokemon/*/expansion_profile.json
+$(DATA_SRC_SUBDIR)/rogue/pokemon_expansion_profiles.h: $(DATA_SRC_SUBDIR)/rogue/pokemon/expansion/*/expansion_profile.json
 	$(CUSTOMJSON) pokemonprofile_c $(DATA_SRC_SUBDIR)/rogue/pokemon/*expansion_profile.json $@
 
-$(DATA_SRC_SUBDIR)/rogue/pokemon_expansion_profiles_revised.h: $(DATA_SRC_SUBDIR)/rogue/pokemon/*/expansion_profile_revised.json
+$(DATA_SRC_SUBDIR)/rogue/pokemon_expansion_profiles_revised.h: $(DATA_SRC_SUBDIR)/rogue/pokemon/expansion/*/expansion_profile.json $(DATA_SRC_SUBDIR)/rogue/pokemon/expansion/*/expansion_profile_revised.json
 	$(CUSTOMJSON) pokemonprofile_c $(DATA_SRC_SUBDIR)/rogue/pokemon/*expansion_profile_revised.json $@
