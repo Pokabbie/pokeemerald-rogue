@@ -95,5 +95,13 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "27", "Species": "SPECIES_GOLDUCK" }
+    ]
+  }
 }

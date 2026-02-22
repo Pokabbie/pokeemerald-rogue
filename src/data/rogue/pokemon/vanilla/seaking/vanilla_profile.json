@@ -173,5 +173,13 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SWIFT_SWIM"
+    ]
+  }
 }

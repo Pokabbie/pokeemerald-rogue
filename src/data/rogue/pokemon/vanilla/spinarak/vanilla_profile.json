@@ -78,5 +78,13 @@
     "MOVE_THIEF",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "20", "Species": "SPECIES_ARIADOS" }
+    ]
+  }
 }

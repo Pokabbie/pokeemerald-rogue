@@ -98,5 +98,14 @@
     "MOVE_TRICK",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_LIMBER",
+      "ABILITY_NONE"
+    ]
+  }
 }

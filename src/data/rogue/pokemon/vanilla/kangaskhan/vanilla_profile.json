@@ -208,5 +208,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_INSOMNIA",
+      "ABILITY_NONE"
+    ]
+  }
 }

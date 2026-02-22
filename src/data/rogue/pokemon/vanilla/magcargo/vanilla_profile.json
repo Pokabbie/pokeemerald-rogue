@@ -127,5 +127,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_BLAZE",
+      "ABILITY_SHELL_ARMOR"
+    ]
+  }
 }

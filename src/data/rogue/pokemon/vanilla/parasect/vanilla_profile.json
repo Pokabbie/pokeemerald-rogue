@@ -124,5 +124,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_WATER_ABSORB",
+      "ABILITY_NONE"
+    ]
+  }
 }

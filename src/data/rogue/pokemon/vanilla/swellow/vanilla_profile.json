@@ -104,5 +104,14 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_GUTS",
+      "ABILITY_EARLY_BIRD"
+    ]
+  }
 }

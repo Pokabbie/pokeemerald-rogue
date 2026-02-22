@@ -150,5 +150,14 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_KEEN_EYE",
+      "ABILITY_NONE"
+    ]
+  }
 }

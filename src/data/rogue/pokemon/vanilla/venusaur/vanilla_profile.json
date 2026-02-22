@@ -151,5 +151,14 @@
         "GEN31V1"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_CHLOROPHYLL",
+      "ABILITY_NONE"
+    ]
+  }
 }

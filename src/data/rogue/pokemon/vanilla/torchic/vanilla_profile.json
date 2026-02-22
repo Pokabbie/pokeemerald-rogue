@@ -88,5 +88,14 @@
     "MOVE_SWORDS_DANCE",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SPEED_BOOST",
+      "ABILITY_BLAZE"
+    ]
+  }
 }

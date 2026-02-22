@@ -164,5 +164,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SHED_SKIN",
+      "ABILITY_BATTLE_ARMOR"
+    ]
+  }
 }

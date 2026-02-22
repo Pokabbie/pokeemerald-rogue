@@ -208,5 +208,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_GUTS",
+      "ABILITY_NONE"
+    ]
+  }
 }

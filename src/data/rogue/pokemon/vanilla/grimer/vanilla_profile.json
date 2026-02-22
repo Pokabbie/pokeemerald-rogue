@@ -107,5 +107,18 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_STENCH",
+      "ABILITY_POISON_POINT"
+    ],
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "32", "Species": "SPECIES_MUK" }
+    ]
+  }
 }

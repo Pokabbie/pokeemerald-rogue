@@ -95,5 +95,13 @@
     "MOVE_TOXIC",
     "MOVE_WILL_O_WISP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "10", "Species": "SPECIES_KIRLIA" }
+    ]
+  }
 }

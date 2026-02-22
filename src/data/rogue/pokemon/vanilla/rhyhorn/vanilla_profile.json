@@ -110,5 +110,13 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "32", "Species": "SPECIES_RHYDON" }
+    ]
+  }
 }

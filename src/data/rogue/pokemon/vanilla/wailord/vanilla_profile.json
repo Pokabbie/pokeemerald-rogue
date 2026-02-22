@@ -140,5 +140,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_RAIN_DISH",
+      "ABILITY_PRESSURE"
+    ]
+  }
 }

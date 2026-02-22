@@ -121,5 +121,14 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_LIMBER",
+      "ABILITY_NONE"
+    ]
+  }
 }

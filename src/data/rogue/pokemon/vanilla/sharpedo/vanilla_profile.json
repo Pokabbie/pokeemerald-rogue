@@ -158,5 +158,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SPEED_BOOST",
+      "ABILITY_ROUGH_SKIN"
+    ]
+  }
 }

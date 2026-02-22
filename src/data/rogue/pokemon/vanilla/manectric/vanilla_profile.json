@@ -115,5 +115,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_INTIMIDATE",
+      "ABILITY_LIGHTNING_ROD"
+    ]
+  }
 }

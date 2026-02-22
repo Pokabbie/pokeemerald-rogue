@@ -180,5 +180,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_VOLT_ABSORB",
+      "ABILITY_STATIC"
+    ]
+  }
 }

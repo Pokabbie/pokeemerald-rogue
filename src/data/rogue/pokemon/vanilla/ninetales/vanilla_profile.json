@@ -106,5 +106,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_DROUGHT",
+      "ABILITY_FLASH_FIRE"
+    ]
+  }
 }

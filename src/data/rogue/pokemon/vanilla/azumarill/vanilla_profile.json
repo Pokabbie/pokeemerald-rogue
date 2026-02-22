@@ -152,5 +152,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_HUGE_POWER",
+      "ABILITY_NONE"
+    ]
+  }
 }

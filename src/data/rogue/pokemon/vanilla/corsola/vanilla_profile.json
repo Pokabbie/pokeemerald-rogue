@@ -209,5 +209,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_NATURAL_CURE",
+      "ABILITY_NONE"
+    ]
+  }
 }

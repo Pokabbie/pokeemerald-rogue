@@ -72,5 +72,13 @@
     "MOVE_THIEF",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "12", "Species": "SPECIES_PIDGEOTTO" }
+    ]
+  }
 }

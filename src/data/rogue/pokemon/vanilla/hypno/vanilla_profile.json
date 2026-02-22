@@ -128,5 +128,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_INNER_FOCUS",
+      "ABILITY_NONE"
+    ]
+  }
 }

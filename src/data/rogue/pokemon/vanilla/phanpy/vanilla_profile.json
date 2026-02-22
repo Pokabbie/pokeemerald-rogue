@@ -75,5 +75,14 @@
     "MOVE_SWAGGER",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_CUTE_CHARM",
+      "ABILITY_NONE"
+    ]
+  }
 }

@@ -121,5 +121,13 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "20", "Species": "SPECIES_SEADRA" }
+    ]
+  }
 }

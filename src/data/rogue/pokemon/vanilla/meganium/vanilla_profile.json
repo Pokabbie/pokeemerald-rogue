@@ -148,5 +148,14 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_THICK_FAT",
+      "ABILITY_NONE"
+    ]
+  }
 }

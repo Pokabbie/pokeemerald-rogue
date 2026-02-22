@@ -77,5 +77,18 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SWIFT_SWIM",
+      "ABILITY_NONE"
+    ],
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "22", "Species": "SPECIES_SEAKING" }
+    ]
+  }
 }

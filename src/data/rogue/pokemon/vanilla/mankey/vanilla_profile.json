@@ -166,5 +166,13 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "27", "Species": "SPECIES_PRIMEAPE" }
+    ]
+  }
 }

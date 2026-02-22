@@ -140,5 +140,14 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_LEVITATE",
+      "ABILITY_NONE"
+    ]
+  }
 }

@@ -2,83 +2,11 @@
   "Species": [
     "SPECIES_ABRA"
   ],
-  "RevisedMode":
-  {
-    "BaseStats":
-    {
-      "Types":
-      [
-        "TYPE_NORMAL",
-        "TYPE_FIRE"
-      ],
-      "Abilities":
-      [
-        "ABILITY_SWARM",
-        "ABILITY_PRESSURE"
-      ],
-      "HP": 100,
-      "Attack": 100,
-      "Defense": 100,
-      "Speed": 100,
-      "SpAttack": 100,
-      "SpDefense": 100
-    },
-    "LevelUpMoves": [
-      {
-        "Move": "MOVE_EXPLOSION",
-        "Level": 1
-      }
-    ],
-    "TutorMoves": [
-      "MOVE_TRANSFORM"
-    ],
-    "CompetitiveSets": 
-    [
-      {
-        "Moves": [
-          "MOVE_CALM_MIND",
-          "MOVE_PSYCHIC",
-          "MOVE_FIRE_PUNCH",
-          "MOVE_SUBSTITUTE"
-        ],
-        "Ability": "ABILITY_SYNCHRONIZE",
-        "Item": "ITEM_SALAC_BERRY",
-        "Nature": "NATURE_TIMID"
-      }
-    ],
-    "Evolutions":
-    [
-      { "Method": "EVO_LEVEL", "Param": "2", "Species": "SPECIES_KADABRA" }
-    ]
-  },
   "LevelUpMoves": [
     {
       "Move": "MOVE_TELEPORT",
       "Level": 5
-    },
-
-    { "Move": "MOVE_AIR_SLASH", "Level": 1 },
-    { "Move": "MOVE_AQUA_JET", "Level": 1 },
-    { "Move": "MOVE_BRAVE_BIRD", "Level": 1 },
-    { "Move": "MOVE_BUG_BUZZ", "Level": 1 },
-    { "Move": "MOVE_BULLET_PUNCH", "Level": 1 },
-    { "Move": "MOVE_DARK_PULSE", "Level": 1 },
-    { "Move": "MOVE_DOUBLE_IRON_BASH", "Level": 1 },
-    { "Move": "MOVE_DRACO_METEOR", "Level": 1 },
-    { "Move": "MOVE_DRILL_RUN", "Level": 1 },
-    { "Move": "MOVE_DUAL_WINGBEAT", "Level": 1 },
-    { "Move": "MOVE_EARTH_POWER", "Level": 1 },
-    { "Move": "MOVE_FIRE_PLEDGE", "Level": 1 },
-    { "Move": "MOVE_FLASH_CANNON", "Level": 1 },
-    { "Move": "MOVE_FORCE_PALM", "Level": 1 },
-    { "Move": "MOVE_HEAD_SMASH", "Level": 1 },
-    { "Move": "MOVE_ICE_SHARD", "Level": 1 },
-    { "Move": "MOVE_ICICLE_CRASH", "Level": 1 },
-    { "Move": "MOVE_NIGHT_SLASH", "Level": 1 },
-    { "Move": "MOVE_OMINOUS_WIND", "Level": 1 },
-    { "Move": "MOVE_SHADOW_SNEAK", "Level": 1 },
-    { "Move": "MOVE_X_SCISSOR", "Level": 1 }
-
+    }
   ],
   "TutorMoves": [
     "MOVE_ATTRACT",

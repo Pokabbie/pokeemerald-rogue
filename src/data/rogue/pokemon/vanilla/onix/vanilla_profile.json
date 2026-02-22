@@ -151,5 +151,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_ROCK_HEAD",
+      "ABILITY_NONE"
+    ]
+  }
 }

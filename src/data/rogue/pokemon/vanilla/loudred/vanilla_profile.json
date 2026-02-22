@@ -117,5 +117,13 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "30", "Species": "SPECIES_EXPLOUD" }
+    ]
+  }
 }

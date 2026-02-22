@@ -136,5 +136,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_MARVEL_SCALE",
+      "ABILITY_NONE"
+    ]
+  }
 }

@@ -39,8 +39,6 @@ struct BaseStats
 	int m_Speed;
 	int m_SpAttack;
 	int m_SpDefense;
-	std::vector<std::string> m_Types;
-	std::vector<std::string> m_Abilities;
 };
 
 struct PokemonProfile
@@ -51,6 +49,8 @@ struct PokemonProfile
 	std::vector<CompetitiveSet> m_CompetitiveSets;
 	std::vector<Evolution> m_Evolutions;
 	BaseStats m_BaseStats;
+	std::vector<std::string> m_Types;
+	std::vector<std::string> m_Abilities;
 	bool m_IsFallbackProfile = false;
 	bool m_HasBaseStats = false;
 
@@ -174,19 +174,26 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 		outProfile.m_BaseStats.m_Speed = baseStats["Speed"].get<int>();
 		outProfile.m_BaseStats.m_SpAttack = baseStats["SpAttack"].get<int>();
 		outProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
+	}
 
-		for (json type : baseStats["Types"])
+	if (data.contains("Types"))
+	{
+		for (json type : data["Types"])
 		{
-			outProfile.m_BaseStats.m_Types.push_back(GetAsString(type));
-		}
-		for (json ability : baseStats["Abilities"])
-		{
-			outProfile.m_BaseStats.m_Abilities.push_back(GetAsString(ability));
+			outProfile.m_Types.push_back(GetAsString(type));
 		}
 
-		if (outProfile.m_BaseStats.m_Types.size() == 1)
+		if (outProfile.m_Types.size() == 1)
 		{
-			outProfile.m_BaseStats.m_Types.push_back(outProfile.m_BaseStats.m_Types[0]);
+			outProfile.m_Types.push_back(outProfile.m_Types[0]);
+		}
+	}
+
+	if (data.contains("Abilities"))
+	{
+		for (json ability : data["Abilities"])
+		{
+			outProfile.m_Abilities.push_back(GetAsString(ability));
 		}
 	}
 
@@ -274,19 +281,26 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 			outProfile.m_BaseStats.m_Speed = baseStats["Speed"].get<int>();
 			outProfile.m_BaseStats.m_SpAttack = baseStats["SpAttack"].get<int>();
 			outProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
+		}
 
-			for (json type : baseStats["Types"])
+		if (revisedData.contains("Types"))
+		{
+			for (json type : revisedData["Types"])
 			{
-				outProfile.m_BaseStats.m_Types.push_back(GetAsString(type));
-			}
-			for (json ability : baseStats["Abilities"])
-			{
-				outProfile.m_BaseStats.m_Abilities.push_back(GetAsString(ability));
+				outProfile.m_Types.push_back(GetAsString(type));
 			}
 
-			if (outProfile.m_BaseStats.m_Types.size() == 1)
+			if (outProfile.m_Types.size() == 1)
 			{
-				outProfile.m_BaseStats.m_Types.push_back(outProfile.m_BaseStats.m_Types[0]);
+				outProfile.m_Types.push_back(outProfile.m_Types[0]);
+			}
+		}
+
+		if (revisedData.contains("Abilities"))
+		{
+			for (json ability : revisedData["Abilities"])
+			{
+				outProfile.m_Abilities.push_back(GetAsString(ability));
 			}
 		}
 
@@ -644,28 +658,43 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 		}
 		lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << sourceSuffix << ",\n";
 
+		lowerBlock << "\t\t.baseStats = \n\t\t{\n";
+
+		if (profile.m_Types.empty())
+		{
+			lowerBlock << "\t\t\t.types = { TYPE_NONE },\n";
+		}
+		else
+		{
+			lowerBlock << "\t\t\t.types = { ";
+			for (std::string const& type : profile.m_Types)
+				lowerBlock << type << ", ";
+			lowerBlock << "},\n";
+		}
+
+		if (profile.m_Abilities.empty())
+		{
+			lowerBlock << "\t\t\t.abilities = { ABILITY_NONE },\n";
+		}
+		else
+		{
+			lowerBlock << "\t\t\t.abilities = { ";
+			for (std::string const& ability : profile.m_Abilities)
+				lowerBlock << ability << ", ";
+			lowerBlock << "},\n";
+		}
+
 		if (profile.m_HasBaseStats)
 		{
-			lowerBlock << "\t\t.baseStats = \n\t\t{\n";
 			lowerBlock << "\t\t\t.baseHP = " << profile.m_BaseStats.m_HP << ",\n";
 			lowerBlock << "\t\t\t.baseAttack = " << profile.m_BaseStats.m_Attack << ",\n";
 			lowerBlock << "\t\t\t.baseDefense = " << profile.m_BaseStats.m_Defense << ",\n";
 			lowerBlock << "\t\t\t.baseSpeed = " << profile.m_BaseStats.m_Speed << ",\n";
 			lowerBlock << "\t\t\t.baseSpAttack = " << profile.m_BaseStats.m_SpAttack << ",\n";
 			lowerBlock << "\t\t\t.baseSpDefense = " << profile.m_BaseStats.m_SpDefense << ",\n";
-
-			lowerBlock << "\t\t\t.types = { ";
-			for (std::string const& type : profile.m_BaseStats.m_Types)
-				lowerBlock << type << ", ";
-			lowerBlock << "},\n";
-
-			lowerBlock << "\t\t\t.abilities = { ";
-			for (std::string const& ability : profile.m_BaseStats.m_Abilities)
-				lowerBlock << ability << ", ";
-			lowerBlock << "},\n";
-
-			lowerBlock << "\t\t},\n";
 		}
+
+		lowerBlock << "\t\t},\n";
 
 		lowerBlock << "\t},\n";
 
@@ -698,28 +727,43 @@ void ExportPokemonProfileData_C(std::ofstream& fileStream, std::string const& da
 			}
 			lowerBlock << "\t\t.monFlags = MON_FLAGS_" << profile.m_Species[0] << sourceSuffix << ",\n";
 
+			lowerBlock << "\t\t.baseStats = \n\t\t{\n";
+
+			if (profile.m_Types.empty())
+			{
+				lowerBlock << "\t\t\t.types = { TYPE_NONE },\n";
+			}
+			else
+			{
+				lowerBlock << "\t\t\t.types = { ";
+				for (std::string const& type : profile.m_Types)
+					lowerBlock << type << ", ";
+				lowerBlock << "},\n";
+			}
+
+			if (profile.m_Abilities.empty())
+			{
+				lowerBlock << "\t\t\t.abilities = { ABILITY_NONE },\n";
+			}
+			else
+			{
+				lowerBlock << "\t\t\t.abilities = { ";
+				for (std::string const& ability : profile.m_Abilities)
+					lowerBlock << ability << ", ";
+				lowerBlock << "},\n";
+			}
+
 			if (profile.m_HasBaseStats)
 			{
-				lowerBlock << "\t\t.baseStats = \n\t\t{\n";
 				lowerBlock << "\t\t\t.baseHP = " << profile.m_BaseStats.m_HP << ",\n";
 				lowerBlock << "\t\t\t.baseAttack = " << profile.m_BaseStats.m_Attack << ",\n";
 				lowerBlock << "\t\t\t.baseDefense = " << profile.m_BaseStats.m_Defense << ",\n";
 				lowerBlock << "\t\t\t.baseSpeed = " << profile.m_BaseStats.m_Speed << ",\n";
 				lowerBlock << "\t\t\t.baseSpAttack = " << profile.m_BaseStats.m_SpAttack << ",\n";
 				lowerBlock << "\t\t\t.baseSpDefense = " << profile.m_BaseStats.m_SpDefense << ",\n";
-
-				lowerBlock << "\t\t\t.types = { ";
-				for (std::string const& type : profile.m_BaseStats.m_Types)
-					lowerBlock << type << ", ";
-				lowerBlock << "},\n";
-
-				lowerBlock << "\t\t\t.abilities = { ";
-				for (std::string const& ability : profile.m_BaseStats.m_Abilities)
-					lowerBlock << ability << ", ";
-				lowerBlock << "},\n";
-
-				lowerBlock << "\t\t},\n";
 			}
+
+			lowerBlock << "\t\t},\n";
 
 			lowerBlock << "\t},\n";
 		}

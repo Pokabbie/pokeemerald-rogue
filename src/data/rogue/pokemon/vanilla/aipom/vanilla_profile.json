@@ -203,5 +203,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_INNER_FOCUS",
+      "ABILITY_NONE"
+    ]
+  }
 }

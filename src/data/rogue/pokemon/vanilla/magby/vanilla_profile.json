@@ -114,5 +114,14 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_FLASH_FIRE",
+      "ABILITY_FLAME_BODY"
+    ]
+  }
 }

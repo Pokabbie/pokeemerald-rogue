@@ -92,5 +92,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_TORRENT",
+      "ABILITY_NONE"
+    ]
+  }
 }

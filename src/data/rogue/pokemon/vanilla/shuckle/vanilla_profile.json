@@ -132,5 +132,14 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SHELL_ARMOR",
+      "ABILITY_NONE"
+    ]
+  }
 }

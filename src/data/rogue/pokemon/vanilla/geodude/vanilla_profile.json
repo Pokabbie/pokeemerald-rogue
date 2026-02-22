@@ -92,5 +92,14 @@
     "MOVE_SWAGGER",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_ROCK_HEAD",
+      "ABILITY_NONE"
+    ]
+  }
 }

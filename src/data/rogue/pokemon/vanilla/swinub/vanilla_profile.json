@@ -78,5 +78,18 @@
     "MOVE_TAKE_DOWN",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_THICK_FAT",
+      "ABILITY_NONE"
+    ],
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "27", "Species": "SPECIES_PILOSWINE" }
+    ]
+  }
 }

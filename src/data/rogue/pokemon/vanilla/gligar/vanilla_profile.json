@@ -128,5 +128,14 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_HYPER_CUTTER",
+      "ABILITY_MARVEL_SCALE"
+    ]
+  }
 }

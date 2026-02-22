@@ -133,5 +133,14 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SHED_SKIN",
+      "ABILITY_MARVEL_SCALE"
+    ]
+  }
 }

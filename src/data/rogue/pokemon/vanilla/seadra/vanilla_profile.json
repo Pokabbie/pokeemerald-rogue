@@ -131,5 +131,18 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+
+  "RevisedMode":
+  {
+    "Abilities":
+    [
+      "ABILITY_SWIFT_SWIM",
+      "ABILITY_NONE"
+    ],
+    "Evolutions":
+    [
+      { "Method": "EVO_LEVEL", "Param": "40", "Species": "SPECIES_KINGDRA" }
+    ]
+  }
 }
