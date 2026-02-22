@@ -157,7 +157,7 @@ else
 override CFLAGS += -O2
 endif
 # temp; can't run with -Werror because of the state of base decomp :(
-override CFLAGS += -mthumb -mthumb-interwork -mabi=apcs-gnu -mtune=arm7tdmi -march=armv4t -fno-toplevel-reorder -Wno-pointer-to-int-cast -std=gnu17 -Wall -Wno-strict-aliasing -Wno-attribute-alias -Woverride-init
+override CFLAGS += -gdwarf-4 -gstrict-dwarf -mthumb -mthumb-interwork -mabi=apcs-gnu -mtune=arm7tdmi -march=armv4t -fno-toplevel-reorder -Wno-pointer-to-int-cast -std=gnu17 -Wall -Wno-strict-aliasing -Wno-attribute-alias -Woverride-init
 ifeq ($(UNUSED_ERROR),0)
 override CFLAGS += -Wno-error=unused-variable -Wno-error=unused-const-variable -Wno-error=unused-parameter -Wno-error=unused-function -Wno-error=unused-but-set-parameter -Wno-error=unused-but-set-variable -Wno-error=unused-value -Wno-error=unused-local-typedefs
 # temp enable these; do we want to clean it up?
