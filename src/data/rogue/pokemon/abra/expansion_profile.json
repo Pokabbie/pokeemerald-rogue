@@ -2,6 +2,42 @@
   "Species": [
     "SPECIES_ABRA"
   ],
+  "RevisedMode":
+  {
+    "BaseStats":
+    {
+      "Types":
+      [
+        "TYPE_NORMAL",
+        "TYPE_FIRE"
+      ],
+      "Abilities":
+      [
+        "ABILITY_SWARM",
+        "ABILITY_NONE",
+        "ABILITY_PRESSURE"
+      ],
+      "HP": 100,
+      "Attack": 100,
+      "Defense": 100,
+      "Speed": 100,
+      "SpAttack": 100,
+      "SpDefense": 100
+    },
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 1
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_TRANSFORM"
+    ],
+    "CompetitiveSets": 
+    [
+
+    ]
+  },
   "LevelUpMoves": [
     {
       "Move": "MOVE_TELEPORT",

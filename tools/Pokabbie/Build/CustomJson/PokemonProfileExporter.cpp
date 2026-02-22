@@ -58,6 +58,19 @@ struct PokemonProfile
 
 		return false;
 	}
+
+	bool HasTutorMove(std::string const& move)
+	{
+		for (std::string const& tutorMove : m_TutorMoves)
+		{
+			if (strutil::compare_ignore_case(tutorMove, move))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
 };
 
 static std::string GetAsString(json const& jsonValue)
@@ -96,7 +109,7 @@ static std::string FormatKeyword(std::string keyword)
 	return keyword;
 }
 
-void ParseProfile(std::string const& filePath, PokemonProfile& outProfile)
+void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool parseRevisedMode)
 {
 	json data = ReadJsonFile(filePath);
 
@@ -169,6 +182,107 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile)
 		}
 	}
 
+	// If we contain a revised move object inside of this file, we're going to append it to the existing base data
+	if (parseRevisedMode && data.contains("RevisedMode"))
+	{
+		// We're no longer a fallback profile, as we're actually just goint to append changes to the base data
+		outProfile.m_IsFallbackProfile = false;
+
+		json revisedData = data["RevisedMode"];
+
+		if (revisedData.contains("LevelUpMoves"))
+		{
+			for (json move : revisedData["LevelUpMoves"])
+			{
+				outProfile.m_LevelUpMoves.push_back(
+					{
+						move["Move"].get<std::string>(),
+						move["Level"].get<int>()
+					}
+				);
+			}
+		}
+
+		if (revisedData.contains("TutorMoves"))
+		{
+			for (json move : revisedData["TutorMoves"])
+			{
+				outProfile.m_TutorMoves.push_back(move.get<std::string>());
+			}
+		}
+
+		if (revisedData.contains("CompetitiveSets"))
+		{
+			for (json compSet : revisedData["CompetitiveSets"])
+			{
+				CompetitiveSet outSet;
+
+				for (json move : compSet["Moves"])
+				{
+					outSet.m_Moves.push_back(move.get<std::string>());
+				}
+				for (json tier : compSet["SourceTiers"])
+				{
+					outSet.m_SourceTiers.push_back(tier.get<std::string>());
+				}
+
+				outSet.m_Ability = GetAsString(compSet["Ability"]);
+				outSet.m_Item = GetAsString(compSet["Item"]);
+				outSet.m_Nature = GetAsString(compSet["Nature"]);
+				outSet.m_HiddenPower = GetAsString(compSet["HiddenPower"]);
+				outSet.m_TeraType = GetAsString(compSet["TeraType"]);
+
+				// If we don't provide any tiers, set to default
+				if (outSet.m_SourceTiers.empty())
+				{
+					outSet.m_SourceTiers.push_back("DEFAULT_REVISED_MODE");
+				}
+
+				outProfile.m_CompetitiveSets.push_back(outSet);
+			}
+		}
+
+		if (revisedData.contains("BaseStats"))
+		{
+			json baseStats = revisedData["BaseStats"];
+
+			outProfile.m_HasBaseStats = true;
+			outProfile.m_BaseStats.m_HP = baseStats["HP"].get<int>();
+			outProfile.m_BaseStats.m_Attack = baseStats["Attack"].get<int>();
+			outProfile.m_BaseStats.m_Defense = baseStats["Defense"].get<int>();
+			outProfile.m_BaseStats.m_Speed = baseStats["Speed"].get<int>();
+			outProfile.m_BaseStats.m_SpAttack = baseStats["SpAttack"].get<int>();
+			outProfile.m_BaseStats.m_SpDefense = baseStats["SpDefense"].get<int>();
+
+			for (json type : baseStats["Types"])
+			{
+				outProfile.m_BaseStats.m_Types.push_back(GetAsString(type));
+			}
+			for (json ability : baseStats["Abilities"])
+			{
+				outProfile.m_BaseStats.m_Abilities.push_back(GetAsString(ability));
+			}
+
+			if (outProfile.m_BaseStats.m_Types.size() == 1)
+			{
+				outProfile.m_BaseStats.m_Types.push_back(outProfile.m_BaseStats.m_Types[0]);
+			}
+		}
+	}
+
+	// Make sure all comp moves are added to tutor moves
+	for (CompetitiveSet const& set : outProfile.m_CompetitiveSets)
+	{
+		for (std::string const& move : set.m_Moves)
+		{
+			if (!outProfile.HasLevelUpMove(move) && !outProfile.HasTutorMove(move))
+			{
+				outProfile.m_TutorMoves.push_back(move);
+			}
+		}
+	}
+
+	// Make sure moves are all sorted
 	std::sort(outProfile.m_LevelUpMoves.begin(), outProfile.m_LevelUpMoves.end(), [](LevelUpMove const& lhs, LevelUpMove const& rhs)
 		{
 			return lhs.m_Level < rhs.m_Level;
@@ -196,13 +310,14 @@ std::vector<PokemonProfile> GatherProfiles(std::string const& dataPath)
 			if (strutil::ends_with(dirEntry.path().string(), filePattern))
 			{
 				PokemonProfile profile;
-				ParseProfile(dirEntry.path().string(), profile);
+				ParseProfile(dirEntry.path().string(), profile, false);
 				output.push_back(profile);
 				speciesSet.insert(profile.m_Species[0]);
 			}
 		}
 	}
 
+	// Are we attempting to parse revised mode data
 	std::string fallbackFilePattern = filePattern;
 
 	strutil::to_lower(fallbackFilePattern);
@@ -214,6 +329,7 @@ std::vector<PokemonProfile> GatherProfiles(std::string const& dataPath)
 
 	bool hasFallbackPattern = !strutil::compare_ignore_case(filePattern, fallbackFilePattern);
 
+	// For revised mode data, fill in any empty slots with the default data
 	if (hasFallbackPattern)
 	{
 		for (const auto& dirEntry : std::filesystem::recursive_directory_iterator(dirPath))
@@ -223,8 +339,8 @@ std::vector<PokemonProfile> GatherProfiles(std::string const& dataPath)
 				if (strutil::ends_with(dirEntry.path().string(), fallbackFilePattern))
 				{
 					PokemonProfile profile;
-					ParseProfile(dirEntry.path().string(), profile);
 					profile.m_IsFallbackProfile = true;
+					ParseProfile(dirEntry.path().string(), profile, true);
 
 					if (speciesSet.find(profile.m_Species[0]) == speciesSet.end())
 					{
