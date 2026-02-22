@@ -2002,6 +2002,148 @@ u16 Rogue_GetPokemonSpecialMoveUsage(u16 move)
     }
 }
 
+bool8 Rogue_HasMoveBeenRevised(u16 move)
+{
+    if(Rogue_GetRevisionModeActive())
+    {
+        return 
+            gBattleMoves_Mainline[move].effect                  != gBattleMoves_Revised[move].effect ||
+            gBattleMoves_Mainline[move].power                   != gBattleMoves_Revised[move].power ||
+            gBattleMoves_Mainline[move].type                    != gBattleMoves_Revised[move].type ||
+            gBattleMoves_Mainline[move].accuracy                != gBattleMoves_Revised[move].accuracy ||
+            gBattleMoves_Mainline[move].pp                      != gBattleMoves_Revised[move].pp ||
+            gBattleMoves_Mainline[move].secondaryEffectChance   != gBattleMoves_Revised[move].secondaryEffectChance ||
+            gBattleMoves_Mainline[move].target                  != gBattleMoves_Revised[move].target ||
+            gBattleMoves_Mainline[move].priority                != gBattleMoves_Revised[move].priority ||
+            gBattleMoves_Mainline[move].flags                   != gBattleMoves_Revised[move].flags;
+    }
+
+    return FALSE;
+}
+
+#ifndef ROGUE_EXPANSION
+
+static const u8 sBoneRushDescription[] = _(
+    "Strikes the foe with a bone\n"
+    "in hand twice.");
+
+static const u8 sBulletSeedDescription[] = _(
+    "Shoots 2 seeds in a row\n"
+    "to strike the foe.");
+
+static const u8 sDragonClawDescription[] = _(
+    "Slashes with claws, etc. Has\n"
+    "a high critical-hit ratio.");
+
+static const u8 sDrillPeckDescription[] = _(
+    "Stabs with beak, etc. Has\n"
+    "a high critical-hit ratio.");
+
+static const u8 sEggBombDescription[] = _(
+    "An egg is hurled at the foe.\n"
+    "also hurts the user.");
+    
+static const u8 sHyperVoiceDescription[] = _(
+    "A loud attack that may\n"
+    "lower the foe's DEF.");
+    
+static const u8 sJumpKickDescription[] = _(
+    "A strong jumping kick.May\n"
+    "cause paralysis.");
+
+static const u8 sLickDescription[] = _(
+    "Licks with a long tongue to\n"
+    "injure. Will also paralyze.");
+    
+static const u8 sPsywaveDescription[] = _(
+    "Inflicts damage identical\n"
+    "to the user's level.");
+
+static const u8 sRazorWindDescription[] = _(
+    "Slashes with wind. Has\n"
+    "a high critical-hit ratio.");
+
+static const u8 sRockSmashDescription[] = _(
+    "A rock-crushing attack\n"
+    "that will lower DEFENSE.");
+
+static const u8 sShadowBallDescription[] = _(
+    "Hurls a black blob that may\n"
+    "lower the foe's DEF.");
+
+static const u8 sSpitUpDescription[] = _(
+    "Spits up stomach contents.\n"
+    "(No need to Stockpile).");
+
+static const u8 sSwallowDescription[] = _(
+    "Recovers up to half the\n"
+    "user's maximum HP.");
+    
+static const u8 sWaterfallDescription[] = _(
+    "A ramming attack that may\n"
+    "cause flinching.");
+#endif
+
+u8 const* Rogue_TryOverrideMoveDescription(u16 move)
+{
+    if(Rogue_GetRevisionModeActive())
+    {
+#ifdef ROGUE_EXPANSION
+
+#else
+        switch (move)
+        {
+        case MOVE_BONE_RUSH:
+            return sBoneRushDescription;
+
+        case MOVE_BULLET_SEED:
+            return sBulletSeedDescription;
+
+        case MOVE_DRAGON_CLAW:
+            return sDragonClawDescription;
+
+        case MOVE_DRILL_PECK:
+            return sDrillPeckDescription;
+
+        case MOVE_EGG_BOMB:
+            return sEggBombDescription;
+
+        case MOVE_HYPER_VOICE:
+            return sHyperVoiceDescription;
+
+        case MOVE_JUMP_KICK:
+            return sJumpKickDescription;
+
+        case MOVE_LICK:
+            return sLickDescription;
+
+        case MOVE_PSYWAVE:
+            return sPsywaveDescription;
+
+        case MOVE_RAZOR_WIND:
+            return sRazorWindDescription;
+
+        case MOVE_ROCK_SMASH:
+            return sRockSmashDescription;
+
+        case MOVE_SHADOW_BALL:
+            return sShadowBallDescription;
+
+        case MOVE_SPIT_UP:
+            return sSpitUpDescription;
+
+        case MOVE_SWALLOW:
+            return sSwallowDescription;
+
+        case MOVE_WATERFALL:
+            return sWaterfallDescription;
+        }
+#endif
+    }
+
+    return NULL;
+}
+
 // Taken straight from daycare
 u16 Rogue_GetEggSpecies(u16 species)
 {

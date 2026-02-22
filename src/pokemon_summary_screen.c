@@ -706,11 +706,12 @@ static const struct WindowTemplate sPageMovesTemplate[] = // This is used for bo
         .height = 4,
         .paletteNum = 6,
         .baseBlock = 599,
-    },
+    }
 };
 
 #define SUMMARY_TEXT_COLOR_RED 2
 #define SUMMARY_TEXT_COLOR_BLUE 3
+#define SUMMARY_TEXT_COLOR_BLUE_REVISED 14
 
 static const u8 sTextColors[][3] =
 {
@@ -726,7 +727,10 @@ static const u8 sTextColors[][3] =
     {0, 1, 2},
     {0, 3, 4},
     {0, 5, 6},
-    {0, 7, 8}
+    {0, 7, 8},
+
+    {0, 15, 14 }, // needed for pp text colour
+    {0, 8, 7},
 };
 
 static const u8 sAButton_Gfx[] = INCBIN_U8("graphics/summary_screen/a_button.4bpp");
@@ -3734,6 +3738,7 @@ static void Task_PrintBattleMoves(u8 taskId)
 static void PrintMoveNameAndPP(u8 moveIndex)
 {
     u8 pp;
+    u8 colorId;
     int ppState, x;
     const u8 *text;
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
@@ -3741,6 +3746,21 @@ static void PrintMoveNameAndPP(u8 moveIndex)
     u8 ppValueWindowId = AddWindowFromTemplateList(sPageMovesTemplate, PSS_DATA_WINDOW_MOVE_PP);
     u16 move = summary->moves[moveIndex];
 
+    colorId = 0;
+
+    if (move != 0)
+    {
+        pp = CalculatePPWithBonus(move, summary->ppBonuses, moveIndex);
+
+        if(summary->pp[moveIndex] == pp && Rogue_HasMoveBeenRevised(move))
+        {
+            if(gBattleMoves_Mainline[move].pp != gBattleMoves_Revised[move].pp)
+            {
+                colorId = 13;
+            }
+        }
+    }
+    
     if (move != 0)
     {
         pp = CalculatePPWithBonus(move, summary->ppBonuses, moveIndex);
@@ -3763,7 +3783,7 @@ static void PrintMoveNameAndPP(u8 moveIndex)
         x = GetStringCenterAlignXOffset(FONT_NORMAL, text, 44);
     }
 
-    PrintTextOnWindow(ppValueWindowId, text, x, moveIndex * 16 + 1, 0, ppState);
+    PrintTextOnWindow(ppValueWindowId, text, x, moveIndex * 16 + 1, 0, colorId != 0 ? colorId : ppState);
 }
 
 static void PrintMovePowerAndAccuracy(u16 moveIndex)
@@ -3771,6 +3791,7 @@ static void PrintMovePowerAndAccuracy(u16 moveIndex)
     const u8 *text;
     if (moveIndex != 0)
     {
+        u8 colorId;
         FillWindowPixelRect(PSS_LABEL_WINDOW_MOVES_POWER_ACC, PIXEL_FILL(0), 53, 0, 19, 32);
 
         if (gBattleMoves[moveIndex].power < 2)
@@ -3783,7 +3804,16 @@ static void PrintMovePowerAndAccuracy(u16 moveIndex)
             text = gStringVar1;
         }
 
-        PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_POWER_ACC, text, 53, 1, 0, 0);
+        colorId = 0;
+        if(Rogue_HasMoveBeenRevised(moveIndex))
+        {
+            if(gBattleMoves_Mainline[moveIndex].power != gBattleMoves_Revised[moveIndex].power)
+            {
+                colorId = SUMMARY_TEXT_COLOR_BLUE_REVISED;
+            }
+        }
+
+        PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_POWER_ACC, text, 53, 1, 0, colorId);
 
         if (gBattleMoves[moveIndex].accuracy == 0)
         {
@@ -3795,7 +3825,16 @@ static void PrintMovePowerAndAccuracy(u16 moveIndex)
             text = gStringVar1;
         }
 
-        PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_POWER_ACC, text, 53, 17, 0, 0);
+        colorId = 0;
+        if(Rogue_HasMoveBeenRevised(moveIndex))
+        {
+            if(gBattleMoves_Mainline[moveIndex].accuracy != gBattleMoves_Revised[moveIndex].accuracy)
+            {
+                colorId = SUMMARY_TEXT_COLOR_BLUE_REVISED;
+            }
+        }
+
+        PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_POWER_ACC, text, 53, 17, 0, colorId);
     }
 }
 
@@ -3873,8 +3912,18 @@ static void PrintMoveDetails(u16 move)
     {
         if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
         {
-            PrintMovePowerAndAccuracy(move);
-            PrintTextOnWindow(windowId, gMoveDescriptionPointers[move - 1], 6, 1, 0, 0);
+            u8 const* overrideDesc = Rogue_TryOverrideMoveDescription(move);           
+            
+            if(overrideDesc != NULL)
+            {
+                PrintMovePowerAndAccuracy(move);
+                PrintTextOnWindow(windowId, overrideDesc, 6, 1, 0, SUMMARY_TEXT_COLOR_BLUE_REVISED);
+            }
+            else
+            {
+                PrintMovePowerAndAccuracy(move);
+                PrintTextOnWindow(windowId, gMoveDescriptionPointers[move - 1], 6, 1, 0, 0);
+            }
         }
         else
         {
@@ -3901,7 +3950,18 @@ static void PrintNewMoveDetailsOrCancelText(void)
     }
     else
     {
+        u8 colorId = 0;
         u16 move = sMonSummaryScreen->newMove;
+        if (move != 0)
+        {
+            if(Rogue_HasMoveBeenRevised(move))
+            {
+                if(gBattleMoves_Mainline[move].pp != gBattleMoves_Revised[move].pp)
+                {
+                    colorId = 13;
+                }
+            }
+        }
 
         if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
             PrintTextOnWindow(windowId1, gMoveNames[move], 0, 65, 0, 6);
@@ -3913,7 +3973,7 @@ static void PrintNewMoveDetailsOrCancelText(void)
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gStringVar1);
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sMovesPPLayout);
-        PrintTextOnWindow(windowId2, gStringVar4, GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 44), 65, 0, 12);
+        PrintTextOnWindow(windowId2, gStringVar4, GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 44), 65, 0, colorId != 0 ? colorId : 12);
     }
 }
 
