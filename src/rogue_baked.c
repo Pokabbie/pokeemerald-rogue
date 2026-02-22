@@ -2006,16 +2006,7 @@ bool8 Rogue_HasMoveBeenRevised(u16 move)
 {
     if(Rogue_GetRevisionModeActive())
     {
-        return 
-            gBattleMoves_Mainline[move].effect                  != gBattleMoves_Revised[move].effect ||
-            gBattleMoves_Mainline[move].power                   != gBattleMoves_Revised[move].power ||
-            gBattleMoves_Mainline[move].type                    != gBattleMoves_Revised[move].type ||
-            gBattleMoves_Mainline[move].accuracy                != gBattleMoves_Revised[move].accuracy ||
-            gBattleMoves_Mainline[move].pp                      != gBattleMoves_Revised[move].pp ||
-            gBattleMoves_Mainline[move].secondaryEffectChance   != gBattleMoves_Revised[move].secondaryEffectChance ||
-            gBattleMoves_Mainline[move].target                  != gBattleMoves_Revised[move].target ||
-            gBattleMoves_Mainline[move].priority                != gBattleMoves_Revised[move].priority ||
-            gBattleMoves_Mainline[move].flags                   != gBattleMoves_Revised[move].flags;
+        return memcmp(&gBattleMoves_Mainline[move], &gBattleMoves_Revised[move], sizeof(struct BattleMove)) != 0;
     }
 
     return FALSE;
