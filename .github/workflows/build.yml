@@ -8,6 +8,7 @@ on:
       - expansion
       - expansion-dev
   pull_request:
+    branches:
       - vanilla
       - vanilla-dev
       - expansion
