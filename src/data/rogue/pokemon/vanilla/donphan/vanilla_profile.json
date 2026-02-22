@@ -108,13 +108,43 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_BATTLE_ARMOR",
       "ABILITY_NONE"
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_MUD_SHOT",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_ENDEAVOR",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_ANCIENT_POWER",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_DRILL_RUN",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_ROCK_SLIDE",
+        "Level": 47
+      },
+      {
+        "Move": "MOVE_EARTHQUAKE",
+        "Level": 54
+      },
+      {
+        "Move": "MOVE_HEAD_SMASH",
+        "Level": 72
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_ICE_SHARD"
     ]
   }
 }

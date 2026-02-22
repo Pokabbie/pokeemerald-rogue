@@ -204,5 +204,56 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_LEECH_LIFE",
+        "Level": 3
+      },
+      {
+        "Move": "MOVE_MUD_SLAP",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_FURY_SWIPES",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_METAL_CLAW",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_GUST",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_SILVER_WIND",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_AERIAL_ACE",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_X_SCISSOR",
+        "Level": 42
+      },
+      {
+        "Move": "MOVE_DUAL_WINGBEAT",
+        "Level": 48
+      },
+      {
+        "Move": "MOVE_BATON_PASS",
+        "Level": 60
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_AGILITY"
+    ]
+  }
 }

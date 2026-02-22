@@ -159,13 +159,56 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_SPEED_BOOST",
       "ABILITY_ROUGH_SKIN"
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SECRET_POWER",
+        "Level": 12
+      },
+      {
+        "Move": "MOVE_SCARY_FACE",
+        "Level": 14
+      },
+      {
+        "Move": "MOVE_AQUA_JET",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_ANCIENT_POWER",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_AURORA_BEAM",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_CRUNCH",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_POISON_FANG",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_SURF",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_DARK_PULSE",
+        "Level": 54
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_SLASH",
+      "MOVE_BOUNCE"
     ]
   }
 }

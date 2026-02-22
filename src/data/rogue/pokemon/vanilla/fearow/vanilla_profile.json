@@ -99,5 +99,40 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_RAGE",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_SECRET_POWER",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_AERIAL_ACE",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_TRI_ATTACK",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_DRILL_PECK",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_DUAL_WINGBEAT",
+        "Level": 45
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_KNOCK_OFF"
+    ]
+  }
 }

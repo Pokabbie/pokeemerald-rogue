@@ -144,5 +144,53 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_UPROAR",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_DIZZY_PUNCH",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_FAINT_ATTACK",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_HYPNOSIS",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_FAKE_OUT",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_SHADOW_PUNCH",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_BRICK_BREAK",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_HYPER_VOICE",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_SHADOW_BALL",
+        "Level": 43
+      },
+      {
+        "Move": "MOVE_SUPERPOWER",
+        "Level": 52
+      }
+    ]
+  }
 }

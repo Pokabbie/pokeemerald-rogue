@@ -160,5 +160,13 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_PSYWAVE",
+        "Level": 1
+      }
+    ]
+  }
 }

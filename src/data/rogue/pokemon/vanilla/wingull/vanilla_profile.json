@@ -75,13 +75,36 @@
     "MOVE_WATER_SPORT"
   ],
   "CompetitiveSets": [],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_RAIN_DISH",
       "ABILITY_KEEN_EYE"
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_GUST",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_AERIAL_ACE",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 34
+      }
     ]
   }
 }

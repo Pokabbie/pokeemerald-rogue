@@ -139,5 +139,41 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_EMBER",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_METAL_CLAW",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_HEADBUTT",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_FLAME_WHEEL",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_FIRE_PUNCH",
+        "Level": 32
+      },
+      {
+        "Move": "MOVE_AERIAL_ACE",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_DUAL_WINGBEAT",
+        "Level": 42
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_TWISTER",
+      "MOVE_DRAGON_DANCE"
+    ]
+  }
 }

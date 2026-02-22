@@ -149,5 +149,21 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_MAGICAL_LEAF",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_FACADE",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_GIGA_DRAIN",
+        "Level": 35
+      }
+    ]
+  }
 }

@@ -143,5 +143,41 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_MUD_SLAP",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ICY_WIND",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_YAWN",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_DIG",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_EARTH_POWER",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_MUDDY_WATER",
+        "Level": 38
+      }
+    ]
+  }
 }

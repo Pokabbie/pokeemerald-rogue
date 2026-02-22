@@ -136,5 +136,61 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_POISON_STING",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ACID",
+        "Level": 11
+      },
+      {
+        "Move": "MOVE_MEGA_DRAIN",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_LEECH_SEED",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_SLUDGE",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_MAGICAL_LEAF",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_GRASS_WHISTLE",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_GIGA_DRAIN",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_INGRAIN",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_SYNTHESIS",
+        "Level": 41
+      },
+      {
+        "Move": "MOVE_SHADOW_BALL",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_PETAL_DANCE",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_SOLAR_BEAM",
+        "Level": 56
+      }
+    ]
+  }
 }

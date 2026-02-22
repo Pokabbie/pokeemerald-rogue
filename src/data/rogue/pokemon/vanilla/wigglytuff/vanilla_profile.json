@@ -177,13 +177,24 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_THICK_FAT",
       "ABILITY_NONE"
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_CHARM",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_THUNDER_WAVE",
+        "Level": 25
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_DISABLE",
+      "MOVE_SWALLOW"
     ]
   }
 }

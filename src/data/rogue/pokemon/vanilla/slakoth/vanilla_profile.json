@@ -95,5 +95,37 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ENCORE",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_SLACK_OFF",
+        "Level": 12
+      },
+      {
+        "Move": "MOVE_FAINT_ATTACK",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_DIG",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_HEADBUTT",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_FLAIL",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_BRICK_BREAK",
+        "Level": 40
+      }
+    ]
+  }
 }

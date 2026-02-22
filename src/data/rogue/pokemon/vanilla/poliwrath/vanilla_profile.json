@@ -219,5 +219,21 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SUBMISSION",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_SUPERPOWER",
+        "Level": 53
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_AQUA_JET",
+      "MOVE_FORCE_PALM"
+    ]
+  }
 }

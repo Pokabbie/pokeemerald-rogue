@@ -164,5 +164,41 @@
         "GEN3DOUBLESOU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_YAWN",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_HEADBUTT",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_COUNTER",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_FLAIL",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_BRICK_BREAK",
+        "Level": 48
+      },
+      {
+        "Move": "MOVE_CRUSH_CLAW",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_FOCUS_PUNCH",
+        "Level": 57
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_ENDEAVOR",
+      "MOVE_LOW_KICK"
+    ]
+  }
 }

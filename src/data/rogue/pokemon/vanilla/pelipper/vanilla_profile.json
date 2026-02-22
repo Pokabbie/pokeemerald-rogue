@@ -117,13 +117,57 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_DRIZZLE",
       "ABILITY_KEEN_EYE"
-    ]
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_GUST",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_WING_ATTACK",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_AERIAL_ACE",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_AIR_SLASH",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_PROTECT",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_SPIT_UP",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 68
+      }
+    ],
+    "TutorMoves": []
   }
 }

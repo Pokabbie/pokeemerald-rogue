@@ -209,13 +209,44 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_INSOMNIA",
       "ABILITY_NONE"
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_DIZZY_PUNCH",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SHADOW_PUNCH",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_MEGA_PUNCH",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_CRUSH_CLAW",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_EARTH_POWER",
+        "Level": 32
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 53
+      },
+      {
+        "Move": "MOVE_SUPERPOWER",
+        "Level": 59
+      }
     ]
   }
 }

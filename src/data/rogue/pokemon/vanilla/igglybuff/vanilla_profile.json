@@ -75,5 +75,25 @@
     "MOVE_WATER_PULSE",
     "MOVE_WISH"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_TACKLE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_HEADBUTT",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_DISABLE",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_ROLLOUT",
+        "Level": 10
+      }
+    ]
+  }
 }

@@ -121,5 +121,21 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_GIGA_DRAIN",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_SLUDGE_BOMB",
+        "Level": 40
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_WEATHER_BALL",
+      "MOVE_AROMATHERAPY"
+    ]
+  }
 }

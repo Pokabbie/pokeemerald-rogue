@@ -163,13 +163,44 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_THICK_FAT",
       "ABILITY_NONE"
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_KNOCK_OFF",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_STOMP",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_ROLLOUT",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_HYPER_VOICE",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_SWALLOW",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_FLAMETHROWER",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_SPIT_UP",
+        "Level": 48
+      }
     ]
   }
 }

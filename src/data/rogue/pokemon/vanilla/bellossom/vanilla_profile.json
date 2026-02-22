@@ -108,5 +108,26 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_MAGICAL_LEAF",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_PETAL_DANCE",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_SOLAR_BEAM",
+        "Level": 50
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_WEATHER_BALL",
+      "MOVE_SWEET_SCENT",
+      "MOVE_LEECH_SEED"
+    ]
+  }
 }

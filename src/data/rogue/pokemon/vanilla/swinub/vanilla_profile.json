@@ -79,17 +79,51 @@
     "MOVE_TOXIC"
   ],
   "CompetitiveSets": [],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_THICK_FAT",
       "ABILITY_NONE"
     ],
-    "Evolutions":
-    [
-      { "Method": "EVO_LEVEL", "Param": "27", "Species": "SPECIES_PILOSWINE" }
+    "Evolutions": [
+      {
+        "Method": "EVO_LEVEL",
+        "Param": "27",
+        "Species": "SPECIES_PILOSWINE"
+      }
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ICE_SHARD",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_POWDER_SNOW",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ICY_WIND",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_MUD_SHOT",
+        "Level": 14
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 19
+      },
+      {
+        "Move": "MOVE_ANCIENT_POWER",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_EARTH_POWER",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_ROCK_SLIDE",
+        "Level": 29
+      }
     ]
   }
 }

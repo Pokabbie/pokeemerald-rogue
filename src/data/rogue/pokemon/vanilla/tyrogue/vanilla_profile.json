@@ -47,5 +47,25 @@
     "MOVE_THIEF",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_LEER",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MACH_PUNCH",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_FAKE_OUT",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_ROCK_THROW",
+        "Level": 15
+      }
+    ]
+  }
 }

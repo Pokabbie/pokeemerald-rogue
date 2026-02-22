@@ -153,13 +153,25 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_DRIZZLE",
       "ABILITY_DAMP"
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HYPER_VOICE",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_PERISH_SONG",
+        "Level": 53
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_AQUA_JET",
+      "MOVE_PSYWAVE",
+      "MOVE_FAKE_OUT"
     ]
   }
 }

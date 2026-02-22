@@ -146,12 +146,55 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-    "Evolutions":
-    [
-      { "Method": "EVO_LEVEL", "Param": "40", "Species": "SPECIES_GLALIE" }
+  "RevisedMode": {
+    "Evolutions": [
+      {
+        "Method": "EVO_LEVEL",
+        "Param": "40",
+        "Species": "SPECIES_GLALIE"
+      }
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ICE_SHARD",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_DOUBLE_TEAM",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_BITE",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_ICY_WIND",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_HEADBUTT",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_PROTECT",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_CRUNCH",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_ICICLE_CRASH",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_LIGHT_SCREEN",
+        "Level": 35
+      }
     ]
   }
 }

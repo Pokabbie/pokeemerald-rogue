@@ -10,13 +10,16 @@
   ],
   "TutorMoves": [],
   "CompetitiveSets": [],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_MAGNET_PULL",
       "ABILITY_NONE"
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BULLET_PUNCH",
+        "Level": 1
+      }
     ]
   }
 }

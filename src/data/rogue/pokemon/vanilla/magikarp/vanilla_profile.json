@@ -17,5 +17,21 @@
     }
   ],
   "TutorMoves": [],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_TACKLE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_BUBBLE",
+        "Level": 5
+      },
+      {
+        "Move": "MOVE_BOUNCE",
+        "Level": 30
+      }
+    ]
+  }
 }

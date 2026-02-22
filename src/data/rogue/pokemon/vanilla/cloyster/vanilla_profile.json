@@ -94,5 +94,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HAIL",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_SURF",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_ICICLE_CRASH",
+        "Level": 48
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_WITHDRAW",
+      "MOVE_SPIKES"
+    ]
+  }
 }

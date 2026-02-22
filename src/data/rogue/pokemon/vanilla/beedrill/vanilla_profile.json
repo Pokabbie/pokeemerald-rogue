@@ -181,5 +181,42 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_LEECH_LIFE",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_ACID",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_TWINEEDLE",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_SLUDGE",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_PIN_MISSILE",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_KNOCK_OFF",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_DRILL_PECK",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_X_SCISSOR",
+        "Level": 37
+      }
+    ],
+    "TutorMoves": []
+  }
 }

@@ -181,5 +181,48 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_THUNDER_WAVE",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_SEISMIC_TOSS",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_YAWN",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_FOLLOW_ME",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_WING_ATTACK",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_WISH",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_ANCIENT_POWER",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_EXTREME_SPEED",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_EGG_BOMB",
+        "Level": 40
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_CHARM"
+    ]
+  }
 }

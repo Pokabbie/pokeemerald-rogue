@@ -69,5 +69,25 @@
     "MOVE_VOLT_TACKLE",
     "MOVE_WISH"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_TAIL_WHIP",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_THUNDER_WAVE",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_CHARM",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 10
+      }
+    ]
+  }
 }

@@ -81,5 +81,40 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_WATER_GUN",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_ICY_WIND",
+        "Level": 12
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 17
+      },
+      {
+        "Move": "MOVE_ICE_PUNCH",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_BUBBLE_BEAM",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_PSYCHIC",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_RAIN_DANCE",
+        "Level": 42
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_WHIRLPOOL"
+    ]
+  }
 }

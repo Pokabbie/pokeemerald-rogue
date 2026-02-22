@@ -136,5 +136,36 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BITE",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_SCREECH",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_AQUA_JET",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_CRUNCH",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_BUBBLE_BEAM",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_SUPER_FANG",
+        "Level": 43
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_WHIRLPOOL"
+    ]
+  }
 }

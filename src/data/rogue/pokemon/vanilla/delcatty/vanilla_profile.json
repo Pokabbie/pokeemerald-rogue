@@ -118,5 +118,22 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_CHARM",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_FAINT_ATTACK",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_HYPER_VOICE",
+        "Level": 33
+      }
+    ],
+    "TutorMoves": []
+  }
 }

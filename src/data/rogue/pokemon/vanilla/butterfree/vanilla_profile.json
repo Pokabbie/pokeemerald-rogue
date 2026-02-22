@@ -127,5 +127,44 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_CONFUSION",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_WING_ATTACK",
+        "Level": 14
+      },
+      {
+        "Move": "MOVE_MEGA_DRAIN",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_PSYBEAM",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_SILVER_WIND",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_CONFUSE_RAY",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_PSYCHIC",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_BUG_BUZZ",
+        "Level": 40
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FOLLOW_ME"
+    ]
+  }
 }

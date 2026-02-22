@@ -238,13 +238,55 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_SWIFT_SWIM",
       "ABILITY_NONE"
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_MUD_SLAP",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_AQUA_JET",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_ROCK_TOMB",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_ICE_PUNCH",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_BUBBLE_BEAM",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_ANCIENT_POWER",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_MUDDY_WATER",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_EARTHQUAKE",
+        "Level": 54
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_MIRROR_COAT"
     ]
   }
 }

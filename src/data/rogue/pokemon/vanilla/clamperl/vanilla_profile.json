@@ -103,5 +103,17 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_AURORA_BEAM",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 18
+      }
+    ]
+  }
 }

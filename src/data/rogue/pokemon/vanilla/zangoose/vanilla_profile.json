@@ -177,5 +177,53 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_HEADBUTT",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_MEAN_LOOK",
+        "Level": 12
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_SHADOW_PUNCH",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_BRICK_BREAK",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_X_SCISSOR",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_CRUSH_CLAW",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_SWORDS_DANCE",
+        "Level": 55
+      }
+    ]
+  }
 }

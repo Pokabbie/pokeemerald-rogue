@@ -130,5 +130,42 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_MUD_SHOT",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_SIGNAL_BEAM",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_OMINOUS_WIND",
+        "Level": 32
+      },
+      {
+        "Move": "MOVE_RECOVER",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_EXTRASENSORY",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_EARTH_POWER",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_EXPLOSION",
+        "Level": 57
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_TELEPORT",
+      "MOVE_COSMIC_POWER",
+      "MOVE_CONFUSE_RAY"
+    ]
+  }
 }

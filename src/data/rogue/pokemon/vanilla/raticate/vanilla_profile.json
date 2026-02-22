@@ -129,5 +129,32 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_QUICK_ATTACK",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_DOUBLE_KICK",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_DIG",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_SUPER_FANG",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_SHADOW_BALL",
+        "Level": 45
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FLAME_WHEEL"
+    ]
+  }
 }

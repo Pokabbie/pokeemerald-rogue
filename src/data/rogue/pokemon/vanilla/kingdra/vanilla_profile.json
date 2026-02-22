@@ -132,5 +132,49 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_TWISTER",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_AURORA_BEAM",
+        "Level": 14
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_DRAGON_BREATH",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_SURF",
+        "Level": 36
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_ICE_BEAM",
+        "Level": 55
+      },
+      {
+        "Move": "MOVE_DRAGON_DANCE",
+        "Level": 64
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 68
+      }
+    ]
+  }
 }

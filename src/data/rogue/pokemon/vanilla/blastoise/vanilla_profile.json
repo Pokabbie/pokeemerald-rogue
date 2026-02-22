@@ -162,13 +162,55 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-      "Abilities":
-      [
-        "ABILITY_SHELL_ARMOR",
-        "ABILITY_NONE"
-      ]
+  "RevisedMode": {
+    "Abilities": [
+      "ABILITY_SHELL_ARMOR",
+      "ABILITY_NONE"
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BUBBLE",
+        "Level": 6
+      },
+      {
+        "Move": "MOVE_WITHDRAW",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_WATER_GUN",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_BITE",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_HEADBUTT",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_ICE_PUNCH",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_BUBBLE_BEAM",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_YAWN",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 60
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_MIRROR_COAT"
+    ]
   }
 }

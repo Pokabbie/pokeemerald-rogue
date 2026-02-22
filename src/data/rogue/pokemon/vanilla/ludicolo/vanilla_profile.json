@@ -156,5 +156,18 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_PETAL_DANCE",
+        "Level": 53
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 64
+      }
+    ],
+    "TutorMoves": []
+  }
 }

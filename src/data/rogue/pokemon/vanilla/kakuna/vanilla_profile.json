@@ -9,5 +9,17 @@
     }
   ],
   "TutorMoves": [],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_POISON_POWDER",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_HARDEN",
+        "Level": 7
+      }
+    ]
+  }
 }

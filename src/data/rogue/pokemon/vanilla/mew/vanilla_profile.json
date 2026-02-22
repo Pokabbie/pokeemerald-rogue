@@ -176,5 +176,13 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SWIFT",
+        "Level": 1
+      }
+    ]
+  }
 }

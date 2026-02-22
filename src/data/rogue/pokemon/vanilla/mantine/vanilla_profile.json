@@ -193,5 +193,41 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_AGILITY",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_WHIRLPOOL",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_WING_ATTACK",
+        "Level": 8
+      },
+      {
+        "Move": "MOVE_ICY_WIND",
+        "Level": 26
+      },
+      {
+        "Move": "MOVE_AIR_SLASH",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_SURF",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_REST",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_MIRROR_COAT",
+        "Level": 59
+      }
+    ]
+  }
 }

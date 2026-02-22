@@ -119,12 +119,59 @@
     "MOVE_WATER_PULSE"
   ],
   "CompetitiveSets": [],
-
-  "RevisedMode":
-  {
-    "Evolutions":
-    [
-      { "Method": "EVO_LEVEL", "Param": "50", "Species": "SPECIES_BLISSEY" }
+  "RevisedMode": {
+    "Evolutions": [
+      {
+        "Method": "EVO_LEVEL",
+        "Param": "50",
+        "Species": "SPECIES_BLISSEY"
+      }
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_HEADBUTT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_PSYCH_UP",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_ICY_WIND",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SOFT_BOILED",
+        "Level": 10
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_DOUBLE_TEAM",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_SING",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_EGG_BOMB",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_DEFENSE_CURL",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_PSYCHIC",
+        "Level": 40
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 47
+      }
     ]
   }
 }

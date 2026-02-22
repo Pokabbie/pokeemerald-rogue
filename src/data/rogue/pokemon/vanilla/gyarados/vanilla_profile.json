@@ -179,5 +179,40 @@
         "GEN31V1"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_BOUNCE",
+        "Level": 39
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_DRAGON_RAGE",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_CRUNCH",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_WATERFALL",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_DRAGON_DANCE",
+        "Level": 53
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FLAIL"
+    ]
+  }
 }

@@ -162,5 +162,20 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ICY_WIND",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_BUBBLE_BEAM",
+        "Level": 40
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_PSYWAVE"
+    ]
+  }
 }

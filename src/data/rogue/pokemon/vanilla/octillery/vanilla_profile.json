@@ -129,5 +129,42 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ICY_WIND",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_MUD_SHOT",
+        "Level": 14
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_PSYBEAM",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_SIGNAL_BEAM",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_OCTAZOOKA",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_HYPER_BEAM",
+        "Level": 50
+      }
+    ],
+    "TutorMoves": []
+  }
 }

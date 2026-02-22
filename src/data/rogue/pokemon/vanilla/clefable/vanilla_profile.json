@@ -316,5 +316,22 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ICE_PUNCH",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_HYPER_VOICE",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_MINIMIZE",
+        "Level": 45
+      }
+    ],
+    "TutorMoves": []
+  }
 }

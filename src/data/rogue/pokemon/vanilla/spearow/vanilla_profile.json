@@ -74,5 +74,37 @@
     "MOVE_TOXIC",
     "MOVE_TRI_ATTACK"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_PURSUIT",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_RAGE",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_SECRET_POWER",
+        "Level": 20
+      },
+      {
+        "Move": "MOVE_AERIAL_ACE",
+        "Level": 23
+      },
+      {
+        "Move": "MOVE_TRI_ATTACK",
+        "Level": 28
+      },
+      {
+        "Move": "MOVE_DRILL_PECK",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_KNOCK_OFF",
+        "Level": 44
+      }
+    ]
+  }
 }

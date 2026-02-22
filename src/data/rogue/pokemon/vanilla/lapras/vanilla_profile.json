@@ -165,5 +165,45 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_ANCIENT_POWER",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_DRILL_RUN",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_SAFEGUARD",
+        "Level": 7
+      },
+      {
+        "Move": "MOVE_SIGNAL_BEAM",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_SURF",
+        "Level": 29
+      },
+      {
+        "Move": "MOVE_ICY_WIND",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_RAIN_DANCE",
+        "Level": 47
+      },
+      {
+        "Move": "MOVE_HYDRO_PUMP",
+        "Level": 53
+      },
+      {
+        "Move": "MOVE_DRACO_METEOR",
+        "Level": 55
+      }
+    ]
+  }
 }

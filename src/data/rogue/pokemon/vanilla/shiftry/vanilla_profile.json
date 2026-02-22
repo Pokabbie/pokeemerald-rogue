@@ -180,5 +180,21 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_LEAF_BLADE",
+        "Level": 52
+      },
+      {
+        "Move": "MOVE_DARK_PULSE",
+        "Level": 58
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_FAKE_OUT",
+      "MOVE_HEAT_WAVE"
+    ]
+  }
 }

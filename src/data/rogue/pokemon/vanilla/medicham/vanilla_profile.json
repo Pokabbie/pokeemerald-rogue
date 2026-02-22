@@ -207,5 +207,53 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_FORCE_PALM",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_PSYBEAM",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_MEDITATE",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_PSYCH_UP",
+        "Level": 31
+      },
+      {
+        "Move": "MOVE_FAKE_OUT",
+        "Level": 34
+      },
+      {
+        "Move": "MOVE_HI_JUMP_KICK",
+        "Level": 55
+      },
+      {
+        "Move": "MOVE_REVERSAL",
+        "Level": 66
+      },
+      {
+        "Move": "MOVE_PSYCHIC",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_SHADOW_PUNCH",
+        "Level": 45
+      },
+      {
+        "Move": "MOVE_BRICK_BREAK",
+        "Level": 50
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_RECOVER",
+      "MOVE_MEDITATE"
+    ]
+  }
 }

@@ -200,5 +200,44 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SHADOW_SNEAK",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_CURSE",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_OMINOUS_WIND",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_FAINT_ATTACK",
+        "Level": 37
+      },
+      {
+        "Move": "MOVE_SHADOW_BALL",
+        "Level": 44
+      },
+      {
+        "Move": "MOVE_CRUSH_CLAW",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_DARK_PULSE",
+        "Level": 59
+      },
+      {
+        "Move": "MOVE_DESTINY_BOND",
+        "Level": 66
+      }
+    ],
+    "TutorMoves": [
+      "MOVE_SPITE"
+    ]
+  }
 }

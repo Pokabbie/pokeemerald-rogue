@@ -168,5 +168,29 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_THRASH",
+        "Level": 24
+      },
+      {
+        "Move": "MOVE_SUBMISSION",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_SLUDGE",
+        "Level": 33
+      },
+      {
+        "Move": "MOVE_DRILL_RUN",
+        "Level": 38
+      },
+      {
+        "Move": "MOVE_POISON_TAIL",
+        "Level": 59
+      }
+    ]
+  }
 }

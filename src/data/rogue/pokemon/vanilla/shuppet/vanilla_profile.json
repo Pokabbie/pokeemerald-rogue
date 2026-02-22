@@ -105,5 +105,29 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_SHADOW_SNEAK",
+        "Level": 13
+      },
+      {
+        "Move": "MOVE_CURSE",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_OMINOUS_WIND",
+        "Level": 27
+      },
+      {
+        "Move": "MOVE_CRUSH_CLAW",
+        "Level": 49
+      },
+      {
+        "Move": "MOVE_DARK_PULSE",
+        "Level": 59
+      }
+    ]
+  }
 }

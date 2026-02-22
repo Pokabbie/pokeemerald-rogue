@@ -132,17 +132,59 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_SWIFT_SWIM",
       "ABILITY_NONE"
     ],
-    "Evolutions":
-    [
-      { "Method": "EVO_LEVEL", "Param": "40", "Species": "SPECIES_KINGDRA" }
+    "Evolutions": [
+      {
+        "Method": "EVO_LEVEL",
+        "Param": "40",
+        "Species": "SPECIES_KINGDRA"
+      }
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_TWISTER",
+        "Level": 9
+      },
+      {
+        "Move": "MOVE_AURORA_BEAM",
+        "Level": 14
+      },
+      {
+        "Move": "MOVE_WATER_PULSE",
+        "Level": 21
+      },
+      {
+        "Move": "MOVE_DRAGON_BREATH",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_BODY_SLAM",
+        "Level": 30
+      },
+      {
+        "Move": "MOVE_SURF",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_OCTAZOOKA",
+        "Level": 63
+      },
+      {
+        "Move": "MOVE_DOUBLE_EDGE",
+        "Level": 46
+      },
+      {
+        "Move": "MOVE_ICE_BEAM",
+        "Level": 54
+      },
+      {
+        "Move": "MOVE_DRAGON_DANCE",
+        "Level": 60
+      }
     ]
   }
 }

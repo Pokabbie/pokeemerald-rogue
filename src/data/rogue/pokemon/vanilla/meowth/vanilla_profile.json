@@ -122,13 +122,44 @@
       ]
     }
   ],
-
-  "RevisedMode":
-  {
-    "Abilities":
-    [
+  "RevisedMode": {
+    "Abilities": [
       "ABILITY_LIMBER",
       "ABILITY_NONE"
+    ],
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_PAY_DAY",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FAKE_OUT",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_FURY_SWIPES",
+        "Level": 15
+      },
+      {
+        "Move": "MOVE_FAINT_ATTACK",
+        "Level": 18
+      },
+      {
+        "Move": "MOVE_THUNDER_WAVE",
+        "Level": 22
+      },
+      {
+        "Move": "MOVE_SLASH",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_SHADOW_BALL",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_THUNDERBOLT",
+        "Level": 44
+      }
     ]
   }
 }
