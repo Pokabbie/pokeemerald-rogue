@@ -82,5 +82,25 @@
     "MOVE_TOXIC",
     "MOVE_UPROAR"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_DOUBLE_KICK",
+        "Level": 16
+      },
+      {
+        "Move": "MOVE_ENDEAVOR",
+        "Level": 25
+      },
+      {
+        "Move": "MOVE_SUPER_FANG",
+        "Level": 35
+      },
+      {
+        "Move": "MOVE_SHADOW_BALL",
+        "Level": 43
+      }
+    ]
+  }
 }

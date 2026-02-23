@@ -1582,11 +1582,7 @@ void RogueMoveQuery_Reset(u8 func)
 
     ASSERT_MOVES_QUERY;
 
-#ifdef ROGUE_EXPANSION
     for(i = MOVE_NONE + 1; i < QUERY_NUM_MOVES; ++i) // ITERATOR_INC(i) ?
-#else
-    for(i = MOVE_NONE + 1; i < Rogue_GetRevisionModeActive() ? MOVES_COUNT_REVISED : MOVES_COUNT_MAINLINE; ++i) // ITERATOR_INC(i) ?
-#endif
     {
         if(func == QUERY_FUNC_INCLUDE)
         {
@@ -1673,7 +1669,11 @@ static u16 Query_MaxBitCount()
         return QUERY_NUM_ADVENTURE_PATH;
     
     case QUERY_TYPE_MOVES:
+#ifdef ROGUE_EXPANSION
         return QUERY_NUM_MOVES;
+#else
+        return Rogue_GetRevisionModeActive() ? MOVES_COUNT_REVISED : MOVES_COUNT_MAINLINE;
+#endif
     
     default: // QUERY_TYPE_CUSTOM
         return MAX_QUERY_BIT_COUNT;

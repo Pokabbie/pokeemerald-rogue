@@ -220,14 +220,33 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 
 		if (revisedData.contains("LevelUpMoves"))
 		{
+
+
 			for (json move : revisedData["LevelUpMoves"])
 			{
-				outProfile.m_LevelUpMoves.push_back(
+				std::string moveName = move["Move"].get<std::string>();
+
+				// Update the level on th existing move
+				if (outProfile.HasLevelUpMove(moveName))
+				{
+					for (size_t i = 0; i < outProfile.m_LevelUpMoves.size(); ++i)
 					{
-						move["Move"].get<std::string>(),
-						move["Level"].get<int>()
+						if (outProfile.m_LevelUpMoves[i].m_Move == moveName)
+						{
+							outProfile.m_LevelUpMoves[i].m_Level = move["Level"].get<int>();
+							break;
+						}
 					}
-				);
+				}
+				else
+				{
+					outProfile.m_LevelUpMoves.push_back(
+						{
+							moveName,
+							move["Level"].get<int>()
+						}
+					);
+				}
 			}
 		}
 
@@ -235,7 +254,10 @@ void ParseProfile(std::string const& filePath, PokemonProfile& outProfile, bool 
 		{
 			for (json move : revisedData["TutorMoves"])
 			{
-				outProfile.m_TutorMoves.push_back(move.get<std::string>());
+				if (!outProfile.HasTutorMove(move))
+				{
+					outProfile.m_TutorMoves.push_back(move.get<std::string>());
+				}
 			}
 		}
 

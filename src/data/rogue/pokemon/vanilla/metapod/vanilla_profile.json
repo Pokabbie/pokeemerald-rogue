@@ -9,5 +9,13 @@
     }
   ],
   "TutorMoves": [],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "RevisedMode": {
+    "LevelUpMoves": [
+      {
+        "Move": "MOVE_IRON_DEFENSE",
+        "Level": 7
+      }
+    ]
+  }
 }
