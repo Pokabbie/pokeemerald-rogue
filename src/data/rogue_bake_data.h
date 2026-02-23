@@ -450,21 +450,21 @@ const struct RogueSpeciesBakedData gRogueBake_SpeciesData[NUM_SPECIES] =
 		.eggSpecies = 63,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
-		.evolutionChainTypeFlags_Revised = 8705,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[64] =
 	{
 		.eggSpecies = 63,
 		.evolutionCount = 1,
 		.evolutionChainTypeFlags = 8192,
-		.evolutionChainTypeFlags_Revised = 8705,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[65] =
 	{
 		.eggSpecies = 63,
 		.evolutionCount = 0,
 		.evolutionChainTypeFlags = 8192,
-		.evolutionChainTypeFlags_Revised = 8705,
+		.evolutionChainTypeFlags_Revised = 8192,
 	},
 	[66] =
 	{

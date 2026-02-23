@@ -2017,6 +2017,7 @@ u16 Rogue_GetPokemonSpecialMoveUsage(u16 move)
     }
 }
 
+#ifndef ROGUE_BAKING
 bool8 Rogue_HasMoveBeenRevised(u16 move)
 {
     if(Rogue_GetRevisionModeActive())
@@ -2026,6 +2027,7 @@ bool8 Rogue_HasMoveBeenRevised(u16 move)
 
     return FALSE;
 }
+#endif
 
 #ifndef ROGUE_EXPANSION
 

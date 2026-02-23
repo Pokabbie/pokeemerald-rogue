@@ -304,12 +304,14 @@ struct LevelUpMove
 
 struct RoguePokemonProfile
 {
+    struct Evolution const* evolutions;
     struct RoguePokemonCompetitiveSet const* competitiveSets;
     struct LevelUpMove const* levelUpMoves;
     u16 const* tutorMoves;
     struct RoguePokemonBaseStats baseStats;
     u16 monFlags;
     u16 competitiveSetCount;
+    u8 evolutionCount;
 };
 
 void memcpy(void* dst, void* src, size_t size);
