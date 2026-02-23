@@ -254,6 +254,24 @@
     "TutorMoves": [
       "MOVE_RECOVER",
       "MOVE_MEDITATE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_SKY_UPPERCUT",
+          "MOVE_SHADOW_PUNCH",
+          "MOVE_BULK_UP"
+        ],
+        "Ability": "ABILITY_PURE_POWER",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -220,6 +220,40 @@
         "Level": 40
       }
     ],
-    "TutorMoves": []
+    "TutorMoves": [],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DRILL_RUN",
+          "MOVE_SOLAR_BEAM",
+          "MOVE_FIRE_PLEDGE",
+          "MOVE_OVERHEAT"
+        ],
+        "Ability": "ABILITY_BLAZE",
+        "Item": "ITEM_CHARCOAL",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FLAME_WHEEL",
+          "MOVE_DRILL_RUN",
+          "MOVE_BOUNCE",
+          "MOVE_AGILITY"
+        ],
+        "Ability": "ABILITY_BLAZE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
   }
 }

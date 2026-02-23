@@ -172,6 +172,24 @@
         "Move": "MOVE_COSMIC_POWER",
         "Level": 45
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SHOCK_WAVE",
+          "MOVE_WATER_PULSE",
+          "MOVE_RECOVER",
+          "MOVE_COSMIC_POWER"
+        ],
+        "Ability": "ABILITY_NATURAL_CURE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

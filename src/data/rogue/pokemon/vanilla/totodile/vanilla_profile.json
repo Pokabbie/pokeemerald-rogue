@@ -130,6 +130,24 @@
         "Move": "MOVE_SWORDS_DANCE",
         "Level": 55
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BITE",
+          "MOVE_WATER_PULSE",
+          "MOVE_RAGE",
+          "MOVE_POISON_FANG"
+        ],
+        "Ability": "ABILITY_TORRENT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

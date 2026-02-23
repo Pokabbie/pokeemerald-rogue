@@ -179,6 +179,24 @@
     ],
     "TutorMoves": [
       "MOVE_DRAGON_BREATH"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_THUNDERBOLT",
+          "MOVE_COTTON_SPORE",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_FIRE_PUNCH"
+        ],
+        "Ability": "ABILITY_STATIC",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

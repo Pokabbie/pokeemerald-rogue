@@ -171,6 +171,40 @@
         "Move": "MOVE_THUNDERBOLT",
         "Level": 45
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_AURORA_BEAM",
+          "MOVE_SPARK",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_CONFUSE_RAY"
+        ],
+        "Ability": "ABILITY_VOLT_ABSORB",
+        "Item": "ITEM_BERRY_JUICE",
+        "Nature": "NATURE_QUIET",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_THUNDERBOLT",
+          "MOVE_SURF",
+          "MOVE_AURORA_BEAM",
+          "MOVE_CONFUSE_RAY"
+        ],
+        "Ability": "ABILITY_VOLT_ABSORB",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

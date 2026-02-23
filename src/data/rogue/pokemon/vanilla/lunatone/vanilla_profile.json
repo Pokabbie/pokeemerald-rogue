@@ -157,6 +157,24 @@
         "Move": "MOVE_PSYCHIC",
         "Level": 45
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PSYCHIC",
+          "MOVE_ROCK_SLIDE",
+          "MOVE_ICE_BEAM",
+          "MOVE_CALM_MIND"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_SITRUS_BERRY",
+        "Nature": "NATURE_CAREFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

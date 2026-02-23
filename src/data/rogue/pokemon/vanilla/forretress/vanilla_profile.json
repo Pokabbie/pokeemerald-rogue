@@ -184,6 +184,39 @@
     ],
     "TutorMoves": [
       "MOVE_SPIKES"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SPIKES",
+          "MOVE_SILVER_WIND",
+          "MOVE_CUT"
+        ],
+        "Ability": "ABILITY_SHELL_ARMOR",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FLASH_CANNON",
+          "MOVE_SPIKES",
+          "MOVE_ROLLOUT",
+          "MOVE_SILVER_WIND"
+        ],
+        "Ability": "ABILITY_SHELL_ARMOR",
+        "Item": "ITEM_BERRY_JUICE",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

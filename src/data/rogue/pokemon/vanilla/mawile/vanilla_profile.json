@@ -252,6 +252,56 @@
         "Move": "MOVE_SPIT_UP",
         "Level": 50
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FLASH_CANNON",
+          "MOVE_HYPER_VOICE",
+          "MOVE_CRUNCH",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_SITRUS_BERRY",
+        "Nature": "NATURE_BRAVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FLASH_CANNON",
+          "MOVE_BRICK_BREAK",
+          "MOVE_IRON_DEFENSE",
+          "MOVE_BATON_PASS"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FLASH_CANNON",
+          "MOVE_KNOCK_OFF",
+          "MOVE_SWORDS_DANCE",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

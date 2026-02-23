@@ -131,6 +131,21 @@
         "Move": "MOVE_ANCIENT_POWER",
         "Level": 34
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_METRONOME"
+        ],
+        "Ability": "ABILITY_HUSTLE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

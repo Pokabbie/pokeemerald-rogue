@@ -189,6 +189,24 @@
     "TutorMoves": [
       "MOVE_CRUNCH",
       "MOVE_HYPNOSIS"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_AERIAL_ACE",
+          "MOVE_SLUDGE",
+          "MOVE_MEGA_DRAIN",
+          "MOVE_SUPER_FANG"
+        ],
+        "Ability": "ABILITY_INNER_FOCUS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

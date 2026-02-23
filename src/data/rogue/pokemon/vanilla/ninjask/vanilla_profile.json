@@ -254,6 +254,40 @@
     ],
     "TutorMoves": [
       "MOVE_AGILITY"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_SUBSTITUTE",
+          "MOVE_AERIAL_ACE",
+          "MOVE_LEECH_LIFE"
+        ],
+        "Ability": "ABILITY_SPEED_BOOST",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAIVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DUAL_WINGBEAT",
+          "MOVE_LEECH_LIFE",
+          "MOVE_SWORDS_DANCE",
+          "MOVE_BATON_PASS"
+        ],
+        "Ability": "ABILITY_SPEED_BOOST",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

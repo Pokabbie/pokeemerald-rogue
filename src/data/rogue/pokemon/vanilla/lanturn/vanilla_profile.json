@@ -204,6 +204,88 @@
     ],
     "TutorMoves": [
       "MOVE_ICY_WIND"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SHOCK_WAVE",
+          "MOVE_SURF",
+          "MOVE_AURORA_BEAM",
+          "MOVE_CONFUSE_RAY"
+        ],
+        "Ability": "ABILITY_VOLT_ABSORB",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HARDY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DIVE",
+          "MOVE_SHOCK_WAVE",
+          "MOVE_AURORA_BEAM",
+          "MOVE_CONFUSE_RAY"
+        ],
+        "Ability": "ABILITY_VOLT_ABSORB",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SPARK",
+          "MOVE_SURF",
+          "MOVE_AURORA_BEAM",
+          "MOVE_CONFUSE_RAY"
+        ],
+        "Ability": "ABILITY_VOLT_ABSORB",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CAREFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_THUNDERBOLT",
+          "MOVE_SIGNAL_BEAM"
+        ],
+        "Ability": "ABILITY_VOLT_ABSORB",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_JOLLY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_TOXIC",
+          "MOVE_THUNDER",
+          "MOVE_WATERFALL",
+          "MOVE_ICE_BEAM"
+        ],
+        "Ability": "ABILITY_VOLT_ABSORB",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -186,6 +186,23 @@
     ],
     "TutorMoves": [
       "MOVE_SUBMISSION"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DIG",
+          "MOVE_ROCK_TOMB",
+          "MOVE_FIRE_PUNCH"
+        ],
+        "Ability": "ABILITY_ROCK_HEAD",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -138,6 +138,40 @@
     ],
     "TutorMoves": [
       "MOVE_WHIRLPOOL"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_ICY_WIND",
+          "MOVE_EXTRASENSORY",
+          "MOVE_SUBSTITUTE"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PSYCHIC",
+          "MOVE_SURF",
+          "MOVE_CLAMP",
+          "MOVE_IRON_DEFENSE"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

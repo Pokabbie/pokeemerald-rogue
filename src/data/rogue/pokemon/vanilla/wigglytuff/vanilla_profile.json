@@ -195,6 +195,24 @@
     "TutorMoves": [
       "MOVE_DISABLE",
       "MOVE_SWALLOW"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BODY_SLAM",
+          "MOVE_ATTRACT",
+          "MOVE_SOFT_BOILED",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

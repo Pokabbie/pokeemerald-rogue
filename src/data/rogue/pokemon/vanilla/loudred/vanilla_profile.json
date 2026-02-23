@@ -178,6 +178,22 @@
     ],
     "TutorMoves": [
       "MOVE_ENDEAVOR"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HYPER_VOICE",
+          "MOVE_SHOCK_WAVE"
+        ],
+        "Ability": "ABILITY_SOUNDPROOF",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CAREFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

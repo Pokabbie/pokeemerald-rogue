@@ -195,6 +195,37 @@
         "Move": "MOVE_LIGHT_SCREEN",
         "Level": 35
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ICE_SHARD",
+          "MOVE_BITE"
+        ],
+        "Ability": "ABILITY_INNER_FOCUS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ICE_SHARD",
+          "MOVE_BITE",
+          "MOVE_HEADBUTT"
+        ],
+        "Ability": "ABILITY_INNER_FOCUS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

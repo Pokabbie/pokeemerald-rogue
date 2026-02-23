@@ -173,6 +173,56 @@
     "TutorMoves": [
       "MOVE_ZAP_CANNON",
       "MOVE_SCREECH"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FLASH_CANNON",
+          "MOVE_THUNDERBOLT",
+          "MOVE_TRI_ATTACK",
+          "MOVE_THUNDER_WAVE"
+        ],
+        "Ability": "ABILITY_MAGNET_PULL",
+        "Item": "ITEM_METAL_COAT",
+        "Nature": "NATURE_BASHFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SONIC_BOOM",
+          "MOVE_PROTECT",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_SPARK"
+        ],
+        "Ability": "ABILITY_MAGNET_PULL",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_THUNDERBOLT",
+          "MOVE_FLASH_CANNON",
+          "MOVE_PROTECT",
+          "MOVE_THUNDER_WAVE"
+        ],
+        "Ability": "ABILITY_MAGNET_PULL",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

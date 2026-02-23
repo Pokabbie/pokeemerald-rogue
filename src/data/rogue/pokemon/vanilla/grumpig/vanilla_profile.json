@@ -203,6 +203,55 @@
         "Move": "MOVE_MIST_BALL",
         "Level": 42
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PSYBEAM",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_DIG"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CONFUSE_RAY",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_PSYCHIC",
+          "MOVE_JUMP_KICK"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PSYCHIC",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_BOUNCE",
+          "MOVE_BODY_SLAM"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

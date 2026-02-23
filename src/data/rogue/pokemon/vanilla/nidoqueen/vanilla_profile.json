@@ -157,6 +157,24 @@
         "Level": 59
       }
     ],
-    "TutorMoves": []
+    "TutorMoves": [],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_THUNDER_PUNCH",
+          "MOVE_POISON_FANG",
+          "MOVE_DIG",
+          "MOVE_SUBMISSION"
+        ],
+        "Ability": "ABILITY_POISON_POINT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CALM",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
   }
 }

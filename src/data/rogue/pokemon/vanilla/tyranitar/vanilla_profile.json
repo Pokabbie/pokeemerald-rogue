@@ -325,6 +325,24 @@
         "Level": 78
       }
     ],
-    "TutorMoves": []
+    "TutorMoves": [],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ROCK_SLIDE",
+          "MOVE_CRUNCH",
+          "MOVE_EARTH_POWER",
+          "MOVE_DRAGON_DANCE"
+        ],
+        "Ability": "ABILITY_SAND_STREAM",
+        "Item": "ITEM_WHITE_HERB",
+        "Nature": "NATURE_CALM",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "SINGLES_REVISED_MODE"
+        ]
+      }
+    ]
   }
 }

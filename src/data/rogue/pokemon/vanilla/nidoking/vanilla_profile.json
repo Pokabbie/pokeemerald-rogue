@@ -191,6 +191,24 @@
         "Move": "MOVE_POISON_TAIL",
         "Level": 59
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_DRILL_RUN",
+          "MOVE_SUPERPOWER",
+          "MOVE_ROCK_TOMB"
+        ],
+        "Ability": "ABILITY_POISON_POINT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

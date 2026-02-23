@@ -173,6 +173,72 @@
     ],
     "TutorMoves": [
       "MOVE_AURORA_BEAM"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_THUNDERBOLT",
+          "MOVE_CRUNCH",
+          "MOVE_FLAMETHROWER",
+          "MOVE_QUICK_ATTACK"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_MAGNET",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHOCK_WAVE",
+          "MOVE_SIGNAL_BEAM",
+          "MOVE_CRUNCH",
+          "MOVE_QUICK_ATTACK"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_SITRUS_BERRY",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SHOCK_WAVE",
+          "MOVE_CRUNCH",
+          "MOVE_POISON_FANG",
+          "MOVE_IRON_TAIL"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_THUNDERBOLT",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_CRUNCH",
+          "MOVE_FLAMETHROWER"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -122,6 +122,23 @@
         "Move": "MOVE_SUPERPOWER",
         "Level": 40
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ATTRACT",
+          "MOVE_SLUDGE",
+          "MOVE_BITE"
+        ],
+        "Ability": "ABILITY_POISON_POINT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

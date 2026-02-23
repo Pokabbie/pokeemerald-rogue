@@ -223,6 +223,40 @@
     ],
     "TutorMoves": [
       "MOVE_CHARM"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FOLLOW_ME",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_SWAGGER",
+          "MOVE_METRONOME"
+        ],
+        "Ability": "ABILITY_HUSTLE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_GENTLE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "SINGLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_COSMIC_POWER",
+          "MOVE_CALM_MIND",
+          "MOVE_MAGICAL_LEAF",
+          "MOVE_AIR_SLASH"
+        ],
+        "Ability": "ABILITY_HUSTLE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RELAXED",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

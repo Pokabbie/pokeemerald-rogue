@@ -130,6 +130,22 @@
         "Move": "MOVE_DIG",
         "Level": 24
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_QUICK_ATTACK",
+          "MOVE_SWIFT"
+        ],
+        "Ability": "ABILITY_RUN_AWAY",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BRAVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

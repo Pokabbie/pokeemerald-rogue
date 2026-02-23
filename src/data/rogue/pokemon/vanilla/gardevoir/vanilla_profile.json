@@ -210,6 +210,40 @@
         "Move": "MOVE_TELEPORT",
         "Level": 55
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_EXTRASENSORY",
+          "MOVE_CALM_MIND",
+          "MOVE_MAGICAL_LEAF",
+          "MOVE_ICE_PUNCH"
+        ],
+        "Ability": "ABILITY_SYNCHRONIZE",
+        "Item": "ITEM_MIRACLE_SEED",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_MAGICAL_LEAF",
+          "MOVE_PSYBEAM",
+          "MOVE_CALM_MIND",
+          "MOVE_DOUBLE_TEAM"
+        ],
+        "Ability": "ABILITY_SYNCHRONIZE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

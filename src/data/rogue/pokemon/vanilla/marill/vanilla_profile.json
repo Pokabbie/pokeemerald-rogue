@@ -126,6 +126,39 @@
         "Move": "MOVE_BOUNCE",
         "Level": 31
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_WATER_PULSE",
+          "MOVE_ROLLOUT",
+          "MOVE_DEFENSE_CURL"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LONELY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_BUBBLE_BEAM",
+          "MOVE_ICE_PUNCH",
+          "MOVE_ROLLOUT",
+          "MOVE_DEFENSE_CURL"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

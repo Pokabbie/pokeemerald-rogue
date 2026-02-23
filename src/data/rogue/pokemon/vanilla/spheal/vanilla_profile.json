@@ -140,6 +140,24 @@
         "Move": "MOVE_BUBBLE_BEAM",
         "Level": 33
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ICE_BEAM",
+          "MOVE_SURF",
+          "MOVE_WATER_PULSE",
+          "MOVE_SUPER_FANG"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RASH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

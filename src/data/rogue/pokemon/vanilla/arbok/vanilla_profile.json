@@ -205,6 +205,24 @@
     ],
     "TutorMoves": [
       "MOVE_TAUNT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_CRUNCH",
+          "MOVE_GLARE",
+          "MOVE_EARTH_POWER"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

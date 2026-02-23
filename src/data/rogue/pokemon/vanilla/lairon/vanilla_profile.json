@@ -215,6 +215,39 @@
         "Move": "MOVE_HEAD_SMASH",
         "Level": 63
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_METAL_CLAW",
+          "MOVE_ROCK_TOMB",
+          "MOVE_DIG",
+          "MOVE_TAKE_DOWN"
+        ],
+        "Ability": "ABILITY_ROCK_HEAD",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LONELY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FLASH_CANNON",
+          "MOVE_DIG",
+          "MOVE_ROCK_SLIDE"
+        ],
+        "Ability": "ABILITY_ROCK_HEAD",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

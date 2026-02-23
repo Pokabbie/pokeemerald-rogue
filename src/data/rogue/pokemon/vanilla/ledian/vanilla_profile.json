@@ -162,6 +162,56 @@
     ],
     "TutorMoves": [
       "MOVE_SUPERSONIC"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_AERIAL_ACE",
+          "MOVE_MACH_PUNCH",
+          "MOVE_ENCORE",
+          "MOVE_PSYBEAM"
+        ],
+        "Ability": "ABILITY_SWARM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BRAVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_REFLECT",
+          "MOVE_AERIAL_ACE",
+          "MOVE_THUNDER_PUNCH",
+          "MOVE_SILVER_WIND"
+        ],
+        "Ability": "ABILITY_SWARM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SWORDS_DANCE",
+          "MOVE_BULLET_PUNCH",
+          "MOVE_AERIAL_ACE",
+          "MOVE_LEECH_LIFE"
+        ],
+        "Ability": "ABILITY_SWARM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_DOCILE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

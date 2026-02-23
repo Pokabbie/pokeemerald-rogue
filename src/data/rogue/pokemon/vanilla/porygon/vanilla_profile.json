@@ -155,6 +155,39 @@
         "Move": "MOVE_THUNDERBOLT",
         "Level": 52
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SHOCK_WAVE",
+          "MOVE_TRI_ATTACK",
+          "MOVE_CONVERSION",
+          "MOVE_THUNDER_WAVE"
+        ],
+        "Ability": "ABILITY_TRACE",
+        "Item": "ITEM_PECHA_BERRY",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_TRI_ATTACK",
+          "MOVE_SHOCK_WAVE",
+          "MOVE_PSYBEAM"
+        ],
+        "Ability": "ABILITY_TRACE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

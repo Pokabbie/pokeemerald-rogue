@@ -176,6 +176,24 @@
         "Move": "MOVE_FLAMETHROWER",
         "Level": 49
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SECRET_POWER",
+          "MOVE_CRUNCH",
+          "MOVE_DRAGON_CLAW",
+          "MOVE_FLAMETHROWER"
+        ],
+        "Ability": "ABILITY_ROCK_HEAD",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAIVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

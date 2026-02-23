@@ -192,6 +192,40 @@
         "Level": 65
       }
     ],
-    "TutorMoves": []
+    "TutorMoves": [],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_TOXIC",
+          "MOVE_PROTECT",
+          "MOVE_REST"
+        ],
+        "Ability": "ABILITY_MARVEL_SCALE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RELAXED",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ICE_BEAM",
+          "MOVE_MIRROR_COAT",
+          "MOVE_WATERFALL",
+          "MOVE_RECOVER"
+        ],
+        "Ability": "ABILITY_MARVEL_SCALE",
+        "Item": "ITEM_STARF_BERRY",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
   }
 }

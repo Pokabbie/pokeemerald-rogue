@@ -120,6 +120,23 @@
         "Move": "MOVE_EXTRASENSORY",
         "Level": 33
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ACID",
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_STRING_SHOT"
+        ],
+        "Ability": "ABILITY_SWARM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -127,6 +127,24 @@
         "Move": "MOVE_FIRE_BLAST",
         "Level": 44
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FIRE_SPIN",
+          "MOVE_DIG",
+          "MOVE_QUICK_ATTACK",
+          "MOVE_GROWL"
+        ],
+        "Ability": "ABILITY_BLAZE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BRAVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

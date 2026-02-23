@@ -94,6 +94,23 @@
         "Move": "MOVE_ROLLOUT",
         "Level": 10
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_TACKLE",
+          "MOVE_REST",
+          "MOVE_SING"
+        ],
+        "Ability": "ABILITY_CUTE_CHARM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

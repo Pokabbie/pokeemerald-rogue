@@ -118,6 +118,24 @@
     "TutorMoves": [
       "MOVE_SLEEP_POWDER",
       "MOVE_WEATHER_BALL"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SLEEP_POWDER",
+          "MOVE_LEECH_SEED",
+          "MOVE_MEGA_DRAIN",
+          "MOVE_GUST"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_MILD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

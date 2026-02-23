@@ -263,6 +263,40 @@
     ],
     "TutorMoves": [
       "MOVE_REVERSAL"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_SUBMISSION",
+          "MOVE_BELLY_DRUM",
+          "MOVE_FACADE"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_SITRUS_BERRY",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_SURF",
+          "MOVE_BRICK_BREAK",
+          "MOVE_BULLET_PUNCH"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

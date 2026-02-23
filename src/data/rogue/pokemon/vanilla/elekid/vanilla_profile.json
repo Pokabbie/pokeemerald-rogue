@@ -171,6 +171,24 @@
         "Move": "MOVE_BRICK_BREAK",
         "Level": 27
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SPARK",
+          "MOVE_KARATE_CHOP",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_ICE_PUNCH"
+        ],
+        "Ability": "ABILITY_VOLT_ABSORB",
+        "Item": "ITEM_CHESTO_BERRY",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

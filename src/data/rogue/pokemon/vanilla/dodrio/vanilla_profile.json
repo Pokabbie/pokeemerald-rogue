@@ -148,6 +148,24 @@
     ],
     "TutorMoves": [
       "MOVE_KNOCK_OFF"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FLY",
+          "MOVE_TRI_ATTACK",
+          "MOVE_FRUSTRATION",
+          "MOVE_QUICK_ATTACK"
+        ],
+        "Ability": "ABILITY_VITAL_SPIRIT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

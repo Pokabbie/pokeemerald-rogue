@@ -178,6 +178,55 @@
         "Move": "MOVE_REVERSAL",
         "Level": 59
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_KARATE_CHOP",
+          "MOVE_FAKE_OUT",
+          "MOVE_PSYBEAM"
+        ],
+        "Ability": "ABILITY_PURE_POWER",
+        "Item": "ITEM_BLACK_BELT",
+        "Nature": "NATURE_SASSY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FOCUS_PUNCH",
+          "MOVE_THUNDER_PUNCH",
+          "MOVE_PSYBEAM",
+          "MOVE_SUBSTITUTE"
+        ],
+        "Ability": "ABILITY_PURE_POWER",
+        "Item": "ITEM_STARF_BERRY",
+        "Nature": "NATURE_GENTLE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FOCUS_PUNCH",
+          "MOVE_DETECT",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_SHADOW_PUNCH"
+        ],
+        "Ability": "ABILITY_PURE_POWER",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

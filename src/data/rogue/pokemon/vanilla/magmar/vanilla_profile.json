@@ -200,6 +200,24 @@
     ],
     "TutorMoves": [
       "MOVE_FIRE_SPIN"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FIRE_PUNCH",
+          "MOVE_CROSS_CHOP",
+          "MOVE_SUNNY_DAY",
+          "MOVE_THUNDER_PUNCH"
+        ],
+        "Ability": "ABILITY_FLASH_FIRE",
+        "Item": "ITEM_BERRY_JUICE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

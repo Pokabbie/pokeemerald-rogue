@@ -124,6 +124,38 @@
         "Move": "MOVE_PROTECT",
         "Level": 30
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HARDEN",
+          "MOVE_WHIRLPOOL"
+        ],
+        "Ability": "ABILITY_HYPER_CUTTER",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RASH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_WATER_PULSE",
+          "MOVE_AQUA_JET",
+          "MOVE_CUT",
+          "MOVE_AGILITY"
+        ],
+        "Ability": "ABILITY_HYPER_CUTTER",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RASH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

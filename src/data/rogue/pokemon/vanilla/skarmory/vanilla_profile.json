@@ -193,6 +193,56 @@
         "Move": "MOVE_SWORDS_DANCE",
         "Level": 53
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_STEEL_WING",
+          "MOVE_AERIAL_ACE",
+          "MOVE_TOXIC",
+          "MOVE_SPIKES"
+        ],
+        "Ability": "ABILITY_KEEN_EYE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CALM",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_STEEL_WING",
+          "MOVE_FLY",
+          "MOVE_PROTECT",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_KEEN_EYE",
+        "Item": "ITEM_METAL_COAT",
+        "Nature": "NATURE_DOCILE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FLASH_CANNON",
+          "MOVE_SPIKES",
+          "MOVE_FLY",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_KEEN_EYE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

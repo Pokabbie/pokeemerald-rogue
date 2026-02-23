@@ -194,6 +194,24 @@
         "Move": "MOVE_KNOCK_OFF",
         "Level": 44
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_AERIAL_ACE",
+          "MOVE_QUICK_ATTACK",
+          "MOVE_KNOCK_OFF",
+          "MOVE_PURSUIT"
+        ],
+        "Ability": "ABILITY_VITAL_SPIRIT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RELAXED",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

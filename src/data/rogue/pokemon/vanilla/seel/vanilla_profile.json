@@ -121,6 +121,40 @@
         "Move": "MOVE_ICE_BEAM",
         "Level": 40
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ICY_WIND",
+          "MOVE_WATER_PULSE",
+          "MOVE_BODY_SLAM",
+          "MOVE_ENCORE"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BRAVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ICE_BEAM",
+          "MOVE_SURF",
+          "MOVE_BODY_SLAM",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -195,6 +195,24 @@
         "Move": "MOVE_DARK_PULSE",
         "Level": 59
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DARK_PULSE",
+          "MOVE_IRON_TAIL",
+          "MOVE_POISON_TAIL",
+          "MOVE_SUNNY_DAY"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_BLACK_GLASSES",
+        "Nature": "NATURE_MILD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -191,6 +191,24 @@
         "Level": 41
       }
     ],
-    "TutorMoves": []
+    "TutorMoves": [],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_HYPER_VOICE",
+          "MOVE_SHADOW_BALL",
+          "MOVE_NIGHT_SLASH"
+        ],
+        "Ability": "ABILITY_LIMBER",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
   }
 }

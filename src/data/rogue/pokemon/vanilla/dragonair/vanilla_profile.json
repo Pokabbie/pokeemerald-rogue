@@ -171,6 +171,40 @@
     ],
     "TutorMoves": [
       "MOVE_BARRIER"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_THUNDER_WAVE",
+          "MOVE_DRAGON_BREATH",
+          "MOVE_BODY_SLAM",
+          "MOVE_SHOCK_WAVE"
+        ],
+        "Ability": "ABILITY_SHED_SKIN",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAGON_BREATH",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_THUNDERBOLT",
+          "MOVE_ICE_BEAM"
+        ],
+        "Ability": "ABILITY_SHED_SKIN",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

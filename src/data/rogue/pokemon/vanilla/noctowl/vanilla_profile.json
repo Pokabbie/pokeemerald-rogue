@@ -212,6 +212,23 @@
     ],
     "TutorMoves": [
       "MOVE_OMINOUS_WIND"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HYPNOSIS",
+          "MOVE_WING_ATTACK",
+          "MOVE_CONFUSION"
+        ],
+        "Ability": "ABILITY_INSOMNIA",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LONELY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

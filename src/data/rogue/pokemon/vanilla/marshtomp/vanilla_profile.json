@@ -197,6 +197,53 @@
     ],
     "TutorMoves": [
       "MOVE_BRICK_BREAK"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_MUD_SHOT",
+          "MOVE_AQUA_JET"
+        ],
+        "Ability": "ABILITY_TORRENT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SASSY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_MUD_SHOT",
+          "MOVE_WATER_PULSE",
+          "MOVE_AQUA_JET",
+          "MOVE_ICE_PUNCH"
+        ],
+        "Ability": "ABILITY_TORRENT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_ICE_PUNCH",
+          "MOVE_EARTH_POWER"
+        ],
+        "Ability": "ABILITY_TORRENT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_QUIET",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

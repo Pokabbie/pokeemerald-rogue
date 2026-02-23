@@ -147,6 +147,56 @@
     "TutorMoves": [
       "MOVE_SWALLOW",
       "MOVE_HEAT_WAVE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FACADE",
+          "MOVE_DUAL_WINGBEAT",
+          "MOVE_QUICK_ATTACK",
+          "MOVE_ENDEAVOR"
+        ],
+        "Ability": "ABILITY_GUTS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_JOLLY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DUAL_WINGBEAT",
+          "MOVE_HEAT_WAVE",
+          "MOVE_QUICK_ATTACK",
+          "MOVE_STEEL_WING"
+        ],
+        "Ability": "ABILITY_GUTS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RASH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FACADE",
+          "MOVE_AIR_SLASH",
+          "MOVE_PROTECT",
+          "MOVE_QUICK_ATTACK"
+        ],
+        "Ability": "ABILITY_GUTS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

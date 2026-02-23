@@ -160,6 +160,22 @@
         "Move": "MOVE_MOONLIGHT",
         "Level": 45
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_METRONOME",
+          "MOVE_ATTRACT"
+        ],
+        "Ability": "ABILITY_CUTE_CHARM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CALM",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

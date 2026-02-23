@@ -230,6 +230,40 @@
     "TutorMoves": [
       "MOVE_LOW_KICK",
       "MOVE_DETECT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_BRICK_BREAK",
+          "MOVE_ROCK_SLIDE",
+          "MOVE_PURSUIT"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_BRICK_BREAK",
+          "MOVE_FAKE_OUT",
+          "MOVE_ROCK_SLIDE",
+          "MOVE_PURSUIT"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_QUIET",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

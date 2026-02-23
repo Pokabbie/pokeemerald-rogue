@@ -138,6 +138,22 @@
         "Move": "MOVE_SLASH",
         "Level": 24
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_YAWN",
+          "MOVE_SCRATCH"
+        ],
+        "Ability": "ABILITY_GUTS",
+        "Item": "ITEM_ORAN_BERRY",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

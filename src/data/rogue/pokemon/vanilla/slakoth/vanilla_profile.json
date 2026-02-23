@@ -126,6 +126,88 @@
         "Move": "MOVE_BRICK_BREAK",
         "Level": 40
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_ENCORE",
+          "MOVE_THUNDER",
+          "MOVE_FAINT_ATTACK"
+        ],
+        "Ability": "ABILITY_TRUANT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_DOCILE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_ENCORE",
+          "MOVE_THUNDER",
+          "MOVE_FAINT_ATTACK"
+        ],
+        "Ability": "ABILITY_TRUANT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_ENCORE",
+          "MOVE_THUNDER",
+          "MOVE_FAINT_ATTACK"
+        ],
+        "Ability": "ABILITY_TRUANT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_ENCORE",
+          "MOVE_THUNDER",
+          "MOVE_FAINT_ATTACK"
+        ],
+        "Ability": "ABILITY_TRUANT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_ENCORE",
+          "MOVE_THUNDER",
+          "MOVE_FAINT_ATTACK"
+        ],
+        "Ability": "ABILITY_TRUANT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BRAVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

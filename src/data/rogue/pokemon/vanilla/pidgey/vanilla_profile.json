@@ -110,6 +110,24 @@
         "Move": "MOVE_HEAT_WAVE",
         "Level": 33
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_AERIAL_ACE",
+          "MOVE_RAZOR_WIND",
+          "MOVE_REST",
+          "MOVE_DOUBLE_TEAM"
+        ],
+        "Ability": "ABILITY_KEEN_EYE",
+        "Item": "ITEM_FOCUS_BAND",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

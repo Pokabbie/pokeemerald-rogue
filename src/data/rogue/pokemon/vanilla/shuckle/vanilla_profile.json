@@ -167,6 +167,39 @@
         "Move": "MOVE_ENCORE",
         "Level": 45
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_TOXIC",
+          "MOVE_REST",
+          "MOVE_SANDSTORM"
+        ],
+        "Ability": "ABILITY_SHELL_ARMOR",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_GENTLE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_TOXIC",
+          "MOVE_SANDSTORM",
+          "MOVE_WRAP",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_SHELL_ARMOR",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CAREFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -156,6 +156,39 @@
     "TutorMoves": [
       "MOVE_ANCIENT_POWER",
       "MOVE_DRAGON_DANCE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_ICE_PUNCH",
+          "MOVE_CRUNCH"
+        ],
+        "Ability": "ABILITY_TORRENT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CRUNCH",
+          "MOVE_TAKE_DOWN",
+          "MOVE_WATERFALL",
+          "MOVE_DRAGON_DANCE"
+        ],
+        "Ability": "ABILITY_TORRENT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_GENTLE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

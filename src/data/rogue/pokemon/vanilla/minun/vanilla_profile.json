@@ -200,6 +200,71 @@
         "Move": "MOVE_VOLT_TACKLE",
         "Level": 72
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SPARK",
+          "MOVE_QUICK_ATTACK",
+          "MOVE_THUNDER_WAVE"
+        ],
+        "Ability": "ABILITY_MINUS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BRAVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SPARK",
+          "MOVE_QUICK_ATTACK",
+          "MOVE_ENCORE",
+          "MOVE_BATON_PASS"
+        ],
+        "Ability": "ABILITY_MINUS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_THUNDER_WAVE",
+          "MOVE_AGILITY",
+          "MOVE_SPARK",
+          "MOVE_SWIFT"
+        ],
+        "Ability": "ABILITY_MINUS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_THUNDERBOLT",
+          "MOVE_ATTRACT",
+          "MOVE_RAIN_DANCE",
+          "MOVE_SUBSTITUTE"
+        ],
+        "Ability": "ABILITY_MINUS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -191,6 +191,40 @@
         "Move": "MOVE_SOLAR_BEAM",
         "Level": 56
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_MEGA_DRAIN",
+          "MOVE_GRASS_WHISTLE",
+          "MOVE_LEECH_SEED"
+        ],
+        "Ability": "ABILITY_NATURAL_CURE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BASHFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_PETAL_DANCE",
+          "MOVE_LEECH_SEED",
+          "MOVE_STUN_SPORE"
+        ],
+        "Ability": "ABILITY_NATURAL_CURE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BASHFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

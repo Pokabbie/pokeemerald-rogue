@@ -270,6 +270,24 @@
         "Move": "MOVE_PSYCHIC",
         "Level": 53
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_OMINOUS_WIND",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_ICE_PUNCH",
+          "MOVE_WILL_O_WISP"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_MILD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

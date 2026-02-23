@@ -147,6 +147,24 @@
         "Move": "MOVE_ROCK_SLIDE",
         "Level": 46
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_REVERSAL",
+          "MOVE_KNOCK_OFF",
+          "MOVE_BULK_UP",
+          "MOVE_VITAL_THROW"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_BERRY_JUICE",
+        "Nature": "NATURE_LONELY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

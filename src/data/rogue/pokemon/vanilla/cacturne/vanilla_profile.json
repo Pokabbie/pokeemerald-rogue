@@ -264,6 +264,24 @@
     ],
     "TutorMoves": [
       "MOVE_LOW_KICK"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_NEEDLE_ARM",
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_LEECH_SEED",
+          "MOVE_CRUNCH"
+        ],
+        "Ability": "ABILITY_WATER_ABSORB",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BRAVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

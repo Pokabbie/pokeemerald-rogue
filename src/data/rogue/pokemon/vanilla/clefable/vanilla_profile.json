@@ -332,6 +332,40 @@
         "Level": 45
       }
     ],
-    "TutorMoves": []
+    "TutorMoves": [],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HYPER_VOICE",
+          "MOVE_MOONLIGHT",
+          "MOVE_METRONOME",
+          "MOVE_BRICK_BREAK"
+        ],
+        "Ability": "ABILITY_CUTE_CHARM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DUAL_WINGBEAT",
+          "MOVE_SOFT_BOILED",
+          "MOVE_PSYCHIC",
+          "MOVE_CALM_MIND"
+        ],
+        "Ability": "ABILITY_CUTE_CHARM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RASH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
   }
 }

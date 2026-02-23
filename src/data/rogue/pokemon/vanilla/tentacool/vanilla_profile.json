@@ -151,6 +151,39 @@
         "Move": "MOVE_MIRROR_COAT",
         "Level": 44
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_TOXIC",
+          "MOVE_ACID",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_CLEAR_BODY",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_TOXIC",
+          "MOVE_ACID",
+          "MOVE_AQUA_JET",
+          "MOVE_SCREECH"
+        ],
+        "Ability": "ABILITY_CLEAR_BODY",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

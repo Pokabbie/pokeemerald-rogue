@@ -145,6 +145,22 @@
         "Move": "MOVE_TELEPORT",
         "Level": 48
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CONFUSION",
+          "MOVE_GROWL"
+        ],
+        "Ability": "ABILITY_SYNCHRONIZE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

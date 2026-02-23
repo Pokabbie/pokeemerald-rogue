@@ -155,6 +155,24 @@
     ],
     "TutorMoves": [
       "MOVE_FLAME_WHEEL"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FACADE",
+          "MOVE_SHADOW_BALL",
+          "MOVE_ENDEAVOR",
+          "MOVE_SWORDS_DANCE"
+        ],
+        "Ability": "ABILITY_RUN_AWAY",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HARDY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -162,6 +162,24 @@
         "Move": "MOVE_BUG_BUZZ",
         "Level": 40
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SIGNAL_BEAM",
+          "MOVE_PSYCHIC",
+          "MOVE_ENCORE",
+          "MOVE_MOONLIGHT"
+        ],
+        "Ability": "ABILITY_OBLIVIOUS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CAREFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

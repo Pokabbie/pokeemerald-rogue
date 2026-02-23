@@ -247,6 +247,40 @@
         "Move": "MOVE_SUPERPOWER",
         "Level": 59
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_BODY_SLAM",
+          "MOVE_BRICK_BREAK",
+          "MOVE_SHADOW_PUNCH"
+        ],
+        "Ability": "ABILITY_INSOMNIA",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RASH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_DOUBLE_KICK",
+          "MOVE_BODY_SLAM",
+          "MOVE_SEISMIC_TOSS"
+        ],
+        "Ability": "ABILITY_INSOMNIA",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SASSY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

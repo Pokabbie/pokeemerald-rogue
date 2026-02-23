@@ -155,6 +155,38 @@
         "Move": "MOVE_ROCK_SLIDE",
         "Level": 40
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SPARK",
+          "MOVE_ROLLOUT",
+          "MOVE_BODY_SLAM"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_BERRY_JUICE",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ROCK_SLIDE",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_HEADBUTT"
+        ],
+        "Ability": "ABILITY_SERENE_GRACE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RASH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

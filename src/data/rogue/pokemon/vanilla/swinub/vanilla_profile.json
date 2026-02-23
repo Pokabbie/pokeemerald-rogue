@@ -124,6 +124,24 @@
         "Move": "MOVE_ROCK_SLIDE",
         "Level": 29
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ROCK_TOMB",
+          "MOVE_MUD_SLAP",
+          "MOVE_YAWN",
+          "MOVE_ICE_SHARD"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_MODEST",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

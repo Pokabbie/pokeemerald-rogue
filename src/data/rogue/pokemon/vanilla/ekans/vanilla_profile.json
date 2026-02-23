@@ -128,6 +128,24 @@
         "Move": "MOVE_TAUNT",
         "Level": 46
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SLUDGE",
+          "MOVE_BITE",
+          "MOVE_DIG",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_ORAN_BERRY",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

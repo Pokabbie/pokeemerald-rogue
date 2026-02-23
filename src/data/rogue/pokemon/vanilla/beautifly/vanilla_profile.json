@@ -125,6 +125,39 @@
     ],
     "TutorMoves": [
       "MOVE_LIGHT_SCREEN"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SIGNAL_BEAM",
+          "MOVE_DETECT",
+          "MOVE_WING_ATTACK"
+        ],
+        "Ability": "ABILITY_COMPOUND_EYES",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "SINGLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PSYCHIC",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_AIR_SLASH",
+          "MOVE_STUN_SPORE"
+        ],
+        "Ability": "ABILITY_COMPOUND_EYES",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BASHFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

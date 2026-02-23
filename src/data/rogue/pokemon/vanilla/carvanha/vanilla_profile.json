@@ -136,6 +136,55 @@
         "Move": "MOVE_FAINT_ATTACK",
         "Level": 28
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_POISON_FANG",
+          "MOVE_BITE",
+          "MOVE_DIVE"
+        ],
+        "Ability": "ABILITY_SPEED_BOOST",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HARDY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CRUNCH",
+          "MOVE_AQUA_JET",
+          "MOVE_AURORA_BEAM",
+          "MOVE_DIVE"
+        ],
+        "Ability": "ABILITY_SPEED_BOOST",
+        "Item": "ITEM_SEA_INCENSE",
+        "Nature": "NATURE_RELAXED",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ANCIENT_POWER",
+          "MOVE_WATER_PULSE",
+          "MOVE_AURORA_BEAM",
+          "MOVE_FAINT_ATTACK"
+        ],
+        "Ability": "ABILITY_SPEED_BOOST",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RELAXED",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

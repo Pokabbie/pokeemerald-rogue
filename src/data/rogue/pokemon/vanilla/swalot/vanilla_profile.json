@@ -233,6 +233,23 @@
     ],
     "TutorMoves": [
       "MOVE_ACID_ARMOR"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_FIRE_PUNCH"
+        ],
+        "Ability": "ABILITY_LIQUID_OOZE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BRAVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

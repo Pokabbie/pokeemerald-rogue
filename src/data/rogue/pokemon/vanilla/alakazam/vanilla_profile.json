@@ -256,6 +256,40 @@
         "Move": "MOVE_PSYCHIC",
         "Level": 55
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_EXTRASENSORY",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_PSYWAVE",
+          "MOVE_THUNDER_PUNCH"
+        ],
+        "Ability": "ABILITY_INNER_FOCUS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_DOCILE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PSYCHIC",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_ICE_PUNCH",
+          "MOVE_THUNDER_PUNCH"
+        ],
+        "Ability": "ABILITY_INNER_FOCUS",
+        "Item": "ITEM_TWISTED_SPOON",
+        "Nature": "NATURE_BASHFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "SINGLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

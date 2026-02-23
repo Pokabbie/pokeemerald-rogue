@@ -145,6 +145,24 @@
         "Move": "MOVE_PSYCHIC",
         "Level": 55
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PSYBEAM",
+          "MOVE_ICE_PUNCH",
+          "MOVE_PSYWAVE",
+          "MOVE_THUNDER_PUNCH"
+        ],
+        "Ability": "ABILITY_SYNCHRONIZE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RASH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

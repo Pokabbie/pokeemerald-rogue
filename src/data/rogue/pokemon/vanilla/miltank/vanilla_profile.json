@@ -188,6 +188,24 @@
         "Move": "MOVE_DOUBLE_EDGE",
         "Level": 63
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ATTRACT",
+          "MOVE_ROLLOUT",
+          "MOVE_MILK_DRINK",
+          "MOVE_DEFENSE_CURL"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RELAXED",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

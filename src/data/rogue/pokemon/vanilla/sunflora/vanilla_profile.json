@@ -189,6 +189,24 @@
         "Move": "MOVE_SOLAR_BEAM",
         "Level": 52
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SOLAR_BEAM",
+          "MOVE_GROWTH",
+          "MOVE_SUNNY_DAY",
+          "MOVE_MORNING_SUN"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_MILD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

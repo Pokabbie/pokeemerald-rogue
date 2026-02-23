@@ -199,6 +199,40 @@
     "TutorMoves": [
       "MOVE_ENDEAVOR",
       "MOVE_LOW_KICK"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_COUNTER",
+          "MOVE_THUNDER",
+          "MOVE_DOUBLE_EDGE"
+        ],
+        "Ability": "ABILITY_TRUANT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RELAXED",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_BODY_SLAM",
+          "MOVE_EARTH_POWER",
+          "MOVE_BRICK_BREAK"
+        ],
+        "Ability": "ABILITY_TRUANT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CALM",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

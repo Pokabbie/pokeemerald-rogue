@@ -160,6 +160,23 @@
         "Move": "MOVE_THUNDERBOLT",
         "Level": 44
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_PAY_DAY",
+          "MOVE_BITE"
+        ],
+        "Ability": "ABILITY_LIMBER",
+        "Item": "ITEM_ORAN_BERRY",
+        "Nature": "NATURE_RELAXED",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

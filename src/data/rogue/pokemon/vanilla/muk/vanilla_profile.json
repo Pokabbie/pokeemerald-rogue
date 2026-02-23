@@ -237,6 +237,24 @@
         "Level": 37
       }
     ],
-    "TutorMoves": []
+    "TutorMoves": [],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_SHADOW_BALL",
+          "MOVE_TOXIC",
+          "MOVE_CRUNCH"
+        ],
+        "Ability": "ABILITY_LIQUID_OOZE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_MODEST",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
   }
 }

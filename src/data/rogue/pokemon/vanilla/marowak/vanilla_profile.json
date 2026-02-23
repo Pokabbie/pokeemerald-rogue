@@ -252,6 +252,24 @@
     "TutorMoves": [
       "MOVE_SHADOW_PUNCH",
       "MOVE_FLAME_WHEEL"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SHADOW_PUNCH",
+          "MOVE_ANCIENT_POWER",
+          "MOVE_BODY_SLAM",
+          "MOVE_BRICK_BREAK"
+        ],
+        "Ability": "ABILITY_ROCK_HEAD",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

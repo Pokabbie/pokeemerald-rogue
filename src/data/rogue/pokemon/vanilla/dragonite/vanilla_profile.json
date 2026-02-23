@@ -243,6 +243,24 @@
     ],
     "TutorMoves": [
       "MOVE_BARRIER"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DUAL_WINGBEAT",
+          "MOVE_DYNAMIC_PUNCH",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_EXTREME_SPEED"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_SITRUS_BERRY",
+        "Nature": "NATURE_CALM",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

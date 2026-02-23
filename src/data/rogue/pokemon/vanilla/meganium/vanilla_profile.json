@@ -190,6 +190,40 @@
     ],
     "TutorMoves": [
       "MOVE_ANCIENT_POWER"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PETAL_DANCE",
+          "MOVE_EXTRASENSORY",
+          "MOVE_LIGHT_SCREEN",
+          "MOVE_ANCIENT_POWER"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_LEFTOVERS",
+        "Nature": "NATURE_CALM",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_GIGA_DRAIN",
+          "MOVE_LEECH_SEED",
+          "MOVE_POISON_POWDER",
+          "MOVE_SYNTHESIS"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -137,6 +137,24 @@
         "Move": "MOVE_HYPER_VOICE",
         "Level": 47
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PSYCHIC",
+          "MOVE_HYPER_VOICE",
+          "MOVE_CALM_MIND",
+          "MOVE_BATON_PASS"
+        ],
+        "Ability": "ABILITY_INNER_FOCUS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_DOCILE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

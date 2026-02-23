@@ -207,6 +207,24 @@
         "Move": "MOVE_EARTHQUAKE",
         "Level": 53
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_GIGA_DRAIN",
+          "MOVE_EARTHQUAKE",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_SHED_SKIN",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

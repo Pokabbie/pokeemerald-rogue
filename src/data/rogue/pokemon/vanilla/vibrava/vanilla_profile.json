@@ -152,6 +152,40 @@
         "Move": "MOVE_BUG_BUZZ",
         "Level": 52
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DRAGON_BREATH",
+          "MOVE_ROCK_TOMB",
+          "MOVE_EMBER",
+          "MOVE_SAND_TOMB"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRAGON_BREATH",
+          "MOVE_EARTH_POWER",
+          "MOVE_FLAMETHROWER",
+          "MOVE_BUG_BUZZ"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SASSY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "SINGLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

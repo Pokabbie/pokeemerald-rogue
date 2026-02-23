@@ -97,6 +97,24 @@
         "Move": "MOVE_MAGICAL_LEAF",
         "Level": 15
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_GROWL",
+          "MOVE_REST",
+          "MOVE_ROLLOUT",
+          "MOVE_METRONOME"
+        ],
+        "Ability": "ABILITY_CUTE_CHARM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

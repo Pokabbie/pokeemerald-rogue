@@ -133,6 +133,40 @@
     ],
     "TutorMoves": [
       "MOVE_KNOCK_OFF"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DRILL_RUN",
+          "MOVE_DRILL_PECK",
+          "MOVE_RETURN",
+          "MOVE_QUICK_ATTACK"
+        ],
+        "Ability": "ABILITY_KEEN_EYE",
+        "Item": "ITEM_SHARP_BEAK",
+        "Nature": "NATURE_CALM",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DRILL_PECK",
+          "MOVE_DRILL_RUN",
+          "MOVE_NIGHT_SLASH",
+          "MOVE_TAKE_DOWN"
+        ],
+        "Ability": "ABILITY_KEEN_EYE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CALM",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

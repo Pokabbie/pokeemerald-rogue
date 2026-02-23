@@ -138,6 +138,22 @@
         "Move": "MOVE_HYPER_VOICE",
         "Level": 40
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SHOCK_WAVE",
+          "MOVE_UPROAR"
+        ],
+        "Ability": "ABILITY_SOUNDPROOF",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SASSY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "SINGLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -185,6 +185,23 @@
         "Move": "MOVE_SHADOW_PUNCH",
         "Level": 38
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HEADBUTT",
+          "MOVE_DOUBLE_KICK",
+          "MOVE_CHARM"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -173,6 +173,24 @@
     "TutorMoves": [
       "MOVE_RAZOR_WIND",
       "MOVE_HEAT_WAVE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BRAVE_BIRD",
+          "MOVE_HEAT_WAVE",
+          "MOVE_STEEL_WING",
+          "MOVE_EXTREME_SPEED"
+        ],
+        "Ability": "ABILITY_KEEN_EYE",
+        "Item": "ITEM_SHARP_BEAK",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

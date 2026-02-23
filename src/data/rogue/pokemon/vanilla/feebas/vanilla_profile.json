@@ -73,6 +73,24 @@
         "Move": "MOVE_CHARM",
         "Level": 20
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ATTRACT",
+          "MOVE_PSYBEAM",
+          "MOVE_AURORA_BEAM",
+          "MOVE_WATER_PULSE"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

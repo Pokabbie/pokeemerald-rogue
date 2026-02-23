@@ -158,6 +158,40 @@
         "Level": 60
       }
     ],
-    "TutorMoves": []
+    "TutorMoves": [],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_PAIN_SPLIT",
+          "MOVE_TOXIC",
+          "MOVE_FLAMETHROWER"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CAREFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_POISON_GAS",
+          "MOVE_WILL_O_WISP",
+          "MOVE_TOXIC"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CALM",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
   }
 }

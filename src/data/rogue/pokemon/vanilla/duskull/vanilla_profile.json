@@ -183,6 +183,24 @@
         "Move": "MOVE_EARTHQUAKE",
         "Level": 58
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PURSUIT",
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_WILL_O_WISP",
+          "MOVE_SHADOW_BALL"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_GENTLE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

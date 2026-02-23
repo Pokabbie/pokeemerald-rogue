@@ -168,6 +168,56 @@
         "Level": 68
       }
     ],
-    "TutorMoves": []
+    "TutorMoves": [],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_FLY",
+          "MOVE_PROTECT",
+          "MOVE_SWALLOW"
+        ],
+        "Ability": "ABILITY_DRIZZLE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LONELY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FLY",
+          "MOVE_SURF",
+          "MOVE_PROTECT",
+          "MOVE_SHOCK_WAVE"
+        ],
+        "Ability": "ABILITY_DRIZZLE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HARDY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_AIR_SLASH",
+          "MOVE_SURF",
+          "MOVE_CONFUSE_RAY",
+          "MOVE_SHOCK_WAVE"
+        ],
+        "Ability": "ABILITY_DRIZZLE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_MODEST",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
   }
 }

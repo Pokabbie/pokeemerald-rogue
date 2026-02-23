@@ -231,6 +231,24 @@
         "Move": "MOVE_ROCK_SLIDE",
         "Level": 64
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DRAGON_BREATH",
+          "MOVE_ROCK_SLIDE",
+          "MOVE_FLAMETHROWER",
+          "MOVE_DRAGON_DANCE"
+        ],
+        "Ability": "ABILITY_ROCK_HEAD",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_MODEST",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "SINGLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -247,6 +247,23 @@
         "Move": "MOVE_SOLAR_BEAM",
         "Level": 54
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_MAGICAL_LEAF",
+          "MOVE_AERIAL_ACE",
+          "MOVE_DRAGON_BREATH"
+        ],
+        "Ability": "ABILITY_THICK_FAT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BASHFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

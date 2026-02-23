@@ -236,6 +236,56 @@
         "Move": "MOVE_METEOR_MASH",
         "Level": 62
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_THUNDER_PUNCH",
+          "MOVE_METAL_CLAW",
+          "MOVE_PSYBEAM",
+          "MOVE_BRICK_BREAK"
+        ],
+        "Ability": "ABILITY_MAGNET_PULL",
+        "Item": "ITEM_MAGNET",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_BULLET_PUNCH",
+          "MOVE_EXTRASENSORY",
+          "MOVE_AGILITY",
+          "MOVE_METAL_CLAW"
+        ],
+        "Ability": "ABILITY_MAGNET_PULL",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_METEOR_MASH",
+          "MOVE_EARTHQUAKE",
+          "MOVE_BULLET_PUNCH",
+          "MOVE_PSYCHIC"
+        ],
+        "Ability": "ABILITY_MAGNET_PULL",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

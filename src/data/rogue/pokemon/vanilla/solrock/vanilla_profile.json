@@ -180,6 +180,22 @@
         "Move": "MOVE_PSYCHIC",
         "Level": 43
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ROCK_TOMB",
+          "MOVE_PSYBEAM"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HARDY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

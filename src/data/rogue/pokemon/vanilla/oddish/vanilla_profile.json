@@ -127,6 +127,23 @@
         "Move": "MOVE_SLUDGE",
         "Level": 18
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ACID",
+          "MOVE_MEGA_DRAIN",
+          "MOVE_POISON_POWDER"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

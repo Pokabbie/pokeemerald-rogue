@@ -164,6 +164,23 @@
     ],
     "TutorMoves": [
       "MOVE_MIRROR_COAT"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_ICE_PUNCH",
+          "MOVE_MIRROR_COAT"
+        ],
+        "Ability": "ABILITY_TORRENT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

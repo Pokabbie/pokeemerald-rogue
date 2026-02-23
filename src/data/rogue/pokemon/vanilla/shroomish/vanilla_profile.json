@@ -104,6 +104,39 @@
         "Move": "MOVE_GIGA_DRAIN",
         "Level": 33
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_STUN_SPORE",
+          "MOVE_ABSORB",
+          "MOVE_POISON_POWDER"
+        ],
+        "Ability": "ABILITY_EFFECT_SPORE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BASHFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_BULLET_SEED",
+          "MOVE_STUN_SPORE",
+          "MOVE_SLUDGE",
+          "MOVE_HEADBUTT"
+        ],
+        "Ability": "ABILITY_EFFECT_SPORE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAIVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

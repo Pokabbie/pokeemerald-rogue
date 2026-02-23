@@ -102,6 +102,39 @@
         "Move": "MOVE_EXPLOSION",
         "Level": 50
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_FAINT_ATTACK",
+          "MOVE_BULLET_SEED"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_MODEST",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SOLAR_BEAM",
+          "MOVE_EXPLOSION",
+          "MOVE_SUNNY_DAY",
+          "MOVE_BULLET_SEED"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_SITRUS_BERRY",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

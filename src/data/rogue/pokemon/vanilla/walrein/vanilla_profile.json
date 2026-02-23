@@ -209,6 +209,56 @@
     "TutorMoves": [
       "MOVE_CHARM",
       "MOVE_ENCORE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ICY_WIND",
+          "MOVE_CHARM",
+          "MOVE_HAIL",
+          "MOVE_SURF"
+        ],
+        "Ability": "ABILITY_RAIN_DISH",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_RAIN_DANCE",
+          "MOVE_SUPER_FANG",
+          "MOVE_SURF",
+          "MOVE_ICE_BEAM"
+        ],
+        "Ability": "ABILITY_RAIN_DISH",
+        "Item": "ITEM_MYSTIC_WATER",
+        "Nature": "NATURE_CAREFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SUPER_FANG",
+          "MOVE_ICE_BEAM",
+          "MOVE_SNORE",
+          "MOVE_REST"
+        ],
+        "Ability": "ABILITY_RAIN_DISH",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

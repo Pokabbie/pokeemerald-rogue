@@ -158,6 +158,24 @@
         "Move": "MOVE_GIGA_DRAIN",
         "Level": 35
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_LEECH_SEED",
+          "MOVE_CONFUSION",
+          "MOVE_BULLET_SEED",
+          "MOVE_BARRAGE"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

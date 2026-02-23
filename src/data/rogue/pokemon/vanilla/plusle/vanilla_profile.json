@@ -164,6 +164,40 @@
         "Move": "MOVE_VOLT_TACKLE",
         "Level": 72
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SPARK",
+          "MOVE_QUICK_ATTACK",
+          "MOVE_ENCORE",
+          "MOVE_RAIN_DANCE"
+        ],
+        "Ability": "ABILITY_PLUS",
+        "Item": "ITEM_MAGNET",
+        "Nature": "NATURE_HARDY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_THUNDERBOLT",
+          "MOVE_ATTRACT",
+          "MOVE_TAIL_GLOW",
+          "MOVE_SUBSTITUTE"
+        ],
+        "Ability": "ABILITY_PLUS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

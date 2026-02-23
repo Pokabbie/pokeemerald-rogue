@@ -262,6 +262,40 @@
     ],
     "TutorMoves": [
       "MOVE_LOW_KICK"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_ICE_PUNCH",
+          "MOVE_FORCE_PALM",
+          "MOVE_THUNDER_PUNCH"
+        ],
+        "Ability": "ABILITY_GUTS",
+        "Item": "ITEM_BLACK_BELT",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FAKE_OUT",
+          "MOVE_SKY_UPPERCUT",
+          "MOVE_ROCK_SLIDE",
+          "MOVE_FIRE_PUNCH"
+        ],
+        "Ability": "ABILITY_GUTS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CALM",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

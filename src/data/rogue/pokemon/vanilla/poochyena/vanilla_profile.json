@@ -138,6 +138,39 @@
         "Move": "MOVE_DARK_PULSE",
         "Level": 35
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_HEADBUTT",
+          "MOVE_HOWL",
+          "MOVE_BITE"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_ORAN_BERRY",
+        "Nature": "NATURE_BRAVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_POISON_FANG",
+          "MOVE_DIG",
+          "MOVE_BITE",
+          "MOVE_HOWL"
+        ],
+        "Ability": "ABILITY_INTIMIDATE",
+        "Item": "ITEM_ORAN_BERRY",
+        "Nature": "NATURE_BRAVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

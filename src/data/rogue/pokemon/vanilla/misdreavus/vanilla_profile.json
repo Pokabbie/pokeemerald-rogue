@@ -211,6 +211,40 @@
         "Move": "MOVE_PERISH_SONG",
         "Level": 60
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PERISH_SONG",
+          "MOVE_MEAN_LOOK",
+          "MOVE_SUBSTITUTE",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_PERISH_SONG",
+          "MOVE_MEAN_LOOK",
+          "MOVE_SHADOW_BALL",
+          "MOVE_THUNDERBOLT"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

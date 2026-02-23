@@ -168,6 +168,24 @@
         "Move": "MOVE_CROSS_CHOP",
         "Level": 53
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_KARATE_CHOP",
+          "MOVE_DIG",
+          "MOVE_BULK_UP",
+          "MOVE_TAKE_DOWN"
+        ],
+        "Ability": "ABILITY_GUTS",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

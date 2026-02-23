@@ -174,6 +174,24 @@
         "Move": "MOVE_HEAT_WAVE",
         "Level": 45
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_OVERHEAT",
+          "MOVE_RECOVER",
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_ANCIENT_POWER"
+        ],
+        "Ability": "ABILITY_BLAZE",
+        "Item": "ITEM_WHITE_HERB",
+        "Nature": "NATURE_CAREFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -208,6 +208,24 @@
         "Move": "MOVE_ENDURE",
         "Level": 46
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_REVERSAL",
+          "MOVE_KARATE_CHOP",
+          "MOVE_FACADE",
+          "MOVE_ROCK_TOMB"
+        ],
+        "Ability": "ABILITY_VITAL_SPIRIT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -161,6 +161,37 @@
         "Move": "MOVE_DOUBLE_EDGE",
         "Level": 35
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_CHARM",
+          "MOVE_TACKLE",
+          "MOVE_QUICK_ATTACK"
+        ],
+        "Ability": "ABILITY_CUTE_CHARM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ASSIST",
+          "MOVE_FACADE"
+        ],
+        "Ability": "ABILITY_CUTE_CHARM",
+        "Item": "ITEM_FOCUS_BAND",
+        "Nature": "NATURE_CAREFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

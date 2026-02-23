@@ -132,6 +132,21 @@
         "Move": "MOVE_OUTRAGE",
         "Level": 51
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DRAGON_RAGE"
+        ],
+        "Ability": "ABILITY_SHED_SKIN",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RASH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

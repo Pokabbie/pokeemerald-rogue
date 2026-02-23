@@ -220,6 +220,72 @@
         "Move": "MOVE_PSYCHIC",
         "Level": 53
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SHADOW_PUNCH",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_ICE_PUNCH"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_JOLLY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_EXTRASENSORY",
+          "MOVE_THUNDERBOLT",
+          "MOVE_HYPNOSIS",
+          "MOVE_SHADOW_SNEAK"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_OMINOUS_WIND",
+          "MOVE_SHADOW_SNEAK",
+          "MOVE_HYPNOSIS",
+          "MOVE_DARK_PULSE"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_FIRE_PUNCH",
+          "MOVE_ICE_PUNCH",
+          "MOVE_SHADOW_BALL",
+          "MOVE_HYPNOSIS"
+        ],
+        "Ability": "ABILITY_LEVITATE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

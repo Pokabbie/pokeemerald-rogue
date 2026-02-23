@@ -131,6 +131,39 @@
         "Move": "MOVE_WATERFALL",
         "Level": 36
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_AQUA_JET",
+          "MOVE_SUPERSONIC",
+          "MOVE_HORN_ATTACK",
+          "MOVE_TAIL_WHIP"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_DOCILE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HORN_ATTACK",
+          "MOVE_AQUA_JET",
+          "MOVE_DRILL_RUN"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_RASH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

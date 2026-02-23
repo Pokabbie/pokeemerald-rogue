@@ -137,6 +137,24 @@
         "Move": "MOVE_PSYCHIC",
         "Level": 45
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_PSYBEAM",
+          "MOVE_TELEPORT",
+          "MOVE_MAGICAL_LEAF",
+          "MOVE_GROWL"
+        ],
+        "Ability": "ABILITY_SYNCHRONIZE",
+        "Item": "ITEM_BERRY_JUICE",
+        "Nature": "NATURE_HASTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

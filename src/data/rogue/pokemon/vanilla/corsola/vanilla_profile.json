@@ -256,6 +256,72 @@
         "Move": "MOVE_MIRROR_COAT",
         "Level": 47
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_MIRROR_COAT",
+          "MOVE_SURF",
+          "MOVE_ROCK_BLAST",
+          "MOVE_RECOVER"
+        ],
+        "Ability": "ABILITY_NATURAL_CURE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_HARDY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ROCK_BLAST",
+          "MOVE_SURF",
+          "MOVE_PSYCHIC",
+          "MOVE_MIRROR_COAT"
+        ],
+        "Ability": "ABILITY_NATURAL_CURE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_ICE_BEAM",
+          "MOVE_MIRROR_COAT",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_NATURAL_CURE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LAX",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_MIRROR_COAT",
+          "MOVE_SURF",
+          "MOVE_EXTRASENSORY",
+          "MOVE_RECOVER"
+        ],
+        "Ability": "ABILITY_NATURAL_CURE",
+        "Item": "ITEM_MYSTIC_WATER",
+        "Nature": "NATURE_SERIOUS",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -204,6 +204,23 @@
         "Move": "MOVE_DOUBLE_EDGE",
         "Level": 49
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_MUD_SLAP",
+          "MOVE_ROCK_THROW",
+          "MOVE_TACKLE"
+        ],
+        "Ability": "ABILITY_ROCK_HEAD",
+        "Item": "ITEM_HARD_STONE",
+        "Nature": "NATURE_TIMID",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

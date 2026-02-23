@@ -200,6 +200,88 @@
       "MOVE_TAIL_WHIP",
       "MOVE_BOUNCE",
       "MOVE_SUBMISSION"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_AQUA_JET",
+          "MOVE_SURF",
+          "MOVE_ICE_PUNCH",
+          "MOVE_ROLLOUT"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_QUIET",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_WATERFALL",
+          "MOVE_BODY_SLAM",
+          "MOVE_CHARM",
+          "MOVE_ATTRACT"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_MYSTIC_WATER",
+        "Nature": "NATURE_HARDY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SURF",
+          "MOVE_BODY_SLAM",
+          "MOVE_CHARM",
+          "MOVE_AQUA_JET"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CAREFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_BODY_SLAM",
+          "MOVE_WATERFALL",
+          "MOVE_CHARM",
+          "MOVE_AQUA_JET"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_QUIRKY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_HYDRO_PUMP",
+          "MOVE_SUPERPOWER",
+          "MOVE_ROLLOUT",
+          "MOVE_DOUBLE_EDGE"
+        ],
+        "Ability": "ABILITY_HUGE_POWER",
+        "Item": "ITEM_CHOICE_BAND",
+        "Nature": "NATURE_MODEST",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

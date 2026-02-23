@@ -116,6 +116,24 @@
         "Move": "MOVE_MAGICAL_LEAF",
         "Level": 26
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_ABSORB",
+          "MOVE_AQUA_JET",
+          "MOVE_ICY_WIND",
+          "MOVE_CHARM"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_CAREFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

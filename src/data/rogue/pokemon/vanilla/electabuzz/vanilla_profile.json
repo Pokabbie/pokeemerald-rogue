@@ -223,6 +223,40 @@
         "Move": "MOVE_BULK_UP",
         "Level": 60
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_THUNDER_PUNCH",
+          "MOVE_THUNDER_WAVE",
+          "MOVE_BRICK_BREAK",
+          "MOVE_QUICK_ATTACK"
+        ],
+        "Ability": "ABILITY_VOLT_ABSORB",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_DOCILE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_THUNDER_PUNCH",
+          "MOVE_ICE_PUNCH",
+          "MOVE_FIRE_PUNCH",
+          "MOVE_BRICK_BREAK"
+        ],
+        "Ability": "ABILITY_VOLT_ABSORB",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_MODEST",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

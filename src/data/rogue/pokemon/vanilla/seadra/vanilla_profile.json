@@ -185,6 +185,40 @@
         "Move": "MOVE_DRAGON_DANCE",
         "Level": 60
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BUBBLE_BEAM",
+          "MOVE_TAKE_DOWN",
+          "MOVE_TOXIC",
+          "MOVE_DRAGON_BREATH"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_JOLLY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_OCTAZOOKA",
+          "MOVE_SURF",
+          "MOVE_ICE_BEAM",
+          "MOVE_SMOKESCREEN"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LONELY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "SINGLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -175,6 +175,72 @@
         "Move": "MOVE_HYDRO_PUMP",
         "Level": 68
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DRAGON_BREATH",
+          "MOVE_SURF",
+          "MOVE_SEISMIC_TOSS",
+          "MOVE_AURORA_BEAM"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_MYSTIC_WATER",
+        "Nature": "NATURE_GENTLE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_OUTRAGE",
+          "MOVE_WATERFALL",
+          "MOVE_DOUBLE_EDGE",
+          "MOVE_DRAGON_DANCE"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_STARF_BERRY",
+        "Nature": "NATURE_JOLLY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ICE_BEAM",
+          "MOVE_BODY_SLAM",
+          "MOVE_DRAGON_BREATH",
+          "MOVE_SURF"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_GENTLE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_SEISMIC_TOSS",
+          "MOVE_BODY_SLAM",
+          "MOVE_DRAGON_BREATH",
+          "MOVE_SURF"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LONELY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -293,6 +293,24 @@
         "Level": 52
       }
     ],
-    "TutorMoves": []
+    "TutorMoves": [],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_MAGICAL_LEAF",
+          "MOVE_THUNDER_PUNCH",
+          "MOVE_FAKE_OUT",
+          "MOVE_DRAGON_CLAW"
+        ],
+        "Ability": "ABILITY_OVERGROW",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_JOLLY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
+    ]
   }
 }

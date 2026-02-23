@@ -185,6 +185,40 @@
     "TutorMoves": [
       "MOVE_SLEEP_POWDER",
       "MOVE_WEATHER_BALL"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_GIGA_DRAIN",
+          "MOVE_LEECH_SEED",
+          "MOVE_AIR_SLASH",
+          "MOVE_SEISMIC_TOSS"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_GENTLE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_GIGA_DRAIN",
+          "MOVE_MEGA_DRAIN",
+          "MOVE_ABSORB",
+          "MOVE_PROTECT"
+        ],
+        "Ability": "ABILITY_CHLOROPHYLL",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BOLD",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

@@ -225,6 +225,24 @@
     "TutorMoves": [
       "MOVE_SUBMISSION",
       "MOVE_VITAL_THROW"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_METAL_CLAW",
+          "MOVE_BULLET_PUNCH",
+          "MOVE_SILVER_WIND",
+          "MOVE_BRICK_BREAK"
+        ],
+        "Ability": "ABILITY_SWARM",
+        "Item": "ITEM_SITRUS_BERRY",
+        "Nature": "NATURE_GENTLE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

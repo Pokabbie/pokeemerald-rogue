@@ -236,6 +236,24 @@
     ],
     "TutorMoves": [
       "MOVE_SLUDGE"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SLUDGE_BOMB",
+          "MOVE_POISON_POWDER",
+          "MOVE_SCREECH",
+          "MOVE_EARTH_POWER"
+        ],
+        "Ability": "ABILITY_RAIN_DISH",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_JOLLY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

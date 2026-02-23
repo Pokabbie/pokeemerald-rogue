@@ -100,6 +100,40 @@
         "Move": "MOVE_BUBBLE_BEAM",
         "Level": 26
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SWIFT",
+          "MOVE_WATER_GUN",
+          "MOVE_AGILITY",
+          "MOVE_LEECH_LIFE"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_BASHFUL",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_BUBBLE_BEAM",
+          "MOVE_ICE_BEAM",
+          "MOVE_AGILITY",
+          "MOVE_WATER_SPORT"
+        ],
+        "Ability": "ABILITY_SWIFT_SWIM",
+        "Item": "ITEM_SITRUS_BERRY",
+        "Nature": "NATURE_RASH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

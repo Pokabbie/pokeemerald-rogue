@@ -148,6 +148,23 @@
         "Move": "MOVE_ICE_BEAM",
         "Level": 36
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SING",
+          "MOVE_HEADBUTT",
+          "MOVE_FIRE_PUNCH"
+        ],
+        "Ability": "ABILITY_CUTE_CHARM",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

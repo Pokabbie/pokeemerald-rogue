@@ -177,6 +177,24 @@
         "Move": "MOVE_DYNAMIC_PUNCH",
         "Level": 59
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BULK_UP",
+          "MOVE_ROCK_TOMB",
+          "MOVE_FACADE",
+          "MOVE_KARATE_CHOP"
+        ],
+        "Ability": "ABILITY_GUTS",
+        "Item": "ITEM_ORAN_BERRY",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

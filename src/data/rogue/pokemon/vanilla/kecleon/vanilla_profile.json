@@ -254,6 +254,40 @@
         "Move": "MOVE_SUBSTITUTE",
         "Level": 65
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_FOCUS_PUNCH",
+          "MOVE_BODY_SLAM",
+          "MOVE_FLAMETHROWER",
+          "MOVE_FAKE_OUT"
+        ],
+        "Ability": "ABILITY_COLOR_CHANGE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_ADAMANT",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_ANCIENT_POWER",
+          "MOVE_FLAMETHROWER",
+          "MOVE_HYPER_VOICE",
+          "MOVE_SHADOW_SNEAK"
+        ],
+        "Ability": "ABILITY_COLOR_CHANGE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SASSY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

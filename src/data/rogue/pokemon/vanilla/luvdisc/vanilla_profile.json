@@ -131,6 +131,56 @@
         "Move": "MOVE_PSYCHIC",
         "Level": 30
       }
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_BOUNCE",
+          "MOVE_SURF",
+          "MOVE_CHARM",
+          "MOVE_ICE_BEAM"
+        ],
+        "Ability": "ABILITY_TORRENT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_SASSY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_DIVE",
+          "MOVE_CHARM",
+          "MOVE_BOUNCE",
+          "MOVE_SWEET_KISS"
+        ],
+        "Ability": "ABILITY_TORRENT",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_IMPISH",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_CHARM",
+          "MOVE_SURF",
+          "MOVE_ICE_BEAM",
+          "MOVE_AGILITY"
+        ],
+        "Ability": "ABILITY_SHED_SKIN",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

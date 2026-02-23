@@ -175,6 +175,24 @@
     ],
     "TutorMoves": [
       "MOVE_REVERSAL"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_DRILL_RUN",
+          "MOVE_ROCK_BLAST",
+          "MOVE_MEGA_PUNCH",
+          "MOVE_SURF"
+        ],
+        "Ability": "ABILITY_LIGHTNING_ROD",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_LONELY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }

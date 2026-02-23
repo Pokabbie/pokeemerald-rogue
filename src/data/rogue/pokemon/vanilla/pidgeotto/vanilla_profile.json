@@ -127,6 +127,39 @@
     ],
     "TutorMoves": [
       "MOVE_RAZOR_WIND"
+    ],
+    "CompetitiveSets": [
+      {
+        "Moves": [
+          "MOVE_SWIFT",
+          "MOVE_WING_ATTACK",
+          "MOVE_QUICK_ATTACK"
+        ],
+        "Ability": "ABILITY_KEEN_EYE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAUGHTY",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      },
+      {
+        "Moves": [
+          "MOVE_RAZOR_WIND",
+          "MOVE_FEATHER_DANCE",
+          "MOVE_STEEL_WING",
+          "MOVE_GUST"
+        ],
+        "Ability": "ABILITY_KEEN_EYE",
+        "Item": "ITEM_NONE",
+        "Nature": "NATURE_NAIVE",
+        "HiddenPower": null,
+        "TeraType": null,
+        "SourceTiers": [
+          "DOUBLES_REVISED_MODE"
+        ]
+      }
     ]
   }
 }
