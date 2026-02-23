@@ -40,6 +40,10 @@
     method(504, "Hex", 0) \
     method(505, "", CREDITS_FLAG_BREAK) \
     \
+    method(5050, "Revised Mode (Vanilla)", CREDITS_FLAG_TITLE) \
+    method(5051, "ShockinglyGongas", 0) \
+    method(5052, "", CREDITS_FLAG_BREAK) \
+    \
     method(600, "RH Hideout - Emerald Expansion", CREDITS_FLAG_TITLE) \
     method(601, "UltimaSoul", 0) \
     method(602, "ghoulslash", 0) \
