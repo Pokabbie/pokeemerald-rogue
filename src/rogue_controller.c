@@ -3190,8 +3190,10 @@ void Rogue_SetDefaultOptions(void)
 {
 #ifdef ROGUE_DEBUG
     gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
+    gSaveBlock2Ptr->optionsFadeSpeed = OPTIONS_TEXT_SPEED_FAST;
 #else
     gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
+    gSaveBlock2Ptr->optionsFadeSpeed = OPTIONS_TEXT_SPEED_MID;
 #endif
     //gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
     //gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
