@@ -62,7 +62,7 @@ namespace PokemonDataGenerator.Utils
 		public static bool IsVanillaVersion
 		{
 			get => s_RootDirectory.EndsWith("pokeemerald-rogue\\", StringComparison.CurrentCultureIgnoreCase);
-			set 
+			set
 			{
 				bool isVanilla = IsVanillaVersion;
 				if (isVanilla != value)
@@ -97,9 +97,9 @@ namespace PokemonDataGenerator.Utils
 						s_SpeciesDefines.Remove("SPECIES_1024_FORM_3");
 						s_SpeciesDefines.Remove("SPECIES_1025");
 
-						foreach(var key in s_SpeciesDefines.Keys.ToArray())
+						foreach (var key in s_SpeciesDefines.Keys.ToArray())
 						{
-							if(s_SpeciesDefines[key].StartsWith("PLACEHOLDER_START"))
+							if (s_SpeciesDefines[key].StartsWith("PLACEHOLDER_START"))
 								s_SpeciesDefines.Remove(key);
 						}
 
@@ -115,7 +115,7 @@ namespace PokemonDataGenerator.Utils
 						{
 							anyAdjustments = false;
 							var copy = new Dictionary<string, string>(s_SpeciesDefines);
-						
+
 							foreach (var kvp in copy)
 							{
 								if (copy.ContainsKey(kvp.Value))
@@ -135,7 +135,7 @@ namespace PokemonDataGenerator.Utils
 
 							foreach (var kvp in copy)
 							{
-								if(!existingValues.Contains(kvp.Value))
+								if (!existingValues.Contains(kvp.Value))
 								{
 									s_SpeciesDefines.Add(kvp.Key, kvp.Value);
 									existingValues.Add(kvp.Value);
@@ -346,7 +346,7 @@ namespace PokemonDataGenerator.Utils
 
 		private static bool TryManualPalettePath(string mon, out string path)
 		{
-			switch(mon.ToLower())
+			switch (mon.ToLower())
 			{
 				case "mime_jr":
 					path = "mime_jr";
@@ -361,7 +361,7 @@ namespace PokemonDataGenerator.Utils
 		{
 			string[] parts = mon.Split('_');
 
-			if(TryManualPalettePath(mon, out string path))
+			if (TryManualPalettePath(mon, out string path))
 			{
 				return Path.Combine(RootDirectory, $"graphics\\pokemon\\{path}\\{pal}.pal");
 			}
@@ -400,6 +400,20 @@ namespace PokemonDataGenerator.Utils
 				.Replace("-", "_")
 				.Replace("é", "e")
 				.ToUpper();
+		}
+
+		public static string FormatToMatch(Dictionary<string, string> lookup, string key)
+		{
+			foreach (var kvp in lookup)
+            {
+                string lhs = kvp.Key.ToLower().Replace(" ", "").Replace("_", "");
+                string rhs = key.ToLower().Replace(" ", "").Replace("_", "");
+
+				if (lhs == rhs)
+					return kvp.Key;
+            }
+
+			return key;
 		}
 	}
 }

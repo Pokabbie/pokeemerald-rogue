@@ -17,7 +17,10 @@ namespace PokemonDataGenerator
 
 		static void Main(string[] args)
 		{
-			Console.WriteLine("1 - Vanilla");
+			//TestMain.Run();
+
+
+            Console.WriteLine("1 - Vanilla");
 			Console.WriteLine("2 - EX");
 			bool isVanillaVersion = ReadOption(1, 2) == 1;
 

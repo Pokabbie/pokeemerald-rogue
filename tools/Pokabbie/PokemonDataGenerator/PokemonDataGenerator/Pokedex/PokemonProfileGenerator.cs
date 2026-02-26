@@ -206,7 +206,7 @@ namespace PokemonDataGenerator.Pokedex
 		}
 
 
-		private class SourceMoveInfo
+        public class SourceMoveInfo
 		{
 			public enum LearnMethod
 			{
@@ -231,7 +231,7 @@ namespace PokemonDataGenerator.Pokedex
 			}
 		}
 
-		private class SourcePokemonProfile
+        public class SourcePokemonProfile
 		{
 			public string Species;
 			public List<SourceMoveInfo> Moves;
@@ -305,7 +305,7 @@ namespace PokemonDataGenerator.Pokedex
 			}
 		}
 
-		private class LevelUpMove
+        public class LevelUpMove
 		{
 			public string Move;
 			public int Level;
@@ -316,7 +316,7 @@ namespace PokemonDataGenerator.Pokedex
 			}
 		}
 
-		private class PokemonProfile
+		public class PokemonProfile
 		{
 			public List<string> Species;
 			public List<LevelUpMove> LevelUpMoves;
@@ -360,9 +360,18 @@ namespace PokemonDataGenerator.Pokedex
 			public bool HasLevelUpMove(string move)
 			{
 				return LevelUpMoves.Where(m => m.Move == move).Any();
-			}
+            }
 
-			public bool HasTutorMove(string move)
+            public int GetLevelUpMoveLvl(string move)
+            {
+                LevelUpMove lvlMove = LevelUpMoves.Where(m => m.Move == move).SingleOrDefault();
+				if(lvlMove != null)
+					return lvlMove.Level;
+
+				return -1;
+            }
+
+            public bool HasTutorMove(string move)
 			{
 				return TutorMoves.Where(m => m == move).Any();
 			}
@@ -407,6 +416,17 @@ namespace PokemonDataGenerator.Pokedex
 						target.Moves[index] = testMove;
 						return true;
 					}
+				}
+
+				return false;
+			}
+
+			public bool HasCompatibleCompetitiveSet(PokemonCompetitiveSet otherSet)
+			{
+				foreach(PokemonCompetitiveSet set in CompetitiveSets)
+				{
+					if (set.IsCompatibleWith(otherSet))
+						return true;
 				}
 
 				return false;
@@ -558,7 +578,7 @@ namespace PokemonDataGenerator.Pokedex
 
 		}
 
-        private class PokemonCompetitiveSet
+        public class PokemonCompetitiveSet
 		{
 			public List<string> Moves = new List<string>();
 			public string Ability;
